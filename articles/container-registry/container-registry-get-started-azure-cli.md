@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 99bb3db7cc80e8426e1dca14bc3d733ee6c7342c
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Skapa ett privat Dockerbehållarregister med hjälp av Azure CLI 2.0
@@ -35,7 +35,7 @@ Använd kommandon i [Azure CLI 2.0](https://github.com/Azure/azure-cli) för att
 ## <a name="prerequisites"></a>Krav
 * **Azure CLI 2.0**: Information om hur du installerar och kommer igång med CLI 2.0 finns i avsnittet med [installationsanvisningar](/cli/azure/install-azure-cli). Logga in i din Azure-prenumeration genom att köra `az login`. Mer information finns i [Kom igång med CLI 2.0](/cli/azure/get-started-with-azure-cli).
 * **Resursgrupp**: Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md#resource-groups) innan du skapar ett behållarregister eller använd en befintlig resursgrupp. Kontrollera att resursgruppen finns på en plats där Container Registry-tjänsten är [tillgänglig](https://azure.microsoft.com/regions/services/). Information om hur du skapar en resursgrupp med hjälp av CLI 2.0 finns i [CLI 2.0-referensen](/cli/azure/group).
-* **Lagringskonto** (valfritt): Skapa ett Azure-[standardlagringskonto](../storage/storage-introduction.md) för användning med behållarregistret på samma plats. Om du inte anger ett lagringskonto när du skapar ett register med `az acr create` skapar kommandot ett automatiskt. Information om hur du skapar ett lagringskonto med hjälp av CLI 2.0 finns i [CLI 2.0-referensen](/cli/azure/storage/account). Premium Storage stöds inte för närvarande.
+* **Lagringskonto** (valfritt): Skapa ett Azure-[standardlagringskonto](../storage/common/storage-introduction.md) för användning med behållarregistret på samma plats. Om du inte anger ett lagringskonto när du skapar ett register med `az acr create` skapar kommandot ett automatiskt. Information om hur du skapar ett lagringskonto med hjälp av CLI 2.0 finns i [CLI 2.0-referensen](/cli/azure/storage/account). Premium Storage stöds inte för närvarande.
 * **Tjänstobjekt** (valfritt): När du skapar ett register med CLI skapas det inte för åtkomst som standard. Beroende på dina behov kan du tilldela ett befintligt Azure Active Directory-tjänstobjekt till ett register (eller skapa och tilldela ett nytt) eller aktivera registrets administratörsanvändarkonto. Mer information finns i avsnitten nedan. Mer information om registeråtkomst finns i [Authenticate with a container registry](container-registry-authentication.md) (Autentisera med ett behållarregister).
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister

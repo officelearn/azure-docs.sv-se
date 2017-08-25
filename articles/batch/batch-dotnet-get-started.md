@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Börja utveckla lösningar med Batch-klientbibliotek för .NET
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 >
 >
 
-Lär dig grunderna om [Azure Batch][azure_batch] och [Batch .NET][net_api]-biblioteket i den här artikeln där vi går igenom ett C#-exempelprogram steg för steg. Vi ska titta på hur exempelprogrammet utnyttjar Batch-tjänsten för att bearbeta en parallell arbetsbelastning i molnet och hur det interagerar med [Azure Storage](../storage/storage-introduction.md) för mellanlagring och hämtning av filer. Du får lära dig hur ett vanligt Batch-programarbetsflöde ser ut och får en grundläggande förståelse för de viktigaste komponenterna i Batch, t.ex. jobb, aktiviteter, pooler och beräkningsnoder.
+Lär dig grunderna om [Azure Batch][azure_batch] och [Batch .NET][net_api]-biblioteket i den här artikeln där vi går igenom ett C#-exempelprogram steg för steg. Vi ska titta på hur exempelprogrammet utnyttjar Batch-tjänsten för att bearbeta en parallell arbetsbelastning i molnet och hur det interagerar med [Azure Storage](../storage/common/storage-introduction.md) för mellanlagring och hämtning av filer. Du får lära dig hur ett vanligt Batch-programarbetsflöde ser ut och får en grundläggande förståelse för de viktigaste komponenterna i Batch, t.ex. jobb, aktiviteter, pooler och beräkningsnoder.
 
 ![Arbetsflöde för Batch-lösning (grundläggande)][11]<br/>
 
@@ -41,10 +41,10 @@ I den här artikeln förutsätter vi att du har erfarenhet av att arbeta med C# 
 ### <a name="accounts"></a>Konton
 * **Azure-konto**: Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt Azure-konto][azure_free_account].
 * **Batch-konto**: När du har skaffat en Azure-prenumeration [skapar du ett Azure Batch-konto](batch-account-create-portal.md).
-* **Lagringskonto**: Se [skapar ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
+* **Lagringskonto**: Se [skapar ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Batch stöder för närvarande *endast* den **allmänna** lagringskontotypen, vilket förklaras i steg 5 [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
+> Batch stöder för närvarande *endast* den **allmänna** lagringskontotypen, vilket förklaras i steg 5 [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -128,7 +128,7 @@ Gå till början av `MainAsync`-metoden i *DotNetTutorial*-projektets `Program.c
 ![Skapa behållare i Azure Storage][1]
 <br/>
 
-Batch har inbyggt stöd för integrering med Azure Storage. Behållare i ditt Storage-konto tillhandahåller de filer som behövs av aktiviteterna som körs i ditt Batch-konto. Behållarna tillhandahåller även en plats för att lagra utdata som genereras av aktiviteterna. Det första som *DotNetTutorial*-klientprogrammet gör är att skapa tre behållare i [Azure Blob Storage](../storage/storage-introduction.md):
+Batch har inbyggt stöd för integrering med Azure Storage. Behållare i ditt Storage-konto tillhandahåller de filer som behövs av aktiviteterna som körs i ditt Batch-konto. Behållarna tillhandahåller även en plats för att lagra utdata som genereras av aktiviteterna. Det första som *DotNetTutorial*-klientprogrammet gör är att skapa tre behållare i [Azure Blob Storage](../storage/common/storage-introduction.md):
 
 * **application**: Den här behållaren lagrar programmet som körs av aktiviteterna, samt eventuella beroenden, till exempel DLL-filer.
 * **input**: Aktiviteterna hämtar datafilerna som ska bearbetas från *input*-behållaren.
@@ -188,7 +188,7 @@ private static async Task CreateContainerIfNotExistAsync(
 När behållarna har skapats kan programmet ladda upp filerna som ska användas av aktiviteterna.
 
 > [!TIP]
-> [Använda Blob Storage från .NET](../storage/storage-dotnet-how-to-use-blobs.md) innehåller en bra översikt över hur du arbetar med behållare och blobbar i Azure. Du hittar avsnittet nästan längst upp i läslistan när du börjar arbeta med Batch.
+> [Använda Blob Storage från .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) innehåller en bra översikt över hur du arbetar med behållare och blobbar i Azure. Du hittar avsnittet nästan längst upp i läslistan när du börjar arbeta med Batch.
 >
 >
 
@@ -286,7 +286,7 @@ Signaturer för delad åtkomst är strängar som, när de är en del av en URL, 
 * **Signaturer för delad åtkomst för behållare**: När en aktivitet har slutfört arbetet på en beräkningsnod laddar den upp sina utdatafiler till *utdatabehållaren* i Azure Storage. För att göra det använder TaskApplication en signatur för delad åtkomst som ger skrivåtkomst till behållaren som en del av sökvägen när filen laddas upp. Signaturer för delad åtkomst för behållare hämtas i princip på samma sätt som signaturer för delad åtkomst för blobbar. I DotNetTutorial anropar `GetContainerSasUrl`-hjälpmetoden [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] för att göra det. Du kan läsa mer om hur TaskApplication använder signaturen för delad åtkomst för behållare i ”Steg 6: Övervaka aktiviteter”.
 
 > [!TIP]
-> Läs serien i två delar om signaturer för delad åtkomst, [Del 1: Förstå modellen för signaturer för delad åtkomst (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md) och [Del 2: Skapa och använda en signatur för delad åtkomst (SAS) med Blob Storage](../storage/storage-dotnet-shared-access-signature-part-2.md) om du vill veta mer om hur du kan konfigurera säker åtkomst till data i ditt Storage-konto.
+> Läs serien i två delar om signaturer för delad åtkomst, [Del 1: Förstå modellen för signaturer för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) och [Del 2: Skapa och använda en signatur för delad åtkomst (SAS) med Blob Storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) om du vill veta mer om hur du kan konfigurera säker åtkomst till data i ditt Storage-konto.
 >
 >
 

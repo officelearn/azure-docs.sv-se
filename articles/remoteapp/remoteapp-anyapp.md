@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: sv-se
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Köra en Windows-app på valfri enhet med Azure RemoteApp
@@ -88,7 +88,7 @@ Det första gör du i egenskap av administratör. Sedan har vi några steg för 
 1. Börja med att publicera kommandoradsgränssnittet (cmd.exe). Gå till fliken **Publishing** (Publicering), välj **cmd** och klicka sedan på **Publish > Publish program using path** (Publicera > Publicera program med sökväg).
 2. Ange namnet på appen och sökvägen. I det här exemplet använder vi ”File Explorer” (Utforskaren) som namn och ”%SYSTEMDRIVE%\windows\explorer.exe” som sökväg.
    ![Publicera filen cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Nu måste du skapa ett [Azure-lagringskonto](../storage/storage-create-storage-account.md). Vi valde namnet ”accessstorage”, så välj ett namn som är meningsfullt för dig. (För att felcitera Highlander – det kan bara finnas ett ”accessstorage”.) ![Vårt Azure-lagringskonto](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Nu måste du skapa ett [Azure-lagringskonto](../storage/common/storage-create-storage-account.md). Vi valde namnet ”accessstorage”, så välj ett namn som är meningsfullt för dig. (För att felcitera Highlander – det kan bara finnas ett ”accessstorage”.) ![Vårt Azure-lagringskonto](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Gå tillbaka till instrumentpanelen så att du kan hämta sökvägen till ditt lagringsutrymme (slutpunktens plats). Var noga med att kopiera och spara sökvägen eftersom du kommer att använda den om en liten stund.
    ![Sökvägen för lagringskontot](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. När lagringskontot har skapats behöver du den primära åtkomstnyckeln. Klicka på **Manage access keys** (Hantera åtkomstnycklar) och kopiera sedan den primära åtkomstnyckeln.

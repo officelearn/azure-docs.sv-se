@@ -1,37 +1,32 @@
-## <a name="what-is-azure-file-storage"></a>Vad är Azure File Storage?
-File Storage erbjuder delad lagring för program som använder standardprotokollen SMB 2.1 eller SMB 3.0. Virtuella Microsoft Azure-datorer och Azure-molntjänster kan dela fildata över programkomponenter via monterade resurser, och lokala program kan ha åtkomst till fildata i en resurs via File Storage-API:n.
+## <a name="what-is-azure-file-storage"></a>What is Azure File storage?
+File storage offers shared storage for applications using the standard SMB 2.1 or SMB 3.0 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
 
-Program som körs på virtuella Azure-datorer eller Azure-molntjänster kan montera en File Storage-resurs för åtkomst till fildata, på samma sätt som ett skrivbordsprogram monterar en vanlig SMB-resurs. Ett obegränsat antal virtuella Azure-datorer eller roller kan montera och ha åtkomst till File Storage-resursen samtidigt.
+Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
 
-Eftersom en File Storage-resurs är en standard filresurs i Azure och använder sig av SMB-protokollet, får program som körs i Azure åtkomst till data i resursen via API:er för fil-I/O. Utvecklare kan därför utnyttja befintlig kod och erfarenhet för att migrera befintliga program. IT-proffs kan använda PowerShell-cmdlets för att skapa, montera och hantera fillagringsresurser som en del av administrationen av Azure-program. Den här guiden visar exempel på båda.
+Since a File storage share is a standard file share in Azure using the SMB protocol, applications running in Azure can access data in the share via file I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications. This guide will show examples of both.
 
-Vanliga användningsområden för File Storage är:
+Common uses of File storage include:
 
-* Migrering av lokala program som är beroende av filresurser för att köras på virtuella Azure-datorer eller Azure-molntjänster utan dyra omskrivningar
-* Lagring av delade programinställningar, exempelvis konfigurationsfiler
-* Lagring av diagnostiska data, exempelvis loggar, mått och kraschdumpar på en delad plats 
-* Lagring av verktyg och hjälpmedel som behövs för att utveckla och administrera virtuella Azure-datorer eller Azure-molntjänster
+* Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
+* Storing shared application settings, for example in configuration files
+* Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
+* Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
 
-## <a name="file-storage-concepts"></a>File Storage-koncept
-File Storage består av följande komponenter:
+## <a name="file-storage-concepts"></a>File storage concepts
+File storage contains the following components:
 
-![filkoncept](./media/storage-file-concepts-include/files-concepts.png)
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
-* **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Se [Skalbarhets- och prestandamål för Azure Storage](../articles/storage/storage-scalability-targets.md) för information om kapacitet för lagringskonton.
-* **Resurs:** en File Storage-resurs är en SMB-filresurs i Azure. 
-  Alla kataloger och filer måste skapas i en överordnad resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till 5 TB total kapacitet för filresursen.
-* **Katalog:** en valfri hierarki med kataloger. 
-* **Fil:** en fil i resursen. En fil kan vara upp till 1 TB stor.
-* **URL-format:** filer är adresserbara via följande URL-format:   
+* **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) for details about storage account capacity.
+* **Share:** A File storage share is an SMB file share in Azure. 
+  All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TB total capacity of the file share.
+* **Directory:** An optional hierarchy of directories. 
+* **File:** A file in the share. A file may be up to 1 TB in size.
+* **URL format:** Files are addressable using the following URL format:   
   https://`<storage
   account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
   
-  Följande exempel-URL skulle kunna användas för att adressera en av filerna i ovanstående diagram:  
+  The following example URL could be used to address one of the files in the diagram above:  
   `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
-Mer information om hur du namnger resurser, kataloger och filer finns i [namnge och referera till resurser, kataloger, filer och metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).

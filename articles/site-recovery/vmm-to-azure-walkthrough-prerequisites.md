@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 87a5d721ca785329b407d31126bd0b211b17ccf3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ När du har gått igenom [scenariearkitekturen](vmm-to-azure-walkthrough-archite
 **Krav** | **Detaljer**
 --- | ---
 **Azure-konto** | Du behöver ett [Microsoft Azure-konto](http://azure.microsoft.com/).
-**Azure Storage** | Du behöver ett Azure-lagringskonto för att lagra replikerade data.<br/><br/> Lagringskontot måste finnas i samma region som Azure Recovery Services-valvet.<br/><br/>Du kan använda [geo-redundant lagring](../storage/storage-redundancy.md#geo-redundant-storage) eller lokalt redundant lagring. Vi rekommenderar geo-redundant lagring. Med geo-redundant lagring är dina data flexibla i händelse av ett regionalt avbrott, eller om den primära regionen inte kan återställas.<br/><br/> Du kan använda ett Azure-standardlagringskonto eller använda Azure [Premium Storage](../storage/storage-premium-storage.md). Premium Storage stöder I/O-intensiva arbetsbelastningar och används vanligtvis för virtuella datorer som behöver konstant höga I/O-prestanda och låg latens. Om du använder premiumlagring för replikerade data behöver du även ett standardlagringskonto. Ett standardlagringskonto lagrar replikeringsloggar som samlar in löpande ändringar av lokala data.
+**Azure Storage** | Du behöver ett Azure-lagringskonto för att lagra replikerade data.<br/><br/> Lagringskontot måste finnas i samma region som Azure Recovery Services-valvet.<br/><br/>Du kan använda [geo-redundant lagring](../storage/common/storage-redundancy.md#geo-redundant-storage) eller lokalt redundant lagring. Vi rekommenderar geo-redundant lagring. Med geo-redundant lagring är dina data flexibla i händelse av ett regionalt avbrott, eller om den primära regionen inte kan återställas.<br/><br/> Du kan använda ett Azure-standardlagringskonto eller använda Azure [Premium Storage](../storage/common/storage-premium-storage.md). Premium Storage stöder I/O-intensiva arbetsbelastningar och används vanligtvis för virtuella datorer som behöver konstant höga I/O-prestanda och låg latens. Om du använder premiumlagring för replikerade data behöver du även ett standardlagringskonto. Ett standardlagringskonto lagrar replikeringsloggar som samlar in löpande ändringar av lokala data.
 **Azure-nätverk** | Du behöver ett [Azure-nätverk](../virtual-network/virtual-network-get-started-vnet-subnet.md), som virtuella Azure-datorer ansluter till efter en redundansväxling. Azure-nätverket måste finnas i samma region som Recovery Services-valvet.
 **Lokala VMM-servrar** | Du behöver en eller flera VMM-servrar som kör System Center 2012 R2 eller senare.<br/><br/> Varje VMM-server måste ha ett eller flera privata moln. Varje moln behöver en eller flera värdgrupper.<br/><br/> VMM-servern behöver Internetåtkomst.
 **Lokal Hyper-V** | Hyper-V-värdservrar måste köra minst Windows Server 2012 R2 med Hyper-V-rollen aktiverad, eller Microsoft Hyper-V Server 2012 R2. De senaste uppdateringarna måste vara installerade.<br/><br/> Hyper-V-värden måste finnas i en VMM-värdgrupp (som finns i ett VMM-moln).<br/><br/> En värd måste ha en eller flera virtuella datorer som du vill replikera.<br/><br/> Hyper-V-värdar måste vara anslutna till Internet för replikering till Azure, direkt eller med en proxy. De korrigeringar som beskrivs i artikel [2961977](https://support.microsoft.com/kb/2961977) måste vara installerade på Hyper-V-värdar.

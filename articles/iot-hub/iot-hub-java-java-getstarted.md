@@ -16,10 +16,10 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 0c8a4b518c6946781c2340f79ab479612b595c74
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 707356a49970bcd76a55ee1b8a6fbddf6a6ba390
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>Anslut din enhet till IoT Hub med hjälp av Java
@@ -181,16 +181,13 @@ I det här avsnittet ska du skapa en Java-konsolapp som läser ”enhet till mol
 
 3. Använd en textredigerare och öppna filen pom.xml i mappen read-d2c-messages och lägg till följande beroende till noden **dependencies**. Det här beroendet gör att du kan använda eventhubs-client-paketet i din app för att läsa från den Event Hubs-kompatibla slutpunkten:
 
-    ```java
+    ```xml
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
         <version>0.13.0</version> 
     </dependency>
     ```
-
-    > [!NOTE]
-    > Du kan söka efter den senaste versionen av **azure-eventhubs** med [Maven-sökning][lnk-maven-eventhubs-search].
 
 4. Spara och stäng filen pom.xml.
 

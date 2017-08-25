@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Batch- och HPC-lösningar för storskaliga beräkningsarbetsbelastningar
@@ -106,7 +106,7 @@ Azures beräkningstjänster är kärnan i en Big Compute-lösning och olika ber�
 ### <a name="storage-services"></a>Lagringstjänster
 En Big Compute-lösning fungerar vanligtvis med en uppsättning indata och genererar data som resultat. Här är exempel på några Azure Storage-tjänster som används i Big Compute-lösningar:
 
-* [Blob Storage, Table Storage och Queue Storage](https://azure.microsoft.com/documentation/services/storage/) – Hantera stora mängder ostrukturerade data, NoSQL-data och meddelanden för arbetsflöden respektive kommunikation. Du kan exempelvis använda Blob Storage för stora mängder tekniska data eller för de indatabilder eller mediefiler som ditt program bearbetar. Du kan använda köer för asynkron kommunikation i en lösning. Mer information finns i [Introduktion till Microsoft Azure Storage](../storage/storage-introduction.md).
+* [Blob Storage, Table Storage och Queue Storage](https://azure.microsoft.com/documentation/services/storage/) – Hantera stora mängder ostrukturerade data, NoSQL-data och meddelanden för arbetsflöden respektive kommunikation. Du kan exempelvis använda Blob Storage för stora mängder tekniska data eller för de indatabilder eller mediefiler som ditt program bearbetar. Du kan använda köer för asynkron kommunikation i en lösning. Mer information finns i [Introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md).
 * [Azure File Storage](https://azure.microsoft.com/services/storage/files/) – Delar vanliga filer och data i Azure med SMB-standardprotokollet, som krävs för vissa HPC-klusterlösningar.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) – Tillhandahåller storskaligt Apache Hadoop Distributed File System för molnet, som är särskilt användbart för batch- och realtidsanalyser samt interaktiva analyser.
 

@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
@@ -46,7 +46,7 @@ Följande allmänna arbetsflöde är typiskt i praktiskt taget alla program och 
 I följande avsnitt beskrivs dessa och andra resurser i Batch som lägger grunden till ditt distribuerade beräkningsscenario.
 
 > [!NOTE]
-> Du behöver ett [Batch-konto](#account) för att använda Batch-tjänsten. De flesta Batch-lösningar använder ett [Azure Storage][azure_storage]-konto för fillagring och filhämtning. Batch stöder för närvarande endast **allmänna** lagringskontotyper, enligt beskrivningen i steg 5 i [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om lagringskonton i Azure](../storage/storage-create-storage-account.md).
+> Du behöver ett [Batch-konto](#account) för att använda Batch-tjänsten. De flesta Batch-lösningar använder ett [Azure Storage][azure_storage]-konto för fillagring och filhämtning. Batch stöder för närvarande endast **allmänna** lagringskontotyper, enligt beskrivningen i steg 5 i [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) i [Om lagringskonton i Azure](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -114,7 +114,7 @@ I följande tabell jämförs Batch-tjänsten och användarprenumerationens poola
 
 De flesta Batch-lösningar använder Azure Storage för lagring av resursfiler och utdatafiler.  
 
-Batch stöder för närvarande endast allmänna lagringskontotyper, enligt beskrivningen i steg 5 i [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om lagringskonton i Azure](../storage/storage-create-storage-account.md). Batch-aktiviteterna (inklusive standardaktiviteter, startaktiviteter, jobbförberedelse- och jobbpubliceringsaktiviteter) måste definiera resursfiler som finns i allmänna lagringskonton.
+Batch stöder för närvarande endast allmänna lagringskontotyper, enligt beskrivningen i steg 5 i [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) i [Om lagringskonton i Azure](../storage/common/storage-create-storage-account.md). Batch-aktiviteterna (inklusive standardaktiviteter, startaktiviteter, jobbförberedelse- och jobbpubliceringsaktiviteter) måste definiera resursfiler som finns i allmänna lagringskonton.
 
 
 ## <a name="compute-node"></a>Beräkningsnod

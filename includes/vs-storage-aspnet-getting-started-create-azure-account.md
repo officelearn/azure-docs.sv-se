@@ -1,11 +1,6 @@
-## <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
-Det enklaste sättet att skapa ditt första Azure-lagringskonto är genom att använda [Azure Portal](https://portal.azure.com). Läs mer i [Skapa ett lagringskonto](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
+## <a name="create-an-azure-storage-account"></a>Create an Azure storage account
+The easiest way to create your first Azure storage account is by using the [Azure Portal](https://portal.azure.com). To learn more, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-Du kan också skapa ett Azure-lagringskonto med hjälp av [Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/storage-azure-cli.md), eller [Lagringsresursprovider-klientbiblioteket för .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
+You can also create an Azure storage account by using [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), or the [Storage Resource Provider Client Library for .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx).
 
 

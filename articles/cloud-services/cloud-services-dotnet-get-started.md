@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
@@ -172,7 +171,7 @@ I ett riktigt program skapar du vanligtvis separata konton för programdata jäm
 
 4. Välj **Locally redundant storage** (Lokalt redundant) i listrutan **Replication** (Replikering).
 
-    När geo-replikering har aktiverats för ett lagringskonto, replikeras det lagrade innehållet till ett sekundärt datacenter för att aktivera redundans om det skulle inträffa en större katastrof på den primära platsen. Geo-replikering kan medföra ytterligare kostnader. När det gäller test- och utvecklingskonton ska du vanligtvis inte betala för geo-replikering. Mer information finns i [Skapa, hantera eller ta bort ett lagringskonto](../storage/storage-create-storage-account.md).
+    När geo-replikering har aktiverats för ett lagringskonto, replikeras det lagrade innehållet till ett sekundärt datacenter för att aktivera redundans om det skulle inträffa en större katastrof på den primära platsen. Geo-replikering kan medföra ytterligare kostnader. När det gäller test- och utvecklingskonton ska du vanligtvis inte betala för geo-replikering. Mer information finns i [Skapa, hantera eller ta bort ett lagringskonto](../storage/common/storage-create-storage-account.md).
 
 5. I **resursgruppen** klickar du på **använd befintliga** och markerar den resursgrupp som används för molntjänsten.
 6. Ställ in rullgardinsmenyn **Plats** i samma region som du skulle välja för en molntjänst.

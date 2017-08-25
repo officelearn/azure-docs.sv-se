@@ -1,104 +1,48 @@
+Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
+
+- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
+
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
+
+This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows] (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+
+Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+
+## <a name="in-place-vm-migration"></a>In-place VM migration
+
+When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
+
+For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
+
+Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> 
 
 
-## <a name="memory-preserving-updates"></a>Minnesbevarande uppdateringar
-För en klass med uppdateringar i Microsoft Azure kan kunder inte se någon inverkan på sina virtuella datorer som körs. Många av de här uppdateringarna är till komponenter eller tjänster som kan uppdateras utan att störa den instans som körs. Några av de här uppdateringarna är plattformsinfrastrukturuppdateringar i värdoperativsystemet som kan tillämpas utan att kräva en fullständig omstart av de virtuella datorerna.
+## <a name="maintenance-requiring-a-reboot"></a>Maintenance requiring a reboot
 
-De här uppdateringarna åstadkoms med teknik som aktiverar livemigrering på plats, vilket även kallas för en ”minnesbevarande” uppdatering. Vid uppdateringen placeras den virtuella datorn i ett ”pausat” läge, och bevarar minnet i RAM-minnet, medan det underliggande operativsystemet får nödvändiga uppdateringar och korrigeringar. Den virtuella datorn återupptas inom 30 sekunder efter paus. När den virtuella datorn har återupptagits synkroniseras klockan automatiskt.
+When VMs need to be rebooted for planned maintenance, you are notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
 
-Alla uppdateringar kan inte distribueras med den här mekanismen, men med tanke på den korta pausperioden minskar distributionen av uppdateringar på det här sättet avsevärt inverkan på virtuella datorer.
+The **self-service window** lets you initiate the maintenance on your VMs. During this time, you can query each VM to see their status and check the result of your last maintenance request.
 
-Multi-instansuppdateringar (för virtuella datorer i en tillgänglighetsuppsättning) tillämpas med en uppdateringsdomän i taget.  
+When you start self-service maintenance, your VM is moved to a node that has already been updated and then powers it back on. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
 
-## <a name="virtual-machine-configurations"></a>Konfigurationer av virtuella datorer
-Det finns två typer av virtuella datorkonfigurationer: multi-instans och en instans. I en multi-instanskonfiguration placeras liknande virtuella datorer i en tillgänglighetsuppsättning.
+If you start self-service maintenance and there is an error during the process, the operation is stopped, the VM is not updated and it is also removed from the planned maintenance iteration. You will be contacted in a later time with a new schedule and offered a new opportunity to do self-service maintenance. 
 
-Multi-instanskonfigurationen ger redundans för fysiska datorer, kraft och nätverk, och vi rekommenderar att du kontrollerar programmets tillgänglighet. Alla virtuella datorer i tillgänglighetsuppsättningen ska ha samma syfte för programmet.
+When the self-service window has passed, the **scheduled maintenance window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
 
-Mer information om hur du konfigurerar dina virtuella datorer för hög tillgänglighet finns i [Manage the availability of your Windows virtual machines](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Hantera tillgängligheten för dina virtuella Windows-datorer) eller [Manage the availability of your Linux virtual machines](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Hantera tillgängligheten för dina virtuella Linux-datorer).
+## <a name="availability-considerations-during-planned-maintenance"></a>Availability Considerations during Planned Maintenance 
 
-En konfiguration med en instans används däremot för fristående virtuella datorer som inte är placerade i en tillgänglighetsuppsättning. Sådana virtuella datorer uppfyller inte kraven för serviceavtalet (SLA) som kräver distribution av två eller flera virtuella datorer i samma tillgänglighetsuppsättning.
+If you decide to wait until the planned maintenance window, there are a few things to consider for maintaining the highest availabilty of your VMs. 
 
-Mer information om serviceavtal finns i avsnittet om molntjänster och virtuella datorer ("Cloud Services and Virtual Machines)" i [serviceavtalen](https://azure.microsoft.com/support/legal/sla/).
+### <a name="paired-regions"></a>Paired Regions
 
-## <a name="multi-instance-configuration-updates"></a>Konfigurationsuppdateringar med multi-instans
-Under planerat underhåll uppdaterar Azure-plattformen först uppsättningen virtuella datorer som finns i en multi-instanskonfiguration. Uppdateringen orsakar en omstart av de virtuella datorerna med cirka 15 minuters avbrott.
+Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-En uppdatering av en multi-instanskonfiguration förutsätter att varje virtuell dator har en liknande funktion som de övriga i tillgänglighetsuppsättningen. Med den här inställningen uppdateras virtuella datorer på ett sätt som bevarar tillgängligheten under hela processen.
+### <a name="availability-sets-and-scale-sets"></a>Availability sets and scale sets
 
-Varje virtuell dator i en tillgänglighetsuppsättning tilldelas en uppdateringsdomän och en feldomän av den underliggande Azure-plattformen. Varje uppdateringsdomän är en grupp med virtuella datorer som startas om i samma tidsfönster. Varje feldomän är en grupp av virtuella datorer som delar samma strömkälla och nätverksswitch.
+When deploying a workload on Azure VMs, you can create the VMs within an availability set to provide high availability to your application. This ensures that during either an outage or maintenance events, at least one virtual machine is available.
 
+Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially. 
 
-Mer information om uppdateringsdomäner och feldomäner finns i [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
 
-Om du vill upprätthålla tillgänglighet via en uppdatering utför Azure underhåll av uppdateringsdomänen och uppdaterar en domän i taget. Underhållet i en uppdateringsdomän består av nedstängning av alla virtuella datorer i domänen, tillämpning av uppdateringen till värddatorerna och sedan omstart av de virtuella datorerna. När underhållet i domänen är klart upprepar Azure processen med nästa uppdateringsdomän och fortsätter med varje domän tills alla är uppdaterade.
-
-Ordningen för de uppdateringsdomäner som startas om kanske inte fortsätter i följd under planerat underhåll, men endast en uppdateringsdomän i taget startas om. Idag erbjuder Azure meddelanden en vecka i förväg för planerat underhåll av virtuella datorer i en multi-instanskonfiguration.
-
-När en virtuell dator har återställts följer här ett exempel på vad Windows Loggboken kan visa:
-
-<!--Image reference-->
-![][image2]
-
-
-Använd loggboken för att rapportera vilka virtuella datorer som konfigureras i en multi-instanskonfiguration med Azure Portal, Azure PowerShell eller Azure CLI. Med Azure Portal kan du exempelvis lägga till _tillgänglighetsuppsättningen_ till bläddringsdialogrutan **Virtuella datorer (klassiska)**. De virtuella datorer som rapporterar samma tillgänglighetsuppsättning är en del av multi-instanskonfigurationen. I följande exempel består multi-instanskonfigurationen av de virtuella datorerna SQLContoso01 och SQLContoso02.
-
-<!--Image reference-->
-  ![Vyn Virtuella datorer (klassiska) från Azure Portal][image4]
-
-## <a name="single-instance-configuration-updates"></a>Konfigurationsuppdateringar med en instans
-När uppdateringarna av multi-instanskonfigurationen är klara utför Azure uppdateringar för konfigurationer med en instans. De här uppdateringarna också orsaka omstart av dina virtuella datorer som inte körs i tillgänglighetsuppsättningar.
-
-> [!NOTE]
-> Om en tillgänglighetsuppsättning endast har en virtuell instans som körs behandlar Azure-plattformen den som en multi-instanskonfigurationsuppdatering.
->
-
-Underhåll i en konfiguration med en instans innebär att stänga av varje virtuell dator som körs på en värddator, uppdatera värddatorn och sedan starta om de virtuella datorerna. Underhållet kräver cirka 15 minuters avbrott. Det planerade underhållet körs för alla virtuella datorer i en region i en enda underhållsperiod.
-
-
-Planerat underhåll påverkar tillgängligheten för ditt program för konfigurationer med en instans. Azure skickar meddelanden en vecka i förväg för planerat underhåll av virtuella datorer i en konfiguration med en instans.
-
-## <a name="email-notification"></a>E-postavisering
-För virtuella datorer som har konfigurerats med en instans eller multi-instanser skickar Azure en e-postavisering om det kommande planerade underhållet (en vecka i förväg). E-postmeddelandet skickas till prenumerationens administratörs och medadministratörens e-postkonton. Här är ett exempel på den här typen av e-postmeddelande:
-
-<!--Image reference-->
-![][image1]
-
-## <a name="region-pairs"></a>Regionpar
-
-När underhåll körs uppdaterar Azure endast instanser av virtuella datorer i en enda region för paren. När du till exempel uppdaterar de virtuella datorerna i regionen USA, norra centrala så uppdaterar inte Azure inte alla virtuella datorer i regionen USA, södra centrala på samma gång. Detta schemaläggs vid en separat tid för att möjliggöra redundans eller belastningsutjämning mellan regioner. Andra regioner än Europa, norra kan emellertid ges underhåll samtidigt som USA, östra.
-
-Se följande tabell för aktuella regionspar:
-
-| Region 1 | Region 2 |
-|:--- | ---:|
-| Östra USA |Västra USA |
-| Östra USA 2 |Centrala USA |
-| Norra centrala USA |Södra centrala USA |
-| Västra centrala USA |Västra USA 2 |
-| Östra Kanada |Centrala Kanada |
-| Södra Brasilien |Södra centrala USA |
-| Iowa (USA-förvaltad region) |Virginia (USA-förvaltad region) |
-| US DoD, östra |US DoD, centrala |
-| Norra Europa |Västra Europa |
-| Storbritannien, västra |Storbritannien, södra |
-| Centrala Tyskland |Nordöstra Tyskland |
-| Sydostasien |Östasien |
-| Sydöstra Australien |Östra Australien |
-| Centrala Indien |Södra Indien |
-| Västra Indien |Södra Indien |
-| Östra Japan |Västra Japan |
-| Centrala Korea |Sydkorea |
-| Östra Kina |Norra Kina |
-
-
-<!--Anchors-->
-[image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
-[image2]: ./media/virtual-machines-common-planned-maintenance/EventViewerPostReboot.png
-[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
-[image4]: ./media/virtual-machines-common-planned-maintenance/availabilitysetexample.png
-
-
-<!--Link references-->
-[Virtual Machines Manage Availability]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
-
-[Understand planned versus unplanned maintenance]: ../articles/virtual-machines/windows/manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for Windows (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).

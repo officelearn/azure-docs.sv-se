@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 2cd5a08cc74473be594fc3c7a4fb934d65ffe0ab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7fbbb56d775ee96c9a44363a4e41d4fc3c630582
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -52,7 +52,7 @@ Bakgrund och koncept beskrivs i [översikten](container-registry-intro.md).
       > Förutom att ge åtkomst genom ett administratörsanvändarkonto stöder behållarregister autentisering med Azure Active Directory-tjänstobjekt. Mer information och saker att tänka på finns i [Authenticate with a container registry](container-registry-authentication.md) (Autentisera med ett behållarregister).
       >
 
-    e. **Lagringskonto**: Använd standardinställningen för att skapa ett [lagringskonto](../storage/storage-introduction.md), eller välj ett befintligt lagringskonto på samma plats. Premium-lagring stöds inte för närvarande.
+    e. **Lagringskonto**: Använd standardinställningen för att skapa ett [lagringskonto](../storage/common/storage-introduction.md), eller välj ett befintligt lagringskonto på samma plats. Premium-lagring stöds inte för närvarande.
 
 ## <a name="manage-registry-settings"></a>Hantera registerinställningar
 När du har skapat registret kommer du åt registerinställningarna genom att först gå till bladet **Container Registries** (Behållarregister) på portalen. Du kan till exempel behöva inställningarna för att logga in i registret, eller så kanske du vill aktivera eller inaktivera administratörsanvändaren.

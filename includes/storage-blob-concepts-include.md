@@ -14,7 +14,7 @@ Blob Service innehåller följande komponenter:
 
 ![Blobb-arkitektur](./media/storage-blob-concepts-include/blob1.png)
 
-* **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Lagringskontot kan vara ett **allmänt lagringskonto** eller ett **Blob Storage-konto** som är specialiserat för lagring av objekt/blobbar. Mer information finns i [Om Azure Storage-konton](../articles/storage/storage-create-storage-account.md).
+* **Lagringskonto:** All åtkomst till Azure Storage görs genom ett lagringskonto. Lagringskontot kan vara ett **allmänt lagringskonto** eller ett **Blob Storage-konto** som är specialiserat för lagring av objekt/blobbar. Mer information finns i [Om Azure Storage-konton](../articles/storage/common/storage-create-storage-account.md).
 * **Behållare:** En behållare grupperar en uppsättning blobbar. Alla blobbar måste vara i en behållare. Ett konto kan innehålla ett obegränsat antal behållare. En behållare kan lagra ett obegränsat antal blobbar. Observera att behållarens namn får innehålla endast gemener.
 * **Blob:** en fil av valfri typ och storlek. Azure Storage erbjuder tre typer av blobbar: blockblobbar, sidblobbar och tilläggsblobbar.
   

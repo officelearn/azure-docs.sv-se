@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 03d4c2a75ff99a55aaa58ca76d6145fd0eec9fac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1a26fe127448f794bbad11043aa3c8770bc2ac8c
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/18/2017
-
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Läs in data med PolyBase i SQL Data Warehouse
@@ -43,7 +41,7 @@ De här självstudierna visar hur du läser in data i SQL Data Warehouse med hj�
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom de här självstudierna behöver du
 
 * En SQL Data Warehouse-databas.
@@ -255,8 +253,8 @@ Se [PolyBase-guiden][PolyBase guide] för ytterligare information som du bör k�
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
-[Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
-[latest version of AzCopy]: ../storage/storage-use-azcopy.md
+[Getting Started with the AzCopy Command-Line Utility]:../storage/common/storage-use-azcopy.md
+[latest version of AzCopy]:../storage/common/storage-use-azcopy.md
 
 <!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx

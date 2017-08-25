@@ -12,7 +12,6 @@ Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en datab
     Samlings-id|Objekt|Namnet på din nya samling. Samma teckenkrav gäller för samlingsnamn som databas-ID:n.
     Lagringskapacitet| Fast (10 GB)|Använd standardvärdet. Det här värdet är databasens lagringskapacitet.
     Dataflöde|400 RU|Använd standardvärdet. Du kan skala upp dataflödet senare om du vill minska svarstiden.
-    RU/m|Av|Låt standardvärdet vara kvar.
     Partitionsnyckeln|/category|En partitionsnyckel som distribuerar data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när man skapar en performant samling. Mer information finns i [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Utforma för partitionering).    
 3. När du har fyllt i formuläret klickar du på **OK**.
 

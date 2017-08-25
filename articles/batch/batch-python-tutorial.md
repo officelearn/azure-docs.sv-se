@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 8de3df11a59178b782d50b7662aa5d8cab11a260
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Kom igång med Batch SDK för Python
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/06/2017
 >
 >
 
-Lär dig grunderna om [Azure Batch][azure_batch] och [Batch Python][py_azure_sdk]-klienten när vi går igenom ett litet Batch-program som skrivits i Python. Vi tittar på hur två exempelskript utnyttjar Batch-tjänsten för att bearbeta en parallell arbetsbelastning på Linux-datorer i molnet och hur de interagerar med [Azure Storage](../storage/storage-introduction.md) för mellanlagring och hämtning av filer. Du får lära dig hur ett vanligt Batch-programarbetsflöde ser ut och får en grundläggande förståelse för de viktigaste komponenterna i Batch, t.ex. jobb, aktiviteter, pooler och beräkningsnoder.
+Lär dig grunderna om [Azure Batch][azure_batch] och [Batch Python][py_azure_sdk]-klienten när vi går igenom ett litet Batch-program som skrivits i Python. Vi tittar på hur två exempelskript utnyttjar Batch-tjänsten för att bearbeta en parallell arbetsbelastning på Linux-datorer i molnet och hur de interagerar med [Azure Storage](../storage/common/storage-introduction.md) för mellanlagring och hämtning av filer. Du får lära dig hur ett vanligt Batch-programarbetsflöde ser ut och får en grundläggande förståelse för de viktigaste komponenterna i Batch, t.ex. jobb, aktiviteter, pooler och beräkningsnoder.
 
 ![Arbetsflöde för Batch-lösning (grundläggande)][11]<br/>
 
@@ -42,7 +41,7 @@ Den här artikeln förutsätter att du har kunskaper om Python och att du är be
 ### <a name="accounts"></a>Konton
 * **Azure-konto**: Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt Azure-konto][azure_free_account].
 * **Batch-konto**: När du har skaffat en Azure-prenumeration [skapar du ett Azure Batch-konto](batch-account-create-portal.md).
-* **Lagringskonto**: Se [Skapa ett lagringskonto](../storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/storage-create-storage-account.md).
+* **Lagringskonto**: Se [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) i [Om Azure-lagringskonton](../storage/common/storage-create-storage-account.md).
 
 ### <a name="code-sample"></a>Kodexempel
 [Kodexemplet][github_article_samples] i Python-självstudiekursen är ett av de många Batch-kodexemplen i [azure-batch-samples][github_samples]-databasen på GitHub. Du kan ladda ned alla exempel genom att klicka på **Klona eller ladda ned > Ladda ned ZIP** på startsidan för databasen eller genom att klicka på direktnedladdningslänken för [azure-batch-samples-master.zip][github_samples_zip]. När du har extraherat innehållet i ZIP-filen hittar du de två skripten för den här självstudiekursen i katalogen `article_samples`:
@@ -153,7 +152,7 @@ if __name__ == '__main__':
 ![Skapa behållare i Azure Storage][1]
 <br/>
 
-Batch har inbyggt stöd för integrering med Azure Storage. Behållare i ditt Storage-konto tillhandahåller de filer som behövs av aktiviteterna som körs i ditt Batch-konto. Behållarna tillhandahåller även en plats för att lagra utdata som genereras av aktiviteterna. Det första som *python_tutorial_client.py*-skriptet gör är att skapa tre behållare i [Azure Blob Storage](../storage/storage-introduction.md#blob-storage):
+Batch har inbyggt stöd för integrering med Azure Storage. Behållare i ditt Storage-konto tillhandahåller de filer som behövs av aktiviteterna som körs i ditt Batch-konto. Behållarna tillhandahåller även en plats för att lagra utdata som genereras av aktiviteterna. Det första som *python_tutorial_client.py*-skriptet gör är att skapa tre behållare i [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage):
 
 * **application**: Den här behållaren lagrar Python-skriptet som körs av aktiviteterna, *python_tutorial_task.py*.
 * **input**: Aktiviteterna hämtar datafilerna som ska bearbetas från *input*-behållaren.
@@ -183,7 +182,7 @@ blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 När behållarna har skapats kan programmet ladda upp filerna som ska användas av aktiviteterna.
 
 > [!TIP]
-> [Använda Azure Blob Storage från Python](../storage/storage-python-how-to-use-blob-storage.md) innehåller en bra översikt över hur du arbetar med behållare och blobbar i Azure. Du hittar avsnittet nästan längst upp i din läslista när du börjar arbeta med Batch.
+> [Använda Azure Blob Storage från Python](../storage/blobs/storage-python-how-to-use-blob-storage.md) innehåller en bra översikt över hur du arbetar med behållare och blobbar i Azure. Du hittar avsnittet nästan längst upp i din läslista när du börjar arbeta med Batch.
 >
 >
 
@@ -277,7 +276,7 @@ Signaturer för delad åtkomst är strängar som ger säker åtkomst till behål
 * **Signaturer för delad åtkomst för behållare**: När aktiviteterna har utfört sitt arbete laddar de upp sina utdatafiler till *utdatabehållaren* i Azure Storage. För att göra det använder *python_tutorial_task.py* en signatur för delad åtkomst för behållare som ger skrivåtkomst till behållaren. Funktionen `get_container_sas_token` i *python_tutorial_client.py* hämtar behållarens signatur för delad åtkomst, som sedan skickas som ett kommandoradsargument till aktiviteterna. Steg 5, [Lägga till aktiviteter till ett jobb](#step-5-add-tasks-to-job), beskriver hur behållarens signatur för delad nyckel (SAS) används.
 
 > [!TIP]
-> Mer information om hur du upprättar säker åtkomst till data i ditt Storage-konto finns i serien i två delar om signaturer för delad åtkomst: [Del 1: Förstå SAS-modellen](../storage/storage-dotnet-shared-access-signature-part-1.md) och [Del 2: Skapa och använda en SAS med Blob service](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> Mer information om hur du upprättar säker åtkomst till data i ditt Storage-konto finns i serien i två delar om signaturer för delad åtkomst: [Del 1: Förstå SAS-modellen](../storage/common/storage-dotnet-shared-access-signature-part-1.md) och [Del 2: Skapa och använda en SAS med Blob service](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md).
 >
 >
 
@@ -651,7 +650,7 @@ Experimentera gärna med olika beräkningsscenarier genom att göra ändringar i
 
 Nu när du har bekantat dig med det grundläggande arbetsflödet i en Batch-lösning är det dags att titta närmare på de andra funktionerna i Batch-tjänsten.
 
-* Läs artikeln [Översikt över Azure Batch-funktioner](batch-api-basics.md), som vi  rekommenderar om du inte har använt tjänsten.
+* Läs artikeln [Översikt över Azure Batch-funktioner](batch-api-basics.md), som vi rekommenderar om du inte har använt tjänsten.
 * Sätt igång med de andra Batch-utvecklingsartiklarna under **Utveckling på djupet** i [utbildningsvägen för Batch][batch_learning_path].
 * Ta en titt på en annan implementering av arbetsbelastningen ”översta N orden” med hjälp av Batch i [TopNWords][github_topnwords]-exemplet.
 

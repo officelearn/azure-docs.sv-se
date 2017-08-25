@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
+ms.contentlocale: sv-se
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>Distribuera din lokala StorSimple-enhet
@@ -239,7 +240,7 @@ Du kan utföra en manuell säkerhetskopiering när som helst. Gå till [Skapa en
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Konfigurera ett nytt lagringskonto för tjänsten
 Det här är ett valfritt steg som du endast måste utföra om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst. Ett Microsoft Azure-lagringskonto krävs för att skapa en behållare för StorSimple-volymer.
 
-Om du behöver skapa ett Azure-lagringskonto i en annan region finns stegvisa instruktioner i [Om Azure lagringskonton](../storage/storage-create-storage-account.md).
+Om du behöver skapa ett Azure-lagringskonto i en annan region finns stegvisa instruktioner i [Om Azure lagringskonton](../storage/common/storage-create-storage-account.md).
 
 Utför följande steg i den klassiska Azure-portalen på sidan för **StorSimple Manager-tjänsten**.
 
@@ -282,10 +283,5 @@ Utför följande steg i den klassiska Azure-portalen för att på begäran kunna
 ## <a name="next-steps"></a>Nästa steg
 * Konfigurera en [virtuell enhet](storsimple-virtual-device-u2.md).
 * Använd [StorSimple Manager-tjänsten](https://msdn.microsoft.com/library/azure/dn772396.aspx) för att hantera en virtuell enhet.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Replikera virtuella Hyper-V-datorer i VMM-moln till Azure
@@ -52,7 +51,7 @@ Det här behöver du i Azure.
 | **Krav** | **Detaljer** |
 | --- | --- |
 | **Azure-konto** |Du behöver ett [Microsoft Azure](https://azure.microsoft.com/)-konto. Du kan börja med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/). [Lär dig mer](https://azure.microsoft.com/pricing/details/site-recovery/) om priserna för Site Recovery. |
-| **Azure Storage** |Du behöver ett Azure-lagringskonto för att lagra replikerade data. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen. <br/><br/>Du behöver ett [geo-redundant standardlagringskonto](../storage/storage-redundancy.md#geo-redundant-storage). Kontot måste finnas i samma region som Site Recovery-tjänsten och vara associerat med samma prenumeration. Observera att replikeringen till Premium-lagringskonton inte stöds för närvarande och därför inte bör användas.<br/><br/>[Läs om](../storage/storage-introduction.md) Azure-lagring. |
+| **Azure Storage** |Du behöver ett Azure-lagringskonto för att lagra replikerade data. Replikerade data lagras i Azure och virtuella Azure-datorer skapas i samband med redundansväxlingen. <br/><br/>Du behöver ett [geo-redundant standardlagringskonto](../storage/common/storage-redundancy.md#geo-redundant-storage). Kontot måste finnas i samma region som Site Recovery-tjänsten och vara associerat med samma prenumeration. Observera att replikeringen till Premium-lagringskonton inte stöds för närvarande och därför inte bör användas.<br/><br/>[Läs om](../storage/common/storage-introduction.md) Azure-lagring. |
 | **Azure-nätverk** |Du behöver ett virtuellt Azure-nätverk som virtuella Azure-datorer ansluter till vid en redundansväxling. Det virtuella Azure-nätverket måste finnas i samma region som Site Recovery-valvet. |
 
 ## <a name="on-premises-prerequisites"></a>Krav för det lokala systemet
@@ -124,7 +123,7 @@ Generera en registreringsnyckel i valvet. När du har laddat ned Azure Site Reco
 6. När providern har installerats klickar du på **Registrera** för att registrera servern i valvet.
 
     ![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
-7. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på *Next*.
+7. I **Valvnamn** kontrollerar du namnet på valvet som servern ska registreras i. Klicka på *Nästa*.
 
     ![Serverregistrering](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
 8. I **Internetanslutning** anger du hur providern som körs på VMM-servern ansluter till Internet. Välj **Anslut med befintliga proxyinställningar** för att använda standardinställningarna för Internet som konfigurerats på servern.

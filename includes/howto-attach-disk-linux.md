@@ -1,23 +1,23 @@
 
-Mer information om diskar finns i [Om diskar och virtuella hårddiskar för Virtual Machines](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
-## <a name="attach-an-empty-disk"></a>Ansluta en tom disk
-1. Öppna Azure CLI 1.0 och [anslut till din Azure-prenumeration](../articles/xplat-cli-connect.md). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
-2. Ange `azure vm disk attach-new` för att skapa och ansluta en ny disk enligt följande exempel. Ersätt *myVM* med namnet på din virtuella Linux-dator och ange diskens storlek i GB, vilken är *100GB* i det här exemplet:
+## <a name="attach-an-empty-disk"></a>Attach an empty disk
+1. Open Azure CLI 1.0 and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
+2. Enter `azure vm disk attach-new` to create and attach a new disk as shown in the following example. Replace *myVM* with the name of your Linux Virtual Machine and specify the size of the disk in GB, which is *100GB* in this example:
 
     ```azurecli
     azure vm disk attach-new myVM 100
     ```
 
-3. När datadisken har skapats och anslutits visas den i utdata för `azure vm disk list <virtual-machine-name>` som du kan se i det här exemplet:
+3. After the data disk is created and attached, it's listed in the output of `azure vm disk list <virtual-machine-name>` as shown in the following example:
    
     ```azurecli
     azure vm disk list TestVM
     ```
 
-    Utdata ser ut ungefär så här:
+    The output is similar to the following example:
 
     ```bash
     info:    Executing command vm disk list
@@ -34,17 +34,17 @@ Mer information om diskar finns i [Om diskar och virtuella hårddiskar för Virt
 
 <a id="attachexisting"></a>
 
-## <a name="attach-an-existing-disk"></a>Ansluta en befintlig disk
-För att kunna ansluta en befintlig disk måste du ha en VHD-fil tillgänglig i ett lagringskonto.
+## <a name="attach-an-existing-disk"></a>Attach an existing disk
+Attaching an existing disk requires that you have a .vhd available in a storage account.
 
-1. Öppna Azure CLI 1.0 och [anslut till din Azure-prenumeration](../articles/xplat-cli-connect.md). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
-2. Kontrollera om den virtuella hårddisken som du vill ansluta redan har överförts till din Azure-prenumeration:
+1. Open Azure CLI 1.0 and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
+2. Check if the VHD you want to attach is already uploaded to your Azure subscription:
    
     ```azurecli
     azure vm disk list
     ```
 
-    Utdata ser ut ungefär så här:
+    The output is similar to the following example:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -58,13 +58,13 @@ För att kunna ansluta en befintlig disk måste du ha en VHD-fil tillgänglig i 
      info:    vm disk list command OK
     ```
 
-3. Om du inte hittar den disk som du vill använda, kan du överföra en lokal virtuell hårddisk till din prenumeration med hjälp av `azure vm disk create` eller `azure vm disk upload`. Ett exempel på `disk create`:
+3. If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be as in the following example:
    
     ```azurecli
     azure vm disk create myVhd .\TempDisk\test.VHD -l "East US" -o Linux
     ```
 
-    Utdata ser ut ungefär så här:
+    The output is similar to the following example:
 
     ```azurecli
     info:    Executing command vm disk create
@@ -78,23 +78,23 @@ För att kunna ansluta en befintlig disk måste du ha en VHD-fil tillgänglig i 
     info:    vm disk create command OK
     ```
    
-   Du kan också överföra en virtuell hårddisk till ett visst lagringskonton med `azure vm disk upload`. Mer information om kommandon för att hantera datadiskar för virtuella Azure-datorer hittar du [här](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+   You may also use `azure vm disk upload` to upload a VHD to a specific storage account. Read more about the commands to manage your Azure virtual machine data disks [over here](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-4. Anslut önskad virtuell hårddisk till din virtuella dator:
+4. Now you attach the desired VHD to your virtual machine:
    
     ```azurecli
     azure vm disk attach myVM myVhd
     ```
    
-   Se till att ersätta *myVM* med namnet på din virtuella dator och *myVHD* med önskad virtuell hårddisk.
+   Make sure to replace *myVM* with the name of your virtual machine, and *myVHD* with your desired VHD.
 
-5. Du kan kontrollera att disken är ansluten till den virtuella datorn med `azure vm disk list <virtual-machine-name>`:
+5. You can verify the disk is attached to the virtual machine with `azure vm disk list <virtual-machine-name>`:
    
     ```azurecli
     azure vm disk list myVM
     ```
 
-    Utdata ser ut ungefär så här:
+    The output is similar to the following example:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -111,12 +111,7 @@ För att kunna ansluta en befintlig disk måste du ha en VHD-fil tillgänglig i 
     ```
 
 > [!NOTE]
-> När du har lagt till en datadisk måste du logga in på den virtuella datorn och initiera disken så att den virtuella datorn kan använda disken för lagring (mer information om hur du initierar disken finns i följande anvisningar).
+> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage (see the following steps for more information on how to do initialize the disk).
 > 
 > 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

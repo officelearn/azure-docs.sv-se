@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: sv-se
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
@@ -197,7 +197,7 @@ Den definierade anpassade rollen är bara tilldelningsbar till prenumerationen d
 
 Den anpassade rolltilldelningen för utvecklare/operatörer för behörigheten "distribuera/åtgärd", begränsas till resursgruppen. På så sätt är det bara de VM:ar som skapas i resursgruppen ContosoAppRG som får hemligheterna (SSL-certifikat och bootstrap-certifikat). Alla VM:ar som en medlem i dev/ops-teamet skapar i andra resursgrupper, kommer inte att kunna hämta de här hemligheterna även om de känner till de hemliga URI:erna.
 
-Det här exemplet visar ett enkelt scenario. Scenarier i verkliga livet är vanligtvis mer komplicerade och du kan behöva justera behörigheterna till ditt nyckelvalv baserat på dina behov. I vårt exempel antar vi till exempel att säkerhetsteamet kommer att ge ut de nyckel- och hemliga referenser (URI:er och tumavtryck) som utvecklarna/operatörerna behöver referera i sina program. Därmed behöver de inte ge utvecklarna/operatörna någon dataplansåtkomst. Tänk också på att det här exemplet fokuserar på att skydda ditt nyckelvalv. Liknande överväganden bör göras när det gäller att säkra [dina VM:ar](https://azure.microsoft.com/services/virtual-machines/security/), [lagringskonton](../storage/storage-security-guide.md) och andra Azure-resurser.
+Det här exemplet visar ett enkelt scenario. Scenarier i verkliga livet är vanligtvis mer komplicerade och du kan behöva justera behörigheterna till ditt nyckelvalv baserat på dina behov. I vårt exempel antar vi till exempel att säkerhetsteamet kommer att ge ut de nyckel- och hemliga referenser (URI:er och tumavtryck) som utvecklarna/operatörerna behöver referera i sina program. Därmed behöver de inte ge utvecklarna/operatörna någon dataplansåtkomst. Tänk också på att det här exemplet fokuserar på att skydda ditt nyckelvalv. Liknande överväganden bör göras när det gäller att säkra [dina VM:ar](https://azure.microsoft.com/services/virtual-machines/security/), [lagringskonton](../storage/common/storage-security-guide.md) och andra Azure-resurser.
 
 > [!NOTE]
 > Obs: Det här exemplet visar hur åtkomst till nyckelvalvet låses i produktionen. Utvecklarna bör ha sina egna prenumerationer eller resursgrupper där de har fullständiga behörigheter att hantera sina valv, VM:ar och lagringskonton där de utvecklar programmet.

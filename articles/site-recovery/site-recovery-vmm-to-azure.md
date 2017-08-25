@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med hjälp av Site Recovery i Azure Portal
@@ -81,8 +81,8 @@ Du behöver ett Azure-nätverk dit de virtuella Azure-datorerna som skapats kan 
 Azure-nätverk som används av Site Recovery inte kan [flyttas](../azure-resource-manager/resource-group-move-resources.md) inom samma eller mellan olika prenumerationer.
 
 ### <a name="set-up-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
-* Du behöver en standard/premium Azure storage-konto för att lagra data som replikeras till Azure. [Premiumlagring](../storage/storage-premium-storage.md) används för virtuella datorer som behöver konsekvent hög i/o-prestanda och låg fördröjning till värden för i/o-intensiva arbetsbelastningar. Om du vill använda ett Premium Storage-konto för replikerade data konfigurerar du ytterligare ett standardlagringskonto för att lagra replikeringsloggar som samlar in löpande ändringar i lokala data. Kontot måste finnas i samma region som Recovery Services-valvet.
-* Beroende på vilken resursmodell du vill använda för redundansväxlade virtuella Azure-datorer skapar du ett konto i [Resource Manager-läge](../storage/storage-create-storage-account.md) eller [klassiskt läge](../storage/storage-create-storage-account-classic-portal.md).
+* Du behöver en standard/premium Azure storage-konto för att lagra data som replikeras till Azure. [Premiumlagring](../storage/common/storage-premium-storage.md) används för virtuella datorer som behöver konsekvent hög i/o-prestanda och låg fördröjning till värden för i/o-intensiva arbetsbelastningar. Om du vill använda ett Premium Storage-konto för replikerade data konfigurerar du ytterligare ett standardlagringskonto för att lagra replikeringsloggar som samlar in löpande ändringar i lokala data. Kontot måste finnas i samma region som Recovery Services-valvet.
+* Beroende på vilken resursmodell du vill använda för redundansväxlade virtuella Azure-datorer skapar du ett konto i [Resource Manager-läge](../storage/common/storage-create-storage-account.md) eller [klassiskt läge](../storage/common/storage-create-storage-account.md).
 * Vi rekommenderar att du skapar ett konto innan du börjar. Om du inte gör det måste du göra det under distributionen av Site Recovery.
 - Observera att lagringskonton som används av Site Recovery inte kan [flyttas](../azure-resource-manager/resource-group-move-resources.md) inom samma eller mellan olika prenumerationer.
 
@@ -221,7 +221,7 @@ Ange Azure-lagringskontot som ska användas för replikering och det Azure-nätv
    ![Lagring](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
 
 
-   * Om du vill skapa ett lagringskonto med hjälp av den klassiska modellen gör du det på Azure-portalen. [Läs mer](../storage/storage-create-storage-account-classic-portal.md)
+   * Om du vill skapa ett lagringskonto med hjälp av den klassiska modellen gör du det på Azure-portalen. [Läs mer](../storage/common/storage-create-storage-account.md)
    * Om du använder ett Premium Storage-konto för replikerade data konfigurerar du ytterligare ett standardlagringskonto för att lagra replikeringsloggar som samlar in löpande ändringar i lokala data.
 5. Om du inte har skapat ett Azure-nätverk och vill skapa ett med hjälp av Resource Manager klickar du på **+Nätverk** för att göra det direkt. På bladet **Skapa virtuellt nätverk** anger du nätverksnamn, adressintervall, information om undernät, prenumeration och plats. Nätverket måste finnas på samma plats som Recovery Services-valvet.
 
@@ -261,7 +261,7 @@ Det här händer när nätverksmappningen börjar:
 3. I **Kopieringsfrekvens** anger du hur ofta du vill replikera förändringsdata (delta) efter den första replikeringen (med 30 sekunders mellanrum, var femte minut eller varje kvart).
 
     > [!NOTE]
-    >  En frekvens på 30 sekunder stöds inte när du replikerar till premiumlagring. Begränsningen bestäms av antalet ögonblicksbilder per blob (100) som stöds av premium-lagring. [Läs mer](../storage/storage-premium-storage.md#snapshots-and-copy-blob)
+    >  En frekvens på 30 sekunder stöds inte när du replikerar till premiumlagring. Begränsningen bestäms av antalet ögonblicksbilder per blob (100) som stöds av premium-lagring. [Läs mer](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)
 
 4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden i antal timmar för varje återställningspunkt. Skyddade datorer kan återställas till valfri punkt inom en period.
 5. I **Appkompatibel ögonblicksbildsfrekvens** anger du hur ofta (1–12 timmar) återställningspunkter som innehåller programkonsekventa ögonblicksbilder ska skapas. Hyper-V använder två typer av ögonblicksbilder: en standardögonblicksbild som tillhandahåller en inkrementell ögonblicksbild av hela den virtuella datorn och en programkonsekvent ögonblicksbild som tar en ögonblicksbild vid en viss tidpunkt av programdata på den virtuella datorn. Programkonsekventa ögonblicksbilder använda VSS (Volume Shadow Copy Service) för att säkerställa att programmen är i ett konsekvent tillstånd när ögonblicksbilden tas. Observera att om du aktiverar programkonsekventa ögonblicksbilder så påverkar detta prestanda för program som körs på virtuella källdatorer. Kontrollera att värdet som du anger är mindre än antalet ytterligare återställningspunkter som du konfigurerar.
@@ -307,7 +307,7 @@ Aktivera replikering på följande sätt:
 3. I **Mål** väljer du prenumerationen, distributionsmodellen som används efter en redundansväxling och lagringskontot som du använder för replikerade data.
 
     ![Aktivera replikering](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
-4. Välj lagringskontot som du vill använda. Om du vill använda ett annat lagringskonto än det som du har kan du [skapa ett](#set-up-an-azure-storage-account). Om du använder ett Premium Storage-konto för replikerade data måste du konfigurera ytterligare ett standardlagringskonto för att lagra replikeringsloggar som samlar in löpande ändringar i lokala data. För att skapa ett lagringskonto med resurshanterarmodellen klickar du på **Skapa ny**. Om du vill skapa ett lagringskonto med hjälp av den klassiska modellen gör du det [i Azure-portalen](../storage/storage-create-storage-account-classic-portal.md). Klicka sedan på **OK**.
+4. Välj lagringskontot som du vill använda. Om du vill använda ett annat lagringskonto än det som du har kan du [skapa ett](#set-up-an-azure-storage-account). Om du använder ett Premium Storage-konto för replikerade data måste du konfigurera ytterligare ett standardlagringskonto för att lagra replikeringsloggar som samlar in löpande ändringar i lokala data. För att skapa ett lagringskonto med resurshanterarmodellen klickar du på **Skapa ny**. Om du vill skapa ett lagringskonto med hjälp av den klassiska modellen gör du det [i Azure-portalen](../storage/common/storage-create-storage-account.md). Klicka sedan på **OK**.
 5. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator. Om du vill använda ett annat nätverk än det som du har kan du [skapa ett](#set-up-an-azure-network). Skapa ett nätverk med hjälp av Resource Manager-modellen genom att klicka på **Skapa nytt**. Om du vill skapa ett nätverk med den klassiska modellen gör du det på [Azure-portalen](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Välj ett undernät om det behövs. Klicka sedan på **OK**.
 6. I **Virtual Machines** > **Välj virtuella datorer** klickar du på och väljer de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**.
 

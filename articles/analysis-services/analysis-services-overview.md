@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
@@ -34,7 +34,7 @@ Med Analysis Services kan du blanda och kombinera data från flera källor, defi
 Titta på [den här videon](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) som visar hur Azure Analysis Services passar in bland Microsofts BI-funktioner och fördelarna med att ha dina datamodeller i molnet.
 
 ## <a name="built-on-sql-server-analysis-services"></a>Bygger på SQL Server Analysis Services
-Azure Analysis Services är kompatibelt med många fantastiska funktioner som redan finns i SQL Server Analysis Services Enterprise. Azure Analysis Services fungerar med tabellmodeller på [kompatibilitetsnivå](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services) 1 200 och 1 400. Partitioner, säkerhet på radnivå, dubbelriktade relationer och översättningar stöds. Minnes- och DirectQuery-lägena innebär att du blixtsnabbt kan skicka frågor via omfattande och komplexa datauppsättningar.
+Azure Analysis Services är kompatibelt med många fantastiska funktioner som redan finns i SQL Server Analysis Services Enterprise. Azure Analysis Services fungerar med tabellmodeller på [kompatibilitetsnivå](analysis-services-compat-level.md) 1 200 och 1 400. Partitioner, säkerhet på radnivå, dubbelriktade relationer och översättningar stöds. Minnes- och DirectQuery-lägena innebär att du blixtsnabbt kan skicka frågor via omfattande och komplexa datauppsättningar.
 
 Tabellmodeller ger snabb utveckling och är mycket anpassningsbara. För utvecklare innehåller tabellmodeller en TOM (Tabular Object Model) som används för att beskriva modellobjekt. TOM exponeras i JSON via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) och datadefinitionsspråket AMO via namnområdet [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 

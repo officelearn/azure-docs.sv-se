@@ -1,1 +1,0 @@
-![mönster och metoder](media/guidance-pnp-include/pnp-logo.png)

@@ -4,7 +4,7 @@ description: "De här självstudierna visar dig stegen för att skapa en kanal s
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
 ms.service: media-services

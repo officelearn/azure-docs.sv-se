@@ -4,7 +4,7 @@ description: "Det här avsnittet ger en översikt över Microsoft Azure Media Se
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

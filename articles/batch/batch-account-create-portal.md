@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 331d08da8a70eee893fb1b01b1fef4475cc8bca0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e6e27595f625fcb3ffdb0a6bccf75ad2dcc77cb3
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
@@ -154,7 +154,7 @@ Vi rekommenderar att du skapar ett nytt lagringskonto för exklusiv användning 
 ![Skapa ett allmänt lagringskonto][storage_account]
 
 > [!NOTE]
-> Azure Batch stöder för närvarande endast den allmänna lagringskontotypen. Den här kontotypen beskrivs i steg 5, [Skapa ett lagringskonto] (... /storage/storage-create-storage-account.md#create-a-storage-account) i [Om Azure Storage-konton](../storage/storage-create-storage-account.md).
+> Azure Batch stöder för närvarande endast den allmänna lagringskontotypen. Den här kontotypen beskrivs i steg 5, [Skapa ett lagringskonto] (../storage/common/storage-create-storage-account.md#create-a-storage-account), i [Om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
 >
 >
 

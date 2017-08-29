@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a8854c0f6313238ee846ad1c537d23d8fd20c66f
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Introduktion till DocumentDB-API:et för Azure Cosmos DB
@@ -48,6 +48,8 @@ Azure Cosmos DB erbjuder, via DocumentDB-API:et, följande funktioner och förde
 * **Öppen design:** Kom igång snabbt med hjälp av befintliga kunskaper och verktyg. Det är enkelt att programmera mot DocumentDB-API:et och du behöver inte skaffa nya verktyg eller använda de vanliga tilläggen för JSON eller JavaScript. Du kommer åt databasens alla funktioner, som CRUD-, fråge- och JavaScript-bearbetning, över ett enkelt RESTful HTTP-gränssnitt. DocumentDB-API:et omfattar befintliga format, språk och standarder och erbjuder dessutom värdefull databaskapacitet.
 
 * **Automatisk indexering:** Som standard indexerar Azure Cosmos DB automatiskt alla dokument i databasen och varken förväntar sig eller kräver något schema eller att sekundära index skapas. Vill du inte indexera allt? Oroa dig inte, du kan även [välja bort sökvägar i JSON-filer](indexing-policies.md).
+
+* **Stöd för ändringsfeed:** Ändringsfeed ger en sorterad lista över dokument i en Azure Cosmos DB-samling i den ordning som de har ändrats. Denna feed kan användas för att lyssna efter ändringar av data för att replikera data, utlösa API-anrop eller utföra strömbearbetning av uppdateringar. Ändringsfeed aktiveras automatiskt och är lättanvänd: [Läs mer om ändringsfeed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
 
 ## <a name="data-management"></a>Hur hanteras data med DocumentDB-API?
 Med DocumentDB-API:et hanteras JSON-data med hjälp av väldefinierade databasresurser. Dessa resurser replikeras för hög tillgänglighet och är unikt adresserbara genom sina logiska URI:er. DocumentDB-API:et erbjuder en enkel HTTP-baserad RESTful-programmeringsmiljö för alla resurser. 

@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e38c540071cb49b0177e79178566d72ecb5f8886
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Skapa och distribuera en Java API-app i Azure Apptjänst
@@ -278,7 +277,7 @@ För att bygga på det här exemplet kan du läsa mer om [Lagrings-SDK för Java
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>Se även
-Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter].
+Mer information om hur du använder Azure med Java finns i [Azure för Java-utvecklare](/java/azure).
 
 <!-- URL List -->
 
@@ -287,14 +286,14 @@ Mer information om hur du använder Java i Azure finns i [Java-utvecklingscenter
 [Dokumentet DB Java SDK]: ../documentdb/documentdb-java-application.md
 [kostnadsfri prov]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Java-utvecklingscenter]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Java Developer's Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [Swagger-redigeraren online]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[Lagrings-SDK för Java]: ../storage/storage-java-how-to-use-blob-storage.md
+[Lagrings-SDK för Java]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [Swagger Editor]: http://editor.swagger.io/
 [Visual Studio-koden]: https://code.visualstudio.com

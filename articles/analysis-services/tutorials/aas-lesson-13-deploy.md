@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="lesson-13-deploy"></a>Lektion 13: Distribuera
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/19/2017
 
 Under den här lektionen konfigurerar du distributionsegenskaper, anger en Analysis Services-server i Azure att distribuera till och ett namn för modellen. Distribuera sedan modellen till den instansen. När modellen har distribuerats kan användarna ansluta till den med hjälp av ett rapporteringsklientprogram. Läs mer i [Distribuera till Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
-Uppskattad tidsåtgång för den här lektionen: **Fem minuter**  
+Uppskattad tidsåtgång för den här lektionen: **5 minuter**  
   
 ## <a name="prerequisites"></a>Krav  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 12: Analysera i Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  

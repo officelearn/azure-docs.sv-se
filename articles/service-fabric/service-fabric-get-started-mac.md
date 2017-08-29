@@ -1,5 +1,5 @@
 ---
-title: "Konfigurera en utvecklingsmiljö i Mac OS X | Microsoft Docs"
+title: "Konfigurera en utvecklingsmiljö i Mac OS X så att den fungerar med Azure Service Fabric | Microsoft Docs"
 description: "Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Mac OS X."
 services: service-fabric
 documentationcenter: java
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/06/2017
+ms.date: 08/21/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e5d14eb0a656d67030f4c0d3d510aec0e9cafae7
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.contentlocale: sv-se
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
@@ -51,7 +51,6 @@ För att skapa den lokala virtuella datorn med ett 5-nods Service Fabric-kluster
     ```
     Det här steget hämtar filen `Vagrantfile` som innehåller VM-konfigurationen tillsammans med den plats som den virtuella datorn laddas ned från.
 
-
 2. Navigera till den lokala repoklonen
 
     ```bash
@@ -75,24 +74,46 @@ För att skapa den lokala virtuella datorn med ett 5-nods Service Fabric-kluster
 
     ![Klusterinstallationen startar efter att den virtuella datorn har etablerats][cluster-setup-script]
 
->[!TIP]
-> Om nedladdningen av den virtuella datorn tar lång tid kan du hämta den med hjälp av wget eller curl eller via en webbläsare genom att gå till länken som anges i **config.vm.box_url** i filen `Vagrantfile`. När du hämtat den lokalt redigerar du `Vagrantfile` så att den pekar på den lokala sökväg som du laddade ned avbildningen till. Om du till exempel laddade ned avbildningen till /home/users/test/azureservicefabric.tp8.box anger du **config.vm.box_url** till den sökvägen.
->
+    >[!TIP]
+    > Om nedladdningen av den virtuella datorn tar lång tid kan du hämta den med hjälp av wget eller curl eller via en webbläsare genom att gå till länken som anges i **config.vm.box_url** i filen `Vagrantfile`. När du hämtat den lokalt redigerar du `Vagrantfile` så att den pekar på den lokala sökväg som du laddade ned avbildningen till. Om du till exempel laddade ned avbildningen till /home/users/test/azureservicefabric.tp8.box anger du **config.vm.box_url** till den sökvägen.
+    >
 
 5. Testa att klustret är korrekt installerat genom att gå till Service Fabric Explorer på http://192.168.50.50:19080/Explorer (förutsatt att du har behållit standard-IP för det privata nätverket).
 
     ![Service Fabric Explorer på Mac-värddatorn][sfx-mac]
 
+
+## <a name="create-application-on-mac-using-yeoman"></a>Skapa program på Mac med Yeoman
+Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Service Fabric-program från terminalen med en Yeoman-mallgenerator. Följ stegen nedan för att se till att du har Service Fabric Yeoman-mallgeneratorn på datorn.
+
+1. Du måste ha Node.js och NPM installerade på din Mac. Annars kan du installera Node.js och NPM med Homebrew enligt följande. Om du vill kontrollera vilka versioner av Node.js och NPM som är installerade på din Mac kan du använda alternativet ``-v``.
+
+  ```bash
+  brew install node
+  node -v
+  npm -v
+  ```
+2. Installera [Yeoman](http://yeoman.io/)-mallgeneratorn på datorn från NPM
+
+  ```bash
+  npm install -g yo
+  ```
+3. Installera den Yeoman-generator som du vill använda enligt instruktionerna i [dokumentationen](service-fabric-get-started-linux.md) för att komma igång. Om du vill skapa Service Fabric-program med hjälp av Yeoman följer du stegen -
+
+  ```bash
+  npm install -g generator-azuresfjava       # for Service Fabric Java Applications
+  npm install -g generator-azuresfguest      # for Service Fabric Guest executables
+  npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
+  ```
+4. Om du vill skapa ett Service Fabric Java-program på Mac måste du ha JDK 1.8 och Gradle installerade på datorn.
+
+
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Installera Service Fabric-plugin-programmet för Eclipse Neon
 
 Service Fabric innehåller ett plugin-program för **Eclipse Neon för Java IDE** som förenklar processen med att skapa, bygga och distribuera Java-tjänster. Du kan följa installationsstegen i den här allmänna [dokumentationen](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) som beskriver hur du installerar eller uppdaterar Service Fabric Eclipse-plugin-programmet.
 
-## <a name="using-service-fabric-eclipse-plugin-on-mac"></a>Använda Service Fabric Eclipse-plugin-programmet på Mac
-
-Se till att du har gått igenom stegen som beskrivs i [dokumentationen för Service Fabric Eclipse-plugin-programmet](service-fabric-get-started-eclipse.md). Stegen för att skapa, utveckla och distribuera ett Service Fabric Java-program med vagrant-guest-behållaren på en Mac-värd är i princip samma som stegen i den allmänna dokumentationen, förutom för följande:
-
-* Eftersom Service Fabric-biblioteken krävs av Service Fabric Java-programmet måste Eclipse-projektet skapas på en delad sökväg. Som standard delas innehållet i sökvägen på din värd där ``Vagrantfile`` finns med sökvägen ``/vagrant`` för gästen.
-* Om ``Vagrantfile`` finns i en sökväg, t.ex. ``~/home/john/allprojects/``, måste du skapa Service Fabric-projektet ``MyActor`` på platsen ``~/home/john/allprojects/MyActor``, och sökvägen till din Eclipse-arbetsyta är i så fall ``~/home/john/allprojects``.
+>[!TIP]
+> Som standard stöds standard-IP-adressen som anges i ``Vagrantfile`` i ``Local.json`` för det genererade programmet. Om du ändrar den och distribuerar Vagrant med en annan IP-adress ska du även uppdatera motsvarande IP-adress i ``Local.json`` för programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 <!-- Links -->

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Skapa BizTalk Services med Azure-portalen
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/31/2017
 > Om du vill logga in på Azure-portalen behöver du ett Azure-konto och en Azure-prenumeration. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se [Kostnadsfri utvärderingsversion av Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
-## <a name="create-a-biztalk-service"></a>Skapa en BizTalk-tjänst
+## <a name="CreateService"></a>Skapa en BizTalk-tjänst
 Beroende på vilken utgåva du har är det inte säkert att alla BizTalk Services-inställningar finns tillgängliga.
 
 1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
@@ -233,13 +232,14 @@ När en Azure BizTalk-tjänst skapas, skapas också en HTTPS-URL som innehåller
 
 <ul>
 <li><strong>Förbättrad nyckelanvändning</strong>: Azure BizTalk Services kräver minst serverautentisering.</li>
-<li><strong>Nätverksnamn</strong>: Ange det fullständiga domännamnet (FQDN) för Azure BizTalk-tjänstens URL. Se <a HREF="#BizTalk">Skapa en BizTalk-tjänst</a> i den här artikeln.</li>
+<li><strong>Nätverksnamn</strong>: Ange det fullständiga domännamnet (FQDN) för Azure BizTalk-tjänstens URL. Se <a HREF="#CreateService">Skapa en BizTalk-tjänst</a> i den här artikeln.</li>
 </ul>
 <br/>
 Ett nytt eller annat certifikat kan läggas till när BizTalk-tjänsten har skapats.
 </td>
 </tr>
 </table>
+<!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting to any location.--->
 
 
 

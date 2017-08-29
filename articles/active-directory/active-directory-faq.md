@@ -12,25 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/18/2017
 
 ---
-# Vanliga frågor och svar om Azure Active Directory
-<a id="azure-active-directory-faq" class="xliff"></a>
+# <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
 
 Mer information finns i [Vad är Azure Active Directory?](active-directory-whatis.md).
 
 
-## Kom åt Azure och Azure Active Directory
-<a id="access-azure-and-azure-active-directory" class="xliff"></a>
-**F: Varför visas ett meddelande om att inga prenumerationer hittades när jag försöker komma åt Azure AD på den klassiska Azure-portalen (https://manage.windowsazure.com)?**
+## <a name="access-azure-and-azure-active-directory"></a>Kom åt Azure och Azure Active Directory
+**F: Varför visas ett meddelande om att inga prenumerationer hittades när jag försöker komma åt Azure AD på den klassiska Azure-portalen?**
 
 **S:** För att komma åt den klassiska Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- eller Azure AD-prenumeration går du till [http://aka.ms/accessAAD](http://aka.ms/accessAAD) och följer steget för engångsaktiveringen. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
 
@@ -70,8 +68,7 @@ Dessutom kompletterar Azure AD-betaltjänster som Enterprise Mobility + Security
 
 - - -
 
-## Kom igång med en Azure AD-hybridlösning
-<a id="get-started-with-hybrid-azure-ad" class="xliff"></a>
+## <a name="get-started-with-hybrid-azure-ad"></a>Kom igång med en Azure AD-hybridlösning
 
 
 **F: Hur lämnar jag en klient när jag har lagts till som medarbetare?**
@@ -108,8 +105,7 @@ Mer information finns i [Introduktion till åtkomstpanelen](active-directory-saa
 Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synkroniseringstjänster i molnet](active-directory-aadconnect-health.md).  
 
 - - -
-## Lösenordshantering
-<a id="password-management" class="xliff"></a>
+## <a name="password-management"></a>Lösenordshantering
 **F: Kan jag använda tillbakaskrivning av lösenord i Azure AD utan lösenordssynkronisering? (Är det i det här scenariot möjligt att använda lösenordsåterställning via självbetjäning (SSPR) för Azure AD med tillbakaskrivning av lösenord och inte lagra lösenord i molnet?)**
 
 **S:** Du behöver inte synkronisera dina Active Directory-lösenord till Azure AD för att använda tillbakaskrivning. I en federerad miljö använder enkel inloggning (SSO) i Azure AD den lokala katalogen för att autentisera användaren. I det här scenariot måste inte det lokala lösenordet spåras i Azure AD.
@@ -142,8 +138,7 @@ För Azure AD-konton kan administratörer återställa lösenord med någon av f
 
 
 - - -
-## Säkerhet
-<a id="security" class="xliff"></a>
+## <a name="security"></a>Säkerhet
 **Fråga: Låses konton efter ett visst antal misslyckade försök eller finns det en mer avancerad strategi?**</br>
 Vi använder en mer avancerad strategi för att låsa konton.  Den är baserad på IP-adressen för begäran och det lösenord som anges. Låsningens varaktighet ökar också beroende på sannolikheten för att det rör sig om ett angrepp.  
 
@@ -153,8 +148,7 @@ Det här gäller lösenord som är allmänt vanliga, till exempel varianter av "
 **Fråga: Blockeras inloggningsbegäranden från misstänkta källor (botnät, Tor-slutpunkt) på en B2C-klient eller kräver detta att klienten har en Basic- eller Premium-utgåva?**</br>
 Vi har en gateway som filtrerar begäranden och som ger ett visst skydd mot botnät. Den används för alla B2C-klienter.
 
-## Programåtkomst
-<a id="application-access" class="xliff"></a>
+## <a name="application-access"></a>Programåtkomst
 **F: Var kan jag hitta en lista över program som redan är integrerade i Azure AD och deras funktioner?**
 
 **S:** Azure AD har mer än 2 600 redan integrerade program från Microsoft, programtjänstleverantörer och partner. Alla redan integrerade program stöder enkel inloggning (SSO). Med enkel inloggning kan du använda din organisations autentiseringsuppgifter för att komma åt dina appar. Vissa program stöder även automatisk etablering och avetablering.
@@ -218,5 +212,5 @@ Mer information finns i [Automatisera användaretablering och avetablering för 
 - - -
 **F: Kan jag skapa en säker LDAP-anslutning med Azure AD?**
 
-**S:** Nej.  Azure AD stöder inte LDAP-protokollet.
+**S:** Nej. Azure AD stöder inte LDAP-protokollet.
 

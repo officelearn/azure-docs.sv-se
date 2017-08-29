@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Skalningsuppsättningar för virtuella Azure-datorer och anslutna datadiskar
@@ -99,10 +99,21 @@ Du kan även lägga till en disk genom att lägga till en ny post för egenskape
     }          
 ]
 ```
+
 Välj sedan _PUT_ för att tillämpa ändringarna på skalningsuppsättningen. Det här exemplet skulle fungera så länge du använder en VM-storlek som har stöd för fler än två anslutna datadiskar.
 
 > [!NOTE]
 > När du gör en ändring på en skalningsuppsättning, som att till exempel lägga till eller ta bort en datadisk, tillämpas det på alla nyskapade virtuella datorer. Men ändringen tillämpas endast på befintliga virtuella datorer om egenskapen _upgradePolicy_ är inställd på "Automatiskt". Om den är inställd på "Manuellt" måste du manuellt tillämpa den nya modellen på befintliga virtuella datorer. Du kan göra detta i portalen med PowerShell-kommandot _Update-AzureRmVmssInstance_ eller med CLI-kommandot _az vmss update-instances_.
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Lägga till fyllda datadiskar i en befintlig skalningsuppsättning 
+> När du lägger till diskar i en befintlig skalningsuppsättningsmodell skapas disken avsiktligt alltid tom. Det här scenariot omfattar också nya instanser som skapats av skalningsuppsättningen. Det beror på att skalningsuppsättningsdefinitionen har en tom datadisk. Om du vill skapa fyllda dataenheter för en befintlig skalningsuppsättningsmodell kan du välja något av följande två alternativ:
+
+* Kopiera data från instansen 0 VM till datadiskarna i de andra virtuella datorerna genom att köra ett anpassat skript.
+* Skapa en hanterad avbildning med OS-disken plus datadisk (med nödvändiga data) och skapa en ny skalningsuppsättning med avbildningen. På så sätt har alla nya virtuella datorer som skapas en datadisk som finns med i definitionen av skalningsuppsättningen. Eftersom den här definitionen avser en avbildning med en datadisk som innehåller anpassade data får alla virtuella datorer på skalningsuppsättningen automatiskt dessa ändringar.
+
+> Sättet att skapa en anpassad avbildning finns här: [Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](/azure/virtual-machines/windows/capture-image-resource/) 
+
+> Användaren måste avbilda instansen 0 VM som innehåller nödvändiga data och sedan använda den virtuella hårddisken för avbildningsdefinitionen.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Ta bort en datadisk från en skalningsuppsättning
 Du kan ta bort en datadisk från en skalningsuppsättning för virtuella datorer med Azure CLI-kommandot _az vmss disk detach_. Följande kommando tar till exempel bort disken som definierats på lun 2:

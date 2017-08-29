@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Komma igång med SQL Data Warehouse
@@ -63,8 +62,7 @@ En SQL Data Warehouse är en särskild typ av databas som är avsedd för MPP (m
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **Nytt** > **Databaser** > **SQL Data Warehouse**.
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Fyll i distributionsinformationen
 
@@ -84,8 +82,7 @@ En SQL Data Warehouse är en särskild typ av databas som är avsedd för MPP (m
 
     **Select performance** (Välj prestanda): Vi rekommenderar att du börjar med standardinställningen 400DWU.
 
-4. Välj **Fäst på instrumentpanelen**
-    ![Fäst på instrumentpanelen](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+4. Välj **Fäst vid instrumentpanelen** ![Fäst vid instrumentpanelen](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Luta dig tillbaka medan datalagret distribueras! Processen kan ta flera minuter. Portalen meddelar dig när datalagret är klart att användas. 
 
@@ -657,7 +654,7 @@ Om du är klar för dagen ser du till att pausa din instans. I en produktionsmil
 
 [Migrating Data to Azure SQL Data Warehouse][] (Migrera data till Azure SQL Data Warehouse)
 
-[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example (Hantering av samtidiga körningar och arbetsbelastningar)
+[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example (Hantering av samtidiga körningar och arbetsbelastningar)
 [Metodtips för Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Query Monitoring]: sql-data-warehouse-manage-monitor.md (Frågeövervakning)
 [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/ (Tio rekommendationer för att skapa ett storskaligt relationsinformationslager)

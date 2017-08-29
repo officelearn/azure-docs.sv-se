@@ -1,4 +1,4 @@
-För att komma igång med Service Bus-köer i Azure måste du först skapa ett namnområde. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program. 
+För att komma igång med Service Bus-köer i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program.
 
 Så här skapar du ett namnområde:
 

@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 8/21/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 4baf144cc28eeff0ab8f8b60e837f8a2bad903af
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
@@ -34,10 +34,29 @@ Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET 
 ## <a name="prerequisites"></a>Krav
 Du måste [konfigurera Linux-utvecklingsmiljön](service-fabric-get-started-linux.md) innan du börjar. Om du använder Mac OS X kan du [konfigurera en Linux-miljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
 
-Du bör även konfigurera [Azure CLI 2.0](service-fabric-azure-cli-2-0.md) (rekommenderas) eller [XPlat CLI](service-fabric-azure-cli.md) för distribution av programmet.
+Du bör även installera [Service Fabric CLI](service-fabric-cli.md)
+
+### <a name="install-and-set-up-the-generators-for-csharp"></a>Installera och konfigurera generatorerna för CSharp
+Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Service Fabric CSharp-program från terminalen med en Yeoman-mallgenerator. Följ stegen nedan för att se till att du har Service Fabric Yeoman-mallgeneratorn för CSharp på datorn.
+1. Installera nodejs och NPM på datorn
+
+  ```bash
+  sudo apt-get install npm
+  sudo apt install nodejs-legacy
+  ```
+2. Installera [Yeoman](http://yeoman.io/)-mallgeneratorn på datorn från NPM
+
+  ```bash
+  sudo npm install -g yo
+  ```
+3. Installera Service Fabric Yeo Java-programgeneratorn från NPM
+
+  ```bash
+  sudo npm install -g generator-azuresfcsharp
+  ```
 
 ## <a name="create-the-application"></a>Skapa programmet
-Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. I Service Fabric SDK för Linux finns en [Yeoman](http://yeoman.io/)-generator som gör det enkelt att skapa din första tjänst och lägga till fler senare. Använd Yeoman för att skapa ett program med en enskild tjänst.
+Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. Service Fabric [Yeoman](http://yeoman.io/)-generatorn för CSharp, som du installerade i förra steget, gör det enkelt att skapa din första tjänst och lägga till fler senare. Använd Yeoman för att skapa ett program med en enskild tjänst.
 
 1. Skriv följande kommando i en terminal, för att börja bygga ställningarna: `yo azuresfcsharp`
 2. Namnge ditt program.
@@ -62,12 +81,10 @@ Service Fabric Yeoman-mallarna inkluderar ett byggskript som du kan använda fö
 
 När du har skapat programmet kan du distribuera det till det lokala klustret.
 
-### <a name="using-xplat-cli"></a>Med XPlat CLI
-
 1. Anslut till det lokala Service Fabric-klustret.
 
     ```bash
-    azure servicefabric cluster connect
+    sfctl cluster select --endpoint http://localhost:19080
     ```
 
 2. Kör installationsskriptet som medföljer mallen för att kopiera programpaketet till klustrets avbildningsarkiv, registrera programtypen och skapa en instans av programmet.
@@ -76,14 +93,11 @@ När du har skapat programmet kan du distribuera det till det lokala klustret.
     ./install.sh
     ```
 
-### <a name="using-azure-cli-20"></a>Med Azure CLI 2.0
-
-Distributionen går till på samma sätt som för andra Service Fabric-program. Detaljerade instruktioner finns i dokumentationen om att [hantera ett Service Fabric-program med Azure CLI](service-fabric-application-lifecycle-azure-cli-2-0.md).
+Distributionen går till på samma sätt som för andra Service Fabric-program. Detaljerade instruktioner finns i dokumentationen om att [hantera ett Service Fabric-program med Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md).
 
 Du hittar parametrarna till de här kommandona i de genererade manifesten i programpaketet.
 
-När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på adressen [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
-Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
+När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på adressen [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
 Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller klient för att skicka meddelanden till dem. Aktörsmallen innehåller ett enkelt testskript som du kan använda för att interagera med aktörstjänsten.
@@ -101,7 +115,7 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Lägga till fler tjänster till ett befintligt program
 
-Om du vill lägga till en till tjänst till ett program som redan har skapats med hjälp av `yo` utför du följande steg: 
+Om du vill lägga till en till tjänst till ett program som redan har skapats med hjälp av `yo` utför du följande steg:
 1. Ändra katalogen till roten för det befintliga programmet.  Till exempel `cd ~/YeomanSamples/MyApplication` om `MyApplication` är programmet som skapats av Yeoman.
 2. Kör `yo azuresfcsharp:AddService`
 
@@ -111,14 +125,11 @@ Om du vill lägga till en till tjänst till ett program som redan har skapats me
 3. Uppdatera projektfilnamnen till csproj-filer i build.sh.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md)
-* [Interagera med Service Fabric-kluster med Azure CLI](service-fabric-azure-cli.md)
+* [Interagera med Service Fabric-kluster med Service Fabric CLI](service-fabric-cli.md)
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)
-
-## <a name="related-articles"></a>Relaterade artiklar
-
-* [Kom igång med Service Fabric och Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Kom igång med Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Kom igång med Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png

@@ -18,7 +18,9 @@
 # Exempel
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Azure CLI](samples-cli.md)
+## [Service Fabric CLI](samples-cli.md)
+### [Distribuera exempel](scripts/cli-deploy-application.md)
+### [Ta bort exempel](scripts/cli-remove-application.md)
 # Koncept
 ## [Förstå mikrotjänster](service-fabric-overview-microservices.md)
 ## [Helhetsbild](service-fabric-content-roadmap.md)
@@ -176,11 +178,14 @@
 #### Kom igång
 ##### [C# i Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java i Linux](service-fabric-reliable-actors-get-started-java.md)
+##### [Java-aktör i Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Skicka aviseringar](service-fabric-reliable-actors-events.md)
 #### [Ställ in timrar och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
 #### [Konfigurera KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Konfigurera kommunikationsinställningar](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Konfigurera ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Migrera gamla Java-program som stöder Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Konfigurera omvänd proxy för säker kommunikation](service-fabric-reverseproxy-configure-secure-communication.md)
 
@@ -218,7 +223,7 @@
 ### Distribuera eller ta bort program
 #### [Distribuera program i ett lokalt kluster](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient-API:er](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -253,6 +258,7 @@
 #### [Uppgradera](service-fabric-cluster-upgrade.md)
 #### [Ange åtkomstkontroll](service-fabric-cluster-security-roles.md)
 #### [Konfigurera](service-fabric-cluster-fabric-settings.md)
+#### [Öppna en port i belastningsutjämnaren](create-load-balancer-rule.md)
 #### [Hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md)
 #### [Ta bort](service-fabric-cluster-delete.md)
 
@@ -272,8 +278,7 @@
 ### [Visualisera ett kluster](service-fabric-visualizing-your-cluster.md)
 ### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Hantera ett kluster med XPlat CLI](service-fabric-azure-cli.md)
-### [Hantera ett kluster med Azure CLI 2.0-kommandon](service-fabric-azure-cli-2-0.md)
+### [Hantera ett kluster med Service Fabric CLI](service-fabric-cli.md)
 ### [Korrigera klusternoder](service-fabric-patch-orchestration-application.md)
 
 ### Hantera och dirigera klusterresurser

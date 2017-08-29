@@ -32,7 +32,9 @@
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan användas samtidigt](expressroute-howto-coexist-resource-manager.md)
-## [Konfigurera routningsfilter för Microsoft-peering](how-to-routefilter-powershell.md)
+## Konfigurera routningsfilter för Microsoft-peering
+### [Azure Portal](how-to-routefilter-portal.md)
+### [PowerShell](how-to-routefilter-powershell.md)
 ## [Flytta en krets från klassisk till Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrera associerade virtuella nätverk från klassisk till Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurera en router för ExpressRoute

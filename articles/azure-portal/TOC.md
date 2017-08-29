@@ -1,16 +1,21 @@
-# [Översikt](../azure-portal-overview.md)
+# Översikt
+## [Om Azure Portal](../azure-portal-overview.md)
+# Självstudier
+## [DevOps med Azure Portal](tutorial-azureportal-devops.md)
+# Koncept
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-# Kom igång
-## [Distribuera med Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md)
-
-# Gör så här för att
+## [Kortkommandon](azure-portal-keyboard-shortcuts.md)
+## [Webbläsare och enheter som stöds](../azure-preview-portal-supported-browsers-devices.md)
+# Instruktionsguider
 ## Distribuera
 ### [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
-
+### [Distribuera med Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md)
+### [Skapa och dela Azure-instrumentpaneler](azure-portal-dashboards.md)
 ## Hantera
-### [Använd Preview Portal för att hantera resurser](../azure-resource-manager/resource-group-portal.md)
-### [Hantera åtkomst med RBAC](../active-directory/role-based-access-control-configure.md)
+### [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md)
+### [Använd portalen för att hantera resurser](../azure-resource-manager/resource-group-portal.md)
+### [Hantera åtkomst med rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md)
+### [Dela instrumentpaneler med rollbaserad åtkomstkontroll](azure-portal-dashboard-share-access.md)
 ### [Använd taggar för att organisera resurser](../azure-resource-manager/resource-group-using-tags.md)
 ### [Skala dina resurser](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Skapa den nya Azure-tjänstens huvudnamn](../azure-resource-manager/resource-group-create-service-principal-portal.md)
@@ -23,7 +28,7 @@
 ### [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Relaterat
-## [Funktioner för Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-functions.md)
+## [Azure Resource Manager-mallfunktioner](../azure-resource-manager/resource-group-template-functions.md)
 ## [Bästa metoder för autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Vanliga mått för autoskalning](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooks för autoskalningsaviseringar](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)

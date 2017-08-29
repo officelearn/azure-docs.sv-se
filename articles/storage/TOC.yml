@@ -1,0 +1,16 @@
+- name: Översikt
+  items:
+    - name: Introduktion
+      href: ./common/storage-introduction.md
+    - name: 'Välja blobar, filer eller datadiskar'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Blobar
+  href: ./blobs/storage-blobs-introduction.md
+- name: Filer
+  href: ./files/storage-files-introduction.md
+- name: Köer
+  href: ./queues/storage-queues-introduction.md
+- name: Tabeller
+  href: ../cosmos-db/table-storage-overview.md
+- name: Diskar
+  href: ../virtual-machines/windows/managed-disks-overview.md

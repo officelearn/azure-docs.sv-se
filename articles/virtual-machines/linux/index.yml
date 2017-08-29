@@ -18,89 +18,92 @@ abstract:
   description: 'Virtuella Linux-datorer i Azure tillhandahåller en säker, virtualiserad infrastruktur på begäran och med hög skalbarhet med hjälp av Red Hat, Ubuntu eller valfri annan Linux-distribution. Lär dig hur du skapar, konfigurerar, hanterar och skalar virtuella Linux-datorer med våra snabbstarter, självstudier och exempel.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/create-linux-virtual-machine.png
-      width: 250  
+      src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/create-linux-virtual-machine.png'
+      width: 250
     title: 'Skapa en virtuell Linux-dator. (4:11)'
-    href: https://azure.microsoft.com/en-us/resources/videos/create-linux-virtual-machine/
+    href: 'https://azure.microsoft.com/en-us/resources/videos/create-linux-virtual-machine/'
     width: 250
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du distribuerar en NGINX-webbserver i en virtuell dator som kör Ubuntu:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig att distribuera, hantera och skala virtuella Linux-datorer på Azure'
-  - type: list
-    style: ordered
+  - title: Snabbstarter på 5 minuter
     items:
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Skapa och hantera virtuella Linux-datorer</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Skapa och hantera virtuella datordiskar</a></li>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automatisera konfiguration av virtuella datorer</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Skapa anpassade avbildningar av en virtuell dator</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Skapa virtuella datorer med hög tillgänglighet</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Skapa en VM-skalningsuppsättning</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Belastningsutjämna virtuella datorer</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Hantera virtuella datorer och virtuella nätverk</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Säkerhetskopiera virtuella datorer</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Övervaka virtuella datorer</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Hantera säkerhet på virtuella datorer</a>
-    - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Skapa en CI/CD-infrastruktur med Jenkins, Docker och GitHub</a>'
-- title: Kostnadsfri videoutbildning för PluralSight
-  items:
-  - type: list
-    style: cards
-    className: cardsW
+      - type: paragraph
+        text: 'Lär dig hur du distribuerar en NGINX-webbserver i en virtuell dator som kör Ubuntu:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: Azure CLI
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
+            text: Azure Portal
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
+  - title: Steg för steg-självstudier
     items:
-    - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Hantera infrastruktur</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png
-        href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Komma igång med Virtual Machines</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png
-        href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Komma igång med IaaS-övervakning</a></p>'
-      image: 
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png
-        href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-- title: Exempel
-  items:
-  - type: paragraph
-    text: Distribuera din första app till Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Lär dig att distribuera, hantera och skala virtuella Linux-datorer på Azure'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Skapa och hantera virtuella Linux-datorer</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Skapa och hantera virtuella datordiskar</a></li>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automatisera konfiguration av virtuella datorer</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Skapa anpassade avbildningar av en virtuell dator</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Skapa virtuella datorer med hög tillgänglighet</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Skapa en VM-skalningsuppsättning</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Belastningsutjämna virtuella datorer</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Hantera virtuella datorer och virtuella nätverk</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Säkerhetskopiera virtuella datorer</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Övervaka virtuella datorer</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Hantera säkerhet på virtuella datorer</a>
+          - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Skapa en CI/CD-infrastruktur med Jenkins, Docker och GitHub</a>'
+          - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD med Team Services</a>
+          - html: 'Skapa en webbserverstack med <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> eller <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
+          - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Skydda en webbserver med SSL</a>
+  - title: Kostnadsfri videoutbildning för PluralSight
     items:
-    - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
-    - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsW
+        items:
+          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Hantera infrastruktur</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png'
+              href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Komma igång med Virtual Machines</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png'
+              href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">Komma igång med IaaS-övervakning</a></p>'
+            image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png'
+              href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
+  - title: Exempel
     items:
-    - title: Kommandorad
-      html: <p><a href="/cli/azure/vm">Azure CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
-    - title: Språk
-      html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-    - title: REST
-      html: <p><a href="/rest/api/compute">REST API-referens</a></p>
+      - type: paragraph
+        text: Distribuera din första app till Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Azure CLI</a>
+          - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/cli/azure/vm">Azure CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+          - title: Språk
+            html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/compute">REST API-referens</a></p>

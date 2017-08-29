@@ -42,8 +42,11 @@
 ## Hantera återanvändbara mallar
 ### [Lägg till en Git-lagringsplats för artefakter och mallar](devtest-lab-add-artifact-repo.md)
 ### [Använd en Resource Manager-mall](devtest-lab-use-resource-manager-template.md)
-### [Skapa anpassade artefakter](devtest-lab-artifact-author.md)
 ### [Hantera formler](devtest-lab-manage-formulas.md)
+
+## Hantera artefakter
+### [Skapa anpassade artefakter](devtest-lab-artifact-author.md)
+### [Diagnostisera fel i artefakter](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## Hantera virtuella nätverk
 ### [Konfigurera virtuella nätverk](devtest-lab-configure-vnet.md)

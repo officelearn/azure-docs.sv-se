@@ -21,6 +21,7 @@
 #### [Installera användarportalen](multi-factor-authentication-get-started-portal.md)
 #### [Avancerade VPN-konfigurationer](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Webbtjänsten för mobilappar](multi-factor-authentication-get-started-server-webservice.md)
+#### [Konfigurera hög tillgänglighet](mfa-server-high-availability.md)
 #### [Windows-autentisering](multi-factor-authentication-get-started-server-windows.md)
 #### [Uppgradera MFA Server](multi-factor-authentication-server-upgrade.md)
 #### [Uppgradera från PhoneFactor](multi-factor-authentication-get-started-server-upgrade.md)

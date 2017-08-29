@@ -64,6 +64,7 @@
 ## [Källor för övervakningsdata](monitoring-data-sources.md)
 ## [Lista över mått som stöds](monitoring-supported-metrics.md)
 ## [Händelseschema för aktivitetslogg](monitoring-activity-log-schema.md)
+## [Tjänster, kategorier och scheman som stöds för diagnostikloggar](monitoring-diagnostic-logs-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)

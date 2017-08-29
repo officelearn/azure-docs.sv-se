@@ -8,6 +8,7 @@
 ## [Service Fabric-säkerhet](azure-service-fabric-security-overview.md)
 ## [Identitetshantering](security-identity-management-overview.md)
 ## [IoT-säkerhet](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Översikt över Azure-kryptering](security-azure-encryption-overview.md)
 ## [Säkerhetsarkitektur](azure-security-architecture-overview.md)
 ### [Aktivera driftsäkerhet](azure-operational-security.md)
 ### [Avancerad hotidentifiering](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## Lagringssäkerhet
 ### [Metodtips för datasäkerhet och kryptering](azure-security-data-encryption-best-practices.md)
-### [Lagringssäkerhetsguide](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Lagringssäkerhetsguide](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Compute-säkerhet
 ### [Metodtips för virtuella Azure-datorer](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## PaaS-tjänster
 ### [Skydda PaaS-distributioner](security-paas-deployments.md)
-#### [Skydda PaaS-program (webb- och mobilprogram) med SQL](security-paas-applications-using-sql.md)
-#### [Metodtips för SQL Database-säkerhet](azure-database-security-best-practices.md)
-#### [Checklista för SQL Database-säkerhet](azure-database-security-checklist.md)
 #### [Skydda PaaS-program (webb- och mobilprogram) med Apptjänster](security-paas-applications-using-app-services.md)
+#### [Skydda PaaS-program (webb- och mobilprogram) med SQL](security-paas-applications-using-sql.md)
+##### [Metodtips för SQL Database-säkerhet](azure-database-security-best-practices.md)
+##### [Checklista för SQL Database-säkerhet](azure-database-security-checklist.md)
 ####[Checklista för driftsäkerhet](azure-operational-security-checklist.md)
+#### [Skydda PaaS-program (webb- och mobilprogram) med Azure Storage](security-paas-applications-using-storage.md)
 
 ## Internet of Things
 ### [Skydda distributionen av IoT](../iot-suite/iot-suite-security-deployment.md)
@@ -97,13 +99,17 @@
 ## [Säkerhetskurser från Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Säkerhetsvideor på Channel 9](security-channel-nine.md)
 ## [Hotmodelleringsverktyg](azure-security-threat-modeling-tool.md)
-###[Granskning och loggning](azure-security-threat-modeling-tool-auditing-and-logging.md)
-###[Autentisering](azure-security-threat-modeling-tool-authentication.md)
-###[Auktorisering](azure-security-threat-modeling-tool-authorization.md)
-###[Kommunikationssäkerhet](azure-security-threat-modeling-tool-communication-security.md)
-###[Konfigurationshantering](azure-security-threat-modeling-tool-configuration-management.md)
-###[Kryptografi](azure-security-threat-modeling-tool-cryptography.md)
-###[Hantering av undantag](azure-security-threat-modeling-tool-exception-management.md)
-###[Indataverifiering](azure-security-threat-modeling-tool-input-validation.md)
-###[Känsliga data](azure-security-threat-modeling-tool-sensitive-data.md)
-###[Sessionshantering](azure-security-threat-modeling-tool-session-management.md)
+### [Komma igång](azure-security-threat-modeling-tool-getting-started.md)
+### [Översikt över funktioner](azure-security-threat-modeling-tool-feature-overview.md)
+### [Hot](azure-security-threat-modeling-tool-threats.md)
+### [Åtgärder](azure-security-threat-modeling-tool-mitigations.md)
+#### [Granskning och loggning](azure-security-threat-modeling-tool-auditing-and-logging.md)
+#### [Autentisering](azure-security-threat-modeling-tool-authentication.md)
+#### [Auktorisering](azure-security-threat-modeling-tool-authorization.md)
+#### [Kommunikationssäkerhet](azure-security-threat-modeling-tool-communication-security.md)
+#### [Konfigurationshantering](azure-security-threat-modeling-tool-configuration-management.md)
+#### [Kryptografi](azure-security-threat-modeling-tool-cryptography.md)
+#### [Hantering av undantag](azure-security-threat-modeling-tool-exception-management.md)
+#### [Indataverifiering](azure-security-threat-modeling-tool-input-validation.md)
+#### [Känsliga data](azure-security-threat-modeling-tool-sensitive-data.md)
+#### [Sessionshantering](azure-security-threat-modeling-tool-session-management.md)

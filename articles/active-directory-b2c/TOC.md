@@ -56,9 +56,12 @@
 ## [Anpassade principer](active-directory-b2c-overview-custom.md)
 ## Guider
 ### [Kom igång](active-directory-b2c-get-started-custom.md)
-### Konfigurera OIDC-providrar
+### Konfigurera OIDC/OAUTH2-providrar
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Microsoft-konto](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google +](active-directory-b2c-custom-setup-goog-idp.md)
 ### Konfigurera SAML-providrar
+#### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrera RESTful-API:er
 #### [Verifiera användarinmatning](active-directory-b2c-rest-api-validation-custom.md)
@@ -72,7 +75,7 @@
 #### [Samla in loggar med Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referens
 ### [Viktig information](active-directory-b2c-developer-notes-custom.md)
-
+### [Definition av betrott ramverk](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Ordlista

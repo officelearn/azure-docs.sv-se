@@ -166,11 +166,13 @@
 #### [Från andra lagringsenheter](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Uppdatering
-#### [Installera Uppdatering 4 – aktuell](storsimple-8000-install-update-4.md)
+#### [Installera Uppdatering 5 – aktuell](storsimple-8000-install-update-5.md)
+#### [Installera Uppdatering 4](storsimple-8000-install-update-4.md)
 
 
 ## Viktig information
-### [Uppdatering 4 – aktuell](storsimple-update4-release-notes.md)
+### [Uppdatering 5 – aktuell](storsimple-update5-release-notes.md)
+### [Uppdatering 4](storsimple-update4-release-notes.md)
 ### [Uppdatering 3](storsimple-update3-release-notes.md)
 ### [Uppdatering 2.2](storsimple-update21-release-notes.md)
 

@@ -33,17 +33,15 @@
   items:
     - name: Säkra behållare
       href: container-service-security.md
-    - name: Tjänstens huvudnamn – Kubernetes
-      href: container-service-kubernetes-service-principal.md
 - name: Instruktionsguider
   items:
-    - name: Kubernetes med Windows-snabbstart
+    - name: Kubernetes med Windows
       href: container-service-kubernetes-windows-walkthrough.md
-    - name: Hantering av behållare – användargränssnitt för Kubernetes
+    - name: Kubernetes-webbgränssnitt
       href: container-service-kubernetes-ui.md
     - name: Distribuera Helm-diagram
       href: container-service-kubernetes-helm.md
-    - name: Kontinuerlig integrering och kontinuerlig leverans (CI/CD) med Kubernetes och Jenkins
+    - name: Jenkins och ACS Kubernetes
       href: container-service-kubernetes-jenkins.md
     - name: Använd utkast med ACR och ACS
       href: container-service-draft-up.md

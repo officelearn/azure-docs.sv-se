@@ -32,6 +32,7 @@
 ### [Registreringsproblem](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Nekat kort](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Inloggningsproblem](billing-cannot-login-subscription.md)
+### [Inga prenumerationer hittades](billing-no-subscriptions-found.md)
 
 # Referens
 ## [API-översikt](billing-usage-rate-card-overview.md)

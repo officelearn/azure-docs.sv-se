@@ -65,6 +65,10 @@
           href: sql-database-servers-databases.md
         - name: Tjänstnivåer
           href: sql-database-service-tiers.md
+        - name: Resursbegränsningar
+          href: sql-database-resource-limits.md
+        - name: Enkla databaser
+          href: sql-database-single-database-resources.md
         - name: Elastiska pooler
           href: sql-database-elastic-pool.md
         - name: Anslutningsarkitektur
@@ -75,8 +79,6 @@
           href: sql-database-what-is-a-dtu.md
         - name: DTU-benchmark
           href: sql-database-benchmark-overview.md
-        - name: Begränsningar
-          href: sql-database-resource-limits.md
         - name: PaaS eller IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
         - name: Granskning

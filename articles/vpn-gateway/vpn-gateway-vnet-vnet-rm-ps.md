@@ -463,7 +463,7 @@ I det här exemplet där gatewayerna finns i olika prenumerationer, har vi delat
 
 ## <a name="faq"></a>Vanliga frågor och svar om VNet-till-VNet
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

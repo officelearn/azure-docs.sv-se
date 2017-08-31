@@ -187,7 +187,7 @@ Du kan dubbelklicka på varje anslutning om du vill visa mer information om ansl
 ## <a name="faq"></a>Vanliga frågor och svar om VNet-till-VNet
 Visa vanliga frågor och svar om du vill ha mer information om anslutningar mellan virtuella nätverk.
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [dokumentationen för Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).

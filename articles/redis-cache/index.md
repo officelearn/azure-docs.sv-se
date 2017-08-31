@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Redis Cache – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder Azure Redis Cache, en säker datacache- och asynkron meddelandetjänst som ger program en snabb åtkomst till data. Självstudier, API-referenser och mycket annat."
 services: redis-cache
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ba5cba11b7b5ba142094e9d2c0b027386266e83a
 ms.openlocfilehash: 19756171a8831eef9ac25cfa619a815d17140257
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="redis-cache-documentation"></a>Dokumentation för Redis Cache
@@ -195,10 +197,5 @@ Lär dig hur du använder Azure Redis Cache, en säker datacache- och asynkron m
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

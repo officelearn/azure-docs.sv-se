@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Event Hubs – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder Event Hubs för att mata in miljontals händelser per sekund från anslutna IoT-enheter och appar på en bred uppsättning plattformar."
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Site Recovery – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du konfigurera molnhaveriberedskap och företagskontinuitet för virtuella datorer och fysiska servrar genom att distribuera och hantera replikering."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Log Analytics – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder Log Analytics för att samla in och analysera data som genererats av resurser i ditt moln och lokala miljöer, oavsett fysisk plats."
 services: log-analytics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b44e02d3e22722c05adce10c3b527adf9be20f00
 ms.openlocfilehash: 9d5d1ada86a2cb1b6f6f70d9c662708f81b5bcc6
+ms.contentlocale: sv-se
 ms.lasthandoff: 02/23/2017
 
 ---

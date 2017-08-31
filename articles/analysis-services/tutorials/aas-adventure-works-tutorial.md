@@ -3,7 +3,7 @@ title: "Azure Analysis Services – Självstudiekurs för Adventure Works | Micr
 description: "Presentation av självstudiekursen för Adventure Works för Azure Analysis Services"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

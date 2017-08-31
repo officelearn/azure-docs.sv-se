@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 10: Skapa partitioner | Microso
 description: "Beskriver hur du skapar partitioner i Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

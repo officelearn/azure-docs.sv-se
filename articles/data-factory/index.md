@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Data Factory – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder Data Factory för att konfigurera automatiska datapipelines till och från källor på lokala platser och i molnet, för att flytta och bearbeta data för analys."
 services: data-factory
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

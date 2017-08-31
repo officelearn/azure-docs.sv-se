@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 5: Skapa beräknade kolumner | 
 description: "Beskriver hur du skapar beräknade kolumner i Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

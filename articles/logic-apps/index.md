@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Logic Apps – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig att utveckla logikappar som automatiserar och förenklar affärs-arbetsflöden mellan lokala platser och molnet. Självstudier, mallar och API-referenser."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

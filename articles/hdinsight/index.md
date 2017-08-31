@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure HDInsight – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig om Hadoop på HDInsight. Dokumentation som visar dig hur du kan använda Hadoop, Spark, HBase, R-Server med flera för att bearbeta, analysera och få insikter från stordata."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

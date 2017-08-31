@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 11: Skapa roller | Microsoft Do
 description: "Beskriver hur du skapar roller i Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

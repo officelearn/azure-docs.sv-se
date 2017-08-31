@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 2: Hämta data | Microsoft Docs
 description: "Beskriver hur du hämtar och importerar data i Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

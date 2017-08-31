@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Cloud Services – Självstudier, API-referens | Microsoft Docs"
 description: "Självstudier, API-referenser och annan dokumentation visar hur du använder Cloud Services för att hantera och köra API:er och skalbara molnprogram med hög tillgänglighet."
 services: cloud-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c8e0cec964b7c72e45564ff776c55be1b06bfbc1
 ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="cloud-services-documentation"></a>Dokumentation om Cloud Services
@@ -127,10 +129,5 @@ Lär dig hur du använder Cloud Services för att hantera och köra API:er och s
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

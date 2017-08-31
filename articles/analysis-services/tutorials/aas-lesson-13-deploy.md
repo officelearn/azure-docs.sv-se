@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 13: Distribuera | Microsoft Doc
 description: "Beskriver hur du distribuerar självstudieprojektet i Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

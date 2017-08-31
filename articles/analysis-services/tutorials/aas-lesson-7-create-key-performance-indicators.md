@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 7: Skapa KPI:er | Microsoft Doc
 description: "Beskriver hur du skapar KPI:er i Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure DNS – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig att hantera dina DNS-poster med hjälp av Azure Domain Name System. Dokumentation som visar hur du konfigurerar och hanterar DNS-zoner och poster för domännamn."
 services: dns
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 659e0989e3a1f7114796c2211606e5d629cf68fd
+ms.contentlocale: sv-se
 ms.lasthandoff: 03/22/2017
 
 ---

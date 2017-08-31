@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Multi-factor Authentication – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du distribuerar Multi-Factor Authentication med en mängd verifieringsmetoder som ger en enkel inloggningsprocess. Självstudier, en SDK och mycket mer."
 services: multi-factor-authentication
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: acd9ead9012043bc6db8c32add86bb7797fcf8c9
 ms.openlocfilehash: c4aaa14007bf441f99ef6599bda411bcaed92a92
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -117,10 +119,5 @@ Lär dig att distribuera och hantera Azure Multi-Factor Authentication, ett två
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

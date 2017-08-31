@@ -3,7 +3,7 @@ title: "Kompletterande lektion i Azure Analysis Services-självstudiekurs: Detal
 description: "Beskriver hur du skapar uttryck för rader med detaljerad information i Azure Analysis Services-självstudiekursen."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Batch – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder Batch för att effektivt köra storskaliga, parallella program och HPC-program (databehandling med höga prestanda). Självstudier, API-referenser och annan dokumentation."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

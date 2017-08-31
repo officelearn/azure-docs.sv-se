@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: "Dokumentation för Service Bus Relay"
 description: "Lär dig hur tjänsten Azure Relay fungerar i ett hybridmoln och lokal miljö, och komplettera med anvisningar, självstudier, videor, API-referenser och mycket mer."
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: sv-se
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Dokumentation för Service Bus Relay
 Läs om hur tjänsten Azure Relay hjälper dig att använda hybridprogram mellan en lokal miljö och molnmiljö (i ett företagsnätverk och det offentliga molnet), utan att du behöver öppna en brandväggsanslutning eller göra störande ändringar i företagets nätverksinfrastruktur.

@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 8: Skapa perspektiv | Microsoft
 description: "Beskriver hur du skapar perspektiv i Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 4: Skapa relationer | Microsoft
 description: "Beskriver hur du skapar relationer i Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

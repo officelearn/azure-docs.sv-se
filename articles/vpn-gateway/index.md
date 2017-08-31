@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure VPN-gateway – Självstudier och API-referens | Microsoft Docs"
 description: "Lär dig hur du konfigurerar gatewayer för virtuellt privat nätverk (VPN-gateway) för att hantera trafik mellan virtuella nätverk i molnet och lokala platser, eller mellan olika virtuella nätverk i molnet."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

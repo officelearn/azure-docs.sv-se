@@ -3,7 +3,7 @@ title: "Kompletterande lektion i Azure Analysis Services-självstudiekurs: Dynam
 description: "Beskriver hur du använder dynamisk säkerhet med hjälp av radfilter i Azure Analysis Services-kursen."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

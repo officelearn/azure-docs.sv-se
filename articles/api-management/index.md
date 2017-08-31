@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure API Management – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder API Management för att publicera API:er på ett säkert sätt och i större skala. Dokumentation visar hur du skapar moderna API-gatewayer för befintliga serverdelstjänster."
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
 ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="api-management-documentation"></a>Dokumentation om API Management
@@ -143,10 +145,5 @@ Lär dig hur du använder API Management för att publicera API:er till externa,
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

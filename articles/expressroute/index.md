@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure ExpressRoute – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du konfigurerar och hanterar en privat ExpressRoute-anslutning till Microsoft Cloud-tjänster från din infrastruktur på plats eller delade miljö."
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

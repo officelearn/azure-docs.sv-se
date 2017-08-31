@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Monitor – självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder tjänster för övervakning och diagnostik för att spåra prestanda, upprätthålla säkerhet och identifiera trender. API-referenser, bästa metoder och mycket annat."
 services: monitoring-and-diagnostics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

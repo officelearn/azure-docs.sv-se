@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 9: Skapa hierarkier | Microsoft
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -6,46 +6,46 @@ metadata:
   title: 'Dokumentation om Azure MYSQL – självstudier, API-referens | Microsoft Docs'
   description: Azure Database för MySQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på MySQL-databasmotorn för öppen källkod.
   services: mysql
-  author: jasonh
-  manager: jhubbard
+  author: czeumault
+  manager: carolz
   ms.service: mysql
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/13/2017
-  ms.author: jasonh
+  ms.author: carolz
 abstract:
   description: 'Azure Database för MySQL är en relationsdatabastjänst baserad på MySQL-servermotorn för öppen källkod.  Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritisk arbetsbelastning med förutsägbara prestanda och dynamisk skalbarhet. Utveckla program med Azure Database för MySQL och använd valfria verktyg för öppen källkod och plattform. Lär dig hur du använder Azure Database för MySQL med våra snabbstarter, självstudier och exempel.'
 sections:
-- title: Snabbstarter på 5 minuter
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du skapar en MySQL-databas på Azure med hjälp av:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
-    - image: 
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
-- title: Steg för steg-självstudier
-  items:
-  - type: paragraph
-    text: 'Lär dig hur du utformar din databas och utvecklar appar:'
-  - type: list
-    style: ordered
+  - title: Snabbstarter på 5 minuter
     items:
-    - html: 'Utforma en databas&#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
-    - html: 'Skapa en webbapp &#58; <a href="../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json">Wordpress – Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP – Azure CLI</a>'
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Lär dig hur du skapar en MySQL-databas på Azure med hjälp av:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Azure Portal
+            href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
+          - image:
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: Azure CLI
+            href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
+  - title: Steg för steg-självstudier
     items:
-    - title: Kommandorad
-      html: <p><a href="/cli/azure/mysql">Azure CLI</a></p>
+      - type: paragraph
+        text: 'Lär dig hur du utformar din databas och utvecklar appar:'
+      - type: list
+        style: ordered
+        items:
+          - html: 'Utforma en databas&#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
+          - html: 'Skapa en webbapp &#58; <a href="../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json">Wordpress – Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP – Azure CLI</a>'
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/cli/azure/mysql">Azure CLI</a></p>

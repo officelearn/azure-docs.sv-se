@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Data Catalog – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du konfigurerar en datakatalog där din organisation kan hitta, förstå och använda datakällor. Självstudier, API-referens och annan dokumentation."
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

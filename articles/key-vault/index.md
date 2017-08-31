@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Key Vault – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder Key Vault för att skapa och underhålla nycklar som ger åtkomst till och krypterar dina molnresurser, appar och lösningar. Självstudier, API-referenser och mycket annat."
 services: key-vault
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

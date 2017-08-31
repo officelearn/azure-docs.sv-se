@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 3: Markera som datumtabell | Mi
 description: "Beskriver hur du markerar en datumtabell i Azure Analysis Services-självstudiekursprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

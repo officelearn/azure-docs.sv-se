@@ -6,7 +6,7 @@ metadata:
   title: 'Dokumentation om Azure Cosmos DB – självstudier, API-referens'
   description: 'Lär dig att använda Azure Cosmos DB för att skapa globalt distribuerade databaser för flera datamodeller. I självstudierna lär du dig att bygga upp databaser för datamodeller av typen frågedokument, nyckel/värde och graf.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

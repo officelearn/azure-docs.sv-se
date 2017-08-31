@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure App Service – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder App Service för att skapa webb- och mobilappar för alla plattformar och enheter med hjälp av självstudier, videor, API-referenser och annan dokumentation."
 services: app-service
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
 ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="app-service-documentation"></a>Dokumentation om App Service
@@ -132,10 +134,5 @@ Lär dig hur du använder App Service för att utveckla och hantera webb- och mo
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

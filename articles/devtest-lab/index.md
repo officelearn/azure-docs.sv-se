@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Devtest Labs – Självstudier | Microsoft Docs"
 description: "Lär dig att snabbt skapa apptestmiljöer med hjälp av återanvändbara artefakter. Självstudier, videor och mycket mer visar hur du skapar, hanterar och skyddar labb."
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

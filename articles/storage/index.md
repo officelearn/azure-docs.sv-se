@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Storage – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder Azure Storage – Blob-, tabell-, kö-, fillagring och lagring av virtuella diskar i molnet. Självstudier, API-referenser och annan dokumentation."
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Resource Manager – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder Resource Manager för att distribuera och hantera lösningsresurser som en grupp och hur du skapar mallar för konsekvent och repeterbar resursdistribution."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

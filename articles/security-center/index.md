@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Security Center – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du konfigurerar säkerhetsövervakning och principhantering av Azure-resurser. Självstudier, en REST-API-referens och annan dokumentation."
 services: security-center
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 75d2819ed673b6283221d1e09507dd9f18a1bc99
 ms.openlocfilehash: 324192324831cbda13f23b784b37efcfd14808d3
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="security-center-documentation"></a>Dokumentation om Security Center
@@ -94,12 +96,7 @@ Lär dig använda Security Center för att få bättre inblick i och kontroll ö
             </div>
         </div>
     </li>
-</ul>    
+</ul>   
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

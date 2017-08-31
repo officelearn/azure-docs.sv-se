@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Billing – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig förstå din Azure-fakturering samt att hantera och övervaka användning och kostnader. Självstudier, vanliga frågor och svar, API-referenser och annan dokumentation."
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

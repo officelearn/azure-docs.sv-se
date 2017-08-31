@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Time Series Insights – självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du kör IoT-analys i molnet med fullständigt hanterad händelsebearbetning. Analysera data i realtid från program, sensorer, enheter och många fler."
 services: time-series-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

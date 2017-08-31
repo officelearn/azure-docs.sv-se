@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure CDN – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder nätverk för innehållsleverans (Content Delivery Network, CDN) för att leverera innehåll från globala datacenter till alla typer av enheter. Självstudier, API-referenser och annan dokumentation."
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

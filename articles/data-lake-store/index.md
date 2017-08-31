@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Data Lake Store – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du konfigurerar, hanterar och får åtkomst till en högskalig, Hadoop-kompatibel Data Lake-lagringsplats för analys av data av alla storlekar, typer och inmatningshastigheter."
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

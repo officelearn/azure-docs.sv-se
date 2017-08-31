@@ -1,20 +1,22 @@
 ---
 title: "Dokumentation om API Apps i Azure App Service – Självstudier | Microsoft Docs"
 description: "Lär di hur du använder API Apps i Azure App Service för att utveckla, hantera och använda API:er i molnet och på plats. Självstudier, videoklipp och annan dokumentation."
-services: app-service\api
-author: carolz
+services: app-service-api
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\api
+ms.service: app-service-api
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 741a6f2be3c8c689884cdeb180ff10dac046032b
 ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="app-service---api-apps-documentation"></a>App Service – API Apps-dokumentation
@@ -132,10 +134,5 @@ Lär di hur du använder API Apps i Azure App Service för att utveckla, hantera
     </li>     
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

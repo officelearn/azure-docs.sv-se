@@ -3,7 +3,7 @@ title: "Kompletterande lektion i Azure Analysis Services-självstudiekurs: Ojäm
 description: "Beskriver hur du åtgärdar ojämna hierarkier i Azure Analysis Services-självstudiekursen."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

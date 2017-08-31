@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure IoT Hub – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du använder IoT Hub för att ansluta, övervaka och styra miljontals Sakernas Internet-resurser. Självstudier, API-referenser, videor och annan dokumentation."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

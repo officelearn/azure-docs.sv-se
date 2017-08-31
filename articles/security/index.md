@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Security – Självstudier | Microsoft Docs"
 description: "Lär dig hur du anpassar säkerhetsalternativ i Azure-tjänster som uppfyller kraven för dina distributioner av tjänster och data i molnet."
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

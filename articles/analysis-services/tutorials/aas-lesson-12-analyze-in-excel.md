@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 12: Analysera i Excel | Microso
 description: "Beskriver hur du använder funktionen Analysera i Excel i Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

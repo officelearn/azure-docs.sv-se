@@ -2,8 +2,8 @@
 title: "Dokumentation om Azure Data Lake Analytics – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du gör stordataanalyser med Data Lake Analytics. Självstudier visar hur du kör batch-, realtids- och interaktiva analyser, och hur du skriver U-SQL-frågor."
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

@@ -8,7 +8,7 @@ author: op-ravi
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -33,8 +33,8 @@ Time Series Insights-miljöer har två oberoende typer av principer för åtkoms
 Båda principerna beviljar Azure Active Directory-huvudkonton (användare och appar) olika behörigheter i en viss miljö. Huvudkontona (användare och appar) måste tillhöra den Active Directory (eller ”Azure-klient”) som är associerad med prenumerationen som innehåller miljön.
 
 Principer för hantering av åtkomst beviljar behörigheter som rör konfigurationen av miljön, som
-*    Skapandet och borttagningen av miljön, händelsekällor, referensdatamängder och
-*    hantering av principerna för dataåtkomst.
+*   Skapandet och borttagningen av miljön, händelsekällor, referensdatamängder och
+*   hantering av principerna för dataåtkomst.
 
 Principerna för dataåtkomst beviljar behörigheter för att utfärda datafrågor, manipulera referensdata i miljön och sparade delade frågor och perspektiv som är associerade till miljön.
 
@@ -43,30 +43,30 @@ De två typerna av principer möjliggör en tydlig uppdelning mellan åtkomst ti
 ## <a name="grant-data-access"></a>Bevilja åtkomst till data
 I följande steg visas hur du ger åtkomst till data för en användares huvudnamn:
 
-1.    Logga in på [Azure Portal](https://portal.azure.com).
-2.    Klicka på ”Alla resurser” på menyn på vänster sida av Azure Portal.
-3.    Välj Time Series Insights-miljö.
+1.  Logga in på [Azure Portal](https://portal.azure.com).
+2.  Klicka på ”Alla resurser” på menyn på vänster sida av Azure Portal.
+3.  Välj Time Series Insights-miljö.
 
   ![Hantera Time Series Insights-källan – miljö](media/data-access/getstarted-grant-data-access1.png)
 
-4.    Välj ”Dataplansåtkomst” och klicka på ”Lägg till”
+4.  Välj ”Dataplansåtkomst” och klicka på ”Lägg till”
 
   ![Hantera Time Series Insights-källan – lägg till](media/data-access/getstarted-grant-data-access2.png)
 
-5.    Klicka på ”Välj användare”.
-6.    Sök och välj användare via e-postmeddelandet.
-7.    Klicka på ”Välj” i bladet ”Välj användare”.
+5.  Klicka på ”Välj användare”.
+6.  Sök och välj användare via e-postmeddelandet.
+7.  Klicka på ”Välj” i bladet ”Välj användare”.
 
   ![Hantera Time Series Insights-källan – välj användare](media/data-access/getstarted-grant-data-access3.png)
 
-8.    Klicka på ”Välj roll”.
-9.    Välj ”Deltagare” om du vill tillåta att användare kan ändra referensdata och dela sparade frågor och perspektiv med andra användare av miljön. Välj annars ”Läsare” för att tillåta att användare söker data i miljön och sparar personliga (inte delade) frågor i miljön.
-10.    Klicka på ”OK” på bladet ”Välj roll”.
+8.  Klicka på ”Välj roll”.
+9.  Välj ”Deltagare” om du vill tillåta att användare kan ändra referensdata och dela sparade frågor och perspektiv med andra användare av miljön. Välj annars ”Läsare” för att tillåta att användare söker data i miljön och sparar personliga (inte delade) frågor i miljön.
+10. Klicka på ”OK” på bladet ”Välj roll”.
 
   ![Hantera Time Series Insights-källan – välj roll](media/data-access/getstarted-grant-data-access4.png)
 
-11.    Klicka på ”OK” på bladet ”Välj användarroll”.
-12.    Du bör se:
+11. Klicka på ”OK” på bladet ”Välj användarroll”.
+12. Du bör se:
 
   ![Hantera Time Series Insights-källan – resultat](media/data-access/getstarted-grant-data-access5.png)
 

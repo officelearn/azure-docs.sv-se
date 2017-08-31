@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Notification Hubs – Självstudier, API-referens | Microsoft Docs"
 description: "Lär dig hur du skickar push-meddelanden från alla serverdelar till alla mobila enheter med Notification Hubs. Självstudier, API-referenser och annan dokumentation."
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

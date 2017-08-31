@@ -2,7 +2,7 @@
 title: "Dokumentation om Azure Backup – Självstudier, API-referens | Microsoft Docs"
 description: "I dokumentationen om Backup kan du läsa om hur du säkerhetskopierar till molnet. Mer information finns i självstudierna och videoklippen för säkerhetskopiering av program, Windows-server och virtuella Azure-datorer."
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

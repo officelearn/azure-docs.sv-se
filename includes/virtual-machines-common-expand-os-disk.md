@@ -1,40 +1,40 @@
-## <a name="overview"></a>Översikt
-När du skapar en ny virtuell dator i en resursgrupp genom att distribuera en avbildning från [Azure Marketplace](https://azure.microsoft.com/marketplace/) är operativsystemets standarddisk 127 GB. Även om det är möjligt att lägga till datadiskar i den virtuella datorn (hur många beror på vilken SKU som har valts) rekommenderas du att installera program och processorintensiva arbetsbelastningar på de här tilläggsdiskarna eftersom kunder ofta behöver expandera operativsystemenheten för att kunna hantera följande typ av scenarier:
+## <a name="overview"></a>Overview
+When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
 
-1. Stöd för äldre program som installerar komponenter på operativsystemenheten.
-2. Migrera en fysisk eller virtuell dator från lokal plats med större operativsystemenhet.
+1. Support legacy applications that install components on OS drive.
+2. Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
 
 > [!IMPORTANT]
-> I Azure finns två olika distributionsmodeller för att skapa och arbeta med resurser: Resource Manager och klassisk. I den här artikeln beskrivs hur du använder Resource Manager-modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Resource Manager model. Microsoft recommends that most new deployments use the Resource Manager model.
 > 
 > 
 
-## <a name="resize-the-os-drive"></a>Ändra storlek på operativsystemenheten
-I den här artikeln ska vi ändra storlek på operativsystemenheten med hjälp av Resource Manager-moduler i [Azure Powershell](/powershell/azureps-cmdlets-docs). Öppna Powershell ISE eller Powershell-fönstret i administrativt läge och följ anvisningarna nedan:
+## <a name="resize-the-os-drive"></a>Resize the OS drive
+In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](/powershell/azureps-cmdlets-docs). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
 
-1. Logga in på Microsoft Azure-kontot i resurshanteringsläge och välj din prenumeration enligt följande:
+1. Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
    
    ```Powershell
    Login-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
-2. Ange namn på resursgrupp och virtuell dator på följande sätt:
+2. Set your resource group name and VM name as follows:
    
    ```Powershell
    $rgName = 'my-resource-group-name'
    $vmName = 'my-vm-name'
    ```
-3. Hämta en referens till din virtuella dator på följande sätt:
+3. Obtain a reference to your VM as follows:
    
    ```Powershell
    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
-4. Stoppa den virtuella datorn innan du ändrar storlek på disken på följande sätt:
+4. Stop the VM before resizing the disk as follows:
    
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. Och nu till det vi väntat på! Ange önskad storlek på operativsystemdisken och uppdatera den virtuella datorn på följande sätt:
+5. And here comes the moment we’ve been waiting for! Set the size of the OS disk to the desired value and update the VM as follows:
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -42,19 +42,19 @@ I den här artikeln ska vi ändra storlek på operativsystemenheten med hjälp a
    ```
    
    > [!WARNING]
-   > Den nya storleken måste vara större än den befintliga. Maxvärdet är 1 023 GB.
+   > The new size should be greater than the existing disk size. The maximum allowed is 2048 GB. (It is possible to expand the VHD blob beyond that size, but the OS will only be able to work with the first 2048 GB of space.)
    > 
    > 
-6. Det kan ta några sekunder att uppdatera den virtuella datorn. När kommandot har körts klart startar du om den virtuella datorn på följande sätt:
+6. Updating the VM may take a few seconds. Once the command finishes executing, restart the VM as follows:
    
    ```Powershell
    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
 
-Klart! Anslut till den virtuella datorn via RDP, öppna Datorhantering (eller Diskhantering) och expandera enheten med det nya utrymmet.
+And that’s it! Now RDP into the VM, open Computer Management (or Disk Management) and expand the drive using the newly allocated space.
 
-## <a name="summary"></a>Sammanfattning
-I den här artikeln har vi använt Azure Resource Manager-modulerna i Powershell för att öka storleken på operativsystemenheten för en virtuell IaaS-dator. Se det fullständiga skriptet nedan:
+## <a name="summary"></a>Summary
+In this article, we used Azure Resource Manager modules of Powershell to expand the OS drive of an IaaS virtual machine. Reproduced below is the complete script for your reference:
 
 ```Powershell
 Login-AzureRmAccount
@@ -68,17 +68,17 @@ Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Nästa steg
-I den har artikeln har vi främst fokuserat på att expandera den virtuella datorns operativsystemdisk, men det framtagna skriptet kan även användas för att öka storleken på diskar som är anslutna till den virtuella datorn genom att ändra en enda kodrad. Om du exempelvis vill expandera den första disken som är ansluten till den virtuella datorn, ersätter du objektet ```OSDisk``` i ```StorageProfile``` med matrisen ```DataDisks``` och använder ett numeriskt index för att hämta en referens till den första anslutna disken, på följande sätt:
+## <a name="next-steps"></a>Next Steps
+Though in this article, we focused primarily on expanding the OS disk of the VM, the developed script may also be used for expanding the data disks attached to the VM by changing a single line of code. For example, to expand the first data disk attached to the VM, replace the ```OSDisk``` object of ```StorageProfile``` with ```DataDisks``` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
 
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-På samma sätt kan du referera till andra datadiskar som är kopplade till den virtuella datorn antingen genom att använda ett index som ovan eller med diskens ```Name```-egenskap som på bilden nedan:
+Similarly you may reference other data disks attached to the VM, either by using an index as shown above or the ```Name``` property of the disk as illustrated below:
 
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-Om du vill ta reda på hur du kopplar diskar till en virtuell Azure Resource Manager-dator läser du [artikeln](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

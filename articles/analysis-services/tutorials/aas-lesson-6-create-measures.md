@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 6: Skapa mått | Microsoft Docs
 description: "Beskriver hur du skapar mått i Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

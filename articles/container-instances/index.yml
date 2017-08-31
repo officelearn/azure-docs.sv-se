@@ -5,7 +5,7 @@ metadata:
   title: Dokumentation om Azure Container Instances – självstudier | Microsoft Docs
   description: 'Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå.'
   services: container-instances
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: container-instances
   ms.tgt_pltfrm: na

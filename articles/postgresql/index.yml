@@ -6,14 +6,14 @@ metadata:
   title: 'Dokumentation om Azure PostgreSQL – självstudier, API-referens'
   description: Azure Database för PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på PostgreSQL-databasmotorn för öppen källkod.
   services: postgresql
-  author: jasonwhowell
-  manager: jhubbard
+  author: czeumault
+  manager: carolz
   ms.service: postgresql
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: jasonh
+  ms.author: carolz
 abstract:
   description: 'Azure Database för PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn för öppen källkod.  Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database för PostgreSQL och använd valfria verktyg för öppen källkod och plattform.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.'
 sections:

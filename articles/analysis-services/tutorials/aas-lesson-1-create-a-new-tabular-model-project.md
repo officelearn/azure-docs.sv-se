@@ -3,7 +3,7 @@ title: "Azure Analysis Services självstudiekurs 1: Skapa ett nytt projekt för 
 description: "Beskriver hur du skapar ett nytt Azure Analysis Services-självstudieprojektet."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

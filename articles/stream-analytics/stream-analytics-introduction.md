@@ -4,7 +4,7 @@ description: "Lär dig mer om Stream Analytics, en hanterad tjänst som hjälper
 keywords: "analytics som en tjänst, hanterade tjänster, stream bearbetning, streaming analytics vad är stream analytics"
 services: stream-analytics
 documentationcenter: 
-author: jenniehubbard
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
-ms.author: jhubbard
+ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -98,6 +98,6 @@ Som en hanterad tjänst i molnet, förhindrar Stream Analytics dataförlust och 
 * Lär dig mer om det SQL-liknande frågespråket för Stream Analytics och unika begrepp som [fönsterfunktioner](stream-analytics-window-functions.md).
 * Lär dig [skala Stream Analytics-jobb](stream-analytics-scale-jobs.md). 
 * Lär dig [integrera Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* Få svar på dina Stream Analytics-frågor på [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+* Få svar på dina Stream Analytics-frågor på [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 

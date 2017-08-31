@@ -3,9 +3,18 @@
 ## [Vad är Machine Learning?](machine-learning-what-is-machine-learning.md)
 
 ## TDSP (Team Data Science Process)
-### [Översikt](http://aka.ms/datascienceprocess)
-### [Livscykel](data-science-process-overview.md)
+### [Översikt](data-science-process-overview.md)
+### [Livscykel](data-science-process-lifecycle.md)
 ### [Genomgångar](data-science-process-walkthroughs.md)
+####[Spark med PySpark och Scala](data-science-process-walkthroughs-spark.md)
+##### [Utforska data](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Poängmodeller](machine-learning-data-science-spark-model-consumption.md)
+##### [Avancerad datagranskning](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[Hive med HDInsight Hadoop](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[U-SQL med Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
+####[R, Python och T-SQL med SQLServer](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL och Python med SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
+### [Med Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Vad är Studio?](machine-learning-what-is-ml-studio.md)
@@ -99,12 +108,6 @@
 ##### [Använda Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [Använda SQL VM](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Använda datapipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Bearbeta data med Spark
-##### [Översikt](machine-learning-data-science-spark-overview.md)
-##### [Utforska data](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Poängmodeller](machine-learning-data-science-spark-model-consumption.md)
-##### [Avancerad datagranskning](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Använda Scala och Spark](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## Utveckla modeller
 ### Ta fram och välj funktioner
@@ -165,11 +168,7 @@
 ### [Exempelexperiment](machine-learning-sample-experiments.md)
 ### [Exempeldatauppsättningar](machine-learning-use-sample-datasets.md)
 ### [Kundomsättningsexempel](machine-learning-azure-ml-customer-churn-scenario.md)
-### Slutpunkt-till-slutpunkt-scenarier
-#### [Använda Hadoop-kluster](machine-learning-data-science-process-hive-walkthrough.md)
-#### [Använda Hadoop med 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [Använda SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-#### [Använda SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # Referens
 

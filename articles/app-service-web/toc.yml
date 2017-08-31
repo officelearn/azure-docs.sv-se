@@ -115,8 +115,8 @@
           items:
             - name: Översikt
               href: app-service-linux-intro.md
-            - name: Skapa en webbapp i Linux
-              href: app-service-linux-how-to-create-web-app.md
+            - name: Hantera med hjälp av CLI
+              href: app-service-linux-cli.md
             - name: Ruby-webbapp i Linux
               href: app-service-linux-ruby-get-started.md
             - name: Node.js-webbapp i Linux

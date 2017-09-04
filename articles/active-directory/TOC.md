@@ -10,16 +10,9 @@
 ## [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md)
 ## [Lägga till ett anpassat domännamn](add-custom-domain.md)
 ## [Konfigurera varumärkesexponering](customize-branding.md)
+## [Lägga till användare i Azure AD](add-users-azure-active-directory.md)
+## [Tilldela licenser till användare](license-users-groups.md)
 ## [Konfigurera lösenordsåterställning via självbetjäning](active-directory-passwords-getting-started.md)
-## Hantera Azure AD-licensiering
-### [Azure Portal](active-directory-licensing-get-started-azure-portal.md)
-### [Klassisk portal](active-directory-licensing-what-is.md)
-### [Tilldela licenser med hjälp av grupper](active-directory-licensing-whatis-azure-portal.md)
-#### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
-#### [Identifiera och åtgärda licensproblem i en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
-#### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
-#### [PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 
 
 # Gör så här för att
@@ -44,11 +37,6 @@
 #### [Jämförelse av verktyg](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Hantera användare
-### Lägga till användare
-#### [Azure-portal](active-directory-users-create-azure-portal.md)
-#### [Klassisk portal](active-directory-create-users.md)
-
-
 ### [Tilldela licenser med hjälp av grupper](active-directory-licensing-whatis-azure-portal.md)
 #### [Tilldela licenser till en grupp](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Identifiera och åtgärda licensproblem i en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -56,7 +44,6 @@
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 #### [PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 ### [Lägg till användare från andra kataloger (klassiska portalen)](active-directory-create-users-external.md)
-### [Ta bort användare](active-directory-users-delete-user-azure-portal.md)
 ### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
 ### [Återställ ett lösenord](active-directory-users-reset-password-azure-portal.md)
 ### [Hantera information om användarens arbete](active-directory-users-work-info-azure-portal.md)
@@ -144,19 +131,14 @@
 
 ## Hantera enheter
 ### [Introduktion](device-management-introduction.md)
+### [Använd Azure Portal](device-management-azure-portal.md)
 ### [Vanliga frågor och svar](device-management-faq.md)
 ### Uppgifter
 #### [Konfigurera Azure AD-anslutna hybridenheter](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### Felsöka
-##### [Azure AD-anslutna Windows 10- och Windows Server 2016-hybridenheter](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [Tidigare Azure AD-anslutna Windows-hybridenheter ](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### Registrera enheter
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
-#### [Vanliga frågor och svar](active-directory-device-registration-faq.md)
-#### Felsöka
-##### [Felsökning för Windows 10 och Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
-##### [Felsökning för tidigare Windows-klientversioner](active-directory-device-registration-troubleshoot-windows-legacy.md)
+### Felsöka
+#### [Azure AD-anslutna Windows 10- och Windows Server 2016-hybridenheter](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [Tidigare Azure AD-anslutna Windows-hybridenheter ](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planera](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Konfigurera enhetsregistrering](active-directory-azureadjoin-setup.md)

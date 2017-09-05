@@ -39,12 +39,14 @@
 ### [Prestandajusteringsvägledning för Storm på HDInsight och Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
 
 ## Integrera med Azure-tjänster
+### Med HDInsight
+#### [Använda portalen](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Använda PowerShell (standardlagring)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Använda PowerShell (ytterligare lagring)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Använda Azure-mall](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Åtkomst från virtuella datorer i Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Använd tillsammans med Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [HDInsight med Data Lake Store – Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [HDInsight med Data Lake Store som standardlagringsplats – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-### [HDInsight med Data Lake Store som ytterligare lagringsplats – PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [HDInsight med Data Lake Store – Azure-mall](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Använd med Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
 ### [Använd med Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Använd med Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Använd med Power BI](data-lake-store-power-bi.md)

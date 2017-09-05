@@ -19,8 +19,6 @@
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
-### [Distribuera exempel](scripts/cli-deploy-application.md)
-### [Ta bort exempel](scripts/cli-remove-application.md)
 # Koncept
 ## [Förstå mikrotjänster](service-fabric-overview-microservices.md)
 ## [Helhetsbild](service-fabric-content-roadmap.md)
@@ -115,11 +113,14 @@
 #### [Begränsning](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Tjänstflöde](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Integrera med API Management](service-fabric-api-management-overview.md)
+
 ## Övervaka och diagnostisera
 ### [Översikt](service-fabric-diagnostics-overview.md)
 ### [Hälsomodell](service-fabric-health-introduction.md)
 ### [Diagnostik för tillståndskänslig Reliable Services](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostik i Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Prestandaräknare för fjärrstyrd tillförlitlig tjänst](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # Instruktionsguider
 ## Ställ in din utvecklingsmiljö
@@ -128,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Skapa ett program
+### [Skapa din första C#-app i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Skapa en körbar gästtjänst
 #### [Vara värd för ett Node.js-program i Windows](quickstart-guest-app.md)
 #### [Distribuera en körbar gäst](service-fabric-deploy-existing-app.md)
@@ -208,9 +210,7 @@
 ### [Felsök en Java-tjänst i Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Övervaka och diagnostisera lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Integrera med API Management
-### [Översikt](service-fabric-api-management-overview.md)
-### [Snabbstart](service-fabric-api-management-quick-start.md)
+## [Distribuera API Management och Service Fabric till Azure](service-fabric-api-management-quick-start.md)
 
 ## Migrera från Cloud Services
 ### [Jämför Cloud Services med Service Fabric](service-fabric-cloud-services-migration-differences.md)

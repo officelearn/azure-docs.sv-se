@@ -46,6 +46,7 @@
 ## [Konfigurera token](active-directory-b2c-token-session-sso.md)
 ## [Aktivera MFA](active-directory-b2c-reference-mfa.md)
 ## [Använd anpassade attribut](active-directory-b2c-reference-custom-attr.md)
+## [Anpassa lösenord](active-directory-b2c-reference-password-complexity.md)
 ## [Anpassa gränssnittet](active-directory-b2c-reference-ui-customization.md)
 ### [Hjälpverktyg för anpassning](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Språkanpassning](active-directory-b2c-reference-language-customization.md)
@@ -71,6 +72,7 @@
 #### [Anpassade attribut](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Anpassa användargränssnitt](active-directory-b2c-ui-customization-custom.md)
 #### [Anpassa token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Anpassa lösenord](active-directory-b2c-reference-password-complexity-custom.md)
 ### Felsökning
 #### [Samla in loggar med Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referens

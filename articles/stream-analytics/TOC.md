@@ -13,6 +13,7 @@
 ### [Sociala medier](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Resultat i realtid med Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Händelsebearbetning i realtid](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Avvikelseidentifiering i Azure-användningsguiden (förhandsgranskning)](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## Skapa jobb
 ### [Skapa indata](stream-analytics-define-inputs.md)

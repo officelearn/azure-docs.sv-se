@@ -39,6 +39,8 @@
       href: functions-twitter-email.md
     - name: 2.– Skapa ett serverlöst API
       href: functions-create-serverless-api.md
+    - name: 3 - Skapa en OpenAPI-definition
+      href: functions-openapi-definition.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -99,6 +101,8 @@
           href: functions-api-definition-getting-started.md
         - name: Exportera till PowerApps och Microsoft Flow
           href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Anropa en funktion från PowerApps
+          href: functions-powerapps-scenario.md
 - name: Referens
   items:
     - name: Bindningar

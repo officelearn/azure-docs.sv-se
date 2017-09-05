@@ -140,6 +140,8 @@
 ## Övervaka och felsök
 ### [Problem med Azure till Azure-replikering](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Replikeringsproblem med lokalt till Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Installationsproblem med mobilitetstjänsten](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [Problem med redundans till Azure](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Samla in loggar och felsöka lokala problem](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referens

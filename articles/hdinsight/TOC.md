@@ -57,14 +57,11 @@
 ### [Använda DataFu med Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Kluster på begäran](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Skicka Hadoop-jobb](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Använd R Server
-### [Lagringsalternativ](hdinsight-hadoop-r-server-storage.md)
-### [Installera RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Compute-sammanhang](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR och SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Använda Spark för minnesintern bearbetning
+### Kom igång – Spark-utvecklare
+#### [Skapa fristående app](hdinsight-apache-spark-create-standalone-application.md)
+#### [Fjärrstyrda jobb med Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [Med Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Skapa fristående app](hdinsight-apache-spark-create-standalone-application.md)
 ### [Skapa appar med Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Skapa appar med IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Bearbeta strömningshändelser](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [Använda externa paket med Jupyter med cellfunktioner](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Använda externa paket med Jupyter med skriptåtgärder](hdinsight-apache-spark-python-package-installation.md)
 ### [Använda en lokal Jupyter-anteckningsbok](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Fjärrstyrda jobb med Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Felsöka jobb via en fjärranslutning med IntelliJ genom VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Kända problem](hdinsight-apache-spark-known-issues.md)
+## Använd R Server
+### [Lagringsalternativ](hdinsight-hadoop-r-server-storage.md)
+### [Installera RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
+### [Compute-sammanhang](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR och SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Använda HBase
 ### [Använda Phoenix och SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analysera tweets i realtid](hdinsight-hbase-analyze-twitter-sentiment.md)

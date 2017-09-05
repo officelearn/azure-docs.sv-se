@@ -134,8 +134,11 @@
 ### [Använd Azure Portal](device-management-azure-portal.md)
 ### [Vanliga frågor och svar](device-management-faq.md)
 ### Uppgifter
+#### [Konfigurera Azure AD-registrerade Windows 10-enheter](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Konfigurera Azure AD-anslutna enheter](device-management-azuread-joined-devices-setup.md)
 #### [Konfigurera Azure AD-anslutna hybridenheter](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
+#### [Azure AD-anslutning under första körningen av Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Felsöka
 #### [Azure AD-anslutna Windows 10- och Windows Server 2016-hybridenheter](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Tidigare Azure AD-anslutna Windows-hybridenheter ](device-management-troubleshoot-hybrid-join-windows-legacy.md)
@@ -297,7 +300,6 @@
 #### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
-#### [Appar som stöds](active-directory-conditional-access-supported-apps.md)
 #### [Förstå enhetsprinciper](active-directory-conditional-access-device-policies.md)
 #### [Konfigurera åtkomst till anslutna appar](active-directory-conditional-access-policy-connected-applications.md)
 #### [Reparation](active-directory-conditional-access-device-remediation.md)

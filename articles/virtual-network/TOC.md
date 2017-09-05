@@ -140,6 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Testning av dataflöde](virtual-network-bandwidth-testing.md)
 ### [Det går inte att ta bort virtuella nätverk](virtual-network-troubleshoot-cannot-delete-vnet.md)
+### [Problem med anslutning mellan virtuella datorer](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

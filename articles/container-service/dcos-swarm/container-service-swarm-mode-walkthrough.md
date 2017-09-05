@@ -1,6 +1,6 @@
 ---
-title: "Snabbstart – Azure Docker Swarm Mode-kluster för Linux | Microsoft Docs"
-description: "Lär dig snabbt att skapa ett Docker Swarm Mode-kluster på Linux-behållare i Azure Container Service med Azure CLI."
+title: "Snabbstart – Azure Docker CE-kluster för Linux | Microsoft Docs"
+description: "Lär dig snabbt att skapa ett Docker CE-kluster på Linux-behållare i Azure Container Service med Azure CLI."
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/14/2017
+ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 3f49e72fa647d2b6c854123c271a88e1a8ff3cf8
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 7b8336e3865e7032e3ee0d5e4ee712bcb95aa4b5
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="deploy-docker-swarm-mode-cluster"></a>Distribuera Docker Swarm Mode-kluster
+# <a name="deploy-docker-ce-cluster"></a>Distribuera Docker CE-kluster
 
-I den här snabbstartsguiden ska vi distribuera ett Docker Swarm Mode-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
+I den här snabbstartsguiden ska vi distribuera ett Docker CE-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
 
-Docker Swarm Mode på Azure Container Service är en förhandsversion och **bör inte användas för produktionsarbete**.
+Docker CE på Azure Container Service är en förhandsversion och **bör inte användas för produktionsarbete**.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -62,7 +62,7 @@ Resultat:
 
 ## <a name="create-docker-swarm-cluster"></a>Skapa Docker Swarm-kluster
 
-Skapa ett Docker Swarm Mode-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#create). 
+Skapa ett Docker CE-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#create). 
 
 I följande exempel skapas ett kluster med namnet *mySwarmCluster* med en Linux-huvudnod och tre Linux-agentnoder.
 

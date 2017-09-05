@@ -102,7 +102,7 @@ Här är några begränsningar som gäller under förhandsversionen för blob-ni
 
 * Endast nya Blob Storage-konton som skapats i offentliga regioner efter registrering för förhandsversionen har stöd för blob-nivå.
 
-* Blob-nivå och arkivlagring stöds endast i [LRS]-lagring (../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#locally-redundant-storage). [GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#geo-redundant-storage) och [RA-GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#read-access-geo-redundant-storage) kommer att stödjas framöver.
+* Blob-nivå och arkivlagring stöds endast i [LRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#locally-redundant-storage) -lagring. [GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#geo-redundant-storage) och [RA-GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#read-access-geo-redundant-storage) kommer att stödjas framöver.
 
 * Du kan inte ändra nivå för en blob med ögonblicksbilder.
 

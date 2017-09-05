@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 06/14/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-is-azure-relay"></a>Vad är Azure Relay?
@@ -52,15 +51,22 @@ Både hybridanslutningar och WCF-reläer tillhandahåller säker anslutning till
 
 Funktionen [Hybridanslutningar i Azure Relay](relay-hybrid-connections-protocol.md) är en säker vidareutveckling med öppet protokoll av de befintliga Relay-funktionerna och kan implementeras på valfri plattform och på valfritt språk som har en grundläggande WebSocket-funktion, vilket bland annat omfattar WebSocket-API:et i vanliga webbläsare. Hybridanslutningar baseras på HTTP och WebSockets.
 
+### <a name="service-history"></a>Tjänsthistorik
+
+Hybridanslutningar ersätter den tidigare funktionen ”BizTalk Services” som baserades på Azure Service Bus WCF Relay. Den nya funktionen Hybridanslutningar kompletterar befintliga WCF Relay och båda dessa två tjänstfunktioner kommer att finnas sida vid sida i Azure Relay-tjänsten. De delar en gemensam gateway, men är i övrigt olika implementeringar.
+
 ## <a name="wcf-relays"></a>WCF-reläer
 
 WCF Relay har stöd för hela .NET Framework (NETFX) och för WCF. Du upprättar anslutningen mellan din lokala tjänst och den vidarebefordrande tjänsten med hjälp av en uppsättning ”vidarebefordrande” WCF-bindningar. I bakgrunden mappas vidarebefordringsbindningarna till nya transportbindningselement som är utformade för att skapa WCF-kanalkomponenter som integreras med Service Bus i molnet.
 
-## <a name="service-history"></a>Tjänsthistorik
+## <a name="architecture-processing-of-incoming-relay-requests"></a>Arkitektur: Bearbetning av inkommande vidarebefordrade begäranden
+När en klient skickar en begäran till tjänsten [Azure Relay](/azure/service-bus-relay/) skickar Azure-belastningsutjämnaren den vidare till någon av gateway-noderna. Om det handlar om en begäran om att lyssna, skapas en ny vidarebefordran av gateway-noden. Om det handlar om en begäran om anslutning till en specifik vidarebefordran skickar gateway-noden begäran vidare till gateway-noden som äger vidarebefordran. Gateway-noden som äger vidarebefordran skickar en rendezvous-begäran till den lyssnande klienten och ber lyssnaren skapa en tillfällig kanal till gateway-noden som tog emot anslutningsbegäran.
 
-Hybridanslutningar ersätter den tidigare funktionen ”BizTalk Services” som baserades på Azure Service Bus WCF Relay. Den nya funktionen för hybridanslutningar kompletterar befintliga WCF Relay och båda dessa två tjänstfunktioner kommer att finnas sida vid sida i Azure Relay-tjänsten under överskådlig tid. De delar en gemensam gateway, men är i övrigt olika implementeringar.
+Klienterna kan utbyta meddelanden via gateway-noden som används för rendezvous när anslutningen med vidarebefordran har upprättats.
 
-## <a name="next-steps"></a>Nästa steg:
+![Bearbetning av inkommande WCF Relay-begäranden](./media/relay-what-is-it/ic690645.png)
+
+## <a name="next-steps"></a>Nästa steg
 
 * [Vanliga frågor och svar om Relay](relay-faq.md)
 * [Skapa ett namnområde](relay-create-namespace-portal.md)

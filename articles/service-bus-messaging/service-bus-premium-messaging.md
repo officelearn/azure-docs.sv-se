@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a916f643c7e6727d6053865d1c0bd2f683a53b3f
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium- och Standard-meddelandenivåer
@@ -47,7 +47,7 @@ I följande avsnitt diskuteras några skillnader mellan Premium- och Standard-me
 
 ### <a name="partitioned-queues-and-topics"></a>Partitionerade köer och ämnen
 
-Partitionerade köer och ämnen stöds i Premium – meddelandefunktion. Entiteterna är faktiskt alltid partitionerade (och går inte att inaktivera). Men Premium-partitionerade köer och ämnen fungerar inte på samma sätt som på Standard- och Basic-nivåerna av Service Bus-meddelanden. Premium-meddelanden använder inte SQL som ett datalager och har inte längre den konkurrens om resurser som förknippas med en delad plattform. Därför är partitionering inte nödvändigt för att förbättra prestanda. Dessutom har antalet partitioner ändrats från 16 partitioner i Standard-meddelanden till 2 partitioner i Premium. Med två partitioner garanteras tillgänglighet och är ett mer passande antal för Premium-körningsmiljön. 
+Partitionerade köer och ämnen stöds i Premium – meddelandefunktion. Entiteterna är faktiskt alltid partitionerade (och går inte att inaktivera). Men Premium-partitionerade köer och ämnen fungerar inte på samma sätt som på Standard-nivån av Service Bus-meddelanden. Premium-meddelanden använder inte SQL som ett datalager och har inte längre den konkurrens om resurser som förknippas med en delad plattform. Därför är partitionering inte nödvändigt för att förbättra prestanda. Dessutom har antalet partitioner ändrats från 16 partitioner i Standard-meddelanden till 2 partitioner i Premium. Med två partitioner garanteras tillgänglighet och är ett mer passande antal för Premium-körningsmiljön. 
 
 Med premiumfunktioner för meddelandehantering kan du ange storleken på en entitet med [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), där storleken delas lika mellan de två partitionerna, till skillnad från [standardpartitionerade entiteter](service-bus-partitioning.md#standard), där den totala storleken är 16 gånger den angivna storleken. 
 

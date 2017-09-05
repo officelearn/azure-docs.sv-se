@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen Ansluten fabrik
 
 IoT Suites [förkonfigurerade lösning][lnk-preconfigured-solutions] är en implementering av en branschlösning från slutpunkt till slutpunkt som:
 
-* Ansluter till både simulerade industriella enheter som kör OPC UA-servrar i simulerade fabriksproduktionsrader och äkta OPC UA-serverenheter. Mer information om OPC UA finns i [Vanliga frågor och svar][lnk-faq].
+* Ansluter till både simulerade industriella enheter som kör OPC UA-servrar i simulerade fabriksproduktionsrader och äkta OPC UA-serverenheter. Mer information om OPC UA finns i [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md).
 * Visar KPI:er och OEE:er för drift för enheterna och produktionsraderna.
 * Visar hur ett molnbaserat program kan användas för att interagera med OPC UA-serversystem.
 * Gör att du kan ansluta dina egna OPC UA-serverenheter.
@@ -40,6 +40,8 @@ Den här artikeln beskriver några av de viktigaste elementen i den anslutna fab
 * Felsöka problem i lösningen.
 * Planera hur lösningen kan anpassas för att uppfylla dina behov.
 * Utforma en egen IoT-lösning som använder Azure-tjänster.
+
+Mer information finns i [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md).
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
 
@@ -128,6 +130,7 @@ Webbappen distribueras som en del av den förkonfigurerade lösningen består av
 Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
 
 * [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions]
+* [Distribuera en gateway på Windows eller Linux för den förkonfigurerade lösningen Ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -138,4 +141,4 @@ Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+

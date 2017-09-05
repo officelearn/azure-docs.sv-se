@@ -12,24 +12,30 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/28/2017
-ms.author: shvija;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f19a3d9b323d75ae23480d0699d55b79bb7d2e84
+ms.date: 08/28/2017
+ms.author: sethm
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 19bbb51868e767aa1d15f4574628b7fd36607207
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
+
 # <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Skapa ett namnområde för Event Hubs med en händelsehubb och aktivera avbildning med hjälp av en Azure Resource Manager-mall
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett namnområde för Event Hubs med en händelsehubbinstans och även aktiverar avbildningsfunktionen på händelsehubben. Artikeln beskriver hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
+
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett namnområde för Event Hubs med en händelsehubbinstans och även aktiverar [avbildningsfunktionen](event-hubs-capture-overview.md) på händelsehubben. Artikeln beskriver hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
+
+Den här artikeln visar även hur du anger att händelser ska samlas in i Azure Storage Blobs eller en Azure Data Lake Store, utifrån det mål som du väljer.
 
 Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
 
-Mer information om praxis och mönster för namnkonventioner för Azure-resurser finns i [Azure Resources Naming Conventions][Azure Resources Naming Conventions] (Namnkonventioner för Azure-resurser).
+Mer information om mönster och praxis för namnkonventioner för Azure-resurser finns i [Azure Resources Naming Conventions][Azure Resources naming conventions] (Namnkonventioner för Azure-resurser).
 
-Den fullständiga mallen finns i [mallen för händelsehubbar och för att aktivera avbildningsfunktionen][Event Hub and enable Capture template] på GitHub.
+För fullständiga mallar, klicka på följande GitHub-länkar:
+
+- [Händelsehubb och aktivera mallen Capture to Storage (Avbildning till Storage)][Event Hub and enable Capture to Storage template] 
+- [Händelsehubb och aktivera mallen Capture to Azure Data Lake Store (Avbildning till Azure Data Lake Store)][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
 > Om du vill söka efter de senaste mallarna kan du gå till galleriet [Azure-snabbstartsmallar][Azure Quickstart Templates] och söka efter Event Hubs.
@@ -37,21 +43,28 @@ Den fullständiga mallen finns i [mallen för händelsehubbar och för att aktiv
 > 
 
 ## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
+
 Med den här mallen distribuerar du ett namnområde för Event Hubs med en händelsehubb och aktiverar även [Event Hubs Capture](event-hubs-capture-overview.md).
 
-[Event Hubs](event-hubs-what-is-event-hubs.md) är en tjänst för händelsebearbetning som används för att tillhandahålla en händelse- och telemetriingång till Azure i massiv skala med kort svarstid och hög tillförlitlighet. Med Event Hubs Capture kan du automatiskt leverera strömmande data i dina Event Hubs till Azure Blob Storage inom en angiven tid eller ett visst storleksintervall som du kan välja själv.
+[Event Hubs](event-hubs-what-is-event-hubs.md) är en tjänst för händelsebearbetning som används för att tillhandahålla en händelse- och telemetriingång till Azure i massiv skala med kort svarstid och hög tillförlitlighet. Med Event Hubs Capture kan du automatiskt leverera strömmande data i Event Hubs till Azure Blob Storage eller Azure Data Lake Store inom en angiven tid eller ett visst storleksintervall som du kan välja själv.
 
-Klicka på följande knapp för att köra distributionen automatiskt:
+Klicka på följande knapp om du vill aktivera Event Hubs Capture i Azure Storage:
 
 [![Distribuera till Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
+Klicka på följande knapp om du vill aktivera Event Hubs Capture i Azure Data Lake Store:
+
+[![Distribuera till Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
+
 ## <a name="parameters"></a>Parametrar
+
 Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` och som innehåller alla parametervärden. Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
 Mallen definierar följande parametrar.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
-Namnet på namnområdet för Event Hubs som ska skapas.
+
+Namnet på [namnområdet för Event Hubs](event-hubs-create.md) som ska skapas.
 
 ```json
 "eventHubNamespaceName":{  
@@ -63,7 +76,8 @@ Namnet på namnområdet för Event Hubs som ska skapas.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-Namnet på händelsehubben som skapats i namnområdet för Event Hubs.
+
+Namnet på händelsehubben som skapats i [namnområdet för Event Hubs](event-hubs-create.md).
 
 ```json
 "eventHubName":{  
@@ -75,6 +89,7 @@ Namnet på händelsehubben som skapats i namnområdet för Event Hubs.
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
+
 Antalet dagar som meddelanden lagras i händelsehubben. 
 
 ```json
@@ -90,6 +105,7 @@ Antalet dagar som meddelanden lagras i händelsehubben.
 ```
 
 ### <a name="partitioncount"></a>partitionCount
+
 Antalet partitioner som ska skapas i händelsehubben.
 
 ```json
@@ -105,6 +121,7 @@ Antalet partitioner som ska skapas i händelsehubben.
 ```
 
 ### <a name="captureenabled"></a>captureEnabled
+
 Aktiverar avbildning på händelsehubben.
 
 ```json
@@ -120,6 +137,7 @@ Aktiverar avbildning på händelsehubben.
  }
 ```
 ### <a name="captureencodingformat"></a>captureEncodingFormat
+
 Kodningsformatet som du anger för att serialisera händelsedata.
 
 ```json
@@ -135,7 +153,8 @@ Kodningsformatet som du anger för att serialisera händelsedata.
 ```
 
 ### <a name="capturetime"></a>captureTime
-Det tidsintervall inom vilket Event Hubs Capture börjar samla in data till Azure Blob Storage.
+
+Det tidsintervall inom vilket Event Hubs Capture börjar samla in data.
 
 ```json
 "captureTime":{
@@ -150,7 +169,7 @@ Det tidsintervall inom vilket Event Hubs Capture börjar samla in data till Azur
 ```
 
 ### <a name="capturesize"></a>captureSize
-Det storleksintervall inom vilket avbildningsfunktionen börjar samla in data till Azure Blob Storage.
+Det storleksintervall inom vilket avbildningsfunktionen börjar samla in data.
 
 ```json
 "captureSize":{
@@ -164,32 +183,23 @@ Det storleksintervall inom vilket avbildningsfunktionen börjar samla in data ti
 }
 ```
 
-### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
-För avbildningsfunktionen krävs ett resurs-ID för ett Azure Storage-konto för att aktivera avbildning till ditt önskade Storage-konto.
+###<a name="capturenameformat"></a>captureNameFormat
 
+Det namnformat som används av Event Hubs Capture för att skriva Avro-filer. Observera att namnformatet för avbildningsfunktionen måste innehålla fälten `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` och `{Second}`. Dessa kan ordnas i valfri ordning, med eller utan avgränsare.
+ 
 ```json
- "destinationStorageAccountResourceId":{
-    "type":"string",
-    "metadata":{
-        "description":"Your existing Storage account resource id where you want the blobs be captured"
+"captureNameFormat": {
+      "type": "string",
+      "defaultValue": "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+      "metadata": {
+        "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
+      }
     }
- }
+  }
 ```
-
-### <a name="blobcontainername"></a>blobContainerName
-Blob-behållaren dit du kan avbilda dina händelsedata.
-
-```json
- "blobContainerName":{
-    "type":"string",
-    "metadata":{
-        "description":"Your existing storage container in which you want the blobs captured"
-    }
-}
-```
-
 
 ### <a name="apiversion"></a>apiVersion
+
 API-versionen av mallen.
 
 ```json
@@ -202,8 +212,78 @@ API-versionen av mallen.
  }
 ```
 
-## <a name="resources-to-deploy"></a>Resurser som ska distribueras
-Skapar ett namnområde av typen **EventHubs** med en händelsehubb och möjliggör avbildning.
+Använd följande parametrar om du väljer Azure Storage som mål.
+
+### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
+
+För avbildningsfunktionen krävs ett resurs-ID för ett Azure Storage-konto för att aktivera avbildning till ditt önskade Storage-konto.
+
+```json
+ "destinationStorageAccountResourceId":{
+    "type":"string",
+    "metadata":{
+        "description":"Your existing Storage account resource ID where you want the blobs be captured"
+    }
+ }
+```
+
+### <a name="blobcontainername"></a>blobContainerName
+
+Blob-behållaren dit du kan avbilda dina händelsedata.
+
+```json
+ "blobContainerName":{
+    "type":"string",
+    "metadata":{
+        "description":"Your existing storage container in which you want the blobs captured"
+    }
+}
+```
+
+Använd följande parametrar om du väljer Azure Data Lake Store som mål. Du måste ange behörigheter för den Data Lake Store-sökväg som du vill avbilda händelsen på. Information om hur du anger behörigheter finns [i den här artikeln](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
+
+###<a name="subscriptionid"></a>subscriptionId
+
+Prenumerations-ID för namnområdet för Event Hubs och Azure Data Lake Store. Båda dessa resurser måste vara under samma prenumerations-ID.
+
+```json
+"subscriptionId": {
+    "type": "string",
+    "metadata": {
+        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+     }
+ }
+```
+
+###<a name="datalakeaccountname"></a>dataLakeAccountName
+
+Azure Data Lake Store-namnet för de avbildade händelserna.
+
+```json
+"dataLakeAccountName": {
+    "type": "string",
+    "metadata": {
+        "description": "Azure Data Lake Store name"
+    }
+}
+```
+
+###<a name="datalakefolderpath"></a>dataLakeFolderPath
+
+Sökvägen till målmappen för de avbildade händelserna.
+
+```json
+"dataLakeFolderPath": {
+    "type": "string",
+    "metadata": {
+        "description": "Destination archive folder path"
+    }
+}
+```
+
+## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Resurser att distribuera för Azure Storage som mål för avbildade händelser
+
+Skapar ett namnområde av typen **EventHubs** med en händelsehubb och möjliggör avbildning till Azure Blob Storage.
 
 ```json
 "resources":[  
@@ -250,20 +330,89 @@ Skapar ett namnområde av typen **EventHubs** med en händelsehubb och möjligg�
    ]
 ```
 
+## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Resurser att distribuera för Azure Data Lake Store som mål
+
+Skapar ett namnområde av typen **EventHubs** med en händelsehubb och möjliggör avbildning till Azure Data Lake Store.
+
+```json
+ "resources": [
+        {
+            "apiVersion": "2015-08-01",
+            "name": "[parameters('namespaceName')]",
+            "type": "Microsoft.EventHub/Namespaces",
+            "location": "[variables('location')]",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard"
+            },
+            "resources": [
+                {
+                    "apiVersion": "2015-08-01",
+                    "name": "[parameters('eventHubName')]",
+                    "type": "EventHubs",
+                    "dependsOn": [
+                        "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
+                    ],
+                    "properties": {
+                        "path": "[parameters('eventHubName')]",
+                        "ArchiveDescription": {
+                            "enabled": "true",
+                            "encoding": "[parameters('archiveEncodingFormat')]",
+                            "intervalInSeconds": "[parameters('archiveTime')]",
+                            "sizeLimitInBytes": "[parameters('archiveSize')]",
+                            "destination": {
+                                "name": "EventHubArchive.AzureDataLake",
+                                "properties": {
+                                    "DataLakeSubscriptionId": "[parameters('subscriptionId')]",
+                                    "DataLakeAccountName": "[parameters('dataLakeAccountName')]",
+                                    "DataLakeFolderPath": "[parameters('dataLakeFolderPath')]",
+                                    "ArchiveNameFormat": "[parameters('archiveNameFormat')]"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+```
+
 ## <a name="commands-to-run-deployment"></a>Kommandon för att köra distributionen
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
+
+Distribuera din mall för att aktivera Event Hubs Capture i Azure Storage:
+ 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
+Distribuera din mall för att aktivera Event Hubs Capture i Azure Data Lake Store:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json
+```
+
 ## <a name="azure-cli"></a>Azure CLI
-```cli
+
+Välja Azure Blob Storage som mål:
+
+```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
+
+Välja Azure Data Lake Store som mål:
+
+```azurecli
+azure config mode arm
+
+azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan även konfigurera Event Hubs Capture via [Azure Portal](https://portal.azure.com). Mer information finns i [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md) (Aktivera Event Hubs Capture med hjälp av Azure Portal).
@@ -276,8 +425,6 @@ Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
-[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
-[Azure Resources Naming Conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-[Event hub and enable Capture template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
-
+[Azure Resources naming conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
+[Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
+[Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls

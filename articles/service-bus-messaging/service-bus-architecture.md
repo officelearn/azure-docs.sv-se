@@ -1,6 +1,6 @@
 ---
 title: "Översikt över meddelandebearbetningsarkitekturen i Azure Service Bus | Microsoft Docs"
-description: "Här beskrivs arkitekturen för behandling av meddelanden och vidarebefordran i Azure Service Bus."
+description: "Här beskrivs arkitekturen för meddelandebehandling i Azure Service Bus."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ced46c64c1c105aa987759e05ab3680bc399f9a0
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="service-bus-architecture"></a>Service Bus-arkitektur
@@ -28,9 +27,9 @@ I den här artikeln beskrivs arkitekturen för meddelandebehandling i Azure Serv
 ## <a name="service-bus-scale-units"></a>Service Bus-skalningsenheter
 Service Bus är organiserat i *skalningsenheter*. En skalningsenhet är en distributionsenhet och innehåller alla komponenter som krävs för att köra tjänsten. Varje region distribuerar en eller flera Service Bus-skalningsenheter.
 
-Ett Service Bus-namnområde är mappat till en skalningsenhet. Skalningsenheten hanterar alla typer av Service Bus-entiteter: vidarebefordringar och asynkrona meddelandeentiteter (köer, ämnen, prenumerationer). En Service Bus-skalningsenhet består av följande komponenter:
+Ett Service Bus-namnområde är mappat till en skalningsenhet. Skalningsenheten hanterar alla typer av Service Bus-entiteter (köer, ämnen, prenumerationer). En Service Bus-skalningsenhet består av följande komponenter:
 
-* **En uppsättning gateway-noder.** Gateway-noder autentiserar inkommande begäranden och hanterar vidarebefordrade begäranden. Varje gateway-nod har en offentlig IP-adress.
+* **En uppsättning gateway-noder.** Gateway-noder autentiserar inkommande begäranden. Varje gateway-nod har en offentlig IP-adress.
 * **En uppsättning asynkrona meddelandenoder.** Asynkrona meddelandenoder bearbetar begäranden om meddelandeentiteter.
 * **Ett gateway-arkiv.** Gateway-arkivet innehåller data för varje entitet som definieras i den här skalningsenheten. Gateway-arkivet implementeras ovanpå en SQL Azure-databas.
 * **Flera meddelandearkiv.** I meddelandearkiven lagras meddelanden från alla köer, ämnen och prenumerationer som definieras i den här skalningsenheten. De innehåller även alla data för prenumerationen. Om [partitionera enheter för meddelanden](service-bus-partitioning.md) inte är aktiverat kommer en kö eller ett ämne att lagras på en meddelandelagring. Prenumerationer lagras i samma meddelandearkiv som det överordnade ämnet. Förutom för Service Bus [Premium Messaging](service-bus-premium-messaging.md) implementeras meddelandearkiven ovanpå SQL Azure-databaser.
@@ -43,18 +42,10 @@ När en klient skickar en begäran till Service Bus skickar Azure-belastningsutj
 
 ![Bearbetning av inkommande meddelandebegäranden](./media/service-bus-architecture/ic690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>Bearbetning av inkommande vidarebefordrade begäranden
-När en klient skickar en begäran till tjänsten [Azure Relay](/azure/service-bus-relay/) skickar Azure-belastningsutjämnaren den vidare till någon av gateway-noderna. Om det handlar om en begäran om att lyssna, skapas en ny vidarebefordran av gateway-noden. Om det handlar om en begäran om anslutning till en specifik vidarebefordran skickar gateway-noden begäran vidare till gateway-noden som äger vidarebefordran. Gateway-noden som äger vidarebefordran skickar en rendezvous-begäran till den lyssnande klienten och ber lyssnaren skapa en tillfällig kanal till gateway-noden som tog emot anslutningsbegäran.
-
-Klienterna kan utbyta meddelanden via gateway-noden som används för rendezvous när anslutningen med vidarebefordran har upprättats.
-
-![Bearbetning av inkommande WCF Relay-begäranden](./media/service-bus-architecture/ic690645.png)
-
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har läst en översikt över Service Bus-arkitekturen hittar du mer information på följande länkar:
 
 * [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
-* [Översikt över Azure Relay](../service-bus-relay/relay-what-is-it.md)
 * [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 * [En lösning för köade meddelanden som använder Service Bus-köer](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 

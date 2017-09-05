@@ -1,25 +1,31 @@
 
-1. Klicka på **Apptjänster** > Välj din mobilappsserverdel > klicka på **Quickstart** > din klientplattform (iOS, Android, Xamarin, Cordova).
+1. Klicka på knappen **Apptjänster**, välj din Mobile Apps-serverdel, välj **Snabbstart** och sedan din klientplattform (iOS, Android, Xamarin, Cordova).
 
-![Azure-portalen med snabbstart för mobila appar markerad][quickstart]
+    ![Azure Portal med snabbstarten för Mobile Apps markerad][quickstart]
 
-2. Om anslutningen till databasen inte är konfigurerad måste du skapa en dataanslutning.
+2. Om en databasanslutning inte konfigureras skapar du en genom att göra följande:
 
-![Azure-portalen med Mobilappar Anslut till BD][connect]
+    ![Azure Portal med Mobile Apps Connect till databas][connect]
 
-  * Skapa ny SQL Database och server.
+    a. Skapa en ny SQL-databas och server.
 
-  ![Azure-portalen med Mobile Apps skapa ny BD och server][server]
+    ![Azure Portal med Mobile Apps skapa ny databas och server][server]
 
-  * Vänta tills anslutningen har skapats.
+    b. Vänta tills anslutningen har skapats.
 
-  ![Skapa Azure-portalen med Mobile Apps-dataanslutning][notification]
+    ![Azure Portal-meddelande om att dataanslutningen har skapats][notification]
 
-  * Dataanslutningen måste lyckas.
+    c. Dataanslutningen måste lyckas.
 
-  ![Skapa Azure-portalen med Mobile Apps-dataanslutning][already-connection]
+    ![Azure Portal-meddelande, "Du har redan en dataanslutning"][already-connection]
 
-3. Under **2. Skapa ett tabell-API**, Välj Node.js för **Språk för serverdel**. Godkänn bekräftelsen och klicka på **Skapa TodoItem-tabell**. En ny *TodoItem*-tabell skapas i din databas. Kom ihåg att när du byter en befintlig serverdel till Node.js, så skrivs allt innehåll över! För att skapa en .NET-serverdel [följer du dessa instruktioner][instructions].
+3. Under **2. Skapa ett tabell-API**, Välj Node.js för **Språk för serverdel**. 
+ 
+4. Godkänn bekräftelsen och välj **Skapa TodoItem-tabell**.  
+    En ny att göra-post-tabell skapas i din databas. 
+
+    >[!IMPORTANT]
+    > Om du ändrar en befintlig serverdel till Node.js skrivs allt innehåll över. Om du istället vill skapa en .NET-serverdel läser du [Work with the .NET back-end server SDK for Mobile Apps][instructions] (Arbeta med SDK för .NET-serverdelen för Mobile Apps).
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

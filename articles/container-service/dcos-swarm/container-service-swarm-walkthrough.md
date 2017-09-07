@@ -76,7 +76,7 @@ I den här snabbstartsguide behöver du IP-adressen både för Docker Swarm-huvu
 
 
 ```bash
-az network public-ip list --resource-group myResourceGroup --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+az network public-ip list --resource-group myResourceGroup --query "[*].{Name:name,IPAddress:ipAddress}" -o table
 ```
 
 Resultat:

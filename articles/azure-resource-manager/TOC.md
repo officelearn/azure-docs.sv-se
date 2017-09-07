@@ -6,8 +6,8 @@
 ## [Hanterade program](managed-application-overview.md)
 
 # Kom igång
-## [Exportera mall](resource-manager-export-template.md)
 ## [Skapa och distribuera mall](resource-manager-create-first-template.md)
+## [VS Code-tillägg för mallar](resource-manager-vscode-extension.md)
 ## [Visual Studio med Resurshanteraren](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Exempel
@@ -20,8 +20,8 @@
 
 # Gör så här för att
 ## Skapa mallar
-### [Metodtips för mallar](resource-manager-template-best-practices.md)
 ### [Mall-avsnitt](resource-group-authoring-templates.md)
+### [Metodtips för mallar](resource-manager-template-best-practices.md)
 ### [Länk till andra mallar](resource-group-linked-templates.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
 ### [Skapa flera instanser](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Dela tillstånd mellan länkade mallar](best-practices-resource-manager-state.md)
 ### [Mönster för att utforma mallar](best-practices-resource-manager-design-templates.md)
 
+
 ## Distribuera
 ### PowerShell
 #### [Distribuera mall](resource-group-template-deploy.md)
@@ -42,8 +43,10 @@
 #### [Distribuera mall](resource-group-template-deploy-cli.md)
 #### [Distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md)
 #### [Exportera mall och distribuera om](resource-manager-export-template-cli.md)
-### [Portal](resource-group-template-deploy-portal.md)
-### [REST-API](resource-group-template-deploy-rest.md)
+### Portalen
+#### [Distribuera resurser](resource-group-template-deploy-portal.md)
+#### [Exportera mall](resource-manager-export-template.md)
+### [REST API](resource-group-template-deploy-rest.md)
 ### [Distribution mellan resursgrupper](resource-manager-cross-resource-group-deployment.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)

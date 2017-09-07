@@ -4,6 +4,8 @@
   items:
     - name: Om Azure Cosmos DB
       href: introduction.md
+    - name: 20 dagars tips
+      href: 20-days-of-tips.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -49,8 +51,12 @@
       items:
         - name: DocumentDB
           href: tutorial-develop-documentdb-dotnet.md
-        - name: MongoDB
+        - name: MongoDB med .NET
           href: tutorial-develop-mongodb.md
+        - name: MongoDB med Angular
+          href: tutorial-develop-mongodb-nodejs.md
+        - name: MongoDB med React
+          href: tutorial-develop-mongodb-react.md
         - name: Tabell
           href: tutorial-develop-table-dotnet.md
         - name: Graph
@@ -208,7 +214,19 @@
               href: mongodb-mongochef.md
             - name: Använda Robomongo
               href: mongodb-robomongo.md
-            - name: Självstudier
+            - name: Angular-självstudier
+              items:
+                - name: Del 2 – Skapa Node-app
+                  href: tutorial-develop-mongodb-nodejs-part2.md
+                - name: Del 3 – Lägg till Angular-användargränssnitt
+                  href: tutorial-develop-mongodb-nodejs-part3.md
+                - name: Del 4 – Skapa Cosmos DB
+                  href: tutorial-develop-mongodb-nodejs-part4.md
+                - name: Del 5 – Anslut till Cosmos DB
+                  href: tutorial-develop-mongodb-nodejs-part5.md
+                - name: Del 6 – Skriv till appen
+                  href: tutorial-develop-mongodb-nodejs-part6.md
+            - name: Ytterligare självstudier
               items:
                 - name: Node.js-konsolapp
                   href: mongodb-samples.md

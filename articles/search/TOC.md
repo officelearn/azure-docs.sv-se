@@ -59,7 +59,8 @@
 #### [Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Exempel på Lucene-syntaxfråga](search-query-lucene-examples.md)
 #### [Filtrera uttryckssyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Anpassad sökning
+### Analysverktyg i Azure Search
+#### [Översikt](search-analyzers.md)
 #### [Språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Växla resultat](search-pagination-page-layout.md)

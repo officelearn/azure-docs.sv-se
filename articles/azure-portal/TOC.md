@@ -6,11 +6,13 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Kortkommandon](azure-portal-keyboard-shortcuts.md)
 ## [Webbläsare och enheter som stöds](../azure-preview-portal-supported-browsers-devices.md)
+## [Strukturen för Azure-instrumentpaneler](azure-portal-dashboards-structure.md)
 # Instruktionsguider
 ## Distribuera
 ### [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Distribuera med Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Skapa och dela Azure-instrumentpaneler](azure-portal-dashboards.md)
+### [Skapa Azure-instrumentpaneler programmässigt](azure-portal-dashboards-create-programmatically.md)
 ## Hantera
 ### [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md)
 ### [Använd portalen för att hantera resurser](../azure-resource-manager/resource-group-portal.md)

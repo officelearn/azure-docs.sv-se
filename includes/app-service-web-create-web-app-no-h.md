@@ -5,7 +5,7 @@ Webbappen ger dig ett lagringsutrymme för din kod och du får en URL så att du
 Ersätt *\<app_name>* med ett unikt namn (giltiga tecken är `a-z`, `0-9` och `-`) i följande kommando. Om `<app_name>` inte är unikt får du ett felmeddelande om att webbplatsen med det angivna namnet <app_name> redan finns. Standardwebbadressen för webbappen är `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
 När webbappen har skapats visar Azure CLI information liknande den i följande exempel:

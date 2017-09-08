@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
+ms.contentlocale: sv-se
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Hämta data med hjälp av Azure AD Reporting-API:et med certifikat
@@ -26,10 +26,10 @@ Den här artikeln beskriver hur du använder Azure AD Reporting-API:et med certi
 
 ## <a name="use-the-azure-ad-reporting-api"></a>Använda Azure AD Reporting-API:et 
 Azure AD Reporting-API:et kräver att du utför följande steg:
- *    Installationskrav
- *    Konfigurera certifikatet i appen
- *    Hämta en åtkomsttoken
- *    Använd åtkomsttoken för att anropa Graph-API:et
+ *  Installationskrav
+ *  Konfigurera certifikatet i appen
+ *  Hämta en åtkomsttoken
+ *  Använd åtkomsttoken för att anropa Graph-API:et
 
 Information om källkoden finns i [Leverage Report API Module](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Använda Report API-modulen). 
 

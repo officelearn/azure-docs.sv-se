@@ -13,14 +13,14 @@ ms.date: 06/20/2017
 ms.author: carolz
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: aad1e4839154b552b39258f65e6ed97bf1de90fb
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e2f5caf8c4d3eab600bb015db5a4403314a4f6e3
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 <div class="content">
-    <h1>Jenkins på Azure</h1>
+    <h1>Jenkins® på Azure</h1>
     <div class="introHolder" style="justify-content: space-between;">
        <div class="intro" style="min-width: 200px">
             <img src="media/Jenkins.png" align="right" alt="Jenkins Logo"> Jenkins, en populär automatiseringsserver med öppen källkod integreras sömlöst med Azure för att möjliggöra kontinuerlig integrering (CI) och kontinuerlig leverans (CD).  Lär dig hur du installerar, konfigurerar och använder Jenkins med Azure-verktyg och -tjänster med våra snabbstarter, självstudier och exempel.
@@ -43,5 +43,7 @@ ms.lasthandoff: 08/04/2017
 <a href="https://plugins.jenkins.io/azure-vm-agents">Plugin-program för agenter för virtuell Azure-dator</a><br/>
 <a href="https://plugins.jenkins.io/windows-azure-storage">Plugin-program för Azure Storage</a><br/>
 <a href="https://jenkins.io">Lär dig mer om Jenkins</a><br/>
+<h4>      
+Jenkins® är ett registrerat varumärke som tillhör Software in the Public Interest, Inc. [Jenkins®-logotypen](https://wiki.jenkins.io/display/JENKINS/Logo) är licensierad under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) från [Jenkins-projektet](https://jenkins.io).</h4>
 </div>
 

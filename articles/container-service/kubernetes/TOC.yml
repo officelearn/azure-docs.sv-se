@@ -33,6 +33,8 @@
   items:
     - name: Säkra behållare
       href: container-service-security.md
+    - name: Tjänstens huvudnamn – Kubernetes
+      href: container-service-kubernetes-service-principal.md
 - name: Instruktionsguider
   items:
     - name: Kubernetes med Windows
@@ -49,8 +51,12 @@
       href: container-service-connect.md
     - name: Skala ett ACS-kluster
       href: container-service-scale.md
+    - name: Belastningsutjämna ett Kubernetes ACS-kluster
+      href: container-service-kubernetes-load-balancing.md
     - name: Övervaka
       items:
+        - name: Övervaka med OMS
+          href: container-service-kubernetes-oms.md
         - name: Övervaka med Datadog
           href: container-service-kubernetes-datadog.md
         - name: Övervaka med Sysdig
@@ -68,7 +74,7 @@
     - name: Azure CLI 2.0
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: Resurser
   items:
     - name: Azure-översikt

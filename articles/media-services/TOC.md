@@ -143,6 +143,8 @@
 #### [Portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
+### [Spela upp AES-krypterad HLS i Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
+### [Skicka auth-token](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [Analysera](media-services-analytics-overview.md)
 ### [Analysera media med portalen](media-services-portal-analyze.md)
@@ -190,7 +192,6 @@
 #### [Adobe Open Source Media Framework-spelare](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Infoga annonser på klientsidan](media-services-inserting-ads-on-client-side.md)
 ### [Licensiera Microsoft Smooth Streaming-klientportningskit](media-services-sspk.md)
-### [Spela upp AES-krypterad HLS i Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Integrera
 ### [Använd Azure Functions med Media Services](media-services-dotnet-how-to-use-azure-functions.md)

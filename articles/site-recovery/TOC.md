@@ -13,7 +13,7 @@
 ## [Titta på en presentation](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # Kom igång
-## [Replikera virtuella Azure-datorer (förhandsversion)](site-recovery-azure-to-azure.md)
+## [Replikera virtuella Azure-datorer till Azure (förhandsversion)](site-recovery-azure-to-azure.md)
 ## [Replikera VMware-VM:ar till Azure](vmware-walkthrough-overview.md)
 ### [Steg 1: Granska arkitekturen](vmware-walkthrough-architecture.md)
 ### [Steg 2: Granska krav och begränsningar](vmware-walkthrough-prerequisites.md)

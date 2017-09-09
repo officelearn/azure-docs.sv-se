@@ -16,7 +16,7 @@
 ### [Anpassade inställningar](active-directory-aadconnect-get-started-custom.md)
 ### [Uppgradera från DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Uppgradera från en tidigare version](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Installera med hjälp av en befintlig ADSync-databas](active-directory-aadconnect-existing-database.md)
 
 # Gör så här för att
 ## Planera och designa

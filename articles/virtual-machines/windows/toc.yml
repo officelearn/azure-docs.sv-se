@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: Använda AHUB-licensiering
           href: hybrid-use-benefit-licensing.md
+        - name: Använda värdrättigheter för flera innehavare för Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Säkra virtuella datorer
       items:
         - name: Kryptera

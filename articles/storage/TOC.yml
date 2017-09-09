@@ -2,7 +2,7 @@
   items:
     - name: Introduktion
       href: ./common/storage-introduction.md
-    - name: 'Välja blobar, filer eller datadiskar'
+    - name: 'Välja blobar, filer eller diskar'
       href: ./common/storage-decide-blobs-files-disks.md
 - name: Blobar
   href: ./blobs/storage-blobs-introduction.md

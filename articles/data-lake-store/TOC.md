@@ -57,7 +57,7 @@
 
 ## Hantera
 ### [Få åtkomst till diagnostikloggar](data-lake-store-diagnostic-logs.md)
-### [Planera för hög tillgänglighet](data-lake-store-troubleshooting-guidance.md)
+### [Planera för hög tillgänglighet](data-lake-store-disaster-recovery-guidance.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

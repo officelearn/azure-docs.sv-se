@@ -21,6 +21,8 @@
           href: container-instances-tutorial-deploy-app.md
 - name: Koncept
   items:
+    - name: Regioner och tillgänglighet
+      href: container-instances-region-availability.md
     - name: Relation till dirigeringsverktyg
       href: container-instances-orchestrator-relationship.md
     - name: Behållargrupper

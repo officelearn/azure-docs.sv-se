@@ -1,7 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Montera, initiera och formatera en volym
-<a id="to-mount-initialize-and-format-a-volume" class="xliff"></a>
+#### <a name="to-mount-initialize-and-format-a-volume"></a>Montera, initiera och formatera en volym
 1. Starta Microsoft iSCSI-initieraren.
 2. I fönstret **Egenskaper för iSCSI-initieraren**, på fliken **Identifiering**, klickar du på **Identifiera portal**.
 3. I dialogrutan **Identifiera målportal**, anger du IP-adressen för ditt iSCSI-aktiverade nätverksgränssnitt och klickar på **OK**. 

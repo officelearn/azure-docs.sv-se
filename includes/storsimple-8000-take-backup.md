@@ -1,8 +1,6 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-<a id="to-take-a-backup" class="xliff"></a>
-
-### Gör en säkerhetskopia
+### <a name="to-take-a-backup"></a>Gör en säkerhetskopia
 
 1. Gå till StorSimple Device Manager-tjänsten. Markera och klicka på din enhet i tabellistan med enheter och klicka sedan på **Alla inställningar**. Gå till **Inställningar > Hantera > Säkerhetskopieringspolicy** på bladet **Inställningar**.
 

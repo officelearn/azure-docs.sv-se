@@ -1,9 +1,7 @@
 
 <!--author=alkohli last changed: 01/20/2017-->
 
-<a id="to-create-a-manual-backup" class="xliff"></a>
-
-#### Så här skapar du en manuell säkerhetskopia
+#### <a name="to-create-a-manual-backup"></a>Så här skapar du en manuell säkerhetskopia
 
 1. Gå till StorSimple Device Manager-tjänsten och klicka sedan på **Enheter**. Välj din enhet i listan med enheter. Gå till **Inställningar > Hantera > Principer för säkerhetskopiering**.
 

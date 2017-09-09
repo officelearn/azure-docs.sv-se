@@ -26,8 +26,3 @@
      > 
 7. Klicka på **Öppna**, för att starta en seriesession.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

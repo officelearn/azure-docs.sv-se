@@ -1,9 +1,7 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-<a id="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service" class="xliff"></a>
-
-#### Så här lägger du till autentiseringsuppgifter för ett lagringskonto i samma Azure-prenumeration som StorSimple Device Manager-tjänsten
+#### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Så här lägger du till autentiseringsuppgifter för ett lagringskonto i samma Azure-prenumeration som StorSimple Device Manager-tjänsten
 
 1. Gå till StorSimple Device Manager-tjänsten. Klicka på **Autentiseringsuppgifter för lagringskonto** i avsnittet **Konfiguration**.
 

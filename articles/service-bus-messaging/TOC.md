@@ -53,6 +53,12 @@
 ## Hantera
 ### [Service Bus-hanteringsbibliotek](service-bus-management-libraries.md)
 ### [Använda Azure Resource Manager-mallar](service-bus-resource-manager-overview.md)
+#### [Skapa ett namnområde](service-bus-resource-manager-namespace.md)
+#### [Skapa ett namnområde och en kö](service-bus-resource-manager-namespace-queue.md)
+#### [Skapa ett namnområde med ämne och prenumeration](service-bus-resource-manager-namespace-topic.md)
+#### [Skapa en auktoriseringsregel för namnområde och kö](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Skapa ett namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Etablera entiteter med PowerShell](service-bus-manage-with-ps.md)
 
 # Referens

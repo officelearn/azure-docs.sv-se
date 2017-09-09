@@ -132,6 +132,7 @@
 ## Hantera enheter
 ### [Introduktion](device-management-introduction.md)
 ### [Använd Azure Portal](device-management-azure-portal.md)
+### [Planera Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Vanliga frågor och svar](device-management-faq.md)
 ### Uppgifter
 #### [Konfigurera Azure AD-registrerade Windows 10-enheter](device-management-azuread-registered-devices-windows10-setup.md)
@@ -142,15 +143,6 @@
 ### Felsöka
 #### [Azure AD-anslutna Windows 10- och Windows Server 2016-hybridenheter](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Tidigare Azure AD-anslutna Windows-hybridenheter ](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-### [Azure AD Join](active-directory-azureadjoin-overview.md)
-#### [Planera](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Konfigurera enhetsregistrering](active-directory-azureadjoin-setup.md)
-#### [Registrera nya enheter](active-directory-azureadjoin-user-frx.md)
-#### [Distribuera](active-directory-azureadjoin-devices-group-policy.md)
-#### [Förstå Windows 10-integrering](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Använda Windows 10-enheter](active-directory-azureadjoin-windows10-devices.md)
-#### [Anslut din enhet](active-directory-azureadjoin-personal-device.md)
-#### [Anslut en Windows 10-enhet](active-directory-azureadjoin-user-upgrade.md)
 
 ## Hantera appar
 ### [Översikt](active-directory-enable-sso-scenario.md)
@@ -299,6 +291,8 @@
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
+#### [VPN-anslutningsmöjligheter](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Hantering av mobilappar](active-directory-conditional-access-mam.md)
 #### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
 #### [Förstå enhetsprinciper](active-directory-conditional-access-device-policies.md)
 #### [Konfigurera åtkomst till anslutna appar](active-directory-conditional-access-policy-connected-applications.md)
@@ -306,7 +300,6 @@
 #### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
 #### [Klassisk portal](active-directory-conditional-access.md)
 ##### [Kom igång](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Autentisera utan lösenord](active-directory-azureadjoin-passport.md)

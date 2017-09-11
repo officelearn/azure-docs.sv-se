@@ -32,10 +32,9 @@
 
 ## Planera och designa
 ### [Metodtips för Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Azure App Service och befintliga Azure-tjänster](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Detaljerad översikt över App Service-planer](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 ### [Högdensitetsvärd](app-service-high-density-hosting.md)
-### [App Service på Linux](app-service-linux-readme.md)
+### [App Service på Linux](containers/app-service-linux-intro.md)
 ### [Använda WebJobs i Azure App Service](app-service-webjobs-readme.md)
 ### [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Dokumentation för App Service Environment](app-service-app-service-environments-readme.md)
@@ -78,7 +77,6 @@
 #### [Anpassade domäner med Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Klona en befintlig app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Hybridanslutningar](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Hybridanslutningar v2](app-service-hybrid-connections.md)
 ### [Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Avancerad konfiguration](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -94,7 +92,6 @@
 #### [Nätverkskonfigurationsinformation med ExpressRoute](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Skydda](app-service-security-readme.md)
-### [Skydda en app i Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Autentisering och auktorisering](app-service-authentication-overview.md)
 ### Autentisera med identitetsproviders
 #### [Azure Active Directory-autentisering](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -117,7 +114,6 @@
 ## Backup
 ### [Säkerhetskopiera din app i Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Återställa en app i Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Använd REST för att säkerhetskopiera och återställa App Service-appar](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [Övervaka](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Aktivera diagnostikloggning](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -126,18 +122,12 @@
 ## Automatisera
 ### [Smidig utveckling](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Azure Resource Manager-distribution](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Webb och GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Webb och SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [MSDeploy med anpassat värdnamn och SSL-certifikat](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### PowerShell
 #### [Automatisera säkerhetskopiering och återställning](app-service-powershell-backup.md)
 #### [Appkloning](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [SSL-certifikatbindning](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Använda Azure Resource Manager med PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Hantera appar med Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## Integrera
-### [Få tillgång till lokala resurser med hjälp av hybridanslutningar](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Skicka e-post med hjälp av SendGrid med Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Exportera till PowerApps och Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
@@ -150,8 +140,6 @@
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
 
 # Resurser
-## [App Service-referens](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Bästa praxis](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  

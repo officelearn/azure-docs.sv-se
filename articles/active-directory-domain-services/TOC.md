@@ -13,12 +13,6 @@
 ### [Uppgift 3: Konfigurera administratörsgrupp och aktivera Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ### [Uppgift 4: Uppdatera DNS-inställningar för virtuellt nätverk](active-directory-ds-getting-started-dns.md)
 ### [Uppgift 5: Aktivera lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md)
-## Klassisk Azure-portal (inaktuell)
-### [Uppgift 1: Skapa den administrativa gruppen](active-directory-ds-getting-started-create-group.md)
-### [Uppgift 2: Skapa eller välj ett virtuellt nätverk](active-directory-ds-getting-started-vnet.md)
-### [Uppgift 3: Aktivera Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
-### [Uppgift 4: Uppdatera DNS-inställningar för virtuellt nätverk](active-directory-ds-getting-started-update-dns.md)
-### [Uppgift 5: Aktivera lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md)
 
 # Gör så här för att
 ## Anslut till en hanterad domän

@@ -34,7 +34,6 @@
 ### [Autentisering och auktorisering i Azure Mobile Apps](app-service-mobile-auth.md)
 ### [Datasynkronisering offline i Azure Mobile Apps](app-service-mobile-offline-data-sync.md)
 ### [Metodtips för Azure App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure App Service och befintliga Azure-tjänster](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Detaljerad översikt över App Service-planer](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Högdensitetsvärd](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Använda WebJobs i Azure App Service](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -127,7 +126,6 @@
 #### [Anpassade domäner med Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Klona en befintlig app](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Lokala anslutningar](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure Virtual Network](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Avancerad konfiguration](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Resursgrupper](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -149,7 +147,6 @@
 #### [Node.js-serverdelen](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## [Skydda](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Skydda en app i Azure App Service](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Autentisering och auktorisering](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Autentisera med identitetsproviders
 #### [Azure Active Directory-autentisering](app-service-mobile-how-to-configure-active-directory-authentication.md)
@@ -172,7 +169,6 @@
 ## Backup
 ### [Säkerhetskopiera din app i Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Återställa en app i Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Använd REST för att säkerhetskopiera och återställa App Service-appar](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Övervaka](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Aktivera diagnostikloggning](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -181,18 +177,12 @@
 ## Automatisera
 ### [Smidig utveckling](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure Resource Manager-distribution](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Webb och GitHub](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Webb och SQL](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [MSDeploy med anpassat värdnamn och SSL-certifikat](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### PowerShell
 #### [Automatisera säkerhetskopiering och återställning](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Appkloning](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [SSL-certifikatbindning](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Använda Azure Resource Manager med PowerShell](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Hantera appar med Azure Automation](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integrera
-### [Få tillgång till lokala resurser med hjälp av hybridanslutningar](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Skicka e-post med hjälp av SendGrid med Azure](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Exportera till PowerApps och Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -214,7 +204,6 @@
 
 # Relaterat
 ## [GitHub-lagringsplatser](https://github.com/Azure/azure-mobile-apps)
-## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resurser
 ## [Metodtips för App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

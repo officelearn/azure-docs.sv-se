@@ -7,4 +7,4 @@ Använd [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409)-
 * [Medieanalys](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 * [Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [REST-API och plattform](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
-* [VoD-direktuppspelning](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
+* [Videoströmning på begäran](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

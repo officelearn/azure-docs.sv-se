@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/26/2017
+ms.date: 08/31/2017
 ms.author: magoedte;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 4b32011b72acc647d4af44bb5ccbcaab408fb4d6
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: cd8ea6e5a85d00f8ee5a011330d5b93863fd735e
+ms.contentlocale: sv-se
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="my-first-powershell-runbook"></a>Min första PowerShell-runbook
@@ -37,7 +37,7 @@ Den här självstudien beskriver steg för steg hur du skapar en [PowerShell-run
 För att kunna genomföra den här kursen behöver du följande:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller <a href="/pricing/free-account/" target="_blank">[registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
+* Ett [Automation-konto för Azure](automation-offering-get-started.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * En virtuell dator i Azure. Eftersom vi ska stoppa och starta den här datorn bör det inte vara en virtuell dator som finns i produktionsmiljön.
 
 ## <a name="step-1---create-new-runbook"></a>Steg 1 – Skapa en ny runbook
@@ -54,7 +54,7 @@ Vi börjar genom att skapa en enkel runbook som visar texten *Hello World*.
 ## <a name="step-2---add-code-to-the-runbook"></a>Steg 2 – Lägga till kod i runbooken
 Du kan antingen skriva kod direkt i runbooken eller välja cmdlets, runbooks och resurser från bibliotekskontrollen och lägga till dem i runbooken med eventuella relaterade parametrar. I den här genomgången skriver vi direkt i runbooken.
 
-1. Vår runbook är tom än så länge. Skriv *Write-Output "Hello World."*.<br><br> ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
+1. Vår runbook är tom än så länge. Skriv *Write-Output "Hello World."* i innehållsdelen av skriptet.<br><br> ![Hello World](media/automation-first-runbook-textual-powershell/automation-helloworld.png)  
 2. Spara runbooken genom att klicka på **Spara**.<br><br> ![Knappen Spara](media/automation-first-runbook-textual-powershell/automation-runbook-edit-controls-save.png)  
 
 ## <a name="step-3---test-the-runbook"></a>Steg 3 – Testa runbooken

@@ -24,6 +24,10 @@ Nej. De virtuella nätverken kan finnas i samma eller olika Azure-regioner (plat
 
 Nej.
 
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Kan jag använda VNet-till-VNet för att ansluta virtuella nätverk i separata Azure-instanser? 
+
+Nej. Du kan använda VNet-till-VNet för att ansluta virtuella nätverk inom samma Azure-instans. Du kan till exempel inte skapa en anslutning mellan offentliga Azure och Azure-instanserna för Kina, Tyskland eller US Gov. I dessa scenarier kan du överväga att använda en VPN-anslutning för plats-till-plats.
+
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Kan jag använda anslutningar mellan virtuella nätverk tillsammans med anslutningar mellan flera platser?
 
 Ja. Virtuell nätverksanslutning kan användas samtidigt med VPN på flera platser.

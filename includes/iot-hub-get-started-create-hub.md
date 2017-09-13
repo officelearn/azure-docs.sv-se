@@ -5,9 +5,9 @@ Skapa en IoT Hub som din simulerade enhetsapp kan ansluta till. Följande steg v
 1. I Jumpbar klickar du på **Ny** > **Sakernas Internet** > **IoT Hub**.
    
     ![Jumpbar i Azure Portal][1]
-1. Välj konfigurationen för din IoT Hub i **IoT Hub**-bladet.
+1. Välj konfigurationen för IoT-hubben i fönstret **IoT Hub**.
    
-    ![IoT Hub-bladet][2]
+    ![Fönstret IoT hub][2]
    
    1. I **Namn**-rutan anger du ett namn för din IoT Hub. Om **namnet** är giltigt och tillgängligt, visas en grön kryssmarkering i **Namn**-rutan.
     [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
@@ -17,18 +17,16 @@ Skapa en IoT Hub som din simulerade enhetsapp kan ansluta till. Följande steg v
    1. I **Plats** väljer du platsen som ska vara som värd för din IoT Hub. Välj den plats som är närmast dig för den här guiden.
 1. När du har valt dina konfigurationsalternativ för IoT Hub, klickar du på **Skapa**.  Det kan ta några minuter för Azure för att skapa din IoT Hub. Du kan kontrollera statusen genom att övervaka förloppet på Startsidan eller i Meddelandepanelen.
    
-    ![Status för ny IoT Hub][3]
-1. När IoT Hub har skapats klickar du på den nya ikonen för din IoT Hub i Azure Portal för att öppna bladet för den. Anteckna **värdnamnet** och klicka sedan på **Principer för delad åtkomst**.
+1. När IoT-hubben har skapats klickar du på den nya ikonen för IoT-hubben i Azure-portalen för att öppna egenskapsfönstret för den. Anteckna **värdnamnet** och klicka sedan på **Principer för delad åtkomst**.
    
-    ![Ny IoT Hub-blad][4]
-1. I bladet **Principer för delad åtkomst** klickar du på **iothubowner**-principen och kopierar samt antecknar IoT Hub-anslutningssträngen i **iothubowner**-bladet. Mer information finns i avsnittet om [åtkomstkontroll][lnk-access-control] i ”utvecklarhandboken för IoT Hub”.
+    ![Fönster för ny IoT-hubb][4]
+1. I **Principer för delad åtkomst** klickar du på **iothubowner**-principen och kopierar samt antecknar IoT Hub-anslutningssträngen i fönstret **iothubowner**. Mer information finns i avsnittet om [åtkomstkontroll][lnk-access-control] i ”utvecklarhandboken för IoT Hub”.
    
-    ![Bladet Principer för delad åtkomst][5]
+    ![Principer för delad åtkomst][5]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
-[3]: ./media/iot-hub-get-started-create-hub/create-iot-hub3.png
 [4]: ./media/iot-hub-get-started-create-hub/create-iot-hub4.png
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 

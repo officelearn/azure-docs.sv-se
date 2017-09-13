@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 09/07/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: f7f50c305a5ae6ad7bba4e793f4cb6a0735b80b4
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 4752199803f1fab04608e6a8618e3294e85fb38a
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Övervakning av säkerhetshälsa i Azure Security Center
@@ -29,7 +28,7 @@ I den här artikeln berättar vi hur du använder övervakningsfunktionerna i Az
 Ofta tänker vi oss att övervakning är att sitta och titta och vänta på att något ska hända som vi sedan ska åtgärda. Säkerhetsövervakning handlar om att ha en proaktiv strategi där resurserna hela tiden kontrolleras så att system som inte uppfyller organisationens normer och principer hittas.
 
 ## <a name="monitoring-security-health"></a>Övervakning av säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](security-center-policies.md) för resurser i en prenumeration analyserar Security Center resursernas säkerhet för upptäckt av eventuella säkerhetsrisker. Information om nätverkskonfigurationen är tillgänglig direkt. Det kan ta en timme eller mer för information om konfiguration av virtuell dator, till exempel uppdatera säkerhetsstatus och konfiguration av operativsystem, att bli tillgänglig. Du kan se säkerhetsstatus för dina resurser och eventuella problem i bladet **Prevention** (Skydd). Problemen visas även i en lista på panelen **Recommendations (Rekommendationer)**.
+När du har aktiverat [säkerhetsprinciper](security-center-policies.md) för resurser i en prenumeration analyserar Security Center resursernas säkerhet för upptäckt av eventuella säkerhetsrisker. Information om nätverkskonfigurationen är tillgänglig direkt. Beroende på antalet virtuella datorer och datorer som du har med agenten installerad kan det ta en timme eller mer att samla in information om de virtuella datorerna och datorns konfiguration, t.ex. status för säkerhetsuppdatering och operativsystemkonfiguration, så att informationen blir tillgänglig. Du kan se säkerhetsstatus för dina resurser och eventuella problem i bladet **Prevention** (Skydd). Problemen visas även i en lista på panelen **Recommendations (Rekommendationer)**.
 
 Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md).
 
@@ -39,41 +38,39 @@ I avsnittet **Prevention** (Förebygga) kan du övervaka resursernas säkerhetss
 
 
 ### <a name="monitor-compute"></a>Övervaka beräkning
-När du klickar på panelen **Beräkna** öppnas bladet **Beräkna** där tre flikar visas:
+Du kan se tre flikar när du klickar på panelen **Beräkna**:
 
-- **Översikt**: Övervakning och rekommendationer för virtuella datorer.
-- **Virtuella datorer**: Lista över alla virtuella datorer och det aktuella säkerhetstillståndet.
+- **Översikt**: Övervakning och rekommendationer.
+- **Virtuella datorer och datorer**: Lista över alla virtuella datorer, datorer och det aktuella säkerhetstillståndet.
 - **Cloud Services**: Lista över alla webb- och arbetsroller som övervakas av Security Center.
 
-![Systemuppdatering av den virtuella datorn saknas](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
+![Systemuppdatering av den virtuella datorn saknas](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
 På varje flik kan det finnas olika alternativ, och i de olika avsnitten kan du välja ett individuellt alternativ och visa mer information om de åtgärder som rekommenderas för att åtgärda problemet. 
 
 #### <a name="monitoring-recommendations"></a>Rekommendationer för övervakning
-I det här avsnittet visas hur många virtuella datorer som initierats för datainsamling och deras aktuella status. När datainsamling har initierats för alla virtuella datorer kan de börja ta emot säkerhetsprinciper från Security Center. När du klickar på den här posten öppnas bladet **VM Agent is missing or not responding (VM-agenten saknas eller svarar inte)**. 
+I det här avsnittet visas hur många virtuella datorer och datorer som har initierats för automatisk etablering och deras aktuella status. När du klickar på den här posten öppnas **Den virtuella datoragenten saknas eller svarar inte**. 
 
 ![Systemuppdatering av den virtuella datorn saknas](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
 
-#### <a name="virtual-machine-recommendations"></a>Rekommendationer för virtuella datorer
-I den här delen finns ett antal [rekommendationer för de virtuella datorer](security-center-virtual-machine-recommendations.md) som övervakas via Azure Security Center. Den första kolumnen visar rekommendationen. Den andra kolumnen visar det totala antalet virtuella datorer som påverkas av den här rekommendationen. Den tredje kolumnen visar hur allvarligt problemet är, såsom illustreras på följande skärmbild.
+#### <a name="recommendations"></a>Rekommendationer
+I den här delen finns ett antal [rekommendationer för de virtuella datorer och datorer](security-center-virtual-machine-recommendations.md) som övervakas via Azure Security Center. Den första kolumnen visar rekommendationen. Den andra kolumnen visar det totala antalet virtuella datorer och datorer som påverkas av den här rekommendationen. Den tredje kolumnen visar hur allvarligt problemet är, såsom illustreras på följande skärmbild:
 
-![Rekommendationer för virtuella datorer](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
+![Rekommendationer för virtuella datorer](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
 
 > [!NOTE]
-> Endast virtuella datorer som har minst en offentlig slutpunkt visas i bladet **Nätverkshälsa** i listan över **Nätverkstopologi**.
+> Endast virtuella datorer som har minst en offentlig slutpunkt visas för **Nätverkshälsa** i listan **Nätverkstopologi**.
 >
->
 
-Varje rekommendation har en uppsättning åtgärder som du kan utföra när du klickar på den. Om du till exempel klickar på **Systemuppdateringar saknas** öppnas bladet **Systemuppdateringar saknas**. Det visar de virtuella datorer som saknar uppdateringar och allvarlighetsgraden för saknad uppdatering såsom visas på följande skärmbild.
+Varje rekommendation har en uppsättning åtgärder som du kan utföra när du klickar på den. Om du till exempel klickar på **Systemuppdateringar saknas** visas en lista över virtuella datorer och datorer som saknar korrigeringsfiler samt allvarlighetsgrad för uppdateringen som saknas, på det sätt som visas i följande skärmbild:
 
-![Saknade systemuppdateringar för virtuella datorer](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
+![Saknade systemuppdateringar för virtuella datorer](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
 
-I bladet **Systemuppdateringar saknas** finns en tabell med följande information:
+**Systemuppdateringar saknas** innehåller en sammanfattning av kritiska uppdateringar i diagramformat, en för Windows och en för Linux. Den andra delen har en tabell med följande information:
 
-* **VIRTUAL MACHINE (VIRTUELL DATOR)**: Här står namnet på de virtuella datorer som det saknas uppdateringar på.
-* **SYSTEM UPDATES (SYSTEMUPPDATERINGAR)**: Här visas antalet systemuppdateringar som saknas.
-* **SENASTE GENOMSÖKNING**: Här står den tid då den virtuella datorn senast genomsöktes för kontroll av uppdateringar.
+* **NAMN**: Namnet på den uppdatering som saknas.
+* **ANTAL VM:AR OCH DATORER**: Det totala antalet virtuella datorer och datorer som saknar denna uppdatering.
 * **STATE (STATUS)**: Här visas det aktuella tillståndet för rekommendationen:
   * **Öppen**: Rekommendationen har inte utförts än.
   * **Pågående**: Rekommendationen håller på att utföras och ingen åtgärd behövs från din sida.
@@ -83,38 +80,49 @@ I bladet **Systemuppdateringar saknas** finns en tabell med följande informatio
   * **Medelhög**: Det behövs mindre viktiga eller ytterligare åtgärder för att slutföra en process eller åtgärda en säkerhetsrisk.
   * **Low (Låg)**: Det finns en säkerhetsrisk som bör åtgärdas, men det måste inte göras omedelbart. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
 
-För att visa information om rekommendationen klickar du på namnet på den virtuella datorn. Ett nytt blad för den virtuella datorn öppnas med en lista med uppdateringar såsom visas på följande skärmbild.
+Om du vill visa information om rekommendationen klickar du på namnet på den uppdatering som saknas. 
 
-![Uppdateringar för en specifik virtuell dator saknas](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
+![Uppdateringar för en specifik virtuell dator saknas](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
 > [!NOTE]
-> Säkerhetsrekommendationerna här är desamma som de som visas i bladet **Rekommendationer**. Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md). Ovanstående gäller inte bara för virtuella datorer, utan för alla resurser i panelen **Resurshälsa**.
+> Säkerhetsrekommendationerna här är desamma som de som visas i alternativet **Rekommendationer**. Mer information om hur du utför rekommendationerna finns i artikeln [Utföra säkerhetsrekommendationerna i Azure Security Center](security-center-recommendations.md). Ovanstående gäller inte bara för virtuella datorer och datorer, utan för alla resurser på panelen **Resource Health**.
 >
->
 
-#### <a name="virtual-machines-section"></a>Delen Virtuella datorer
-I delen med virtuella datorer får du en överblick över alla virtuella datorer och rekommendationer. Varje kolumn representerar en uppsättning rekommendationer såsom visas på följande skärmbild:
+#### <a name="vms--computers-section"></a>Avsnittet för virtuella datorer och datorer
+I delen med virtuella datorer och datorer får du en överblick över alla virtuella datorer och datorer och rekommendationer för dessa. Varje kolumn representerar en uppsättning rekommendationer såsom visas på följande skärmbild:
 
-![Översikt över alla virtuella datorer och rekommendationer](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
+![Översikt över alla virtuella datorer och rekommendationer](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
 
-Genom ikonerna under de olika rekommendationerna kan du snabbt se vilka virtuella datorer som behöver åtgärdas och typ av rekommendation.
+Det finns fyra typer av ikoner som visas i listan, dessa beskrivs i den här listan:
 
-I föregående exempel har en virtuell dator en kritisk rekommendation för slutpunktsskydd. Klicka på den för att få mer information om den virtuella datorn. Ett nytt blad som öppnas representerar den här virtuella datorn såsom visas på följande skärmbild.
+![icon1](./media/security-center-monitoring/security-center-monitoring-icon1.png) Icke-Azure-dator.
 
-![Säkerhetsdetaljer för virtuella datorer](./media/security-center-monitoring/security-center-monitoring-fig8-ga.png)
+![icon2](./media/security-center-monitoring/security-center-monitoring-icon2.png) Virtuell dator med Azure Resource Manager.
 
-Det här bladet visar säkerhetsinformation om den virtuella datorn. Längst ned ser du den rekommenderade åtgärden och allvarlighetsgraden på de olika problemen.
+![icon3](./media/security-center-monitoring/security-center-monitoring-icon3.png) Virtuell dator med klassisk Azure.
+
+![icon4](./media/security-center-monitoring/security-center-monitoring-icon4.png) Virtuella datorer som endast identifieras från arbetsytan som är en del av visad prenumeration. Detta omfattar alla virtuella datorer från andra prenumerationer som rapporterar till arbetsytan i denna prenumeration, och virtuella datorer som installerades med SCOM-direktagent och som inte har något resurs-ID.
+
+Genom ikonerna under de olika rekommendationerna kan du snabbt se vilka virtuella datorer och datorer som behöver åtgärdas och typ av rekommendation. Du kan även använda alternativet **Filter** för att välja vilka alternativ du vill se på denna skärm.
+
+![Filter](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
+
+I föregående exempel har en virtuell dator en kritisk rekommendation för slutpunktsskydd. Klicka på den för att få mer information om den virtuella datorn:
+
+![Säkerhetsdetaljer för virtuella datorer](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
+
+Här ser du säkerhetsinformation om den virtuella datorn eller datorn. Längst ned ser du den rekommenderade åtgärden och allvarlighetsgraden på de olika problemen.
 
 #### <a name="cloud-services-section"></a>Avsnittet Molntjänster
 För molntjänster skapas en rekommendation när operativsystemets version är inaktuell, såsom visas på följande skärmbild:
 
 ![Hälsostatus för molntjänster](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-I ett scenario där du har en rekommendation (vilket inte är fallet i föregående exempel) måste du följa stegen i rekommendationen för att uppdatera versionen av operativsystemet. När en uppdatering är tillgänglig får du en avisering (röd eller orange beroende på hur allvarligt problemet är). Om du klickar på den här aviseringen på raden WebRole1 (kör Windows Server med din webbapp automatiskt distribuerad till IIS) eller WorkerRole1 (kör Windows Server med din webbapp automatiskt distribuerad till IIS) öppnas ett nytt blad med mer information om den här rekommendationen såsom visas på följande skärmbild:
+I ett scenario där du har en rekommendation (vilket inte är fallet i föregående exempel) måste du följa stegen i rekommendationen för att uppdatera versionen av operativsystemet. När en uppdatering är tillgänglig får du en avisering (röd eller orange beroende på hur allvarligt problemet är). Om du klickar på den här aviseringen på raden WebRole1 (kör Windows Server med din webbapp automatiskt distribuerad till IIS) eller WorkerRole1 (kör Windows Server med din webbapp automatiskt distribuerad till IIS) visas mer information om den här rekommendationen som i följande skärmbild:
 
 ![Molntjänstinformation](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Om du vill få en mer ingående förklaring av den här rekommendationen klickar du på **Uppdatera OS-version** under kolumnen **BESKRIVNING**. Bladet **Uppdatera OS-version (förhandsgranskning)** öppnas med mer information.
+Om du vill få en mer ingående förklaring av den här rekommendationen klickar du på **Uppdatera OS-version** under kolumnen **BESKRIVNING**. 
 
 ![Molntjänstrekommendationer](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
@@ -124,7 +132,7 @@ Om du klickar på **Nätverk** öppnas bladet **Nätverk** med mer information s
 ![Bladet Nätverk](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### <a name="networking-recommendations"></a>Nätverksrekommendationer
-Liksom vid resurshälsoinformationen för virtuella datorer visas på det här bladet en sammanfattande lista längst upp och en lista med övervakade nätverk längst ned.
+Liksom vid resurshälsoinformationen för virtuella datorer visas här en sammanfattande lista längst upp och en lista med övervakade nätverk längst ned.
 
 I listan med detaljerad status för nätverk visas potentiella säkerhetsproblem och [rekommendationer](security-center-network-recommendations.md). Följande säkerhetsproblem kan visas:
 
@@ -134,13 +142,11 @@ I listan med detaljerad status för nätverk visas potentiella säkerhetsproblem
 * Begränsa extern åtkomst genom offentlig extern slutpunkt
 * Felfria internetuppkopplade slutpunkter
 
-När du klickar på en rekommendation öppnas ett nytt blad med mer information om rekommendationen såsom visas i följande exempel.
+När du klickar på en rekommendation visas mer information om rekommendationen som i följande exempel:
 
-![Information om en rekommendation i bladet Nätverk](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+![Information om en rekommendation i Nätverk](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-I det här exemplet ser du bladet **Konfigurera saknade nätverkssäkerhetsgrupper för undernät**, där det finns en lista med undernät och virtuella datorer som saknar skyddet som nätverkssäkerhetsgrupper ger. Om du klickar på det undernätet som du vill använda för nätverkssäkerhetsgruppen öppnas ett annat blad.
-
-I bladet **Välj nätverkssäkerhetsgrupp** väljer du den mest lämpade nätverkssäkerhetsgruppen för undernätet eller skapar en ny grupp.
+I det här exemplet har **Konfigurera saknade nätverkssäkerhetsgrupper för undernät** en lista med undernät och virtuella datorer som saknar skyddet som nätverkssäkerhetsgrupper ger. Om du klickar på det undernät som du vill använda för nätverkssäkerhetsgruppen visas **Välj nätverkssäkerhetsgrupp**. Här väljer du den mest lämpade nätverkssäkerhetsgruppen för undernätet eller skapar en ny grupp.
 
 #### <a name="internet-facing-endpoints-section"></a>Delen med internetuppkopplade slutpunkter
 I delen **Internetuppkopplade slutpunkter** ser du de virtuella datorer som är konfigurerade med en internetuppkopplad slutpunkt och aktuell status för dem.
@@ -172,7 +178,7 @@ Längst ned på det här bladet finns rekommendationer för den här virtuella d
 
 ### <a name="monitor-storage--data"></a>Övervaka lagring och data
 
-När du klickar på **Storage & data** (Lagring och data) i panelen **Prevention** (Förebygga) öppnas **dataresurser**-bladet med rekommendationer för SQL och Storage. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge. Mer information om lagringskryptering finns i [Aktivera kryptering för Azure-lagringskontot i Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+När du klickar på **Lagring och data** i avsnittet **Skydd** öppnas **Dataresurser** med rekommendationer för SQL och lagring. Här finns även [rekommendationer](security-center-sql-service-recommendations.md) gällande databasens allmänna hälsoläge. Mer information om lagringskryptering finns i [Aktivera kryptering för Azure-lagringskontot i Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 ![Dataresurser](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
@@ -180,7 +186,7 @@ Under **SQL-rekommendationer**, kan du klicka på valfri rekommendation och få 
 
 ![Information om en SQL-rekommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-I bladet **Aktivera granskning på SQL-databaser** visas följande information:
+Under **Aktivera granskning på SQL-databaser** visas följande information:
 
 * en lista med SQL-databaser
 * vilken server de ligger på
@@ -188,23 +194,23 @@ I bladet **Aktivera granskning på SQL-databaser** visas följande information:
 * aktuell status
 * problemets allvarlighetsgrad
 
-När du klickar på databasen för att utföra rekommendationen, öppnas bladet **Granskning och hotidentifiering** som du ser på följande skärmbild.
+När du klickar på databasen för att utföra rekommendationen öppnas **Granskning och hotidentifiering** som på följande skärmbild.
 
-![Bladet Granskning och hotidentifiering](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Granskning och hotidentifiering](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning**.
 
 ### <a name="monitor-applications"></a>Övervakning av program
 
-Om din arbetsbelastning i Azure innehåller program som ligger på [virtuella datorer (skapade via Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) med exponerade webbportar (TCP-portarna 80 och 443) kan de övervakas i Security Center. Då identifieras potentiella säkerhetsproblem och du får rekommendationer om hur problemen kan lösas. När du klickar på panelen **Program** öppnas bladet **Program** och ett antal rekommendationer visas i avsnittet **Application recommendations** (Programrekommendationer). Här visas även program uppdelade efter värd/virtuell IP-adress såsom visas på följande skärmbild.
+Om din arbetsbelastning i Azure innehåller program som ligger på [virtuella datorer (skapade via Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) med exponerade webbportar (TCP-portarna 80 och 443) kan de övervakas i Security Center. Då identifieras potentiella säkerhetsproblem och du får rekommendationer om hur problemen kan lösas. När du klickar på panelen **Program** öppnas **Program** där ett antal rekommendationer visas i avsnittet **Application recommendations** (Programrekommendationer). Här visas även programuppdelningen per värd, IP/domän och om det finns en WAF-lösning installerad:
 
-![Programsäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
+![Programsäkerhetshälsa](./media/security-center-monitoring/security-center-monitoring-fig8-sep2017.png)
 
-Precis som med de andra rekommendationerna kan du klicka på en rekommendation för att få se mer information om problemet och om hur du kan åtgärda det. I exemplet på följande bild visas ett program som identifierats som en oskyddad webbapp. När du klickar på webbappen som klassats som oskyddad öppnas ett nytt blad med följande alternativ:
+Precis som med de andra rekommendationerna kan du klicka på en rekommendation för att få se mer information om problemet och om hur du kan åtgärda det. I exemplet på följande bild visas ett program som identifierats som en oskyddad webbapp. När du klickar på webbappen som klassats som oskyddad blir följande alternativ tillgängligt:
 
-![Information om en app som inte är säker](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
+![Information](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-Det här bladet har en lista över alla rekommendationer för det här programmet. När du klickar på rekommendationen **Lägg till en brandvägg för webbaserade program** öppnas bladet **Lägg till en brandvägg för webbaserade program** med alternativ för att installera en brandvägg för webbaserade program (WAF) från en partner såsom visas på följande skärmbild.
+Här finns en lista över alla rekommendationer för det här programmet. När du klickar på rekommendationen **Lägg till en brandvägg för webbaserade program** öppnas **Lägg till en brandvägg för webbaserade program** med alternativ för att installera en brandvägg för webbaserade program (WAF) från en partner såsom visas på följande skärmbild.
 
 ![Dialogrutan Lägg till en brandvägg för webbaserade program](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 

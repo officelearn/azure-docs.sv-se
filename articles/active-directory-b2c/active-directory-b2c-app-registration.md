@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Registrera ditt program
@@ -31,6 +31,8 @@ Om du vill skapa ett program som accepterar registrering och inloggning av konsu
 
 Program som har skapats från Azure AD B2C-bladet i Azure Portal måste hanteras från samma plats. Om du redigerar B2C-program med hjälp av PowerShell eller någon annan portal, stöds de inte och fungerar inte med Azure AD B2C. Mer information finns i avsnittet [felaktiga appar](#faulted-apps). 
 
+Informationen i den här artikeln hjälper dig att komma igång med våra exempel. Du lär dig mer om dessa exempel i efterföljande artiklar.
+
 ## <a name="navigate-to-b2c-settings"></a>Gå till B2C-inställningar
 
 Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för B2C-klientorganisationen. 
@@ -39,13 +41,13 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Välj nästa steg baserat på vilken typ av program du registrerar:
+## <a name="choose-next-steps-based-on-your-application-type"></a>Välj nästa steg beroende på din programtyp
 
 * [Registrera ett webbprogram](#register-a-web-app)
 * [Registrera ett webb-API](#register-a-web-api)
 * [Registrera ett mobilt eller inbyggt program](#register-a-mobile-or-native-app)
  
-## <a name="register-a-web-app"></a>Registrera en webbapp
+### <a name="register-a-web-app"></a>Registrera en webbapp
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -59,7 +61,7 @@ Gör så här om webbprogrammet anropar ett webb-API som skyddas av Azure AD B2C
 
 [Gå vidare till **nästa steg**](#next-steps)
 
-## <a name="register-a-web-api"></a>Registrera ett webb-API
+### <a name="register-a-web-api"></a>Registrera ett webb-API
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -67,7 +69,7 @@ Klicka på **Publicerade områden** om du behöver lägga till fler områden. So
 
 [Gå vidare till **nästa steg**](#next-steps)
 
-## <a name="register-a-mobile-or-native-app"></a>Registrera en mobil eller inbyggd app
+### <a name="register-a-mobile-or-native-app"></a>Registrera en mobil eller inbyggd app
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 

@@ -14,6 +14,7 @@ Så här skapar du ett namnområde:
 8. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
 
 ### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
+Om du skapar en ny namnrymd genereras en ursprunglig regel för signatur för delad åtkomst (SAS) med ett kopplat par med primära och sekundära nycklar som ger fullständig kontroll över alla namnrymdens aspekter. Se [Service Bus – autentisering och auktorisering](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) om du vill veta hur man skapar ytterligare regler med mer begränsade rättigheter för regelbundna sändare och mottagare. Gör så här om du vill kopiera den ursprungliga regeln: 
 
 1. I listan över namnområden, klickar du på det nyligen skapade namnområdet.
 2. På namnområdesbladet klickar du på **Principer för delad åtkomst**.

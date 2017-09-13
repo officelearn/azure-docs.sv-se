@@ -1,0 +1,71 @@
+- name: Dokumentation om Azure IoT Hub Device Provisioning-tjänsten
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om IoT Device Provisioning
+      href: about-iot-dps.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Konfigurera automatisk etablering
+      href: quick-setup-auto-provision.md
+    - name: Skapa simulerad enhet
+      href: quick-create-simulated-device.md
+- name: Självstudier
+  items:
+    - name: 1 – Konfigurera molnresurser
+      href: tutorial-set-up-cloud.md
+    - name: 2 – Konfigurera enhet
+      href: tutorial-set-up-device.md
+    - name: 3 - Etablera en enhet till en IoT-hubb
+      href: tutorial-provision-device-to-hub.md
+    - name: 4 - Etablera enheter till flera hubbar
+      href: tutorial-provision-multiple-hubs.md
+- name: Koncept
+  items:
+    - name: Enhetskoncept
+      href: concepts-device.md
+    - name: Tjänstkoncept
+      href: concepts-service.md
+    - name: Säkerhetskoncept
+      href: concepts-security.md
+- name: Instruktionsguider
+  items:
+    - name: Hantera enhetsregistreringar
+      href: how-to-manage-enrollments.md
+- name: Referens
+  items:
+    - name: REST
+      href: /rest/api/iot-dps
+- name: Resurser
+  items:
+    - name: Azure IoT Hub
+      href: 'https://azure.microsoft.com/services/iot-hub/'
+    - name: Azure Certified for IoT-enhetskatalog
+      href: 'https://catalog.azureiotsuite.com/'
+    - name: Azure IoT Developer Center
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Device Explorer-verktyg
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: iothub-diagnostics tool
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: Verktyget iothub-explorer
+      href: 'https://github.com/Azure/iothub-explorer'
+    - name: Utbildningsväg
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Tekniska fallstudier
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

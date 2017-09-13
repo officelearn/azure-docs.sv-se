@@ -10,7 +10,7 @@
 ## [Självstudie för nybörjare](sql-data-warehouse-get-started-tutorial.md)
 ## [Bästa praxis](sql-data-warehouse-best-practices.md)
 ## [Hantera](sql-data-warehouse-overview-manage.md)
-## [Få support](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 
 # Gör så här för att
@@ -139,18 +139,22 @@
 # Referens
 
 ## [Kapacitetsbegränsningar](sql-data-warehouse-service-capacity-limits.md)
-## [Språkelement för T-SQL](sql-data-warehouse-reference-tsql-language-elements.md)
-## [Instruktioner för T-SQL](sql-data-warehouse-reference-tsql-statements.md)
-## [Systemvyer för T-SQL](sql-data-warehouse-reference-tsql-system-views.md)
+## T-SQL
+### [Fullständig referens](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [Språkelement för SQL DW](sql-data-warehouse-reference-tsql-language-elements.md)
+### [Instruktioner för SQL DW](sql-data-warehouse-reference-tsql-statements.md)
+## [Systemvyer](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell-cmdletar](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=databases)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
+## [Funktionsbegäranden](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Support](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partner

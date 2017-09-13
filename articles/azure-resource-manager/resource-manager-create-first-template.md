@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/27/2017
+ms.date: 09/03/2017
 ms.topic: get-started-article
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Skapa och distribuera din första Azure Resource Manager-mall
 Den här artikeln beskriver steg för steg hur du skapar din första Azure Resource Manager-mall. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md). Om du har befintliga resurser och behöver en mall för dessa resurser kan du läsa [Exportera en Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
 
-Du behöver en JSON-redigerare för att skapa och ändra mallar. [Visual Studio Code](https://code.visualstudio.com/) är en enkel, plattformsoberoende kodredigerare med öppen källkod. Vi rekommenderar starkt att du använder Visual Studio Code för att skapa Resource Manager-mallar. Den här artikeln förutsätter att du använder Virtual Studio Code, men om du har en annan JSON-redigerare kan du använda den.
+Du behöver en JSON-redigerare för att skapa och ändra mallar. [Visual Studio Code](https://code.visualstudio.com/) är en enkel, plattformsoberoende kodredigerare med öppen källkod. Vi rekommenderar starkt att du använder Visual Studio Code för att skapa Resource Manager-mallar. I den här artikeln förutsätter vi att du använder VS Code. Om du har en annan JSON-redigerare (t.ex. Visual Studio) kan du använda den.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -216,7 +216,7 @@ Observera att namnet på lagringskontot använder variabeln som du lade till. SK
 
 Spara filen. 
 
-När du har slutfört stegen i den här artikeln ser din mall ut så här:
+Nu ser din mall ut så här:
 
 ```json
 {
@@ -289,6 +289,141 @@ Om du använder Cloud Shell laddar du upp den ändrade mallen till filresursen. 
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
+## <a name="use-autocomplete"></a>Använda automatisk komplettering
+
+Hittills har du bara kopierat och klistrat in JSON-kod från den här artikeln. Men när du skapar en egen mall vill du hitta och ange egenskaper och värden som är tillgängliga för resurstypen. VS Code läser schemat för resurstypen och föreslår egenskaper och värden. Om du vill se hur automatisk komplettering fungerar går du till properties-elementet i mallen och lägger till en ny rad. Skriv ett citattecken och lägg märke till att VS Code genast föreslår namn som är tillgängliga i properties-elementet.
+
+![Visa tillgängliga egenskaper](./media/resource-manager-create-first-template/show-properties.png)
+
+Välj **encryption**. Skriv ett kolon (:) så föreslår VS Code att du lägger till ett nytt objekt.
+
+![Lägg till objekt](./media/resource-manager-create-first-template/add-object.png)
+
+Lägg till objektet genom att trycka på Tabb eller Retur.
+
+Skriv återigen ett citattecken och notera att VS Code nu föreslår egenskaper som är tillgängliga för kryptering.
+
+![Visa egenskaper för kryptering](./media/resource-manager-create-first-template/show-encryption-properties.png)
+
+Välj **services** och fortsätt att lägga till värden baserat på VS Code-förslagen tills du har följande:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        }
+    }
+}
+```
+
+Du har aktiverat blobbkryptering för lagringskontot. VS Code har dock identifierat ett problem. Observera att encryption visas med en varning.
+
+![Krypteringsvarning](./media/resource-manager-create-first-template/encryption-warning.png)
+
+Hovra över den gröna linjen så ser du varningen.
+
+![Egenskap saknas](./media/resource-manager-create-first-template/missing-property.png)
+
+Du ser att encryption-elementet kräver en keySource-egenskap. Lägg till ett kommatecken efter services-objektet och lägg till keySource-egenskapen. VS Code föreslår **"Microsoft.Storage"** som ett giltigt värde. När du är klar ser properties-elementet ut så här:
+
+```json
+"properties": {
+    "encryption":{
+        "services":{
+            "blob":{
+              "enabled":true
+            }
+        },
+        "keySource":"Microsoft.Storage"
+    }
+}
+```
+
+Så här ser den färdiga mallen ut:
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageSKU": {
+      "type": "string",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Premium_LRS"
+      ],
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "The type of replication to use for the storage account."
+      }
+    },   
+    "storageNamePrefix": {
+      "type": "string",
+      "maxLength": 11,
+      "defaultValue": "storage",
+      "metadata": {
+        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      }
+    }
+  },
+  "variables": {
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "name": "[variables('storageName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "encryption":{
+          "services":{
+            "blob":{
+              "enabled":true
+            }
+          },
+          "keySource":"Microsoft.Storage"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+## <a name="deploy-encrypted-storage"></a>Distribuera krypterad lagring
+
+Distribuera mallen igen och ange ett nytt namn för lagringskontot.
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json -storageNamePrefix storesecure
+```
+
+Om du använder Azure CLI använder du:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
+Om du använder Cloud Shell laddar du upp den ändrade mallen till filresursen. Skriv över den befintliga filen. Använd sedan följande kommando:
+
+```azurecli
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
+```
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När de inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen.
@@ -306,6 +441,7 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+* Om du vill få mer hjälp när du skapar mallar kan du installera ett VS Code-tillägg. Mer information finns i [Skapa en Azure Resource Manager-mall med hjälp av Visual Studio Code-tillägget](resource-manager-vscode-extension.md)
 * Mer information om strukturen i en mall finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 * Mer information om egenskaperna för ett lagringskonto finns i [mallreferensen för lagringskonton](/azure/templates/microsoft.storage/storageaccounts).
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).

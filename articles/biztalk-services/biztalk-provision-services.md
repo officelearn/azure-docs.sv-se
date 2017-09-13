@@ -152,7 +152,7 @@ Klicka på **Hantera** för att öppna Access Control-hanteringsportalen. I Acce
 Tjänstidentiteten för Access Control är en uppsättning autentiseringsuppgifter som tillåter att program eller klienter autentiserar direkt med Access Control och tar emot en token.
 
 > [!IMPORTANT]
-> BizTalk-tjänsten använder **Ägare** som standardtjänstens identitet och värdet **Lösenord**. Om du använder det symmetriska nyckelvärdet i stället för lösenordet kan följande fel uppstå.<br/><br/>*Det gick inte att ansluta till hanteringstjänstkontot för Access Control med de angivna autentiseringsuppgifterna*
+> BizTalk-tjänsten använder **Ägare** som standardtjänstens identitet och värdet **Lösenord**. Om du använder det symmetriska nyckelvärdet i stället för lösenordet kan följande fel uppstå.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
 > 
 > 
 

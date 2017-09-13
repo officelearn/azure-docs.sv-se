@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 08/30/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ebc5fd442c1f0dd9841c1423c174a073d286911a
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
@@ -54,7 +54,7 @@ Se till att den server du använder för Azure Multi-Factor Authentication uppfy
 | Krav för Azure Multi-Factor Authentication Server | Beskrivning |
 |:--- |:--- |
 | Maskinvara |<li>200 MB ledigt hårddiskutrymme</li><li>x32- eller x64-processor</li><li>Minst 1 GB RAM-minne</li> |
-| Programvara |<li>Windows Server 2008 eller senare om värden är ett serveroperativsystem</li><li>Windows 7 eller senare om värden är ett klientoperativsystem</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
+| Programvara |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, alla utgåvor</li><li>Windows 8, alla utgåvor</li><li>Windows 7, alla utgåvor</li><li>Windows Vista, alla utgåvor, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 eller senare om du installerar användarportalen eller webbtjänst-SDK</li> |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA-serverkomponenter
 

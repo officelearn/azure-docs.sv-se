@@ -13,6 +13,7 @@
 # Gör så här för att
 ## Planera och designa
 ### [Autentisering och säkerhet](relay-authentication-and-authorization.md)
+#### [Migrera från ACS till SAS](relay-migrate-acs-sas.md)
 ### [Hybridanslutningsprotokoll](relay-hybrid-connections-protocol.md)
 ## Utveckla
 ### [Tillgängliga API:er](relay-api-overview.md)

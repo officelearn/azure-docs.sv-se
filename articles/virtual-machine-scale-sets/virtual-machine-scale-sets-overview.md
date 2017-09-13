@@ -13,15 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Vad är skalningsuppsättningar för virtuella datorer i Azure?
@@ -123,7 +122,7 @@ Det här avsnittet innehåller några vanliga scenarier för skalningsuppsättni
    I [det här exemplet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) med den här metoden distribuerar [Azure Container Service](https://azure.microsoft.com/services/container-service/) ett kluster baserat på skalningsuppsättningar med en behållardirigerare.
 
 ## <a name="scale-set-performance-and-scale-guidance"></a>Prestanda för skalningsuppsättningar och riktlinjer för skalning
-* En skalningsuppsättning har stöd för upp till 1 000 virtuella datorer. Om du skapar och laddar upp dina egna anpassade VM-avbildningar är gränsen 100. Faktorer att överväga när du använder stora skalningsuppsättningar finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md).
+* En skalningsuppsättning har stöd för upp till 1 000 virtuella datorer. Om du skapar och laddar upp dina egna anpassade VM-avbildningar är gränsen 300. Faktorer att överväga när du använder stora skalningsuppsättningar finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md).
 * Du behöver inte skapa Azure Storage-konton i förväg för att använda skalningsuppsättningar. Skalningsuppsättningar har stöd för Azure-hanterade diskar, vilket eliminerar prestandaproblem relaterade till antalet diskar per lagringskonto. Mer information finns i [skalningsuppsättningar och hanterade diskar för virtuella datorer i Azure](virtual-machine-scale-sets-managed-disks.md).
 * Överväg att använda Azure Premium Storage i stället för Azure Storage för snabbare, mer förutsägbara etableringstider för virtuella datorer samt förbättrade IO-prestanda.
 * Antalet virtuella datorer som du kan skapa begränsas av kärnkvoten i den region där du distribuerar. Du kan behöva kontakta kundsupporten om du vill öka beräkningskvotgränsen även om du har en hög högsta gräns för kärnor som kan användas med Azure Cloud Services i dag. Om du vill fråga din kvot kör du följande Azure CLI-kommando: `azure vm list-usage`. Eller kör detta PowerShell-kommando: `Get-AzureRmVMUsage`.
@@ -131,7 +130,7 @@ Det här avsnittet innehåller några vanliga scenarier för skalningsuppsättni
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Vanliga frågor och svar om skalningsuppsättningar
 **F.** Hur många virtuella datorer kan man ha i en skalningsuppsättning?
 
-**S.** En skalningsuppsättning kan innehålla mellan 0 och 1 000 virtuella datorer baserade på plattformsavbildningar eller 0–100 virtuella datorer baserade på anpassade avbildningar. 
+**S.** En skalningsuppsättning kan innehålla mellan 0 och 1 000 virtuella datorer baserade på plattformsavbildningar, eller mellan 0 och 300 virtuella datorer baserade på anpassade avbildningar. 
 
 **F.** Kan datadiskar användas i skalningsuppsättningar?
 

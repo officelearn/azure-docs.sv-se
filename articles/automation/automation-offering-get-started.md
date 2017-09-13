@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -170,8 +170,7 @@ Den rekommenderade metoden för att integrera Automation är att välja erbjudan
    - Ange ett namn för den nya **OMS-arbetsytan**.
    - Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
    - Du kan skapa en **resursgrupp** eller välja en befintlig resursgrupp.  
-   - Välj en **Plats**.  För närvarande är endast regionerna **Australien, sydöstra**,  **USA, östra**, **Sydostasien**, **USA, västra centrala** och **Europa, västra** tillgängliga.
-   - Välj en **Prisnivå**.  Lösningen erbjuds i två nivåer: Kostnadsfri eller Per nod (OMS).  Den kostnadsfria nivån har en gräns för mängden information som samlas in varje dag, kvarhållningsperioden och körtid för runbook-jobb.  Per nod (OMS) har ingen daglig gräns för insamlad data.  
+   - Välj en **Plats**.  Mer information finns i avsnittet om [tillgängliga regioner för Azure Automation](https://azure.microsoft.com/regions/services/).  Lösningarna är tillgängliga på två nivåer: kostnadsfritt och per nod (OMS).  Den kostnadsfria nivån har en gräns för mängden information som samlas in varje dag, kvarhållningsperioden och körtid för runbook-jobb.  Per nod (OMS) har ingen daglig gräns för insamlad data.  
    - Välj **Automation-konto**.  Om du skapar en ny OMS-arbetsyta måste du också skapa ett Automation-konto som ska associeras med den nya OMS-arbetsytan, inklusive din Azure-prenumeration, resursgrupp och region.  Du kan välja **Skapa ett Automation-konto** och ange följande på bladet **Automation-konto**: 
   - I fältet **namn** anger du namnet på Automation-kontot.
 

@@ -24,6 +24,8 @@ Azure Container Service är en SLA-reglerad Azure-tjänst med funktioner i Azure
 
 [ACS Engine](http://github.com/Azure/acs-engine) är ett projekt baserat på öppen källkod som gör det möjligt för privilegierade användare att anpassa klusterkonfigurationen på varje nivå. Möjligheten att ändra konfigurationen för både infrastruktur och programvara innebär att vi inte erbjuder något serviceavtal för ACS Engine. Support hanteras via projektet på GitHub i stället för via de officiella Microsoft-kanalerna. 
 
+Mer information finns i vår [supportpolicy för behållare](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
+
 ## <a name="cluster-management"></a>Klusterhantering
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Hur skapar jag SSH-nycklar för mitt kluster?

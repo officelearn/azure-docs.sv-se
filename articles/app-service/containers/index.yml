@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Web App for Containers
+metadata:
+  document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
+  title: 'Dokumentation om Web App for Containers – självstudier, API-referens'
+  meta.description: Learn how to use Web Apps for Containers to build and host websites and web applications leveraging Docker.
+  services: app-service
+  author: syntaxc4
+  manager: carolz
+  ms.service: app-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/05/2017
+  ms.author: cfowler
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg'
+            text: .NET Core
+            href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_nodejs.svg'
+            text: Node.js
+            href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-nodejs'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_php.svg'
+            text: PHP
+            href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php'
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg'
+            text: Java
+            href: 'https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json'
+  - title: Steg för steg-självstudier
+    items:
+      - type: paragraph
+        text: 'Lär dig att distribuera, hantera och övervaka säkra webbappar i Azure Web App for Containers'
+      - type: list
+        style: ordered
+        items:
+          - html: Skapa ett program med hjälp av <a href="en-us/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core med Azure SQL DB</a> eller <a href="en-us/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js med MongoDB</a>
+          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">Mappa en befintlig anpassad domän till ditt program</a>
+          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-SSL">Bind ett befintligt SSL-certifikat till ditt program</a>
+          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Lägga till ett CDN till ditt program</a>
+  - title: Exempel
+    items:
+      - type: paragraph
+        text: Hitta skript för att hantera vanliga uppgifter.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+          - html: <a href="/cli/azure/appservice">Azure CLI 2.0</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+          - title: Språk
+            html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
+          - title: REST
+            html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>

@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Skalningsuppsättningar för virtuella Azure-datorer och hanterade diskar
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/21/2017
 
 * Du kan koppla hanterade diskar till skalningsuppsättningen.
 
-* En skalningsuppsättning med en hanterad disk kan ha en kapacitet så hög som 1 000 virtuella datorer om den är baserad på en plattformsavbildning eller 100 virtuella datorer om den är baserad på en anpassad avbildning.
+* Med en hanterad disk kan en skalningsuppsättning innehålla hela 1 000 virtuella datorer om den baseras på en plattformsavbildning, eller 300 virtuella datorer om den baseras på en anpassad avbildning.
 
 ## <a name="get-started"></a>Kom igång
 

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
@@ -31,7 +31,7 @@ Organisationer behöver en strategi för affärskontinuitet och haveriberedskap 
 
 Site Recovery är en Azure-tjänst som bidrar till din BCDR-strategi. Med Site Recovery kan du distribuera programmedveten replikering till molnet eller till en sekundär plats. Oavsett om dina appar är Windows- eller Linux-baserade, körs på fysiska servrar, VMware eller Hyper-V så kan du använda Site Recovery för att samordna replikering, utföra haveriberedskapstester, köra redundansväxlingar och återställning efter fel.
 
-Site Recovery integrerar med Microsoft-program som SharePoint, Exchange, Dynamics, SQL Server och Active Directory. Microsoft är även i nära samarbete med ledande leverantörer som Oracle, SAP, IBM och Red Hat. Du kan anpassa replikeringslösningar på appbasis.
+Site Recovery integrerar med Microsoft-program som SharePoint, Exchange, Dynamics, SQL Server och Active Directory. Microsoft samarbetar även nära med ledande leverantörer som Oracle, SAP och Red Hat. Du kan anpassa replikeringslösningar på appbasis.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Varför ska man använda Site Recovery för programreplikering?
 Site Recovery erbjuder skydd och återställning på programnivå enligt följande:

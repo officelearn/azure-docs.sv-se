@@ -4,6 +4,8 @@
   items:
     - name: Om Web Apps
       href: app-service-web-overview.md
+    - name: Om Web Apps for Containers
+      href: ../app-service/containers/app-service-linux-intro.md
     - name: Jämför värdalternativ
       href: choose-web-site-cloud-service-vm.md
 - name: Snabbstarter
@@ -29,10 +31,8 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: 1 – PHP med MySQL
       href: app-service-web-tutorial-php-mysql.md
-    - name: 1 – WordPress med MySQL
-      href: app-service-web-create-web-app-from-marketplace.md
-    - name: 1 – Python med PostgreSQL
-      href: app-service-web-tutorial-docker-python-postgresql-app.md
+    - name: 1 – Java med MySQL
+      href: app-service-web-tutorial-java-mysql.md
     - name: 2 – Mappa anpassad domän
       href: app-service-web-tutorial-custom-domain.md
     - name: 3 – Bind SSL-certifikat
@@ -73,14 +73,8 @@
               href: app-service-web-php-get-started.md
             - name: Konfigurera PHP-projekt
               href: web-sites-php-configure.md
-            - name: Konfigurera WordPress Multisite
-              href: web-sites-php-convert-wordpress-multisite.md
         - name: Node.js
           items:
-            - name: Sails.js-app med NOSQL-DB
-              href: app-service-web-nodejs-sails.md
-            - name: Använd io.js
-              href: web-sites-nodejs-iojs.md
             - name: Felsök Node.js-app
               href: web-sites-nodejs-debug.md
         - name: Java
@@ -89,14 +83,8 @@
               href: app-service-web-eclipse-create-hello-world-web-app.md
             - name: Java-app med IntelliJ
               href: app-service-web-intellij-create-hello-world-web-app.md
-            - name: Använd Azure SDK för Java
-              href: java-create-azure-website-using-java-sdk.md
             - name: Ladda upp befintlig app
               href: web-sites-java-add-app.md
-        - name: Python
-          items:
-            - name: Django-app med MySQL
-              href: web-sites-python-ptvs-django-mysql.md
         - name: Skicka e-post med SendGrid
           href: sendgrid-dotnet-how-to-send-email.md
         - name: Konfigurera körning
@@ -111,28 +99,6 @@
           items:
             - name: Använda appinställningar
               href: web-sites-configure.md
-        - name: Webbapp i Linux
-          items:
-            - name: Översikt
-              href: app-service-linux-intro.md
-            - name: Hantera med hjälp av CLI
-              href: app-service-linux-cli.md
-            - name: Ruby-webbapp i Linux
-              href: app-service-linux-ruby-get-started.md
-            - name: Node.js-webbapp i Linux
-              href: app-service-linux-using-nodejs-pm2.md
-            - name: .NET Core-webbapp i Linux
-              href: app-service-linux-using-dotnetcore.md
-            - name: Anpassad Docker-webbapp i Linux
-              href: app-service-linux-using-custom-docker-image.md
-            - name: Anslut via SSH
-              href: app-service-linux-ssh-support.md
-            - name: Kontinuerlig distribution
-              href: app-service-linux-ci-cd.md
-            - name: Distributionstyp – anpassad eller inbyggd avbildning?
-              href: app-service-linux-choose-deployment-type.md
-            - name: Vanliga frågor och svar om Webbapp i Linux
-              href: app-service-linux-faq.md
     - name: Distribuera till Azure
       href: web-sites-deploy.md
       items:
@@ -162,12 +128,6 @@
               href: web-sites-traffic-manager-custom-domain-name.md
             - name: Migrera en aktiv domän
               href: app-service-custom-domain-name-migrate.md
-        - name: Migrera från IIS
-          href: web-sites-migration-from-iis-server.md
-        - name: Testa i produktion
-          href: app-service-web-test-in-production-get-start.md
-        - name: Lägg till funktioner till en webbapp
-          href: app-service-web-get-started-2.md
         - name: Distribuera en Spring Boot-app till Azure Web Apps med Maven-pluginprogrammet
           href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
         - name: Distribuera en behållarbaserad Spring Boot-app med Maven-pluginprogrammet
@@ -178,8 +138,6 @@
           href: ../azure-toolkit-for-intellij-hello-world-web-app-linux.md
     - name: Ansluta till DB/resurser
       items:
-        - name: Ansluta till lokala data
-          href: web-sites-hybrid-connection-get-started.md
         - name: Ansluta till Azure VNet
           href: web-sites-integrate-with-vnet.md
         - name: Ansluta till Azure VNet med PowerShell
@@ -214,8 +172,6 @@
           href: web-sites-scale.md
         - name: Skala ut
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Belastningsutjämna med Traffic Manager
-          href: web-sites-traffic-manager.md
         - name: Hög skalbarhet med App Service-miljöer
           href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: Använda Azure CDN för global räckvidd
@@ -224,8 +180,6 @@
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: Skapa en Redis-cache
           href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: Hantera sessionstillstånd med Azure Redis Cache
-          href: web-sites-dotnet-session-state-caching.md
     - name: Övervaka
       items:
         - name: Övervaka appar
@@ -240,8 +194,6 @@
           href: web-sites-backup.md
         - name: Återställa din app från säkerhetskopia
           href: web-sites-restore.md
-        - name: Säkerhetskopiera med REST API
-          href: websites-csm-backup.md
     - name: Hantera appresurser
       items:
         - name: Klona app med PowerShell
@@ -250,10 +202,6 @@
           href: app-service-web-app-cloning-portal.md
         - name: Flytta resurser
           href: app-service-move-resources.md
-        - name: Använd Azure Resource Manager med PowerShell
-          href: app-service-web-app-azure-resource-manager-powershell.md
-        - name: Hantera appar med Azure Automation
-          href: automation-manage-web-app.md
     - name: Integrera
       items:
         - name: Exportera till PowerApps och Microsoft Flow

@@ -1,0 +1,182 @@
+- name: Web Apps for Containers
+- name: Översikt
+  items:
+    - name: Om Web Apps for Containers
+      href: app-service-linux-intro.md
+    - name: Jämför värdalternativ
+      href: ../../app-service-web/choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa .NET Core-app
+      href: quickstart-dotnetcore.md
+    - name: Skapa PHP-app
+      href: quickstart-php.md
+    - name: Skapa Node.js-app
+      href: quickstart-nodejs.md
+    - name: Skapa Java-app
+      href: ../../azure-toolkit-for-intellij-hello-world-web-app-linux.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Skapa Ruby-app
+      href: quickstart-ruby.md
+    - name: Distribuera anpassad Docker-avbildning
+      href: quickstart-custom-docker-image.md
+- name: Självstudier
+  items:
+    - name: 1 – App med DB
+      items:
+        - name: .NET Core med SQL DB
+          href: tutorial-dotnetcore-sqldb-app.md
+        - name: PHP med MySQL
+          href: tutorial-php-mysql-app.md
+        - name: Node.js med MongoDB
+          href: tutorial-nodejs-mongodb-app.md
+        - name: Anpassad Python-behållare med PostgreSQL
+          href: tutorial-docker-python-postgresql-app.md
+    - name: 1 – Anpassad Docker-avbildning
+      href: tutorial-custom-docker-image.md
+    - name: 2 – Mappa anpassad domän
+      href: ../../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 3 – Bind SSL-certifikat
+      href: ../../app-service-web/app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: 4 – Lägg till CDN
+      href: ../../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+- name: Exempel
+  items:
+    - name: Azure CLI
+      href: ../../app-service-web/app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: PowerShell
+      href: ../../app-service-web/app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+- name: Koncept
+  items:
+    - name: Så här fungerar App Service
+      href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: App Service-planer
+      href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Distributionstyp – anpassad eller inbyggd avbildning
+      href: ../../app-service-web/app-service-linux-choose-deployment-type.md
+    - name: App Service Environment
+      href: ../app-service-environment/intro.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Autentisering och auktorisering
+      href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Välj distributionstyp
+      href: choose-deployment-type.md
+- name: Instruktionsguider
+  items:
+    - name: Konfigurera program
+      items:
+        - name: Använda appinställningar
+          href: ../../app-service-web/web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Distribuera till Azure
+      items:
+        - name: Distribuera appen
+          items:
+            - name: Distribuera via FTP
+              href: ../../app-service-web/app-service-deploy-ftp.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Distribuera via molnsynkronisering
+              href: ../../app-service-web/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Distribuera kontinuerligt
+              href: ../../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Distribuera från lokal Git
+              href: ../../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Distribuera med mall
+              href: ../../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Ange autentiseringsuppgifter för distribution
+          href: ../../app-service-web/app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Skapa mellanlagringsmiljöer
+          href: ../../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Mappa anpassad domän
+      items:
+        - name: Köpa domän
+          href: ../../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Mappa domäner med Traffic Manager
+          href: ../../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Migrera en aktiv domän
+          href: ../../app-service-web/app-service-custom-domain-name-migrate.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Skydda app
+      items:
+        - name: Köpa SSL-cert
+          href: ../../app-service-web/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Autentisera användare
+          items:
+            - name: Autentisera med Azure AD
+              href: ../../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Autentisera med Facebook
+              href: ../../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Autentisera med Google
+              href: ../../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Autentisera med Microsoft-konto
+              href: ../../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Autentisera med Twitter
+              href: ../../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Konfigurera ömsesidig TLS-autentisering
+          href: ../../app-service-web/app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Skalningsapp
+      items:
+        - name: Skala upp serverkapaciteten
+          href: ../../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Skala ut till flera instanser
+          href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Övervaka app
+      items:
+        - name: Kvoter och aviseringar
+          href: ../../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Aktivera loggar
+          href: ../../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Hantera app
+      items:
+        - name: Säkerhetskopiera en app
+          href: ../../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Återställ en säkerhetskopia
+          href: ../../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Klona en app
+          href: ../../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Flytta resurser
+          href: ../../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+- name: Referens
+  items:
+    - name: CLI 2.0
+      href: /cli/azure/appservice
+    - name: PowerShell
+      href: /powershell
+    - name: REST API
+      href: /rest/api/appservice/
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: Kvotinformation
+      href: '../../azure-subscription-service-limits.md#app-service-limits'
+    - name: Tjänstuppdateringar och viktig information
+      href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Bästa praxis
+      href: ../../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Exempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+    - name: Kokböcker
+      items:
+        - name: Distributionsskript
+          href: 'https://azure.microsoft.com/documentation/scripts/'
+    - name: Felsökning
+      items:
+        - name: Felsöka med Visual Studio
+          href: ../../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Felsöka Node.js-app
+          href: ../../app-service-web/app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Felsöka HTTP 502 och 503
+          href: ../../app-service-web/app-service-web-troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: Felsöka prestandaproblem
+          href: ../../app-service-web/app-service-web-troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+        - name: VANLIGA FRÅGOR OCH SVAR
+          items:
+            - name: 'Vanliga frågor och svar om tillgänglighet, prestanda och program'
+              href: ../../app-service-web/app-service-web-availability-performance-application-issues-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Vanliga frågor och svar om distribution
+              href: ../../app-service-web/app-service-web-deployment-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Vanliga frågor och svar om tekniker med öppen källkod
+              href: ../../app-service-web/app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+            - name: Vanliga frågor och svar om konfiguration och hantering
+              href: ../../app-service-web/app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json

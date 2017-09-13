@@ -37,6 +37,7 @@
 ### [Appar som använder köer](service-bus-create-queues.md)
 ### [Appar som använder ämnen och prenumerationer](service-bus-create-topics-subscriptions.md)
 ### [Autentisering och auktorisering](service-bus-authentication-and-authorization.md)
+#### [Migrera från ACS till SAS](service-bus-migrate-acs-sas.md)
 #### [Autentisering med signaturer för delad åtkomst](service-bus-sas.md)
 ### [Partitionerade köer och ämnen](service-bus-partitioning.md)
 ### [Köer för obeställbara meddelanden](service-bus-dead-letter-queues.md)

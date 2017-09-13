@@ -4,6 +4,8 @@
 
 # Snabbstarter
 ## [Skapa ett .NET-program](service-fabric-quickstart-dotnet.md)
+## [Distribuera ett program för Windows-behållare](service-fabric-quickstart-containers.md)
+## [Distribuera ett program för Linux-behållare](service-fabric-quickstart-containers-linux.md)
 
 # Självstudier
 ## Distribuera ett .NET-program

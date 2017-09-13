@@ -1,0 +1,52 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure IoT Hub Device Provisioning-tjänsten (förhandsversion)
+metadata:
+  title: 'Dokumentation om Azure IoT Hub Device Provisioning-tjänsten (förhandsversion) – självstudier, API-referens'
+  meta.description: Overview of Azure IoT Hub Device Provisioning Service.
+  services: iot-dps
+  author: nberdy
+  manager: timlt
+  ms.service: iot-dps
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: nberdy
+abstract:
+  description: 'IoT Hub Device Provisioning-tjänsten (förhandsversion) är en hjälptjänst för IoT Hub som möjliggör zero-touch- och just-in-time-etablering till rätt IoT Hub utan mänsklig inblandning, så att kunderna kan etablera miljontals enheter på ett säkert och skalbart sätt. Lär dig hur du etablerar enheter till IoT Hub med våra snabbstarter, självstudier och exempel.'
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: Lär dig mer om hur du konfigurerar din första Device Provisioning-tjänstinstans och etablerar en simulerad enhet till IoT Hub.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Konfigurera automatisk etablering
+            href: /azure/iot-dps/quick-setup-auto-provision
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Skapa simulerad enhet
+            href: /azure/iot-dps/quick-create-simulated-device
+  - title: Steg för steg-självstudier
+    items:
+      - type: paragraph
+        text: Lär dig hur du använder IoT Hub Device Provisioning-tjänsten (förhandsversion) för att automatiskt etablera säkerhetsaktiverade enheter till en eller flera IoT-hubbar.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Konfigurera molntjänster</a>
+          - html: <a href="/azure/iot-dps/tutorial-set-up-device">Konfigurera enheten för att ansluta till Azure</a>
+          - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Etablera enheter till en enda IoT-hubb</a>
+          - html: '<a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Etablera enheter till flera, belastningsutjämnade IoT-hubbar</a>'
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: <p><a href="/rest/api/iot-dps">REST API</a></p>

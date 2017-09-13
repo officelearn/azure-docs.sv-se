@@ -17,10 +17,10 @@ ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -48,11 +48,11 @@ Logga in på Azure Portal på http://portal.azure.com.
 
     ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
+5. Under **Inställningar** behåller du standardvärdena och klickar på **OK**. 
 
 6. På sammanfattningssidan klickar du på **Ok** för att starta distributionen av den virtuella datorn.
 
-7. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnar den virtuella datorn VM-sammanfattningsbladet automatiskt.
+7. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnas sammanfattningen för den virtuella datorn automatiskt.
 
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
@@ -94,13 +94,13 @@ En nätverkssäkerhetsgrupp (NSG) säkrar ingående och utgående trafik. När e
 
 ## <a name="view-the-iis-welcome-page"></a>Visa välkomstsidan för IIS
 
-När IIS är installerat och port 80 är öppen för din VM kan webbservern nu nås från internet. Öppna en webbläsare och ange den virtuella datorns offentliga IP-adress. den offentliga IP-adressen finns på VM-bladet i Azure Portal.
+När IIS är installerat och port 80 är öppen för din VM kan webbservern nu nås från internet. Öppna en webbläsare och ange den virtuella datorns offentliga IP-adress. Den offentliga IP-adressen finns under *Virtuella datorer* i Azure Portal.
 
 ![Standardwebbplatsen i IIS](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra det väljer du resursgruppen på bladet för den virtuella datorn och klickar på **Ta bort**.
+Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Det gör du genom att välja resursgruppen för den virtuella datorn och klicka på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

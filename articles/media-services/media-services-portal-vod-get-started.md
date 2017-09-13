@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med VoD med hjälp av Azure Portal | Microsoft Docs"
-description: "De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll (VoD) med Azure Media Services-appen (AMS) med hjälp av Azure Portal."
+title: "Komma igång med att leverera video på begäran med hjälp av Azure Portal | Microsoft Docs"
+description: "De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll med Azure Media Services-appen i Azure-portalen."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: cbb67ef92386a6288b3317bf77ebb67f15ce7fb2
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: fb981f3240799c924464c828b2c835ac5d9879ed
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>Komma igång med att leverera innehåll på begäran med hjälp av Azure Portal
+# <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Kom igång med att leverera innehåll på begäran med hjälp av Azure-portalen
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll (VoD) med Azure Media Services-appen (AMS) med hjälp av Azure Portal.
+De här självstudierna visar dig stegen för att implementera ett grundläggande leveransprogram för Video-on-Demand-innehåll med Azure Media Services-appen i Azure-portalen.
 
 ## <a name="prerequisites"></a>Krav
 Följande krävs för att kunna genomföra vägledningen:
@@ -34,138 +34,127 @@ Följande krävs för att kunna genomföra vägledningen:
 
 Vägledningen innehåller följande uppgifter:
 
-1. Starta slutpunkt för direktuppspelning.
+1. Starta slutpunkten för direktuppspelning.
 2. Överföra en videofil.
 3. Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet.
-4. Publicera tillgången och få URL:er för strömning och progressiv överföring.  
+4. Publicera tillgången och få URL:er för strömning och progressiv nedladdning.  
 5. Spela upp ditt innehåll.
 
-## <a name="start-streaming-endpoints"></a>Starta slutpunkter för direktuppspelning 
+## <a name="start-the-streaming-endpoint"></a>Starta slutpunkten för direktuppspelning
 
-När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera video via direktuppspelning med anpassningsbar bithastighet. Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassningsbar bithastighet i direktuppspelningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) direkt när du så önskar, utan att du behöver lagra på förhand paketerade versioner av vart och ett av dessa direktuppspelningsformat.
+När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera video via direktuppspelning med anpassningsbar bithastighet. Media Services ger dig dynamisk paketering. Med dynamisk paketering kan du leverera MP4-kodat innehåll med anpassad bithastighet i just-in-time-strömningsformat som stöds av Media Services. Exempel är bland annat Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och Dynamic Adaptive Streaming over HTTP (DASH, kallas även MPEG-DASH). Med hjälp av Media Services-direktuppspelning med anpassningsbar bithastighet kan du leverera videor utan att lagra förpaketerade versioner av vart och ett av dessa strömningsformat.
 
->[!NOTE]
->När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
+> [!NOTE]
+> När du skapar Media Services-kontot läggs en slutpunkt för direktuppspelning av standardtyp till i kontot med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill strömma innehåll från ha tillståndet **Körs**. 
 
-Starta slutpunkten för direktuppspelning genom att göra följande:
+Starta slutpunkten för direktuppspelning:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. I fönstret Inställningar klickar du på Slutpunkter för direktuppspelning. 
-3. Klicka på den slutpunkt för direktuppspelning som är standard. 
-
-    Fönstret INFORMATION OM DEN SLUTPUNKT FÖR DIREKTUPPSPELNING SOM ÄR STANDARD visas.
-
-4. Klicka på ikonen Start.
-5. Klicka på knappen Spara för att spara ändringarna.
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Välj **Inställningar** > **Slutpunkter för direktuppspelning**. 
+3. Välj den slutpunkt för direktuppspelning som är standard. Fönstret **INFORMATION OM DEN SLUTPUNKT FÖR DIREKTUPPSPELNING SOM ÄR STANDARD** visas.
+4. Välj ikonen **Start**.
+5. Välj knappen **Spara**.
 
 ## <a name="upload-files"></a>Överföra filer
-För att strömma videor med Azure Media Services behöver du överföra källvideorna, koda dem till flera olika bithastigheter och publicera resultatet. I det här avsnittet beskrivs det första steget. 
+För att strömma videor med Azure Media Services ska du ladda upp källvideorna, koda dem till flera olika bithastigheter och sedan publicera resultatet. I det här avsnittet beskrivs det första steget. 
 
-1. I fönstret **Inställning** klickar du på **Tillgångar**.
+1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
+2. Välj **Inställningar** > **Tillgångar**. Välj sedan knappen **Ladda upp**.
    
     ![Överföra filer](./media/media-services-portal-vod-get-started/media-services-upload.png)
-2. Klicka på knappen **Överför**.
    
     Fönstret **Överför en videotillgång** visas.
    
    > [!NOTE]
-   > Det finns inga filstorleksbegränsningar.
+   > Media Services begränsar inte filstorleken för uppladdning av videor.
    > 
    > 
-3. Bläddra till den önskade videon på datorn, markera den och tryck på OK.  
+3. På datorn går du till den video som du vill ladda upp. Välj videon och välj sedan **OK**.  
    
-    Överföringen startar och du kan följa förloppet under filnamnet.  
+    Uppladdningen startar. Du kan följa förloppet under filnamnet.  
 
-När överföringen är klar visas den nya tillgången i listan **Tillgångar**. 
+När uppladdningen är klar visas den nya tillgången i fönstret **Tillgångar**. 
 
 ## <a name="encode-assets"></a>Koda tillgångar
+Om du vill använda dynamisk paketering måste du koda källfilen i en uppsättning MP4-filer med flera bithastigheter. Kodningsstegen visas i det här avsnittet.
 
-När du arbetar med Azure Media Services är ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services har stöd för följande strömningstekniker med anpassningsbar bithastighet: HTTP-liveuppspelning (HLS), jämn direktuppspelning, MPEG DASH. För att förbereda dina videor för strömning med anpassad bithastighet måste du koda källvideon till filer i multibithastighet. Du bör använda kodaren **Media Encoder Standard** för att koda dina videor.  
+### <a name="encode-assets-in-the-portal"></a>Koda tillgångar i portalen
+Koda innehållet med hjälp av Media Encoder Standard i Azure-portalen:
 
-Media Services tillhandahåller också en dynamisk paketering som gör att du kan leverera dina MP4-filer med flera bithastigheter i följande strömningsformat: MPEG DASH, HLS eller jämn direktuppspelning utan att du behöver packa om till dessa strömningsformat. Med dynamisk paketering behöver du bara lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig respons baserat på begäranden från en klient.
-
-Om du vill dra nytta av dynamisk paketering måste du koda din källfil till en uppsättning MP4-filer med flera bithastigheter (kodningsstegen visas längre fram i det här avsnittet).
-
-### <a name="to-use-the-portal-to-encode"></a>Använda portalen för att koda
-I det här avsnittet beskrivs de steg som du kan vidta för att koda ditt innehåll med Media Encoder Standard.
-
-1. I fönstret **Inställningar** väljer du **Tillgångar**.  
-2. I fönstret **Tillgångar** väljer du den tillgång som du vill koda.
-3. Tryck på knappen **Koda**.
-4. I fönstret **Koda en tillgång** väljer du processorn ”Media Encoder Standard” och en förinställning. Information om förinställningar finns i [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) (autogenerera en bithastighetsstege) och [Task Presets for MES](media-services-mes-presets-overview.md) (Uppgiftsförinställningar för MES). Om du planerar att styra vilka kodningsförinställningar, kom ihåg att det är viktigt att välja den förinställning som är mest lämplig för din indatavideo. Om du till exempel vet att din indatavideo har en upplösning på 1 920 x 1 080 bildpunkter, kan du använda förinställningen ”H264 multibithastighet 1080p”. Om du har en video med låg upplösning (640 x 360) bör du inte använda förinställningen ”H264 multibithastighet 1080p”.
+1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
+2. Välj **Inställningar** > **Tillgångar**. Välj den tillgång som du vill koda.
+3. Välj knappen **Koda**.
+4. I fönstret **Koda en tillgång** väljer du processorn **Media Encoder Standard** och en förinställning. Information om förinställningar finns i [Auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) (Autogenerera en bithastighetsstege) och [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Uppgiftsförinställningar för Media Encoder Standard). Det är viktigt att välja den förinställning som fungerar bäst för indatavideon. Om du till exempel vet att indatavideon har en upplösning på 1 920 &#215; 1 080 bildpunkter kan du välja förinställningen **H264 multibithastighet 1080p**. Om du har en video med låg upplösning (640 &#215; 360) ska du inte använda förinställningen **H264 multibithastighet 1080p**.
    
-   Du kan redigera namnet på utdatatillgången och namnet på jobbet för enklare hantering.
+   Du kan underlätta hanteringen av resurserna genom att redigera namnet på utdatatillgången och namnet på jobbet.
    
    ![Koda tillgångar](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Tryck på **Skapa**.
+5. Välj **Skapa**.
 
 ### <a name="monitor-encoding-job-progress"></a>Övervaka förloppet för kodningsjobb
-Klicka på **Inställningar** (överst på sidan) för att övervaka förloppet för kodningsjobbet och välj sedan **Jobb**.
+Välj **Inställningar** överst på sidan för att övervaka förloppet för kodningsjobbet och välj sedan **Jobb**.
 
 ![Jobb](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## <a name="publish-content"></a>Publicera innehåll
-För att ge din användare en URL som kan användas för att strömma eller hämta ditt innehåll måste du först ”publicera” din tillgång genom att skapa en lokaliserare. Lokaliserare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: 
+För att ge användaren en URL som kan användas för att strömma eller hämta innehållet måste du först publicera tillgången genom att skapa en lokaliserare. Lokaliserare ger åtkomst till filer som finns i tillgången. Azure Media Services stöder två typer av lokaliserare: 
 
-* Strömningslokaliserare (OnDemandOrigin), som används för anpassad strömning (till exempel för strömning av MPEG DASH, HLS och Smooth Streaming). Om du vill skapa en strömningslokaliserare måste din tillgång innehålla en .ism-fil. 
-* Progressiva SAS-lokaliserare, som används för leverans av video via progressiv hämtning.
+* **Strömningslokaliserare (OnDemandOrigin)**. Strömningslokaliserare används för anpassad strömning. Exempel på anpassad strömning är HLS, Smooth Streaming och MPEG-DASH. Om du vill skapa en strömningslokaliserare måste tillgången innehålla en .ism-fil. 
+* **Progressiv lokaliserare (signatur för delad åtkomst)**. Progressiva lokaliserare används för att leverera video via progressiv nedladdning.
 
-En strömnings-URL har följande format och du kan använda det för att spela upp Smooth Streaming-tillgångar.
+Lägg till *(format = m3u8 aapl)* till URL:en för att skapa en HLS-strömnings-URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
-Lägg till (format = m3u8 aapl) till URL:en för att skapa en HLS-strömnings-URL.
+Om du vill skapa en strömnings-URL som ska spela upp Smooth Streaming-tillgångar använder du följande URL-format:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
 
-Lägg till (format=mpd-time-csf) till URL:en för att skapa en MPEG DASH-strömnings-URL.
+Om du vill skapa en strömnings-URL för MPEG-DASH lägger du till *(format=mpd-time-csf)* i URL:en:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
+En URL för signatur för delad åtkomst har följande format:
 
-En SAS-URL har följande format.
-
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+    {blob container name}/{asset name}/{file name}/{shared access signature}
 
 > [!NOTE]
-> Om du har använt portalen för att skapa lokaliserare före mars 2015, skapades lokaliserare med ett utgångsdatum två år senare.  
+> Lokaliserare som har skapats i Azure-portalen före mars 2015 har ett utgångsdatum på två år.  
 > 
 > 
 
-Du uppdaterar ett utgångsdatum för en lokaliserare med [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator)- eller [.NET](http://go.microsoft.com/fwlink/?LinkID=533259)-API:er. URL:en ändras när du uppdaterar en SAS-lokaliserare.
+Om du vill uppdatera utgångsdatumet för en lokaliserare kan du använda en [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) eller en [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259). 
+
+> [!NOTE]
+> URL:en ändras när du uppdaterar utgångsdatumet för en SAS-lokaliserare.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Använda portalen för att publicera en tillgång
-Gör följande för att använda portalen för att publicera en tillgång:
-
-1. Välj **Inställningar** > **Tillgångar**.
-2. Välj den tillgång som du vill publicera.
-3. Klicka sedan på knappen **Publicera**.
+1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
+2. Välj **Inställningar** > **Tillgångar**. Välj den tillgång som du vill publicera.
+3. Välj sedan knappen **Publicera**.
 4. Välj typ av lokaliserare.
-5. Tryck på **Lägg till**.
+5. Välj **Lägg till**.
    
-    ![Publicera](./media/media-services-portal-vod-get-started/media-services-publish1.png)
+    ![Publicera videon](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
 URL:en läggs till i listan över **publicerade URL:er**.
 
 ## <a name="play-content-from-the-portal"></a>Spela upp innehåll från portalen
-Azure Portal har en innehållsspelare som du kan använda för att testa videon.
+Du kan testa videon på en innehållsspelare i Azure-portalen.
 
-Klicka på önskad video och klicka sedan på knappen **Spela upp**.
+Välj videon och välj sedan knappen **Spela upp**.
 
-![Publicera](./media/media-services-portal-vod-get-started/media-services-play.png)
+![Spela upp videon i Azure-portalen](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Vissa förutsättningar gäller:
 
-* Starta direktuppspelningen genom att börja köra **standard**slutpunkten för direktuppspelning.
+* Starta direktuppspelningen genom att börja köra standardslutpunkten för direktuppspelning.
 * Kontrollera att videon har publicerats.
-* Denna**Media Player** spelar upp från den strömningsslutpunkt som är standard. Klicka för att kopiera URL:en och använd en annan spelare om du vill spela upp från en strömningsslutpunkt som inte är standard. Till exempel [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
-
-## <a name="next-steps"></a>Nästa steg
-Granska sökvägarna för Media Services-utbildning.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+* Azure-portalens mediaspelare spelar upp från den slutpunkt för direktuppspelning som är standard. Klicka för att kopiera URL:en och klistra in den i en annan spelare om du vill spela upp från en slutpunkt för direktuppspelning som inte är standard. Du kan till exempel testa videon i [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## <a name="next-steps"></a>Nästa steg
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

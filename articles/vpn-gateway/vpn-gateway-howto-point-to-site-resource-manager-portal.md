@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5c8e99f3ba52ef5d6f9f99ac24891c38e8970fff
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: cc9018d95ffce3b5b4a5ee20d5c78a2122e0223e
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med certifikatautentisering: Azure-portalen
@@ -134,7 +134,7 @@ För att kunna ansluta till ett virtuellt nätverk med en VPN-anslutning från p
 
 Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, förutsatt att versionen matchar arkitekturen för klienten. En lista över klientoperativsystem som stöds finns i [Vanliga frågor och svar om punkt-till-plats](#faq) i slutet av den här artikeln.
 
-### <a name="step-1---generate-and-download-the-client-configuration-package"></a>Steg 1 – Skapa och ladda ned klientkonfigurationspaketet
+### <a name="1-generate-and-download-the-client-configuration-package"></a>1. Generera och ladda ned klientkonfigurationspaketet
 
 1. På sidan **Punkt-till-plats-konfiguration** klickar du på **Ladda ned VPN-klient** så att sidan **Ladda ned VPN-klient** öppnas. Det tar en minut eller två att skapa paketet.
 
@@ -143,7 +143,7 @@ Du kan använda samma VPN-klientkonfigurationspaket på varje klientdator, föru
 
   ![Hämtning av VPN-klient 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-### <a name="step-2---install-the-client-configuration-package"></a>Del 2 – Installera klientkonfigurationspaketet
+### <a name="2-install-the-client-configuration-package"></a>2. Installera klientkonfigurationspaketet
 
 1. Kopiera konfigurationsfilen lokalt till den dator som du vill ansluta till det virtuella nätverket. 
 2. Installera paketet på klientdatorn genom att dubbelklicka på EXE-filen. Konfigurationspaketet är inte signerat eftersom du har skapat det och en varning om detta kan visas. Om ett Windows SmartScreen-fönster öppnas klickar du på **Mer info** (till vänster) och sedan på **Kör ändå**  för att kunna installera paketet.
@@ -227,7 +227,7 @@ Du kan återkalla ett klientcertifikat genom att lägga till tumavtrycket i list
 
 ## <a name="faq"></a>Vanliga frågor och svar om punkt-till-plats
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).

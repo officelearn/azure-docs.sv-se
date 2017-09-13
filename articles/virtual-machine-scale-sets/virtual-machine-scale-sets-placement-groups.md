@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/7/2017
+ms.date: 9/1/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
@@ -37,7 +37,7 @@ Beakta följande krav för att lista ut om programmet effektivt kan använda sto
 
 - Stora skalningsuppsättningar kräver Azure Managed Disks. Skalningsuppsättningar som inte har skapats med Managed Disks kräver flera lagringskonton (ett konto kan användas för 20 virtuella dator). Stora skalningsuppsättningar är utformade för att endast fungera med Managed Disks för att minska dina omkostnader för lagringshantering och för att undvika risken att du får problem med prenumerationsbegränsningar för lagringskonton. Om du inte använder Managed Disks är din skalningsuppsättning begränsad till 100 virtuella datorer.
 - Skalningsuppsättningar som skapats från Azure Marketplace-avbildningar kan skalas upp till 1 000 virtuella datorer.
-- Skalningsuppsättningar som skapats från anpassade avbildningar (VM-avbildningar som du skapat och överfört själv) kan för närvarande skala upp till 100 virtuella datorer.
+- Skalningsuppsättningar som skapas från anpassade avbildningar (VM-avbildningar som du skapar och laddar upp själv) kan för närvarande skala upp till 300 virtuella datorer.
 - Layer-4-belastningsutjämning med Azure Load Balancer stöds inte ännu för skalningsuppsättningar som består av flera placeringsgrupper. Kontrollera att skalningsuppsättningen är konfigurerad för att använda standardinställningen att bara använda en enda placeringsgrupp om du behöver använda Azure Load Balancer.
 - Layer-7-belastningsutjämning med Azure Application Gateway stöds för alla skalningsuppsättningar.
 - En skalningsuppsättning definieras med ett enda undernät – kontrollera att ditt undernät har ett adressutrymme som är tillräckligt stort för alla de virtuella datorerna du behöver. Som standard överetablerar skalningsuppsättningar (skapar extra virtuella datorer vid tidpunkten för distribution eller vid utskalning, som du inte debiteras för) för att förbättra distributionstillförlitlighet och prestanda. Tillåt ett adressutrymme 20% större än antalet virtuella datorer som du planerar att skala till.

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67b8e2e0039c8bc63f50f177e3c0d18b07df45e6
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,16 +27,19 @@ ms.lasthandoff: 08/21/2017
 
 Operativsystemet måste stödja SMB 3.0 för att montera en Azure-filresurs utanför den Azure-region som den finns i, till exempel lokalt eller i en annan Azure-region. 
 
-Azure File-resursen kan monteras på Windows-datorn antingen lokalt eller i Azure VM beroende på operativsystemversion. Tabellen nedan visar den 
+Du kan montera Azure-filresurser i en Windows-installation som körs antingen i en virtuell Azure-dator eller lokalt. Tabellen nedan visar vilka operativsystemversioner som har stöd för montering av filresurser och i vilken miljö:
 
-| Windows-version        | SMB-version |Monteras på Azure VM|Monteras lokalt|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Ja                 | Nej                  |
-| Windows Server 2008 R2 | SMB 2.1     | Ja                 | Nej                  |
-| Windows 8              | SMB 3.0     | Ja                 | Ja                 |
-| Windows Server 2012    | SMB 3.0     | Ja                 | Ja                 |
-| Windows Server 2012 R2 | SMB 3.0     | Ja                 | Ja                 |
-| Windows 10             | SMB 3.0     | Ja                 | Ja                 |
+| Windows-version        | SMB-version | Monteras i Azure VM | Monteras lokalt |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | Ja | Ja |
+| Windows Server 2016    | SMB 3.0     | Ja                   | Ja                  |
+| Windows 8.1            | SMB 3.0     | Ja                   | Ja                  |
+| Windows Server 2012 R2 | SMB 3.0     | Ja                   | Ja                  |
+| Windows Server 2012    | SMB 3.0     | Ja                   | Ja                  |
+| Windows 7              | SMB 2.1     | Ja                   | Nej                   |
+| Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nej                   |
+
+<sup>1</sup>Windows 10 versionerna 1507, 1511, 1607 och 1703
 
 > [!Note]  
 > Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.

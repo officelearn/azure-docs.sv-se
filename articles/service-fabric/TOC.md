@@ -280,7 +280,7 @@
 ### [Visualisera ett kluster](service-fabric-visualizing-your-cluster.md)
 ### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
 
-### [Hantera ett kluster med Service Fabric CLI](service-fabric-cli.md)
+### [Kom igång med Service Fabric CLI](service-fabric-cli.md)
 ### [Korrigera klusternoder](service-fabric-patch-orchestration-application.md)
 
 ### Hantera och dirigera klusterresurser

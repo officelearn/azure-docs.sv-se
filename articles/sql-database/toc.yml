@@ -261,10 +261,6 @@
           href: sql-database-long-term-backup-retention-configure.md
         - name: Georeplikering – portal
           href: sql-database-geo-replication-portal.md
-        - name: Georeplikering – T-SQL – konfigurera
-          href: sql-database-geo-replication-transact-sql.md
-        - name: Georeplikering – T-SQL – redundans
-          href: sql-database-geo-replication-failover-transact-sql.md
         - name: Återställ enskild tabell
           href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
     - name: Läsa in och flytta data
@@ -299,8 +295,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
-        - name: Azure RemoteApp
-          href: sql-database-ssms-remoteapp.md
     - name: Skala ut
       items:
         - name: Skapa shardad app

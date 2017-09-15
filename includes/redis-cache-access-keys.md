@@ -6,7 +6,7 @@ Om du vill hämta värdnamn, portar och åtkomstnycklar via Azure Portal [blädd
 ![Inställningar för Redis-cache](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Hämta värdnamn, portar och åtkomstnycklar via kommandoradsgränssnittet för Azure
-Om du vill hämta värdnamn och portar via Azure CLI 2.0 kan du ange kommandot [az redis show](https://docs.microsoft.com/cli/azure/redis#show) och om du vill hämta nycklar kan du ange [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys). I följande skript körs de här två kommandona så att värdnamn, portar och nycklar skickas till konsolen.
+Om du vill hämta värdnamn och portar via Azure CLI 2.0 kan du ange kommandot [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) och om du vill hämta nycklar kan du ange [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys). I följande skript körs de här två kommandona så att värdnamn, portar och nycklar skickas till konsolen.
 
 ```azurecli
 #/bin/bash

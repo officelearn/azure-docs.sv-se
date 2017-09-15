@@ -1,7 +1,7 @@
-Nu när din app är igång kan du garantera verksamhetskontinuitet och se användaråtkomst för att garanterat ge användarna hög tillgänglighet. Du kan använda Azure Portal för att granska samlingens tillgänglighet, svarstid, dataflöde och konsekvens. 
+Now that your app is up and running, you'll want to ensure business continuity and watch user access to ensure high availability. You can use the Azure portal to review the availability, latency, throughput, and consistency of your collection. 
 
-Varje graf som är kopplad till [serviceavtalen (SLA) för Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/documentdb/) tillhandahåller en rad som visar kvoten som krävs för att uppfylla serviceavtalet och din faktiska användning, vilket ger dig insyn om databasens prestanda. Ytterligare mått, till exempel lagringsanvändning och antal begäranden per minut ingår även i portalen.
+Each graph that's associated with the [Azure Cosmos DB Service Level Agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) provides a line that shows the quota required to meet the SLA and your actual usage. This information gives you a clear view into your database performance. Additional metrics, such as storage usage and number of requests per minute, are also included in the portal.
 
-* I Azure Portal klickar du på **Mått** på den vänstra panelen under **Övervakning**.
+* In the Azure portal, in the pane on the left, under **Monitoring**, select **Metrics**.
 
-   ![Att göra-app med exempeldata](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+   ![Todo app with sample data](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)

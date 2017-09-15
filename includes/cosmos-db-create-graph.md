@@ -1,16 +1,17 @@
-Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafdatabas. 
+You can now use the Data Explorer tool in the Azure portal to create a graph database. 
 
-1. Klicka på **Data Explorer (förhandsversion)** på den vänstra navigeringsmenyn i Azure Portal. 
-2. På bladet **Datautforskaren (förhandsversion)** klickar du på **New Graph** (Ny graf) och fyller sedan i sidan med följande information.
+1. In the Azure portal, in the menu on the left, select **Data Explorer (Preview)**.
 
-    ![Datautforskaren i Azure-portalen](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+2. Under **Data Explorer (Preview)**, select **New Graph**. Then fill in the page by using the following information:
 
-    Inställning|Föreslaget värde|Beskrivning
+    ![Data Explorer in the Azure portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+
+    Setting|Suggested value|Description
     ---|---|---
-    Databas-id|sample-database|ID för din nya databas. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla `/ \ # ?` eller avslutande blanksteg.
-    Graf-id|sample-graph|ID för din nya graf. Samma teckenkrav gäller för grafnamn som databas-id.
-    Lagringskapacitet| 10 GB|Låt standardvärdet vara kvar. Det här är databasens lagringskapacitet.
-    Dataflöde|400 RU:er|Låt standardvärdet vara kvar. Du kan skala upp dataflödet senare om du vill minska svarstiden.
-    Partitionsnyckeln|/userid|En partitionsnyckel som ska distribuera data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när man skapar en performant graf. Läs mer om det i [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Utforma för partitionering).
+    Database id|sample-database|The ID for your new database. Database names must be between 1 and 255 characters and can't contain `/ \ # ?` or a trailing space.
+    Graph id|sample-graph|The ID for your new graph. Graph names have the same character requirements as database IDs.
+    Storage capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
+    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
+    Partition key|/userid|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant graph. For more information, see [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
-3. När formuläret är ifyllt klickar du på **OK**.
+3. After the form is filled out, select **OK**.

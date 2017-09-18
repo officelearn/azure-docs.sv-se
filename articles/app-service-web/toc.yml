@@ -206,6 +206,8 @@
       items:
         - name: Exportera till PowerApps och Microsoft Flow
           href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-web%2ftoc.json
+        - name: Använd en hanterad tjänstidentitet
+          href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-web%2ftoc.json
     - name: App Service Environment
       items:
         - name: Använd App Service Environment

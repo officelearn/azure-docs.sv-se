@@ -162,6 +162,7 @@
 ##### [Skapa ett supportpaket](storsimple-8000-create-manage-support-package.md)
 
 ### Migrera
+#### [Prenumerationer och lagringskonton](storsimple-8000-migrate-classic-azure-portal.md)
 #### [Från andra lagringsenheter](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Uppdatering

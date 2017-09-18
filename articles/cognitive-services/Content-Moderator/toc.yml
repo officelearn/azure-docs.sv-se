@@ -1,76 +1,76 @@
-- name: Content Moderator Documentation
+- name: Content Moderator-dokumentation
   href: ../index.md
-- name: Overview
+- name: Översikt
   items:
-    - name: About Content Moderator
+    - name: Om Content Moderator
       href: overview.md
-    - name: Image moderation
+    - name: Bildmoderering
       href: image-moderation-api.md
-    - name: Text moderation
+    - name: Textmoderering
       href: text-moderation-api.md
-    - name: Text moderation - languages
+    - name: Textmoderering – språk
       href: Text-Moderation-API-Languages.md
-    - name: Video moderation
+    - name: Videomoderering
       href: video-moderation-api.md
-    - name: Review APIs
+    - name: 'Omdömes-API:er'
       href: review-api.md
-- name: Get started
+- name: Kom igång
   items:
-    - name: The review tool
+    - name: Granskningsverktyget
       href: quick-start.md
-- name: How to
-  items:
-    - name: Test drive moderation APIs
+    - name: 'Prova API:erna för moderering'
       items:
-        - name: Image API
+        - name: Avbildningar
           href: try-image-api.md
-        - name: Image list API
+        - name: Bildlistor
           href: try-image-list-api.md
-        - name: Text API
+        - name: Text
           href: try-text-api.md
-        - name: Term list API
+        - name: Termlistor
           href: try-terms-list-api.md
-    - name: Use the review tool
+    - name: 'Prova omdömes-API:erna'
+      items:
+        - name: Jobb
+          href: try-review-api-job.md
+        - name: Omdömen
+          href: try-review-api-review.md
+        - name: Arbetsflöden
+          href: try-review-api-workflow.md
+- name: Gör så här för att
+  items:
+    - name: Använd granskningsverktyget
       items:
         - name: Human in the loop
           href: Review-Tool-User-Guide/human-in-the-loop.md
-        - name: Use settings
+        - name: Använd inställningar
           href: Review-Tool-User-Guide/Configure.md
-        - name: Manage team
+        - name: Hantera team
           href: Review-Tool-User-Guide/SubTeams.md
-        - name: Use tags
+        - name: Använd taggar
           href: Review-Tool-User-Guide/Tags.md
-        - name: Review images
+        - name: Granska bilder
           href: Review-Tool-User-Guide/Review-Moderated-Images.md
-        - name: Review text
+        - name: Granska text
           href: Review-Tool-User-Guide/Text-Reviews.md
-        - name: Verify credentials
+        - name: Verifiera autentiseringsuppgifter
           href: Review-Tool-User-Guide/Credentials.md
-        - name: Use Connectors
+        - name: Använd anslutningsappar
           href: Review-Tool-User-Guide/Connectors.md
-        - name: Use workflows
+        - name: Använd arbetsflöden
           href: Review-Tool-User-Guide/Workflows.md
-        - name: View dashboard
+        - name: Visa instrumentpanel
           href: Review-Tool-User-Guide/View-Dashboard.md
-    - name: Test drive review APIs
-      items:
-        - name: Jobs
-          href: try-review-api-job.md
-        - name: Reviews
-          href: try-review-api-review.md
-        - name: Workflows
-          href: try-review-api-workflow.md
-- name: API References
+- name: API-referenser
   items:
-    - name: All APIs
+    - name: 'Alla API:er'
       href: api-reference.md
-- name: Resources
+- name: Resurser
   items:
-    - name: Azure Roadmap
+    - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Windows SDK
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
-    - name: Samples
+    - name: Exempel
       href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
-    - name: FAQ
+    - name: VANLIGA FRÅGOR OCH SVAR
       href: FAQs.md

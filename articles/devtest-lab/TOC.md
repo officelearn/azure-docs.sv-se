@@ -28,6 +28,7 @@
 ### [Ange principer och scheman](devtest-lab-set-lab-policy.md)
 ### [Konfigurera kostnadshantering](devtest-lab-configure-cost-management.md)
 ### [Konfigurera Marketplace-avbildningar](devtest-lab-configure-marketplace-images.md)
+### [Lägg till taggar till ett labb](devtest-lab-add-tag.md)
 
 ## [Välj anpassad avbildning eller formel](devtest-lab-comparing-vm-base-image-types.md)
 

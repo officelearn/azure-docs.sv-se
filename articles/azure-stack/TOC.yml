@@ -1,0 +1,265 @@
+- name: Dokumentation om Azure Stack
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure Stack?
+      href: azure-stack-poc.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Distribuera Azure Stack
+      href: azure-stack-deploy-overview.md
+- name: Självstudier
+  items:
+    - name: Aktivera virtuella datorer
+      href: azure-stack-tutorial-tenant-vm.md
+    - name: Aktivera SQL-databaser
+      href: azure-stack-tutorial-sql-server.md
+    - name: Aktivera webbappar
+      href: azure-stack-tutorial-app-service.md
+    - name: Distribuera appar till Azure och Azure Stack
+      href: azure-stack-solution-pipeline.md
+- name: Koncept
+  items:
+    - name: Viktig information
+      href: azure-stack-asdk-release-notes.md
+    - name: Huvudfunktioner och koncept
+      href: azure-stack-key-features.md
+    - name: Azure Stack Development Kit-arkitektur
+      href: azure-stack-architecture.md
+    - name: Grundläggande om administration
+      href: azure-stack-manage-basics.md
+- name: Instruktionsguider
+  items:
+    - name: Distribuera
+      items:
+        - name: Krav
+          href: azure-stack-deploy.md
+        - name: Distribuera
+          href: azure-stack-run-powershell-script.md
+        - name: Registrera dig
+          href: azure-stack-register.md
+        - name: Anslut till Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: Lägg till standardavbildning
+          href: azure-stack-add-default-image.md
+        - name: Skapa en virtuell testdator
+          href: azure-stack-provision-vm.md
+    - name: Hantera
+      items:
+        - name: Regionshantering
+          href: azure-stack-region-management.md
+        - name: Använda portalerna
+          href: azure-stack-manage-portals.md
+        - name: Anslut till Azure Stack
+          href: azure-stack-connect-azure-stack.md
+        - name: Aktivera CLI för användare
+          href: azure-stack-cli-admin.md
+        - name: Konfigurera hanteringsmiljö
+          items:
+            - name: Installera PowerShell
+              href: azure-stack-powershell-install.md
+            - name: Ladda ned verktyg
+              href: azure-stack-powershell-download.md
+            - name: Konfigurera PowerShell – molnoperator
+              href: azure-stack-powershell-configure-admin.md
+            - name: Komma igång med PowerShell
+              href: azure-stack-powershell-configure-quickstart.md
+        - name: Hantera uppdateringar
+          href: azure-stack-updates.md
+        - name: Övervaka hälsotillstånd och aviseringar
+          href: azure-stack-monitor-health.md
+        - name: Hantera nätverksresurser
+          href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Hantera lagringsresurser
+          href: azure-stack-manage-storage-accounts.md
+        - name: Hantera virtuella Windows Azure Pack-datorer
+          href: azure-stack-manage-windows-azure-pack.md
+    - name: Säkerhet och efterlevnad
+      items:
+        - name: Hantera RBAC
+          href: azure-stack-manage-permissions.md
+        - name: Lägga till användare för Azure AD
+          href: azure-stack-add-new-user-aad.md
+        - name: Lägga till användare för AD FS
+          href: azure-stack-add-users-adfs.md
+        - name: Skapa tjänsthuvudnamn
+          href: Azure-stack-create-service-principals.md
+        - name: Aktivera flera innehavare
+          href: azure-stack-enable-multitenancy.md
+    - name: Erbjuda tjänster
+      items:
+        - name: Översikt över erbjudna tjänster
+          href: azure-stack-offer-services-overview.md
+        - name: 'Skapa planer, erbjudanden och kvoter'
+          items:
+            - name: 'Översikt över plan, erbjudande, kvot och prenumeration'
+              href: azure-stack-plan-offer-quota-overview.md
+            - name: Skapa en plan
+              href: azure-stack-create-plan.md
+            - name: Skapa ett erbjudande
+              href: azure-stack-create-offer.md
+            - name: Prenumerera på ett erbjudande
+              href: azure-stack-subscribe-plan-provision-vm.md
+            - name: Delegera erbjudanden i Azure Stack
+              href: azure-stack-delegated-provider.md
+            - name: Kvottyper
+              href: azure-stack-quota-types.md
+        - name: Erbjudande om SQL eller MySQL som PaaS
+          items:
+            - name: Översikt över PaaS-tjänster
+              href: azure-stack-tools-paas-services.md
+            - name: Distribuera MySQL-resursprovider
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: Distribuera SQL-resursprovider
+              href: azure-stack-sql-resource-provider-deploy.md
+        - name: Erbjudande om App Service som PaaS
+          items:
+            - name: Översikt över App Service på Azure Stack
+              href: azure-stack-app-service-overview.md
+            - name: Innan du börjar
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: Distribuera App Service-resursprovider
+              href: azure-stack-app-service-deploy.md
+            - name: Distribuera App Service offline
+              href: azure-stack-app-service-deploy-offline.md
+            - name: Lägga till fler webbarbetsroller
+              href: azure-stack-app-service-add-worker-roles.md
+            - name: Konfigurera distributionskällor
+              href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Aktivera FTP i App Service i Azure Stack
+              href: azure-stack-app-service-enable-ftp.md
+        - name: Lägga till i Marketplace
+          items:
+            - name: Marketplace-översikt
+              href: azure-stack-marketplace.md
+            - name: Ladda ned Marketplace-objekt
+              href: azure-stack-download-azure-marketplace-item.md
+            - name: Azure Marketplace-objekt för Azure Stack
+              href: azure-stack-marketplace-azure-items.md
+            - name: Skapa och publicera ett Marketplace-objekt
+              href: azure-stack-create-and-publish-marketplace-item.md
+            - name: Använd verktyget för Marketplace-publicering
+              href: azure-stack-marketplace-publisher.md
+            - name: Lägg till en anpassad avbildning av virtuell dator
+              href: azure-stack-add-vm-image.md
+            - name: Lägg till skalningsuppsättningar för virtuell dator
+              href: azure-stack-compute-add-scalesets.md
+            - name: Distribuera virtuella Linux-datorer
+              href: azure-stack-linux.md
+        - name: Användning och fakturering
+          items:
+            - name: Översikt
+              href: azure-stack-billing-and-chargeback.md
+            - name: Rapportering av användningsdata
+              href: azure-stack-usage-reporting.md
+            - name: API för provideranvändning
+              href: azure-stack-provider-resource-api.md
+            - name: API för klientanvändning
+              href: azure-stack-tenant-resource-usage-api.md
+            - name: Vanliga frågor och svar om användning
+              href: azure-stack-usage-related-faq.md
+    - name: Använda tjänster
+      items:
+        - name: Viktiga överväganden
+          href: azure-stack-considerations.md
+        - name: Compute
+          items:
+            - name: Överväganden för virtuella datorer
+              href: azure-stack-vm-considerations.md
+            - name: Skapa virtuell PowerShell-dator
+              href: azure-stack-quick-create-vm-powershell.md
+        - name: Lagring
+          items:
+            - name: Översikt
+              href: azure-stack-storage-overview.md
+            - name: Överväganden för lagring
+              href: azure-stack-acs-differences.md
+            - name: Verktyg för lagringsutveckling
+              href: azure-stack-storage-dev.md
+            - name: Verktyg för överföring av data
+              href: azure-stack-storage-transfer.md
+            - name: Anslut Storage Explorer
+              href: azure-stack-storage-connect-se.md
+        - name: Nätverk
+          items:
+            - name: Nätverksöverväganden
+              href: azure-stack-network-differences.md
+            - name: iDNS för Azure Stack
+              href: azure-stack-understanding-dns.md
+            - name: DNS i Azure Stack
+              href: azure-stack-dns.md
+            - name: Förstå plats-till-plats-anslutningar via VPN
+              href: azure-stack-create-vpn-connection-one-node.md
+        - name: Key Vault
+          items:
+            - name: Översikt
+              href: azure-stack-kv-intro.md
+            - name: Hantera med portalen
+              href: azure-stack-kv-manage-portal.md
+            - name: Hantera med PowerShell
+              href: azure-stack-kv-manage-powershell.md
+            - name: Skapa en virtuell dator med en hemlighet
+              href: azure-stack-kv-deploy-vm-with-secret.md
+            - name: Skapa en virtuell dator med ett certifikat
+              href: azure-stack-kv-push-secret-into-vm.md
+            - name: Key Vault-exempelapp
+              href: azure-stack-kv-sample-app.md
+    - name: Skapa appar
+      items:
+        - name: Utveckla för Azure Stack
+          href: azure-stack-developer.md
+        - name: Konfigurera utvecklingsmiljön
+          items:
+            - name: Installera PowerShell
+              href: azure-stack-powershell-install.md
+            - name: Ladda ned verktyg
+              href: azure-stack-powershell-download.md
+            - name: Konfigurera PowerShell – användare
+              href: azure-stack-powershell-configure-user.md
+            - name: Komma igång med PowerShell
+              href: azure-stack-powershell-configure-quickstart.md
+            - name: Installera och konfigurera CLI
+              href: azure-stack-connect-cli.md
+            - name: Installera Visual Studio
+              href: azure-stack-install-visual-studio.md
+            - name: Hantera profiler för API-version
+              href: azure-stack-version-profiles.md
+        - name: Använda principmodul
+          href: azure-stack-policy-module.md
+        - name: Använd mallar
+          items:
+            - name: Mallöversikt
+              href: azure-stack-arm-templates.md
+            - name: Utveckla mallar
+              href: azure-stack-develop-templates.md
+            - name: Kontrollera mallar
+              href: azure-stack-validate-templates.md
+            - name: Distribuera med portalen
+              href: azure-stack-deploy-template-portal.md
+            - name: Distribuera med PowerShell
+              href: azure-stack-deploy-template-powershell.md
+            - name: Distribuera med Visual Studio
+              href: azure-stack-deploy-template-visual-studio.md
+    - name: Felsöka
+      items:
+        - name: Kända problem
+          href: azure-stack-troubleshooting.md
+        - name: Diagnostik i Azure Stack
+          href: azure-stack-diagnostics.md
+        - name: Distribuera om Azure Stack Development Kit
+          href: azure-stack-redeploy.md
+- name: Referens
+  items:
+    - name: PowerShell
+      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Prisinformation
+      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-stack'

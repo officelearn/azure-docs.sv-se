@@ -137,7 +137,7 @@
 ### Uppgifter
 #### [Konfigurera Azure AD-registrerade Windows 10-enheter](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Konfigurera Azure AD-anslutna enheter](device-management-azuread-joined-devices-setup.md)
-#### [Konfigurera Azure AD-anslutna hybridenheter](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Konfigurera Azure AD-anslutna hybrid-enheter](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD-anslutning under första körningen av Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Felsöka
@@ -266,34 +266,21 @@
 
 ### [Integrera lokala identiteter med Azure AD Connect](./connect/active-directory-aadconnect.md)
 
+## [Hantera åtkomst till Azure](toc.yml)
+
 ## Delegera åtkomst till resurser
 ### [Administratörsroller](active-directory-assign-admin-roles.md)
 #### [Tilldela administratörsroller](active-directory-users-assign-role-azure-portal.md)
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
-### [Resursåtkomst i Azure](active-directory-understanding-resource-access.md)
-### [Rollbaserad åtkomstkontroll](role-based-access-control-what-is.md)
-#### Hantera åtkomsttilldelningar
-##### [Efter användare](role-based-access-control-manage-assignments.md)
-##### [Efter resurs](role-based-access-control-configure.md)
-#### [Inbyggda roller](role-based-access-built-in-roles.md)
-#### [Anpassade roller](role-based-access-control-custom-roles.md)
-#### [Tilldela anpassade roller för interna och externa användare](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [Rapportering](role-based-access-control-access-change-history-report.md)
-#### Fler sätt att hantera roller på
-##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [Öka administratörsåtkomst till klientorganisation](role-based-access-control-tenant-admin-access.md)
-#### [Felsöka](role-based-access-control-troubleshooting.md)
-#### [Åtgärder för resursprovider](role-based-access-control-resource-provider-operations.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
 
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
+#### [Kontroller](active-directory-conditional-access-controls.md)
 #### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
-#### [Uppgifter]
+#### Uppgifter
 ##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurera appbaserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
 ##### [Konfigurera VPN-anslutning](active-directory-conditional-access-vpn-connectivity-windows10.md)

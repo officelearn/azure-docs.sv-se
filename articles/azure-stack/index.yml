@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure Stack
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: 'Dokumentation om Azure Stack – självstudier, API-referens'
+  description: Lär dig hur du använder Azure Stack förhandsversion för att leverera Azure-tjänster från ditt datacenter. Lär dig och demonstrera funktioner från en proof of concept-miljö.
+  services: azure-stack
+  author: czeumault
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/28/2017
+  ms.author: carolz
+abstract:
+  description: Microsoft Azure Stack är en plattform för hybridmoln som du kan använda för att tillhandahålla Azure-tjänster från ditt datacenter. Lär dig hur du distribuerar Azure Stack och erbjuder tjänster med vår snabbstart och våra självstudier.
+sections:
+  - title: Snabbstart
+    items:
+      - type: paragraph
+        text: 'Konfigurera din maskinvara och distribuera Azure Stack:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
+            text: Distribuera Azure Stack
+            href: azure-stack-deploy-overview.md
+  - title: Stegvisa självstudier
+    items:
+      - type: paragraph
+        text: 'Lär dig hur du lägger till tjänster i din Azure Stack-distribution:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Aktivera virtuella datorer på Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Aktivera SQL-databaser på Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Aktivera webbappar på Azure Stack</a>
+          - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">Distribuera program i både Azure &amp; Azure Stack</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>

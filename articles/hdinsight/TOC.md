@@ -61,10 +61,12 @@
 ## Använda Spark för minnesintern bearbetning
 ### Kom igång – Spark-utvecklare
 #### [Skapa fristående app](hdinsight-apache-spark-create-standalone-application.md)
-#### [Fjärrstyrda jobb med Livy](hdinsight-apache-spark-livy-rest-interface.md) 
+#### [Använd en interaktiv Spark Shell](hdinsight-spark-shell.md)
+#### [Fjärrstyrda jobb med Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Med Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Skapa appar med Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Skapa appar med IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [Vad är Spark Streaming?](hdinsight-spark-streaming-overview.md)
 ### [Bearbeta strömningshändelser](hdinsight-apache-spark-eventhub-streaming.md)
 ### [Förutsäga HVAC-prestanda](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Förutsäga resultatet av en livsmedelskontroll](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -109,6 +111,7 @@
 ### [Replikera Kafka-data](hdinsight-apache-kafka-mirroring.md)
 ### [Konfigurera lagring och skalbarhet för Kafka](hdinsight-apache-kafka-scalability.md)
 ### [Konfigurera hög datatillgänglighet](hdinsight-apache-kafka-high-availability.md)
+### [Analysera Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
 ### [Använd med virtuella nätverk](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [Använda med Spark (Structured Streaming)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [Använda med Spark (DStream)](hdinsight-apache-spark-with-kafka.md)

@@ -1,0 +1,74 @@
+- name: Resursåtkomst i Azure
+  href: active-directory-understanding-resource-access.md
+- name: Rollbaserad Access Control
+  href: role-based-access-control-what-is.md
+  items:
+    - name: Hantera åtkomsttilldelningar
+      items:
+        - name: Efter användare
+          href: role-based-access-control-manage-assignments.md
+        - name: Efter resurs
+          href: role-based-access-control-configure.md
+    - name: Inbyggda roller
+      href: role-based-access-built-in-roles.md
+    - name: Anpassade roller
+      href: role-based-access-control-custom-roles.md
+    - name: Tilldela anpassade roller för interna och externa användare
+      href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+    - name: Rapportering
+      href: role-based-access-control-access-change-history-report.md
+    - name: Fler sätt att hantera roller på
+      items:
+        - name: Med Azure CLI
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Med PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Med REST
+          href: role-based-access-control-manage-access-rest.md
+    - name: Öka administratörsåtkomst till klientorganisation
+      href: role-based-access-control-tenant-admin-access.md
+    - name: Felsöka
+      href: role-based-access-control-troubleshooting.md
+    - name: Åtgärder för resursprovider
+      href: role-based-access-control-resource-provider-operations.md
+- name: Hanterad tjänstidentitet
+  href: msi-overview.md
+  items:
+    - name: Konfigurera MSI för virtuella Windows-datorer
+      items:
+        - name: Med Azure Portal
+          href: msi-qs-configure-portal-windows-vm.md
+        - name: Med PowerShell
+          href: msi-qs-configure-powershell-windows-vm.md
+        - name: Med Azure CLI
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Med Azure Resource Manager-mallar
+          href: msi-qs-configure-template-windows-vm.md
+    - name: Använd MSI för att få åtkomst till Azure Resource Manager
+      items:
+        - name: Med en virtuell Windows-dator
+          href: msi-tutorial-windows-vm-access-arm.md
+        - name: Med en virtuell Linux-dator
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Använd MSI för att få åtkomst till Azure Storage
+      items:
+        - name: Med en virtuell Windows-dator
+          href: msi-tutorial-windows-vm-access-storage.md
+        - name: Med en virtuell Linux-dator
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: Använd MSI för att få åtkomst till en resurs som inte är en Azure AD-resurs
+      items:
+        - name: Med en virtuell Windows-dator
+          href: msi-tutorial-windows-vm-access-nonaad.md
+        - name: Med en virtuell Linux-dator
+          href: msi-tutorial-linux-vm-access-nonaad.md
+    - name: Tilldela MSI-åtkomst till en Azure-resurs
+      items:
+        - name: Med Azure Portal
+          href: msi-howto-assign-access-portal.md
+        - name: Med PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: Med Azure CLI
+          href: msi-howto-assign-access-cli.md
+    - name: Kända problem
+      href: msi-known-issues.md

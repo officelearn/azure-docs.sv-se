@@ -358,7 +358,9 @@
   items:
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Priser
+    - name: Testa Azure Cosmos DB kostnadsfritt
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faq.md

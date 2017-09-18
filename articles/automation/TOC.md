@@ -5,6 +5,7 @@
 ## Självstudie för runbook
 ### [Skapa grafisk runbook](automation-first-runbook-graphical.md)
 ### [Skapa PowerShell-runbook](automation-first-runbook-textual-powershell.md)
+### [Min första Python-runbook](automation-first-runbook-textual-python2.md)
 ### [Skapa PowerShell Workflow-runbook](automation-first-runbook-textual.md)
 # Gör så här för att
 ## Autentisering och säkerhet
@@ -37,7 +38,10 @@
 ### [Skicka ett JSON-objekt till en Azure Automation-runbook](automation-pass-json-string.md)
 ## Hybrid Runbook Worker
 ### [Distribuera Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
+### [Azure Automation Windows Hybrid Runbook Worker](automation-windows-hrw-install.md)
+### [Azure Automation Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)
 ### [Köra runbook-flöden i arbetsroll](automation-hrw-run-runbooks.md)
+### [Ta bort Azure Automation Hybrid Runbook Worker-arbeten](automation-remove-hrw.md)
 ## Distribuera konfigurationshantering (DSC)
 ### [Översikt över önskad tillståndskonfiguration (DSC)](automation-dsc-overview.md)
 ### [Komma igång](automation-dsc-getting-started.md)

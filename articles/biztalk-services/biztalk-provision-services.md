@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/18/2017
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Skapa BizTalk Services med Azure-portalen
@@ -152,7 +152,7 @@ Klicka på **Hantera** för att öppna Access Control-hanteringsportalen. I Acce
 Tjänstidentiteten för Access Control är en uppsättning autentiseringsuppgifter som tillåter att program eller klienter autentiserar direkt med Access Control och tar emot en token.
 
 > [!IMPORTANT]
-> BizTalk-tjänsten använder **Ägare** som standardtjänstens identitet och värdet **Lösenord**. Om du använder det symmetriska nyckelvärdet i stället för lösenordet kan följande fel uppstå.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
+> BizTalk-tjänsten använder **Ägare** som standardtjänstens identitet och värdet **Lösenord**. Om du använder det symmetriska nyckelvärdet i stället för lösenordet kan följande fel uppstå.<br/><br/>*Det gick inte att ansluta till hanteringstjänstkontot för Access Control med de angivna autentiseringsuppgifterna*
 > 
 > 
 

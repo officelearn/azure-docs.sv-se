@@ -16,6 +16,7 @@
 ## [Hantera en server](analysis-services-manage.md)
 ## [Hantera databasanvändare](analysis-services-database-users.md)
 ## [Hantera serveradministratörer](analysis-services-server-admins.md)
+## [Övervaka servermått](analysis-services-monitor.md)
 ## [Installera och konfigurera lokal datagateway](analysis-services-gateway-install.md)
 ## [Hämta klientbibliotek](analysis-services-data-providers.md)
 ## [Säkerhetskopiering och återställning](analysis-services-backup.md)

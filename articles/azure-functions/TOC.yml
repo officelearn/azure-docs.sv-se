@@ -100,7 +100,7 @@
         - name: Skapa en definition för Open API 2.0
           href: functions-api-definition-getting-started.md
         - name: Exportera till PowerApps och Microsoft Flow
-          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          href: app-service-export-api-to-powerapps-and-flow.md
         - name: Anropa en funktion från PowerApps
           href: functions-powerapps-scenario.md
         - name: Använd en hanterad tjänstidentitet

@@ -142,7 +142,6 @@ Eftersom du för närvarande är inloggad som serveradministratör har du behör
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Nu frågar du *SQL Data Warehouse-databasen*. Skapa en databasanvändare baserat på inloggningen du skapade för att få åtkomst till och utföra åtgärder i databasen.

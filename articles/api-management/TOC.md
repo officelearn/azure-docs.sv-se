@@ -11,8 +11,6 @@
 ### [Lägga till åtgärder](api-management-howto-add-operations.md)
 ### [Skapa ett API](api-management-howto-create-apis.md)
 ### [Importera en API-definition](api-management-howto-import-api.md)
-### [Kom igång med revideringar](api-management-get-started-revise-api.md)
-### [Kom igång med versioner](api-management-get-started-publish-versions.md)
 ## Skydda din serverdel
 ### [Skydda Webb-API-serverdelen med AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Skapa ett virtuellt nätverk](api-management-using-with-vnet.md)

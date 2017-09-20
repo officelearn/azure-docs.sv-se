@@ -183,7 +183,7 @@
 ### [Leverera efter hämtning](media-services-deliver-asset-download.md)
 ### [Scenario vid direktuppspelningsredundans](media-services-implement-failover.md)
 
-## Spela upp
+## Förbruka
 ### [Spela upp media med befintliga spelare](media-services-playback-content-with-existing-players.md)
 ### [Spela upp media med Media Player](media-services-develop-video-players.md)
 ### Andra uppspelningsalternativ

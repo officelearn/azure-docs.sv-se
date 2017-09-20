@@ -60,7 +60,6 @@
 ### Konfigurera automatisk skalning
 #### [Portal](cloud-services-how-to-scale-portal.md)
 #### [Klassisk portal](cloud-services-how-to-scale.md)
-#### [PowerShell](cloud-services-how-to-scale-powershell.md)
 ### [Använd Python för att hantera Azure-resurser](cloud-services-python-how-to-use-service-management.md)
 
 ### [Gästoperativsystemets korrigeringsfiler](cloud-services-guestos-msrc-releases.md)

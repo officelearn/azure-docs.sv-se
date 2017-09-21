@@ -143,6 +143,8 @@
               href: agent-user-guide.md
             - name: Agentuppdatering
               href: update-agent.md
+        - name: Planerat underhåll
+          href: maintenance-notifications.md
         - name: Schemalagda händelser
           href: scheduled-events.md
         - name: Övervaka metadata

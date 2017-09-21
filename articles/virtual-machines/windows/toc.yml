@@ -131,6 +131,8 @@
           href: download-template.md
         - name: Virtuell Azure-datoragent
           href: agent-user-guide.md
+        - name: Planerat underhåll
+          href: maintenance-notifications.md
         - name: Schemalagda händelser
           href: scheduled-events.md
         - name: Övervaka metadata

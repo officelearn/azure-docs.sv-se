@@ -7,16 +7,15 @@
 ## [Kompatibelt tredjepartsprogram](active-directory-ds-compatible-software.md)
 
 # Kom igång
-## Azure Portal (Förhandsversion)
-### [Uppgift 1: Konfigurera grundläggande inställningar](active-directory-ds-getting-started.md)
-### [Uppgift 2: Konfigurera nätverksinställningar](active-directory-ds-getting-started-network.md)
-### [Uppgift 3: Konfigurera administratörsgrupp och aktivera Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
-### [Uppgift 4: Uppdatera DNS-inställningar för virtuellt nätverk](active-directory-ds-getting-started-dns.md)
-### [Uppgift 5: Aktivera lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md)
+## [Uppgift 1: Konfigurera grundläggande inställningar](active-directory-ds-getting-started.md)
+## [Uppgift 2: Konfigurera nätverksinställningar](active-directory-ds-getting-started-network.md)
+## [Uppgift 3: Konfigurera administratörsgrupp och aktivera Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+## [Uppgift 4: Uppdatera DNS-inställningar för virtuellt nätverk](active-directory-ds-getting-started-dns.md)
+## [Uppgift 5: Aktivera lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md)
 
 # Gör så här för att
 ## Anslut till en hanterad domän
-### [Ansluta en Windows Server VM](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Ansluta en Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Ansluta en virtuell Windows Server VM med PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Ansluta en Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Administrera en hanterad domän

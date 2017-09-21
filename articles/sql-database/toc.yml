@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: Verksamhetskontinuitet
       items:
-        - name: Konfigurera valv – säkerhetskopieringar
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: Georeplikering – portal
-          href: sql-database-geo-replication-portal.md
-        - name: Återställ enskild tabell
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: Läsa in och flytta data
-      items:
         - name: Läs in data med BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Läs in data med ADF

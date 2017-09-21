@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/23/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 4f51030446d2d2a5a11018b1fce7d7e9193f3dfc
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 8d902ba9e2077b4b70762c76cfb3ebf12752fb11
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
@@ -116,11 +116,9 @@ sudo apt-get install servicefabricsdkcommon
 
 ## <a name="set-up-the-service-fabric-cli"></a>Konfigurera Service Fabric CLI
 
-[Service Fabric CLI](service-fabric-cli.md) innehåller kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster och program. Den är baserad på python, så se till att python och pip är installerade innan du fortsätter med följande kommando:
+[Service Fabric CLI](service-fabric-cli.md) innehåller kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster och program.
+Installera CLI genom att följa anvisningarna i [Service Fabric CLI](service-fabric-cli.md).
 
-```bash
-pip install sfctl
-```
 
 ## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>Installera och konfigurera generatorer för behållare och körbara gästprogram
 Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Service Fabric-program från terminalen med en Yeoman-mallgenerator. Följ stegen nedan för att se till att du har Service Fabric Yeoman-mallgeneratorn på datorn.

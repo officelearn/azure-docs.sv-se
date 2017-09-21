@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5420c1cdefa99ff30320dd757e04aa0cafc792bc
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,24 +44,8 @@ Om du vill samla in data till Azure Data Lake Store skapar du ett Data Lake Stor
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Skapa ett Azure Data Lake Store-konto och mappar
 
-1. Skapa ett Data Lake Store-konto enligt anvisningarna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md). 
-2. Skapa en mapp under det här kontot enligt anvisningarna i avsnittet [Skapa mappar i Azure Data Lake Store-konto](../data-lake-store/data-lake-store-get-started-portal.md#createfolder).
-3. Klicka på **Datautforskaren** på sidan för Data Lake Store-kontot.
-4. Klicka på **Åtkomst**.
-5. Klicka på **Lägg till**.
-6. Skriv **Microsoft.EventHubs** i rutan **Sök efter namn eller e-postadress** och välj sedan det här alternativet. 
-7. Fliken **Behörigheter** visas. Ange behörigheterna som på bilden:
-
-    ![][6]
-
-8. Klicka på **OK**.
-9. Nu skapar du en mapp i rotmappen genom att bläddra till målmappen och klicka på mappnamnet.
-10. Klicka på **Åtkomst**.
-11. Klicka på **Lägg till**.
-12. Skriv **Microsoft.EventHubs** i rutan **Sök efter namn eller e-postadress** och välj sedan det här alternativet.
-13. Fliken **Behörigheter** visas igen. Ange behörigheter som på bilden:
-
-    ![][5]
+1. Skapa ett Data Lake Store-konto enligt anvisningarna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
+2. Följ anvisningarna i avsnittet [Tilldela behörigheter till Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) om du vill skapa en mapp i det Data Lake Store-konto där du vill samla in data från Event Hubs och vill tilldela behörigheter till Event Hubs så att det kan skriva data till ditt Data Lake Store-konto.  
 
 ### <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
@@ -87,12 +71,11 @@ Du kan konfigurera avbildningsfunktionen i befintliga händelsehubbar som finns 
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
-[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
-[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om Event Hubs Capture i [Översikt över Event Hubs Capture][capture-overview].
 - Du kan också konfigurera avbildningsfunktionen i Event Hubs med hjälp av Azure Resource Manager-mallar. Mer information finns i [Skapa ett namnområde för Event Hubs med en händelsehubb och aktivera avbildning med hjälp av en Azure Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- [Kom igång med Azure Data Lake Store med Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

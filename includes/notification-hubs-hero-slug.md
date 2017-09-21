@@ -1,7 +1,7 @@
 
-Målet med det här ämnet är att hjälpa dig att komma igång med Notification Hubs så snabbt som möjligt. Ämnet visar exempel på ett väldigt enkelt sändningsscenario för att kunna fokusera på de grundläggande koncepten i Notification Hubs.
+Målet med den här artikeln är att hjälpa dig att komma igång med Azure Notification Hubs så snabbt som möjligt. Artikeln innehåller ett mycket enkelt sändningsscenario som fokuserar på de grundläggande koncepten i Notification Hubs.
 
-Om du redan är bekant med Notification Hubs, vill du kanske välja ett annat ämne från den vänstra navigationsmenyn eller via någon relevant länk i [Nästa steg](#next-steps).
+Om du redan är bekant med Notification Hubs kan du välja ett annat ämne i det vänstra navigeringsfönstret eller gå till artiklarna i avsnittet Nästa steg.
 
-Vi tar din feedback på allvar. Om du har problem med att slutföra det här ämnet, eller om du har tips på hur innehållet kan förbättras, tar vi tacksamt emot din feedback längst ner på sidan.
+Vi tar din feedback på allvar. Om du har svårt att slutföra det här avsnittet eller om du har synpunkter på hur vi kan förbättra det här innehållet ser vi gärna att du ger oss feedback i slutet av artikeln.
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/30/2017
+ms.date: 09/07/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 265a968f902f53c7561c8c7e937f8eacfdb37167
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Skapa ett labb i Azure DevTest Labs
@@ -38,21 +38,22 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
     ![Menyalternativet Fler tjänster](./media/devtest-lab-create-lab/more-services-menu-option.png)
 
 1. I listan över tillgängliga tjänster: **DevTest Labs**.
-1. På bladet **DevTest Labs** väljer du **Lägg till**.
+1. Välj **Lägg till** i **DevTest Labs**.
    
     ![Lägga till ett labb](./media/devtest-lab-create-lab/add-lab-button.png)
 
-1. På bladet **Skapa ett DevTest-labb**:
+1. Under **Create a DevTest Lab** (skapa ett DevTest-labb):
    
     1. Ange **Labbnamn** för det nya labbet.
     2. Välj den **prenumeration** som du vill koppla till labbet.
     3. Välj en **plats** där du vill lagra labbet.
     4. Välj **Automatisk avstängning** för att ange om du vill aktivera, och definiera parametrar för, automatisk avstängning av alla labbets virtuella datorer. Funktionen automatisk avstängning är främst en kostnadfunktion där du kan ange om du vill att den virtuella datorn ska stängas automatiskt. Du kan ändra inställningarna för automatisk avstängning när du har skapat labbet genom att följa anvisningarna i artikeln [Hantera alla principer för ett labb i Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
+    1. Ange **NAME** (namn) och **VALUE** (värde) för **Tags** (taggar) om du vill skapa anpassade taggar som läggs till i alla resurser som du skapar i labbet. Taggar är användbara för att hantera och ordna labbresurser efter kategori. Mer information om taggar, inklusive hur du lägger till taggar när du har skapat labbet, finns i [Lägga till taggar i ett labb](devtest-lab-add-tag.md).
     5. Välj **Fäst på instrumentpanelen** om du vill att en genväg till labbet ska visas på instrumentpanelen i portalen.
     6. Välj **Automatiseringsalternativ** för att hämta Azure Resource Manager-mallar för konfigurationsautomatisering. 
-    7. Välj **Skapa**. När du har valt **Skapa** visas bladet**DevTest Labs**. Du kan övervaka statusen för labbprocessen genom att titta på **meddelande**området. Uppdatera sidan om du vill se den nyligen skapade testmiljön i listan över labbar när den har slutförts.  
+    7. Välj **Skapa**. Du kan övervaka statusen för labbprocessen genom att titta på **meddelande**området. Uppdatera sidan om du vill se den nyligen skapade testmiljön i listan över labbar när den har slutförts.  
     
-    ![Skapa ett blad för labbet](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+    ![Skapa ett labbavsnitt för DevTest Labs](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

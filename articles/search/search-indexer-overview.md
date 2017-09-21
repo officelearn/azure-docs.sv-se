@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -59,7 +59,7 @@ En indexerare hämtar data från en **datakälla** som innehåller information s
 
 * [Azure SQL Database (eller SQL Server på en virtuell Azure-dator)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) används för att extrahera text från PDF, Office-dokument, HTML eller XML
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) för utvalda innehållstyper
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
 Datakällor konfigureras och hanteras oberoende av indexerarna som använder dem, vilket innebär att en datakälla kan användas av flera indexerare för att läsa in mer än ett index i taget.
@@ -72,7 +72,7 @@ Nu när du har lagt grunden är nästa steg att granska krav och uppgifter som �
 
 * [Azure SQL Database (eller SQL Server på en virtuell Azure-dator)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) används för att extrahera text från PDF, Office-dokument, HTML eller XML
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexera CSV-blobbar med Azure Search Blob-indexeraren](search-howto-index-csv-blobs.md)
 * [Indexera JSON-blobbar med Azure Search Blob-indexeraren](search-howto-index-json-blobs.md)

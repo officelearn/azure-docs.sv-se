@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Översikt över SQL Server i Azure Virtual Machines
@@ -27,34 +26,8 @@ Det här ämnet beskriver dina alternativ när du kör en SQL Server på virtuel
 
 > [!NOTE]
 > Om du redan är bekant med SQL Server och bara vill se hur man distribuerar en SQL Server-VM, hittar du mer information i [Etablera en virtuell dator med SQL Server i Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
-> 
-> 
 
-## <a name="overview"></a>Översikt
-Om du är en databasadministratör eller en utvecklare, kan Azure VM:ar ge dig ett sätt att flytta dina lokala SQL Server-arbetsbelastningar och program till molnet. Följande videoklipp ger en teknisk översikt över Azure VM:ar med SQL Server.
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-Videoklippet går igenom följande områden:
-
-| Tid | Område |
-| --- | --- |
-| 00:21 |Vad är Azure VM:ar? |
-| 01:45 |Säkerhet |
-| 02:50 |Anslutning |
-| 03:30 |Lagringstillförlitlighet och prestanda |
-| 05:20 |VM-storlekar |
-| 05:54 |Hög tillgänglighet och SLA |
-| 07:30 |Konfigurationssupport |
-| 08:00 |Övervakning |
-| 08:32 |Demo: Skapa en SQL Server 2016 VM |
-
-> [!NOTE]
-> Videoklippet fokuserar på SQL Server 2016 men Azure erbjuder VM-avbildningar för flera versioner av SQL Server inklusive 2012, 2014 och 2016. 
-> 
-> 
+Om du är en databasadministratör eller en utvecklare, kan Azure VM:ar ge dig ett sätt att flytta dina lokala SQL Server-arbetsbelastningar och program till molnet.
 
 ## <a name="scenarios"></a>Scenarier
 Det finns flera skäl att välja att ha sin data i Azure. Om ditt program flyttar till Azure, ger det bättre prestanda om man även flyttar dess data. Men det finns fler fördelar. Du får automatiskt tillgång till flera datacenter för en global närvaro och haveriberedskap. Din data är också mycket säker och beständig.
@@ -126,7 +99,7 @@ Virtuella Azure-datorer kan använda [automatisk korrigering](virtual-machines-w
 ### <a name="customer-experience-improvement-program-ceip"></a>CEIP (Customer Experience Improvement Program)
 CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det skickar periodvisa rapporter till Microsoft för att hjälpa att förbättra SQL Server. Det krävs inga hanteringsaktiviteter för CEIP om du inte vill inaktivera den efter etablering. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server**. Inaktivera rapporteringen genom att följa anvisningarna. 
 
-Mer information finns i CEIP-avsnittet för ämnet [Acceptera licensvillkoren](https://msdn.microsoft.com/library/ms143343.aspx). 
+Mer information om datainsamling finns i [SQL Server-sekretesspolicyn](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx). 
 
 ## <a name="next-steps"></a>Nästa steg
 

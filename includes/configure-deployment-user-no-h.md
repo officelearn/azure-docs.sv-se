@@ -1,4 +1,4 @@
-Skapa autentiseringsuppgifter för distribution med kommandot [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
+I Cloud Shell skapar du autentiseringsuppgifter för distribution med kommandot [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
 
 En distributionsanvändare krävs för en FTP-distribution och en lokal git-distribution till en webbapp. Användarnamn och lösenord är på kontonivå. _De skiljer sig från autentiseringsuppgifterna för din Azure-prenumeration._
 

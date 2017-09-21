@@ -13,27 +13,27 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/31/2016
+ms.date: 09/13/2017
 ms.author: dendeli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
-ms.lasthandoff: 12/07/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
+ms.contentlocale: sv-se
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data
 > [!NOTE]
-> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
 > 
 > 
 
 I den här självstudiekursen får lära du dig att leverera platsbaserade push-meddelanden med Azure Notification Hub och Bing Spatial Data. Användningen underlättas av att allt genomförs från en UWP-app (Universal Windows Platform).
 
 ## <a name="prerequisites"></a>Krav
-Först och främst måste du se till att du har alla program och att alla grundläggande krav uppfylls: 
+Först och främst ser du till att ha alla program och tjänster som krävs:
 
-* [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) eller senare ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) går också bra). 
+* [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) eller senare ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) går också bra). 
 * Senaste versionen av [Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Konto på Bing Maps Dev Center](https://www.bingmapsportal.com/) (du kan skapa ett gratis och associera det med ditt Microsoft-konto). 
 
@@ -55,11 +55,11 @@ Du måste ange följande parametrar för att detta ska fungera:
 Låt oss göra en djupdykning i inställningarna för vart och ett av elementen ovan.
 
 ## <a name="setting-up-the-data-source"></a>Ställa in datakällan
-Du kan göra detta i Bing Maps Dev Center. Klicka på **Datakällor** i det övre navigeringsfältet och välj **Hantera datakällor**.
+Du kan konfigurera datakällan i Bing Maps Dev Center. I det övre navigeringsfältet väljer du **Datakällor** > **Hantera datakällor**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
 
-Om du inte har arbetat med Bing Maps API tidigare så kommer det troligen inte att finnas några datakällor där. Då kan du helt enkelt skapa en ny genom att klicka på Föra över data till en datakälla. Kontrollera att du fyller i alla obligatoriska fält:
+Om du inte har arbetat med Bing Maps API tidigare så kommer det troligen inte att finnas några datakällor där. Då kan du helt enkelt skapa en ny genom att välja **Datakällor** > **Ladda upp data**. Kontrollera att du fyller i alla obligatoriska fält:
 
 ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
 
@@ -73,7 +73,7 @@ Ovanstående representerar den här entiteten:
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
-Du behöver bara kopiera och klistra in ovanstående sträng i en ny fil och spara den som **NotificationHubsGeofence.pipe**. Sedan för du över den till Bing Dev Center.
+Kopiera och klistra in ovanstående sträng i en ny fil, spara den som **NotificationHubsGeofence.pipe**. och ladda sedan upp den till Bing Dev Center.
 
 > [!NOTE]
 > Du kan uppmanas att ange en ny nyckel för **huvudnyckel**n. Denna skiljer sig från **frågenyckeln**. Du behöver bara skapa en ny nyckel via instrumentpanelen och uppdatera överföringssidan för datakällan.
@@ -82,25 +82,25 @@ Du behöver bara kopiera och klistra in ovanstående sträng i en ny fil och spa
 
 När du har laddat upp datafilen, måste du publicera datakällan. 
 
-Gå till **Hantera datakällor**, precis som du gjorde ovan, leta rätt på datakällan i listan och klicka sedan på **Publicera** i kolumnen **Åtgärder**. Efter en stund bör du se din datakälla på fliken **Publicerade datakällor**:
+Gå till **Hantera datakällor**, precis som du gjorde ovan, leta rätt på datakällan i listan och välj sedan **Publicera** i kolumnen **Åtgärder**. Efter en stund bör du se din datakälla på fliken **Publicerade datakällor**:
 
 ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
 
-Om du klickar på **Redigera**, kommer du att få en snabb överblick över vilka platser vi har fört in i den:
+Om du väljer **Redigera**, kommer du att få en snabb överblick över vilka platser du har fört in i den:
 
 ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
-I det här läget visar inte portalen gränserna för det geofence som vi skapat. Det enda vi behöver är en bekräftelse på att den angivna platsen ligger ungefär i rätt område.
+I det här läget visar inte portalen gränserna för det geofence som du skapade. Det enda du behöver är en bekräftelse på att den angivna platsen ligger ungefär i rätt område.
 
-Nu är alla krav uppfyllda för datakällan. Om du vill ha information om API-anropets URL-adress för begäran i Bing Maps Dev Center, klickar du på **Datakällor** och väljer **Information om datakällan**.
+Nu är alla krav uppfyllda för datakällan. Om du vill ha information om API-anropets URL-adress för begäran i Bing Maps Dev Center, väljer du **Datakällor** och väljer **Information om datakällan**.
 
 ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
-Det vi letar efter här är **Fråge-URL**. Det här är den slutpunkt mot vilken vi kan köra frågor för att kontrollera om enheten för närvarande befinner sig inom platsgränserna eller inte. För att utföra den här kontrollen behöver vi bara köra ett GET-anrop mot fråge-URL:et. Följande parametrar måste läggas till:
+Det vi letar efter här är **Fråge-URL**. Det här är den slutpunkt mot vilken vi kan köra frågor för att kontrollera om enheten för närvarande befinner sig inom platsgränserna eller inte. För att utföra den här kontrollen kör vi bara ett GET-anrop mot fråge-URL:en, där följande parametrar läggs till:
 
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
 
-På så sätt anger du en målpunkt som vi får från enheten och Bing Maps kommer automatiskt att utföra beräkningar för att kontrollera om den befinner sig inom vårt geofence eller inte. När du kör begäran via en webbläsare (eller cURL), kommer du att få ett standard- JSON-svar:
+På så sätt anger du en målpunkt som vi får från enheten och Bing Maps kommer automatiskt att utföra beräkningar för att kontrollera om den befinner sig inom vårt geofence eller inte. När du kör begäran via en webbläsare (eller cURL), kommer du att få ett JSON-standardsvar:
 
 ![](./media/notification-hubs-geofence/bing-maps-json.png)
 
@@ -111,11 +111,11 @@ Du får bara tillbaka detta svar när punkten verkligen ligger inom de angivna g
 ## <a name="setting-up-the-uwp-application"></a>Konfigurera UWP-appen
 Nu när datakällan är redo kan vi börja jobba med UWP-appen som vi startade om tidigare.
 
-Först och främst måste vi aktivera platstjänster för vår app. För att göra detta dubbelklickar du på filen `Package.appxmanifest` i **Solution Explorer**.
+Först och främst måste vi aktivera platstjänster för vår app. Det gör du genom att öppna `Package.appxmanifest`-filen i **Solution Explorer**.
 
 ![](./media/notification-hubs-geofence/vs-package-manifest.png)
 
-I den flik för paketegenskaper som just öppnades klickar du på **Funktioner** och väljer sedan **plats**:
+I den flik för paketegenskaper som just öppnades väljer du **Funktioner** och väljer sedan **plats**:
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
@@ -216,7 +216,7 @@ Projektet har redan konfigurerats för att skicka push-meddelanden till målenhe
 
 Öppna `Notifications.cs` i mappen `Models` för att konfigurera anslutningssträngen. Funktionen `NotificationHubClient.CreateClientFromConnectionString` bör innehålla den information om meddelandehubben som du kan hämta i [Azure-portalen](https://portal.azure.com) (titta på bladet **Åtkomstprinciper** under **Inställningar**). Spara den uppdaterade konfigurationsfilen.
 
-Nu måste vi skapa en modell för Bing Maps API-resultatet. Det enklaste sättet att göra detta är högerklicka på mappen `Models` och sedan på **Lägg till** > **Klass**. Ge den namnet `GeofenceBoundary.cs`. När du har gjort detta ska du kopiera JSON:et från det API-svar som vi pratade om i det första avsnittet. Och i Visual Studio använder du sedan **Redigera** > **Klistra in special** > **Klistra in JSON som klass**. 
+Nu måste vi skapa en modell för Bing Maps API-resultatet. Det enklaste sättet att göra det är att öppna `Models`-mappen och välja **Lägg till** > **klass**. Ge den namnet `GeofenceBoundary.cs`. När du har gjort detta ska du kopiera JSON:et från det API-svar som vi pratade om i det första avsnittet. Och i Visual Studio använder du sedan **Redigera** > **Klistra in special** > **Klistra in JSON som klass**. 
 
 På så sätt ser vi till att objektet avserialiseras exakt på det sätt som vi vill att det ska. Du bör nu ha en klassuppsättning som liknar följande:
 
@@ -338,23 +338,23 @@ När vi går tillbaka till UWP-appen, bör vi nu kunna testa meddelandefunktione
 > 
 > 
 
-Nu ska vi registrera UWP-appen för push-meddelanden. I Visual Studio klickar du på **Projekt** > **Butik** > **Associera appen med butiken**.
+Nu ska vi registrera UWP-appen för push-meddelanden. I Visual Studio väljer du **Project** (projekt)  > **Store** > **Associate App with the Store** (associera app med Store).
 
 ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
 
 Kontrollera att du väljer en befintlig app, eller skapa en ny, och associera paketet med den när du loggar in på ditt utvecklarkonto. 
 
-Gå till Dev Center och öppna den app som du nyss skapade. Klicka på **Tjänster** > **Push-meddelanden** > **Webbplatsen för Live-tjänster**.
+Gå till Dev Center och öppna den app som du nyss skapade. Välj **Tjänster** > **Push-meddelanden** > **Webbplatsen för Live-tjänster** .
 
 ![](./media/notification-hubs-geofence/ms-live-services.png)
 
-När du är på webbplatsen skriver du ned **apphemligheten** och **paket-SID:et**. Du kommer att behöva båda i Azure-portalen. Öppna din meddelandehubb, klicka på **Inställningar** > **Notification Services** > **Windows (WNS)** och ange uppgifterna i de obligatoriska fälten.
+När du är på webbplatsen skriver du ned **apphemligheten** och **paket-SID:et**. Du kommer att behöva båda i Azure-portalen. Öppna din meddelandehubb, välj **Inställningar** > **Notification Services** > **Windows (WNS)** och ange uppgifterna i de obligatoriska fälten.
 
 ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
 
-Klicka på **Spara**.
+Välj **Spara**.
 
-Högerklicka på **Referenser** i **Solution Explorer** och välj **Hantera NuGet-paket**. Vi måste lägga till en referens till **hanteringsbiblioteket för Microsoft Azure Service Bus**. Du behöver bara söka efter `WindowsAzure.Messaging.Managed` och lägga till den i projektet.
+Öppna **Referenser** i **Solution Explorer** och välj **Hantera NuGet-paket**. Vi måste lägga till en referens till **hanteringsbiblioteket för Microsoft Azure Service Bus**. Du behöver bara söka efter `WindowsAzure.Messaging.Managed` och lägga till den i projektet.
 
 ![](./media/notification-hubs-geofence/vs-nuget.png)
 

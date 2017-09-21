@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 9d4b28416376482247127698bec7c99b83308885
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d06052099acbb5544581ef3e8e2007dd751a7544
 ms.contentlocale: sv-se
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 > * [Grafisk](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
-> 
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 
 Den här självstudien beskriver steg för steg hur du skapar en [grafisk runbook](automation-runbook-types.md#graphical-runbooks) i Azure Automation.  Vi börjar med en enkel runbook som testar och publicerar medan vi förklarar hur du spårar statusen för runbook-jobbet.  Sedan ändrar vi vår runbook så att den hanterar Azure-resurser, i vårt exempel ska den starta en virtuell dator i Azure.  Därefter slutför vi självstudien och gör runbook-jobbet stabilare genom att lägga till runbook-parametrar och villkorliga länkar.
@@ -37,9 +36,9 @@ Den här självstudien beskriver steg för steg hur du skapar en [grafisk runboo
 ## <a name="prerequisites"></a>Krav
 För att kunna genomföra den här kursen behöver du följande:
 
-* En Azure-prenumeration.  Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller <a href="/pricing/free-account/" target="_blank">[registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbook-jobbet ska ligga under och som ska användas för autentisering av Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
-* En virtuell dator i Azure.  Eftersom vi ska stoppa och starta den här datorn bör den inte finnas i produktionsmiljön.
+* En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Ett [Automation-konto för Azure](automation-offering-get-started.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
+* En virtuell dator i Azure. Eftersom vi ska stoppa och starta den här datorn bör det inte vara en virtuell dator som finns i produktionsmiljön.
 
 ## <a name="step-1---create-runbook"></a>Steg 1 – Skapa en runbook
 Vi börjar med att skapa en enkel runbook som visar texten *Hello World*.

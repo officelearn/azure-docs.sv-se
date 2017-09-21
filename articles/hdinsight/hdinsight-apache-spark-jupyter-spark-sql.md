@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Skapa ett Apache Spark-kluster i Azure HDInsight
 
-I den här artikeln får du lära dig hur du skapar ett Apache Spark-kluster i Azure HDInsight. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](hdinsight-apache-spark-overview.md).
+I den här artikeln får du lära dig hur du skapar ett Apache Spark-kluster i Azure HDInsight och sedan kör en Spark SQL-fråga på en Hive-tabell. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](hdinsight-apache-spark-overview.md).
 
    ![Snabbstartsdiagram som beskriver steg för att skapa ett Apache Spark-kluster på Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark-snabbstart med Apache Spark i HDInsight. Illustrerade steg: skapa ett kluster, kör interaktiv Spark-fråga")
 
@@ -65,9 +65,15 @@ Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på a
 >
 >
 
-## <a name="run-a-hive-query-using-spark-sql"></a>Köra en Hive-fråga med Spark SQL
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>Köra Spark SQL-instruktioner på en Hive-tabell
 
-När du använder en Jupyter-anteckningsbok som har konfigurerats för HDInsight Spark-klustret kan det visas en förinställning `sqlContext` som du kan använda för att köra Hive-frågor med hjälp av Spark SQL. I det här avsnittet lär du dig att starta en Jupyter-anteckningsbok och sedan köra en grundläggande Hive-fråga.
+SQL (Structured Query Language) är det vanligaste språket för frågor och definition av data. Grundarna till Spark ville dra nytta av kunskapen och tillgängliggöra det välkända datafrågespråket till en bredare målgrupp med analytiker som ville arbeta med data som finns på Hadoop Distributed File System (HDFS). Spark SQL är det erbjudandet. Det fungerar som ett tillägg till Apache Spark för bearbetning av strukturerade data med den välkända SQL-syntaxen.
+
+Spark SQL stöder både SQL och HiveQL som frågespråk. Funktionerna inkluderar bindning i Python, Scala och Java. Med det kan du fråga data som lagras på många platser, som externa databaser, strukturerade datafiler (t.ex. JSON) och Hive-tabeller.
+
+### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>Köra Spark SQL på ett HDInsight-kluster
+
+När du använder en Jupyter-anteckningsbok som har konfigurerats för HDInsight Spark-klustret kan det visas en förinställning `sqlContext` som du kan använda för att köra Hive-frågor med hjälp av Spark SQL. I det här avsnittet får du lära dig att starta en Jupyter Notebook och sedan köra en grundläggande Spark SQL-fråga på en befintlig Hive-tabell (**hivesampletable**) som är tillgänglig på alla HDInsight-kluster.
 
 1. Öppna [Azure-portalen](https://portal.azure.com/).
 
@@ -87,13 +93,13 @@ När du använder en Jupyter-anteckningsbok som har konfigurerats för HDInsight
    >
 3. Skapa en anteckningsbok. Klicka på **Ny** och sedan på **PySpark**.
 
-   ![Skapa en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Skapa en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga")
+   ![Skapa en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga")
 
    En ny anteckningsbok skapas och öppnas med namnet Untitled(Untitled.pynb).
 
 4. Klicka på anteckningsbokens namn högst upp och ange ett beskrivande namn om du vill.
 
-    ![Ange ett namn för Jupter-anteckningsboken för att köra en interaktiv Spark-fråga från](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Ange ett namn för Jupter-anteckningsboken för att köra en interaktiv Spark-fråga från")
+    ![Ange ett namn för Jupyter-anteckningsboken för att köra en interaktiv Spark-fråga från](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Ange ett namn för Jupyter-anteckningsboken för att köra en interaktiv Spark-fråga från")
 
 5.  Klistra in följande kod i en tom cell och tryck sedan på **SKIFT+RETUR** för att köra koden. I följande kodexempel anger `%%sql` (kallas sql magic) att Jupyter-anteckningsboken ska använda förinställningen `sqlContext` för att köra Hive-frågan. Frågan hämtar de översta 10 raderna från en Hive-tabell (**hivesampletable**) som är tillgängliga som standard i alla HDInsight-kluster.
 
@@ -117,7 +123,7 @@ När du använder en Jupyter-anteckningsbok som har konfigurerats för HDInsight
 
 8. Om du planerar att utföra nästa steg vid ett senare tillfälle är det viktigt att du tar bort HDInsight-klustret som du skapade i den här artikeln. 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-step"></a>Nästa steg 
 

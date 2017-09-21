@@ -1,5 +1,5 @@
 ---
-title: "Kom igång med Azure Service Fabric CLI (sfctl)"
+title: "Kom igång med Azure Service Fabric CLI"
 description: "Lär dig hur du använder Azure Service Fabric CLI. Lär dig hur du ansluter till ett kluster och hanterar program."
 services: service-fabric
 author: samedder
@@ -9,44 +9,46 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 851f04c8b5eee762ec43060f02c8b83f00c1782e
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="azure-service-fabric-command-line"></a>Azure Service Fabric-kommandorad
+# <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
-Azure Service Fabric CLI (sfctl) är ett kommandoradsverktyg för att interagera och hantera Azure Service Fabric-enheter. Sfctl kan användas med Windows- eller Linux-kluster. Sfctl fungerar på alla plattformar där python stöds.
+Azure Service Fabric-kommandoradsgränssnittet (CLI) är ett kommandoradsverktyg för att interagera med och hantera Service Fabric-enheter. Service Fabric CLI kan användas med antingen Windows- eller Linux-kluster. Service Fabric CLI kan köras på valfri plattform där Python stöds.
 
 ## <a name="prerequisites"></a>Krav
 
-Kontrollera att din miljö har både python och pip installerade före installationen. Mer information finns i [snabbstartsdokumentationen för pip](https://pip.pypa.io/en/latest/quickstart/) och den officiella [installationsdokumentationen för python](https://wiki.python.org/moin/BeginnersGuide/Download).
+Kontrollera att din miljö har både Python och pip installerade före installationen. Mer information finns i [snabbstartdokumentationen för pip](https://pip.pypa.io/en/latest/quickstart/) och den officiella [dokumentationen för installation av Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-Både python 2.7 och 3.6 stöds, men du rekommenderas att använda python 3.6. Följande avsnitt tar upp hur du installerar alla krav och CLI.
+Även om både Python 2.7 och 3.6 stöds, rekommenderar vi att du använder Python 3.6. Följande avsnitt visar hur du installerar alla krav och CLI.
 
-## <a name="install-pip-python-and-sfctl"></a>Installera pip, python och sfctl
+## <a name="install-pip-python-and-the-service-fabric-cli"></a>Installera pip, Python och Service Fabric CLI
 
-Det finns många sätt att installera både pip och python på din plattform, och här är några steg för att komma igång snabbt med python 3.6 och pip för större operativsystem:
+ Du kan installera pip och Python på din plattform på många olika sätt. Följande är anvisningar för att snabbt komma igång med Python 3.6 och pip på populära operativsystem.
 
 ### <a name="windows"></a>Windows
 
-För Windows 10, Server 2016 och Server 2012R2 kan du använda de officiella standardinstruktionerna för installation. Python-installationsprogrammet installerar även pip som standard.
+I Windows 10, Windows Server 2016 och Windows Server 2012 R2 använder du de officiella anvisningarna för standardinstallation. Python-installationsprogrammet installerar även pip som standard.
 
-- Gå till den officiella [nedladdningssidan för python](https://www.python.org/downloads/) och ladda ned den senaste versionen av python 3.6
-- Starta installationsprogrammet
-- Välj alternativet längst ned i uppmaningen för att `Add Python 3.6 to PATH`
-- Välj `Install Now`
-- Slutför installationen
+1. Gå till den officiella [nedladdningssidan för Python](https://www.python.org/downloads/) och ladda ned den senaste versionen av Python 3.6.
 
-Du bör nu kunna öppna ett nytt kommandofönster och hämta versionen av både python och pip:
+2. Starta installationsprogrammet.
+
+3. Längst ned i fönstret väljer du **Add Python 3.6 to PATH** (lägg till Python 3.6 i PATH).
+
+4. Välj **Installera nu** och slutför installationen.
+
+Nu kan du öppna ett nytt kommandofönster och hämta versionen för Python och pip.
 
 ```bat
 python --version
 pip --version
 ```
 
-Kör sedan följande för att installera Service Fabric CLI
+Kör sedan följande kommando för att installera Service Fabric CLI:
 
 ```
 pip install sfctl
@@ -55,7 +57,7 @@ sfctl -h
 
 ### <a name="ubuntu"></a>Ubuntu
 
-För Ubuntu 16.04 Desktop kan du installera python 3.6 med PPA från tredje part:
+I Ubuntu 16.04 Desktop kan du installera Python 3.6 med ett PPA-arkiv (Personal Package Archive) från tredje part.
 
 Kör följande kommandon från terminalen:
 
@@ -66,24 +68,24 @@ sudo apt-get install python3.6
 sudo apt-get install python3-pip
 ```
 
-Om du vill installera sfctl för just din installation av python 3.6 kör du följande kommando:
+Om du vill installera Service Fabric CLI för endast din installation av Python 3.6, kör du följande kommando:
 
 ```bash
 python3.6 -m pip install sfctl
 sfctl -h
 ```
 
-De här stegen påverkar inte systemet som har python 3.5 och 2.7 installerat. Försök inte ändra de här installationerna om du inte är bekant med Ubuntu.
+De här stegen påverkar inte systeminstallationen av Python 3.5 och 2.7. Försök inte ändra de här installationerna om du inte är bekant med Ubuntu.
 
 ### <a name="macos"></a>MacOS
 
-För MacOS rekommenderar vi att du använder [HomeBrew-pakethanteraren](https://brew.sh). Installera HomeBrew om du inte redan har gjort det, genom att köra följande kommando:
+För MacOS rekommenderar vi att du använder [HomeBrew-pakethanteraren](https://brew.sh). Installera HomeBrew om det inte är installerat genom att köra följande kommando:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Från terminalen installerar du sedan python 3.6, pip och sfctl
+Installera sedan Python 3.6, pip och Service Fabric CLI från terminalen genom att köra följande kommandon:
 
 ```bash
 brew install python3
@@ -91,13 +93,13 @@ pip3 install sfctl
 sfctl -h
 ```
 
-De här stegen ändrar inte installationen av python 2.7.7.
+De här stegen ändrar inte installationen av Python 2.7.
 
 ## <a name="cli-syntax"></a>CLI-syntax
 
-Kommandon har alltid prefixet `sfctl`. För allmän information om alla kommandon som du kan använda, använd `sfctl -h`. För hjälp med ett enda kommando, använd `sfctl <command> -h`.
+Kommandon inleds alltid med prefixet `sfctl`. För allmän information om alla kommandon du kan använda använder du `sfctl -h`. För hjälp med ett enda kommando, använd `sfctl <command> -h`.
 
-Kommandon följer en upprepningsbar struktur, där kommandots mål står före verbet eller åtgärden:
+Kommandon följer en upprepningsbar struktur, där kommandots mål står före verbet eller åtgärden.
 
 ```azurecli
 sfctl <object> <action>
@@ -107,7 +109,7 @@ I det här exemplet är `<object>` målet för `<action>`.
 
 ## <a name="select-a-cluster"></a>Välj ett kluster
 
-Innan du kan utföra några åtgärder måste du välja ett kluster att ansluta till. Kör till exempel följande för att välja och ansluta till klustret med namnet `testcluster.com`.
+Innan du kan utföra några åtgärder måste du välja ett kluster att ansluta till. Kör till exempel följande kommando för att välja och ansluta till klustret med namnet `testcluster.com`:
 
 > [!WARNING]
 > Använd inte oskyddade Service Fabric-kluster i produktionsmiljöer.
@@ -128,7 +130,7 @@ Mer information finns i [Ansluta till ett Azure Service Fabric-kluster](service-
 
 ## <a name="basic-operations"></a>Grundläggande åtgärder
 
-Klustrets anslutningsinformation bevaras mellan olika sfctl-sessioner. När du har valt ett Service Fabric-kluster kan du köra alla Service Fabric-kommandon på klustret.
+Klustrets anslutningsinformation bevaras mellan olika Service Fabric CLI-sessioner. När du har valt ett Service Fabric-kluster kan du köra alla Service Fabric-kommandon på klustret.
 
 Om du till exempel vill se hälsotillståndet för Service Fabric-klustret kör du följande kommando:
 
@@ -163,7 +165,7 @@ Kommandot ger följande utdata:
 
 ## <a name="tips-and-troubleshooting"></a>Felsökning och tips
 
-Några förslag och tips för att lösa vanliga problem.
+Här följer några förslag och tips för lösning av vanliga problem.
 
 ### <a name="convert-a-certificate-from-pfx-to-pem-format"></a>Konvertera ett certifikat från PFX till PEM
 
@@ -175,7 +177,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Mer information finns i [OpenSSL-dokumentationen](https://www.openssl.org/docs/).
 
-### <a name="connection-issues"></a>Anslutningsproblem
+### <a name="connection-problems"></a>Anslutningsproblem
 
 Vissa åtgärder kan generera följande meddelande:
 
@@ -185,17 +187,17 @@ Kontrollera att den angivna kluster-slutpunkten är tillgänglig och lyssnar. Ko
 
 ### <a name="detailed-logs"></a>Detaljerade loggar
 
-Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. Det finns en global `--debug`-flagga som ökar loggfilernas detaljnivå.
+Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. En global `--debug`-flagga ökar detaljnivån i loggfilerna.
 
 ### <a name="command-help-and-syntax"></a>Hjälp och syntax för kommandon
 
-Hjälp med ett visst kommando eller en grupp med kommandon, använder du flaggan `-h`:
+Om du vill ha hjälp med ett visst kommando eller en grupp med kommandon, använder du flaggan `-h`.
 
 ```azurecli
 sfctl application -h
 ```
 
-Ett annat exempel:
+Här är ett annat exempel:
 
 ```azurecli
 sfctl application create -h

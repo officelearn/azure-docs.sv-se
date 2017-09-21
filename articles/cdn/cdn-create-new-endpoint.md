@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
-ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
+ms.contentlocale: sv-se
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="getting-started-with-azure-cdn"></a>Komma igång med Azure CDN
@@ -32,8 +33,13 @@ Det här avsnittet beskriver steg för steg hur du aktiverar Azure CDN genom att
 En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller flera CDN-slutpunkter.  Du kanske vill använda flera profiler för att organisera dina CDN-slutpunkter efter Internetdomän, webbapp eller andra kriterier.
 
 > [!NOTE]
-> Som standard är en enskild Azure-prenumeration begränsad till åtta CDN-profiler. Varje CDN-profil är begränsad till tio CDN-slutpunkter.
-> 
+> En Azure-prenumeration har standardgränser för följande resurser:
+> - Antalet CDN-profiler som kan skapas
+> - Antalet slutpunkter som kan skapas i en CDN-profil 
+> - Antal anpassade domäner som kan mappas till en slutpunkt
+>
+> Information om CDN-prenumerationsbegränsningar finns i [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits) (CDN-begränsningar).
+>
 > CDN-priserna tillämpas på CDN-profilnivå. Om du vill använda en kombination av olika Azure CDN-prisnivåer behöver du flera CDN-profiler.
 > 
 > 
@@ -77,7 +83,9 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
    > Följande begränsningar gäller för åtkomst till CDN-innehåll via HTTPS:
    > 
    > * Du måste använda SSL-certifikatet som tillhandahålls av CDN. Certifikat från tredje part stöds inte.
-   > * Du måste använda den CDN-definierade domänen (`<endpointname>.azureedge.net`) för att komma åt HTTPS-innehåll. HTTPS-stöd är inte tillgängligt för anpassade domännamn (CNAME-poster) eftersom CDN inte stöder anpassade certifikat för närvarande.
+   > * HTTPS-stöd för anpassade Azure CDN-domäner är endast tillgängligt med produkten av typen **Azure CDN from Verizon** (Standard och Premium). Det stöds inte på **Azure CDN från Akamai**. Mer information finns i [Aktivera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md).
+
+Använd den CDN-definierade domänen (`<endpointname>.azureedge.net`) för att komma åt HTTPS-innehåll. HTTPS-stöd är inte tillgängligt för anpassade domännamn (CNAME-poster) eftersom CDN inte stöder anpassade certifikat för närvarande.
    > 
    > 
 9. Klicka på knappen **Lägg till** för att skapa en ny slutpunkt.
@@ -103,9 +111,4 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

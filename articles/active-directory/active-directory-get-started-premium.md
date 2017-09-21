@@ -1,6 +1,6 @@
 ---
-title: "Registrera dig för Azure Active Directory Premium"
-description: "Här förklaras hur du registrerar dig för Azure Active Directory Premium-versionen."
+title: "Registrera dig för Azure Active Directory Premium | Microsoft Docs"
+description: "Här förklaras hur du registrerar dig för Azure Active Directory Premium-versionen"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Snabbstart: Registrera dig för Azure Active Directory Premium
@@ -26,6 +27,9 @@ Du kommer igång med Azure Active Directory (Azure AD) Premium genom att först 
 
 ## <a name="sign-up-for-active-directory-premium"></a>Registrera dig för Active Directory Premium
 Om du vill registrera dig för Active Directory Premium kan du välja mellan flera alternativ: 
+* Använda din Azure- eller Office 365-prenumeration
+* Använda en Enterprise Mobility + Security-licensieringsplan
+* Använda en Microsoft-volymlicensieringsplan
 
 ### <a name="azure-or-office-365"></a>Azure eller Office 365 
 Som prenumerant på Azure eller Office 365 kan du köpa Azure Active Directory Premium online. 
@@ -48,10 +52,8 @@ Läs mer om att alternativ för köp via volymlicensiering på sidan [How to pur
 
 > [!NOTE]
 > Azure Active Directory Premium och Basic är tillgängliga för kunder i Kina genom den globala instansen av Azure Active Directory. Azure Active Directory Premium och Basic stöds inte för närvarande i Microsoft Azure-tjänsten som drivs av 21Vianet i Kina. Om du vill ha mer information kontaktar du oss via [Azure Active Directory-forumet](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
 
-Om du tidigare har köpt och aktiverat Azure AD-licenser för samma Azure-prenumeration som du använde i föregående steg, aktiveras licenserna automatiskt i samma katalog. Och du behöver inte fortsätta med stegen som beskrivs i resten av den här artikeln.
+Om du tidigare har köpt och aktiverat Azure AD-licenser för samma Azure-prenumeration som du använde i föregående steg, aktiveras licenserna automatiskt i samma katalog. Annars fortsätter du med stegen som beskrivs i resten av den här artikeln.
 
 ## <a name="activate-your-license-plan"></a>Aktivera din licensplan
 Är det här den första Azure AD-licensplan som du köpt från Microsoft? I så fall skickas ett bekräftelsemejl till dig när köpet har slutförts. Du behöver det här e-postmeddelandet för att kunna aktivera din första licensplan.
@@ -62,7 +64,7 @@ Om du tidigare har köpt och aktiverat Azure AD-licenser för samma Azure-prenum
    
     ![Logga in][1]
 
-    - Om du har en befintlig klient klickar du på **Logga in** för att logga in med ditt befintliga administratörskonto. Logga in med autentiseringsuppgifterna för global administratör från den katalog där licenserna ska aktiveras.
+    - Om du har en befintlig klient klickar du på **Logga in** för att logga in med ditt befintliga administratörskonto. Logga in med autentiseringsuppgifterna för global administratör eller klienten där licenserna ska aktiveras.
 
     - Om du vill skapa en ny Azure AD-klientorganisation och använda den med licensplanen klickar du på **Registrera** så att dialogrutan **Skapa kontoprofil** öppnas.
 

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 6eadfb0c3f91c1f2c7783d70604b45d5dc9912a3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -47,7 +47,8 @@ I det här avsnittet ska du utföra följande steg för att skapa ett Azure Auto
 2. Klicka på **Ny**.<br><br> ![Välj alternativet Ny på Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Sök efter **Automation** och välj sedan **Automatisering och kontroll*** i sökresultaten.<br><br> ![Sök efter och välj Automation från Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 3. Klicka på **Lägg till** på bladet Automation-konton.<br><br>![Lägga till ett Automation-konto](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-   
+
+
    > [!NOTE]
    > Om du ser följande varning i bladet **Lägg till Automation-konto** beror det på att ditt konto inte är medlem i rollerna administratör eller medadministratör för prenumerationen.<br><br>![Varningsmeddelande för Lägga till ett Automation-konto](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
@@ -72,6 +73,7 @@ När Automation-kontot har skapats skapas flera resurser automatiskt.  I följan
 | --- | --- |
 | AzureAutomationTutorial-runbook |Ett exempel på en grafisk runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
 | AzureAutomationTutorialScript-runbook |Ett exempel på en PowerShell-runbook som visar hur du autentiserar med hjälp av Kör som-kontot och hur du hämtar alla Resource Manager-resurser. |
+| AzureAutomationTutorialPython2 Runbook |En python-exempelrunbook som visar hur man autentiserar med Kör som-konto och anger sedan de resursgrupper som finns i den angivna prenumerationen. |
 | AzureRunAsCertificate |Certifikattillgång som skapas automatiskt när Automation-kontot genereras eller med hjälp av PowerShell-skriptet nedan för ett befintligt konto.  Den gör att du kan autentisera med Azure så att du kan hantera Azure Resource Manager-resurser från runbooks.  Det här certifikatet har en livslängd på ett år. |
 | AzureRunAsConnection |Anslutningstillgång som skapas automatiskt när Automation-kontot genereras eller med hjälp av PowerShell-skriptet nedan för ett befintligt konto. |
 
@@ -89,3 +91,5 @@ I följande tabell sammanfattas resurserna för det klassiska Kör som-kontot.<b
 * Läs mer om grafisk redigering i [Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
 * Information om hur du kommer igång med PowerShell-runbooks finns i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md).
 * Se hur du kommer igång med runbooks baserade på PowerShell-arbetsflöden i [Min första PowerShell-arbetsflödesbaserade runbook](automation-first-runbook-textual.md).
+* Läs [My first Python2 runbook](automation-first-runbook-textual-python2.md) (Min första Python2-runbook) för att komma igång med Python2-runbooks.
+

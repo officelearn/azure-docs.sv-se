@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b190ad54147a4d548806047b2257069cac4475cd
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 4e811dee81bfbd01b3cbe7f78a57b2ce92d1c0f9
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Skapa ett Media Services-konto med Azure-portalen
@@ -36,6 +36,9 @@ Azure-portalen är ett sätt att snabbt skapa ett Azure Media Services-konto (AM
 
 Den här artikeln beskriver några vanliga begrepp och visar hur du skapar ett Media Services-konto med Azure-portalen.
 
+> [!NOTE]
+> Information om tillgänglighet för Azure Media Services-funktioner i olika regioner finns i [tillgänglighet för AMS-funktioner i datacenter](scenarios-and-availability.md#availability).
+
 ## <a name="concepts"></a>Koncept
 Åtkomst till Media Services kräver två associerade konton:
 
@@ -43,8 +46,8 @@ Den här artikeln beskriver några vanliga begrepp och visar hur du skapar ett M
   
 * Ett Azure-lagringskonto. Lagringskonton måste finnas i samma geografiska område som Media Services-kontot. När du skapar ett Media Services-konto kan du antingen välja ett befintligt lagringskonto i samma region eller skapa ett nytt lagringskonto i samma region. Om du tar bort ett Media Services-konto raderas inte blobbarna på ditt relaterade lagringskonto.
 
-> [!NOTE]
-> Information om tillgänglighet för Azure Media Services-funktioner i olika regioner finns i [tillgänglighet för AMS-funktioner i datacenter](scenarios-and-availability.md#availability).
+  > [!NOTE]
+  > Media Services begränsar det primära lagringskontot så att det blir ett **allmänt lagringskonto** med tabeller och köer. Mer information om lagringskontotyper finns i [Om Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## <a name="create-an-ams-account"></a>Skapa ett AMS-konto
 Stegen i det här avsnittet visar hur du skapar ett AMS-konto.

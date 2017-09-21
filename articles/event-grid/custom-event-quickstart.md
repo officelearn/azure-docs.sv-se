@@ -9,10 +9,10 @@ ms.date: 08/15/2017
 ms.topic: hero-article
 ms.service: event-grid
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 0290836bebadb20085a3ce84dddc088c3af385da
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: cd285471196f75f6a8c8ead0e2895fd71414f223
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -119,5 +119,7 @@ az group delete --name gridResourceGroup
 Nu när du vet hur du skapar ämnen och prenumerationer på händelser kan du läsa mer om vad Event Grid kan hjälpa dig med:
 
 - [Om Event Grid](overview.md)
+- [Dirigera Blob Storage-händelser till en anpassad webbslutpunkt (förhandsversion)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
+- [Strömma stordata till ett datalager](event-grid-event-hubs-integration.md)
 

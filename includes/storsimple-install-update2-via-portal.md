@@ -34,8 +34,3 @@
 9. Uppdateringen tar några timmar att slutföra. Markera uppdateringsjobbet och klicka på **Information** så kan du visa information om jobbet när som helst.
 10. När jobbet har slutförts navigerar du till sidan **Underhåll** och rullar ned till **Programuppdateringar**.
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

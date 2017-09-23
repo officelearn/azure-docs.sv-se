@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.contentlocale: sv-se
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -103,10 +105,5 @@ Du behöver konfigurera en serverdelsadresspool och en avsökning innan du kan k
 [Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

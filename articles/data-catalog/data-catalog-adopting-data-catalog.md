@@ -21,7 +21,6 @@ ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
 ms.contentlocale: sv-se
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metod och process för att börja använda Azure Data Catalog
 Den här artikeln hjälper dig att komma igång med **Azure Data Catalog** i din organisation. Fokusera på följande tre huvudpunkter för att komma igång med **Azure Data Catalog** på ett smidigt sätt: fastställ din vision, identifiera viktiga användningsområden inom organisationen och välj ett pilotprojekt.

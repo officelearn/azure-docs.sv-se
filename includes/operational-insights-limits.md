@@ -28,8 +28,3 @@ Följande begränsningar gäller för varje Log Analytics-arbetsyta:
 | API för datainsamling | Maximal storlek för ett enskilt inlägg är 30 MB<br>Maximal storlek för fältvärden är 32 kB | Dela större volymer i flera olika inlägg<br>Fält som är längre än 32 kB trunkeras. |
 | Sök-API | 5&000; poster returneras för ej sammanräknade data<br>500&000; poster för sammanräknade data | Sammanräknade data är en sökning som innefattar kommandot `measure`
  
-
-
-<!--HONumber=Feb17_HO3-->
-
-

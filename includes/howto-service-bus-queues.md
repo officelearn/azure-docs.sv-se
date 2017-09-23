@@ -12,8 +12,3 @@ Service Bus-köer är en mångsidig teknologi som kan användas för en mängd o
 Med hjälp av köer kan du skala ditt program enklare och med bättre återhämtning i din arkitektur.
 
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

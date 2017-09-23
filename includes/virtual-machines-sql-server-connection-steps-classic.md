@@ -1,5 +1,4 @@
-### Bestämma DNS-namnet på en virtuell dator
-<a id="determine-the-dns-name-of-the-virtual-machine" class="xliff"></a>
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Bestämma DNS-namnet på en virtuell dator
 För att kunna ansluta till SQL Server-databasmotorn från en annan dator måste du känna till DNS-namnet (Domain Name System) för den virtuella datorn. (Detta är det namn som används för att identifiera den virtuella datorn på Internet. Du kan använda IP-adressen, men IP-adress kan ändras när Azure flyttar resurser för redundans eller underhåll. DNS-namnet är stabilt eftersom det kan omdirigeras till en ny IP-adress.)  
 
 1. Välj **Virtuella datorer (klassiska)** i Azure Portal (eller från föregående steg).
@@ -8,8 +7,7 @@ För att kunna ansluta till SQL Server-databasmotorn från en annan dator måste
    
     ![DNS-namn](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### Anslut till databasmotorn från en annan dator
-<a id="connect-to-the-database-engine-from-another-computer" class="xliff"></a>
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Anslut till databasmotorn från en annan dator
 1. Öppna SQL Server Management Studio på en dator som är ansluten till Internet.
 2. I rutan **Servernamn** i dialogrutan **Anslut till server** eller **Connect to Database Engine** (Anslut till databasmotor) anger du DNS-namnet på den virtuella datorn (som bestämdes i föregående uppgift) och ett portnummer för offentlig slutpunkt i formatet *DNS-namn,portnummer*, till exempel **mysqlvm.cloudapp.net,57500**.
    

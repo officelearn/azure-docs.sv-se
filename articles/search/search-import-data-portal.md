@@ -21,7 +21,6 @@ ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
 ms.contentlocale: sv-se
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importera data till Azure Search med hjälp av portalen
 Med guiden **Importera data** i instrumentpanelen för Azure Search på Azure Portal kan du läsa in data i ett index. 

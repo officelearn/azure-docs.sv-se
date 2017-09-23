@@ -20,7 +20,6 @@ ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
 ms.contentlocale: sv-se
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Förstå säkerhetsaviseringar i Azure Security Center
 Den här artikeln visar de olika typerna av säkerhetsaviseringar och meddelanden som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar och händelser finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).

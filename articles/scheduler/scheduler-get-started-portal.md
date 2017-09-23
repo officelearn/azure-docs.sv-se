@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-
+ms.contentlocale: sv-se
+ms.lasthandoff: 12/07/2016
 
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Komma igång med Azure Scheduler på Azure-portalen
@@ -152,9 +153,4 @@ Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkoms
 [13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

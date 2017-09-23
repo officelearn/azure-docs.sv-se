@@ -5,8 +5,3 @@
 * [Integrera program med Azure Active Directory](../articles/active-directory/active-directory-integrating-applications.md)
 * [Artikelindex för programhantering i Azure Active Directory](../articles/active-directory/active-directory-apps-index.md)
 
-
-
-<!--HONumber=Dec16_HO4-->
-
-

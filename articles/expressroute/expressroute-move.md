@@ -20,7 +20,6 @@ ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
 ms.contentlocale: sv-se
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
 Den här artikeln innehåller en översikt över vad det innebär att flytta en Azure ExpressRoute-krets från den klassiska till Azure Resource Manager-distributionsmodellen.

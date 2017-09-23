@@ -25,8 +25,3 @@ Med en *anpassad* virtuell dator avses en virtuell dator som du skapar med en **
 >
 
 ## <a name="to-create-the-virtual-machine"></a>Skapa en virtuell dator
-
-
-<!--HONumber=Feb17_HO3-->
-
-

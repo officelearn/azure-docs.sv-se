@@ -21,8 +21,6 @@ ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/10/2017
 
-
-
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Läs in data med Redgates Data Platform Studio
 > [!div class="op_single_selector"]

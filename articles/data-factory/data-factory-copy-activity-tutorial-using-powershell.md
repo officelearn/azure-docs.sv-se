@@ -20,7 +20,6 @@ ms.openlocfilehash: 81efe7c6af29af778686e1f6bcf62fedc9711052
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Självstudiekurs: Skapa en Data Factory-pipeline som flyttar data med hjälp av Azure PowerShell
 > [!div class="op_single_selector"]

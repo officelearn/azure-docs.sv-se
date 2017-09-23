@@ -21,7 +21,6 @@ ms.openlocfilehash: 0a1e23cd52ab5c10791a11d93753b54eb1c1b71a
 ms.contentlocale: sv-se
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Vanliga frågor och svar om Azure Machine Learning: Fakturering, funktioner, begränsningar och support
 Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning som tillhandahåller förutsägelsemodeller och operationaliseringslösningar genom webbtjänster. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support.

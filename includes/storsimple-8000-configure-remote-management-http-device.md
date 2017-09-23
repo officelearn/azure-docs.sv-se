@@ -1,7 +1,5 @@
 
-<a id="to-configure-remote-management-on-cloud-appliance" class="xliff"></a>
-
-#### Så här konfigurerar du fjärrhantering för molninstallationen
+#### <a name="to-configure-remote-management-on-cloud-appliance"></a>Så här konfigurerar du fjärrhantering för molninstallationen
 
 1. Klicka på **Enheter** i StorSimple Device Manager-tjänsten. Markera och klicka på molninstallationen i listan med enheter som är anslutna till tjänsten.
     ![Välj StorSimple-molninstallation](./media/storsimple-8000-configure-remote-management-http-device/sca-remote-manage1.png)

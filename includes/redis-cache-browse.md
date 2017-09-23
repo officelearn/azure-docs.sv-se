@@ -12,8 +12,3 @@ Du kan visa och konfigurera ditt cache från bladet **Redis-Cache**.
 
 ![Alla inställningar för Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
 
-
-
-<!--HONumber=Dec16_HO3-->
-
-

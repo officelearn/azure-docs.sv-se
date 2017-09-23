@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/26/2016
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 08cba012cca61eeb03187d2b4165e2a79b15bc3d
 ms.openlocfilehash: 12313f7f245d32c33882f1036f7d4b48bfb3ddc5
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/03/2017
 
 ---
 
@@ -73,9 +75,4 @@ Fellänkar flödar från dessa aktiviteter till en enda **felhanteringsaktivitet
 * Om du vill veta mer om länkar och länktyper i grafiska runbooks kan du läsa [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow) (Grafisk redigering i Azure Automation).
 
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra ett runbook-jobb](automation-runbook-execution.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

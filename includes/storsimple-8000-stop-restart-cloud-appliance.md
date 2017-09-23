@@ -1,6 +1,4 @@
-<a id="to-stop-and-start-a-cloud-appliance" class="xliff"></a>
-
-#### Så här stoppar och startar du en molninstallation
+#### <a name="to-stop-and-start-a-cloud-appliance"></a>Så här stoppar och startar du en molninstallation
 
 1. Om du vill stoppa en molninstallation går du till den virtuella datorn för molninstallationen.
     ![Virtuell dator i StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
@@ -27,9 +25,7 @@ Du kan stoppa och starta en molninstallation med följande cmdlets.
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-<a id="to-restart-a-cloud-appliance" class="xliff"></a>
-
-#### Så här startar du om en molninstallation
+#### <a name="to-restart-a-cloud-appliance"></a>Så här startar du om en molninstallation
 
 Om du vill starta om en molninstallation går du till den virtuella datorn för molninstallationen. Klicka på **Starta om** i kommandofältet. Bekräfta omstarten när du uppmanas att göra det. När molninstallationen är redo att användas visas statusen **Körs**.
 

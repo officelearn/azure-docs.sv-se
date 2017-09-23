@@ -8,8 +8,3 @@
 
     > [!Note]
   > Det kan ta 15 minuter eller mer innan kontonamnet visas i portalen. Om du vill uppdatera omedelbart klickar du på **Konfigurationsservrar** > ***servernamn*** > **Uppdatera server**.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

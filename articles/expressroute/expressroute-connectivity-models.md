@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2017
 ms.author: cherylmc
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6401a2a29c5fd8dfa40bebd331621784da5958be
 ms.openlocfilehash: 00f97da2189491103c461b49ac82feb92d8f4b9b
-
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/10/2017
 
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute-anslutningsmodeller
@@ -26,13 +27,13 @@ Du kan skapa en anslutning mellan ditt lokala nätverk och Microsoft-molnet på 
 
 ![Modelldiagram för ExpressRoute-anslutning](./media/expressroute-connectivity-models/expressroute-connectivity-models-diagram.png)
 
-## <a name="a-namecloudexchangeaco-located-at-a-cloud-exchange"></a><a name="CloudExchange"></a>Samordnad i ett molnutbyte
+## <a name="CloudExchange"></a>Samordnad i ett molnutbyte
 Om du är samordnad i en anläggning med ett molnutbyte, kan du beställa virtuella korsanslutningar till Microsoft-molnet via samordningsleverantörens Ethernet-utbyte. Samordningsleverantörer kan erbjuda Layer-2-anslutningar eller hanterade Layer 3-korsanslutningar mellan infrastrukturen i samordningsanläggningen och Microsoft-molnet.
 
-## <a name="a-nameethernetapoint-to-point-ethernet-connections"></a><a name="Ethernet"></a>Anslutningar mellan punkter med Ethernet
+## <a name="Ethernet"></a>Anslutningar mellan punkter med Ethernet
 Du kan ansluta dina lokala datacenter/kontor till Microsoft-molnet via ”point-to-point”-länkar med Ethernet. ”Point-to-Point”-leverantörer kan erbjuda Layer-2-anslutningar eller hanterade Layer 3-anslutningar mellan din webbplats och Microsoft-molnet.
 
-## <a name="a-nameipvpnaany-to-any-ipvpn-networks"></a><a name="IPVPN"></a>”Any-to-any”-nätverk (IPVPN)
+## <a name="IPVPN"></a>”Any-to-any”-nätverk (IPVPN)
 Du kan integrera ditt WAN med Microsoft-molnet. IPVPN-leverantörer (vanligtvis MPLS VPN) erbjuder ”any-to-any”-anslutningar mellan dina avdelningskontor och datacentra. Microsoft-molnet kan kopplas samman med ditt WAN-nätverk så att det ser ut precis som andra avdelningskontor. WAN-leverantörer erbjuder vanligtvis hanterad Layer 3-anslutning. Alla ExpressRoute-funktioner och egenskaper är identiska i ovanstående anslutningsmodeller. 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -45,8 +46,3 @@ Du kan integrera ditt WAN med Microsoft-molnet. IPVPN-leverantörer (vanligtvis 
   * [Skapa en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md)
   * [Konfigurera routning](expressroute-howto-routing-portal-resource-manager.md)
   * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-

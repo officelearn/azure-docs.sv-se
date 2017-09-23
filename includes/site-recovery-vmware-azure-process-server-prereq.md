@@ -7,8 +7,3 @@ Den här artikeln förutsätter att
 
 > [!TIP]
 > Se till att du kan ansluta port 443 för konfigurationsservern (körs lokalt) från det virtuella Azure-nätverk som de virtuella datorerna har redundansväxlats till.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

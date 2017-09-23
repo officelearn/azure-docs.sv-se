@@ -4,8 +4,3 @@
 
    > [!NOTE]
    > Om du lägger till VMware vCenter-servern eller VMware vSphere-värden med ett konto som inte har administratörsbehörigheter för vCenter- eller värdservern ska du se till att kontot har dessa behörigheter aktiverade: datacenter, datalager, mapp, värd, nätverk, resurs, virtuell dator och vSphere Distributed Switch. Dessutom behöver VMware vCenter-servern behörigheter för lagringsvisning aktiverad.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

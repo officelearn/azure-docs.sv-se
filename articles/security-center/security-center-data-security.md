@@ -20,7 +20,6 @@ ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
 ms.contentlocale: sv-se
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="azure-security-center-data-security"></a>Datasäkerhet i Azure Security Center
 Azure Security Center hjälper kunder att förhindra, upptäcka och svara på hot genom att samla in och bearbeta säkerhetsrelaterade data, inklusive konfigurationsinformation, metadata, händelseloggar, kraschdumpfiler och annat. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst.

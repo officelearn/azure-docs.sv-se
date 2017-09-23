@@ -1,6 +1,4 @@
-<a id="to-create-public-endpoints-on-the-cloud-appliance" class="xliff"></a>
-
-#### Så här skapar du offentliga slutpunkter för molninstallationen
+#### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Så här skapar du offentliga slutpunkter för molninstallationen
 
 1. Logga in på Azure Portal.
 2. Gå till **Virtual Machines** och markera och klicka på den virtuella dator som används som molninstallation.

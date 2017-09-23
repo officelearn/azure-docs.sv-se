@@ -20,7 +20,6 @@ ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute-krav och checklista
 Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kontrollera att följande krav som anges i följande avsnitt är uppfyllda.

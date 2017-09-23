@@ -1,4 +1,4 @@
-### <a name="a-nameserver-authahow-to-authenticate-with-a-provider-server-flow"></a><a name="server-auth"></a>Gör så här för att: autentisera med en provider (Server Flow)
+### <a name="server-auth"></a>Gör så här för att: autentisera med en provider (Server Flow)
 För att använda Mobile Apps för att hantera autentiseringsprocessen i din app måste du registrera din app med din identitetsprovider. Sedan måste du konfigurera program-ID och -hemligheten som du fått av din provider i Azure App Service.
 Mer information finns i självstudierna [Lägg till autentisering till din app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
@@ -19,7 +19,7 @@ Giltiga värden för providern är 'aad', 'facebook', 'google', 'microsoftaccoun
 
 I det här fallet hanterar Azure App Service OAuth 2.0-autentiseringsflödet.  Den visar inloggningssidan för den valda providern och genererar en App Service-autentiseringstoken efter genomförd inloggning med identitetsprovidern. När inloggningsfunktionen är färdig returnerar den ett JSON-objekt som både visar användar-ID och App Service-autentiseringstoken i fälten userId respektive authenticationToken. Den här token kan cachelagras och återanvändas tills den upphör att gälla.
 
-###<a name="a-nameclient-authahow-to-authenticate-with-a-provider-client-flow"></a><a name="client-auth"></a>Gör så här för att: autentisera med en provider (Client Flow)
+###<a name="client-auth"></a>Gör så här för att: autentisera med en provider (Client Flow)
 
 Din app kan även oberoende kontakta identitetsprovidern och sedan tillhandahålla den returnerade token till App Service för autentisering. Det här klientflödet gör det möjligt för dig att tillhandahålla enkel inloggning för användare eller hämta ytterligare användardata från identitetsprovidern.
 
@@ -61,7 +61,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 I det här exemplet hämtas en token från Live Connect som sedan levereras till App Service genom att anropa inloggningsfunktionen.
 
-###<a name="a-nameauth-getinfoahow-to-obtain-information-about-the-authenticated-user"></a><a name="auth-getinfo"></a>Gör så här för att: Få mer information om den autentiserade användaren
+###<a name="auth-getinfo"></a>Gör så här för att: Få mer information om den autentiserade användaren
 
 Autentiseringsinformationen kan hämtas från `/.auth/me`-slutpunkten med hjälp av HTTP-anrop med ett AJAX-bibliotek.  Se till att du ställer in `X-ZUMO-AUTH`-rubriken till din autentiseringstoken.  Autentiseringstoken lagras i `client.currentUser.mobileServiceAuthenticationToken`.  För att till exempel använda Fetch API:
 
@@ -78,8 +78,3 @@ fetch(url, { headers: headers })
 ```
 
 Fetch är tillgängligt som [ett npm-paket](https://www.npmjs.com/package/whatwg-fetch) eller som nedladdning via en webbläsare från [CDNJS](https://cdnjs.com/libraries/fetch). Du kan även använda jQuery eller en annan AJAX API för att hämta informationen.  Data tas emot som ett JSON-objekt.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

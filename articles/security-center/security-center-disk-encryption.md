@@ -20,7 +20,6 @@ ms.openlocfilehash: d3817d44bb21162afe799fd13368fbf902521416
 ms.contentlocale: sv-se
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Kryptera en virtuell Azure-dator
 Azure Security Center varnar dig om du har virtuella datorer som inte är krypterade. Dessa aviseringar visas med hög angelägenhetsgrad och rekommendationen är att kryptera dessa virtuella datorer.

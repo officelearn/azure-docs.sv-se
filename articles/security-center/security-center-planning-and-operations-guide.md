@@ -20,7 +20,6 @@ ms.openlocfilehash: c502e4363dbaa37455d1aad90d1e9fa855fd09b0
 ms.contentlocale: sv-se
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.

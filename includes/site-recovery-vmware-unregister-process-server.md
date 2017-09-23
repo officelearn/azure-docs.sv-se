@@ -20,8 +20,3 @@ Anvisningarna för att avregistrera en processerver är olika beroende på dess 
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
 4. Information om processervern rensas från systemet.
-
-
-<!--HONumber=Feb17_HO1-->
-
-

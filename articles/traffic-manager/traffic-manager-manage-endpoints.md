@@ -45,8 +45,8 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
     5. För **Prioritet**väljer du **1**. Detta resulterar i all trafik går igenom den här slutpunkten, förutsatt att den är felfri.
     6. Behåll **Lägg till som inaktiverad** som avmarkerat.
     7. Klicka på **OK**
-6.    Upprepa steg 4 och 5 för att lägga till nästa Azure-slutpunkt. Se till att lägga till den med dess **Prioritet**-värde angivet som **2**.
-7.    När båda slutpunkterna har lagts till visas de på bladet **Traffic Manager-profil** tillsammans med dess övervakningsstatus som är **Online**.
+6.  Upprepa steg 4 och 5 för att lägga till nästa Azure-slutpunkt. Se till att lägga till den med dess **Prioritet**-värde angivet som **2**.
+7.  När båda slutpunkterna har lagts till visas de på bladet **Traffic Manager-profil** tillsammans med dess övervakningsstatus som är **Online**.
 
 > [!NOTE]
 > När du lägger till eller tar bort en slutpunkt från en profil med trafikroutningsmetoden *Redundans*, så är det möjligt att prioritetslistan för redundans inte längre är i den ordning du önskar. Du kan justera ordningen för prioritetslistan för redundans från konfigurationssidan. Mer information finns i [Konfigurera trafikroutning för redundans](traffic-manager-configure-failover-routing-method.md).

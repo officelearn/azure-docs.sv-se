@@ -1,5 +1,4 @@
-### Skapa en TCP-slutpunkt för den virtuella datorn
-<a id="create-a-tcp-endpoint-for-the-virtual-machine" class="xliff"></a>
+### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Skapa en TCP-slutpunkt för den virtuella datorn
 För att kunna ansluta till SQL Server via Internet måste den virtuella datorn ha en slutpunkt för att lyssna på inkommande TCP-kommunikation. I det här Azure-konfigurationssteget dirigeras inkommande trafik via TCP-porten till en TCP-port som är tillgänglig på den virtuella datorn.
 
 > [!NOTE]

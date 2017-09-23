@@ -1,6 +1,4 @@
-<a id="to-configure-and-register-the-cloud-appliance" class="xliff"></a>
-
-#### Så här konfigurerar och registrerar du molninstallationen
+#### <a name="to-configure-and-register-the-cloud-appliance"></a>Så här konfigurerar och registrerar du molninstallationen
 
 1. Markera och klicka på StorSimple-molninstallationen som du skapat på bladet **Enheter**.
 

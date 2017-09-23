@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-
+ms.contentlocale: sv-se
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Kom igång med privata mallar på Azure Portal
@@ -132,10 +133,5 @@ Klicka på **Välj** och **Ok**. Du kan nu se användare eller grupper som du la
 * Läs om hur du skapar Resource Manager-mallar i [Webbsidemallar](../azure-resource-manager/resource-group-authoring-templates.md)
 * Information om de funktioner som du kan använda i en Resource Manager-mall finns i [Mallfunktioner](../azure-resource-manager/resource-group-template-functions.md)
 * Anvisningar om hur du skapar mallar finns [Metodtips för att utforma Azure Resource Manager-mallar](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

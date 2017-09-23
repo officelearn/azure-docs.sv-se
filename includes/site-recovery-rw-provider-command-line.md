@@ -24,8 +24,3 @@ Parametrar:
 * SkipSpaceCheck. Valfri. Hoppa över utrymmeskontroll för cache.
 * AcceptThirdpartyEULA. Obligatorisk. Godkänner licensavtalet (EULA) från tredje part.
 * ShowThirdpartyEULA. Obligatorisk. Visar licensavtalet (EULA) från tredje part. Om detta anges som indata ignoreras alla andra parametrar.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

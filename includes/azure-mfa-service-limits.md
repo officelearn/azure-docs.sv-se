@@ -9,8 +9,3 @@
 | Lås användarkontot efter **X** på varandra följande MFA-nekanden i följd |Inte angivet |99 |
 | Återställ räknaren för kontoutelåsning efter **X** minuter |Inte angivet |9999 |
 | Återställ konto efter **X** minuter |Inte angivet |9999 |
-
-
-<!--HONumber=Feb17_HO1-->
-
-

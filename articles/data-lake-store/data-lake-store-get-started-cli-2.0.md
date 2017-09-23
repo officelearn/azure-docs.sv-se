@@ -20,11 +20,8 @@ ms.openlocfilehash: ed78d25f2bac0a9996f1796ee503f31a36940977
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/01/2017
 
-
 ---
-<a id="get-started-with-azure-data-lake-store-using-azure-cli-20" class="xliff"></a>
-
-# Komma igång med Azure Data Lake Store med hjälp av Azure CLI 2.0
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Komma igång med Azure Data Lake Store med hjälp av Azure CLI 2.0
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -42,25 +39,19 @@ Lär dig hur du använder Azure CLI 2.0 för att skapa ett Azure Data Lake Store
 Azure CLI 2.0 är Azures nya kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Mer information finns i [Översikt över Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview). En fullständig lista över kommandon och syntax finns i [Azure Data Lake Store CLI 2.0-referensen](https://docs.microsoft.com/cli/azure/dls).
 
 
-<a id="prerequisites" class="xliff"></a>
-
-## Krav
+## <a name="prerequisites"></a>Krav
 Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Azure CLI 2.0** – Anvisningar finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-<a id="authentication" class="xliff"></a>
-
-## Autentisering
+## <a name="authentication"></a>Autentisering
 
 Den här artikeln använder en enklare metod för autentisering med Data Lake Store där du loggar in som en användare av slutanvändaren. Åtkomstnivå till Data Lake Store-kontot och filsystemet styrs av åtkomstnivån för den inloggade användaren. Det finns dock olika sätt att autentisera med Data Lake Store: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
 
 
-<a id="log-in-to-your-azure-subscription" class="xliff"></a>
-
-## Logga in till din Azure-prenumeration
+## <a name="log-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 
 1. Logga in till din Azure-prenumeration.
 
@@ -76,9 +67,7 @@ Den här artikeln använder en enklare metod för autentisering med Data Lake St
     az account set --subscription <subscription id> 
     ```
 
-<a id="create-an-azure-data-lake-store-account" class="xliff"></a>
-
-## Skapa ett Azure Data Lake Store-konto
+## <a name="create-an-azure-data-lake-store-account"></a>Skapa ett Azure Data Lake Store-konto
 
 1. Skapa en ny resursgrupp. I följande kommando, anger du de parametervärden som du vill använda. Om platsnamnet innehåller blanksteg måste du placera det inom citattecken. Till exempel "USA, östra 2". 
    
@@ -92,9 +81,7 @@ Den här artikeln använder en enklare metod för autentisering med Data Lake St
     az dls account create --account mydatalakestore --resource-group myresourcegroup
     ```
 
-<a id="create-folders-in-a-data-lake-store-account" class="xliff"></a>
-
-## Skapa mappar i ett Data Lake Store-konto
+## <a name="create-folders-in-a-data-lake-store-account"></a>Skapa mappar i ett Data Lake Store-konto
 
 Du kan skapa mappar under Azure Data Lake Store-kontot för att hantera och lagra data. Använd följande kommando för att skapa en mapp med namnet **mynewfolder** i roten för Data Lake Store.
 
@@ -107,9 +94,7 @@ az dls fs create --account mydatalakestore --path /mynewfolder --folder
 > 
 >
 
-<a id="upload-data-to-a-data-lake-store-account" class="xliff"></a>
-
-## Ladda upp data till ett Data Lake Store-konto
+## <a name="upload-data-to-a-data-lake-store-account"></a>Ladda upp data till ett Data Lake Store-konto
 
 Du kan ladda upp data till Data Lake Store direkt på rotnivå eller till en mapp som du har skapat i kontot. Fragmenten nedan visar hur du laddar upp exempeldata till mappen (**mynewfolder**) som du skapade i föregående avsnitt.
 
@@ -125,9 +110,7 @@ az dls fs upload --account mydatalakestore --source-path "C:\SampleData\Ambulanc
 >
 
 
-<a id="list-files-in-a-data-lake-store-account" class="xliff"></a>
-
-## Visa en lista över filer i ett Data Lake Store-konto
+## <a name="list-files-in-a-data-lake-store-account"></a>Visa en lista över filer i ett Data Lake Store-konto
 
 Använd följande kommando för att visa filer i ett Data Lake Store-konto.
 
@@ -155,9 +138,7 @@ Resultatet av detta ska se ut ungefär så här:
         }
     ]
 
-<a id="rename-download-and-delete-data-from-a-data-lake-store-account" class="xliff"></a>
-
-## Byt namn på, ladda ned och ta bort data från ett Data Lake Store-konto 
+## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a>Byt namn på, ladda ned och ta bort data från ett Data Lake Store-konto 
 
 * **Byt namn på en fil** med hjälp av följande kommando:
   
@@ -188,9 +169,7 @@ Resultatet av detta ska se ut ungefär så här:
     az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
     ```
 
-<a id="work-with-permissions-and-acls-for-a-data-lake-store-account" class="xliff"></a>
-
-## Arbeta med behörigheter och ACL:er för ett Data Lake Store-konto
+## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a>Arbeta med behörigheter och ACL:er för ett Data Lake Store-konto
 
 I det här avsnittet lär du dig hur du hanterar ACL:er och behörigheter med hjälp av Azure CLI 2.0. Detaljerad information om hur ACL:er implementeras i Azure Data Lake Store finns i [Åtkomstkontroll i Azure Data Lake Store](data-lake-store-access-control.md).
 
@@ -250,9 +229,7 @@ I det här avsnittet lär du dig hur du hanterar ACL:er och behörigheter med hj
     az dls fs access remove-all --account mydatalakestore --path /mynewfolder
     ```
     
-<a id="delete-a-data-lake-store-account" class="xliff"></a>
-
-## Ta bort ett Data Lake Store-konto
+## <a name="delete-a-data-lake-store-account"></a>Ta bort ett Data Lake Store-konto
 Använd följande kommando för att ta bort ett Data Lake Store-konto.
 
 ```azurecli
@@ -261,9 +238,7 @@ az dls account delete --account mydatalakestore
 
 När du uppmanas, anger du **Y** för att ta bort kontot.
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 * [Azure Data Lake Store CLI 2.0-referens](https://docs.microsoft.com/cli/azure/dls)
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)

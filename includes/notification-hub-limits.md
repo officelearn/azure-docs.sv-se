@@ -7,8 +7,3 @@
 
 Mer information om dessa begränsningar samt information om priser finns i [Notification Hubs-priser](https://azure.microsoft.com/pricing/details/notification-hubs/). 
 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

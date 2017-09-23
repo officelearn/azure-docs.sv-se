@@ -52,8 +52,8 @@ Data Lake Store har två lägen för hantering av huvudkrypteringsnycklar (Maste
 
 Det finns två lägen för att hantera huvudkrypteringsnyckeln:
 
-*    Tjänsthanterade nycklar
-*    Kundhanterade nycklar
+*   Tjänsthanterade nycklar
+*   Kundhanterade nycklar
 
 I båda lägena skyddas huvudkrypteringsnyckeln genom att den lagras i Azure Key Vault. Key Vault är en fullständigt hanterad tjänst på Azure med mycket hög säkerhet som kan användas för att skydda kryptografiska nycklar. Mer information finns i [Key Vault](https://azure.microsoft.com/services/key-vault).
 
@@ -74,8 +74,8 @@ Förutom skillnaden när det gäller vem som hanterar huvudkrypteringsnyckeln oc
 
 Det är viktigt att komma ihåg följande när du väljer läge för huvudkrypteringsnycklarna:
 
-*    Du kan välja om du vill använda kundhanterade eller tjänsthanterade nycklar när du etablerar ett Data Lake Store-konto.
-*    När ett Data Lake Store-konto har etablerats går det inte att ändra läge.
+*   Du kan välja om du vill använda kundhanterade eller tjänsthanterade nycklar när du etablerar ett Data Lake Store-konto.
+*   När ett Data Lake Store-konto har etablerats går det inte att ändra läge.
 
 ### <a name="encryption-and-decryption-of-data"></a>Kryptering och dekryptering av data
 
@@ -92,20 +92,20 @@ Följande diagram illustrerar dessa begrepp:
 ![Nycklar i datakryptering](./media/data-lake-store-encryption/fig2.png)
 
 #### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudo-algoritm när en fil ska dekrypteras:
-1.    Kontrollera om DEK för Data Lake Store-kontot är cachelagrat och redo att användas.
+1.  Kontrollera om DEK för Data Lake Store-kontot är cachelagrat och redo att användas.
     - Om inte, läser du den krypterade DEK från den beständiga lagringen och skickar den till Key Vault för dekryptering. Cachelagra den dekrypterade DEK i minnet. Nu är den redo att användas.
-2.    För varje datablock i filen:
+2.  För varje datablock i filen:
     - Läs det krypterade datablocket från den beständiga lagringen.
     - Generera BEK från DEK och det krypterade datablocket.
     - Använd BEK för att dekryptera data.
 
 
 #### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudo-algoritm när ett datablock ska krypteras:
-1.    Kontrollera om DEK för Data Lake Store-kontot är cachelagrat och redo att användas.
+1.  Kontrollera om DEK för Data Lake Store-kontot är cachelagrat och redo att användas.
     - Om inte, läser du den krypterade DEK från den beständiga lagringen och skickar den till Key Vault för dekryptering. Cachelagra den dekrypterade DEK i minnet. Nu är den redo att användas.
-2.    Generera en unik BEK för datablocket från DEK.
-3.    Kryptera datablocket med BEK med hjälp av AES-256-kryptering.
-4.    Lagra det krypterade datablocket i den beständiga lagringen.
+2.  Generera en unik BEK för datablocket från DEK.
+3.  Kryptera datablocket med BEK med hjälp av AES-256-kryptering.
+4.  Lagra det krypterade datablocket i den beständiga lagringen.
 
 > [!NOTE] 
 > Av prestandaskäl cachelagras DEK i klartext i minnet under en kort tid och raderas omedelbart efteråt. I permanenta media lagras den alltid av huvudkrypteringsnyckeln (MEK).
@@ -127,15 +127,15 @@ Observera att om du använder standardalternativen för kryptering krypteras dat
 
     ![Skärmbild av Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.    Välj nyckeln som är kopplad till ditt Data Lake Store-konto och skapa en ny version av nyckeln. Observera att Data Lake Store för närvarande endast stöder nyckelrotation till en ny version av en nyckel. Det stöder inte rotering till en annan nyckel.
+3.  Välj nyckeln som är kopplad till ditt Data Lake Store-konto och skapa en ny version av nyckeln. Observera att Data Lake Store för närvarande endast stöder nyckelrotation till en ny version av en nyckel. Det stöder inte rotering till en annan nyckel.
 
    ![Skärmbild av nyckelfönstret med den nya versionen markerad](./media/data-lake-store-encryption/keynewversion.png)
 
-4.    Gå till Azure Data Lake Store-lagringskontot och välj **Kryptering**.
+4.  Gå till Azure Data Lake Store-lagringskontot och välj **Kryptering**.
 
     ![Skärmbild av Data Lake Store-lagringskontofönstret, med kryptering markerat](./media/data-lake-store-encryption/select-encryption.png)
 
-5.    Ett meddelande informerar dig om att det finns en ny tillgänglig nyckelversion. Klicka på knappen **Rotate** (Rotera) för att uppdatera nyckeln till den nya versionen.
+5.  Ett meddelande informerar dig om att det finns en ny tillgänglig nyckelversion. Klicka på knappen **Rotate** (Rotera) för att uppdatera nyckeln till den nya versionen.
 
     ![Skärmbild av Data Lake Store-fönstret med meddelande och nyckelrotering markerat](./media/data-lake-store-encryption/rotatekey.png)
 

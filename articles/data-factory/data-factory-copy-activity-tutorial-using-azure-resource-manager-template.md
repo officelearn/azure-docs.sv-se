@@ -20,7 +20,6 @@ ms.openlocfilehash: 8a155213ed17e516a5c46abbe3d8a2bcc52268ed
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd Azure Resource Manager-mall för att skapa Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]

@@ -212,8 +212,3 @@ Om du vill ha en fullständig lista över kommandon för att skapa och hantera v
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-
-
-<!--HONumber=Jan17_HO5-->
-
-

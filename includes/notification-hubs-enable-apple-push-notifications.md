@@ -116,8 +116,3 @@ För att kunna skicka push-meddelanden till en iOS-app måste du registrera prog
 7. När den nya etableringsprofilen har skapats klickar du och hämtar den och installerar den på din XCode-utvecklingsdator. Klicka sedan på **Klar**.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
-
-
-<!--HONumber=Dec16_HO1-->
-
-

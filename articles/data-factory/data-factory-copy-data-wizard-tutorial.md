@@ -20,7 +20,6 @@ ms.openlocfilehash: 5922c050cc09236ba5fdec885a70d11da20135cd
 ms.contentlocale: sv-se
 ms.lasthandoff: 07/10/2017
 
-
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Guiden Data Factory-kopia
 > [!div class="op_single_selector"]

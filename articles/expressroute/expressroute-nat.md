@@ -20,7 +20,6 @@ ms.openlocfilehash: d3de566ff2825ef0c41d88d4a86157dc23d9f46b
 ms.contentlocale: sv-se
 ms.lasthandoff: 05/15/2017
 
-
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoutes NAT-krav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera NAT. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av NAT som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte, måste du följa kraven som beskrivs nedan. 

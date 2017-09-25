@@ -33,6 +33,8 @@
   items:
     - name: Hantera enhetsregistreringar
       href: how-to-manage-enrollments.md
+    - name: Använda HSM med SDK
+      href: use-hsm-with-sdk.md
 - name: Referens
   items:
     - name: REST

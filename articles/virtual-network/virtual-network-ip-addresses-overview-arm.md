@@ -147,4 +147,3 @@ Offentliga IP-adresser kan medföra en nominell avgift. Mer information om prise
 * [Distribuera en virtuell dator med en statisk offentlig IP-adress i Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 * [Distribuera en virtuell dator med en statisk offentlig IP-adress med hjälp av en mall](virtual-network-deploy-static-pip-arm-template.md)
 * [Distribuera en virtuell dator med en statisk privat IP-adress med hjälp av Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
-

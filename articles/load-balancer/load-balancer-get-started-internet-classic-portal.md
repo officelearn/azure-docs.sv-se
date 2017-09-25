@@ -3,7 +3,7 @@ title: "Skapa en Internetaktiverad belastningsutjämnare – den klassiska Azure
 description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i den klassiska distributionsmodellen med hjälp av den klassiska Azure-portalen"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management

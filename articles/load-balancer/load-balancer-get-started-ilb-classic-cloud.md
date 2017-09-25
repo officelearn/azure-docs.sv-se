@@ -3,7 +3,7 @@ title: "Skapa en intern belastningsutjämnare för Azure Cloud Services | Micros
 description: "Lär dig hur du skapar en intern belastningsutjämnare med hjälp av PowerShell i den klassiska distributionsmodellen"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d

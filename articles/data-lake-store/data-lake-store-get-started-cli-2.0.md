@@ -32,7 +32,7 @@ ms.lasthandoff: 07/01/2017
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
->
+> 
 
 Lär dig hur du använder Azure CLI 2.0 för att skapa ett Azure Data Lake Store-konto och hur du utför grundläggande åtgärder, till exempel hur du skapar mappar, laddar upp och hämtar filer, tar bort ditt konto, osv. Mer information om Data Lake Store finns i [Översikt över Data Lake Store](data-lake-store-overview.md).
 

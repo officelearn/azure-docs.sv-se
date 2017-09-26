@@ -1,0 +1,134 @@
+- name: App Service Environment
+- name: Översikt
+  items:
+    - name: Om App Service-miljöer
+      href: intro.md
+    - name: Jämför värdalternativ
+      href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa en app i App Service Environment
+      href: create-external-ase.md
+    - name: Skapa från en mall
+      href: create-from-template.md
+- name: Självstudier
+  items:
+    - name: Skapa en isolerad app
+      href: create-ilb-ase.md
+    - name: Integrera med WAP
+      href: app-service-app-service-environment-web-application-firewall.md
+    - name: Kontrollera inkommande trafik till offentlig app
+      href: app-service-app-service-environment-control-inbound-traffic.md
+    - name: Skala ut en app i ASE
+      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+- name: Exempel
+  items:
+    - name: Azure CLI
+      href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: Azure PowerShell
+      href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+- name: Koncept
+  items:
+    - name: Nätverksarkitektur
+      href: network-info.md
+    - name: Hanteringsadresser
+      href: management-addresses.md
+    - name: Geo-distribuerad skalning
+      href: app-service-app-service-environment-geo-distributed-scale.md
+    - name: ASEv1
+      items:
+        - name: Introduktion till ASEv1
+          href: app-service-app-service-environment-intro.md
+        - name: Nätverksarkitektur
+          href: app-service-app-service-environment-network-architecture-overview.md
+- name: Instruktionsguider
+  items:
+    - name: Konfigurera ASE
+      items:
+        - name: Använd ASE
+          href: using-an-ase.md
+        - name: Anslut till serverdel
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+        - name: Konfigurera ExpressRoute
+          href: app-service-app-service-environment-network-configuration-expressroute.md
+    - name: Skydda ASE
+      items:
+        - name: Konfigurera TLS
+          href: app-service-app-service-environment-custom-settings.md
+        - name: Använd flernivåsäkerhet
+          href: app-service-app-service-environment-layered-security.md
+    - name: Övervaka ASE
+      items:
+        - name: Övervaka i portalen
+          href: app-service-web-configure-an-app-service-environment.md
+    - name: Använd ASE1
+      items:
+        - name: Konfigurera AutoScale
+          href: app-service-environment-auto-scale.md
+        - name: Skapa ASEv1
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: Skapa webbapp i ASEv1
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Skapa en intern app i ASEv1
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: Skapa en intern app med en mall
+          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+        - name: Högdensitetsvärd
+          href: app-service-high-density-hosting.md
+- name: Referens
+  items:
+    - name: Azure CLI
+      href: /cli/azure/appservice
+    - name: Azure PowerShell
+      href: /powershell
+    - name: REST API
+      href: /rest/api/appservice/
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: Kvotinformation
+      href: '../../azure-subscription-service-limits.md#app-service-limits'
+    - name: Tjänstuppdateringar och viktig information
+      href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Bästa praxis
+      href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: Exempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: Videoklipp
+      items:
+        - name: Azure-videor
+          href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+        - name: Hantera modern PaaS för företaget med Azure App Service
+          href: 'https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player'
+        - name: Distribuera säkra appar med hög skalbarhet
+          href: 'https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player'
+        - name: Köra företagswebbappar och mobilappar på Azure App Service
+          href: 'https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player'
+    - name: Kokböcker
+      items:
+        - name: Distributionsskript
+          href: 'https://azure.microsoft.com/documentation/scripts/'
+    - name: Felsökning
+      items:
+        - name: Felsöka med Visual Studio
+          href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Felsöka Node.js-app
+          href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Felsöka HTTP 502 och 503
+          href: ../app-service-web-troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Felsöka prestandaproblem
+          href: ../app-service-web-troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: VANLIGA FRÅGOR OCH SVAR
+          items:
+            - name: 'Vanliga frågor och svar om tillgänglighet, prestanda och program'
+              href: ../app-service-web-availability-performance-application-issues-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: Vanliga frågor och svar om distribution
+              href: ../app-service-web-deployment-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: Vanliga frågor och svar om tekniker med öppen källkod
+              href: ../app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: Vanliga frågor och svar om konfiguration och hantering
+              href: ../app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

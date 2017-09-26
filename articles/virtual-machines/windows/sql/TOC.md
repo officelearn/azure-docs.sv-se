@@ -16,8 +16,8 @@
 #### [Automatisk – med mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Manuellt – krav](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manuellt – självstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Belastningsutjämnare – portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Belastningsutjämnare – PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Belastningsutjämnare – Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Belastningsutjämnare – Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Flera regioner](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Redundansklusterinstans
 #### [Konfigurera](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -36,7 +36,7 @@
 ## [Programmönster](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # Referens
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server-drivrutiner](https://msdn.microsoft.com/library/mt654049.aspx)

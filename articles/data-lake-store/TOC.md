@@ -5,18 +5,18 @@
 ## [Program med öppen källkod som fungerar med Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Kom igång
-## [Använda portalen](data-lake-store-get-started-portal.md)
-## [Använda PowerShell](data-lake-store-get-started-powershell.md)
+## [Använda Azure Portal](data-lake-store-get-started-portal.md)
+## [Använda Azure PowerShell](data-lake-store-get-started-powershell.md)
 ## [Använda .NET SDK](data-lake-store-get-started-net-sdk.md)
 ## [Använda Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [Använda REST-API](data-lake-store-get-started-rest-api.md)
-## [Använda Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+## [Använda Azure CLI](data-lake-store-get-started-cli-2.0.md)
 ## [Använda Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Använda Python](data-lake-store-get-started-python.md)
 
 # Gör så här för att
 ## Kopiera data
-### [Använda Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Använda Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Använda AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Använda DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Använda Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -40,14 +40,14 @@
 
 ## Integrera med Azure-tjänster
 ### Med HDInsight
-#### [Använda portalen](data-lake-store-hdinsight-hadoop-use-portal.md)
-#### [Använda PowerShell (standardlagring)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [Använda PowerShell (ytterligare lagring)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Använda Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Använda Azure PowerShell (standardlagring)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Använda Azure PowerShell (ytterligare lagring)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [Använda Azure-mall](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Åtkomst från virtuella datorer i Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Använd tillsammans med Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Använd med Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
-### [Använd med Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Använd med Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Använd med Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Använd med Power BI](data-lake-store-power-bi.md)
 ### [Använd med Data Catalog](data-lake-store-with-data-catalog.md)
@@ -61,14 +61,14 @@
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
-## [PowerShell](/powershell/module/azurerm.datalakestore)
+## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (kontohantering)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (filsystemshantering)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)

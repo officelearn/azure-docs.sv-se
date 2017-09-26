@@ -6,6 +6,10 @@
 ## [Lägg till cachelagring för att förbättra prestandan](api-management-howto-cache.md)
 ## [Vanliga frågor och svar](api-management-faq.md)
 # Gör så här för att
+## Konfigurera en APIM-tjänst
+### [Skapa en APIM-instans](get-started-create-service-instance.md)
+### [Uppgradera och skala](upgrade-and-scale.md)
+### [Konfigurera ett anpassat domännamn](configure-custom-domain.md)
 ## Utveckla API:er
 ### [Lägga till och publicera en API-produkt](api-management-howto-add-products.md)
 ### [Lägga till åtgärder](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [Snabbstart](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Referens
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Principer](api-management-policies.md)

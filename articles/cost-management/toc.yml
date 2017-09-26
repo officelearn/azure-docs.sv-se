@@ -1,0 +1,29 @@
+- name: Azure Cost Management-dokumentation
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är kostnadshantering?
+      href: overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Visa kostnadsdata
+      href: quick-register-azure-sub.md
+    - name: Visa kostnadsdata – EA
+      href: quick-register-ea.md
+    - name: Visa kostnadsdata – CSP
+      href: quick-register-csp.md
+- name: Självstudier
+  items:
+    - name: 1 – Granska användning och kostnader
+      href: tutorial-review-usage.md
+    - name: 2 – Styra åtkomsten till data
+      href: tutorial-user-access.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: Regional tillgänglighet
+      href: 'https://azure-staging.microsoft.com/en-us/regions/services/'

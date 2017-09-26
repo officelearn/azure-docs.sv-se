@@ -34,13 +34,13 @@
 #### [Använd en åtgärd för att installera .NET på en molntjänstroll](cloud-services-dotnet-install-dotnet.md)
 
 ### Konfigurera Fjärrskrivbord
-#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Klassisk portal](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Distribuera
 ### Skapa och distribuera en molntjänst i portalen
-#### [Portal](cloud-services-how-to-create-deploy-portal.md)
+#### [Azure Portal](cloud-services-how-to-create-deploy-portal.md)
 #### [Klassisk portal](cloud-services-how-to-create-deploy.md)
 ### [Skapa en tom molntjänstbehållare i PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### Konfigurera ett anpassat domännamn
@@ -51,14 +51,14 @@
 
 ## Hantera tjänst
 ### Vanliga administrativa uppgifter
-#### [Portal](cloud-services-how-to-manage-portal.md)
+#### [Azure Portal](cloud-services-how-to-manage-portal.md)
 #### [Klassisk portal](cloud-services-how-to-manage.md)
 ### Konfigurera en molntjänst
-#### [Portal](cloud-services-how-to-configure-portal.md)
+#### [Azure Portal](cloud-services-how-to-configure-portal.md)
 #### [Klassisk portal](cloud-services-how-to-configure.md)
 ### [Hantera en molntjänst med Azure Automation](automation-manage-cloud-services.md)
 ### Konfigurera automatisk skalning
-#### [Portal](cloud-services-how-to-scale-portal.md)
+#### [Azure Portal](cloud-services-how-to-scale-portal.md)
 #### [Klassisk portal](cloud-services-how-to-scale.md)
 ### [Använd Python för att hantera Azure-resurser](cloud-services-python-how-to-use-service-management.md)
 
@@ -80,7 +80,7 @@
 ### [Testa prestanda](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Testa med Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Aktivera diagnostik
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Använda prestandaräknare i Azure Diagnostics](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -108,8 +108,14 @@
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [.csdef XML-schema](schema-csdef-file.md)
+### [LoadBalancerProbe-schema](schema-csdef-loadbalancerprobe.md)
+### [WebRole-schema](schema-csdef-webrole.md)
+### [WorkerRole-schema](schema-csdef-workerrole.md)
+### [NetworkTrafficRules-schema](schema-csdef-networktrafficrules.md)
+## [.cscfg XML-schema](schema-cscfg-file.md)
+### [Rollschema](schema-cscfg-role.md)
+### [NetworkConfiguration-schema](schema-cscfg-networkconfiguration.md)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Resurser

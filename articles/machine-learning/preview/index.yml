@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure Machine Learning (förhandsversion)
+metadata:
+  title: Dokumentation om Azure Machine Learning (förhandsversion)
+  meta.description: Learn how to use Azure Machine Learning public preview features.
+  services: machine-learning
+  author: czeumault
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/06/2017
+  ms.author: carolz
+abstract:
+  description: 'Lär dig hur du förbereder data, bygger och distribuerar modeller med våra snabbstarter och självstudier. Med funktionerna för förhandsgranskning i Azure Machine Learning kan du skapa, distribuera och hantera ML- och AI-modeller med alla Python-verktyg och bibliotek. Du kan använda en mängd olika data och beräkna tjänster i Azure för att lagra och bearbeta dina data.'
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: Skapa ditt första Machine Learning-projekt
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: Installera och skapa
+            href: quickstart-installation
+  - title: Steg för steg-självstudier
+    items:
+      - type: paragraph
+        text: 'Lär dig att förbereda dina data, konfigurera ett experiment och operationalisera modeller'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-classifying-iris-part-1">Gå igenom grunderna i Machine Learning-tjänsterna (förhandsvisning)</a>
+          - html: <a href="tutorial-classifying-iris-part-2">Använd Machine Learning Workbench för att skapa en modell med irisdatamängden</a>
+          - html: <a href="tutorial-classifying-iris-part-3">Lär dig att distribuera en Machine Learning-modell</a>
+          - html: <a href="tutorial-bikeshare-dataprep">Använd Azure Machine Learning Workbench för avancerad dataförberedning</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Språk
+            html: '<p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
+          - title: REST
+            html: <p><a href="model-management-api-reference">REST API för Modellhantering</a></p>

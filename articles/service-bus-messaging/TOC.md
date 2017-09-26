@@ -60,13 +60,14 @@
 #### [Skapa en auktoriseringsregel för namnområde och kö](service-bus-resource-manager-namespace-auth-rule.md)
 #### [Skapa ett namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [Etablera entiteter med PowerShell](service-bus-manage-with-ps.md)
+### [Etablera entiteter med Azure PowerShell](service-bus-manage-with-ps.md)
 
 # Referens
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Undantag](service-bus-messaging-exceptions.md)
 ## [Kvoter](service-bus-quotas.md)

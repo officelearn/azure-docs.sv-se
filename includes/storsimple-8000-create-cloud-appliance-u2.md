@@ -20,7 +20,7 @@
    7. Markera kryssrutan för att bekräfta att du förstår att data som lagras i molninstallationen finns på ett Microsoft-datacenter.
        * När du bara använder en fysisk enhet så sparas krypteringsnyckeln med din enhet. Microsoft kan därmed inte dekryptera den.
 
-       * När du använder en molninstallation lagras både krypteringsnyckeln och dekrypteringsnyckeln i Microsoft Azure. Mer information finns i [Säkerhetsöverväganden vid användning av en molninstallation](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       * När du använder en molninstallation lagras både krypteringsnyckeln och dekrypteringsnyckeln i Microsoft Azure. Mer information finns i [Säkerhetsöverväganden vid användning av en molninstallation](../articles/storsimple/storsimple-security.md).
    8. Etablera molninstallationen genom att klicka på **Skapa**. Enheten kan ta runt 30 minuter för att etableras. Du får ett meddelande när molninstallationen har skapats. Gå till bladet Enheter så uppdateras enhetslistan med molninstallationen. Installationens status är **Redo för installation**.
       
       ![StorSimple-molninstallation som är redo att installeras](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)

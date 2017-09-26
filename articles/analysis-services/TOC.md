@@ -8,7 +8,7 @@
 
 # Kom igång
 ## [Skapa en server på Azure-portalen](analysis-services-create-server.md)
-## [Skapa en server med PowerShell](analysis-services-create-powershell.md)
+## [Skapa en server med Azure PowerShell](analysis-services-create-powershell.md)
 ## [Distribuera en modell från Visual Studio](analysis-services-deploy.md)
 ## [Skapa en modell i Azure Portal (förhandsgranskning)](analysis-services-create-model-portal.md)
 
@@ -43,7 +43,7 @@
 ### [Kompletterande lektion – Ojämna hierarkier](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Referens
-## [PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)

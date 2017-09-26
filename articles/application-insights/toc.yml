@@ -1,0 +1,315 @@
+- name: Application Insights-dokumentation
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Application Insights?
+      href: app-insights-overview.md
+    - name: Översikt över prestandaövervakning
+      href: app-insights-detect-triage-diagnose.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: .NET
+      href: quick-monitor-portal.md
+    - name: .NET Core
+      href: app-insights-dotnetcore-quick-start.md
+    - name: Node.js
+      href: app-insights-nodejs-quick-start.md
+    - name: Java
+      href: app-insights-java-quick-start.md
+- name: Självstudier
+  items:
+    - name: Hitta körningsundantag
+      href: app-insights-tutorial-runtime-exceptions.md
+    - name: Hitta prestandaproblem
+      href: app-insights-tutorial-performance.md
+    - name: Aviseringar om programmets hälsotillstånd
+      href: app-insights-tutorial-alert.md
+    - name: Förstå användare
+      href: app-insights-tutorial-users.md
+    - name: Skapa anpassade instrumentpaneler
+      href: app-insights-tutorial-dashboards.md
+- name: Koncept
+  items:
+    - name: Övervaka Azure
+      items:
+        - name: Azure-webbappar
+          href: app-insights-azure-web-apps.md
+        - name: Azure Cloud Services
+          href: app-insights-cloudservices.md
+    - name: Övervaka ASP.NET-appar
+      items:
+        - name: Webbappar
+          href: app-insights-asp-net.md
+        - name: Webbappar som redan är aktiva
+          href: app-insights-monitor-performance-live-website-now.md
+        - name: Windows-tjänster
+          href: app-insights-windows-services.md
+        - name: Windows-skrivbordet
+          href: app-insights-windows-desktop.md
+        - name: ASP.NET Core
+          href: app-insights-asp-net-core.md
+    - name: Övervaka Java-appar
+      items:
+        - name: Webbappar
+          href: app-insights-java-get-started.md
+        - name: Webbappar – körtid
+          href: app-insights-java-live.md
+        - name: Docker-appar
+          href: app-insights-docker.md
+    - name: Övervaka Node.js-appar
+      items:
+        - name: Node.js
+          href: app-insights-nodejs.md
+    - name: Övervaka webbsidor
+      items:
+        - name: JavaScript
+          href: app-insights-javascript.md
+    - name: Övervaka andra plattformar
+      items:
+        - name: SharePoint-webbplatser
+          href: app-insights-sharepoint.md
+        - name: Fler plattformar
+          href: app-insights-platforms.md
+- name: Instruktionsguider
+  items:
+    - name: Planera och designa
+      items:
+        - name: Djup diagnostik för webbappar och tjänster
+          href: app-insights-devops.md
+        - name: Övervaka prestanda i webbprogram
+          href: app-insights-web-monitor-performance.md
+        - name: 'Avgränsa utveckling, testning och produktion'
+          href: app-insights-separate-resources.md
+        - name: Övervaka appar med flera komponenter
+          href: app-insights-monitor-multi-role-apps.md
+        - name: Hur kan jag ... i Application Insights?
+          href: app-insights-how-do-i.md
+    - name: Konfigurera
+      items:
+        - name: Azure
+          items:
+            - name: Profilerare
+              href: app-insights-profiler.md
+            - name: Aktivera Profiler
+              href: enable-profiler-cloud-services.md
+            - name: Diagnostik
+              href: app-insights-azure-diagnostics.md
+            - name: Förhandsgranskningar
+              href: app-insights-previews.md
+        - name: ASP.NET
+          items:
+            - name: Hämta mer telemetri
+              href: app-insights-asp-net-more.md
+            - name: Undantag
+              href: app-insights-asp-net-exceptions.md
+            - name: Loggspårningar
+              href: app-insights-asp-net-trace-logs.md
+            - name: Prestandaräknare
+              href: app-insights-performance-counters.md
+            - name: Beroenden
+              href: app-insights-asp-net-dependencies.md
+            - name: Versionsanteckningar
+              href: app-insights-annotations.md
+            - name: ApplicationInsights.config
+              href: app-insights-configuration-with-applicationinsights-config.md
+            - name: Felsökning av ögonblicksbild
+              href: app-insights-snapshot-debugger.md
+        - name: J2EE
+          items:
+            - name: Loggspårningar
+              href: app-insights-java-trace-logs.md
+            - name: Unix-mått
+              href: app-insights-java-collectd.md
+            - name: Beroenden
+              href: app-insights-java-agent.md
+            - name: Filtrera telemetri
+              href: app-insights-java-filter-telemetry.md
+        - name: Aviseringar
+          items:
+            - name: Tillgänglighet
+              href: app-insights-monitor-web-app-availability.md
+            - name: Måttaviseringar
+              href: app-insights-alerts.md
+        - name: Smart identifiering
+          href: app-insights-proactive-diagnostics.md
+          items:
+            - name: Felavvikelser
+              href: app-insights-proactive-failure-diagnostics.md
+            - name: Prestandaavvikelser
+              href: app-insights-proactive-performance-diagnostics.md
+        - name: Skapa en resurs
+          href: app-insights-create-new-resource.md
+    - name: Analysera
+      items:
+        - name: Application Insights-portalen
+          items:
+            - name: Instrumentpaneler
+              href: app-insights-dashboards.md
+            - name: Search
+              href: app-insights-diagnostic-search.md
+            - name: Mått
+              href: app-insights-metrics-explorer.md
+            - name: Direktsänd ström
+              href: app-insights-live-stream.md
+            - name: Programkarta
+              href: app-insights-app-map.md
+            - name: HockeyApp-data
+              href: app-insights-hockeyapp-bridge-app.md
+        - name: Visual Studio
+          items:
+            - name: F5-insikter
+              href: app-insights-visual-studio.md
+            - name: Trends
+              href: app-insights-visual-studio-trends.md
+            - name: CodeLens
+              href: app-insights-visual-studio-codelens.md
+        - name: Användning
+          items:
+            - name: Översikt
+              href: app-insights-usage-overview.md
+            - name: Skicka användarkontext
+              href: app-insights-usage-send-user-context.md
+            - name: 'Användare, sessioner, händelser'
+              href: app-insights-usage-segmentation.md
+            - name: Trattar
+              href: usage-funnels.md
+            - name: Kvarhållning
+              href: app-insights-usage-retention.md
+            - name: Användarflöden
+              href: app-insights-usage-flows.md
+            - name: Arbetsböcker
+              href: app-insights-usage-workbooks.md
+        - name: Analys
+          items:
+            - name: Översikt
+              href: app-insights-analytics.md
+            - name: Guidad visning
+              href: app-insights-analytics-tour.md
+            - name: Använda
+              href: app-insights-analytics-using.md
+            - name: Importera
+              href: app-insights-analytics-import.md
+            - name: Diagnostik
+              href: app-insights-analytics-diagnostics.md
+    - name: Automatisera
+      items:
+        - name: Azure PowerShell-konfiguration
+          href: app-insights-powershell.md
+        - name: Skapa resurser
+          href: app-insights-powershell-script-create-resource.md
+        - name: Ange aviseringar
+          href: app-insights-powershell-alerts.md
+        - name: Hämta Azure Diagnostics
+          href: app-insights-powershell-azure-diagnostics.md
+        - name: Automatisera med Microsoft Flow
+          href: app-insights-automate-with-flow.md
+        - name: Automatisera med Azure Logic App
+          href: automate-with-logic-apps.md
+    - name: Utveckla
+      items:
+        - name: API för anpassade händelser och mått
+          href: app-insights-api-custom-events-metrics.md
+        - name: Spåra anpassade åtgärder i .NET SDK
+          href: application-insights-custom-operations-tracking.md
+        - name: Filtrera och förbearbeta telemetri
+          href: app-insights-api-filtering-sampling.md
+        - name: Samling
+          href: app-insights-sampling.md
+    - name: Hantera
+      items:
+        - name: Hantera priser och datavolym
+          href: app-insights-pricing.md
+        - name: Prestandaövervakning av program med Application Insights för SCOM
+          href: app-insights-scom.md
+    - name: Exportera
+      items:
+        - name: Löpande export
+          href: app-insights-export-telemetry.md
+        - name: Exportera datamodell
+          href: app-insights-export-data-model.md
+        - name: Exportera till Power BI
+          href: app-insights-export-power-bi.md
+    - name: Skydda
+      items:
+        - name: 'Datainsamling, kvarhållning och lagring'
+          href: app-insights-data-retention-privacy.md
+        - name: 'Resurser, roller och åtkomstkontroll'
+          href: app-insights-resources-roles-access-control.md
+        - name: IP-adresser
+          href: app-insights-ip-addresses.md
+    - name: Felsöka
+      items:
+        - name: Inga data för .NET
+          href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Analys
+          href: app-insights-analytics-troubleshooting.md
+        - name: Java
+          href: app-insights-java-troubleshoot.md
+- name: Referens
+  items:
+    - name: Analys
+      href: 'https://docs.loganalytics.io/'
+    - name: .NET
+      href: 'https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights'
+    - name: Java
+      href: /java/api/com.microsoft.applicationinsights
+    - name: JavaScript
+      href: 'https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md'
+    - name: API för dataåtkomst
+      href: 'https://dev.applicationinsights.io/'
+    - name: Datamodell
+      href: application-insights-data-model.md
+      items:
+        - name: Förfrågan
+          href: application-insights-data-model-request-telemetry.md
+        - name: Beroende
+          href: application-insights-data-model-dependency-telemetry.md
+        - name: Undantag
+          href: application-insights-data-model-exception-telemetry.md
+        - name: Spårning
+          href: application-insights-data-model-trace-telemetry.md
+        - name: Händelse
+          href: application-insights-data-model-event-telemetry.md
+        - name: Mått
+          href: application-insights-data-model-metric-telemetry.md
+        - name: Kontext
+          href: application-insights-data-model-context.md
+    - name: Telemetrikorrelation
+      href: application-insights-correlation.md
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=application-insights'
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Språk och plattformar
+      href: app-insights-platforms.md
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/application-insights/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Nyheter
+      items:
+        - name: Blogg
+          href: 'https://azure.microsoft.com/blog/tag/application-insights/'
+        - name: Tjänstuppdateringar
+          href: 'https://azure.microsoft.com/updates/?product=application-insights'
+        - name: Viktig information om SDK
+          href: app-insights-release-notes.md
+        - name: Viktig information för Developer Analytics Tools
+          href: app-insights-release-notes-vsix.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: app-insights-troubleshoot-faq.md
+    - name: Hjälp
+      items:
+        - name: MSDN-forum
+          href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=ApplicationInsights'
+        - name: Stack Overflow
+          href: 'http://stackoverflow.com/questions/tagged/az-application-insights'
+        - name: User Voice
+          href: 'https://visualstudio.uservoice.com/forums/357324-application-insights'
+        - name: Support
+          href: 'https://azure.microsoft.com/support/'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=application-insights'

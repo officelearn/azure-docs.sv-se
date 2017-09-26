@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Distribuera och hantera en virtuell StorSimple-enhet i Azure
@@ -64,7 +64,7 @@ I följande tabell visas några huvudsakliga skillnader mellan den virtuella Sto
 | **Krypteringsnyckel för tjänstdata** |Återskapas på den fysiska enheten och sedan uppdateras den virtuella enheten med den nya nyckeln. |Kan inte att återskapas från den virtuella enheten. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Krav för den virtuella enheten
-I följande avsnitt beskrivs konfigurationskraven för din virtuella StorSimple-enhet. Innan du distribuerar en virtuell enhet, ska du granska [säkerhetsöverväganden för att använda en virtuell enhet](storsimple-security.md#storsimple-virtual-device-security).
+I följande avsnitt beskrivs konfigurationskraven för din virtuella StorSimple-enhet. Innan du distribuerar en virtuell enhet, ska du granska [säkerhetsöverväganden för att använda en virtuell enhet](storsimple-security.md).
 
 #### <a name="azure-requirements"></a>Krav för Azure
 Innan du etablerar den virtuella enheten måste du göra följande förberedelser i Azure-miljön:

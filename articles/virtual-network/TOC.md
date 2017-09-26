@@ -2,9 +2,13 @@
 ## [Virtuella nätverk](virtual-networks-overview.md)
 ## [Användardefinierade vägar och IP-vidarebefordran](virtual-networks-udr-overview.md)
 ## [Virtuell nätverkspeering](virtual-network-peering-overview.md)
+## [Slutpunkter för virtuellt nätverk](virtual-network-service-endpoints-overview.md)
+## [Virtuellt nätverk för Azure-tjänster](virtual-network-for-azure-services.md)
+## [Säkerhet](security-overview.md)
 ## [Verksamhetskontinuitet](virtual-network-disaster-recovery-guidance.md)
 ## [Vanliga frågor och svar](virtual-networks-faq.md)
 ## [IP-adress](virtual-network-ip-addresses-overview-arm.md)
+## [DDoS Protection](ddos-protection-overview.md)
 ## Klassisk
 ### [IP-adress](virtual-network-ip-addresses-overview-classic.md)
 ### [Listor för åtkomstkontroll](virtual-networks-acl.md)
@@ -19,26 +23,27 @@
 
 ## Distribuera
 ### [Virtuella nätverk](virtual-networks-create-vnet-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI](virtual-networks-create-vnet-arm-cli.md)
+#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
+#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Mall](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Nätverkssäkerhetsgrupper
-#### [Portal](virtual-networks-create-nsg-arm-pportal.md)
-#### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [CLI](virtual-networks-create-nsg-arm-cli.md)
+#### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
+#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
+#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Mall](virtual-networks-create-nsg-arm-template.md)
+#### [Säkerhetsgrupper för program](create-network-security-group-preview.md)
 #### Klassisk
-##### [PowerShell](virtual-networks-create-nsg-classic-ps.md)
-##### [CLI](virtual-networks-create-nsg-classic-cli.md)
+##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
+##### [Azure CLI](virtual-networks-create-nsg-classic-cli.md)
 
 ### Användardefinierade vägar
-#### [PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [CLI](virtual-network-create-udr-arm-cli.md)
+#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
+#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
 #### [Mall](virtual-network-create-udr-arm-template.md)
 #### Klassisk
-##### [PowerShell](virtual-network-create-udr-classic-ps.md)
-##### [CLI](virtual-network-create-udr-classic-cli.md)
+##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
+##### [Azure CLI](virtual-network-create-udr-classic-cli.md)
 
 ### Virtuell nätverkspeering
 #### [Samma distributionsmodell – samma prenumeration](virtual-network-create-peering.md)
@@ -46,35 +51,42 @@
 #### [Olika distributionsmodeller – samma prenumeration](create-peering-different-deployment-models.md)
 #### [Olika distributionsmodeller – olika prenumerationer](create-peering-different-deployment-models-subscriptions.md)
 
+### [Slutpunkter för virtuellt nätverk](virtual-network-service-endpoints-configure.md)
+
+### Offentlig IP-adress – tillgänglighetszon
+#### [Azure Portal](create-public-ip-availability-zone-portal.md)
+#### [Azure CLI](create-public-ip-availability-zone-cli.md)
+#### [PowerShell](create-public-ip-availability-zone-powershell.md)
+
 ### Virtuella datorer
 #### Skapa en virtuell dator med en statisk offentlig IP-adress
-##### [Portal](virtual-network-deploy-static-pip-arm-portal.md)
-##### [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [CLI](virtual-network-deploy-static-pip-arm-cli.md)
+##### [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Mall](virtual-network-deploy-static-pip-arm-template.md)
 ##### Klassisk
-###### [PowerShell](virtual-networks-reserved-public-ip.md)
+###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
 #### Skapa en virtuell dator med en statisk privat IP-adress
-##### [Portal](virtual-networks-static-private-ip-arm-pportal.md)
-##### [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
-##### [CLI](virtual-networks-static-private-ip-arm-cli.md)
+##### [Azure Portal](virtual-networks-static-private-ip-arm-pportal.md)
+##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+##### [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 ##### Klassisk
-###### [Portal](virtual-networks-static-private-ip-classic-pportal.md)
-###### [PowerShell](virtual-networks-static-private-ip-classic-ps.md)
-###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
+###### [Azure Portal](virtual-networks-static-private-ip-classic-pportal.md)
+###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
+###### [Azure CLI](virtual-networks-static-private-ip-classic-cli.md)
 
 #### Skapa en virtuell dator med flera nätverksgränssnitt
-##### [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### Klassisk
-###### [PowerShell](virtual-network-deploy-multinic-classic-ps.md)
-###### [CLI](virtual-network-deploy-multinic-classic-cli.md)
+###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
+###### [Azure CLI](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Skapa en virtuell dator med flera IP-adresser
 ##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
-##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Mall](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Skapa en virtuell dator med accelererat nätverk](virtual-network-create-vm-accelerated-networking.md)
@@ -97,9 +109,9 @@
 
 ### Klassisk
 #### [Virtuellt nätverk](create-virtual-network-classic.md)
-##### [Portal](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+##### [Azure Portal](virtual-networks-create-vnet-classic-pportal.md)
+##### [Azure PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [Azure CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ## Konfigurera
 ### Virtuella datorer
@@ -109,8 +121,8 @@
 #### [Visa och ändra värdnamn](virtual-networks-viewing-and-modifying-hostnames.md)
 ### Klassisk
 #### Listor för åtkomstkontroll
-##### [Portal](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [PowerShell](virtual-networks-acl-powershell.md)
+##### [Azure Portal](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure PowerShell](virtual-networks-acl-powershell.md)
 
 ## Hantera
 ### [Virtuella nätverk](virtual-network-manage-network.md)
@@ -120,9 +132,9 @@
 ##### [Nätverkskonfigurationsfil](virtual-networks-using-network-configuration-file.md)
 ##### [Migrera från en tillhörighetsgrupp till en region](virtual-networks-migrate-to-regional-vnet.md)
 ### Nätverkssäkerhetsgrupper
-#### [Portal](virtual-network-manage-nsg-arm-portal.md)
-#### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [CLI](virtual-network-manage-nsg-arm-cli.md)
+#### [Azure Portal](virtual-network-manage-nsg-arm-portal.md)
+#### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
+#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Loggar](virtual-network-nsg-manage-log.md)
 ### Nätverksgränssnitt (nätverkskort)
 #### [Skapa, ändra eller ta bort nätverkskort](virtual-network-network-interface.md)
@@ -130,22 +142,25 @@
 ### Virtuella datorer
 #### [Flytta en virtuell dator till ett annat undernät](virtual-networks-move-vm-role-to-subnet.md)
 ### [Offentliga IP-adresser](virtual-network-public-ip-address.md)
+### DDoS Protection
+#### [Azure Portal](ddos-protection-manage-portal.md)
+#### [Azure PowerShell](ddos-protection-manage-ps.md)
 
 ## Felsöka
 ### Nätverkssäkerhetsgrupper
-#### [Portal](virtual-network-nsg-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+#### [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
+#### [Azure PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 ### Vägar
-#### [Portal](virtual-network-routes-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+#### [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
+#### [Azure PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Testning av dataflöde](virtual-network-bandwidth-testing.md)
 ### [Det går inte att ta bort virtuella nätverk](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [Problem med anslutning mellan virtuella datorer](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
-## [PowerShell (Resource Manager)](/powershell/module/azurerm.network)
-## [PowerShell (klassisk)](/powershell/module/azure/)
+## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
+## [Azure PowerShell (klassisk)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
 ## [Java](/java/api/)
 ## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)

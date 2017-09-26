@@ -93,14 +93,20 @@
           href: local-emulator.md
         - name: Exportera certifikat
           href: local-emulator-export-ssl-certificates.md
+    - name: 6 – Integrera med Functions
+      items:
+        - name: HTTP-utlösare
+          href: tutorial-functions-http-trigger.md
 - name: Exempel
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: cli-samples.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: powershell-samples.md
 - name: Koncept
   items:
+    - name: Databas utan server
+      href: serverless-computing-database.md
     - name: Global distribution
       href: distribute-data-globally.md
     - name: Partitionering
@@ -268,6 +274,8 @@
           href: geospatial.md
         - name: Indexering
           href: indexing-policies.md
+        - name: Ansluten tjänst i Visual Studio
+          href: connected-service.md
     - name: Hantera
       items:
         - name: Kostnadseffektiva läsningar och skrivningar
@@ -282,8 +290,14 @@
           href: set-throughput.md
         - name: Övervaka serviceavtal
           href: monitor-accounts.md
+        - name: Använd mått
+          href: use-metrics.md
+        - name: Diagnostikloggning
+          href: logging.md
         - name: Hantera nycklar och konsekvens
           href: manage-account.md
+        - name: Azure Lagringsutforskaren
+          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: Säkerhet
           items:
             - name: Vilande kryptering
@@ -309,7 +323,7 @@
         - name: Integrera med Azure Search
           href: ../search/search-howto-index-documentdb.md
         - name: Flytta data med Azure Data Factory
-          href: ../data-factory/data-factory-azure-documentdb-connector.md
+          href: ../data-factory/connector-azure-cosmos-db.md
         - name: Analysera realtidsdata med Azure Stream Analytics
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: Hämta ändrad HL7 FHIR-post med Logic Apps

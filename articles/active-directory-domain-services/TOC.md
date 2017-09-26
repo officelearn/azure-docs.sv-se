@@ -16,7 +16,7 @@
 # Gör så här för att
 ## Anslut till en hanterad domän
 ### [Ansluta en Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Ansluta en virtuell Windows Server VM med PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Ansluta en virtuell Windows Server VM med Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Ansluta en Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Administrera en hanterad domän
 ### [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)

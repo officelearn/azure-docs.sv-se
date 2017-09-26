@@ -19,8 +19,19 @@
 ### [Meddelanden om batchbearbetning](logic-apps-batch-process-send-receive-messages.md)
 ### [Skapa Logic App-definitioner](logic-apps-author-definitions.md)
 ### [Anropa, utlösa eller kapsla logikappar](logic-apps-http-endpoint.md)
-### [Skapa anpassade API:er för logikappar](logic-apps-create-api-app.md)
-### [Anropa anpassade API:er för Logic Apps](logic-apps-custom-hosted-api.md)
+### Utveckla anpassade anslutningsappar
+#### [Översikt över anpassade anslutningsappar](custom-connector-overview.md)
+#### [Skapa anslutningsappar från Web API:er](custom-connector-build-web-api-app-tutorial.md)
+#### [Säkra anslutningsappar med Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [Beskriv API:er med Postman](custom-connector-api-postman-collection.md)
+#### [Utöka OpenAPI för anpassade anslutningsappar](custom-connector-openapi-extensions.md)
+#### [Registrera din anslutningsapp](logic-apps-custom-connector-register.md)
+#### [Certifiera din anslutningsapp](custom-connector-submit-certification.md)
+#### [Vanliga frågor och svar för anpassade anslutningsappar](custom-connector-faq.md)
+### Utveckla anpassade API:er
+#### [Skapa anpassade API:er för logikappar](logic-apps-create-api-app.md)
+#### [Säkra anrop till anpassade API:er](logic-apps-custom-api-authentication.md)
+#### [Distribuera och anropa anpassade API:er](logic-apps-custom-api-host-deploy-call.md)
 ### [Hantera fel och undantag](logic-apps-exception-handling.md)
 ### [Hantera innehållstyper](logic-apps-content-type.md)
 ### [Skydda dina Logic Apps](logic-apps-securing-a-logic-app.md)
@@ -73,8 +84,7 @@
 #### [X12-spårningsschema](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Anpassat spårningsschema](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Exempel, scenarier och genomgångar
-### [Översikt](logic-apps-examples-and-scenarios.md)
+## [Exempel, scenarier och genomgångar](logic-apps-examples-and-scenarios.md)
 ### [Skapa en social instrumentpanel utan server](logic-apps-scenario-social-serverless.md)
 ### [Anropa Logic Apps med Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Lägga till fel- och undantagshantering](logic-apps-scenario-error-and-exception-handling.md)
@@ -97,8 +107,8 @@
 # Referens
 ## [Definitionsspråk för arbetsflöde](logic-apps-workflow-definition-language.md)
 ## [Åtgärder och utlösare för arbetsflöde](logic-apps-workflow-actions-triggers.md)
-## [REST-API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [REST API](/rest/api/logic/)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Anslutningsappar: ämnesfördjupning
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)

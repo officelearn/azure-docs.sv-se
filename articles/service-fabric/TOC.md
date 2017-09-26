@@ -4,23 +4,37 @@
 
 # Snabbstarter
 ## [Skapa ett .NET-program](service-fabric-quickstart-dotnet.md)
-## [Distribuera ett program för Windows-behållare](service-fabric-quickstart-containers.md)
 ## [Distribuera ett program för Linux-behållare](service-fabric-quickstart-containers-linux.md)
+## [Distribuera ett program för Windows-behållare](service-fabric-quickstart-containers.md)
 
 # Självstudier
 ## Distribuera ett .NET-program
 ### [1- Skapa ett .NET-program](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- Distribuera programmet](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- Konfigurera CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4- Övervaka och diagnostisera](service-fabric-tutorial-monitoring-aspnet.md)
 
-## Lift and shift-hantera ett program
+## Använd en befintlig .NET-app i behållare
 ### [1- Skapa ett säkert kluster på Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- Distribuera ett .NET-program med Docker Compose](service-fabric-host-app-in-a-container.md)
+### [3- Övervaka din behållare](service-fabric-tutorial-monitoring-wincontainers.md)
+
+## Skapa en app för Linux-behållare
+### [1- Skapa behållaravbildningar](service-fabric-tutorial-create-container-images.md)
+### [2- Paketera och distribuera behållare](service-fabric-tutorial-package-containers.md)
+### [3- Redundans och skalning](service-fabric-tutorial-containers-failover.md)
+
+## Skapa och hantera ett kluster
+### 1- Skapa ett kluster på Azure
+#### [1a- Skapa ett säkert Windows-kluster på Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Skapa ett säkert Linux-kluster på Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2- Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Exempel
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
-## [PowerShell](service-fabric-powershell-samples.md)
+## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=service-fabric)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
+
 # Koncept
 ## [Förstå mikrotjänster](service-fabric-overview-microservices.md)
 ## [Helhetsbild](service-fabric-content-roadmap.md)
@@ -66,6 +80,8 @@
 #### [Tjänsttillstånd](service-fabric-concepts-state.md)
 #### [Tjänstpartitionering](service-fabric-concepts-partitioning.md)
 #### [Tillgänglighet för tjänster](service-fabric-availability-services.md)
+#### [Repliker och instanser](service-fabric-concepts-replica-lifecycle.md)
+#### [Omkonfiguration](service-fabric-concepts-reconfiguration.md)
 #### Tjänstkommunikation
 ##### [Översikt](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS-tjänst](service-fabric-dnsservice.md)
@@ -90,7 +106,6 @@
 
 ## Skapa och hantera kluster
 ### [Översikt](service-fabric-deploy-anywhere.md)
-### [Service Fabric på Linux](service-fabric-linux-overview.md)
 ### Planera och förbereda
 #### [Kapacitetsplanering](service-fabric-cluster-capacity.md)
 #### [Haveriberedskap](service-fabric-disaster-recovery.md)
@@ -129,6 +144,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [Konfigurera Service Fabric CLI](service-fabric-cli.md)
 
 ## Skapa ett program
 ### [Skapa din första C#-app i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -224,13 +241,13 @@
 
 ### Distribuera eller ta bort program
 #### [Distribuera program i ett lokalt kluster](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient-API:er](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Uppgradera program
-#### [Uppgradera med PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [Uppgradera med Azure PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [Uppgradera med Visual Studio](service-fabric-application-upgrade-tutorial.md)
 #### [Felsök programuppgraderingar](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -279,8 +296,6 @@
 
 ### [Visualisera ett kluster](service-fabric-visualizing-your-cluster.md)
 ### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
-
-### [Kom igång med Service Fabric CLI](service-fabric-cli.md)
 ### [Korrigera klusternoder](service-fabric-patch-orchestration-application.md)
 
 ### Hantera och dirigera klusterresurser
@@ -325,7 +340,7 @@
 ### [Felsök ditt lokala kluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Referens
-## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java-API](/java/api/overview/azure/servicefabric)

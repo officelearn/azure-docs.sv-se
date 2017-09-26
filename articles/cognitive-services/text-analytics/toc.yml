@@ -4,6 +4,8 @@
   items:
     - name: Om textanalys
       href: overview.md
+    - name: Språk som stöds
+      href: text-analytics-supported-languages.md
 - name: Snabbstarter
   items:
     - name: 'C#'

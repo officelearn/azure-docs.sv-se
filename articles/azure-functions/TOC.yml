@@ -4,7 +4,7 @@
   items:
     - name: Om Functions
       href: functions-overview.md
-    - name: 'Välj mellan Flow, Logic Apps, Functions och WebJobs'
+    - name: Jämförelse utan server
       href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Snabbstarter
   expanded: true
@@ -17,21 +17,23 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Utlösare
       items:
+        - name: Blob Storage
+          href: functions-create-storage-blob-triggered-function.md
+        - name: Azure Cosmos DB
+          href: functions-create-cosmos-db-triggered-function.md
         - name: Timer
           href: functions-create-scheduled-function.md
         - name: Allmän webhook
           href: functions-create-generic-webhook-triggered-function.md
         - name: GitHub-webhook
           href: functions-create-github-webhook-triggered-function.md
-        - name: Blob Storage
-          href: functions-create-storage-blob-triggered-function.md
         - name: Queue Storage
           href: functions-create-storage-queue-triggered-function.md
     - name: Integrera
       items:
         - name: Lagring
           href: functions-integrate-storage-queue-output-binding.md
-        - name: Cosmos DB
+        - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Självstudier
   items:
@@ -41,6 +43,8 @@
       href: functions-create-serverless-api.md
     - name: 3 - Skapa en OpenAPI-definition
       href: functions-openapi-definition.md
+    - name: 4 – Ändra storlek på avbildning med Event Grid
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Exempel
   items:
     - name: Kodexempel
@@ -103,6 +107,8 @@
           href: app-service-export-api-to-powerapps-and-flow.md
         - name: Anropa en funktion från PowerApps
           href: functions-powerapps-scenario.md
+        - name: Anropa en funktion från Microsoft Flow
+          href: functions-flow-scenario.md
         - name: Använd en hanterad tjänstidentitet
           href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Referens
@@ -111,7 +117,7 @@
       items:
         - name: Blob Storage
           href: functions-bindings-storage-blob.md
-        - name: Cosmos DB
+        - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
         - name: Händelsehubbar
           href: functions-bindings-event-hubs.md
@@ -121,6 +127,8 @@
           href: functions-bindings-external-table.md
         - name: HTTP och webhooks
           href: functions-bindings-http-webhook.md
+        - name: Microsoft Graph
+          href: functions-bindings-microsoft-graph.md
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs

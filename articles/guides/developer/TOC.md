@@ -1,12 +1,17 @@
 # Översikt
 ## [Utvecklarguide](azure-developer-guide.md) 
+### [Vad är Azure?](azure-developer-guide.md#what-is-azure)
+### [Var ska jag börja?](azure-developer-guide.md#where-do-i-start)
+### [Azure-regioner](azure-developer-guide.md#azure-regions)
+### [Hur hanterar jag mina program och projekt?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
+### [Förstå konton, prenumerationer och fakturering](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
 
-## [Översikt över Azure-tjänster](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure)
-## [Portalöversikt](https://docs.microsoft.com/azure/azure-portal-overview)
+## [Översikt över Azure-tjänster](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Portalöversikt](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK:er och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Snabbstart
-## [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-html)
+## [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)
 ## Virtuella datorer
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
@@ -17,10 +22,10 @@
 
 # Självstudier
 ## Skapa och distribuera en webbapp
-### [.NET med SQL DB](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-dotnet-sqldatabase)
-### [Node.js med Mongo DB](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-nodejs-mongodb-app)
-### [PHP med MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-php-mysql)
-### [Java med MySQL](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-java-mysql)
+### [.NET med SQL DB](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+### [Node.js med Mongo DB](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+### [PHP med MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql)
+### [Java med MySQL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql)
 ## Distribuera komplexa VM-mallar
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -29,25 +34,25 @@
 
 # Exempel
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
 ### [Virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
-## PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-powershell-samples)
+## Azure PowerShell
+### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
 ### [Virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Koncept
 ## [Fakturering och prenumerationer](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Jämförelser av värdtjänster](https://docs.microsoft.com/azure/app-service-web/choose-web-site-cloud-service-vm)
-## [Vad är App Service?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+## [Jämförelser av värdtjänster](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Vad är App Service?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 ## Virtuella datorer
 ### [Virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Virtuella Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 ## [Översikt över Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # Guider
-## [Planera](https://docs.microsoft.com/azure/architecture/guide/)
+## Planera
 ### [Arkitekturer för webbapp](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [Arkitekturer för virtuella datorer](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Ansluta till lokala nätverk](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
@@ -58,7 +63,7 @@
 ### [Serverlösa appar](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Kluster för mikrotjänster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Distribuera
-### [Webb- och mobilappar från källkontroll](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)
+### [Webb- och mobilappar från källkontroll](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
 ### [Mikrotjänster lokalt](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
@@ -71,26 +76,25 @@
 ### [Meddelandeköer](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
 ## Skala
-### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service-web/web-sites-scale)
+### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service/web-sites-scale)
 ### [Virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
 ### [Mikrotjänstappar](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability)
 
 ## Skydda
-### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service-web/app-service-web-tutorial-custom-ssl)
+### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup
-### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service-web/web-sites-backup)
+### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service/web-sites-backup)
 ### [Virtuella datorer](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Övervaka
-### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)
+### [Webb- och mobilappar](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
 ### [Virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Mikrotjänster](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
 ### [Faktureringsaviseringar](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
 ## Automatisera
-### [Flexibel webbappsutveckling](https://docs.microsoft.com/azure/app-service-web/app-service-agile-software-development)
 ### [Skala virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Skala virtuell Windows-dator](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 
@@ -104,8 +108,8 @@
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
 ## Kommandoradsgränssnitt
-### [Azure CLI2.0](https://docs.microsoft.com/cli/azure/)
-### [PowerShell](https://docs.microsoft.com/powershell/)
+### [Azure CLI](https://docs.microsoft.com/cli/azure/)
+### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Billing](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resurser

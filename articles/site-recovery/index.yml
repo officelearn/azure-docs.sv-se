@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Site Recovery
+metadata:
+  title: 'Dokumentation om Azure Site Recovery – Självstudier, API-referens | Microsoft Docs'
+  meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
+  services: site-recovery
+  author: czeumault
+  manager: carolz
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/23/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Site Recovery dirigerar och hanterar haveriberedskap för virtuella Azure-datorer, lokala virtuella datorer och fysiska servrar. Lär dig att replikera, redundansväxla och återställa med våra snabbstarter och självstudier.'
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: Konfigurera snabbt haveriberedskap för en virtuell Azure-dator
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/media/index/portal.svg
+            text: Azure Portal
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Stegvisa självstudier
+    items:
+      - type: paragraph
+        text: Lär dig att konfigurera haveriberedskap för virtuella datorer och fysiska servrar.
+      - type: text
+        html: <h3>Azure till Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Konfigurera haveriberedskap</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Köra ett återställningstest</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Köra redundans och återställning efter fel</a>
+      - type: text
+        html: <h3>VMware</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Förbereda Azure</a>
+          - html: <a href="tutorial-prepare-on-premises-vmware">Förbereda lokal VMware</a>
+          - html: <a href="tutorial-vmware-to-azure">Konfigurera haveriberedskap</a>
+          - html: <a href="tutorial-dr-drill-azure">Köra ett återställningstest</a>
+          - html: <a href="tutorial-vmware-to-azure-failover-failback">Köra redundans och återställning efter fel</a>
+      - type: text
+        html: <h3>Migrera till Azure</h3>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Förbereda Azure</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">Migrera lokala datorer</a> eller <a href="tutorial-migrate-aws-to-azure">AWS-instanser till Azure</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">REST API-referens</a></p>

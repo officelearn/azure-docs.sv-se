@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 – Säkerhetskopiera virtuella datorer
       href: tutorial-backup-vms.md
-    - name: 10 – Övervaka virtuella datorer
+    - name: 10 – Övervaka och uppdatera virtuella datorer
       href: tutorial-monitoring.md
     - name: 11 – Hantera säkerhet för virtuella datorer
       href: tutorial-azure-security.md
@@ -163,6 +163,12 @@
           href: manage-availability.md
         - name: Lodrätt skalning
           href: vertical-scaling-automation.md
+        - name: Skapa virtuell dator i tillgänglighetszon
+          items:
+            - name: PowerShell
+              href: create-powershell-availability-zone.md
+            - name: Portalen
+              href: create-portal-availability-zone.md
     - name: Använda automatiseringsverktyg
       items:
         - name: Chef
@@ -170,7 +176,7 @@
     - name: Köra program
       items:
         - name: SQL Server
-          href: /sql/virtual-machines-windows-sql-server-iaas-overview
+          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
         - name: MongoDB
           href: install-mongodb.md
         - name: SAP på Azure
@@ -342,7 +348,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/vm
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.compute

@@ -1,0 +1,52 @@
+- name: Dokumentation om virtuella datorer för datavetenskap
+  items: null
+- name: Översikt
+  items:
+    - name: Vad är en virtuell dator för datavetenskap?
+      href: overview.md
+    - name: Vad är en virtuell dator för djupinlärning?
+      href: deep-learning-dsvm-overview.md
+- name: Kom igång
+  items:
+    - name: Skapa en virtuell Windows-dator för datavetenskap
+      href: provision-vm.md
+    - name: Skapa en virtuell Ubuntu-dator för datavetenskap
+      href: dsvm-ubuntu-intro.md
+    - name: Skapa en virtuell CentOS-dator för datavetenskap
+      href: linux-dsvm-intro.md
+    - name: Skapa en virtuell dator för djupinlärning
+      href: provision-deep-learning-dsvm.md
+- name: Gör så här för att
+  items:
+    - name: Använd en virtuell Windows-dator för datavetenskap
+      href: vm-do-ten-things.md
+    - name: Använd en virtuell Linux-dator för datavetenskap
+      href: linux-dsvm-walkthrough.md
+    - name: Använd en virtuell dator för djupinlärning
+      href: use-deep-learning-dsvm.md
+- name: Referens
+  items:
+    - name: Ramverk för djupinlärning och AI
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Verktyg för ML and datavetenskap
+      href: dsvm-ml-data-science-tools.md
+    - name: Språk
+      href: dsvm-languages.md
+    - name: Utvecklingsverktyg
+      href: dsvm-tools-development.md
+    - name: Verktyg för datainhämtning
+      href: dsvm-tools-ingestion.md
+    - name: Verktyg för utforskning och visualisering av data
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Dataplattformar
+      href: dsvm-data-platforms.md
+    - name: Exempel och genomgångar
+      href: dsvm-samples-and-walkthroughs.md
+- name: Resurser
+  items:
+    - name: Blogg
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: MSDN-forum
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=dsvm'

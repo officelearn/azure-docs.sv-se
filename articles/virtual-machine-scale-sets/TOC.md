@@ -2,7 +2,7 @@
 ## [Vad är skalningsuppsättningar för virtuella datorer?](virtual-machine-scale-sets-overview.md)
 
 # Kom igång
-## [Distribuera en skalningsuppsättning på portalen](virtual-machine-scale-sets-portal-create.md)
+## [Distribuera en skalningsuppsättning på Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ## [Distribuera en skalningsuppsättning med PowerShell eller Azure CLI](virtual-machine-scale-sets-create.md)
 ## [Distribuera en app för automatisk skalning med en mall](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -17,9 +17,9 @@
 ### [Använda gästbaserad autoskalning med en Linux-mall för skalningsuppsättning](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Distribuera
-### [Skapa med portalen](virtual-machine-scale-sets-portal-create.md)
+### [Skapa med Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ### [Skapa med Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Skapa med PowerShell eller Azure CLI](virtual-machine-scale-sets-create.md)
+### [Skapa med Azure PowerShell eller Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Skalningsuppsättning med hanterade diskar](virtual-machine-scale-sets-managed-disks.md)
 ### [Linux-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Windows-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## Hantera
-### [Windows-skalningsuppsättning med PowerShell](virtual-machine-scale-sets-windows-manage.md)
+### [Windows-skalningsuppsättning med Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Automatisk skalning och skalningsuppsättningar](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Avancerad automatisk skalning](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Vertikal skalning i en skalningsuppsättning](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [Vanliga frågor och svar om skalningsuppsättningar](virtual-machine-scale-sets-faq.md)
 
 # Referens
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

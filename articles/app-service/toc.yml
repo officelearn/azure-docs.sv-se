@@ -1,0 +1,232 @@
+- name: Dokumentation om App Service
+- name: Översikt
+  items:
+    - name: Om Web Apps
+      href: app-service-web-overview.md
+    - name: Om Web App for Containers
+      href: containers/app-service-linux-intro.md
+    - name: Om App Service-miljöer
+      href: environment/intro.md
+    - name: Jämför värdalternativ
+      href: choose-web-site-cloud-service-vm.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa .NET-app
+      href: app-service-web-get-started-dotnet.md
+    - name: Skapa Node.js-app
+      href: app-service-web-get-started-nodejs.md
+    - name: Skapa PHP-app
+      href: app-service-web-get-started-php.md
+    - name: Skapa Java-app
+      href: app-service-web-get-started-java.md
+    - name: Skapa Python-app
+      href: app-service-web-get-started-python.md
+    - name: Skapa en statisk HTML-webbplats
+      href: app-service-web-get-started-html.md
+- name: Självstudier
+  items:
+    - name: 1 – App med DB
+      items:
+        - name: .NET med SQL DB
+          href: app-service-web-tutorial-dotnet-sqldatabase.md
+        - name: PHP med MySQL
+          href: app-service-web-tutorial-php-mysql.md
+        - name: Node.js med MongoDB
+          href: app-service-web-tutorial-nodejs-mongodb-app.md
+        - name: Java med MySQL
+          href: app-service-web-tutorial-java-mysql.md
+    - name: 1 – Skapa RESTful-API
+      href: app-service-web-tutorial-rest-api.md
+    - name: 2 – Mappa anpassad domän
+      href: app-service-web-tutorial-custom-domain.md
+    - name: 3 – Bind SSL-certifikat
+      href: app-service-web-tutorial-custom-ssl.md
+    - name: 4 – Lägg till CDN
+      href: app-service-web-tutorial-content-delivery-network.md
+- name: Exempel
+  items:
+    - name: Azure CLI
+      href: app-service-cli-samples.md
+    - name: Azure PowerShell
+      href: app-service-powershell-samples.md
+- name: Koncept
+  items:
+    - name: Så här fungerar App Service
+      href: app-service-how-works-readme.md
+    - name: App Service-planer
+      href: azure-web-sites-web-hosting-plans-in-depth-overview.md
+    - name: OS-funktioner
+      href: web-sites-available-operating-system-functionality.md
+    - name: Autentisering och auktorisering
+      href: app-service-authentication-overview.md
+    - name: Hybridanslutningar
+      href: app-service-hybrid-connections.md
+    - name: Traffic Manager-integrering
+      href: web-sites-traffic-manager.md
+- name: Instruktionsguider
+  items:
+    - name: Konfigurera app
+      items:
+        - name: Använda appinställningar
+          href: web-sites-configure.md
+        - name: Ladda upp befintlig Java-app
+          href: web-sites-java-add-app.md
+        - name: Konfigurera PHP
+          href: web-sites-php-configure.md
+        - name: Python
+          href: web-sites-python-configure.md
+        - name: Ansluta till lokala resurser
+          href: web-sites-integrate-with-vnet.md
+    - name: Distribuera till Azure
+      items:
+        - name: Distribuera appen
+          items:
+            - name: Distribuera via FTP
+              href: app-service-deploy-ftp.md
+            - name: Distribuera via molnsynkronisering
+              href: app-service-deploy-content-sync.md
+            - name: Distribuera kontinuerligt
+              href: app-service-continuous-deployment.md
+            - name: Distribuera från lokal Git
+              href: app-service-deploy-local-git.md
+            - name: Distribuera med mall
+              href: app-service-deploy-complex-application-predictably.md
+        - name: Ange autentiseringsuppgifter för distribution
+          href: app-service-deployment-credentials.md
+        - name: Skapa mellanlagringsmiljöer
+          href: web-sites-staged-publishing.md
+    - name: Mappa anpassad domän
+      items:
+        - name: Köpa domän
+          href: custom-dns-web-site-buydomains-web-app.md
+        - name: Mappa domäner med Traffic Manager
+          href: web-sites-traffic-manager-custom-domain-name.md
+        - name: Migrera en aktiv domän
+          href: app-service-custom-domain-name-migrate.md
+    - name: Skydda app
+      items:
+        - name: Köpa SSL-cert
+          href: web-sites-purchase-ssl-web-site.md
+        - name: Autentisera användare
+          items:
+            - name: Autentisera med Azure AD
+              href: app-service-mobile-how-to-configure-active-directory-authentication.md
+            - name: Autentisera med Facebook
+              href: app-service-mobile-how-to-configure-facebook-authentication.md
+            - name: Autentisera med Google
+              href: app-service-mobile-how-to-configure-google-authentication.md
+            - name: Autentisera med Microsoft-konto
+              href: app-service-mobile-how-to-configure-microsoft-authentication.md
+            - name: Autentisera med Twitter
+              href: app-service-mobile-how-to-configure-twitter-authentication.md
+        - name: Använd en hanterad tjänstidentitet
+          href: app-service-managed-service-identity.md
+        - name: Konfigurera ömsesidig TLS-autentisering
+          href: app-service-web-configure-tls-mutual-auth.md
+    - name: Skalningsapp
+      items:
+        - name: Skala upp serverkapaciteten
+          href: web-sites-scale.md
+        - name: Konfigurera PremiumV2-nivå
+          href: app-service-configure-premium-tier.md
+        - name: Skala ut till flera instanser
+          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+    - name: Övervaka app
+      items:
+        - name: Kvoter och aviseringar
+          href: web-sites-monitor.md
+        - name: Aktivera loggar
+          href: web-sites-enable-diagnostic-log.md
+    - name: Hantera app
+      items:
+        - name: Säkerhetskopiera en app
+          href: web-sites-backup.md
+        - name: Återställ en säkerhetskopia
+          href: web-sites-restore.md
+        - name: Klona en app
+          href: app-service-web-app-cloning.md
+        - name: Flytta resurser
+          href: app-service-move-resources.md
+    - name: Kör bakgrundsaktiviteter
+      items:
+        - name: Skapa WebJobs
+          href: web-sites-create-web-jobs.md
+        - name: Utveckla WebJobs med VS
+          href: websites-dotnet-deploy-webjobs.md
+- name: Referens
+  items:
+    - name: Azure CLI
+      href: /cli/azure/appservice
+    - name: Azure PowerShell
+      href: /powershell
+    - name: REST API
+      href: /rest/api/appservice/
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: Kvotinformation
+      href: '../azure-subscription-service-limits.md#app-service-limits'
+    - name: Tjänstuppdateringar och viktig information
+      items:
+        - name: Azure-uppdateringar
+          href: 'https://azure.microsoft.com/updates/?product=app-service'
+        - name: Azure SDK för .NET 3.0
+          href: azure-sdk-dotnet-release-notes-3-0.md
+        - name: Azure SDK för .NET 2.9
+          href: azure-sdk-dotnet-release-notes-2-9.md
+        - name: Azure SDK för .NET 2.8
+          href: azure-sdk-dotnet-release-notes-2-8.md
+        - name: Azure SDK för .NET 2.7
+          href: azure-sdk-dotnet-release-notes-2-7.md
+        - name: Azure SDK för .NET 2.6
+          href: azure-sdk-dotnet-release-notes-2-6.md
+        - name: Azure SDK för .NET 2.5.1
+          href: app-service-release-notes.md
+        - name: Azure SDK för .NET 2.5
+          href: 'https://msdn.microsoft.com/library/azure/dn873976.aspx'
+        - name: Azure SDK för .NET 2.4
+          href: 'https://msdn.microsoft.com/library/azure/dn794167.aspx'
+        - name: Azure SDK för .NET 2.3
+          href: 'https://msdn.microsoft.com/library/azure/dn655054.aspx'
+        - name: Azure SDK för .NET 2.2
+          href: 'https://msdn.microsoft.com/library/azure/dn459835.aspx'
+        - name: Azure SDK för .NET 2.1
+          href: 'https://msdn.microsoft.com/library/azure/dn407359.aspx'
+        - name: Azure SDK för .NET 2.0
+          href: 'https://msdn.microsoft.com/library/azure/dn169556.aspx'
+    - name: Bästa praxis
+      href: app-service-best-practices.md
+    - name: Exempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+    - name: Kokböcker
+      items:
+        - name: Referensarkitekturer
+          href: ../guidance/guidance-ra-app-service.md
+        - name: Distributionsskript
+          href: 'https://azure.microsoft.com/documentation/scripts/'
+    - name: Felsökning
+      items:
+        - name: Felsöka med Visual Studio
+          href: web-sites-dotnet-troubleshoot-visual-studio.md
+        - name: Felsöka Node.js-app
+          href: app-service-web-nodejs-best-practices-and-troubleshoot-guide.md
+        - name: Felsöka HTTP 502 och 503
+          href: app-service-web-troubleshoot-http-502-http-503.md
+        - name: Felsöka prestandaproblem
+          href: app-service-web-troubleshoot-performance-degradation.md
+        - name: VANLIGA FRÅGOR OCH SVAR
+          items:
+            - name: 'Vanliga frågor och svar om tillgänglighet, prestanda och program'
+              href: app-service-web-availability-performance-application-issues-faq.md
+            - name: Vanliga frågor och svar om distribution
+              href: app-service-web-deployment-faq.md
+            - name: Vanliga frågor och svar om tekniker med öppen källkod
+              href: app-service-web-open-source-technologies-faq.md
+            - name: Vanliga frågor och svar om konfiguration och hantering
+              href: app-service-web-configuration-and-management-faq.md

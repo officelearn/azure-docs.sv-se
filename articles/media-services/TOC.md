@@ -11,16 +11,16 @@
 ### [Hantera AAD-autentisering med hjälp av portalen](media-services-portal-get-started-with-aad.md)
 ### [Komma åt API med .NET](media-services-dotnet-get-started-with-aad.md)
 ### [Komma åt API med REST](media-services-rest-connect-with-aad.md)
-### [Skapa och konfigurera AAD-appar med hjälp av CLI](media-services-cli-create-and-configure-aad-app.md)
-### [Skapa och konfigurera AAD-appar med hjälp av PowerShell](media-services-powershell-create-and-configure-aad-app.md)
+### [Skapa och konfigurera AAD-appar med hjälp av Azure CLI](media-services-cli-create-and-configure-aad-app.md)
+### [Skapa och konfigurera AAD-appar med hjälp av Azure PowerShell](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Leverera video på begäran
-### [Portal](media-services-portal-vod-get-started.md)
+### [Azure Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Utföra liveuppspelning
-### [Portal](media-services-portal-live-passthrough-get-started.md)
+### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Gör så här för att
@@ -29,8 +29,8 @@
 #### [NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Slutpunkter för direktuppspelning](media-services-streaming-endpoints-overview.md)
-#### [Portalen](media-services-portal-manage-streaming-endpoints.md)
-#### [NET](media-services-dotnet-manage-streaming-endpoints.md)
+#### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Lagring
 #### [Uppdatera Media Services efter återställning av lagringsåtkomstnycklar](media-services-roll-storage-access-keys.md)
 #### [Hantera tillgångar över flera lagringskonton](meda-services-managing-multiple-storage-accounts.md)
@@ -38,7 +38,7 @@
 
 ## Överföra innehåll
 ### Överföra filer till ett konto
-#### [Portal](media-services-portal-upload-files.md)
+#### [Azure Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Överföra stora filer med Aspera](media-services-upload-files-with-aspera.md)
@@ -52,7 +52,7 @@
 #### [Format och codecs för Media Encoder Standard](media-services-media-encoder-standard-formats.md)
 #### [Använda MES för att generera en bithastighetsstege automatiskt](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Koda med Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
+##### [Azure Portal](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [Avancerad kodning med MES](media-services-advanced-encoding-with-mes.md)
@@ -109,7 +109,7 @@
 #### [Portal](media-services-portal-live-passthrough-get-started.md)
 #### [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Liveuppspelning med molnkodare](media-services-manage-live-encoder-enabled-channels.md)
-#### [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Konfigurera lokala kodare för användning med molnkodare](media-services-live-encoders-overview.md)
 #### [Elemental Live-kodare](media-services-configure-elemental-live-encoder.md)
@@ -120,7 +120,7 @@
 ### [Specifikation för live-inmatning av fragmenterad MP4](media-services-fmp4-live-ingest-overview.md)
 
 ## [Skydda](media-services-content-protection-overview.md)
-### [Konfigurera innehållsskydd i portalen](media-services-portal-protect-content.md)
+### [Konfigurera innehållsskydd i Azure Portal](media-services-portal-protect-content.md)
 ### [Konfigurera AES-128-klartextnyckel för din dataström](media-services-protect-with-aes128.md)
 ### [Använd REST för att kryptera ditt innehåll med lagringskryptering](media-services-rest-storage-encryption.md)
 ### [Översikt för Media Services PlayReady-licensmall](media-services-playready-license-template-overview.md)
@@ -140,14 +140,14 @@
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
 ### Konfigurera principen för auktorisering av innehållsnycklar
-#### [Portal](media-services-portal-configure-content-key-auth-policy.md)
+#### [Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [Spela upp AES-krypterad HLS i Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 ### [Skicka auth-token](http://mingfeiy.com/how-client-pass-tokens-to-azure-media-services-key-delivery-services)
 
 ## [Analysera](media-services-analytics-overview.md)
-### [Analysera media med portalen](media-services-portal-analyze.md)
+### [Analysera media med Azure Portal](media-services-portal-analyze.md)
 ### [Bearbeta med Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Bearbeta med Indexer](media-services-index-content.md)
 #### [Uppgiften förinställd](indexer-task-preset.md)
@@ -165,10 +165,10 @@
 
 ## Skala
 ### [Mediebearbetning](media-services-scale-media-processing-overview.md)
-#### [Portal](media-services-portal-scale-media-processing.md)
+#### [Azure Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 ### Slutpunkter för direktuppspelning
-#### [Portal](media-services-portal-scale-streaming-endpoints.md)
+#### [Azure Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Leverera innehåll](media-services-deliver-content-overview.md)
 ### [Dynamisk paketering](media-services-dynamic-packaging-overview.md)
@@ -177,7 +177,7 @@
 #### [Skapa filter med REST](media-services-rest-dynamic-manifest.md)
 ### [CDN-cachelagringsprincip i Media Services-tillägget](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publicera innehåll
-#### [Portal](media-services-portal-publish.md)
+#### [Azure Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [Leverera efter hämtning](media-services-deliver-asset-download.md)
@@ -200,8 +200,8 @@
 ## Övervaka
 ### Kontrollera jobbförlopp
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Portal](media-services-portal-check-job-progress.md)
-#### [NET](media-services-check-job-progress.md)
+#### [Azure Portal](media-services-portal-check-job-progress.md)
+#### [.NET](media-services-check-job-progress.md)
 ### [Övervaka jobbaviseringar med kölagring](media-services-dotnet-check-job-progress-with-queues.md)
 ### [Övervaka jobbaviseringar med webhookar](media-services-dotnet-check-job-progress-with-webhooks.md)
 
@@ -213,8 +213,8 @@
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
-## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
+## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)  
 

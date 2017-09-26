@@ -1,0 +1,188 @@
+- name: Dokumentation om Azure Monitor
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Azure Monitor
+      href: monitoring-overview-azure-monitor.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Avisera om måttvillkor
+      href: monitor-quick-resource-metric-alert-portal.md
+    - name: Avisera om prenumerationsaktivitet
+      href: monitor-quick-audit-notify-action-in-subscription.md
+- name: Självstudier
+  items:
+    - name: Skala automatiskt enligt prestanda och schema
+      href: monitor-tutorial-autoscale-performance-schedule.md
+    - name: Arkivera övervakningsdata
+      href: monitor-tutorial-archive-monitoring-data.md
+- name: Koncept
+  items:
+    - name: Källor för övervakningsdata
+      href: monitoring-data-sources.md
+    - name: Rollbehörigheter och säkerhet
+      href: monitoring-roles-permissions-security.md
+    - name: Partnerintegrering
+      href: monitoring-partners.md
+    - name: Ytterligare översikter
+      items:
+        - name: Övervakningsverktyg i Azure
+          href: monitoring-overview.md
+        - name: Mått
+          href: monitoring-overview-metrics.md
+        - name: Aviseringar
+          href: monitoring-overview-alerts.md
+        - name: Automatisk skalning
+          href: monitoring-overview-autoscale.md
+        - name: Aktivitetslogg
+          href: monitoring-overview-activity-logs.md
+        - name: Åtgärdsgrupper
+          href: monitoring-action-groups.md
+        - name: Diagnostikloggar
+          href: monitoring-overview-of-diagnostic-logs.md
+        - name: Azure Diagnostics-tillägg
+          href: azure-diagnostics.md
+    - name: Scheman
+      items:
+        - name: Schema för Azure Diagnostics-tillägg
+          href: azure-diagnostics-schema.md
+          items:
+            - name: 1
+              href: azure-diagnostics-schema-1dot0.md
+            - name: 1.2
+              href: azure-diagnostics-schema-1dot2.md
+            - name: 1.3 och senare
+              href: azure-diagnostics-schema-1dot3-and-later.md
+- name: Instruktionsguider
+  items:
+    - name: Genomgångar
+      items:
+        - name: Genomgång av Azure Monitor
+          href: monitoring-get-started.md
+        - name: Genomgång av automatisk skalning
+          href: monitoring-autoscale-get-started.md
+        - name: Flerdimensionell måttutforskare
+          href: monitoring-metric-charts.md
+        - name: Azure CLI 1.0-exempel
+          href: insights-cli-samples.md
+        - name: Azure PowerShell-exempel
+          href: insights-powershell-samples.md
+    - name: Använda aviseringar
+      items:
+        - name: Konfigurera aviseringar i nära realtid i Azure Portal
+          href: monitoring-near-real-time-metric-alerts.md
+        - name: Konfigurera aviseringar i Azure Portal
+          href: insights-alerts-portal.md
+        - name: Konfigurera aviseringar med CLI
+          href: insights-alerts-command-line-interface.md
+        - name: Konfigurera aviseringar med Azure PowerShell
+          href: insights-alerts-powershell.md
+        - name: Få en måttavisering att anropa en webhook
+          href: insights-webhooks-alerts.md
+        - name: Skapa en metrisk varning med en Resource Manager-mall
+          href: monitoring-enable-alerts-using-template.md
+    - name: Använda automatisk skalning
+      items:
+        - name: Bästa praxis
+          href: insights-autoscale-best-practices.md
+        - name: Vanliga mått
+          href: insights-autoscale-common-metrics.md
+        - name: Vanliga mönster
+          href: monitoring-autoscale-common-scale-patterns.md
+        - name: Skala automatiskt med anpassat mått
+          href: monitoring-autoscale-scale-by-custom-metric.md
+        - name: Skala skalningsuppsättningar för virtuella datorer automatiskt med Resource Manager-mallar
+          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Skala datorer i en skalningsuppsättning för virtuella datorer automatiskt
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Konfigurera webhooks och e-postaviseringar med automatisk skalning
+          href: insights-autoscale-to-webhook-email.md
+    - name: Använd aktivitetsloggen
+      items:
+        - name: Visa händelser i aktivitetsloggen
+          href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Konfigurera aviseringar i en händelse i aktivitetsloggen
+          href: monitoring-activity-log-alerts.md
+        - name: Arkivera aktivitetsloggen
+          href: monitoring-archive-activity-log.md
+        - name: Strömma aktivitetsloggen till Event Hubs
+          href: monitoring-stream-activity-logs-event-hubs.md
+        - name: Granska åtgärder med Resource Manager
+          href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Skapa aviseringar för aktivitetsloggen med Resource Manager
+          href: monitoring-create-activity-log-alerts-with-resource-manager-template.md
+        - name: Migrera till aktivitetsloggsaviseringar
+          href: monitoring-migrate-management-alerts.md
+    - name: Använda tjänstmeddelanden
+      items:
+        - name: Visa tjänstmeddelanden
+          href: monitoring-service-notifications.md
+        - name: Konfigurera aviseringar för tjänstmeddelanden
+          href: monitoring-activity-log-alerts-on-service-notifications.md
+    - name: Använda åtgärdsgrupper
+      items:
+        - name: Lär dig mer om webhook-schemat
+          href: monitoring-activity-log-alerts-webhook.md
+        - name: Beteende för SMS-aviseringar
+          href: monitoring-sms-alert-behavior.md
+        - name: Begränsningar för aviseringsfrekvensen
+          href: monitoring-alerts-rate-limiting.md
+        - name: Skapa åtgärdsgrupper med Resource Manager
+          href: monitoring-create-action-group-with-resource-manager-template.md
+    - name: Använda diagnostikloggar
+      items:
+        - name: Arkiv
+          href: monitoring-archive-diagnostic-logs.md
+        - name: Strömma till Event Hubs
+          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
+        - name: Aktivera diagnostikinställningar med Resource Manager-mallar
+          href: monitoring-enable-diagnostic-logs-using-template.md
+    - name: Använd REST API
+      items:
+        - name: Genomgång med REST API
+          href: monitoring-rest-api-walkthrough.md
+    - name: Använd Azure Diagnostics-tillägg
+      items:
+        - name: Skicka till Application Insights
+          href: azure-diagnostics-configure-application-insights.md
+        - name: Skicka till Event Hubs
+          href: azure-diagnostics-streaming-event-hubs.md
+        - name: Felsökning
+          href: azure-diagnostics-troubleshooting.md
+    - name: Använda Azure Monitor Metrics Explorer
+      items:
+        - name: Skapa måttdiagram
+          href: monitoring-metric-charts.md
+- name: Referens
+  items:
+    - name: Azure CLI
+      href: /cli/azure/monitor?view=azure-cli-latest
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.insights
+    - name: REST
+      href: /rest/api/monitor/
+    - name: Mått som stöds
+      href: monitoring-supported-metrics.md
+    - name: 'Tjänster, kategorier och scheman för diagnostikloggar'
+      href: monitoring-diagnostic-logs-schema.md
+    - name: Händelseschema för aktivitetslogg
+      href: monitoring-activity-log-schema.md
+    - name: Schema för Azure Diagnostics-tillägg
+      href: azure-diagnostics-schema.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
+    - name: Snabbstartsmallar
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=monitoring'
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=monitor'

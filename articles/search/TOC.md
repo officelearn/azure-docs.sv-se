@@ -38,7 +38,7 @@
 ## Hantera
 ### Administrera Azure Search
 #### [Azure Portal](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### Azure [Azure PowerShell](search-manage-powershell.md)
 ### [Övervaka användning och statistik](search-monitor-usage.md)
 ### [Söktrafikanalys](search-traffic-analytics.md)
 ### [Prestanda och optimering](search-performance-optimization.md)

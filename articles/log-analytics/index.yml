@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Log Analytics-dokumentation
+metadata:
+  title: 'Dokumentation om Azure Log Analytics – Självstudier, API-referens | Microsoft Docs'
+  description: 'Log Analytics är en del av Microsoft Azures övergripande övervakningslösning.  Log Analytics övervakar molnmiljöer och lokala miljöer för att bibehålla tillgänglighet och prestanda. Få bättre överblick över arbetsbelastningar och system för att bibehålla tillgänglighet och prestanda. Lär dig hur du samlar, analyserar och hanterar data med våra snabbstarter, självstudier och exempel.'
+  services: log-analytics
+  author: czeumault
+  manager: carolz
+  ms.service: log-analytics
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/41/2017
+  ms.author: carolz
+abstract:
+  description: 'Log Analytics är en del av Microsoft Azures övergripande övervakningslösning. Log Analytics övervakar molnmiljöer och lokala miljöer för att bibehålla tillgänglighet och prestanda. Få bättre överblick över arbetsbelastningar och system för att bibehålla tillgänglighet och prestanda. Lär dig hur du samlar, analyserar och hanterar data med våra snabbstarter, självstudier och exempel.'
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: 'Lär dig hur du distribuerar Log Analytics och konfigurerar insamling av data från Azure, andra molntjänstleverantörer och lokala resurser.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg'
+            text: Virtuella Azure-datorer
+            href: /azure/log-analytics/log-analytics-quick-collect-azurevm
+  - title: Stegvisa självstudier
+    items:
+      - type: paragraph
+        text: 'Lär dig att analysera, visualisera och hantera insamlade data.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">Visa och analysera data som samlats in</a>
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Skapa och dela instrumentpaneler</a>
+          - html: <a href="/azure/log-analytics/log-analytics-tutorial-response">Svara på händelser med Log Analytics-aviseringar</a>
+  - title: Kostnadsfri videoutbildning för Pluralsight
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Kom igång med IaaS-övervakning
+            href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
+  - title: Exempel
+    items:
+      - type: paragraph
+        text: Använd följande exempel för att konfigurera och hantera Log Analytics.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/loganalytics">REST API-referens</a></p>

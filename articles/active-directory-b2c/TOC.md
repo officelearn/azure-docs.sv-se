@@ -67,12 +67,17 @@
 ### Integrera RESTful-API:er
 #### [Verifiera användarinmatning](active-directory-b2c-rest-api-validation-custom.md)
 #### [Hämta ytterligare anspråk](active-directory-b2c-rest-api-step-custom.md)
-### Anpassa inloggning
+### Användarflöden
 #### [Konfigurera användarinmatning](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Anpassade attribut](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Anpassa användargränssnitt](active-directory-b2c-ui-customization-custom.md)
 #### [Anpassa token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [Anpassa lösenord](active-directory-b2c-reference-password-complexity-custom.md)
+#### [Lösenordskomplexitet](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [Lösenordsändring](active-directory-b2c-reference-password-change-custom.md)
+
+#### [Aktivera ”Håll mig inloggad”](active-directory-b2c-reference-kmsi-custom.md)
+
 ### Felsökning
 #### [Samla in loggar med Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referens

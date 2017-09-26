@@ -1,0 +1,216 @@
+- name: Dokumentation om Data Factory V2
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Introduktion till Data Factory
+      href: introduction.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa en datafabrik
+      items:
+        - name: PowerShell
+          href: quickstart-create-data-factory-powershell.md
+        - name: .NET
+          href: quickstart-create-data-factory-dot-net.md
+        - name: Python
+          href: quickstart-create-data-factory-python.md
+        - name: REST
+          href: quickstart-create-data-factory-rest-api.md
+        - name: Portalen
+          href: quickstart-create-data-factory-portal.md
+- name: Självstudier
+  items:
+    - name: 1 – Distribuera SSIS-paket till Azure
+      href: tutorial-deploy-ssis-packages-azure.md
+    - name: 2 – Kopiera data i molnet
+      href: tutorial-copy-data-dot-net.md
+    - name: 3 – Kopiera lokala data i molnet
+      href: tutorial-hybrid-copy-powershell.md
+    - name: 4 – Masskopiera data i molnet
+      href: tutorial-bulk-copy.md
+    - name: 5 – Kopiera data inkrementellt
+      href: tutorial-incremental-copy-powershell.md
+    - name: 6 – Omvandla data i molnet
+      href: tutorial-transform-data-spark-powershell.md
+    - name: 7 – Transformera data i virtuellt nätverk
+      href: tutorial-transform-data-hive-virtual-network.md
+    - name: 8 – Kontrollflöde
+      href: tutorial-control-flow.md
+- name: Exempel
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
+    - name: PowerShell
+      href: samples-powershell.md
+- name: Koncept
+  items:
+    - name: Pipelines och aktiviteter
+      href: concepts-pipelines-activities.md
+    - name: Datamängder och länkade tjänster
+      href: concepts-datasets-linked-services.md
+    - name: Pipelinekörning och -utlösare
+      href: concepts-pipeline-execution-triggers.md
+    - name: Integration runtime
+      href: concepts-integration-runtime.md
+- name: Instruktionsguider
+  items:
+    - name: Flytta data
+      items:
+        - name: Översikt över kopieringsaktivitet
+          href: copy-activity-overview.md
+        - name: Anslutningar
+          items:
+            - name: Amazon Redshift
+              href: connector-amazon-redshift.md
+            - name: Amazon S3
+              href: connector-amazon-simple-storage-service.md
+            - name: Azure Blob Storage
+              href: connector-azure-blob-storage.md
+            - name: Azure Cosmos DB
+              href: connector-azure-cosmos-db.md
+            - name: Azure Data Lake Store
+              href: connector-azure-data-lake-store.md
+            - name: Azure Search
+              href: connector-azure-search.md
+            - name: Azure SQL-databas
+              href: connector-azure-sql-database.md
+            - name: Azure SQL Data Warehouse
+              href: connector-azure-sql-data-warehouse.md
+            - name: Azure Table Storage
+              href: connector-azure-table-storage.md
+            - name: Cassandra
+              href: connector-cassandra.md
+            - name: DB2
+              href: connector-db2.md
+            - name: Dynamics 365
+              href: connector-dynamics-crm-office-365.md
+            - name: Dynamics CRM
+              href: connector-dynamics-crm-office-365.md
+            - name: Filsystem
+              href: connector-file-system.md
+            - name: FTP
+              href: connector-ftp.md
+            - name: HDFS
+              href: connector-hdfs.md
+            - name: HTTP
+              href: connector-http.md
+            - name: MongoDB
+              href: connector-mongodb.md
+            - name: MySQL
+              href: connector-mysql.md
+            - name: OData
+              href: connector-odata.md
+            - name: ODBC
+              href: connector-odbc.md
+            - name: Oracle
+              href: connector-oracle.md
+            - name: PostgreSQL
+              href: connector-postgresql.md
+            - name: Salesforce
+              href: connector-salesforce.md
+            - name: SAP Business Warehouse
+              href: connector-sap-business-warehouse.md
+            - name: SAP HANA
+              href: connector-sap-hana.md
+            - name: SFTP
+              href: connector-sftp.md
+            - name: SQL Server
+              href: connector-sql-server.md
+            - name: Sybase
+              href: connector-sybase.md
+            - name: Teradata
+              href: connector-teradata.md
+            - name: WebTable
+              href: connector-web-table.md
+        - name: Stöd för format och komprimering
+          href: supported-file-formats-and-compression-codecs.md
+        - name: Schema- och typmappning
+          href: copy-activity-schema-and-type-mapping.md
+        - name: Feltolerans
+          href: copy-activity-fault-tolerance.md
+        - name: Prestanda- och justering
+          href: copy-activity-performance.md
+    - name: Omvandla data
+      href: transform-data.md
+      items:
+        - name: HDInsight Hive-aktivitet
+          href: transform-data-using-hadoop-hive.md
+        - name: HDInsight-piggningsåtgärd
+          href: transform-data-using-hadoop-pig.md
+        - name: HDInsight MapReduce-aktivitet
+          href: transform-data-using-hadoop-map-reduce.md
+        - name: HDInsight-strömningsaktivitet
+          href: transform-data-using-hadoop-streaming.md
+        - name: HDInsight Apache Spark-aktivitet
+          href: transform-data-using-spark.md
+        - name: ML-batchkörningsaktivitet
+          href: transform-data-using-machine-learning.md
+        - name: ML-uppdateringsresursaktivitet
+          href: update-machine-learning-models.md
+        - name: Lagrad proceduraktivitet
+          href: transform-data-using-stored-procedure.md
+        - name: Data Lake U-SQL-aktivitet
+          href: transform-data-using-data-lake-analytics.md
+        - name: Anpassad aktivitet
+          href: transform-data-using-dotnet-custom-activity.md
+        - name: Länkade tjänster för Compute
+          href: compute-linked-services.md
+    - name: Kontrollflöde
+      items:
+        - name: Webbaktivitet
+          href: control-flow-web-activity.md
+        - name: Sökningsaktivitet
+          href: control-flow-lookup-activity.md
+        - name: Hämta metadataaktivitet
+          href: control-flow-get-metadata-activity.md
+        - name: Köra pipelineaktivitet
+          href: control-flow-execute-pipeline-activity.md
+        - name: För varje aktivitet
+          href: control-flow-for-each-activity.md
+        - name: Uttrycksspråk
+          href: control-flow-expression-language-functions.md
+        - name: Systemvariabler
+          href: control-flow-system-variables.md
+    - name: Lagra autentiseringsuppgifter i nyckelvalvet
+      href: store-credentials-in-key-vault.md
+    - name: Övervaka och hantera
+      items:
+        - name: Använda .NET
+          href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
+        - name: Använda Azure Monitor
+          href: monitor-using-azure-monitor.md
+    - name: Skapa integration runtime
+      items:
+        - name: Azure integration runtime
+          href: create-azure-integration-runtime.md
+        - name: Azure SSIS integration runtime
+          href: create-azure-ssis-integration-runtime.md
+        - name: Lokal IR
+          href: create-self-hosted-integration-runtime.md
+- name: Referens
+  items:
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.datafactory
+    - name: PowerShell
+      href: /powershell/module/azurerm.datafactoryv2/
+    - name: REST API
+      href: /rest/api/datafactory
+    - name: Python
+      href: /python/api/overview/azure/datafactory?view=azure-python
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Priser
+      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
+    - name: Begär en funktion
+      href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Supportalternativ
+      href: 'https://azure.microsoft.com/support/options/'

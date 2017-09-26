@@ -12,6 +12,8 @@
   items:
     - name: Övervaka ändringar i virtuella datorer med logiska appar
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: Ändra storlek på överförda bilder
+      href: resize-images-on-storage-blob-upload-event.md
 - name: Koncept
   items:
     - name: Event Grid-begrepp

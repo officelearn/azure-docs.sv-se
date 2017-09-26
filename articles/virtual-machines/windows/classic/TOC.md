@@ -7,7 +7,7 @@
 ## [Behållare](../../virtual-machines-windows-containers.md)
 
 # Kom igång
-## [Skapa en virtuell dator med portalen](tutorial.md)
+## [Skapa en virtuell dator med hjälp av Azure Portal](tutorial.md)
 ## [Logga in på en virtuell dator](connect-logon.md)
 ## [Installera Azure PowerShell](/powershell/azure/overview)
 ## [Installera Azure CLI](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [Ansluta en virtuell hårddisk till felsöknings-VM](troubleshoot-recovery-disks-portal.md)
 
 # Referens
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [NET](/dotnet/api/microsoft.azure.management.compute)

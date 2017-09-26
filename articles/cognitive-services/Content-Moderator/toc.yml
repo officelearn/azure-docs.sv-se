@@ -4,6 +4,30 @@
   items:
     - name: Om Content Moderator
       href: overview.md
+- name: Snabbstarter
+  items:
+    - name: Granskningsverktyg
+      href: quick-start.md
+    - name: 'API:er för moderering'
+      items:
+        - name: API för bildhantering
+          href: try-image-api.md
+        - name: API för bildlista
+          href: try-image-list-api.md
+        - name: API för text
+          href: try-text-api.md
+        - name: API för termlista
+          href: try-terms-list-api.md
+    - name: 'Omdömes-API:er'
+      items:
+        - name: Jobb
+          href: try-review-api-job.md
+        - name: Omdömen
+          href: try-review-api-review.md
+        - name: Arbetsflöden
+          href: try-review-api-workflow.md
+- name: Koncept
+  items:
     - name: Bildmoderering
       href: image-moderation-api.md
     - name: Textmoderering
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: 'Omdömes-API:er'
       href: review-api.md
-- name: Kom igång
+- name: Instruktionsguider
   items:
-    - name: Granskningsverktyget
-      href: quick-start.md
-    - name: 'Prova API:erna för moderering'
-      items:
-        - name: Avbildningar
-          href: try-image-api.md
-        - name: Bildlistor
-          href: try-image-list-api.md
-        - name: Text
-          href: try-text-api.md
-        - name: Termlistor
-          href: try-terms-list-api.md
-    - name: 'Prova omdömes-API:erna'
-      items:
-        - name: Jobb
-          href: try-review-api-job.md
-        - name: Omdömen
-          href: try-review-api-review.md
-        - name: Arbetsflöden
-          href: try-review-api-workflow.md
-- name: Gör så här för att
-  items:
-    - name: Använd granskningsverktyget
+    - name: Granskningsverktyg
       items:
         - name: Human in the loop
           href: Review-Tool-User-Guide/human-in-the-loop.md
@@ -60,6 +62,10 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: Visa instrumentpanel
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Självstudier
+  items:
+    - name: Moderering av Facebook-inlägg
+      href: facebook-post-moderation.md
 - name: API-referenser
   items:
     - name: 'Alla API:er'
@@ -71,6 +77,6 @@
     - name: Windows SDK
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: Exempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: FAQs.md

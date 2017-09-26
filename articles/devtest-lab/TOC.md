@@ -56,8 +56,8 @@
 ## [Skala ditt labb](devtest-lab-scale-lab.md)
 
 # Referens
-## [CLI 2.0](/cli/azure/lab)
-## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [Azure CLI](/cli/azure/lab)
+## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Skapa eller ändra labb automatiskt](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [REST-API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

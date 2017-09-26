@@ -8,6 +8,7 @@
 # Kom igång
 
 ## [Självstudie för nybörjare](sql-data-warehouse-get-started-tutorial.md)
+## [Självstudie för elastisk fråga](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Bästa praxis](sql-data-warehouse-best-practices.md)
 ## [Hantera](sql-data-warehouse-overview-manage.md)
 
@@ -19,8 +20,8 @@
 
 ### [Översikt över Backup](sql-data-warehouse-backups.md)
 ### [Återställa översikt](sql-data-warehouse-restore-database-overview.md)
-#### [Azure-portal](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Anslut
@@ -34,7 +35,7 @@
 
 ## Skapa
 ### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Utveckla
@@ -79,6 +80,8 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Power BI-visualisering](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [Elastisk fråga med SQL Database och SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Läsa in
 

@@ -21,7 +21,7 @@
       > 
    7. Klicka på kryssmarkeringen för att ange att du förstår att den data som lagras på den virtuella enheten kommer att finnas i ett Microsoft-datacenter. När du bara använder en fysisk enhet så sparas krypteringsnyckeln med din enhet. Microsoft kan därmed inte dekryptera den. 
       
-       När du använder en virtuell enhet så lagras både krypteringsnyckeln och dekrypteringsnyckeln i Microsoft Azure. Mer information finns i [Säkerhetsöverväganden vid användning av en virtuell enhet](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+       När du använder en virtuell enhet så lagras både krypteringsnyckeln och dekrypteringsnyckeln i Microsoft Azure. Mer information finns i [Säkerhetsöverväganden vid användning av en virtuell enhet](../articles/storsimple/storsimple-security.md).
    8. Klicka på kryssikonen för att skapa den virtuella enheten. Enheten kan ta runt 30 minuter för att etableras.
       
       ![Skapandefas för virtuell StorSimple-enhet](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)

@@ -18,23 +18,23 @@
 # Gör så här för att
 ## Skapa och ändra en krets
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Azure CLI](howto-circuit-cli.md)
 ## Skapa och ändra peering-konfiguration
 ### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
 ## Länka ett virtuellt nätverk till en ExpressRoute-krets
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
 ## Konfigurera en virtuell nätverksgateway för ExpressRoute
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Konfigurera ExpressRoute-anslutningar och anslutningar för plats-till-plats som kan användas samtidigt](expressroute-howto-coexist-resource-manager.md)
 ## Konfigurera routningsfilter för Microsoft-peering
 ### [Azure Portal](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
 ## [Flytta en krets från klassisk till Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrera associerade virtuella nätverk från klassisk till Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurera en router för ExpressRoute
@@ -53,7 +53,7 @@
 ### [Hämta ARP-tabeller (klassisk)](expressroute-troubleshooting-arp-classic.md)
 
 # Referens
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Azure CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassisk)](https://msdn.microsoft.com/library/azure/dn606310)

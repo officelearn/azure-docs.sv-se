@@ -5,6 +5,8 @@
 ## [Kapslade Traffic Manager-profiler](traffic-manager-nested-profiles.md)
 ## [Slutpunktstyper](traffic-manager-endpoint-types.md)
 ## [Slutpunktsövervakning](traffic-manager-monitoring.md)
+## [Mätning av faktisk användning](traffic-manager-rum-overview.md)
+## [Traffic View](traffic-manager-traffic-view-overview.md)
 ## [Vanliga frågor och svar](traffic-manager-FAQs.md)
 
 # Kom igång
@@ -16,19 +18,22 @@
 ## [Konfigurera prioriterad routningsmetod](traffic-manager-configure-priority-routing-method.md)
 ## [Konfigurera viktad routningsmetod](traffic-manager-configure-weighted-routing-method.md)
 ## [Konfigurera routningsmetod för prestanda](traffic-manager-configure-performance-routing-method.md)
+## Skicka mätning av faktisk användning till Traffic Manager 
+### [Använda SDK för Visual Studio](traffic-manager-create-rum-visual-studio.md)
+### [Använda webbsidor](traffic-manager-create-rum-web-pages.md)
 ## [Hantera slutpunkter](traffic-manager-manage-endpoints.md)
 ## [Hantera profiler](traffic-manager-manage-profiles.md)
 ## [Verifiera Traffic Manager-inställningar](traffic-manager-testing-settings.md)
 ## [Kombinera tjänster för belastningsutjämning](traffic-manager-load-balancing-azure.md)
 ## [Mät Traffic Manager-prestanda](traffic-manager-performance-considerations.md)
-## [Hantera Traffic Manager med hjälp av PowerShell](traffic-manager-powershell-arm.md)
+## [Hantera Traffic Manager med hjälp av Azure PowerShell](traffic-manager-powershell-arm.md)
 ## [Peka din Internetdomän till Traffic Manager](traffic-manager-point-internet-domain.md)
 ## Felsöka
 ### [Felsök degraderat tillstånd på Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
-## [PowerShell](/powershell/module/azurerm.trafficmanager)
+## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

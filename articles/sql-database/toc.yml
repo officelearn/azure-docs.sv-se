@@ -11,7 +11,7 @@
       href: sql-database-get-started-portal.md
     - name: Skapa DB – Azure CLI
       href: sql-database-get-started-cli.md
-    - name: Skapa DB – PowerShell
+    - name: Skapa DB – Azure PowerShell
       href: sql-database-get-started-powershell.md
     - name: Ansluta och fråga
       items:
@@ -51,7 +51,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: Azure CLI
       href: sql-database-cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: sql-database-powershell-samples.md
 - name: Koncept
   items:
@@ -71,6 +71,8 @@
           href: sql-database-connectivity-architecture.md
         - name: Brandväggsregler
           href: sql-database-firewall-configure.md
+        - name: Brandväggsregler för virtuellt nätverk
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: 'DTU:er och eDTU:er'
           href: sql-database-what-is-a-dtu.md
         - name: DTU-benchmark
@@ -95,6 +97,8 @@
           href: sql-database-elastic-transactions-overview.md
         - name: Elastiska jobb
           href: sql-database-elastic-jobs-overview.md
+        - name: Sårbarhetsbedömning för SQL
+          href: sql-vulnerability-assessment.md
         - name: Vanliga funktioner i SQL Server
           href: sql-database-features.md
     - name: Säkerhet
@@ -155,6 +159,10 @@
           href: sql-database-advisor.md
         - name: Automatisk inställning
           href: sql-database-automatic-tuning.md
+        - name: Intelligent Insights
+          href: sql-database-intelligent-insights.md
+        - name: Diagnostiklogg för Intelligence Insights
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: Manuell inställning
           href: sql-database-performance-guidance.md
         - name: Använd Query Store
@@ -229,7 +237,7 @@
           href: sql-database-elastic-jobs-service-installation.md
         - name: Skapa jobb – Portal
           href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Skapa jobb – PowerShell
+        - name: Skapa jobb – Azure PowerShell
           href: sql-database-elastic-jobs-powershell.md
         - name: Skapa jobb – Exempelapp
           href: sql-database-elastic-jobs-getting-started.md
@@ -255,12 +263,14 @@
           href: sql-database-dynamic-data-masking-get-started-portal.md
         - name: Konfigurera multifaktorautentisering
           href: sql-database-ssms-mfa-authentication-configure.md
+        - name: Regler för Virtual Network av PowerShell
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Verksamhetskontinuitet
       items:
         - name: Läs in data med BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Läs in data med ADF
-          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
         - name: Synkronisera data
           href: sql-database-get-started-sql-data-sync.md
     - name: Övervaka och finjustera
@@ -273,6 +283,8 @@
           href: sql-database-advisor-portal.md
         - name: Aktivera automatisk inställning
           href: sql-database-automatic-tuning-enable.md
+        - name: Prestandafelsökning för Intelligent Insights
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: 'Använda DMV:er för att övervaka prestanda'
           href: sql-database-monitoring-with-dmvs.md
         - name: Skapa aviseringar
@@ -335,7 +347,7 @@
           href: sql-database-connect-excel.md
 - name: Referens
   items:
-    - name: PowerShell
+    - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell (Elastic Database)
       href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'

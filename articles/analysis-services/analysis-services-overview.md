@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8b3a538fc0fe34d0b7af8a99510cfb19abd32d55
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
@@ -39,7 +39,7 @@ Azure Analysis Services är kompatibelt med många fantastiska funktioner som re
 Tabellmodeller ger snabb utveckling och är mycket anpassningsbara. För utvecklare innehåller tabellmodeller en TOM (Tabular Object Model) som används för att beskriva modellobjekt. TOM exponeras i JSON via [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) och datadefinitionsspråket AMO via namnområdet [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx).
 
 ## <a name="better-with-azure"></a>Bättre med Azure
-Azure Analysis Services integreras med många Azure-tjänster vilket gör att du kan skapa lösningar för avancerade analyser. Integreringen med [Azure Active Directory](../active-directory/active-directory-whatis.md) ger dig säker, rollbaserad åtkomst till dina viktiga data. Integrera i en [Azure Data Factory](../data-factory/data-factory-introduction.md)-pipeline genom att omfatta en aktivitet som läser in data i modellen. [Azure Automation](../automation/automation-intro.md) och [Azure Functions](../azure-functions/functions-overview.md) kan användas för att utföra enkel orkestrering av modeller med anpassad kod.
+Azure Analysis Services integreras med många Azure-tjänster vilket gör att du kan skapa lösningar för avancerade analyser. Integreringen med [Azure Active Directory](../active-directory/active-directory-whatis.md) ger dig säker, rollbaserad åtkomst till dina viktiga data. Integrera i en [Azure Data Factory](../data-factory/introduction.md)-pipeline genom att omfatta en aktivitet som läser in data i modellen. [Azure Automation](../automation/automation-intro.md) och [Azure Functions](../azure-functions/functions-overview.md) kan användas för att utföra enkel orkestrering av modeller med anpassad kod.
 
 ## <a name="get-up-and-running-quickly"></a>Kom igång snabbt
 På Azure Portal kan du [skapa en server](analysis-services-create-server.md) på några minuter. Och du kan etablera servrar med hjälp av en deklarativ mall med Azure Resource Manager-[mallar](../azure-resource-manager/resource-manager-create-first-template.md) och PowerShell. Du kan distribuera flera tjänster tillsammans med andra Azure-komponenter, till exempel lagringskonton och Azure Functions, med en enda mall. 

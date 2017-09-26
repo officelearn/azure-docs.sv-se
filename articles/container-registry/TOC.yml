@@ -1,0 +1,51 @@
+- name: Azure Container Registry
+  href: ./index.yml
+- name: Översikt
+  items:
+    - name: Om Container Registry
+      href: container-registry-intro.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Container Registry – CLI
+      href: container-registry-get-started-azure-cli.md
+    - name: Container Registry – Portal
+      href: container-registry-get-started-portal.md
+    - name: Container Registry – PowerShell
+      href: container-registry-get-started-powershell.md
+- name: Självstudier
+  items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Service
+      href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
+- name: Instruktionsguider
+  items:
+    - name: Skicka/hämta en avbildning
+      href: container-registry-get-started-docker-cli.md
+    - name: Visa lagringsplatser
+      href: container-registry-repositories.md
+    - name: Skapa ett huvudnamn för tjänsten
+      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
+    - name: Autentisera med ett register
+      href: container-registry-authentication.md
+    - name: Använda ACR-webhooks
+      href: ./container-registry-webhook.md
+- name: Referens
+  items:
+    - name: Azure CLI
+      href: /cli/azure/acr
+    - name: REST
+      href: /rest/api/containerregistry
+    - name: PowerShell
+      href: /powershell/module/azurerm.containerregistry
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'

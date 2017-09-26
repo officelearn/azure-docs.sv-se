@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Cost Management-dokumentation
+metadata:
+  title: 'Dokumentation om Cost Management – Självstudier, API-referens | Microsoft Docs'
+  description: 'Azure Cost Management från Cloudyn är en kostnadshanteringslösning med flera moln som hjälper dig att bättre använda Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier.'
+  services: cost-management
+  author: czeumault
+  manager: carolz
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 'Azure Cost Management från Cloudyn är en kostnadshanteringslösning med flera moln som hjälper dig att bättre utnyttja och hantera Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier.'
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: Läs om hur du registrerar ditt Azure-avtal eller din prenumerationsinformation med Cost Management och börja visa kostnadsdata.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Visa kostnadsdata
+            href: quick-register-azure-sub
+  - title: Stegvisa självstudier
+    items:
+      - type: paragraph
+        text: 'Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med Cost Management.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-review-usage">Granska användning och kostnader för att identifiera avvikelser och effektivitet</a>
+          - html: <a href="tutorial-user-access">Tilldela åtkomst till Cost Management-data</a>

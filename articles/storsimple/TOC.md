@@ -36,6 +36,7 @@
 #### [Hantera jobb](storsimple-virtual-array-manage-jobs.md)
 #### [Ändra enhetens lösenord](storsimple-virtual-array-change-device-admin-password.md)
 #### [Konfigurera MPIO på Windows Server-värden](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Övervaka med aviseringar](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnostisera och felsöka](storsimple-virtual-array-diagnose-problems.md)
 #### [Logga supportbegäran](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [Vad är lösningen?](storsimple-overview.md)
 ### [StorSimple-inlärningskarta](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Säkerhetsöverväganden](storsimple-8000-security.md)
+### [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Kom igång
 

@@ -1,8 +1,10 @@
 # Översikt
 ## [Vad är belastningsutjämnare?](load-balancer-overview.md)
+## [Vad är Load Balancer Standard?](load-balancer-standard-overview.md)
 ## [Internet-belastningsutjämnare](load-balancer-internet-overview.md)
 ## [Intern belastningsutjämnare](load-balancer-internal-overview.md)
 ## [Förstå avsökningar av belastningsutjämnare](load-balancer-custom-probe-overview.md)
+## [Förstå portar för hög tillgänglighet](load-balancer-ha-ports-overview.md)
 ## [Stöd för Azure Resource Manager](load-balancer-arm.md)
 ## [IPv6-stöd](load-balancer-ipv6-overview.md)
 ## [Flera VIP](load-balancer-multivip-overview.md)
@@ -33,6 +35,10 @@
 ### [Skapa en belastningsutjämnare mot Internet med IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Skapa en belastningsutjämnare mot Internet med IPv6 (mall)](load-balancer-ipv6-internet-template.md)
 
+## [Skapa zonredundant offentlig Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)
+### [Skapa zonredundant offentlig Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Skapa zonredundant offentlig Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)
+
 # Gör så här för att
 ## [Konfigurera TCP-tidsgräns vid inaktivitet för belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
 ## [Konfigurera distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
@@ -44,14 +50,18 @@
 ### [Använda flera IP-konfigurationer (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Logganalys för Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Konfigurera DHCPv6 för virtuella Linux-datorer](load-balancer-ipv6-for-linux.md)
+## [Konfigurera portar med hög tillgänglighet för intern Azure Load Balancer](load-balancer-configure-ha-ports.md)
+## [Skapa en offentlig IP-adress i en tillgänglighetszon](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [Skapa en offentlig IP-adress i en tillgänglighetszon (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [Skapa en offentlig IP-adress i en tillgänglighetszon (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## Felsöka
 ### [Felsök Azure Load Balancer](load-balancer-troubleshoot.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
-## [PowerShell](/powershell/module/azurerm.network)
-## [Azure CLI 2.0](/cli/azure/network/lb)
-## [NET](/dotnet/api/microsoft.azure.management.network.models)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [Azure Azure CLI](/cli/azure/network/lb)
+## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)

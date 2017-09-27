@@ -32,6 +32,7 @@
 ##### [Konfigurera Intel NUC som en gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 ##### [Ansluta gatewayen till IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
 ##### [Använda gatewayen för datakonvertering](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
+##### [Felsökning](iot-hub-gateway-kit-c-troubleshooting.md)
 
 ## Utökade IoT-scenarier
 ### [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,7 +83,9 @@
 #### [NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
-### [Ladda upp filer från enheter](iot-hub-csharp-csharp-file-upload.md)
+### [Ladda upp filer från enheter]
+#### [.NET](iot-hub-csharp-csharp-file-upload.md)
+#### [Java](iot-hub-java-java-file-upload.md)
 ### Kom igång med enhetstvillingar
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-getstarted.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-getstarted.md)
@@ -96,31 +99,34 @@
 ### Komma igång med enhetshantering
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-device-management-get-started.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-device-management-get-started.md)
+#### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java-serverdel/Java-enhet](iot-hub-java-java-device-management-getstarted.md)
 ### Så här använder du tvillingegenskaper
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Java-serverdel/Java-enhet](iot-hub-java-java-twin-how-to-configure.md)
 ### Använda enhetsjobb för att uppdatera enhetens inbyggda programvara
 #### [Node-serverdel/Node-enhet](iot-hub-node-node-firmware-update.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-firmware-update.md)
+#### [Java-serverdel/Java-enhet](iot-hub-java-java-firmware-update.md)
 ### Schemalägga och sända jobb
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-schedule-jobs.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## Hantera
 ### Skapa en IoT Hub 
-#### [Använda portalen](iot-hub-create-through-portal.md)
-#### [Använda PowerShell](iot-hub-create-using-powershell.md)
-#### [Använda CLI 2.0](iot-hub-create-using-cli.md)
+#### [Använda Azure Portal](iot-hub-create-through-portal.md)
+#### [Använda Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [Använda Azure CLI](iot-hub-create-using-cli.md)
 #### [Använda CLI](iot-hub-create-using-cli-nodejs.md)
 #### [Använda REST-API](iot-hub-rm-rest.md)
-#### [Använda en mall från PowerShell](iot-hub-rm-template-powershell.md)
+#### [Använda en mall från Azure PowerShell](iot-hub-rm-template-powershell.md)
 #### [Använda en mall från .NET](iot-hub-rm-template.md)
 ### Konfigurera filuppladdning
-#### [Använda portalen](iot-hub-configure-file-upload.md)
-#### [Använda PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [Använda CLI 2.0](iot-hub-configure-file-upload-cli.md)
+#### [Använda Azure Portal](iot-hub-configure-file-upload.md)
+#### [Använda Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [Använda Azure CLI](iot-hub-configure-file-upload-cli.md)
 ### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
 ### [Användningsstatistik](iot-hub-metrics.md)
 ### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)

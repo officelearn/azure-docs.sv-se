@@ -69,6 +69,8 @@
           href: container-service-deploy-spring-boot-app-on-linux.md
         - name: Distribuera ett Spring Boot-program på ett Kubernetes-kluster i Azure Container Service
           href: container-service-deploy-spring-boot-app-on-kubernetes.md
+        - name: Distribuera en Spring Boot-app med fabric8 Maven-pluginprogrammet
+          href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Referens
   items:
     - name: Azure CLI 2.0

@@ -5,7 +5,7 @@
 ## [Vanliga frågor och svar](faq.md)
 
 # Kom igång
-## [Skapa en virtuell Linux-dator med portalen](createportal.md)
+## [Skapa en virtuell Linux-dator med Azure Portal](createportal.md)
 ## [Installera Azure CLI](../../../cli-install-nodejs.md)
 ## [Skapa SSH-nycklar](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [Återställ lösenord eller nycklar för Linux, korrigera SSH och kontrollera diskar](reset-access.md)
 ### [Underhåll](planned-maintenance-schedule.md)
 ### [Skapa en Docker-värd med CLI](cli-use-docker.md)
-### [Skapa en Docker-värd med portalen](portal-use-docker.md)
+### [Skapa en Docker-värd med Azure Portal](portal-use-docker.md)
 ### [Så här använder du Docker med Swarm](../../virtual-machines-linux-docker-swarm.md)
 
 ## Använda Storage
@@ -67,7 +67,7 @@
 ### [Ansluta en virtuell hårddisk till felsöknings-VM](troubleshoot-recovery-disks-portal.md)
 
 # Referens
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Skapa Resource Manager-mallar](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

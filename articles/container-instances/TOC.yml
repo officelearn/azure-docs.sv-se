@@ -7,8 +7,12 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en behållarinstans
+    - name: Skapa behållare – CLI
       href: container-instances-quickstart.md
+    - name: Skapa behållare – Portal
+      href: container-instances-quickstart-portal.md
+    - name: Skapa behållare – PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: Självstudier
   items:
     - name: Skapa och distribuera en behållare
@@ -39,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: Referens
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

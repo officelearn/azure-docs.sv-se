@@ -12,7 +12,7 @@
 
 # Exempel
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## PowerShell
+## Azure PowerShell
 ### [Distribuera mall](resource-manager-samples-powershell-deploy.md)
 
 ## Azure CLI
@@ -35,7 +35,7 @@
 
 
 ## Distribuera
-### PowerShell
+### Azure PowerShell
 #### [Distribuera mall](resource-group-template-deploy.md)
 #### [Distribuera privat mall med SAS-token](resource-manager-powershell-sas-token.md)
 #### [Exportera mall och distribuera om](resource-manager-export-template-powershell.md)
@@ -43,7 +43,7 @@
 #### [Distribuera mall](resource-group-template-deploy-cli.md)
 #### [Distribuera privat mall med SAS-token](resource-manager-cli-sas-token.md)
 #### [Exportera mall och distribuera om](resource-manager-export-template-cli.md)
-### Portalen
+### Azure Portal
 #### [Distribuera resurser](resource-group-template-deploy-portal.md)
 #### [Exportera mall](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
@@ -52,26 +52,26 @@
 ### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)
 
 ## Hantera
-### [PowerShell](powershell-azure-resource-manager.md)
+### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Portal](resource-group-portal.md)
-### [REST-API](resource-manager-rest-api.md)
+### [Azure Portal](resource-group-portal.md)
+### [REST API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
 ### [Styrningsexempel](resource-manager-subscription-examples.md)
 
 ## Styr åtkomsten
 ### Skapa tjänstens huvudnamn
-#### [PowerShell](resource-group-authenticate-service-principal.md)
-#### [Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [Azure PowerShell](resource-group-authenticate-service-principal.md)
+#### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
-#### [Portal](resource-group-create-service-principal-portal.md)
+#### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Autentiserings-API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md)
 ### [Lås resurser](resource-group-lock-resources.md)
 
 ## Ange resursprinciper
 ### [Vad är resursprinciper?](resource-manager-policy.md)
-### [Tilldela en princip med hjälp av portalen](resource-manager-policy-portal.md)
+### [Tilldela en princip med hjälp av Azure Portal](resource-manager-policy-portal.md)
 ### [Tilldela en princip med hjälp av skript](resource-manager-policy-create-assign.md)
 ### Exempel
 #### [Taggar](resource-manager-policy-tags.md)
@@ -95,10 +95,24 @@
 ## Felsöka
 ### [Vanliga distributionsfel](resource-manager-common-deployment-errors.md)
 ### [Förstå vanliga distributionsfel](resource-manager-troubleshoot-tips.md)
-### [Fel med RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Åtgärda fel
+#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+#### [NotFound](resource-manager-not-found-errors.md)
+#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Distributionsfel för virtuell dator
-#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+#### Linux
+##### [Distributionsproblem](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+##### [Problem med etablering och tilldelning](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+##### [Vanliga felmeddelanden](../virtual-machines/linux/error-messages.md)
+#### Windows
+##### [Distributionsproblem](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+##### [Problem med etablering och tilldelning](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+##### [Vanliga felmeddelanden](../virtual-machines/windows/error-messages.md)
 
 # Referens
 ## [Mallformat](/azure/templates/)

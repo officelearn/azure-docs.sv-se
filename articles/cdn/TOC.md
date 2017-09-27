@@ -19,7 +19,7 @@
 ####[Acceleration av dynamisk webbplats](cdn-dynamic-site-acceleration.md)
  
 ## Hantera
-### [Hantera med PowerShell](cdn-manage-powershell.md)
+### [Hantera med Azure PowerShell](cdn-manage-powershell.md)
 ### Konfigurera livslängd
 #### [Web Apps/Cloud Services, ASP.NET eller IIS-innehåll](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Storage Blob Service-innehåll](cdn-manage-expiration-of-blob-content.md)
@@ -53,7 +53,7 @@
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

@@ -1,0 +1,234 @@
+- name: Dokumentation om Team Data Science Process
+- name: Översikt
+  href: overview.md
+- name: Livscykel
+  href: lifecycle.md
+  items:
+    - name: 1. Förståelse för verksamheten
+      href: lifecycle-business-understanding.md
+    - name: 2. Förvärv och förståelse av data
+      href: lifecycle-data.md
+    - name: 3. Modellering
+      href: lifecycle-modeling.md
+    - name: 4. Distribution
+      href: lifecycle-deployment.md
+    - name: 5. Kundgodkännande
+      href: lifecycle-acceptance.md
+    - name: Med Azure ML
+      href: 'http://aka.ms/datascienceprocess'
+- name: Roller och uppgifter
+  href: roles-tasks.md
+  items:
+    - name: Gruppansvarig
+      href: group-manager-tasks.md
+    - name: Gruppledare
+      href: team-lead-tasks.md
+    - name: Projektledare
+      href: project-lead-tasks.md
+    - name: Enskild deltagare
+      href: project-ic-tasks.md
+- name: Projektstruktur
+  href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
+- name: Projektkörning
+  href: project-execution.md
+- name: Självstudier
+  href: walkthroughs.md
+  items:
+    - name: Azure Machine Learning Workbench
+      href: walkthroughs-aml-with-tdsp.md
+      items:
+        - name: Amerikansk intäktsklassificering
+          href: ../preview/scenario-tdsp-classifying-us-incomes.md
+          maintainContext: true
+        - name: Biomedicinsk enhetsidentifiering
+          href: ../preview/scenario-tdsp-biomedical-recognition.md
+          maintainContext: true
+    - name: Spark med PySpark och Scala
+      href: walkthroughs-spark.md
+      items:
+        - name: Utforska data
+          href: spark-data-exploration-modeling.md
+        - name: Poängmodeller
+          href: spark-model-consumption.md
+        - name: Avancerad datagranskning
+          href: spark-advanced-data-exploration-modeling.md
+    - name: Hive med HDInsight Hadoop
+      href: walkthroughs-hdinsight-hadoop.md
+    - name: U-SQL med Azure Data Lake
+      href: walkthroughs-azure-data-lake.md
+    - name: 'R, Python och T-SQL med SQL Server'
+      href: walkthroughs-sql-server.md
+    - name: T-SQL och Python med SQL DW
+      href: walkthroughs-sql-data-warehouse.md
+- name: Gör så här för att
+  items:
+    - name: Använda TDSP i Azure ML
+      href: ../preview/how-to-use-tdsp-in-azure-ml.md
+      maintainContext: true
+    - name: Konfigurera datavetenskapsmiljöer
+      href: environment-setup.md
+      items:
+        - name: Azure-lagringskonton
+          href: ../../storage/common/storage-create-storage-account.md
+          maintainContext: true
+        - name: Plattformar och verktyg
+          href: platforms-and-tools.md
+        - name: Anpassa Hadoop
+          href: customize-hadoop-cluster.md
+        - name: Azure Machine Learning-arbetsyta
+          href: ../studio/create-workspace.md
+          maintainContext: true
+        - name: Konfigurera virtuella datorer
+          href: virtual-machines.md
+    - name: Analysera verksamhetsbehov
+      items:
+        - name: Identifiera ditt scenario
+          href: plan-your-environment.md
+    - name: Skaffa och förstå data
+      items:
+        - name: Hantera datalogistik
+          items:
+            - name: Översikt
+              href: ingest-data.md
+            - name: Blob Storage
+              href: move-azure-blob.md
+            - name: Använda Storage Explorer
+              href: move-data-to-azure-blob-using-azure-storage-explorer.md
+            - name: Använda AzCopy
+              href: move-data-to-azure-blob-using-azcopy.md
+            - name: Använda Python
+              href: move-data-to-azure-blob-using-python.md
+            - name: Använda SSIS
+              href: move-data-to-azure-blob-using-ssis.md
+            - name: Flytta till en virtuell dator
+              href: move-sql-server-virtual-machine.md
+            - name: Flytta till SQL Database
+              href: move-sql-azure.md
+            - name: Läsa in till Hive-tabeller
+              href: move-hive-tables.md
+            - name: Läsa in från en lokal SQL
+              href: move-sql-azure-adf.md
+            - name: Läsa in från SQL-partitionstabeller
+              href: parallel-load-sql-partitioned-tables.md
+        - name: Utforska och visualisera data
+          items:
+            - name: Förbereda data
+              href: prepare-data.md
+            - name: Utforska data
+              items:
+                - name: Översikt
+                  href: explore-data.md
+                - name: Använda Pandas
+                  href: explore-data-blob.md
+                - name: Använda SQL VM
+                  href: explore-data-sql-server.md
+                - name: Använda Hive-tabeller
+                  href: explore-data-hive-tables.md
+            - name: Exempeldata
+              items:
+                - name: Översikt
+                  href: sample-data.md
+                - name: Använda Blob Storage
+                  href: sample-data-blob.md
+                - name: Använda SQL Server
+                  href: sample-data-sql-server.md
+                - name: Använda Hive-tabeller
+                  href: sample-data-hive.md
+            - name: Bearbeta data
+              items:
+                - name: Åtkomst med Python
+                  href: python-data-access.md
+                - name: Bearbeta blobdata
+                  href: data-blob.md
+                - name: Använda Azure Data Lake
+                  href: data-lake-walkthrough.md
+                - name: Använda SQL VM
+                  href: sql-server-virtual-machine.md
+                - name: Använda datapipeline
+                  href: automated-data-pipeline-cheat-sheet.md
+                - name: Använda Spark
+                  href: spark-overview.md
+                - name: Använda Scala och Spark
+                  href: scala-walkthrough.md
+    - name: Utveckla modeller
+      items:
+        - name: Funktioner för tekniker
+          items:
+            - name: Översikt
+              href: create-features.md
+            - name: Använda Pandas
+              href: create-features-blob.md
+            - name: Använda SQL + Python
+              href: create-features-sql-server.md
+            - name: Använda Hive-frågor
+              href: create-features-hive.md
+        - name: Välja funktioner
+          href: select-features.md
+        - name: Skapa och träna modeller
+          items:
+            - name: Välja algoritmer
+              href: ../studio/algorithm-choice.md
+              maintainContext: true
+            - name: Algoritmfacit
+              href: ../studio/algorithm-cheat-sheet.md
+              maintainContext: true
+    - name: Distribuera modeller
+      items:
+        - name: Med en webbtjänst
+          href: ../studio/publish-a-machine-learning-web-service.md
+          maintainContext: true
+        - name: Använda en webbtjänst
+          href: ../studio/consume-web-services.md
+          maintainContext: true
+- name: Relaterat
+  items:
+    - name: Microsoft Cognitive Toolkit – CNTK
+      href: 'https://docs.microsoft.com/en-us/cognitive-toolkit/'
+      maintainContext: true
+    - name: Cortana Intelligence-partnerlösningar
+      items:
+        - name: Cortana Intelligence-galleri
+          href: 'https://gallery.cortanaintelligence.com'
+        - name: Publiceringsguide för Cortana Intelligence
+          href: cortana-intelligence-appsource-publishing-guide.md
+        - name: Utvärderingsverktyg för Cortana Intelligence-lösningar
+          href: cortana-intelligence-appsource-evaluation-tool.md
+    - name: Cortana Analytics
+      items:
+        - name: 'API:er'
+          items:
+            - name: Avvikelseidentifiering
+              href: apps-anomaly-detection-api.md
+            - name: Cognitive Services
+              href: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
+            - name: Förebyggande underhåll
+              items:
+                - name: Översikt
+                  href: cortana-analytics-playbook-predictive-maintenance.md
+                - name: Arkitektur
+                  href: cortana-analytics-architecture-predictive-maintenance.md
+                - name: Teknisk guide
+                  href: cortana-analytics-technical-guide-predictive-maintenance.md
+            - name: Fordonstelemetri
+              items:
+                - name: Översikt
+                  href: cortana-analytics-playbook-vehicle-telemetry.md
+                - name: Playbook
+                  href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
+                - name: Konfiguration
+                  href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
+- name: Resurser
+  items:
+    - name: TDS-verktyg och hjälpmedel – GitHub
+      href: 'https://github.com/Azure/Azure-TDSP-Utilities'
+      items:
+        - name: Senaste verktygen för Team Data Science Process
+          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/'
+    - name: Blogg för Cortana Intelligence och Machine Learning
+      href: 'https://blogs.technet.microsoft.com/machinelearning/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'

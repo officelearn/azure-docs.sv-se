@@ -25,9 +25,9 @@
 ### [Åtkomst bakom brandväggar](key-vault-access-behind-firewall.md)
 ### [Tillgänglighet och redundans](key-vault-disaster-recovery-guidance.md)
 ### [Ändra klientorganisations-ID](key-vault-subscription-move-fix.md)
-### [Skapa och hantera med CLI 2.0](key-vault-manage-with-cli2.md)
+### [Skapa och hantera med Azure CLI](key-vault-manage-with-cli2.md)
 ### [Så här använder du Key Vault mjuk borttagning med CLI](key-vault-soft-delete-cli.md)
-### [Så här använder du Key Vault mjuk borttagning med PowerShell](key-vault-soft-delete-powershell.md)
+### [Så här använder du Key Vault mjuk borttagning med Azure PowerShell](key-vault-soft-delete-powershell.md)
 ### [Använd grupper för att bevilja åtkomst](key-vault-group-permissions-for-apps.md)
 ### [Säkra ditt nyckelvalv](key-vault-secure-your-key-vault.md)
 
@@ -36,9 +36,9 @@
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
-## [PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure CLI 2](/cli/azure/keyvault)
-## [.NET](/dotnet/api/microsoft.azure.keyvault)
+## [Azure PowerShell](/powershell/module/azurerm.keyvault)
+## [Azure CLI](/cli/azure/keyvault)
+## [NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js
 ### [Hantering av valv](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)

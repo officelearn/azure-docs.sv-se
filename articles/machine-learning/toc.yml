@@ -1,0 +1,8 @@
+- name: Funktioner i förhandsversionen av Machine Learning
+  href: preview/index.yml
+- name: Machine Learning Studio
+  href: studio/index.md
+- name: Datavetenskap – virtuella datorer
+  href: data-science-virtual-machine/overview.md
+- name: TDSP (Team Data Science Process)
+  href: team-data-science-process/overview.md

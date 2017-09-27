@@ -11,7 +11,7 @@
       href: quick-create-cli.md
     - name: Skapa VM – Portal
       href: quick-create-portal.md
-    - name: Skapa VM – PowerShell
+    - name: Skapa VM – Azure PowerShell
       href: quick-create-powershell.md
 - name: Självstudier
   items:
@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 – Säkerhetskopiera virtuella datorer
       href: tutorial-backup-vms.md
-    - name: 10 – Övervaka virtuella datorer
+    - name: 10 – Övervaka och uppdatera virtuella datorer
       href: tutorial-monitoring.md
     - name: 11 – Hantera säkerhet för virtuella datorer
       href: tutorial-azure-security.md
@@ -53,7 +53,7 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: powershell-samples.md
 - name: Koncept
   items:
@@ -187,6 +187,8 @@
           href: manage-availability.md
         - name: Lodrätt skalning
           href: vertical-scaling-automation.md
+        - name: Skapa virtuell dator i tillgänglighetszon
+          href: create-cli-availability-zone.md
     - name: Använda automatiseringsverktyg
       items:
         - name: Ansible

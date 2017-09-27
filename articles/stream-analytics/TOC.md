@@ -27,7 +27,7 @@
 ### [Skapa utdata](stream-analytics-define-outputs.md)
 ### [Utdata till Azure Functions](stream-analytics-functions-redis.md)
 ### [Utdata till Data Lake Store](stream-analytics-data-lake-output.md)
-### [Utdata till DocumentDB](stream-analytics-documentdb-output.md)
+### [Utdata till Cosmos DB](stream-analytics-documentdb-output.md)
 
 ## Övervaka och optimera
 ### [Lägg till aviseringar](stream-analytics-set-up-alerts.md)
@@ -54,11 +54,11 @@
 ## Automatisera
 ### [Verktyg för Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Använd Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
-### [PowerShell med ett klick](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+### [Azure PowerShell med ett klick](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
-## [PowerShell](/powershell/module/azurerm.streamanalytics)
+## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Frågespråk](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)

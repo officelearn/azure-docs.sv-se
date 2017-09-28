@@ -17,15 +17,15 @@ ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 52113e1240b81299ae3338f35b2934891017adbf
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 2944021cbaf777137512f4bfe0eb4cf5e6f996dc
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Översikt över virtuella Windows-datorer i Azure
 
-Virtuella Azure-datorer (Virtual Machines, VM) är en av flera typer av [behovsbaserade och skalbara datorresurser](../../app-service-web/choose-web-site-cloud-service-vm.md) som Azure erbjuder. Normalt använder du en virtuell dator om du behöver mer kontroll över datormiljön än vad de andra alternativen erbjuder. Den här artikeln innehåller information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
+Virtuella Azure-datorer (Virtual Machines, VM) är en av flera typer av [behovsbaserade och skalbara datorresurser](../../app-service/choose-web-site-cloud-service-vm.md) som Azure erbjuder. Normalt använder du en virtuell dator om du behöver mer kontroll över datormiljön än vad de andra alternativen erbjuder. Den här artikeln innehåller information om vad du bör tänka på innan du skapar en virtuell dator, hur du skapar den och hur du hanterar den.
 
 En virtuell dator i Azure ger dig virtualiseringsflexibilitet utan att du behöver köpa och underhålla den fysiska maskinvara som den virtuella datorn körs på. Du behöver dock fortfarande underhålla den virtuella datorn genom att utföra uppgifter, som att konfigurera, korrigera och underhålla programvaran som körs på den virtuella datorn.
 
@@ -38,7 +38,7 @@ Virtuella datorer i Azure kan användas på olika sätt. Några exempel är:
 Antalet virtuella datorer som programmet använder kan skalas upp och ned beroende på vilka behov du har.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Vad behöver jag tänka på innan jag skapar en virtuell dator?
-Det finns alltid en rad [överväganden vid utformning](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) när du utökar en programinfrastruktur i Azure. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar:
+Det finns alltid en rad [överväganden vid utformning](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) när du utökar en programinfrastruktur i Azure. Följande aspekter av en virtuell dator är viktiga att tänka på innan du börjar:
 
 * Programresursernas namn
 * Lagringsplatsen för resurserna
@@ -49,7 +49,7 @@ Det finns alltid en rad [överväganden vid utformning](/architecture/reference-
 * Relaterade resurser som krävs för den virtuella datorn
 
 ### <a name="naming"></a>Namngivning
-En virtuell dator har ett tilldelat [namn](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
+En virtuell dator har ett tilldelat [namn](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
 
 Om du använder Azure för att skapa operativsystemsdisken är datornamnet och namnet på den virtuella datorn detsamma. Om du [laddar upp och använder en egen avbildning](upload-generalized-managed.md) som innehåller ett tidigare konfigurerat operativsystem, och du använder den för att skapa en virtuell dator, kan namnen bli olika. Vi rekommenderar att du ger datorn samma namn i operativsystemet som i den virtuella datorn när du laddar upp en egen avbildningsfil.
 

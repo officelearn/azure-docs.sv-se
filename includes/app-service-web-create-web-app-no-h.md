@@ -1,4 +1,4 @@
-Skapa en [webbapp](../articles/app-service-web/app-service-web-overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#create). 
+I Cloud Shell skapar du en [webbapp](../articles/app-service/app-service-web-overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#create). 
 
 Webbappen ger dig ett lagringsutrymme för din kod och du får en URL så att du kan visa den distribuerade appen.
 

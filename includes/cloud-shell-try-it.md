@@ -5,7 +5,7 @@ Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-Knappen startar ett interaktivt gränssnitt som du kan använda för att köra alla steg i det här avsnittet:
+Knappen startar ett interaktivt gränssnitt som du kan använda för att köra stegen i det här avsnittet:
 
 [![Skärmbild som visar fönstret Cloud Shell i portalen](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 

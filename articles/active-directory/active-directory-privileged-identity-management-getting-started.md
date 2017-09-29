@@ -3,8 +3,8 @@ title: "Komma igång med Azure AD Privileged Identity Management | Microsoft Doc
 description: "Lär dig hur du hanterar privilegierade identiteter med programmet Azure Active Directory Privileged Identity Management på Azure-portalen."
 services: active-directory
 documentationcenter: 
-author: billmath
-manager: femila
+author: barclayn
+manager: mbaldwin
 editor: 
 ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
 ms.service: active-directory
@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
-ms.author: billmath
-ms.custom: pim ; H1Hack27Feb2017
+ms.date: 09/17/2017
+ms.author: barclayn
+ms.custom: pim
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 17cdff033cc3dbb199d11c3b8ac1acbc92499877
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 0f9f09ca8fb30d494433ed8d26b808d1b5d4d0b1
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>Börja använda Azure AD Privileged Identity Management
-Med Azure Active Directory (AD) Privileged Identity Management kan du hantera, kontrollera och övervaka åtkomst inom din organisation. Det här omfånget inkluderar åtkomst till resurser i Azure AD och andra Microsoft online-tjänster som Office 365 eller Microsoft Intune.
+
+Med Azure Active Directory (AD) Privileged Identity Management kan du hantera, kontrollera och övervaka åtkomst inom din organisation. Det här omfånget inkluderar åtkomst till resurser i Azure-resurser, Azure AD och andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.
 
 Den här artikeln visar hur du lägger till appen Azure AD PIM på instrumentpanelen på Azure-portalen.
 
 ## <a name="add-the-privileged-identity-management-application"></a>Lägga till programmet Privileged Identity Management
+
 Innan du använder Azure AD Privileged Identity Management måste du lägga till programmet på instrumentpanelen på Azure-portalen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som global administratör för din katalog.
@@ -35,18 +37,20 @@ Innan du använder Azure AD Privileged Identity Management måste du lägga till
 3. Välj **Fler tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
 4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Privileged Identity Management-programmet öppnas.
 
-Om du är den första personen som använder Azure AD Privileged Identity Management i din katalog så tilldelas du automatiskt rollerna **Säkerhetsadministratör** och **Privilegierad rolladministratör** i katalogen. Endast privilegierade rolladministratörer kan hantera rolltilldelningar för användare. Dessutom kan du välja att köra [Säkerhetsguiden.](active-directory-privileged-identity-management-security-wizard.md) som från grunden lär dig hur du identifierar och tilldelar.
+Om du är den första personen som använder Azure AD Privileged Identity Management i din katalog så tilldelas du automatiskt rollerna **Säkerhetsadministratör** och **Privilegierad rolladministratör** i katalogen. Endast privilegierade rolladministratörer kan hantera rolltilldelningar för användare i Azure AD-katalogen. Dessutom kan du välja att köra [Säkerhetsguiden.](active-directory-privileged-identity-management-security-wizard.md) som från grunden lär dig hur du identifierar och tilldelar.
 
 ## <a name="navigate-to-your-tasks"></a>Gå till dina uppgifter
+
 När Azure AD Privileged Identity Management har konfigurerats ser du alltid navigeringsbladet när du öppnar programmet. Använd det här bladet för att utföra dina identitetshanteringsaktiviteter.
 
 ![Toppnivåaktiviteter för PIM - skärmbild](./media/active-directory-privileged-identity-management-getting-started/PIM_Tasks_New.png)
 
-* **Mina roller** tar dig till en lista över roller som har tilldelats dig. Du aktiverar alla roller som du är berättigad till i det här avsnittet.
-* **Godkänna förfrågningar (förhandsgranskning)** visar en lista över väntande aktiveringsförfrågningar från användare i din katalog. [Läs mer.](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
-* **Väntande förfrågningar (förhandsgranskning)** visar aktuella förfrågningar om aktivering.
-* **Granska åtkomst** tar dig till alla väntande åtkomstgranskningar som du måste slutföra, oavsett om du granskar åtkomst åt dig själv eller någon annan.
-* **Azure AD-katalogroller** finns under avsnittet ”Hantera” och är instrumentpanelen för privilegierade rolladministratörer. Där kan du hantera rolltilldelningar, ändra rollaktiveringsinställningar, starta åtkomstgranskningar och mycket mer. Alternativen i den här instrumentpanelen är inaktiverade för alla som inte är en privilegierad rolladministratör.
+- **My Roles** (Mina roller) visar en lista över tillgängliga och aktiva roller som är tilldelade till dig. Här kan du aktivera tilldelade berättigade roller.
+- **Godkänna förfrågningar (förhandsversion)** visar en lista över förfrågningar om att aktivera berättigade Azure AD-katalogroller av användare i din katalog som du ska godkänna. [Läs mer.](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
+- **Väntande förfrågningar (förhandsversion)** visar väntande förfrågningar om att aktivera kvalificerade rolltilldelningar.
+- **Granska åtkomst** visar alla aktiva åtkomstgranskningar som du måste slutföra, oavsett om du granskar åtkomst åt dig själv eller någon annan.
+- **Azure AD-katalogroller** finns under avsnittet ”Hantera” på den vänstra navigeringsmenyn och visar instrumentpanelen för privilegierade rolladministratörer. Där kan du hantera rolltilldelningar, ändra rollaktiveringsinställningar, starta åtkomstgranskningar och mycket mer. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen.
+- **Azure Resource roles (Preview)** (Azure-resursroller (förhandsversion)) under hanteringsavsnittet på vänster navigeringsmeny visar en lista över prenumerationsresurser som du har rolltilldelningar för 
 
 ## <a name="next-steps"></a>Nästa steg
 [Azure AD Privileged Identity Management-översikt](active-directory-privileged-identity-management-configure.md) innehåller mer information om hur du kan hantera administrativ åtkomst i din organisation.

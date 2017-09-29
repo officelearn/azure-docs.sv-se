@@ -19,6 +19,8 @@
       href: azure-stack-tutorial-app-service.md
 - name: Koncept
   items:
+    - name: Planera överväganden
+      href: azure-stack-planning-considerations.md
     - name: Hanteringsprincip
       href: azure-stack-servicing-policy.md
     - name: Viktig information

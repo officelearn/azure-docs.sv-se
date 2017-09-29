@@ -141,6 +141,8 @@
       items:
         - name: Köra konfiguration
           href: experiment-execution-configuration-reference.md
+        - name: API för loggning
+          href: reference-logging-api.md
     - name: Modellhantering
       items:
         - name: API för Machine Learning-modellhantering

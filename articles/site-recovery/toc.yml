@@ -82,6 +82,8 @@
   items:
     - name: Haveriberedskap
       items:
+        - name: Till Azure för virtuella VMware-datorer med stöd för flera klienter
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Till Azure för virtuella Hyper-V-datorer
           href: tutorial-hyper-v-to-azure.md
         - name: Till Azure för fysiska servrar

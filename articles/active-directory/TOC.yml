@@ -1,3 +1,5 @@
+- name: Översikt över att hantera åtkomst
+  href: manage-access-to-azure-resources.md
 - name: Resursåtkomst i Azure
   href: active-directory-understanding-resource-access.md
 - name: Rollbaserad åtkomstkontroll (RBAC)

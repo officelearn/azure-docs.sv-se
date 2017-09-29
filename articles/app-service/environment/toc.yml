@@ -3,25 +3,19 @@
   items:
     - name: Om App Service-miljöer
       href: intro.md
-    - name: Jämför värdalternativ
-      href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en app i App Service Environment
+    - name: Skapa extern ASE
       href: create-external-ase.md
-    - name: Skapa från en mall
-      href: create-from-template.md
+    - name: Skapa intern ASE
+      href: create-ilb-ase.md
 - name: Självstudier
   items:
-    - name: Skapa en isolerad app
-      href: create-ilb-ase.md
-    - name: Integrera med WAP
+    - name: Integrera med WAF
       href: app-service-app-service-environment-web-application-firewall.md
-    - name: Kontrollera inkommande trafik till offentlig app
-      href: app-service-app-service-environment-control-inbound-traffic.md
-    - name: Skala ut en app i ASE
-      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+    - name: Konfigurera TLS
+      href: app-service-app-service-environment-custom-settings.md
 - name: Exempel
   items:
     - name: Azure CLI
@@ -32,50 +26,49 @@
   items:
     - name: Nätverksarkitektur
       href: network-info.md
-    - name: Hanteringsadresser
-      href: management-addresses.md
     - name: Geo-distribuerad skalning
       href: app-service-app-service-environment-geo-distributed-scale.md
     - name: ASEv1
-      items:
-        - name: Introduktion till ASEv1
-          href: app-service-app-service-environment-intro.md
-        - name: Nätverksarkitektur
-          href: app-service-app-service-environment-network-architecture-overview.md
+      href: app-service-app-service-environment-intro.md
 - name: Instruktionsguider
   items:
-    - name: Konfigurera ASE
+    - name: Använd ASE
+      href: using-an-ase.md
+    - name: Skapa ASE från en mall
+      href: create-from-template.md
+- name: Referens
+  items:
+    - name: Hanteringsadresser
+      href: management-addresses.md
+    - name: Dokumentation om ASEv1
       items:
-        - name: Använd ASE
-          href: using-an-ase.md
-        - name: Anslut till serverdel
+        - name: Skapa ASEv1
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: Konfigurera ASEv1
+          href: app-service-web-configure-an-app-service-environment.md
+        - name: Skapa intern ASEv1
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: Skapa intern ASEv1 från mall
+          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+        - name: Konfigurera AutoScale i ASEv1
+          href: app-service-environment-auto-scale.md
+        - name: Skala ut app i ASEv1
+          href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+        - name: Nätverksarkitektur
+          href: app-service-app-service-environment-network-architecture-overview.md
+        - name: Skapa webbapp i ASEv1
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Högdensitetsvärd
+          href: app-service-high-density-hosting.md
+        - name: Ansluta till serverdel
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: Konfigurera ExpressRoute
           href: app-service-app-service-environment-network-configuration-expressroute.md
-    - name: Skydda ASE
-      items:
-        - name: Konfigurera TLS
-          href: app-service-app-service-environment-custom-settings.md
+        - name: Kontrollera inkommande trafik till offentlig app
+          href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Använd flernivåsäkerhet
           href: app-service-app-service-environment-layered-security.md
-    - name: Övervaka ASE
-      items:
-        - name: Övervaka i portalen
-          href: app-service-web-configure-an-app-service-environment.md
-    - name: Använd ASE1
-      items:
-        - name: Konfigurera AutoScale
-          href: app-service-environment-auto-scale.md
-        - name: Skapa ASEv1
-          href: app-service-web-how-to-create-an-app-service-environment.md
-        - name: Skapa webbapp i ASEv1
-          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-        - name: Skapa en intern app i ASEv1
-          href: app-service-environment-with-internal-load-balancer.md
-        - name: Skapa en intern app med en mall
-          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
-        - name: Högdensitetsvärd
-          href: app-service-high-density-hosting.md
+    - name: CLI 2.0
 - name: Referens
   items:
     - name: Azure CLI

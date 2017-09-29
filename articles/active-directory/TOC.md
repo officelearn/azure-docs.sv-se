@@ -42,7 +42,6 @@
 #### [Identifiera och åtgärda licensproblem i en grupp](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
-#### [Ange användningsvillkor för användare och appar](active-directory-tou.md)
 #### [Azure PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 ### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
 ### [Återställ ett lösenord](active-directory-users-reset-password-azure-portal.md)
@@ -153,7 +152,7 @@
 #### [Steg för att konfigurera](cloudappdiscovery-get-started.md)
 #### [Skapa ögonblicksrapporter](cloudappdiscovery-set-up-snapshots.md)
 #### [Konfigurera kontinuerlig rapportering](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Använda en parser för loggar](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+#### [Använda en parser för loggar](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 #### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
@@ -300,6 +299,7 @@
 #### Uppgifter
 ##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurera appbaserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
+##### [Ange användningsvillkor för användare och appar](active-directory-tou.md)
 ##### [Konfigurera VPN-anslutning](active-directory-conditional-access-vpn-connectivity-windows10.md)
 ##### [Konfigurera SharePoint och Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Reparation](active-directory-conditional-access-device-remediation.md)

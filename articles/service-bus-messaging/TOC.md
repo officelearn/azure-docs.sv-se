@@ -43,6 +43,7 @@
 ### [Köer för obeställbara meddelanden](service-bus-dead-letter-queues.md)
 ### [Transaktionsbearbetning](service-bus-transactions.md)
 ### [Diagnostikloggar](service-bus-diagnostic-logs.md)
+### [Implementering av kopplat namnområde](service-bus-paired-namespaces.md)
 ### AMQP
 #### [Översikt över AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)

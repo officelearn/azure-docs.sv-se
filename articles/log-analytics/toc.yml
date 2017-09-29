@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: Koncept
   items:
-    - name: VANLIGA FRÅGOR OCH SVAR
+    - name: Vanliga frågor och svar om Log Analytics
       href: log-analytics-faq.md
     - name: Dataförbrukning
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: Funktioner för tjänsteleverantörer
       href: log-analytics-service-providers.md
+    - name: Loggsökning
+      items:
+        - name: Vanliga frågor och svar om loggsökning
+          href: log-analytics-log-search-faq.md
+        - name: Översikt över loggsökningar
+          href: log-analytics-log-search-new.md
+        - name: Loggsökningsportaler
+          href: log-analytics-log-search-portals.md
 - name: Gör så här för att
   items:
     - name: Samla in data
@@ -92,15 +100,6 @@
       items:
         - name: Uppgradera din arbetsyta
           href: log-analytics-log-search-upgrade.md
-        - name: VANLIGA FRÅGOR OCH SVAR
-          href: log-analytics-log-search-faq.md
-        - name: Översikt över loggsökningar
-          href: log-analytics-log-search-new.md
-        - name: Loggsökningsportaler
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: Använd loggsökningsportalen
-              href: log-analytics-log-search-log-search-portal.md
         - name: Övergång från äldre språk
           href: log-analytics-log-search-transition.md
         - name: Flödesanslutning

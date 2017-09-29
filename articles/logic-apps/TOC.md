@@ -43,6 +43,7 @@
 ### [Partner](logic-apps-enterprise-integration-partners.md)
 ### [Avtal](logic-apps-enterprise-integration-agreements.md)
 ### [B2B-bearbetning](logic-apps-enterprise-integration-b2b.md)
+### [Skicka EDI-meddelanden som batch](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML-bearbetning](logic-apps-enterprise-integration-xml.md)
 ### [Flatfilsbearbetning](logic-apps-enterprise-integration-flatfile.md)
 ### [Validera XML](logic-apps-enterprise-integration-xml-validation.md)
@@ -88,7 +89,7 @@
 ### [Skapa en social instrumentpanel utan server](logic-apps-scenario-social-serverless.md)
 ### [Anropa Logic Apps med Azure Functions](logic-apps-scenario-function-sb-trigger.md)
 ### [Lägga till fel- och undantagshantering](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B-bearbetning](logic-apps-enterprise-integration-b2b.md)
+### [B2B-bearbetning](logic-apps-enterprise-integration-b2b.md) 
 
 ## Priser och fakturering
 ### [Prissättning](https://azure.microsoft.com/pricing/details/logic-apps/)

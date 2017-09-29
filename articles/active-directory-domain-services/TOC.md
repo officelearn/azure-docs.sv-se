@@ -24,8 +24,7 @@
 ### Konfigurera säker LDAP för en hanterad domän
 #### [Uppgift 1: Hämta ett certifikat för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Uppgift 2: Exportera certifikatet för säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Uppgift 3: Aktivera säkert LDAP för den hanterade domänen med den klassiska Azure-portalen](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Uppgift 3: Aktivera säkert LDAP för den hanterade domänen med Azure Portal (förhandsversion)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Uppgift 3: Aktivera säkert LDAP för den hanterade domänen med Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Skapa en OU på en hanterad domän](active-directory-ds-admin-guide-create-ou.md)
 ### [Administrera grupprincip i en hanterad domän](active-directory-ds-admin-guide-administer-group-policy.md)

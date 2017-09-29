@@ -148,13 +148,14 @@
 ### [Komma igång](active-directory-integrating-applications-getting-started.md)
 ### [Självstudier om SaaS-appintegration](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Vad är Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-#### [Steg för att konfigurera](cloudappdiscovery-get-started.md)
+#### [Konfigurera agentfri identifiering](cloudappdiscovery-get-started.md)
 #### [Skapa ögonblicksrapporter](cloudappdiscovery-set-up-snapshots.md)
 #### [Konfigurera kontinuerlig rapportering](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Använda en parser för loggar](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### Agentbaserad identifiering
+##### [Vad är Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
+##### [Uppdatera registerinställningar](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Förstå säkerhet och sekretess](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Få åtkomst till appar med App Proxy](active-directory-application-proxy-get-started.md)
@@ -293,7 +294,7 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
-#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### Uppgifter

@@ -33,6 +33,7 @@
 
 ## Felsöka U-SQL-program
 ### [Övervaka och felsöka jobb](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Felsöka ett avvikande, återkommande jobb](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [Felsöka C#-kod i U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Använd jobbwebbläsare och jobbvy](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Använda körningsvy för brytpunkter](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

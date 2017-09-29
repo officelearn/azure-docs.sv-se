@@ -45,6 +45,8 @@
       items:
         - name: Konfigurera körningsmål
           href: experiment-execution-configuration.md
+        - name: Skapa DSVM och HDI Spark-kluster
+          href: how-to-create-dsvm-hdi.md
         - name: 'Träna med GPU:er'
           href: how-to-use-gpu.md
     - name: Skaffa och förstå data

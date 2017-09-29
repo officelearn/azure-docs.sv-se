@@ -26,9 +26,8 @@
 ### [Konfigurera en Internetuppkopplad belastningsutjämnare (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [Konfigurera en Internetuppkopplad belastningsutjämnare (mall)](load-balancer-get-started-internet-arm-template.md)
 
-## [Konfigurera en Internetuppkopplad belastningsutjämnare (klassisk portal)](load-balancer-get-started-internet-classic-portal.md)
+## [Konfigurera en Internetuppkopplad belastningsutjämnare – (klassisk PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [Konfigurera en Internetuppkopplad belastningsutjämnare (klassiskt moln)](load-balancer-get-started-internet-classic-cloud.md)
-### [Konfigurera en Internetuppkopplad belastningsutjämnare (klassisk PS)](load-balancer-get-started-internet-classic-ps.md)
 ### [Konfigurera en Internetuppkopplad belastningsutjämnare (klassisk CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Skapa en belastningsutjämnare mot Internet med IPv6](load-balancer-ipv6-internet-ps.md)

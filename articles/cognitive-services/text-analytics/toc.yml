@@ -24,6 +24,8 @@
   items:
     - name: Textanalys med Power BI
       href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Textanalys i PowerApps
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
 - name: Instruktionsguider
   items:
     - name: Registrera dig

@@ -3,7 +3,7 @@ title: "Översikt över serverdelar för flera klientorganisationer med Azure Ap
 description: "Den här sidan beskriver hur du kan använda serverdelar för flera klientorganisationer med Application Gateway."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,18 +12,18 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: d944904db5b0bf176b214249ad59611e2b794ae0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: f02b95a3d6020a77fdfcd096a3c11f5cae5aa49c
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Stöd för serverdelar för flera klientorganisationer i Application Gateway
 
-Azure Application Gateway stöder skalningsuppsättningar för virtuella datorer, nätverksgränssnitt, offentliga och privata IP-adresser och fullständigt kvalificerade domännamn (FQDN) som en del av dess serverdelspooler. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Det finns många tjänster, t.ex. [Azure Web Apps](../app-service-web/app-service-web-overview.md) och [API Management](../api-management/api-management-key-concepts.md), som per definition stöder flera klientorganisationer och som kräver en specifik värdrubrik eller ett specifikt SNI-tillägg för att kunna matcha mot rätt slutpunkt. Application Gateway stöder nu möjligheten för användare att skriva över den inkommande HTTP-värdrubriken baserat på HTTP-inställningarna på serverdelen. Detta gör det möjligt att använda API-hantering och Azure-webbappar med serverdelar för flera klientorganisationer. Den här funktionen är tillgänglig för både standard-SKU och WAF-SKU. Stöd för serverdelar för flera klientorganisationer fungerar även med SSL-avslutning och SSL-scenarier från slutpunkt till slutpunkt.
+Azure Application Gateway stöder skalningsuppsättningar för virtuella datorer, nätverksgränssnitt, offentliga och privata IP-adresser och fullständigt kvalificerade domännamn (FQDN) som en del av dess serverdelspooler. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Det finns många tjänster, t.ex. [Azure Web Apps](../app-service/app-service-web-overview.md) och [API Management](../api-management/api-management-key-concepts.md), som per definition stöder flera klientorganisationer och som kräver en specifik värdrubrik eller ett specifikt SNI-tillägg för att kunna matcha mot rätt slutpunkt. Application Gateway stöder nu möjligheten för användare att skriva över den inkommande HTTP-värdrubriken baserat på HTTP-inställningarna på serverdelen. Detta gör det möjligt att använda API-hantering och Azure-webbappar med serverdelar för flera klientorganisationer. Den här funktionen är tillgänglig för både standard-SKU och WAF-SKU. Stöd för serverdelar för flera klientorganisationer fungerar även med SSL-avslutning och SSL-scenarier från slutpunkt till slutpunkt.
 
 ![Scenario för webbappar](./media/application-gateway-web-app-overview/scenario.png)
 

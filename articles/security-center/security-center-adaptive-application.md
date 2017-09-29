@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: sv-se
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Anpassningsbara programkontroller i Azure Security Center (förhandsversion)
@@ -33,6 +33,9 @@ Med hjälp av anpassningsbara programkontroller kan du kontrollera vilka program
 - Undvik att gamla program som inte stöds kan köras.
 - Förhindra vissa verktyg som inte tillåts i din organisation.
 - Aktivera IT för att kontrollera åtkomsten till känsliga data via appanvändning.
+
+> [!NOTE]
+> Anpassningsbara programkontroller är tillgängliga för Azure Security Center Standard-kunder som en begränsad offentlig förhandsversion. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_appcontrol@microsoft.com) för att ta del av förhandsversionen.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Hur fungerar anpassningsbara programkontroller?
 Anpassningsbara programkontroller hjälper dig att definiera en uppsättning program som ska tillåtas att köras på konfigurerade resursgrupper. Den här funktionen är endast tillgänglig för Windows-datorer (alla versioner, klassiska eller Azure Resource Manager). Följ stegen nedan för att konfigurera listan över tillåtna program i Security Center:
@@ -144,10 +147,6 @@ Security Center rekommenderar enbart Lägga till program i listan över tillåtn
 Listan innehåller:
 - **NAMN**: Namnet på prenumerationen och resursgruppen.
 - **Virtuella datorer**: antalet virtuella datorer i resursgruppen.
-
-## <a name="preview-registration"></a>Förhandsgranska registrering
-
-Anpassningsbara programkontroller är tillgängliga för Azure Security Center Standard-kunder som en begränsad offentlig förhandsversion. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_appcontrol@microsoft.com) för att ta del av förhandsversionen.
 
 ## <a name="see-also"></a>Se även
 I det här dokumentet har du lärt dig att använda anpassningsbar programkontroll i Azure Security Center för att vitlista godkända program som körs i virtuella Azure-datorer. I följande avsnitt kan du lära dig mer om Azure Security Center:

@@ -64,7 +64,7 @@
 ## [Virtuell dator](/azure/virtual-machines/)
 ## [Belastningsutjämnare](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Webbappar](/azure/app-service-web/)
+## [Webbappar](/azure/app-service/)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=networking)

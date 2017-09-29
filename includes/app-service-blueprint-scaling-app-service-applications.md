@@ -1,16 +1,16 @@
-* [Scale Azure App Service](../articles/app-service-web/web-sites-scale.md)
+* [Skala Azure App Service](../articles/app-service/web-sites-scale.md)
   
-  * Understanding Redundancy and Reliability
-  * StateFULL vs StateLESS applications
-    * [Configuring your Stateless app](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
-* Load Testing apps in App Service   
-* App Service scaling best practices
+  * Förstå redundans och tillförlitlighet
+  * StateFULL- mot StateLESS-program
+    * [Konfigurera den tillståndslösa appen](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+* Läsa in testappar i App Service   
+* Bästa metoder för App Service-skalning
   
-  * Port exhaustion and connection pooling
-  * [Leveraging Azure Storage from your App Service app](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
-  * [Leveraging Azure CDN from your App Service app](../articles/cdn/cdn-overview.md)
-  * [Leveraging Azure Redis Cache from your App Service app](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
-* Geo distribution
+  * Portöverbelastning och anslutningspoolning
+  * [Utnyttja Azure Storage från din App Service-app](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
+  * [Utnyttja Azure CDN från din App Service-app](../articles/cdn/cdn-overview.md)
+  * [Utnyttja Azure Redis Cache från din App Service-app](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
+* Geodistribution
   
-  * [Leveraging Traffic Manager to achive global scale](../articles/traffic-manager/traffic-manager-overview.md)
+  * [Utnyttja Traffic Manager för att uppnå global skalning](../articles/traffic-manager/traffic-manager-overview.md)
 

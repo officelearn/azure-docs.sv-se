@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
+ms.contentlocale: sv-se
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Självstudiekurs: DevOps med Azure Portal
@@ -264,7 +264,7 @@ I den här självstudiekursen demonstrerade vi en del av kraften i Azure-plattfo
 
 ## <a name="next-steps"></a>Nästa steg
 * Azure Resource Manager är viktigt för att aktivera DevOps på Azure-plattformen.  Mer information finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-* Mer information om Azure App Service-distributioner finns i [Distribuera en app till Azure App Service](../app-service-web/web-sites-deploy.md)
+* Mer information om Azure App Service-distributioner finns i [Distribuera en app till Azure App Service](../app-service/app-service-deploy-local-git.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png

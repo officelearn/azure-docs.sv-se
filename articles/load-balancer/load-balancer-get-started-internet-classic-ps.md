@@ -3,7 +3,7 @@ title: "Skapa en Internetaktiverad belastningsutjämnare – klassiska Azure Pow
 description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i klassiskt läge med hjälp av PowerShell"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
 ms.contentlocale: sv-se
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="set-up-load-balancer-using-powershell"></a>Konfigurera en belastningsutjämnare med hjälp av PowerShell
 
-Följ stegen nedan om du vill konfigurera en belastningsutjämnare med hjälp av PowerShell:
+Genomför följande steg om du vill konfigurera en belastningsutjämnare med hjälp av PowerShell:
 
 1. Om du aldrig använt Azure PowerShell tidigare, se [Installera och konfigurera Azure PowerShell](/powershell/azure/overview) och följ instruktionerna till slutet för att logga in på Azure och välja din prenumeration.
 2. När du har skapat en virtuell dator kan du använda PowerShell-cmdlets för att lägga till en belastningsutjämnare till en virtuell dator i samma molntjänst.

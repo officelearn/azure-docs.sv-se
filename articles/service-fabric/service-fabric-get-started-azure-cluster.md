@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -70,18 +70,6 @@ Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com)
 
     Du kan se förloppet bland aviseringarna. (Klicka på klockikonen nära statusfältet uppe till höger på skärmen.) Om du klickade på **Fäst på startsidan** när du skapade klustret ser du **Deploying Service Fabric Cluster** (Distribuerar Service Fabric-kluster) fäst på **startsidan**.
 
-### <a name="view-cluster-status"></a>Visa klusterstatus
-När du har skapat ett kluster kan du granska det på bladet **Översikt** i portalen. Där kan du se information om klustret på instrumentpanelen, bland annat klustrets offentliga slutpunkter och en länk till Service Fabric Explorer.
-
-![Klusterstatus][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Visualisera klustret med hjälp av Service Fabric Explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) är ett bra verktyg för att visualisera klustret och hantera program.  Service Fabric Explorer är en tjänst som körs i klustret.  Du kommer åt den i en webbläsare genom att klicka på länken **Service Fabric Explorer** på sidan **Översikt** för klustret i portalen.  Du kan också ange adressen direkt i webbläsaren: [http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-Instrumentpanelen för klustret innehåller en översikt över klustret, inklusive en sammanfattning av program- och nodhälsan. Nodvyn visar klustrets fysiska layout. För en viss nod kan du inspektera vilka program som har kod distribuerad på noden.
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>Ansluta till klustret med PowerShell
 Kontrollera att klustret körs genom att ansluta med PowerShell.  Service Fabric PowerShell-modulen installeras med [Service Fabric SDK](service-fabric-get-started.md).  Cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) upprättar en anslutning till klustret.   
 
@@ -112,7 +100,7 @@ Ta bort en resursgrupp på Azure Portal:
     ![Ta bort resursgruppen][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Använda Azure Powershell för att distribuera ett säkert kluster
+## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>Använda Azure Powershell för att distribuera ett säkert Windows-kluster
 1. Ladda ned [Azure Powershell-modul version 4.0 eller senare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) på datorn.
 
 2. Öppna ett Windows PowerShell-fönster och kör följande kommando. 
@@ -205,10 +193,6 @@ Kör följande kommando för att kontrollera att du är ansluten och att klustre
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>Publicera dina appar till klustret från Visual Studio
-
-Nu när du har konfigurerat ett Azure-kluster kan du publicera dina program från Visual Studio till Azure enligt anvisningarna i dokumentet [Publicera till ett kluster](service-fabric-publish-app-remote-cluster.md). 
-
 ### <a name="remove-the-cluster"></a>Ta bort klustret
 Ett kluster består av andra Azure-resurser förutom själva klusterresursen. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen. 
 
@@ -217,12 +201,62 @@ Ett kluster består av andra Azure-resurser förutom själva klusterresursen. De
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>Använda Azure CLI för att distribuera ett säkert Linux-kluster
+
+1. Installera [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) på datorn.
+2. Logga in på Azure och välj den prenumeration som du vill skapa klustret i.
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. Kör kommandot [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) för att skapa ett säkert kluster.
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>Anslut till klustret
+Kör följande CLI-kommando för att ansluta till klustret med certifikatet.  När du använder ett klientcertifikat för autentisering måste certifikatinformationen matcha ett certifikat som distribuerats till klusternoderna.  Använd alternativet `--no-verify` för ett självsignerat certifikat.
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+Kör följande kommando för att kontrollera att du är ansluten och att klustret är felfritt.
+
+```azurecli
+az sf cluster health
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har konfigurerat ett utvecklingskluster provar du följande:
-* [Create a secure cluster in the portal](service-fabric-cluster-creation-via-portal.md) (Skapa ett säkert kluster i portalen)
-* [Create a cluster from a template](service-fabric-cluster-creation-via-arm.md) (Skapa ett kluster från en mall) 
+* [Visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Ta bort ett kluster](service-fabric-cluster-delete.md) 
 * [Distribuera appar med hjälp av PowerShell](service-fabric-deploy-remove-applications.md)
+* [Distribuera appar med hjälp av CLI](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

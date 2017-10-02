@@ -3,7 +3,7 @@ title: "Skapa en Internetaktiverad belastningsutjämnare – Azure CLI | Microso
 description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i Resource Manager med hjälp av Azure CLI"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3b1780033cbc8aa3e108a213a4d2bfd0332fd7d7
-ms.lasthandoff: 03/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ba36b7f6d2ae3cc4d63829ffb757ff7b311e467b
+ms.contentlocale: sv-se
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Skapa en intern belastningsutjämnare med hjälp av Azure CLI
@@ -28,6 +29,9 @@ ms.lasthandoff: 03/21/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -85,7 +89,7 @@ Mer information finns i [Azure Resource Manager-stöd för belastningsutjämnare
     ```
 
    > [!IMPORTANT]
-   > Belastningsutjämnaren använder domänetiketten för den offentliga IP-adressen som dess fullständiga domännamn (FQDN). Det här är en ändring från den klassiska distributionen, som använder molntjänsten som belastningsutjämnarens fullständiga domännamn.
+   > Belastningsutjämnaren använder domänetiketten för den offentliga IP-adressen som sitt fullständiga domännamn (FQDN). Det här är en ändring från den klassiska distributionen, som använder molntjänsten som belastningsutjämnarens fullständiga domännamn.
    > I det här exemplet är det fullständiga domännamnet *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## <a name="create-a-load-balancer"></a>Skapa en belastningsutjämnare

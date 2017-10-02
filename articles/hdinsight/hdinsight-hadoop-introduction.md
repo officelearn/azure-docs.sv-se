@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b413b6f1a6c73251dfdbe6bf9d23cdfa6510839a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
 ms.contentlocale: sv-se
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Introduktion till Azure HDInsight, Hadoop-teknikstacken och Hadoop-kluster
@@ -53,7 +53,7 @@ Stordata samlas in i ständigt växande volymer, med allt högre hastighet och i
 ## <a name="overview"></a>Klustertyper i HDInsight
 HDInsight omfattar specifika klustertyper och anpassningsmöjligheter för klustret, till exempel att lägga till komponenter, verktyg och språk.
 
-### <a name="spark-kafka-interactive-hive-hbase-customized-and-other-cluster-types"></a>HBase, Spark, Kafka, Interactive Hive, Storm, anpassade och andra klustertyper
+### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Spark, Kafka, Interactive Query, HBase, anpassade och andra klustertyper
 HDInsight erbjuder följande klustertyper:
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Med [HDFS](#hdfs), [YARN](#yarn)-resurshantering och en enkel [MapReduce](#mapreduce)-programmeringsmodell för att behandla och analysera batchdata parallellt.
@@ -61,7 +61,7 @@ HDInsight erbjuder följande klustertyper:
 * **[Apache HBase](http://hbase.apache.org/)**: En NoSQL-databas som bygger på Hadoop och ger direktåtkomst och stark konsekvens för stora mängder ostrukturerade och delstrukturerade data, potentiellt miljarder rader gånger miljoner kolumner. Se [Vad är HBase på HDInsight?](hdinsight-hbase-overview.md)
 * **[Microsoft R Server](https://msdn.microsoft.com/microsoft-r/rserver)**: En server som fungerar som värd och hanterar parallella, distribuerade R-processer. Den förser på begäran dataforskare, statistiker och R-programmerare med åtkomst till skalbara och distribuerade analysmetoder på HDInsight. Se [Översikt över R Server på HDInsight](hdinsight-hadoop-r-server-overview.md).
 * **[Apache Storm](https://storm.incubator.apache.org/)**: Ett distribuerat system för beräkningar i realtid för snabb bearbetning av stora dataströmmar. Storm finns som ett hanterat kluster i HDInsight. Se [Analysera sensordata i realtid med Storm och Hadoop](hdinsight-storm-sensor-data-analysis.md).
-* **[Apache Interactive Hive-förhandsgranskning (även känt som: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: Minnesintern cachelagring för interaktiva och snabba Hive-frågor. Se [Använda Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md).
+* **[Apache Interactive Query-förhandsgranskning (även kallat: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: Minnesintern cachelagring för interaktiva och snabba Hive-frågor. Se [Använda Interactive Query i HDInsight](hdinsight-hadoop-use-interactive-hive.md).
 * **[Apache Kafka](https://kafka.apache.org/)**: En öppen källkodsplattform som används för att skapa strömmande datapipelines och program. Kafka tillhandahåller även en meddelandeköfunktion med vilken du kan publicera och prenumerera på dataströmmar. Se [Introduktion till Apache Kafka på HDInsight](hdinsight-apache-kafka-introduction.md).
 
 Du kan också konfigurera kluster med hjälp av följande metoder:

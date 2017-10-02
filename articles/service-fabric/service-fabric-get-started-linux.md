@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/23/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 8d902ba9e2077b4b70762c76cfb3ebf12752fb11
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: da9aff17c16e179be200677bfbfd1287fff269e3
 ms.contentlocale: sv-se
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
@@ -29,13 +29,28 @@ ms.lasthandoff: 09/14/2017
 >
 >  
 
-För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java och .NET Core.
+För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java- och .NET Core-utveckling.
 
 ## <a name="prerequisites"></a>Krav
 
 Följande operativsystemversioner stöds för utveckling:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
+
+## <a name="installation-methods"></a>Installationsmetoder
+
+### <a name="1-script-installation"></a>1. Installation av skript
+
+Ett skript anges för att underlätta installationen av Service Fabric runtime och Service Fabric common SDK tillsammans med **sfctl** CLI. Kör de manuella installationsstegen i nästa avsnitt för att avgöra vad som ska installeras och vilka licenser som godkänns. Vi förutsätter att du har godkänt licenserna för all programvara som installeras innan du kör skriptet. 
+
+När skriptet har körts du kan hoppa direkt till [Konfigurera ett lokalt kluster](#set-up-a-local-cluster).
+
+```bash
+sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+```
+
+### <a name="2-manual-installation"></a>2. Manuell installation
+Följ resten av den här guiden för information om manuell installation av Service Fabric runtime och SDK.
 
 ## <a name="update-your-apt-sources"></a>Uppdatera dina APT-källor
 Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsverktyget apt-get så måste du först uppdatera dina APT (Advanced Packaging Tool)-källor.
@@ -79,7 +94,7 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
     sudo apt-get update
     ```
 
-## <a name="install-and-set-up-the-sdk-for-local-cluster-setup"></a>Installera och konfigurera SDK för lokal klusterkonfiguration
+## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>Installera och konfigurera Service Fabric SDK för lokal klusterkonfiguration
 
 När du har uppdaterat källorna kan du installera SDK. Installera Service Fabric SDK-paketet, bekräfta installationen och acceptera licensavtalet (EULA).
 
@@ -90,12 +105,12 @@ sudo apt-get install servicefabricsdkcommon
 >   [!TIP]
 >   Följande kommandon automatiserar godkännandet av licensen för Service Fabric-paket:
 >   ```bash
->   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
->   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
+>   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
+>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
 ## <a name="set-up-a-local-cluster"></a>Konfigurera ett lokalt kluster
-  Om installationen har slutförts kan du starta ett lokalt kluster.
+  När installationen har slutförts ska du kunna starta ett lokalt kluster.
 
   1. Kör klusterinstallationsskriptet.
 
@@ -111,7 +126,7 @@ sudo apt-get install servicefabricsdkcommon
 
 
   > [!NOTE]
-  > Fristående kluster stöds inte i Linux. Förhandsversionen stöder endast one-box-kluster och kluster på flera Azure Linux-datorer.
+  > Fristående kluster stöds inte i Linux.
   >
 
 ## <a name="set-up-the-service-fabric-cli"></a>Konfigurera Service Fabric CLI
@@ -120,8 +135,8 @@ sudo apt-get install servicefabricsdkcommon
 Installera CLI genom att följa anvisningarna i [Service Fabric CLI](service-fabric-cli.md).
 
 
-## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>Installera och konfigurera generatorer för behållare och körbara gästprogram
-Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Service Fabric-program från terminalen med en Yeoman-mallgenerator. Följ stegen nedan för att se till att du har Service Fabric Yeoman-mallgeneratorn på datorn.
+## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Konfigurera Yeoman-generatorer för behållare och körbara gästprogram
+Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fabric-program från en terminal med en Yeoman-mallgenerator. Följ dessa steg för att konfigurera Service Fabric Yeoman-mallgeneratorer:
 
 1. Installera nodejs och NPM på datorn
 
@@ -141,11 +156,15 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Servic
   sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
   ```
 
-När du har installerat generatorerna ovan kan du skapa appar med körbara gästprogram eller behållartjänster genom att köra `yo azuresfguest` eller `yo azuresfcontainer`.
+När du har installerat generatorerna kan du skapa körbara gästprogram eller behållartjänster genom att köra `yo azuresfguest` respektive `yo azuresfcontainer`.
 
-## <a name="install-the-necessary-java-artifacts-optional-if-you-want-to-use-the-java-programming-models"></a>Installera nödvändiga Java-artefakter (valfritt om du vill använda Java-programmeringsmodeller)
+## <a name="set-up-net-core-20-development"></a>Konfigurera .NET Core 2.0 för utveckling
 
-Om du vill skapa Service Fabric-tjänster med hjälp av Java ska du kontrollera att du har JDK 1.8 installerat tillsammans med Gradle, som används för att köra build-uppgifter. Följande kodfragment installerar Open JDK 1.8 tillsammans med Gradle. Java-biblioteken för Service Fabric hämtas från Maven.
+Installera [.NET Core 2.0 SDK för Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) om du vill börja [skapa Service Fabric-program i C#](service-fabric-create-your-first-linux-application-with-csharp.md). Paket för .NET Core 2.0 Service Fabric-program finns på NuGet.org (för närvarande som förhandsversion).
+
+## <a name="set-up-java-development"></a>Konfigurera Java-utveckling
+
+Installera JDK 1.8 och Gradle för att köra build-uppgifter om du vill skapa Service Fabric-tjänster som använder Java. Följande kodfragment installerar Open JDK 1.8 tillsammans med Gradle. Java-biblioteken för Service Fabric hämtas från Maven.
 
   ```bash
   sudo apt-get install openjdk-8-jdk-headless
@@ -154,7 +173,7 @@ Om du vill skapa Service Fabric-tjänster med hjälp av Java ska du kontrollera 
 
 ## <a name="install-the-eclipse-neon-plug-in-optional"></a>Installera Eclipse Neon-plugin-programmet (valfritt)
 
-Du kan installera Eclipse-plugin-programmet för Service Fabric i **Eclipse IDE för Java-utvecklare**. Du kan använda Eclipse för att skapa körbara Service Fabric-gästprogram och behållarprogram utöver Service Fabric Java-program.
+Du kan installera Eclipse-plugin-programmet för Service Fabric i Eclipse IDE för Java-utvecklare. Du kan använda Eclipse för att skapa körbara Service Fabric-gästprogram och behållarprogram utöver Service Fabric Java-program.
 
 1. Kontrollera att du har den senaste Eclipse Neon-versionen och den senaste Buildship-versionen (1.0.17 eller senare) installerat. Du kan kontrollera vilka versioner de installerade komponenterna har genom att välja **Hjälp** > **Installationsinformation**. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
 
@@ -174,26 +193,28 @@ Om du redan har Service Fabric Eclipse-plugin-programmet installerat kontrollera
 
 Mer information finns i [Service Fabric-plugin-program för utveckling av Java-program i Eclipse](service-fabric-get-started-eclipse.md).
 
-
-## <a name="install-the-net-core-sdk-optional-if-you-want-to-use-the-net-core-programming-models"></a>Installera .NET Core SDK (valfritt, om du vill använda .NET Core-programmeringsmodeller)
-.NET Core SDK innehåller de bibliotek och mallar som krävs för att skapa Service Fabric-tjänster med .NET Core. Installera .NET Core SDK-paketet genom att köra följande -
-
-   ```bash
-   sudo apt-get install servicefabricsdkcsharp
-   ```
-
 ## <a name="update-the-sdk-and-runtime"></a>Uppdatera SDK och Runtime
 
-Om du vill uppdatera till den senaste versionen av SDK och Runtime kör du följande kommandon (avmarkera de SDK:er från listan som du inte vill ha):
+Om du vill uppdatera till den senaste versionen av SDK och Runtime kör du följande kommandon:
 
 ```bash
 sudo apt-get update
-sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
+sudo apt-get install servicefabric servicefabricsdkcommon
 ```
 Om du vill uppdatera Java SDK-binärfilerna från Maven måste du uppdatera versionsinformationen för motsvarande binärfil i ``build.gradle``-filen så att den pekar på den senaste versionen. Om du vill veta exakt var du behöver uppdatera versionen kan du titta i någon av ``build.gradle``-filerna i komma igång-exemplen för Service Fabric [här](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
 > När du uppdaterar paketen ovan kan ditt lokala miljökluster stoppas. Starta om ditt lokala kluster efter en uppgradering genom att följa instruktionerna på den här sidan.
+
+## <a name="remove-the-sdk"></a>Ta bort SDK
+Kör följande om du vill ta bort Service Fabric SDK:er:
+
+```bash
+sudo apt-get remove servicefabric servicefabicsdkcommon
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
+sudo apt-get install -f
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

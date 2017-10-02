@@ -1,6 +1,6 @@
 ---
-title: "Så här hanterar du Azure File Storage från Azure Portal | Microsoft Docs"
-description: "Lär dig hur du använder Azure Portal för att hantera Azure File Storage."
+title: "Hantera Azure Files från Azure-portalen | Microsoft Docs"
+description: "Lär dig hur du använder Azure-portalen för att hantera Azure Files."
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d5ffa7cff0a31e36f5a96aaa4b2d477fa39333fb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="how-to-use-azure-file-storage-from-the-azure-portal"></a>Så här använder du Azure File Storage från Azure Portal
-[Azure Portal](https://portal.azure.com) tillhandahåller ett användargränssnitt för att hantera Azure File Storage. Du kan utföra följande åtgärder från din webbläsare:
+# <a name="how-to-use-azure-files-from-the-azure-portal"></a>Använda Azure Files från Azure Portal
+[Azure-portalen](https://portal.azure.com) innehåller ett användargränssnitt för att hantera Azure Files. Du kan utföra följande åtgärder från din webbläsare:
 
 * Skapa en filresurs
 * Ladda upp och ladda ned filer till och från filresursen.
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/21/2017
 
     ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share4.png)
 
-6. Fyll i filresursens namn och storleken på filresursen (upp till 5 120 GB) för att skapa din första filresurs. När filresursen har skapats kan du montera den från alla filsystem som har stöd för SMB 2.1 eller SMB 3.0. Du kan klicka på **Kvot** på filresursen för att ändra storleken på filen till upp till 5120 GB. Se [Priskalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/) för att beräkna lagringskostnaden för att använda Azure File Storage.
+6. Fyll i filresursens namn och storleken på filresursen (upp till 5 120 GB) för att skapa din första filresurs. När filresursen har skapats kan du montera den från alla filsystem som har stöd för SMB 2.1 eller SMB 3.0. Du kan klicka på **Kvot** på filresursen för att ändra storleken på filen till upp till 5120 GB. Se [Priskalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/) för att beräkna lagringskostnaden för att använda Azure Files.
 
     ![Skärmbild som visar hur du skapar en filresurs på portalen](./media/storage-how-to-use-files-portal/use-files-portal-create-file-share5.png)
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/21/2017
     ![Skärmbild som visar hur du laddar upp filer från portalen](./media/storage-how-to-use-files-portal/use-files-portal-upload-file2.png)
 
 ## <a name="connect-to-file-share"></a>Anslut till filresurs
--  Klicka på **Anslut** om du vill hämta kommandoraden för att montera filresursen från Windows eller Linux. Linux-användare kan även läsa [Använd Azure File Storage med Linux](../storage-how-to-use-files-linux.md) för mer information om montering för andra Linux-distributioner.
+-  Klicka på **Anslut** om du vill hämta kommandoraden för att montera filresursen från Windows eller Linux. Linux-användare kan även läsa [Använda Azure Files med Linux](../storage-how-to-use-files-linux.md) för mer information om montering för andra Linux-distributioner.
 
     ![Skärmbild som visar hur du monterar filresursen](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
 -  Du kan kopiera kommandon för att montera filresurser på Windows eller Linux och köra dem från en Azure-VM eller en lokal dator.
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/21/2017
 Klicka på **Visa åtkomstnycklar för lagringskontot** längst ned på sidan Anslut för att hitta åtkomstnyckeln till lagringskontot för montering.
 
 ## <a name="see-also"></a>Se även
-Mer information om Azure File Storage finns på följande länkar.
+Mer information om Azure Files finns på följande länkar.
 
 * [Vanliga frågor och svar](../storage-files-faq.md)
 * [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      

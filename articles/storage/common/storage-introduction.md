@@ -3,7 +3,7 @@ title: Introduktion till Azure Storage | Microsoft Docs
 description: Introduktion till Azure Storage, Microsofts datalagring i molnet.
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 163f35682a4fdaa971f715c7429153bfdcf6a584
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-<!-- this is the same version that is in the MVC branch -->
+
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
 
 Microsoft Azure Storage är en Microsoft-hanterad molntjänst som tillhandahåller lagring som är mycket tillgänglig, säker, beständig, skalbar och redundant. Microsoft tar hand om underhåll och hanterar kritiska problem åt dig. 
@@ -37,13 +37,9 @@ I den här artikeln får du veta mer om följande:
 * överföring av data till och från lagring
 * de många lagringsklientbiblioteken som finns tillgängliga. 
 
-
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
-
+Om du vill komma igång med Azure Storage snabbt kan du ta en titt på någon av följande snabbstartsguider:
+* [Skapa ett lagringskonto med PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Skapa ett lagringskonto med CLI](storage-quickstart-create-storage-account-cli.md)
 
 ## <a name="introducing-the-azure-storage-services"></a>Introduktion till Azure Storage-tjänsterna
 
@@ -55,7 +51,7 @@ Blobbar är i princip filer som de du lagrar på en dator (eller surfplatta, mob
 
 När du lagrar filer i Blob Storage kan du komma åt dem var som helst i världen med hjälp av URL:er, REST-gränssnittet eller något av Azure SDK-lagringsklientbiblioteken. Det finns lagringsklientbibliotek för flera språk, bland annat Node.js, Java, PHP, Ruby, Python och .NET. 
 
-Det finns tre typer av blobbar – blockblobbar, tilläggsblobbar och sidblobbar (används för VHD-filer).
+Det finns tre typer av blobbar – blockblobbar, sidblobbar (används för VHD-filer) och tilläggsblobbar.
 
 * Blockblobbar används för att lagra vanliga filer upp till ungefär 4,7 TB. 
 * Sidblobbar används för att lagra filer med slumpmässig åtkomst upp till 8 TB. De används för VHD-filerna som stöder virtuella datorer.
@@ -63,11 +59,10 @@ Det finns tre typer av blobbar – blockblobbar, tilläggsblobbar och sidblobbar
 
 För mycket stora datamängder där nätverksbegränsningar gör det orealistiskt att överföra eller hämta data till Blob Storage via kabel kan du skicka en uppsättning hårddiskar till Microsoft för att importera eller exportera data direkt från datacentret. Mer information finns i [Använda tjänsten Microsoft Azure Import/Export för att överföra data till Blob Storage](../storage-import-export-service.md).
 
-## <a name="file-storage"></a>File Storage
+## <a name="azure-files"></a>Azure Files
+Med [Azure Files](../files/storage-files-introduction.md) kan du konfigurera nätverksfilresurser med hög tillgänglighet som kan nås via SMB-standardprotokollet (Server Message Block). Det innebär att flera virtuella datorer kan dela samma filer med både läs- och skrivbehörighet. Du kan också läsa filerna med hjälp av REST-gränssnittet eller klientbiblioteken för lagring. 
 
-Med tjänsten Azure Files kan du konfigurera nätverksfilresurser med hög tillgänglighet som kan nås via SMB-standardprotokollet (Server Message Block). Det innebär att flera virtuella datorer kan dela samma filer med både läs- och skrivbehörighet. Du kan också läsa filerna med hjälp av REST-gränssnittet eller klientbiblioteken för lagring. 
-
-En sak som skiljer Azure File-lagring från filer på en företagsfilresurs är att du kan komma åt filerna var som helst i världen med en URL som pekar på filen och som innehåller en SAS-token (signatur för delad åtkomst). Du kan generera SAS-token, som ger specifik åtkomst till en privat resurs under en viss tidsperiod. 
+En sak som skiljer Azure Files från filer på en företagsfilresurs är att du kan komma åt filerna var som helst i världen med en URL som pekar på filen och som innehåller en SAS-token (signatur för delad åtkomst). Du kan generera SAS-token, som ger specifik åtkomst till en privat resurs under en viss tidsperiod. 
 
 Filresurser kan användas för många vanliga scenarier: 
 
@@ -85,14 +80,13 @@ Azure-kötjänsten används för att lagra och hämta meddelanden. Kömeddelande
 
 Anta exempelvis att du vill att kunderna ska kunna ladda upp bilder och du vill skapa miniatyrer för varje bild. Du kan låta kunden vänta på att du skapar miniatyrerna medan bilderna laddas upp. Ett alternativ är att använda en kö. När kunden är klar med uppladdningen skrivs ett meddelande till kön. Sedan hämtar en Azure-funktion meddelandet från kön och skapar miniatyrerna. Alla delar av bearbetningen kan skalas separat, vilket ger dig större kontroll när du anpassar den för din användning.
 
-<!-- this bookmark is used by other articles; you'll need to update them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>Table Storage
-<!-- add a link to the old table storage to this paragraph once it's moved -->
-Standard Azure Table Storage är nu en del av Cosmos DB. Dessutom finns Premium Tables för Azure Table Storage, som erbjuder tabeller för optimerat dataflöde, global distribution och automatiska sekundära index. Om du vill veta mer om och prova den nya premiumtjänsten går du till avsnittet [Table-API:et för Azure Cosmos DB](https://aka.ms/premiumtables).
+
+Standard Azure Table Storage är nu en del av Cosmos DB. Du hittar den dokumentationen i [Översikt över Azure Table Storage](../../cosmos-db/table-storage-overview.md). Dessutom finns Premium Tables för Azure Table Storage, som erbjuder tabeller för optimerat dataflöde, global distribution och automatiska sekundära index. Om du vill veta mer om och prova den nya premiumtjänsten går du till avsnittet [Table-API:et för Azure Cosmos DB](https://aka.ms/premiumtables).
 
 ## <a name="disk-storage"></a>Disklagring
 
-Azure Storage-teamet äger också Disks, som innehåller alla de hanterade och ohanterade diskfunktioner som används av virtuella datorer. Mer information om dessa funktioner finns i [Compute Services-dokumentationen](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Azure Storage omfattar även hanterade och ohanterade diskfunktioner som används av virtuella datorer. Mer information om dessa funktioner finns i [Compute Services-dokumentationen](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Typer av lagringskonton 
 
@@ -159,7 +153,7 @@ Mer information om hur du skyddar ditt lagringskonto och kryptering finns i [sä
 
 ## <a name="replication"></a>Replikering
 
-För att säkerställa att dina data är beständiga kan Azure Storage lagra (och hantera) flera kopior av dina data. Det kallas replikering, eller ibland redundans. När du konfigurerar ditt lagringskonto väljer du replikeringstyp. I de flesta fall kan den här inställningen ändras efter att lagringskontot har konfigurerats. 
+För att säkerställa att dina data är beständiga kan Azure Storage lagra (och hantera) flera kopior av dina data. Det kallas replikering, eller ibland redundans. När du konfigurerar ditt lagringskonto väljer du en replikeringstyp. I de flesta fall kan den här inställningen ändras efter att lagringskontot har konfigurerats. 
 
 Alla lagringskonton har **lokalt redundant lagring (LRS)**. Det innebär att tre kopior av dina data hanteras av Azure Storage i det datacenter som angavs när lagringskontot konfigurerades. När ändringar sparas i en kopia uppdateras de andra två kopiorna. Det innebär att de tre replikerna alltid är synkroniserade. Dessutom finns de tre kopiorna i separata feldomäner och uppgraderingsdomäner, vilket innebär att dina data är tillgängliga även om en lagringsnod med dina data råkar ut för fel eller kopplas från för att uppdateras. 
 
@@ -227,11 +221,9 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 * [Mer information om File Storage](../storage-files-introduction.md)
 * [Mer information om Queue Storage](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+Om du vill komma igång med Azure Storage snabbt kan du ta en titt på någon av följande snabbstartsguider:
+* [Skapa ett lagringskonto med PowerShell](storage-quickstart-create-storage-account-powershell.md)
+* [Skapa ett lagringskonto med CLI](storage-quickstart-create-storage-account-cli.md)
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -273,9 +265,6 @@ To learn more about Azure Storage, explore these resources:
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>För administratörer
@@ -284,15 +273,15 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-net-developers"></a>För .NET-utvecklare
 * [Komma igång med Azure Blob Storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Utveckla för Azure Files med .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Komma igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Komma igång med Azure Queue Storage med hjälp av .NET](../storage-dotnet-how-to-use-queues.md)
-* [Komma igång med Azure File Storage i Windows](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>För Java-/Android-utvecklare
 * [Använda Blob Storage från Java](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Utveckla för Azure Files med Java](../files/storage-java-how-to-use-file-storage.md)
 * [Använda Table Storage från Java](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Använda Queue Storage från Java](../storage-java-how-to-use-queue-storage.md)
-* [Använda File Storage från Java](../storage-java-how-to-use-file-storage.md)
 
 ### <a name="for-nodejs-developers"></a>För Node.js-utvecklare
 * [Använda Blob Storage från Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
@@ -311,7 +300,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-python-developers"></a>För Python-utvecklare
 * [Använda Blob Storage från Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Utveckla för Azure Files med Python](../files/storage-python-how-to-use-file-storage.md)
 * [Använda Table Storage från Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Använda Queue Storage från Python](../storage-python-how-to-use-queue-storage.md)   
-* [Använda File Storage från Python](../storage-python-how-to-use-file-storage.md) 
--->
+* [Använda Queue Storage från Python](../storage-python-how-to-use-queue-storage.md)

@@ -1,6 +1,6 @@
 ---
-title: "Utveckla för Azure File Storage med .NET | Microsoft Docs"
-description: "Lär dig hur du utvecklar .NET-program och tjänster som använder Azure File Storage för att lagra fildata."
+title: "Utveckla för Azure Files med .NET | Microsoft Docs"
+description: "Lär dig hur du utvecklar .NET-program och tjänster som använder Azure Files för att lagra fildata."
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b94e70619324bb8dc8e7f8306f00f06e7476c1f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-net"></a>Utveckla för Azure File Storage med .NET 
+# <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET 
 > [!NOTE]
-> Den här artikeln visar hur du hanterar Azure File Storage med .NET-kod. Mer information om Azure File Storage finns i [Introduction to Azure File storage](storage-files-introduction.md) (Introduktion till Azure File Storage).
+> Den här artikeln visar hur du hanterar Azure Files med .NET-kod. Mer information om Azure Files finns i [Introduktion till Azure Files](storage-files-introduction.md).
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>Om den här självstudiekursen
-Den här kursen visar grunderna i hur du använder .NET för att utveckla program eller tjänster som lagrar fildata med hjälp av Azure File Storage. I den här självstudiekursen skapar vi ett enkelt konsolprogram och visar hur du utför grundläggande åtgärder med .NET och Azure File Storage:
+Den här kursen visar grunderna i hur du använder .NET för att utveckla program eller tjänster som lagrar fildata med hjälp av Azure Files. I den här självstudiekursen skapar vi ett enkelt konsolprogram och visar hur du utför grundläggande åtgärder med .NET och Azure Files:
 
 * Hämta innehållet i en fil
 * Ange kvoten (den största tillåtna storleken) för filresursen.
@@ -42,7 +42,7 @@ Den här kursen visar grunderna i hur du använder .NET för att utveckla progra
 * Använd Azure Storage-mätvärden för felsökning
 
 > [!Note]  
-> Eftersom Azure File Storage kan nås över SMB kan du skriva enkla program som har åtkomst till Azure-filresursen med System.IO-standardklasser för fil-I/O. Den här artikeln visar hur du skriver program som använder Azure Storage .NET SDK, som använder [REST-API:et för Azure File Storage](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) för att kommunicera med Azure File Storage. 
+> Eftersom Azure Files kan nås över SMB kan du skriva enkla program som har åtkomst till Azure-filresursen med System.IO-standardklasser för fil-I/O. Den här artikeln visar hur du skriver program som använder Azure Storage .NET SDK, som använder [File REST-API:et](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) för att kommunicera med Azure Files. 
 
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Skapa konsolprogrammet och hämta monteringen
@@ -86,7 +86,7 @@ Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redige
 ```
 
 > [!NOTE]
-> Den senaste versionen av Azure Storage-emulatorn har inte stöd för Azure File Storage. Anslutningssträngen måste peka på ett Azure Storage-konto i molnet för att fungera med Azure File Storage.
+> Den senaste versionen av Azure Storage-emulatorn har inte stöd för Azure Files. Anslutningssträngen måste peka på ett Azure Storage-konto i molnet för att fungera med Azure Files.
 
 ## <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
 Öppna filen `Program.cs` från Solution Explorer och lägg till följande med hjälp av direktiv överst i filen.
@@ -95,7 +95,7 @@ Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redige
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -104,7 +104,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 Lägg till följande kod i `Main()`-metoden (efter koden som visas ovan) för att hämta anslutningssträngen. Den här koden hämtar en referens till den fil som vi skapade tidigare och returnerar filens innehåll i konsolfönstret.
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -149,7 +149,7 @@ Exemplet nedan visar hur du kontrollerar användningen av en resurs och hur du s
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -184,7 +184,7 @@ I följande exempel skapar vi en princip för delad åtkomst på en resurs och a
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -242,7 +242,7 @@ Du kan också använda AzCopy för att kopiera en fil till en annan eller för a
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -286,7 +286,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -327,14 +327,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Du kan kopiera en blobb till en fil på samma sätt. Om källobjektet är en blobb skapar du en SAS för att autentisera åtkomsten till blobben under kopieringen.
 
-## <a name="troubleshooting-azure-file-storage-using-metrics"></a>Felsöka Azure File Storage med hjälp av mätvärden
-Nu stöder Azure Storage Analytics mätvärden för Azure File Storage. Med hjälp av mätvärdesdata kan du spåra begäranden och diagnostisera problem.
+## <a name="troubleshooting-azure-files-using-metrics"></a>Felsöka Azure File Storage med hjälp av mätvärden
+Nu stöder Azure Storage Analytics mätvärden för Azure Files. Med hjälp av mätvärdesdata kan du spåra begäranden och diagnostisera problem.
 
+Du kan aktivera mätvärden för Azure Files från [Azure Portal](https://portal.azure.com). Du kan också aktivera mätvärden via programmering genom att anropa åtgärden Ange egenskaper för filtjänsten via REST-API:et eller någon av dess motsvarigheter i klientbiblioteket för Azure Storage.
 
-Du kan aktivera mätvärden för Azure File Storage från [Azure Portal](https://portal.azure.com). Du kan också aktivera mätvärden via programmering genom att anropa åtgärden Ange egenskaper för filtjänsten via REST-API:et eller någon av dess motsvarigheter i klientbiblioteket för Azure Storage.
-
-
-Följande exempel visar hur du använder Azure Storage-klientbiblioteket för .NET för att aktivera mätvärden för Azure File Storage.
+Följande kodexempel visar hur du använder Storage-klientbiblioteket för .NET för att aktivera mätvärden för Azure Files.
 
 Lägg först till följande `using`-direktiv i `Program.cs`-filen, förutom de som du lade till ovan:
 
@@ -343,7 +341,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-Observera att Azure Blobs, Azure Table och Azure Queues använder den delade `ServiceProperties`-typen i namnrymden `Microsoft.WindowsAzure.Storage.Shared.Protocol` och att Azure File Storage använder en egen typ, det vill säga typen `FileServiceProperties` i namnrymden `Microsoft.WindowsAzure.Storage.File.Protocol`. Din kod måste dock referera till båda namnrymderna för att följande kod ska kompileras.
+Tänk på att Azure Blobs, Azure Table och Azure Queues använder den delade `ServiceProperties`-typen i namnrymden `Microsoft.WindowsAzure.Storage.Shared.Protocol` och att Azure Files använder en egen typ, det vill säga typen `FileServiceProperties` i namnrymden `Microsoft.WindowsAzure.Storage.File.Protocol`. Din kod måste dock referera till båda namnrymderna för att följande kod ska kompileras.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -386,26 +384,26 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Du kan också gå till [Felsökningsartikeln om Azure File Storage](storage-troubleshoot-windows-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt.
+Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoot-windows-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure File Storage finns på följande länkar.
+Mer information om Azure Files finns på följande länkar.
 
 ### <a name="conceptual-articles-and-videos"></a>Begreppsrelaterade artiklar och videoklipp
-* [Azure Files Storage: ett friktionslöst SMB-filsystem i molnet för Windows och Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Använd Azure File Storage med Linux](storage-how-to-use-files-linux.md)
+* [Azure Files: ett smidigt SMB-filsystem i molnet för Windows och Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Använda Azure Files med Linux](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>Verktygsstöd för File Storage
 * [Använd AzCopy med Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Använd Azure CLI:et med Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Felsökning av problem i Azure File Storage](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Felsökning av problem i Azure Files](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referens
 * [Storage-klientbibliotek för .NET-referens](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [File Service REST API referens](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>Blogginlägg
-* [Azure File Storage finns nu allmänt tillgänglig](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inuti Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files är nu allmänt tillgängligt](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inuti Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introduktion till Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Bevara anslutningar till Microsoft Azure File Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Bevara anslutningar till Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

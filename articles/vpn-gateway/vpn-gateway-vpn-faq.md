@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
@@ -113,9 +113,9 @@ Vi är begränsade till att använda PSK (I förväg delad nyckel) vid autentise
 * Azure Portal: Gå till det klassiska virtuella nätverket > VPN-anslutningar > Plats-till-plats-VPN-anslutningar > Namn på lokal plats > Lokal plats > Adressutrymme för klient. 
 * Klassisk portal: Lägg till varje intervall som du vill skicka via gatewayen för det virtuella nätverket på sidan Nätverk under Lokala nätverk. 
 
-### <a name="can-i-configure-forced-tunneling"></a>Kan jag konfigurera tvingad tunneltrafik?
+### <a name="can-i-configure-force-tunneling"></a>Kan jag konfigurera tvingad tunneltrafik?
 
-Ja. Se [Konfigurera tvingad tunneltrafik](vpn-gateway-about-forced-tunneling.md).
+Ja. Läs avsnittet om hur du [konfigurerar tvingad tunneltrafik](vpn-gateway-about-forced-tunneling.md).
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Kan jag installera min egen VPN-server i Azure och använda den för att ansluta till mitt lokala nätverk?
 
@@ -159,9 +159,13 @@ Vi har stöd för Routning och fjärråtkomst (RRAS) i Windows Server 2012 för 
 
 Andra VPN-programlösningar bör fungera med vår gateway så länge de uppfyller branschens standardimplementeringar för IPsec. Kontakta leverantören av programvaran för konfigurations- och supportinstruktioner.
 
-## <a name="P2S"></a>Punkt-till-plats-anslutningar
+## <a name="P2S"></a>Punkt-till-plats – intern Azure-certifikatautentisering
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>Punkt-till-plats – RADIUS-autentisering
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>Anslutning mellan virtuella nätverk och flera platser
 

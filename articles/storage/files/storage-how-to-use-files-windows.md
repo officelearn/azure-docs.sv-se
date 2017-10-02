@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
 ms.contentlocale: sv-se
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montera en filresurs på Azure och få åtkomst till resursen i Windows
-[Azure File Storage](../storage-dotnet-how-to-use-files.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows och Windows Server. Den här artikeln visar tre olika sätt att montera en Azure-filresurs på Windows: med användargränssnittet Utforskaren, via PowerShell eller via Kommandotolken. 
+[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows och Windows Server. Den här artikeln visar tre olika sätt att montera en Azure-filresurs på Windows: med användargränssnittet Utforskaren, via PowerShell eller via Kommandotolken. 
 
 Operativsystemet måste stödja SMB 3.0 för att montera en Azure-filresurs utanför den Azure-region som den finns i, till exempel lokalt eller i en annan Azure-region. 
 
@@ -39,7 +39,7 @@ Du kan montera Azure-filresurser i en Windows-installation som körs antingen i 
 | Windows 7              | SMB 2.1     | Ja                   | Nej                   |
 | Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nej                   |
 
-<sup>1</sup>Windows 10 versionerna 1507, 1511, 1607 och 1703
+<sup>1</sup>Windows 10-versionerna 1507, 1511, 1607, 1703 och 1709.
 
 > [!Note]  
 > Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.
@@ -49,7 +49,7 @@ Du kan montera Azure-filresurser i en Windows-installation som körs antingen i 
 
 * **Lagringskontonyckel**: Om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
 
-* **Kontrollera att port 445 är öppen**: Azure File Storage använder SMB-protokollet. SMB kommunicerar via TCP-port 445. Kontrollera om din brandvägg blockerar TCP-port 445 från klientdatorn.
+* **Kontrollera att port 445 är öppen**: Azure Files använder SMB-protokollet. SMB kommunicerar via TCP-port 445. Kontrollera om din brandvägg blockerar TCP-port 445 från klientdatorn.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Montera Azure-filresursen med Utforskaren
 > [!Note]  
@@ -63,7 +63,7 @@ Du kan montera Azure-filresurser i en Windows-installation som körs antingen i 
 
 3. **Kopiera UNC-sökvägen från fönstret "Anslut" i Azure Portal**: En detaljerad beskrivning av hur du hittar den här informationen hittar du [här](storage-how-to-use-files-portal.md#connect-to-file-share).
 
-    ![UNC-sökvägen från fönstret Anslut i Azure File Storage](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![UNC-sökvägen från fönstret Anslut i Azure Files](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **Välj enhetsbeteckningen och ange UNC-sökvägen.** 
     
@@ -121,24 +121,24 @@ Du kan montera Azure-filresurser i en Windows-installation som körs antingen i 
 >   ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure File Storage finns på följande länkar.
+Mer information om Azure Files finns på följande länkar.
 
 * [Vanliga frågor och svar](../storage-files-faq.md)
 * [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Begreppsrelaterade artiklar och videoklipp
-* [Azure Files Storage: ett friktionslöst SMB-filsystem i molnet för Windows och Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Använd Azure File Storage med Linux](../storage-how-to-use-files-linux.md)
+* [Azure Files: ett smidigt SMB-filsystem i molnet för Windows och Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Använda Azure Files med Linux](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Verktygsstöd för Azure File Storage
+### <a name="tooling-support-for-azure-files"></a>Verktygsstöd för Azure Files
 * [Använd AzCopy med Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Använd Azure CLI:et med Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Felsökning av problem i Azure File Storage – Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Felsökning av problem i Azure File Storage – Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Felsökning av problem i Azure Files – Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Felsökning av problem i Azure Files – Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Blogginlägg
-* [Azure File Storage finns nu allmänt tillgänglig](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inuti Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Files är nu allmänt tillgängligt](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inuti Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introduktion till Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migrera data till Azure File](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

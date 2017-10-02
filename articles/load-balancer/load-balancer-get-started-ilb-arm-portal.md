@@ -3,7 +3,7 @@ title: "Skapa en intern belastningsutjämnare – Azure-portalen | Microsoft Doc
 description: "Lär dig hur du skapar en intern belastningsutjämnare i Resource Manager med hjälp av Azure Portal"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
 ms.contentlocale: sv-se
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -31,6 +31,9 @@ ms.lasthandoff: 01/24/2017
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
@@ -40,7 +43,7 @@ ms.lasthandoff: 01/24/2017
 
 ## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Kom igång med att skapa en intern belastningsutjämnare med hjälp av Azure Portal
 
-Använd följande steg för att skapa en intern belastningsutjämnare från Azure Portal.
+Använd följande steg för att skapa en intern belastningsutjämnare från Azure-portalen.
 
 1. Öppna en webbläsare, navigera till [Azure Portal](http://portal.azure.com) och logga in med ditt Azure-konto.
 2. Längst upp till vänster på skärmen klickar du på **Nytt** > **Nätverk** > **Belastningsutjämnare**.
@@ -63,18 +66,18 @@ Använd följande steg för att skapa en intern belastningsutjämnare från Azur
 ## <a name="configure-load-balancing-rules"></a>Konfigurera belastningsutjämningsregler
 
 När du har skapat en belastningsutjämnare navigerar du till belastningsutjämningsresursen för att konfigurera den.
-Du behöver konfigurera en serverdelsadresspool och en avsökning innan du kan konfigurera en belastningsutjämningsregel.
+Konfigurera en serverdelsadresspool och en avsökning innan du konfigurerar en belastningsutjämningsregel.
 
-### <a name="step-1-configure-a-back-end-pool"></a>Steg 1: Konfigurera en serverdelspool
+### <a name="step-1-configure-a-backend-pool"></a>Steg 1: Konfigurera en serverdelspool
 
-1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure Portal och klicka sedan på belastningsutjämnaren som du skapade ovan.
+1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure-portalen och klicka sedan på belastningsutjämnaren som du skapade tidigare.
 2. På bladet **Inställningar** klickar du på **Serverdelspooler**.
 3. På bladet **Serverdelspooler** klickar du på **Lägg till**.
 4. På bladet **Lägg till serverdelspool** anger du ett **namn** för serverdelspoolen och sedan klickar du på **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Steg 2: Konfigurera en avsökning
 
-1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure Portal och klicka sedan på belastningsutjämnaren som du skapade ovan.
+1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure-portalen och klicka sedan på belastningsutjämnaren som du skapade tidigare.
 2. På bladet **Inställningar** klickar du på **Avsökningar**.
 3. På bladet **Avsökningar** klickar du på **Lägg till**.
 4. På bladet **Lägg till avsökning** anger du ett **namn** för avsökningen.
@@ -87,14 +90,14 @@ Du behöver konfigurera en serverdelsadresspool och en avsökning innan du kan k
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Steg 3: Konfigurera belastningsutjämningsregler
 
-1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure Portal och klicka sedan på belastningsutjämnaren som du skapade ovan.
+1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure-portalen och klicka sedan på belastningsutjämnaren som du skapade tidigare.
 2. På bladet **Inställningar** klickar du på **Belastningsutjämningsregler**.
 3. På bladet **Belastningsutjämningsregler** klickar du på **Lägg till**.
 4. På bladet **Add load balancing rule** (Lägg till belastningsutjämningsregel) anger du ett **namn** för regeln.
 5. Under **Protokoll** väljer du **HTTP** (för webbplatser) eller **TCP** (för andra TCP-baserade program).
 6. Under **Port** anger du den port som klienter ansluter till i belastningsutjämnaren.
 7. Under **Serverdelsport** anger du porten som ska användas i serverdelspoolen (vanligtvis är belastningsutjämnarporten och serverdelsporten densamma).
-8. Under **Serverdelspool** väljer du den serverdelspool du skapade ovan.
+8. Under **Serverdelspool** väljer du den serverdelspool du skapade tidigare.
 9. Under **Sessionspermanens** väljer du hur du vill att sessioner ska sparas.
 10. Under **Timeout för inaktivitet (minuter)** anger du tidsgränsen för inaktivitet.
 11. Under **Flytande IP (direkt serverreturnering)** klickar du på **Inaktiverad** eller **Aktiverad**.

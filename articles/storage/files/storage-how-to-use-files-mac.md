@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montera en Azure-filresurs via SMB med macOS
-[Azure File Storage](../storage-dotnet-how-to-use-files.md) är en Microsoft-tjänst som gör att du kan skapa och använda nätverksfilresurser i Azure med protokollet som är branschstandard. Azure-filresurser kan monteras i macOS Sierra (10.12) och El Capitan (10.11). Den här artikeln visar två olika sätt att montera en Azure-filresurs på macOS med hjälp av användargränssnittet Finder och med terminalen.
+[Azure Files](storage-files-introduction.md) är en Microsoft-tjänst som gör att du kan skapa och använda nätverksfilresurser i Azure med branschstandard. Azure-filresurser kan monteras i macOS Sierra (10.12) och El Capitan (10.11). Den här artikeln visar två olika sätt att montera en Azure-filresurs på macOS med hjälp av användargränssnittet Finder och med terminalen.
 
 > [!Note]  
 > Innan du monterar en Azure-filresurs via SMB rekommenderar vi att du inaktiverar signering av SMB-paket. Om du inte gör det kan det orsaka sämre prestanda när du får åtkomst till Azure-filresursen från macOS. SMB-anslutningen krypteras så att det inte påverkar din anslutnings säkerhet. Från terminalen används följande kommandon för att inaktivera signering av SMB-paket, vilket beskrivs i den här [Apple Support-artikeln om hur du inaktiverar signering av SMB-paket](https://support.apple.com/HT205926):  
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/21/2017
     ![En ögonblicksbild av den monterade Azure-filresursen](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure File Storage finns på följande länkar.
+Mer information om Azure Files finns på följande länkar.
 
 * [Apple Support-artikel – Så här ansluter du med fildelning på din Mac.](https://support.apple.com/HT204445)
 * [Vanliga frågor och svar](../storage-files-faq.md)

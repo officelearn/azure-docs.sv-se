@@ -1,6 +1,6 @@
 ---
-title: "Konfigurera en utvecklingsmiljö för Azure-mikrotjänster | Microsoft Docs"
-description: "Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program."
+title: "Konfigurera en Windows-utvecklingsmiljö för Azure-mikrotjänster | Microsoft Docs"
+description: "Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Windows."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2017
+ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 10a5871d64524ff8adeb6ee3041b348ef2b1b32e
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: 0691f26168feacf290b732afd7dfd680a2537179
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="prepare-your-development-environment"></a>Förbereda utvecklingsmiljön
+# <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -63,8 +63,8 @@ Om du bara behöver SDK kan du installera det här paketet:
 * [Installera Microsoft Azure Service Fabric SDK][core-sdk]
 
 De aktuella versionerna är:
-* Service Fabric SDK 2.7.198
-* Service Fabric runtime 5.7.198
+* Service Fabric SDK 2.8.211
+* Service Fabric runtime 6.0.211
 * Service Fabric-verktyg för Visual Studio 2015 1.7.50721
 * Visual Studio 2017 Update 3 innehåller Service Fabric-verktyg för Visual Studio 1.7.20170817
 * Visual Studio 2017 Update 4 förhandsversion 1 (15.4.0 förhandsversion 1.0) innehåller Service Fabric-verktyg för Visual Studio 1.7.20170721

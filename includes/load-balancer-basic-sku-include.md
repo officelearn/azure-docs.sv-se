@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskriver den grundläggande belastningsutjämnaren. Den grundläggande belastningsutjämnaren är allmänt tillgänglig medan standardbelastningsutjämnaren för närvarande är en offentlig förhandsversion. Mer information om standardbelastningsutjämnaren finns i [Översikt över standardbelastningsutjämnare](https://aka.ms/AzureLoadBalancerStandard).

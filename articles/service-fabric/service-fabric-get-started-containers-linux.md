@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -166,7 +166,7 @@ Om du vill skapa ett program för Service Fabric-behållare kan du öppna ett te
 
 Namnge ditt program (till exempel ”minbehållare”). 
 
-Ange en URL för behållaravbildningen i ett behållarregister (till exempel ””). 
+Ange en URL för behållaravbildningen i ett behållarregister (till exempel ”myregistry.azurecr.io/samples/helloworldapp”). 
 
 Den här avbildningen har en definierad startpunkt arbetsbelastningen, så måste du uttryckligen ange inkommande kommandon (kommandon körs i den behållare som kommer att hålla den behållare som körs efter start). 
 
@@ -175,23 +175,35 @@ Ange ett instansantal på ”1”.
 ![Service Fabric Yeoman-generator för behållare][sf-yeoman]
 
 ## <a name="configure-port-mapping-and-container-repository-authentication"></a>Konfigurera portmappning och autentisering av behållardatabas
-Behållartjänsten behöver en slutpunkt för kommunikation.  Lägg nu till protokollet, porten och typen till en `Endpoint` i filen ServiceManifest.xml. Behållartjänsten för den här artikeln lyssnar på port 4000: 
+Behållartjänsten behöver en slutpunkt för kommunikation.  Lägg nu till protokollet, porten och typen för en `Endpoint` i filen ServiceManifest.xml under taggen ”Resources”. Behållartjänsten för den här artikeln lyssnar på port 4000: 
 
 ```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-```
+
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ ```
+ 
 Genom att tillhandahålla `UriScheme` registreras automatiskt behållarslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil finns i slutet av den här artikeln. 
 
-Konfigurera behållarens portmappning (port till värd) genom att ange en `PortBinding`-princip i `ContainerHostPolicies` för filen ApplicationManifest.xml.  I den här artikeln är `ContainerPort` 80 (behållaren exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”myserviceTypeEndpoint” (slutpunkt som definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 4000 mappas till port 80 för behållaren.  Om behållaren behöver autentiseras med en privat lagringsplats lägger du till `RepositoryCredentials`.  I den här artikeln lägger du till kontonamnet och lösenordet för behållarregistret myregistry.azurecr.io. 
+Konfigurera behållarens portmappning (port till värd) genom att ange en `PortBinding`-princip i `ContainerHostPolicies` för filen ApplicationManifest.xml.  I den här artikeln är `ContainerPort` 80 (behållaren exponerar port 80, som anges i Dockerfile) och `EndpointRef` är ”myserviceTypeEndpoint” (slutpunkt som definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 4000 mappas till port 80 för behållaren.  Om behållaren behöver autentiseras med en privat lagringsplats lägger du till `RepositoryCredentials`.  I den här artikeln lägger du till kontonamnet och lösenordet för behållarregistret myregistry.azurecr.io. Se till att principen som läggs till under taggen ”ServiceManifestImport” motsvarar rätt tjänstepaket.
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
-```
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+   </ServiceManifestImport>
+``` 
 
 ## <a name="build-and-package-the-service-fabric-application"></a>Utveckla och distribuera ett Service Fabric-program
 I Service Fabric Yeoman-mallarna ingår ett byggskript för [Gradle](https://gradle.org/) som du kan använda för att skapa programmet från terminalen. När du ska bygga och paketera programmet kör du följande:
@@ -278,7 +290,7 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -300,7 +312,7 @@ Här är de fullständiga tjänst- och appmanifesten som används i den här art
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>

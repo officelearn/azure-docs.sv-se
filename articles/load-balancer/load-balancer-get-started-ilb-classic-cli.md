@@ -3,7 +3,7 @@ title: "Skapa en intern belastningsutjämnare – klassiska Azure CLI | Microsof
 description: "Lär dig hur du skapar en intern belastningsutjämnare med hjälp av Azure CLI i den klassiska distributionsmodellen"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
 ms.contentlocale: sv-se
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -42,8 +42,8 @@ ms.lasthandoff: 03/21/2017
 Följ dessa steg för att skapa en intern belastningsutjämningsuppsättning och de servrar som ska skicka sin trafik till den:
 
 1. Skapa en instans för intern belastningsutjämning som ska vara slutpunkten för inkommande trafik som ska belastningsutjämnas mellan servrarna i en belastningsutjämnad uppsättning.
-2. Lägg till slutpunkter som motsvarar de virtuella datorerna som ska ta emot den inkommande trafiken.
-3. Konfigurera servrarna som ska skicka trafiken som ska belastningsutjämnas så att de skickar trafiken till den virtuella IP-adressen för instansen för intern belastningsutjämning.
+2. Lägg till slutpunkter som motsvarar de virtuella datorerna som kan ta emot den inkommande trafiken.
+3. Konfigurera servrarna så att de skickar trafiken till den virtuella IP-adressen för instansen för intern belastningsutjämning.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Stegvisa anvisningar som beskriver hur du skapar en intern belastningsutjämnare med hjälp av CLI
 
@@ -93,7 +93,7 @@ Här är ett exempel på utdata som kan returneras:
 
 ### <a name="step-2"></a>Steg 2
 
-Du konfigurerar den interna belastningsutjämningsuppsättningen när du lägger till den första slutpunkten. Du associerar slutpunkten, den virtuella datorn och avsökningsporten till den intern belastningsutjämningsuppsättningen i det här steget.
+Du konfigurerar den interna belastningsutjämningsuppsättningen när du lägger till den första slutpunkten. Du associerar slutpunkten, den virtuella datorn och avsökningsporten till den interna belastningsutjämningsuppsättningen i det här steget.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -107,7 +107,7 @@ Kontrollera belastningsutjämnarens konfiguration med hjälp av `azure vm show` 
 azure vm show DB1
 ```
 
-Följande utdata returneras:
+Utdata är följande:
 
     azure vm show DB1
     info:    Executing command vm show

@@ -12,32 +12,33 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/21/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]
 > * [C# – Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java – Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# – Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [Java – Linux (förhandsversion)](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# – Linux (förhandsversion)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
-Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudien, visar vi hur man skapar ett program för Linux och en tjänst med C# (.NET Core).
+Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudien visar vi hur man skapar ett program för Linux och en tjänst med C# i .NET Core 2.0.
 
 ## <a name="prerequisites"></a>Krav
 Du måste [konfigurera Linux-utvecklingsmiljön](service-fabric-get-started-linux.md) innan du börjar. Om du använder Mac OS X kan du [konfigurera en Linux-miljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
 
 Du bör även installera [Service Fabric CLI](service-fabric-cli.md)
 
-### <a name="install-and-set-up-the-generators-for-csharp"></a>Installera och konfigurera generatorerna för CSharp
-Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Service Fabric CSharp-program från terminalen med en Yeoman-mallgenerator. Följ stegen nedan för att se till att du har Service Fabric Yeoman-mallgeneratorn för CSharp på datorn.
+### <a name="install-and-set-up-the-generators-for-c"></a>Installera och konfigurera generatorerna för C#
+Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fabric-program från en terminal med en Yeoman-mallgenerator. Följ dessa steg för att konfigurera Service Fabric Yeoman-mallgeneratorer för C#:
+
 1. Installera nodejs och NPM på datorn
 
   ```bash
@@ -56,7 +57,7 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Servic
   ```
 
 ## <a name="create-the-application"></a>Skapa programmet
-Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. Service Fabric [Yeoman](http://yeoman.io/)-generatorn för CSharp, som du installerade i förra steget, gör det enkelt att skapa din första tjänst och lägga till fler senare. Använd Yeoman för att skapa ett program med en enskild tjänst.
+Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. Service Fabric [Yeoman](http://yeoman.io/)-generatorn för C#, som du installerade i förra steget, gör det enkelt att skapa din första tjänst och lägga till fler senare. Använd Yeoman för att skapa ett program med en enskild tjänst.
 
 1. Skriv följande kommando i en terminal, för att börja bygga ställningarna: `yo azuresfcsharp`
 2. Namnge ditt program.
@@ -126,7 +127,6 @@ Om du vill lägga till en till tjänst till ett program som redan har skapats me
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagera med Service Fabric-kluster med Service Fabric CLI](service-fabric-cli.md)
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)
 * [Kom igång med Service Fabric CLI](service-fabric-cli.md)

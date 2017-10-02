@@ -1,6 +1,6 @@
 ---
 title: Skillnader mellan Azure Service Fabric i Linux och Windows | Microsoft Docs
-description: Skillnader mellan Azure Service Fabric Preview i Linux och Azure Service Fabric i Windows.
+description: Skillnader mellan Azure Service Fabric i Linux och Azure Service Fabric i Windows.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,36 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
+ms.sourcegitcommit: 7dceb7bb38b1dac778151e197db3b5be49dd568a
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Skillnader mellan Service Fabric i Linux (förhandsversion) och Windows (allmänt tillgänglig)
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Skillnader mellan Service Fabric i Linux och Windows
 
-Eftersom Service Fabric i Linux är en förhandsversion är det vissa funktioner som bara finns i Windows, inte ännu i Linux. Dessa funktioner kommer att finnas även i Linux när Service Fabric i Linux blir allmänt tillgänglig. Den här funktionsskillnaden kommer att krympa i kommande versioner. De senaste versionerna (det vill säga version 5.6 för Windows och version 5.5 för Linux) skiljer sig åt på följande sätt: 
+Det finns vissa funktioner som inte finns i Linux ännu, utan bara i Windows. Till slut kommer alla funktioner att finnas på båda plattformarna. Skillnaderna minskar med varje ny version. De senaste versionerna (det vill säga version 6.0 för Windows och version 6.0 för Linux) skiljer sig åt på följande sätt: 
 
-* Tillförlitliga samlingar (och tillförlitliga tillståndskänsliga tjänster) 
-* ReverseProxy 
-* Fristående installationsprogram 
-* XML-schemavalidering för manifestfiler 
-* Omdirigering av konsol 
-* FAS (Fault Analysis Service)
-* Docker-skrivning, volym och loggdrivrutiner för behållare 
-* Resursstyrning för behållare och tjänster 
-* DNS-tjänst
-* Stöd för Azure Active Directory
-* CLI-kommandon som motsvarar vissa Powershell-kommandon 
-* Endast vissa av Powershell-kommandona kan köras mot ett Linux-kluster (se nästa avsnitt).
+* Alla programmeringsmodeller är förhandsversioner (Java/C# Reliable Actors, Reliable Stateless Services och Reliable Stateful Services)
+* Envoy (ReverseProxy) är förhandsversion i Linux
+* Fristående installationsprogram är inte tillgängligt ännu i Linux
+* Omdirigering av konsol (stöds inte i Linux- eller Windows-produktionskluster)
+* FAS (Fault Analysis Service) i Linux
+* DNS-tjänst för Service Fabric-tjänster (DNS-tjänst stöds för behållare i Linux)
+* Motsvarande CLI-kommandon för vissa Powershell-kommandon (se lista nedan, de flesta gäller endast fristående kluster)
 
->[!NOTE]
->Omdirigering av konsol stöds inte i produktionskluster (gäller även Windows).
-
-Utvecklingsverktygen skiljer sig också åt mellan Windows och Linux. VisualStudio, Powershell, VSTS och ETW används för Windows medan Yeoman, Eclipse, Jenkins och LTTng används med Linux.
+Utvecklingsverktygen skiljer sig också åt mellan Windows och Linux. Visual Studio, Powershell, VSTS och ETW används för Windows medan Yeoman, Eclipse, Jenkins och LTTng används i Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>PowerShell-cmdletar som inte fungerar mot ett Linux Service Fabric-kluster
 
@@ -67,7 +59,6 @@ Utvecklingsverktygen skiljer sig också åt mellan Windows och Linux. VisualStud
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus

@@ -3,7 +3,7 @@ title: "Skapa en Internetaktiverad belastningsutjämnare – klassiska Azure CLI
 description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i den klassiska distributionsmodellen med hjälp av Azure CLI"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0813cb0ccf976b7e47420b33ec65714fd8e60ac1
 ms.contentlocale: sv-se
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/21/2017
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Stegvisa anvisningar som beskriver hur du skapar en Internetuppkopplad belastningsutjämnare med CLI
+## <a name="create-an-internet-facing-load-balancer-using-cli"></a>Skapa en Internetuppkopplad belastningsutjämnare med CLI
 
 Den här guiden beskriver hur du skapar en Internetuppkopplad belastningsutjämnare baserat på scenariot ovan.
 
@@ -65,7 +65,7 @@ Skapa den första slutpunkten och belastningsutjämningsuppsättningen med hjäl
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-2"></a>Steg 2
+### <a name="step-2"></a>Steg 2
 
 Lägg till en andra virtuell dator, ”web2”, i belastningsutjämningsuppsättningen.
 
@@ -73,7 +73,7 @@ Lägg till en andra virtuell dator, ”web2”, i belastningsutjämningsuppsätt
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-3"></a>Steg 3
+### <a name="step-3"></a>Steg 3
 
 Kontrollera belastningsutjämnarens konfiguration med hjälp av `azure vm show` .
 

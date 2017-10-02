@@ -3,7 +3,7 @@ title: "Skapa en intern Azure-belastningsutjämnare – PowerShell | Microsoft D
 description: "Ta reda på hur du skapar en intern belastningsutjämnare med PowerShell i Resource Manager"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 7bd31ab8f52ec5e81f6966000554be46eaa59396
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8feb3b5f9dddc7b54b9c5e733675c2a9aca2f223
 ms.contentlocale: sv-se
-ms.lasthandoff: 01/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,6 +29,8 @@ ms.lasthandoff: 01/24/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -41,21 +43,21 @@ ms.lasthandoff: 01/24/2017
 
 Följande steg beskriver hur du skapar en intern belastningsutjämnare med hjälp av Azure Resource Manager och PowerShell. Med Azure Resource Manager konfigureras objekten som behövs för att skapa en intern belastningsutjämnare för sig och sedan kombineras de för att skapa en belastningsutjämnare.
 
-Du måste skapa och konfigurera följande objekt för att distribuera en belastningsutjämnare:
+Skapa och konfigurera följande objekt för att distribuera en belastningsutjämnare:
 
-* IP-konfiguration på klientsidan – konfigurerar den offentliga IP-adressen för inkommande nätverkstrafik
-* Serverdelsadresspool – konfigurerar nätverksgränssnitt som tar emot belastningsutjämnad trafik från IP-poolen på klientsidan
+* IP-konfiguration på klientsidan – konfigurerar den offentliga IP-adressen för inkommande nätverkstrafik.
+* Serverdelsadresspool – konfigurerar nätverksgränssnitt som tar emot belastningsutjämnad trafik från IP-poolen på klientsidan.
 * Belastningsutjämningsregler – käll- och lokalportkonfiguration för belastningsutjämnaren.
 * Avsökningar – konfigurerar hälsoavsökningar för virtuella datorinstanser.
 * Ingående NAT-regler – konfigurerar portreglerna för direktåtkomst till någon av de virtuella datorinstanserna.
 
-Mer information om belastningsutjämningskomponenter med Azure Resource Manager finns i [Azure Resource Manager-stöd för belastningsutjämnare](load-balancer-arm.md).
+Mer information om belastningsutjämningskomponenter för Azure Resource Manager finns i [Azure Resource Manager support for Load Balancer](load-balancer-arm.md) (Belastningsutjämningsstöd i Azure Resource Manager).
 
 Följande steg beskriver hur du konfigurerar en belastningsutjämnare mellan två virtuella datorer.
 
-## <a name="setup-powershell-to-use-resource-manager"></a>Konfigurera PowerShell för användning med Resource Manager
+## <a name="set-up-powershell-to-use-resource-manager"></a>Konfigurera PowerShell för användning med Resource Manager
 
-Kontrollera att du har den senaste produktionsversionen av Azure-modulen för PowerShell, och konfigurera PowerShell på rätt sätt för att få åtkomst till din Azure-prenumeration.
+Kontrollera att du har den senaste produktionsversionen av Azure-modulen för PowerShell, och att PowerShell är konfigurerat på rätt sätt för att få åtkomst till din Azure-prenumeration.
 
 ### <a name="step-1"></a>Steg 1
 
@@ -71,7 +73,7 @@ Kontrollera kontots prenumerationer
 Get-AzureRmSubscription
 ```
 
-Du uppmanas att autentisera dig med dina autentiseringsuppgifter.
+Du ombeds att autentisera dig med dina autentiseringsuppgifter.
 
 ### <a name="step-3"></a>Steg 3
 
@@ -89,11 +91,11 @@ Skapa en ny resursgrupp (hoppa över detta steg om du använder en befintlig res
 New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure Resource Manager kräver att alla resursgrupper anger en plats. Detta används som standardplatsen för resurser i resursgruppen. Se till att alla kommandon för att skapa en belastningsutjämnare använder samma resursgrupp.
+Azure Resource Manager kräver att alla resursgrupper anger en plats. Den här platsen används som standard för resurserna i den resursgruppen. Se till att alla kommandon för att skapa en belastningsutjämnare använder samma resursgrupp.
 
-I exemplet ovan skapade vi resursgruppen NRP-RG och platsen Västra USA.
+I exemplet ovan skapade vi resursgruppen **NRP-RG** och platsen **Västra USA**.
 
-## <a name="create-virtual-network-and-a-private-ip-address-for-front-end-ip-pool"></a>Skapa virtuella nätverk och en privat IP-adress för IP-pooler på klientsidan
+## <a name="create-a-virtual-network-and-a-private-ip-address-for-a-front-end-ip-pool"></a>Skapa ett virtuellt nätverk och en privat IP-adress för IP-pooler på klientsidan
 
 Skapar ett undernät för det virtuella nätverket som tilldelas till variabeln $backendSubnet
 
@@ -109,13 +111,13 @@ $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Locati
 
 Skapar det virtuella nätverket och lägger till undernätet lb-subnet-be i det virtuella nätverket NRPVNet som tilldelas till variabeln $vnet
 
-## <a name="create-front-end-ip-pool-and-backend-address-pool"></a>Skapa en IP-pool på klientsidan och en serverdelsadresspool
+## <a name="create-a-front-end-ip-pool-and-back-end-address-pool"></a>Skapa en IP-adresspool på klientsidan och en serverdelsadresspool
 
 Konfigurera en IP-pool på klientsidan för inkommande belastningsutjämningstrafik och en serverdelsadresspool för att ta emot belastningsutjämnad trafik.
 
 ### <a name="step-1"></a>Steg 1
 
-Skapa en IP-pool på klientsidan med den privata IP-adressen 10.0.2.5 för undernätet 10.0.2.0/24 som blir slutpunkten för den inkommande nätverkstrafiken.
+Skapa en IP-pool på klientsidan med den privata IP-adressen 10.0.2.5 för undernätet 10.0.2.0/24 som är slutpunkten för den inkommande nätverkstrafiken.
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
@@ -129,9 +131,9 @@ Konfigurera en serverdelsadresspool som används för att ta emot inkommande tra
 $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 ```
 
-## <a name="create-lb-rules-nat-rules-probe-and-load-balancer"></a>Skapa LB-regler, NAT-regler, avsökning och belastningsutjämnare
+## <a name="create-load-balancing-rules-nat-rules-probe-and-load-balancer"></a>Skapa belastningsutjämningsregler, NAT-regler, avsökning och belastningsutjämnare
 
-När du har skapat IP-poolen på klientsidan och serverdelsadresspoolen behöver du skapa reglerna som hör till belastningsutjämningsresursen:
+När du har skapat IP-poolen på klientsidan och serverdelsadresspoolen skapar du reglerna som hör till belastningsutjämningsresursen:
 
 ### <a name="step-1"></a>Steg 1
 
@@ -145,7 +147,7 @@ $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPa
 $lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
-I exemplet ovan skapar du följande objekt:
+I föregående exempel skapar du följande objekt:
 
 * NAT-regel som anger att all inkommande trafik till port 3441 skickas till port 3389.
 * en andra NAT-regel som anger att all inkommande trafik till port 3442 skickas till port 3389.
@@ -162,7 +164,7 @@ $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Loc
 
 ## <a name="create-network-interfaces"></a>Skapa nätverksgränssnitt
 
-När du har skapat den interna belastningsutjämnaren måste du definiera vilka nätverksgränssnitt som tar emot den inkommande belastningsutjämnade nätverkstrafiken, NAT-reglerna och avsökningen. Nätverksgränssnittet konfigureras i det här fallet separat och kan tilldelas till en virtuell dator senare.
+När du har skapat den interna belastningsutjämnaren måste du definiera vilka nätverksgränssnitt som kan ta emot den inkommande belastningsutjämnade nätverkstrafiken, NAT-reglerna och avsökningen. Nätverksgränssnittet konfigureras i det här fallet separat och kan tilldelas till en virtuell dator senare.
 
 ### <a name="step-1"></a>Steg 1
 
@@ -190,7 +192,7 @@ Det här steget skapar ett andra nätverksgränssnitt, som tilldelas samma serve
 $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
-Slutresultatet visar följande:
+Slutresultatet visar följande utdata:
 
     $backendnic1
 
@@ -252,7 +254,7 @@ Om du redan har skapat en virtuell dator kan du lägga till nätverksgränssnitt
 
 ### <a name="step-1"></a>Steg 1
 
-Läs in belastningsutjämningsresursen i en variabel (om du inte har gjort det redan). Variabeln som används kallas $lb och använder samma namn från belastningsutjämningsresursen som skapades ovan.
+Läs in belastningsutjämningsresursen i en variabel (om du inte har gjort det redan). Variabeln som används kallas $lb och använder samma namn från belastningsutjämningsresursen som skapades under föregående steg.
 
 ```powershell
 $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
@@ -263,12 +265,12 @@ $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 Läs in serverdelskonfigurationen i en variabel.
 
 ```powershell
-$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
 ### <a name="step-3"></a>Steg 3
 
-Läs in nätverksgränssnittet som du redan skapat i en variabel. variabelnamnet som används är $nic. Namnet på nätverksgränssnittet som används är detsamma som i exemplet ovan.
+Läs in nätverksgränssnittet som du redan skapat i en variabel. variabelnamnet som används är $nic. Namnet på nätverksgränssnittet som används är detsamma som i föregående exempel.
 
 ```powershell
 $nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
@@ -295,7 +297,7 @@ När ett nätverksgränssnitt har lagts till i serverdelspoolen för belastnings
 ## <a name="update-an-existing-load-balancer"></a>Uppdatera en befintlig belastningsutjämnare
 
 ### <a name="step-1"></a>Steg 1
-Med hjälp av belastningsutjämnaren från exemplet ovan tilldelar du belastningsutjämningsobjektet till variabeln $slb med hjälp av Get-AzureRmLoadBalancer
+Med hjälp av belastningsutjämnaren från föregående exempel tilldelar du belastningsutjämningsobjektet till variabeln $slb med hjälp av Get-AzureRmLoadBalancer
 
 ```powershell
 $slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG

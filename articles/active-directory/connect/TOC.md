@@ -43,7 +43,7 @@
 ##### [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Vanliga frågor och svar](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Felsöka](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
-##### [Djupgående om säkerhet](active-directory-aadconnect-pta-security-deep-dive.md)
+##### [Djupgående om säkerhet](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
 ### [Stöd för flera domäner vid federering](active-directory-aadconnect-multiple-domains.md)
 ### [Automatisk uppgradering](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning](active-directory-aadconnect-federation-saml-idp.md)

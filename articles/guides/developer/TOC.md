@@ -1,11 +1,5 @@
 # Översikt
 ## [Utvecklarguide](azure-developer-guide.md) 
-### [Vad är Azure?](azure-developer-guide.md#what-is-azure)
-### [Var ska jag börja?](azure-developer-guide.md#where-do-i-start)
-### [Azure-regioner](azure-developer-guide.md#azure-regions)
-### [Hur hanterar jag mina program och projekt?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Förstå konton, prenumerationer och fakturering](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Översikt över Azure-tjänster](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Portalöversikt](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK:er och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools)

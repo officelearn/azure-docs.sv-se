@@ -3,7 +3,7 @@ title: "Skapa ett Azure AD-användarkonto | Microsoft Docs"
 description: "I den här artikeln beskrivs hur du skapar autentiseringsuppgifter för ett Azure AD-användarkonto för runbooks i Azure Automation, för autentisering i Azure och klassiska Azure."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: azure active directory user, azure service management, azure ad user account

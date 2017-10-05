@@ -3,7 +3,7 @@ title: Felhantering i grafiska Azure Automation-runbooks | Microsoft Docs
 description: "Den här artikeln beskriver hur du implementerar felhanteringslogik i Azure Automation grafiska runbooks."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 

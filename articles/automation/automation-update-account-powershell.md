@@ -3,7 +3,7 @@ title: "Skapa ett Azure Automation Kör som-konto med PowerShell | Microsoft Doc
 description: "Den här artikeln beskriver hur du uppgraderar ditt Automation-konto med PowerShell för att skapa Kör som-konton, om du inte gjorde det när du först skapade kontot från portalen."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

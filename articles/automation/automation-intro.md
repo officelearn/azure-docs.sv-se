@@ -3,7 +3,7 @@ title: "Vad är Azure Automation? | Microsoft Docs"
 description: "Lär dig vilket värde Azure Automation tillför och få svar på vanliga frågor så att du snabbt kan komma igång med runbooks och Azure Automation DSC."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "vad är automation, azure automation, azure automation-exempel"

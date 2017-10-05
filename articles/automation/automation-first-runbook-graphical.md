@@ -3,7 +3,7 @@ title: "Min första grafisk runbook i Azure Automation | Microsoft Docs"
 description: "En självstudiekurs som steg för steg beskriver hur du skapar, testar och publicerar en enkel grafisk runbook."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: runbook, runbook-mall, runbook-automation, azure runbook

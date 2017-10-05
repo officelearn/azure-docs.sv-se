@@ -3,7 +3,7 @@ title: Verifiera konfiguration av Azure Automation-konto | Microsoft Docs
 description: "Den här artikeln beskriver hur du bekräftar att konfigurationen av ditt Automation-konto har gjorts på korrekt sätt."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

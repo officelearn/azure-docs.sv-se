@@ -3,7 +3,7 @@ title: "Komma igång med Azure Automation | Microsoft Docs"
 description: "Den här artikeln ger en översikt över Azure Automation-tjänsten och beskriver design, implementeringsdetaljer och förberedelser inför distribution från Azure Marketplace."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

@@ -3,7 +3,7 @@ title: "Min första PowerShell Workflow-runbook i Azure Automation | Microsoft D
 description: "Självstudiekurs som steg för steg beskriver hur du skapar, testar och publicerar en enkel text-runbook med hjälp av PowerShell Workflow."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "powershell-arbetsflöde, powershell-arbetsflödesexempel, arbetsflöde powershell"

@@ -25,7 +25,6 @@
 ### [Integrera UDF:er för JavaScript](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrera REST API och Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Skapa utdata](stream-analytics-define-outputs.md)
-### [Utdata till Azure Functions](stream-analytics-functions-redis.md)
 ### [Utdata till Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Utdata till Cosmos DB](stream-analytics-documentdb-output.md)
 
@@ -39,7 +38,8 @@
 ### [Övervaka jobb](stream-analytics-monitoring.md)
 ### [Övervaka jobb programmässigt](stream-analytics-monitor-jobs.md)
 ### [Övervaka jobb med PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Optimera direktuppspelningsenheter](stream-analytics-streaming-unit-consumption.md)
+### [Förstå och justera direktuppspelningsenheter](stream-analytics-streaming-unit-consumption.md)
+### [Utnyttja frågeparallellisering](stream-analytics-parallelization.md)
 ### [Skala för att öka dataflödet](stream-analytics-scale-jobs.md)
 ### [Skala för Machine Learning-funktioner](stream-analytics-scale-with-machine-learning-functions.md)
 

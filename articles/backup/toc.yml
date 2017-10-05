@@ -39,6 +39,8 @@
           href: backup-azure-vm-backup-faq.md
         - name: Vanliga frågor och svar om säkerhetskopiering av filer och mappar med Azure Backup-agenten
           href: backup-azure-file-folder-backup-faq.md
+        - name: Vanliga frågor och svar om automatiska uppgraderingar för säkerhetskopieringsvalv
+          href: backup-upgrade-backup-vault.md
     - name: Rollbaserad Access Control
       href: backup-rbac-rs-vault.md
     - name: Säkerhet för hybridsäkerhetskopieringar

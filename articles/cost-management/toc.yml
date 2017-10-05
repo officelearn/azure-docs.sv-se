@@ -19,6 +19,8 @@
       href: tutorial-review-usage.md
     - name: 2 – Styra åtkomsten till data
       href: tutorial-user-access.md
+    - name: 3 – Prognostisera utgifter
+      href: tutorial-forecast-spending.md
 - name: Resurser
   items:
     - name: Azure-översikt

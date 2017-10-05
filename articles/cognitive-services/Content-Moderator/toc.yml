@@ -66,6 +66,8 @@
   items:
     - name: Moderering av Facebook-inlägg
       href: facebook-post-moderation.md
+    - name: Katalogmoderering för eCommerce
+      href: ecommerce-retail-catalog-moderation.md
 - name: API-referenser
   items:
     - name: 'Alla API:er'

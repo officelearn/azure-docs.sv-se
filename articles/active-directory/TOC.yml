@@ -40,6 +40,8 @@
 - name: Hanterad tjänstidentitet
   href: msi-overview.md
   items:
+    - name: Så här loggar du in eller hämtar en token
+      href: msi-how-to-get-access-token-using-msi.md
     - name: Konfigurera MSI för en virtuell Azure-dator
       items:
         - name: Med Azure Portal
@@ -50,6 +52,8 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: Med Azure Resource Manager-mallar
           href: msi-qs-configure-template-windows-vm.md
+        - name: Med Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
     - name: Tilldela MSI-åtkomst till en Azure-resurs
       items:
         - name: Med Azure Portal

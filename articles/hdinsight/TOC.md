@@ -12,6 +12,7 @@
 ### [Arkiv](hdinsight-release-notes-archive.md)
 
 # Kom igång
+## [Planera för kapacitet för HDInsight-kluster](hdinsight-capacity-planning.md)
 ## [Börja med Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## Börja med Spark
 ### [Skapa ett Spark-kluster](hdinsight-apache-spark-jupyter-spark-sql.md)
@@ -167,6 +168,8 @@
 ### [Använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Använda SSH-tunnel](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [Begränsa åtkomst till data](hdinsight-storage-sharedaccesssignature-permissions.md)
+### [Auktorisera användare för Ambari Views](hdinsight-authorize-users-to-ambari.md)
+### [Hantera användarbehörigheter på fil- och mappnivå](hdinsight-add-acls-at-file-folder-levels.md)
 ## Hantera
 ### [Skapa Linux-kluster](hdinsight-hadoop-provision-linux-clusters.md)
 #### [Använda Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -200,6 +203,7 @@
 ### [Använd Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 ### [Klusterspecifika instrumentpaneler](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
 ### [Använd frågor med Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+### [Övervaka klusterprestanda](hdinsight-key-scenarios-to-monitor.md)
 ## [Felsöka](hdinsight-troubleshoot-guide.md)
 ### [Felsökning för HBASE](hdinsight-troubleshoot-hbase.md)
 ### [Felsökning för HDFS](hdinsight-troubleshoot-hdfs.md)

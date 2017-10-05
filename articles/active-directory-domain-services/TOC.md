@@ -16,8 +16,9 @@
 # Gör så här för att
 ## Anslut till en hanterad domän
 ### [Ansluta en Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Ansluta en virtuell Windows Server VM med Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Ansluta en Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ansluta en virtuell Windows Server VM med PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Red Hat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrera en hanterad domän
 ### [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrera DNS på en hanterad domän](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Felsöka
 ### [Vanliga frågor och svar](active-directory-ds-faqs.md)
 ### [Felsökningsguide](active-directory-ds-troubleshooting.md)
-### [Aktivera förhandsgranskningen av Azure Portal](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Lös felmatchade klientfel](active-directory-ds-mismatched-tenant-error.md)
 
 # Referens

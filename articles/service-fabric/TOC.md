@@ -26,8 +26,8 @@
 
 ## Skapa och hantera ett kluster
 ### 1- Skapa ett kluster på Azure
-#### [1a- Skapa ett säkert Windows-kluster på Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b- Skapa ett säkert Linux-kluster på Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a- Skapa ett Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1a- Skapa ett Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Exempel
@@ -198,7 +198,6 @@
 ### Skapa en Reliable Actors-tjänst
 #### Kom igång
 ##### [C# i Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java i Linux](service-fabric-reliable-actors-get-started-java.md)
 ##### [Java-aktör i Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Skicka aviseringar](service-fabric-reliable-actors-events.md)
 #### [Ställ in timrar och påminnelser](service-fabric-reliable-actors-timers-reminders.md)

@@ -1,38 +1,57 @@
 # Översikt
 ## [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
 ## [Jämför Azure Data Lake Store med Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Använd Azure Data Lake Store för stordatabearbetning](data-lake-store-data-scenarios.md)
+## [Azure Data Lake Store för bearbetning av stordata](data-lake-store-data-scenarios.md)
 ## [Program med öppen källkod som fungerar med Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Kom igång
-## [Använda Azure Portal](data-lake-store-get-started-portal.md)
-## [Använda Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Använda .NET SDK](data-lake-store-get-started-net-sdk.md)
-## [Använda Java SDK](data-lake-store-get-started-java-sdk.md)
-## [Använda REST-API](data-lake-store-get-started-rest-api.md)
-## [Använda Azure CLI](data-lake-store-get-started-cli-2.0.md)
-## [Använda Node.js](data-lake-store-manage-use-nodejs.md)
-## [Använda Python](data-lake-store-get-started-python.md)
+## [Använda portalen](data-lake-store-get-started-portal.md)
+## [Använda PowerShell](data-lake-store-get-started-powershell.md)
+## [Använda Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+
 
 # Gör så här för att
-## Kopiera data
-### [Använda Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+## Läs in och flytta data
+### [Använda Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Använda AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Använda DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Använda Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Ladda upp data från offlinekällor](data-lake-store-offline-bulk-data-upload.md)
 ### [Migrera Azure Data Lake Store över regioner](data-lake-store-migration-cross-region.md)
 
-## Säkra data
+## Skydda data
 ### [Säkerhetsöversikt](data-lake-store-security-overview.md)
 ### [Åtkomstkontroll i Data Lake Store](data-lake-store-access-control.md)
 ### [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
-### [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md)
-### [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md)
 ### [Kryptering](data-lake-store-encryption.md)
+
+## Autentisera med Data Lake Store
+### [Autentiseringsalternativ](data-lakes-store-authentication-using-azure-active-directory.md)
+### [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md)
+#### [Använda Java](data-lake-store-end-user-authenticate-java-sdk.md)
+#### [Använda .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+#### [Använda REST-API](data-lake-store-end-user-authenticate-rest-api.md)
+#### [Använda Python](data-lake-store-end-user-authenticate-python.md)
+### [Tjänst-till-tjänst-autentisering](data-lake-store-service-to-service-authenticate-using-active-directory.md)
+#### [Använda Java](data-lake-store-service-to-service-authenticate-java.md)
+#### [Använda .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+#### [Använda REST-API](data-lake-store-service-to-service-authenticate-rest-api.md)
+#### [Använda Python](data-lake-store-service-to-service-authenticate-python.md)
+
+## Arbeta med Data Lake Store
+### Åtgärder för kontohantering
+#### [Använda .NET SDK](data-lake-store-get-started-net-sdk.md)
+#### [Använda REST-API](data-lake-store-get-started-rest-api.md)
+#### [Använda Python](data-lake-store-get-started-python.md)
+### Åtgärder för filsystem
+#### [Använda .NET SDK](data-lake-store-data-operations-net-sdk.md)
+#### [Använda Java SDK](data-lake-store-get-started-java-sdk.md)
+#### [Använda REST-API](data-lake-store-data-operations-rest-api.md)
+#### [Använda Python](data-lake-store-data-operations-python.md)
 
 ## Prestanda
 ### [Prestandajusteringsvägledning för Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Prestandajusteringsvägledning för användning av PowerShell med Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 ### [Prestandajusteringsvägledning för Spark på HDInsight och Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
 ### [Prestandajusteringsvägledning för Hive på HDInsight och Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
 ### [Prestandajusteringsvägledning för MapReduce på HDInsight och Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)

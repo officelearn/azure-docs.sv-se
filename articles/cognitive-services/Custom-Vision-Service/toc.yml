@@ -1,33 +1,35 @@
-- name: Custom Vision Documentation
+- name: Dokumentation om Custom Vision
   href: ../index.md
-- name: Overview
+- name: Översikt
   href: home.md
-- name: Quickstarts
+- name: Snabbstarter
   expanded: true
   items:
-    - name: Build a classifier
+    - name: Skapa en klassificerare
       href: getting-started-build-a-classifier.md
-    - name: Improve your classifier
+    - name: Förbättra din klassificerare
       href: getting-started-improving-your-classifier.md
-    - name: Test your model
+    - name: Testa din modell
       href: test-your-model.md
-    - name: Use the prediction API
+    - name: 'Använd förutsägelse-API:t'
       href: use-prediction-api.md
-- name: Tutorials
+    - name: Exportera din modell till mobil
+      href: export-your-model.md
+- name: Självstudier
   items:
-    - name: 'C# Tutorial'
+    - name: 'C#-självstudie'
       href: csharp-tutorial.md
-- name: Reference
+- name: Referens
   items:
-    - name: Custom Vision Prediction API Reference
+    - name: API-referens för Custom Vision-förutsägelse
       href: 'https://southcentralus.dev.cognitive.microsoft.com/docs/services/eb68250e4e954d9bae0c2650db79c653/operations/58acd3c1ef062f0344a42814'
-    - name: Custom Vision Training API Reference
+    - name: API-referens för Custom Vision-utbildning
       href: 'https://southcentralus.dev.cognitive.microsoft.com/docs/services/d9a10a4a5f8549599f1ecafc435119fa/operations/58d5835bc8cb231380095be3'
-    - name: Glossary
+    - name: Ordlista
       href: glossary-of-terms.md
     - name: SDK
       href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows/'
-- name: Resources
+- name: Resurser
   items:
-    - name: Azure Roadmap
+    - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'

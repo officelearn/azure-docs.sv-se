@@ -1,13 +1,13 @@
-- name: ACS med Kubernetes
+- name: Kubernetes på Azure
   href: ./index.yml
 - name: Översikt
   items:
-    - name: Om Container Service
+    - name: Kubernetes på Azure
       href: container-service-intro-kubernetes.md
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Kubernetes – Linux
+    - name: Kubernetes på Azure
       href: container-service-kubernetes-walkthrough.md
 - name: Självstudier
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7 – Övervaka med OMS
       href: container-service-tutorial-kubernetes-monitor.md
-- name: Exempel
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Koncept
   items:
-    - name: Säkra behållare
-      href: container-service-security.md
     - name: Tjänstens huvudnamn – Kubernetes
       href: container-service-kubernetes-service-principal.md
 - name: Instruktionsguider
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Kubernetes-webbgränssnitt
       href: container-service-kubernetes-ui.md
-    - name: Distribuera Helm-diagram
+    - name: Använd Helm-diagram
       href: container-service-kubernetes-helm.md
-    - name: Jenkins och ACS Kubernetes
+    - name: Använd Jenkins med ACS
       href: container-service-kubernetes-jenkins.md
-    - name: Använd utkast med ACR och ACS
+    - name: Använd Draft med ACS
       href: container-service-draft-up.md
-    - name: Anslut med ett ACS-kluster
-      href: container-service-connect.md
-    - name: Skala ett ACS-kluster
+    - name: Skala ett kluster
       href: container-service-scale.md
-    - name: Belastningsutjämna ett Kubernetes ACS-kluster
-      href: container-service-kubernetes-load-balancing.md
     - name: Övervaka
       items:
         - name: Övervaka med OMS
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Referens
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: Resurser
   items:
     - name: Azure-översikt

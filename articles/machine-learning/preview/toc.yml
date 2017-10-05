@@ -73,6 +73,8 @@
           href: tutorial-iris-azure-cli.md
         - name: Spåra körningshistorik och modellmått
           href: how-to-use-run-history-model-metrics.md
+        - name: Så här hittar du körningar med bäst precision och lägst varaktighet
+          href: how-to-find-best-accuracy-cli.md
         - name: Läsa och skriva filer
           href: how-to-read-write-files.md
         - name: MMLSpark-bibliotek

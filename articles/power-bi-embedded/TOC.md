@@ -1,44 +1,42 @@
 # Översikt
-## [Vad är Power BI Embedded?](power-bi-embedded-what-is-power-bi-embedded.md)
-## [Nyheter i Power BI Embedded](power-bi-embedded-whats-new.md)
+## [Vad är Power BI Embedded?](what-is-power-bi-embedded.md)
 
 # Kom igång
-## [Kom igång med Power BI Embedded](power-bi-embedded-get-started.md)
-## [Kom igång med ett exempel](power-bi-embedded-get-started-sample.md)
-## [Vanliga frågor och svar](power-bi-embedded-faq.md)
+## [Kom igång med Power BI Embedded](get-started.md)
+## [Kom igång med ett exempel](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
 # Gör så här för att
-## Planera och designa
-### [Vanliga scenarier](power-bi-embedded-scenarios.md)
+## Hantera kapacitet
+### [Skapa kapacitet](create-capacity.md)
+### [Skala kapacitet](scale-capacity.md)
+### [Pausa och påbörja kapacitet](pause-start.md)
+## [Registrera en app i Azure AD](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/)
+## [Bädda in Power BI-innehåll](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)
 
-## Hantera
-### [Anslut till en datakälla](power-bi-embedded-connect-datasource.md)
-### [Bädda in en Power BI-rapport](power-bi-embedded-embed-report.md)
-### [Interagera med rapporter](power-bi-embedded-interact-with-reports.md)
-### [Skapa en ny rapport från en datauppsättning](power-bi-embedded-create-report-from-dataset.md)
-### [Spara rapporter](power-bi-embedded-save-reports.md)
-### [Växla mellan att visa och redigera](power-bi-embedded-toggle-mode.md)
+## Migrera
+### [Så här migrerar du från Power BI-arbetsytesamlingar](migrate-from-power-bi-workspace-collections.md)
+### [Migreringsverktyg](migrate-tool.md)
+### [Kodfragment för migrering](migrate-code-snippets.md)
 
-## Skydda
-### [Autentisering och auktorisering](power-bi-embedded-app-token-flow.md)
-### [Säkerhet på radnivå med Power BI Embedded](power-bi-embedded-rls.md)
+# Exempel
+## [Kodexempel](https://github.com/Microsoft/PowerBI-Developer-Samples)
+## [Exempelgenomgång](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
 # Referens
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
-## [Azure PowerShell](/powershell/module/azurerm.powerbiembedded)
-## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
-## [Hämta .NET SDK](https://www.nuget.org/profiles/powerbi)
-## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
-## [Management REST API:er](/rest/api/powerbiembedded/)
-## [REST API:er](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-
+## API:er
+### [Azure Resource Manager REST API:er](/rest/api/powerbiembedded/)
+### [REST API:er](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+## SDK:er
+### [Hämta .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+### [Nedladdning av JavaScript SDK](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Git-lagringsplats för JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Git-lagringsplats för Power BI C#](https://github.com/Microsoft/PowerBI-CSharp)
-## [Power BI Community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Apiary](http://docs.powerbi.apiary.io/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
-## [Exempelprogram](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
+## GitHub-lagringsplatser
+### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [Power BI Community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+

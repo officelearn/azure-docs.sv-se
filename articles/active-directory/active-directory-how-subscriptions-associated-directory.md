@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Hur Azure-prenumerationer är associerade med Azure Active Directory
@@ -48,13 +48,14 @@ Du får Azure AD-tjänsten kostnadsfritt när du registrerar dig för någon av 
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Så här lägger du till en befintlig prenumeration i din Azure Active Directory-katalog
 Du måste logga in med ett konto som finns i både den aktuella katalogen som prenumerationen är associerad till och i den katalog som du vill lägga till den i. 
 
-1. Logga in i [Azure-kontocentret](https://account.windowsazure.com/Home/Index) med ett konto som är kontoadministratör för prenumerationen vars äganderätt du vill överföra.
+1. Logga in i [Azure-kontocentret](https://account.azure.com/Subscriptions) med ett konto som är kontoadministratör för prenumerationen vars äganderätt du vill överföra.
 2. Se till att den användare som ska vara prenumerationsägare finns i målkatalogen.
 3. Klicka på **överföra äganderätten till prenumerationen**.
 4. Ange mottagaren. Mottagaren hämtar automatiskt ett e-postmeddelande med en länk för godkännande.
 5. Mottagaren klickar på länken och följer instruktionerna, inklusive att ange sin betalningsinformation. När mottagaren lyckas överförs prenumerationen. 
 6. Standardkatalogen för prenumerationen ändras till den katalog där användaren finns.
 
+Läs mer i [Transfer Azure subscription ownership to another account](../billing/billing-subscription-transfer.md) (Överföra äganderätten till Azure-prenumerationen till ett annat konto)
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Förslag för att hantera både en prenumeration och en katalog
 De administrativa rollerna för en Azure-prenumeration hanterar resurser som är knutna till Azure-prenumerationen. I det här avsnittet beskrivs skillnaderna mellan Azure-prenumerationsadministratörer och Azure AD-katalogadministratörer. Administrativa roller och andra förslag om att använda dem för att hantera din prenumeration beskrivs i [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles.md).

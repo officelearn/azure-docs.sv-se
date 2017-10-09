@@ -16,10 +16,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="manage-your-azure-ad-directory"></a>Hantera Azure AD-katalogen
@@ -59,12 +59,14 @@ Om du inte har någon prenumeration på en Microsoft-molntjänst än kan du anv�
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>Så här ändrar du standardkatalogen för en prenumeration
 
-1. Logga in i [Azure-kontocentret](https://account.windowsazure.com/Home/Index) med ett konto som är kontoadministratör för prenumerationen för att överföra äganderätten för prenumerationen.
+1. Logga in i [Azure-kontocentret](https://account.azure.com/Subscriptions) med ett konto som är kontoadministratör för prenumerationen för att överföra äganderätten för prenumerationen.
 2. Se till att den användare som ska vara prenumerationsägare finns i målkatalogen.
 3. Klicka på **överföra äganderätten till prenumerationen**.
 4. Ange mottagaren. Mottagaren hämtar automatiskt ett e-postmeddelande med en länk för godkännande.
 5. Mottagaren klickar på länken och följer instruktionerna, inklusive att ange sin betalningsinformation. När mottagaren lyckas överförs prenumerationen. 
 6. Standardkatalogen för prenumerationen ändras till den katalog där användaren finns om överföringen av ägarskapet för prenumerationen lyckas.
+
+Läs mer i [Transfer Azure subscription ownership to another account](../billing/billing-subscription-transfer.md) (Överföra äganderätten till Azure-prenumerationen till ett annat konto)
 
 ### <a name="manage-the-default-directory-in-azure"></a>Hantera standardkatalogen i Azure
 När du registrerar dig för Azure associeras en standardkatalog för Azure AD med din prenumeration. Det kostar inget att använda Azure AD och dina kataloger är en kostnadsfri resurs. Det finns betalda Azure AD-tjänster som licensieras separat och innehåller ytterligare funktioner, till exempel företagsanpassning vid inloggning och lösenordsåterställning via självbetjäning. Du kan också skapa en anpassad domän med ett DNS-namn som du äger i stället för standarddomänen *.onmicrosoft.com.

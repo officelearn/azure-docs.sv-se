@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2017
+ms.date: 09/26/2017
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
 ms.contentlocale: sv-se
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
@@ -49,7 +49,7 @@ För att skapa den lokala virtuella datorn med ett 5-nods Service Fabric-kluster
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Det här steget hämtar filen `Vagrantfile` som innehåller VM-konfigurationen tillsammans med den plats som den virtuella datorn laddas ned från.
+    Det här steget laddar ned filen `Vagrantfile` som innehåller VM-konfigurationen tillsammans med den plats som den virtuella datorn laddas ned från.  Filen pekar på en Ubuntu-avbildning.
 
 2. Navigera till den lokala repoklonen
 
@@ -70,9 +70,24 @@ För att skapa den lokala virtuella datorn med ett 5-nods Service Fabric-kluster
     vagrant up
     ```
 
-   I det här steget laddas den förkonfigurerade VM-avbildningen ned. Avbildningen startas lokalt och ett lokalt Service Fabric-kluster konfigureras sedan på datorn. Det här kan ta några minuter. Om installationen lyckas, får du upp ett meddelande som indikerar att klustret startas.
 
-    ![Klusterinstallationen startar efter att den virtuella datorn har etablerats][cluster-setup-script]
+5. Logga in på den virtuella datorn och installera Service Fabric SDK
+
+    ```bash
+    vagrant ssh
+    ```
+
+   Installera SDK enligt anvisningarna i [SDK-installation](service-fabric-get-started-linux.md).  Skriptet nedan anges för att underlätta installationen av Service Fabric runtime och Service Fabric common SDK tillsammans med sfctl CLI. Vi förutsätter att du har läst och godkänt licenserna för all programvara som installeras innan du kör skriptet.
+
+    ```bash
+    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+    ```
+
+5.  Starta Service Fabric-klustret
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
     >[!TIP]
     > Om nedladdningen av den virtuella datorn tar lång tid kan du hämta den med hjälp av wget eller curl eller via en webbläsare genom att gå till länken som anges i **config.vm.box_url** i filen `Vagrantfile`. När du hämtat den lokalt redigerar du `Vagrantfile` så att den pekar på den lokala sökväg som du laddade ned avbildningen till. Om du till exempel laddade ned avbildningen till /home/users/test/azureservicefabric.tp8.box anger du **config.vm.box_url** till den sökvägen.
@@ -82,6 +97,23 @@ För att skapa den lokala virtuella datorn med ett 5-nods Service Fabric-kluster
 
     ![Service Fabric Explorer på Mac-värddatorn][sfx-mac]
 
+## <a name="install-the-necessary-java-artifacts-on-vagrant-to-use-service-fabric-java-programming-model"></a>Installera nödvändiga Java-artefakter i Vagrant om du vill använda Java-programmeringsmodellen i Service Fabric
+
+Om du vill skapa Service Fabric-tjänster med hjälp av Java ska du kontrollera att du har JDK 1.8 installerat tillsammans med Gradle, som används för att köra build-uppgifter. Följande kodfragment installerar Open JDK 1.8 tillsammans med Gradle. Java-biblioteken för Service Fabric hämtas från Maven.
+
+  ```bash
+  vagrant ssh
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+```
+
+## <a name="set-up-the-service-fabric-cli"></a>Konfigurera Service Fabric CLI
+
+[Service Fabric CLI](service-fabric-cli.md) innehåller kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster och program. Den är baserad på python, så se till att python och pip är installerade innan du fortsätter med följande kommando:
+
+```bash
+pip install sfctl
+```
 
 ## <a name="create-application-on-mac-using-yeoman"></a>Skapa program på Mac med Yeoman
 Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Service Fabric-program från terminalen med en Yeoman-mallgenerator. Följ stegen nedan för att se till att du har Service Fabric Yeoman-mallgeneratorn på datorn.
@@ -107,6 +139,10 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Servic
   ```
 4. Om du vill skapa ett Service Fabric Java-program på Mac måste du ha JDK 1.8 och Gradle installerade på datorn.
 
+## <a name="set-up-net-core-20-development"></a>Konfigurera .NET Core 2.0 för utveckling
+
+Installera [.NET Core 2.0 SDK för Mac](https://www.microsoft.com/net/core#macos) om du vill börja [skapa Service Fabric-program i C#](service-fabric-create-your-first-linux-application-with-csharp.md). Paket för .NET Core 2.0 Service Fabric-program finns på NuGet.org (för närvarande som förhandsversion).
+
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Installera Service Fabric-plugin-programmet för Eclipse Neon
 
@@ -122,6 +158,7 @@ Service Fabric innehåller ett plugin-program för **Eclipse Neon för Java IDE*
 * [Skapa ett Service Fabric-kluster i Azure-portalen](service-fabric-cluster-creation-via-portal.md)
 * [Skapa ett Service Fabric-kluster med Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Förstå Service Fabric-programmodellen](service-fabric-application-model.md)
+* [Använd Service Fabric CLI för att hantera dina program](service-fabric-application-lifecycle-sfctl.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png

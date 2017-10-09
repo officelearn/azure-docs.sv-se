@@ -15,197 +15,135 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 78306672e812745fd1902ae264c2adea196ab721
+ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
+ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
 ms.contentlocale: sv-se
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 10/04/2017
 
 ---
 
-# <a name="deploy-a-service-fabric-linux-container-application-on-azure"></a>Distribuera ett Service Fabric Linux-behållarprogram i Azure
+# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Distribuera ett Azure Service Fabric Linux-behållarprogram i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
 
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Linux-behållare i ett Service Fabric-kluster. Den här snabbstarten beskriver hur du distribuerar en fördefinierad Docker-behållaravbildning i ett Service Fabric-program. När du är klar har du en fungerande nginx-behållare.  Den här snabbstarten beskriver hur du distribuerar en Linux-behållare. Läs [den här snabbstarten](service-fabric-quickstart-containers.md) om du vill distribuera en Windows-behållare.
+Den här snabbstarten visar hur du distribuerar Linux-behållare till ett Service Fabric-kluster. När du är klar har du ett röstningsprogram som består av en frontwebbtjänst i Python och en Redis-serverdel som körs i ett Service Fabric-kluster. 
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
 
 I den här snabbstarten lär du dig att:
 > [!div class="checklist"]
-> * Paketera en Docker-avbildningsbehållare
-> * Konfigurera kommunikation
-> * Utveckla och distribuera ett Service Fabric-program
-> * Distribuera behållarprogrammet till Azure
+> * Distribuera Linux-behållare till Service Fabric
+> * Skala och redundansväxla behållare i Service Fabric
 
-## <a name="prerequisites"></a>Krav
-Installera [Service Fabric SDK, Service Fabric CLI och Yeoman-mallgeneratorerna för Service Fabric ](service-fabric-get-started-linux.md).
+## <a name="prerequisite"></a>Krav
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/en-us/free/) innan du börjar.
   
-## <a name="package-a-docker-image-container-with-yeoman"></a>Paketera en Docker-avbildningsbehållare med Yeoman
-I Service Fabric SDK för Linux finns en [Yeoman](http://yeoman.io/)-generator som gör det enkelt att skapa ditt program och lägga till en behållaravbildning. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du vill skapa ett program för Service Fabric-behållare kan du öppna ett terminalfönster och köra `yo azuresfcontainer`.  
+Om du väljer att installera och använda kommandoradsgränssnittet (CLI) lokalt måste du köra Azure CLI version 2.0.4 eller senare. Du kan ta reda på versionen genom att köra az --version. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-Ge programmet namnet ”MyFirstContainer” och ge programtjänsten namnet ”MyContainerService”.
+## <a name="get-application-package"></a>Hämta programpaket
+För att kunna distribuera behållare till Service Fabric behöver du en uppsättning manifestfiler (programdefinitionen), som beskriver de enskilda behållarna samt programmet.
 
-Ge behållaravbildningen namnet ”nginx:latest” ([nginx-behållaravbildningen](https://hub.docker.com/r/_/nginx/) i Docker Hub). 
+I Cloud Shell använder du Git för att klona en kopia av programdefinitionen.
 
-Eftersom den här avbildningen har en definierad startpunkt för arbetsbelastningen måste du uttryckligen ange indatakommandon. 
+```azurecli-interactive
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-Ange ett instansantal på ”1”.
-
-![Service Fabric Yeoman-generator för behållare][sf-yeoman]
-
-## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Konfigurera kommunikation och portmappning mellan behållare och värd
-Konfigurera en HTTP-slutpunkt så att klienter kan kommunicera med din tjänst.  Öppna filen *./MyFirstContainer/MyContainerServicePkg/ServiceManifest.xml* och deklarera en slutpunktsresurs i elementet **ServiceManifest**.  Lägg till protokollet, porten och namnet. I den här snabbstarten lyssnar tjänsten på port 80: 
-
-```xml
-<Resources>
-  <Endpoints>
-    <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-  </Endpoints>
-</Resources>
-
-```
-Genom att tillhandahålla `UriScheme` registreras automatiskt behållarslutpunkten med namngivningstjänsten för Service Fabric för identifiering. En fullständig ServiceManifest.xml-exempelfil finns i slutet av den här artikeln. 
-
-Mappa en behållarport till en tjänst-`Endpoint` med hjälp av en `PortBinding`-princip i `ContainerHostPolicies` i filen ApplicationManifest.xml.  I den här snabbstarten är `ContainerPort` 80 (behållaren exponerar port 80) och `EndpointRef` är ”myserviceTypeEndpoint” (slutpunkten som tidigare definierats i tjänstmanifestet).  Inkommande begäranden till tjänsten på port 80 mappas till port 80 på behållaren.  
-
-```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
-    <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
+cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
-## <a name="build-and-package-the-service-fabric-application"></a>Utveckla och distribuera ett Service Fabric-program
-I Service Fabric Yeoman-mallarna ingår ett byggskript för [Gradle](https://gradle.org/) som du kan använda för att skapa programmet från terminalen. Spara alla ändringar.  När du ska bygga och paketera programmet kör du följande:
+## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Distribuera behållare till ett Service Fabric-kluster i Azure
+Om du vill distribuera programmet till ett kluster i Azure kan du antingen använda ett eget kluster, eller använda ett partykluster.
 
-```bash
-cd MyFirstContainer
-gradle
-```
-## <a name="create-a-cluster"></a>Skapa ett kluster
-Om du vill distribuera programmet till ett kluster i Azure kan du antingen välja att skapa ett eget kluster, eller använda ett partykluster.
-
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster.  
+Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster som finns på Azure. De underhålls av Service Fabric-teamet. Där kan alla distribuera program och lära sig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster: 
 
 Information om hur du skapar ett eget kluster finns i [Skapa ditt första Service Fabric-kluster i Azure](service-fabric-get-started-azure-cluster.md).
 
-Skriv ned anslutningsslutpunkten, som du ska använda i följande steg.
+> [!Note]
+> Frontwebbtjänsten är konfigurerad för att lyssna efter inkommande trafik på port 80. Se till att den porten är öppen i ditt kluster. Porten är öppen om du använder ett partykluster.
+>
 
-## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
-När du har skapat programmet kan du distribuera det till Azure-klustret med Service Fabric CLI.
+### <a name="deploy-the-application-manifests"></a>Distribuera programmanifesten 
+Installera [CLI:n för Service Fabric (sfctl)](service-fabric-cli.md) i din CLI-miljö
 
-Anslut till Service Fabric-klustret i Azure.
+```azurecli-interactive
+pip3 install --user sfctl 
+export PATH=$PATH:~/.local/bin
+```
+Anslut till Service Fabric-klustret i Azure med hjälp av Azure CLI. Slutpunkten är hanteringsslutpunkten för ditt kluster, till exempel `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-```bash
-sfctl cluster select --endpoint http://lnxt10vkfz6.westus.cloudapp.azure.com:19080
+```azurecli-interactive
+sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
-Använd installationsskriptet som medföljer mallen för att kopiera programpaketet till klustrets avbildningsarkiv, registrera programtypen och skapa en instans av programmet.
+Använd installationsskriptet som medföljer för att kopiera röstningsprogrammets definition till klustret, registrera programtypen och skapa en instans av programmet.
 
-```bash
+```azurecli-interactive
 ./install.sh
 ```
 
-Öppna en webbläsare och gå till Service Fabric Explorer på http://lnxt10vkfz6.westus.cloudapp.azure.com:19080/Explorer. Expandera programnoden och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
+Öppna en webbläsare och gå till Service Fabric Explorer på http://\<my-azure-service-fabric-cluster-url>:19080/Explorer – till exempel `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Utöka programnoden. Nu ser du att det finns en post för röstningsprogramtypen och den instans som du har skapat.
 
 ![Service Fabric Explorer][sfx]
 
-Anslut till den behållare som körs.  Öppna en webbläsare som pekar på IP-adressen som returneras på port 80, till exempel ”lnxt10vkfz6.westus.cloudapp.azure.com:80”. Välkomstsidan för nginx bör visas i webbläsaren.
+Anslut till den behållare som körs.  Öppna en webbläsare och gå till URL för ditt kluster, till exempel `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Nu ska röstningsprogrammet visas i webbläsaren.
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
+
+## <a name="fail-over-a-container-in-a-cluster"></a>Redundansväxla en behållare i ett kluster
+Service Fabric ser till att dina behållarinstanser flyttas automatiskt till andra noder i klustret vid ett fel. Du kan också tomma en nod på behållare och sedan flytta dem till andra noder i klustret. Det finns flera sätt att skala tjänsterna. I det här exemplet använder vi Service Fabric Explorer.
+
+Så här redundansväxlar du behållaren på klientsidan:
+
+1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
+2. Klicka på noden **fabric:/Voting/azurevotefront** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare). Nodnamnet i trädvyn visar vilka noder som behållaren körs på för tillfället, till exempel `_nodetype_4`
+3. Visa noden **Noder** i trädvyn. Klicka på ellipsknappen (tre punkter) bredvid den nod som körs i behållaren.
+4. Välj **Starta om** för att starta om noden och bekräfta omstartsåtgärden. Omstarten gör att behållaren växlar över till en annan nod i klustret.
+
+![sfxquickstartshownodetype][sfxquickstartshownodetype]
+
+## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
+Service Fabric-tjänster kan enkelt skalas över ett kluster beroende på belastningen på tjänsterna. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret.
+
+Gör så här om du vill skala frontwebbtjänsten:
+
+1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+2. Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/Voting/azurevotefront** i trädvyn och välj **Scale Service** (Skala tjänst).
+
+    ![containersquickstartscale][containersquickstartscale]
+
+  Du kan nu välja att skala antalet instanser av frontwebbtjänsten.
+
+3. Ändra antalet till **2** och klicka på **Scale Service** (Skala tjänst).
+4. Klicka på noden **fabric:/Voting/azurevotefront** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare).
+
+    ![containersquickstartscaledone][containersquickstartscaledone]
+
+    Du kan nu se att tjänsten har två instanser. I trädvyn kan du se vilka noder instanserna körs på.
+
+Med den här enkla hanteringsåtgärden har vi dubblerat resurserna för bearbetning av användarbelastning för frontwebbtjänsten. Det är viktigt att veta att du inte behöver flera instanser av en tjänst för att den ska köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
 
 ## <a name="clean-up"></a>Rensa
-Använd avinstallationsskriptet som medföljer mallen för att ta bort programinstansen från klustret och avregistrera programtypen.
+Använd avinstallationsskriptet som medföljer mallen för att ta bort programinstansen från klustret och avregistrera programtypen. Det tar lite tid att rensa instansen med det här kommandot. Kommandot install'sh bör inte köras omedelbart efter det här skriptet. 
 
 ```bash
 ./uninstall.sh
 ```
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Komplett exempel på Service Fabric-app och tjänstmanifest
-Här är de fullständiga tjänst- och programmanifesten som används i den här snabbstarten.
-
-### <a name="servicemanifestxml"></a>ServiceManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="MyContainerServicePkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
-
-   <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="MyContainerServiceType" UseImplicitHost="true">
-   </StatelessServiceType>
-   </ServiceTypes>
-   
-   <CodePackage Name="code" Version="1.0.0">
-      <EntryPoint>
-         <ContainerHost>
-            <ImageName>nginx:latest</ImageName>
-            <Commands></Commands>
-         </ContainerHost>
-      </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
-   </CodePackage>
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- </ServiceManifest>
-
-```
-### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest  ApplicationTypeName="MyFirstContainerType" ApplicationTypeVersion="1.0.0"
-                      xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyContainerServicePkg" ServiceManifestVersion="1.0.0" />
-   <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-      </ContainerHostPolicies>
-    </Policies>
-</ServiceManifestImport>
-   
-   <DefaultServices>
-      <Service Name="MyContainerService">
-        <!-- On a local development cluster, set InstanceCount to 1.  On a multi-node production 
-        cluster, set InstanceCount to -1 for the container service to run on every node in 
-        the cluster.
-        -->
-        <StatelessService ServiceTypeName="MyContainerServiceType" InstanceCount="1">
-            <SingletonPartition />
-        </StatelessService>
-      </Service>
-   </DefaultServices>
-   
-</ApplicationManifest>
-
-```
-
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten lär du dig att:
+I den här snabbstarten har du lärt dig att:
 > [!div class="checklist"]
-> * Paketera en Docker-avbildningsbehållare
-> * Konfigurera kommunikation
-> * Utveckla och distribuera ett Service Fabric-program
-> * Distribuera behållarprogrammet till Azure
+> * Distribuera ett program för Linux-behållare till Azure
+> * Redundansväxla en behållare i ett Service Fabric-kluster
+> * Skala en behållare i ett Service Fabric-kluster
 
 * Mer information om hur du kör [behållare i Service Fabric](service-fabric-containers-overview.md).
-* Läs kursen [Distribuera ett .NET-program i en behållare](service-fabric-host-app-in-a-container.md).
 * Läs om Service Fabric-[applivscykeln](service-fabric-application-lifecycle.md).
 * Se [kodexempel för Service Fabric-behållare](https://github.com/Azure-Samples/service-fabric-dotnet-containers) på GitHub.
 
-[sfx]: ./media/service-fabric-quickstart-containers-linux/SFX.png
-[nginx]: ./media/service-fabric-quickstart-containers-linux/nginx.png
-[sf-yeoman]: ./media/service-fabric-quickstart-containers-linux/YoSF.png
+[sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
+[quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png
+[sfxquickstartshownodetype]:  ./media/service-fabric-quickstart-containers-linux/containersquickstartrestart.png
+[containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
+[containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
 

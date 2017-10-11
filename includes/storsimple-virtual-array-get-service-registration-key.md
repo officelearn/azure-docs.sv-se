@@ -1,7 +1,7 @@
-#### <a name="to-get-the-storsimple-service-registration-key"></a>To get the StorSimple service registration key
+#### <a name="to-get-the-storsimple-service-registration-key"></a>Hämta StorSimple-nyckel för tjänstregistrering
 
-1.  On the **StorSimple Device Manager** blade, click the service that you created. This opens up a new blade to the right.
+1.  Klicka på tjänsten som du har skapat på bladet **StorSimple Device Manager**. När du gör det öppnas ett nytt blad till höger.
 
-2.  In the blade that opens up, click **Manage &gt;** **Keys**.
+2.  I bladet som öppnas, klickar du på **hantera &gt;**  **nycklar**.
 
-3.  Click the copy icon to copy the service registration key and save it for later use.
+3.  Klicka på Kopiera-ikonen för att kopiera nyckeln för tjänstregistrering och spara den för senare användning.

@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
 ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Komma igång med Azure Mobile Engagement för Android-appar
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -48,7 +48,7 @@ Den fullständiga integrationsdokumentationen finns i [Mobile Engagement Android
 1. Starta **Android Studio** och välj **Start a new Android Studio project** (Starta ett nytt Android Studio-projekt) i popup-fönstret.
 
     ![][1]
-2. Ange ett namn för appen och en företagsdomän. Anteckna vad du fyller i eftersom du kommer att behöva samma uppgifter senare. Klicka på **Next**.
+2. Ange ett namn för appen och en företagsdomän. Anteckna vad du fyller i eftersom du kommer att behöva samma uppgifter senare. Klicka på **Nästa**.
 
     ![][2]
 3. Välj formfaktor för mål samt API-nivå och klicka på **Nästa**.
@@ -170,9 +170,3 @@ Gå till [Android SDK](mobile-engagement-android-sdk-overview.md) för detaljera
 [9]: ./media/mobile-engagement-android-get-started/app-connection-info-page.png
 [10]: ./media/mobile-engagement-android-get-started/copy-resources.png
 [11]: ./media/mobile-engagement-android-get-started/paste-resources.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

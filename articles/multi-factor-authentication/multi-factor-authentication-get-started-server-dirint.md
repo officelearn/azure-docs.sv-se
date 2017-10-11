@@ -15,12 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/14/2017
-
+ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
 Använd avsnittet Katalogintegrering i Azure MFA Server om du vill integrera med Active Directory eller en annan LDAP-katalog. Du kan konfigurera attribut för att matcha katalogschemat och ställa in automatisk användarsynkronisering.
@@ -139,4 +138,3 @@ Med knapparna Flytta upp och Flytta ned kan administratören ändra ordning på 
 Ytterligare Multi-Factor Auth-servrar kan konfigureras och fungera som ett reservalternativ i form av en RADIUS-proxy, LDAP-proxy eller för IIS-autentisering. Synkroniseringskonfigurationen delas av alla agenter. Men Multi-Factor Auth Server-tjänsten kan bara köras på en av dessa agenter. På den här fliken kan du välja den Multi-Factor Auth-server som ska aktiveras för synkronisering.
 
 ![Multi-Factor Auth-servrar](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
-

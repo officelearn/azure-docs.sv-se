@@ -1,5 +1,5 @@
-## <a name="issue-custom-image-provisioning-errors"></a>Issue: Custom image; provisioning errors
-Provisioning errors arise if you upload or capture a generalized VM image as a specialized VM image or vice versa. The former will cause a provisioning timeout error and the latter will cause a provisioning failure. To deploy your custom image without errors, you must ensure that the type of the image does not change during the capture process.
+## <a name="issue-custom-image-provisioning-errors"></a>Problem: Anpassade bilden. fel-etablering
+Etablering fel uppstår om du vill överföra eller hämta en generaliserad VM-avbildning som en specialiserad VM-avbildning eller tvärtom. Den tidigare kommer att orsaka en etablering timeout-fel och dessa kan orsaka etablering. För att distribuera den anpassade avbildningen utan fel, måste du kontrollera att typ av bilden inte ändras under processen.
 
-The following table lists the possible combinations of generalized and specialized images, the error type you will encounter and what you need to do to fix the errors.
+I följande tabell visas möjliga kombinationer av generaliserad och specialiserade avbildningar, feltypen inträffar och vad du behöver göra för att åtgärda felen.
 

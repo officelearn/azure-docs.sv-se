@@ -1,43 +1,43 @@
 <!--author=alkohli last changed:02/22/16-->
 
-#### <a name="to-attach-the-sas-cables"></a>To attach the SAS cables
-1. Identify the primary and the EBOD enclosures. The two enclosures can be identified by looking at their respective back planes. See the following image for guidance. 
+#### <a name="to-attach-the-sas-cables"></a>Att koppla SAS-kablar
+1. Identifiera primära och EBOD bilagor. Två höljena kan identifieras genom att titta på sina respektive tillbaka plan. Finns i följande bild för vägledning. 
    
-    ![Back plane of primary and EBOD enclosures](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
+    ![Säkerhetskopiera plan av primära och EBOD bilagor](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
    
-    **Back view of primary and EBOD enclosures**
+    **Bakifrån primära och EBOD bilagor**
    
-   | Label | Description |
+   | Etikett | Beskrivning |
    |:--- |:--- |
-   | 1 |Primary enclosure |
-   | 2 |EBOD enclosure |
-2. Locate the serial numbers on the primary and the EBOD enclosures. The serial number sticker is affixed to the back ear of each enclosure. The serial numbers must be identical on both enclosures. [Contact Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) immediately if the serial numbers do not match. See the following illustration to locate the serial numbers.
+   | 1 |Primär enhet |
+   | 2 |EBOD hölje |
+2. Leta upp serienummer på den primära servern och EBOD bilagor. Serienummer etiketten fästs på varje höljet tillbaka AX. Serienumret måste vara identiska på båda höljen. [Kontakta Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) omedelbart om serienumret inte matchar. Se bilden nedan för att hitta serienummer.
    
-    ![Rear view of enclosure showing serial number](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+    ![Bakifrån höljet visar serienummer](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
-    **Location of serial number sticker**
+    **Platsen för serienummer etikett**
    
-   | Label | Description |
+   | Etikett | Beskrivning |
    |:--- |:--- |
-   | 1 |Ear of the enclosure |
-3. Use the provided SAS cables to connect the EBOD enclosure to the primary enclosure as follows:
+   | 1 |Ta bort av inneslutningen |
+3. Använd angivna SAS-kablar för att ansluta EBOD höljet till primära höljet på följande sätt:
    
-   1. Identify the four SAS ports on the primary enclosure and the EBOD enclosure. The SAS ports are labeled as EBOD on the primary enclosure and correspond to port A on the EBOD enclosure, as shown in the SAS cabling illustration, below.
-   2. Use the provided SAS cables to connect the EBOD port to port A.
-   3. The EBOD port on controller 0 should be connected to the port A on EBOD controller 0. The EBOD port on controller 1 should be connected to the port A on EBOD controller 1. See the following illustration for guidance. 
+   1. Identifiera de fyra SAS-portarna på primära höljet och EBOD höljet. SAS-portar är märkta som EBOD på primära höljet och motsvarar en port på höljet EBOD enligt SAS-kablar illustrationen nedan.
+   2. Använd de angivna SAS-kablarna för att ansluta EBOD port till port A.
+   3. EBOD-port på styrenhet 0 ska anslutas till port A på EBOD styrenhet 0. EBOD-port på en domänkontrollant 1 ska anslutas till port A på EBOD kontrollant 1. Se följande illustration anvisningar. 
       
-      ![SAS cabling for your device](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
+      ![SAS-kablar för din enhet](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       
-      **SAS cabling**
+      **SAS-kablar**
       
-      | Label | Description |
+      | Etikett | Beskrivning |
       |:--- |:--- |
-      | A |Primary enclosure |
-      | B |EBOD enclosure |
-      | 1 |Controller 0 |
-      | 2 |Controller 1 |
-      | 3 |EBOD Controller 0 |
-      | 4 |EBOD Controller 1 |
-      | 5, 6 |SAS ports on primary enclosure (labeled EBOD) |
-      | 7, 8 |SAS ports on EBOD enclosure (Port A) |
+      | A |Primär enhet |
+      | B |EBOD hölje |
+      | 1 |Styrenhet 0 |
+      | 2 |Kontrollant 1 |
+      | 3 |EBOD styrenhet 0 |
+      | 4 |EBOD kontrollant 1 |
+      | 5, 6 |SAS-portar på primära hölje (märkt EBOD) |
+      | 7, 8 |SAS-portar på EBOD hölje (Port A) |
 

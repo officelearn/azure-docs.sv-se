@@ -6,19 +6,17 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.custom: mvc
 ms.devlang: csharp
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/23/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: b9382de2b8c672670213d9f5d0daf1eb0bff8c78
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/27/2017
-
+ms.openlocfilehash: 91e0269e310688dc88d139430ccf386a1d26a61c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda .NET (C#) för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett C#-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om C# och att du inte har arbetat med Azure Database för PostgreSQL tidigare.
 
@@ -331,4 +329,3 @@ namespace Driver
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Migrera din databas med Exportera och importera](./howto-migrate-using-export-and-import.md)
-

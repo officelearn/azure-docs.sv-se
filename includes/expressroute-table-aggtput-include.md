@@ -1,7 +1,7 @@
-|  | **ExpressRoute Gateway throughput (up to)** | **VPN Gateway and ExpressRoute coexist** |
+|  | **ExpressRoute-Gateway-genomströmning (upp till)** | **VPN-gateway och ExpressRoute samexisterar** |
 | --- | --- | --- |
-| **Basic SKU (deprecated)** |500 Mbps |No |
-| **Standard SKU** |1000 Mbps |Yes |
-| **High Performance SKU** |2000 Mbps |Yes |
-| **Ultra Performance SKU** |9000 Mbps |Yes |
+| **Grundläggande SKU (föråldrad)** |500 Mbit/s |Nej |
+| **Standard-SKU** |1000 Mbps |Ja |
+| **Högpresterande SKU** |2000 Mbps |Ja |
+| **Extra prestanda SKU** |9000 Mbit/s |Ja |
 

@@ -2,56 +2,56 @@
 
 
 
-Depending on your environment and choices, the script can create all the cluster infrastructure, including the Azure virtual network, storage accounts, cloud services, domain controller, remote or local SQL databases, head node, and additional cluster nodes. Alternatively, the script can use pre-existing Azure infrastructure and create only the HPC cluster nodes.
+Beroende på din miljö och alternativ, kan skriptet Skapa hela klustret infrastrukturen, inklusive Azure-nätverk, storage-konton, molntjänster, domänkontrollant, fjärrdatorer eller lokala SQL-databaser, huvudnod och ytterligare klusternoder. Skriptet kan också använda befintlig Azure-infrastrukturen och skapa endast noderna för HPC-kluster.
 
-For background information about planning an HPC Pack cluster, see the [Product Evaluation and Planning](https://technet.microsoft.com/library/jj899596.aspx) and [Getting Started](https://technet.microsoft.com/library/jj899590.aspx) content in the HPC Pack 2012 R2 TechNet Library.
+Bakgrundsinformation om hur du planerar ett HPC Pack-kluster finns i [produktutvärdering och planera](https://technet.microsoft.com/library/jj899596.aspx) och [komma igång](https://technet.microsoft.com/library/jj899590.aspx) innehåll i TechNet-biblioteket HPC Pack 2012 R2.
 
-## <a name="prerequisites"></a>Prerequisites
-* **Azure subscription**: You can use a subscription in either the Azure Global or Azure China service. Your subscription limits affect the number and type of cluster nodes you can deploy. For information, see [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md).
-* **Windows client computer with Azure PowerShell 0.8.10 or later installed and configured**: See [Get started with Azure PowerShell](/powershell/azureps-cmdlets-docs) for installation instructions and steps to connect to your Azure subscription.
-* **HPC Pack IaaS deployment script**: Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.5.2 of the script.
-* **Script configuration file**: Create an XML file that the script uses to configure the HPC cluster. For information and examples, see sections later in this article and the file Manual.rtf that accompanies the deployment script.
+## <a name="prerequisites"></a>Krav
+* **Azure-prenumeration**: du kan använda en prenumeration i Azure Global eller Azure Kina service. Din prenumerationsbegränsningar påverkar antalet och typen av klusternoder som du kan distribuera. Mer information finns i [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../articles/azure-subscription-service-limits.md).
+* **Windows-klientdator med Azure PowerShell 0.8.10 eller senare installerat och konfigurerat**: se [Kom igång med Azure PowerShell](/powershell/azureps-cmdlets-docs) installationsinstruktioner och anvisningar att ansluta till din Azure-prenumeration.
+* **HPC Pack IaaS distributionsskriptet**: hämta och packa upp den senaste versionen av skriptet från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Kontrollera vilken version av skriptet genom att köra `New-HPCIaaSCluster.ps1 –Version`. Den här artikeln baserat på version 4.5.2 av skriptet.
+* **Konfigurationsfilen**: skapa en XML-fil som skriptet använder för att konfigurera HPC-kluster. Mer information och exempel finns i avsnitt längre fram i den här artikeln och filen Manual.rtf som medföljer skriptet för distribution.
 
 ## <a name="syntax"></a>Syntax
 ```PowerShell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
-> Run the script as an administrator.
+> Kör skriptet som administratör.
 > 
 > 
 
-### <a name="parameters"></a>Parameters
-* **ConfigFile**: Specifies the file path of the configuration file to describe the HPC cluster. See more about the configuration file in this topic, or in the file Manual.rtf in the folder containing the script.
-* **AdminUserName**: Specifies the user name. If the domain forest is created by the script, this becomes the local administrator user name for all VMs and the domain administrator name. If the domain forest already exists, this specifies the domain user as the local administrator user name to install HPC Pack.
-* **AdminPassword**: Specifies the administrator’s password. If not specified in the command line, the script prompts you to input the password.
-* **HPCImageName** (optional): Specifies the HPC Pack VM image name used to deploy the HPC cluster. It must be a Microsoft-provided HPC Pack image from the Azure Marketplace. If not specified (recommended usually), the script chooses the latest published [HPC Pack 2012 R2 image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/). The latest image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 3 installed.
+### <a name="parameters"></a>Parametrar
+* **ConfigFile**: Anger sökvägen till filen i konfigurationsfilen för att beskriva HPC-kluster. Läs mer om konfigurationsfil i det här avsnittet eller i filen Manual.rtf i mappen som innehåller skriptet.
+* **AdminUserName**: Anger användarnamnet. Om domänskogen har skapats av skriptet, blir det lokalt administratörsanvändarnamn för alla virtuella datorer och administratören domännamn. Om domänskogen redan anger domänanvändaren som användarnamn för lokal administratör för att installera HPC Pack.
+* **AdminPassword**: Anger administratörslösenord. Om inte anges på kommandoraden, uppmanas du att ange lösenordet i skriptet.
+* **HPCImageName** (valfritt): Anger HPC Pack VM avbildning används för att distribuera HPC-kluster. Det måste vara en Microsoft HPC Pack-avbildning från Azure Marketplace. Om inget annat anges (rekommenderas vanligtvis) skriptet väljer det senaste publicerade [HPC Pack 2012 R2-avbildningen](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/). Senaste avbildningen baseras på Windows Server 2012 R2 Datacenter med HPC Pack 2012 R2 uppdatering 3.
   
   > [!NOTE]
-  > Deployment fails if you don't specify a valid HPC Pack image.
+  > Distributionen misslyckas om du inte anger en giltig HPC Pack-bild.
   > 
   > 
-* **LogFile** (optional): Specifies the deployment log file path. If not specified, the script creates a log file in the temp directory of the computer running the script.
-* **Force** (optional): Suppresses all the confirmation prompts.
-* **NoCleanOnFailure** (optional): Specifies that the Azure VMs that are not successfully deployed are not removed. Remove these VMs manually before rerunning the script to continue the deployment, or the deployment may fail.
-* **PSSessionSkipCACheck** (optional): For every cloud service with VMs deployed by this script, a self-signed certificate is automatically generated by Azure, and all the VMs in the cloud service use this certificate as the default Windows Remote Management (WinRM) certificate. To deploy HPC features in these Azure VMs, the script by default temporarily installs these certificates in the Local Computer\\Trusted Root Certification Authorities store of the client computer to suppress the “not trusted CA” security error during script execution. The certificates are removed when the script finishes. If this parameter is specified, the certificates are not installed in the client computer, and the security warning is suppressed.
+* **LogFile** (valfritt): Anger sökvägen till distributionen loggfilen. Om inte har angetts för skriptet skapar en loggfil i temp-katalogen på datorn som kör skriptet.
+* **Framtvinga** (valfritt): förhindrar att alla bekräftelse-meddelanden.
+* **NoCleanOnFailure** (valfritt): Anger att den virtuella Azure-datorer som inte distribueras har inte tagits bort. Ta bort dessa virtuella datorer manuellt innan du köra skriptet för att fortsätta med distributionen eller distributionen misslyckas.
+* **PSSessionSkipCACheck** (valfritt): för varje molntjänst med virtuella datorer som distribueras med det här skriptet, skapas automatiskt ett självsignerat certifikat av Azure och alla virtuella datorer i Molntjänsten använda det här certifikatet som standard Windows Remote Certifikat Management (WinRM). Om du vill distribuera HPC-funktioner i dessa virtuella datorer i Azure, skriptet som standard installeras tillfälligt certifikaten i den lokala datorn\\betrodda rotcertifikatutfärdare på klientdatorn för att undertrycka säkerhetsfel ”inte betrodd Certifikatutfärdare” under körning av skript. Certifikat tas bort när skriptet har slutförts. Om den här parametern anges certifikaten har installerats inte på klientdatorn och visas inte säkerhetsvarningen.
   
   > [!IMPORTANT]
-  > This parameter is not recommended for production deployments.
+  > Den här parametern rekommenderas inte för Produktionsdistribution.
   > 
   > 
 
-### <a name="example"></a>Example
-The following example creates an HPC Pack cluster using the configuration file *MyConfigFile.xml*, and specifies administrator credentials for installing the cluster.
+### <a name="example"></a>Exempel
+I följande exempel skapas ett HPC Pack kluster som använder konfigurationsfilen *MyConfigFile.xml*, och anger administratörsautentiseringsuppgifter som för att installera klustringen.
 
 ```PowerShell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 
-### <a name="additional-considerations"></a>Additional considerations
-* The script can optionally enable job submission through the HPC Pack web portal or the HPC Pack REST API.
-* The script can optionally run custom pre- and post-configuration scripts on the head node if you want to install additional software or configure other settings.
+### <a name="additional-considerations"></a>Annat som är bra att tänka på
+* Skriptet kan också aktivera jobbet via webbportalen HPC Pack eller HPC Pack REST API.
+* Skriptet kan du köra skript före och efter konfigurationen på huvudnoden om du vill installera ytterligare programvara eller konfigurera andra inställningar.
 
-## <a name="configuration-file"></a>Configuration file
-The configuration file for the deployment script is an XML file. The schema file HPCIaaSClusterConfig.xsd is in the HPC Pack IaaS deployment script folder. **IaaSClusterConfig** is the root element of the configuration file, which contains the child elements described in detail in the file Manual.rtf in the deployment script folder.
+## <a name="configuration-file"></a>Konfigurationsfilen
+Konfigurationsfilen för distributionsskriptet är en XML-fil. Schemafilen HPCIaaSClusterConfig.xsd finns i mappen HPC Pack IaaS distribution skript. **IaaSClusterConfig** har rotelementet i en konfigurationsfil som innehåller de underordnade elementen som beskrivs i detalj i filen Manual.rtf i skriptet distributionsmappen.
 

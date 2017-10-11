@@ -1,2 +1,2 @@
-When you use a Microsoft Azure Traffic Manager to load balance traffic to your Azure Website, that website can then be accessed using the **\*.trafficmanager.net** domain name assigned by Azure. You can also associate a custom domain name, such as www.contoso.com, with your website in order to provide a more recognizable domain name for your users.
+När du använder Microsoft Azure Traffic Manager för att läsa in Utjämna trafiken till din Azure-webbplats, webbplatsen kan sedan användas med den  **\*. trafficmanager.net** domännamn som tilldelats av Azure. Du kan även associera ett anpassat domännamn, t.ex www.contoso.com, med din webbplats för att ge ett mer beskrivande domännamn för dina användare.
 

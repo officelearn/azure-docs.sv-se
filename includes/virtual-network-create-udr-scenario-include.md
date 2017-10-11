@@ -1,14 +1,14 @@
 ## <a name="scenario"></a>Scenario
-To better illustrate how to create UDRs, this document will use the scenario below.
+Det här dokumentet använder för att illustrera hur du skapar udr: er bättre scenariot nedan.
 
-![IMAGE DESCRIPTION](./media/virtual-network-create-udr-scenario-include/figure1.png)
+![BESKRIVNING AV AVBILDNING](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-In this scenario you will create one UDR for the *Front end subnet* and another UDR for the *Back end subnet* , as described below: 
+I det här scenariot skapar du en UDR för den *Front end undernät* och en annan UDR för den *tillbaka slutet undernät* , enligt beskrivningen nedan: 
 
-* **UDR-FrontEnd**. The front end UDR will be applied to the *FrontEnd* subnet, and contain one route:    
-  * **RouteToBackend**. This route will send all traffic to the back end subnet to the **FW1** virtual machine.
-* **UDR-BackEnd**. The back end UDR will be applied to the *BackEnd* subnet, and contain one route:    
-  * **RouteToFrontend**. This route will send all traffic to the front end subnet to the **FW1** virtual machine.
+* **UDR klientdel**. Klientdelen UDR ska kopplas till den *klientdel* undernät, och innehåller en väg:    
+  * **RouteToBackend**. Den här vägen skickar all trafik till backend-undernät som den **FW1** virtuella datorn.
+* **UDR BackEnd**. Serverdelen UDR ska kopplas till den *BackEnd* undernät, och innehåller en väg:    
+  * **RouteToFrontend**. Den här vägen skickar all trafik frontend-undernät som den **FW1** virtuella datorn.
 
-The combination of these routes will ensure that all traffic destined from one subnet to another will be routed to the **FW1** virtual machine, which is being used as a virtual appliance. You also need to turn on IP forwarding for that VM, to ensure it can receive traffic destined to other VMs.
+Kombinationen av dessa vägar säkerställer att all trafik från ett undernät till en annan kommer att dirigeras till den **FW1** virtuell dator som används som en virtuell installation. Du måste också aktivera IP-vidarebefordring för den virtuella datorn, så det kan ta emot trafik till andra virtuella datorer.
 

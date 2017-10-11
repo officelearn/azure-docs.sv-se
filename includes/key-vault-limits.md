@@ -1,16 +1,16 @@
-Key transactions (Max transactions allowed in 10 seconds, per vault per region<sup>1</sup>):
+Nyckeln transaktioner (Max transaktioner tillåts 10 sekunder per valvet per region<sup>1</sup>):
 
-|Key type|HSM-Key<br>CREATE Key|HSM-key<br>All other transactions|Software-key<br>CREATE Key|Software-key<br>All other transactions|
+|Nyckeltyp|HSM-nyckel<br>SKAPA nyckel|HSM-nyckel<br>Alla andra transaktioner|Programvarunyckel<br>SKAPA nyckel|Programvarunyckel<br>Alla andra transaktioner|
 |:---|---:|---:|---:|---:|
-|RSA 2048-bit|5|1000|10|2000|
-|RSA 3072-bit|5|250|10|500|
-|RSA 4096-bit|5|125|10|250|
+|RSA 2048-bitars|5|1000|10|2000|
+|RSA 3072-bitars|5|250|10|500|
+|RSA 4096 bitar|5|125|10|250|
 |
 
-Secrets, Managed Storage Account Keys, and vault transactions:
-| Transactions Type | Max transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
+Hemligheter, hanteras Lagringskontonycklar och valvet transaktioner:
+| Typen av transaktioner | Maximalt antal transaktioner som är tillåtna 10 sekunder valvet per region<sup>1</sup> |
 | --- | --- |
-| All transactions |2000 |
+| Alla transaktioner |2000 |
 |
 
-<sup>1</sup> There is a subscription-wide limit for all transaction types, that is 5x per key vault limit. For example, HSM- other transactions per subscription are limited to 5000 transactions in 10 seconds per subscription.
+<sup>1</sup> finns en gräns för alla transaktionstyper hela prenumerationen som är 5 x per nyckelvalv gränsen. Till exempel HSM - andra transaktioner per prenumeration är begränsade till 5000 transaktioner 10 sekunder per prenumeration.

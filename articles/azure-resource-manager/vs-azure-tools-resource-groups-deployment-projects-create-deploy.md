@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 14fbfbc5abd6d95744832d9b39e377bbffe652ac
-ms.contentlocale: sv-se
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/03/2017
 ---
-<a id="creating-and-deploying-azure-resource-groups-through-visual-studio" class="xliff"></a>
-
-# Skapa och distribuera Azure-resursgrupper via Visual Studio
+# <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 Med Visual Studio och [Azure SDK](https://azure.microsoft.com/downloads/) kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Eller så kan du definiera en virtuell dator, ett virtuellt nätverk och ett lagringskonto och distribuera den infrastrukturen tillsammans med ett skript som körs på den virtuella datorn. Med ett projekt för distribution av en **Azure-resursgrupp** kan du distribuera alla nödvändiga resurser i en enda, repeterbara åtgärd. Mer information om hur du distribuerar och hanterar dina resurser finns i [Översikt över Azure Resource Manager](resource-group-overview.md).
 
 Projekt med Azure-resursgrupper innehåller JSON-baserade Azure Resource Manager-mallar, som definierar de resurser som du distribuerar till Azure. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md). I Visual Studio kan du redigera dessa mallar och använda verktyg som gör det lättare att arbeta med mallar.
@@ -32,9 +29,7 @@ I den här artikeln ska du distribuera en webbapp och SQL Database. Stegen är d
 
 Den här artikeln visar Visual Studio 2017. Om du använder Visual Studio 2015 Update 2 och Microsoft Azure SDK för .NET 2.9, eller Visual Studio 2013 med Azure SDK 2.9 ser det ut i princip likadant. Du kan använda valfri version av Azure SDK från 2.6 och senare. Din upplevelse av användargränssnittet kan dock skilja sig något mot vad du ser i den här artikeln. Vi rekommenderar starkt att du installerar den senaste versionen av [Azure SDK](https://azure.microsoft.com/downloads/) innan du börjar med stegen. 
 
-<a id="create-azure-resource-group-project" class="xliff"></a>
-
-## Skapa ett projekt för en Azure-resursgrupp
+## <a name="create-azure-resource-group-project"></a>Skapa ett projekt för en Azure-resursgrupp
 I den här proceduren ska du skapa ett projekt för en Azure-resursgrupp med en mall av typen **Webbapp + SQL**.
 
 1. I Visual Studio väljer du **Arkiv**, **Nytt projekt** och väljer sedan **C#** eller **Visual Basic**. Välj sedan **Moln** och projektet **Azure-resursgrupp**.
@@ -66,9 +61,7 @@ I den här proceduren ska du skapa ett projekt för en Azure-resursgrupp med en 
    
     Alla distributionsprojekt för resursgrupper innehåller dessa grundläggande filer. Andra projekt kan innehålla ytterligare filer som ger stöd för andra funktioner.
 
-<a id="customize-the-resource-manager-template" class="xliff"></a>
-
-## Anpassa Resource Manager-mallen
+## <a name="customize-the-resource-manager-template"></a>Anpassa Resource Manager-mallen
 Du kan anpassa ett distributionsprojekt genom att ändra JSON-mallarna som beskriver de resurser som du vill distribuera. JSON står för JavaScript Object Notation och är ett format för serialiserade data som är lätt att arbeta med. JSON-filerna använder ett schema som du refererar till längst upp i varje fil. Om du vill granska schemat kan du hämta och analysera det. Schemat definierar vilka element som är giltiga, typer och format för fält, de möjliga värdena för uppräknade värden och så vidare. Mer information om elementen i Resource Manager-mallen finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 
 Du kan arbeta med din mall genom att öppna **WebSiteSQLDatabase.json**.
@@ -121,9 +114,7 @@ Du kan ställa in **numberOfWorkers** till 1.
 }
 ```
 
-<a id="deploy-the-resource-group-project-to-azure" class="xliff"></a>
-
-## Distribuera resursgruppsprojektet till Azure
+## <a name="deploy-the-resource-group-project-to-azure"></a>Distribuera resursgruppsprojektet till Azure
 Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resursgruppsprojekt distribuerar du det till en Azure-resursgrupp. Resursgruppen är en logisk gruppering av resurser som har en gemensam livscykel.
 
 1. På snabbmenyn för distributionsprojektets nod väljer du **Distribuera** > **Ny**.
@@ -174,9 +165,7 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
    
     ![Azure-resursgrupp som har distribuerats](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
-<a id="deploy-code-with-your-infrastructure" class="xliff"></a>
-
-## Distribuera kod med din infrastruktur
+## <a name="deploy-code-with-your-infrastructure"></a>Distribuera kod med din infrastruktur
 Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt kod som distribueras med projektet. Den här artikeln beskriver hur du distribuerar en webbapp och SQL Database-tabeller under distributionen. Om du distribuerar en virtuell dator i stället för en webbapp vill du köra en del kod på datorn som en del av distributionen. Processen för att distribuera koden för en webbapp eller för att konfigurera en virtuell dator är nästan desamma.
 
 1. Lägga till ett projekt i din Visual Studio-lösning. Högerklicka på lösningen och välj **Lägg till** > **nytt projekt**.
@@ -227,10 +216,7 @@ Nu har du distribuerat infrastrukturen för din app, men det finns ingen direkt 
     
      ![visa distribuerad app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * Information om hur du hanterar dina resurser via portalen finns i [Hantera Azure-resurser med hjälp av Azure Portal](resource-group-portal.md).
 * Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
-
 

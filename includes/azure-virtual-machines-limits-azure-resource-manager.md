@@ -1,7 +1,7 @@
-| Resource | Default Limit |
+| Resurs | Standardgräns |
 | --- | --- |
-| Virtual machines per availability set | 200 |
-| Certificates per subscription |Unlimited<sup>1</sup> |
+| Virtuella datorer per tillgänglighetsuppsättning | 200 |
+| Certifikat per prenumeration |Obegränsade<sup>1</sup> |
 
-<sup>1</sup>With Azure Resource Manager, certificates are stored in the Azure Key Vault. Although the number of certificates is unlimited for a subscription, there is still a 1 MB limit of certificates per deployment (which consists of either a single VM or an availability set).
+<sup>1</sup>med Azure Resource Manager certifikat som lagras i Azure Key Vault. Antalet certifikat som är obegränsad för en prenumeration, finns det fortfarande en gräns på 1 MB av certifikat per distribution (som består av en enda virtuell dator eller en tillgänglighetsuppsättning).
 

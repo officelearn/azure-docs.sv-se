@@ -24,8 +24,3 @@
    
    * Aktivera **Push-meddelanden** i Mål > Ditt målnamn > Funktioner.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

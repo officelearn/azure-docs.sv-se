@@ -1,6 +1,6 @@
-## <a name="webapi-project"></a>WebAPI Project
-1. In Visual Studio, open the **AppBackend** project that you created in the **Notify Users** tutorial.
-2. In Notifications.cs, replace the whole **Notifications** class with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Classic Portal](http://manage.windowsazure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
+## <a name="webapi-project"></a>WebAPI-projekt
+1. Öppna i Visual Studio den **AppBackend** projekt som du skapade i den **meddela användare** kursen.
+2. Ersätt hela i Notifications.cs, **meddelanden** klassen med följande kod. Se till att ersätta platshållarna med anslutningssträngen (med fullständig åtkomst) för meddelandehubben och hubbnamnet. Du kan hämta dessa värden från den [klassiska Azure-portalen](http://manage.windowsazure.com). Den här modulen representerar nu olika säkra meddelanden som skickas. En fullständig implementering ska meddelanden sparas i en databas. för enkelhetens skull lagrar i det här fallet vi dem i minnet.
    
         public class Notification
         {
@@ -40,7 +40,7 @@
             }
         }
 
-1. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component implements a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
+1. I NotificationsController.cs, Ersätt Koden i den **NotificationsController** klassen med följande kod. Den här komponenten implementerar ett sätt för enheten för att hämta meddelandet på ett säkert sätt och ger också ett sätt (för den här självstudiekursen) för att utlösa en säker push till dina enheter. Observera att när du skickar meddelandet till meddelandehubben vi bara skicka en rå med ID meddelandet (och inga faktiska meddelanden):
    
        public NotificationsController()
        {
@@ -75,8 +75,8 @@
         }
 
 
-Note that the `Post` method now does not send a toast notification. It sends a raw notification that contains only the notification ID, and not any sensitive content. Also, make sure to comment the send operation for the platforms for which you do not have credentials configured on your notification hub, as they will result in errors.
+Observera att den `Post` metoden nu skickar ett popup-meddelande. Skickar den ett raw meddelande som innehåller endast meddelande-ID och inte något känsligt innehåll. Kontrollera också att kommentera send-åtgärden för plattformar som du inte har autentiseringsuppgifter som har konfigurerats på din meddelandehubb som de orsakar fel.
 
-1. Now we will re-deploy this app to an Azure Website in order to make it accessible from all devices. Right-click on the **AppBackend** project and select **Publish**.
-2. Select Azure Website as your publish target. Log in with your Azure account and select an existing or new Website, and make a note of the **destination URL** property in the **Connection** tab. We will refer to this URL as your *backend endpoint* later in this tutorial. Click **Publish**.
+1. Vi ska nu omdistribuera den här appen till en Azure-webbplats för att göra den tillgänglig från alla enheter. Högerklicka på **AppBackend**-projektet och välj **Publicera**.
+2. Välj Azure-webbplatsen som publicera-mål. Logga in med ditt Azure-konto och markera en befintlig eller ny webbplats och anteckna den **Måladress** egenskap i den **anslutning** fliken. Vi ska referera till den här URL:en som *serverdelens slutpunkt* senare i den här självstudiekursen. Klicka på **Publicera**.
 

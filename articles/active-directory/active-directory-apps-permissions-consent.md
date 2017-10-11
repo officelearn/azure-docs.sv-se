@@ -17,14 +17,12 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Appar, behörigheter och godkännande i Azure Active Directory
 I Azure Active Directory kan du lägga till program i din katalog.  Programmen kan variera beroende på typen av program.  Om du vill visa program på den klassiska portalen markerar du en katalog och väljer program.
 
@@ -220,5 +218,4 @@ I exemplet med FabrikamMail ser det ut ungefär så här:
 (**ClientId** är ID:t för FabrikamMails ServicePrincipal-objekt (det som precis skapades), **PrincipalId** är ID:t för användarobjektet (för användaren som godkänt) och **ResourceId** är ID:t för Exchanges ServicePrincipal-objekt (Scope är behörigheten i Exchange som godkänts).
 
 Om användarna inte har tillåtelse att ge sitt godkännande visas en skärm som anger att behörighet krävs.
-
 

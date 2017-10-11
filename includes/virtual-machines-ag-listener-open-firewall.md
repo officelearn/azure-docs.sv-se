@@ -1,18 +1,18 @@
-In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (59999, as specified earlier) and another rule to open the availability group listener port. Because you created the load-balanced endpoint on the VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective VMs.
+I det här steget kan du skapa en brandväggsregel för att öppna avsökningsport för slutpunkten för Utjämning av nätverksbelastning (59999 som angavs tidigare) och en annan regel för att öppna porten för tillgänglighetsgruppens lyssnare. Eftersom du har skapat belastningsutjämnade-slutpunkten på virtuella datorer som innehåller tillgänglighetsgrupprepliker måste du öppna porten avsökning och lyssningsport på respektive virtuella datorer.
 
-1. On VMs that host replicas, start **Windows Firewall with Advanced Security**.
+1. Starta på virtuella datorer som är värdar för repliker, **Windows-brandväggen med avancerad säkerhet**.
 
-2. Right-click **Inbound Rules**, and then click **New Rule**.
+2. Högerklicka på **regler för inkommande trafik**, och klicka sedan på **ny regel**.
 
-3. On the **Rule Type** page, select **Port**, and then click **Next**.
+3. På den **regeltyp** väljer **Port**, och klicka sedan på **nästa**.
 
-4. On the **Protocol and Ports** page, select **TCP**, type **59999** in the **Specific local ports** box, and then click **Next**.
+4. På den **protokoll och portar** väljer **TCP**, typen **59999** i den **specifika lokala portar** rutan och klicka på  **Nästa**.
 
-5. On the **Action** page, keep **Allow the connection** selected, and then click **Next**.
+5. På den **åtgärd** behåller **tillåter anslutningen** markerad och klicka sedan på **nästa**.
 
-6. On the **Profile** page, accept the default settings, and then click **Next**.
+6. På den **profil** , accepterar du standardinställningarna och klicka sedan på **nästa**.
 
-7. On the **Name** page, in the **Name** text box, specify a rule name, such as **Always On Listener Probe Port**, and then click **Finish**.
+7. På den **namn** sidan den **namn** text anger du ett namn för regeln som **alltid på avsökning lyssningsport**, och klicka sedan på **Slutför**.
 
-8. Repeat the preceding steps for the availability group listener port (as specified earlier in the $EndpointPort parameter of the script), and then specify an appropriate rule name, such as **Always On Listener Port**.
+8. Upprepa föregående steg för porten för tillgänglighetsgruppens lyssnare (som anges tidigare i parametern $EndpointPort av skriptet) och anger ett lämpligt namn, till exempel **alltid på lyssningsport**.
 

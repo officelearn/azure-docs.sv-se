@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="secure-your-key-vault"></a>Säkra ditt nyckelvalv
 Azure Key Vault är en molntjänst som skyddar krypteringsnycklar och hemligheter (som certifikat, anslutningssträngar, lösenord) för dina molnprogram. Eftersom dessa data är känsliga och verksamhetskritiska, behöver du säkra åtkomsten till dina nyckelvalv så att enbart auktoriserade program och användare har åtkomst. Den här artikeln ger en översikt över åtkomstmodellen för nyckelvalvet, förklarar autentisering och auktorisering och beskriver hur du skyddar åtkomst till nyckelvalvet för dina molnprogram med ett exempel.
@@ -250,5 +249,4 @@ Mer information om av användningsloggning för Key Vault finns i avsnittet om [
 Mer information om hur du använder nycklar och hemligheter med Azure Key Vault finns i [Om nycklar och hemligheter](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
 Om du har några frågor om Nyckelvalv ska du gå till [Azure Key Vault-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
-
 

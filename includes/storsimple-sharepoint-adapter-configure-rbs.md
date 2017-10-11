@@ -1,54 +1,54 @@
 <!--author=SharS last changed: 1/14/2016 -->
 
 > [!NOTE]
-> When making changes to the StorSimple Adapter for SharePoint RBS configuration, you must be logged on with a user account that belongs to the Domain Admins group. Additionally, you must access the configuration page from a browser running on the same host as Central Administration.
+> När du ändrar StorSimple-kortet för SharePoint RBS konfigurationen måste du vara inloggad med ett konto som tillhör gruppen Domänadministratörer. Dessutom måste du komma åt konfigurationssidan från en webbläsare som körs på samma värddator som Central Administration.
 > 
 > 
 
-#### <a name="to-configure-rbs"></a>To configure RBS
-1. Open the SharePoint Central Administration page, and browse to **System Settings**. 
-2. In the **Azure StorSimple** section, click **Configure StorSimple Adapter**.
+#### <a name="to-configure-rbs"></a>Så här konfigurerar du RBS
+1. Öppna sidan Central Administration av SharePoint och bläddra till **systeminställningar**. 
+2. I den **Azure StorSimple** klickar du på **konfigurera StorSimple nätverkskort**.
    
-    ![Configure the StorSimple Adapter](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
-3. On the **Configure StorSimple Adapter** page:
+    ![Konfigurera StorSimple-kort](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
+3. På den **konfigurera StorSimple nätverkskort** sidan:
    
-   1. Make sure that the **Enable editing path** check box is selected.
-   2. In the text box, type the Universal Naming Convention (UNC) path of the BLOB store.
+   1. Se till att den **Aktivera redigering sökväg** är markerad.
+   2. I rutan skriver du Universal Naming Convention (UNC)-sökvägen till blobstore.
       
       > [!NOTE]
-      > The BLOB store volume must be hosted on an iSCSI volume configured on the StorSimple device.
+      > BLOB store volym måste finnas på en iSCSI-volymen som konfigurerats på StorSimple-enheten.
 
-   3. Click the **Enable** button below each of the content databases that you want to configure for remote storage.
+   3. Klicka på den **aktivera** knapp under varje innehållsdatabaser som du vill konfigurera för Fjärrlagring.
       
       > [!NOTE]
-      > The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint server farm must have access to the share.
+      > BLOB-arkivet måste vara delad och kan nås av alla frontend (WFE) webbservrar och det användarkonto som har konfigurerats för SharePoint-servergruppen måste ha åtkomst till resursen.
       
-      ![Enable the RBS provider](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
+      ![Aktivera RBS-provider](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
       
-      When you enable or disable RBS, you will also see the following message.
+      När du aktiverar eller inaktiverar RBS dessutom visas följande meddelande.
       
-      ![Configure StorSimple Adapter Enable Disable](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
+      ![Konfigurera StorSimple nätverkskort aktivera inaktivera](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-   4. Click the **Update** button to apply the configuration. When you click the **Update** button, the RBS configuration status will be updated on all WFE servers, and the entire farm will be RBS-enabled. The following message appears.
+   4. Klicka på den **uppdatering** för att tillämpa konfigurationen. När du klickar på den **uppdatering** knappen Konfigurationsstatus RBS kommer att uppdateras på alla WFE-servrar och hela servergruppen kommer att RBS-aktiverade. Följande meddelande visas.
       
-      ![Adapter configuration message](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
+      ![Kortet configuration meddelande](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > If you are configuring RBS for a SharePoint farm with a very large number of databases (greater than 200), the SharePoint Central Administration web page might time out. If that occurs, refresh the page. This does not affect the configuration process.
+      > Om du konfigurerar RBS för en SharePoint-grupp med ett mycket stort antal databaser (större än 200), kan sidan Central Administration av SharePoint timeout. Om det inträffar kan du uppdatera sidan. Detta påverkar inte konfigurationen.
 
-4. Verify the configuration:
+4. Kontrollera konfigurationen:
    
-   1. Log on to the SharePoint Central Administration website, and browse to the **Configure StorSimple Adapter** page.
-   2. Check the configuration details to make sure that they match the settings that you entered. 
-5. Verify that RBS works correctly:
+   1. Logga in på webbplatsen för Central Administration av SharePoint och bläddra till den **konfigurera StorSimple nätverkskort** sidan.
+   2. Kontrollera konfigurationsinformation för att se till att de matchar de inställningar som du angett. 
+5. Kontrollera att RBS fungerar korrekt:
    
-   1. Upload a document to SharePoint. 
-   2. Browse to the UNC path that you configured. Make sure that the RBS directory structure was created and that it contains the uploaded object.
-6. (Optional) You can use the Microsoft RBS `Migrate()` PowerShell cmdlet included with SharePoint to migrate existing BLOB content to the StorSimple device. For more information, see [Migrate content into or out of RBS in SharePoint 2013][6] or [Migrate content into or out of RBS (SharePoint Foundation 2010)][7].
-7. (Optional) On test installations, you can verify that the BLOBs were moved out of the content database as follows: 
+   1. Överför ett dokument till SharePoint. 
+   2. Bläddra till UNC-sökvägen som du har konfigurerat. Se till att katalogstrukturen RBS har skapats och att den innehåller överförda objektet.
+6. (Valfritt) Du kan använda Microsoft RBS `Migrate()` PowerShell-cmdlet som ingår i SharePoint för att migrera befintliga BLOB-innehåll till StorSimple-enhet. Mer information finns i [migrerar innehåll till eller från RBS i SharePoint 2013] [ 6] eller [migrerar innehåll till eller från RBS (SharePoint Foundation 2010)] [7].
+7. (Valfritt) På test-installationer kan du kontrollera att Blobbarna har flyttats utanför innehållsdatabasen på följande sätt: 
    
-   1. Start SQL Management Studio.
-   2. Run the ListBlobsInDB_2010.sql or ListBlobsInDB_2013.sql query, as follows.
+   1. Starta SQL Management Studio.
+   2. Kör frågan ListBlobsInDB_2010.sql eller ListBlobsInDB_2013.sql på följande sätt.
       
       ```
       **ListBlobsInDB_2013.sql**
@@ -91,18 +91,18 @@
         GO
       ```
       
-      If RBS was configured correctly, a NULL value should appear in the SizeOfContentInDB column for any object that was uploaded and successfully externalized with RBS.
-8. (Optional) After you configure RBS and move all BLOB content to the StorSimple device, you can move the content database to the device. If you choose to move the content database, we recommend that you configure the content database storage on the device as a primary volume. Then, use established SQL Server best practices to migrate the content database to the StorSimple device. 
+      Om RBS är korrekt konfigurerad, visas ett nullvärde i kolumnen SizeOfContentInDB för alla objekt som har överförts och har externalized med RBS.
+8. (Valfritt) När du konfigurerar RBS och flytta alla BLOB-innehåll till StorSimple-enhet kan flytta du innehållsdatabasen till enheten. Om du väljer att flytta innehållsdatabasen rekommenderar vi att du konfigurerar innehållsdatabasen lagring på enheten som en primär volym. Använd upprätta sedan SQL Server bästa praxis för att migrera innehållsdatabasen till StorSimple-enhet. 
    
    > [!NOTE]
-   > Moving the content database to the device is only supported for the StorSimple 8000 series (it is not supported for the 5000 or 7000 series).
+   > Flytta innehållsdatabasen till enheten har endast stöd för StorSimple 8000-serien (den inte stöds för 5000 och 7000-serien).
    
-   If you store BLOBs and the content database in separate volumes on the StorSimple device, we recommend that you configure them in the same volume container. This ensures that they will be backed up together.
+   Om du sparar Blobbar och innehållsdatabasen i separata volymer på StorSimple-enheten, rekommenderar vi att du konfigurerar dem i samma volymbehållare. Detta säkerställer att de ska säkerhetskopieras tillsammans.
    
    > [!WARNING]
-   > If you have not enabled RBS, we do not recommend moving the content database to the StorSimple device. This is an untested configuration.
+   > Om du inte har aktiverat RBS rekommenderar vi inte flytta innehållsdatabasen till StorSimple-enhet. Detta är en otestade konfiguration.
    
-9. Go to the next step: [Configure garbage collection](#configure-garbage-collection).
+9. Gå till nästa steg: [konfigurera skräpinsamling](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx

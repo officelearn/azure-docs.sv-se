@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
-ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
-
-
+ms.openlocfilehash: 077710049894d2690299ce0fcb0ead9911aa4bb6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager
 [AD FS-distribution i Azure](active-directory-aadconnect-azure-adfs.md) innehåller detaljerade riktlinjer för hur du kan distribuera en enkel AD FS-infrastruktur för din organisation i Azure. Den här artikeln innehåller nästa steg för att skapa en distribution av AD FS i Azure med hög tillgänglighet över geografiska områden med hjälp av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager hjälper till att skapa en högpresterande AD FS-infrastruktur med geografisk spridning och hög tillgänglighet för din organisation genom användning av metoder som finns tillgängliga för att passa infrastrukturens olika behov.
@@ -122,10 +122,4 @@ Det enklaste sättet är att testa AD FS är med hjälp av sidan IdpInitiatedSig
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera en Azure Traffic Manager-profil](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Lägga till, inaktivera, aktivera eller ta bort slutpunkter](../traffic-manager/traffic-manager-endpoints.md) 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

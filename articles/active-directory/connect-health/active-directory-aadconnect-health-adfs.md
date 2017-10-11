@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: 0ae3f2ddfa37d617c02df2628411a877381412d5
-ms.contentlocale: sv-se
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 7946f11d209e6341caa3a11e946fb1596e758277
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
 Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](active-directory-aadconnect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).

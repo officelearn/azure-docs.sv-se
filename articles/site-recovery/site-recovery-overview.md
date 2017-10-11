@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-site-recovery"></a>Vad är Site Recovery?
 
@@ -79,4 +78,3 @@ Site Recovery kan hantera replikering för:
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [stöd för arbetsbelastning](site-recovery-workload.md)
 * Kom igång med [Azure VM replikering mellan regioner](site-recovery-azure-to-azure.md), [VMware-replikering till Azure](vmware-walkthrough-overview.md) eller [Hyper-V-replikering till Azure](hyper-v-site-walkthrough-overview.md).
-

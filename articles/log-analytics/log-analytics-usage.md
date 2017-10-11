@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/27/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analysera dataanvändning i Log Analytics
 Log Analytics innehåller information om hur mycket data som samlas in, vilka datorer som skickade data och vilka typer av data som skickas.  Använd instrumentpanelen för **Log Analytics-användning** för att se hur mycket data som skickas till Log Analytics-tjänsten. Instrumentpanelen visar hur mycket data som samlas in av varje lösning och hur mycket data som skickas av dina datorer.
@@ -173,4 +172,3 @@ Använd [lösningsriktning](../operations-management-suite/operations-management
 * Ändra [prestandaräknarens konfiguration](log-analytics-data-sources-performance-counters.md)
 * Ändra [händelseloggens konfiguration](log-analytics-data-sources-windows-events.md)
 * Ändra [systemloggens konfiguration](log-analytics-data-sources-syslog.md)
-

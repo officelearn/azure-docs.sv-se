@@ -1,37 +1,37 @@
 
 
 
-## <a name="using-vm-extensions"></a>Using VM Extensions
-Azure VM Extensions implement behaviors or features that either help other programs work on Azure VMs (for example, the **WebDeployForVSDevTest** extension allows Visual Studio to Web Deploy solutions on your Azure VM) or provide the ability for you to interact with the VM to support some other behavior (for example, you can use the VM Access extensions from PowerShell, the Azure CLI, and REST clients to reset or modify remote access values on your Azure VM).
+## <a name="using-vm-extensions"></a>Med hjälp av VM-tillägg
+Azure VM-tillägg implementerar beteenden eller funktioner som antingen hjälper andra program som fungerar på virtuella Azure-datorer (till exempel den **WebDeployForVSDevTest** tillägget kan Visual Studio Web Deploy Solutions på Azure VM) eller ange den möjlighet att interagera med den virtuella datorn att stödja vissa andra uppträdande (du kan till exempel använda VM-Access-tillägg från PowerShell, Azure CLI och REST-klienter att återställa eller ändra värden för fjärråtkomst på Azure VM).
 
 > [!IMPORTANT]
-> For a complete list of extensions by the features they support, see [Azure VM Extensions and Features](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Because each VM extension supports a specific feature, exactly what you can and cannot do with an extension depends on the extension. Therefore, before modifying your VM, make sure you have read the documentation for the VM Extension you want to use. Removing some VM Extensions is not supported; others have properties that can be set that change VM behavior radically.
+> En fullständig lista över tillägg av funktioner som de stöder finns i [Azure VM-tillägg och funktioner](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Eftersom varje VM-tillägget har stöd för en specifik funktion, beroende exakt vad du kan och inte kan göra med ett tillägg av tillägget. Kontrollera därför att du har läs i dokumentationen för VM-tillägget som du vill använda innan du ändrar den virtuella datorn. Det går inte att ta bort vissa VM-tillägg. andra har egenskaper som kan anges som ändrar VM beteende radikalt.
 > 
 > 
 
-The most common tasks are:
+De vanligaste uppgifterna är:
 
-1. Finding Available Extensions
-2. Updating Loaded Extensions
-3. Adding Extensions
-4. Removing Extensions
+1. Söka efter tillgängliga tillägg
+2. Uppdatering av inlästa tillägg
+3. Lägga till tillägg
+4. Ta bort tillägg
 
-## <a name="find-available-extensions"></a>Find Available Extensions
-You can locate extension and extended information using:
+## <a name="find-available-extensions"></a>Hitta tillgängliga tillägg
+Du kan hitta tillägget och utökad information med hjälp av:
 
 * PowerShell
-* Azure Cross-Platform Command Line Interface (Azure CLI)
-* Service Management REST API
+* Kommandoraden för Azure plattformsoberoende gränssnitt (Azure CLI)
+* REST API för Service Management
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Some extensions have PowerShell cmdlets that are specific to them, which may make their configuration from PowerShell easier; but the following cmdlets work for all VM extensions.
+Vissa tillägg har PowerShell-cmdlets som är specifika för dem, som kan underlätta konfigurationen från PowerShell; men följande cmdlets fungerar för alla VM-tillägg.
 
-You can use the following cmdlets to obtain information about available extensions:
+Du kan använda följande cmdletar för att få information om tillgängliga tillägg:
 
-* For instances of web roles or worker roles, you can use the [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet.
-* For instances of Virtual Machines, you can use the [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) cmdlet.
+* För instanser av webbroller eller arbetsroller som du kan använda den [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) cmdlet.
+* För instanser av virtuella datorer som du kan använda den [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) cmdlet.
   
-   For example, the following code example shows how to list the information for the **IaaSDiagnostics** extension using PowerShell.
+   Till exempel följande kodexempel visar hur du vill visa information för den **IaaSDiagnostics** tillägget med hjälp av PowerShell.
   
       PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
   
@@ -55,11 +55,11 @@ You can use the following cmdlets to obtain information about available extensio
       CompanyName                 :
 
 ### <a name="azure-command-line-interface-azure-cli"></a>Azure Command Line Interface (Azure CLI)
-Some extensions have Azure CLI commands that are specific to them (the Docker VM Extension is one example), which may make their configuration easier; but the following commands work for all VM extensions.
+Vissa tillägg har Azure CLI-kommandon som är specifika för dem (Docker VM-tillägget är ett exempel), som kan underlätta konfigurationen; men följande kommandon som fungerar för alla VM-tillägg.
 
-You can use the **azure vm extension list** command to obtain information about available extensions, and use the **–-json** option to display all available information about one or more extensions. If you do not use an extension name, the command returns a JSON description of all available extensions.
+Du kan använda den **azure vm tilläggslistan** kommando för att hämta information om tillgängliga tillägg och använda den **–-json** alternativet för att visa all tillgänglig information om en eller flera filnamnstillägg. Om du inte använder en Tilläggsnamn returnerar kommandot en JSON-beskrivning av alla tillgängliga tillägg.
 
-For example, the following code example shows how to list the information for the **IaaSDiagnostics** extension using the Azure CLI **azure vm extension list** command and uses the **–-json** option to return complete information.
+Till exempel följande kodexempel visar hur du vill visa information för den **IaaSDiagnostics** tillägget med hjälp av Azure CLI **azure vm tilläggslistan** kommandot och använder den **–-json**  alternativet för att returnera fullständig information.
 
     $ azure vm extension list -n IaaSDiagnostics --json
     [
@@ -76,33 +76,33 @@ For example, the following code example shows how to list the information for th
 
 
 
-### <a name="service-management-rest-apis"></a>Service Management REST APIs
-You can use the following REST APIs to obtain information about available extensions:
+### <a name="service-management-rest-apis"></a>REST API:er för tjänsthantering
+Du kan använda följande REST API: er för att få information om tillgängliga tillägg:
 
-* For instances of web roles or worker roles, you can use the [List Available Extensions](https://msdn.microsoft.com/library/dn169559.aspx) operation. To list the versions of available extensions, you can use [List Extension Versions](https://msdn.microsoft.com/library/dn495437.aspx).
-* For instances of Virtual Machines, you can use the [List Resource Extensions](https://msdn.microsoft.com/library/dn495441.aspx) operation. To list the versions of available extensions, you can use [List Resource Extension Versions](https://msdn.microsoft.com/library/dn495440.aspx).
+* För instanser av webbroller eller arbetsroller som du kan använda den [lista över tillgängliga tillägg](https://msdn.microsoft.com/library/dn169559.aspx) igen. Om du vill visa en lista med versionerna av tillgängliga tillägg, kan du använda [lista tillägget versioner](https://msdn.microsoft.com/library/dn495437.aspx).
+* För instanser av virtuella datorer som du kan använda den [lista Resurstillägg](https://msdn.microsoft.com/library/dn495441.aspx) igen. Om du vill visa en lista med versionerna av tillgängliga tillägg, kan du använda [lista resurs tillägget versioner](https://msdn.microsoft.com/library/dn495440.aspx).
 
-## <a name="add-update-or-disable-extensions"></a>Add, Update, or Disable Extensions
-Extensions can be added when an instance is created or they can be added to a running instance. Extensions can be updated, disabled, or removed. You can perform these actions by using Azure PowerShell cmdlets or by using the Service Management REST API operations. Parameters are required to install and set up some extensions. Public and private parameters are supported for extensions.
+## <a name="add-update-or-disable-extensions"></a>Lägga till, uppdatera, eller inaktivera tillägg
+Tillägg kan läggas till när en instans skapas eller de kan läggas till en instans som körs. Tillägg kan uppdateras, inaktiveras eller tas bort. Du kan utföra dessa åtgärder med hjälp av Azure PowerShell-cmdlets eller med hjälp av Service Management REST API-åtgärder. Parametrar som krävs för att installera och konfigurera vissa tillägg. Offentliga och privata parametrar stöds för tillägg.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Using Azure PowerShell cmdlets is the easiest way to add and update extensions. When you use the extension cmdlets, most of the configuration of the extension is done for you. At times, you may need to programmatically add an extension. When you need to do this, you must provide the configuration of the extension.
+Med hjälp av Azure PowerShell-cmdlets är det enklaste sättet att lägga till och uppdatera tillägg. När du använder cmdlets tillägg görs merparten av konfigurationen av tillägget för dig. Ibland kan behöva du lägga till ett tillägg. När du behöver göra detta måste du ange konfigurationen för tillägget.
 
-You can use the following cmdlets to know whether an extension requires a configuration of public and private parameters:
+Du kan använda följande cmdletar för att veta om ett tillägg kräver en konfiguration av offentliga och privata parametrar:
 
-* For instances of web roles or worker roles, you can use the **Get-AzureServiceAvailableExtension** cmdlet.
-* For instances of Virtual Machines, you can use the **Get-AzureVMAvailableExtension** cmdlet.
+* För instanser av webbroller eller arbetsroller som du kan använda den **Get-AzureServiceAvailableExtension** cmdlet.
+* För instanser av virtuella datorer som du kan använda den **Get-AzureVMAvailableExtension** cmdlet.
 
-### <a name="service-management-rest-apis"></a>Service Management REST APIs
-When you retrieve a listing of available extensions by using the REST APIs, you receive information about how the extension is to be configured. The information that is returned might show parameter information represented by a public schema and private schema. Public parameter values are returned in queries about the instances. Private parameter values are not returned.
+### <a name="service-management-rest-apis"></a>REST API:er för tjänsthantering
+När du hämtar en lista över tillgängliga tillägg med hjälp av REST-API: er, får du information om hur tillägget ska konfigureras. Den information som returneras kan visa parameterinformation som representeras av ett schema med offentliga och privata schemat. Gemensamma parametervärden returneras i frågor om instanserna. Privata parametervärden returneras inte.
 
-You can use the following REST APIs to know whether an extension requires a configuration of public and private parameters:
+Du kan använda följande REST API: er för att veta om ett tillägg kräver en konfiguration av offentliga och privata parametrar:
 
-* For instances of web roles or worker roles, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Available Extensions](https://msdn.microsoft.com/library/dn169559.aspx) operation.
-* For instances of Virtual Machines, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Resource Extensions](https://msdn.microsoft.com/library/dn495441.aspx) operation.
+* För instanser av webbroller eller arbetsroller, den **PublicConfigurationSchema** och **PrivateConfigurationSchema** elementen innehåller informationen i svaret från den [lista tillgängliga Tillägg](https://msdn.microsoft.com/library/dn169559.aspx) igen.
+* För instanser av virtuella datorer i **PublicConfigurationSchema** och **PrivateConfigurationSchema** elementen innehåller informationen i svaret från den [lista resurs Tillägg](https://msdn.microsoft.com/library/dn495441.aspx) igen.
 
 > [!NOTE]
-> Extensions can also use configurations that are defined with JSON. When these types of extensions are used, only the **SampleConfig** element is used.
+> Tillägg kan också använda konfigurationer som har definierats med JSON. När dessa typer av tillägg används endast den **SampleConfig** elementet används.
 > 
 > 
 

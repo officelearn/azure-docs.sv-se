@@ -1,42 +1,42 @@
-### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) with its connection information, including the server name, database name, and username/password. This information is included in the SQL Database connection string:
+### <a name="prerequisites"></a>Krav
+* Ett Azure-konto; Du kan skapa en [kostnadsfritt konto](https://azure.microsoft.com/free)
+* En [Azure SQL Database](../articles/sql-database/sql-database-get-started.md) dess anslutningsinformation, inklusive servernamnet, databasnamnet och användarnamn/lösenord. Den här informationen ingår i anslutningssträngen för SQL-databasen:
   
-    Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    Server = tcp:*yoursqlservername*. database.windows.net,1433;Initial katalog =*yourqldbname*; Spara säkerhetsinformation = False; Användar-ID = {your_username}; Lösenord = {your_password}; MultipleActiveResultSets = False; Kryptera = True; TrustServerCertificate = False; Timeout för anslutningen = 30.
   
-    Read more about [Azure SQL Databases](https://azure.microsoft.com/services/sql-database).
+    Läs mer om [Azure SQL-databaser](https://azure.microsoft.com/services/sql-database).
 
 > [!NOTE]
-> When you create an Azure SQL Database, you can also create the sample databases included with SQL. 
+> När du skapar en Azure SQL Database, kan du också skapa exempeldatabasen som ingår i SQL. 
 > 
 > 
 
-Before using your Azure SQL Database in a logic app, connect to your SQL Database. You can do this easily within your logic app on the Azure portal.  
+Innan du använder Azure SQL Database i en logikapp, ansluta till SQL-databasen. Du kan göra detta enkelt i din logikapp på Azure-portalen.  
 
-Connect to your Azure SQL Database using the following steps:  
+Anslut till din Azure SQL-databas med följande steg:  
 
-1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "sql" in the search box. Select one of the actions:  
+1. Skapa en logikapp. Lägg till en utlösare i Logic Apps-designer och sedan lägga till en åtgärd. Välj **visa Microsoft hanterade API: er** i nedrullningsbara listan, och ange sedan ”sql” i sökrutan. Välj något av åtgärderna som:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. If you haven't previously created any connections to SQL Database, you are prompted for the connection details:  
+    ![Steg i att skapa SQL Azure-anslutning](./media/connectors-create-api-sqlazure/sql-actions.png)
+2. Om du inte tidigare har skapat alla anslutningar till SQL-databas, tillfrågas om anslutningsinformationen:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Enter the SQL Database details. Properties with an asterisk are required.
+    ![Steg i att skapa SQL Azure-anslutning](./media/connectors-create-api-sqlazure/connection-details.png) 
+3. Ange information om SQL-databas. Egenskaper med en asterisk krävs.
    
-   | Property | Details |
+   | Egenskap | Information |
    | --- | --- |
-   | Connect via Gateway |Leave this unchecked. This is used when connecting to an on-premises SQL Server. |
-   | Connection Name * |Enter any name for your connection. |
-   | SQL Server Name * |Enter the server name; which is something like *servername.database.windows.net*. The server name is displayed in the SQL Database properties in the Azure portal, and also displayed in the connection string. |
-   | SQL Database Name * |Enter the name you gave your SQL Database. This is listed in the SQL Database properties in the connection string: Initial Catalog=*yoursqldbname*. |
-   | Username * |Enter the username you created when the SQL Database was created. This is listed in the SQL Database properties in the Azure portal. |
-   | Password * |Enter the password you created when the SQL Database was created. |
+   | Anslut via Gateway |Lämna det här alternativet är avmarkerat. Det här används vid anslutning till en lokal SQL Server. |
+   | Anslutningsnamn * |Ange ett namn för anslutningen. |
+   | SQL Server-namnet * |Ange namnet på servern; vilket är något som liknar *servername.database.windows.net*. Namnet på servern visas i egenskaperna för SQL-databas på Azure-portalen och visas också i anslutningssträngen. |
+   | Databasnamn för SQL * |Ange det namn du gav din SQL-databas. Detta visas i Egenskaper för SQL-databas i anslutningssträngen: Initial Catalog =*yoursqldbname*. |
+   | Användarnamn * |Ange användarnamnet som du skapade när SQL-databasen har skapats. Detta visas i egenskaperna för SQL-databas på Azure-portalen. |
+   | Lösenord * |Ange lösenordet som du skapade när SQL-databasen har skapats. |
    
-    These credentials are used to authorize your logic app to connect, and access your SQL data. Once complete, your connection details look similar to the following:  
+    Dessa autentiseringsuppgifter används för att verifiera din logikapp för att ansluta och komma åt SQL-data. När du är klar, likna din anslutningsinformation följande:  
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Select **Create**. 
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
+    ![Steg i att skapa SQL Azure-anslutning](./media/connectors-create-api-sqlazure/sample-connection.png) 
+4. Välj **Skapa**. 
+5. Observera att anslutningen har skapats. Nu kan fortsätta med andra steg i din logikapp: 
    
-    ![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/table.png)
+    ![Steg i att skapa SQL Azure-anslutning](./media/connectors-create-api-sqlazure/table.png)
 

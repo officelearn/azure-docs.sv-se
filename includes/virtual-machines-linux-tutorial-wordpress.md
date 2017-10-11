@@ -1,27 +1,27 @@
-## <a name="install-wordpress"></a>Install WordPress
+## <a name="install-wordpress"></a>Installera WordPress
 
-If you want to try your stack, install a sample app. As an example, the following steps install the open source [WordPress](https://wordpress.org/) platform to create websites and blogs. Other workloads to try include [Drupal](http://www.drupal.org) and [Moodle](https://moodle.org/). 
+Om du vill prova traven installerar du en exempelapp. Exempelvis följande steg för att installera öppen källkod [WordPress](https://wordpress.org/) plattform för att skapa webbplatser och bloggar. Andra arbetsbelastningar försöka ta [Drupal](http://www.drupal.org) och [Moodle](https://moodle.org/). 
 
-This WordPress setup is for proof of concept. For more information and settings for production installation, see the [WordPress documentation](https://codex.wordpress.org/Main_Page). 
+Den här WordPress-installationen är för konceptbeviset. Mer information och inställningar för produktion installation finns den [WordPress dokumentationen](https://codex.wordpress.org/Main_Page). 
 
 
 
-### <a name="install-the-wordpress-package"></a>Install the WordPress package
+### <a name="install-the-wordpress-package"></a>Installera WordPress-paket
 
-Run the following command:
+Kör följande kommando:
 
 ```bash
 sudo apt install wordpress
 ```
 
-### <a name="configure-wordpress"></a>Configure WordPress
+### <a name="configure-wordpress"></a>Konfigurera WordPress
 
-Configure WordPress to use MySQL and PHP. Run the following command to open a text editor of your choice and create the file `/etc/wordpress/config-localhost.php`:
+Konfigurera WordPress för att använda MySQL och PHP. Kör följande kommando för att öppna en textredigerare önskat och skapa filen `/etc/wordpress/config-localhost.php`:
 
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-Copy the following lines to the file, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
+Kopiera följande rader i filen, Ersätt ditt lösenord för *yourPassword* (lämna övriga värden oförändrade). Spara sedan filen.
 
 ```php
 <?php
@@ -33,13 +33,13 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 ?>
 ```
 
-In a working directory, create a text file `wordpress.sql` to configure the WordPress database: 
+Skapa en textfil i arbetskatalogen, `wordpress.sql` att konfigurera WordPress-databas: 
 
 ```bash
 sudo sensible-editor wordpress.sql
 ```
 
-Add the following commands, substituting your database password for *yourPassword* (leave other values unchanged). Then save the file.
+Lägg till följande kommandon och Ersätt ditt lösenord för *yourPassword* (lämna övriga värden oförändrade). Spara sedan filen.
 
 ```sql
 CREATE DATABASE wordpress;
@@ -51,15 +51,15 @@ FLUSH PRIVILEGES;
 ```
 
 
-Run the following command to create the database:
+Kör följande kommando för att skapa databasen:
 
 ```bash
 cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
 ```
 
-After the command completes, delete the file `wordpress.sql`.
+När kommandot har slutförts kan du ta bort filen `wordpress.sql`.
 
-Move the WordPress installation to the web server document root:
+Flytta WordPress-installationen till dokumentroten web server:
 
 ```bash
 sudo ln -s /usr/share/wordpress /var/www/html/wordpress
@@ -67,6 +67,6 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-Now you can complete the WordPress setup and publish on the platform. Open a browser and go to `http://yourPublicIPAddress/wordpress`. Substitute the public IP address of your VM. It should look similar to this image.
+Nu kan du slutför installationen av WordPress och publicera på plattformen. Öppna en webbläsare och gå till `http://yourPublicIPAddress/wordpress`. Ersätt offentliga IP-adressen för den virtuella datorn. Det bör likna den här avbildningen.
 
-![WordPress installation page](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)
+![Sidan för WordPress-installation](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)

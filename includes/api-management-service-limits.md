@@ -1,10 +1,10 @@
-| Resource | Limit |
+| Resurs | Gräns |
 | --- | --- |
-| API Calls (per unit of scale) |32 million per day<sup>1</sup> |
-| Data transfer (per unit of scale) |161 GB per day<sup>1</sup> |
+| API-anrop (per enhet för skala) |32 miljoner per dag<sup>1</sup> |
+| Dataöverföring (per enhet för skala) |161 GB per dag<sup>1</sup> |
 | Cache |5 GB<sup>1</sup> |
-| Units of scale |Unlimited<sup>1</sup> |
-| Azure Active Directory Integration |Unlimited User Accounts<sup>1</sup> |
+| Enheter av skala |Obegränsade<sup>1</sup> |
+| Azure Active Directory-integrering |Obegränsade användarkonton<sup>1</sup> |
 
-<sup>1</sup>API Management limits are different for each pricing tier. To see the pricing tiers and their associated limits and scaling options, see [API Management Pricing](https://azure.microsoft.com/pricing/details/api-management/).
+<sup>1</sup>API Management-gränserna är olika för varje prisnivå. Priser för nivåer och deras associerade gränser och skalningsalternativ finns [priser för API Management](https://azure.microsoft.com/pricing/details/api-management/).
 

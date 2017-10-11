@@ -1,18 +1,18 @@
-In this step, you test the availability group listener by using a client application that's running on the same network.
+I det här steget kan testa du tillgänglighetsgruppens lyssnare med hjälp av ett klientprogram som körs på samma nätverk.
 
-Client connectivity has the following requirements:
+Klientanslutning har följande krav:
 
-* Client connections to the listener must come from machines that reside in a different cloud service than the one that hosts the Always On availability replicas.
-* If the Always On replicas are in different subnets, clients must specify *MultisubnetFailover=True* in the connection string. This condition results in parallel connection attempts to replicas in the various subnets. This scenario includes a cross-region Always On availability group deployment.
+* Klientanslutningar till lyssnaren måste komma från datorer som finns i en annan molntjänst än den som är värd för tillgänglighetsrepliker alltid på.
+* Om Always On-repliker är i olika undernät, måste klienter ange *MultisubnetFailover = True* i anslutningssträngen. Det här villkoret resulterar i parallella anslutningsförsök till repliker i olika undernät. Det här scenariot omfattar en mellan region alltid på tillgänglighet distribution.
 
-One example is to connect to the listener from one of the VMs in the same Azure virtual network (but not one that hosts a replica). An easy way to complete this test is to try to connect SQL Server Management Studio to the availability group listener. Another simple method is to run [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), as follows:
+Ett exempel är att ansluta till lyssnaren från någon av de virtuella datorerna i samma virtuella Azure-nätverket (men inte som värd för en replik). Ett enkelt sätt att slutföra det här testet är att försöka ansluta SQL Server Management Studio till tillgänglighetsgruppens lyssnare. En annan enkel metod är att köra [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), enligt följande:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> If the EndpointPort value is *1433*, you are not required to specify it in the call. The previous call also assumes that the client machine is joined to the same domain and that the caller has been granted permissions on the database by using Windows authentication.
+> Om värdet för EndpointPort är *1433*, du behöver inte ange i anropet. Det föregående anropet förutsätter också att klientdatorn är ansluten till samma domän och att anroparen har beviljats behörigheter för databasen med hjälp av Windows-autentisering.
 > 
 > 
 
-When you test the listener, be sure to fail over the availability group to make sure that clients can connect to the listener across failovers.
+Glöm inte att redundansväxla tillgänglighetsgruppen att se till att klienter kan ansluta till lyssnaren för växling vid fel när du testar lyssnaren.
 

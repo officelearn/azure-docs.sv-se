@@ -1,52 +1,52 @@
-1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).  
-2. On the command bar at the bottom of the window, click **New**.
-3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
+1. Logga in på den [klassiska Azure-portalen](http://manage.windowsazure.com).  
+2. Klicka på kommandofältet längst ned i fönstret **ny**.
+3. Under **Compute**, klickar du på **virtuella**, och klicka sedan på **från galleriet**.
    
-    ![Create a New Virtual Machine][Image1]
-4. Under the **SUSE** group, select an OpenSUSE virtual machine image, and then click the arrow to continue.
-5. On the first **Virtual machine configuration** page:
+    ![Skapa en ny virtuell dator][Image1]
+4. Under den **SUSE** gruppen, Välj en avbildning av virtuell dator OpenSUSE och klicka sedan på pilen för att fortsätta.
+5. Första **konfiguration av virtuell dator** sidan:
    
-   * Type a **Virtual Machine Name**, such as "testlinuxvm". The name must contain between 3 and 15 characters, can contain only letters, numbers, and hyphens, and must start with a letter and end with either a letter or number.
-   * Verify the **Tier** and pick a **Size**. The tier determines the sizes you can choose from. The size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-   * Type a **New User Name**, or accept the default, **azureuser**. This name is added to the Sudoers list file.
-   * Decide which type of **Authentication** to use. For general password guidelines, see [Strong passwords](http://msdn.microsoft.com/library/ms161962.aspx).
-6. On the next **Virtual machine configuration** page:
+   * Ange en **virtuellt datornamn**, till exempel ”testlinuxvm”. Namnet måste innehålla mellan 3 och 15 tecken, kan innehålla endast bokstäver, siffror och bindestreck, och måste börja med en bokstav och sluta med en bokstav eller siffra.
+   * Kontrollera den **nivå** och välj en **storlek**. Nivån anger storleken som du kan välja bland. Storlek påverkar kostnaden för att använda den, samt konfigurationsalternativ som hur många diskar du kan ansluta. Mer information finns i [storlekar för virtuella datorer](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   * Ange en **nytt användarnamn**, eller acceptera standardinställningarna, **azureuser**. Det här namnet har lagts till i filen med listan Sudoers.
+   * Bestämmer vilka typer av **autentisering** ska användas. För allmänna lösenordsriktlinjer finns [starka lösenord](http://msdn.microsoft.com/library/ms161962.aspx).
+6. På nästa **konfiguration av virtuell dator** sidan:
    
-   * Use the default **Create a new cloud service**.
-   * In the **DNS Name** box, type a unique DNS name to use as part of the address, such as "testlinuxvm".
-   * In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
-   * Under **Endpoints**, keep the SSH endpoint. You can add others now, or add, change, or delete them after the virtual machine is created.
+   * Använd standard **skapa en ny molntjänst**.
+   * I den **DNS-namnet** Skriv ett unikt DNS-namn ska användas som en del av adress, till exempel ”testlinuxvm”.
+   * I den **Region/tillhörighet grupp/virtuellt nätverk** väljer du en region där den här virtuella bilden kommer att finnas.
+   * Under **slutpunkter**, hålla SSH-slutpunkten. Du kan lägga till andra nu, eller lägga till, ändra eller ta bort dem när den virtuella datorn har skapats.
      
      > [!NOTE]
-     > If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't add a virtual machine to a virtual network after you create the virtual machine. For more information, see [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+     > Om du vill att en virtuell dator att använda ett virtuellt nätverk du **måste** ange det virtuella nätverket när du skapar den virtuella datorn. Du kan inte lägga till en virtuell dator till ett virtuellt nätverk när du har skapat den virtuella datorn. Mer information finns i [översikt över virtuella nätverk](../articles/virtual-network/virtual-networks-overview.md).
      > 
      > 
-7. On the last **Virtual machine configuration** page, keep the default settings and then click the check mark to finish.
+7. På sist **konfiguration av virtuell dator** , behålla standardinställningarna och klickar sedan på bockmarkeringen för att avsluta.
 
-The portal lists the new virtual machine under **Virtual Machines**. While the status is reported as **(Provisioning)**, the virtual machine is being set up. When the status is reported as **Running**, you can move on to the next step.
+Portalen visar den nya virtuella datorn under **virtuella datorer**. Medan status rapporteras som **(allokering)**, den virtuella datorn ställs in. När status rapporteras som **kör**, du kan gå vidare till nästa steg.
 
-## <a name="connect-to-the-virtual-machine"></a>Connect to the Virtual Machine
-You'll use SSH or PuTTY to connect to the virtual machine, depending on the operating system on the computer you'll connect from:
+## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
+Du ska använda SSH eller PuTTY för att ansluta till den virtuella datorn, beroende på operativsystemet på den dator som du ska ansluta från:
 
-* From a computer running Linux, use SSH. At the command prompt, type:
+* Använd SSH från en dator som kör Linux. Skriv följande vid kommandotolken:
   
     `$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
   
-    Type the user's password.
-* From a computer running Windows, use PuTTY. If you don't have it installed, download it from the [PuTTY Download Page][PuTTYDownload].
+    Ange användarens lösenord.
+* Använd PuTTY från en dator som kör Windows. Om du inte har installerats kan du hämta det från den [PuTTY-hämtningssida][PuTTYDownload].
   
-    Save **putty.exe** to a directory on your computer. Open a command prompt, navigate to that folder, and run **putty.exe**.
+    Spara **putty.exe** till en katalog på datorn. Öppna en kommandotolk, navigera till mappen och kör **putty.exe**.
   
-    Type the host name, such as "testlinuxvm.cloudapp.net", and type "22" for the **Port**.
+    Skriv värdnamnet, till exempel ”testlinuxvm.cloudapp.net” och ”22” för den **Port**.
   
-    ![PuTTY Screen][Image6]  
+    ![PuTTY skärmen][Image6]  
 
-## <a name="update-the-virtual-machine-optional"></a>Update the Virtual Machine (optional)
-1. After you're connected to the virtual machine, you can optionally install system updates and patches. To run the update, type:
+## <a name="update-the-virtual-machine-optional"></a>Uppdatera den virtuella datorn (valfritt)
+1. När du är ansluten till den virtuella datorn kan installera du alternativt uppdateringar och korrigeringsfiler. För att köra uppdateringen, skriver du:
    
     `$ sudo zypper update`
-2. Select **Software**, then **Online Update** to list available updates. Select **Accept** to start the installation and apply all new available patches (except the optional ones).
-3. After installation is done, select **Finish**.  Your system is now up to date.
+2. Välj **programvara**, sedan **Online-uppdatering** att visa tillgängliga uppdateringar. Välj **acceptera** och starta installationen som du kan tillämpa alla tillgängliga nya korrigeringsfiler (utom som är valfritt).
+3. När installationen är klar väljer du **Slutför**.  Systemet är nu uppdaterad.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
 

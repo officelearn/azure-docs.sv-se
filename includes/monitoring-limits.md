@@ -1,5 +1,5 @@
 
-| Resource | Limit |
+| Resurs | Gräns |
 | --- | --- |
-| Autoscale Settings |100 per region per subscription |
-| Metric Alerts |100 active alert rules per subscription |
+| Autoskala inställningar |100 per region per prenumeration |
+| Måttaviseringar |100 active Varningsregler per prenumeration |

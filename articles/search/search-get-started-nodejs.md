@@ -14,12 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/27/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Komma igång med Azure Search i Node.js
 > [!div class="op_single_selector"]
@@ -115,4 +114,3 @@ Har du inte provat Azure Search än? Vi rekommenderar att du går andra självst
 [3]: ./media/search-get-started-Nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-Nodejs/AzSearch-Nodejs-configjs.png
 [9]: ./media/search-get-started-Nodejs/rogerwilliamsschool.png
-

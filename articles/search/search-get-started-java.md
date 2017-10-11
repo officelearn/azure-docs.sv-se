@@ -14,12 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.contentlocale: sv-se
-ms.lasthandoff: 03/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
 > [!div class="op_single_selector"]
@@ -110,7 +109,7 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 7. Klicka på **Finish**.
 8. Välj **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
 9. Välj **Standard VM**i **Add JRE**.
-10. Klicka på **Next**.
+10. Klicka på **Nästa**.
 11. Klicka på **Directory** i JRE Definition på JRE-startsidan.
 12. Gå till **Program Files** > **Java** och välj den JDK som du installerade tidigare. Det är viktigt att du väljer JDK som JRE.
 13. Välj **JDK** i Installed JREs. Inställningarna bör se ut som i följande skärmbild.
@@ -180,4 +179,3 @@ Har du inte provat Azure Search än? Vi rekommenderar att du går andra självst
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-

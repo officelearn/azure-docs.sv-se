@@ -10,8 +10,3 @@ Azure Backup-tjänsten har två typer av valv – Backup-valvet och Recovery Ser
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

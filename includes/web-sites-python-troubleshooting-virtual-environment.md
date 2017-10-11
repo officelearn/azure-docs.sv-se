@@ -18,8 +18,3 @@ Det här är ett alternativ som drar nytta av det faktum att distributionsskript
 ### <a name="option-3-customize-deployment-script"></a>Alternativ 3: Anpassa distributionsskriptet
 Om du har anpassat distributionsskriptet, kan du ändra koden i deploy.cmd för att tvinga den att ta bort env-mappen.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

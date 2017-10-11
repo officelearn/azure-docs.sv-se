@@ -1,8 +1,8 @@
 
 
-1. On your Mac, launch **Keychain Access**. On the left navigation bar, under **Category**, open **My Certificates**. Find the SSL certificate you downloaded in the previous section, and disclose its contents. Select only the certificate (do not select the private key), and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
-2. In the [Azure portal](https://portal.azure.com/), click **Browse All** > **App Services**, and click your Mobile Apps back end. Under **Settings**, click **App Service Push**, and then click your notification hub name. Go to **Apple Push Notification Services** > **Upload Certificate**. Upload the .p12 file, selecting the correct **Mode** (depending on whether your client SSL certificate from earlier is production or sandbox). Save any changes.
+1. På en Mac starta **Nyckelhanterare**. I det vänstra navigeringsfältet under **kategori**öppnar **mina certifikat**. Hitta SSL-certifikatet som du hämtade i föregående avsnitt och lämna ut innehållet. Välj endast certifikatet (inte Välj den privata nyckeln), och [exportera det](https://support.apple.com/kb/PH20122?locale=en_US).
+2. I den [Azure-portalen](https://portal.azure.com/), klickar du på **Bläddra bland alla** > **Apptjänster**, och klicka på din Mobile Apps-serverdel. Under **inställningar**, klickar du på **App Service Push**, och klicka sedan på namnet på din meddelandehubb. Gå till **Apple Push Notification Services** > **överför certifikat**. Överföra filen .p12 att välja rätt **läge** (beroende på om din SSL-klientcertifikat från tidigare är produktion eller sandbox). Spara ändringarna.
 
-Your service is now configured to work with push notifications on iOS.
+Tjänsten har konfigurerats för att fungera med push-meddelanden i iOS.
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png

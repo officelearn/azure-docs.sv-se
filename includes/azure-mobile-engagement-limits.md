@@ -1,11 +1,11 @@
-| Resource | Maximum Limit |
+| Resurs | Övre gräns |
 | --- | --- |
-| App Collection Users |5 per App Collection |
-| Average Data points |200 per Active User/Day |
-| Average App-Info set |50 per Active User/Day |
-| Average Messages pushed |20 per Active User/Day |
-| Segments |100 per app |
-| Criteria per segment |10 |
-| Active Push Campaigns |50 per app |
-| Total Push Campaigns (includes Active & Completed) |1000 per app |
+| Användare Appsamling |5 per Appsamling |
+| Genomsnittlig datapunkter |200 per aktiv användare/dag |
+| Ange genomsnittlig App-Info |50 per aktiv användare/dag |
+| Genomsnittlig push-aviserade meddelanden |20 per aktiv användare/dag |
+| Segment |100 per program |
+| Kriterier per segment |10 |
+| Aktiva Push-kampanjer |50 per app |
+| Totalt antal Push-kampanjer (inklusive Active & slutförd) |1000 per program |
 

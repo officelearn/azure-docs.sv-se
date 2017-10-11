@@ -1,42 +1,42 @@
 
 
-![Virtual machines in a standalone cloud service](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
+![Virtuella datorer i en fristående molntjänst](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-If you place your virtual machines in a virtual network, you can decide how many cloud services you want to use for load balancing and availability sets. Additionally, you can organize the virtual machines on subnets in the same way as your on-premises network and connect the virtual network to your on-premises network. Here's an example:
+Om du placerar dina virtuella datorer i ett virtuellt nätverk, kan du bestämma hur många molntjänster som du vill använda för att läsa in belastningsutjämning och tillgänglighet. Du kan dessutom sortera de virtuella datorerna på undernät på samma sätt som ditt lokala nätverk och ansluta det virtuella nätverket till ditt lokala nätverk. Här är ett exempel:
 
-![Virtual machines in a virtual network](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
+![Virtuella datorer i ett virtuellt nätverk](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
+Virtuella nätverk är det rekommenderade sättet att ansluta virtuella datorer i Azure. Det bästa sättet är att konfigurera varje nivå av ditt program i en separat molntjänst. Du kan dock behöva kombinera vissa virtuella datorer från olika program nivåer i samma molntjänst förblir inom högst 200 molntjänster per prenumeration. Det här och andra begränsningar finns [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../articles/azure-subscription-service-limits.md).
 
-## <a name="connect-vms-in-a-virtual-network"></a>Connect VMs in a virtual network
-To connect virtual machines in a virtual network:
+## <a name="connect-vms-in-a-virtual-network"></a>Ansluta virtuella datorer i ett virtuellt nätverk
+Att ansluta virtuella datorer i ett virtuellt nätverk:
 
-1. Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) and specify 'classic deployment'.
-2. Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure portal, click **New > Compute > Cloud service** for each cloud service.
+1. Skapa virtuella nätverk i den [Azure-portalen](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) och ange 'klassisk distribution ”.
+2. Skapa en uppsättning molntjänster för distributionen för att avspegla din design för tillgänglighetsuppsättningar och belastningsutjämning. I Azure-portalen klickar du på **New > Compute > molntjänst** för varje tjänst i molnet.
 
-  As you fill out the cloud service details, choose the same _resource group_ used with the virtual network.
+  När du fyller i molnet tjänstinformation Välj samma _resursgruppen_ användas med det virtuella nätverket.
 
-3. To create each new virtual machine, click **New > Compute**, then select the appropriate VM image from the **Featured apps**.
+3. Klicka för att skapa varje ny virtuell dator **New > Compute**, Välj lämplig VM-avbildning från den **aktuella appar**.
 
-  In the VM **Basics** blade, choose the same _resource group_ used with the virtual network.
+  I Virtuellt **grunderna** bladet Välj samma _resursgruppen_ användas med det virtuella nätverket.
 
-  ![VM Basics blade when using a VNet](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+  ![Grunderna i VM-bladet när du använder ett virtuellt nätverk](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
 
-4. As you fill out the VM **Settings**, choose the correct _Cloud service_ or _virtual network_ for the VM.
+4. När du fyller i den virtuella datorn **inställningar**, Välj rätt _Molntjänsten_ eller _virtuellt nätverk_ för den virtuella datorn.
 
-  Azure will select the other item based on your selection.
+  Azure markerar det andra objektet baserat på ditt val.
 
-  ![VM Settings blade when using a VNet](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+  ![VM inställningsbladet när du använder ett virtuellt nätverk](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
 
-## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connect VMs in a standalone cloud service
-To connect virtual machines in a standalone cloud service:
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>Ansluta virtuella datorer i en fristående molntjänst
+Att ansluta virtuella datorer i en fristående molnbaserad tjänst:
 
-1. Create the cloud service in the [Azure portal](http://portal.azure.com). Click **New > Compute > Cloud service**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
-2. When you create the virtual machines, choose the same resource group used with the cloud service.
+1. Skapa molntjänst i den [Azure-portalen](http://portal.azure.com). Klicka på **New > Compute > molntjänst**. Eller, du kan skapa Molntjänsten för din distribution när du skapar din första virtuella datorn.
+2. När du skapar virtuella datorer väljer du samma resursgrupp som används med Molntjänsten.
 
-  ![Add a virtual machine to an existing cloud service](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+  ![Lägga till en virtuell dator i en befintlig molntjänst](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
 
-3.  As you fill out the VM details, choose the name of cloud service created in the first step.
+3.  Välj namnet på Molntjänsten som skapats i det första steget när du fyller i VM-information.
 
-  ![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
+  ![Att välja en tjänst i molnet för en virtuell dator](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: ab6dd0e1e5975770bec741ed4a06b6eb4745e174
-ms.lasthandoff: 04/20/2017
-
+ms.openlocfilehash: 31a500502a4d3e729ecb79929ed6c1de156d6259
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegering av DNS-zoner med Azure DNS
 
 Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en domän i Azure. För att DNS-frågor för en domän ska nå Azure DNS måste domänen delegeras till Azure DNS från den överordnade domänen. Tänk på att Azure DNS inte är domänregistratorn. Den här artikeln förklarar hur domändelegering fungerar och hur du delegerar domäner till Azure DNS.
@@ -71,5 +70,4 @@ Varje delegering har i själva verket två kopior av NS-posterna: en i den över
 ## <a name="next-steps"></a>Nästa steg
 
 Läs om hur du [delegerar din domän till Azure DNS](dns-delegate-domain-azure-dns.md)
-
 

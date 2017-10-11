@@ -1,19 +1,19 @@
-There are some limits on the number of metrics and events per application (that is, per instrumentation key). Limits depend on the [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
+Det finns vissa begränsningar för antalet mätvärden och händelser per program (det vill säga per instrumentationsnyckel). Gränserna beror på vilken [prisplan](https://azure.microsoft.com/pricing/details/application-insights/) du väljer.
 
-| **Resource** | **Default limit** | **Note**
+| **Resurs** | **Standardgräns** | **Obs!**
 | --- | --- | --- |
-| Total data per day | 500 GB | You can reduce data by setting a cap. If you need more, mail AIDataCap@microsoft.com.
-| Free data per month<br/> (Basic price plan) | 1 GB | Additional data is charged per gigabyte.
-| Throttling | 32 k events/second | The limit is measured over a minute.
-| Data retention | 90 days | This resource is for [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md), and [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).
-| [Availability multi-step test](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) detailed results retention | 90 days | This resource provides detailed results of each step.
-| Maximum event size | 64 K | 
-| Property and metric name length | 150 | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| Property value string length | 8,192 | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| Trace and exception message length | 10 k | See [type schemas](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| [Availability tests](../articles/application-insights/app-insights-monitor-web-app-availability.md) count per app  | 10 |
-| [Profiler](../articles/application-insights/app-insights-profiler.md) data retention | 5 days |
-| [Profiler](../articles/application-insights/app-insights-profiler.md) data sent per day | 10GB |
+| Totala data per dag | 500 GB | Du kan minska datamängden genom att ange ett tak. Om du behöver mer skickar du ett e-postmeddelande till AIDataCap@microsoft.com.
+| Kostnadsfria data per månad<br/> (Basic-prisplan) | 1 GB | Ytterligare data debiteras per gigabyte.
+| Begränsning | 32 K händelser/sek | Gränser är mätt under en minut.
+| Datakvarhållning | 90 dagar | Den här resursen är för [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) och [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).
+| [Flerstegstest för tillgänglighet](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) (kvarhållning av detaljerade resultat) | 90 dagar | Den här resursen innehåller detaljerade resultat för varje steg.
+| Maximal storlek | 64 KB | 
+| Namnlängd för egenskaper och mätvärden | 150 | Se [skriver scheman](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
+| Stränglängd för egenskapsvärde | 8 192 | Se [skriver scheman](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
+| Längd för spårnings- och undantagsmeddelande | 10 k | Se [skriver scheman](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
+| [Tillgänglighetstester](../articles/application-insights/app-insights-monitor-web-app-availability.md) (antal per app)  | 10 |
+| [Profileraren](../articles/application-insights/app-insights-profiler.md) datalagring | fem dagar |
+| [Profileraren](../articles/application-insights/app-insights-profiler.md) data som skickats per dag | 10GB |
 
-For more information, see [About pricing and quotas in Application Insights](../articles/application-insights/app-insights-pricing.md).
+Mer information finns i [Om priser och kvoter i Application Insights](../articles/application-insights/app-insights-pricing.md).
 

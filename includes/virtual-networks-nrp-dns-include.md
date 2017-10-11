@@ -1,28 +1,28 @@
 ## <a name="azure-dns"></a>Azure DNS
-Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.
+Azure DNS är värdtjänsten för DNS-domäner som tillhandahåller namnmatchning med hjälp av Microsoft Azure-infrastrukturen.
 
-| Property | Description | Sample Value |
+| Egenskap | Beskrivning | Exempelvärde |
 | --- | --- | --- |
-| **DNSzones** |Domain zone information to host DNS records of a particular domain |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com" |
+| **DNSzones** |Information om zonen till DNS-värdposter i en viss domän |/ subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com ” |
 
-### <a name="dns-record-sets"></a>DNS record sets
-DNS zones have a child object named record set. Record sets are a collection of host records by type for a DNS zone. Record types are A, AAAA, CNAME, MX, NS, SOA,SRV and TXT.
+### <a name="dns-record-sets"></a>DNS-postuppsättningar
+DNS-zoner ha ett underordnat objekt med namnet postuppsättningen. Postuppsättningar är en samling värdposter efter typ för en DNS-zon. Posttyper är A, AAAA, CNAME, MX, NS, SOA, SRV och TXT.
 
-| Property | Description | Sample value |
+| Egenskap | Beskrivning | Exempelvärde |
 | --- | --- | --- |
-| A |IPv4 record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
-| AAAA |IPv6 record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
-| CNAME |canonical name record type <sup>1</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
-| MX |mail record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
-| NS |name server record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
-| SOA |Start of Authority record type <sup>2</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
-| SRV |service record type |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
+| A |IPv4-posttyp |/subscriptions/{GUID}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| AAAA |IPv6-typ |/subscriptions/{GUID}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
+| CNAME |kanoniskt namn posttyp <sup>1</sup> |/subscriptions/{GUID}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| MX |e-post |/subscriptions/{GUID}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/Mail |
+| NS |namn på server-posttyp |/subscriptions/{GUID}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
+| SOA |Början av myndigheten posttyp <sup>2</sup> |/subscriptions/{GUID}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
+| SRV |typ av tjänst |/subscriptions/{GUID}/.../providers/Microsoft.Network/dnszones/contoso.com/SRV |
 
-<sup>1</sup> only allows one value per record set.
+<sup>1</sup> kan bara ett värde per uppsättningen av poster.
 
-<sup>2</sup> only allows one record type SOA per DNS zone. 
+<sup>2</sup> tillåter endast en posttyp SOA per DNS-zon. 
 
-Sample of DNS zone in Json format:
+Exempel på DNS-zonen i Json-format:
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
@@ -77,8 +77,8 @@ Sample of DNS zone in Json format:
           ]
     }
 
-## <a name="additional-resources"></a>Additional resources
-Read the [REST API documentation for DNS zones ](https://msdn.microsoft.com/library/azure/mt130626.aspx) for more information.
+## <a name="additional-resources"></a>Ytterligare resurser
+Läs den [REST API-dokumentation för DNS-zoner ](https://msdn.microsoft.com/library/azure/mt130626.aspx) för mer information.
 
-Read the [REST API documentation for DNS record sets](https://msdn.microsoft.com/library/azure/mt130627.aspx) for more information.
+Läs den [REST API-dokumentation för DNS-postuppsättningar](https://msdn.microsoft.com/library/azure/mt130627.aspx) för mer information.
 

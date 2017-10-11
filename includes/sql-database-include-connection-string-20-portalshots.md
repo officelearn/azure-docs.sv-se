@@ -8,22 +8,22 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtain the connection string from the Azure portal
-Use the [Azure portal](https://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database: 
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Hämta anslutningssträngen från Azure-portalen
+Använd den [Azure-portalen](https://portal.azure.com/) att hämta anslutningssträngen som behövs för att klienten ska interagera med Azure SQL Database: 
 
-1. Click **BROWSE** > **SQL databases**.
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
-3. Click the row for your database.
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering. 
+1. Klicka på **Bläddra** > **SQL-databaser**.
+2. Ange namnet på databasen i textrutan filter nästan längst upp till vänster i den **SQL-databaser** bladet.
+3. Klicka på raden för databasen.
+4. När det visas i bladet för din databas, visual i informationssyfte du kan klicka på standard minimera kontroller om du vill komprimera blad som du använde för sökning och filtrering av databasen. 
    
-    ![Filter to isolate your database][10-FilterDatabase]
-5. On the blade for your database, click **Show database connection strings**.
-6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO**. 
+    ![Filter för att isolera din databas][10-FilterDatabase]
+5. Klicka på bladet för din databas **visa databasanslutningssträngar**.
+6. Om du tänker använda anslutningsbibliotek ADO.NET kopiera strängen med etiketten **ADO**. 
    
-    ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
-7. In one format or another, paste the connection string information into your client program code.
+    ![Kopiera ADO anslutningssträngen för databasen][20-CopyAdoConnectionString]
+7. Klistra in informationen i anslutningssträngen i din programkod för klienten i ett format eller någon annan.
 
-For more information, see:<br/>[Connection Strings and Configuration Files](http://msdn.microsoft.com/library/ms254494.aspx).
+Mer information finns i:<br/>[Anslutningssträngar och konfigurationsfiler](http://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

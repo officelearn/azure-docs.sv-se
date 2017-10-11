@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 5cdfd4dd90f5073d03071ef77c062d450210f5ea
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/12/2017
-
+ms.openlocfilehash: d9994dd7bfb6b6bf949a7708c07651d667929ae4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -260,5 +259,4 @@ Granska sökvägarna för Media Services-utbildning.
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

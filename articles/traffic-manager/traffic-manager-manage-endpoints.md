@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>Lägga till, inaktivera, aktivera eller ta bort slutpunkter
 
 Funktionen Web Apps i Azure App Service tillhandahåller redan trafikroutningsfunktioner för redundans och resursallokering för webbplatser inom ett datacenter, oavsett webbplatsläge. Med Azure Traffic Manager kan du konfigurera trafikroutning för redundans och resursallokering för webbplatser och molntjänster i olika datacenter. Det första steget om du vill att den här funktionen ska vara tillgänglig är att lägga till molntjänstens eller webbplatsens slutpunkt i Traffic Manager.
@@ -85,5 +83,4 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
 * [Felsök degraderat tillstånd i Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 * [Prestandaöverväganden för Traffic Manager](traffic-manager-performance-considerations.md)
 * [Åtgärder för Traffic Manager (REST API-referens)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

@@ -1,28 +1,28 @@
-## <a name="prepare-your-intel-nuc"></a>Prepare your Intel NUC
+## <a name="prepare-your-intel-nuc"></a>Förbered din Intel NUC
 
-To complete the hardware setup, you need to:
+Du slutför installationen av maskinvara, måste du:
 
-- Connect your Intel NUC to the power supply included in the kit.
-- Connect your Intel NUC to your network using an Ethernet cable.
+- Anslut din Intel NUC till strömförsörjning som ingår i kit.
+- Anslut din Intel NUC till nätverket med hjälp av en Ethernet-kabel.
 
-You have now completed the hardware setup of your Intel NUC gateway device.
+Du har nu slutfört maskinvaruinställningar av Intel NUC-gateway-enheten.
 
-### <a name="sign-in-and-access-the-terminal"></a>Sign in and access the terminal
+### <a name="sign-in-and-access-the-terminal"></a>Logga in och öppna terminalen
 
-You have two options to access a terminal environment on your Intel NUC:
+Du har två alternativ för att komma åt en terminal miljö på Intel-NUC:
 
-- If you have a keyboard and monitor connected to your Intel NUC, you can access the shell directly. The default credentials are username **root** and password **root**.
+- Om du har ett tangentbord och bildskärm har anslutits till Intel-NUC, kan du komma åt gränssnittet direkt. Standardautentiseringsuppgifterna som är användarnamnet **rot** och lösenord **rot**.
 
-- Access the shell on your Intel NUC using SSH from your desktop machine.
+- Åtkomst till gränssnittet på din Intel NUC använder SSH från den stationära datorn.
 
-#### <a name="sign-in-with-ssh"></a>Sign in with SSH
+#### <a name="sign-in-with-ssh"></a>Logga in med SSH
 
-To sign in with SSH, you need the IP address of your Intel NUC. If you have a keyboard and monitor connected to your Intel NUC, use the `ifconfig` command to find the IP address. Alternatively, connect to your router to list the addresses of devices on your network.
+Om du vill logga in med SSH, måste du IP-adressen för Intel-NUC. Om du har ett tangentbord och bildskärm har anslutits till Intel-NUC använder den `ifconfig` kommando för att hitta IP-adress. Du kan också ansluta till routern att lista adresserna till enheter i nätverket.
 
-Sign in with username **root** and password **root**.
+Logga in med användarnamn **rot** och lösenord **rot**.
 
-#### <a name="optional-share-a-folder-on-your-intel-nuc"></a>Optional: Share a folder on your Intel NUC
+#### <a name="optional-share-a-folder-on-your-intel-nuc"></a>Valfritt: Dela en mapp på Intel-NUC
 
-Optionally, you may want to share a folder on your Intel NUC with your desktop environment. Sharing a folder enables you to use your preferred desktop text editor (such as [Visual Studio Code](https://code.visualstudio.com/) or [Sublime Text](http://www.sublimetext.com/)) to edit files on your Intel NUC instead of using `nano` or `vi`.
+Alternativt kan behöva du dela en mapp på Intel-NUC med skrivbordsmiljön. Dela en mapp kan du använda din önskade skrivbord textredigerare (t.ex [Visual Studio Code](https://code.visualstudio.com/) eller [Sublime Text](http://www.sublimetext.com/)) att redigera filerna på din Intel NUC istället för att använda `nano` eller `vi`.
 
-To share a folder with Windows, configure a Samba server on the Intel NUC. Alternatively, use the SFTP server on the Intel NUC with an SFTP client on your desktop machine.
+Konfigurera en Samba-server på Intel NUC om du vill dela en mapp med Windows. Du kan också använda SFTP-server på Intel NUC med SFTP-klienten på den stationära datorn.

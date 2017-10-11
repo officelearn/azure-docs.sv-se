@@ -1,34 +1,34 @@
 ## <a name="virtual-network"></a>Virtual Network
-Virtual Networks (VNET) and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
+Virtuella nätverk (VNET) och undernät resurser hjälpa dig att definiera en säkerhetsgräns för arbetsbelastningar som körs i Azure. Ett virtuellt nätverk kännetecknas av en samling adressutrymmen, definierad som CIDR-block. 
 
 > [!NOTE]
-> Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
+> Nätverksadministratörer är bekanta med CIDR-notering. Om du inte är bekant med CIDR, [mer information om den](http://whatismyipaddress.com/cidr).
 > 
 > 
 
-![VNet with multiple subnets](./media/resource-groups-networking/Figure4.png)
+![Virtuella nätverk med flera undernät](./media/resource-groups-networking/Figure4.png)
 
-VNets contain the following properties.
+Vnet innehåller följande egenskaper.
 
-| Property | Description | Sample values |
+| Egenskap | Beskrivning | Exempelvärden |
 | --- | --- | --- |
-| **addressSpace** |Collection of address prefixes that make up the VNet in CIDR notation |192.168.0.0/16 |
-| **subnets** |Collection of subnets that make up the VNet |see [subnets](#Subnets) below. |
-| **ipAddress** |IP address assigned to object. This is a read-only property. |104.42.233.77 |
+| **addressSpace** |Samling av adressprefix som utgör VNet i CIDR-notation |192.168.0.0/16 |
+| **undernät** |Samling av undernät som utgör VNet |Se [undernät](#Subnets) nedan. |
+| **IP-adress** |IP-adress som tilldelats objekt. Det här är en skrivskyddad egenskap. |104.42.233.77 |
 
-### <a name="subnets"></a>Subnets
-A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
+### <a name="subnets"></a>Undernät
+Ett undernät är en underordnad resurs i ett VNet och hjälper dig att definiera segmenten i adressutrymmen i CIDR-block med IP-adressprefix. Nätverkskorten kan läggas till i undernät och anslutna till virtuella datorer kan man har anslutning för olika arbetsbelastningar.
 
-Subnets contain the following properties. 
+Undernät innehåller följande egenskaper. 
 
-| Property | Description | Sample values |
+| Egenskap | Beskrivning | Exempelvärden |
 | --- | --- | --- |
-| **addressPrefix** |Single address prefix that make up the subnet in CIDR notation |192.168.1.0/24 |
-| **networkSecurityGroup** |NSG applied to the subnet |see [NSGs](#Network-Security-Group) |
-| **routeTable** |Route table applied to the subnet |see [UDR](#Route-table) |
-| **ipConfigurations** |Collection of IP configruation objects used by NICs connected to the subnet |see [UDR](#Route-table) |
+| **addressPrefix** |Enkel adressprefixet som utgör undernät i CIDR-notation |192.168.1.0/24 |
+| **networkSecurityGroup** |NSG tillämpas för undernätet |Se [NSG: er](#Network-Security-Group) |
+| **Migreringstillståndet** |Routningstabellen tillämpad på undernätet |Se [UDR](#Route-table) |
+| **ipConfigurations** |Samling av IP-configruation objekt som används av nätverkskort som är anslutna till undernätet |Se [UDR](#Route-table) |
 
-Sample VNet in JSON format:
+Exempel VNet i JSON-format:
 
     {
         "name": "TestVNet",
@@ -72,8 +72,8 @@ Sample VNet in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [VNet](../articles/virtual-network/virtual-networks-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163618.aspx) for Subnets.
+### <a name="additional-resources"></a>Ytterligare resurser
+* Hämta mer information [VNet](../articles/virtual-network/virtual-networks-overview.md).
+* Läs den [REST API-referensdokumentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) för Vnet.
+* Läs den [REST API-referensdokumentation](https://msdn.microsoft.com/library/azure/mt163618.aspx) för undernät.
 

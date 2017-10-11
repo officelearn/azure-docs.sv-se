@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Migrera till Azure med Site Recovery
 
@@ -83,4 +81,3 @@ Du kan migrera AWS-instanser till virtuella Azure-datorer. I det här scenariot 
 - [Migrera AWS-instanser till Azure](site-recovery-migrate-aws-to-azure.md)
 - [Förbereda migrerade datorer att aktivera replikering](site-recovery-azure-to-azure-after-migration.md) till en annan region för katastrofåterställning.
 - Börja skydda dina arbetsbelastningar genom att [replikera virtuella Azure datorer.](site-recovery-azure-to-azure.md)
-

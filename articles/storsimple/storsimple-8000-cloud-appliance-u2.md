@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
 
@@ -265,4 +264,3 @@ Om det inte finns någon Internetanslutning när molninstallationen skapas, så 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [hanterar en molninstallation med hjälp av StorSimple Device Manager-tjänsten](storsimple-8000-manager-service-administration.md).
 * Förstå hur du [återställer en StorSimple-volym från en säkerhetskopia](storsimple-8000-restore-from-backup-set-u2.md).
-

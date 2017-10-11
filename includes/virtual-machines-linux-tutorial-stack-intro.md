@@ -1,18 +1,18 @@
-## <a name="create-a-resource-group"></a>Create a resource group
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
+## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Create a VM with the [az vm create](/cli/azure/vm#create) command. 
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#create). 
 
-The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
 ```azurecli-interactive 
 az vm create \
@@ -23,7 +23,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
+När den virtuella datorn har skapats visar Azure CLI information som ser ut ungefär som i följande exempel. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.
 
 ```azurecli-interactive 
 {
@@ -40,24 +40,24 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 
 
-## <a name="open-port-80-for-web-traffic"></a>Open port 80 for web traffic 
+## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik 
 
-By default, only SSH connections are allowed into Linux VMs deployed in Azure. Because this VM is going to be a web server, you need to open port 80 from the internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.  
+Som standard tillåts endast SSH-anslutningar till Linux virtuella datorer som distribueras i Azure. Eftersom den här virtuella datorn kommer att vara en webbserver, måste du öppna port 80 från internet. Använd kommandot [az vm open-port](/cli/azure/vm#open-port) för att öppna önskad port.  
  
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
-## <a name="ssh-into-your-vm"></a>SSH into your VM
+## <a name="ssh-into-your-vm"></a>SSH till den virtuella datorn
 
 
-If you don't already know the public IP address of your VM, run the [az network public-ip list](/cli/azure/network/public-ip#list) command:
+Om du inte redan vet offentliga IP-adressen för den virtuella datorn kan köra den [az offentliga ip-lista över](/cli/azure/network/public-ip#list) kommando:
 
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Use the following command to create an SSH session with the virtual machine. Substitute the correct public IP address of your virtual machine. In this example, the IP address is *40.68.254.142*.
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt rätt offentliga IP-adressen för den virtuella datorn. I det här exemplet IP-adressen är *40.68.254.142*.
 
 ```bash
 ssh azureuser@40.68.254.142

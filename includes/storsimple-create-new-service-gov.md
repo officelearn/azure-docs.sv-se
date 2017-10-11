@@ -1,20 +1,20 @@
 <!--author=SharS last changed: 9/17/15-->
 
 
-#### <a name="to-create-a-new-service"></a>To create a new service
-1. Use your Microsoft account credentials to log on to the [Microsoft Azure Government Portal](https://manage.windowsazure.us/).
-2. In the Government Portal, click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
-3. In the form that is displayed, do the following:
+#### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
+1. Använda Microsoft-kontouppgifter för att logga in på den [Microsoft Azure Government Portal](https://manage.windowsazure.us/).
+2. I Government-portalen klickar du på **ny** > **datatjänster** > **StorSimple Manager** > **Snabbregistrering** .
+3. I formuläret som visas gör du följande:
    
-   1. Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-   2. Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device. Select **US Govt Iowa** or **US Govt Virgina**.
-   3. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-   4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf."
-   5. Click **Create StorSimple Manager** to create the service.
+   1. Ange ett unikt **namn** för din tjänst. Det är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 2 och 50 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.
+   2. Ange en **plats** för din tjänst. Plats hänvisar till den geografiska region där du vill distribuera din enhet. Välj **USA Govt Iowa** eller **USA Govt Virgina**.
+   3. Välj en **prenumeration** från listrutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet syns inte om du bara har en prenumeration.
+   4. Välj **Skapa ett nytt lagringskonto**, för att automatiskt skapa ett lagringskonto med tjänsten. Det här lagringskontot har ett särskilt namn, till exempel "storsimplebwv8c6dcnf."
+   5. Klicka på **Skapa StorSimple Manager** för att skapa tjänsten.
       
-       ![create a service](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
+       ![Skapa en tjänst](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
       
-      You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+      Du kommer nu omdirigeras till **Tjänst**-landningssidan. Det tar några minuter att skapa tjänsten. När tjänsten har skapats, kommer du att meddelas och tjänstens status kommer att ändras till **Aktiv**.
       
-       ![service creation](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
+       ![Skapa en tjänst](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 

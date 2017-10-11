@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 966100094f98bae41bf90df500d005fa78b31ec3
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Läs in data med PolyBase i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -275,4 +274,3 @@ Se [PolyBase-guiden][PolyBase guide] för ytterligare information som du bör k�
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
-

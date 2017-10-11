@@ -9,17 +9,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2017
+ms.date: 05/25/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: eec0106ac43796b2a8a05e89d36cbb51fc222f5d
-ms.openlocfilehash: 9c90d46afd5aa8c1daa12c72e59e518bc42f3d0b
-
-
+ms.openlocfilehash: ebec29dea9f5dc1767f47a53d9da03347a51de28
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Installera anpassade Hadoop-program i Azure HDInsight
 
@@ -42,20 +43,20 @@ HDInsight-program kan installeras när du skapar ett kluster eller i ett befintl
 Filer som behövs för att distribuera programmet (Hue):
 
 * [azuredeploy.JSON](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): Resource Manager-mallen för att installera programmet HDInsight. Information om hur du utvecklar en egen Resource Manager-mall finns i [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx).
-* [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): Den skriptåtgärd som anropas av Resource Manager-mallen för konfiguration av kantnoden. 
-* [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hue-binärfilen som anropas från hui-install_v0.sh. 
-* [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hue-binärfilen som anropas från hui-install_v0.sh. 
+* [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): Den skriptåtgärd som anropas av Resource Manager-mallen för konfiguration av kantnoden.
+* [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hue-binärfilen som anropas från hui-install_v0.sh.
+* [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hue-binärfilen som anropas från hui-install_v0.sh.
 * [webwasb-tomcat.tar.gz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): En exempelwebbapp (Tomcat) som anropas från hui-install_v0.sh.
 
 **Installera Hue i ett befintligt HDInsight-kluster**
 
-1. Klicka på följande bild för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal. 
-   
+1. Klicka på följande bild för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal.
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
+
     När du klickar på den här knappen öppnas en Resource Manager-mall i Azure Portal.  Resource Manager-mallen finns på adressen [https://github.com/hdinsight/Iaas-Applications/tree/master/Hue](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue).  Information om hur du skriver Resource Manager-mallen finns i [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx).
 2. Skriv följande i bladet **Parametrar**:
-   
+
    * **Klusternamn**: Ange namnet på klustret där du vill installera programmet. Det här klustret måste vara ett befintligt kluster.
 3. Spara parametrarna genom att klicka på **OK**.
 4. I bladet **Anpassad distribution** anger du **Resursgrupp**.  Resursgruppen är en behållare som grupperar klustret, det beroende lagringskontot och andra resurser. Du måste använda samma resursgrupp som klustret.
@@ -64,14 +65,14 @@ Filer som behövs för att distribuera programmet (Hue):
 
 **Installera Hue när du skapar ett kluster**
 
-1. Klicka på följande bild för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal. 
-   
+1. Klicka på följande bild för att logga in på Azure och öppna Resource Manager-mallen i Azure Portal.
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
+
     När du klickar på den här knappen öppnas en Resource Manager-mall i Azure Portal.  Resource Manager-mallen finns på adressen [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Information om hur du skriver Resource Manager-mallen finns i [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx).
 2. Följ anvisningarna för att skapa kluster och installera Hue. Mer information om hur du skapar HDInsight-kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-Utöver Azure Portal kan du också använda [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) och [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-azure-cli) för att anropa Resource Manager-mallar.
+Utöver Azure Portal kan du också använda [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) och [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-cli) för att anropa Resource Manager-mallar.
 
 ## <a name="validate-the-installation"></a>Verifiera installationen
 Du kan validera programinstallationen genom att kontrollera statusen för programmet på Azure Portal. Dessutom kan du verifiera att alla HTTP-slutpunkter visats som förväntat och webbsidan om det finns en:
@@ -83,25 +84,25 @@ Du kan validera programinstallationen genom att kontrollera statusen för progra
 3. Klicka på klustret där du installerade programmet.
 4. I bladet **Inställningar** klickar du på **Program** under kategorin **Allmänt**. Du kommer att se **hue** listat i bladet **Installerade appar**.
 5. Klicka på **hue** i listan om du vill visa egenskaperna.  
-6. Klicka på webbsidelänken och verifiera webbplatsen. Öppna http-slutpunkten i en webbläsare och validera Hue-webbgränssnittet. Öppna SSH-slutpunkten med [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) eller andra [SSH-klienter](hdinsight-hadoop-linux-use-ssh-unix.md).
+6. Klicka på webbsidelänken och verifiera webbplatsen; Öppna HTTP-slutpunkten i en webbläsare och validera Hue-webbgränssnittet, öppna SSH-slutpunkten med SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 ## <a name="troubleshoot-the-installation"></a>Felsöka installationen
-Du kan kontrollera programmets installationsstatus i portalmeddelandet (klicka på klockikonen överst i portalen). 
+Du kan kontrollera programmets installationsstatus i portalmeddelandet (klicka på klockikonen överst i portalen).
 
 Om en programinstallation misslyckas kan du se felmeddelanden visas och felsökningsinformation på tre ställen:
 
 * HDInsight-program: allmän felinformation.
-  
+
     Öppna klustret från portalen och klicka på Program i bladet Inställningar:
-  
+
     ![hdinsight-program programinstallationsfel](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
 * HDInsight-skriptåtgärder: Om HDInsight-programmets felmeddelande anger att en skriptåtgärd inte kunde utföras hittar du mer information om skriptfelet i skriptåtgärdsfönstret.
-  
+
     Klicka på Skriptåtgärd i bladet Inställningar. I historiken för skriptåtgärder visas felmeddelanden
-  
+
     ![hdinsight-program skriptåtgärdsfel](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
 * Ambari-webbgränssnitt: Om felet orsakats av installationsskriptet kan du använda Ambari-webbgränssnittet för att kontrollera de fullständig loggarna om installationsskripten.
-  
+
     Mer information finns i [Felsökning](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ## <a name="remove-hdinsight-applications"></a>Ta bort HDInsight-program
@@ -132,10 +133,3 @@ Med Azure CLI kan du ta bort klustret eller resursgruppen. Se [Ta bort kluster m
 * [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md): information om hur du använder skriptåtgärd till att installera fler program.
 * [Skapa Linux-baserade Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Lär dig hur du anropar Resource Manager-mallar för att skapa HDInsight-kluster.
 * [Använda tomma edge-noder i HDInsight](hdinsight-apps-use-edge-node.md): Information om hur du använder en tom edge-nod för att få åtkomst till HDInsight-kluster, testa HDInsight-program och vara värd för HDInsight-program.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

@@ -1,6 +1,6 @@
-If you possess a shared access signature (SAS) URL that grants you access to resources in a storage account, you can use the SAS in a connection string. Because the SAS contains the information required to authenticate the request, a connection string with a SAS provides the protocol, the service endpoint, and the necessary credentials to access the resource.
+Om du har en URL för delad åtkomst signatur (SAS) som ger åtkomst till resurser i ett lagringskonto kan du använda SAS i en anslutningssträng. Eftersom Signaturen innehåller information som krävs för att autentisera begäran, ger en anslutningssträng med en SAS protokollet, tjänstslutpunkten och autentiseringsuppgifterna som krävs för åtkomst till resursen.
 
-To create a connection string that includes a shared access signature, specify the string in the following format:
+Ange strängen du vill skapa en anslutningssträng som innehåller en signatur för delad åtkomst i följande format:
 
 ```
 BlobEndpoint=myBlobEndpoint;
@@ -10,32 +10,32 @@ FileEndpoint=myFileEndpoint;
 SharedAccessSignature=sasToken
 ```
 
-Each service endpoint is optional, although the connection string must contain at least one.
+Varje tjänstslutpunkten är valfritt, även om anslutningssträngen måste innehålla minst ett.
 
 > [!NOTE]
-> Using HTTPS with a SAS is recommended as a best practice.
+> Du bör använda HTTPS med en SAS som bästa praxis.
 >
-> If you are specifying a SAS in a connection string in a configuration file, you may need to encode special characters in the URL.
+> Om du anger en SAS i en anslutningssträng i en konfigurationsfil, kan du behöva koda specialtecken i URL: en.
 >
 >
 
-### <a name="service-sas-example"></a>Service SAS example
-Here's an example of a connection string that includes a service SAS for Blob storage:
+### <a name="service-sas-example"></a>Tjänst-SAS-exempel
+Här är ett exempel på en anslutningssträng som innehåller en tjänst-SAS för Blob storage:
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;
 SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
-And here's an example of the same connection string with encoding of special characters:
+Och här är ett exempel på samma anslutningssträng kodning av specialtecken:
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;
 SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
-### <a name="account-sas-example"></a>Account SAS example
-Here's an example of a connection string that includes an account SAS for Blob and File storage. Note that endpoints for both services are specified:
+### <a name="account-sas-example"></a>Kontot SAS-exempel
+Här är ett exempel på en anslutningssträng som innehåller ett SAS-konto för Blob- och lagring. Observera att slutpunkter för båda tjänsterna har angetts:
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;
@@ -43,7 +43,7 @@ FileEndpoint=https://storagesample.file.core.windows.net;
 SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
 ```
 
-And here's an example of the same connection string with URL encoding:
+Och här är ett exempel på samma anslutningssträng med URL-kodning:
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;

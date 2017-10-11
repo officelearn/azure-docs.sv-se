@@ -1,38 +1,38 @@
-In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio.
+I det här steget kan skapa du manuellt tillgänglighetsgruppens lyssnare i hanteraren för redundanskluster och SQL Server Management Studio.
 
-1. Open Failover Cluster Manager from the node that hosts the primary replica.
+1. Öppna Klusterhanteraren för växling från den nod som värd för den primära repliken.
 
-2. Select the **Networks** node, and then note the cluster network name. This name is used in the $ClusterNetworkName variable in the PowerShell script.
+2. Välj den **nätverk** nod och Observera klustrets nätverksnamn. Det här namnet används i variabeln $ClusterNetworkName i PowerShell-skript.
 
-3. Expand the cluster name, and then click **Roles**.
+3. Expandera klusternamnet och klicka sedan på **roller**.
 
-4. In the **Roles** pane, right-click the availability group name, and then select **Add Resource** > **Client Access Point**.
+4. I den **roller** fönstret, högerklicka på tillgänglighetsgruppens namn och välj sedan **Lägg till resurs** > **klientåtkomstpunkt**.
    
-    ![Add Client Access Point for availability group](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
+    ![Lägg till klientåtkomstpunkten för tillgänglighetsgruppen](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
-5. In the **Name** box, create a name for this new listener, click **Next** twice, and then click **Finish**.  
-    Do not bring the listener or resource online at this point.
+5. I den **namn** , skapar du ett namn för den här lyssnaren, klickar du på **nästa** två gånger, och klicka sedan på **Slutför**.  
+    Tar inte med lyssnare eller resursen i det här läget.
 
-6. Click the **Resources** tab, and then expand the client access point you just created. 
-    The IP address resource for each cluster network in your cluster is displayed. If this is an Azure-only solution, only one IP address resource is displayed.
+6. Klicka på den **resurser** fliken och expandera sedan den klientåtkomstpunkt som du nyss skapade. 
+    IP-adressresurs för varje klusternätverk i klustret visas. Om detta är en Azure-only-lösning, visas endast en IP-adressresurs.
 
-7. Do either of the following:
+7. Gör något av följande:
    
-   * To configure a hybrid solution:
+   * Så här konfigurerar du en hybridlösning:
      
-        a. Right-click the IP address resource that corresponds to your on-premises subnet, and then select **Properties**. Note the IP address name and network name.
+        a. Högerklicka på IP-adressresurs som motsvarar det lokala undernätet och välj sedan **egenskaper**. Observera namn på IP-adressen och nätverksnamnet.
    
-        b. Select **Static IP Address**, assign an unused IP address, and then click **OK**.
+        b. Välj **statisk IP-adress**, tilldela en IP-adress som inte används och klicka sedan på **OK**.
  
-   * To configure an Azure-only solution:
+   * Så här konfigurerar du en endast Azure-lösning:
 
-        a. Right-click the IP address resource that corresponds to your Azure subnet, and then select **Properties**.
+        a. Högerklicka på IP-adressresurs som motsvarar din Azure-undernät och välj sedan **egenskaper**.
        
        > [!NOTE]
-       > If the listener later fails to come online because of a conflicting IP address selected by DHCP, you can configure a valid static IP address in this properties window.
+       > Om lyssnaren senare misslyckas anslutas på grund av en konflikt IP-adress som valts av DHCP kan du konfigurera en statisk IP-adress i egenskapsfönstret.
        > 
        > 
 
-       b. In the same **IP Address** properties window, change the **IP Address Name**.  
-        This name is used in the $IPResourceName variable of the PowerShell script. If your solution spans multiple Azure virtual networks, repeat this step for each IP resource.
+       b. I samma **IP-adress** i fönstret Ändra den **IP-adressnamn**.  
+        Det här namnet används i variabeln $IPResourceName på PowerShell-skript. Om din lösning sträcker sig över flera virtuella Azure-nätverk, kan du upprepa det här steget för varje IP-resurs.
 

@@ -1,13 +1,13 @@
-You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic.
+Du öppnar en port eller skapa en slutpunkt för en virtuell dator (VM) i Azure genom att skapa ett filter för nätverk på ett undernät eller Virtuella datorns nätverksgränssnitt. Du kan placera dessa filter som styr både inkommande och utgående trafik på en Nätverkssäkerhetsgrupp kopplad till den resurs som tar emot trafiken.
 
-Let's use a common example of web traffic on port 80. Once you have a VM that is configured to serve web requests on the standard TCP port 80 (remember to start the appropriate services and open any OS firewall rules on the VM as well), you:
+Nu ska vi använda ett vanligt exempel på Internet-trafik på port 80. När du har en virtuell dator som är konfigurerad för att hantera webbförfrågningar på standard-TCP port 80 (Glöm inte att starta rätt tjänster och öppna alla OS brandväggsregler på den virtuella datorn samt), du:
 
-1. Create a Network Security Group.
-2. Create an inbound rule allowing traffic with:
-   * the destination port range of "80"
-   * the source port range of "*" (allowing any source port)
-   * a priority value of less 65,500 (to be higher in priority than the default catch-all deny inbound rule)
-3. Associate the Network Security Group with the VM network interface or subnet.
+1. Skapa en säkerhetsgrupp för nätverk.
+2. Skapa en inkommande regel som tillåter trafik med:
+   * Målportintervall ”80”
+   * Källportintervall av ”*” (vilket innebär att alla källportar)
+   * ett prioritetsvärde för mindre 65 500 (för att vara högre i prioritet än standard allomfattande regel för att neka inkommande)
+3. Koppla Nätverkssäkerhetsgruppen till den Virtuella datorns nätverksgränssnitt eller undernät.
 
-You can create complex network configurations to secure your environment using Network Security Groups and rules. Our example uses only one or two rules that allow HTTP traffic or remote management. For more information, see the following ['More Information'](#more-information-on-network-security-groups) section or [What is a Network Security Group?](../articles/virtual-network/virtual-networks-nsg.md)
+Du kan skapa komplexa nätverkskonfigurationer för att skydda din miljö med Nätverkssäkerhetsgrupper och regler. Vårt exempel används bara en eller två regler som tillåter HTTP-trafik eller för fjärrhantering. Mer information finns i följande [”mer Information”](#more-information-on-network-security-groups) avsnittet eller [vad är en Nätverkssäkerhetsgrupp?](../articles/virtual-network/virtual-networks-nsg.md)
 

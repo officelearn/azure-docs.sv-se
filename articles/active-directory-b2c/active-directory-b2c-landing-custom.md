@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 5/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: Registrera och logga in användare i dina program med anpassade principer
 Anpassade principer är konfigurationsfiler som definierar beteendet för din Azure AD B2C-klient. Identitetsutvecklare kan redigera dessa för att utföra ett nästan obegränsat antal uppgifter.
@@ -41,7 +40,6 @@ Lär dig hur du använder specifika funktioner i Azure Active Directory B2C:
 
 ## <a name="whats-new"></a>Nyheter
 Kom tillbaka ofta om du är nyfiken på framtida förändringar i Azure Active Directory B2C. Vi kommer även att twittra om eventuella uppdateringar med @AzureAD.
-
 
 
 

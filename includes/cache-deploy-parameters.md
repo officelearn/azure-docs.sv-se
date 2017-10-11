@@ -1,6 +1,6 @@
 
 ### <a name="cacheskuname"></a>cacheSKUName
-The pricing tier of the new Azure Redis Cache.
+Prisnivån för den nya Azure Redis-Cache.
 
     "cacheSKUName": {
       "type": "string",
@@ -14,11 +14,11 @@ The pricing tier of the new Azure Redis Cache.
       }
     },
 
-The template defines the values that are permitted for this parameter (Basic or Standard), and assigns a default value (Basic) if no value is specified. Basic provides a single node with multiple sizes available up to 53 GB.
-Standard provides two-node Primary/Replica with multiple sizes available up to 53 GB and 99.9% SLA.
+Mallen definierar de värden som tillåts för den här parametern (Basic eller Standard), och tilldelas ett standardvärde (grundläggande), om inget värde anges. Basic tillhandahåller en enda nod med flera storlekar som är tillgängliga för upp till 53 GB.
+Standarden erbjuder två noder primära/repliken med flera storlekar som är tillgängliga för dig av 53 GB och 99,9% serviceavtal.
 
 ### <a name="cacheskufamily"></a>cacheSKUFamily
-The family for the sku.
+Familj för SKU: n.
 
     "cacheSKUFamily": {
       "type": "string",
@@ -33,7 +33,7 @@ The family for the sku.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-The size of the new Azure Redis Cache instance. 
+Storleken på den nya Azure Redis-Cache-instansen. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -53,5 +53,5 @@ The size of the new Azure Redis Cache instance.
     }
 
 
-The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (1) if no value is specified. Those numbers correspond to following cache sizes: 0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+Mallen definierar de värden som tillåts för den här parametern (0, 1, 2, 3, 4, 5 eller 6) och tilldelar ett standardvärde (1) om inget värde anges. Dessa siffror motsvarar följande cache-storlekar: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

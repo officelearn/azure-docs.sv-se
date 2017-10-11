@@ -14,12 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: c3bfc45969f250059988129f532edd12dfe3dcfe
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Kom igång med Relay hybridanslutningar
 
@@ -83,5 +82,4 @@ Grattis, du har skapat ett hybridanslutningsprogram från slutpunkt till slutpun
 * [Skapa ett namnområde](relay-create-namespace-portal.md)
 * [Kom igång med .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Kom igång med Node](relay-hybrid-connections-node-get-started.md)
-
 

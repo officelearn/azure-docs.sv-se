@@ -1,12 +1,12 @@
-## <a name="vpn-gateway"></a>VPN Gateway
-A VPN gateway resource enables you to create a secure connection between their on-premises data center and Azure. A VPN gateway resource can be configured in three different ways:
+## <a name="vpn-gateway"></a>VPN-gateway
+En VPN-gateway-resurs kan du skapa en säker anslutning mellan sina lokala datacenter och Azure. En resurs för VPN-gateway kan konfigureras på tre olika sätt:
 
-* **Point to Site** – you can securely access your Azure resources hosted in a VNET by using a VPN client from any computer. 
-* **Multi-site connection** – you can securely connect from your on-premises data centers to resources running in a VNET. 
-* **VNET to VNET** – you can securely connect across Azure VNETS within the same region, or across regions to build workloads with geo-redundancy.
+* **Peka på platsen** – du kan på ett säkert sätt komma åt Azure-resurser finns i ett VNET med hjälp av en VPN-klient från valfri dator. 
+* **Flera plats-anslutning** – du kan ansluta från din lokala Datacenter på ett säkert sätt till resurser som körs i ett virtuellt nätverk. 
+* **VNET till VNET** – du kan ansluta över Azure VNET i samma region eller över regioner att skapa arbetsbelastningar med geo-redundans på ett säkert sätt.
 
-Key properties of a VPN gateway include:
+Nyckelegenskaperna för en VPN-gateway inkluderar:
 
-* **Gateway type** - dynamically routed or a static routed gateway. 
-* **VPN Client Address Pool Prefix** – IP addresses to be assigned to clients connecting in a point to site configuration.
+* **Gateway-typ** – dynamiskt dirigeras eller en statisk dirigeras gateway. 
+* **VPN-klienten-poolen adressprefixet** – IP-adresser tilldelas till klienter som ansluter i en punkt till platskonfiguration.
 

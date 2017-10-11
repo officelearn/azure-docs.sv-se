@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 71820306716c6297085a29f3ceab89b55396bfe6
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="microsoft-azure-portal-overview"></a>Översikt över Microsoft Azure Portal
 Microsoft Azure Portal är en central plats där du kan etablera och hantera dina Azure-resurser.  I den här kursen får du bekanta dig med portalen och lära dig hur du kan använda några av dessa viktiga funktioner:
@@ -85,4 +84,3 @@ Microsoft Azure Portal gör det betydligt enklare att bygga och hantera dina pro
 [ManageResource]: ./media/azure-portal-how-to-use/azure_portal_4.png
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
-

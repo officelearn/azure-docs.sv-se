@@ -1,5 +1,5 @@
 > [!NOTE]
-> **Custom policies are in public preview.**
+> **Anpassade principer finns i förhandsversion.**
 
-> [Custom policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md#custom-policies) are designed primarily for identity pros who need to address complex scenarios. For most scenarios, we recommend that you use Azure Active Directory B2C [built-in policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md). Built-in policies are easier to set up for your configuration. You can use built-in and custom policies in the same Azure Active Directory B2C tenant. To learn more, see the [overview of custom policies](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md).
+> [Anpassade principer](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md#custom-policies) främst är avsedda för identity-tekniker som behöver ta itu avancerade scenarier. För de flesta fall rekommenderar vi att du använder Azure Active Directory B2C [inbyggda principer](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md). Inbyggda principerna är lättare att ställa in för din konfiguration. Du kan använda inbyggda och anpassade principer i samma Azure Active Directory B2C-klient. Mer information finns i [översikt över anpassade principer](..\articles\active-directory-b2c\active-directory-b2c-overview-custom.md).
 

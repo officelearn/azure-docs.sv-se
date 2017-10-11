@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Skicka push-meddelanden med Azure Notification Hubs på Windows Phone
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -217,16 +217,10 @@ Mer information om hur du använder Notification Hubs finns i [Riktlinjer om Not
 <!-- URLs. -->
 [Visual Studio 2012 Express för Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Riktlinjer om Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[MPNS i autentiserat läge]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Använda Notification Hubs för att skicka push-meddelanden till användare]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Använda Notification Hubs för att skicka de senaste nyheterna]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [toast catalog]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hubs – självstudiekurs för Windows Phone Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
-
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

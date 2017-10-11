@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: sv-se
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Skapa en SQL Data Warehouse-databas med hjälp av Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ I den här artikeln visas hur du skapar ett SQL Data Warehouse med T-SQL.
 Du behöver följande för att komma igång:
 
 * **Azure-konto**: Gå till [Kostnadsfri utvärderingsversion av Azure][Azure Free Trial] eller [MSDN Azure-krediter][MSDN Azure Credits] för att skapa ett konto.
-* **Azure SQL Server**: Mer information finns i [Skapa en logisk Azure SQL Database-server med Azure Portal][Create an Azure SQL Database logical server with the Azure Portal] och [Skapa en logisk Azure SQL Database-server med PowerShell][Create an Azure SQL Database logical server with PowerShell].
+* **Azure SQL-servern**: Se [skapa en logisk Azure SQL Database-server med Azure-portalen] [skapa en logisk Azure SQL Database-server med Azure Portal] eller [skapa en logisk Azure SQL Database-server med PowerShell] [skapa en logisk Azure SQL Database-server med PowerShell] för mer information.
 * **Resursgrupp**: Använd antingen samma resursgrupp som din Azure SQL-server eller se [hur du skapar en resursgrupp][how to create a resource group].
 * **Körningsmiljö för T-SQL**: Du kan använda [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] eller [SSMS][SSMS] för att köra T-SQL.
 
@@ -89,4 +87,3 @@ När ditt SQL Data Warehouse är färdigetablerat kan du [läsa in exempeldata][
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

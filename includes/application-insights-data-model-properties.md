@@ -1,3 +1,3 @@
-Name-value collection of custom properties. This collection is used to extend standard telemetry with the custom dimensions. Examples are deployment slot that produced telemetry or telemetry-item specific property like order number. 
+Namn / värde-samling anpassade egenskaper. Den här samlingen används för att utöka standard telemetri med anpassade mått. Exempel är distributionsplatsen som producerade telemetri eller telemetri objekt specifika egenskap som ordningsnummer. 
 
-Max key length: 150 Max value length: 8192
+Maximal nyckellängd: 150 värdet maxlängd: 8192

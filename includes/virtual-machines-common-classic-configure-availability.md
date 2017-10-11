@@ -1,65 +1,65 @@
 
 
 
-An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the availability of virtual machines][Manage the availability of virtual machines].
+En tillgänglighetsuppsättning hjälper dig att hålla dina virtuella datorer som är tillgänglig under driftstopp, som under underhåll. Placera två eller flera liknande konfigurerad virtuella datorer i en tillgänglighetsuppsättning skapar redundans krävs för att bibehålla tillgängligheten för program eller tjänster som den virtuella datorn körs. Mer information om hur det fungerar finns [hantera tillgängligheten för virtuella datorer][Manage the availability of virtual machines].
 
-It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load balancing for Azure infrastructure services][Load balancing for Azure infrastructure services].
+Det är bäst att använda både tillgänglighetsuppsättningar och belastningsutjämning slutpunkter för att säkerställa att programmet alltid är tillgängliga och fungerar effektivt. Mer information om belastningsutjämnade slutpunkter finns [belastningsutjämning för Azure infrastrukturtjänster][Load balancing for Azure infrastructure services].
 
-You can add classic virtual machines into an availability set by using one of two options:
+Du kan lägga till den klassiska virtuella datorer i en tillgänglighetsuppsättning med hjälp av ett av två alternativ:
 
-* [Option 1: Create a virtual machine and an availability set at the same time][Option 1: Create a virtual machine and an availability set at the same time]. Then, add new virtual machines to the set when you create those virtual machines.
-* [Option 2: Add an existing virtual machine to an availability set][Option 2: Add an existing virtual machine to an availability set].
+* [Alternativ 1: Skapa en virtuell dator och en tillgänglighetsuppsättning samtidigt][Option 1: Create a virtual machine and an availability set at the same time]. Sedan kan lägga till nya virtuella datorer till uppsättningen med när du skapar de virtuella datorerna.
+* [Alternativ 2: Lägg till en befintlig virtuell dator i en tillgänglighetsuppsättning][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
-> In the classic model, virtual machines that you want to put in the same availability set must belong to the same cloud service.
+> I den klassiska modellen, måste virtuella datorer som du vill ska ingå i samma tillgänglighetsuppsättning tillhöra samma tjänst i molnet.
 > 
 > 
 
-## <a id="createset"> </a>Option 1: Create a virtual machine and an availability set at the same time
-You can use either the Azure portal or Azure PowerShell commands to do this.
+## <a id="createset"></a>Alternativ 1: skapa en virtuell dator och en tillgänglighetsuppsättning på samma gång
+Du kan använda Azure-portalen eller Azure PowerShell-kommandon för att göra detta.
 
-To use the Azure portal:
+Använda Azure portal:
 
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the hub menu, click **+ New**, and then click **Virtual Machine**.
+1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com).
+2. På navmenyn klickar du på **+ ny**, och klicka sedan på **virtuella**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
-3. Select the Marketplace virtual machine image you wish to use. You can choose to create a Linux or Windows virtual machine.
-4. For the selected virtual machine, verify that the deployment model is set to **Classic** and then click **Create**
+    ![ALT bildtext](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+3. Välj Marketplace-virtuell-avbildning som du vill använda. Du kan välja att skapa en Linux- eller Windows virtuell dator.
+4. För den valda virtuella datorn kontrollerar du att distributionsmodell är inställd på **klassiska** och klicka sedan på **skapa**
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
-5. Enter a virtual machine name, user name and password (for Windows machines) or SSH public key (for Linux machines). 
-6. Choose the VM size and then click **Select** to continue.
-7. Choose **Optional Configuration > Availability set**, and select the availability set you wish to add the virtual machine to.
+    ![ALT bildtext](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
+5. Ange ett virtuellt datornamn, användarnamn och lösenord (för Windows-datorer) eller offentlig SSH-nyckel (för Linux-datorer). 
+6. Välj VM-storlek och klicka sedan på **Välj** att fortsätta.
+7. Välj **valfri konfiguration > tillgänglighetsuppsättning**, och välj tillgänglighetsuppsättning du vill lägga till den virtuella datorn till.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
-8. Review your configuration settings. When you're done, click **Create**.
-9. While Azure creates your virtual machine, you can track the progress under **Virtual Machines** in the hub menu.
+    ![ALT bildtext](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
+8. Granska inställningarna. När du är klar klickar du på **skapa**.
+9. Medan Azure skapar den virtuella datorn, du kan följa förloppet under **virtuella datorer** på navmenyn.
 
-To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Om du vill använda Azure PowerShell-kommandon för att skapa en virtuell Azure-dator och lägga till den i en ny eller befintlig tillgänglighetsuppsättning, se [använda Azure PowerShell för att skapa och förkonfigurera Windows-baserade virtuella datorer](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set
-In the Azure portal, you can add existing classic virtual machines to an existing availability set or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
+## <a id="addmachine"></a>Alternativ 2: Lägg till en befintlig virtuell dator i en tillgänglighetsuppsättning
+Du kan lägga till befintliga klassiska virtuella datorer i en befintlig tillgänglighetsuppsättning ange eller skapa en ny för dem i Azure-portalen. (Tänk på att de virtuella datorerna i samma tillgänglighetsuppsättning måste tillhöra samma Molntjänsten.) Stegen är nästan desamma. Du kan använda Azure PowerShell för att lägga till den virtuella datorn till en befintlig tillgänglighetsuppsättning.
 
-1. If you have not already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, click **Virtual Machines (classic)**.
+1. Om du inte redan har gjort det, logga in på den [Azure-portalen](https://portal.azure.com).
+2. På navmenyn klickar du på **virtuella datorer (klassisk)**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
-3. From the list of virtual machines, select the name of the virtual machine that you want to add to the set.
-4. Choose **Availability set** from the virtual machine **Settings**.
+    ![ALT bildtext](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
+3. Lista över virtuella datorer, Välj namnet på den virtuella dator som du vill lägga till i uppsättningen.
+4. Välj **tillgänglighetsuppsättning** från den virtuella datorn **inställningar**.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
-5. Select the availability set you wish to add the virtual machine to. The virtual machine must belong to the same cloud service as the availability set.
+    ![ALT bildtext](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
+5. Välj den tillgänglighetsuppsättningen som du vill lägga till den virtuella datorn till. Den virtuella datorn måste tillhöra samma Molntjänsten som tillgänglighetsuppsättningen.
    
-    ![Alt image text](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
-6. Click **Save**.
+    ![ALT bildtext](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
+6. Klicka på **Spara**.
 
-To use Azure PowerShell commands, open an administrator-level Azure PowerShell session and run the following command. For the placeholders (such as &lt;VmCloudServiceName&gt;), replace everything within the quotes, including the < and > characters, with the correct names.
+Öppna en administratörsnivå Azure PowerShell-session och kör följande kommando för att använda Azure PowerShell-kommandon. Platshållare (exempelvis &lt;VmCloudServiceName&gt;), Ersätt allt inom citattecken, inklusive den < och > tecken, med rätt namn.
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
 > [!NOTE]
-> The virtual machine might have to be restarted to finish adding it to the availability set.
+> Den virtuella datorn kanske måste startas om för att du har lagt till den tillgänglighetsuppsättningen.
 > 
 > 
 

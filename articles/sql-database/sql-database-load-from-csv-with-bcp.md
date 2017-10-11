@@ -1,5 +1,5 @@
 ---
-title: "Läs in data från CSV-filen till Azure SQL Database (bcp) | Microsoft Docs"
+title: "Läs in data från CSV-fil till Azure SQL Database (bcp) | Microsoft Docs"
 description: "För mindre datastorlekar används bcp för att importera data till Azure SQL Database."
 services: sql-database
 documentationcenter: NA
@@ -8,25 +8,25 @@ manager: jhubbard
 editor: 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: load & move data
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 389c7c75bcc0c1a5a66f66a9692ebe2e4095db5e
-
-
+ms.openlocfilehash: 84bebab7763bb21f73880a6c8b367a62b0c137d3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>Läs in data från CSV till Azure SQL Data Warehouse (flat-filer)
+# <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Läsa in data från CSV till Azure SQL Database (flat-filer)
 Du kan använda kommandoradsverktyget bcp för att importera data från en CSV-fil till Azure SQL Database.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-### <a name="prerequisites"></a>Förutsättningar
-För att gå igenom de här självstudierna, behöver du:
+### <a name="prerequisites"></a>Krav
+Du behöver följande för att slutföra stegen i den här artikeln:
 
 * Skapa en logisk Azure SQL Database-server och -databas
 * Kommandoradsverktyget bcp installerat
@@ -75,20 +75,20 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 (Valfritt) Om du vill exportera dina egna data från en SQL Server-databas, öppnar du en kommandotolk och kör följande kommando. Ersätt TableName, ServerName, DatabaseName, Username och Password med din egen information.
 
-```sql
-bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```bcp
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 
 ```
 
 ## <a name="3-load-the-data"></a>3. Läs in data
 För att läsa in data, öppnar du en kommandotolk och kör följande kommando, där du ersätter värdena för servernamn, databasnamn, användarnamn och lösenord med din egen information.
 
-```sql
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```bcp
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ,
 ```
 
 Använd det här kommandot för att verifiera att data har lästs in korrekt
 
-```sql
+```bcp
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
@@ -118,9 +118,3 @@ Om du vill migrera en SQL Server-databas hittar du mer information i [SQL Server
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

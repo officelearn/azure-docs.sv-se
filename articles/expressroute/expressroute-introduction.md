@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a998ec92ad58932c5f71e84fbffcd7783cbb459b
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/21/2017
-
+ms.openlocfilehash: 7390462d79506e63989baadac2b2cee00eef325d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="expressroute-overview"></a>Översikt över ExpressRoute
 Microsoft Azure ExpressRoute låter dig utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning med hjälp av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och Dynamics 365.
@@ -114,4 +113,3 @@ Vanliga frågor om ExpressRoute finns i [Vanliga frågor och svar om ExpressRout
   * [Konfigurera peering för en ExpressRoute-krets](expressroute-howto-routing-portal-resource-manager.md)
   * [Koppla ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.
-

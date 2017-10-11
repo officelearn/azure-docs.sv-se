@@ -1,4 +1,3 @@
-
 ---
 title: "Vanliga frågor och svar om säkerhetskopiering av virtuella datorer i Azure | Microsoft Docs"
 description: "Svar på vanliga frågor om hur virtuell Azure-säkerhetskopiering fungerar, begränsningar och vad som händer när principen ändras"
@@ -13,15 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 8c06a90f58cf56ebb4e75e7567e237de7414a300
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/20/2017
-
+ms.openlocfilehash: 1372a9e05cb47f6c68240bffccd46b0fbebb5464
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Frågor om tjänsten för säkerhetskopiering av virtuella datorer i Azure
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå de komponenter som används i Azure-säkerhetskopieringen av virtuella datorer. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -62,4 +60,3 @@ Använd återställningsdiskar för att göra följande:
 ## <a name="manage-vm-backups"></a>Hantera säkerhetskopior av virtuella datorer
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Vad händer om jag ändrar en säkerhetskopieringspolicy på virtuella datorer?
 När en ny princip tillämpas på virtuella datorer följs schemat för och kvarhållningen av den nya principen. Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen. Om kvarhållningen minskar markeras de för rensning under nästa rensningsjobb och tas bort. 
-

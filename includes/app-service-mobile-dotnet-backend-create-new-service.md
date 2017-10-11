@@ -2,13 +2,13 @@
 
 2. Klicka på **Ny**.
 
-3. I sökrutan skriver du **Mobile Apps**.
+3. I sökrutan skriver **Mobilappar**.
 
-    ![Azure Portal med snabbstarten för Mobile Apps markerad][quickstart]
+    ![Azure-portalen med Mobile Apps Quickstart markerat][quickstart]
 
-4. I resultatlistan väljer du **Snabbstart för Mobile Apps** och klickar sedan på **Skapa**.
+4. Välj i resultatlistan **Mobile Apps Quickstart**, och välj sedan **skapa**.
  
-5. Under **Resursgrupp** väljer du en befintlig resursgrupp, eller skapar en ny (med samma namn som din app).
+5. Under **resursgruppen**väljer du en befintlig resursgrupp eller skapa en ny (med samma namn som din app).
 
 6. Klicka på **Skapa**. Vänta några minuter på att tjänsten ska distribueras innan du fortsätter.
 

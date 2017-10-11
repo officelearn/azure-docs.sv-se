@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: d3de566ff2825ef0c41d88d4a86157dc23d9f46b
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoutes NAT-krav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera NAT. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av NAT som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte, måste du följa kraven som beskrivs nedan. 
@@ -75,5 +74,4 @@ Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som 
   * [Skapa en ExpressRoute-krets](expressroute-howto-circuit-classic.md)
   * [Konfigurera routning](expressroute-howto-routing-classic.md)
   * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md)
-
 

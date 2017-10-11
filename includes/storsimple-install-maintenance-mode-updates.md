@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>To install Maintenance mode updates via Windows PowerShell for StorSimple
-1. If you haven't done so already, access the device serial console and select option 1, **Log in with full access**. 
-2. Type the password. The default password is **Password1**.
-3. At the command prompt, type:
+#### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Så här installerar du underhållsläge uppdateringar via Windows PowerShell för StorSimple
+1. Om du inte redan gjort det, åtkomst till enhetens seriekonsol och välj alternativ 1, **logga in med fullständig åtkomst**. 
+2. Ange lösenordet. Standardlösenordet är **Password1**.
+3. Skriv följande vid kommandotolken:
    
      `Get-HcsUpdateAvailability` 
-4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Step 2: Enter Maintenance mode](../articles/storsimple/storsimple-update-device.md#step2) for instructions.
-5. When your device is in Maintenance mode, at the command prompt, type: `Start-HcsUpdate`
-6. You will be prompted for confirmation. After you confirm the updates, they will be installed on the controller that you are currently accessing. After the updates are installed, the controller will restart. 
-7. Monitor the status of updates. Type:
+4. Du meddelas om det finns uppdateringar och om uppdateringarna är störande eller utan avbrott. Om du vill använda störande uppdateringar måste du placera enheten i underhållsläge. Se [steg 2: Ange underhållsläge](../articles/storsimple/storsimple-update-device.md#step2) anvisningar.
+5. När enheten är i underhållsläge, i Kommandotolken skriver du:`Start-HcsUpdate`
+6. Du uppmanas att bekräfta. När du har bekräftat uppdateringarna kommer att installeras på en domänkontrollant som du använder. När uppdateringarna har installerats startas styrenheten. 
+7. Övervaka statusen för uppdateringar. Ange:
    
     `Get-HcsUpdateStatus`
    
-    If the `RunInProgress` is `True`, the update is still in progress. If `RunInProgress` is `False`, it indicates that the update has completed.  
-8. When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.
-9. After both controllers are updated, exit Maintenance mode. See [Step 4: Exit Maintenance mode](../articles/storsimple/storsimple-update-device.md#step4) for instructions.
+    Om den `RunInProgress` är `True`, uppdateringen pågår fortfarande. Om `RunInProgress` är `False`, indikerar det att uppdateringen har slutförts.  
+8. När uppdateringen är installerad på den aktuella domänkontrollanten och den har startats om, ansluta till den andra styrenheten och utföra steg 1 till 6.
+9. Avsluta underhållsläget när båda domänkontrollanter har uppdaterats. Se [steg 4: avsluta underhållsläget](../articles/storsimple/storsimple-update-device.md#step4) anvisningar.
 

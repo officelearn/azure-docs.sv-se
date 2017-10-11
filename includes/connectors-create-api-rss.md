@@ -1,14 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
-* An [RSS](https://wikipedia.org/wiki/RSS) account  
+### <a name="prerequisites"></a>Krav
+* En [RSS](https://wikipedia.org/wiki/RSS) konto  
 
-Before you can use your RSS account in a Logic app, you must authorize the Logic app to connect to your RSS account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Innan du kan använda RSS-konto i en logikapp, måste du godkänna logik för att ansluta till ditt RSS-konto. Lyckligtvis kan du göra detta direkt i din logikapp på Azure Portal.  
 
-Here are the steps to authorize your Logic app to connect to your RSS account:  
+Här följer stegen för att verifiera din logikapp för att ansluta till ditt konto med RSS:  
 
-1. To create a connection to RSS, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *RSS* in the search box. Select the trigger or action you'll like to use:  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-1.png)  
-2. Select **Create connection** :  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![RSS connection creation step](./media/connectors-create-api-rss/rss-3.png)  
+1. Om du vill skapa en anslutning till RSS, i logik app designer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *RSS* i sökrutan. Välj utlösaren eller åtgärd du vill använda:  
+   ![RSS-anslutning, skapa steg](./media/connectors-create-api-rss/rss-1.png)  
+2. Välj **Skapa anslutning** :  
+   ![RSS-anslutning, skapa steg](./media/connectors-create-api-rss/rss-2.png)  
+3. Observera att anslutningen har skapats och du kan nu välja att fortsätta med andra steg i din logikapp:  
+   ![RSS-anslutning, skapa steg](./media/connectors-create-api-rss/rss-3.png)  
 

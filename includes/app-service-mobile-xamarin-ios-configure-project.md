@@ -1,27 +1,27 @@
-#### <a name="configure-the-ios-project-in-xamarin-studio"></a>Configure the iOS project in Xamarin Studio
-1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the bundle ID that you created earlier with your new app ID.
+#### <a name="configure-the-ios-project-in-xamarin-studio"></a>Konfigurera iOS-projekt i Xamarin Studio
+1. Öppna i Xamarin.Studio, **Info.plist**, och uppdatera den **Paketidentifierare** med paket-ID som du skapade tidigare med din nya app-ID.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png)
-2. Scroll down to **Background Modes**. Select the **Enable Background Modes** box and the **Remote notifications** box.
+2. Rulla ned till **bakgrundslägen**. Välj den **aktivera bakgrundslägen** rutan och **Remote notifications** rutan.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png)
-3. Double-click your project in the Solution Panel to open **Project Options**.
-4. Under **Build**, choose **iOS Bundle Signing**, and select the corresponding identity and provisioning profile you just set up for this project.
+3. Dubbelklicka på ditt projekt i panelen lösning för att öppna **Projektalternativ**.
+4. Under **skapa**, Välj **iOS paket signering**, och markera motsvarande identitet och provisioning-profil du just ställt in för det här projektet.
 
    ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png)
 
-   This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+   Detta säkerställer att projektet använder den nya profilen för kodsignering. Officiell Xamarin enheten etablering dokumentation finns [Xamarin Enhetsetableringen].
 
-#### <a name="configure-the-ios-project-in-visual-studio"></a>Configure the iOS project in Visual Studio
-1. In Visual Studio, right-click the project, and then click **Properties**.
-2. In the properties pages, click the **iOS Application** tab, and update the **Identifier** with the ID that you created earlier.
+#### <a name="configure-the-ios-project-in-visual-studio"></a>Konfigurera iOS-projekt i Visual Studio
+1. Högerklicka på projektet i Visual Studio och klicka sedan på **egenskaper**.
+2. I för egenskapssidor, klickar du på den **iOS programmet** fliken och uppdatera den **identifierare** med det ID som du skapade tidigare.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png)
-3. In the **iOS Bundle Signing** tab, select the corresponding identity and provisioning profile you just set up for this project.
+3. I den **iOS paket signering** markerar du motsvarande identitet och etableringsprofil som du precis har ställts in för det här projektet.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png)
 
-    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
-4. Double-click Info.plist to open it, and then enable **RemoteNotifications** under **Background Modes**.
+    Detta säkerställer att projektet använder den nya profilen för kodsignering. Officiell Xamarin enheten etablering dokumentation finns [Xamarin Enhetsetableringen].
+4. Dubbelklicka på filen Info.plist för att öppna den och sedan aktivera **RemoteNotifications** under **bakgrundslägen**.
 
-[Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+[Xamarin Enhetsetableringen]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/

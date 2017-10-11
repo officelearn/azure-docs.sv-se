@@ -1,18 +1,18 @@
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Nästa steg
 
-After enabling Azure Key Vault Integration, you can enable SQL Server encryption on your SQL VM. First, you will need to create an asymmetric key inside your key vault and a symmetric key within SQL Server on your VM. Then, you will be able to execute T-SQL statements to enable encryption for your databases and backups.
+När du har aktiverat Azure Key Vault-integrering kan du aktivera SQL Server-kryptering på din SQL-VM. Du måste först skapa en asymmetrisk nyckel i nyckelvalvet och en symmetrisk nyckel i SQL Server på den virtuella datorn. Sedan kommer du att kunna köra T-SQL-uttryck för att aktivera kryptering för dina databaser och säkerhetskopieringar.
 
-There are several forms of encryption you can take advantage of:
+Det finns flera typer av kryptering som du kan dra nytta av:
 
-* [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [Encrypted backups](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Column Level Encryption (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [Transparent datakryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Krypterad säkerhetskopiering](https://msdn.microsoft.com/library/dn449489.aspx)
+* [Kryptering på kolumnen (radera)](https://msdn.microsoft.com/library/ms173744.aspx)
 
-The following Transact-SQL scripts provide examples for each of these areas.
+Följande Transact-SQL-skript innehåller exempel för dessa olika områden.
 
-### <a name="prerequisites-for-examples"></a>Prerequisites for examples
+### <a name="prerequisites-for-examples"></a>Krav för exempel
 
-Each example is based on the two prerequisites: an asymmetric key from your key vault called **CONTOSO_KEY** and a credential created by the AKV Integration feature called **Azure_EKM_TDE_cred**. The following Transact-SQL commands setup these prerequisites for running the examples.
+Varje exempel är baserad på två krav: kallas för en asymmetrisk nyckel från nyckelvalvet **CONTOSO_KEY** och kallas för en autentiseringsuppgift som skapas av funktionen AKV-integreringen **Azure_EKM_TDE_cred**. Följande Transact-SQL-kommandon installationsprogrammet förutsättningarna för att köra exemplen.
 
 ``` sql
 USE master;
@@ -51,9 +51,9 @@ WITH PROVIDER_KEY_NAME = 'keytestvault',  --key name
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-### <a name="transparent-data-encryption-tde"></a>Transparent Data Encryption (TDE)
+### <a name="transparent-data-encryption-tde"></a>Transparent datakryptering (TDE)
 
-1. Create a SQL Server login to be used by the Database Engine for TDE, then add the credential to it.
+1. Skapa en SQL Server-inloggning som ska användas av databasmotorn för TDE och sedan lägga till autentiseringsuppgifter.
 
    ``` sql
    USE master;
@@ -71,7 +71,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Create the database encryption key that will be used for TDE.
+1. Skapa krypteringsnyckeln för databasen som ska användas för TDE.
 
    ``` sql
    USE ContosoDatabase;
@@ -88,9 +88,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="encrypted-backups"></a>Encrypted backups
+### <a name="encrypted-backups"></a>Krypterad säkerhetskopiering
 
-1. Create a SQL Server login to be used by the Database Engine for encrypting backups, and add the credential to it.
+1. Skapa en SQL Server-inloggning som ska användas av databasmotorn för kryptering av säkerhetskopieringar och Lägg till autentiseringsuppgifterna.
 
    ``` sql
    USE master;
@@ -107,7 +107,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Backup the database specifying encryption with the asymmetric key stored in the key vault.
+1. Säkerhetskopiera databasen att ange kryptering med den asymmetriska nyckeln lagras i nyckelvalvet.
 
    ``` sql
    USE master;
@@ -118,9 +118,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="column-level-encryption-cle"></a>Column Level Encryption (CLE)
+### <a name="column-level-encryption-cle"></a>Kryptering på kolumnen (radera)
 
-This script creates a symmetric key protected by the asymmetric key in the key vault, and then uses the symmetric key to encrypt data in the database.
+Det här skriptet skapar en symmetrisk nyckel som skyddas av den asymmetriska nyckeln i nyckelvalvet och använder sedan den symmetriska nyckeln för att kryptera data i databasen.
 
 ``` sql
 CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
@@ -143,8 +143,8 @@ SELECT CONVERT(VARCHAR, DECRYPTBYKEY(@DATA));
 CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 ```
 
-## <a name="additional-resources"></a>Additional resources
+## <a name="additional-resources"></a>Ytterligare resurser
 
-For more information on how to use these encryption features, see [Using EKM with SQL Server Encryption Features](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+Mer information om hur du använder dessa krypteringsfunktioner finns [med hjälp av EKM med SQL Server-krypteringsfunktioner](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Note that the steps in this article assume that you already have SQL Server running on an Azure virtual machine. If not, see [Provision a SQL Server virtual machine in Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). For other guidance on running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Observera att anvisningarna i den här artikeln förutsätter att du redan har SQL Server körs på en virtuell Azure-dator. Om inte, se [etablera en virtuell dator med SQL Server i Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Andra anvisningar om hur du kör SQL Server på Azure Virtual Machines finns [SQL Server på Azure virtuella datorer – översikt](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).

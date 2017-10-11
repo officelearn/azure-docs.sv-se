@@ -1,55 +1,55 @@
 <!--author=SharS last changed: 02/22/16-->
 
-### <a name="to-configure-and-register-the-device"></a>To configure and register the device
-1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
-2. In the session that opens up, press Enter one time to get a command prompt. 
-3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press Enter. 
+### <a name="to-configure-and-register-the-device"></a>Konfigurera och registrera enheten
+1. Gå in i Windows PowerShell-gränssnittet på din StorSimple-enhets seriekonsol. Mer instruktioner finns i [Använd PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console). **Se till att följa proceduren exakt för att du ska få åtkomst till konsolen.**
+2. I sessionen som öppnas, trycker du på Retur en gång för att få fram en kommandotolk. 
+3. Du kommer att uppmanas att välja det språk som du vill ställa in för din enhet. Ange språk och tryck på Retur. 
    
-    ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice1-gov-include.png)
-4. In the serial console menu that is presented, choose option 1 to log on with full access. 
+    ![StorSimple konfigurera och registrera enhet 1](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice1-gov-include.png)
+4. I menyn för seriekonsolen som visas, väljer du alternativ 1 för att logga in med fullständig åtkomst. 
    
-    ![StorSimple register device 2](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice2-gov-include.png)
-5. Perform the following steps to configure the minimum required network settings for your device.
+    ![StorSimple registrera enhet 2](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice2-gov-include.png)
+5. Utför följande steg om du vill konfigurera de minsta nödvändiga nätverksinställningarna för enheten.
    
    > [!IMPORTANT]
-   > These configuration steps need to be performed on the active controller of the device. The serial console menu indicates the controller state in the banner message. If you are not connect to the active controller, disconnect and then connect to the active controller.
+   > De här konfigurationsstegen behöver genomföras på den aktiva styrenheten för enheten. Menyn för seriekonsolen indikerar status för styrenheten i banderollmeddelandet. Om du inte är ansluta till den aktiva styrenheten, kopplar du från och ansluter sedan till den aktiva styrenheten.
    > 
    > 
    
-   1. At the command prompt, type your password. The default device password is **Password1**.
-   2. Type the following command:
+   1. Ange ditt lösenord i kommandotolken. Enheten standardlösenord är **Password1**.
+   2. Ange följande kommando:
       
         `Invoke-HcsSetupWizard`
-   3. A setup wizard will appear to help you configure the network settings for the device. Supply the following information: 
+   3. En installationsguide kommer visas och hjälpa dig att konfigurera nätverksinställningarna för enheten. Ange följande information: 
       
-      * IP address for DATA 0 network interface
-      * Subnet mask
+      * IP-adress för DATA 0-nätverksgränssnittet
+      * Nätmask
       * Gateway
-      * IP address for Primary DNS server
-      * IP address for Primary NTP server
+      * IP-adress för primär DNS-server
+      * IP-adress för primär NTP-server
       
       > [!NOTE]
-      > You may have to wait for a few minutes for the subnet mask and DNS settings to be applied. 
+      > Du kan behöva vänta några minuter för nätmask och DNS-inställningar som ska användas. 
       > 
       > 
-   4. Optionally, configure your web proxy server.
+   4. Alternativt kan du konfigurera din webbproxyserver.
       
       > [!IMPORTANT]
-      > Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md). 
+      > Även om webbproxykonfigurationen är valfri, Tänk på att om du använder en webbproxy, du kan bara konfigurera den här. Mer information finns i [Konfigurera en webbproxy för din enhet](../articles/storsimple/storsimple-configure-web-proxy.md). 
       > 
       > 
-6. Press Ctrl + C to exit the setup wizard.
-7. Install the updates as follows:
+6. Tryck på Ctrl + C om du vill avsluta installationsguiden.
+7. Installera uppdateringar på följande sätt:
    
-   1. Use the following cmdlet to set IPs on both the controllers:
+   1. Använd följande cmdlet för att ange IP-adresser på båda domänkontrollanterna:
       
       `Set-HcsNetInterface -InterfaceAlias Data0 -Controller0IPv4Address <Controller0 IP> -Controller1IPv4Address <Controller1 IP>`
-   2. At the command prompt, run `Get-HcsUpdateAvailability`. You should be notified that updates are available.
-   3. Run `Start-HcsUpdate`. You can run this command on any node. Updates will be applied on the first controller, the controller will fail over, and then the updates will be applied on the other controller.
+   2. I Kommandotolken, kör `Get-HcsUpdateAvailability`. Du får ett meddelande att uppdateringar är tillgängliga.
+   3. Kör `Start-HcsUpdate`. Du kan köra det här kommandot på en nod. Uppdateringarna tillämpas på den första domänkontrollanten, styrenheten växlar och sedan uppdateringarna tillämpas på en annan domänkontrollant.
       
-      You can monitor the progress of the update by running `Get-HcsUpdateStatus`.    
+      Du kan övervaka förloppet för uppdateringen genom att köra `Get-HcsUpdateStatus`.    
       
-      The following sample output shows the update in progress.
+      Följande exempel på utdata visar att uppdateringen pågår.
       
       ````
       Controller0>Get-HcsUpdateStatus
@@ -60,7 +60,7 @@
       Controller1Events   : 
       ````
       
-      The following sample output indicates that the update is finished.
+      Följande exempel på utdata visar att uppdateringen är färdig.
       
       ````
       Controller1>Get-HcsUpdateStatus
@@ -73,68 +73,68 @@
       
       ````
       
-      It may take up to 11 hours to apply all the updates, including the Windows Updates.
+      Det kan ta upp till 11 timmar att tillämpa alla uppdateringar, inklusive Windows-uppdateringar.
 
-8. After all the updates are successfully installed, run the following cmdlet to confirm that the software updates were applied correctly:
+8. När alla uppdateringar har installerats, kör du följande cmdlet för att bekräfta att programuppdateringarna har tillämpats korrekt.
    
      `Get-HcsSystem`
    
-    You should see the following versions:
+    Du bör se följande versioner:
    
    * HcsSoftwareVersion: 6.3.9600.17491
    * CisAgentVersion: 1.0.9037.0
    * MdsAgentVersion: 26.0.4696.1433
-9. Run the following cmdlet to confirm that the firmware update was applied correctly:
+9. Kör följande cmdlet för att bekräfta att firmware-uppdatering har tillämpats korrekt:
    
     `Start-HcsFirmwareCheck`.
    
-     The firmware status should be **UpToDate**.
-10. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure classic portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
+     Status för inbyggd programvara ska vara **UpToDate**.
+10. Kör följande cmdlet för att peka enheten på Microsoft Azure Government-portalen (eftersom den pekar till offentliga Azure klassiska portal som standard). Både domänkontrollanter kommer att startas om. Vi rekommenderar att du använder två PuTTY sessioner samtidigt ansluta till båda domänkontrollanterna så att du kan se när varje styrenhet har startats om.
     
      `Set-CloudPlatform -AzureGovt_US`
     
-    You will see a confirmation message. Accept the default (**Y**).
-11. Run the following cmdlet to resume setup:
+    Visas ett bekräftelsemeddelande. Acceptera standardvärdet (**Y**).
+11. Kör följande cmdlet för att fortsätta installationsprogrammet:
     
      `Invoke-HcsSetupWizard`
     
-     ![Resume setup wizard](./media/storsimple-configure-and-register-device-gov/HCS_ResumeSetup-gov-include.png)
+     ![Återuppta installationsguiden](./media/storsimple-configure-and-register-device-gov/HCS_ResumeSetup-gov-include.png)
     
-    When you resume setup, the wizard will be the Update 1 version (which corresponds to version 17469). 
-12. Accept the network settings. You will see a validation message after you accept each setting.
-13. For security reasons, the device administrator password expires after the first session, and you will need to change it now. When prompted, provide a device administrator password. A valid device administrator password must be between 8 and 15 characters. The password must contain three of the following: lowercase, uppercase, numeric, and special characters.
+    När du fortsätter installationen kommer guiden att uppdatering 1-version (som motsvarar versionen 17469). 
+12. Acceptera nätverksinställningarna. Ett verifieringsmeddelande visas när du har accepterat varje inställning.
+13. Av säkerhetsskäl upphör enhetens administratörslösenord att gälla efter den första sessionen. Du måste ändra lösenordet nu. Ange ett administratörslösenord för enheten när du ombes göra det. Ett giltigt enhetsadministratörslösenord för enheten måste vara mellan 8 och 15 tecken. Lösenordet måste innehålla tre av följande: gemener, versaler, siffror och specialtecken.
     
-    <br/>![StorSimple register device 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
-14. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in [Step 2: Get the service registration key](#step-2-get-the-service-registration-key). After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
+    <br/>![StorSimple registrera enhet 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
+14. Det sista steget i installationsguiden registrerar din enhet med StorSimple Manager-tjänsten. För detta behöver du tjänstens registreringsnyckel som du fick i [steg 2: Hämta nyckel för tjänstregistrering](#step-2-get-the-service-registration-key). Efter att du angett registreringsnyckeln kan du behöva vänta 2-3 minuter innan enheten är registrerad.
     
     > [!NOTE]
-    > You can press Ctrl + C at any time to exit the setup wizard. If you have entered all the network settings (IP address for Data 0, Subnet mask, and Gateway), your entries will be retained.
+    > Du kan trycka på Ctrl + C när som helst för att avsluta installationsguiden. Om du har angett alla nätverksinställningar (IP-adress för Data 0, nätmask och Gateway), kommer informationen att sparas.
     > 
     > 
     
-    ![StorSimple registration progress](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
-15. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
+    ![StorSimple registrering pågår](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
+15. När enheten är registrerad visas en krypteringsnyckel för tjänstdata. Kopiera den här nyckeln och spara den på säker plats. **Den här nyckeln kommer att krävas med registreringsnyckeln för tjänsten för att registrera ytterligare enheter med StorSimple Manager-tjänsten.** Referera till [StorSimple-säkerhet](../articles/storsimple/storsimple-security.md) för ytterligare information om den här nyckeln.
     
-    ![StorSimple register device 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)    
+    ![StorSimple registrera enhet 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)    
     
     > [!IMPORTANT]
-    > To copy the text from the serial console window, simply select the text. You should then be able to paste it in the clipboard or any text editor. 
+    > Om du vill kopiera text från seriekonsolfönstret, markerar du bara texten. Sedan ska du kunna klistra in den i urklipp eller valfri textredigerare. 
     > 
-    > DO NOT use Ctrl + C to copy the service data encryption key. Using Ctrl + C will cause you to exit the setup wizard. As a result, the device administrator password will not be changed and the device will revert to the default password.
+    > ANVÄND INTE Ctrl + C för att kopiera krypteringsnyckeln för tjänstdata. Ctrl + C avslutar installationsguiden. Som ett resultat, kommer enhetens administratörslösenord inte att ändras och enheten kommer återgå till standardlösenordet.
     > 
     > 
-16. Exit the serial console.
-17. Return to the Azure Government Portal, and complete the following steps:
+16. Avsluta seriekonsolen.
+17. Gå tillbaka till den offentliga Azure-portalen och utför följande steg:
     
-    1. Double-click your StorSimple Manager service to access the **Quick Start** page.
-    2. Click **View connected devices**.
-    3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+    1. Dubbelklicka på StorSimple Manager-tjänsten för att komma in på **Snabbstart**-sidan.
+    2. Klicka på **Visa anslutna enheter**.
+    3. På sidan **Enheter** kontrollerar du att enheten har lyckats ansluta till tjänsten genom att kontrollera dess status. Enhetens status ska vara **Online**.
        
-        ![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
+        ![StorSimple-enhetssidan](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
        
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        Om enhetens status är **Offline**, väntar du några minuter på att enheten ska ansluta. 
        
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+        Om enheten fortfarande är offline efter några minuter, måste du kontrollera att ditt brandväggsnätverk har konfigurerats enligt beskrivningen i [nätverkskraven för din StorSimple-enhet](../articles/storsimple/storsimple-system-requirements.md). 
        
-        Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Manager service-to-device communication.
+        Kontrollera att port 9354 är öppen för utgående kommunikation eftersom den används av service bus för kommunikation av StorSimple Manager-tjänsten till enheten.
 

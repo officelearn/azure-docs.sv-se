@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-overview"></a>Översikt över Azure Mobile Engagement
 Azure Mobile Engagement är en plattform som erbjuder programvara som en tjänst (Software-as-a-Service, SaaS). Den främjar interaktion med användare, tillhandahåller datadriven statistik för appanvändning, användarsegmentering i realtid, sammanhangskänsliga push-meddelanden och meddelanden i appen.
@@ -50,10 +50,4 @@ Microsoft bedriver ett långsiktigt sekretessarbete eftersom integritet utgör e
 [Komma igång](/index.md)
 
 [Ladda ned demoappar med källkod](https://aka.ms/azmedemoapps)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

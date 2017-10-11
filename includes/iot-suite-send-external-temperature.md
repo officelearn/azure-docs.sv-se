@@ -1,44 +1,44 @@
-## <a name="configure-the-nodejs-simulated-device"></a>Configure the Node.js simulated device
-1. On the remote monitoring dashboard, click **+ Add a device** and then add a *custom device*. Make a note of the IoT Hub hostname, device id, and device key. You need them later in this tutorial when you prepare the remote_monitoring.js device client application.
-2. Ensure that Node.js version 0.12.x or later is installed on your development machine. Run `node --version` at a command prompt or in a shell to check the version. For information about using a package manager to install Node.js on Linux, see [Installing Node.js via package manager][node-linux].
-3. When you have installed Node.js, clone the latest version of the [azure-iot-sdk-node][lnk-github-repo] repository to your development machine. Always use the **master** branch for the latest version of the libraries and samples.
-4. From your local copy of the [azure-iot-sdk-node][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to an empty folder on your development machine:
+## <a name="configure-the-nodejs-simulated-device"></a>Konfigurera Node.js simulerade enheten
+1. Klicka på fjärranslutna instrumentpanelen för övervakning, **+ Lägg till en enhet** och Lägg sedan till en *anpassade*. Anteckna IoT-hubben värdnamn, enhets-id och nyckeln för enheten. Behöver du dem senare i den här självstudiekursen när du förbereder klientprogrammet remote_monitoring.js enhet.
+2. Se till att Node.js-version 0.12.x eller senare är installerat på utvecklingsdatorn. Kör `node --version` vid en kommandotolk eller i ett gränssnitt för att kontrollera versionen. Information om hur du använder en Pakethanteraren installera Node.js på Linux finns [installera Node.js via Pakethanteraren][node-linux].
+3. När du har installerat Node.js klona den senaste versionen av den [azure iot-sdk-nod] [ lnk-github-repo] databasen på utvecklingsdatorn. Använd alltid den **master** grenen för den senaste versionen av bibliotek och exempel.
+4. Från den lokala kopian av den [azure iot-sdk-nod] [ lnk-github-repo] databasen, kopiera följande två filer från mappen nod-enhet-exempel till en tom mapp på utvecklingsdatorn:
    
-   * packages.json
+   * Packages.JSON
    * remote_monitoring.js
-5. Open the remote_monitoring.js file and look for the following variable definition:
+5. Öppna filen remote_monitoring.js och leta efter följande variabeldefinitionen:
    
     ```
     var connectionString = "[IoT Hub device connection string]";
     ```
-6. Replace **[IoT Hub device connection string]** with your device connection string. Use the values for your IoT Hub hostname, device id, and device key that you made a note of in step 1. A device connection string has the following format:
+6. Ersätt **[anslutningssträngen för IoT-hubb enheten]** med anslutningssträngen enhet. Använd värdena för din IoT-hubb värdnamn, enhets-id och nyckeln för enheten som du antecknade i steg 1. En anslutningssträng för enheten har följande format:
    
     ```
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
    
-    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string looks like the following snippet:
+    Om din IoT Hub-värdnamnet är **contoso** och enhets-id är **mydevice**, anslutningssträngen ser ut som följande utdrag:
    
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
-7. Save the file. Run the following commands in a shell or command prompt in the folder that contains these files to install the necessary packages and then run the sample application:
+7. Spara filen. Kör följande kommandon i ett gränssnitt eller en kommandotolk i den mapp som innehåller filerna för att installera de nödvändiga paketen och kör exempelprogrammet:
    
     ```
     npm install
     node remote_monitoring.js
     ```
 
-## <a name="observe-dynamic-telemetry-in-action"></a>Observe dynamic telemetry in action
-The dashboard shows the temperature and humidity telemetry from the existing simulated devices:
+## <a name="observe-dynamic-telemetry-in-action"></a>Se dynamiska telemetri i praktiken
+Instrumentpanelen visar temperatur- och fuktighetskonsekvens telemetri från befintliga simulerade enheter:
 
-![The default dashboard][image1]
+![Standardinstrumentpanelen][image1]
 
-If you select the Node.js simulated device you ran in the previous section, you see temperature, humidity, and external temperature telemetry:
+Om du väljer den simulerade enheten Node.js som du körde i föregående avsnitt visas temperatur, fuktighet och externa temperatur telemetri:
 
-![Add external temperature to the dashboard][image2]
+![Lägg till externa temperatur på instrumentpanelen][image2]
 
-The remote monitoring solution automatically detects the additional external temperature telemetry type and adds it to the chart on the dashboard.
+Remote övervakningslösning automatiskt identifierar typen ytterligare externa temperatur telemetri och lägger till den diagram på instrumentpanelen.
 
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdk-node

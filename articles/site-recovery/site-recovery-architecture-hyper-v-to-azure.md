@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>Hur fungerar Hyper-V-replikering till Azure i Site Recovery?
 
 
@@ -68,8 +65,7 @@ Lär dig mer om kraven för distribution och krav för var och en av komponenter
 2. Jobbet kontrollerar att datorn uppfyller kraven och anropar sedan metoden [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) som konfigurerar replikering med de inställningar som du har konfigurerat.
 3. Jobbet startar den initiala replikeringen genom att aktivera metoden [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) för att initiera en fullständig VM-replikering och skicka de virtuella datorernas diskar till Azure.
 4. Du kan övervaka jobbet på fliken **Jobs** (Jobb).
-        ![Jobblista](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![Aktivera visning av mer detaljer för skydd](media/site-recovery-hyper-v-azure-architecture/image2.png)
+        ![Lista över jobb](media/site-recovery-hyper-v-azure-architecture/image1.png) ![Detaljnivå för Aktivera skydd](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replikera ursprungliga data
 
@@ -126,4 +122,3 @@ Om det uppstår ett replikeringsfel finns det en inbyggd funktion som gör ett n
 ## <a name="next-steps"></a>Nästa steg
 
 Granska [supportmatrisen](site-recovery-support-matrix-to-azure.md)
-

@@ -1,18 +1,18 @@
-Let's add a trigger.
+Lägg till en utlösare.
 
-1. Enter *sftp* in the search box on the logic apps designer then select the **SFTP - When a file is added or modified**  trigger   
-   ![SFTP trigger image 1](./media/connectors-create-api-sftp/trigger-1.png)  
-2. The **When a file is added or modified** control opens up  
-   ![SFTP trigger image 2](./media/connectors-create-api-sftp/trigger-2.png)  
-3. Select the **...** located on the right side of the control. This opens the folder picker control  
-   ![SFTP trigger image 3](./media/connectors-create-api-sftp/action-1.png)  
-4. Select the **SFTP** to select the root folder as the folder to monitor for new or modified files. Notice the root folder is now displayed in the **Folder** control.  
-   ![SFTP trigger image 4](./media/connectors-create-api-sftp/action-2.png)   
+1. Ange *sftp* i sökrutan på logic apps designer väljer den **SFTP - när en fil har lagts till eller ändrats** utlösare   
+   ![SFTP utlösarbild 1](./media/connectors-create-api-sftp/trigger-1.png)  
+2. Den **när en fil har lagts till eller ändrats** kontrollen öppnas  
+   ![Bild 2 till SFTP utlösare](./media/connectors-create-api-sftp/trigger-2.png)  
+3. Välj den **...**  finns på höger sida av kontrollen. Då öppnas väljarkontrollen mapp  
+   ![Bild 3 till SFTP utlösare](./media/connectors-create-api-sftp/action-1.png)  
+4. Välj den **SFTP** välja rotmappen som mappen för att övervaka för nya eller ändrade filer. Meddelande rotmappen visas nu i den **mappen** kontroll.  
+   ![Bild 4 till SFTP utlösare](./media/connectors-create-api-sftp/action-2.png)   
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific SFTP folder. 
+Din logikapp har nu konfigurerats med en utlösare som börjar på andra utlösare och åtgärder i arbetsflödet körs när en fil ändras eller skapas i mappen specifika SFTP. 
 
 > [!NOTE]
-> For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
+> Det måste innehålla minst en utlösare och en åtgärd för en logikapp ska fungera. Följ stegen i nästa avsnitt för att lägga till en åtgärd.  
 > 
 > 
 

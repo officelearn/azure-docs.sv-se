@@ -1,8 +1,8 @@
-## <a name="prerequisite-install-the-azure-cli"></a>Prerequisite: Install the Azure CLI
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../articles/cli-install-nodejs.md) and you need to [log on to Azure](../articles/xplat-cli-connect.md). 
+## <a name="prerequisite-install-the-azure-cli"></a>Förutsättning: Installera Azure CLI
+Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)](../articles/cli-install-nodejs.md) och du behöver [logga in på Azure](../articles/xplat-cli-connect.md). 
 
 > [!NOTE]
-> If you don't have an Azure account, you need one. Go sign up for a [free trial here](../articles/active-directory/sign-up-organization.md). In addition, to follow along completely you need to have either [jq](https://stedolan.github.io/jq/) or some other JSON parsing tool or library installed.
+> Om du inte har ett Azure-konto behöver du en. Registrera dig för en [kostnadsfri utvärderingsversion här](../articles/active-directory/sign-up-organization.md). Dessutom för att följa instruktionerna helt måste du ha antingen [jq](https://stedolan.github.io/jq/) eller några andra JSON parsning verktyg eller biblioteket som är installerat.
 > 
 > 
 

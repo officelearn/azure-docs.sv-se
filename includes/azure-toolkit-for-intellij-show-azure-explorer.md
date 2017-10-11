@@ -1,6 +1,6 @@
-## <a name="displaying-the-azure-explorer-tool-window"></a>Displaying the Azure Explorer Tool Window
+## <a name="displaying-the-azure-explorer-tool-window"></a>Visa Azure verktyget Utforskaren
 
-If the **Azure Explorer** tool window is not visible in IntelliJ, click **View**, then click **Tool Windows**, and then click **Azure Explorer**.
+Om den **Azure Explorer** verktygsfönster visas inte i IntelliJ klickar du på **visa**, klicka på **verktyget Windows**, och klicka sedan på **Azure Explorer**.
 
-![Show Azure Explorer Tool Window](./media/azure-toolkit-for-intellij-show-azure-explorer/show-az-exp-01.png)
+![Visa Azure-verktyget i Utforskaren](./media/azure-toolkit-for-intellij-show-azure-explorer/show-az-exp-01.png)
 

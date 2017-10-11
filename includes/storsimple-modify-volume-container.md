@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-modify-a-volume-container"></a>To modify a volume container
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
-2. In the tabular listing of the volume containers, select the setting that you want to modify, and click **Modify**.
-3. In the **Modify Volume container** dialog box, do the following:
+#### <a name="to-modify-a-volume-container"></a>Att ändra en volymbehållare
+1. På den **enheter** sidan, Välj enheten, dubbelklicka på den och klicka sedan på den **volymbehållare** fliken.
+2. I tabellform lista över volymbehållarna, väljer du den inställning som du vill ändra och klicka på **ändra**.
+3. I den **ändra volymbehållare** dialogrutan Gör följande:
    
-   1. Change the name of the volume container and modify the associated bandwidth setting. 
+   1. Ändra namnet på volymbehållaren och ändra inställningen för associerade bandbredd. 
       
-       ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
-   2. The encryption key and storage account cannot be changed after they are specified. If you specified **Select a bandwidth template**, click the arrow to proceed to the next page.
-4. In the next page of the **Modify Volume Container** dialog box:
+       ![Ändra Volymbehållare med Bandbreddsmall 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+   2. Kontot för kryptering nyckel och lagring kan inte ändras efter att de har angetts. Om du har angett **Välj en bandbreddsmall**, klickar du på pilen för att gå vidare till nästa sida.
+4. I nästa sida i den **ändra Volymbehållare** dialogrutan:
    
-   1. From the drop-down list, choose an existing bandwidth template.
-   2. Review the schedule settings for the specified bandwidth template.
+   1. Listrutan, Välj en befintlig bandbreddsmall för.
+   2. Kontrollera schemainställningarna för för den angivna bandbreddsmall.
       
-       ![Modify Volume Container with Bandwidth Template 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
-   3. Click the check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) to save the updated settings. The **Volume containers** page will be updated to reflect the changes.
+       ![Ändra Volymbehållare med Bandbreddsmall 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
+   3. Klicka på kryssikonen ![kryssikon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) att spara de uppdaterade inställningarna. Den **volymbehållare** sidan uppdateras för att återspegla ändringarna.
 

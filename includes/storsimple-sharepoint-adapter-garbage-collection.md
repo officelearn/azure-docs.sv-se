@@ -1,47 +1,47 @@
 <!--author=SharS last changed: 9/17/15-->
 
-In this procedure, you will:
+I den här proceduren ska du:
 
-1. [Prepare to run the Maintainer executable](#to-prepare-to-run-the-maintainer) .
-2. [Prepare the content database and Recycle Bin for immediate deletion of orphaned BLOBs](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
-3. [Run Maintainer.exe](#to-run-the-maintainer).
-4. [Revert the content database and Recycle Bin settings](#to-revert-the-content-database-and-recycle-bin-settings).
+1. [Förbereda för att köra programfilen Underhållaren](#to-prepare-to-run-the-maintainer) .
+2. [Förbereda innehållsdatabasen och Papperskorgen för omedelbar borttagning av överblivna Blobbar](#to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs).
+3. [Kör Maintainer.exe](#to-run-the-maintainer).
+4. [Återställa innehållsdatabasen och inställningar för Papperskorgen](#to-revert-the-content-database-and-recycle-bin-settings).
 
-#### <a name="to-prepare-to-run-the-maintainer"></a>To prepare to run the Maintainer
-1. On the Web front-end server, open the SharePoint 2013 Management Shell as an administrator.
-2. Navigate to the folder *boot drive*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
-3. Rename **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** to **web.config**.
-4. Use `aspnet_regiis -pdf connectionStrings` to decrypt the web.config file.
-5. In the decrypted web.config file, under the `connectionStrings` node, add the connection string for your SQL server instance and the content database name. See the following example.
+#### <a name="to-prepare-to-run-the-maintainer"></a>Förbereda att köra Underhållaren
+1. Öppna hanteringsgränssnittet för SharePoint 2013 som administratör på frontend webbservern.
+2. Navigera till mappen *starta enheten*: \Program\Microsoft SQL Remote Blob Storage 10.50\Maintainer\.
+3. Byt namn på **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** till **web.config**.
+4. Använd `aspnet_regiis -pdf connectionStrings` att dekryptera filen web.config.
+5. I dekrypterade web.config-filen under den `connectionStrings` nod, Lägg till anslutningssträng för SQL server-instans och innehållsdatabasens namn. Se följande exempel.
    
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
-6. Use `aspnet_regiis –pef connectionStrings` to re-encrypt the web.config file. 
-7. Rename web.config to Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
+6. Använd `aspnet_regiis –pef connectionStrings` för att kryptera filen web.config. 
+7. Byt namn på web.config Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config. 
 
-#### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>To prepare the content database and Recycle Bin to immediately delete orphaned BLOBs
-1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database: 
+#### <a name="to-prepare-the-content-database-and-recycle-bin-to-immediately-delete-orphaned-blobs"></a>Om du vill förbereda innehållet frånkopplade databasen och Papperskorgen att direkt ta bort Blobbar
+1. Kör följande uppdateringsfrågor för måldatabasen innehåll i SQL Management Studio på SQL-Server: 
    
        `use WSS_Content`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
-2. On the web front-end server, under **Central Administration**, edit the **Web Application General Settings** for the desired content database to temporarily disable the Recycle Bin. This action will also empty the Recycle Bin for any related site collections. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the **Recycle Bin Status** to **OFF**.
+2. På frontend webbserver, under **Central Administration**, redigera den **Web Application allmänna inställningar för** för önskad innehållsdatabas tillfälligt inaktivera Papperskorgen. Den här åtgärden kommer även tömma Papperskorgen för alla relaterade webbplatssamlingar. Gör detta genom att klicka på **Central Administration** -> **programhantering** -> **webbprogram (hantera webbprogram)**  ->  **SharePoint - 80** -> **allmänna programinställningar**. Ange den **Status för Papperskorgen** till **OFF**.
    
-    ![Web Application General Settings](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
+    ![Web Application allmänna inställningar](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
-#### <a name="to-run-the-maintainer"></a>To run the Maintainer
-* On the web front-end server, in the SharePoint 2013 Management Shell, run the Maintainer as follows:
+#### <a name="to-run-the-maintainer"></a>Att köra Underhållaren
+* På den web front-end-servern, SharePoint 2013 Management Shell, kör av Underhållaren på följande sätt:
   
       `Microsoft.Data.SqlRemoteBlobs.Maintainer.exe -ConnectionStringName RBSMaintainerConnectionWSSContent -Operation GarbageCollection -GarbageCollectionPhases rdo`
   
   > [!NOTE]
-  > Only the `GarbageCollection` operation is supported for StorSimple at this time. Also note that the parameters issued for Microsoft.Data.SqlRemoteBlobs.Maintainer.exe are case sensitive. 
+  > Endast den `GarbageCollection` åtgärden stöds för StorSimple just nu. Observera också att de parametrar som utfärdats för Microsoft.Data.SqlRemoteBlobs.Maintainer.exe är skiftlägeskänsliga. 
   > 
   > 
 
-#### <a name="to-revert-the-content-database-and-recycle-bin-settings"></a>To revert the content database and Recycle Bin settings
-1. On the SQL Server, in SQL Management Studio, run the following update queries for the target content database:
+#### <a name="to-revert-the-content-database-and-recycle-bin-settings"></a>Att återställa databasen och inställningar för Papperskorgen
+1. Kör följande uppdateringsfrågor för måldatabasen innehåll i SQL Management Studio på SQL-Server:
    
       `use WSS_Content`
    
@@ -50,5 +50,5 @@ In this procedure, you will:
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. On the web front-end server, in **Central Administration**, edit the **Web Application General Settings** for the desired content database to re-enable the Recycle Bin. To do this, click **Central Administration** -> **Application Management** -> **Web Applications (Manage web applications)** -> **SharePoint - 80** -> **General Application Settings**. Set the Recycle Bin Status to **ON**.
+2. På frontend webbserver, i **Central Administration**, redigera den **Web Application allmänna inställningar för** för önskad innehållsdatabas återaktivera Papperskorgen. Gör detta genom att klicka på **Central Administration** -> **programhantering** -> **webbprogram (hantera webbprogram)**  ->  **SharePoint - 80** -> **allmänna programinställningar**. Ange återvinning Bin Status till **på**.
 

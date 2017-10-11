@@ -1,26 +1,26 @@
-You must create a VNet and a gateway subnet first, before working on the following tasks. See the article [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) for more information.   
+Du måste skapa ett VNet och ett gateway-undernät, innan du arbetar med följande uppgifter. Se artikeln [konfigurera ett virtuellt nätverk med den klassiska portalen](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) för mer information.   
 
-## <a name="add-a-gateway"></a>Add a gateway
-Use the command below to create a gateway. Be sure to substitute any values for your own.
+## <a name="add-a-gateway"></a>Lägga till en gateway
+Använd kommandot nedan för att skapa en gateway. Se till att ersätta alla värden för dina egna.
 
     New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
 
-## <a name="verify-the-gateway-was-created"></a>Verify the gateway was created
-Use the command below to verify that the gateway has been created. This command also retrieves the gateway ID, which you need for other operations.
+## <a name="verify-the-gateway-was-created"></a>Kontrollera gatewayen som har skapats
+Använd kommandot nedan för att kontrollera att gatewayen har skapats. Detta kommando hämtar också gateway-ID som du behöver för andra åtgärder.
 
     Get-AzureVirtualNetworkGateway
 
-## <a name="resize-a-gateway"></a>Resize a gateway
-There are a number of [Gateway SKUs](../articles/expressroute/expressroute-about-virtual-network-gateways.md). You can use the following command to change the Gateway SKU at any time.
+## <a name="resize-a-gateway"></a>Ändra storlek på en gateway
+Det finns ett antal [Gateway-SKU: er](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Du kan använda följande kommando för att ändra Gateway-SKU när som helst.
 
 > [!IMPORTANT]
-> This command doesn't work for UltraPerformance gateway. To change your gateway to an UltraPerformance gateway, first remove the existing ExpressRoute gateway, and then create a new UltraPerformance gateway. To downgrade your gateway from an UltraPerformance gateway, first remove the UltraPerformance gateway, and then create a new gateway. 
+> Det här kommandot fungerar inte för UltraPerformance gateway. Om du vill ändra din gateway till en gateway för UltraPerformance först ta bort den befintliga ExpressRoute-gatewayen och sedan skapa en ny UltraPerformance gateway. Om du vill konvertera din gateway från en UltraPerformance gateway tar du bort UltraPerformance gateway och sedan skapa en ny gateway. 
 > 
 > 
 
     Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
-## <a name="remove-a-gateway"></a>Remove a gateway
-Use the command below to remove a gateway
+## <a name="remove-a-gateway"></a>Ta bort en gateway
+Använd kommandot nedan för att ta bort en gateway
 
     Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>

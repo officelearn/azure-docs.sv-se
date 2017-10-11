@@ -39,8 +39,3 @@
       ![Lägg till volym](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. Klicka på kryssikonen ![kryssikon](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). En volym skapas med de angivna inställningarna.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

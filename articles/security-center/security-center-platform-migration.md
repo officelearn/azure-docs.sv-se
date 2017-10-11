@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migrering av Azure Security Center-plattformen
 
@@ -78,5 +77,4 @@ Tillsammans med plattformsmigreringen lanserar vi några ytterligare mindre uppd
 - Insamling av data kommer att krävas och aktiveras automatiskt för kunder på prisnivån Standard.
 - Azure Security Center kommer att börja identifiera lösningar mot skadlig kod som inte har distribuerats via Azure-tillägg. Identifiering av Symantec Endpoint Protection och Defender för Windows 2016 blir tillgänglig först.
 - Förebyggandeprinciper och -meddelanden kan endast konfigureras på *prenumerationsnivå*, men priser kan fortfarande anges på *resursgruppsnivå*l
-
 

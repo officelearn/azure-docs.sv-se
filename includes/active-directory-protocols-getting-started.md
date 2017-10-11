@@ -13,12 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-translationtype: Human Translation
-ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
-ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
-
+ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
-## <a name="register-your-application-with-your-ad-tenant"></a>Registrera ditt program med din AD-klient
+## Registrera ditt program med din AD-klient
 Först måste du registrera ditt program med din Azure Active Directory (Azure AD)-klient. Det ger dig en program-ID för ditt program och låter det ta emot tokens.
 
 * Logga in på [Azure Portal](https://portal.azure.com).
@@ -30,9 +31,3 @@ Först måste du registrera ditt program med din Azure Active Directory (Azure A
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * För interna program, anger du en **omdirigerings-URI**, som Azure AD använder för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `http://MyFirstAADApp`
 * När du har slutfört registreringen, tilldelar Azure AD ditt program en unik klientidentifierare, program-ID:t. Du behöver det här värdet i nästa avsnitt, så kopiera det från programsidan.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

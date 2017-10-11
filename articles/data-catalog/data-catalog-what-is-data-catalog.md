@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: c0cf2805de958c979def3f21eda59ec97fb91d33
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: a28a7679831201fcf3a9d1c15497ff706c2752a1
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="what-is-azure-data-catalog"></a>Vad är Azure Data Catalog?
 Azure Data Catalog är en helt hanterad molntjänst vars användare kan identifiera datakällor de behöver och förstå datakällorna de identifierar. På samma gång hjälper Data Catalog organisationer att få ut mer av sina befintliga investeringar. 
@@ -76,4 +75,3 @@ Här finns mer information om funktionerna i Data Catalog:
 För att komma igång med Data Catalog, gå till:
 * [Microsoft Azure Data Catalog](https://www.azuredatacatalog.com)
 * [Kom igång med Azure Data Catalog](data-catalog-get-started.md)
-

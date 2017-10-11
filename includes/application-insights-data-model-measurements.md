@@ -1,9 +1,9 @@
-Collection of custom measurements. Use this collection to report named measurement associated with the telemetry item. Typical use cases are:
-- the size of Dependency Telemetry payload
-- the number of queue items processed by Request Telemetry
-- time that customer took to complete the step in wizard step completion Event Telemetry.
+Samling av anpassade mått. Använd den här samlingen i rapporten med namnet mått som är associerade med objektet telemetri. Vanliga användningsområden är:
+- storleken på Beroendetelemetri nyttolast
+- Antal objekt i kö bearbetas av begäran telemetri
+- tid kunden tog för att slutföra steg i guiden steg slutförande händelse telemetri.
 
-You can query [custom measurements](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) in Application Analytics:
+Du kan fråga [anpassade mått](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) i Application Analytics:
 
 ```
 customEvents
@@ -12,6 +12,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Custom measurements are associated with the telemetry item they belong to. They are subject to sampling with the telemetry item containing those measurements. To track a measurement that has a value independent from other telemetry types, use [Metric telemetry](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Anpassade mått är kopplade till objektet telemetri som de tillhör. De regleras provtagning telemetri-objektet som innehåller dessa mått. Om du vill spåra ett mått som har ett värde som är oberoende av andra typer av telemetri använda [mått telemetri](../articles/application-insights/app-insights-api-custom-events-metrics.md).
 
-Max key length: 150
+Maximal nyckellängd: 150

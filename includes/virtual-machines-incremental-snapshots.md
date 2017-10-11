@@ -1,100 +1,100 @@
-# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Back up Azure unmanaged VM disks with incremental snapshots
-## <a name="overview"></a>Overview
-Azure Storage provides the capability to take snapshots of blobs. Snapshots capture the blob state at that point in time. In this article, we describe a scenario in which you can maintain backups of virtual machine disks using snapshots. You can use this methodology when you choose not to use Azure Backup and Recovery Service, and wish to create a custom backup strategy for your virtual machine disks.
+# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Säkerhetskopiera Azure ohanterade Virtuella diskar med inkrementell ögonblicksbilder
+## <a name="overview"></a>Översikt
+Azure Storage ger möjlighet att ta ögonblicksbilder av blobbar. Ögonblicksbilder avbilda tillståndet blob då i tid. I den här artikeln beskriver vi ett scenario där du kan underhålla säkerhetskopior av virtuella diskar med hjälp av ögonblicksbilder. Du kan använda den här metoden när du inte vill använda Azure Backup och Recovery-tjänsten och vill skapa en anpassad strategi för säkerhetskopiering för virtuella diskar.
 
-Azure virtual machine disks are stored as page blobs in Azure Storage. Since we are describing a backup strategy for virtual machine disks in this article, we refer to snapshots in the context of page blobs. To learn more about snapshots, refer to [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+Azure virtuella diskar lagras som sidblobbar i Azure Storage. Eftersom vi som en strategi för säkerhetskopiering för virtuella diskar i den här artikeln beskriver refererar vi till ögonblicksbilder i samband med sidblobar. Mer information om ögonblicksbilder avser [skapa en ögonblicksbild av en Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-## <a name="what-is-a-snapshot"></a>What is a snapshot?
-A blob snapshot is a read-only version of a blob that is captured at a point in time. Once a snapshot has been created, it can be read, copied, or deleted, but not modified. Snapshots provide a way to back up a blob as it appears at a moment in time. Until REST version 2015-04-05, you had the ability to copy full snapshots. With the REST version 2015-07-08 and above, you can also copy incremental snapshots.
+## <a name="what-is-a-snapshot"></a>Vad är en ögonblicksbild?
+En blob-ögonblicksbild är en skrivskyddad version av en blob som hämtas vid en viss tidpunkt. När en ögonblicksbild har skapats, kan den läsa, kopieras, eller ta bort, men inte har ändrats. Ögonblicksbilder är ett sätt att säkerhetskopiera en blob som det visas vid en tidpunkt. Fram vila version 2015-04-05, var du tvungen att kunna kopiera fullständig ögonblicksbilder. Med övriga version 2015-07-08 och senare, du kan också kopiera inkrementell ögonblicksbilder.
 
-## <a name="full-snapshot-copy"></a>Full snapshot copy
-Snapshots can be copied to another storage account as a blob to keep backups of the base blob. You can also copy a snapshot over its base blob, which is like restoring the blob to an earlier version. When a snapshot is copied from one storage account to another, it occupies the same space as the base page blob. Therefore, copying whole snapshots from one storage account to another is slow and consumes much space in the target storage account.
+## <a name="full-snapshot-copy"></a>Fullständig ögonblicksbild kopia
+Ögonblicksbilder kan kopieras till ett annat lagringskonto som en blob att säkerhetskopior av grundläggande blob. Du kan också kopiera en ögonblicksbild över grundläggande blob, vilket är så återställer blob till en tidigare version. När en ögonblicksbild kopieras från ett lagringskonto till en annan, upptar samma utrymme som bassida-blob. Därför kopiera hela ögonblicksbilder från ett lagringskonto till en annan går långsamt och tar upp mycket utrymme i mål-lagringskontot.
 
 > [!NOTE]
-> If you copy the base blob to another destination, the snapshots of the blob are not copied along with it. Similarly, if you overwrite a base blob with a copy, snapshots associated with the base blob are not affected and stay intact under the base blob name.
+> Om du kopierar grundläggande blob till ett annat mål, kopieras inte ögonblicksbilder av blob tillsammans med den. Om du skriver över en grundläggande blob med en kopia ögonblicksbilder kopplade till grundläggande blob påverkas inte och intakta under grundläggande blobbnamnet.
 > 
 > 
 
-### <a name="back-up-disks-using-snapshots"></a>Back up disks using snapshots
-As a backup strategy for your virtual machine disks, you can take periodic snapshots of the disk or page blob, and copy them to another storage account using tools like [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) operation or [AzCopy](../articles/storage/common/storage-use-azcopy.md). You can copy a snapshot to a destination page blob with a different name. The resulting destination page blob is a writeable page blob and not a snapshot. Later in this article, we describe steps to take backups of virtual machine disks using snapshots.
+### <a name="back-up-disks-using-snapshots"></a>Säkerhetskopiera diskar med hjälp av ögonblicksbilder
+Som en strategi för säkerhetskopiering för virtuella diskar, kan du ta regelbundna ögonblicksbilder av disk- eller blob och kopiera dem till en annan storage-konto med hjälp av verktyg som [kopiera Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) åtgärden eller [AzCopy](../articles/storage/common/storage-use-azcopy.md). Du kan kopiera en ögonblicksbild till en mål-sidblob med ett annat namn. Den resulterande sidblob mål är en skrivbar sidblob och inte en ögonblicksbild. Senare i den här artikeln beskrivs stegen för att ta säkerhetskopior av virtuella diskar med hjälp av ögonblicksbilder.
 
-### <a name="restore-disks-using-snapshots"></a>Restore disks using snapshots
-When it is time to restore your disk to a stable version that was previously captured in one of the backup snapshots, you can copy a snapshot over the base page blob. After the snapshot is promoted to the base page blob, the snapshot remains, but its source is overwritten with a copy that can be both read and written. Later in this article we describe steps to restore a previous version of your disk from its snapshot.
+### <a name="restore-disks-using-snapshots"></a>Återställa diskar med hjälp av ögonblicksbilder
+När det är dags att återställa disken till en stabil version som tidigare har hämtats i ett av ögonblicksbilderna av säkerhetskopior kan du kopiera en ögonblicksbild över bassida-blob. När ögonblicksbilden befordras till bassidan blob ögonblicksbild förblir, men dess källa skrivs över med en kopia som kan vara både läses och skrivs. Nedan beskrivs stegen för att återställa en tidigare version av disken från dess ögonblicksbild.
 
-### <a name="implementing-full-snapshot-copy"></a>Implementing full snapshot copy
-You can implement a full snapshot copy by doing the following,
+### <a name="implementing-full-snapshot-copy"></a>Implementera kopia för fullständig ögonblicksbild
+Du kan implementera en fullständig ögonblicksbild kopia genom att göra följande:
 
-* First, take a snapshot of the base blob using the [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) operation.
-* Then, copy the snapshot to a target storage account using [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
-* Repeat this process to maintain backup copies of your base blob.
+* Ta först en ögonblicksbild av den grundläggande blob med hjälp av den [ögonblicksbild Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) igen.
+* Kopiera sedan ögonblicksbilden till ett mål lagring kontot med [kopiera Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob).
+* Upprepa processen för att underhålla säkerhetskopior av din grundläggande blob.
 
-## <a name="incremental-snapshot-copy"></a>Incremental snapshot copy
-The new feature in the [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API provides a much better way to back up the snapshots of your page blobs or disks. The API returns the list of changes between the base blob and the snapshots, which reduces the amount of storage space used on the backup account. The API supports page blobs on Premium Storage as well as Standard Storage. Using this API, you can build faster and more efficient backup solutions for Azure VMs. This API will be available with the REST version 2015-07-08 and higher.
+## <a name="incremental-snapshot-copy"></a>Inkrementell ögonblicksbild kopia
+Den nya funktionen i den [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API ger en mycket bättre sätt att säkerhetskopiera ögonblicksbilder av din sidblobbar eller diskar. API: et returnerar en lista över ändringar mellan grundläggande blob och ögonblicksbilder, vilket minskar mängden lagringsutrymme som används för kontot säkerhetskopiering. API: et stöder sidblobar på Premium-lagring samt standardlagring. Med detta API kan skapa du snabbare och effektivare säkerhetskopieringslösningar för virtuella Azure-datorer. Detta API är tillgängliga med REST-version 2015-07-08 och högre.
 
-Incremental Snapshot Copy allows you to copy from one storage account to another the difference between,
+Inkrementell ögonblicksbild kopia kan du kopiera från ett lagringskonto till en annan skillnaden mellan
 
-* Base blob and its Snapshot OR
-* Any two snapshots of the base blob
+* Grundläggande blob och dess ögonblicksbild eller
+* Två ögonblicksbilder av grundläggande blobben
 
-Provided the following conditions are met,
+Om följande villkor är uppfyllda,
 
-* The blob was created on Jan-1-2016 or later.
-* The blob was not overwritten with [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) or [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) between two snapshots.
+* Blobben har skapats på Jan 1 2016 eller senare.
+* Blob som inte skrivas över med [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) eller [kopiera Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) mellan två ögonblicksbilder.
 
-**Note**: This feature is available for Premium and Standard Azure Page Blobs.
+**Obs**: den här funktionen är tillgänglig för Premium- och Standard Sidblobbar för Azure.
 
-When you have a custom backup strategy using snapshots, copying the snapshots from one storage account to another can be slow and can consume much storage space. Instead of copying the entire snapshot to a backup storage account, you can write the difference between consecutive snapshots to a backup page blob. This way, the time to copy and the space to store backups is substantially reduced.
+När du har en anpassad strategi för säkerhetskopiering med hjälp av ögonblicksbilder, kopiera ögonblicksbilderna från ett lagringskonto till en annan kan ta lång tid och kan förbruka mycket lagringsutrymme. Du kan skriva skillnaden mellan på varandra följande ögonblicksbilder av en säkerhetskopiering sidblob istället för att kopiera hela ögonblicksbilden till en backup storage-konto. Det här sättet betydligt tid att kopiera och utrymme för lagring av säkerhetskopior.
 
-### <a name="implementing-incremental-snapshot-copy"></a>Implementing Incremental Snapshot Copy
-You can implement incremental snapshot copy by doing the following,
+### <a name="implementing-incremental-snapshot-copy"></a>Implementera inkrementell ögonblicksbild kopia
+Du kan implementera inkrementell ögonblicksbild kopia genom att göra följande:
 
-* Take a snapshot of the base blob using [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copy the snapshot to the target backup storage account using [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). This is the backup page blob. Take a snapshot of the backup page blob and store it in the backup account.
-* Take another snapshot of the base blob using Snapshot Blob.
-* Get the difference between the first and second snapshots of the base blob using [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Use the new parameter **prevsnapshot**, to specify the DateTime value of the snapshot you want to get the difference with. When this parameter is present, the REST response includes only the pages that were changed between target snapshot and previous snapshot including clear pages.
-* Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) to apply these changes to the backup page blob.
-* Finally, take a snapshot of the backup page blob and store it in the backup storage account.
+* Ta en ögonblicksbild av den grundläggande blob med hjälp av [ögonblicksbild Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
+* Kopiera ögonblicksbilden till målet säkerhetskopieringslagring kontot med [kopiera Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Detta är säkerhetskopiering sidblob. Ta en ögonblicksbild av säkerhetskopian sidblob och lagra den i kontot för säkerhetskopiering.
+* Ta en annan ögonblicksbild av grundläggande blob med hjälp av ögonblicksbilder Blob.
+* Hämta skillnaden mellan de första och andra ögonblicksbilderna av grundläggande blob med [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Använd den nya parametern **prevsnapshot**, för att ange den ögonblicksbild som du vill hämta skillnaden med DateTime-värdet. Om den här parametern finns innehåller REST-svaret bara de sidor som har ändrats mellan target ögonblicksbild och tidigare ögonblicksbild, inklusive Rensa sidor.
+* Använd [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) att tillämpa ändringarna på säkerhetskopian av sidan-blob.
+* Slutligen kan ta en ögonblicksbild av säkerhetskopian sidblob och lagra den i backup storage-konto.
 
-In the next section, we will describe in more detail how you can maintain backups of disks using Incremental Snapshot Copy
+I nästa avsnitt, kommer beskrivs i detalj hur du kan upprätthålla säkerhetskopior av diskar med hjälp av inkrementell ögonblicksbild kopia
 
 ## <a name="scenario"></a>Scenario
-In this section, we describe a scenario that involves a custom backup strategy for virtual machine disks using snapshots.
+I det här avsnittet beskriver vi ett scenario som omfattar en anpassad strategi för säkerhetskopiering för virtuella diskar med hjälp av ögonblicksbilder.
 
-Consider a DS-series Azure VM with a premium storage P30 disk attached. The P30 disk called *mypremiumdisk* is stored in a premium storage account called *mypremiumaccount*. A standard storage account called *mybackupstdaccount* is used for storing the backup of *mypremiumdisk*. We would like to keep a snapshot of *mypremiumdisk* every 12 hours.
+Beakta en Azure VM DS-serien med premium-lagring P30 disk ansluten. P30 disken kallas *mypremiumdisk* lagras i ett premiumlagringskonto som kallas *mypremiumaccount*. Ett standardlagringskonto kallas *mybackupstdaccount* används för att lagra säkerhetskopian av *mypremiumdisk*. Vi vill behålla en ögonblicksbild av *mypremiumdisk* var 12: e timme.
 
-To learn about creating storage account and disks, refer to [About Azure storage accounts](../articles/storage/storage-create-storage-account.md).
+Mer information om att skapa storage-konto och diskar, referera till [om Azure storage-konton](../articles/storage/storage-create-storage-account.md).
 
-To learn about backing up Azure VMs, refer to [Plan Azure VM backups](../articles/backup/backup-azure-vms-introduction.md).
+Mer information om säkerhetskopiering av virtuella Azure-datorer, referera till [planera Azure VM-säkerhetskopieringar](../articles/backup/backup-azure-vms-introduction.md).
 
-## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Steps to maintain backups of a disk using incremental snapshots
-The following steps describe how to take snapshots of *mypremiumdisk* and maintain the backups in *mybackupstdaccount*. The backup is a standard page blob called *mybackupstdpageblob*. The backup page blob always reflects the same state as the last snapshot of *mypremiumdisk*.
+## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>Steg för att underhålla säkerhetskopieringar av en disk med hjälp av inkrementell ögonblicksbilder
+Följande steg beskriver hur du ta ögonblicksbilder av *mypremiumdisk* och underhålla säkerhetskopieringar i *mybackupstdaccount*. Säkerhetskopian är en standard sidblob kallas *mybackupstdpageblob*. Säkerhetskopiering sidblob visar alltid samma tillstånd som den senaste ögonblicksbilden av *mypremiumdisk*.
 
-1. Create the backup page blob for your premium storage disk, by taking a snapshot of *mypremiumdisk* called *mypremiumdisk_ss1*.
-2. Copy this snapshot to mybackupstdaccount as a page blob called *mybackupstdpageblob*.
-3. Take a snapshot of *mybackupstdpageblob* called *mybackupstdpageblob_ss1*, using [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) and store it in *mybackupstdaccount*.
-4. During the backup window, create another snapshot of *mypremiumdisk*, say *mypremiumdisk_ss2*, and store it in *mypremiumaccount*.
-5. Get the incremental changes between the two snapshots, *mypremiumdisk_ss2* and *mypremiumdisk_ss1*, using [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) on *mypremiumdisk_ss2* with the **prevsnapshot** parameter set to the timestamp of *mypremiumdisk_ss1*. Write these incremental changes to the backup page blob *mybackupstdpageblob* in *mybackupstdaccount*. If there are deleted ranges in the incremental changes, they must be cleared from the backup page blob. Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) to write incremental changes to the backup page blob.
-6. Take a snapshot of the backup page blob *mybackupstdpageblob*, called *mybackupstdpageblob_ss2*. Delete the previous snapshot *mypremiumdisk_ss1* from premium storage account.
-7. Repeat steps 4-6 every backup window. In this way, you can maintain backups of *mypremiumdisk* in a standard storage account.
+1. Skapa säkerhetskopiering sidblob för hårddisken premium-lagring genom att ta en ögonblicksbild av *mypremiumdisk* kallas *mypremiumdisk_ss1*.
+2. Kopiera den här ögonblicksbilden till mybackupstdaccount som en sidblobb kallas *mybackupstdpageblob*.
+3. Ta en ögonblicksbild av *mybackupstdpageblob* kallas *mybackupstdpageblob_ss1*med hjälp av [ögonblicksbild Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob) och lagra den i *mybackupstdaccount*.
+4. Skapa en annan ögonblicksbild av under säkerhetskopieringen, *mypremiumdisk*, säg *mypremiumdisk_ss2*, och lagra den i *mypremiumaccount*.
+5. Hämta inkrementella ändringar mellan två ögonblicksbilder *mypremiumdisk_ss2* och *mypremiumdisk_ss1*med hjälp av [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) på *mypremiumdisk_ ss2* med den **prevsnapshot** parameterinställning tidsstämpeln för *mypremiumdisk_ss1*. Skriva dessa inkrementella ändringar till säkerhetskopiering sidblob *mybackupstdpageblob* i *mybackupstdaccount*. Om det finns borttagna intervall i inkrementella ändras, måste tas bort från säkerhetskopian av sidan-blob. Använd [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) skriva inkrementella ändringar till säkerhetskopiering sidblob.
+6. Ta en ögonblicksbild av säkerhetskopian sidblob *mybackupstdpageblob*, kallat *mybackupstdpageblob_ss2*. Ta bort den tidigare ögonblicksbilden av *mypremiumdisk_ss1* från premium storage-konto.
+7. Upprepa steg 4 – 6 var säkerhetskopieringsintervallet. På så sätt kan du hantera säkerhetskopior av *mypremiumdisk* i ett standardlagringskonto.
 
-![Back up disk using incremental snapshots](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
+![Säkerhetskopiera disk med hjälp av inkrementell ögonblicksbilder](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
 
-## <a name="steps-to-restore-a-disk-from-snapshots"></a>Steps to restore a disk from snapshots
-The following steps, describe how to restore the premium disk, *mypremiumdisk* to an earlier snapshot from the backup storage account *mybackupstdaccount*.
+## <a name="steps-to-restore-a-disk-from-snapshots"></a>Steg för att återställa en disk från ögonblicksbilder
+Följande steg beskriver hur du återställer premium-disk *mypremiumdisk* till en tidigare ögonblicksbild från kontot för säkerhetskopieringslagring *mybackupstdaccount*.
 
-1. Identify the point in time that you wish to restore the premium disk to. Let's say that it is snapshot *mybackupstdpageblob_ss2*, which is stored in the backup storage account *mybackupstdaccount*.
-2. In mybackupstdaccount, promote the snapshot *mybackupstdpageblob_ss2* as the new backup base page blob *mybackupstdpageblobrestored*.
-3. Take a snapshot of this restored backup page blob, called *mybackupstdpageblobrestored_ss1*.
-4. Copy the restored page blob *mybackupstdpageblobrestored* from *mybackupstdaccount* to *mypremiumaccount* as the new premium disk *mypremiumdiskrestored*.
-5. Take a snapshot of *mypremiumdiskrestored*, called *mypremiumdiskrestored_ss1* for making future incremental backups.
-6. Point the DS series VM to the restored disk *mypremiumdiskrestored* and detach the old *mypremiumdisk* from the VM.
-7. Begin the Backup process described in previous section for the restored disk *mypremiumdiskrestored*, using the *mybackupstdpageblobrestored* as the backup page blob.
+1. Identifiera punkten i tid som du vill återställa premium disken. Anta att den har ögonblicksbilder *mybackupstdpageblob_ss2*, som lagras på kontot för säkerhetskopieringslagring *mybackupstdaccount*.
+2. Befordra ögonblicksbilden i mybackupstdaccount, *mybackupstdpageblob_ss2* som ny säkerhetskopiering bassida blob *mybackupstdpageblobrestored*.
+3. Ta en ögonblicksbild av den här återställda säkerhetskopiering sidblob, kallas *mybackupstdpageblobrestored_ss1*.
+4. Kopiera den återställda sidblob *mybackupstdpageblobrestored* från *mybackupstdaccount* till *mypremiumaccount* som den nya disken premium  *mypremiumdiskrestored*.
+5. Ta en ögonblicksbild av *mypremiumdiskrestored*, kallat *mypremiumdiskrestored_ss1* för att göra framtida inkrementella säkerhetskopieringar.
+6. DS-serien VM peka återställda disken *mypremiumdiskrestored* och koppla från gammalt *mypremiumdisk* från den virtuella datorn.
+7. Starta Säkerhetskopiering processen som beskrivs i föregående avsnitt för den återställda disken *mypremiumdiskrestored*med hjälp av den *mybackupstdpageblobrestored* som säkerhetskopiering sidblobb.
 
-![Restore disk from snapshots](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
+![Återställa disk från ögonblicksbilder](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-2.png)
 
-## <a name="next-steps"></a>Next Steps
-Use the following links to learn more about creating snapshots of a blob and planning your VM backup infrastructure.
+## <a name="next-steps"></a>Nästa steg
+Använd följande länkar om du vill lära dig mer om att skapa ögonblicksbilder av en blob och planera din infrastruktur för säkerhetskopiering av VM.
 
-* [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
-* [Plan your VM Backup Infrastructure](../articles/backup/backup-azure-vms-introduction.md)
+* [Skapa en ögonblicksbild av en Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
+* [Planera infrastrukturen för säkerhetskopiering VM](../articles/backup/backup-azure-vms-introduction.md)
 

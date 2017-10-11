@@ -1,7 +1,7 @@
-| Resource | Default limit |
+| Resurs | Standardgräns |
 | --- | --- |
-| Profiles per subscription |100 <sup>1</sup> |
-| Endpoints per profile |200 |
+| Profiler per prenumeration |100 <sup>1</sup> |
+| Slutpunkter per profil |200 |
 
-<sup>1</sup>Contact support in case you need to increase these limits.
+<sup>1</sup>kontakta supporten om du behöver utöka gränserna.
 

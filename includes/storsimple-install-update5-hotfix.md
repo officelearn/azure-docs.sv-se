@@ -1,46 +1,46 @@
 <!--author=alkohli last changed: 08/21/17-->
 
-#### <a name="to-download-hotfixes"></a>To download hotfixes
+#### <a name="to-download-hotfixes"></a>Ladda ned snabbkorrigerar
 
-Perform the following steps to download the software update from the Microsoft Update Catalog.
+Utför följande steg för att hämta programuppdateringen från Microsoft Update Catalog.
 
-1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
-2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
+1. Starta Internet Explorer och gå till [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+2. Om det här är första gången du använder Microsoft Update Catalog på den här datorn klickar du på **Installera** när du uppmanas att installera tillägget för Microsoft Update Catalog.
 
-    ![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+    ![Installera katalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download, for example **4037264**, and then click **Search**.
+3. I sökrutan i Microsoft Update-katalogen ange Knowledge Base (KB) antalet den snabbkorrigering som du vill hämta, till exempel **4037264**, och klicka sedan på **Sök**.
    
-    The hotfix listing appears, for example, **Cumulative Software Bundle Update 5.0 for StorSimple 8000 Series**.
+    Snabbkorrigeringen listan visas till exempel **kumulativa programvara paket Update 5.0 för StorSimple 8000-serien**.
    
-    ![Search catalog](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
+    ![Sökkatalog](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. Click the files to download to the specified location and folder. The folder can also be copied to a network share that is reachable from the device.
-5. Search for any additional hotfixes listed in the table above (**4037266**), and download the corresponding files to the specific folders as listed in the preceding table.
+4. Klicka på **Hämta**. Ange eller **Bläddra** till en lokal plats där du vill att nedladdningarna ska läggas. Klicka på filer som hämtas till den angivna platsen och mapp. Mappen kan också kopieras till en nätverksresurs som kan nås från enheten.
+5. Sök efter eventuella ytterligare snabbkorrigeringar som anges i tabellen ovan (**4037266**), och hämta motsvarande filer till specifika mappar som anges i tabellen ovan.
 
 > [!NOTE]
-> The hotfixes must be accessible from both controllers to detect any potential error messages from the peer controller.
+> Snabbkorrigeringarna måste vara tillgänglig från båda domänkontrollanter för att identifiera eventuella felmeddelanden från peer-domänkontrollant.
 >
-> The hotfixes must be copied in 3 separate folders. For example, the device software/Cis/MDS agent update can be copied in _FirstOrderUpdate_ folder, all the other non-disruptive updates could be copied in the _SecondOrderUpdate_ folder, and maintenance mode updates copied in _ThirdOrderUpdate_ folder.
+> Snabbkorrigeringarna måste kopieras till tre separata mappar. Exempelvis kan enheten MDS-program/TIS agentuppdatering kopieras i _FirstOrderUpdate_ mapp, alla andra utan avbrott uppdateringar kan kopieras i den _SecondOrderUpdate_ mapp, och Underhåll läge uppdateringar kopierade i _ThirdOrderUpdate_ mapp.
 
-#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>To install and verify regular mode hotfixes
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Installera och verifiera snabbkorrigeringar i normalläge
 
-Perform the following steps to install and verify regular-mode hotfixes. If you already installed them using the Azure portal, skip ahead to [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes).
+Utför följande steg för att installera och verifiera snabbkorrigeringar i normalläge. Om du redan har installerat dem med hjälp av Azure portal, gå vidare till [installera och underhåll läge snabbkorrigeringar](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
-2. Select **Option 1** to log on to the device with full access. We recommend that you install the hotfix on the passive controller first.
-3. To install the hotfix, at the command prompt, type:
+1. Gå in i Windows PowerShell-gränssnittet på din StorSimple-enhets seriekonsol för att installera snabbkorrigerarna. Följ de detaljerade instruktionerna i [Använd PuTTY för att ansluta till enhetens seriekonsol](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Tryck på **Retur** i kommandotolken.
+2. Välj **Alternativ 1** för att logga in på enheten med fullständig åtkomst. Vi rekommenderar att du installerar snabbkorrigeringen på den passiva styrenheten först.
+3. Ange följande i kommandotolken för att installera snabbkorrigeringen:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    Use IP rather than DNS in share path in the above command. The credential parameter is used only if you are accessing an authenticated share.
+    Använd IP i stället för DNS i resurssökvägen i kommandot ovan. Parametern för autentiseringsuppgifter används bara om du ansluter till en autentiserad resurs.
    
-    We recommend that you use the credential parameter to access shares. Even shares that are open to “everyone” are typically not open to unauthenticated users.
+    Vi rekommenderar att du använder parametern för autentiseringsuppgifter för att få åtkomst till resurser. Även resurser som är öppna för ”alla” är vanligtvis inte öppna för icke-autentiserade användare.
    
-4. Supply the password when prompted. A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
+4. Ange lösenordet när du uppmanas att göra så. Ett exempel på utdata för att installera första orderns uppdateringar visas nedan. Du måste peka på filen för den första uppdateringen i ordning.
 
     >[!NOTE] 
-    > You should install the _HcsSoftwareUpdate.exe_ first. After this install has completed, then install _CisMdsAgentUpdate.exe_.
+    > Du bör installera den _HcsSoftwareUpdate.exe_ första. När installationen har slutförts kan du sedan installera _CisMdsAgentUpdate.exe_.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -54,10 +54,10 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
         ````
-5. Type **Y** when prompted to confirm the hotfix installation.
-6. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
+5. Skriv **Y** när du uppmanas att bekräfta installationen av snabbkorrigeringen.
+6. Övervaka uppdateringen med hjälp av `Get-HcsUpdateStatus`-cmdlet. Uppdateringen slutförs först på den passiva styrenheten. När den passiva styrenheten har uppdaterats sker en redundans och uppdateringen tillämpas sedan på den andra styrenheten. Uppdateringen har slutförts när båda styrenheterna har uppdateras.
    
-    The following sample output shows the update in progress. The `RunInprogress` is `True` when the update is in progress.
+    Följande exempel på utdata visar att uppdateringen pågår. Den `RunInprogress` är `True` när uppdateringen pågår.
 
     ```
     Controller0>Get-HcsUpdateStatus
@@ -68,7 +68,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     Controller1Events   :
     ```
    
-     The following sample output indicates that the update is finished. The `RunInProgress` is `False` when the update is complete.
+     Följande exempel på utdata visar att uppdateringen är färdig. Den `RunInProgress` är `False` när uppdateringen är klar.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -80,54 +80,54 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
     ```
 
     > [!NOTE]
-    > Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed.
+    > I vissa fall rapporterar cmdlet `False` när uppdateringen fortfarande pågår. Om du vill kontrollera att snabbkorrigeringen har slutförts väntar du några minuter och sedan kör du det här kommandot igen och kontrollerar att `RunInProgress` är `False`. Om det har det har snabbkorrigeringen slutförts.
 
-7. After the software update is complete, verify the system software versions. Type:
+7. När programuppdateringen har slutförts kan du kontrollera systemprogramversionerna. Ange:
    
     `Get-HcsSystem`
    
-    You should see the following versions:
+    Du bör se följande versioner:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
    *  `HcsSoftwareVersion: 6.3.9600.17845`
    
-    If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) for further assistance.
+    Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
      
     > [!IMPORTANT]
-    > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the next update.
+    > Du måste starta om den aktiva styrenheten via den `Restart-HcsController` cmdlet innan du tillämpar nästa uppdatering.
      
-8. Repeat steps 3-6 to install the _CisMDSAgentupdate.exe_ agent downloaded to your _FirstOrderUpdate_ folder.
-8. Repeat steps 3-6 to install the second order updates. 
+8. Upprepa steg 3-6 för att installera den _CisMDSAgentupdate.exe_ agent hämtas till din _FirstOrderUpdate_ mapp.
+8. Upprepa steg 3 – 6 för att installera uppdateringar för andra ordning. 
 
     > [!NOTE] 
-    > For second order updates, multiple updates can be installed by just running the `Start-HcsHotfix cmdlet` and pointing to the folder where second order updates are located. The cmdlet will execute all the updates available in the folder. If an update is already installed, the update logic will detect that and not apply that update.
+    > För andra uppdateringar, flera uppdateringar installeras genom att bara köra den `Start-HcsHotfix cmdlet` och peka på den mapp där det finns andra uppdateringar. Cmdleten kör alla tillgängliga uppdateringar i mappen. Om en uppdatering redan är installerad identifierar uppdateringslogiken det och tillämpar inte uppdateringen.
 
-    After all the hotfixes are installed, use the `Get-HcsSystem` cmdlet. The versions should be:
+    När alla snabbkorrigeringar har installerats använder du `Get-HcsSystem`-cmdleten. Versionerna bör vara:
     
     * `CisAgentVersion:  1.0.9724.0`
     * `MdsAgentVersion: 35.2.2.0`
     * `Lsisas2Version: 2.0.78.00`
 
 
-#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>To install and verify maintenance mode hotfixes
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>Installera och verifiera snabbkorrigeringar i underhållsläge
 
-Use KB4037263 to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.
+Använd KB4037263 att installera uppdateringar av inbyggd disk. Det här är störande uppdateringar och tar cirka 30 minuter för att slutföra. Du kan välja att installera dem i ett planerat underhållsfönster genom att ansluta till enhetens seriekonsol.
 
 > [!NOTE] 
-> If your disk firmware is already up-to-date, you won't need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console to check if updates are available and whether the updates are disruptive (maintenance mode) or non-disruptive (regular mode) updates.
+> Om den inbyggda programvaran disken är redan uppdaterade, behöver du inte installera uppdateringarna. Kör `Get-HcsUpdateAvailability`-cmdleten från enhetens seriekonsol för att kontrollera om det finns tillgängliga uppdateringar och om uppdateringarna är störande (underhållsläge) eller avbrottsfria (standardläget).
 
-To install the disk firmware updates, follow the instructions below.
+Följ anvisningarna nedan om du vill installera uppdateringarna för den inbyggda programvaran för disken.
 
-1. Place the device in the maintenance mode. 
+1. Sätt enheten i underhållsläge. 
 
     > [!NOTE] 
-    > Do not use Windows PowerShell remoting when connecting to a device in maintenance mode. Instead run this cmdlet on the device controller when connected through the device serial console.
+    > Använd inte Windows PowerShell-fjärrkommunikation när du ansluter till en enhet i underhållsläge. I stället köra denna cmdlet på styrenheten för enheten när du är ansluten till enhetens seriekonsol.
 
-    To place the controller in maintenance mode, type:
+    Om du vill placera styrenheten i underhållsläge, skriver du:
    
     `Enter-HcsMaintenanceMode`
    
-    A sample output is shown below.
+    Ett exempel på utdata visas nedan.
    
         Controller0>Enter-HcsMaintenanceMode
         Checking device state...
@@ -149,12 +149,12 @@ To install the disk firmware updates, follow the instructions below.
         [4] Change language
         Please enter your choice>
    
-    Both the controllers then restart into maintenance mode.
-2. To install the disk firmware update, type:
+    Båda styrenheterna och starta sedan om i underhållsläge.
+2. Ange följande för att installera uppdateringen av inbyggd programvara för disk:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    A sample output is shown below.
+    Ett exempel på utdata visas nedan.
    
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\ThirdOrderUpdates\ -Credential contoso\john
         Enter Password:
@@ -163,16 +163,16 @@ To install the disk firmware updates, follow the instructions below.
         This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
-3. Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
-4. After the installation is complete, the controller on which the maintenance mode hotfix was installed restarts. Log in as option 1 with full access and verify the disk firmware version. Type:
+3. Övervaka installationsförloppet med `Get-HcsUpdateStatus`-kommandot. Uppdateringen är slutförd när `RunInProgress` ändras till `False`.
+4. När installationen är färdig startas styrenheten som snabbkorrigeringen i underhållsläge installerades på om. Logga in som alternativ 1 med fullständig åtkomst och verifiera versionen för den inbyggda programvaran för disken. Ange:
    
    `Get-HcsFirmwareVersion`
    
-   The expected disk firmware versions are:
+   De förväntade versionerna för den inbyggda programvaran för disken är:
    
    `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
    
-   A sample output is shown below.
+   Ett exempel på utdata visas nedan.
    
        -----------------------MAINTENANCE MODE------------------------
        Microsoft Azure StorSimple Appliance Model 8600
@@ -255,9 +255,9 @@ To install the disk firmware updates, follow the instructions below.
               WD:WD4001FYYG-01SL3:VR08
               WD:WD4001FYYG-01SL3:VR08
    
-    Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. To do so, type the following command for each device controller:
+    Kör `Get-HcsFirmwareVersion`-kommandot på den andra styrenheten för att verifiera att programvaruversionen har uppdaterats. Du kan sedan avsluta underhållsläget. För att göra det anger du följande kommando för varje enhetsstyrenhet:
    
    `Exit-HcsMaintenanceMode`
 
-5. The controllers restart when you exit maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
+5. Styrenheterna startas om när du avslutar underhållsläget. Efter den inbyggda programvaran disk uppdateringar har tillämpats och enheten avslutat underhållsläget, gå tillbaka till Azure-portalen. Observera att portalen kanske inte visar att du har installerat uppdateringarna i underhållsläge på 24 timmar.
 

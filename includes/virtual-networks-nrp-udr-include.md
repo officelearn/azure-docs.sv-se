@@ -1,25 +1,25 @@
-## <a name="route-tables"></a>Route tables
-Route table resources contains routes used to define how traffic flows within your Azure infrastructure. You can use user defined routes (UDR) to send all traffic from a given subnet to a virtual appliance, such as a firewall or intrusion detection system (IDS). You can associate a route table to subnets. 
+## <a name="route-tables"></a>Vägtabeller
+Väg tabellen resurser innehåller vägar som används för att definiera hur trafiken flödar i Azure-infrastrukturen. Du kan använda användardefinierade vägar (UDR) för att skicka all trafik från ett visst undernät till en virtuell installation, till exempel en brandvägg eller intrångsidentifiering identifiering-system (ID). Du kan associera en routingtabell till undernät. 
 
-Route tables contain the following properties.
+Routningstabeller innehåller följande egenskaper.
 
-| Property | Description | Sample values |
+| Egenskap | Beskrivning | Exempelvärden |
 | --- | --- | --- |
-| **routes** |Collection of user defined routes in the route table |see [user defined routes](#User-defined-routes) |
-| **subnets** |Collection of subnets the route table is applied to |see [subnets](#Subnets) |
+| **vägar** |Samling användardefinierade vägar i routningstabellen |Se [användardefinierade vägar](#User-defined-routes) |
+| **undernät** |Samling av undernät i vägtabellen tillämpas på |Se [undernät](#Subnets) |
 
-### <a name="user-defined-routes"></a>User defined routes
-You can create UDRs to specify where traffic should be sent to, based on its destination address. You can think of a route as the default gateway definition based on the destination address of a network packet.
+### <a name="user-defined-routes"></a>Användardefinierade vägar
+Du kan skapa udr: er för att ange där trafik ska skickas till, baserat på dess mål-adress. Du kan se en väg som standard-gateway-definition baserat på mål-adress för ett nätverkspaket.
 
-UDRs contain the following properties. 
+Udr: er innehåller följande egenskaper. 
 
-| Property | Description | Sample values |
+| Egenskap | Beskrivning | Exempelvärden |
 | --- | --- | --- |
-| **addressPrefix** |Address prefix, or full IP address for the destination |192.168.1.0/24, 192.168.1.101 |
-| **nextHopType** |Type of device the traffic will be sent to |VirtualAppliance, VPN Gateway, Internet |
-| **nextHopIpAddress** |IP address for the next hop |192.168.1.4 |
+| **addressPrefix** |Adressprefixet eller fullständig IP-adress för mål |192.168.1.0/24, 192.168.1.101 |
+| **nextHopType** |Typ av enhet som trafiken skickas till |VirtualAppliance, VPN-Gateway, Internet |
+| **nextHopIpAddress** |IP-adressen för nästa hopp |192.168.1.4 |
 
-Sample route table in JSON format:
+Exempel routningstabellen i JSON-format:
 
     {
         "name": "UDR-BackEnd",
@@ -50,8 +50,8 @@ Sample route table in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [UDRs](../articles/virtual-network/virtual-networks-udr-overview.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502549.aspx) for route tables.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502539.aspx) for user defined routes (UDRs).
+### <a name="additional-resources"></a>Ytterligare resurser
+* Hämta mer information [udr: er](../articles/virtual-network/virtual-networks-udr-overview.md).
+* Läs den [REST API-referensdokumentation](https://msdn.microsoft.com/library/azure/mt502549.aspx) för routningstabeller.
+* Läs den [REST API-referensdokumentation](https://msdn.microsoft.com/library/azure/mt502539.aspx) definierats vägar (udr: er) för användaren.
 

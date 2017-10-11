@@ -1,22 +1,22 @@
 
-| Resource | Default limit |
+| Resurs | Standardgräns |
 | --- | --- |
-| Collections per user |1 |
-| Published apps per collection |100 |
-| Paid collections |3 |
-| Paid template images |25 |
-| Users - basic tier |800 maximum |
-| Users - standard tier |500 maximum |
-| Users- premium tier |100 maximum |
-| Users - premium plus tier |50 maximum |
-| User data storage (UPD) per user per collection |50 GB |
-| Idle timeout |4 hours |
-| Disconnected timeout |4 hours |
+| Samlingar per användare |1 |
+| Publicerade appar per samling |100 |
+| Betald samlingar |3 |
+| Betald mallavbildningar |25 |
+| Användare – grundläggande nivån |800 maximala |
+| Användare – standardnivån |500 maximala |
+| Användare premium-nivån |maximalt 100 |
+| Användare – premium plus-nivån |högst 50 |
+| Användaren datalagring (UPD) per användare per samling |50 GB |
+| Tidsgränsen för inaktivitet |4 timmar |
+| Frånkopplade timeout |4 timmar |
 
-The number of users is determined by the number of VMs used for your collection:
+Antalet användare som baseras på antalet virtuella datorer som används för samlingen:
 
-* Basic = 16 users per VM
-* Standard = 10 users per VM
-* Premium = 4 users per VM
-* Premium plus = 2 users per VM
+* Grundläggande = 16 användare per VM
+* Standard = 10 användare per VM
+* Premium = 4 användare per VM
+* Premium plus -= 2 användare per VM
 

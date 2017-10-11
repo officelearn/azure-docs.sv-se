@@ -1,17 +1,17 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
+#### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>Installera Underhåll läge snabbkorrigeringar via Windows PowerShell för StorSimple
 > [!IMPORTANT]
-> In Maintenance mode, you need to apply the hotfix first on one controller and then on the other controller.
+> Du måste först installera snabbkorrigeringen på en domänkontrollant och sedan på den andra styrenheten i underhållsläge.
 > 
 > 
 
-1. Place the device into Maintenance mode. See [Step 2: Enter Maintenance mode](../articles/storsimple/storsimple-update-device.md#step2) for instructions on how to enter Maintenance mode.
-2. To apply the hotfix, type:
+1. Placera enheten i underhållsläge. Se [steg 2: Ange underhållsläge](../articles/storsimple/storsimple-update-device.md#step2) instruktioner om hur du anger underhållsläge.
+2. Om du vill installera snabbkorrigeringen, skriver du:
    
      `Start-HcsHotfix` 
-3. When prompted, supply the path to the network shared folder that contains the hotfix files.
-4. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
-5. After you have applied the hotfix on one controller, log on to the other controller. Apply the hotfix as you did for the previous controller.
-6. After the hotfixes are applied, exit Maintenance mode. See [Step 4: Exit Maintenance mode](../articles/storsimple/storsimple-update-device.md#step4) for instructions.
+3. När du uppmanas, ange sökvägen till den delade nätverksmappen som innehåller snabbkorrigeringsfilerna.
+4. Du uppmanas att bekräfta. Typen **Y** att fortsätta med installationen av snabbkorrigeringen.
+5. När du har installerat snabbkorrigeringen på en domänkontrollant, kan du logga in på den andra styrenheten. Installera snabbkorrigeringen som du skapade tidigare domänkontrollant.
+6. Avsluta underhållsläget när snabbkorrigeringarna tillämpas. Se [steg 4: avsluta underhållsläget](../articles/storsimple/storsimple-update-device.md#step4) anvisningar.
 

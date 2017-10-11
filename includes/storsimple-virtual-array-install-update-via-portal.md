@@ -1,55 +1,55 @@
 <!--author=alkohli last changed: 11/07/16 -->
 
-#### <a name="to-install-updates-via-the-azure-portal"></a>To install updates via the Azure portal
+#### <a name="to-install-updates-via-the-azure-portal"></a>Installera uppdateringar via Azure Portal
 
-1. Go to your StorSimple Device Manager and select **Devices**. From the list of devices connected to your service, select and click the device you want to update. 
+1. Gå till din StorSimple-enhetshanterare och välj **Enheter**. Välj i listan över enheter som är anslutna till tjänsten och klicka på den enhet som du vill uppdatera. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
 
-2. In the **Settings** blade, click **Device updates**. 
+2. I bladet **Inställningar** klickar du på **Enhetsuppdateringar**. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate2m.png)  
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate2m.png)  
 
-3. You see a message if the software updates are available. To check for updates, you can also click **Scan**.
+3. Du ser ett meddelande om programuppdateringar är tillgängliga. Du kan också klicka på **Scan** (Sök).
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m.png)
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate3m.png)
 
-    You will be notified when the scan starts and completes successfully.
+    Du meddelas när genomsökningen startar och slutförs.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate5m.png)
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate5m.png)
 
-4. Once the updates are scanned, click **Download updates**. 
+4. När uppdateringarna har genomsökts klickar du på alternativet för att **hämta uppdateringar**. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate6m.png)
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate6m.png)
 
-5. In the **New updates** blade, review the information that after the updates are downloaded, you need to confirm the installation. Click **OK**.
+5. På bladet **Nya uppdateringar** går du igenom informationen som kommer när uppdateringarna har hämtats, och du måste bekräfta installationen. Klicka på **OK**.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate7m.png)
 
-6. You are notified when the upload starts and completes successfully.
+6. Du meddelas när överföringen startar och slutförs.
 
-     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate8m.png)
+     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate8m.png)
 
-5. In the **Device updates** blade, click **Install**.
+5. På bladet **Enhetsuppdateringar** klickar du på **Installera**.
 
-     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
+     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
 
-6. In the **New updates** blade, you are warned that the update is disruptive. As virtual array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click **OK** to install the updates. 
+6. På bladet **Nya uppdateringar** får du en varning om att uppdateringen är störande. En virtuell matris är en enhet med en enda nod. Enheten startas om när den har uppdaterats. Detta avbryter pågående IO. Klicka på **OK** för att installera uppdateringarna. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate12m.png) 
 
-7. You are notified when the install job starts. 
+7. Du får ett meddelande när installationen startar. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate13m.png)
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate13m.png)
 
-8.  After the install job completes successfully, click **View Job** link in the **Device updates** blade to monitor the installation. 
+8.  När installationen är klar klickar du på länken **Visa jobb** på bladet **Enhetsuppdateringar** för att övervaka installationen. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m.png)
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate15m.png)
 
-    This takes you to the **Install Updates** blade. You can view detailed information about the job here.
+    Du kommer då till bladet **Installera uppdateringar**. Du kan visa detaljerad information om jobbet här.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
 
-9. After the updates are successfully installed, you see a message to this effect in the Device updates blade. The software version also changes to **10.0.10288.0**. 
+9. När uppdateringarna har installerats, visas ett meddelande detta i bladet enheten uppdateringar. Programvaruversionen ändras till **10.0.10288.0**. 
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)
+    ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)

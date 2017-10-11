@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: sv-se
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Ansluta säkerhetsprodukter till säkerhets- och granskningslösningen i Operations Management Suite (OMS) 
 Det här dokumentet beskriver hur du ansluter dina säkerhetsprodukter till säkerhets- och granskningslösningen i OMS. Följande källor stöds:
@@ -64,7 +63,7 @@ På agentdatorn måste händelserna skickas från syslog-daemon till den lokala 
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Hämta filen *security_events.conf* och placera den i */etc/opt/microsoft/omsagent/conf/omsagent.d/* på OMS-agentdatorn.
-4. Skriv kommandot nedan för att starta om syslog-daemon:  *För syslog-ng kör du:*
+4. Skriv kommandot nedan för att starta om daemon för syslog: *för syslog-ng kör:*
     
     ```
     sudo service rsyslog restart
@@ -113,5 +112,4 @@ I det här dokumentet har du lärt dig hur du ansluter din CEF-lösning till OMS
 * [Översikt över Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Övervaka och svara på säkerhetsaviseringar i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-responding-alerts.md)
 * [Övervaka resurser i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-monitoring-resources.md)
-
 

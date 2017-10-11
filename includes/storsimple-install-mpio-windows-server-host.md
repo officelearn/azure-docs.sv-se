@@ -1,25 +1,25 @@
-#### <a name="to-install-mpio-on-the-host"></a>To install MPIO on the host
-1. Open Server Manager on your Windows Server host. By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012. If the Server Manager is not already open, click **Start > Server Manager**.
+#### <a name="to-install-mpio-on-the-host"></a>Installera MPIO på värden
+1. Öppna Serverhanteraren på Windows Server-värd. Serverhanteraren startar som standard när en medlem i gruppen Administratörer loggar in på en dator som kör Windows Server 2012 R2 eller Windows Server 2012. Om Serverhanteraren inte redan är öppen klickar du på **Start > Serverhanteraren**.
    
-    ![Server Manager](./media/storsimple-install-mpio-windows-server/IC740997.png)
-2. Click **Server Manager > Dashboard > Add roles and features**. This starts the **Add Roles and Features** wizard.
+    ![Serverhanteraren](./media/storsimple-install-mpio-windows-server/IC740997.png)
+2. Klicka på **Serverhanteraren > instrumentpanelen > Lägg till roller och funktioner**. Detta startar den **Lägg till roller och funktioner** guiden.
    
-    ![Add Roles And Features Wizard 1](./media/storsimple-install-mpio-windows-server/IC740998.png)
-3. In the **Add Roles and Features** wizard, do the following:
+    ![Guiden Lägg till roller och funktioner 1](./media/storsimple-install-mpio-windows-server/IC740998.png)
+3. I den **Lägg till roller och funktioner** guiden gör du följande:
    
-   * On the **Before you begin** page, click **Next**.
-   * On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation. Click **Next**.
+   * På den **innan du börjar** klickar du på **nästa**.
+   * På den **Välj installationstyp** godkänner du standardinställningen **rollbaserad eller funktionsbaserad** installation. Klicka på **Nästa**.
      
-       ![Add Roles And Features Wizard 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
-   * On the **Select destination server** page, choose **Select a server from the server pool**. Your host server should be discovered automatically. Click **Next**.
-   * On the **Select server roles** page, click **Next**.
-   * On the **Select features** page, select **Multipath I/O**, and click **Next**.
+       ![Guiden Lägg till roller och funktioner 2](./media/storsimple-install-mpio-windows-server/IC740999.png)
+   * På den **väljer målservern** väljer **Välj en server från serverpoolen**. Värdservern bör identifieras automatiskt. Klicka på **Nästa**.
+   * På den **Välj serverroller** klickar du på **nästa**.
+   * På den **Välj funktioner** väljer **Multipath i/o**, och klicka på **nästa**.
      
-       ![Add Roles And Features Wizard 5](./media/storsimple-install-mpio-windows-server/IC741000.png)
-   * On the **Confirm installation selections** page, confirm the selection and then select **Restart the destination server automatically if required**, as shown below. Click **Install**.
+       ![Guiden Lägg till roller och funktioner 5](./media/storsimple-install-mpio-windows-server/IC741000.png)
+   * På den **Bekräfta installationsinställningarna** bekräftar valet och välj sedan **starta om målservern automatiskt om det behövs**, enligt nedan. Klicka på **Installera**.
      
-       ![Add Roles And Features Wizard 8](./media/storsimple-install-mpio-windows-server/IC741001.png)
-   * You will be notified when the installation is complete. Click **Close** to close the wizard.
+       ![Guiden Lägg till roller och funktioner 8](./media/storsimple-install-mpio-windows-server/IC741001.png)
+   * Du meddelas när installationen är klar. Stäng guiden genom att klicka på **Stäng**.
      
-       ![Add Roles And Features Wizard 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
+       ![Guiden Lägg till roller och funktioner 9](./media/storsimple-install-mpio-windows-server/IC741002.png)
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
-ms.openlocfilehash: 6af6c10cef317453131197db74a9380518afadf0
-ms.lasthandoff: 12/02/2016
-
-
+ms.openlocfilehash: 3b6327b1f5150f32afd71639f32c55d823f1d1f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Datasäkerhet i säkerhets- och granskningslösningen i Operations Management Suite
 [Säkerhets- och granskningslösningen i Operations Management Suite (OMS)](operations-management-suite-overview.md) hjälper dig att förhindra, upptäcka och svara på hot genom att samla in och bearbeta data om dina resurser, inklusive:
@@ -59,5 +58,4 @@ I det här dokumentet har du lärt dig hur data hanteras och skyddas i OMS. Mer 
 * [Översikt över Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Övervaka och svara på säkerhetsaviseringar i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-responding-alerts.md)
 * [Övervaka resurser i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-monitoring-resources.md)
-
 

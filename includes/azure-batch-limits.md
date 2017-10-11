@@ -1,19 +1,19 @@
-| **Resource** | **Default Limit** | **Maximum Limit** |
+| **Resurs** | **Standardgräns** | **Övre gräns** |
 | --- | --- | --- |
-| Batch accounts per region per subscription | 3 |50 |
-| Dedicated cores per Batch account (Batch service mode)<sup>1</sup> | 20 | N/A<sup>2</sup> |
-| Low-priority cores per Batch account (Batch service mode)<sup>3</sup> | 50 | N/A<sup>4</sup> |
-| Active jobs and job schedules<sup>5</sup> per Batch account | 20 | 5000<sup>6</sup> |
-| Pools per Batch account | 20 | 2500 |
+| Batch-konton per region per prenumeration | 3 |50 |
+| Dedikerad kärnor per Batch-kontot (service batchläge)<sup>1</sup> | 20 | EJ TILLÄMPLIGT<sup>2</sup> |
+| Låg prioritet kärnor per Batch-kontot (service batchläge)<sup>3</sup> | 50 | EJ TILLÄMPLIGT<sup>4</sup> |
+| Aktiva jobb och jobbscheman<sup>5</sup> per Batch-kontot | 20 | 5000<sup>6</sup> |
+| Pooler per Batch-konto | 20 | 2500 |
 
-<sup>1</sup> Dedicated core quotas shown are only for accounts with pool allocation mode set to **Batch service**. For accounts with the mode set to **user subscription**, core quotas are based on the VM cores quota at a regional level or per VM family in your subscription.
+<sup>1</sup> dedikerade core kvoter som visas är endast för konton med poolen allokering läge värdet **Batch-tjänsten**. Konton med läget inställd på **användarens prenumeration**, core kvoter baseras på VM kärnor kvoten på regional nivå eller per VM familj i din prenumeration.
 
-<sup>2</sup> The number of dedicated cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
+<sup>2</sup> kan du öka antalet dedicerade kärnor per Batch-kontot, men det maximala antalet är okänt. Kontakta Azure-supporten att diskutera öka alternativ.
 
-<sup>3</sup> Low-priority core quotas shown are only for accounts with pool allocation mode set to **Batch service**. Low-priority cores are not available for accounts with pool allocation mode set to **user subscription**.
+<sup>3</sup> låg prioritet core kvoter som visas är endast för konton med poolen allokering läge värdet **Batch-tjänsten**. Låg prioritet kärnor är inte tillgängliga för konton med poolen allokering läge värdet **användarens prenumeration**.
 
-<sup>4</sup> The number of low-priority cores per Batch account can be increased, but the maximum number is unspecified. Contact Azure support to discuss increase options.
+<sup>4</sup> kan du öka antalet låg prioritet kärnor per Batch-kontot, men det maximala antalet är okänt. Kontakta Azure-supporten att diskutera öka alternativ.
 
-<sup>5</sup> Completed jobs and job schedules are not limited.
+<sup>5</sup> slutförda jobb och jobbscheman begränsas inte.
 
-<sup>6</sup> Contact Azure support if you want to request an increase beyond this limit.
+<sup>6</sup> kontakta Azure-supporten om du vill begära en denna gräns.

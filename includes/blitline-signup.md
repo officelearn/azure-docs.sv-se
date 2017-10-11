@@ -1,30 +1,30 @@
 
-### <a name="to-sign-up-for-a-blitline-account"></a>To sign up for a Blitline account
-1. Log in to the [Azure Management Portal](https://manage.windowsazure.com/).
-2. In the lower pane of the management portal, click **New**.
+### <a name="to-sign-up-for-a-blitline-account"></a>Registrera dig för ett konto för Blitline
+1. Logga in på den [Azure-hanteringsportalen](https://manage.windowsazure.com/).
+2. I rutan längst ned i hanteringsportalen klickar du på **ny**.
    
     ![command-bar-new][command-bar-new]
-3. Click **Store**.
+3. Klicka på **Store**.
    
-    ![blitline-store][blitline-store]
-4. In the **Choose an Add-on** dialog, select **Blitline** and click the right arrow.
-5. In the **Personalize Add-on** dialog select the **Blitline** plan you want to sign up for.
-6. Enter a name to identify your **Blitline** service in your Azure settings, or use the default value of **Blitline**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+    ![blitline store][blitline-store]
+4. I den **välja ett tillägg** markerar **Blitline** och klicka på högerpilen.
+5. I den **anpassa tillägg** dialogrutan Välj den **Blitline** plan som du vill registrera dig för.
+6. Ange ett namn som identifierar din **Blitline** -tjänsten i din Azure-inställningar, eller använd standardvärdet **Blitline**. Namnet måste vara mellan 1 och 100 tecken långt och får bara innehålla alfanumeriska tecken, bindestreck, punkter och understreck. Namnet måste vara unikt i listan med de objekt du prenumererar på i Azure Store.
    
-    ![store-screen-1][store-screen-1]
-7. Choose a value for the region; for example, West US. 
-8. Click the right arrow.
-9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your Blitline account will begin the provisioning process. 
+    ![store-skärmen-1][store-screen-1]
+7. Välj ett värde för regionen. till exempel USA, västra. 
+8. Klicka på pilen till höger.
+9. På den **granska inköp** fliken granskar planen och information om priser och granska de juridiska villkoren. Klicka på bockmarkeringen om du samtycker till villkoren. När du klickar på kryssmarkeringen börjar kontot Blitline etableringsprocessen. 
 
-To use Blitline you need to have your Application ID.
+Om du vill använda Blitline måste du ha ditt program-ID.
 
-### <a name="to-find-your-blitline-application-id"></a>To find your Blitline Application ID
-1. Click **Connection Info**.
+### <a name="to-find-your-blitline-application-id"></a>Hitta din Blitline program-ID
+1. Klicka på **anslutningsinformation**.
    
-    ![blitline-connection-info-button][blitline-connection-info-button]
-2. In the *Connection info* dialog, you can see your Application ID
+    ![blitline-anslutning-info-knappen][blitline-connection-info-button]
+2. I den *anslutningsinformation* dialogrutan kan du se program-ID
    
-    ![blitline-connection-info][blitline-connection-info]
+    ![blitline anslutningsinformation][blitline-connection-info]
 
 <!--images-->
 

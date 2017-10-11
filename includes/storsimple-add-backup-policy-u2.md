@@ -23,8 +23,3 @@
 
 Den nyligen tillagda principen visas i tabellvyn på sidan **Principer för säkerhetskopiering**.
 
-
-
-<!--HONumber=Jan17_HO4-->
-
-

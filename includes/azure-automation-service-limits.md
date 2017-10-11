@@ -1,10 +1,10 @@
-| Resource | Maximum Limit |
+| Resurs | Övre gräns |
 | --- | --- |
-| Max number of new jobs that can be submitted every 30 seconds per Automation Account (non Scheduled jobs) |100 |
-| Max number of concurrent running jobs at the same instance of time per Automation Account (non Scheduled jobs) |200 |
-| Max number of modules that can be imported every 30 seconds per Automation Account |5 |
-| Max size of a Module |100 MB |
-| Job Run Time - Free tier |500 minutes per subscription per calendar month |
-| Max amount of memory given to a job |400 MB |
-| Max number of network sockets allowed per job |1000 |
+| Högsta antal nya jobb som kan skickas med 30 sekunders mellanrum per Automation-konto (icke schemalagda jobb) |100 |
+| Högsta antal samtidiga jobb som körs på samma instans av tid per Automation-konto (icke schemalagda jobb) |200 |
+| Max antal moduler som kan importeras var 30: e sekund per Automation-konto |5 |
+| Maxstorlek på en modul |100 MB |
+| Jobbet Runtime - kostnadsfri nivå |500 minuter per prenumeration per månad |
+| Högsta mängd minne som tilldelas ett jobb |400 MB |
+| Högsta antal nätverk sockets tillåts per jobb |1000 |
 

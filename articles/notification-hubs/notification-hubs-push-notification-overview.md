@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs
-description: "Lär dig använda push-meddelanden i Azure. Kodexempel som skrivits i C# med hjälp av .NET-API."
+description: "Lär dig hur du lägger till funktioner för push-meddelanden med Azure Notification Hubs."
 author: ysxu
 manager: erikre
 editor: 
@@ -11,92 +11,104 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
-ms.topic: hero-article
-ms.date: 08/25/2016
+ms.topic: article
+ms.date: 1/17/2017
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: 005d2fb2bce7e42d1ce961b90610b16f299abfd0
-
-
+ms.openlocfilehash: a1be0b13cd1feb582a23965df142e44d90ac6851
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs"></a>Azure Notification Hubs
 ## <a name="overview"></a>Översikt
-Azure Notification Hubs innehåller en lättanvänd och utskalad push-infrastruktur som kan användas för en rad olika plattformar. Med hjälp av dessa kan du skicka mobila push-meddelanden från alla serverdelar (i molnet eller lokalt) till alla mobila plattformar.
+Azure Notification Hubs ger dig ett enkelt att använda flera plattformar, skalats ut push-motorn. Med en enda plattformsoberoende API-anrop som skicka du enkelt riktade och anpassade push-meddelanden till alla mobila plattformar från alla serverdelar för molnet eller lokalt.
 
-Med Notification Hubs kan du enkelt skicka plattformsoberoende, skräddarsydda push-meddelanden genom att abstrahera information från olika plattformsspecifika meddelandesystem (PNS). Med ett enda API-anrop kan du rikta in dig på enskilda användare eller hela målgruppssegment som innehåller miljontals användare, oavsett vad de använder för enheter.
+Notification Hubs fungerar bra för enterprise-och konsumentscenarier. Här följer några exempel som kunder använder Notification Hubs för:
 
-Du kan använda Notification Hubs för både företags- och konsumentscenarier. Några exempel:
-
-* Skicka meddelanden med de senaste nyheterna till miljoner användare med kort svarstid (Notification Hubs ger stöd för Bing-appar som finns förinstallerade i alla Windows-operativsystem och i Windows Phone-enheter).
-* Skicka platsbaserade kuponger till användarsegment.
-* Skicka händelsemeddelanden till användare eller grupper med sport-/ekonomi-/spelappar.
-* Meddela användare om företagshändelser, till exempel nya meddelanden/mejl och säljleads.
-* Skicka engångslösenord som krävs för Multi-Factor Authentication.
+* Skicka meddelanden för senaste nyheterna till miljoner användare med låg latens.
+* Skicka platsbaserade kuponger till användarsegment intresserad av.
+* Skicka händelse-relaterade meddelanden till användare eller grupper för media/sport/ekonomi/spelappar.
+* Skicka erbjudanden innehållet till appar engagera och marknadsföra till kunder.
+* Meddela användare om företagshändelser, till exempel nya meddelanden och arbetsobjekt.
+* Skicka koder för multifaktorautentisering.
 
 ## <a name="what-are-push-notifications"></a>Vad är push-meddelanden?
-Smartmobiler och surfplattor kan ”avisera” användare när en händelse inträffar. Dessa meddelanden förekommer i en rad olika former.
+Push-meddelanden är en typ av app-till-användare kommunikation där användare av mobila appar meddelas av vissa önskad information, vanligtvis i ett popup-fönster eller dialogruta. Användare kan vanligtvis välja att visa eller stänga meddelandet och välja den förra öppnas mobilappen som har kommunicerat meddelandet.
 
-I Windows Store- och Windows Phone-appar kan aviseringar göras via ett *popup-meddelande*: ett lägeslöst fönster visas, med ljud, för att signalera att ett nytt meddelande tagits emot. Andra aviseringstyper som kan användas är meddelanden av typerna *ikon*, *rådata* och *aktivitetsikon*. Se [Paneler, aktivitetsikoner och meddelanden](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx) för mer information om vilka typer av aviseringar som stöds av Windows-enheterna.
+Push-meddelanden är mycket viktigt för konsumentappar öka användarna och användning och företagsappar vid kommunikationen uppdaterade affärsinformation. Det är bäst app-till-användare kommunikation eftersom den är energi sparas för mobila enheter, flexibla för meddelanden-avsändare och är tillgängliga när motsvarande appar inte är aktiva.
 
-På Apple iOS-enheter görs aviseringar med push-funktionen på ett liknande sätt via en dialogruta där användaren uppmanas öppna eller stänga meddelandet. Om du klickar på **Visa** öppnas den app som tar emot meddelandet. Se [iOS-meddelanden](http://go.microsoft.com/fwlink/?LinkId=615245) för mer information om aviseringar i iOS.
-
-Push-meddelanden kan användas av mobila enheter för att visa uppdaterad information samtidigt som energi sparas. Meddelanden kan skickas av serverdelssystem för mobila enheter även om apparna i fråga inte är aktiva på enheterna. Push-meddelanden är en mycket viktig komponent för konsumentappar, där de används för att göra användarna mer aktiva och öka användningen av apparna. Meddelanden är också användbara för företag eftersom uppdaterad information ökar medarbetarnas svarsförmåga vad gäller affärshändelser.
-
-Några exempel på specifika scenarier med Mobile Engagement är:
-
-1. En panel i Windows 8 eller på Windows Phone uppdateras med aktuell ekonomisk information.
-2. En användare meddelas via ett popup-meddelande att han eller hon har tilldelats vissa arbetsobjekt i en arbetsflödesbaserad företagsapp.
-3. En aktivitetsikon med det aktuella antalet säljleads i en CRM-app (till exempel Microsoft Dynamics CRM) visas.
+Mer information om push-meddelanden för några populära plattformar:
+* [iOS](https://developer.apple.com/notifications/)
+* [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
+* [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>Så här fungerar push-meddelandena
-Push-meddelanden levereras via plattformsspecifika infrastrukturer som kallas för *plattformsspecifika meddelandesystem* (Platform Notification Systems, PNS). Ett PNS-system har barebones-funktioner (det vill säga, det har inget stöd för sändning eller anpassning) och det har inget gemensamt gränssnitt. Om du som exempel vill skicka ett meddelande till en Windows Store-app, måste en utvecklare kontakta WNS (Windows Notification Service). Om du vill skicka ett meddelande till en iOS-enhet, måste samma utvecklare kontakta APNS (Apple Push Notification Service) och skicka meddelandet en andra gång. Azure Notification Hubs gör processen enklare genom att tillhandahålla ett gemensamt gränssnitt, tillsammans med andra funktioner som stöder push-meddelanden för en rad olika plattformar.
+Push-meddelanden levereras via plattformsspecifika infrastrukturer som kallas *plattformsspecifika meddelandesystem* (PNSes). De erbjuder barebone push-funktioner för leverans av meddelande till en enhet med en angiven hanteras och har inga gemensamt gränssnitt. Om du vill skicka ett meddelande till alla kunder över iOS, Android och Windows måste versioner av en app, utvecklaren arbeta med APNS (Apple Push Notification Service), FCM (Firebase Cloud Messaging) och WNS (Windows Notification Service) när skickar batchbearbetning.
 
-Men på en hög nivå följer alla plattformsspecifika meddelandesystem samma mönster:
+På en hög nivå fungerar här så push:
 
-1. Klientappen kontaktar PNS-systemet för att hämta dess *handtag*. Handtagstypen varierar beroende på vilket system som används. För WNS är det en URI, eller ”meddelandekanal”. För APNS är det en token.
-2. Klientappen lagrar detta handtag i appens *serverdel* för senare användning. För WNS är serverdelen normalt en tjänst i molnet. För Apple kallas systemet för en *provider*.
-3. För att skicka ett push-meddelande kontaktar appens serverdel PNS-systemet genom att använda handtaget för att rikta in sig på en specifik klientappinstans.
+1. Klientappen beslutar den vill ta emot push-meddelanden därför kontaktar motsvarande pns-systemet för att hämta dess unika och tillfällig push-referensen. Handtagstypen varierar beroende på systemet (t.ex. WNS har URI: er när APN har token).
+2. Klientappen lagrar detta handtag i appens serverdel eller leverantören.
+3. Om du vill skicka ett push-meddelande kontaktar appens serverdel pns-systemet genom att använda handtaget välja en viss klient-app.
 4. PNS-systemet vidarebefordrar meddelandet till den enhet som anges av handtaget.
 
 ![][0]
 
 ## <a name="the-challenges-of-push-notifications"></a>Utmaningarna med push-meddelanden
-Även om dessa system är mycket kraftfulla krävs det ändå mycket arbete av apputvecklaren för att implementera även de mest grundläggande scenarierna för push-meddelanden, som att sända eller skicka ut push-meddelanden till segment av användare.
+PNSes är kraftfulla, lämna de mycket arbete av apputvecklaren för att implementera även vanliga push notification scenarier, till exempel sända eller skicka push-meddelanden till segmenterade användare.
 
-Push-meddelanden är en av de mest efterfrågade funktionerna i molntjänster för mobila appar. Anledningen är att den infrastruktur som krävs för att göra så att de fungerar är ganska komplex och till stor del saknar samband med den huvudsakliga affärslogiken i appen. Några av utmaningarna med att bygga en push-infrastruktur av typen på begäran är:
+Push är ett av de mest efterfrågade funktionerna i mobila molntjänster, eftersom dess fungerande kräver komplexa infrastrukturer som är relaterade till appens huvudsakliga affärslogiken. Några av de infrastrukturella utmaningarna är:
 
-* **Plattformsberoende.** För att kunna skicka meddelanden till enheter på olika plattformar, måste flera gränssnitt kodas in i serverdelen. Det är inte bara lågnivåinformationen som skiljer sig åt, utan även presentationen av aviseringarna (panel, popup-meddelande eller aktivitetsikon) är plattformsberoende. Dessa skillnader kan leda till att man får en komplex serverdelskod som är svår att underhålla.
-* **Skala.** Skalningen av denna infrastruktur består av två delar:
+* **Plattformsberoende**: 
 
-  * Enligt PNS-riktlinjerna måste enhetstoken uppdateras varje gång appen startas. Detta leder till att det krävs en stor mängd trafik (och databasåtkomst till följd av detta) bara för att hålla dessa enhetstoken uppdaterade. När antalet enheter växer och blir fler (det kan röra sig om miljontals), blir kostnaden för att skapa och hantera den här infrastrukturen långt ifrån försumbar.
-  * De flesta PNS-system kan inte användas för att sända meddelanden till flera enheter. Detta gör att en sändning till miljontals enheter även kräver miljontals anrop till PNS-system. Att kunna skala dessa förfrågningar är inget litet jobb eftersom apputvecklare vanligtvis vill hålla nere den totala svarstiden. Den sista enhet som tar emot meddelandet bör som exempel inte ta emot meddelandet 30 minuter efter att meddelandet har skickats; detta för att det i många fall skulle motverka själva syftet med push-meddelandena.
-* **Routning.** PNS-system ger dig ett sätt att skicka meddelanden till en enhet. I de flesta appar riktas dock meddelandena till vissa användare och/eller intressegrupper (till exempel alla medarbetare som arbetar med ett visst kundkonto). På grund av detta, och för att kunna dirigera (route) meddelandena till rätt enheter, måste appens serverdel upprätthålla ett register som associerar intressegrupper med enhetstoken. Det här arbetet gör att det tar ännu längre tid att få ut en app på marknaden och att den totala underhållskostnaden ökar.
+  * Serverdelen måste ha komplexa och svårt att underhålla plattformsberoende logik för att skicka meddelanden till enheter på olika plattformar som PNSes inte finns unified.
+* **Skala**:
+
+  * Enligt PNS-riktlinjerna måste enhetstoken uppdateras vid varje appen startas. Det innebär att serverdelen gäller en stor mängd trafik och databasen åtkomst bara för att hålla token uppdaterade. När antalet enheter växer hundratals och tusentals miljoner är kostnaden för att skapa och underhålla infrastrukturen omfattande.
+  * De flesta PNSes stöder inte sändning till flera enheter. Detta innebär en enkel sändning till en miljoner enheter resulterar i en miljon anrop till PNSes. Den här mängden trafik skalning med minimal svarstid är apputvecklarna.
+* **Routning**:
+  
+  * Även om PNSes ger dig ett sätt att skicka meddelanden till enheter, riktas meddelanden för de flesta appar användare eller intressegrupper. Det innebär att serverdelen måste upprätthålla ett register för att koppla enheter till intressegrupper, användare, egenskaper och så vidare. Det här arbetet lägger till tid till marknaden och underhåll kostnader för en app.
 
 ## <a name="why-use-notification-hubs"></a>Varför bör du använda Notification Hubs?
-Notification Hubs gör saker och ting mycket enklare. Du behöver inte hantera de utmaningar som push-meddelandena ställer dig inför. Du kan i stället använda en Notification Hub. Notification Hubs använder en komplett multiplattform, med en utskalad infrastruktur för push-meddelanden, och ger en betydligt mindre push-specifik kod som körs i appens serverdel. Notification Hubs har alla funktioner som en push-infrastruktur behöver. Enheterna används enbart för att registrera PNS-handtag. Det är serverdelen som sköter sändandet av plattformsoberoende meddelanden till användare eller intressegrupper, så som visas på följande bild:
+Notification Hubs eliminerar alla svårigheter som är associerade med att aktivera push din egen. Dess flera plattformar, skalats ut push-infrastruktur minskar push-relaterade koder och förenklar din serverdel. Med Notification Hubs är enheter bara ansvarar för att registrera sina PNS-handtag med ett nav, medan serverdelen skickar meddelanden till användare eller intressegrupper, enligt följande bild:
 
 ![][1]
 
-Notification Hubs ger dig en push-infrastruktur som är färdig att användas och som har följande fördelar:
+Meddelandehubbar är färdiga att använda push-motorn har följande fördelar:
 
-* **Flera plattformar.**
+* **Mellan olika plattformar**
 
-  * Stöd för alla större mobila plattformar. Notification Hubs kan skicka push-meddelanden till appar för Windows Store, iOS, Android och Windows Phone.
-  * Notification Hubs ger dig ett gemensamt gränssnitt för att skicka meddelanden till alla plattformar som stöds. Det krävs inga plattformsspecifika protokoll. Appens serverdel kan skicka meddelanden i plattformsspecifika eller plattformsoberoende format. Appen kommunicerar bara med Notification Hubs.
-  * Hantering av enhetshandtag. Notification Hubs underhåller handtagsregistret och feedbacken från PNS-systemen.
-* **Fungerar med alla serverdelar**: I molnet eller lokalt, .NET, PHP, Java, Node o.s.v.
-* **Skala.** Notification Hubs kan skalas för miljoner enheter utan att du behöver ändra arkitekturen eller fragmentera.
+  * Stöd för alla större push-plattformar, inklusive iOS, Android, Windows, och Kindle och Baidu.
+  * Ett gemensamt gränssnitt till push för alla plattformar i plattformsspecifika eller plattformsoberoende format med inga plattformsspecifika arbete.
+  * Enheten hantera på ett ställe.
+* **Mellan serverdelar**
+  
+  * Molnet eller lokalt
+  * .NET, Node.js, Java och så vidare.
 * **Stor uppsättning av leveransmönster**:
 
-  * *Sändning*: Gör att du kan utföra en nästan simultan sändning till miljoner enheter med ett enda API-anrop.
-  * *Unicast/Multicast*: Push-överföring till taggar som representerar enskilda användare, inklusive alla deras enheter, eller till en större grupp, till exempel separata formfaktorer (surfplattor kontra smartmobiler).
-  * *Segmentering*: Push-överföring till komplexa segment som definieras av tagguttryck (till exempel, enheter i New York som följer The Yankees).
+  * *Sändning till en eller flera plattformar*: du kan direkt sändning till miljoner enheter på plattformar med ett enda API-anrop.
+  * *Push-installera enheten*: du kan rikta meddelanden till enskilda enheter.
+  * *Push till användaren*: taggar och mallar funktionerna kan du nå alla plattformar enheter av en användare.
+  * *Push-segmentet med dynamiska taggar*: taggfunktionen hjälper dig att segment enheter och push till dem efter dina behov om du skickar till ett segment eller ett uttryck med segment (t.ex. active och liv i Seattle inte nya användare). I stället för att vara begränsade till pub-sub, kan du uppdatera enheten taggar var som helst och när som helst.
+  * *Lokaliserade push*: mallfunktionen kan uppnå lokalisering utan att detta påverkar serverdelskoden.
+  * *Tyst push*: möjliggör push-pull-mönster genom att skicka tyst meddelanden till enheter och utlösa dem för att slutföra vissa hämtar eller åtgärder.
+  * *Schemalagda push*: du kan schemalägga för att skicka meddelanden när som helst.
+  * *Direct push*: du kan hoppa över registrera enheter med vår tjänst och direkt batch push till en lista över enhetshandtag.
+  * *Anpassade push*: enheten push-variabler kan du skicka enhetsspecifika personliga push-meddelanden med anpassade nyckel-värdepar.
+* **Effektiv telemetri**
+  
+  * Allmän push, enhet, fel och åtgärden telemetri är tillgängligt i Azure-portalen och genom programmering.
+  * Spårar varje push per meddelande telemetri från första begärandeanrop till vår tjänst har batchbearbetning push-meddelanden ut.
+  * Platform Notification System Feedback kommunicerar alla feedback från Platform Notification Systems hjälp vid felsökning.
+* **Skalbarhet** 
+  
+  * Skicka snabb meddelanden till miljontals enheter utan att behöva bygga om eller enhet horisontell partitionering.
+* **Säkerhet**
 
-    Varje enhet kan ange en eller flera *tagg* när du skickar dess handtag till en meddelandehubb. Följ länken för mer information om [tagg](http://msdn.microsoft.com/library/azure/dn530749.aspx). Taggar måste inte etableras i förväg eller placeras. Taggar ger dig ett enkelt sätt att skicka meddelanden till användare eller intressegrupper. Eftersom taggar kan innehålla alla typer av appspecifika identifierare (som användar- eller grupp-ID:n), gör användningen av dem att belastningen på appens serverdel reduceras eftersom den inte behöver lagra och hantera enhetshandtag.
-* **Anpassning**: Varje enhet kan ha en eller flera mallar för att kunna använda lokalisering per enhet och anpassning utan att detta påverkar serverdelskoden.
-* **Säkerhet**: SAS (Shared Access Secret) eller federerad autentisering.
-* **Effektiv telemetri**: Tillgänglig i portalen och genom programmering.
+  * Delad hemlighet av åtkomst (SAS) eller federerad autentisering.
 
 ## <a name="integration-with-app-service-mobile-apps"></a>Integrering med Mobilappar i Apptjänst
 För att underlätta för en sömlös och enhetlig användarupplevelse av alla Azure-tjänster har [App Service Mobile Apps] inbyggt stöd för push-meddelanden som skickas via Notification Hubs. [App Service Mobile Apps] är en mycket skalbar, globalt tillgänglig plattform för mobilappsutveckling tänkt att användas av utvecklare av företagsprogram och systemintegrerare. Den ger mobilutvecklare tillgång till ett stort utbud av funktioner.
@@ -104,31 +116,26 @@ För att underlätta för en sömlös och enhetlig användarupplevelse av alla A
 Utvecklare av mobilappar kan utnyttja Notification Hubs med följande arbetsflöde:
 
 1. Hämta PNS-handtag för enheter
-2. Registrera enhet och [mallar] med Notification Hub via en praktisk registrering med API för klient-SDK:er i Mobile Apps
+2. Registrera enheten med Notification Hub via lämplig Mobile Apps klient-SDK registrera API
    * Observera att Mobile Apps av säkerhetsskäl tar bort alla taggar vid registreringen. Arbeta med Notification Hubs direkt från din serverdel för att associera taggar med enheter.
 3. Skicka meddelanden från din apps serverdel med Notification Hubs
 
 Här är några av de fördelar som utvecklarna får tack vare den här integreringen:
 
-* **Klient-SDK:er för Mobile Apps** Dessa SDK:er för flera plattformar ger dig enkla API:er för att registrera och tala med den meddelandehubb som har länkats till mobilappen automatiskt. Utvecklare behöver inte gräva djupt bland autentiseringsuppgifterna för Notification Hubs eller arbeta med en ytterligare tjänst.
+* **Mobile Apps klient-SDK:**: dessa SDK: er med flera plattformar ger enkla API: er för registrering och tala med den meddelandehubb som har länkats till mobilappen automatiskt. Utvecklare behöver inte gräva djupt bland autentiseringsuppgifterna för Notification Hubs eller arbeta med en ytterligare tjänst.
 
-  * SDK:erna taggar en given enhet automatiskt med ett autentiserat användar-ID för Mobile Apps och aktiverar på så vis ett scenario för push-till-användare.
-  * SDK:erna använder automatiskt installations-ID:t för Mobile Apps som GUID för att registrera med Notification Hubs vilket gör att utvecklarna slipper upprätthålla flera olika GUID-tjänster.
-* **Installationsmodell.** Mobile Apps fungerar tillsammans med Notification Hubs senaste push-modell för att representera alla push-egenskaper som är kopplade till en enhet i en JSON-installation. Denna kopplas samman med Push Notification Services och är enkel att använda.
-* **Flexibilitet.** Utvecklare kan alltid välja att arbeta direkt med Notification Hubs, även om integrationen redan är på plats.
-* **Integrerad upplevelse i [Azure-portalen].** Push som en funktion är visuellt återgiven i Mobile Apps och utvecklarna kan enkelt arbeta med den associerade meddelandehubben via Mobile Apps.
+  * *Push till användaren*: I SDK: er automatiskt taggar en given enhet med Mobile Apps autentiserat användar-ID att aktivera Användarscenario-push.
+  * *Push-installera enheten*: I SDK: erna använder automatiskt installations-ID för Mobile Apps som GUID för att registrera med Notification Hubs, spara utvecklarna slipper upprätthålla flera olika GUID-tjänster.
+* **Installationsmodell**: Mobile Apps fungerar med Notification Hubs senaste push-modell för att representera alla push-egenskaper som är kopplade till en enhet i en JSON-Installation som överensstämmer med Push Notification Services och är enkel att använda.
+* **Flexibilitet**: utvecklare kan alltid välja att arbeta direkt med Notification Hubs även med integration på plats.
+* **Integrerad upplevelse i [Azure-portalen]**: Push som en funktion är visuellt återgiven i Mobile Apps och utvecklarna kan enkelt arbeta med den associerade meddelandehubben via Mobile Apps.
 
 ## <a name="next-steps"></a>Nästa steg
 Du hittar mer information om Notification Hubs under följande ämnen:
 
 * **[Hur kunder använder Notification Hubs]**
 * **[Självstudiekurser och guider om Notification Hubs]**
-* **Självstudiekurser av typen Kom igång med Notification Hubs** ([iOS], [Android], [Windows Universal], [Windows Phone], [Kindle], [Xamarin.iOS], [Xamarin.Android])
-
-De relevanta .NET-hanterade API-referenserna för push-meddelanden finns här:
-
-* [Microsoft.WindowsAzure.Messaging.NotificationHub]
-* [Microsoft.ServiceBus.Notifications]
+* **Notification Hubs komma igång Självstudier**: [iOS], [Android], [Windows Universal], [Windows Phone], [Kindle], [Xamarin.iOS], [Xamarin.Android]
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
@@ -144,12 +151,6 @@ De relevanta .NET-hanterade API-referenserna för push-meddelanden finns här:
 [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
 [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
 [App Service Mobile Apps]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
-[mallar]: notification-hubs-templates-cross-platform-push-messages.md
+[templates]: notification-hubs-templates-cross-platform-push-messages.md
 [Azure-portalen]: https://portal.azure.com
-[tagg]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-
+[tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

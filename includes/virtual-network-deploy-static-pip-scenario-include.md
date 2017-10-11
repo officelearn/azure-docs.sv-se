@@ -1,9 +1,9 @@
 ## <a name="scenario"></a>Scenario
-This document will walk through a deployment that uses a static public IP address allocated to a virtual machine (VM). In this scenario, you have a single VM with its own static public IP address. The VM is part of a subnet named **FrontEnd** and also has a static private IP address (**192.168.1.101**) in that subnet.
+Det här dokumentet beskriver via en distribution som använder en statisk offentlig IP-adress tilldelas en virtuell dator (VM). I det här scenariot har du en enda virtuell dator med sin egen statiska offentliga IP-adress. Den virtuella datorn är en del av ett undernät med namnet **klientdel** och även har en statisk privat IP-adress (**192.168.1.101**) i det undernätet.
 
-You may need a static IP address for web servers that require SSL connections in which the SSL certificate is linked to an IP address. 
+Du kan behöva en statisk IP-adress för webbservrar som kräver SSL-anslutningar som SSL-certifikatet är kopplad till en IP-adress. 
 
-![IMAGE DESCRIPTION](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
+![BESKRIVNING AV AVBILDNING](./media/virtual-network-deploy-static-pip-scenario-include/figure1.png)
 
-You can follow the steps below to deploy the environment shown in the figure above.
+Du kan följa stegen nedan för att distribuera miljön visas i bilden ovan.
 

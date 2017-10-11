@@ -1,31 +1,31 @@
-## <a name="set-up-the-development-environment"></a>Set up the development environment
+## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön
 
-This section walks you setting up your development environment, including creating an ASP.NET MVC app, adding a Connected Services connection, adding a controller, and specifying the required namespace directives.
+Det här avsnittet vägleder dig ställa in din utvecklingsmiljö, inklusive att skapa en ASP.NET MVC-app, lägger till en ansluten Services-anslutning, lägger till en domänkontrollant och att ange de nödvändiga namnområde direktiv.
 
-### <a name="create-an-aspnet-mvc-app-project"></a>Create an ASP.NET MVC app project
+### <a name="create-an-aspnet-mvc-app-project"></a>Skapa en ASP.NET MVC-app-projekt
 
-1. Open Visual Studio.
+1. Öppna Visual Studio.
 
-1. Select **File->New->Project** from the main menu
+1. Välj **Arkiv -> Ny -> projekt** från huvudmenyn
 
-1. On the **New Project** dialog, specify the options as highlighted in the following figure:
+1. På den **nytt projekt** dialogrutan, ange alternativ som är markerade i följande bild:
 
-    ![Create ASP.NET project](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
+    ![Skapa ASP.NET-projekt](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
-1. Select **OK**.
+1. Välj **OK**.
 
-1. On the **New ASP.NET Project** dialog, specify the options as highlighted in the following figure:
+1. På den **nytt ASP.NET-projekt** dialogrutan, ange alternativ som är markerade i följande bild:
 
-    ![Specify MVC](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
+    ![Ange MVC](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
-1. Select **OK**.
+1. Välj **OK**.
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Use Connected Services to connect to an Azure storage account
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Använda anslutna Services för att ansluta till ett Azure storage-konto
 
-1. In the **Solution Explorer**, right-click the project, and from the context menu, select **Add->Connected Service**.
+1. I den **Solution Explorer**, högerklicka på projektet och på snabbmenyn väljer **Lägg till -> ansluten Service**.
 
-1. On the **Add Connected Service** dialog, select **Azure Storage**, and then select **Configure**.
+1. På den **Lägg till ansluten tjänst** markerar **Azure Storage**, och välj sedan **konfigurera**.
 
-    ![Connected Service dialog](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
+    ![Dialogrutan för anslutna Service](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-1. On the **Azure Storage** dialog, select the desired Azure storage account with which you want to work, and select **Add**.
+1. På den **Azure Storage** dialogrutan Välj önskad Azure storage-kontot som du vill arbeta och välj **Lägg till**.

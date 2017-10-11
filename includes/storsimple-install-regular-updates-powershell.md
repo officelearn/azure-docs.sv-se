@@ -1,21 +1,21 @@
 <!--author=SharS last changed: 11/18/16-->
 
-#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>To install regular updates via Windows PowerShell for StorSimple
-1. Open the device serial console and select option 1, **Log in with full access**. Type the password. The default password is *Password1*. 
-2. At the command prompt, type:
+#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Så här installerar du regelbundna uppdateringar via Windows PowerShell för StorSimple
+1. Öppna enhetens seriekonsol och välj alternativ 1, **logga in med fullständig åtkomst**. Ange lösenordet. Standardlösenordet är *Password1*. 
+2. Skriv följande vid kommandotolken:
    
      `Get-HcsUpdateAvailability`
    
-    You will be notified if updates are available and whether the updates are disruptive or non-disruptive.
-3. At the command prompt, type:
+    Du meddelas om det finns uppdateringar och om uppdateringarna är störande eller utan avbrott.
+3. Skriv följande vid kommandotolken:
    
      `Start-HcsUpdate`
    
-    The update process will start.
+    Uppdateringen startar.
 
 > [!IMPORTANT]
-> * This command applies only to regular updates. You run this command on only one controller, but both controllers will be updated. 
-> * You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+> * Det här kommandot gäller enbart för regelbundna uppdateringar. Du kör det här kommandot på en enda domänkontrollant, men både domänkontrollanter kommer att uppdateras. 
+> * Märker du kanske en domänkontrollant och växling vid fel under uppdateringen; växling vid fel påverkar inte filsystemets tillgänglighet eller åtgärden.
 > 
 > 
 

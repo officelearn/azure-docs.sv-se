@@ -1,25 +1,25 @@
 <!--author=alkohli last changed: 01/02/17-->
 
 
-#### <a name="to-add-or-remove-a-volume"></a>To add or remove a volume
+#### <a name="to-add-or-remove-a-volume"></a>Lägg till eller ta bort en volym
 
-1. Go to your StorSimple device and click **Backup policy**.
+1. Gå till din StorSimple-enhet och klicka på **Säkerhetskopieringspolicy**.
 
-2. In the tabular listing of the policies, select and click the policy that you want to modify. Right-click to invoke the context menu and then select **Add/remove volume**.
+2. Välj i tabellform lista över principerna, och klicka på den princip som du vill ändra. Högerklicka på att anropa snabbmenyn och välj sedan **Lägg till/ta bort volymen**.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
+    ![hantera scheman](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
 
-3. In the **Add/remove volume** blade, select or deselect the checkbox(es) to add or remove the volume. Multiple volumes are selected/deselected by checking or unchecking the corresponding checkboxes.
+3. I den **Lägg till/ta bort volymen** bladet Markera eller avmarkera checkbox(es) att lägga till eller ta bort volymen. Flera volymer är valt/avmarkeras genom att markera eller avmarkera kryssrutorna för motsvarande.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    ![hantera scheman](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
-    If you assign volumes from different volume containers to a backup policy, then you will need to remember to fail over those volume containers together. You will see a warning to that effect.
+    Om du tilldelar volymer från en annan volymbehållare till en princip för säkerhetskopiering, måste komma ihåg att redundansväxla dessa volymbehållare. Du ser en varning den effekten.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+    ![hantera scheman](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
-4. You are notified when the backup policy is modified. The backup policy list is also updated.
+4. Du meddelas när principen för säkerhetskopiering har ändrats. Princip för säkerhetskopiering listan uppdateras också.
 
-    ![manage schedules](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![hantera scheman](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

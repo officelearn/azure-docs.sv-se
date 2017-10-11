@@ -1,25 +1,25 @@
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Krav
 
-To complete this tutorial, you need an active Azure subscription.
+Du behöver en aktiv Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen.
 
 > [!NOTE]
-> If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
+> Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure][lnk-free-trial].
 
-### <a name="required-software"></a>Required software
+### <a name="required-software"></a>Programvara som krävs
 
-You need SSH client on your desktop machine to enable you to remotely access the command line on the Intel NUC.
+Du måste SSH-klienten på den stationära datorn så att du kan fjärransluta till kommandoraden på Intel NUC.
 
-- Windows does not include an SSH client. We recommend using [PuTTY](http://www.putty.org/).
-- Most Linux distributions and Mac OS include the command-line SSH utility.
+- Windows innehåller inte en SSH-klient. Vi rekommenderar att du använder [PuTTY](http://www.putty.org/).
+- De flesta distributioner för Linux och Mac OS inkluderar SSH-kommandoradsverktyget.
 
-### <a name="required-hardware"></a>Required hardware
+### <a name="required-hardware"></a>Nödvändig maskinvara
 
-A desktop computer to enable you to connect remotely to the command line on the Intel NUC.
+En stationär dator så att du kan fjärransluta till kommandoraden på Intel NUC.
 
-[IoT Commercial Gateway Kit][lnk-starter-kits]. This tutorial uses the following items from the kit:
+[IoT-kommersiella Gateway Kit][lnk-starter-kits]. Den här kursen använder följande objekt från kit:
 
-- Intel® NUC Kit DE3815TYKE with 4G Memory and Bluetooth expansion card
-- Power adaptor
+- Intel® NUC Kit DE3815TYKE med 4G minne och Bluetooth expansion-kort
+- Power adapter
 
 [lnk-starter-kits]: https://azure.microsoft.com/develop/iot/starter-kits/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

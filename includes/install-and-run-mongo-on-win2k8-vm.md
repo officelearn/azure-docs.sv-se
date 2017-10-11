@@ -1,27 +1,27 @@
-Follow these steps to install and run MongoDB on a virtual machine running Windows Server.
+Följ dessa steg om du vill installera och köra MongoDB på en virtuell dator som kör Windows Server.
 
 > [!IMPORTANT]
-> MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  For more information, see [Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
+> MongoDB säkerhetsfunktioner, till exempel autentisering och IP-adress bindningen är inte aktiverade som standard. Säkerhetsfunktioner ska aktiveras innan du distribuerar MongoDB till en produktionsmiljö.  Mer information finns i [säkerhets- och](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 >
 >
 
-1. After you've connected to the virtual machine using Remote Desktop, open Internet Explorer from the **Start** menu on the virtual machine.
-2. Select the **Tools** button in the upper right corner.  In **Internet Options**, select the **Security** tab, and then select the **Trusted Sites** icon, and finally click the **Sites** button. Add *https://\*.mongodb.org* to the list of trusted sites.
-3. Go to [Downloads - MongoDB](https://www.mongodb.com/download-center#community).
-4. Find the **Current Stable Release** of **Community Server**, select the latest **64-bit** version in the Windows column. Download, then run the MSI installer.
-5. MongoDB is typically installed in C:\Program Files\MongoDB. Search for Environment Variables on the desktop and add the MongoDB binaries path to the PATH variable. For example, you might find the binaries at C:\Program Files\MongoDB\Server\3.4\bin on your machine.
-6. Create MongoDB data and log directories in the data disk (such as drive **F:**) you created in the preceding steps. From **Start**, select **Command Prompt** to open a command prompt window.  Type:
+1. När du har anslutit till den virtuella datorn via fjärrskrivbord, öppna Internet Explorer från den **starta** menyn på den virtuella datorn.
+2. Välj den **verktyg** i det övre högra hörnet.  I **Internetalternativ**, Välj den **säkerhet** och välj sedan den **tillförlitliga platser** ikon, och slutligen på den **platser** knappen. Lägg till *https://\*. mongodb.org* i listan över betrodda platser.
+3. Gå till [hämtas - MongoDB](https://www.mongodb.com/download-center#community).
+4. Hitta den **aktuella stabil versionen** av **Community Server**, Välj senast **64-bitars** version i Windows-kolumnen. Hämta och kör sedan installationen av MSI.
+5. MongoDB installeras normalt i C:\Program Files\MongoDB. Sök efter miljövariabler på skrivbordet och lägga till sökvägen till MongoDB-binärfiler i PATH-variabeln. Du kan till exempel hitta binärfilerna på C:\Program Files\MongoDB\Server\3.4\bin på din dator.
+6. Skapa MongoDB data och loggfilen kataloger i datadisken (till exempel enhet **F:**) du skapade i föregående steg. Från **starta**väljer **kommandotolk** att öppna ett kommandotolksfönster.  Ange:
 
         C:\> F:
         F:\> mkdir \MongoData
         F:\> mkdir \MongoLogs
-7. To run the database, run:
+7. Om du vill köra databasen kör du:
 
         F:\> C:
         C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-    All log messages are directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections. The command prompt stays focused on this task while your MongoDB instance is running.
-8. To start the MongoDB administrative shell, open another command window from **Start** and type the following commands:
+    Alla loggmeddelanden dirigeras till den *F:\MongoLogs\mongolog.log* filen som mongod.exe servern startar och preallocates journal-filer. Det kan ta flera minuter för MongoDB Förallokera journal-filer och starta lyssna efter anslutningar. Kommandotolken förblir fokuserar på den här uppgiften när MongoDB-instansen körs.
+8. Om du vill starta det administrativa gränssnittet MongoDB, öppnar du en annan kommandofönster från **starta** och Skriv följande kommandon:
 
         C:\> cd \my_mongo_dir\bin  
         C:\my_mongo_dir\bin> mongo  
@@ -36,55 +36,55 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
         ...  
         > help  
 
-    The database is created by the insert.
-9. Alternatively, you can install mongod.exe as a service:
+    Databasen har skapats genom att infoga.
+9. Du kan också installera mongod.exe som en tjänst:
 
         C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log --logappend  --install
 
-    A service is installed named MongoDB with a description of "Mongo DB". The `--logpath` option must be used to specify a log file, since the running service does not have a command window to display output.  The `--logappend` option specifies that a restart of the service causes output to append to the existing log file.  The `--dbpath` option specifies the location of the data directory. For more service-related command-line options, see [Service-related command-line options][MongoWindowsSvcOptions].
+    En tjänst har installerats med namnet MongoDB med en beskrivning av ”Mongo databas”. Den `--logpath` alternativet måste användas för att ange en loggfil, eftersom tjänsten körs inte har ett kommandofönster om du vill visa utdata.  Den `--logappend` alternativet anger att en omstart av tjänsten gör att utdata ska läggas till i den befintliga loggfilen.  Den `--dbpath` alternativet anger platsen för datakatalog. För mer tjänstrelaterade kommandoradsalternativ, se [tjänstrelaterade kommandoradsalternativ][MongoWindowsSvcOptions].
 
-    To start the service, run this command:
+    Om du vill starta tjänsten, kör du kommandot:
 
         C:\> net start MongoDB
-10. Now that MongoDB is installed and running, you need to open a port in Windows Firewall so you can remotely connect to MongoDB.  From the **Start** menu, select **Administrative Tools** and then **Windows Firewall with Advanced Security**.
-11. a) In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
+10. Nu när MongoDB är installerad och körs, måste du öppna en port i Windows-brandväggen så att du kan fjärransluta till MongoDB.  Från den **starta** väljer du **Administrationsverktyg** och sedan **Windows-brandväggen med avancerad säkerhet**.
+11. en) i den vänstra rutan, Välj **regler för inkommande trafik**.  I den **åtgärder** rutan på höger, Välj **ny regel...** .
 
-    ![Windows Firewall][Image1]
+    ![Windows-brandväggen][Image1]
 
-    b) In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+    b) i den **ny inkommande regel för**väljer **Port** och klicka sedan på **nästa**.
 
-    ![Windows Firewall][Image2]
+    ![Windows-brandväggen][Image2]
 
-    c) Select **TCP** and then **Specific local ports**.  Specify a port of "27017" (the default port MongoDB listens on) and click **Next**.
+    c) Välj **TCP** och sedan **specifika lokala portar**.  Ange en port för ”27017” (standardporten MongoDB lyssnar på) och klicka på **nästa**.
 
-    ![Windows Firewall][Image3]
+    ![Windows-brandväggen][Image3]
 
-    d) Select **Allow the connection** and click **Next**.
+    d) Välj **tillåter anslutningen** och på **nästa**.
 
-    ![Windows Firewall][Image4]
+    ![Windows-brandväggen][Image4]
 
-    e) Click **Next** again.
+    e) Klicka på **nästa** igen.
 
-    ![Windows Firewall][Image5]
+    ![Windows-brandväggen][Image5]
 
-    f) Specify a name for the rule, such as "MongoPort", and click **Finish**.
+    f) anger ett namn för regeln, till exempel ”MongoPort” och klickar på **Slutför**.
 
-    ![Windows Firewall][Image6]
+    ![Windows-brandväggen][Image6]
 
-12. If you didn't configure an endpoint for MongoDB when you created the virtual machine, you can do it now. You need both the firewall rule and the endpoint to be able to connect to MongoDB remotely.
+12. Om du inte konfigurerar en slutpunkt för MongoDB när du skapade den virtuella datorn kan göra du det nu. Behöver du både brandväggsregeln och slutpunkten ska kunna fjärransluta till MongoDB.
 
-  In the Azure portal, click **Virtual Machines (classic)**, click the name of your new virtual machine, and then click **Endpoints**.
+  I Azure-portalen klickar du på **virtuella datorer (klassisk)**, klicka på namnet på den nya virtuella datorn och klicka sedan på **slutpunkter**.
 
-    ![Endpoints][Image7]
+    ![Slutpunkter][Image7]
 
-13. Click **Add**.
+13. Klicka på **Lägg till**.
 
-14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". Opening this port allows MongoDB to be accessed remotely.
+14. Lägg till en slutpunkt med namnet ”Mongo”, protokollet **TCP**, och båda **offentliga** och **privata** portar inställd på ”27017”. Öppnar den här porten kan MongoDB för fjärråtkomst.
 
-    ![Endpoints][Image9]
+    ![Slutpunkter][Image9]
 
 > [!NOTE]
-> The port 27017 is the default port used by MongoDB. You can change this default port by specifying the `--port` parameter when starting the mongod.exe server. Make sure to give the same port number in the firewall and the "Mongo" endpoint in the preceding instructions.
+> Porten 27017 är standardporten som används av MongoDB. Du kan ändra den här standardporten genom att ange den `--port` parameter när mongod.exe servern startas. Se till att ge samma portnummer i brandväggen och slutpunkten ”Mongo” i ovanstående instruktioner.
 >
 >
 

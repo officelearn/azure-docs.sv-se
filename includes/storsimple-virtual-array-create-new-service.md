@@ -1,35 +1,35 @@
-#### <a name="to-create-a-new-service"></a>To create a new service
+#### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 
-1.  Using your Microsoft account credentials, log on to the Azure portal at this URL: <https://portal.azure.com/>. If deploying the device in Government portal, log in at: <https://portal.azure.us/>
+1.  Logga in på Azure Portal på följande URL genom att ange autentiseringsuppgifterna för ditt Microsoft-konto: <https://portal.azure.com/>. Om distribuerar enheten i Government portal, logga in på: <https://portal.azure.us/>
 
-2.  In the Azure portal, click **+ New** &gt; **Storage** &gt; **StorSimple Virtual Series**.
+2.  I Azure-portalen klickar du på **+ ny** &gt; **lagring** &gt; **virtuella StorSimple-serien**.
 
-    ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
+    ![Skapa ny tjänst](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 
-3.  In the **StorSimple Device Manager** blade that opens up, do the following:
+3.  I den **StorSimple Enhetshanteraren** bladet som öppnas, gör du följande:
 
-    1.  Supply a unique **Resource name** for your service. The resource name is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
+    1.  Ange ett unikt **resursnamn** för tjänsten. Resursnamnet är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 2 och 50 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.
 
-    2.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
+    2.  Välj en **prenumeration** från listrutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet syns inte om du bara har en prenumeration.
 
-    3.  For **Resource group**, select an existing or create a new group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+    3.  För **resursgruppen**väljer du en befintlig eller skapa en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-    4.  Supply a **Location** for your service. See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about which services are available in which region. In general, choose a **Location** closest to the geographical region where you want to deploy your device. You may also want to factor in the following:
+    4.  Ange en **plats** för din tjänst. Se [Azure-regioner](https://azure.microsoft.com/regions/#services) för mer information om vilka tjänster som är tillgängliga i vilken region. I allmänhet ska du välja en **plats** närmast den geografiska region där du vill distribuera din enhet. Du kan också ta med följande i beräkningarna:
 
-        -   If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, we recommend that you use that datacenter.
+        -   Om du har befintliga arbetsbelastningar i Azure som du också tänker distribuera med din StorSimple-enhet, rekommenderar vi att du använder det datacentret.
 
-        -   Your StorSimple Device Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure portal and follow the steps in [Create an Azure Storage account](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). After you create this account, add it to the StorSimple Device Manager service by following the steps in [Configure a new storage account for the service](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
+        -   Din StorSimple-Enhetshanteraren och Azure-lagring kan vara två olika platser. I så fall måste du skapa StorSimple Device Manager-kontot och Azure-lagringskontot separat. Du skapar ett Azure-lagringskonto genom att gå till Azure Storage-tjänsten på Azure Portal och följa stegen i [Skapa ett Azure Storage-konto](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). När du har skapat kontot lägger du till det till StorSimple Device Manager-tjänsten genom att följa stegen i [Konfigurera ett nytt lagringskonto för tjänsten](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
 
-        -   If deploying the virtual device in the Government Portal, the StorSimple Device Manager service is available in US Iowa and US Virginia locations.
+        -   Om du distribuerar den virtuella enheten i Government Portal, är StorSimple Device Manager-tjänsten tillgänglig i Iowa för oss och vi Virginia platser.
 
-    5.  Select **Create a new Azure storage account** to automatically create a storage account with the service. Specify a **Storage account name**. If you need your data in a different location, uncheck this box.
+    5.  Välj **skapar ett nytt Azure storage-konto** att automatiskt skapa ett lagringskonto med tjänsten. Ange en **lagringskontonamnet**. Avmarkera kryssrutan om du behöver ha din data på en annan plats.
 
-    6.  Check **Pin to dashboard** if you want a quick link to this service on your dashboard.
+    6.  Markera **Fäst på instrumentpanelen** om du vill skapa en snabblänk till tjänsten på instrumentpanelen.
 
-    7.  Click **Create** to create the StorSimple Device Manager.
+    7.  Skapa StorSimple Device Manager genom att klicka på **Skapa**.
 
-        ![Create new service](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Skapa ny tjänst](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
-You are directed to the **Service** landing page. The service creation takes a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+Du dirigeras till den **Service** landningssida. Det tar några minuter att skapa tjänsten. När tjänsten har skapats, kommer du att meddelas och tjänstens status kommer att ändras till **Aktiv**.
 
 

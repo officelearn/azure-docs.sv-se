@@ -1,44 +1,44 @@
 
 
 
-## <a name="tagging-a-virtual-machine-through-templates"></a>Tagging a Virtual Machine through Templates
-First, let’s look at tagging through templates. [This template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) places tags on the following resources: Compute (Virtual Machine), Storage (Storage Account), and Network (Public IP Address, Virtual Network, and Network Interface). This template is for a Windows VM but can be adapted for Linux VMs.
+## <a name="tagging-a-virtual-machine-through-templates"></a>En virtuell dator via mallar-märkning
+Först ska vi titta på Taggning via mallar. [Den här mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) placerar taggar i följande resurser: bearbetning (virtuell dator), lagring (Storage-konto) och nätverk (offentlig IP-adress, virtuella nätverk och gränssnitt). Den här mallen är för en virtuell Windows-dator, men kan anpassas för virtuella Linux-datorer.
 
-Click the **Deploy to Azure** button from the [template link](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). This will navigate to the [Azure portal](https://portal.azure.com/) where you can deploy this template.
+Klicka på den **till Azure** knappen från den [mall länk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Detta kommer att gå till den [Azure-portalen](https://portal.azure.com/) där du kan distribuera den här mallen.
 
-![Simple deployment with Tags](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
+![Enkel distribution med taggar](./media/virtual-machines-common-tag/deploy-to-azure-tags.png)
 
-This template includes the following tags: *Department*, *Application*, and *Created By*. You can add/edit these tags directly in the template if you would like different tag names.
+Den här mallen innehåller följande taggar: *avdelning*, *programmet*, och *Skapad av*. Du kan lägga till eller redigera dessa taggar direkt i mallen om du vill ha olika taggnamn.
 
-![Azure tags in a template](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
+![Azure taggar i en mall](./media/virtual-machines-common-tag/azure-tags-in-a-template.png)
 
-As you can see, the tags are defined as key/value pairs, separated by a colon (:). The tags must be defined in this format:
+Som du ser har taggar definierats som nyckel/värde-par, avgränsade med kolon (:). Taggar måste definieras i det här formatet:
 
         “tags”: {
             “Key1” : ”Value1”,
             “Key2” : “Value2”
         }
 
-Save the template file after you finish editing it with the tags of your choice.
+Spara mallfilen när du har redigerat med taggar du väljer.
 
-Next, in the **Edit Parameters** section, you can fill out the values for your tags.
+I den **redigera parametrar** avsnittet kan du fylla i värdena för taggarna.
 
-![Edit Tags in Azure portal](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
+![Redigera taggar i Azure-portalen](./media/virtual-machines-common-tag/edit-tags-in-azure-portal.png)
 
-Click **Create** to deploy this template with your tag values.
+Klicka på **skapa** att distribuera den här mallen med taggvärden.
 
-## <a name="tagging-through-the-portal"></a>Tagging through the Portal
-After creating your resources with tags, you can view, add, and delete tags in the portal.
+## <a name="tagging-through-the-portal"></a>Taggning via portalen
+Efter att dina resurser med taggar kan du visa, lägga till och ta bort taggar i portalen.
 
-Select the tags icon to view your tags:
+Välj ikonen taggar för att visa taggarna:
 
-![Tags icon in Azure portal](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
+![Ikon för etiketter i Azure-portalen](./media/virtual-machines-common-tag/azure-portal-tags-icon.png)
 
-Add a new tag through the portal by defining your own Key/Value pair, and save it.
+Lägg till en ny tagg via portalen genom att definiera en egen nyckel/värde-par och spara den.
 
-![Add new Tag in Azure portal](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
+![Lägg till ny tagg i Azure-portalen](./media/virtual-machines-common-tag/azure-portal-add-new-tag.png)
 
-Your new tag should now appear in the list of tags for your resource.
+Din nya taggen bör nu visas i listan med taggar för din resurs.
 
-![New Tag saved in Azure portal](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+![Ny tagg som sparats i Azure-portalen](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 

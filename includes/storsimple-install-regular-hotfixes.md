@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>To install regular hotfixes via Windows PowerShell for StorSimple
-1. Connect to the device serial console. For more information, see [Step 1: Connect to the serial console](../articles/storsimple/storsimple-update-device.md#step1).
-2. In the serial console menu, select option 1, **Log in with full access**. Type the password. The default password is **Password1**.
-3. At the command prompt, type:
+#### <a name="to-install-regular-hotfixes-via-windows-powershell-for-storsimple"></a>Installera reguljära snabbkorrigeringar via Windows PowerShell för StorSimple
+1. Ansluta till enhetens seriekonsol. Mer information finns i [steg 1: ansluta till seriekonsolen](../articles/storsimple/storsimple-update-device.md#step1).
+2. Välj alternativ 1, i menyn för seriekonsolen **logga in med fullständig åtkomst**. Ange lösenordet. Standardlösenordet är **Password1**.
+3. Skriv följande vid kommandotolken:
    
     ```
     Start-HcsHotfix
@@ -11,9 +11,9 @@
    
     > [!IMPORTANT]
     >
-    > This command applies only to regular hotfixes. You run this command on only one controller, but both controllers will be updated.
-    > You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+    > Det här kommandot gäller enbart för vanliga snabbkorrigeringar. Du kör det här kommandot på en enda domänkontrollant, men både domänkontrollanter kommer att uppdateras.
+    > Märker du kanske en domänkontrollant och växling vid fel under uppdateringen; växling vid fel påverkar inte filsystemets tillgänglighet eller åtgärden.
 
-4. When prompted, supply the path to the network shared folder that contains the hotfix files.
-5. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
+4. När du uppmanas, ange sökvägen till den delade nätverksmappen som innehåller snabbkorrigeringsfilerna.
+5. Du uppmanas att bekräfta. Typen **Y** att fortsätta med installationen av snabbkorrigeringen.
 

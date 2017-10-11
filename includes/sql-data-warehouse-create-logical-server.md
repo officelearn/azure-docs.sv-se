@@ -9,8 +9,7 @@
   
 3. Öppna bladet för den nya SQL-servern (logisk server) genom att klicka på **Skapa**.
 
-   <kbd> ![öppna bladet logisk server](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd>
-    <kbd>![bladet logisk server](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
+   <kbd>![öppna logiska serverblad](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd> ![logiska serverblad](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png)</kbd>
   
 3. Ange ett giltigt namn för den nya logiska servern i rutan för servernamn på bladet SQL Server (logisk server). En grön kryssmarkering visar att du har angett ett giltigt namn.
     

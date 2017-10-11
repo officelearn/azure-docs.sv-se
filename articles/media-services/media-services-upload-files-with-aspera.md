@@ -1,6 +1,6 @@
 ---
 title: "Överföra filer till ett Azure Media Services-konto med Aspera | Microsoft Docs"
-description: "Den här kursen visar hur du överför filer till ett lagringskonto som är associerat med ett Media Services-konto med tjänsten **Aspera Server On Demand** på Azure."
+description: "Den här självstudiekursen vägleder dig genom stegen för att överföra filer till ett lagringskonto som är associerad med ett Media Services-konto med den ** Aspera Server på begäran **-tjänsten på Azure."
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 86cb6a979d3aa429c0f501a5ebf37db4bff8ba99
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Överföra filer till ett Media Services-konto med hjälp av tjänsten Aspera Server On Demand på Azure
 
@@ -137,5 +136,4 @@ Du kan nu [kopiera blobar från ett lagringskonto till ett AMS-konto](media-serv
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

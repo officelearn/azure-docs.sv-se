@@ -1,8 +1,8 @@
-**Standard unmanaged virtual machine disks: per disk limits**
+**Ohanterade virtuella standarddatordiskar: gränser per disk**
 
-| VM Tier | Basic Tier VM | Standard Tier VM |
+| Nivå för virtuell dator | Virtuell dator på Basic-nivå | Virtuell dator på standardnivå |
 | --- | --- | --- |
-| Disk size |4095 GB |4095 GB |
-| Max 8 KB IOPS per persistent disk |300 |500 |
-| Max number of disks performing max IOPS |66 |40 |
+| Diskstorlek |4095 GB |4095 GB |
+| Maximalt antal 8 kB IOPS per permanent disk |300 |500 |
+| Maximalt antal diskar som utför högsta IOPS |66 |40 |
 

@@ -1,9 +1,9 @@
-Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance. You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding for the VM running as the virtual appliance.
+Även om användningen av systemvägar förenklar trafik automatiskt för din distribution så finns det fall där du kan vilja kontrollera routingen för paket genom en virtuell installation. Du kan göra det genom att skapa användardefinierade vägar som anger next hop för paket som flödar till ett specifikt undernät så att de istället går till din virtuella installation och som aktiverar IP-vidarebefordring för VM:en som kör den virtuella installationen.
 
-Some of the cases where virtual appliances can be used include:
+Några av de fall där virtuella installationer kan användas är:
 
-* Monitoring traffic with an intrusion detection system (IDS)
-* Controlling traffic with a firewall
+* Övervaka trafik med ett intrång identifiering system (ID)
+* Kontrollera trafik med en brandvägg
 
-For more information about UDR and IP forwarding, visit [User Defined Routes and IP Forwarding](../articles/virtual-network/virtual-networks-udr-overview.md).
+Mer information om UDR och IP-vidarebefordran finns [användardefinierade vägar och IP-vidarebefordring](../articles/virtual-network/virtual-networks-udr-overview.md).
 

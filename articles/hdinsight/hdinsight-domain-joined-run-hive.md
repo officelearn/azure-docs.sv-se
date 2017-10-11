@@ -1,5 +1,5 @@
 ---
-title: "Konfigurera Hive-policyer i domänanslutna HDInsight | Microsoft Docs"
+title: "Konfigurera principer för Hive i HDInsight med domänanslutna - Azure | Microsoft Docs"
 description: "Läs mer ..."
 services: hdinsight
 documentationcenter: 
@@ -9,17 +9,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 20ae053057e74e0bc874391dd8a9cd19e0a293e7
-ms.openlocfilehash: 2d244187585f716af8c4e6d65a445e0ab8217890
-
-
+ms.openlocfilehash: de537d5e39dd0d3f75ff802948c7372e4d65d127
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight-preview"></a>Konfigurera Hive-principer i domänanslutna HDInsight (förhandsversion)
 Ta reda på mer om hur du konfigurerar Apache Ranger-principer för Hive. I den här artikeln skapar du två Ranger-principer för att begränsa åtkomsten till hivesampletable. Hivesampletable medföljer HDInsight-kluster. När du har konfigurerat principerna kan du använda Excel och ODBC-drivrutinen för att ansluta till Hive-tabeller i HDInsight.
@@ -90,7 +91,7 @@ Du hittar anvisningarna i [Skapa Hive ODBC-datakällan](hdinsight-connect-excel-
     Hive-servertyp|Välj <strong>Hive Server 2</strong>
     Mekanism|Välj <strong>Azure HDInsight-tjänst</strong>
     HTTP-sökväg|Lämna tomt.
-    Användarnamn|Ange hiveuser1@contoso158.onmicrosoft.com. Uppdatera domännamnet om det inte är detsamma.
+    Användarnamn|Ange hiveuser1@contoso158.onmicrosoft.com. Uppdatera domännamnet om det är olika.
     Lösenord|Ange lösenordet för hiveuser1.
     </table>
 
@@ -139,13 +140,7 @@ Om du vill testa den andra principen (read-hivesampletable-devicemake) du skapad
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill konfigurera ett domänanslutet HDInsight-kluster kan du läsa i [Konfigurera domänanslutna HDInsight-kluster](hdinsight-domain-joined-configure.md).
 * Om du vill hantera ett domänanslutet HDInsight-kluster kan du läsa i [Hantera domänanslutna HDInsight-kluster](hdinsight-domain-joined-manage.md).
-* Om du vill köra Hive-frågor med SSH på domänanslutna HDInsight-kluster kan du läsa i [Använd SSH med Linux-baserade Hadoop på HDInsight från Linux, Unix eller OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* För att köra Hive-frågor med SSH på domänanslutna HDInsight-kluster, se [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Om du vill ansluta Hive med Hive JDBC kan du läsa i [Anslut till Hive på Azure HDInsight med Hive JDBC-drivrutin](hdinsight-connect-hive-jdbc-driver.md)
 * Om du vill ansluta Excel till Hadoop med Hive ODBC kan du läsa i [Anslut Excel till Hadoop med Microsoft Hive ODBC-drivrutin](hdinsight-connect-excel-hive-odbc-driver.md)
 * Om du vill ansluta Excel till Hadoop med Power Query kan du läsa i [Anslut Excel till Hadoop med hjälp av Power Query](hdinsight-connect-excel-power-query.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

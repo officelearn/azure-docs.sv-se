@@ -1,14 +1,14 @@
 
-1. Select your VM in the portal. The *DNS name* is currently blank. Select **Public IP address**:
+1. Välj den virtuella datorn i portalen. Den *DNS-namnet* är tomt. Välj **offentliga IP-adressen**:
    
-   ![Click Public IP resource in the portal](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+   ![Klicka på offentlig IP-resurs i portalen](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2. Enter the desired DNS name and then select **Save**.
+2. Ange önskad DNS-namn och markera sedan **spara**.
    
-   ![Enter a DNS name label for your public IP resource](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+   ![Ange en etikett för DNS-namn för din offentliga IP-resurs](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
  
 
-3. To return to the VM overview blade, close the *Public IP address* blade. Verify that the *DNS name* is now shown.
+3. Om du vill återgå till bladet VM översikt, Stäng av *offentliga IP-adressen* bladet. Kontrollera att den *DNS-namnet* nu visas.
    
-   ![Confirm your new DNS label is set](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+   ![Kontrollera din nya DNS-etikett har angetts](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 

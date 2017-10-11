@@ -5,8 +5,3 @@ Följande uppgifter utförs i det här scenariot:
 * Skapa hälsotillståndsavsökningar
 
 ![Belastningsutjämningsscenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
-
-
-<!--HONumber=Nov16_HO2-->
-
-

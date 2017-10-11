@@ -1,25 +1,25 @@
-| Resource | Default Limit | Maximum Limit |
+| Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Resources per [resource group](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (per resource type) |800 |Varies per resource type |
-| Deployments per resource group |800 |800 |
-| Resources per deployment |800 |800 |
-| Management Locks (per unique scope) |20 |20 |
-| Number of Tags (per resource or resource group) |15 |15 |
-| Tag key length |512 |512 |
-| Tag value length |256 |256 |
+| Resurser per [resursgruppen](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (per resurstypen) |800 |Varierar per resurstyp |
+| Distributioner per resursgrupp |800 |800 |
+| Resurser per distribution |800 |800 |
+| Hantering av Lås (per unika område) |20 |20 |
+| Antal taggar (per resurs eller resursgrupp) |15 |15 |
+| Taggen nyckellängd |512 |512 |
+| Taggen värdets längd |256 |256 |
 
 
-#### <a name="template-limits"></a>Template limits
+#### <a name="template-limits"></a>Mallen gränser
 
-| Value | Default Limit | Maximum Limit |
+| Värde | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Parameters |256 |256 |
-| Variables |256 |256 |
-| Resources (including copy count) |800 |800 |
-| Outputs |64 |64 |
-| Template expression |24,576 chars |24,576 chars |
-| Resources in exported templates |200 |200 | 
-| Template size |1 MB |1 MB |
-| Parameter file size |64 KB |64 KB |
+| Parametrar |256 |256 |
+| Variabler |256 |256 |
+| Resurserna (inklusive antal kopior) |800 |800 |
+| utdata |64 |64 |
+| Malluttryck |24,576 tecken |24,576 tecken |
+| Resurser i exporterade mallar |200 |200 | 
+| Mallstorlek |1 MB |1 MB |
+| Parametern filstorlek |64 kB |64 kB |
 
-You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](../articles/azure-resource-manager/resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
+Du kan överskrida vissa mallen med hjälp av en kapslad mall. Mer information finns i [använda länkade mallar när du distribuerar Azure-resurser](../articles/azure-resource-manager/resource-group-linked-templates.md). Du kan kombinera flera värden i ett objekt för att minska antalet parametrar, variabler eller utdata. Mer information finns i [objekt som parametrar](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).

@@ -1,36 +1,36 @@
-## <a name="incremental-and-complete-deployments"></a>Incremental and complete deployments
-When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The primary difference between these two modes is how Resource Manager handles existing resources in the resource group that are not in the template:
+## <a name="incremental-and-complete-deployments"></a>Inkrementella och fullständiga distributioner
+När du distribuerar dina resurser kan ange du att distributionen är en inkrementell uppdatering eller en fullständig uppdatering. Den främsta skillnaden mellan dessa två lägen är hur Resource Manager hanterar befintliga resurser i resursgruppen som inte ingår i mallen:
 
-* In complete mode, Resource Manager **deletes** resources that exist in the resource group but are not specified in the template. 
-* In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but are not specified in the template.
+* I Resource Manager-fullständig läge **tar bort** resurser som finns i resursgruppen men har inte angetts i mallen. 
+* I Resource Manager-inkrementell läge **lämnar oförändrat** resurser som finns i resursgruppen men har inte angetts i mallen.
 
-For both modes, Resource Manager attempts to provision all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, the operation results in no change. If you change the settings for a resource, the resource is provisioned with those new settings. If you attempt to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.
+Resource Manager försöker etablera alla resurser som har angetts i mallen för båda lägena. Åtgärden resulterar i ingen ändring om resursen finns redan i resursgruppen och dess inställningar har inte ändrats. Om du ändrar inställningarna för en resurs kan etableras resursen med de nya inställningarna. Om du försöker uppdatera platsen eller typ av en befintlig resurs misslyckas distributionen med ett fel. I stället distribuerar en ny resurs med platsen eller ange att du behöver.
 
-By default, Resource Manager uses the incremental mode.
+Som standard använder Resource Manager inkrementell läge.
 
-To illustrate the difference between incremental and complete modes, consider the following scenario.
+Studera följande scenario för att illustrera skillnaden mellan inkrementella och fullständiga lägen.
 
-**Existing Resource Group** contains:
+**Befintlig resursgrupp** innehåller:
 
-* Resource A
-* Resource B
-* Resource C
+* Resurs A
+* Resurs B
+* Resurs C
 
-**Template** defines:
+**Mallen** definierar:
 
-* Resource A
-* Resource B
-* Resource D
+* Resurs A
+* Resurs B
+* Resurs D
 
-When deployed in **incremental** mode, the resource group contains:
+När de distribueras i **inkrementella** läge, resursgruppen innehåller:
 
-* Resource A
-* Resource B
-* Resource C
-* Resource D
+* Resurs A
+* Resurs B
+* Resurs C
+* Resurs D
 
-When deployed in **complete** mode, Resource C is deleted. The resource group contains:
+När de distribueras i **fullständig** resurs C-läge har tagits bort. Resursgruppen innehåller:
 
-* Resource A
-* Resource B
-* Resource D
+* Resurs A
+* Resurs B
+* Resurs D

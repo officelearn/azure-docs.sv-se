@@ -1,20 +1,20 @@
-## <a name="view-the-telemetry"></a>View the telemetry
+## <a name="view-the-telemetry"></a>Visa telemetrin
 
-The Raspberry Pi is now sending telemetry to the remote monitoring solution. You can view the telemetry on the solution dashboard. You can also send messages to your Raspberry Pi from the solution dashboard.
+Hallon Pi nu skicka telemetri till fjärranslutna övervakningslösning. Du kan visa telemetrin på instrumentpanelen för lösningen. Du kan också skicka meddelanden till din hallon Pi från instrumentpanelen lösning.
 
-- Navigate to the solution dashboard.
-- Select your device in the **Device to View** dropdown.
-- The telemetry from the Raspberry Pi displays on the dashboard.
+- Gå till instrumentpanelen lösning.
+- Välj din enhet i den **enhet för att visa** listrutan.
+- Telemetri från hallon Pi visas på instrumentpanelen.
 
-![Display telemetry from the Raspberry Pi][img-telemetry-display]
+![Visa telemetri från hallon Pi][img-telemetry-display]
 
-## <a name="initiate-the-firmware-update"></a>Initiate the firmware update
+## <a name="initiate-the-firmware-update"></a>Initiera firmware-uppdatering
 
-The firmware update process downloads and installs an updated version of the device client application on the Raspberry Pi. For more information about the firmware update process, see the description of the firmware update pattern in [Overview of device management with IoT Hub][lnk-update-pattern].
+Den inbyggda programvara uppdateringen hämtas och installeras en uppdaterad version av klientprogrammet enheten på hallon Pi. Mer information om uppdateringen inbyggd programvara finns i beskrivningen av inbyggd programvara update mönstret i [översikt över hantering av enheter med IoT-hubben][lnk-update-pattern].
 
-You initiate the firmware update process by invoking a method on the device. This method is asynchronous, and returns as soon as the update process begins. The device uses reported properties to notify the solution about the progress of the update.
+Du startar uppdateringen firmware genom att anropa en metod på enheten. Den här metoden är asynkron och returnerar så fort börjar uppdateringsprocessen. Enheten använder rapporterade egenskaper för att meddela lösning om förloppet för uppdateringen.
 
-You invoke methods on your Raspberry Pi from the solution dashboard. When the Raspberry Pi first connects to the remote monitoring solution, it sends information about the methods it supports. 
+Du kan anropa metoder på din hallon Pi från instrumentpanelen lösning. När hallon Pi först ansluter till den fjärranslutna övervakningslösning skickar information om hur den stöder. 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-advanced/telemetry.png
 [lnk-update-pattern]: ../articles/iot-hub/iot-hub-device-management-overview.md

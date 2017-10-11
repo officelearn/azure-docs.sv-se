@@ -14,16 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/29/2017
 ---
-
-
-
 # <a name="step-2-review-the-prerequisites-for-hyper-v-with-vmm-to-azure-replication"></a>Steg 2: Granska kraven för replikering från Hyper-V (med VMM) till Azure
 
 När du har gått igenom [scenariearkitekturen](vmm-to-azure-walkthrough-architecture.md) rekommenderar vi att du läser den här artikeln för att vara säker på att du förstår distributionskraven. 
@@ -45,4 +41,3 @@ När du har gått igenom [scenariearkitekturen](vmm-to-azure-walkthrough-archite
 ## <a name="next-steps"></a>Nästa steg
 
 Gå till [Steg3: Planera kapacitet](vmm-to-azure-walkthrough-capacity.md)
-

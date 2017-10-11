@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory för utvecklare
 Azure Active Directory är en molnbaserad identitetstjänst som utvecklarna kan använda för att på ett säkert sätt logga in alla användare som har ett arbets- eller skolkonto hos Microsoft.  Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av autentiseringsprotokoll av branschstandardtyp, OAuth och OpenID Connect.
@@ -73,4 +72,3 @@ Det här är ett bra sätt att få hjälp med utveckling i Azure Active Director
 
 > [!NOTE]
 > För inloggning med personliga Microsoft-konton bör du överväga användning av en [Azure AD v2.0-slutpunkt](active-directory-appmodel-v2-overview.md).  Azure AD v2.0-slutpunkten för samman personliga Microsoft-konton med Microsoft-arbetskonton (från Azure AD) och möjliggör ett enda autentiseringssystem.
-

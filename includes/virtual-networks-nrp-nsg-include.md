@@ -1,30 +1,30 @@
-## <a name="network-security-group"></a>Network Security Group
-An NSG resource enables the creation of security boundary for workloads, by implementing allow and deny rules. Such rules can be applied to a VM, a NIC, or a subnet.
+## <a name="network-security-group"></a>Nätverkssäkerhetsgrupp
+NSG-resurs kan skapa säkerhetsgräns för arbetsbelastningar, genom att implementera Tillåt och neka regler. Dessa regler kan tillämpas på en virtuell dator, ett nätverkskort eller ett undernät.
 
-| Property | Description | Sample values |
+| Egenskap | Beskrivning | Exempelvärden |
 | --- | --- | --- |
-| **subnets** |List of subnet ids the NSG is applied to. |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
-| **securityRules** |List of security rules that make up the NSG |See [Security rule](#Security-rule) below |
-| **defaultSecurityRules** |List of default security rules present in every NSG |See [Default security rules](#Default-security-rules) below |
+| **undernät** |Lista över undernät-ID NSG: N används. |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-XXXXXXXXXXXX/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/Subnets/FrontEnd |
+| **securityRules** |Lista över säkerhetsregler som utgör NSG: N |Se [säkerhetsregeln](#Security-rule) nedan |
+| **defaultSecurityRules** |Lista över säkerhet standardregler finns i varje NSG |Se [standard säkerhetsregler](#Default-security-rules) nedan |
 
-* **Security rule** - An NSG can have multiple security rules defined. Each rule can allow or deny different types of traffic.
+* **Säkerhetsregeln** -en NSG kan ha flera säkerhetsregler som definierats. Varje regel kan tillåta eller neka olika typer av trafik.
 
-### <a name="security-rule"></a>Security rule
-A security rule is a child resource of an NSG containing the properties below.
+### <a name="security-rule"></a>Säkerhetsregeln
+En säkerhetsregel är en underordnad resurs som tillhör en NSG som innehåller egenskaperna nedan.
 
-| Property | Description | Sample values |
+| Egenskap | Beskrivning | Exempelvärden |
 | --- | --- | --- |
-| **description** |Description for the rule |Allow inbound traffic for all VMs in subnet X |
-| **protocol** |Protocol to match for the rule |TCP, UDP, or * |
-| **sourcePortRange** |Source port range to match for the rule |80, 100-200, * |
-| **destinationPortRange** |Destination port range to match for the rule |80, 100-200, * |
-| **sourceAddressPrefix** |Source address prefix to match for the rule |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **destinationAddressPrefix** |Destination address prefix to match for the rule |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **direction** |Direction of traffic to match for the rule |inbound or outbound |
-| **priority** |Priority for the rule. Rules are checked int he order of priority, once a rule applies, no more rules are tested for matching. |10, 100, 65000 |
-| **access** |Type of access to apply if the rule matches |allow or deny |
+| **Beskrivning** |Beskrivning av regeln |Tillåt inkommande trafik för alla virtuella datorer i undernät X |
+| **protokollet** |Protokoll att matcha för regeln |TCP, UDP eller * |
+| **sourcePortRange** |Källportintervall att matcha för regeln |80, 100-200, * |
+| **destinationPortRange** |Målportintervall att matcha för regeln |80, 100-200, * |
+| **sourceAddressPrefix** |Källadress-prefix för att matcha för regeln |10.10.10.1 10.10.10.0/24 VirtualNetwork |
+| **destinationAddressPrefix** |Måladress-prefix att matcha för regeln |10.10.10.1 10.10.10.0/24 VirtualNetwork |
+| **riktning** |Trafikriktning att matcha för regeln |inkommande eller utgående |
+| **prioritet** |Prioritet för regeln. Reglerna kontrolleras i prioritsordning, när en regel testas inga fler regler för matchning. |10, 100, 65000 |
+| **åtkomst** |Typ av åtkomst som ska tillämpas om regeln matchar |tillåt eller neka |
 
-Sample NSG in JSON format:
+Exempel NSG i JSON-format:
 
     {
         "name": "NSG-BackEnd",
@@ -67,11 +67,11 @@ Sample NSG in JSON format:
         }
     }
 
-### <a name="default-security-rules"></a>Default security rules
+### <a name="default-security-rules"></a>Standardregler för säkerhet
 
-Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](../articles/virtual-network/virtual-networks-nsg.md#default-rules) exist.
+Standard säkerhetsregler ha samma egenskaper som är tillgängliga i säkerhetsregler. De finns för att ge grundläggande anslutning mellan resurser som har NSG: er som tillämpas på. Kontrollera att du vet vilken [standard säkerhetsregler](../articles/virtual-network/virtual-networks-nsg.md#default-rules) finns.
 
-### <a name="additional-resources"></a>Additional resources
-* Get more information about [NSGs](../articles/virtual-network/virtual-networks-nsg.md).
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163615.aspx) for NSGs.
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163580.aspx) for security rules.
+### <a name="additional-resources"></a>Ytterligare resurser
+* Hämta mer information [NSG: er](../articles/virtual-network/virtual-networks-nsg.md).
+* Läs den [REST API-referensdokumentation](https://msdn.microsoft.com/library/azure/mt163615.aspx) för NSG: er.
+* Läs den [REST API-referensdokumentation](https://msdn.microsoft.com/library/azure/mt163580.aspx) för säkerhetsregler.

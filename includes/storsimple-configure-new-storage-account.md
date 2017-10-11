@@ -14,8 +14,3 @@
       ![Lägg till lagringskonto](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Det nyligen skapade lagringskontot kommer att visas på sidan **Konfigurera**, under **Lagringskonton**. Klicka på **Spara** för att spara det nyligen skapade lagringskontot. Klicka på **OK** när du uppmanas att bekräfta.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

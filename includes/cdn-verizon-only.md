@@ -1,2 +1,2 @@
 > [!IMPORTANT]
-> This feature is available with **Azure CDN from Verizon** products (Standard and Premium). It is not supported on **Azure CDN from Akamai**.  For a comparison of CDN features, see [Azure CDN Overview](../articles/cdn/cdn-overview.md#azure-cdn-features).
+> Den här funktionen är tillgänglig med **Azure CDN från Verizon** produkter (Standard och Premium). Det stöds inte på **Azure CDN från Akamai**.  En jämförelse av funktioner för CDN finns [översikt över Azure CDN](../articles/cdn/cdn-overview.md#azure-cdn-features).

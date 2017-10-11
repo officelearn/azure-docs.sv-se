@@ -1,222 +1,222 @@
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
+# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS-VM och hanterade och ohanterade premiumdiskar
 
-This article answers some frequently asked questions about Azure Managed Disks and Azure Premium Storage.
+Den här artikeln besvarar några vanliga frågor om Azure hanterade diskar och Azure Premium-lagring.
 
 ## <a name="managed-disks"></a>Managed Disks
 
-**What is Azure Managed Disks?**
+**Vad är Azure hanterade diskar?**
 
-Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, see the [Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md).
+Hanterade diskar är en funktion som förenklar Diskhantering för virtuella Azure IaaS-datorer genom att hantera lagringshantering konto för dig. Mer information finns i [översikt för hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-**If I create a standard managed disk from an existing VHD that's 80 GB, how much will that cost me?**
+**Om jag skapa en standard hanterade diskar från en befintlig virtuell Hårddisk som är 80 GB, hur mycket som kostar mig?**
 
-A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+En standard hanterade diskar som skapats från en virtuell Hårddisk på 80 GB behandlas som nästa tillgängliga standard diskens storlek, vilket är en S10 disk. Du är debiteras enligt S10 disk priser. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
-**Are there any transaction costs for standard managed disks?**
+**Finns det några transaktionskostnader för hanterade standarddiskar?**
 
-Yes. You're charged for each transaction. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+Ja. Du är debiteras för varje transaktion. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
-**For a standard managed disk, will I be charged for the actual size of the data on the disk or for the provisioned capacity of the disk?**
+**För en standard hanterade disk jag debiteras för den verkliga storleken hos data på disken eller diskens etablerad kapacitet?**
 
-You're charged based on the provisioned capacity of the disk. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+Du är debiteras baserat på diskens etablerad kapacitet. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
-**How is pricing of premium managed disks different from unmanaged disks?**
+**Hur är prissättningen av hanterade premiumdiskar skiljer sig från ohanterade diskar?**
 
-The pricing of premium managed disks is the same as unmanaged premium disks.
+Priser för premiumdiskar hanteras är samma som ohanterad premiumdiskar.
 
-**Can I change the storage account type (Standard or Premium) of my managed disks?**
+**Kan jag ändra lagringskontotypen (Standard eller Premium) av min hanterade diskar?**
 
-Yes. You can change the storage account type of your managed disks by using the Azure portal, PowerShell, or the Azure CLI.
+Ja. Du kan ändra lagringskontotypen hanterade diskar med hjälp av Azure portal, PowerShell eller Azure CLI.
 
-**Is there a way that I can copy or export a managed disk to a private storage account?**
+**Finns det ett sätt att jag kan kopiera eller exportera hanterade diskar till ett privat storage-konto?**
 
-Yes. You can export your managed disks by using the Azure portal, PowerShell, or the Azure CLI.
+Ja. Du kan exportera dina hanterade diskar med hjälp av Azure portal, PowerShell eller Azure CLI.
 
-**Can I use a VHD file in an Azure storage account to create a managed disk with a different subscription?**
+**Kan jag använda en VHD-fil i ett Azure storage-konto för att skapa en hanterad disk med en annan prenumeration?**
 
-No.
+Nej.
 
-**Can I use a VHD file in an Azure storage account to create a managed disk in a different region?**
+**Kan jag använda en VHD-fil i ett Azure storage-konto för att skapa en hanterad disk i en annan region?**
 
-No.
+Nej.
 
-**Are there any scale limitations for customers that use managed disks?**
+**Finns det några begränsningar för skalan för kunder som använder hanterade diskar?**
 
-Managed Disks eliminates the limits associated with storage accounts. However, the number of managed disks per subscription is limited to 2,000 by default. You can call support to increase this number.
+Hanterade diskar eliminerar de gränser som är kopplade till storage-konton. Antalet hanterade diskar per prenumeration är dock begränsad till 2 000 som standard. Du kan kontakta support om du vill öka antalet.
 
-**Can I take an incremental snapshot of a managed disk?**
+**Kan jag göra en inkrementell ögonblicksbild av hanterade diskar?**
 
-No. The current snapshot capability makes a full copy of a managed disk. However, we are planning to support incremental snapshots in the future.
+Nej. Den aktuella kapaciteten för ögonblicksbild gör en fullständig kopia av hanterade diskar. Men planerar vi att stödja inkrementell ögonblicksbilder i framtiden.
 
-**Can VMs in an availability set consist of a combination of managed and unmanaged disks?**
+**Virtuella datorer i en tillgänglighetsuppsättning kan bestå av en kombination av hanterade och ohanterade diskar?**
 
-No. The VMs in an availability set must use either all managed disks or all unmanaged disks. When you create an availability set, you can choose which type of disks you want to use.
+Nej. De virtuella datorerna i en tillgänglighetsuppsättning måste använda alla hanterade diskar eller ohanterad diskarna. När du skapar en tillgänglighetsuppsättning, kan du välja vilken typ av diskar som du vill använda.
 
-**Is Managed Disks the default option in the Azure portal?**
+**Är standardalternativet i Azure-portalen för hanterade diskar?**
 
-Not currently, but it will become the default in the future.
+För närvarande inte, men det blir standardvärdet i framtiden.
 
-**Can I create an empty managed disk?**
+**Kan jag skapa en tom disk som hanterade?**
 
-Yes. You can create an empty disk. A managed disk can be created independently of a VM, for example, without attaching it to a VM.
+Ja. Du kan skapa en tom disk. Hanterade diskar kan skapas oberoende av en virtuell dator, till exempel utan kopplar den till en virtuell dator.
 
-**What is the supported fault domain count for an availability set that uses Managed Disks?**
+**Vad stöds feldomänsantalet för tillgänglighet anges som använder hanterade diskar?**
 
-Depending on the region where the availability set that uses Managed Disks is located, the supported fault domain count is 2 or 3.
+Beroende på den region där den tillgänglighetsuppsättningen som använder hanterade diskar finns, är stöds feldomänsantalet 2 eller 3.
 
-**How is the standard storage account for diagnostics set up?**
+**Hur är standard lagringskontot för diagnostik konfigurera?**
 
-You set up a private storage account for VM diagnostics. In the future, we plan to switch diagnostics to Managed Disks as well.
+Du kan konfigurera ett konto för privat lagring för diagnostik för Virtuella datorer. I framtiden kommer planerar vi att växla diagnostik samt till hanterade diskar.
 
-**What kind of Role-Based Access Control support is available for Managed Disks?**
+**Vilken typ av rollbaserad åtkomstkontroll support är tillgänglig för hanterade diskar?**
 
-Managed Disks supports three key default roles:
+Hanterade diskar stöder tre viktiga standardroller:
 
-* Owner: Can manage everything, including access
-* Contributor: Can manage everything except access
-* Reader: Can view everything, but can't make changes
+* Ägare: Kan hantera allt, inklusive åtkomst
+* Deltagare: Kan hantera allt utom åtkomst
+* Läsare: Kan visa allt, men det går inte att göra ändringar
 
-**Is there a way that I can copy or export a managed disk to a private storage account?**
+**Finns det ett sätt att jag kan kopiera eller exportera hanterade diskar till ett privat storage-konto?**
 
-You can get a read-only shared access signature URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage.
+Du kan hämta en skrivskyddad delad åtkomstsignatur URI för hanterade diskar och använda den för att kopiera innehållet till en privat lagring konto eller lokal lagring.
 
-**Can I create a copy of my managed disk?**
+**Kan jag skapa en kopia av min hanterade diskar?**
 
-Customers can take a snapshot of their managed disks and then use the snapshot to create another managed disk.
+Kunder kan ta en ögonblicksbild av deras hanterade diskar och sedan använda ögonblicksbilden för att skapa en annan hanterade diskar.
 
-**Are unmanaged disks still supported?**
+**Ohanterad diskar stöds fortfarande?**
 
-Yes. We support unmanaged and managed disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
+Ja. Vi stöder ohanterade och hanterade diskar. Vi rekommenderar att du använder hanterade diskar för nya arbetsbelastningar och migrera dina aktuella arbetsbelastningar till hanterade diskar.
 
 
-**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (512 GB)?**
+**Om jag skapa en 128 GB disk och sedan öka storleken till 130 GB jag debiteras för nästa diskens storlek (512 GB)?**
 
-Yes.
+Ja.
 
-**Can I create locally redundant storage, geo-redundant storage, and zone-redundant storage managed disks?**
+**Kan jag skapa lokalt redundant lagring, geo-redundant lagring och zonredundant lagring hanteras diskar?**
 
-Azure Managed Disks currently supports only locally redundant storage managed disks.
+Azure-hanterade diskar stöder för närvarande endast lokalt redundant lagring hanterade diskar.
 
-**Can I shrink or downsize my managed disks?**
+**Kan jag krympa eller downsize min hanterade diskar?**
 
-No. This feature is not supported currently. 
+Nej. Den här funktionen stöds inte för närvarande. 
 
-**Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?**
+**Kan jag ändra egenskapen name för datorn när en särskild (inte skapats med hjälp av systemförberedelseverktyget eller generaliserad) operativsystemdisk används för att etablera en virtuell dator?**
 
-No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
+Nej. Du kan inte uppdatera egenskapen name för datorn. Den nya virtuella datorn ärver den från överordnat virtuella datorn som användes för att skapa operativsystemets disk. 
 
-**Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
-* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+**Var hittar jag exempel Azure Resource Manager-mallar för att skapa virtuella datorer med hanterade diskar?**
+* [Lista över mallar med hjälp av hanterade diskar](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks and Storage Service Encryption 
+## <a name="managed-disks-and-storage-service-encryption"></a>Hanterade diskar och Storage Service-kryptering 
 
-**Is Azure Storage Service Encryption enabled by default when I create a managed disk?**
+**Är Azure Storage Service-kryptering aktiverat som standard när jag skapar hanterade diskar?**
 
-Yes.
+Ja.
 
-**Who manages the encryption keys?**
+**Som hanterar krypteringsnycklarna?**
 
-Microsoft manages the encryption keys.
+Microsoft hanterar krypteringsnycklarna.
 
-**Can I disable Storage Service Encryption for my managed disks?**
+**Kan jag inaktivera Storage Service-kryptering för min hanterade diskar?**
 
-No.
+Nej.
 
-**Is Storage Service Encryption only available in specific regions?**
+**Är Lagringstjänstens kryptering endast tillgänglig i vissa områden?**
 
-No. It's available in all the regions where Managed Disks is available. Managed Disks is available in all public regions and Germany.
+Nej. Den är tillgänglig i alla regioner där hanterade diskar är tillgänglig. Hanterade diskar är tillgänglig i alla offentliga regioner och Tyskland.
 
-**How can I find out if my managed disk is encrypted?**
+**Hur kan jag ta reda om hanterade disken krypteras?**
 
-You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted. 
+Du hittar den tid då en hanterad disk skapades från Azure-portalen, Azure CLI och PowerShell. Om tiden efter den 9 juni 2017 krypteras disken. 
 
-**How can I encrypt my existing disks that were created before June 10, 2017?**
+**Hur kan jag kryptera Mina befintliga diskar som skapades före 10 juni 2017?**
 
-As of June 10, 2017, new data written to existing managed disks is automatically encrypted. We are also planning to encrypt existing data, and the encryption will happen asynchronously in the background. If you must encrypt existing data now, create a copy of your disk. New disks will be encrypted.
+Från och med 10 juni 2017 krypteras automatiskt nya data skrivs till befintliga hanterade diskar. Vi också planerar att kryptera befintliga data och kryptering sker asynkront i bakgrunden. Om du måste nu krypterar befintliga data måste du skapa en kopia av disken. Nya diskar krypteras.
 
-* [Copy managed disks by using the Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copy managed disks by using PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Kopiera hanterade diskar med hjälp av Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Kopiera hanterade diskar med hjälp av PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-**Are managed snapshots and images encrypted?**
+**Är hanterad ögonblicksbilder och bilder som krypteras?**
 
-Yes. All managed snapshots and images created after June 9, 2017, are automatically encrypted. 
+Ja. Alla hanterade ögonblicksbilder och bilder som skapats efter den 9 juni 2017 krypteras automatiskt. 
 
-**Can I convert VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
+**Kan jag konvertera virtuella datorer med ohanterad diskar som finns på lagringskonton som är eller krypterats till hanterade diskar?**
 
-Yes
+Ja
 
-**Will an exported VHD from a managed disk or a snapshot also be encrypted?**
+**En exporterad VHD från en hanterad disk eller en ögonblicksbild även krypteras?**
 
-No. But if you export a VHD to an encrypted storage account from an encrypted managed disk or snapshot, then it's encrypted. 
+Nej. Men om du exporterar en virtuell Hårddisk till en krypterad storage-konto från ett krypterat hanteras disk eller en ögonblicksbild och är krypterad. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Premium disks: Managed and unmanaged
+## <a name="premium-disks-managed-and-unmanaged"></a>Premiumdiskar: hanterade och ohanterade
 
-**If a VM uses a size series that supports Premium Storage, such as a DSv2, can I attach both premium and standard data disks?** 
+**Om en virtuell dator använder en serie med storlek som har stöd för Premium-lagring, till exempel en DSv2 kan jag koppla premium- och datadiskar som standard?** 
 
-Yes.
+Ja.
 
-**Can I attach both premium and standard data disks to a size series that doesn't support Premium Storage, such as D, Dv2, G, or F series?**
+**Kan jag koppla premium- och datadiskar som standard till en rad med storleken som inte stöder Premium-lagring, till exempel D, Dv2, G eller F serien?**
 
-No. You can attach only standard data disks to VMs that don't use a size series that supports Premium Storage.
+Nej. Du kan koppla endast standard datadiskar till virtuella datorer som inte använder en serie med storlek som har stöd för Premium-lagring.
 
-**If I create a premium data disk from an existing VHD that was 80 GB, how much will that cost?**
+**Om jag skapa en disk för premium-data från en befintlig virtuell Hårddisk som är 80 GB, hur mycket som kostar?**
 
-A premium data disk created from an 80-GB VHD is treated as the next-available premium disk size, which is a P10 disk. You're charged according to the P10 disk pricing.
+En disk för premium-data som skapas från en virtuell Hårddisk på 80 GB behandlas som nästa tillgängliga premium diskens storlek är en P10 disk. Du är debiteras enligt P10 disk priser.
 
-**Are there transaction costs to use Premium Storage?**
+**Finns det transaktionskostnader använda Premium Storage?**
 
-There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
+Det finns en fast kostnad för varje diskstorlek som hämtas etablerade med specifika gränser på IOPS och genomflöde. Övriga kostnader är utgående bandbredd och ögonblicksbild kapacitet, om tillämpligt. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
-**What are the limits for IOPS and throughput that I can get from the disk cache?**
+**Vad är gränser för IOPS och dataflöde som jag kan från diskcache?**
 
-The combined limits for cache and local SSD for a DS series are 4,000 IOPS per core and 33 MB per second per core. The GS series offers 5,000 IOPS per core and 50 MB per second per core.
+De kombinerade gränsvärdena för cache och lokala SSD för DS-serien är 4 000 IOPS per kärna och 33 MB per sekund per kärna. GS-serien ger 5 000 IOPS per kärna och 50 MB per sekund per kärna.
 
-**Is the local SSD supported for a Managed Disks VM?**
+**Stöds lokal SSD för en virtuell för hanterade diskar?**
 
-The local SSD is temporary storage that is included with a Managed Disks VM. There is no extra cost for this temporary storage. We recommend that you do not use this local SSD to store your application data because it isn't persisted in Azure Blob storage.
+Lokal SSD är tillfälligt lagringsutrymme som ingår i en hanterad diskar i virtuell dator. Det finns inget extra kostnad för den här tillfällig lagring. Vi rekommenderar att du inte använder den här lokala SSD för att lagra dina programdata eftersom det inte finns kvar i Azure Blob storage.
 
-**Are there any repercussions for the use of TRIM on premium disks?**
+**Finns det några konsekvenser för användning av TRIMNING på premiumdiskar?**
 
-There is no downside to the use of TRIM on Azure disks on either premium or standard disks.
+Det finns inga Nackdelen med att användningen av TRIMNING på Azure-diskar på antingen premium eller standarddiskar.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>New disk sizes: Managed and unmanaged
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nya diskstorlekar: hanterade och ohanterade
 
-**What is the largest disk size supported for operating system and data disks?**
+**Vad är den största diskstorleken användas för operativsystemet och datadiskarna?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TB. The largest size that Azure supports for an operating system disk is 2 TB. Azure supports up to 4 TB for data disks. 
+Den partitionstypen som Azure har stöd för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en disk ändra storlek på upp till 2 TB. Den största storlek som Azure har stöd för en operativsystemdisk är 2 TB. Azure har stöd för upp till 4 TB för datadiskar. 
 
-**What is the largest page blob size that's supported?**
+**Vad är den största blob sidstorlek som stöds?**
 
-The largest page blob size that Azure supports is 8 TB (8,191 GB). We don't support page blobs larger than 4 TB (4,095 GB) attached to a VM as data or operating system disks.
+Den största blob sidstorlek som har stöd för Azure är 8 TB (8191 GB). Vi stöder inte sidblobbar som är större än 4 TB (4,095 GB) ansluten till en virtuell dator som data eller operativsystemet diskar.
 
-**Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TB?**
+**Måste jag använda en ny version av Azure-verktyg för att skapa, bifoga, ändra storlek och överför diskar som är större än 1 TB?**
 
-You don't need to upgrade your existing Azure tools to create, attach, or resize disks larger than 1 TB. To upload your VHD file from on-premises directly to Azure as a page blob or unmanaged disk, you need to use the latest tool sets:
+Du behöver inte uppgradera din befintliga Azure-verktyg för att skapa, koppla eller ändra storlek på diskar som är större än 1 TB. Om du vill överföra VHD-filen från lokala direkt till Azure som en sidblob eller ohanterad disk måste du använda senaste verktyget:
 
-|Azure tools      | Supported versions                                |
+|Azure-verktyg      | Versioner som stöds                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Version number 4.1.0: June 2017 release or later|
-|Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
-|AzCopy           | Version number 6.1.0: June 2017 release or later|
+|Azure PowerShell | Versionsnumret 4.1.0: juni 2017 släpper eller senare|
+|Azure CLI v1     | Versionsnumret 0.10.13: släpp kan 2017 eller senare|
+|AzCopy           | Versionsnumret 6.1.0: juni 2017 släpper eller senare|
 
-The support for Azure CLI v2 and Azure Storage Explorer is coming soon. 
+Stöd för Azure CLI v2 och Azure Lagringsutforskaren kommer snart. 
 
-**Are P4 and P6 disk sizes supported for unmanaged disks or page blobs?**
+**Stöds P4 och P6 diskstorlekar för ohanterade diskar eller sidblobbar?**
 
-No. P4 (32 GB) and P6 (64 GB) disk sizes are supported only for managed disks. Support for unmanaged disks and page blobs is coming soon.
+Nej. P4 (32 GB) och P6 diskstorlekar (64 GB) stöds endast för hanterade diskar. Stöd för ohanterade diskar och sidblobbar kommer snart.
 
-**If my existing premium managed disk less than 64 GB was created before the small disk was enabled (around June 15, 2017), how is it billed?**
+**Om min befintliga premium hanteras disk mindre än 64 GB skapades innan liten disk har aktiverats (runt den 15 juni 2017), hur den faktureras?**
 
-Existing small premium disks less than 64 GB continue to be billed according to the P10 pricing tier. 
+Befintliga små premium diskar mindre än 64 GB fortsätta debiteras enligt P10 prisnivå. 
 
-**How can I switch the disk tier of small premium disks less than 64 GB from P10 to P4 or P6?**
+**Hur kan jag byta disk nivån av små premiumdiskar som är mindre än 64 GB från P10 P4 eller P6?**
 
-You can take a snapshot of your small disks and then create a disk to automatically switch the pricing tier to P4 or P6 based on the provisioned size. 
+Du kan ta en ögonblicksbild av små diskar och sedan skapa en disk för att automatiskt växla prisnivån till P4 eller P6 baserat på etablerade storlek. 
 
 
-## <a name="what-if-my-question-isnt-answered-here"></a>What if my question isn't answered here?
+## <a name="what-if-my-question-isnt-answered-here"></a>Vad gör jag om min fråga inte besvaras här?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+Om din fråga inte finns med här kan för oss berätta och vi hjälper dig att hitta ett svar. Du kan ställa en fråga i slutet av den här artikeln i kommentarerna. Om du vill interagera med Azure Storage-teamet och andra gruppmedlemmar om den här artikeln använder MSDN [Azure Storage-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 
-To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).
+Skicka din begäran och idéer om du vill begära funktioner i [Azure Storage Feedbackforum](https://feedback.azure.com/forums/217298-storage).

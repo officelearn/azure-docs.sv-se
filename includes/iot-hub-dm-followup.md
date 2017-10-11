@@ -1,22 +1,22 @@
-## <a name="customize-and-extend-the-device-management-actions"></a>Customize and extend the device management actions
+## <a name="customize-and-extend-the-device-management-actions"></a>Anpassa och utöka enheten hanteringsåtgärder
 
-Your IoT solutions can expand the defined set of device management patterns or enable custom patterns by using the device twin and cloud-to-device method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
+IoT-lösningar kan utöka definierad uppsättning device management mönster eller aktivera anpassade mönster genom att använda enheten dubbla och moln till enhet metoden primitiver. Andra exempel på enheten hanteringsåtgärder är fabriksåterställning, firmware-uppdatering, programuppdatering, energisparfunktioner, nätverk och anslutning hantering och kryptering av data.
 
-## <a name="device-maintenance-windows"></a>Device maintenance windows
+## <a name="device-maintenance-windows"></a>Underhållsperioder för enhet
 
-Typically, you configure devices to perform actions at a time that minimizes interruptions and downtime. Device maintenance windows are a commonly used pattern to define the time when a device should update its configuration. Your back-end solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a maintenance window. When a device receives the maintenance window policy, it can use the reported property of the device twin to report the status of the policy. The back-end app can then use device twin queries to attest to compliance of devices and each policy.
+Normalt kan du konfigurera enheter för att utföra åtgärder på den tid som minimerar avbrott och driftstopp. Enheten underhållsfönster är ett mönster som används ofta för att definiera den tid när en enhet ska uppdatera konfigurationen. Dina backend-lösningar kan använda önskade egenskaper för enhet dubbla att definiera och aktivera en princip på enheten som möjliggör en underhållsperiod. När en enhet tar emot princip för underhåll av fönstret, kan enheten dubbla rapporterade egenskapen användas för att rapportera status för principen. Backend-app kan sedan använda enheten dubbla frågor för att bekräfta att kompatibiliteten för enheter och varje princip.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Nästa steg
 
-In this tutorial, you used a direct method to trigger a remote reboot on a device. You used the reported properties to report the last reboot time from the device, and queried the device twin to discover the last reboot time of the device from the cloud.
+I den här kursen används direkt metod för att utlösa en fjärransluten omstart på en enhet. Du används egenskaperna rapporterade för att rapportera senast omstart från enheten och frågas enheten identiska för att identifiera senast omstart av enheten från molnet.
 
-To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
+Om du vill fortsätta komma igång med IoT-hubb och device management mönster, till exempel remote via luften firmware-uppdatering, se:
 
-[Tutorial: How to do a firmware update][lnk-fwupdate]
+[Självstudier: Hur du gör en firmware-uppdatering][lnk-fwupdate]
 
-To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
+Information om hur du utökar din IoT-lösningen och schema metodanrop på flera enheter finns i [schema och broadcast jobb] [ lnk-tutorial-jobs] kursen.
 
-To continue getting started with IoT Hub, see [Getting started with IoT Edge][lnk-iot-edge].
+Om du vill fortsätta komma igång med IoT-hubb finns [komma igång med IoT kant][lnk-iot-edge].
 
 [lnk-fwupdate]: ../articles/iot-hub/iot-hub-node-node-firmware-update.md
 [lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md

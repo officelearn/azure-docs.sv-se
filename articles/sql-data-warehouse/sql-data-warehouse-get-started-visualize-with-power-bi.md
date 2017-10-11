@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
-ms.contentlocale: sv-se
-ms.lasthandoff: 01/30/2017
-
-
+ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualisera data med Power BI
 > [!div class="op_single_selector"]
@@ -54,7 +52,7 @@ Om du vill öppna Power BI och ansluta till databasen AdventureWorksDW:
 3. Klicka på knappen Öppna i Power BI.
    
     ![Power BI-knappen][2]
-4. Du bör nu se SQL Data Warehouse-anslutningssidan som visar webbadressen för databasen. Klicka på nästa.
+4. Du bör nu se SQL Data Warehouse-anslutningssidan som visar webbadressen för databasen. Klicka på Nästa.
    
     ![Power BI-anslutning][3]
 5. Ange ditt användarnamn och lösenord för Azure SQL-servern så kommer du att anslutas fullständigt till SQL Data Warehouse-databasen.
@@ -119,4 +117,3 @@ Nu när du har värmt upp med exempeldata, kan du se mer information om att [utv
 <!--Other-->
 [Azure portal]: https://portal.azure.com/
 [Power BI website]: http://www.powerbi.com/
-

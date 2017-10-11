@@ -1,17 +1,17 @@
 <!--author=SharS last changed: 9/17/15-->
 
 
-#### <a name="to-create-a-new-service"></a>To create a new service
-1. Use your Microsoft account credentials to log on to the [Microsoft Azure Government Portal](https://portal.azure.us/).
-2. In the Government Portal, click **+** and then in the marketplace, click **See all**. Search for _StorSimple Physical_. Select and click **StorSimple Physical Device Series** and then click **Create**. Alternatively, in the Government portal, click **+** and then under **Storage**, click **StorSimple Physical Device Series**.
-3. In the **StorSimple Device Manager** blade, do the following steps:
+#### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
+1. Använda Microsoft-kontouppgifter för att logga in på den [Microsoft Azure Government Portal](https://portal.azure.us/).
+2. I Government-portalen klickar du på  **+**  och klicka sedan på marknaden **se alla**. Sök efter _StorSimple Physical_. Markera och klicka på **StorSimple Physical Device Series** och sedan på **Skapa**. Alternativt Government-portalen klickar du på  **+**  och sedan under **lagring**, klickar du på **StorSimple fysisk enhet serien**.
+3. Utför följande steg på bladet för **StorSimple Device Manager**:
    
-   1. Supply a unique **Resource name** for your service. This name is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-   2. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-   3. For **Resource group**, **Use existing** or **Create new** group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
-   4. Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device. Select **US Govt Iowa** or **US Govt Virgina**.
-   5. Select **Create a new storage account** to automatically create a storage account with the service. Specify a name for this storage account. If you need your data in a different location, uncheck this box.
-   6. Check **Pin to dashboard** if you want a quick link to this service on your dashboard.
-   7. Click **Create** to create the StorSimple Device Manager. The service creation takes a few minutes. After the service is successfully created, you will see a notification and the new service blade opens up.
+   1. Ange ett unikt **resursnamn** för tjänsten. Det här är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 2 och 50 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.
+   2. Välj en **prenumeration** från listrutan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet syns inte om du bara har en prenumeration.
+   3. Välj **Använd befintlig grupp** eller **Skapa ny grupp** för **Resursgrupp**. Mer information finns i avsnittet om [Azure-resursgrupper](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   4. Ange en **plats** för din tjänst. Plats hänvisar till den geografiska region där du vill distribuera din enhet. Välj **USA Govt Iowa** eller **USA Govt Virgina**.
+   5. Välj **Skapa ett nytt lagringskonto**, för att automatiskt skapa ett lagringskonto med tjänsten. Ange ett namn för lagringskontot. Avmarkera kryssrutan om du behöver ha din data på en annan plats.
+   6. Markera **Fäst på instrumentpanelen** om du vill skapa en snabblänk till tjänsten på instrumentpanelen.
+   7. Skapa StorSimple Device Manager genom att klicka på **Skapa**. Det tar några minuter att skapa tjänsten. När tjänsten har skapats visas ett meddelande och bladet för den nya tjänsten öppnas.
 
 

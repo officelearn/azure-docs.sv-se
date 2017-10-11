@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 35ca040ed123f6330f09f7fb1bc6be9ddaf61808
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 9d7e2a390adf10cbf5d88dd0084ce09136987309
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Övervaka användning och prestanda för Windows-appar
 
@@ -90,5 +89,4 @@ Med [Azure Application Insights](app-insights-overview.md) och [HockeyApp](https
 * [Diagnostiksökning](app-insights-diagnostic-search.md)
 * [Utforska mått](app-insights-metrics-explorer.md)
 * [Skriv analysfrågor](app-insights-analytics.md)
-
 

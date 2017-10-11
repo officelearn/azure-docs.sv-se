@@ -1,68 +1,68 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### <a name="step-1-authorize-a-device-to-change-the-service-data-encryption-key-in-the-azure-classic-portal"></a>Step 1: Authorize a device to change the service data encryption key in the Azure classic portal
-Typically, the device administrator will request that the service administrator authorize a device to change service data encryption keys. The service administrator will then authorize the device to change the key.
+### <a name="step-1-authorize-a-device-to-change-the-service-data-encryption-key-in-the-azure-classic-portal"></a>Steg 1: Ge en enhet för att ändra krypteringsnyckeln för tjänstdata i den klassiska Azure-portalen
+Vanligtvis begär enhetsadministratören att administratören godkänna en enhet för att ändra datakrypteringsnycklar för tjänsten. Tjänstadministratören godkänner sedan enheten för att ändra nyckeln.
 
-This step is performed in the Azure classic portal. The service administrator can select a device from a displayed list of the devices that are eligible to be authorized. The device is then authorized to start the service data encryption key change process.
+Det här steget utförs i den klassiska Azure-portalen. Administratören kan välja en enhet från listan över enheter som är berättigade till ha behörighet. Enheten har sedan behörighet att starta tjänsten data krypteringsprocessen ändringen.
 
-#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Which devices can be authorized to change service data encryption keys?
-A device must meet the following criteria before it can be authorized to initiate service data encryption key changes:
+#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Vilka enheter kan ha behörighet att ändra tjänsten datakrypteringsnycklar?
+En enhet måste uppfylla följande kriterier innan den kan ha behörighet att starta tjänsten kryptering viktiga ändringar:
 
-* The device must be online to be eligible for service data encryption key change authorization.
-* You can authorize the same device again after 30 minutes if the key change has not been initiated.
-* You can authorize a different device, provided that the key change has not been initiated by the previously authorized device. After the new device has been authorized, the old device cannot initiate the change.
-* You cannot authorize a device while the rollover of the service data encryption key is in progress.
-* You can authorize a device when some of the devices registered with the service have rolled over the encryption while others have not. In such cases, the eligible devices are the ones that have completed the service data encryption key change.
+* Enheten måste vara online för att vara kvalificerad för auktoriseringen av tjänsten data kryptering ändringen.
+* Du kan godkänna på samma enhet igen efter 30 minuter om viktiga ändringen inte har initierats.
+* Du kan godkänna en annan enhet, under förutsättning att ändringen inte har initierats av tidigare godkänd enheten. När den nya enheten har auktoriserats, kan inte gamla enheten initiera ändringen.
+* Du kan inte godkänna en enhet när förnyelsen av datakrypteringsnyckeln för tjänsten pågår.
+* Du kan godkänna en enhet när några av de enheter som registrerats för tjänsten har återställts via kryptering medan andra inte har. I sådana fall är berättigade enheter de som har slutfört krypteringsnyckeln för tjänstdata ändra.
 
 > [!NOTE]
-> In the Azure classic portal, StorSimple virtual devices are not shown in the list of devices that can be authorized to start the key change.
+> Virtuella StorSimple-enheter visas inte i listan över enheter som kan ha behörighet att starta ändringen i den klassiska Azure-portalen.
 > 
 > 
 
-Perform the following steps to select and authorize a device to initiate the service data encryption key change.
+Utför följande steg för att välja och auktorisera en enhet för att initiera tjänsten data encryption key ändras.
 
-#### <a name="to-authorize-a-device-to-change-the-key"></a>To authorize a device to change the key
-1. On the service dashboard page, click **Change service data encryption key**.
+#### <a name="to-authorize-a-device-to-change-the-key"></a>Att auktorisera en enhet för att ändra nyckeln
+1. På sidan service instrumentpanelen **ändra krypteringsnyckel för tjänstdata**.
    
-    ![Change service encryption key](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
-2. In the **Change service data encryption key** dialog box, select and authorize a device to initiate the service data encryption key change. The drop-down list has all the eligible devices that can be authorized.
-3. Click the check icon ![check icon](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+    ![Ändra service krypteringsnyckeln](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
+2. I den **ändra krypteringsnyckel för tjänstdata** dialogrutan väljer och auktorisera en enhet för att initiera tjänsten data encryption key ändras. Den nedrullningsbara listan har alla kvalificerade enheter som kan godkännas.
+3. Klicka på kryssikonen ![kryssikon](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
-### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change
-This step is performed in the Windows PowerShell for StorSimple interface on the authorized StorSimple device.
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>Steg 2: Använda Windows PowerShell för StorSimple att initiera tjänsten data encryption key ändras
+Det här steget utförs i Windows PowerShell för StorSimple-gränssnittet på behöriga StorSimple-enheten.
 
 > [!NOTE]
-> No operations can be performed in the Azure classic portal of your StorSimple Manager service until the key rollover is completed.
+> Inga åtgärder kan utföras i den klassiska Azure-portalen för din StorSimple Manager-tjänsten tills nyckelförnyelse har slutförts.
 > 
 > 
 
-If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.
+Utför följande steg om du använder enhetens seriekonsol för att ansluta till Windows PowerShell-gränssnittet.
 
-#### <a name="to-initiate-the-service-data-encryption-key-change"></a>To initiate the service data encryption key change
-1. Select option 1 to log on with full access.
-2. At the command prompt, type:
+#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Att starta tjänsten data encryption key ändras
+1. Välj alternativ 1 för att logga in med fullständig åtkomst.
+2. Skriv följande vid kommandotolken:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
-3. After the cmdlet has successfully completed, you will get a new service data encryption key. Copy and save this key for use in step 3 of this process. This key will be used to update all the remaining devices registered with the StorSimple Manager service.
+3. När cmdleten har slutförts får du en ny krypteringsnyckel för tjänstdata. Kopiera och spara den här nyckeln för användning i steg 3 i den här processen. Den här nyckeln används för att uppdatera alla enheter som registrerats med StorSimple Manager-tjänsten.
    
    > [!NOTE]
-   > This process must be initiated within four hours of authorizing a StorSimple device.
+   > Den här processen måste initieras inom fyra timmar för att auktorisera en StorSimple-enhet.
    > 
    > 
    
-   This new key is then sent to the service to be pushed to all the devices that are registered with the service. An alert will then appear on the service dashboard. The service will disable all the operations on the registered devices, and the device administrator will then need to update the service data encryption key on the other devices. However, the I/Os (hosts sending data to the cloud) will not be disrupted.
+   Den här nya nyckeln skickas sedan till tjänsten ska kunna skickas till alla enheter som registreras med tjänsten. En avisering visas sedan på instrumentpanelen för tjänsten. Tjänsten kommer att inaktivera alla åtgärder på registrerade enheter och enhetsadministratören sedan måste du uppdatera krypteringsnyckeln för tjänstdata på andra enheter. I/o (värdar skicka data till molnet) kommer inte att avbrytas.
    
-   If you have a single device registered to your service, the rollover process is now complete and you can skip the next step. If you have multiple devices registered to your service, proceed to step 3.
+   Om du har en enda enhet som registrerats till tjänsten förnyelse processen är slutförd och du kan hoppa över nästa steg. Om du har flera enheter som registrerats till tjänsten kan du gå vidare till steg 3.
 
-### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Step 3: Update the service data encryption key on other StorSimple devices
-These steps must be performed in the Windows PowerShell interface of your StorSimple device if you have multiple devices registered to your StorSimple Manager service. The key that you obtained in Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change must be used to update all the remaining StorSimple device registered with the StorSimple Manager service.
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>Steg 3: Uppdatera krypteringsnyckeln för tjänstdata på andra StorSimple-enheter
+Dessa steg måste utföras i Windows PowerShell-gränssnittet för din StorSimple-enhet om du har flera enheter som registrerats med StorSimple Manager-tjänsten. Den nyckel som du fick i steg 2: använda Windows PowerShell för StorSimple att initiera tjänsten data encryption key ändringen måste användas för att uppdatera alla återstående StorSimple-enheten registrerad med StorSimple Manager-tjänsten.
 
-Perform the following steps to update the service data encryption on your device.
+Utför följande steg för att uppdatera tjänsten datakryptering på enheten.
 
-#### <a name="to-update-the-service-data-encryption-key"></a>To update the service data encryption key
-1. Use Windows PowerShell for StorSimple to connect to the console. Select option 1 to log on with full access.
-2. At the command prompt, type:
+#### <a name="to-update-the-service-data-encryption-key"></a>Uppdatera krypteringsnyckeln för tjänstdata
+1. Använda Windows PowerShell för StorSimple för att ansluta till konsolen. Välj alternativ 1 för att logga in med fullständig åtkomst.
+2. Skriv följande vid kommandotolken:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Provide the service data encryption key that you obtained in [Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change](#to-initiate-the-service-data-encryption-key-change).
+3. Ange den krypteringsnyckel för tjänstdata som du fick i [steg 2: använda Windows PowerShell för StorSimple att initiera tjänsten data encryption key ändras](#to-initiate-the-service-data-encryption-key-change).
 

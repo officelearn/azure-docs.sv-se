@@ -1,38 +1,38 @@
-## <a name="view-the-solution-dashboard"></a>View the solution dashboard
+## <a name="view-the-solution-dashboard"></a>Visa instrumentpanelen för lösningen
 
-The solution dashboard enables you to manage the deployed solution. For example, you can view telemetry, add devices, and invoke methods.
+På instrumentpanelen för lösningen kan du hantera den distribuerade lösningen. Du kan till exempel visa telemetri, Lägg till enheter och anropa metoder.
 
-1. When the provisioning is complete and the tile for your preconfigured solution indicates **Ready**, choose **Launch** to open your remote monitoring solution portal in a new tab.
+1. När etableringen har slutförts och panelen för din förkonfigurerade lösning visar statusen **Klar** klickar du på **Starta** så öppnas portalen för fjärrövervakningslösningen på en ny flik.
 
-    ![Launch the preconfigured solution][img-launch-solution]
+    ![Starta den förkonfigurerade lösningen][img-launch-solution]
 
-1. By default, the solution portal shows the *dashboard*. You can navigate to other areas of the solution portal using the menu on the left-hand side of the page.
+1. Som standard visar lösningsportalen *instrumentpanelen*. Du kan navigera till andra delar av lösningsportalen via menyn till vänster på sidan.
 
-    ![Remote monitoring preconfigured solution dashboard][img-menu]
+    ![Instrumentpanel för den förkonfigurerade fjärrövervakningslösningen][img-menu]
 
-## <a name="add-a-device"></a>Add a device
+## <a name="add-a-device"></a>Lägg till en enhet
 
-For a device to connect to the preconfigured solution, it must identify itself to IoT Hub using valid credentials. You can retrieve the device credentials from the solution dashboard. You include the device credentials in your client application later in this tutorial.
+För att en enhet ska kunna ansluta till den förkonfigurerade lösningen måste den identifiera sig för IoT Hub med giltiga autentiseringsuppgifter. Du kan hämta enhetens autentiseringsuppgifter från lösningens instrumentpanel. Du kan inkludera enhetsautentiseringsuppgifterna i klientprogrammet senare i den här självstudien.
 
-If you haven't already done so, add a custom device to your remote monitoring solution. Complete the following steps in the solution dashboard:
+Om du inte redan gjort det, lägger du till en anpassad enhet din fjärranslutna övervakningslösning. Utför följande steg i instrumentpanelen för lösningen:
 
-1. In the lower left-hand corner of the dashboard, click **Add a device**.
+1. Klicka på **Lägg till en enhet** i det nedre vänstra hörnet på instrumentpanelen.
 
-   ![Add a device][1]
+   ![Lägg till en enhet][1]
 
-1. In the **Custom Device** panel, click **Add new**.
+1. I panelen **Anpassad enhet** klickar du på **Lägg till ny**.
 
-   ![Add a custom device][2]
+   ![Lägg till en anpassad enhet][2]
 
-1. Choose **Let me define my own Device ID**. Enter a Device ID such as **rasppi**, click **Check ID** to verify you haven't already used the name in your solution, and then click **Create** to provision the device.
+1. Välj **Låt mig ange mitt eget enhets-ID**. Ange ett enhets-ID som **rasppi**, klickar du på **kontrollera ID** att verifiera att du inte redan använt namnet i din lösning och klicka sedan på **skapa** att etablera enheten.
 
-   ![Add device ID][3]
+   ![Lägg till enhets-ID][3]
 
-1. Make a note the device credentials (**Device ID**, **IoT Hub Hostname**, and **Device Key**). Your client application on the Raspberry Pi needs these values to connect to the remote monitoring solution. Then click **Done**.
+1. Notera enheten autentiseringsuppgifter (**enhets-ID**, **IoT-hubb Hostname**, och **enhetsnyckel**). Ditt klientprogram på hallon Pi måste dessa värden för att ansluta till den fjärranslutna övervakningslösning. Klicka sedan på **Klar**.
 
-    ![View device credentials][4]
+    ![Visa enhetsautentiseringsuppgifter][4]
 
-1. Select your device in the device list in the solution dashboard. Then, in the **Device Details** panel, click **Enable Device**. The status of your device is now **Running**. The remote monitoring solution can now receive telemetry from your device and invoke methods on the device.
+1. Välj enheten i enhetslistan i lösningens instrumentpanel. Klicka sedan på **Aktivera enhet** i panelen **Enhetsinformation**. Statusen för din enhet är nu **Körs**. Fjärrövervakningslösningen kan nu ta emot telemetri från enheten och anropa metoder på enheten.
 
 [img-launch-solution]: media/iot-suite-raspberry-pi-kit-view-solution/launch.png
 [img-menu]: media/iot-suite-raspberry-pi-kit-view-solution/menu.png

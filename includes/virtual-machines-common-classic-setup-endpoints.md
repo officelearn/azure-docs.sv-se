@@ -1,57 +1,57 @@
 
-Each endpoint has a *public port* and a *private port*:
+Varje slutpunkt har en *offentlig port* och en *privat port*:
 
-* The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
-* The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
+* Den offentliga porten används av Azure belastningsutjämnare för att lyssna efter inkommande trafik till den virtuella datorn från Internet.
+* Den privata porten används av den virtuella datorn för att lyssna efter inkommande trafik, vanligtvis av ett program eller tjänst som körs på den virtuella datorn.
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
+Standardvärden för IP-protokollet och TCP eller UDP-portar för välkända nätverket protokoll anges när du skapar slutpunkter med Azure-portalen. För anpassade slutpunkter måste du ange rätt IP-protokoll (TCP eller UDP) och offentliga och privata portar. Om du vill distribuera slumpmässigt inkommande trafik över flera virtuella datorer, behöver du skapa en belastningsutjämnad uppsättning som består av flera slutpunkter.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+Du kan använda en åtkomstkontrollista (ACL) för att definiera regler som tillåter eller nekar inkommande trafik till den offentliga porten för slutpunkten baserat på dess IP-adress när du har skapat en slutpunkt. Du bör dock använda nätverkssäkerhetsgrupper i stället om den virtuella datorn är i ett virtuellt Azure-nätverk. Mer information finns i [om nätverkssäkerhetsgrupper](../articles/virtual-network/virtual-networks-nsg.md).
 
 > [!NOTE]
-> Firewall configuration for Azure virtual machines is done automatically for ports associated with remote connectivity endpoints that Azure sets up automatically. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration. To configure the firewall, see the documentation or on-line help for the operating system running on the virtual machine.
+> Brandväggskonfigurationen för virtuella Azure-datorer görs automatiskt för portar som är associerade med fjärranslutningar slutpunkter som Azure ställer in automatiskt. Ingen konfiguration görs automatiskt till i brandväggen för den virtuella datorn för portar som angetts för alla slutpunkter. När du skapar en slutpunkt för den virtuella datorn, behöver du se till att brandväggen på den virtuella datorn också tillåter trafik för protokoll och privat port motsvarar slutpunktskonfigurationen. Om du vill konfigurera brandväggen finns i dokumentationen eller Onlinehjälp för operativsystemet som körs på den virtuella datorn.
 >
 >
 
-## <a name="create-an-endpoint"></a>Create an endpoint
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3. Click **Endpoints** in the **Settings** group. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
+## <a name="create-an-endpoint"></a>Skapa en slutpunkt
+1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com).
+2. Klicka på **virtuella datorer**, och klicka sedan på namnet på den virtuella dator som du vill konfigurera.
+3. Klicka på **slutpunkter** i den **inställningar** grupp. Den **slutpunkter** sidan listar alla aktuella slutpunkter för den virtuella datorn. (Det här exemplet är en virtuell Windows-dator. Linux VM visas som standard en slutpunkt för SSH.)
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Slutpunkter](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
-4. In the command bar above the endpoint entries, click **Add**.
-5. On the **Add endpoint** page, type a name for the endpoint in **Name**.
-6. In **Protocol**, choose either **TCP** or **UDP**.
-7. In **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 6) and private port.
-10. Click **Ok**.
+4. I kommandofältet ovan endpoint-poster, klickar du på **Lägg till**.
+5. På den **lägga till slutpunkten** anger du ett namn för slutpunkten i **namn**.
+6. I **protokollet**, Välj antingen **TCP** eller **UDP**.
+7. I **offentlig Port**, Skriv portnumret för den inkommande trafiken från Internet. I **privat Port**, ange det portnummer som den virtuella datorn lyssnar. Dessa portnummer kan vara olika. Se till att brandväggen på den virtuella datorn har konfigurerats för att tillåta trafik för protokoll (i steg 6) och privat port.
+10. Klicka på **OK**.
 
-The new endpoint will be listed on the **Endpoints** page.
+Ny slutpunkt visas på den **slutpunkter** sidan.
 
-![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointcreated.png)
+![Skapa en slutpunkt lyckades](./media/virtual-machines-common-classic-setup-endpoints/endpointcreated.png)
 
-## <a name="manage-the-acl-on-an-endpoint"></a>Manage the ACL on an endpoint
-To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
+## <a name="manage-the-acl-on-an-endpoint"></a>Hantera ACL på en slutpunkt
+Om du vill definiera en uppsättning datorer som kan skicka trafik kan ACL på en slutpunkt begränsa trafik baserat på källans IP-adress. Följ dessa steg om du vill lägga till, ändra eller ta bort en ACL för en slutpunkt.
 
 > [!NOTE]
-> If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+> Om slutpunkten är en del av en belastningsutjämnad uppsättning, tillämpas alla ändringar du gör i åtkomstkontrollistan för en slutpunkt på alla slutpunkter i uppsättningen.
 >
 >
 
-If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+Om den virtuella datorn är i ett virtuellt Azure-nätverk, rekommenderar vi nätverkssäkerhetsgrupper i stället för ACL: er. Mer information finns i [om nätverkssäkerhetsgrupper](../articles/virtual-network/virtual-networks-nsg.md).
 
-1. If you haven't already done so, sign in to the Azure portal.
-2. Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3. Click **Endpoints**. From the list, select the appropriate endpoint. The ACL list is at the bottom of the page.
+1. Om du inte redan gjort det, logga in på Azure-portalen.
+2. Klicka på **virtuella datorer**, och klicka sedan på namnet på den virtuella dator som du vill konfigurera.
+3. Klicka på **Slutpunkter**. Välj lämplig slutpunkten i listan. ACL-listan är längst ned på sidan.
 
-   ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
+   ![Ange ACL-information](./media/virtual-machines-common-classic-setup-endpoints/aclpreentry.png)
 
-4. Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is `10.1.0.0/8`.
+4. Använda rader i listan för att lägga till, ta bort, eller redigera regler för en ACL och ändra deras inbördes ordning. Den **fjärrundernät** värde är ett IP-adressintervall för inkommande trafik från Internet som Azure belastningsutjämnare använder för att tillåta eller neka trafik baserat på dess IP-adress. Se till att ange IP-adressintervall i CIDR-format, även kallat prefix adressformat. Ett exempel är `10.1.0.0/8`.
 
- ![New ACL entry](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+ ![Ny ACL-post](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
-You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
+Du kan använda regler som tillåter endast trafik från vissa datorer som motsvarar dina datorer på Internet eller neka trafik från specifika, kända adressintervall.
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List](../articles/virtual-network/virtual-networks-acl.md).
+Reglerna utvärderas i ordning från och med den första regeln och slutar med den sista regeln. Detta innebär att regler ska sorteras från minst restriktiva till mest restriktiva. Mer information och exempel finns i [vad är en lista över åtkomstkontroll för](../articles/virtual-network/virtual-networks-acl.md).

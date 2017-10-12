@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
+ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-overview"></a>Översikt över Azure Automation
 Microsoft Azure Automation gör det möjligt för användare att automatisera manuella, tidskrävande, felbenägna och ofta återkommande uppgifter som är vanliga i molnet och företagsmiljöer. Det sparar tid och ökar tillförlitligheten i vanliga administrativa uppgifter och schemalägger dem även så att de kan utföras automatiskt med jämna mellanrum. Du kan automatisera processer med hjälp av runbooks eller automatisera konfigurationshantering med Desired State Configuration. Den här artikeln innehåller en kort översikt över Azure Automation och ger svar på några vanliga frågor. Du kan referera till andra artiklar i det här biblioteket om du vill ha mer detaljerad information om de olika avsnitten.
@@ -84,5 +83,4 @@ Det finns många resurser där du kan lära dig mer om Azure Automation och hur 
 
 ## <a name="can-i-provide-feedback"></a>Kan jag lämna feedback?
 **Vi tar gärna emot din feedback!** Om du letar efter en lösning för Azure Automation-runbooks eller en integreringsmodul kan du publicera en skriptbegäran på Script Center. Om du har feedback eller funktionsönskemål om Azure Automation kan du publicera dem i [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Tack! 
-
 

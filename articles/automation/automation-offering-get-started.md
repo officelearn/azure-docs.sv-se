@@ -1,4 +1,4 @@
---- 
+---
 title: "Komma igång med Azure Automation | Microsoft Docs"
 description: "Den här artikeln ger en översikt över Azure Automation-tjänsten och beskriver design, implementeringsdetaljer och förberedelser inför distribution från Azure Marketplace."
 services: automation
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Komma igång med Azure Automation
 
 Den här guiden för att komma igång beskriver grundläggande begrepp för distribution av Azure Automation. Om Automation i Azure är nytt för dig eller om du har erfarenhet av programvara för automatiserade arbetsflöden (till exempel System Center Orchestrator) kan den här guiden hjälpa dig att förstå hur du ska förbereda och publicera Automation.  Sedan kommer du att vara redo att börja utveckla runbooks som stöd i din processautomation. 
@@ -191,6 +189,5 @@ När erbjudandet har integrerats kan du börja skapa runbooks, arbeta med hanter
 ## <a name="next-steps"></a>Nästa steg
 * Du kan bekräfta att det nya Automation-kontot kan autentisera mot Azure-resurser genom att granska [testa autentisering av Azure Automation Kör som-konto](automation-verify-runas-authentication.md).
 * Om du vill komma igång med att skapa runbooks ska du först kontrollera vilka [typer av Automation-runbooks](automation-runbook-types.md) som stöds och liknande information innan du börjar skriva.
-
 
 

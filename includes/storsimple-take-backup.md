@@ -28,8 +28,3 @@ Du har slutfört enhetskonfigurationen.
 
 Om du vill se en video som visar hur du tar en StorSimple-säkerhetskopia, klickar du [här](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

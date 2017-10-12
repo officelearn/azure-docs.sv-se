@@ -15,8 +15,3 @@ Ett behållarnamn måste vara ett giltigt DNS-namn som överensstämmer med föl
 > 
 > 
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

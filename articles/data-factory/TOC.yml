@@ -192,7 +192,7 @@
           href: monitor-integration-runtime.md
     - name: Skapa integration runtime
       items:
-        - name: Azure integration runtime
+        - name: Azure Integration Runtime
           href: create-azure-integration-runtime.md
         - name: Lokal IR
           href: create-self-hosted-integration-runtime.md

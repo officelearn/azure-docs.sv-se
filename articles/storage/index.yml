@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">Ladda upp och hämta avbildningsdata i molnet</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Utlösa Azure Functions för att bearbeta blobar</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Utlösa Azure Functions för att bearbeta blobar</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">Skydda programdata</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Övervaka och felsöka lagring</a>
   - title: Exempel
@@ -52,7 +52,7 @@ sections:
         items:
           - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
           - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
-  - title: Kostnadsfri videoutbildning för PluralSight
+  - title: Kostnadsfri videoutbildning för Pluralsight
     items:
       - type: list
         style: cards

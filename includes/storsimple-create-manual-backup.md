@@ -18,8 +18,3 @@
    
    Säkerhetskopian borde visas i listan över säkerhetskopieringsuppsättningar som visas i katalogen.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

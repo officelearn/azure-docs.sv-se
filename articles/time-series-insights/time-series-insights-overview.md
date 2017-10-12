@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: omravi
+ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: abd66208ab7ac30831f3f1eddb2891ed7bcd3995
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure Time Series Insights?
 
 Azure Time Series Insights är en hanterad molntjänst med komponenter för lagring, analys och visualisering som gör det enkelt att mata in, lagra, utforska och analysera miljarder händelser samtidigt. Med Time Series Insights får du en global vy över dina data som hjälper dig att snabbt validera dina IoT-lösningar och undvika kostsamma avbrott. Du får hjälp med att identifiera dolda trender, upptäcka avvikelser och utföra rotorsaksanalyser nästan i realtid. Time Series Insights matar in Time Series-data från händelsekoordinatorer (som IoT Hubs eller Event Hubs), indexerar data och avvecklar data utifrån en konfigurerbar bevarandeprincip. Användarna använder data antingen via en intuitiv UX eller REST Query-API:er.
@@ -51,4 +49,3 @@ Azure Time Series Insights är en hanterad molntjänst med komponenter för lagr
 * **Miljö**: En miljö är en Azure-resurs med ingångs- och lagringskapacitet.  Kunder etablerar miljöer via Azure Portal med den kapacitet som krävs.
 * **Händelsekälla**: En händelsekälla härleds från en asynkron meddelandekö för händelser, som Azure Event Hubs.  Time Series Insights ansluts direkt till händelsekällor och matar in data i dataströmmen utan att man behöver skriva kod. Tidserieinsikter stöder för närvarande, Azure Event Hubs och Azure IoT Hubs.
 * **Referensdata**: Time Series Insights ger användarna möjlighet att ansluta till Time Series-data med referensdata.  Referensdata kan innehålla metadata om enheter eller andra statiska data som ändras relativt sällan. Time Series Insights ansluter till referensdata med dataströmmar så att användarna kan visualisera och analysera sina data nästan i realtid.
-

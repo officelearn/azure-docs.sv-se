@@ -108,7 +108,7 @@
 # Referens
 ## [Definitionsspråk för arbetsflöde](logic-apps-workflow-definition-language.md)
 ## [Åtgärder och utlösare för arbetsflöde](logic-apps-workflow-actions-triggers.md)
-## [REST API](/rest/api/logic/)
+## [REST-API](/rest/api/logic/)
 ## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Anslutningsappar: ämnesfördjupning
 ### [AS2](logic-apps-enterprise-integration-as2.md)

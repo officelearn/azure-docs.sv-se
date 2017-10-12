@@ -68,7 +68,7 @@ sections:
           - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Mappa en befintlig anpassad domän till ditt program</a>
           - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Bind ett befintligt SSL-certifikat till ditt program</a>
           - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Lägga till ett CDN till ditt program</a>
-  - title: Kostnadsfri videoutbildning för PluralSight
+  - title: Kostnadsfri videoutbildning för Pluralsight
     items:
       - type: list
         style: cards

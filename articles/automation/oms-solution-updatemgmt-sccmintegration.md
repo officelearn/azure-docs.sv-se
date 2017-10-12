@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrera System Center Configuration Manager med OMS-uppdateringshantering [förhandsversion]
 
 Kunder som har investerat i System Center Configuration Manager för att hantera datorer, servrar och mobila enheter är också beroende av dess styrka och mognad vid hantering av programuppdateringar som en del av sin cykel för hantering av programuppdatering (SUM).  
@@ -56,5 +54,4 @@ När distributionen av uppdateringen är slutförd med OMS-lösningen installera
 För att hantera uppdateringar för virtuella Windows Server-datorer som är Configuration Manager-klienter måste du konfigurera klientens princip för att avaktivera funktionen för hantering av programuppdatering för alla klienter som hanteras av lösningen.  Som standard riktar sig klientinställningarna till alla enheter i hierarkin.  Mer information om den här principen och hur du konfigurerar den finns i [how to configure client settings in System Center Configuration Manager](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings) (konfigurera klientinställningar i System Center Configuration Manager).  
 
 När du har utfört konfigurationsändringen skapar du en ny distribution genom att följa stegen i [Skapa en uppdateringsdistribution](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) och välja lämplig Configuration Manager-samling som representeras som en OMS-datorgrupp från listrutan. 
-
 

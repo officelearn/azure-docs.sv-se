@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>Konfigurera omdirigering på Application Gateway med PowerShell
 
 Application Gateway stöder möjligheten att omdirigera trafik baserat på den angivna konfigurationen. Läs mer om omdirigering i allmänhet på [Översikt för omdirigering i Application Gateway](application-gateway-redirect-overview.md). Den här artikeln innehåller exempel på omdirigering från HTTP till HTTPS, sökväg-baserade omdirigeringar, omdirigeringar för flera platser och omdirigeringar till externa platser.

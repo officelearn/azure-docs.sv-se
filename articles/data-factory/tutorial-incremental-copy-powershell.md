@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
+ms.openlocfilehash: 91b632b6d2c2917acf17e9d89c1b5a4b0f8b1c33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 6a73e7818edfb796b7294f6794d2652c5feedf5c
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
 
@@ -165,7 +163,7 @@ END
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
-2. Kör cmdleten **Set-AzureRmDataFactoryV2** för att skapa en datafabrik. Ersätt platshållare med egna värden innan kommandot körs.
+2. Kör cmdleten **Set-AzureRmDataFactoryV2** för att skapa en datafabrik. Ersätt platshållarna med egna värden innan du kör kommandot.
 
     ```powershell
     Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
@@ -173,14 +171,14 @@ END
 
     Observera följande punkter:
 
-    * Namnet på Azure Data Factory måste vara globalt unikt. Om du har fått följande felmeddelande ändrar du namnet och försöker igen.
+    * Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
 
         ```
         The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
         ```
 
     * Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
-    * För närvarande kan du endast skapa en datafabrik i Data Factory V2 i USA, östra. Datalagren (Azure Storage, Azure SQL Database etc.) och beräkningarna (HDInsight etc.) som används av datafabriker kan finnas i andra regioner.
+    * För närvarande kan du endast skapa en datafabrik i Data Factory V2 i USA, östra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
@@ -712,7 +710,7 @@ I den här självstudien skapar du en pipeline med två lookupaktiviteter, en ko
 
      
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen fick du: 
+I den här självstudien har du fått: 
 
 > [!div class="checklist"]
 > * Definiera en **vattenstämpelkolumn** och lagra den i Azure SQL Database.  
@@ -727,7 +725,6 @@ Fortsätt till följande självstudie och lär dig att transformera data med ett
 
 > [!div class="nextstepaction"]
 >[Transformera data med Apache Spark i molnet](tutorial-transform-data-spark-powershell.md)
-
 
 
 

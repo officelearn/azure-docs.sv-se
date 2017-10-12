@@ -11,7 +11,7 @@ Om du vill låta Mobile Engagement skicka push-meddelanden för dig, måste du b
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Skicka ett meddelande till din app
+## <a id="send"></a>Skicka ett meddelande till din app
 Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push till vår app:
 
 1. Gå till **Reach**-fliken i din Mobile Engagement-portal.
@@ -39,9 +39,4 @@ Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push till vår a
 8. Om du har en Apple Watch parad med iOS-enheten så kommer du att se meddelandet på din Apple Watch:
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

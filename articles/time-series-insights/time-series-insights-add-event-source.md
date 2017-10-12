@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: ffa2eaf3680e68ac14aabf49b6308caeb173fd43
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Skapa en händelsekälla för miljön för Time Series Insights med Ibiza Portal
 
 Händelsekällan Time Series Insights härleds från en asynkron meddelandekö för händelser, som Azure Event Hubs. Time Series Insights ansluts direkt till händelsekällor och matar in dataströmmen utan att kräva att användarna skriver en enda rad kod. Tidserieinsikter stöder för närvarande, Azure Event Hubs och Azure IoT Hubs. I framtiden kommer fler händelsekällor att läggas till.
@@ -55,4 +53,3 @@ När du har skapat händelsekällan börjar Time Series Insights automatiskt att
 
 * [Skicka händelser](time-series-insights-send-events.md) till händelsekällan
 * Visa din miljö i [Time Series Insights-portalen](https://insights.timeseries.azure.com)
-

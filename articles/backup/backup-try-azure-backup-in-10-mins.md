@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>En första titt: Säkerhetskopiera filer och mappar med Resource Manager-distributions
 Den här artikeln förklarar hur du säkerhetskopierar filer och mappar i Windows Server (eller en Windows-dator) till Azure med hjälp av Resource Manager-distribution. I den här självstudiekursen går vi igenom grunderna. Om du vill komma igång med Azure Backup är du på rätt ställe.
@@ -229,4 +228,3 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 * Få mer information om hur du [säkerhetskopierar Windows-datorer](backup-configure-vault.md).
 * Nu när du har säkerhetskopierat dina filer och mappar kan du [hantera dina valv och servrar](backup-azure-manage-windows-server.md).
 * Om du behöver återställa en säkerhetskopia använder du den här artikeln för att [återställa filer till en Windows-dator](backup-azure-restore-windows-server.md).
-

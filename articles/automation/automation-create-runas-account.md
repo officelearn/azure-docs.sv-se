@@ -3,7 +3,7 @@ title: "Skapa Azure Automation Kör som-konton | Microsoft Docs"
 description: "I den här artikeln beskrivs hur du uppdaterar ditt Automation-konto och skapar Kör som-konton med PowerShell eller från Portal."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 09ddca83fc0f39d7911813e488317f9434fdcfc8
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 8a42f73fbe33b422b7881f8a17a1f421e2b5dfc8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uppdatera autentiseringen av ditt Automation-konto med Kör som-konton 
 Du kan uppdatera ditt befintliga Automation-konto från Portal eller med PowerShell om:
 
@@ -48,7 +46,7 @@ För att kunna uppdatera Automation-kontot och slutföra det här avsnittet mås
 * Ditt AD-användarkonto måste läggs till i en roll med behörigheter motsvarande deltagarrollen för Microsoft.Automation-resurser enligt beskrivningen i artikeln [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
 * Användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) om **Ja** har angetts för inställningen Appregistreringar.  Om **Nej** har angetts för inställningen Appregistreringar måste användaren som utför den här åtgärden vara global administratör i Azure AD. 
 
-Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till i rollen som global administratör/medadministratör för prenumerationen läggs du till i Active Directory som gäst. I så fall visas varningen ”Du har inte behörighet att skapa ...” på bladet **Lägg till Automation-konto**. Användare som har lagts till i rollen som global administratör/medadministratör kan tas bort från prenumerationens Active Directory-instans och sedan läggas till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
+Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till i rollen som global administratör/medadministratör för prenumerationen läggs du till i Active Directory som gäst. I så fall visas varningen ”Du har inte behörighet att skapa ...” på bladet **Lägg till Automation-konto**. Användare som har tilldelats rollen som global administratör/medadministratör kan tas bort från prenumerationens Active Directory-instans och sedan läggas till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
 
 ## <a name="create-run-as-account-from-the-portal"></a>Skapa ett Kör som-konto från Portal
 I det här avsnittet utför du följande steg för att uppdatera ditt Azure Automation-konto från Azure Portal.  Du skapar Kör som-konton och klassiska Kör som-konton separat. Om du inte behöver hantera resurser i den klassiska Azure-portalen kan du bara skapa Azure Kör som-kontot.  

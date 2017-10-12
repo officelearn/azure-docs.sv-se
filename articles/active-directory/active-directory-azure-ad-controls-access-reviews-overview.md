@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-access-reviews-preview"></a>Azure AD-åtkomstgranskning (förhandsversion)
 
 Med hjälp av åtkomstgranskningar kan organisationer effektivt hantera gruppmedlemskap och åtkomst till företagsprogram. 
@@ -41,4 +39,3 @@ Med hjälp av åtkomstgranskningar kan organisationer effektivt hantera gruppmed
 - [Hantera program och kontroller för Azure AD-åtkomstgranskningar](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Skapa en åtkomstgranskning för medlemmar i en grupp eller åtkomst till ett program](active-directory-azure-ad-controls-create-access-review.md)
 - [Skapa en åtkomstgranskning av användarna i en administrativ roll i Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
-

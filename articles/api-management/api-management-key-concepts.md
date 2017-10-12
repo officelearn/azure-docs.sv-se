@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-api-management"></a>Vad är API Management?
 API Management hjälper organisationer att publicera API:er till externa partner och interna utvecklare så att de kan frigöra potentialen i sina data och tjänster. Företag överallt vill utöka sin närvaro som digital plattform, skapa nya kanaler, hitta nya kunder och fördjupa relationerna med befintliga kunder. API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd.
@@ -126,11 +127,5 @@ Om du vill veta mer om API Management tittar du på följande presentation från
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
-
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

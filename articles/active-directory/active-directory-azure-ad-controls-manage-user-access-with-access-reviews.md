@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0459eb5cc71939202c8491f6b2714e28bd8e202d
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Hantera användare med Azure AD-åtkomstgranskningar
 
 Med Azure Active Directory kan du enkelt se till att användarna har lämplig åtkomst genom att be användarna själva, eller en beslutsfattare, att delta i en åtkomstgranskning och certifiera om (eller "intyga") användarnas åtkomst.  Granskarna kan ge sin syn på varje användares behov för kontinuerlig åtkomst, baserat på förslag från Azure AD. När en åtkomstgranskning är klar kan du göra ändringar och ta bort åtkomst för användare som inte längre behöver den.
@@ -51,7 +49,6 @@ Du kan ha en eller flera användare som granskare i en åtkomstgranskning.
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en åtkomstgranskning för medlemmar i en grupp eller åtkomst till ett program](active-directory-azure-ad-controls-create-access-review.md)
-
 
 
 

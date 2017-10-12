@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: c29ff60a50e68c75b4e8f62713d6d1fffd2123d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: f02b95a3d6020a77fdfcd096a3c11f5cae5aa49c
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Stöd för serverdelar för flera klientorganisationer i Application Gateway
 
 Azure Application Gateway stöder skalningsuppsättningar för virtuella datorer, nätverksgränssnitt, offentliga och privata IP-adresser och fullständigt kvalificerade domännamn (FQDN) som en del av dess serverdelspooler. Som standard ändrar inte Application Gateway den inkommande HTTP-rubriken från klienten. Rubriken skickas oförändrad till servern. Det finns många tjänster, t.ex. [Azure Web Apps](../app-service/app-service-web-overview.md) och [API Management](../api-management/api-management-key-concepts.md), som per definition stöder flera klientorganisationer och som kräver en specifik värdrubrik eller ett specifikt SNI-tillägg för att kunna matcha mot rätt slutpunkt. Application Gateway stöder nu möjligheten för användare att skriva över den inkommande HTTP-värdrubriken baserat på HTTP-inställningarna på serverdelen. Detta gör det möjligt att använda API-hantering och Azure-webbappar med serverdelar för flera klientorganisationer. Den här funktionen är tillgänglig för både standard-SKU och WAF-SKU. Stöd för serverdelar för flera klientorganisationer fungerar även med SSL-avslutning och SSL-scenarier från slutpunkt till slutpunkt.
@@ -41,4 +39,3 @@ Med den här funktionen skapar kunderna lämplig konfiguration genom att konfigu
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du konfigurerar en programgateway med en webbapp som en medlem i en serverdelspool finns i [Configure App Service Web Apps with Application Gateway](application-gateway-web-app-powershell.md) (Konfigurera App Service Web Apps med Application Gateway)
-

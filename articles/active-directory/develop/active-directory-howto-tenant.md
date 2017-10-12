@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Skaffa en Azure Active Directory-klient
 I Azure Active Directory (Azure AD) representerar en [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) en organisation.  Det är en dedikerad instans av Azure AD-tjänsten som en organisation tilldelas och äger när den registrerar sig för en Microsoft-molntjänst som Azure, Microsoft Intune och Office 365.  Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter.  
@@ -65,4 +64,3 @@ Om du redan har registrerat dig för en Azure-prenumeration med ditt organisatio
 Oroa dig inte om inget av alternativen ovan passar dig.  Gå bara till [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) och registrera dig för Azure med en ny organisation.  När du har slutfört processen har du din egen Azure AD-klient med det domännamn som du valde när du registrerade dig.  I [Azure Portal](https://portal.azure.com), hittar du din klientorganisation genom att navigera till ”Azure Active Directory” i det vänstra navigeringsfältet.
 
 Som en del av registreringen i Azure måste du ange kreditkortsinformation.  Oroa dig inte: du debiteras inte när du publicerar program i Azure AD eller skapar nya klienter.
-

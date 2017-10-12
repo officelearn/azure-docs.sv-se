@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/19/2017
 ms.author: cabailey
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f9dba42681f69406f9066a63140f74e3f5ec41dd
-ms.contentlocale: sv-se
-ms.lasthandoff: 12/07/2016
-
+ms.openlocfilehash: 3b679a2a8ba91a8a9dec0534a3d8930fcaa7afcf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
 Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -60,4 +59,3 @@ Mer information om hur du använder nycklar och hemligheter med Azure Key Vault 
 
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: eb710795916a2d7beea75a6408a0982fb4dc8750
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 5a159ed0ba38899b21212518d41ff995895904ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Skapa en ny Time Series Insights-miljö i Azure Portal
 
 Time Series Insights-miljön är en Azure-resurs med ingångs- och lagringskapacitet. Kunder etablerar miljöer via Azure Portal med den kapacitet som krävs.
@@ -56,4 +54,3 @@ Följ de här anvisningarna för att skapa en miljö:
 * [Definiera dataåtkomstprinciper](time-series-insights-data-access.md) för att få åtkomst till miljön i [Time Series Insights-portalen](https://insights.timeseries.azure.com)
 * [Skapa en händelsekälla](time-series-insights-add-event-source.md)
 * [Skicka händelser](time-series-insights-send-events.md) till händelsekällan
-

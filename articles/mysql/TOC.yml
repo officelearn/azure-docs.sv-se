@@ -111,6 +111,8 @@
       items:
         - name: Azure Portal
           href: howto-server-parameters.md
+        - name: Azure CLI
+          href: howto-configure-server-parameters-using-cli.md
 - name: Referens
   items:
     - name: Azure CLI
@@ -119,6 +121,8 @@
       href: /rest/api/mysql
 - name: Resurser
   items:
+    - name: Distributionsmallar
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Priser

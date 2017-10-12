@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 9119a4523c66415925223b5de10ca0fb4a7147b2
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuera Active Directory Federation Services i Azure
 AD FS tillhandahåller förenklad, säker identitetsfederation och funktioner för enkel inloggning (SSO). Federation med Azure AD eller O365 gör att användarna kan autentiseras med lokala autentiseringsuppgifter och få åtkomst till alla resurser i molnet. Därför är det viktigt att du har en AD FS-infrastruktur med hög tillgänglighet för att säkerställa åtkomsten till resurser både lokalt och i molnet. Genom att distribuera AD FS i Azure kan du uppnå den höga tillgänglighet som krävs med minimalt arbete.
@@ -355,5 +354,4 @@ Du kan använda ett befintligt virtuellt nätverk eller skapa ett nytt VNET när
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
 * [Konfigurera och hantera AD FS med Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [AD FS-distribution med hög tillgänglighet över geografiska områden i Azure med Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
 

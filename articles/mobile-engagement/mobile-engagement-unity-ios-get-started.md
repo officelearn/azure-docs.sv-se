@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-ios-deployment"></a>Kom igång med Azure Mobile Engagement för Unity iOS-distribution
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -37,10 +37,10 @@ Följande krävs för den här självstudiekursen:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Konfigurera Mobile Engagement för din iOS-app
+## <a id="setup-azme"></a>Konfigurera Mobile Engagement för din iOS-app
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
+## <a id="connecting-app"></a>Anslut appen till Mobile Engagement-serverdelen
 ### <a name="import-the-unity-package"></a>Importera Unity-paketet
 1. Hämta [Mobile Engagement Unity-paketet](https://aka.ms/azmeunitysdk) och spara det på din lokala dator. 
 2. Gå till **Assets -> Import Package -> Custom Package** (Tillgångar -> Importera paket -> Anpassat paket) och välj paketet som du hämtade i steget ovan. 
@@ -94,10 +94,10 @@ Följande krävs för den här självstudiekursen:
     ![][75]
 9. Kör appen i XCode så att paketet distribueras till den anslutna enheten. Sedan kan du se Unity-spelet på din mobil. 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Anslut appen med realtidsövervakning
+## <a id="monitor"></a>Anslut appen med realtidsövervakning
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
+## <a id="integrate-push"></a>Aktivera push-meddelanden och meddelanden i appen
 Med Mobile Engagement kan du samverka med användarna, och köra kampanjer med push-meddelanden och meddelanden i appen. Modulen som används för det heter REACH och finns i Mobile Engagement-portalen.
 Du behöver inte konfigurera något annat i appen för att ta emot meddelanden utan den är redan inställd för det.
 
@@ -116,9 +116,3 @@ Du behöver inte konfigurera något annat i appen för att ta emot meddelanden u
 [73]: ./media/mobile-engagement-unity-ios-get-started/73.png
 [74]: ./media/mobile-engagement-unity-ios-get-started/74.png
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

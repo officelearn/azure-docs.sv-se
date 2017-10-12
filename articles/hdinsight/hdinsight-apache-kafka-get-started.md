@@ -13,14 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/20/2017
 ms.author: larryfr
+ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Kom igång med Apache Kafka (förhandsversion) i HDInsight
 
@@ -47,6 +46,9 @@ Använd följande steg om du vill skapa en Kafka i HDInsight-klustret:
     * **Secure Shell-användarnamn (SSH)**: Den inloggning som används vid åtkomst till klustret via SSH. Som standard är lösenordet detsamma som lösenordet för klusterinloggning.
     * **Resursgrupp**: Resursgruppen som klustret ska skapas i.
     * **Plats**: Azure-region som klustret ska skapas i.
+
+        > [!IMPORTANT]
+        > För hög tillgänglighet för data rekommenderar vi att du väljer en plats (region) som innehåller __tre feldomäner__. Mer information finns i avsnittet [Hög tillgänglighet för data](#data-high-availability).
    
  ![Välj en prenumeration](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
@@ -73,12 +75,12 @@ Använd följande steg om du vill skapa en Kafka i HDInsight-klustret:
 7. Från __Klusterstorlek__ väljer du __Nästa__ för att fortsätta.
 
     > [!WARNING]
-    > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight.
+    > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight. Mer information finns i avsnittet [Hög tillgänglighet för data](#data-high-availability).
 
     ![Ange klusterstorlek för Kafka](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > Antalet **diskar per arbetsnod** anger hur skalbart Kafka är i HDInsight. Mer information finns i [Configure storage and scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Konfigurera lagring och skalbarhet för Kafka i HDInsight).
+    > [!IMPORTANT]
+    > Antalet **diskar per arbetsnod** anger hur skalbart Kafka är i HDInsight. Kafka på HDInsight använder den lokala disken för virtuella datorer i klustret. Kafka är i/o-stor, och därför används [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och ge mer lagringsutrymme per nod. Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Premiumdiskar används med DS- och GS-serien virtuella datorer. Alla andra typer av virtuella dator använder standard.
 
 8. Från __Avancerade inställningar__ väljer du __Nästa__ för att fortsätta.
 
@@ -340,6 +342,27 @@ Strömmande API lades till Kafka i version 0.10.0; tidigare versioner är beroen
 
 7. Använd __Ctrl + C__ om du vill avsluta konsumenten och använd sedan kommandot `fg` för att återställa den direktuppspelade bakgrundsaktiviteten till förgrunden igen. Använd __Ctrl + C__ för att avsluta den också.
 
+## <a name="data-high-availability"></a>Hög tillgänglighet för data
+
+Varje Azure-region (plats) har _feldomäner_. En feldomän är en logisk gruppering av underliggande maskinvara i ett Azure-datacenter. Varje feldomän delar en gemensam strömkälla och nätverksbrytare. De virtuella datorer och hanterade diskar som implementerar noderna i ett HDInsight-kluster är fördelade mellan dessa feldomäner. Den här arkitekturen begränsar de potentiella problemen vid fysiska maskinvarufel.
+
+Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
+
+> [!IMPORTANT]
+> Vi rekommenderar att du använder en Azure-region som innehåller tre feldomäner, och använder replikeringsfaktorn 3.
+
+Om du måste använda en region som bara har två feldomäner ska du använda replikeringsfaktorn 4, så att replikerna fördelas jämnt mellan de två feldomänerna.
+
+### <a name="kafka-and-fault-domains"></a>Kafka och feldomäner
+
+Kafka har ingen information om feldomäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet. Garantera hög tillgänglighet med [verktyget för ombalansering av Kafka-partitioner](https://github.com/hdinsight/hdinsight-kafka-tools). Du måste köra det här verktyget från en SSH-session till huvudnoden för ditt Kafka-kluster.
+
+Du får bästa möjliga tillgänglighet för dina Kafka-data om du balanserar om partitionsreplikerna för ditt ämne vid följande tidpunkter:
+
+* När du skapar ett nytt ämne eller en ny partition
+
+* När du skalar upp ett kluster
+
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -352,11 +375,9 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 
 I detta dokument har du lärt dig grunderna för att arbeta med Apache Kafka i HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka:
 
-* [Säkerställ en hög tillgänglighet för dina data med Kafka i HDInsight](hdinsight-apache-kafka-high-availability.md)
-* [Öka skalbarheten genom att konfigurera hanterade diskar med Kafka i HDInsight](hdinsight-apache-kafka-scalability.md)
-* [Apache Kafka-dokumentation](http://kafka.apache.org/documentation.html) på kafka.apache.org.
-* [Använd MirrorMaker för att skapa en replik av Kafka på HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Analysera Kafka-loggar](apache-kafka-log-analytics-operations-management.md)
+* [Replikera data mellan Kafka-kluster](hdinsight-apache-kafka-mirroring.md)
+* [Använda Apache Spark-strömning (DStream) med Kafka på HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Använda Apache Spark Structured Streaming med Kafka på HDInsight](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Använda Apache Storm med Kafka på HDInsight](hdinsight-apache-storm-with-kafka.md)
-* [Använda Apache Spark med Kafka på HDInsight](hdinsight-apache-spark-with-kafka.md)
 * [Ansluta till Kafka via ett trådlöst Azure-nätverk](hdinsight-apache-kafka-connect-vpn-gateway.md)
-

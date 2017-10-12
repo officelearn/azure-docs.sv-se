@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.contentlocale: sv-se
-ms.lasthandoff: 02/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Skapa en Azure Mobile Engagement-app
 I den här artikeln får du lära dig hur du använder metoden **Snabbregistrering** för att skapa en ny **Azure Mobile Engagement**-app. Artikeln beskriver också hur du navigerar till portalen för **Mobile Engagement** där du kan övervaka och hantera appar. 
@@ -48,5 +47,4 @@ När du befinner dig i Mobile Engagement-portalen, kan du analysera, skapa och h
 [Definiera en strategi för Mobile Engagement](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Komma igång med Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (du kan välja andra mobila plattformar högst upp på sidan).
-
 

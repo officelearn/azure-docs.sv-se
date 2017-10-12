@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/31/2017
 ms.author: juliako
+ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: e80fe0970ec130754c2c058789e1d1e2a9492216
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -385,4 +383,3 @@ Följande kodexempel innehåller koden som du skapade i den här kursen: [exempe
 <!-- URLs. -->
 [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 [Portal]: http://manage.windowsazure.com/
-

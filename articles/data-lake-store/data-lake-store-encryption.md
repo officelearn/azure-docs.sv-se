@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Kryptera data i Azure Data Lake Store
 
 Du kan skydda dina data, implementera säkerhetsprinciper och uppfylla efterlevnadskrav med hjälp av kryptering i Azure Data Lake Store. Den här artikeln innehåller en översikt över designen och beskriver några av de tekniska aspekterna av genomförandet.
@@ -140,4 +138,3 @@ Observera att om du använder standardalternativen för kryptering krypteras dat
     ![Skärmbild av Data Lake Store-fönstret med meddelande och nyckelrotering markerat](./media/data-lake-store-encryption/rotatekey.png)
 
 Den här åtgärden tar normalt mindre än två minuter och ingen stilleståndstid förväntas på grund av nyckelrotationen. När åtgärden har slutförts används den nya versionen av nyckeln.
-

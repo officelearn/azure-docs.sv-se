@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federera flera instanser av Azure AD med en enda instans av AD FS
 
 En enda AD FS-servergrupp med hög tillgänglighet kan federera flera skogar om de har ett dubbelriktat förtroende. Dessa skogar kan men måste inte vara associerade med samma Azure Active Directory. Den här artikeln beskriver hur du konfigurerar federation mellan en enskild AD FS-distribution och mer än en skog som synkroniserar med en annan Azure AD.
@@ -66,4 +64,3 @@ Konvertera den hanterade domänen fabrikam.com till federerad:
 
 ## <a name="next-steps"></a>Nästa steg
 [Ansluta Active Directory med Azure Active Directory](active-directory-aadconnect.md)
-

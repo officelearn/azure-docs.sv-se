@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -308,4 +307,3 @@ Exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om virtuella Azure-nätverk finns i [den här dokumentationen](../virtual-network/virtual-networks-overview.md).
-

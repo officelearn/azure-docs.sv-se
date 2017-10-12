@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.contentlocale: sv-se
-ms.lasthandoff: 03/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Använd Storage Explorer (förhandsutgåva) med Azure File Storage
 
 Azure File Storage är en tjänst som erbjuder filresurser i molnet med hjälp av SMB-standardprotokollet (Server Message Block). Både SMB 2.1 och SMB 3.0 stöds. Med Azure File Storage kan du snabbt och utan kostsamma omskrivningar migrera äldre program som är beroende av filresurser till Azure. Du kan använda File Storage om du vill exponera data offentligt eller lagra programdata privat. I den här artikeln lär du dig att använda Storage Explorer (förhandsversion) för att arbeta med filresurser och filer.
@@ -204,7 +202,7 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
         ![Överföra filer](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter (**...**) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
+        b. I dialogen **Överför filer** dialogrutan klickar du på knappen med tre punkter (**...** ) på höger sida av textrutan **Filer** och markerar den eller de filer du vill överföra.
 
         ![Lägga till filer](media/vs-azure-tools-storage-explorer-files/image19.png)
 
@@ -216,7 +214,7 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
         ![Menyn för mappöverföring](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. I dialogen **Överför mapp** klickar du på knappen med tre punkter (**...**) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
+        b. I dialogen **Överför mapp** klickar du på knappen med tre punkter (**...** ) på höger sida av textrutan **Mapp** och väljer den mapp vars innehåll du vill överföra.
 
         c. Du kan även ange en målmapp som den markerade mappens innehåll ska överföras till. Om målmappen inte finns skapas den.
 
@@ -263,4 +261,3 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 - Visa [ viktig information och videor för den senaste Storage Explorer-versionen (förhandsutgåva)](http://www.storageexplorer.com/).
 
 - Läs mer om hur du [skapar program med Azure-blobbar, tabeller köer och filer](https://azure.microsoft.com/documentation/services/storage/).
-

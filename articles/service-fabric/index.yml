@@ -48,7 +48,7 @@ sections:
           - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Lift and shift-hantera ett befintligt .NET-program</a>
           - html: <a href="service-fabric-tutorial-create-container-images">Skapa en app för Linux-behållare</a>
           - html: Skapa och hantera ett <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows-</a> eller <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>-kluster
-  - title: Kostnadsfri videoutbildning för PluralSight
+  - title: Kostnadsfri videoutbildning för Pluralsight
     items:
       - type: list
         style: cards

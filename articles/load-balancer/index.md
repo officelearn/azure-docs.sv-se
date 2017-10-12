@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 96da506c8545a1b863e62133706a2687c2498bbd
-ms.contentlocale: sv-se
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 169ca89ccd80e5a70f3e9ab07b3c34358c154be7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="load-balancer-documentation"></a>Dokumentation om belastningsutjämnare
 
 Lär dig hur du konfigurerar Load Balancer för att leverera hög tillgänglighet och nätverksprestanda till dina program. Dokumentation som visar hur du kan lastbalansera trafik till och från virtuella datorer och molnresurser och mellan lokala virtuella nätverk på plats.
@@ -145,6 +143,5 @@ Lär dig hur du konfigurerar Load Balancer för att leverera hög tillgänglighe
         </div>
     </li>
 </ul>
-
 
 

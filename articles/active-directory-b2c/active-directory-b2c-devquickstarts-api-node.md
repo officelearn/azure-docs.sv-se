@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: sv-se
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Säkra ett webb-API med Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ Med Azure Active Directory (Active AD) B2C kan du skydda ett webb-API med hjälp
 Om du vill göra det här exemplet måste du:
 
 1. Registrera ett program med Azure AD.
-2. Ställa in så att programmet använder plugin-programmet för Passport `azure-ad-passport`.
+2. Ställa in så att programmet använder plugin-programmet för Passport `passport-azure-ad`.
 3. Konfigurera ett klientprogram att anropa ett webb-API för ”uppgiftslistan”.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Skaffa en Azure AD B2C-katalog
@@ -762,4 +760,3 @@ Du har implementerat en REST API med Restify och OAuth! Du har nu tillräcklig k
 Du kan nu gå vidare  till mer avancerade ämnen, till exempel:
 
 [Ansluta till ett webb-API genom att använda iOS med B2C](active-directory-b2c-devquickstarts-ios.md)
-

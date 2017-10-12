@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4317cf84760289ca29d8d5a78e2adef99c4cedf2
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 2f007dd4f877b48003cddcefa5f4321049853361
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Ändra nyckelvalvsklient-ID efter en prenumerationsflytt
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>F: Min prenumeration har flyttats från klient A till klient B. Hur ändrar jag klient-ID för mitt befintliga nyckelvalv och anger rätt åtkomstkontrollistor för säkerhetsobjekt i klient B?
@@ -46,5 +45,4 @@ Nu när ditt valv är associerat med rätt klient-ID och gamla åtkomstprincippo
 
 ## <a name="next-steps"></a>Nästa steg
 Om du har några frågor om Azure Key Vault kan du besöka [Azure Key Vault-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
-
 

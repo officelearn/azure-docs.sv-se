@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="azure-hdinsight-documentation"></a>Dokumentation om Azure HDInsight
 
 Lär dig hur du använder Hadoop i molnet på HDInsight för att analysera strömmande eller historiska data. Självstudiekurser och annan dokumentationen visar hur du skapar kluster, bearbetar och analyserar stordata och utvecklar lösningar med Hadoop, Spark, HBase, R-Server, Storm och andra tekologier i Hadoop-ekosystemet.
@@ -198,6 +196,5 @@ Lär dig hur du använder Hadoop i molnet på HDInsight för att analysera strö
         </div>
     </li>
 </ul>
-
 
 

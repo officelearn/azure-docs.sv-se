@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS
 Fjärrskrivbordsgateway använder ofta Network Policy Services (NPS) lokalt för att autentisera användare. I den här artikeln beskrivs hur du dirigerar RADIUS-förfrågningar från Fjärrskrivbordsgateway (via lokal NPS) till Multi-Factor Authentication-servern. Kombinationen Azure MFA och Fjärrskrivbordsgateway innebär att användarna har åtkomst till sina arbetsmiljöer var de än är samtidigt som du kan kräva stark autentisering. 

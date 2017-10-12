@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: d24c92b90d7d8e43554fcd77278bf7d23a963c02
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: f7eff70ece5e8dc7e0c5983871d40bd1f6eafff2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>Anslut till Azure HDInsight och kör Hive-frågor med hjälp av Data Lake Tools för Visual Studio
 
@@ -242,5 +241,4 @@ I den här artikeln har du lärt dig hur du ansluter till HDInsight-kluster frå
 * [Komma igång med Hadoop i HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Skicka Hadoop-jobb i HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Analysera Twitter-data med Hadoop i HDInsight](hdinsight-analyze-twitter-data.md)
-
 

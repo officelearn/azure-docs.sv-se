@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
 Azure Machine Learning är en integrerad lösning från slutpunkt till slutpunkt för avancerade analyser inom dataforskning. Med lösningen kan dataforskare förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -179,7 +177,7 @@ Använd Microsoft Machine Learning Server när du behöver:
 - Distribuera R- och Python-träning i stor skala i ett Hadoop- eller Spark-kluster
 
 ### <a name="data-science-virtual-machine"></a>Virtuell dator för datavetenskap
-[Virtuell dator för datavetenskap (DSVM) ](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) är en anpassad VM-avbildning i Microsoft Azure-molnet som skapats specifikt för dataforskning. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser. Den är tillgänglig på Windows Server och Linux. Vi erbjuder Windows-versionen av DSVM på Server 2016 och Server 2012. Vi erbjuder Linux-versionen av DSVM på Ubuntu 16.04 LTS och på OpenLogic 7.2 CentOS-baserade Linux-distributioner. 
+[Virtuell dator för datavetenskap (DSVM) ](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) är en anpassad VM-avbildning i Microsoft Azure-molnet som skapats specifikt för dataforskning. Många populära verktyg för datavetenskap och annat finns förinstallerade och förkonfigurerade så att du kan börja direkt med att skapa intelligenta program för avancerade analyser. Den är tillgänglig på Windows Server och Linux. Vi erbjuder Windows-versionen av DSVM på Server 2016 och Server 2012. Vi erbjuder Linux-versionen av DSVM på Ubuntu 16.04 LTS och på OpenLogic 7.2 CentOS-baserade Linux-distributioner. 
 
 Använd den virtuella datorn för datavetenskap när du behöver köra eller vara värd för jobb på en enda nod. Eller om du behöver skala upp din bearbetning via fjärranslutning på en enskild dator. Den virtuella datorn för datavetenskap kan vara mål för både Azure Machine Learning- experimentering och Azure Machine Learning-modellhantering. 
 
@@ -219,4 +217,3 @@ Med Microsoft Cognitive Services kan du utveckla appar för flera enheter och pl
 
 ## <a name="next-steps"></a>Nästa steg
 * [Installera och skapa Azure Machine Learning](quickstart-installation.md)
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Kopiera exempelexperiment för att skapa nya maskininlärningsexperiment
 Lär dig hur du kommer igång med exempelexperiment från [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com/) i stället för att skapa maskininlärningsexperiment från grunden. Du kan använda exemplen för att skapa din egen maskininlärningslösning.
@@ -69,4 +68,3 @@ Ett nytt experiment skapas på Machine Learning Studio-arbetsytan, som använder
 * [Importera data från olika källor](import-data.md)
 * [Snabbstartssjälvstudier till R-språket i Machine Learning](r-quickstart.md)
 * [Distribuera en Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Ladda upp filer till ett Media Services-konto på Azure-portalen
 > [!div class="op_single_selector"]
@@ -39,7 +38,7 @@ I Azure Media Services laddar du upp digitala filer till en tillgång. Tillgång
 
 ## <a name="upload-files"></a>Överföra filer
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
-2. Välj **Inställningar** > **Tillgångar**. Välj sedan knappen **Överför**.
+2. Välj **Inställningar** > **Tillgångar**. Välj sedan knappen **Ladda upp**.
    
     ![Överföra filer](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -52,7 +51,7 @@ I Azure Media Services laddar du upp digitala filer till en tillgång. Tillgång
    
     Uppladdningen startar. Du kan följa förloppet under filnamnet.  
 
-När överföringen är klar visas den nya tillgången i fönstret **Tillgångar**. 
+När uppladdningen är klar visas den nya tillgången i fönstret **Tillgångar**. 
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -64,6 +63,5 @@ När överföringen är klar visas den nya tillgången i fönstret **Tillgångar
 * Lär dig hur du [kodar dina uppladdade tillgångar](media-services-portal-encode.md).
 
 * Du kan också använda Azure Functions om du vill att ett kodningsjobb ska köras automatiskt när den konfigurerade behållaren tar emot en fil. Mer information finns i exemplet i [Media Services: Integrera Azure Media Services med Azure Functions och Logic Apps](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/).
-
 
 

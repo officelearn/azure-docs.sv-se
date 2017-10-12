@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8b3a538fc0fe34d0b7af8a99510cfb19abd32d55
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -128,4 +127,3 @@ Har du förslag angående dokumentationen? Du kan lägga till kommentarer med hj
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du vet mer om Azure Analysis Services är det dags att komma igång. Lär dig [att skapa en server](analysis-services-create-server.md) i Azure. När servern är klar går du igenom [Adventure Work-självstudiekursen](tutorials/aas-adventure-works-tutorial.md) som visar hur du skapar en fullt fungerande tabellmodell och distribuerar den till servern.
-

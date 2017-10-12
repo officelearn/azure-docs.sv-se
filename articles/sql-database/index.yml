@@ -56,7 +56,7 @@ sections:
           - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Migrera en befintlig SQL Server-databas för att använda Azure SQL Database</a>
           - html: <a href="/azure/sql-database/sql-database-security-tutorial">Skydda din SQL-databas</a>
           - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implementera en geodistribuerad databas</a>
-  - title: Kostnadsfri videoutbildning för PluralSight
+  - title: Kostnadsfri videoutbildning för Pluralsight
     items:
       - type: list
         style: cards

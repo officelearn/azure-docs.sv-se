@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Skapa en intern belastningsutjämnare i Azure Portal
 
 > [!div class="op_single_selector"]
@@ -108,5 +106,4 @@ Konfigurera en serverdelsadresspool och en avsökning innan du konfigurerar en b
 [Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
-
 

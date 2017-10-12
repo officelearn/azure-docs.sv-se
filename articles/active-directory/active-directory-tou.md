@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Användningsvillkorsfunktion för Azure Active Directory (förhandsversion)
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare.  Det gör att användarna kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav.
 

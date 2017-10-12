@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
 ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Asymmetrisk routning med flera nätverksvägar
 Den här artikeln förklarar hur utgående och återvändande nätverkstrafik kan ta olika vägar när det finns flera vägar tillgängliga mellan nätverkskällan och målet.

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ba36b7f6d2ae3cc4d63829ffb757ff7b311e467b
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Skapa en intern belastningsutjämnare med hjälp av Azure CLI
 
@@ -313,4 +312,3 @@ azure network lb delete --resource-group nrprg --name nrplb
 [Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
-

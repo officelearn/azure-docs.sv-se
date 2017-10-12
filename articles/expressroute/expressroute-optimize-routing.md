@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2017
 ms.author: charwen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: c3a85b9445d69330c3f6c7d298169efddb6ecca0
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
 När du har flera ExpressRoute-kretsar måste ha du mer än en sökväg för att ansluta till Microsoft. Därför kan en icke-optimal routning inträffa - vilket innebär att din trafik får en längre sökväg till Microsoft, och Microsoft till nätverket. Ju längre nätverkssökvägen är, desto längre svarstid. Svarstiden har direkt inverkan på programmens prestanda och användarupplevelse. Den här artikeln beskriver problemet och förklarar hur du optimerar routning med standardroutningstekniker.
@@ -75,4 +74,3 @@ Lösningen är enkel. Eftersom du vet var de virtuella nätverken och kretsarna 
 > Du kan också påverka routningen från det virtuella nätverket till ditt lokala nätverk om du har flera ExpressRoute-kretsar. Det gör du genom att konfigurera vikten för en anslutning i stället för att använda S PATH-prepending (en teknik som beskrivs i det andra scenariet ovan). För varje prefix tittar vi alltid på anslutningsvikten före AS Path-längden när vi avgör hur trafiken ska skickas.
 >
 >
-

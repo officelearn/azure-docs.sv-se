@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Kom igång med R Server på HDInsight
 
@@ -788,4 +787,3 @@ Nu bör du förstå hur du skapar ett nytt HDInsight-kluster som innehåller R S
 * [Lägga till RStudio Server till HDInsight (om det inte installerades när klustret skapades)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Alternativ för beräkningskontexter för R Server på HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Alternativ för Azure Storage för R Server på HDInsight](hdinsight-hadoop-r-server-storage.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Komma igång med säkerhets- och granskningslösningen i Operations Management Suite
 Det här dokumentet hjälper dig att snabbt komma igång med funktionerna i säkerhets- och granskningslösningen i Operations Management Suite (OMS) genom att vägleda dig igenom de olika alternativen.
@@ -200,5 +199,4 @@ I det här dokumentet introducerades säkerhets- och granskningslösningen i OMS
 * [Översikt över Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Övervaka och svara på säkerhetsaviseringar i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-responding-alerts.md)
 * [Övervaka resurser i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-monitoring-resources.md)
-
 

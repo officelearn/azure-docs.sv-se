@@ -35,6 +35,7 @@
 ## Konfigurera routningsfilter för Microsoft-peering
 ### [Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
 ## [Flytta en krets från klassisk till Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrera associerade virtuella nätverk från klassisk till Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurera en router för ExpressRoute
@@ -45,7 +46,7 @@
 ### [Bästa metoder för nätverkssäkerhet och molntjänster](../best-practices-network-security.md)
 ### [Optimera routning](expressroute-optimize-routing.md)
 ### [Asymmetrisk routning](expressroute-asymmetric-routing.md)
-### [NAT för ExpressRoute](expressroute-routing-nat.md)
+### [NAT för ExpressRoute](expressroute-nat.md)
 
 ## Felsöka
 ### [Verifiera ExpressRoute-anslutning](expressroute-troubleshooting-expressroute-overview.md)

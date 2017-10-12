@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 6958d61b29961f59cb22f62bec55f2d467e7e7cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Komma igång med Azure DNS med hjälp av Azure CLI 2.0
 
 > [!div class="op_single_selector"]
@@ -123,4 +121,3 @@ Läs mer om Azure DNS i [Översikt över Azure DNS](dns-overview.md).
 Mer information om hur du hanterar DNS-zoner i Azure DNS finns i [Hantera DNS-zoner i Azure DNS med Azure CLI 2.0](dns-operations-dnszones-cli.md).
 
 Mer information om hur du hanterar DNS-poster i Azure DNS finns i [Hantera DNS-poster och postuppsättningar i Azure DNS med Azure CLI 2.0](dns-operations-recordsets-cli.md).
-

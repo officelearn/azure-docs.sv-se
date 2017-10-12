@@ -14,12 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
-ms.openlocfilehash: f5d5f238f8f57c8dcf7a3759274f9d565e73ecce
-ms.contentlocale: sv-se
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Övervaka Azure AD Connect-synkronisering med Azure AD Connect Health
 Följande dokumentation är specifik för övervakning av Azure AD Connect (Sync) med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).
@@ -68,8 +67,7 @@ Denna funktion tillhandahåller en rapport om synkroniseringsfel som kan uppstå
 * Rapporten avser fel registrerade av synkroniseringsklienten (Azure AD Connect version 1.1.281.0 eller senare)
 * Den innehåller de fel som uppstod under den senaste synkroniseringen på synkroniseringsmotorn. (”Export” i Azure AD Connector.)
 * Azure AD Connect Health-agenten för synkronisering måste ha en utgående anslutning till de nödvändiga slutpunkterna för rapporten för att inkludera den senaste informationen.
-* Rapporten **uppdateras efter var 30:e minut** med hjälp av data som överförts av Azure AD Connect Health-agenten för synkronisering.
-  Det ger följande viktiga funktioner
+* Rapporten **uppdateras efter var 30:e minut** med hjälp av data som överförts av Azure AD Connect Health-agenten för synkronisering. Det ger följande viktiga funktioner
 
   * Kategorisering av fel
   * Lista över objekt med fel per kategori

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 1ceaafebcaebecb04314c7da62c69b2e9b5ba39a
-ms.contentlocale: sv-se
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: 52824d5c39bb821351650584c33f70e2e84749cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Komma igång med att skapa en Internetuppkopplad belastningsutjämnare för molntjänster
 
 > [!div class="op_single_selector"]
@@ -91,5 +89,4 @@ Kontrollera tjänstdefinitionsschemat för [hälsotillståndsavsökning](https:/
 [Konfigurera ett distributionsläge för belastningsutjämnare](load-balancer-distribution-mode.md)
 
 [Konfigurera timeout-inställningar för inaktiv TCP för en belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
-
 

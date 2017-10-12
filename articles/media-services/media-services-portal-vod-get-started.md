@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: fb981f3240799c924464c828b2c835ac5d9879ed
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Kom igång med att leverera innehåll på begäran med hjälp av Azure-portalen
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -29,7 +28,7 @@ De här självstudierna visar dig stegen för att implementera ett grundläggand
 ## <a name="prerequisites"></a>Krav
 Följande krävs för att kunna genomföra vägledningen:
 
-* Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Ett Azure-konto. Mer information finns i avsnittet om [den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 
 Vägledningen innehåller följande uppgifter:
@@ -69,7 +68,7 @@ För att strömma videor med Azure Media Services ska du ladda upp källvideorna
    > Media Services begränsar inte filstorleken för uppladdning av videor.
    > 
    > 
-3. På datorn går du till den video som du vill ladda upp. Välj videon och välj sedan **OK**.  
+3. På datorn går du till den video som du vill ladda upp. Välj videon och klicka på **OK**.  
    
     Uppladdningen startar. Du kan följa förloppet under filnamnet.  
 
@@ -157,4 +156,3 @@ Vissa förutsättningar gäller:
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-

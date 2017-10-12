@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-an-azure-traffic-manager-profile"></a>Hantera en Azure Traffic Manager-profil
 
 Traffic Manager-profiler använder trafikroutningsmetoder för att kontrollera trafikdistributionen till dina molntjänster eller webbplats-slutpunkter. Den här artikeln förklarar hur du skapar och hanterar de här profilerna.
@@ -76,4 +74,3 @@ Du kan inaktivera en befintlig profil så att Traffic Manager inte refererar anv
 * [Konfigurera geografisk routningsmetod](traffic-manager-configure-geographic-routing-method.md) 
 * [Konfigurera viktad routningsmetod](traffic-manager-configure-weighted-routing-method.md)
 * [Konfigurera routningsmetod för prestanda](traffic-manager-configure-performance-routing-method.md)
-

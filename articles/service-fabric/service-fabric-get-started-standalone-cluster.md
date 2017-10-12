@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/06/2017
 ms.author: dekapur
 ms.openlocfilehash: 5c8f4c784eed7b64810a3dd1c36c043d22a66936
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>Skapa ditt första fristående Service Fabric-kluster
 Du kan skapa ett fristående Service Fabric-kluster på valfria virtuella datorer eller datorer som kör Windows Server 2012 R2 eller Windows Server 2016, lokalt eller i molnet. Den här snabbstarten beskriver hur du skapar ett fristående kluster för utveckling på bara några minuter.  När du är klar har du ett kluster med tre noder som körs på en enskild dator som du kan distribuera appar till.

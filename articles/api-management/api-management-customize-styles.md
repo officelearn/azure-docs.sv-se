@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 336d4f80f0357796fb29eb9314c11edfce831a69
-ms.openlocfilehash: bd08eb476a4bd7298c5650977b88ba0b24deddec
-ms.contentlocale: sv-se
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Anpassa format för utvecklarportalen i Azure API Management
 Det finns tre grundläggande metoder för att anpassa utvecklarportalen i Azure API Management:
@@ -88,4 +87,3 @@ Nu ska vi ändra färg på rubriktexten. Välj posten i fältet **@headings-colo
 
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/
-

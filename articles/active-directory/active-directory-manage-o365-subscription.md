@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Hantera katalogen för din Office 365-prenumeration i Azure
 I den här artikeln beskrivs hur du hanterar en katalog som har skapats för en Office 365-prenumeration, med hjälp av den klassiska Azure-portalen. Du måste antingen vara tjänstadministratör eller en medadministratör för en Azure-prenumeration för att kunna logga in på den klassiska Azure-portalen. Om du ännu inte har någon Azure-prenumeration kan du registrera dig för en [kostnadsfria 30-dagars utvärderingsversion](https://azure.microsoft.com/trial/get-started-active-directory/) och redan idag distribuera din första molnlösning inom 5 minuter med hjälp av den här länken. Använd det arbets- eller skolkonto som du använder för att logga in till Office 365.
@@ -34,8 +34,8 @@ Om du redan har en Azure-prenumeration är processen lika enkel om du vill hante
 
 | Prenumeration | Office 365 | Azure |
 | --- | --- | --- |
-|   Visningsnamn |Contoso |Azure Active Directory-standardkatalog (Azure AD) |
-|   Domännamn |contoso.com |msmithhotmail.onmicrosoft.com |
+|   Visningsnamn | Contoso | Azure Active Directory-standardkatalog (Azure AD) |
+|   Domännamn | contoso.com | msmithhotmail.onmicrosoft.com |
 
 Han vill hantera användaridentiteterna i katalogen Contoso när han är inloggad i Azure med sitt Microsoft-konto så att han kan använda Azure AD-funktioner som Multi-Factor Authentication. Följande diagram illustrerar processen.
 
@@ -70,4 +70,3 @@ Anta nu att Jane Doe behöver administrera webbplatser och databasresurser som �
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om relationen mellan prenumerationer och kataloger finns i [Hur en prenumeration är associerad med en katalog](active-directory-how-subscriptions-associated-directory.md).
-

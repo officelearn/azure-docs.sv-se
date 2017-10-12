@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 40d8d57d974a949fbdc0a06eeceb2d06bfbaa09f
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Byta till en Azure AD B2C-klient
 
 Om du vill konfigurera Azure AD B2C måste du först byta till samma kontext som Azure AD B2C-klienten finns i.
@@ -46,4 +44,3 @@ Azure Portal uppdateras.  Du är nu inloggad på Azure Portal, i samma kontext s
 
 > [!IMPORTANT]
 > Du måste vara global administratör för B2C-klienten för att kunna komma åt B2C-funktionsbladet. En global administratör från en annan klient eller en användare från en klient kan inte komma åt det.  Du kan växla till B2C-klienten med klientväxlaren i det övre högra hörnet i Azure Portal.
-

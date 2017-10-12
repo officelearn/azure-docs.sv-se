@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>Vad är Logic Apps?
 Logic Apps är ett sätt att förenkla och implementera skalbara integreringar och arbetsflöden i molnet. Tjänsten tillhandahåller ett visuellt designverktyg för modellering och automatisering av processer som en serie steg kallade ett arbetsflöde.  Det finns [många anslutningsappar](../connectors/apis-list.md) för molnet och lokala infrastrukturer för snabb integrering mellan tjänster och protokoll.  En logikapp börjar med en utlösare (som ”när ett konto läggs till i Dynamics CRM”) och kan när den utlösts starta många kombinationer av åtgärder, konverteringar och villkorslogik.
@@ -78,4 +77,3 @@ Följande är några av de viktiga punkter som ingår i logikappupplevelsen.
 [tpm]: logic-apps-enterprise-integration-accounts.md
 [xml]: logic-apps-enterprise-integration-b2b.md
 [templates]: logic-apps-use-logic-app-templates.md
-

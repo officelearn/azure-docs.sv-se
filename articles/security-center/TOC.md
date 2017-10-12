@@ -19,6 +19,7 @@
 # Gör så här för att
 
 ## Säkerhetsprincip
+### [Översikt](security-center-policies-overview.md)
 ### [Datainsamling](security-center-enable-data-collection.md)
 ### [Säkerhetsprincip](security-center-policies.md)
 ### [E-postmeddelanden](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [Installera slutpunktsskydd](security-center-install-endpoint-protection.md)
 #### [Starta om datorn efter uppdateringarna](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Åtgärda sårbarheter i operativsystem](security-center-remediate-os-vulnerabilities.md)
-#### [Lösa slutpunktsskydd för hälsovarningar](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Uppdatera OS-versionen](security-center-update-os-version.md)
 #### [Sårbarhetsbedömning inte installerad](security-center-vulnerability-assessment-recommendations.md)
 ### [Övervaka säkerhetshälsa](security-center-monitoring.md)

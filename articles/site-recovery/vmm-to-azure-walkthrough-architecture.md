@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-1-review-the-architecture"></a>Steg 1: Granska arkitekturen
 
 
@@ -63,8 +60,7 @@ Lär dig mer om kraven för distribution och krav för var och en av komponenter
 1. När du har aktiverat skydd för en virtuell Hyper-V-dator i Azure Portal eller lokalt startar **Aktivera skydd**.
 2. Jobbet kontrollerar att datorn uppfyller kraven och anropar sedan metoden [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) som konfigurerar replikering med de inställningar som du har konfigurerat.
 3. Jobbet startar den initiala replikeringen genom att aktivera metoden [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) för att initiera en fullständig VM-replikering och skicka de virtuella datorernas diskar till Azure.
-4. Du kan övervaka jobbet på fliken **Jobs** (Jobb).
-        ![Lista över jobb](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Detaljnivå för Aktivera skydd](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. Du kan övervaka jobbet på fliken **Jobs** (Jobb).      ![Lista över jobb](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Detaljnivå för Aktivera skydd](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>Replikera ursprungliga data
 
@@ -121,4 +117,3 @@ Om det uppstår ett replikeringsfel finns det en inbyggd funktion som gör ett n
 ## <a name="next-steps"></a>Nästa steg
 
 Gå till [Steg 2: granska kraven för distribution](vmm-to-azure-walkthrough-prerequisites.md)
-

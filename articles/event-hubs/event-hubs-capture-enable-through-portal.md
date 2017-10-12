@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Aktivera avbildningsfunktionen i Event Hubs med Azure Portal
 
 Med Azure [Event Hubs Capture][capture-overview] kan du automatiskt leverera strömmande data i Event Hubs till valfritt [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)- eller [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)-konto.

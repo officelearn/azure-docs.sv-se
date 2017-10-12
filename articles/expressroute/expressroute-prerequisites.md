@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/30/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute-krav och checklista
 Om du vill ansluta till Microsofts molntjänster med ExpressRoute måste du kontrollera att följande krav som anges i följande avsnitt är uppfyllda.
@@ -67,4 +66,3 @@ Om du planerar att aktivera Dynamics 365 på ExpressRoute bör du läsa följand
   * [Skapa en ExpressRoute-krets](expressroute-howto-circuit-classic.md)
   * [Konfigurera routning](expressroute-howto-routing-classic.md)
   * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md)
-

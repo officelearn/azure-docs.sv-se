@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: cabailey
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: e9a4f16f048833dab49f7db79892fe47a5aeff37
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -275,4 +274,3 @@ Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](key-vaul
 En lista med Azure PowerShell 1.0-cmdlets för Azure Key Vault finns i [Cmdlets för Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
 
 Självstudierna om nyckelrotering och logggranskning med Azure Key Vault finns i [Ställa in Key Vault med heltäckande nyckelrotering och granskning](key-vault-key-rotation-log-monitoring.md).
-

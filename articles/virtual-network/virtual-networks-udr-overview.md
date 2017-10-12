@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="user-defined-routes-and-ip-forwarding"></a>Användardefinierade vägar och IP-vidarebefordran
 
@@ -111,5 +110,4 @@ Den här virtuella installations-VM:en måste kunna ta emot inkommande trafik so
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapar vägar i Resource Manager-distributionsmodellen](virtual-network-create-udr-arm-template.md) och kopplar dem till undernät. 
 * Lär dig hur du [skapar vägar i den klassiska distributionsmodellen](virtual-network-create-udr-classic-ps.md) och kopplar dem till undernät.
-
 

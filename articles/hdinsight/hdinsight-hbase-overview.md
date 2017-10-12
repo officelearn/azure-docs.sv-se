@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 62b2700c368c4b0c66df140e8961408840beb626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: c8857076faa37f5b0d7c70f40b494465b3b99af2
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>Vad är HBase i HDInsight: En NoSQL-databas som tillhandahåller BigTable-liknande kapacitet för Hadoop
 Apache HBase är en NoSQL-databas med öppen källkod som har skapats på Hadoop och modellerats efter Google BigTable. HBase ger direktåtkomst och stark konsekvens för stora mängder ostrukturerade och halvstrukturerade data i en schemalös databas sorterad per kolumnfamiljer.
@@ -61,7 +60,6 @@ BigTable (och HBase via tillägg) skapades framförallt för webbsökning. Sökm
 * [Komma igång med HBase med Hadoop i HDInsight][hbase-get-started]
 * [Create HDInsight clusters on Azure Virtual Network][hbase-provision-vnet] (Skapa HDInsight-kluster i Azure Virtual Network)
 * [Konfigurera HBase-replikering i HDInsight](hdinsight-hbase-replication.md)
-* [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment] (Analysera Twitter-sentiment med HBase i HDInsight)
 * [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven] (Använda Maven för att skapa Java-program som använder HBase med HDInsight (Hadoop))
 
 ## <a name="see-also"></a>Se även
@@ -69,8 +67,6 @@ BigTable (och HBase via tillägg) skapades framförallt för webbsökning. Sökm
 * [Bigtable: Ett distribuerat Storage-system för strukturerade data](http://research.google.com/archive/bigtable.html)
 
 [hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
@@ -87,4 +83,3 @@ BigTable (och HBase via tillägg) skapades framförallt för webbsökning. Sökm
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-

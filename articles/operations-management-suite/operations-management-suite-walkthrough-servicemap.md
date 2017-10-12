@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>En demo för Operations Management Suite (OMS) – Tjänstkarta
 Det här är en demo du går igenom i egen takt där [lösningen Tjänstkarta](operations-management-suite-service-map.md) i Operations Management Suite (OMS) används till att identifiera och diagnostisera ett simulerat problem i en webbapp.  Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster.  Dessutom sammanställs data som samlas in från andra OMS-tjänster som beslutsstöd när du ska analysera prestanda och identifiera problem.  Du använder också [loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md) till att öka detaljnivån på insamlade data så att du kan identifiera rotorsaken till problemet.

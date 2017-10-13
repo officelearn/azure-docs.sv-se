@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure
 Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering, vilket gör att inga lösenord krävs för att logga in. I den här artikeln visas hur du kan skapa ett RSA-nyckelfilpar med SSH-protokollversion 2 med en offentlig och en privat nyckel för virtuella Linux-datorer. Mer detaljerade steg och ytterligare exempel finns i [detaljerade steg för att skapa SSH-nyckelpar och certifikat](create-ssh-keys-detailed.md).
 
@@ -59,4 +57,3 @@ Du kan skapa virtuella datorer som använder ditt SSH-nyckelpar med Azure Portal
 * [Skapa en säker virtuell Linux-dator med hjälp av Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Skapa en säker virtuell Linux-dator med hjälp av Azure CLI 2.0)](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Skapa en säker virtuell Linux-dator med hjälp av en Azure-mall](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

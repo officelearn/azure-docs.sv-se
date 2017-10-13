@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 082cd8a6cf50f76c89fe5995047396c734f83034
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -141,4 +140,3 @@ En nominell avgift tas ut för ingående och utgående trafik som använder en V
 
 * Lär dig hur du skapar en [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 * Lär dig mer om alla [peering-inställningar för virtuella nätverk och hur du ändrar dem](virtual-network-manage-peering.md)
-

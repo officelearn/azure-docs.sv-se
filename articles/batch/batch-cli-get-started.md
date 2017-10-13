@@ -3,7 +3,7 @@ title: "Komma igång med Azure CLI för Batch | Microsoft Docs"
 description: "Få en snabb introduktion till Batch-kommandon i Azure CLI för att hantera Azure Batch-tjänstens resurser"
 services: batch
 documentationcenter: 
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 68a5493282fa4a0b54ba551c48ae963a42b94dca
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -32,7 +31,7 @@ Microsoft rekommenderar att du använder den senaste versionen av Azure CLI, ver
 
 ## <a name="set-up-the-azure-cli"></a>Konfigurera Azure CLI
 
-När du ska installera Azure CLI följer du stegen som beskrivs i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md).
+När du ska installera Azure CLI följer du stegen som beskrivs i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!TIP]
 > Vi rekommenderar att du uppdaterar Azure CLI-installationen ofta för att dra nytta av tjänstuppdateringar och förbättringar.
@@ -97,9 +96,7 @@ Det finns två alternativ för att autentisera mot Batch-kontot:
 
     En fördel med Azure AD är att den innehåller rollbaserad åtkomstkontroll (RBAC). Med RBAC beror en användares behörighet på den tilldelade rollen snarare än om de har nycklar för kontot. Du kan hantera RBAC-roller och låta Azure AD hantera åtkomst och autentisering i stället för att hantera nycklar.  
 
-    Du måste autentisera med Azure AD om du har skapat ditt Azure Batch-konto med poolallokeringsläget Användarprenumeration. 
-
-    Du loggar in på Batch-kontot med hjälp av Azure AD med kommandot [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
+        To log in to your Batch account using Azure AD, call the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) command: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -196,4 +193,3 @@ Följande tips kan vara till hjälp när du felsöker problem med Azure CLI:
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-

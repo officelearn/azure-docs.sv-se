@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 5939af4cf071664415d57ccbaee3413d61aa69e9
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Skapa en virtuell Windows-dator med Azure CLI
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur man använder Azure CLI för att distribuera en virtuell dator som kör Windows Server 2016. När distributionen är klar kan vi ansluta till servern och installera IIS.
@@ -116,4 +114,3 @@ I den här snabbstarten har du distribuerat en virtuell dator och en regel för 
 
 > [!div class="nextstepaction"]
 > [Självstudier om virtuella Azure Windows-datorer](./tutorial-manage-vm.md)
-

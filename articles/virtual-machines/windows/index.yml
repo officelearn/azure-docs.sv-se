@@ -65,7 +65,7 @@ sections:
           - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">Hantera säkerhet på virtuella datorer</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Skapa en pipeline för kontinuerlig integrering med Visual Studio</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">Skydda en webbserver med SSL</a>
-  - title: Kostnadsfri videoutbildning för PluralSight
+  - title: Kostnadsfri videoutbildning för Pluralsight
     items:
       - type: list
         style: cards

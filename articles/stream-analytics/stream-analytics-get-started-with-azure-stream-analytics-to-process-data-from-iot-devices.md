@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Komma igång med Azure Stream Analytics för bearbetning av data från IoT-enheter
 I den här självstudiekursen lär du dig hur du skapar logiken för bearbetning av dataströmmar för datainsamling från IoT-enheter (Internet of Things). Vi använder verkliga IoT-användningsfall (Internet of Things) för att demonstrera hur du snabbt och billigt kan skapa din lösning.
@@ -119,5 +118,4 @@ Här använder vi en **VÄNSTER YTTRE** koppling för samma dataström (självko
 
 ## <a name="conclusion"></a>Slutsats
 Syftet med de här självstudierna är att demonstrera hur du skriver olika Stream Analytics Query Language-frågor och visar resultatet i webbläsaren. Men det här är bara början. Du kan göra så mycket mer med Stream Analytics. Stream Analytics stöder olika typer av indata och utdata och kan även använda funktioner i Azure Machine Learning, vilket gör det till ett stabilt verktyg för att analysera dataströmmar. Du kan lära dig mer om Stream Analytics med vår [utbildningskarta](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Mer information om hur du skriver frågor finns i artikeln om [vanliga frågemönster](stream-analytics-stream-analytics-query-patterns.md).
-
 

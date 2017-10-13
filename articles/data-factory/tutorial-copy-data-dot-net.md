@@ -3,7 +3,7 @@ title: "Kopiera data från Azure Blob Storage till SQL Database | Microsoft Docs
 description: "Den här självstudien innehåller stegvisa instruktioner för att kopiera data från Azure Blob Storage till Azure SQL Database."
 services: data-factory
 documentationcenter: 
-author: sharonlo101
+author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2017
-ms.author: shlo
+ms.date: 09/26/2017
+ms.author: jingwang
+ms.openlocfilehash: 6f1a93c2906eaab82dcfb9bae1ee4a54dce300bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 80abdd1524160427c17e05bd0086d2c7f6a54910
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
@@ -82,7 +81,7 @@ Förbered nu Azure-blobblagringen och Azure SQL-databasen för den här självst
 
     1. Klicka på hubben **Fler tjänster** till vänster och klicka på **SQL-servrar**.
     2. Välj din server och klicka på **Brandvägg** under **INSTÄLLNINGAR**.
-    3. På sidan **Brandväggsinställningar** klickar du på **På** för **Tillåt åtkomst till Azure-tjänster**.
+    3. På sidan **Brandväggsinställningar** väljer du **På** för **Tillåt åtkomst till Azure-tjänster**.
 
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
@@ -230,7 +229,7 @@ I det här avsnittet skapar du två datauppsättningar: en för källan och en f
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Skapa en datauppsättning för Azure Blob-källan
 
-Lägg till följande kod till **Main**-metoden som skapar en **Azure-blobdatauppsättning**. Mer information om vilka egenskaper som stöds finns i avsnittet om [egenskaper för Azure-blobdatauppsättningar](connector-azure-blob-storage.md#dataset-properties).
+Lägg till följande kod i **Main**-metoden som skapar en **Azure-blobdatauppsättning**. Mer information om vilka egenskaper som stöds finns i avsnittet om [egenskaper för Azure-blobdatauppsättningar](connector-azure-blob-storage.md#dataset-properties).
 
 Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna Blob-datauppsättning refererar till den Azure Storage-länkade tjänst som du skapar i föregående steg. Den beskriver:
 
@@ -510,7 +509,6 @@ Checking copy activity run details...
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
   "usedCloudDataMovementUnits": 2,
   "billedDuration": 2
-
 }
 
 Press any key to exit...
@@ -526,11 +524,10 @@ Pipeline i det här exemplet kopierar data från en plats till en annan i Azure 
 > * Skapa Azure Blob- och Azure SQL Database-datauppsättningar.
 > * Skapa en pipeline som innehåller en kopieringsaktivitet.
 > * Starta en pipelinekörning.
-> * Övervaka pipelinen och aktivitetskörningar.
+> * Övervaka pipelinen och aktivitetskörningarna.
 
 
 Fortsätt till följande självstudie och lär dig att kopiera data från en lokal plats till molnet: 
 
 > [!div class="nextstepaction"]
 >[Kopiera data från en lokal plats till molnet](tutorial-hybrid-copy-powershell.md)
-

@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: rest-api
 ms.topic: hero-article
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: jingwang
+ms.openlocfilehash: c6ce7fca7ad35b0036c11247fc9506ce4af91250
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a4b5940b243cdaf24bda215ab25bc7c2f3db72d8
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Skapa en Azure -datafabrik och pipeline med REST API
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
@@ -31,10 +30,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 * **Azure-prenumeration**. Om du inte har en prenumeration kan du skapa ett [kostnadsfritt utvärderingskonto](http://azure.microsoft.com/pricing/free-trial/).
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** och **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln om att [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) .
-* Skapa en **blob-behållare** i Blob Storage, skapa en **indatamapp** i behållaren och ladda upp några filer till mappen. 
+* Skapa en **blob-behållare** i Blob Storage, skapa en **indatamapp** i behållaren och ladda upp några filer till mappen. Du kan använda verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ansluta till Azure Blob Storage, skapa en blob-behållare, ladda upp en indatafil och verifiera utdatafilen.
 * **Installera Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps). I den här snabbstarten används PowerShell för att göra REST API-anrop.
 * **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Notera följande värden som du använder i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela appen rollen **Deltagare**.
-* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Med den här verktyget kan du ansluta till Azure Blob Storage, skapa en blob-behållare. ladda upp en indatafil och verifiera utdatafilen. 
 
 ## <a name="set-global-variables"></a>Ange globala variabler
 
@@ -104,7 +102,7 @@ $response | ConvertTo-Json
 
 Observera följande punkter:
 
-* Namnet på Azure Data Factory måste vara globalt unikt. Om du har fått följande felmeddelande ändrar du namnet och försöker igen.
+* Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
 
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
@@ -183,7 +181,7 @@ Här är exempel på utdata:
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 
-Du definierar en datauppsättning som representerar data som ska kopieras från en källa till en mottagare. I det här exemplet refererar denna Blob-datauppsättning till den Azure Storage-länkade tjänst som du skapar i föregående steg. Datauppsättningen tar en parameter vars värde anges i en aktivitet som förbrukar datauppsättningen. Parametern används för att konstruera "folderPath" som pekar mot där data finns/lagras.
+Du definierar en datauppsättning som representerar data som ska kopieras från en källa till en mottagare. I det här exemplet refererar denna blob-datauppsättning till den Azure Storage-länkade tjänst som du skapar i föregående steg. Datauppsättningen tar en parameter vars värde anges i en aktivitet som förbrukar datauppsättningen. Parametern används för att konstruera "folderPath" som pekar mot där data finns/lagras.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/datasets/BlobDataset?api-version=${apiVersion}"
@@ -343,7 +341,7 @@ Här är exempel på utdata:
 
 ## <a name="monitor-pipeline"></a>Övervaka pipeline
 
-1. Kör följande skript för att kontinuerligt kontroller pipelinekörningens status tills kopieringen av data är klar.
+1. Kör följande skript för att kontinuerligt kontrollera pipelinekörningens status tills kopieringen av data är klar.
 
     ```powershell
     $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelineruns/${runId}?api-version=${apiVersion}"
@@ -420,7 +418,7 @@ Här är exempel på utdata:
                         "activityEnd":  "2017-09-07T13:12:38.4780542Z",
                         "duration":  36148,
                         "input":  "@{source=; sink=}",
-                        "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]}",
+                        "output":  "@{dataRead=331452208; dataWritten=331452208; copyDuration=22; throughput=14712.9; errors=System.Object[]; effectiveIntegrationRuntime=DefaultIntegrationRuntime (West US); usedCloudDataMovementUnits=2; billedDuration=22}",
                         "error":  "@{errorCode=; message=; failureType=; target=CopyFromBlobToBlob}"
                     }
                 ]

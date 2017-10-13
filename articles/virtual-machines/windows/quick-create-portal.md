@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Skapa en virtuell Windows-dator med Azure Portal
 
 Det går att skapa virtuella datorer via Azure Portal. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera virtuella datorer och alla relaterade resurser. I den här snabbstarten beskrivs hur du skapar en virtuell dator och installerar en webbserver på den virtuella datorn.
@@ -108,4 +106,3 @@ I den här snabbstarten har du distribuerat en virtuell dator och en regel för 
 
 > [!div class="nextstepaction"]
 > [Självstudier om virtuella Azure Windows-datorer](./tutorial-manage-vm.md)
-

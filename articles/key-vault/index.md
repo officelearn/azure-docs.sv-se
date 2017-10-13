@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 41db3ea23bc1e9895893201078b1ada3297418cb
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 3267373f6db336c34d13709cc0392631531313f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="key-vault-documentation"></a>Dokumentation om Key Vault
 
 Lär dig hur du använder Key Vault för att skydda och hantera krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Självstudier, API-referenser och annan dokumentation visar hur du skapar och underhåller nycklar som ger åtkomst till och krypterar dina resurser och lösningar.
@@ -175,5 +173,4 @@ Lär dig hur du använder Key Vault för att skydda och hantera krypteringsnyckl
 </ul>
 
 ---
-
 

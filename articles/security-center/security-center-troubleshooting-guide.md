@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/11/2017
 ms.author: yurid
 ms.openlocfilehash: 0e0a0ce5c0795cec0e47cd5f729099f4762381a2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.

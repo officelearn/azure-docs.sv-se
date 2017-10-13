@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
 ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Anpassningsbara programkontroller i Azure Security Center (förhandsversion)
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
@@ -157,5 +156,4 @@ I det här dokumentet har du lärt dig att använda anpassningsbar programkontro
 * [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center. 
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Här finns vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-
 

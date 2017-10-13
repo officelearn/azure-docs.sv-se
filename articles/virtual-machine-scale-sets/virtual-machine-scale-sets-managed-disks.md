@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Skalningsuppsättningar för virtuella Azure-datorer och hanterade diskar
 
@@ -52,6 +51,5 @@ Se [den här artikeln](./virtual-machine-scale-sets-convert-template-to-md.md) f
 Mer information om hur du använder hanterade datadiskar med skalningsuppsättningar finns i [den här artikeln](./virtual-machine-scale-sets-attached-disks.md).
 
 Referera till [den här artikeln](./virtual-machine-scale-sets-placement-groups.md) för att börja arbeta med stora skalningsuppsättningar.
-
 
 

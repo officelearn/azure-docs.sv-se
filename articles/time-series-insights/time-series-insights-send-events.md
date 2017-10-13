@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: venkatja
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av Event Hub
 
@@ -238,4 +237,3 @@ Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Den
 ## <a name="next-steps"></a>Nästa steg
 
 * Visa din miljö i [Time Series Insights-portalen](https://insights.timeseries.azure.com)
-

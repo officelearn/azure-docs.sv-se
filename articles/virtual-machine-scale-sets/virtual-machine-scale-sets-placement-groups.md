@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/1/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
 Du kan nu skapa [skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) med en kapacitet på upp till 1 000 virtuella datorer. I detta dokument definieras en _stor VM-skalningsuppsättning_ som en skalningsuppsättning som kan skalas för över 100 virtuella datorer. Den här funktionen ställs in med skalningsuppsättningsegenskapen (_singlePlacementGroup=False_). 
@@ -85,6 +84,5 @@ Om du vill göra det möjligt för en befintlig skalningsuppsättning för virtu
 
 >[!NOTE] 
 Du kan ändra så att en skalningsuppsättning går från att endast stödja en enda placeringsgrupp (standardinställningen) till att stödja flera placeringsgrupper, men du kan inte konvertera åt det andra hållet. Se därför till att du förstår egenskaperna för stora skalningsuppsättningar innan du konverterar. Kontrollera i synnerhet att du inte behöver layer-4-belastningsutjämning med Azure Load Balancer.
-
 
 

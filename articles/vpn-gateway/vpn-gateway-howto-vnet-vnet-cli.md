@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
@@ -372,4 +371,3 @@ Vi har upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och
 
 * När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Dokumentationen för virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Information om BGP finns i [BGP-översikt](vpn-gateway-bgp-overview.md) och [Så här konfigurerar du BGP](vpn-gateway-bgp-resource-manager-ps.md).
-

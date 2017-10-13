@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Skalningsuppsättningar för virtuella Azure-datorer och anslutna datadiskar
 [Skaluppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) stöder nu virtuella datorer med anslutna datadiskar. Datadiskar kan definieras i lagringsprofilen för skalningsuppsättningar som har skapats med Azure Managed Disks. Tidigare var operativsystemsenheter och temp-enheter de enda direktanslutna lagringsalternativen tillgängliga för virtuella datorer i skalningsuppsättningar.
@@ -128,6 +127,5 @@ Stöd för Azure Managed Disks och anslutna datadiskar för skalningsuppsättnin
 I den första implementeringen av stöd för anslutna diskar för skalningsuppsättningar går det inte att ansluta eller koppla från datadiskar till/från enskilda virtuella datorer i en skalningsuppsättning.
 
 Azure Portal-stöd för anslutna datadiskar i skalningsuppsättningar är begränsat i början. Beroende på dina behov kan du använda Azure-mallar, CLI, PowerShell, SDK:er och REST API för att hantera anslutna diskar.
-
 
 

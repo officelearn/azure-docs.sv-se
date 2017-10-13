@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Distribuera och hantera en virtuell StorSimple-enhet i Azure
 ## <a name="overview"></a>Översikt
@@ -236,4 +235,3 @@ Om du inte har någon anslutning till Internet när du skapar en virtuell enhet 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig att [använda StorSimple Manager-tjänsten för att hantera en virtuell enhet](storsimple-manager-service-administration.md).
 * Förstå hur du [återställer en StorSimple-volym från en säkerhetskopia](storsimple-restore-from-backup-set.md).
-

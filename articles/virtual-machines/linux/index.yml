@@ -67,7 +67,7 @@ sections:
           - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD med Team Services</a>
           - html: 'Skapa en webbserverstack med <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> eller <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
           - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Skydda en webbserver med SSL</a>
-  - title: Kostnadsfri videoutbildning för PluralSight
+  - title: Kostnadsfri videoutbildning för Pluralsight
     items:
       - type: list
         style: cards

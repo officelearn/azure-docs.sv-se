@@ -15,14 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="indexers-in-azure-search"></a>Indexerare i Azure Search
 > [!div class="op_single_selector"]
 >
@@ -76,4 +74,3 @@ Nu när du har lagt grunden är nästa steg att granska krav och uppgifter som �
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexera CSV-blobbar med Azure Search Blob-indexeraren](search-howto-index-csv-blobs.md)
 * [Indexera JSON-blobbar med Azure Search Blob-indexeraren](search-howto-index-json-blobs.md)
-

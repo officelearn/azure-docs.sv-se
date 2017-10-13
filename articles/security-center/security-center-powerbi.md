@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
-ms.contentlocale: sv-se
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 10f7b8f20cc41a5ebb1b1376e2bf17be02600ae4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Kunskap genom statistik från Azure Security Center med Power BI
 I [Power BI-instrumentpanelen](http://aka.ms/azure-security-center-power-bi) för Azure Security Center kan du se, analysera och filtrera rekommendationer och säkerhetsaviseringar var du än är, även på mobila enheter. I Power BI-instrumentpanelen kan du se trender och angreppsmönster, se säkerhetsaviseringar indelade efter resurs eller käll-IP-adress och oåtgärdade säkerhetsrisker indelade efter resurs och hur lång tid det gått sedan de påträffades.
@@ -120,4 +119,3 @@ I det här avsnittet har du fått lära dig hur du använder Power BI i Azure Se
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här finns vanliga frågor om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure
-

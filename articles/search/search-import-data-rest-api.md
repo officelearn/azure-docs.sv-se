@@ -15,14 +15,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Ladda upp data till Azure Search med hjälp av REST-API:et
 > [!div class="op_single_selector"]
 >
@@ -181,4 +179,3 @@ Mer information om dokumentåtgärder och svar om lyckade/misslyckade åtgärder
 
 ## <a name="next-steps"></a>Nästa steg
 När du har fyllt Azure Search-indexet kan du börja skicka frågor för att söka efter dokument. Mer information finns i [Fråga ditt Azure Search-index](search-query-overview.md).
-

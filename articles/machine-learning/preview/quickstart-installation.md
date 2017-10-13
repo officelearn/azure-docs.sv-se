@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
+ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 91d2f47a528050f644973044f96c0354b91dba25
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Skapa konton för förhandsversionen av Azure Machine Learning och installera Azure Machine Learning Workbench
 Azure Machine Learning är en integrerad, avancerad analyslösning som dataforskare kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
@@ -27,7 +25,13 @@ Den här snabbstarten visar hur du skapar konton för att hantera experiment och
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
-För närvarande kan Azure Machine Learning Workbench endast installeras på följande operativsystem: Windows 10, Windows Server 2016 och macOS Sierra.
+För närvarande kan skrivbordsappen Azure Machine Learning Workbench endast installeras på följande operativsystem: 
+- Windows 10
+- Windows Server 2016
+- macOS Sierra
+
+>[!NOTE]
+>macOS High Sierra stöds inte ännu.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på [Azure-portalen](https://portal.azure.com/).
@@ -118,7 +122,7 @@ Installera Azure Machine Learning Workbench på en dator som kör macOS Sierra.
 
 5. Azure Machine Learning Workbench installeras i följande katalog: 
 
-   _/Applications/AmlWorkbench.app_
+   `/Applications/AmlWorkbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-log-in-the-first-time"></a>Kör Azure Machine Learning Workbench och logga in för första gången
 1. Klicka på knappen **Launch Workbench** (Starta Workbench) på den sista skärmen i installationsprogrammet när installationen har slutförts. Om du har stängt installationsprogrammet kan du starta appen genom att välja genvägen till **Azure Machine Learning Workbench** på skrivbordet eller Start-menyn.
@@ -184,4 +188,3 @@ Om du vill ha en mer ingående beskrivning av det här arbetsflödet, inklusive 
 
 > [!div class="nextstepaction"]
 > [Självstudiekursen Klassificera Iris](tutorial-classifying-iris-part-1.md)
-

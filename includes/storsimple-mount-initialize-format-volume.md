@@ -25,8 +25,3 @@ Om du vill se en video som visar hur du monterar, initierar och formaterar en St
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-<!--HONumber=Nov16_HO2-->
-
-

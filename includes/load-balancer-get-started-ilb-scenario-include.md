@@ -9,8 +9,3 @@ En intern belastningsutjämnare konfigureras i ett virtuellt nätverk
 * 2 virtuella datorer som kallas DB1 och DB2
 * Slutpunkter
 * Intern belastningsutjämnare
-
-
-<!--HONumber=Nov16_HO2-->
-
-

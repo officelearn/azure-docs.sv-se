@@ -26,8 +26,3 @@ Så här skapar du en princip:
    
     Den nya principen tillämpas omedelbart på valvet.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -14,7 +14,7 @@ Om du vill låta Mobile Engagement skicka push-meddelanden för dig, måste du b
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Skicka ett meddelande till din app
+## <a id="send"></a>Skicka ett meddelande till din app
 Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push-meddelande till vår app.
 
 1. Gå till **REACH**-fliken i din Mobile Engagement-portal.
@@ -41,9 +41,4 @@ Nu ska vi skapa en enkel push-meddelandekampanj som skickar ett push-meddelande 
 6. Sista steget: klicka på **Aktivera** om du vill aktivera din kampanj för att skicka push-meddelanden.
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

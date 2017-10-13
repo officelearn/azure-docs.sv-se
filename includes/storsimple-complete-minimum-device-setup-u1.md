@@ -16,7 +16,7 @@
 
     ![Nätverksgränssnitt för minimala StorSimple-enhetsinställningar](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-    De fasta IP-adresserna för styrenheten används för att underhålla uppdateringarna till enheten och därför måste de vara dirigerbara och kunna ansluta till Internet. Du kan kontrollera att dina fasta styrenhets-IP-adresser är dirigerbara genom att använda [Test-HcsmConnection][Test] cmdleten . Följande exempel visar att fasta styrenhets-IP-adresser dirigeras till Internet och har åtkomst till Microsoft Update-servrarna. 
+    De fasta IP-adresserna för styrenheten används för att underhålla uppdateringarna till enheten och därför måste de vara dirigerbara och kunna ansluta till Internet. Du kan kontrollera att de fasta IP-adresserna för dina styrenheter är dirigerbara med hjälp av cmdleten [Test-HcsmConnection][Test]. Följande exempel visar att fasta styrenhets-IP-adresser dirigeras till Internet och har åtkomst till Microsoft Update-servrarna. 
 
      ![Test-HcsmConnection visar dirigerbara IP-adresser](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
 

@@ -63,8 +63,3 @@
        
         Kontrollera att port 9354 är öppen för utgående kommunikation eftersom den används av service bus för StorSimple Manager-tjänsten för kommunikation till enheten.
 
-
-
-<!--HONumber=Nov16_HO2-->
-
-

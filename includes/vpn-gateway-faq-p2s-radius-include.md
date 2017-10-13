@@ -24,7 +24,7 @@ Nej. Den kan bara skickas via en plats-till-plats-anslutning.
 
 Det högsta antalet SSTP-anslutningar som stöds på en gateway med RADIUS-autentisering har inte ändrats. Det är fortfarande 128. Det högsta antalet anslutningar som stöds är 128, oavsett om gatewayen har konfigurerats för SSTP, IKEv2 eller båda.
  
-### <a name="what-is-the-difference-between-doing-certificate-authentication-using-a-radius-server-vs-using-azure-native-certificate-authentication-by-uploading-a-trusted-certificate-to-azure"></a>Vad är skillnaden mellan att utföra certifikatautentisering med hjälp av en RADIUS-server och att använda Azures interna certifikatautentisering (genom att ladda upp ett betrott certifikat till Azure)?
+### <a name="what-is-the-difference-between-doing-certificate-authentication-using-a-radius-server-vs-using-azure-native-certificate-authentication-by-uploading-a-trusted-certificate-to-azure"></a>Vad är skillnaden mellan att utföra certifikatautentisering med hjälp av en RADIUS-server och att använda Azures interna certifikatautentisering (genom att ladda upp ett betrott certifikat till Azure).
 
 När RADIUS-certifikatautentisering används vidarebefordras autentiseringsbegäran till en RADIUS-server som hanterar själva certifikatverifieringen. Det här alternativet är bra om du vill integrera med en infrastruktur för certifikatautentisering som du redan har via RADIUS.
   

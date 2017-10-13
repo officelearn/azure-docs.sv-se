@@ -247,6 +247,7 @@
             - name: Installera NVIDIA GPU-drivrutiner
               href: n-series-driver-setup.md
     - name: Hantera lagring
+      href: about-disks-and-vhds.md
       items:
         - name: Mer information om Managed Disks
           href: managed-disks-overview.md

@@ -7,6 +7,8 @@
 ## [Installera SAP HANA](hana-installation.md)
 ## [Hög tillgänglighet och haveriberedskap](hana-overview-high-availability-disaster-recovery.md)
 ## [Felsök och övervaka](troubleshooting-monitoring.md)
+## Gör så här för att
+### [Konfiguration för hög tillgänglighet med STONITH](ha-setup-with-stonith.md)
 # SAP HANA på Azure Virtual Machines
 ## [Enkel instans av SAP HANA](hana-get-started.md)
 ## [Distributionsguide för S/4 HANA eller BW/4 HANA SAP CAL](cal-s4h.md)

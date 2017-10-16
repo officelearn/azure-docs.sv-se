@@ -23,6 +23,8 @@
       href: tutorial-forecast-spending.md
 - name: Resurser
   items:
+    - name: Kostnadshanteringsvideor
+      href: ref-videos.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prissättning

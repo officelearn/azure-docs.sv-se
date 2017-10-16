@@ -114,6 +114,7 @@
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-schedule-jobs.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## Hantera
 ### Skapa en IoT Hub 
 #### [Använda Azure Portal](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [Använda Azure Portal](iot-hub-configure-file-upload.md)
 #### [Använda Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [Använda Azure CLI](iot-hub-configure-file-upload-cli.md)
-### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
+### [Övervaka med diagnostik](iot-hub-monitor-resource-health.md)
+#### [Migrera till diagnostikinställningar](iot-hub-migrate-to-diagnostics-settings.md)
+#### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 ### [Användningsstatistik](iot-hub-metrics.md)
-### [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+### [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
 ### [Konfigurera IP-filtrering](iot-hub-ip-filtering.md)
+
 ## Skydda
 ### [Säkerhet från grunden](iot-hub-security-ground-up.md)
 ### [Metodtips för säkerhet](iot-hub-security-best-practices.md)
 ### [Säkerhetsarkitektur](iot-hub-security-architecture.md)
 ### [Skydda distributionen av IoT](iot-hub-security-deployment.md)
+### Skydda med X.509 CA-certifikat
+#### [Översikt över certifikatsäkerhet med X.509 CA](iot-hub-x509ca-overview.md)
+##### [Koncept för certifikatsäkerhet med X.509 CA](iot-hub-x509ca-concept.md)
+#### [Kom igång med certifikatsäkerhet med X.509 CA](iot-hub-security-x509-get-started.md)
+##### [Skapa certifikat – PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [Översikt](iot-hub-iot-edge-overview.md)
 ### Kom igång

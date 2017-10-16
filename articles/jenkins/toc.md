@@ -11,11 +11,17 @@
 ## [Jenkins och Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
 # Instruktionsguider
 ## [Säker Jenkins på Azure](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
+## [Distribuera till App Service](deploy-jenkins-app-service-plugin.md)
 ## [Publicera artefakter till Azure Storage](/azure/storage/common/storage-java-jenkins-continuous-integration-solution)
 ## [Använda Jenkins med VSTS](https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins)
 # Resurser
+## Plugin-program
+### [App Service-pluginprogram](https://plugins.jenkins.io/azure-app-service)
+### [Plugin-program för Azure Container Agents](https://plugins.jenkins.io/azure-container-agents)
+### [Plugin-program för Azure Credential](https://plugins.jenkins.io/azure-credentials)
+### [Plugin-program för Azure Function](https://plugins.jenkins.io/azure-function)
+### [Plugin-program för Azure Storage](https://plugins.jenkins.io/windows-azure-storage)
+### [Plugin-program för agenter för virtuell Azure-dator](https://plugins.jenkins.io/azure-vm-agents)
+### [Plugin-program för Container Service](https://plugins.jenkins.io/azure-acs)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
-## [App Service-pluginprogram](https://plugins.jenkins.io/azure-app-service)
-## [Plugin-program för Azure Storage](https://plugins.jenkins.io/windows-azure-storage)
-## [Plugin-program för agenter för virtuell Azure-dator](https://plugins.jenkins.io/azure-vm-agents)
 ## [Jenkins-startsida](https://jenkins.io/)

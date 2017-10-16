@@ -1,5 +1,5 @@
 # Översikt
-## [Vad är SQL Server på virtuella Azure-datorer?](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
+## [Virtuell Windows SQL Server-dator](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [Vanliga frågor och svar](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 

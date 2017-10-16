@@ -18,7 +18,6 @@
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Klassisk portal (klassisk)](vpn-gateway-site-to-site-create.md)
 
 ## Konfigurera punkt-till-plats-anslutningar – ursprunglig Azure-certifikatautentisering
 ### Konfigurera ett virtuellt privat P2S-nätverk
@@ -57,6 +56,7 @@
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## Konfigurera BGP för en VPN-gateway
 ### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+### [Azure CLI](bgp-how-to-cli.md)
 ## Konfigurera tvingad tunneltrafik
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (klassisk)](vpn-gateway-about-forced-tunneling.md)
@@ -81,6 +81,8 @@
 ### [Problem med punkt-till-plats-anslutning](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Plats-till-plats-anslutningen kopplas från periodvis](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Plats-till-plats-anslutningen kan inte ansluta](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Tillhörighetsproblem för Application Gateway-sessioner](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
+### [Konfigurera och verifiera VNet- eller VPN-anslutningar](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Referens
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

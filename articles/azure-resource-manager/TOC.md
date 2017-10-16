@@ -65,7 +65,6 @@
 ### Skapa tjänstens huvudnamn
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Autentiserings-API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md)
 ### [Lås resurser](resource-group-lock-resources.md)

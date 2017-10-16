@@ -1,5 +1,5 @@
 # Översikt
-## [Windows SQL Server VM](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [Virtuell Windows SQL Server-dator](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Prissättning](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [Vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md)
  

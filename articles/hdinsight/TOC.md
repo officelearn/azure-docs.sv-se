@@ -88,7 +88,6 @@
 ### [ScaleR och SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Använda HBase
 ### [Använda Phoenix och SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
-### [Analysera tweets i realtid](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Skapa kluster i ett virtuellt nätverk](hdinsight-hbase-provision-vnet.md)
 ### [Konfigurera HBase-replikering](hdinsight-hbase-replication.md)
 ### [Utveckla en app med Java](hdinsight-hbase-build-java-maven-linux.md)
@@ -100,7 +99,7 @@
 #### [Utveckla Java-baserade topologier med Maven](hdinsight-storm-develop-java-topology.md)
 #### [Utveckla C#-topologier med Hadoop-verktyg](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 #### [Bearbeta händelser med C#-topologier](hdinsight-storm-develop-csharp-event-hub-topology.md)
-#### [Bearbeta händelser med Java-topologier](hdinsight-storm-develop-java-event-hub-topology.md)
+#### [Bearbeta händelser med Java-topologier](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 #### [Analysera sensordata i realtid](hdinsight-storm-sensor-data-analysis.md)
 #### [Samordna händelser över tid](hdinsight-storm-correlation-topology.md)
 #### [Utveckla topologier med Python](hdinsight-storm-develop-python-topology.md)

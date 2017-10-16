@@ -27,23 +27,23 @@
       href: overview-general-concepts.md
 - name: Instruktionsguider
   items:
-    - name: Använda Machine Learning Workbench
+    - name: Använd Workbench
       items:
         - name: 'Arbeta med Python IDE:er'
           href: how-to-configure-your-IDE.md
         - name: Jupyter Notebook
           href: how-to-use-jupyter-notebooks.md
-        - name: Integrera med en Git-repo
+        - name: Integrera med Git-lagringsplatser
           href: using-git-ml-project.md
-        - name: Strukturera ett projekt med TDSP
+        - name: Strukturera projekt med TDSP
           href: how-to-use-tdsp-in-azure-ml.md
         - name: Roaming och samarbete
           href: roaming-and-collaboration.md
-    - name: Använda Visual Studio-verktyg
+    - name: Använd Visual Studio Code Tools för AI
       href: quickstart-visual-studio-tools.md
     - name: Konfigurera beräkningsmiljö
       items:
-        - name: Konfigurera körningsmål
+        - name: Konfigurera experimentering
           href: experiment-execution-configuration.md
         - name: Skapa DSVM och HDI Spark-kluster
           href: how-to-create-dsvm-hdi.md
@@ -51,13 +51,14 @@
           href: how-to-use-gpu.md
     - name: Skaffa och förstå data
       items:
-        - name: Åtkomst till data med guiden Datakälla
+        - name: Lägg till datakälla
           href: data-source-wizard.md
-        - name: Kom igång med förberedelse av data
-          href: data-prep-getting-started.md
         - name: Guide för databearbetning
+          href: data-prep-getting-started.md
+        - name: Avancerad dataförberedelse
           href: data-prep-user-guide.md
         - name: Transformationer vid förberedelse av data
+          href: data-prep-appendix3-supported-transforms.md
           items:
             - name: Kombinera kolumner med exempel
               href: data-prep-combine-columns-by-example.md
@@ -73,22 +74,26 @@
           href: tutorial-iris-azure-cli.md
         - name: Spåra körningshistorik och modellmått
           href: how-to-use-run-history-model-metrics.md
-        - name: Så här hittar du körningar med bäst precision och lägst varaktighet
+        - name: Hitta körning med bäst noggrannhet
           href: how-to-find-best-accuracy-cli.md
         - name: Läsa och skriva filer
           href: how-to-read-write-files.md
-        - name: MMLSpark-bibliotek
+        - name: Använd MMLSpark-bibliotek
           href: how-to-use-mmlspark.md
-    - name: Distribuera modeller
+    - name: Operationalisera modeller
       items:
         - name: Konfigurera Machine Learning-modellhantering
           href: deployment-setup-configuration.md
+        - name: Skala kluster och tjänster
+          href: how-to-scale-clusters.md
         - name: Distribuera en webbtjänst
           href: model-management-service-deploy.md
         - name: Använda en webbtjänst
           href: model-management-consumption.md
-        - name: Använda modelldatasamling
+        - name: Samla in modelldata
           href: how-to-use-model-data-collection.md
+        - name: Distribuera felsökningsguide
+          href: how-to-deploy-troubleshooting-guide.md
     - name: Verkliga exempel
       items:
         - name: Analys av dokumentsamling
@@ -121,8 +126,6 @@
           href: data-prep-python-extensibility-overview.md
         - name: Datakällor som stöds
           href: data-prep-appendix2-supported-data-sources.md
-        - name: Transformeringar som stöds
-          href: data-prep-appendix3-supported-transforms.md
         - name: Kontroller som stöds
           href: data-prep-appendix4-supported-inspectors.md
         - name: Datamål som stöds
@@ -131,7 +134,7 @@
           href: data-prep-supported-runtime-data-environments.md
         - name: Exempel på filteruttryck i Python
           href: data-prep-appendix6-sample-filter-expressions-python.md
-        - name: Exempel på anpassade DataFlow-transformeringar i Python
+        - name: Exempel på anpassade dataflödestransformeringar i Python
           href: data-prep-appendix7-sample-transform-data-flow-python.md
         - name: Exempel på anslutningar till datakällor i Python
           href: data-prep-appendix8-sample-source-connections-python.md
@@ -143,7 +146,7 @@
           href: data-prep-python-execution-api.md
     - name: Experimentering
       items:
-        - name: Köra konfiguration
+        - name: Konfiguration av experimenteringstjänst
           href: experiment-execution-configuration-reference.md
         - name: API för loggning
           href: reference-logging-api.md
@@ -157,9 +160,9 @@
           href: model-data-collection-api-reference.md
 - name: Resurser
   items:
-    - name: VANLIGA FRÅGOR OCH SVAR
+    - name: Vanliga frågor och svar
       href: frequently-asked-questions.md
-    - name: Kända problem och felsökningsguide
+    - name: Kända problem och felsökning
       href: known-issues-and-troubleshooting-guide.md
     - name: Dokumentation för Team Data Science Process
       href: ../team-data-science-process/overview.md
@@ -170,7 +173,7 @@
     - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
     - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=MachineLearning'
+      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Videoklipp

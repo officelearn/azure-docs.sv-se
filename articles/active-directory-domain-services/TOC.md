@@ -15,9 +15,9 @@
 
 # Gör så här för att
 ## Anslut till en hanterad domän
-### [Ansluta en Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Ansluta en virtuell Windows Server VM med PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Red Hat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Virtuell Windows Server-dator](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [Virtuell Windows Server-dator med PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrera en hanterad domän
 ### [Administrera en hanterad domän](active-directory-ds-admin-guide-administer-domain.md)

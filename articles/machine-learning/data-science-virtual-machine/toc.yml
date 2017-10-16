@@ -1,6 +1,7 @@
 - name: Dokumentation om virtuella datorer för datavetenskap
   items: null
 - name: Översikt
+  expanded: true
   items:
     - name: Vad är en virtuell dator för datavetenskap?
       href: overview.md
@@ -25,7 +26,10 @@
     - name: Använd en virtuell dator för djupinlärning
       href: use-deep-learning-dsvm.md
 - name: Referens
+  expanded: true
   items:
+    - name: Utforska DSVM
+      href: dsvm-tools-overview.md
     - name: Ramverk för djupinlärning och AI
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Verktyg för ML and datavetenskap

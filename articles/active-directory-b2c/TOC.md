@@ -40,6 +40,9 @@
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
+## [Konfigurera återställning av lösenord för självbetjäning](active-directory-b2c-reference-sspr.md)
+## [Anpassa gränssnittet](active-directory-b2c-reference-ui-customization.md)
+### [Hjälpverktyg för anpassning](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Använd Azure AD Graph API:n](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Hämta åtkomsttoken](active-directory-b2c-access-tokens.md)
 ## [Inaktivera e-postverifiering](active-directory-b2c-reference-disable-ev.md)
@@ -47,30 +50,34 @@
 ## [Aktivera MFA](active-directory-b2c-reference-mfa.md)
 ## [Använd anpassade attribut](active-directory-b2c-reference-custom-attr.md)
 ## [Anpassa lösenord](active-directory-b2c-reference-password-complexity.md)
-## [Anpassa gränssnittet](active-directory-b2c-reference-ui-customization.md)
-### [Hjälpverktyg för anpassning](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Språkanpassning](active-directory-b2c-reference-language-customization.md)
 ## [Använd rapporterings-API](active-directory-b2c-reference-usage-reporting-api.md)
-## [Konfigurera återställning av lösenord för självbetjäning](active-directory-b2c-reference-sspr.md)
+## [Migrera användare](active-directory-b2c-user-migration.md)
 
 # Identity Experience Framework
 ## [Anpassade principer](active-directory-b2c-overview-custom.md)
 ## Guider
-### [Kom igång](active-directory-b2c-get-started-custom.md)
+### [Komma igång](active-directory-b2c-get-started-custom.md)
 ### Konfigurera OIDC/OAUTH2-providrar
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft-konto](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google +](active-directory-b2c-custom-setup-goog-idp.md)
+#### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
+#### [Twitter](active-directory-b2c-custom-setup-twitter-idp.md)
 ### Konfigurera SAML-providrar
 #### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrera RESTful-API:er
 #### [Verifiera användarinmatning](active-directory-b2c-rest-api-validation-custom.md)
 #### [Hämta ytterligare anspråk](active-directory-b2c-rest-api-step-custom.md)
+#### [Lägg till ditt eget RESTful-API](active-directory-b2c-custom-rest-api-netfw.md)
+#### [Skydda RESTful-API:er med grundläggande autentisering](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+#### [Skydda RESTful-API:er med certifikatbaserad autentisering](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 ### Användarflöden
 #### [Konfigurera användarinmatning](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Anpassade attribut](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
-#### [Anpassa användargränssnitt](active-directory-b2c-ui-customization-custom.md)
+#### [Anpassa användargränssnittet](active-directory-b2c-ui-customization-custom.md)
+#### [Anpassa användargränssnittet dynamiskt](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Anpassa token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Lösenordskomplexitet](active-directory-b2c-reference-password-complexity-custom.md)
 

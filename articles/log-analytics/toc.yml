@@ -53,6 +53,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Azure-resurser
               href: log-analytics-azure-storage.md
+            - name: Diagnostik- eller loggdata från Azure Storage
+              href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager
               href: log-analytics-om-agents.md
             - name: Configuration Manager
@@ -92,6 +94,8 @@
           items:
             - name: Reguljära uttryck
               href: log-analytics-log-searches-regex.md
+            - name: Sökningar över arbetsytor
+              href: log-analytics-cross-workspace-search.md
         - name: Utför åtgärder från sökresultat
           href: log-analytics-log-search-takeaction.md
         - name: Datorgrupper
@@ -229,6 +233,10 @@
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
+    - name: Panelreferens för Vydesigner
+      href: log-analytics-view-designer-tiles.md
+    - name: Referens för visualiseringsdel för Vydesigner
+      href: log-analytics-view-designer-parts.md
 - name: Resurser
   items:
     - name: Azure-översikt

@@ -91,9 +91,9 @@
 ## [NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Skapa Resource Manager-mallar](../../../resource-group-authoring-templates.md)
 ## [Community-mallar](https://azure.microsoft.com/documentation/templates)
-## [Compute REST](/rest/api/compute)
-## [Network REST](/rest/api)
-## [Storage REST](/rest/api/storageservices)
+## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [Storage REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=compute)

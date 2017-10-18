@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
-ms.openlocfilehash: 4f73e27c733edae658d1ea3bdabe48076328279b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: faf17bcac66a70fc78bb171e172886fd2dcadca8
+ms.contentlocale: sv-se
+ms.lasthandoff: 06/16/2017
+
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -99,7 +100,7 @@ OUTPUT @a
 Skicka jobbet.
 
 ```
-$job = Submit-AdlJob -AccountName $adla –Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
 ```
 
 Du kan också spara skriptet som en fil och skicka med följande kommando:
@@ -107,14 +108,14 @@ Du kan också spara skriptet som en fil och skicka med följande kommando:
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
 ```
 
 
 Hämta status för ett specifikt jobb. Fortsätta att använda denna cmdlet tills jobbet är klart.
 
 ```
-$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
+$job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 Istället för att anropa Get-AdlAnalyticsJob om och om igen tills ett jobb blir klart kan du använda cmdleten Wait-AdlJob.
@@ -126,10 +127,11 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 Hämta utdatafilen.
 
 ```
-Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
+Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>Se även
 * Klicka på flikväljarna överst på sidan om du vill se samma självstudier med andra verktyg.
 * Information om U-SQL finns i [Kom igång med U-SQL-språk i Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Information om hanteringsuppgifter finns i [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md).
+

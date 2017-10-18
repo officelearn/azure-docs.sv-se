@@ -101,6 +101,7 @@
 ##### [Hantera volymbehållare](storsimple-8000-manage-volume-containers.md)
 ##### [Hantera volymer – aktuella](storsimple-8000-manage-volumes-u2.md)
 ###### [Vanliga frågor och svar: Lokalt fixerade volymer](storsimple-8000-local-volume-faq.md)
+##### [Rollbaserad åtkomstkontroll](storsimple-8000-role-based-access-control.md)
 ##### [Hantera ACR:er](storsimple-8000-manage-acrs.md)
 ##### [Hantera bandbreddsmallar](storsimple-8000-manage-bandwidth-templates.md)
 ##### [Visa och hantera jobb](storsimple-8000-manage-jobs-u2.md)
@@ -188,7 +189,7 @@
 #### [Version – GA](storsimple-july-2014-release-notes.md)
 
 ## Referens
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST-API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell för StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000-serien (klassisk portal)

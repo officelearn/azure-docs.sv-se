@@ -44,41 +44,49 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: Konfigurera MSI för en virtuell Azure-dator
       items:
-        - name: Med Azure Portal
+        - name: Använda Azure Portal
           href: msi-qs-configure-portal-windows-vm.md
-        - name: Med PowerShell
+        - name: Använda PowerShell
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: Med Azure CLI
+        - name: Använda Azure CLI
           href: msi-qs-configure-cli-windows-vm.md
-        - name: Med Azure Resource Manager-mallar
+        - name: Använda Azure Resource Manager-mall
           href: msi-qs-configure-template-windows-vm.md
-        - name: Med Azure SDK
+        - name: Använda Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Tilldela MSI-åtkomst till en Azure-resurs
+    - name: Ge en virtuell MSI-dator åtkomst till Resource Manager
       items:
-        - name: Med Azure Portal
+        - name: Använda Azure Portal
           href: msi-howto-assign-access-portal.md
-        - name: Med PowerShell
+        - name: Använda PowerShell
           href: msi-howto-assign-access-powershell.md
-        - name: Med Azure CLI
+        - name: Använda Azure CLI
           href: msi-howto-assign-access-cli.md
-    - name: Använd MSI för att få åtkomst till Azure Resource Manager
+    - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Resource Manager
       items:
-        - name: Med en virtuell Windows-dator
+        - name: Från en virtuell Windows-dator
           href: msi-tutorial-windows-vm-access-arm.md
-        - name: Med en virtuell Linux-dator
+        - name: Från en virtuell Linux-dator
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: Använd MSI för att få åtkomst till Azure Storage
+    - name: Använd en virtuell MSI-dator för att få åtkomst till Azure SQL
       items:
-        - name: Med en virtuell Windows-dator
+        - name: Från en virtuell Windows-dator
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Storage
+      items:
+        - name: Från en virtuell Windows-dator med åtkomstnyckel
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: Med en virtuell Linux-dator
+        - name: Från en virtuell Windows-dator med SAS
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: Från en virtuell Linux-dator med åtkomstnyckel
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: Använd MSI för att få åtkomst till en resurs som inte är en Azure AD-resurs
+        - name: Från en virtuell Linux-dator med SAS
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Key Vault
       items:
-        - name: Med en virtuell Windows-dator
+        - name: Från en virtuell Windows-dator
           href: msi-tutorial-windows-vm-access-nonaad.md
-        - name: Med en virtuell Linux-dator
+        - name: Från en virtuell Linux-dator
           href: msi-tutorial-linux-vm-access-nonaad.md
     - name: Vanliga frågor och kända problem
       href: msi-known-issues.md

@@ -9,6 +9,8 @@
   items:
     - name: Samla in – virtuella Azure-datorer
       href: log-analytics-quick-collect-azurevm.md
+    - name: Samla in – Linux-dator
+      href: log-analytics-quick-collect-linux-computer.md
 - name: Självstudier
   items:
     - name: 1 – Analysera data

@@ -16,6 +16,7 @@
 ### [Skapa virtuella datorer](devtest-lab-add-vm.md)
 ### [Skapa virtuell dator som kan hämtas](devtest-lab-add-claimable-vm.md)
 ### [Skapa och hantera virtuella datorer med Azure CLI](devtest-lab-vmcli.md)
+### [Starta om en virtuell dator](devtest-lab-restart-vm.md)
 
 ## Använd miljöer i ett labb
 ### [Skapa en miljö](devtest-lab-create-environment-from-arm.md)
@@ -57,8 +58,8 @@
 ## [Skala ditt labb](devtest-lab-scale-lab.md)
 
 # Referens
-## [Azure CLI](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Skapa eller ändra labb automatiskt](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [REST-API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

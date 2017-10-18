@@ -7,6 +7,7 @@
 ## [Vanliga frågor och svar](active-directory-faq.md)
 
 # Kom igång
+## [Kom igång med Azure AD](get-started-azure-ad.md)
 ## [Registrera dig för Azure AD Premium](active-directory-get-started-premium.md)
 ## [Lägga till ett anpassat domännamn](add-custom-domain.md)
 ## [Konfigurera varumärkesexponering](customize-branding.md)
@@ -43,6 +44,7 @@
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
+#### [Referens för produkter och tjänstplaner i Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
 ### [Återställ ett lösenord](active-directory-users-reset-password-azure-portal.md)
 ### [Hantera information om användarens arbete](active-directory-users-work-info-azure-portal.md)
@@ -64,6 +66,7 @@
 #### [Migrera enskilda licensierade användare till gruppbaserad licensiering](active-directory-licensing-group-migration-azure-portal.md)
 #### [Fler scenarier för gruppbaserad licensiering](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
+#### [Referens för produkter och tjänstplaner i Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Konfigurera förfallodatum för Office 365-grupper](active-directory-groups-lifecycle-azure-portal.md)
 ### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
 ### [Aktivera dedikerade grupper](active-directory-accessmanagement-dedicated-groups.md)
@@ -136,7 +139,7 @@
 ### Uppgifter
 #### [Konfigurera Azure AD-registrerade Windows 10-enheter](device-management-azuread-registered-devices-windows10-setup.md)
 #### [Konfigurera Azure AD-anslutna enheter](device-management-azuread-joined-devices-setup.md)
-#### [Konfigurera Azure AD-anslutna hybrid-enheter](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [Konfigurera Azure AD-anslutna hybrid-enheter](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Distribuera lokalt](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD-anslutning under första körningen av Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Felsöka
@@ -203,6 +206,7 @@
 #### [Hantera användarens kontoetablering](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Hantera enkel inloggning för företagsappar](active-directory-enterprise-apps-manage-sso.md)
 #### [Avancerad certifikatsignering för SAML-appar](active-directory-enterprise-apps-advance-certificate-options.md)
+####[ Dölj en användares gränssnitt i Azure Active Directory](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
 #### [Åtkomst med självbetjäning](active-directory-self-service-application-access.md)
@@ -294,7 +298,7 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
-#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### Uppgifter

@@ -22,6 +22,7 @@
 
 # Gör så här för att
 ## Planera och designa
+### [Geo-haveriberedskap och geo-replikering](event-hubs-geo-dr.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Översikt över autentisering och säkerhetsmodell](event-hubs-authentication-and-security-model-overview.md)
 ### [Tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md)

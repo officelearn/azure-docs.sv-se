@@ -6,8 +6,12 @@
       href: overview.md
 - name: Snabbstarter
   items:
-    - name: Skapa och dirigera anpassade händelser
+    - name: Skapa anpassad händelse – Azure CLI
       href: custom-event-quickstart.md
+    - name: Skapa anpassad händelse – Azure PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: Skapa anpassad händelse – Azure Portal
+      href: custom-event-quickstart-portal.md
 - name: Självstudier
   items:
     - name: Övervaka ändringar i virtuella datorer med logiska appar

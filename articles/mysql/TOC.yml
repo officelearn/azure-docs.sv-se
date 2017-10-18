@@ -57,6 +57,8 @@
           href: concepts-servers.md
         - name: Versioner som stöds
           href: concepts-supported-versions.md
+        - name: Serverloggar
+          href: concepts-server-logs.md
     - name: Resurser
       items:
         - name: Prisnivåer
@@ -113,6 +115,10 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+    - name: Åtkomst till serverloggar
+      items:
+        - name: Azure CLI
+          href: howto-configure-server-logs-in-cli.md
 - name: Referens
   items:
     - name: Azure CLI

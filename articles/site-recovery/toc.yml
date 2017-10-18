@@ -51,6 +51,8 @@
       href: concepts-physical-to-azure-architecture.md
     - name: Arkitektur för Hyper-V till sekundär
       href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Stödmatris för Azure till Azure
+      href: site-recovery-support-matrix-azure-to-azure.md
     - name: Stödmatris för lokal till Azure
       href: site-recovery-support-matrix-to-azure.md
     - name: Stödmatris för lokal till sekundär plats

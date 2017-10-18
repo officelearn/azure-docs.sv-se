@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: Utföra återställningstest
           href: sql-database-disaster-recovery-drills.md
-    - name: Läsa in och flytta data
+    - name: Migrera till SQL Database
       items:
         - name: Migrera SQL Server-databas
           href: sql-database-cloud-migrate.md
         - name: Ändringar i T-SQL
           href: sql-database-transact-sql-information.md
+        - name: Hantera databas efter migrering
+          href: sql-database-manage-after-migration.md
+    - name: Läsa in och flytta data
+      items:
         - name: Kopiera en databas
           href: sql-database-copy.md
         - name: Importera en databas
@@ -169,8 +173,6 @@
           href: sql-database-operate-query-store.md
         - name: Utökade händelser
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: Efterlevnadsnivåer
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: Övervaka minnesintern
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Skala ut
@@ -266,6 +268,12 @@
         - name: Regler för Virtual Network av PowerShell
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Verksamhetskontinuitet
+      items:
+        - name: Konfigurera valv – säkerhetskopieringar
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Georeplikering – portal
+          href: sql-database-geo-replication-portal.md
+    - name: Läsa in och flytta data
       items:
         - name: Läs in data med BCP
           href: sql-database-load-from-csv-with-bcp.md

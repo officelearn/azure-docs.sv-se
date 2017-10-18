@@ -158,6 +158,10 @@
           href: model-management-cli-reference.md
         - name: API för datainsamling
           href: model-data-collection-api-reference.md
+    - name: Viktig information
+      items:
+        - name: Sprint 0 – Oktober 2017
+          href: release-notes-sprint-0.md
 - name: Resurser
   items:
     - name: Vanliga frågor och svar

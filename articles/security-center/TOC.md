@@ -13,15 +13,13 @@
 ## [Planering och drift](security-center-planning-and-operations-guide.md)
 ## [Behörigheter](security-center-permissions.md)
 ## [Plattformar som stöds](security-center-os-coverage.md)
-## [Partnerintegration](security-center-partner-integration.md)
 ## [Vanliga frågor och svar](security-center-faq.md)
 
 # Gör så här för att
-
-## Säkerhetsprincip
-### [Översikt](security-center-policies-overview.md)
+## [Säkerhetsprincip](security-center-policies-overview.md)
 ### [Datainsamling](security-center-enable-data-collection.md)
 ### [Säkerhetsprincip](security-center-policies.md)
+### [Säkerhetsprincip med Azure-princip](security-center-azure-policy.md)
 ### [E-postmeddelanden](security-center-provide-security-contact-details.md)
 ### [prisnivå](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [Sök](security-center-search.md)
 
 ## Förebygga
+### [Säkerhetslösningar](security-center-partner-integration.md)
+#### [Övervaka anslutna lösningar](security-center-partner-solutions.md)
+#### [Anslut Microsoft ATA](security-center-ata-integration.md)
+#### [Anslut Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Implementera säkerhetsrekommendationer](security-center-recommendations.md)
 ### [Programrekommendationer](security-center-application-recommendations.md)
 #### [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [Uppdatera OS-versionen](security-center-update-os-version.md)
 #### [Sårbarhetsbedömning inte installerad](security-center-vulnerability-assessment-recommendations.md)
 ### [Övervaka säkerhetshälsa](security-center-monitoring.md)
-### [Övervaka partnerlösningar](security-center-partner-solutions.md)
 ### [Identitet och åtkomst](security-center-identity-access.md)
 
 ## Identifiera och åtgärda

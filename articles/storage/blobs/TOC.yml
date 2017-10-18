@@ -28,6 +28,8 @@
           href: storage-secure-access-application.md
         - name: 4 – Övervaka och felsök lagring
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Sök efter ostrukturerade data i molnlagringen
+      href: storage-unstructured-search.md
 - name: Exempel
   items:
     - name: Azure PowerShell

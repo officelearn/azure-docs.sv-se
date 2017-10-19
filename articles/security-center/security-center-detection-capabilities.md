@@ -12,22 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: b6a0504f2dd5d23fa135b8afc371e3a9210d7caa
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: edef9bc1ba2420a4b7d95f891fd8b0b7e144c2ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Identifieringsfunktioner i Azure Security Center
 Det här dokumentet beskriver de avancerade identifieringsfunktionerna i Azure Security Center, som hjälper dig att identifiera aktiva hot mot dina Microsoft Azure-resurser och som ger dig de insikter som du behöver för att reagera snabbt.
 
+Avancerade identifieringar är tillgängliga på standardnivån för Azure Security Center. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Information om hur du uppgraderar prisnivån finns i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information om priser finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
+
 > [!NOTE]
-> Avancerade identifieringar är tillgängliga på standardnivån för Azure Security Center. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Information om hur du uppgraderar prisnivån finns i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information om priser finns på [sidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
-> 
-> 
+> Security Center har för den begränsade förhandsversionen publicerat en ny uppsättning identifieringar som utnyttjar auditd-poster, ett gemensamt granskningsramverk för att upptäcka skadligt beteende på Linux-datorer. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_linuxdetections@microsoft.com) för att ta del av förhandsversionen.
 
 ## <a name="responding-to-todays-threats"></a>Svara på vår tids hot
 Hoten i dag ser helt annorlunda ut mot för 20 år sedan. Dåtidens företag behövde oftast bara oroa sig för angrepp mot deras webbplatser av enskilda individer, som oftast bara var ute efter att ”se vad de kunde göra”. Dagens angripare är mycket mer sofistikerade och organiserade. De har ofta specifika ekonomiska och strategiska mål. De har också fler resurser till hands eftersom de kan finansieras av stater eller kriminella organisationer.
@@ -90,5 +89,4 @@ I det här dokumentet har vi tittat på identifieringsfunktionerna i Azure Secur
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-
 

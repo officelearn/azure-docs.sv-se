@@ -13,16 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/19/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e77de4b9a74b528fa8a7ce86424fc14628b2cacc
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lesson-2-get-data"></a>Lektion 2: Hämta data
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
@@ -30,6 +28,9 @@ ms.lasthandoff: 06/03/2017
 Under den här lektionen använder du Hämta data i SSDT för att ansluta till AdventureWorksDW2014-exempeldatabasen, väljer data, förhandsgranskar och filtrerar, och importerar sedan till modellarbetsytan.  
   
 Med Hämta data kan du importera data från en mängd olika datakällor: Azure SQL Database, Oracle, Sybase, OData-Feed, Teradata, filer med mera. Det går även att fråga data med ett Power Query M-formeluttryck.
+
+> [!NOTE]
+> Uppgifter och bilder i den här kursen visar hur ansluter till en AdventureWorksDW2014-databas på en lokal server. I vissa fall kan en AdventureWorksDW2014-databas på Azure skilja sig.
   
 Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
@@ -71,13 +72,19 @@ Tabeller i exempeldatabasen AdventureWorksDW2014 har data som inte är nödvänd
   
 #### <a name="to-filter-the-table-data-before-importing"></a>Filtrera tabelldata innan du importerar  
   
-1.  Markera tabellen **DimCustomer** i frågeredigeraren. En vy av tabellen DimCustomer i datakällan (exempeldatabasen AdventureWorksDWQ2014) visas. 
+1.  Markera tabellen **DimCustomer** i frågeredigeraren. En vy av tabellen DimCustomer i datakällan (exempeldatabasen AdventureWorksDW2014) visas. 
   
 2.  Flermarkera (Ctrl + klicka) **SpanishEducation**, **FrenchEducation**, **SpanishOccupation**, **FrenchOccupation** och högerklicka och klicka sedan på **Ta bort kolumner**. 
 
     ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-columns.png)
   
     Eftersom värdena för de här kolumnerna inte är relevanta för analysen av Internetförsäljning så behöver du inte importera dessa kolumner. Genom att ta bort onödiga kolumner blir din modell mindre och effektivare.  
+
+    > [!TIP]
+    > Om du gör ett misstag kan säkerhetskopiera genom att ta bort ett steg i **ANVÄNDA STEG**.   
+    
+    ![aas-lesson2-remove-columns](../tutorials/media/aas-lesson2-remove-step.png)
+
   
 4.  Filtrera de återstående tabellerna genom att ta bort följande kolumner i varje tabell:  
     
@@ -85,7 +92,7 @@ Tabeller i exempeldatabasen AdventureWorksDW2014 har data som inte är nödvänd
     
       |Kolumn|  
       |--------|  
-      |DateKey|  
+      |**DateKey**|  
       |**SpanishDayNameOfWeek**|  
       |**FrenchDayNameOfWeek**|  
       |**SpanishMonthName**|  
@@ -130,11 +137,7 @@ Tabeller i exempeldatabasen AdventureWorksDW2014 har data som inte är nödvänd
   
     **FactInternetSales**
   
-      |Kolumn|  
-      |------------------|  
-      |**OrderDateKey**|  
-      |**DueDateKey**|  
-      |**ShipDateKey**|   
+      Inga kolumner har tagits bort.
   
 ## <a name="Import"></a>Importera de markerade tabellerna och kolumndata  
 Nu när du har förhandsgranskat och filtrerat bort onödiga data kan du importera resten av de data som du behöver. Med guiden importeras tabelldata och eventuella relationer mellan tabellerna. Nya tabeller och kolumner skapas i modellen och data som du filtrerat ut importeras inte.  
@@ -160,4 +163,3 @@ Det är viktigt att spara modellprojektet ofta.
 
   
   
-

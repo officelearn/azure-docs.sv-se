@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
+ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 60641ddfef7846f0e8b5d850e716b2652bf62367
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-between-on-premises-and-cloud"></a>Kopiera data mellan lokalt system och molnet
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
 
@@ -218,12 +216,12 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
         "name": "SqlServerLinkedService"
     }
    ```
-2. För att kryptera känsliga data från JSON-nyttolasten på den lokala IR med egen värd kan vi köra **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** och skicka vidare JSON-nyttolasten ovan. Den här krypteringen ser till att autentiseringsuppgifterna krypteras med Data Protection Application Programming Interface (DPAPI) och lagras på IR-noden med egen värd lokalt. Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet ”encryptedLinkedService.json”) som innehåller krypterade autentiseringsuppgifter. 
+2. För att kryptera känsliga data från JSON-nyttolasten på en lokal IR med egen värd kan vi köra **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** och skicka vidare JSON-nyttolasten ovan. Den här krypteringen ser till att autentiseringsuppgifterna krypteras med Data Protection Application Programming Interface (DPAPI) och lagras på IR-noden med egen värd lokalt. Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet ”encryptedLinkedService.json”) som innehåller krypterade autentiseringsuppgifter. 
 
     Ersätt **&lt;integration runtime name&gt;** med namnet på din Integration Runtime innan du kör kommandot.
 
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 3. Kör följande kommando med hjälp av JSON-filen från föregående steg för att skapa **SqlServerLinkedService**:

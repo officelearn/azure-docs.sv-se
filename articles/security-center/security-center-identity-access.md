@@ -1,6 +1,6 @@
 ---
-title: Monitoring Identity and Access in Azure Security Center | Microsoft Docs
-description: This document helps you to use identity and access capability in Azure Security Center to monitor your user's access activity and identity related issues.
+title: "Övervaka identitet och åtkomst i Azure Security Center | Microsoft Docs"
+description: "Lär dig hur du använder identitets- och åtkomstfunktionerna i Azure Security Center för att övervaka användarnas åtkomstaktiviteter och identitetsrelaterade problem."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,51 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: yurid
+ms.openlocfilehash: 842045fbcb5b4f661cc006a207f4087370a7b4ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: d64fdb4721c6b9853ecb61aa8d65e92d838a6ec9
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="monitoring-identity-and-access-in-azure-security-center"></a>Monitoring Identity and Access in Azure Security Center
-This document helps you use Azure Security Center to monitor user’s identity, and access activity.
+# <a name="monitor-identity-and-access-in-azure-security-center"></a>Övervaka identitet och åtkomst i Azure Security Center
+Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
 
-## <a name="why-monitor-identity-and-access"></a>Why monitor identity and access?
-Identity should be the control plane for your enterprise, protecting your identity should be your top priority. While in the past there were perimeters around organizations and those perimeters were one of the primary defensive boundaries, nowadays with more data and more apps moving to the cloud the identity becomes the new perimeter.
+## <a name="why-monitor-identity-and-access"></a>Varför ska du övervaka identitet och åtkomst?
+Identiteten bör vara kontrollplanet för ditt företag, och din högsta prioritet bör vara att skydda din identitet. Tidigare fanns det perimetrar kring organisationer och dessa var en av de primära försvarsgränserna. Nuförtiden, då mer data och fler appar flyttas till molnet, blir identiteten den nya perimetern.
 
-By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The Identity and Access dashboard provides you an overview of your identity state, including the number of failed attempts to log on, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently number of accounts that are logged in.
+Genom att övervaka identitetsaktiviteter kan du vidta proaktiva åtgärder innan en incident inträffar eller reaktiva åtgärder för att stoppa ett angreppsförsök. Med instrumentpanelen Identitet och åtkomst får du en översikt över ditt identitetstillstånd, bl.a:
 
-## <a name="how-to-monitor-identity-and-access-activities"></a>How to monitor identity and access activities?
-Follow the steps below to visualize the current activities related identity and access, you need to access the **Identity & Access** dashboard:
+* Antal misslyckade inloggningsförsök. 
+* Användarkonton som användes vid de försöken.
+* Konton som låstes ute.
+* Konton med ändrade eller återställda lösenord. 
+* Aktuellt antal konton som är inloggade.
 
-1.  Open **Security Center** dashboard.
-2.  In the left pane, under **Prevention** click **Identity & Access**. If you have multiple workspaces, the workspace selector appears.
+## <a name="monitor-identity-and-access-activities"></a>Övervaka identitets- och åtkomstrelaterade aktiviteter
+Om du vill se aktuella aktiviteter relaterade till identitet och åtkomst måste du öppna instrumentpanelen **Identitet och åtkomst**.
 
-    ![workspace selection](./media/security-center-identity-access\security-center-identity-access-fig1.png)
+1. Öppna instrumentpanelen för **Security Center**.
+
+2. Välj **Identitet och åtkomst** i den vänstra rutan under **Förebygga**. Om du har flera arbetsytor visas en lista med arbetsytor du kan välja mellan.
+
+    ![Val av arbetsyta](./media/security-center-identity-access\security-center-identity-access-fig1.png)
 
     > [!NOTE]
-    > If the last column shows **UPGRADE PLAN** is because this workspace is using the free subscription, and you need to upgrade to standard to use this feature. If it shows REQUIRES UPDATE is because you need to update the [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) in order to use this feature. For more information about the pricing plan, read Azure Security Center pricing. 
+    > Om kolumnen längst till höger visar **UPGRADE PLAN** (Uppgradera abonnemang) använder den här arbetsytan den kostnadsfria prenumerationen. Uppgradera till standardprenumerationen om du vill använda den här funktionen. Om kolumnen längst till höger visar **REQUIRES UPDATE** (Kräver uppdatering) uppdaterar [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) om du vill använda funktionen. Mer information om prissättning finns i Security Center pricing (Security Center-prissättning). 
     > 
-3. If you have more than one workspace to investigate, you may prioritize the investigation according to the **FAILED LOGONS** column that shows the current number unsuccessful logons attempts in this workspace. Select the workspace that you want to use, and then the **Identity & Access** dashboard appears.
+3. Om du har fler än en arbetsyta att undersöka kan du prioritera undersökningen enligt kolumnen **FAILED LOGONS** (Misslyckade inloggningar). Den visar det aktuella antalet misslyckade inloggningsförsök på den här arbetsytan. Välj den arbetsyta som du vill använda så visas instrumentpanelen **Identitet och åtkomst**.
 
-    ![identity and access](./media/security-center-identity-access\security-center-identity-access-fig2.png)
+    ![Identitet och åtkomst](./media/security-center-identity-access\security-center-identity-access-fig2.png)
 
-4. The information available in this dashboard can immediately assist you to identify a potential suspicious activity. This dashboard is divided three major areas:
-    * **Identity posture**: summarizes the identity related activities that are taking place in this workspace.
-    * **Failed logons**: helps you to quickly identify the main cause for failed logon attempt, and shows a list of the top ten accounts that most failed attempting to logon.
-    * **Logons overtime**: helps you to quick identify the amount of logon overtime, and shows a list of the top computer accounts logon attempts.
+4. Med informationen på den här instrumentpanelen kan du snabbt identifiera en potentiell misstänkt aktivitet. Den här instrumentpanelen är uppdelad i tre huvudområden:
+
+    a. **Identitetsstatus**. Sammanfattar identitetsrelaterade aktiviteter som äger rum på den här arbetsytan.
+
+    b. **Misslyckade inloggningar**. Hjälper dig att snabbt identifiera huvudorsaken till misslyckade inloggningsförsök. Visar en lista över de 10 konton som har flest misslyckade inloggningsförsök.
+
+    c. **Inloggningar över tid**. Hjälper dig att snabbt identifiera antalet inloggningar över tid. En lista visas med datorer som har flest kontoinloggningsförsök.
     
-Regardless of which tile you select, the dashboard that will appear is based on the Log Search  query, the only difference is the type of query, and the result. You can still select an item, for example a computer, click on it and see relevant data. 
+Oavsett vilken panel du väljer baseras instrumentpanelen som visas på loggsökningsfrågan. Den enda skillnaden är frågetyp och resultat. Du kan fortfarande markera ett objekt, till exempel en dator, och visa relevanta data. 
 
-## <a name="see-also"></a>See also
-In this document, you learned how to monitor identity and access in Azure Security Center. To learn more about Azure Security Center, see the following:
+## <a name="see-also"></a>Se även
+I den här artikeln har du lärt dig hur du övervakar identitet och åtkomst i Security Center. I följande artiklar kan du lära dig mer om Security Center:
 
-* [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts, and respond to security incidents in Security Center.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center. 
-* [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
-
+* [Hantera och besvara säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Lär dig hur du hanterar aviseringar och åtgärdar säkerhetsincidenter i Security Center.
+* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
+* [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
+* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center. 
+* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Få svar på vanliga frågor om användningen av Security Center.
+* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
 

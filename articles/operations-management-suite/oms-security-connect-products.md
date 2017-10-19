@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
 ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Ansluta säkerhetsprodukter till säkerhets- och granskningslösningen i Operations Management Suite (OMS) 
 Det här dokumentet beskriver hur du ansluter dina säkerhetsprodukter till säkerhets- och granskningslösningen i OMS. Följande källor stöds:
@@ -63,7 +63,7 @@ På agentdatorn måste händelserna skickas från syslog-daemon till den lokala 
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. Hämta filen *security_events.conf* och placera den i */etc/opt/microsoft/omsagent/conf/omsagent.d/* på OMS-agentdatorn.
-4. Skriv kommandot nedan för att starta om daemon för syslog: *för syslog-ng kör:*
+4. Skriv kommandot nedan för att starta om syslog-daemon: *För syslog-ng kör du:*
     
     ```
     sudo service rsyslog restart

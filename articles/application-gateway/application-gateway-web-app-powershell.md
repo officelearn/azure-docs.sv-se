@@ -3,7 +3,7 @@ title: "Skydda webbappar med Azure Application Gateway – PowerShell | Microsof
 description: "Den här artikeln innehåller råd om hur du konfigurerar webbappar som backend-värdar på en befintlig eller ny programgateway."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,15 +12,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: gwallace
+ms.author: davidmu
+ms.openlocfilehash: f00ad4c3f2cf08461d0258aa31fcedd7045934d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 04b6efbfeccc6df006978d06dd8020495708550e
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>Konfigurera App Service Web Apps med Application Gateway 
 
 Med Application Gateway kan du konfigurera en Azure-webbapp eller en annan tjänst för flera klientorganisationer som en medlem i en serverdelspool. I den här artikeln lär du dig hur du konfigurerar en Azure-webbapp med Application Gateway. Det första exemplet visar hur du konfigurerar en befintlig programgateway för att använda en webbapp som en medlem i en serverdelspool. Det andra exemplet visar hur du skapar en ny programgateway med en webbapp som en medlem i en serverdelspool.
@@ -49,7 +47,7 @@ $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -Applicatio
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
-Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses $webappFQDN
+Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendFqdns $webappFQDN
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -99,7 +97,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName 
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 # Create a backend pool with the hostname of the web app
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -BackendIPAddresses $webapp.HostNames
+$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -BackendFqdns $webapp.HostNames
 
 # Define the status codes to match for the probe
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -162,4 +160,3 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du konfigurerar omdirigeringar finns i [Konfigurera omdirigering på Application Gateway med PowerShell](application-gateway-configure-redirect-powershell.md).
-

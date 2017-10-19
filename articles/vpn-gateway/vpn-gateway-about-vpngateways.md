@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/03/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2d5da55e757d190db0334ad82eae4042deb5205c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: e012526af264edd8b4fdbe84ff8b8648fb6d675c
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-vpn-gateway"></a>Om VPN Gateway
 
@@ -86,15 +85,17 @@ Den här typen av anslutning är en variant av plats-till-plats-anslutningen. Du
 
 Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. En P2S-anslutning upprättas genom att du startar den från klientdatorn. Den här lösningen är praktisk för distansarbetare som behöver ansluta till virtuella Azure-nätverk från en fjärransluten plats, t.ex. hemifrån eller från en konferens. VPN för punkt-till-plats är också ett bra alternativ till VPN för plats-till-plats om du bara har ett fåtal klienter som behöver ansluta till ett virtuellt nätverk.
 
-Till skillnad från S2S-anslutningar, kräver P2S-anslutningar en lokal offentlig IP-adress eller en VPN-enhet. P2S-anslutningar kan användas tillsammans med S2S-anslutningar via samma VPN-gateway, under förutsättning att alla konfigurationskrav för båda anslutningarna är kompatibla.
+Till skillnad från S2S-anslutningar, kräver P2S-anslutningar en lokal offentlig IP-adress eller en VPN-enhet. P2S-anslutningar kan användas tillsammans med S2S-anslutningar via samma VPN-gateway, under förutsättning att alla konfigurationskrav för båda anslutningarna är kompatibla. Mer information om punkt-till-plats-anslutningar finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
 
 >[!NOTE]
 >P2S RADIUS-autentisering och IKEv2 är båda förhandsversion.
 >
 
-Mer information om punkt-till-plats-anslutningar finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
-
 ![Exempel på Azure VPN-Gateway-anslutningar för punkt-till-plats](./media/vpn-gateway-about-vpngateways/point-to-site.png)
+
+### <a name="deployment-models-and-methods-for-p2s"></a>Distributionsmodeller och -metoder för P2S
+
+[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="V2V"></a>Anslutningar mellan virtuella nätverk (IPsec/IKE VPN-tunnel)
 
@@ -136,7 +137,7 @@ Du kan konfigurera ett VPN för plats-till-plats som en säker redundansväxling
 
 ![Exempel på samtidiga ExpressRoute- och VPN Gateway-anslutningar](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>Distributionsmodeller och metoder för S2S och ExpressRoute
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute-coexist"></a>Distributionsmodeller och -metoder för samtidig S2S och ExpressRoute
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
@@ -156,4 +157,3 @@ Vanliga frågor om VPN-gateway finns i [Vanliga frågor och svar om VPN-gateway]
 - Mer information finns i avsnittet [Vanliga frågor och svar om VPN-gateway](vpn-gateway-vpn-faq.md).
 - Läs [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md#networking-limits).
 - Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.
-

@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a3a4a90221821de690f72260b2adca07680d30a9
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](active-directory-aadconnect-get-started-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -71,7 +70,7 @@ Om MFA är aktiverat för ditt globala administratörskonto måste du ange löse
 
 Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
 
-## <a name="pages-under-the-section-sync"></a>Sidor under synkroniseringsavsnittet
+## <a name="pages-under-the-sync-section"></a>Sidor under synkroniseringsavsnittet
 
 ### <a name="connect-your-directories"></a>Anslut dina kataloger
 För att kunna ansluta till Azure Directory-domäntjänsten behöver Azure AD Connect skogsnamnet och autentiseringsuppgifterna för ett konto med tillräcklig behörighet.
@@ -232,9 +231,12 @@ På en dator med verktyg för grupprinciphantering.
 ## <a name="configuring-federation-with-ad-fs"></a>Konfigurera federation med AD FS
 Du kan konfigurera AD FS med Azure AD Connect med bara några klickningar. Du behöver följande innan konfigurationen.
 
-* En Windows Server 2012 R2-server för federationsservern med fjärrhantering aktiverat
-* En Windows Server 2012 R2-server för webbprogramproxyservern med fjärrhantering aktiverat
+* En Windows Server 2012 R2-server eller senare för federationsservern med fjärrhantering aktiverat
+* En Windows Server 2012 R2-server eller senare för webbprogramproxyservern med fjärrhantering aktiverat
 * Ett SSL-certifikat för federationstjänstnamnet som du tänker använda (t.ex. sts.contoso.com)
+
+>[!NOTE]
+>Du kan uppdatera SSL-certifikatet för din AD FS-servergrupp med hjälp av Azure AD Connect även om du inte använder det för att hantera federationsförtroendet.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Förutsättningar för AD FS-konfiguration
 Om du vill konfigurera din AD FS-servergrupp med hjälp av Azure AD Connect kontrollerar du att WinRM är aktiverat på fjärrservrarna. Gå också igenom portkraven som anges i [Tabell 3 – Azure AD Connect och federationsservrar/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
@@ -245,6 +247,9 @@ Du kan använda en befintlig AD FS-servergrupp eller välja att skapa en ny AD F
 ![AD FS-servergrupp](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 Om du väljer att använda en befintlig AD FS-servergrupp kommer du direkt till sidan för konfiguration av förtroenderelationen mellan AD FS och AD Azure.
+
+>[!NOTE]
+>Det går bara att hantera en AD FS-servergrupp med Azure AD. Om du har ett befintligt federationsförtroende med Azure AD konfigurerat på den valda AD FS-servergruppen återskapas förtroendet från början av Azure AD Connect.
 
 ### <a name="specify-the-ad-fs-servers"></a>Ange AD FS-servrarna
 Ange de servrar som du vill installera AD FS på. Du kan lägga till en eller flera servrar baserat på dina kapacitetsplaneringsbehov. Anslut alla servrar till Active Directory innan du utför den här konfigurationen. Microsoft rekommenderar att du installerar en enskild AD FS-server för test- och pilotdistributioner. Lägg sedan till och distribuera fler servrar beroende på dina skalningsbehov genom att köra Azure AD Connect igen efter den första konfigurationen.
@@ -350,4 +355,3 @@ Läs mer om dessa funktioner, som aktiverades med installationen: [Förhindra oa
 Läs mer om [schemaläggaren och hur du utlöser synkronisering](active-directory-aadconnectsync-feature-scheduler.md).
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).
-

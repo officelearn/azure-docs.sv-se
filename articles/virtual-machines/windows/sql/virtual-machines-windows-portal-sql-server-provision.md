@@ -1,6 +1,6 @@
 ---
-title: Etablera en virtuell dator med SQL Server | Microsoft Docs
-description: "Skapa och ansluta till en virtuell dator med SQL Server i Azure via portalen. I den här kursen används Resource Manager-läget."
+title: Skapa en Windows SQL Server 2017-VM i Azure | Microsoft Docs
+description: "Den här kursen visar hur du skapar virtuell Windows SQL Server 2017-dator i Azure Portal."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -12,55 +12,54 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
+ms.date: 10/10/2017
 ms.author: jroth
+ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Etablera en virtuell dator med SQL Server på Azure Portal
+# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Etablera en virtuell Windows-dator med SQL Server på Azure Portal
+
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> 
-> 
+> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-Den här heltäckande självstudiekursen beskriver hur du etablera en virtuell dator som kör SQL Server med hjälp av Azure Portal.
-
-Galleriet med virtuella Azure-datorer (VM) innehåller flera avbildningar med Microsoft SQL Server. Med några få klick kan du välja en av VM-avbildningarna med SQL från galleriet och etablera den i Azure-miljön.
+I den här snabba självstudiekursen använder du Azure Portal till att skapa en virtuell Windows-dator med SQL Server installerat.
 
 I den här kursen ska du:
 
-* [Välja en VM-avbildning med SQL från galleriet](#select-a-sql-vm-image-from-the-gallery)
-* [Konfigurera och skapa den virtuella datorn](#configure-the-vm)
-* [Öppna den virtuella datorn med Fjärrskrivbord](#open-the-vm-with-remote-desktop)
-* [Fjärransluta till SQL Server](#connect-to-sql-server-remotely)
+* [Välja en VM-avbildning med SQL från galleriet](#select)
+* [Konfigurera och skapa den virtuella datorn](#configure)
+* [Öppna den virtuella datorn med Fjärrskrivbord](#remotedesktop)
+* [Fjärransluta till SQL Server](#connect)
 
-## <a name="select-a-sql-vm-image-from-the-gallery"></a>Välja en VM-avbildning med SQL från galleriet
+## <a id="select"></a>Välja en VM-avbildning med SQL från galleriet
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
 
    > [!NOTE]
    > Om du inte har något Azure-konto besöker du sidan för [kostnadsfria utvärderingsversioner av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. Klicka på **Nytt** på Azure Portal. Fönstret **Nytt** öppnas.
+1. Klicka på **Nytt** på Azure Portal. Fönstret **Nytt** öppnas.
 
-3. I fönstret **Nytt** klickar du på **Compute** och sedan på **Visa alla**.
+1. I fönstret **Nytt** klickar du på **Compute** och sedan på **Visa alla**.
 
    ![Nytt Compute-fönster](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. Skriv**SQL Server** i sökfältet och tryck på RETUR.
+1. Skriv**SQL Server 2017** i sökfältet och tryck på RETUR.
 
-5. Klicka sedan på **filtersymbolen** och välj **Microsoft** som utgivare. Klicka på **Klart** i filterfönstret för att filtrera fram Microsoft-utgivna SQL Server-avbildningar.
+1. Klicka sedan på **filterikonen**.
+
+1. I filterfönstren markerar du underkategorin **Windows-baserad** och **Microsoft** som utgivare. Klicka sedan på **Klar** för att filtrera resultaten efter Microsoft-publicerade, Windows SQL Server-avbilder.
 
    ![Fönstret Azure Virtual Machines](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Granska de tillgängliga SQL Server-avbildningarna. Varje avbildning identifierar en version av SQL Server och ett operativsystem.
+1. Granska de tillgängliga SQL Server-avbildningarna. Varje avbildning identifierar en version av SQL Server och ett operativsystem.
 
-6. Välj avbildningen med namnet **Kostnadsfri licens: SQL Server 2016 SP1 Developer i Windows Server 2016**.
+1. Välj avbildningen med namnet **Kostnadsfri SQL Server-licens: SQL Server 2017 Developer på Windows Server 2016**.
 
    > [!TIP]
    > Vi använder Developer-versionen i den här självstudiekursen eftersom det är en komplett version av SQL Server som är kostnadsfri i samband med utvecklingstester. Du betalar endast för kostnaden för den VM som körs. Du kan dock själv välja vilken avbildning du vill använda i den här självstudiekursen.
@@ -70,13 +69,13 @@ I den här kursen ska du:
    >
    > Mer information om alternativen finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
-7. Under **Välj en distributionsmodell** kontrollerar du att **Resource Manager** är valt. Resource Manager är den rekommenderade distributionsmodellen för nya virtuella datorer. 
+1. Under **Välj en distributionsmodell** kontrollerar du att **Resource Manager** är valt. Resource Manager är den rekommenderade distributionsmodellen för nya virtuella datorer. 
 
-8. Klicka på **Skapa**.
+1. Klicka på **Skapa**.
 
     ![Skapa den virtuella SQL-datorn med Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
-## <a name="configure-the-vm"></a>Konfigurera den virtuella datorn
+## <a id="configure"></a> Konfigurera den virtuella datorn
 Det finns fem fönster för att konfigurera en virtuell dator med SQL Server.
 
 | Steg | Beskrivning |
@@ -156,7 +155,7 @@ På sidan **SQL Server-inställningar** anger du specifika inställningar och op
 | [Automatisk uppdatering](#automated-patching) |
 | [Automatisk säkerhetskopiering](#automated-backup) |
 | [Azure Key Vault-integrering](#azure-key-vault-integration) |
-| [R-tjänster](#r-services) |
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) |
 
 ### <a name="connectivity"></a>Anslutning
 
@@ -257,14 +256,11 @@ Följande tabell innehåller de parametrar som krävs för att konfigurera Azure
 
 Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines](virtual-machines-windows-ps-sql-keyvault.md).
 
-### <a name="r-services"></a>R Services
+### <a name="sql-server-machine-learning-services"></a>SQL Server Machine Learning Services
 
-Du kan välja att aktivera [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). Det ger dig möjlighet att använda avancerad analys med SQL Server 2016. Klicka på **Aktivera** i fönstret **SQL Server-inställningar**.
+Du kan aktivera [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). Det ger dig möjlighet att använda avancerad analys med SQL Server 2017. Klicka på **Aktivera** i fönstret **SQL Server-inställningar**.
 
-> [!NOTE]
-> Det här alternativet inaktiveras felaktigt av portalen för SQL Server 2016 Developer. I Developer-utgåvan måste du aktivera R Services manuellt när du har skapat den virtuella datorn.
-
-![Aktivera SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![Aktivera SQL Server Machine Learning Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 När du har konfigurerat inställningarna för SQL Server klickar du på **OK**.
 
@@ -275,9 +271,9 @@ I fönstret **Sammanfattning** granskar du sammanfattningen och klickar på **K�
 Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen.
 
 > [!NOTE]
-> För att ge dig en uppfattning om distributionstiden distribuerade jag en virtuell dator med SQL till östra USA med standardinställningar. Den här testdistributionen tog totalt 26 minuter. Distributionen kan dock gå snabbare eller långsammare beroende på din region och dina valda inställningar.
+> För att ge dig en uppfattning om distributionstiden distribuerade jag en virtuell dator med SQL till östra USA med standardinställningar. Det här testdistributionen tog cirka 12 minuter att slutföra. Distributionen kan dock gå snabbare eller långsammare beroende på din region och dina valda inställningar.
 
-## <a name="open-the-vm-with-remote-desktop"></a>Öppna den virtuella datorn med Fjärrskrivbord
+## <a id="remotedesktop"></a> Öppna den virtuella datorn med Fjärrskrivbord
 
 Använd följande anvisningar för att ansluta till den virtuella SQL Server-datorn med Fjärrskrivbord:
 
@@ -295,7 +291,7 @@ I följande anvisningar används **SQL Server Configuration Manager** för att a
 
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## <a name="connect-to-sql-server-remotely"></a>Fjärransluta till SQL Server
+## <a id="connect"></a> Fjärransluta till SQL Server
 
 I den här självstudiekursen valde vi **offentlig** åtkomst för den virtuella datorn och **SQL Server-autentisering**. Dessa inställningar konfigurerade automatiskt den virtuella datorn så att SQL Server-anslutningar tillåts från alla klienter över Internet (förutsatt att de har rätt SQL-inloggningsuppgifter).
 

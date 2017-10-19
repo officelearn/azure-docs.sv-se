@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: fd95d055bedbec89027e1a75bcd4c9addab18ed3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ansluta till HDInsight (Hadoop) med hjälp av SSH
 
@@ -45,6 +44,11 @@ HDInsight kan använda Linux (Ubuntu) som operativsystem för noder i Hadoop-klu
 > Om klustret innehåller en kantnod, rekommenderar vi att du __alltid ansluter till kantnoden__ via SSH. Värdtjänster för huvudnoder är viktiga för Hadoops hälsotillstånd. Kantnoden kör bara det som du placerar på den.
 >
 > Mer information om hur du använder kantnoder finns i [Använda kantnoder i HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
+
+> [!TIP]
+> När du ansluter till HDInsight första gången kan SSH-klienten visa en varning att värdens äkthet inte kan fastställas. Vid uppmaning väljer du ”ja” för att lägga till värden i SSH-klientens lista över betrodda servrar.
+>
+> Om du tidigare har anslutit till en server med samma namn kan du få en varning att den lagrade värdnyckeln inte matchar serverns värdnyckel. SSH-klienten kan vägra att ansluta till klustret när det här inträffar. Läs dokumentationen för SSH-klienten om du vill ha information om hur du tar bort den befintliga posten för servernamnet.
 
 ## <a name="ssh-clients"></a>SSH-klienter
 

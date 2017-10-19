@@ -3,7 +3,7 @@ title: Hantera Azure Automation-konto | Microsoft Docs
 description: "Den här artikeln beskriver hur du hanterar konfigurationen av Automation-kontot, till exempel certifikatförnyelse, borttagning och felaktig konfiguration."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 41efdbcacede74bac038342688362ff480cadc7e
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-automation-account"></a>Hantera Azure Automation-konto
 Någon gång innan Automation-kontot går ut måste du förnya certifikatet. Om du tror att ditt Kör som-konto har komprometterats kan du ta bort och återskapa det. Det här avsnittet beskriver hur du utför dessa åtgärder.
 
@@ -35,12 +33,13 @@ Du förnyar certifikatet genom att göra följande:
 
 1. Öppna ditt Automation-konto på Azure Portal.
 
-2. På bladet **Automation-konto** väljer du **Kör som-konton** under **Kontoinställningar** i rutan **Kontoegenskaper**.
+2. På **Automation-kontot** 
+3. i fönstret **Kontoegenskaper** väljer du **Kör som-konton** under **Kontoinställningar**.
 
     ![Egenskapsrutan för Automation-konto](media/automation-manage-account/automation-account-properties-pane.png)
-3. På egenskapsbladet för **Kör som-konton** väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill förnya certifikatet för.
+3. På egenskapssidan för **Kör som-konton** väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill förnya certifikatet för.
 
-4. På bladet **Egenskaper** för det valda kontot klickar du på **Förnya certifikat**.
+4. I rutan **Egenskaper** för det valda kontot klickar du på **Förnya certifikat**.
 
     ![Förnya certifikat för Kör som-konto](media/automation-manage-account/automation-account-renew-runas-certificate.png)
 
@@ -51,15 +50,15 @@ Det här avsnittet beskriver hur du tar bort och sedan återskapar ett Kör som-
 
 1. Öppna ditt Automation-konto på Azure Portal.
 
-2. På bladet **Automation-konto** väljer du **Kör som-konton** i rutan för kontoegenskaper.
+2. På sidan **Automation-konto** väljer du **Kör som-konton**.
 
-3. På egenskapsbladet för **Kör som-konton** väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill ta bort. Klicka på **Ta bort** på bladet **Egenskaper** för det valda kontot.
+3. På egenskapssidan för **Kör som-konton** väljer du antingen Kör som-kontot eller det klassiska Kör som-kontot som du vill ta bort. Klicka på **Ta bort** i rutan **Egenskaper** för det valda kontot.
 
  ![Ta bort Kör som-konto](media/automation-manage-account/automation-account-delete-runas.png)
 
 4. Medan kontot tas bort kan du följa förloppet under **Meddelanden** på menyn.
 
-5. När kontot har tagits bort måste du återskapa det på egenskapsbladet för **Kör som-konton** genom att välja alternativet Skapa för **Kör som-konto i Azure**.
+5. När kontot har tagits bort måste du återskapa det på egenskapssidan för **Kör som-konton** genom att välja alternativet Skapa för **Kör som-konto i Azure**.
 
  ![Återskapa Kör som-kontot för Automation](media/automation-manage-account/automation-account-create-runas.png)
 
@@ -71,7 +70,7 @@ Vissa konfigurationsobjekt som krävs för att Kör som-kontot eller det klassis
 * Kör som-konto har tagits bort från deltagarrollen
 * Huvudnamn för tjänsten eller program i Azure AD
 
-I den föregående instansen och andra instanser av felaktiga konfigurationer identifierar Automation-kontot ändringarna och visar statusen *Ofullständig* på egenskapsbladet för **Kör som-konton** för kontot.
+I den föregående instansen och andra instanser av felaktiga konfigurationer identifierar Automation-kontot ändringarna och visar statusen *Ofullständig* på egenskapssidan för **Kör som-konton** för kontot.
 
 ![Konfigurationsstatusen Ofullständig för Kör som-konto](media/automation-manage-account/automation-account-runas-incomplete-config.png)
 

@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>F: Mitt key vault-klientprogram måste ligga bakom en brandvägg. Vilka portar, värdar eller IP-adresser ska jag öppna om för att möjliggöra åtkomst till ett nyckelvalv?
@@ -39,8 +39,8 @@ Nyckelvalv-klientprogram behöver åtkomst till Azure Active Directory-slutpunkt
 | Typ av huvudkonto | Slutpunkt:port |
 | --- | --- |
 | Användare som använder Microsoft-konto<br> (till exempel user@hotmail.com) |**Globalt:**<br> login.microsoftonline.com:443<br><br> **Azure i Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login-us.microsoftonline.com:443<br><br>**Azure i Tyskland:**<br> login.microsoftonline.de:443<br><br> och <br>login.live.com:443 |
-| Användaren eller tjänstens huvudnamn med ett arbets- eller skolkonto med Azure AD (till exempel user@contoso.com) |**Globalt:**<br> login.microsoftonline.com:443<br><br> **Azure i Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login-us.microsoftonline.com:443<br><br>**Azure i Tyskland:**<br> login.microsoftonline.de:443 |
-| Användaren eller tjänstens huvudnamn med hjälp av en arbets- eller skolkonto, plus Active Directory Federation Services (AD FS) eller andra externa slutpunkten (till exempel user@contoso.com) |Alla slutpunkter för ett arbets- eller skolkonto, plus AD FS eller andra federerade slutpunkter |
+| Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto med Azure AD (t.ex. user@contoso.com) |**Globalt:**<br> login.microsoftonline.com:443<br><br> **Azure i Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure för amerikanska myndigheter:**<br> login-us.microsoftonline.com:443<br><br>**Azure i Tyskland:**<br> login.microsoftonline.de:443 |
+| Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto, plus Active Directory Federation Services (AD FS) eller annan federerad slutpunkt (t.ex. user@contoso.com) |Alla slutpunkter för ett arbets- eller skolkonto, plus AD FS eller andra federerade slutpunkter |
 
 Det finns andra möjliga avancerade scenarier. Se [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/), [Integrera program med Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) och [Active Directory-autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx) för mer information.  
 

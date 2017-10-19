@@ -3,7 +3,7 @@ title: Introduktion till autentisering i Azure Automation | Microsoft Docs
 description: "I den här artikeln ges en översikt över säkerheten i Automation och de olika autentiseringsmetoder som är tillgängliga för Automation-konton i Azure Automation."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: automation security, secure automation; automation authentication
@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 1a0258e872449bf2f2f08345cbe86564e28d964e
-ms.contentlocale: sv-se
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 6ff47272da2fdafa4b346d62225ecdcddac5a236
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introduktion till autentisering i Azure Automation  
 Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders, till exempel Amazon Web Services (AWS).  För att en runbook ska kunna utföra sina åtgärder måste den ha behörighet att komma åt resurserna på ett säkert sätt med den minsta behörighet som krävs i prenumerationen.
@@ -37,12 +36,12 @@ Automation-resurserna för varje Automation-konto associeras med en enda Azure-r
 > Automation-konton, och de resurser som de innehåller, som skapats på Azure-portalen kan inte nås på den klassiska Azure-portalen. Om du vill hantera dessa konton eller deras resurser med Windows PowerShell måste du använda Azure Resource Manager-modulerna.
 >
 
-Alla aktiviteter som du utför mot resurser med hjälp av Azure Resource Manager och Azure-cmdletar i Azure Automation måste autentisera till Azure med hjälp av autentiseringsuppgiftsbaserad autentisering med organisationens Azure Active Directory-ID.  Certifikatbaserad autentisering var den ursprungliga autentiseringsmetoden i Azure Service Management-läge men det var svårt att konfigurera.  Autentisering i Azure med Azure AD-användare infördes igen 2014 inte bara för att förenkla processen att konfigurera ett autentiseringskonto, men även för att ge stöd för icke-interaktiv autentisering i Azure med ett enda användarkonto som fungerade med både Azure Resource Manager- och klassiska resurser.   
+Alla aktiviteter som du utför mot resurser med hjälp av Azure Resource Manager och Azure-cmdletar i Azure Automation måste autentisera till Azure med hjälp av autentiseringsuppgiftsbaserad autentisering med organisationens Azure Active Directory-ID.  Certifikatbaserad autentisering var den ursprungliga autentiseringsmetoden i klassisk Azure men det var svårt att konfigurera.  Autentisering i Azure med Azure AD-användare infördes igen 2014 inte bara för att förenkla processen att konfigurera ett autentiseringskonto, men även för att ge stöd för icke-interaktiv autentisering i Azure med ett enda användarkonto som fungerade med både Azure Resource Manager- och klassiska resurser.   
 
 För närvarande när du skapar ett nytt Automation-konto på Azure Portal, skapas automatiskt:
 
 * Kör som-kontot som skapar ett nytt namn för tjänstobjektet i Azure Active Directory och ett certifikat samt tilldelar rollen som deltagare med rollbaserad åtkomstkontroll (RBAC), som används för att hantera Resource Manager-resurser med hjälp av runbooks.
-* Ett klassiskt Kör som-konto genom överföringen av ett certifikat, som används för att hantera Azure Service Management eller klassiska resurser med hjälp av runbooks.  
+* Ett klassiskt Kör som-konto genom att överföra ett hanteringscertifikat, som används för att hantera klassiska Azure-resurser med hjälp av runbooks.  
 
 Rollbaserad åtkomstkontroll är tillgängligt i Azure Resource Manager-läge för att bevilja tillåtna åtgärder för ett Azure AD-användarkonto och Kör som-konto för att autentisera tjänstobjektet.  Mer information om hur du utvecklar din modell för att hantera Automation-behörigheter finns i artikeln [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).  
 
@@ -53,9 +52,8 @@ Följande tabell sammanfattar de olika autentiseringsmetoderna för varje miljö
 
 | Metod | Miljö | Artikel |
 | --- | --- | --- |
-| Azure AD-användarkonto |Azure Resource Manager och Azure Service Management |[Autentisera Runbooks med Azure AD-användarkonto](automation-create-aduser-account.md) |
+| Azure AD-användarkonto |Azure Resource Manager och klassisk Azure |[Autentisera Runbooks med Azure AD-användarkonto](automation-create-aduser-account.md) |
 | Kör som-konto i Azure |Azure Resource Manager |[Autentisera runbooks med ett ”Kör som”-konto i Azure](automation-sec-configure-azure-runas-account.md) |
-| Klassiskt Kör som-konto i Azure |Azure Service Management |[Autentisera runbooks med ett ”Kör som”-konto i Azure](automation-sec-configure-azure-runas-account.md) |
+| Klassiskt Kör som-konto i Azure |Den klassiska Azure-portalen |[Autentisera runbooks med ett ”Kör som”-konto i Azure](automation-sec-configure-azure-runas-account.md) |
 | Windows-autentisering |Lokalt datacenter |[Autentisera runbooks för Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) |
 | AWS-autentiseringsuppgifter |Amazon Web Services |[Autentisera runbooks med Amazon Web Services (AWS)](automation-config-aws-account.md) |
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: Skapa ett .NET-webb-API
 
@@ -40,7 +39,7 @@ Därefter måste du skapa en webb-API-app i B2C-katalogen. Det ger Azure AD den 
 * Lägga till en **webbapp** eller ett **webb-API** i programmet.
 * Använd **omdirigerings-URI:n** `https://localhost:44332/` för webbappen. Det här är standardplatsen för klienten för webbappen i det här kodexemplet.
 * Kopiera **program-ID:t** som har tilldelats din app. Du behöver det senare.
-* Ange en appidentifierare i **App-ID-URI**.
+* Ange en appidentifierare i **App-ID-URI**. Kopiera hela **App-ID-URI**. Du behöver det senare.
 * Lägg till behörigheter via menyn med **publicerade omfång**.
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,6 +82,7 @@ Det här exemplet är konfigurerat att använda principerna och klient-ID:t för
     * `ida:SignUpSignInPolicyId` med namnet på din registrerings- eller inloggningsprincip
     * `ida:EditProfilePolicyId` med namnet på din profilredigeringsprincip
     * `ida:ResetPasswordPolicyId` med namnet på din lösenordsåterställningsprincip
+    * `api:ApiIdentifier` med "App-ID-URI"
 
 
 ## <a name="secure-the-api"></a>Skydda API:et
@@ -212,4 +212,3 @@ Slutligen bygger du och kör både `TaskWebApp` och `TaskService`. Skapa några 
 ## <a name="edit-your-policies"></a>Redigera dina principer
 
 När du har skyddat ett API med hjälp av Azure AD B2C kan du experimentera med registrerings- och inloggningsprincipen och se effekterna (eller avsaknaden av dem) i API:et. Du kan manipulera programanspråken i principerna och ändra användarinformationen som är tillgänglig i webb-API:et. Eventuella anspråk som du lägger till är tillgängliga för det .NET MVC-baserade webb-API:et i `ClaimsPrincipal`-objektet på det sätt som beskrivits tidigare i den här artikeln.
-

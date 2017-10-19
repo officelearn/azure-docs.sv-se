@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-files-from-the-azure-portal"></a>Använda Azure Files från Azure Portal
 [Azure-portalen](https://portal.azure.com) innehåller ett användargränssnitt för att hantera Azure Files. Du kan utföra följande åtgärder från din webbläsare:
 
@@ -66,7 +64,7 @@ ms.lasthandoff: 09/25/2017
 -  Klicka på **Anslut** om du vill hämta kommandoraden för att montera filresursen från Windows eller Linux. Linux-användare kan även läsa [Använda Azure Files med Linux](../storage-how-to-use-files-linux.md) för mer information om montering för andra Linux-distributioner.
 
     ![Skärmbild som visar hur du monterar filresursen](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  Du kan kopiera kommandon för att montera filresurser på Windows eller Linux och köra dem från en Azure-VM eller en lokal dator.
+-  Du kan kopiera kommandon för att montera filresurser på Windows eller Linux och köra dem från en virtuell Azure-dator eller en lokal dator.
 
     ![Skärmbild som visar kommandon för montering på Windows och Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
 

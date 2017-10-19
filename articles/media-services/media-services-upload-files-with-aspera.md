@@ -1,6 +1,6 @@
 ---
 title: "Överföra filer till ett Azure Media Services-konto med Aspera | Microsoft Docs"
-description: "Den här självstudiekursen vägleder dig genom stegen för att överföra filer till ett lagringskonto som är associerad med ett Media Services-konto med den ** Aspera Server på begäran **-tjänsten på Azure."
+description: "Den här kursen visar hur du överför filer till ett lagringskonto som är associerat med ett Media Services-konto med tjänsten **Aspera Server On Demand** på Azure."
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
 ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Överföra filer till ett Media Services-konto med hjälp av tjänsten Aspera Server On Demand på Azure
 

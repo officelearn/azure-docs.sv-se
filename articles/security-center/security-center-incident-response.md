@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
 ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Använda Azure Security Center vid incidenthantering
 Många organisationer lär sig att reagera på säkerhetsincidenter först när de har drabbats av en attack. För att minska kostnaderna och skadorna är det viktigt att ha en incidenthanteringsplan på plats innan en attack äger rum. Azure Security Center kan användas i olika faser av en incidenthantering.
@@ -83,7 +83,7 @@ Johanna har loggat in på Azure Portal arbetar med Security Center-konsolen. Som
    > I det här scenariot ska Johanna utföra en utvärdering av aviseringen om skadlig SQL-aktivitet som visas på bilden ovan.
    >
    >
-2. Klicka på den **skadliga SQL-aktivitet** varning och granska angripna resurser i den **skadliga SQL-aktivitet** bladet: ![Incident information](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Klicka på aviseringen **Skadlig SQL-aktivitet** och granska de attackerade resurserna på bladet **Skadlig SQL-aktivitet**: ![Incidentinformation](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     På det här bladet kan Johanna föra anteckningar om de attackerade resurserna, hur många gånger attacken har utförts och när den upptäcktes.
 3. Klicka på den **attackerade resursen** för att få mer information om angreppet.

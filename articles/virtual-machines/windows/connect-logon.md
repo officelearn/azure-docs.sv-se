@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 09/29/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 88431377a36d5bc36220c630f0c8d4a46ab4a434
-ms.contentlocale: sv-se
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 91a437345858cf3a9b00b6b4e8e72cd253f8f069
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Ansluta till och logga in på en virtuell Azure-dator som kör Windows
 Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP) från ett Windows-skrivbord. Du börjar med att ansluta till den virtuella datorn och loggar sedan in.
@@ -29,9 +28,9 @@ Om du försöker ansluta till en virtuell Windows-dator från en Mac måste du i
 
 ## <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **Virtual Machines** på navmenyn.
+2. Klicka på **Virtuella datorer** på menyn till vänster.
 3. Välj den virtuella datorn i listan.
-4. Klicka på **Anslut** i bladet för den virtuella datorn.
+4. Klicka på **Anslut** på sidan för den virtuella datorn.
    
     ![Skärmbild av Azure Portal som visar hur du ansluter till den virtuella datorn.](./media/connect-logon/connect.png)
    
@@ -45,5 +44,4 @@ Om du försöker ansluta till en virtuell Windows-dator från en Mac måste du i
 
 ## <a name="next-steps"></a>Nästa steg
 Om du får problem när du försöker ansluta läser du [Felsöka anslutningar till fjärrskrivbord](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Den här artikeln beskriver hur du diagnostiserar och löser vanliga problem.
-
 

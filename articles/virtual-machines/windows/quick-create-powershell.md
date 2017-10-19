@@ -16,35 +16,28 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: dacea9ef9b502ecd264dd4fcd1e8f4ef23f48c87
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: f03b747dd2498267dc470d42b1acafd331fd92b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>Skapa en virtuell Windows-dator med PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här guiden beskriver hur man använder PowerShell för att skapa en virtuell Azure-dator som kör Windows Server 2016. När distributionen är klar kan vi ansluta till servern och installera IIS.  
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-## <a name="log-in-to-azure"></a>Logga in på Azure
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
-Logga in på Azure-prenumerationen med kommandot `Login-AzureRmAccount` och följ anvisningarna på skärmen.
-
-```powershell
-Login-AzureRmAccount
-```
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
 Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
@@ -53,7 +46,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>Skapa ett virtuellt nätverk, undernät och offentlig IP-adress. 
 Dessa resurser används för att skapa nätverksanslutning till den virtuella datorn och ansluta den till internet.
 
-```powershell
+```azurepowershell-interactive
 # Create a subnet configuration
 $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
@@ -69,7 +62,7 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location E
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Skapa en nätverkssäkerhetsgrupp och en regel för nätverkssäkerhetsgrupp. 
 Nätverkssäkerhetsgruppen skyddar den virtuella datorn med hjälp av regler för inkommande och utgående trafik. I detta fall skapas en regel för inkommande trafik för port 3389, som tillåter inkommande anslutningar till fjärrskrivbord. Vi vill också skapa en regel för inkommande trafik för port 80, som tillåter inkommande webbtrafik.
 
-```powershell
+```azurepowershell-interactive
 # Create an inbound network security group rule for port 3389
 $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
     -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
@@ -88,7 +81,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>Skapa ett nätverkskort för den virtuella datorn. 
 Skapa ett nätverkskort med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) för den virtuella datorn. Nätverkskortet ansluter den virtuella datorn till ett undernät, en nätverkssäkerhetsgrupp och offentlig IP-adress.
 
-```powershell
+```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
 $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location EastUS `
     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
@@ -98,7 +91,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
 
 Skapa en virtuell datorkonfiguration. Den här konfigurationen innehåller de inställningar som används vid distribution av den virtuella datorn, t.ex. den virtuella datorns avbildning, storlek och konfiguration för verifiering. När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
 
-```powershell
+```azurepowershell-interactive
 # Define a credential object
 $cred = Get-Credential
 
@@ -111,7 +104,7 @@ $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
 
 Skapa den virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location EastUS -VM $vmConfig
 ```
 
@@ -121,11 +114,11 @@ När distributionen har slutförts kan du skapa en fjärrskrivbordsanslutning me
 
 Använd kommandot [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) för att returnera den offentliga IP-adressen för den virtuella datorn. Anteckna denna IP-adress så att du kan ansluta till den till din webbläsare för att testa webbanslutningen i ett framtida steg.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Använd följande kommando för att skapa en fjärrskrivbordssession med den virtuella datorn. Ersätt IP-adressen med *publicIPAddress* för den virtuella datorn. När du uppmanas att göra det anger du de autentiseringsuppgifter som användes när du skapade den virtuella datorn.
+Använd följande kommando på den lokala datorn för att skapa en fjärrskrivbordssession med den virtuella datorn. Ersätt IP-adressen med *publicIPAddress* för den virtuella datorn. När du uppmanas att göra det anger du de autentiseringsuppgifter som användes när du skapade den virtuella datorn.
 
 ```bash 
 mstsc /v:<publicIpAddress>
@@ -135,7 +128,7 @@ mstsc /v:<publicIpAddress>
 
 Nu när du har loggat in till den virtuella Azure-datorn kan du använda en rad med PowerShell för att installera IIS och aktivera den lokala brandväggsregeln så att del tillåter webbtrafik. Öppna en PowerShell-kommandotolk och kör följande kommando:
 
-```powershell
+```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
@@ -149,7 +142,7 @@ Du kan använda en webbläsare som du själv väljer för att visa standardvälk
 
 När den inte längre behövs du använda kommandot [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
@@ -159,4 +152,3 @@ I den här snabbstarten har du distribuerat en virtuell dator och en regel för 
 
 > [!div class="nextstepaction"]
 > [Självstudier om virtuella Azure Windows-datorer](./tutorial-manage-vm.md)
-

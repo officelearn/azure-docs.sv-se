@@ -1,6 +1,6 @@
 ---
-title: "Översikt över SQL Server i Azure Virtual Machines | Microsoft Docs"
-description: "Läs mer om hur du kör fullständiga SQL Server-utgåvor på virtuella datorer med Azure. Hämta direktlänkar till alla SQL Server VM-avbildningar och tillhörande innehåll."
+title: "Översikt över SQL Server i Azure Windows Virtual Machines | Microsoft Docs"
+description: "Läs mer om hur du kör fullständiga SQL Server-utgåvor på virtuella Windows-datorer med Azure. Hämta direktlänkar till alla SQL Server VM-avbildningar och tillhörande innehåll."
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
@@ -12,20 +12,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/12/2017
+ms.date: 10/02/2017
 ms.author: jroth
+ms.openlocfilehash: b10c995fdd8e241d354c62537a0600b393795c1b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Översikt över SQL Server i Azure Virtual Machines
-Det här ämnet beskriver dina alternativ när du kör en SQL Server på virtuella Azure-datorer (VM:ar), tillsammans med [länkar till portalavbildningar](#option-1-create-a-sql-vm-with-per-minute-licensing) samt en översikt över [vanliga uppgifter](#manage-your-sql-vm).
+# <a name="overview-of-sql-server-on-azure-virtual-machines-windows"></a>Översikt över SQL Server i Azure Virtual Machines (Windows)
+
+> [!div class="op_single_selector"]
+> * [Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+> * [Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+
+Det här avsnittet beskriver dina alternativ när du kör en SQL Server på virtuella Azure-datorer (VM:ar) i Windows, tillsammans med [länkar till portalavbildningar](#option-1-create-a-sql-vm-with-per-minute-licensing) samt en översikt över [vanliga uppgifter](#manage-your-sql-vm).
 
 > [!NOTE]
-> Om du redan är bekant med SQL Server och bara vill se hur man distribuerar en SQL Server-VM, hittar du mer information i [Etablera en virtuell dator med SQL Server i Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+> Om du redan är bekant med SQL Server och bara vill se hur man distribuerar en SQL Server-VM i Windows, hittar du mer information i [Etablera en virtuell Windows-dator med SQL Server i Azure](virtual-machines-windows-portal-sql-server-provision.md). Eller om du vill skapa en Linux-VM med SQL Server finns information i [Etablera en Linux SQL Server-VM i Azure](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
 Om du är en databasadministratör eller en utvecklare, kan Azure VM:ar ge dig ett sätt att flytta dina lokala SQL Server-arbetsbelastningar och program till molnet.
 
@@ -50,11 +54,13 @@ Följande tabell innehåller en matris med de senaste SQL Server-avbildningarna 
 
 | Version | Operativsystem | Utgåva |
 | --- | --- | --- |
+| **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
 | **SQL Server 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
 
-Förutom den här listan finns det andra kombinationer av SQL Server-versioner och operativsystem tillgängliga. Hitta andra avbildningar via en marketplace-sökning i Azure Portal. 
+> [!NOTE]
+> Tillgängliga Linux SQL Server-VM-avbildningar finns i [Översikt över SQL Server på Azure Virtual Machines (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
 ## <a id="BYOL"></a> Alternativ 2: Skapa en virtuell SQL-dator med en befintlig licens
 Du kan även använda din egen licens (Bring your own license, BYOL). I det här scenariot betalar du bara för den virtuella datorn utan ytterligare avgifter för SQL Server-licensiering. Om du vill använda din egen licens använder du matrisen med de versioner, utgåvor och operativsystem för SQL Server som anges nedan. Namnen på avbildningarna föregås av **{BYOL}** i portalen.
@@ -106,4 +112,3 @@ Mer information om datainsamling finns i [SQL Server-sekretesspolicyn](https://w
 Om du har frågor om pris kan du läsa [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer) och [prissättningssidan för Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Välj din mål-utgåva av SQL Server i listan **Operativsystem/programvara**. Visa därefter priser för virtuella datorer av olika storlek.
 
 Har du fler frågor? Börja med att läsa [Vanliga frågor och svar om SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-faq.md). Du kan också lägga till dina frågor eller kommentarer längst ned i något av avsnitten om virtuella datorer med SQL och interagera med Microsoft och communityn.
-

@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 09/18/2017
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: e8e97f0a0d18bafac581ce0fa31a69e385669bcf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-service-preview"></a>Skapa och etablera en simulerad enhet med IoT Hub Device Provisioning-tjänsten (förhandsgranskning)
 
 Dessa steg visar hur du skapar en simulerad enhet på utvecklingsdatorn som kör Windows OS, kör Windows TPM-simulatorn som [maskinvarusäkerhetsmodul (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för enheten och använder kodexemplet för att ansluta till denna simulerade enhet med Device Provisioning-tjänsten och IoT-hubben. 
@@ -29,7 +27,7 @@ Se till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with 
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön 
 
-1. Kontrollera att du har antingen Visual Studio 2015 eller [Visual Studio 2017](https://www.visualstudio.com/vs/) installerat på datorn. 
+1. Kontrollera att du har antingen Visual Studio 2015 eller [Visual Studio 2017](https://www.visualstudio.com/vs/) installerat på datorn. Du måste ha arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++) aktiverad för installationen av Visual Studio.
 
 2. Hämta och installera [CMake-buildsystemet](https://cmake.org/download/).
 
@@ -122,4 +120,3 @@ I den här snabbstarten har du skapat en TPM-simulerad enhet på datorn och etab
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-cloud.md)
-

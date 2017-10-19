@@ -1,6 +1,6 @@
 ---
-title: "Azure-databas PostgreSQL översikt | Microsoft Docs"
-description: "Hjälpinnehåll för Azure Database PostgreSQL översikt i Azure-portalen"
+title: "Översikt över Azure Database for PostgreSQL | Microsoft Docs"
+description: "Hjälpinnehåll för översikt över Azure Database for PostgreSQL i Azure Portal"
 services: app-service
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 9c930d1171b77ddf0bb6621fbf012f98816fd763
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>Azure Database för PostgreSQL-dokumentation
 
@@ -29,7 +29,7 @@ Lär dig att skapa en PostgreSQL-databas med:
 
 Lär dig att:
 
-- Utforma en-databas: [Azure-portalen](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
+- Utforma en databas: [Azure Portal](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
 - [Skapa en webbapp med Python och CLI](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 ## <a name="samples"></a>Exempel 
@@ -40,5 +40,5 @@ Hitta skript för att hantera vanliga uppgifter.
 
 ## <a name="more"></a>Mer
 
-- [Finns i dokumentationen för mer information](/azure/postgresql/index)
-- [Lär dig mer om alla Azure-tjänster](https://aka.ms/j3wr7y)
+- [Läs dokumentationen för att få mer information](/azure/postgresql/index)
+- [Läs om alla Azure-tjänster](https://aka.ms/j3wr7y)

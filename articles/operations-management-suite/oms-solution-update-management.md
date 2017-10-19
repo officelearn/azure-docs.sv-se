@@ -3,7 +3,7 @@ title: "Uppdateringshanteringslösning i OMS | Microsoft Docs"
 description: "Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att hantera uppdateringar för dina Windows- och Linux-datorer."
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Uppdateringshanteringslösning i OMS
 
 ![Symbolen Hantering av uppdateringar](./media/oms-solution-update-management/update-management-symbol.png)
 
 Lösningen för hantering av uppdateringar i OMS låter dig hantera säkerhetsuppdateringar av operativsystemet för dina Windows- och Linux-datorer som distribueras via Azure, via lokala miljöer eller via andra molnleverantörer.  Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
+
+## <a name="update-management-in-azure-automation"></a>Uppdateringshantering i Azure Automation
+
+Du kan aktivera uppdateringshantering för virtuella datorer direkt via ditt [Azure Automation](../automation/automation-offering-get-started.md)-konto.
+Information om hur du aktiverar uppdateringshantering för virtuella datorer via ditt Automation-konto finns i [Hantera uppdateringar för flera virtuella datorer](../automation/manage-update-multi.md).
 
 
 ## <a name="solution-overview"></a>Lösningsöversikt
@@ -307,11 +311,17 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 | Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |Lista över alla paket som har en tillgänglig uppdatering vilken åtgärdar kritiska problem eller säkerhetsproblem | 
 | Skriv:UpdateRunProgress &#124; measure Count() by UpdateRunName |Lista vilka uppdateringsdistributioner som har ändrade datorer | 
 | Skriv:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |Datorer som har uppdaterats i den här uppdateringskörningen (ersätt värdet med uppdateringsdistributionens namn | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Lista över alla "Ubuntu"-datorer med en tillgänglig uppdatering | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |Lista över alla "Ubuntu"-datorer med en tillgänglig uppdatering |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>Integrera med System Center Configuration Manager
+
+Kunder som har investerat i System Center Configuration Manager för att hantera datorer, servrar och mobila enheter är också beroende av dess styrka och mognad vid hantering av programuppdateringar som en del av sin cykel för hantering av programuppdatering (SUM).
+
+Information om hur du integrerar med uppdateringshanteringslösningen i OMS med System Center Configuration Manager, finns i [Integrera System Center Configuration Manager med uppdateringshanteringslösningen i OMS](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Det här avsnittet innehåller information för att hjälpa dig att felsöka fel med lösningen Hantering av uppdateringar.  
+Det här avsnittet innehåller information för att hjälpa dig att felsöka fel med lösningen Hantering av uppdateringar.
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>Hur felsöker jag problem med integrationsprocessen?
 Om det uppstår problem när du försöker integrera lösningen eller en virtuell dator söker du i händelseloggen **Program- och tjänstloggar\Operations Manager** efter händelser med händelse-ID 4502 och händelsemeddelanden som innehåller **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.  Följande tabell illustrerar specifika felmeddelanden och en möjlig lösning för vart och ett.  
@@ -333,4 +343,3 @@ Mer information finns i [Automation runbook output and messages](../automation/a
 * Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) för att visa detaljerad uppdateringsinformation.
 * [Skapa egna instrumentpaneler](../log-analytics/log-analytics-dashboards.md) som visar uppdateringskompatibilitet för dina hanterade datorer.
 * [Skapa aviseringar](../log-analytics/log-analytics-alerts.md) som visas när viktiga uppdateringar saknas på datorer eller när automatiska uppdateringar är inaktiverade för en dator.  
-

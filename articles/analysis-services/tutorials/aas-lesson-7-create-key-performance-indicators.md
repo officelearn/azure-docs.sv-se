@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>Lektion 7: Skapa KPI:er
 
@@ -49,7 +48,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
 
     Det här måttet fungerar som basmått för KPI.  
   
-4.  Högerklicka på **InternetCurrentQuarterSalesPerformance** > **Skapa KPI**.   
+4.  I rutnätet för mått högerklickar du på **InternetCurrentQuarterSalesPerformance** > **Skapa KPI**.   
   
 5.  Välj **Absolut värde** i **Mål** i dialogrutan KPI (Key Performance Indicator) och skriv sedan **1.1**.  
   
@@ -88,4 +87,3 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
 [Lektion 8: Skapa perspektiv](../tutorials/aas-lesson-8-create-perspectives.md).
   
   
-

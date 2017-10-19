@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Vad är skalningsuppsättningar för virtuella datorer i Azure?
 Skalningsuppsättningar för virtuella datorer är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning identiska virtuella datorer. När alla virtuella datorer har konfigurerats på samma sätt skapas skalningsuppsättningar för att stödja sann autoskalning. Ingen företablering av virtuella datorer krävs. Det gör det enklare att skapa storskaliga tjänster som riktar sig mot Big Compute, stordata och arbetsbelastningar i behållare.
@@ -34,7 +33,12 @@ Titta igenom dessa videor för mer information om skalningsuppsättningar:
 * [Skaluppsättningar för virtuell dator med Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Skapa och hantera skalningsuppsättningar
-Du kan skapa en skalningsuppsättning i [Azure Portal](https://portal.azure.com) genom att välja **Ny** och skriva in **skalning** i sökfältet. Bland resultaten ser du **Skalningsuppsättning för virtuella datorer**. Därifrån kan du fylla i fälten som krävs för att anpassa och distribuera din skalningsuppsättning. Observera att det även finns alternativ för att ställa in grundläggande regler för automatisk skalning som baseras på processoranvändningen i portalen.
+Du kan skapa en skalningsuppsättning i [Azure Portal](https://portal.azure.com) genom att välja **Ny** och skriva in **skalning** i sökfältet. Bland resultaten ser du **Skalningsuppsättning för virtuella datorer**. Därifrån kan du fylla i fälten som krävs för att anpassa och distribuera din skalningsuppsättning. Observera att det även finns alternativ för att ställa in grundläggande regler för automatisk skalning som baseras på processoranvändningen i portalen. 
+
+Skalningsuppsättningar kan distribueras i en [tillgänglighetszon](../availability-zones/az-overview.md).
+
+> [!NOTE]
+> För närvarande stöder skalningsuppsättningar för virtuella datorer bara distribution till en enda tillgänglighetszon. Distribution till flera zoner kommer att stödjas framöver.
 
 Du kan definiera och distribuera skalningsuppsättningar med hjälp av JSON-mallar och [REST API:er](https://msdn.microsoft.com/library/mt589023.aspx) precis som enskilda virtuella Azure Resource Manager-datorer. Därför går det att använda alla standardmetoder för Azure Resource Manager-distribution. Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -167,4 +171,3 @@ Det här avsnittet innehåller några vanliga scenarier för skalningsuppsättni
 **S.** Ja. En skalningsuppsättning är en implicit tillgänglighetsuppsättning med 5 feldomäner och 5 uppdateringsdomäner. Skalningsuppsättningar med mer än 100 virtuella datorer sträcker sig över flera *placeringsgrupper* som är likvärdiga med flera tillgänglighetsuppsättningar. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
 
 Fler svar på frågor om skalningsuppsättningar finns i [Azure virtual machine scale sets FAQ (Vanliga frågor och svar om skalningsuppsättningar för virtuella datorer i Azure)](virtual-machine-scale-sets-faq.md).
-

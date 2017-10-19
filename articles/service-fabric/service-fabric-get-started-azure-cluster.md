@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
+ms.openlocfilehash: de7fa7e6445e6eaf08bdcc8ae812611f20a98c34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Skapa ditt första Service Fabric-kluster i Azure
 Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. I den här snabbstarten får du hjälp att skapa ett kluster med fem noder som körs i antingen Windows eller Linux på bara några minuter via [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) eller [Azure Portal](http://portal.azure.com).  
 
@@ -251,6 +249,17 @@ Kör följande kommando för att kontrollera att du är ansluten och att klustre
 az sf cluster health
 ```
 
+### <a name="connect-to-the-nodes-directly"></a>Anslut direkt till noderna 
+
+Om du vill ansluta till noderna i ett Linux-kluster kan du använda SSH för att ansluta till noderna genom att ange ett portnummer från och med 3389. För de fem nodkluster som skapades tidigare skulle exempelvis kommandona vara följande:
+```bash
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3391
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
+```
+
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har konfigurerat ett utvecklingskluster provar du följande:
 * [Visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
@@ -266,4 +275,3 @@ Nu när du har konfigurerat ett utvecklingskluster provar du följande:
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
 [ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
 [ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
-

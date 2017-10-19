@@ -12,21 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Förstå säkerhetsaviseringar i Azure Security Center
 Den här artikeln visar de olika typerna av säkerhetsaviseringar och meddelanden som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar och händelser finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 
+För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center Standard. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du **Prisnivå** i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
+
 > [!NOTE]
-> För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center Standard. En kostnadsfri 60-dagars utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du **Prisnivå** i avsnittet om [säkerhetsprinciper](security-center-policies.md). Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
->
+> Security Center har för den begränsade förhandsversionen publicerat en ny uppsättning identifieringar som utnyttjar auditd-poster, ett gemensamt granskningsramverk för att upptäcka skadligt beteende på Linux-datorer. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_linuxdetections@microsoft.com) för att ta del av förhandsversionen.
 
 ## <a name="what-type-of-alerts-are-available"></a>Vilka typer av aviseringar finns?
 Azure Security Center använder olika [identifieringsfunktioner](security-center-detection-capabilities.md) för att uppmärksamma kunder om eventuella hot mot deras miljöer. Dessa aviseringar innehåller värdefull information om vad som utlöste aviseringen, vilka resurser som berörs och attackens källa. Informationen som ingår i en avisering varierar beroende på vilken typ av analys som används för att identifiera hot. Händelser kan också innehålla ytterligare sammanhangsinformation som kan vara användbart när du utreder ett hot.  Den här artikeln innehåller information om följande aviseringstyper:
@@ -44,7 +44,7 @@ Azure Security Center kan använda beteendeanalyser för att identifiera resurse
 >
 
 ### <a name="crash-analysis"></a>Kraschanalys
-Analysen där kraschen dumpar minnet är en metod som används för att identifiera avancerad skadlig kod som kan undvika traditionella säkerhetslösningar. Olika former av skadlig kod försöker undvika att identifieras av antivirusprodukter genom att aldrig skriva till disk, eller genom att kryptera programvarukomponenter som skrivs till disk. Detta gör det svårt att identifiera den skadliga koden med traditionella antivirusprogram. Sådan skadlig kod kan dock identifieras med minnesanalyser eftersom den skadliga koden måste lämna spår i minnet för att kunna fungera.
+Analysen där kraschen dumpar minnet är en metod som används för att identifiera avancerad skadlig kod som kan undvika traditionella säkerhetslösningar. Olika former av skadlig kod försöker undvika att identifieras av antivirusprodukter genom att aldrig skriva till disk, eller genom att kryptera programvarukomponenter som skrivs till disk. Den här metoden gör det svårt att identifiera den skadliga koden med traditionella antivirusprogram. Sådan skadlig kod kan dock identifieras med minnesanalyser eftersom den skadliga koden måste lämna spår i minnet för att kunna fungera.
 
 När programvara kraschar fångar en kraschdumpfil en del av minnet vid tidpunkten för kraschen. Kraschen kan ha orsakats av skadlig kod, allmänna program- eller systemproblem. Genom att analysera minnet i kraschdumpen kan Azure Security Center identifiera tekniker som utnyttjar sårbarheter i programvara, som kommer åt känsliga data och som ligger gömda på en komprometterad dator. Detta åstadkoms med minsta möjliga prestandapåverkan på de värdar där analysen utförs av Security Centers serverdel.
 
@@ -61,7 +61,7 @@ Det här Shellcode-aviseringsexemplet tillhandahåller följande ytterligare fä
 
 * ADDRESS: Shellcode-kodens plats i minnet.
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Shellcode-varning](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
 
@@ -77,7 +77,7 @@ Förutom fälten som beskrivs i det tidigare avsnittet ”Shellcode-identifierin
 * HIJACKEDMODULEPATH: Den kapade Windows-systemmodulens sökväg.
 * HIJACKINGMODULEPATH: Kapningsmodulens sökväg.
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Varning vid modulkapning](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
 
@@ -96,7 +96,7 @@ Förutom fälten som beskrivs i avsnittet ”Shellcode-identifiering” ovan, vi
 
 Den här aviseringen extraherar och visar även vissa fält från modulens PE-huvud, till exempel ”CHECKSUM” och ”TIMESTAMP”. De här fälten visas bara om fälten finns i modulen. Mer information om dessa fält finns i [Microsoft PE- och COFF-specifikationen](https://msdn.microsoft.com/windows/hardware/gg463119.aspx).
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Avisering om Windows-maskering](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
 
@@ -110,21 +110,21 @@ Förutom fälten som beskrivs i avsnittet ”Shellcode-identifiering” ovan, vi
 * MODULNAME: Namnet på den modifierade systembinärfilen.
 * MODULEVERSION: Den modifierade systembinärfilens version.
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Varning om binär systemfil](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
 
 ### <a name="suspicious-process-executed"></a>Misstänkt process kördes
 Security Center identifierar misstänkta processer som körs i den virtuella måldatorn och utlöser sedan en avisering. Identifieringen letar inte efter det specifika namnet, utan efter den körbara filens parameter. Det innebär att även om angriparen byter namn på den körbara filen kan Security Center fortfarande identifiera den misstänkta processen.
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Varning om misstänkt process](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>Flera domänkonton efterfrågas
+### <a name="multiple-domains-accounts-queried"></a>Flera domänkonton efterfrågas
 Security Center kan identifiera flera försök att fråga Active Directory-domänkonton, vilket vanligtvis utförs av angripare under spaning i nätverket. Angripare kan använda den här metoden för att fråga domänen och identifiera användarna, identifiera domänadministratörskontona, identifiera datorerna som är domänkontrollanter och även potentiella domänförtroenderelationer med andra domäner.
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Varning om flera domänkonton](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
@@ -132,7 +132,7 @@ Det här är ett exempel på den här typen av varning:
 
 Security Center utlöser en avisering när säkerhetshändelsen 4798 utlöses i Windows Server 2016 och Windows 10. Detta händer när grupper med lokala administratörer räknas upp, något som vanligtvis utförs av angripare under spaning i nätverket. Angripare kan dra fördel av den här tekniken för att fråga om identiteten för användare med administratörsbehörighet.
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Lokal administratör](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
 
@@ -140,7 +140,7 @@ Det här är ett exempel på den här typen av varning:
 
 Security Center utlöser en avisering när den identifierar användning av en blandning av versaler och gemener på kommandoraden. Vissa angripare kan använda den här tekniken för att kringgå skiftlägeskänsliga eller hashbaserade datorregler.
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Avvikande blandning](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
 
@@ -151,7 +151,7 @@ En komprometterad [krbtgt](https://technet.microsoft.com/library/dn745899.aspx)-
 > [!NOTE] 
 > Mer information om gyllene Kerberos-biljetter finns i [Åtgärder mot stöld av autentiseringsuppgifter i Windows 10](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Gyllene biljett](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
 
@@ -159,7 +159,7 @@ Det här är ett exempel på den här typen av varning:
 
 Security Center utlöser en avisering när ett konto skapas som liknar ett befintligt konto med integrerade administratörsprivilegier. Den här tekniken kan användas av angripare för att skapa ett falskt konto för att undvika att upptäckas via mänsklig verifiering.
  
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Misstänkt konto](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
 
@@ -167,7 +167,7 @@ Det här är ett exempel på den här typen av varning:
 
 Angripare kan försöka kringgå värdsäkerheten genom att skapa anpassade brandväggsregler för att tillåta skadliga program att kommunicera med kommando och kontroll eller starta attacker i nätverket via den komprometterade värden. Security Center utlöser en avisering när den upptäcker att en ny brandväggsregel har skapats från en körbar fil på en misstänkt plats.
  
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Brandväggsregel](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
 
@@ -175,7 +175,7 @@ Det här är ett exempel på den här typen av varning:
 
 Security Center utlöser en avisering när den identifierar att en Microsoft HTML-programvärd (HTA) startar PowerShell-kommandon. Det här är en teknik som används av angripare för att starta skadliga PowerShell-skript.
  
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![HTA och PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
 
@@ -188,7 +188,7 @@ Nätverksenheter kan identifieras och profileras på i stort sett samma sätt so
 
 ![Varning om misstänkt utgående trafik](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-Den här aviseringen ger information som du kan använda för att identifiera resursen som användes för att initiera den här attacken. Den här aviseringen tillhandahåller information för att identifiera den komprometterade datorn, tidpunkten för identifieringen samt det protokoll och den port som användes. Det här bladet visar också en lista över de steg som du kan följa för att åtgärda problemet.
+Den här aviseringen ger information som du kan använda för att identifiera resursen som användes för att initiera den här attacken. Den här aviseringen tillhandahåller information för att identifiera den komprometterade datorn, tidpunkten för identifieringen samt det protokoll och den port som användes. Den här sidan visar också en lista över de steg som du kan följa för att åtgärda problemet.
 
 ### <a name="network-communication-with-a-malicious-machine"></a>Nätverkskommunikation med en obehörig dator
 Med hjälp av Microsofts insamling av hotinformation kan Azure Security Center identifiera komprometterade datorer som kommunicerar med skadliga IP-adresser. I många fall är den skadliga adressen ett kommando- eller kontrollcenter. I detta fall upptäckte Security Center att kommunikationen gjordes med programmet Pony Loader (även kallat [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
@@ -205,7 +205,7 @@ Den här aviseringen tillhandahåller information som hjälper dig att identifie
 ### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Möjlig utgående Denial of Service-attack upptäcktes
 Avvikande nätverkstrafik som kommer från en virtuell dator kan leda till att Security Center utlöser en potentiell Denial of Service-typ av angrepp.
 
-Det här är ett exempel på den här typen av varning:
+Här är ett exempel på den här typen av varning:
 
 ![Utgående DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
@@ -253,4 +253,3 @@ I den här artikeln lär du dig om de olika typerna av säkerhetsaviseringar i S
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
-

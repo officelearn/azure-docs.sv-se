@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: saysa
+ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
 > [!div class="op_single_selector"]
@@ -107,15 +106,13 @@ Om du vill skapa Service Fabric-tjänster med hjälp av Java ska du kontrollera 
   sudo apt-get install gradle
 ```
 
-## <a name="set-up-the-service-fabric-cli"></a>Konfigurera Service Fabric CLI
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Konfigurera Service Fabric CLI (sfctl) på Mac
 
-[Service Fabric CLI](service-fabric-cli.md) innehåller kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster och program. Den är baserad på python, så se till att python och pip är installerade innan du fortsätter med följande kommando:
+Följ anvisningarna på [Service Fabric CLI](service-fabric-cli.md#cli-mac) för att installera Service Fabric CLI (`sfctl`) på en Mac-dator.
+CLI-kommandon för att interagera med Service Fabric-entiteter, t.ex. kluster, program och tjänster.
 
-```bash
-pip install sfctl
-```
+## <a name="create-application-on-you-mac-using-yeoman"></a>Skapa program på Mac med Yeoman
 
-## <a name="create-application-on-mac-using-yeoman"></a>Skapa program på Mac med Yeoman
 Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa ett Service Fabric-program från terminalen med en Yeoman-mallgenerator. Följ stegen nedan för att se till att du har Service Fabric Yeoman-mallgeneratorn på datorn.
 
 1. Du måste ha Node.js och NPM installerade på din Mac. Annars kan du installera Node.js och NPM med Homebrew enligt följande. Om du vill kontrollera vilka versioner av Node.js och NPM som är installerade på din Mac kan du använda alternativet ``-v``.
@@ -165,4 +162,3 @@ Service Fabric innehåller ett plugin-program för **Eclipse Neon för Java IDE*
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Utvärdering av säkerhetsbaslinjen i säkerhets- och granskningslösningen i Operations Management Suite
 Det här dokumentet beskriver hur du använder funktionerna för utvärdering av säkerhetsbaslinjen i [säkerhets- och granskningslösningen i Operations Management Suite (OMS)](operations-management-suite-overview.md) för att utvärdera de övervakade resursernas säkerhetsstatus.
@@ -40,7 +39,7 @@ Det finns tre typer av regler:
 > 
 
 ## <a name="security-baseline-assessment"></a>Utvärdering av säkerhetsbaslinje
-Du kan granska din aktuella utvärdering av säkerhetsbaslinjen för alla datorer som övervakas av säkerhets- och granskningslösningen i OMS från instrumentpanelen.  Du kommer till instrumentpanelen för utvärdering av säkerhetsbaslinjen genom att följa dessa steg:
+Du kan granska din aktuella utvärdering av säkerhetsbaslinjen för alla datorer som övervakas av säkerhets- och granskningslösningen i OMS från instrumentpanelen. Du kommer till instrumentpanelen för utvärdering av säkerhetsbaslinjen genom att följa dessa steg:
 
 1. Klicka på panelen **Säkerhet och granskning** på huvudinstrumentpanelen för **Microsoft Operations Management Suite**.
 2. Klicka på **Utvärdering av säkerhetsbaslinje** under **Säkerhetsdomäner** på instrumentpanelen för **Säkerhet och granskning**. Instrumentpanelen för **Utvärdering av säkerhetsbaslinje** visas, som du ser i följande bild:
@@ -85,5 +84,4 @@ I det här dokumentet har du lärt dig om Utvärdering av säkerhetsbaslinje i s
 * [Översikt över Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Övervaka och svara på säkerhetsaviseringar i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-responding-alerts.md)
 * [Övervaka resurser i säkerhets- och granskningslösningen i Operations Management Suite](oms-security-monitoring-resources.md)
-
 

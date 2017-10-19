@@ -3,7 +3,7 @@ title: "Rollbaserad åtkomstkontroll i Azure Automation | Microsoft Docs"
 description: "Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Den här artikeln beskriver hur du konfigurerar RBAC i Azure Automation."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "automation rbac, rollbaserad åtkomstkontroll, azure rbac"
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 09/30/2016
 ms.author: magoedte;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
-
-
+ms.openlocfilehash: 946d80d40ac0566db72c787f260f2d4faff01e6d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
-Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med hjälp av [RBAC](../active-directory/role-based-access-control-configure.md) kan du hålla isär uppgifter i ditt team och bevilja endast den mängd åtkomst till användare, grupper och program som de behöver för att utföra sitt arbete. Rollbaserad åtkomst kan beviljas till användare som använder Azure-portalen, Azure-kommandoradsverktygen eller Azure Management-API:er.
+Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med hjälp av [RBAC](../active-directory/role-based-access-control-configure.md) kan du hålla isär uppgifter i ditt team och bevilja endast den mängd åtkomst till användare, grupper och program som de behöver för att utföra sitt arbete. Rollbaserad åtkomst kan beviljas till användare som använder Azure Portal, Azure-kommandoradsverktygen eller Azure Management-API:er.
 
 ## <a name="rbac-in-automation-accounts"></a>RBAC i Automation-konton
 I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till användare, grupper och program i Automation-kontoomfånget. Följande är de inbyggda roller som stöds av ett Automation-konto:  
@@ -41,8 +41,7 @@ I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till
 > 
 > 
 
-I den här artikeln beskriver vi steg för steg hur du konfigurerar RBAC i Azure Automation. Men låt oss först ta en närmare titt på de enskilda behörigheter som beviljas deltagare, läsare, Automation-operatör och administratör för användaråtkomst så att vi får en god översikt innan vi beviljar någon behörighet till Automation-kontot.  Annars kan beviljandet
-resultera i oväntade eller oönskade konsekvenser.     
+I den här artikeln beskriver vi steg för steg hur du konfigurerar RBAC i Azure Automation. Men låt oss först ta en närmare titt på de enskilda behörigheter som beviljas deltagare, läsare, Automation-operatör och administratör för användaråtkomst så att vi får en god översikt innan vi beviljar någon behörighet till Automation-kontot.  Annars kan beviljandetresultera i oväntade eller oönskade konsekvenser.     
 
 ## <a name="contributor-role-permissions"></a>Deltagarbehörigheter
 I följande tabell visas vilka åtgärder som kan utföras av deltagarrollen i Automation.
@@ -127,9 +126,9 @@ I följande tabell visas vilka åtgärder som kan utföras av rollen Administrat
 | Automation – testjobb för Runbook-utkast |![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
 | Automation – webhook |![Grön status](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
-## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Konfigurera RBAC för ditt Automation-konto med hjälp av Azure-portalen
-1. Logga in på [Azure-portalen](https://portal.azure.com/) och öppna Automation-kontot från bladet Automation-konton.  
-2. Klicka på kontrollen **Åtkomst** längst uppe till höger. Bladet **Användare** öppnas där du kan lägga till nya användare, grupper och program för att hantera Automation-kontot och visa befintliga roller som kan konfigureras för Automation-kontot.  
+## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Konfigurera RBAC för ditt Automation-konto med hjälp av Azure Portal
+1. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Automation-kontot från sidan Automation-konton.  
+2. Klicka på kontrollen **Åtkomst** längst uppe till höger. Sidan **Användare** öppnas där du kan lägga till nya användare, grupper och program för att hantera Automation-kontot och visa befintliga roller som kan konfigureras för Automation-kontot.  
    
    ![Knappen Åtkomst](media/automation-role-based-access-control/automation-01-access-button.png)  
 
@@ -139,24 +138,24 @@ I följande tabell visas vilka åtgärder som kan utföras av rollen Administrat
 > 
 
 ### <a name="add-a-new-user-and-assign-a-role"></a>Lägga till en ny användare och tilldela en roll
-1. Klicka på bladet **Lägg till** från bladet Användare för att öppna bladet **Lägg till åtkomst** där du kan lägga till en användare, grupp eller ett program och tilldela dem en roll.  
+1. Klicka på sidan **Lägg till** från sidan Användare för att öppna bladet **Lägg till åtkomst** där du kan lägga till en användare, grupp eller ett program och tilldela dem en roll.  
    
    ![Lägga till användare](media/automation-role-based-access-control/automation-02-add-user.png)  
 2. Välj en roll i listan över tillgängliga roller. Vi ska välja rollen **Läsare**, men du kan välja någon av de tillgängliga inbyggda rollerna som ett Automation-konto har stöd för eller en anpassad roll som du har definierat.  
    
    ![Välja en roll](media/automation-role-based-access-control/automation-03-select-role.png)  
-3. Öppna bladet **Lägg till användare** genom att klicka på **Lägg till användare**. Om du har lagt till användare, grupper eller program för att hantera din prenumeration så visas dessa användare och du kan välja dem för att lägga till åtkomst. Om det inte finns några användare i listan, eller om användaren som du vill lägga till inte visas, klickar du på **Bjud in** för att öppna bladet **Bjud in gäst** där du kan bjuda in användare med en giltig e-postadress till ett Microsoft-konto, till exempel Outlook.com-, OneDrive- eller Xbox Live-ID:n. När du har angett e-postadressen för användaren klickar du på **Välj** för att lägga till användaren och klickar sedan på **OK**. 
+3. Klicka på **Lägg till användare** för att öppna sidan **Lägg till användare**. Om du har lagt till användare, grupper eller program för att hantera din prenumeration så visas dessa användare och du kan välja dem för att lägga till åtkomst. Om det inte finns några användare i listan, eller om användaren som du vill lägga till inte visas, klickar du på **Bjud in** för att öppna sidan **Bjud in gäst** där du kan bjuda in användare med en giltig e-postadress till ett Microsoft-konto, till exempel Outlook.com-, OneDrive- eller Xbox Live-ID:n. När du har angett e-postadressen för användaren klickar du på **Välj** för att lägga till användaren och klickar sedan på **OK**. 
    
    ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)  
    
-   Nu bör du se användaren på bladet **Användare** med rollen **Läsare**.  
+   Nu bör du se användaren på sidan **Användare** med rollen **Läsare**.  
    
    ![Visa användare](media/automation-role-based-access-control/automation-05-list-users.png)  
    
-   Du kan också tilldela en roll till användaren från bladet **Roller**. 
-4. Klicka på **Roller** från bladet Användare för att öppna bladet **Roller**. Från det här bladet kan du visa namnet på rollen och antalet användare och grupper som har tilldelats till rollen.
+   Du kan också tilldela en roll till användaren från sidan **Roller**. 
+4. Klicka på **Roller** på sidan Användare för att öppna sidan **Roller**. Härifrån kan du visa namnet på rollen och antalet användare och grupper som har tilldelats till rollen.
    
-    ![Tilldela en roll från bladet Användare](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+    ![Tilldela en roll från sidan Användare](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
    > Rollbaserad åtkomstkontroll kan bara anges på Automation-kontonivån och inte för en resurs under Automation-kontot.
@@ -170,8 +169,8 @@ I följande tabell visas vilka åtgärder som kan utföras av rollen Administrat
 ### <a name="remove-a-user"></a>Ta bort en användare
 Du kan ta bort åtkomstbehörigheten för en användare som inte hanterar Automation-kontot eller som inte längre arbetar i organisationen. Nedan följer stegen för att ta bort en användare: 
 
-1. Från bladet **Användare** väljer du den rolltilldelning som du vill ta bort.
-2. Klicka på knappen **Ta bort** på bladet med tilldelningsinformation.
+1. Från sidan **Användare** väljer du den rolltilldelning som du vill ta bort.
+2. Klicka på knappen **Ta bort** på sidan med tilldelningsinformation.
 3. Bekräfta borttagningen genom att klicka på **Ja**. 
    
    ![Ta bort användare](media/automation-role-based-access-control/automation-08-remove-users.png)  
@@ -230,10 +229,4 @@ I cmdletarna ovan ersätter du **inloggnings-ID**, **prenumerations-ID**, **resu
 * Information om hur du kan konfigurera RBAC på olika sätt med Azure Automation finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 * Mer information om hur du kan starta en runbook på olika sätt finns i [Starta en runbook](automation-starting-a-runbook.md)
 * Information om olika runbook-typer finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

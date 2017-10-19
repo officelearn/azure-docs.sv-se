@@ -1,6 +1,6 @@
 ---
 title: "Översikt över Azure DB Cosmos | Microsoft Docs"
-description: "Hjälpinnehåll Azure Cosmos DB översikt i Azure-portalen"
+description: "Hjälpinnehåll för översikt över Azure Cosmos DB på Azure Portal"
 services: cosmos-db
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 30ffaff9c4a7bacbda1f6b973f328a345eb5d5b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-documentation"></a>Dokumentation om Azure Cosmos DB
 
@@ -48,12 +48,12 @@ Lär dig hur du använder Azure Cosmos DB för att skapa en globalt distribuerad
 
 ## <a name="step-by-step-tutorials"></a>Steg för steg-självstudier
 
-Lär dig mer om att utveckla appar med Azure Cosmos DB:
+Lär dig hur du utvecklar appar med hjälp av Azure Cosmos DB:
 
-- Utveckla en app med Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [tabell](/azure/cosmos-db/tutorial-develop-table-dotnet) | [diagram](/azure/cosmos-db/tutorial-develop-graph-dotnet)
-- Importera data till Cosmos DB [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
-- Fråga efter data med Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [tabell](/azure/cosmos-db/tutorial-query-table) | [diagram](/azure/cosmos-db/tutorial-query-graph)
-- Globala databasreplikering med Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tabell] (/ azure/cosmos-db/kursen-globala-distribution-table | [Diagram](/azure/cosmos-db/tutorial-global-distribution-graph)
+- Utveckla en app med Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Tabell](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Diagram](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Importera data till Cosmos DB: [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
+- Köra frågor mot data med Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Tabell](/azure/cosmos-db/tutorial-query-table) | [Diagram](/azure/cosmos-db/tutorial-query-graph)
+- Global databasreplikering med Cosmos DB: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tabell](/azure/cosmos-db/tutorial-global-distribution-table | [Diagram](/azure/cosmos-db/tutorial-global-distribution-graph)
 - [Utveckla ditt program lokalt med hjälp av emulatorn](/azure/documentdb/documentdb-nosql-local-emulator)
 
 ## <a name="samples"></a>Exempel
@@ -65,5 +65,5 @@ Hitta skript för att hantera vanliga uppgifter.
 
 ## <a name="more"></a>Mer
 
-- [Finns i dokumentationen för mer information](/azure/cosmos-db/index)
-- [Lär dig mer om alla Azure-tjänster](https://aka.ms/j3wr7y)
+- [Läs dokumentationen för att få mer information](/azure/cosmos-db/index)
+- [Läs om alla Azure-tjänster](https://aka.ms/j3wr7y)

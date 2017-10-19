@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
+ms.openlocfilehash: dd6c2a1acdcd3b933bed536fd2bb1d83e1e593c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-web-app-performance"></a>Övervaka prestanda för Azure-webbappar
 På [Azure Portal](https://portal.azure.com) kan du konfigurera övervakning av programprestanda för dina [Azure-webbappar](../app-service/app-service-web-overview.md). [Azure Application Insights](app-insights-overview.md) instrumenterar din app så att den skickar telemetri om sina aktiviteter till Application Insights-tjänsten, där informationen lagras och analyseras. Där kan du använda diagram med mätvärden och sökverktyg för att diagnostisera problem, förbättra prestanda och utvärdera användningen.
@@ -121,5 +120,4 @@ För mer kraftfulla sökningar över din telemetri kan du använda [Log Analytic
 * [Få aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) när drifthändelser inträffar eller när mätvärden överskrider ett tröskelvärde.
 * Använd [Application Insights för JavaScript-appar och webbsidor](app-insights-javascript.md) för att hämta klienttelemetri från webbläsare som besöker en webbsida.
 * [Konfigurera tillgänglighetswebbtester](app-insights-monitor-web-app-availability.md) så att du aviseras om webbplatsen inte fungerar.
-
 

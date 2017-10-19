@@ -12,20 +12,17 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-## <a name="what-will-be-accomplished"></a>Detta kommer att utföras
 
 Den här självstudien omfattar följande steg:
 
@@ -83,7 +80,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Framework
 ### <a name="add-the-service-bus-nuget-package"></a>Lägga till Service Bus-NuGet-paketet
 
 1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
-2. Klicka på fliken **Bläddra**, sök efter **Microsoft Azure Service Bus** och markera posten **WindowsAzure.ServiceBus**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
+2. Klicka på fliken **Bläddra**, sök efter **WindowsAzure.ServiceBus** och markera posten **WindowsAzure.ServiceBus**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
    
     ![Välj ett NuGet-paket][nuget-pkg]
 
@@ -157,7 +154,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Framework
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Lägg till följande kod i metoden `Main`. Ställ in variabeln `connectionString` på den anslutningssträng du fick när du skapade namnområdet, och ställ in `topicName` på namnet du använde när du skapade ämnet.
+3. Lägg till följande kod i metoden `Main`. Ställ in variabeln `connectionString` på den anslutningssträng du fick när du skapade namnområdet, och ställ in `topicName` på namnet du använde när du skapade ämnet. Se till att du ersätter `<your subscription name>` med namnet på prenumerationen som du skapade i steg 3. 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -225,4 +222,3 @@ Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure/azure-ser
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-

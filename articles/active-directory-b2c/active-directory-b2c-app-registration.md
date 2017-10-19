@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
+ms.openlocfilehash: b49a894365dd344afb2f3cab51e7cfd28d930b1a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Registrera ditt program
 
@@ -50,6 +49,8 @@ Logga in på [Azure Portal](https://portal.azure.com/) som global administratör
 ### <a name="register-a-web-app"></a>Registrera en webbapp
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+
+### <a name="create-a-web-app-client-secret"></a>Skapa en klienthemlighet för webbappar
 
 Gör så här om webbprogrammet anropar ett webb-API som skyddas av Azure AD B2C:
    1. Skapa en programhemlighet genom att gå till bladet **Nycklar** och klicka på **Generera nyckel**. Anteckna **appnyckel**-värdet. Du använder värdet som programhemlighet i programkoden.

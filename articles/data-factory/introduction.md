@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: shlo
+ms.openlocfilehash: ef7055342a04057acfba9dad350f654aa4de6096
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09e514aee503b7cb045c81d8ddcb855ced9b072b
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,10 +57,10 @@ När data presenteras i ett centraliserat datalager i molnet kan insamlade data 
 Nu när rådata har förfinats till en form som företaget kan använda läser du in data i Azure Data Warehouse, Azure SQL DB, Azure CosmosDB eller någon annan analysmotor som företagets användare kan peka till från sina BI-verktyg.
 
 ### <a name="monitor"></a>Övervaka
-När du har skapat och distribuerat din dataintegreringspipeline och fått affärsvärde från förfinade data vill du övervaka schemalagda aktiviteter och pipelines för att se hur många som lyckats respektive misslyckats. I Azure Data Factory finns inbyggt stöd för pipelineövervakning via Azure Monitor, API, PowerShell, OMS och hälsopaneler på Azure Portal.
+När du har skapat och distribuerat din dataintegreringspipeline och fått affärsvärde från förfinade data vill du övervaka schemalagda aktiviteter och pipelines för att se hur många som lyckats respektive misslyckats. I Azure Data Factory finns inbyggt stöd för pipelineövervakning via Azure Monitor, API, PowerShell, Microsoft Operations Management Suite (OMS) och hälsopaneler på Azure Portal.
 
 ## <a name="whats-different-in-version-2"></a>Vad är nytt i version 2?
-Azure Data Factory version 2 bygger vidare på den ursprungliga dataöverförings- och omvandlingstjänsten och utökar med en bredare uppsättning molninriktade dataintegreringsscenarier. Azure Data Factory V2 har följande funktioner:
+Azure Data Factory version 2 bygger vidare på den ursprungliga dataöverförings- och omvandlingstjänsten och utökar med en bredare uppsättning molninriktade dataintegreringsscenarier. Azure Data Factory version 2 har följande funktioner:
 
 - Kontrollflöde och skala
 - Distribuera och köra SSIS-paket i Azure
@@ -98,14 +97,18 @@ Mer information finns i [självstudier: kontrollflöde](tutorial-control-flow.md
 Om du vill flytta SSIS-arbetsbelastningar kan du skapa en Data Factory version 2 och etablera en Azure-SSIS IR (Integration Runtime). Azure-SSIS IR är ett helt hanterat kluster av virtuella Azure-datorer (noder) dedikerat för att köra SSIS-paket i molnet. Stegvisa instruktioner finns i kursen [distribuera SSIS-paket till Azure](tutorial-deploy-ssis-packages-azure.md). 
  
 
-## <a name="rich-cross-platform-sdks"></a>SDK:er för flera plattformar
+### <a name="sdks"></a>SDK:er
 Om du är en avancerade användare och behöver ett programmeringsgränssnitt har version 2 en omfattande uppsättning SDK:er som du kan använda för att skapa, hantera och övervaka pipelines i din favoritutvecklingsmiljö (IDE).
 
-- .NET SDK
-- PowerShell
-- Python SDK
+- .NET SDK – .NET SDK har uppdaterats för version 2. 
+- PowerShell – PowerShell-cmdletarna har uppdaterats för version 2. Cmdletar för version 2 har **DataFactoryV2** i namnet. Till exempel: Get-AzureRmDataFactoryV2. 
+- Python SDK – Denna SDK är ny i version 2.
+- REST API – REST API har uppdaterats för version 2.  
 
-Du kan också skapa datafabriker med REST-API:er. 
+SDK:erna som har uppdaterats för version 2 är inte bakåtkompatibla med version 1-klienter. 
+
+### <a name="monitoring"></a>Övervakning
+Version 2 har för närvarande stöd för övervakning av datafabriker med hjälp av endast SDK:er. Portalen har inte stöd för övervakning av datafabriker med version 2 än. 
 
 ## <a name="load-the-data-into-a-lake"></a>Läsa in data i en sjö
 Data Factory har över 30 anslutningar som gör att du kan läsa in data från hybridmiljöer och heterogena miljöer till Azure.  Information om de senaste prestandaresultaten från interna tester och justeringsförslag finns i [Prestanda- och justeringsguide](copy-activity-performance.md). Dessutom har vi nyligen lagt till hög tillgänglighet och skalbarhet för den lokala IR (Integration Runtime) som du installerar i en privat nätverksmiljö för att uppfylla företagsanvändarnas behov av bättre tillgänglighet och skalbarhet på nivå 1.
@@ -165,4 +168,3 @@ Exempelvis kan vi anta att dina beräkningsmiljöer, som t.ex. Azure HDInsight-k
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig skapa en datafabrik med stegvisa instruktioner i följande snabbstarter: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST-API](quickstart-create-data-factory-rest-api.md) och Azure Portal. 
-

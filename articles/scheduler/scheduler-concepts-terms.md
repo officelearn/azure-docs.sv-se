@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Begrepp, terminologi och entitetshierarki relaterade till Azure Scheduler
 ## <a name="scheduler-entity-hierarchy"></a>Entitetshierarki i Scheduler
@@ -176,7 +176,7 @@ Om ett Scheduler-jobb kan du definiera en återförsöksprincip för att ange om
 
 Om du vill ange en återförsöksprincip kan du ange ytterligare två inställningar: ett återförsöksintervall (**retryInterval**) och antalet återförsök (**retryCount**).
 
-Återförsöksintervall, som anges med **retryInterval**-objektet, är intervallet mellan återförsöken. Standardvärdet är 30 sekunder. Det minsta konfigurerbara värdet är 15 sekunder och det högsta värdet är 18 månader. Jobb i kostnadsfria jobbsamlingar har ett minsta konfigurerbart värde på 1 timme.  Det definieras i ISO 8601-formatet. På liknande sätt anges värdet för antalet återförsök med objektet **retryCount**, som representerar det antal gånger som ett nytt försök görs. Standardvärdet är 4 och det högsta tillåtna värdet är 20\. Både **retryInterval** och **retryCount** är valfria. De tilldelas sina standardvärden om **retryType** har angetts till **fixed** och inga värden anges.
+Återförsöksintervall, som anges med **retryInterval**-objektet, är intervallet mellan återförsöken. Standardvärdet är 30 sekunder. Det minsta konfigurerbara värdet är 15 sekunder och det högsta värdet är 18 månader. Jobb i kostnadsfria jobbsamlingar har ett minsta konfigurerbart värde på 1 timme.  Det definieras i ISO 8601-formatet. På liknande sätt anges värdet för antalet återförsök med objektet **retryCount**, som representerar det antal gånger som ett nytt försök görs. Standardvärdet är 4 och maxvärdet är 20\. Både **retryInterval** och **retryCount** är valfria. De tilldelas sina standardvärden om **retryType** har angetts till **fixed** och inga värden anges.
 
 ## <a name="see-also"></a>Se även
  [Vad är Scheduler?](scheduler-intro.md)
@@ -196,10 +196,4 @@ Om du vill ange en återförsöksprincip kan du ange ytterligare två inställni
  [Gränser, standardinställningar och felkoder i Azure Scheduler](scheduler-limits-defaults-errors.md)
 
  [Utgående autentisering i Azure Scheduler](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

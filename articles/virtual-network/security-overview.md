@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
+ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-security"></a>Nätverkssäkerhet
 
@@ -59,8 +58,8 @@ En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler 
 
 **Överväganden**
 
-- **Värdnodens virtuella IP-adress**: Grundläggande infrastrukturtjänster som DHCP, DNS och hälsoövervakning tillhandahålls via de virtualiserade värd-IP-adresserna 168.63.129.16 och 169.254.169.254. De här offentliga IP-adresserna tillhör Microsoft och kommer att vara de enda virtualiserade IP-adresserna som används i alla regioner för det här ändamålet. De här IP-adresserna mappar till den fysiska IP-adressen för serverdatorn (värdnoden) som är värd för den virtuella datorn. Värdnoden agerar som ett DHCP-relä, rekursiv DNS-matchare och avsökningskälla för belastningsutjämnaren, hälsoavsökningen och datorhälsoavsökningen. Kommunikation till de här IP-adresserna är inte ett angrepp. Om du blockerar trafik till eller från dessa IP-adresser kanske den virtuella datorn inte fungerar korrekt.
-- **Licensiering (nyckelhanteringstjänst)**: Windows-avbildningar som körs på virtuella datorer måste vara licensierade. Licensieringen kontrolleras genom att en begäran skickas till nyckelhanteringstjänstens värdservrar som hanterar sådana frågor. Begäran är en utgående begäran via port 1688.
+- **Värdnodens virtuella IP-adress**: Grundläggande infrastrukturtjänster som DHCP, DNS och hälsoövervakning tillhandahålls via de virtualiserade värd-IP-adresserna 168.63.129.16 och 169.254.169.254. De här offentliga IP-adresserna tillhör Microsoft och kommer att vara de enda virtualiserade IP-adresserna som används i alla regioner för det här ändamålet. Den här adressen mappar till den fysiska adressen för serverdatorn (värdnoden) som är värd för den virtuella datorn. Värdnoden agerar som ett DHCP-relä, rekursiv DNS-matchare och avsökningskälla för belastningsutjämnaren, hälsoavsökningen och datorhälsoavsökningen. Kommunikation till de här IP-adresserna är inte ett angrepp. Om du blockerar trafik till eller från dessa IP-adresser kanske den virtuella datorn inte fungerar korrekt.
+- **Licensiering (nyckelhanteringstjänsten):** Windows-avbildningar som kör på de virtuella datorerna ska vara licensierade. Licensieringen kontrolleras genom att en begäran skickas till nyckelhanteringstjänstens värdservrar som hanterar sådana frågor. Begäran är en utgående begäran via port 1688.
 - **Virtuella datorer i belastningsutjämnade pooler**: Källporten och adressintervallet som används kommer från den ursprungliga datorn, inte belastningsutjämnaren. Målporten och måladressutrymmet kommer från måldatorn, inte belastningsutjämnaren.
 - **Azure-tjänstinstanser**: Instanser av flera Azure-tjänster, till exempel HDInsight, tillämpningstjänstmiljöer och VM-skalningsuppsättningar distribueras i undernät för virtuella nätverk. Ta reda på portkraven för varje tjänst innan du tillämpar en nätverkssäkerhetsgrupp för det undernät som resursen är distribuerad i. Om du nekar åtkomst till portar som krävs för tjänsten kommer tjänsten inte att fungera korrekt. 
 
@@ -126,7 +125,7 @@ Du kan inte ta bort standardreglerna, men du kan åsidosätta dem genom att skap
 
 * **VirtualNetwork** (*Resource Manager) (**VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adressutrymmet för det virtuella nätverket (alla CIDR-intervall som har definierats för det virtuella nätverket), alla anslutna lokala adressutrymmen och [peer-kopplade](virtual-network-peering-overview.md) virtuella nätverk eller virtuella nätverk som anslutits till en [virtuell nätverksgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger belastningsutjämnaren för Azures infrastruktur. Taggen översätts till en [IP-adress för Azure-datacentret](https://www.microsoft.com/download/details.aspx?id=41653) som Azures hälsoavsökning kommer från. Du kan åsidosätta den här regeln om du inte använder Azures belastningsutjämnare.
-* **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen anger Azures offentliga IP-adressutrymme. Adresserna som omfattas av den här taggen finns i dokumentet om [offentligt IP-adressutrymme som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653) dokument (uppdateras regelbundet).
+* **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen anger IP-adressutrymmet som är utanför det virtuella nätverket och som kan nås av det offentliga Internet. Adressintervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureTrafficManager** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för tjänsten Azure Traffic Manager.
 * **Storage** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för tjänsten Azure Storage. Om du anger *Storage* som värde tillåts eller nekas trafik till lagringen. Om du bara vill tillåta åtkomst till lagring i en viss [region](https://azure.microsoft.com/regions) anger du regionen. Om du till exempel bara vill tillåta åtkomst till Azure Storage i regionen östra USA kan du ange *Storage.EastUS* som tjänsttagg. Ytterligare regionala tjänsttaggar som är tillgängliga: Storage.AustraliaEast, Storage.AustraliaSoutheast, Storage.EastUS, Storage.UKSouth, Storage.WestCentralUS, Storage.WestUS och Storage.WestUS2. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto.
 * **SQL** (endast Resource Manager): Den här taggen anger adressprefix för tjänsterna Azure SQL Database och Azure SQL Data Warehouse. Du kan bara ange vissa regioner för den här tjänsttaggen. Om du till exempel vill tillåta åtkomst endast till Azure SQL Database i regionen östra USA anger du *Sql.EastUS* som tjänsttagg. Du kan inte ange endast Sql för alla Azure-regioner. Du måste ange regioner var för sig. Andra tillgängliga regionala tjänsttaggar är: Sql.AustraliaEast, Sql.AustraliaSoutheast, Sql.EastUS, Sql.UKSouth, Sql.WestCentralUS, Sql.WestUS och Sql.WestUS2. Taggen representerar tjänsten, men inte specifika instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik Azure SQL-databas.
@@ -152,7 +151,7 @@ Om du skapar andra regler, anger andra programsäkerhetsgrupper som mål, tillä
  
 Mer information om begränsningar när du skapar programsäkerhetsgrupper och hur du anger dem finns i avsnittet om [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Programsäkerhetsgrupper är tillgängliga som förhandsversion. Innan du kan använda nätverkssäkerhetsgrupper måste du registrera dig för att använda dem genom att slutföra steg 1 till 5 i [Skapa en nätverkssäkerhetsgrupp med programsäkerhetsgrupper](create-network-security-group-preview.md#powershell) och du bör också läsa viktig information i [Förhandsfunktioner](#preview-features). I förhandsversionen är programsäkerhetsgrupper begränsade till det virtuella nätverkets omfång. Virtuella nätverk som är peer-kopplade med korsreferenser till programsäkerhetsgrupper i en nätverkssäkerhetsgrupp tillämpas inte. 
+Programsäkerhetsgrupper är tillgängliga som förhandsversion. Innan du kan använda programsäkerhetsgrupper måste du registrera dig för att använda dem genom att slutföra steg 1 till 5 i [Skapa en nätverkssäkerhetsgrupp med programsäkerhetsgrupper](create-network-security-group-preview.md#powershell) och du bör också läsa viktig information i [Förhandsfunktioner](#preview-features). I förhandsversionen är programsäkerhetsgrupper begränsade till det virtuella nätverkets omfång. Virtuella nätverk som är peer-kopplade med korsreferenser till programsäkerhetsgrupper i en nätverkssäkerhetsgrupp tillämpas inte. 
 
 Funktioner i förhandsversionen har inte samma grad av tillgänglighet och tillförlitlighet som funktioner i en allmän version. Innan du kan använda programsäkerhetsgrupper måste du registrera dig för att använda dem. Funktionerna är endast tillgängliga i följande regioner: västra centrala USA.
 
@@ -160,4 +159,3 @@ Funktioner i förhandsversionen har inte samma grad av tillgänglighet och tillf
 
 * Slutför självstudiekursen [Skapa en nätverkssäkerhetsgrupp](virtual-networks-create-nsg-arm-pportal.md)
 * Slutför självstudiekursen [Skapa en nätverkssäkerhetsgrupp med programsäkerhetsgrupper](create-network-security-group-preview.md)
-

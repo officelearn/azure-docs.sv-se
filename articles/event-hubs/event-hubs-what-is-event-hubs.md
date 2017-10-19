@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 10/05/2017
 ms.author: sethm; babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-event-hubs"></a>Vad är Event Hubs?
 
-Azure Event Hubs är en mycket skalbar dataströmningsplattform och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. Event Hubs har [funktioner för att publicera och prenumerera](https://msdn.microsoft.com/library/aa560414.aspx) med kort svarstid och i massiv skala och tjänar därmed som inkörsvägen för stordata.
+Azure Event Hubs är en mycket skalbar dataströmningsplattform och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. Event Hubs har [funktioner för att publicera och prenumerera](/biztalk/core/publish-and-subscribe-architecture) med kort svarstid och i massiv skala och tjänar därmed som inkörsvägen för stordata.
 
 ## <a name="why-use-event-hubs"></a>Varför ska jag använda Event Hubs?
 
@@ -68,5 +67,4 @@ Besök följande länkar för mer utförlig information om Event Hubs:
 * [Exempelprogram som använder Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
-
 

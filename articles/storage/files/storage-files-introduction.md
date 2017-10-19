@@ -12,23 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: renash
+ms.openlocfilehash: 81de67334f66a61582bb2c5d5a2303cf3a1a086c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5a4a26957c115277e7558c210560777af63d2d0f
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-files"></a>Introduktion till Azure Files
 Azure Files erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) som är branschstandard (kallas även Common Internet File System eller CIFS). Azure-filresurser kan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS. Azure-filresurser kan dessutom cachelagras på Windows-servrar med Azure File Sync (förhandsversion) för snabb åtkomst nära den plats där data används.
 
 ## <a name="videos"></a>Videoklipp
-| Introduktion till Azure Files (27 m) | Självstudiekurs för Azure Files (5 m)  |
+| Introduktion till Azure File Sync (2 m) | Azure Files med Sync (Ignite 2017) (85 m)  |
 |-|-|
-| [![Skärmbild av videon Introduktion till Azure Files – klicka för att spela upp!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Skärmbild av självstudiekursen för Azure Files – klicka för att spela upp!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Skärmbild av videon Introduktion till Azure File Sync – klicka för att spela upp!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Skärmbild av Azure Files med Sync-presentationen – klicka för att spela upp!](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
 
 ## <a name="why-azure-files-is-useful"></a>Varför Azure Files är användbart
 Azure-filresurser kan användas för att:

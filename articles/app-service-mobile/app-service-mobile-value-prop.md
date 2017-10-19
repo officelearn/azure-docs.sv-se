@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>Om Mobile Apps i Azure App Service
 Azure App Service är ett helt hanterat [PaaS](https://azure.microsoft.com/overview/what-is-paas/)-erbjudande (plattform som en tjänst) för professionella utvecklare. Tjänsten ger en omfattande uppsättning funktioner för webb-, mobil- och integrationsscenarier. 
@@ -68,7 +67,7 @@ Följande plattformsfunktioner är användbara i produktionsmiljöer för mobila
 
 * **Kontinuerlig distribution**: App Service kan integreras med vanliga SCM-system, så att du kan distribuera en ny version av en serverdel automatiskt genom att skicka ut den till en gren i SCM-systemet.
 
-  Läs mer om [distributionsalternativ].
+  Läs mer om [distributionsalternativ](../app-service/app-service-deploy-local-git.md).
 
 * **Virtuella nätverk**: App Service kan ansluta till lokala resurser genom virtuella nätverk, Azure ExpressRoute eller hybridanslutningar.
 
@@ -87,7 +86,6 @@ Mer information om Azure App Service-plattformen finns på [Azure App Service].
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [självstudiekursen]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
@@ -100,12 +98,10 @@ Mer information om Azure App Service-plattformen finns på [Azure App Service].
 [Xamarin.iOS och Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[automatisk skalning]: ../app-service-web/web-sites-scale.md
-[mellanlagringsmiljöer]: ../app-service-web/web-sites-staged-publishing.md
-[distributionsalternativ]: ../app-service-web/web-sites-deploy.md
+[automatisk skalning]: ../app-service/web-sites-scale.md
+[mellanlagringsmiljöer]: ../app-service/web-sites-staged-publishing.md
 [hybridanslutningar]: ../biztalk-services/integration-hybrid-connection-overview.md
-[virtuella nätverk]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[App Service-miljöer]: ../app-service-web/app-service-app-service-environment-intro.md
+[virtuella nätverk]: ../app-service/web-sites-integrate-with-vnet.md
+[ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[App Service-miljöer]: ../app-service/environment/intro.md
 [utbildningsväg]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-

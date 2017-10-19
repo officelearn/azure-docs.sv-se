@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 70812790348bbf525c7ed6299c656f7dd8e83dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-4-create-relationships"></a>Lektion 4: Skapa relationer
 
@@ -34,7 +33,10 @@ Uppskattad tidsåtgång för den här lektionen: **10 minuter**
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna i den här lektionen måste du ha slutfört föregående lektion: [Lektion 3: Markera som datumtabell](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Granska befintliga relationer och lägga till nya relationer  
-När du importerade data med Hämta data fick du sju tabeller från databasen AdventureWorksDW2014. Vanligtvis när du importerar data från en relationell källa importeras befintliga relationer automatiskt tillsammans med data. Men innan du börjar redigera din modell bör du kontrollera att relationerna mellan tabellerna har skapats på korrekt sätt. I den här självstudiekursen lägger du till tre nya relationer.  
+När du importerade data med Hämta data fick du sju tabeller från databasen AdventureWorksDW2014. Vanligtvis när du importerar data från en relationell källa importeras befintliga relationer automatiskt tillsammans med data. För att Hämta data automatiskt ska kunna skapa relationer i datamodellen måste det finnas relationer mellan tabeller och i datakällan.
+
+Innan du börjar redigera din modell bör du kontrollera att relationerna mellan tabellerna har skapats på korrekt sätt. I den här självstudiekursen lägger du även till tre nya relationer.  
+
   
 #### <a name="to-review-existing-relationships"></a>Granska befintliga relationer  
   
@@ -44,7 +46,10 @@ När du importerade data med Hämta data fick du sju tabeller från databasen Ad
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    Inkludera så många av tabellerna som möjligt med hjälp av miniatyröversiktskontrollerna längst ner till höger i modelldesignern. Du kan också klicka på och dra tabeller till olika platser, dra dem närmare varandra eller placera dem i en viss ordning. Relationerna som redan finns mellan tabellerna påverkas inte av att du flyttar tabellerna. Om du vill visa alla kolumner i en viss tabell klickar du på och drar i tabellens kant för att göra den större eller mindre.  
+    > [!NOTE]
+    > Om du inte ser några relationer mellan tabeller betyder det troligen att det inte finns några relationer mellan de tabellerna i datakällan.
+
+    Inkludera så många av tabellerna som möjligt med hjälp av miniatyröversiktskontrollerna längst ner till höger i modelldesignern. Du kan också klicka på och dra tabeller till olika platser, dra dem närmare varandra eller placera dem i en viss ordning. Relationerna som finns mellan tabellerna påverkas inte av att du flyttar tabellerna. Om du vill visa alla kolumner i en viss tabell klickar du på och drar i tabellens kant för att göra den större eller mindre.  
   
 2.  Klicka på den heldragna linjen mellan tabellen **DimCustomer** och tabellen **DimGeography**. En heldragen linje mellan de två tabellerna visar att relationen är aktiv, det vill säga att den används som standard vid beräkning av DAX-formler.  
   
@@ -63,7 +68,7 @@ När du importerade data med Hämta data fick du sju tabeller från databasen Ad
     |Ja|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Ja|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    Om någon av relationerna saknas kontrollerar du att modellen innehåller följande tabeller: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory och FactInternetSales. Om tabeller från samma datakällsanslutning importeras vid olika tidpunkter skapas inte relationer mellan dessa tabeller. I så fall måste du skapa dem manuellt.  
+    Om någon av relationerna saknas kontrollerar du att modellen innehåller följande tabeller: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory och FactInternetSales. Om tabeller från samma datakällsanslutning importeras vid olika tidpunkter skapas inte relationer mellan dessa tabeller. I så fall måste du skapa dem manuellt. Om inga relationer visas betyder det att det inte finns några relationer i datakällan. Du kan skapa dem manuellt i datakällan.
 
 ### <a name="take-a-closer-look"></a>Ta en närmare titt
 Observera att det finns en pil, en asterisk och ett nummer på de linjer som visar relationen mellan tabeller i diagramvyn.
@@ -102,4 +107,3 @@ I vissa fall kan du behöva skapa ytterligare relationer mellan tabeller i model
   
   
   
-

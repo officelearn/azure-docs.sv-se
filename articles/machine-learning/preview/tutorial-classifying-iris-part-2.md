@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
+ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f1f270b95a60e847ce7d29c2d7d60c57891924cc
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="classifying-iris-part-2-build-a-model"></a>Klassificera Iris del 2: skapa en modell
 Azure Machine Learning (förhandsversion) är en integrerad, avancerad lösning för datavetenskap och analys, som datatekniker kan använda till att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
@@ -38,6 +36,10 @@ I den här självstudien gör vi det enkelt för oss och använder den tidlösa 
 
 ## <a name="prerequisites"></a>Krav
 Du bör först gå igenom del ett i den här självstudieserien. Gå igenom [självstudien Förbered data](tutorial-classifying-iris-part-1.md), där du får skapa Azure Machine Learning-resurser och installera Azure Machine Learning Workbench, innan du börjar med stegen i den här självstudien.
+
+Du kan också experimentera med skript som körs med en lokal Docker-behållare. Om du vill göra det behöver du ha en installerad och startad Docker-motor (Community Edition räcker) lokalt på din Windows- eller macOS-dator. Läs mer om [Docker-installationsanvisningar](https://docs.docker.com/engine/installation/).
+
+Om du vill experimentera med att skicka skript som ska köras i en Docker-behållare på en fjärransluten virtuell dator i Azure eller ett HDInsight Spark-kluster kan du följa [instruktionerna för att skapa en Ubuntu-baserad Azure Data Science Virtual Machine eller ett HDI-kluster](how-to-create-dsvm-hdi.md).
 
 ## <a name="review-irissklearnpy-and-configuration-files"></a>Granska iris_sklearn.py och konfigurationsfilerna
 1. Starta **Azure Machine Learning Workbench** och öppna projektet **myIris** som du skapade i den förra delen av självstudieserien.
@@ -102,7 +104,7 @@ Nu ska vi förbereda oss för att köra skriptet **iris_sklearn.py** för först
 
 8. Klicka på ordet **Slutfört** i jobbstatustexten på panelen Jobb. Ett popup-fönster öppnas med standardutdata (stdout) från skriptkörningen. Om du vill stänga stdout-texten klickar du på **X**-knappen längst upp till höger i popup-fönstret.
 
-9. I samma jobbstatus i panelen Jobb klickar du på den blå texten **iris_sklearn.py [1]** precis ovanför statusen **Slutförd** och starttiden. Sidan **Körningsegenskaper** öppnas och visar informationen om körningen, **utdatafiler**, eventuella **visualiseringar** och **loggar** från körningen. 
+9. I samma jobbstatus i panelen Jobb klickar du på den blå texten **iris_sklearn.py [1]** (_n_ är körningsnumret) precis ovanför statusen **Slutförd** och starttiden. Sidan **Körningsegenskaper** öppnas och visar informationen om körningen, **utdatafiler**, eventuella **visualiseringar** och **loggar** från körningen. 
 
    När körningen har slutförts visas följande resultat i popup-fönstret:
 
@@ -367,4 +369,3 @@ Du är nu redo att gå vidare till den tredje delen i serien. Nu när vi har ska
 
 > [!div class="nextstepaction"]
 > [Distribuera en modell](tutorial-classifying-iris-part-3.md)
-

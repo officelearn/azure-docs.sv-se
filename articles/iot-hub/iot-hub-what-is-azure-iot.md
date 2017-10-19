@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/15/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e95d02e706b87eaa355951a34bbaa3abf2ac2370
-ms.contentlocale: sv-se
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 417ca4b6ecc39cbdafd8e12b5360b370d0ce79fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
@@ -33,9 +31,9 @@ Azure IoT Hub är en Azure-tjänst som möjliggör säker och tillförlitlig dub
 * Ta emot filöverföringar från enheter.
 * Skicka meddelanden från moln till enhet för specifika enheter.
 
-Du kan använda IoT Hub för att implementera din egen backend-lösning. IoT Hub tillhandahåller även ett identitetsregister som används för att etablera enheter och deras säkerhetsreferenser, samt deras behörigheter för anslutning till IoT-hubben. Läs mer om IoT Hub i [Vad är IoT Hub?][lnk-iot-hub].
+Du kan använda IoT Hub för att implementera din egen backend-lösning. IoT Hub tillhandahåller även ett identitetsregister som används för att etablera enheter och deras säkerhetsreferenser, samt deras behörigheter för anslutning till IoT-hubben. Läs mer om IoT Hub i [Vad är IoT Hub][lnk-iot-hub].
 
-Information om hur Azure IoT Hub tillhandahåller standardbaserad enhetshantering som hjälper dig att hantera, konfigurera och uppdatera dina enheter finns i [Översikt över enhetshantering med IoT Hub][lnk-device-management].
+Information om hur Azure IoT Hub tillhandahåller standardbaserad enhetshantering som hjälper dig att hantera enheter finns i [Översikt över enhetshantering med IoT Hub][lnk-device-management].
 
 Om du vill implementera klientprogram på många olika enhetsspecifika maskinvaruplattformar och operativsystem kan du använda enhets-SDK:er för Azure IoT. Enhets-SDK:erna innehåller bibliotek som gör det lätt att skicka telemetri till en IoT-hubb och att ta emot meddelanden från molnet till enheten. När du använder enhets-SDK:erna kan du välja mellan olika nätverksprotokoll för att kommunicera med IoT Hub. Mer information finns i [informationen om enhets-SDK:er][lnk-device-sdks].
 
@@ -49,4 +47,3 @@ Du kanske också är intresserad av [Azure IoT Suite][lnk-iot-suite], som är en
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
-

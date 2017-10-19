@@ -13,15 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/11/2017
+ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 120810b2b112649e21ec4bfe0c0f58b1fe3d80ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 699ec578832e894b5bfc0cfad35528eac377c4ff
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -68,9 +67,7 @@ Om du inte är säker på vilken Azure Backup-komponent som passar dina behov ka
 | Säkerhetskopiering av virtuella IaaS-datorer i Azure |<p>**Ja**</p><p>En del av Azure-infrastrukturen</p><p>Specialiserad för [säkerhetskopiering av virtuella Iaas-datorer (Infrastructure as a Service) i Azure](backup-azure-vms-introduction.md).</p> |<p>**Nej**</p> <p>Använd System Center DPM för att säkerhetskopiera virtuella datorer i datacentret.</p> |<p>Recovery Services-valv</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Vilka program och arbetsbelastningar kan säkerhetskopieras?
-Följande tabell innehåller en matris med data och arbetsbelastningar som kan skyddas med Azure Backup. I kolumnen med Azure Backup-lösningar finns länkar till dokumentationen för lösningen. Varje komponent i Azure Backup kan distribueras i en klassisk (Service Manager-distribuering) eller Resource Manager-modellmiljö för distribuering.
-
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+Följande tabell innehåller en matris med data och arbetsbelastningar som kan skyddas med Azure Backup. I kolumnen med Azure Backup-lösningar finns länkar till dokumentationen för lösningen. 
 
 | Data eller arbetsbelastning | Källmiljö | Azure Backup-lösning |
 | --- | --- | --- |
@@ -93,7 +90,7 @@ I följande tabell visas de Azure Backup-komponenter som har stöd för Linux.
 | Azure Backup-agent (MARS) |Nej (endast Windows-baserad agent) |
 | System Center DPM |<li> Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> <li> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare </br> </br>  *Filkonsekvent säkerhetskopiering är inte tillgängligt för Azure VM* <br/> |
 | Azure Backup Server |<li>Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/> <li> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare </br></br> *Filkonsekvent säkerhetskopiering är inte tillgängligt för Azure VM*  |
-| Säkerhetskopiering av virtuella IaaS-datorer i Azure |Programkonsekvent säkerhetskopiering med [ramverk för förskript och efterskript](backup-azure-linux-app-consistent.md)<br/> [Detaljerad filåterställning](backup-azure-restore-files-from-vm.md)<br/> [Återställ alla diskar på virtuella datorer](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Återställning av virtuella datorer](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
+| Säkerhetskopiering av virtuella IaaS-datorer i Azure |Programkonsekvent säkerhetskopiering med [ramverk för förskript och efterskript](backup-azure-linux-app-consistent.md)<br/> [Detaljerad filåterställning](backup-azure-restore-files-from-vm.md)<br/> [Återställ alla diskar på virtuella datorer](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Återställning av virtuella datorer](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Använd virtuella Premium Storage-datorer med Azure Backup
 Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium-lagring finns i artikeln [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../storage/common/storage-premium-storage.md).
@@ -224,13 +221,12 @@ Några vanliga exempel på skyddade instanser är virtuella datorer, programserv
 ## <a name="what-is-a-recovery-services-vault"></a>Vad är ett Recovery Services-valv?
 Ett Recovery Services-valv är en onlinelagringsentitet i Azure som används för att lagra data, som säkerhetskopior, återställningspunkter och principer för säkerhetskopiering. Du kan använda Recovery Services-valv till att lagra säkerhetskopierade data för Azure-tjänster, lokala servrar och arbetsstationer. Med Recovery Services-valv är det enkelt att organisera dina säkerhetskopierade data samtidigt som du minimerar hanteringskostnaden. Du kan skapa hur många Recovery Services-valv du vill inom en prenumeration.
 
-Säkerhetskopieringsvalv, som baseras på Azure Service Manager, var den första valvversionen. Recovery Services-valv, som lägger till funktioner från Azure Resource Manager-modellen, är den andra versionen. I artikeln [Recovery Services vault overview](backup-azure-recovery-services-vault-overview.md) (Översikt över Recovery Services-valv) ges en fullständig beskrivning av funktionsskillnaderna. Du kan inte längre använda portalen för att skapa säkerhetskopieringsvalv, men säkerhetskopieringsvalv kan fortfarande användas.
+Säkerhetskopieringsvalv, som baseras på Azure Service Manager, var den första valvversionen. Recovery Services-valv, som lägger till funktioner från Azure Resource Manager-modellen, är den andra versionen. I artikeln [Recovery Services vault overview](backup-azure-recovery-services-vault-overview.md) (Översikt över Recovery Services-valv) ges en fullständig beskrivning av funktionsskillnaderna. Du kan inte längre använda portalen för att skapa säkerhetskopieringsvalv, men säkerhetskopieringsvalv kan fortfarande användas. Du måste använda Azure Portal för att hantera dina säkerhetskopieringsvalv.
 
 > [!IMPORTANT]
-> Nu kan du uppgradera dina säkerhetskopieringsvalv till Recovery Services-valv. Mer information finns i artikeln [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Uppgradera ett säkerhetskopieringsvalv till ett Recovery Services-valv). Microsoft rekommenderar att du uppgraderar dina säkerhetskopieringsvalv till Recovery Services-valv.<br/> **Den 15 oktober 2017** kan du inte längre använda PowerShell för att skapa säkerhetskopieringsvalv. <br/> **Från den 1 november 2017**:
->- Alla återstående säkerhetskopieringsvalv uppgraderas automatiskt till Recovery Services-valv.
->- Du kan inte längre komma åt dina säkerhetskopierade data i den klassiska portalen. Använd i stället Azure Portal till att få åtkomst till dina säkerhetskopierade data i Recovery Services-valv.
->
+> Nu kan du uppgradera dina säkerhetskopieringsvalv till Recovery Services-valv. Mer information finns i artikeln [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Uppgradera ett säkerhetskopieringsvalv till ett Recovery Services-valv). Microsoft rekommenderar att du uppgraderar dina säkerhetskopieringsvalv till Recovery Services-valv.<br/> Efter **den 15 oktober 2017** kan du inte längre använda PowerShell för att skapa säkerhetskopieringsvalv. <br/> Från den **1 november 2017** uppgraderas alla återstående säkerhetskopieringsvalv automatiskt till Recovery Services-valv.
+
+
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Vad är skillnaden mellan Azure Backup och Azure Site Recovery?
 Azure Backup och Azure Site Recovery är relaterade eftersom båda tjänsterna säkerhetskopierar och återställer data. Dessa tjänster tjänar dock olika syften när det gäller att tillhandahålla affärskontinuitet och haveriberedskap i organisationen. Använd Azure Backup om du vill skydda och återställa data på en mer detaljerad nivå. Om till exempel en presentation på en bärbar dator skadas, använder du Azure Backup för att återställa presentationen. Om du vill replikera konfigurationen och data på en virtuell dator på ett annat datacenter använder du Azure Site Recovery.
@@ -260,4 +256,3 @@ Mer information om att skydda andra arbetsbelastningar finns i någon av följan
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-

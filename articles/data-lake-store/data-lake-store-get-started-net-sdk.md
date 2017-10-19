@@ -1,6 +1,6 @@
 ---
-title: "Använda .NET SDK för att utveckla program i Azure Data Lake Store | Microsoft Docs"
-description: "Använda Azure Data Lake Store .NET SDK för att skapa ett Data Lake Store-konto och utföra grundläggande åtgärder i Data Lake Store"
+title: ".NET SDK: Kontohanteringsåtgärder i Azure Data Lake Store | Microsoft Docs"
+description: "Använd Azure Data Lake Store .NET SDK för att utföra kontohanteringsåtgärder i Data Lake Store"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,38 +12,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 09/28/2017
 ms.author: nitinme
+ms.openlocfilehash: 861f6b54130f9954c5e565346afd9a8f8e034b3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 70f94a07b0102e3135eaf85e5877e3502762d7e3
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-azure-data-lake-store-using-net-sdk"></a>Kom igång med Azure Data Lake Store med hjälp av .NET SDK
+# <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Kontohanteringsåtgärder i Azure Data Lake Store med .NET SDK
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST-API](data-lake-store-get-started-rest-api.md)
-> * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet) för att utföra grundläggande åtgärder som att skapa mappar, ladda upp och hämta datafiler, osv. Mer information om Data Lake finns i [Azure Data Lake Store](data-lake-store-overview.md).
+I den här artikeln får du lära dig att utföra kontohanteringsåtgärder i Data Lake Store med .NET SDK. Kontohanteringsåtgärder omfattar att skapa ett Data Lake Store-konto, ange kontona i en Azure-prenumeration, ta bort konton osv.
+
+Anvisningar för att utföra datahanteringsåtgärder i Data Lake Store med .NET SDK finns i [Filsystemsåtgärder i Data Lake Store med .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Krav
-* **Visual Studio 2013, 2015 eller 2017**. Anvisningarna nedan använder Visual Studio 2015 Update 2.
+* **Visual Studio 2013, 2015 eller 2017**. Anvisningarna nedan använder Visual Studio 2017.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-* **Azure Data Lake Store-konto**. Mer information om hur du skapar ett konto finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
-
-* **Skapa ett program i Azure Active Directory**. Du kan använda Azure AD-program för att autentisera Data Lake Store-program med Azure AD. Det finns olika sätt att autentisera med Azure AD: **slutanvändarens autentisering** eller **serviceautentisering**. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
 1. Öppna Visual Studio och skapa ett konsolprogram.
@@ -56,17 +48,17 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://docs.micro
    | Mall |Konsolprogram |
    | Namn |CreateADLApplication |
 4. Klicka på **OK** för att skapa projektet.
-5. Lägg till Nuget-paketen i projektet.
+5. Lägg till NuGet-paketen i projektet.
 
    1. Högerklicka på projektnamnet i Solution Explorer och klicka på **Hantera NuGet-paket**.
-   2. I fliken **Nuget Package Manager** ser du till att **Paketkällan** har angetts som **nuget.org** och att kryssrutan **Inkludera förhandsversion** är markerad.
+   2. På fliken **NuGet Package Manager** ser du till att **Paketkälla** har angetts som **nuget.org** och att kryssrutan **Inkludera förhandsversion** är markerad.
    3. Sök efter och installera följande NuGet-paket:
 
       * `Microsoft.Azure.Management.DataLake.Store` – I den här självstudiekursen används v2.1.3-förhandsversionen.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` –I den här självstudiekursen används v2.2.12.
 
-        ![Lägg till en Nuget-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake-konto")
-   4. Stäng **Nuget Package Manager**.
+        ![Lägg till en NuGet-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake-konto")
+   4. Stäng **NuGet Package Manager**.
 6. Öppna **Program.cs**, ta bort den befintliga koden och lägg sedan till följande instruktioner för att lägga till referenser till namnområden.
 
         using System;
@@ -79,15 +71,14 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://docs.micro
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest.Azure.Authentication;
 
-7. Deklarera variablerna enligt nedan och ange värden för Data Lake Store-namnet och resursgruppens namn som redan finns. Kontrollera också att den lokala sökvägen och filnamnet som du anger här finns på datorn. Lägg till följande kodfragment efter namnområdesdeklarationerna.
+7. Deklarera variablerna och ange värden för platshållare. Kontrollera också att den lokala sökvägen och filnamnet som du anger finns på datorn.
 
         namespace SdkSample
         {
             class Program
             {
                 private static DataLakeStoreAccountManagementClient _adlsClient;
-                private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-
+                
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
@@ -95,15 +86,10 @@ Lär dig mer om att använda [Azure Data Lake Store .NET SDK](https://docs.micro
 
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
-                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
+                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; 
+                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
                     _location = "East US 2";
-                    _subId = "<SUBSCRIPTION-ID>";
-
-                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = Path.Combine(localFolderPath, "file.txt"); // TODO: Make sure this exists and can be overwritten.
-                    string remoteFolderPath = "/data_lake_path/";
-                    string remoteFilePath = Path.Combine(remoteFolderPath, "file.txt");
+                    _subId = "<SUBSCRIPTION-ID>";                    
                 }
             }
         }
@@ -112,67 +98,30 @@ I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga
 
 ## <a name="authentication"></a>Autentisering
 
-### <a name="if-you-are-using-end-user-authentication-recommended-for-this-tutorial"></a>Om du använder autentisering för slutanvändare (rekommenderas för den här kursen)
-
-Använd detta med ett befintligt internt Azure AD-program för att autentisera programmet **interaktivt**, vilket innebär att du blir ombedd att ange dina autentiseringsuppgifter för Azure.
-
-För att underlätta användningen använder kodavsnittet nedan de standardvärden för klient-ID och omdirigerings-URI som fungerar med alla Azure-prenumerationen. Om du vill få hjälp att slutföra den här kursen snabbare, rekommenderar vi att du använder den här metoden. I kodavsnittet nedan anger du bara värdet för ditt klient-ID. Du kan hämta den med hjälp av anvisningarna i [Create an Active Directory Application](data-lake-store-end-user-authenticate-using-active-directory.md) (Skapa ett Active Directory-program).
-
-    // User login via interactive popup
-    // Use the client ID of an existing AAD Web application.
-    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    var tenant_id = "<AAD_tenant_id>"; // Replace this string with the user's Azure Active Directory tenant ID
-    var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
-    var creds = UserTokenProvider.LoginWithPromptAsync(tenant_id, activeDirectoryClientSettings).Result;
-
-Några saker som du bör känna till om kodfragmentet:
-
-* För att hjälpa dig att slutföra kursen snabbare använder utdraget en Azure AD-domän och ett klient-ID som är tillgängligt som standard för alla Azure-prenumerationer. Så kan du **använder detta utdrag i befintligt skick i ditt program**.
-* Men om du vill använda en egen Azure AD-domän och ett eget programklient-ID måste du skapa ett eget Azure AD-program och sedan använda Azure AD-domänens ID, klient-ID och omdirigerings-URI för det program som du skapade. Se [Create an Active Directory Application for end-user authentication with Data Lake Store](data-lake-store-end-user-authenticate-using-active-directory.md) (Skapa ett Active Directory-program för slutanvändarautentisering med Data Lake Store) för anvisningar.
-
-### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Om du använder serviceautentisering med klienthemlighet
-Följande kodavsnitt kan användas för att autentisera ditt program **icke-interaktivt** med hjälp av klienthemlighet/-nyckeln för ett program-/tjänsthuvudnamn. Använd det här med ett befintligt Azure AD-program av typen webbapp. Anvisningar för att skapa Azure AD-webbappen och hur hämta klient-ID:t och klienthemligheten som krävs i kodavsnittet nedan finns i [Create an Active Directory Application for service-to-service authentication with Data Lake Store](data-lake-store-authenticate-using-active-directory.md) (Skapa ett Active Directory-program för autentisering mellan tjänster med Data Lake Store).
-
-    // Service principal / appplication authentication with client secret / key
-    // Use the client ID of an existing AAD "Web App" application.
-    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-
-    var domain = "<AAD-directory-domain>";
-    var webApp_clientId = "<AAD-application-clientid>";
-    var clientSecret = "<AAD-application-client-secret>";
-    var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
-    var creds = await ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential);
-
-### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Om du använder serviceautentisering med certifikat
-
-Ett tredje alternativ är att använda följande kodavsnitt för att autentisera ditt program **icke-interaktivt**, med hjälp av certifikatet för ett huvudnamn till Azure Active Directory-program eller -tjänst. Använd det här med ett befintligt [Azure AD-program med certifikat](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-
-    // Service principal / application authentication with certificate
-    // Use the client ID and certificate of an existing AAD "Web App" application.
-    SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-
-    var domain = "<AAD-directory-domain>";
-    var webApp_clientId = "<AAD-application-clientid>";
-    var clientCert = <AAD-application-client-certificate>
-    var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
-    var creds = await ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate);
+* Information om slutanvändarautentisering för programmet finns i [Slutanvändarautentisering med Data Lake Store med hjälp av .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+* Information om tjänst-till-tjänst-autentisering för programmet finns i [Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="create-client-objects"></a>Skapa klientobjekt
-Följande fragment skapar Data Lake Store-kontot och filsystemklientobjekten, som används för att skicka begäranden till tjänsten.
+Följande kodavsnitt skapar klientobjektet för Data Lake Store-kontot, som används för att utfärda kontohanteringsbegäran till tjänsten, t.ex. att skapa konto, ta bort konto osv.
 
     // Create client objects and set the subscription ID
     _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    
+## <a name="create-a-data-lake-store-account"></a>Skapa ett Data Lake Store-konto
+Följande kodavsnitt skapar ett Data Lake Store-konto i den Azure-prenumeration du angav när du skapade klientobjektet för Data Lake Store-kontot.
+
+    // Create Data Lake Store account
+    var adlsParameters = new DataLakeStoreAccount(location: _location);
+    _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
 
 ## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Lista över alla Data Lake Store-konton inom en prenumeration
-Följande fragment visar en lista över alla Data Lake Store-konton inom en viss Azure-prenumeration.
+Lägg till följande metod i klassdefinitionen. Följande fragment visar en lista över alla Data Lake Store-konton inom en viss Azure-prenumeration.
 
-    // List all ADLS accounts within the subscription
-    public static async Task<List<DataLakeStoreAccount>> ListAdlStoreAccounts()
+    // List all Data Lake Store accounts within the subscription
+    public static List<DataLakeStoreAccountBasic> ListAdlStoreAccounts()
     {
-        var response = await _adlsClient.Account.ListAsync();
-        var accounts = new List<DataLakeStoreAccount>(response);
+        var response = _adlsClient.Account.List(_adlsAccountName);
+        var accounts = new List<DataLakeStoreAccountBasic>(response);
 
         while (response.NextPageLink != null)
         {
@@ -183,78 +132,15 @@ Följande fragment visar en lista över alla Data Lake Store-konton inom en viss
         return accounts;
     }
 
-## <a name="create-a-directory"></a>Skapa en katalog
-I följande fragment visas en `CreateDirectory`-metod som du kan använda för att skapa en katalog i ett Data Lake Store-konto.
+## <a name="delete-a-data-lake-store-account"></a>Ta bort ett Data Lake Store-konto
+Följande kodavsnitt tar bort Data Lake Store-kontot du skapade tidigare.
 
-    // Create a directory
-    public static async Task CreateDirectory(string path)
-    {
-        await _adlsFileSystemClient.FileSystem.MkdirsAsync(_adlsAccountName, path);
-    }
+    // Delete Data Lake Store account
+    _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
-## <a name="upload-a-file"></a>Överför en fil
-I följande fragment visas en `UploadFile`-metod som du kan använda för att ladda upp filer till ett Data Lake Store-konto.
-
-    // Upload a file
-    public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
-    {
-        _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:force);
-    }
-
-SDK har stöd för rekursiv överföring och hämtning mellan en lokal filsökväg och en Data Lake Store-sökväg.    
-
-## <a name="get-file-or-directory-info"></a>Hämta fil- eller kataloginformation
-I följande fragment visas en `GetItemInfo`-metod som du kan använda för att hämta information om en fil eller katalog som är tillgänglig i Data Lake Store.
-
-    // Get file or directory info
-    public static async Task<FileStatusProperties> GetItemInfo(string path)
-    {
-        return await _adlsFileSystemClient.FileSystem.GetFileStatusAsync(_adlsAccountName, path).FileStatus;
-    }
-
-## <a name="list-file-or-directories"></a>Lista över fil eller kataloger
-I följande fragment visas en `ListItem`-metod som du kan använda för att sammanställa en lista över filen och katalogerna i ett Data Lake Store-konto.
-
-    // List files and directories
-    public static List<FileStatusProperties> ListItems(string directoryPath)
-    {
-        return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
-    }
-
-## <a name="concatenate-files"></a>Sammanfoga filer
-I följande fragment visas en `ConcatenateFiles`-metod som du kan använda för att sammanfoga filer.
-
-    // Concatenate files
-    public static Task ConcatenateFiles(string[] srcFilePaths, string destFilePath)
-    {
-        await _adlsFileSystemClient.FileSystem.ConcatAsync(_adlsAccountName, destFilePath, srcFilePaths);
-    }
-
-## <a name="append-to-a-file"></a>Lägg till till en fil
-I följande fragment visas en `AppendToFile`-metod som du kan använda för att lägga till data till en fil som redan finns i ett Data Lake Store-konto.
-
-    // Append to file
-    public static async Task AppendToFile(string path, string content)
-    {
-        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
-        {
-            await _adlsFileSystemClient.FileSystem.AppendAsync(_adlsAccountName, path, stream);
-        }
-    }
-
-## <a name="download-a-file"></a>Hämta en fil
-I följande fragment visas en `DownloadFile`-metod som du kan använda för att hämta en fil från ett Data Lake Store-konto.
-
-    // Download file
-    public static void DownloadFile(string srcFilePath, string destFilePath)
-    {
-         _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath);
-    }
+## <a name="see-also"></a>Se även
+* [Filsystemsåtgärder på Data Lake Store med hjälp av .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Data Lake Store .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
-* [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Använd Azure HDInsight med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Data Lake Store .NET SDK-referens](https://docs.microsoft.com/dotnet/api/?view=azuremgmtdatalakestore-2.1.0-preview&term=DataLake.Store)
-* [Data Lake Store REST-referens](https://msdn.microsoft.com/library/mt693424.aspx)
-

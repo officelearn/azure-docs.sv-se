@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
+ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e6e2009717430a692528cd3ec3a2c6e46a12fe03
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -73,10 +72,18 @@ Du kan välja att använda offentliga eller privata IPv4-adresser för privat pe
 ### <a name="public-peering"></a>Offentlig peering
 Med Azures offentliga peeringsökväg kan du ansluta till alla tjänster som finns i Azure med deras offentliga IP-adresser. Det inkluderar tjänster som finns i listan [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) och tjänster med ISV:er i Microsoft Azure. Anslutningen till Microsoft Azure-tjänster vid offentlig peering initieras alltid från ditt nätverk till Microsoft-nätverket. Du måste använda offentliga IP-adresser för trafik till Microsoft-nätverk.
 
+> [!IMPORTANT]
+> Alla Azure PaaS-tjänster är också tillgängliga via Microsoft-peering. Vi rekommenderar att du skapar Microsoft-peering och ansluter till Azure PaaS-tjänster över Microsoft-peering.  
+>   
+
+
+Ett privat AS-nummer tillåts med offentlig peering.
+
 ### <a name="microsoft-peering"></a>Microsoft-peering
-Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan med tjänster innefattar Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och Dynamics 365. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
+Sökvägen för Microsoft-peering gör det möjligt att ansluta till alla Microsoft-molntjänster som har offentliga IP-adresser. Listan över tjänster omfattar Office 365, Dynamics 365 och Microsoft Azure PaaS-tjänster. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4/IPv6-adresser innan de kommer in i Microsoft-nätverket.
 
 Kontrollera att din IP-adress och ditt AS-nummer är registrerade på dig i något av följande register:
+
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -85,6 +92,10 @@ Kontrollera att din IP-adress och ditt AS-nummer är registrerade på dig i någ
 * [RIPENCC](https://www.ripe.net/)
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
+
+Om prefixen och AS-numren inte har tilldelats till dig i registren ovan måste du öppna ett supportärende för manuell validering av prefix och ASN. Supporten behöver dokumentation, t.ex. ett auktoriseringsdokument, som visar att du har behörighet att använda resurserna.
+
+Ett privat AS-nummer tillåts med Microsoft-peering men kräver även manuell verifiering.
 
 > [!IMPORTANT]
 > Offentliga IP-adresser som skickas till Microsoft via ExpressRoute, får inte annonseras till Internet. Det kan bryta anslutningen till andra Microsoft-tjänster. Offentliga IP-adresser som används av servrar i ditt nätverk som kommunicerar med O365 slutpunkter inom Microsoft kan dock annonseras över ExpressRoute. 
@@ -134,39 +145,40 @@ Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera 
 | **Microsoft Azure-region** | **BGP-community värde** |
 | --- | --- |
 | **Nordamerika** | |
-| Östra USA |12076:51004 |
-| Östra USA 2 |12076:51005 |
-| Västra USA |12076:51006 |
-| Västra USA 2 |12076:51026 |
-| Västra centrala USA |12076:51027 |
-| Norra centrala USA |12076:51007 |
-| Södra centrala USA |12076:51008 |
-| Centrala USA |12076:51009 |
-| Centrala Kanada |12076:51020 |
-| Östra Kanada |12076:51021 |
+| Östra USA | 12076:51004 |
+| Östra USA 2 | 12076:51005 |
+| Västra USA | 12076:51006 |
+| Västra USA 2 | 12076:51026 |
+| Västra centrala USA | 12076:51027 |
+| Norra centrala USA | 12076:51007 |
+| Södra centrala USA | 12076:51008 |
+| Centrala USA | 12076:51009 |
+| Centrala Kanada | 12076:51020 |
+| Östra Kanada | 12076:51021 |
 | **Sydamerika** | |
-| Södra Brasilien |12076:51014 |
+| Södra Brasilien | 12076:51014 |
 | **Europa** | |
-| Norra Europa |12076:51003 |
-| Västra Europa |12076:51002 |
+| Norra Europa | 12076:51003 |
+| Västra Europa | 12076:51002 |
 | Storbritannien, södra | 12076:51024 |
 | Storbritannien, västra | 12076:51025 |
 | **Asien och stillahavsområdet** | |
-| Östasien |12076:51010 |
-| Sydostasien |12076:51011 |
+| Östasien | 12076:51010 |
+| Sydostasien | 12076:51011 |
 | **Japan** | |
-| Östra Japan |12076:51012 |
-| Västra Japan |12076:51013 |
+| Östra Japan | 12076:51012 |
+| Västra Japan | 12076:51013 |
 | **Australien** | |
-| Östra Australien |12076:51015 |
-| Sydöstra Australien |12076:51016 |
+| Östra Australien | 12076:51015 |
+| Sydöstra Australien | 12076:51016 |
 | **Indien** | |
-| Södra Indien |12076:51019 |
-| Västra Indien |12076:51018 |
-| Centrala Indien |12076:51017 |
+| Södra Indien | 12076:51019 |
+| Västra Indien | 12076:51018 |
+| Centrala Indien | 12076:51017 |
 | **Korea** | |
-| Sydkorea |12076:51028 |
-| Centrala Korea |12076:51029 |
+| Sydkorea | 12076:51028 |
+| Centrala Korea | 12076:51029 |
+
 
 Alla vägar som annonseras från Microsoft taggas med lämpligt community-värde. 
 
@@ -179,11 +191,11 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 
 | **Tjänst** | **BGP-community värde** |
 | --- | --- |
-| exchange online |12076:5010 |
-| sharepoint online |12076:5020 |
-| Skype för företag – Online |12076:5030 |
-| Dynamics 365 |12076:5040 |
-| Andra Office 365 Online-tjänster |12076:5100 |
+| exchange online | 12076:5010 |
+| sharepoint online | 12076:5020 |
+| Skype för företag – Online | 12076:5030 |
+| Dynamics 365 | 12076:5040 |
+| Andra Office 365 Online-tjänster | 12076:5100 |
 
 > [!NOTE]
 > Microsoft använder inte några community-värden för BGP som du har angett för vägar som annonseras till Microsoft.
@@ -218,5 +230,4 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
   * [Skapa en ExpressRoute-krets för den klassiska distributionsmodellen](expressroute-howto-circuit-classic.md) eller [Skapa och ändra en ExpressRoute-krets med Azure Resource Manager](expressroute-howto-circuit-arm.md)
   * [Konfigurera routning för den klassiska distributionsmodellen](expressroute-howto-routing-classic.md) eller [Konfigurera routning för Resource Manager-distributionsmodellen](expressroute-howto-routing-arm.md)
   * [Länka ett klassiskt VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md) eller [Länka ett Resource Manager-VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)
-
 

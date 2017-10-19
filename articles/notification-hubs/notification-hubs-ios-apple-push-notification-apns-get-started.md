@@ -15,11 +15,11 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
 ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Skicka push-meddelanden till iOS med Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -482,9 +482,3 @@ Allmän information om Notification Hubs finns i [Riktlinjer om Notification Hub
 
 [Programmeringsguide för lokala meddelanden och push-meddelanden]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure Portal]: https://portal.azure.com
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

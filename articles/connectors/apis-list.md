@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
 ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectors-list"></a>Lista över anslutningsappar
 > [!TIP]
@@ -42,13 +42,13 @@ Det finns tusentals program och miljontals körningar som bearbetar data och inf
 
 | |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Om du vill automatisera alla aktiviteter med ditt lagringskonto bör du titta på den här anslutningsappen. Stöder CRUD-åtgärder (skapa, läsa, uppdatera, ta bort). | [![API Icon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Skapa funktioner som kör anpassade fragment för C# eller node.js och använd sedan använda dessa funktioner i logikapparna.  |
-| [![API Icon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Detta är ett av de mest efterfrågade anslutningsprogrammen. Den har utlösare och åtgärder för att automatisera arbetsflöden med leads och mycket mer. | [![API Icon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Använda och publicera händelser i en Event Hub. Du kan till exempel hämta utdata från din logikapp med Event Hubs och sedan skicka dem till en leverantör av realtidsanalys. |
-| [![API Icon][FTPicon]<br/>**FTP**][FTPdoc] | Om FTP-servern är tillgänglig från internet kan du automatisera arbetsflöden att arbeta med filer och mappar. <br/><br/>Det finns också SFTP med SFTP-anslutningsappen. | [![API Icon][HTTPicon]<br/>**HTTP**][httpdoc] | Använd logikappar för att kommunicera med valfri slutpunkt över HTTP. |
-| [![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Massor av utlösare och många fler åtgärder för att använda e-post och händelser för Office 365 i dina arbetsflöden. <br/><br/>Den här anslutningsappen innehåller ett *e-postmeddelande med godkännande* för att godkänna semesteransökningar, utgiftsrapporter och så vidare. <br/><br/>Office 365-användare är också tillgängliga med anslutningsappen för Office 365-användare.| [![API Icon][HTTP-Requesticon]<br/>**Begäran/svar**][HTTP-Requestdoc] | Den här anslutningsappen tillhandahåller en HTTPS-URL. När logikappen tar emot en begäran till denna URL startar logikappen. |
-| [![API Icon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Logga enkelt in med ditt Salesforce-konto för att få åtkomst till objekt som leads med mera. |  [![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Den populäraste anslutningsappen i Logic Apps, den innehåller utlösare och åtgärder för att göra asynkrona meddelanden och publicera/prenumerera på köer, prenumerationer och avsnitt. |
-|  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Om du gör något med SharePoint och kan dra nytta av automatisering rekommenderar vi att du tittar på den här anslutningsappen. Kan användas med lokal SharePoint och SharePoint Online. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | En av de mest använda anslutningsapparna. Den kan ansluta till en lokal SQL Server och en Azure SQL Database. | 
-| [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Logga enkelt in med ett Twitter-konto, och påbörja sedan ett arbetsflöde när en ny tweet postas. Spara sedan dessa tweets till en SQL Database eller SharePoint-lista. | | | 
+| [![API-ikon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Om du vill automatisera alla aktiviteter med ditt lagringskonto bör du titta på den här anslutningsappen. Stöder CRUD-åtgärder (skapa, läsa, uppdatera, ta bort). | [![API-ikon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Skapa funktioner som kör anpassade fragment för C# eller node.js och använd sedan använda dessa funktioner i logikapparna.  |
+| [![API-ikon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Detta är ett av de mest efterfrågade anslutningsprogrammen. Den har utlösare och åtgärder för att automatisera arbetsflöden med leads och mycket mer. | [![API-ikon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Använda och publicera händelser i en Event Hub. Du kan till exempel hämta utdata från din logikapp med Event Hubs och sedan skicka dem till en leverantör av realtidsanalys. |
+| [![API-ikon][FTPicon]<br/>**FTP**][FTPdoc] | Om FTP-servern är tillgänglig från internet kan du automatisera arbetsflöden att arbeta med filer och mappar. <br/><br/>Det finns också SFTP med SFTP-anslutningsappen. | [![API-ikon][HTTPicon]<br/>**HTTP**][httpdoc] | Använd logikappar för att kommunicera med valfri slutpunkt över HTTP. |
+| [![API-ikon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Massor av utlösare och många fler åtgärder för att använda e-post och händelser för Office 365 i dina arbetsflöden. <br/><br/>Den här anslutningsappen innehåller ett *e-postmeddelande med godkännande* för att godkänna semesteransökningar, utgiftsrapporter och så vidare. <br/><br/>Office 365-användare är också tillgängliga med anslutningsappen för Office 365-användare.| [![API-ikon][HTTP-Requesticon]<br/>**Begäran/svar**][HTTP-Requestdoc] | Den här anslutningsappen tillhandahåller en HTTPS-URL. När logikappen tar emot en begäran till denna URL startar logikappen. |
+| [![API-ikon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Logga enkelt in med ditt Salesforce-konto för att få åtkomst till objekt som leads med mera. |  [![API-ikon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Den populäraste anslutningsappen i Logic Apps, den innehåller utlösare och åtgärder för att göra asynkrona meddelanden och publicera/prenumerera på köer, prenumerationer och avsnitt. |
+|  [![API-ikon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Om du gör något med SharePoint och kan dra nytta av automatisering rekommenderar vi att du tittar på den här anslutningsappen. Kan användas med lokal SharePoint och SharePoint Online. | [![API-ikon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | En av de mest använda anslutningsapparna. Den kan ansluta till en lokal SQL Server och en Azure SQL Database. | 
+| [![API-ikon][Twittericon]<br/>**Twitter**][Twitterdoc] | Logga enkelt in med ett Twitter-konto, och påbörja sedan ett arbetsflöde när en ny tweet postas. Spara sedan dessa tweets till en SQL Database eller SharePoint-lista. | | | 
 
 ## <a name="integration-account-connectors"></a>Anslutningar för integrationskonton 
 
@@ -56,9 +56,9 @@ Enterprise-integrationspaketet (EIP) innehåller anslutningsappar som är välk�
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| [![API Icon][as2icon]<br/>**AS2-</br>avkodning**][as2decode] | [![API Icon][as2icon]<br/>**AS2-</br>kodning**][as2encode] | [![API Icon][x12icon]<br/>**EDIFACT-</br>avkodning**][EDIFACTdecode] | [![API Icon][x12icon]<br/>**EDIFACT-</br>kodning**][EDIFACTencode] |
-[![API Icon][flatfileicon]<br/>**Flatfils</br>kodning**][flatfiledoc] | [![API Icon][flatfiledecodeicon]<br/>**Flatfils</br>avkodning**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integrations<br/>konto**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**Omvandla<br/>XML**][xmltransformdoc] |
-| [![API Icon][x12icon]<br/>**X12-</br>avkodning**][x12decode] | [![API Icon][x12icon]<br/>**X12-</br>kodning**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**XML-<br/>verifiering**][xmlvalidatedoc] | |
+| [![API-ikon][as2icon]<br/>**AS2</br>-avkodning**][as2decode] | [![API-ikon][as2icon]<br/>**AS2</br>-avkodning**][as2encode] | [![API-ikon][x12icon]<br/>**EDIFACT</br>-avkodning**][EDIFACTdecode] | [![API-ikon][x12icon]<br/>**EDIFACT</br>-kodning**][EDIFACTencode] |
+[![API-ikon][flatfileicon]<br/>**Flat fil</br>-kodning**][flatfiledoc] | [![API-ikon][flatfiledecodeicon]<br/>**Flat fil</br>-avkodning**][flatfiledecodedoc] | [![API-ikon][integrationaccounticon]<br/>**Integrationskonto<br/>**][integrationaccountdoc] | [![API-ikon][xmltransformicon]<br/>**Transformera<br/>XML**][xmltransformdoc] |
+| [![API-ikon][x12icon]<br/>**X12</br>-avkodning**][x12decode] | [![API-ikon][x12icon]<br/>**X12</br>-kodning**][x12encode] | [![API-ikon][xmlvalidateicon]<br/>**XML<br/>-verifiering**][xmlvalidatedoc] | |
 
 ## <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
 
@@ -66,7 +66,7 @@ Anslut dina företagsprogram med dina logikappar.
 
 |  |  |
 | --- | --- |
-|[![API Icon][MQicon]<br/>**MQ**][mqdoc]|[![API Icon][SAPicon]<br/>**SAP**][sapconnector]|
+|[![API-ikon][MQicon]<br/>**MQ**][mqdoc]|[![API-ikon][SAPicon]<br/>**SAP**][sapconnector]|
 
 
 ## <a name="az"></a>Fullständig lista, A–Z

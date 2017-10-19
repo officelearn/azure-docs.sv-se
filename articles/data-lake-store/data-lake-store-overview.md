@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
-ms.contentlocale: sv-se
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 956c7a4fb91c1b1a45e24128e92d6a6b1213eeb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Översikt över Azure Data Lake Store
 Azure Data Lake Store är en företagsomfattande storskalig lagringsplats för analytiska arbetsbelastningar för stordata. Med Azure Data Lake kan du samla in data av olika storlekar, former, typer och inmatningshastighet på en enda plats för drifts- och undersökande analyser.
@@ -62,9 +60,9 @@ Azure Data Lake Store använder Azure Active Directory för autentisering och å
 
 | Funktion | Beskrivning |
 | --- | --- |
-| Autentisering |Azure Data Lake Store integreras med Azure Active Directory (AAD) för identitets- och åtkomsthantering för alla data som lagras i Azure Data Lake Store. Med integrationen drar Azure Data Lake fördelar från alla AAD-funktioner, inklusive multifaktorautentisering, villkorlig åtkomst, rollbaserad åtkomstkontroll, övervakning av programanvändning, säkerhetsövervakning och -avisering, osv. Azure Data Lake Store stöder OAuth 2.0-protokollet för autentisering i REST-gränssnittet. |
+| Autentisering |Azure Data Lake Store integreras med Azure Active Directory (AAD) för identitets- och åtkomsthantering för alla data som lagras i Azure Data Lake Store. Med integrationen drar Azure Data Lake fördelar från alla AAD-funktioner, inklusive multifaktorautentisering, villkorlig åtkomst, rollbaserad åtkomstkontroll, övervakning av programanvändning, säkerhetsövervakning och -avisering, osv. Azure Data Lake Store stöder OAuth 2.0-protokollet för autentisering i REST-gränssnittet. Se [Data Lake Store-autentisering](data-lakes-store-authentication-using-azure-active-directory.md)|
 | Åtkomstkontroll |Azure Data Lake Store ger åtkomstkontroll genom att stödja behörigheter av POSIX-typ som exponeras av WebHDFS-protokollet. I Data Lake Store Public Preview (den aktuella versionen), kan ACL:er aktiveras i rotmappen, undermappar och enskilda filer. Mer information om hur åtkomstkontrollposter fungerar i kontexten för Data Lake Store finns [Åtkomstkontroll i Data Lake Store](data-lake-store-access-control.md). |
-| Kryptering |Data Lake Store innehåller också kryptering för data som lagras i kontot. Du kan ange krypteringsinställningarna när du skapar ett Data Lake Store-konto. Du kan välja att ha krypterade data eller välja ingen kryptering. Mer information om hur du skapar en krypteringsrelaterad konfiguration finns i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md). |
+| Kryptering |Data Lake Store innehåller också kryptering för data som lagras i kontot. Du kan ange krypteringsinställningarna när du skapar ett Data Lake Store-konto. Du kan välja att ha krypterade data eller välja ingen kryptering. Mer information finns i [Kryptering i Data Lake Store](data-lake-store-encryption.md). Instruktioner för hur du skapar en krypteringsrelaterad konfiguration finns i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md). |
 
 Mer information om hur du skyddar data i Data Lake Store: Följ länkarna nedan.
 
@@ -103,5 +101,4 @@ Om du vill titta på videor för att lära dig, har Data Lake Store videor om en
 * [Använd Apache Sqoop för att flytta data mellan relationella källor och Azure Data Lake Store](https://mix.office.com/watch/1butcdjxmu114)
 * [Data Orchestration med hjälp av Azure Data Factory för Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Skydda data i Azure Data Lake Store](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
 

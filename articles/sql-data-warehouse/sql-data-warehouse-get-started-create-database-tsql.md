@@ -17,10 +17,10 @@ ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Skapa en SQL Data Warehouse-databas med hjälp av Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ I den här artikeln visas hur du skapar ett SQL Data Warehouse med T-SQL.
 Du behöver följande för att komma igång:
 
 * **Azure-konto**: Gå till [Kostnadsfri utvärderingsversion av Azure][Azure Free Trial] eller [MSDN Azure-krediter][MSDN Azure Credits] för att skapa ett konto.
-* **Azure SQL-servern**: Se [skapa en logisk Azure SQL Database-server med Azure-portalen] [skapa en logisk Azure SQL Database-server med Azure Portal] eller [skapa en logisk Azure SQL Database-server med PowerShell] [skapa en logisk Azure SQL Database-server med PowerShell] för mer information.
+* **Azure SQL-server**: Du hittar mer information i [Skapa en logisk Azure SQL Database-server med Azure Portal][Skapa en logisk Azure SQL Database-server med Azure Portal] eller [Skapa en logisk Azure SQL Database-server med PowerShell][Skapa en logisk Azure SQL Database-server med PowerShell].
 * **Resursgrupp**: Använd antingen samma resursgrupp som din Azure SQL-server eller se [hur du skapar en resursgrupp][how to create a resource group].
 * **Körningsmiljö för T-SQL**: Du kan använda [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] eller [SSMS][SSMS] för att köra T-SQL.
 

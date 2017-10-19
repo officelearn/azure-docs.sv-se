@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
+ms.openlocfilehash: bc7bee3caed2eba0a3f49d79241cd8685333ba13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c4f8c94e23a165b22533ffd74e04c9a7310f2d22
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Distribuera ett Service Fabric Windows-behållarprogram i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
 
@@ -51,7 +49,7 @@ Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka
 
 Välj **Behållare** i listan med **tjänstmallar**.
 
-I **Avbildningsnamn** skriver du ”nanoserver/iis”, som är den [Windows Server 2016-baserade Nano Server- och IIS-basavbildningen](https://hub.docker.com/r/nanoserver/iis/). 
+I **Avbildningsnamn** anger du "microsoft/iis:nanoserver", [Windows Server Nano Server och IIS-avbildningsnamn](https://hub.docker.com/r/microsoft/iis/). 
 
 Ge tjänsten namnet ”MyContainerService” och klicka på **OK**.
 
@@ -68,6 +66,7 @@ Konfigurera behållarens portmappning (port till värd) genom att ange en `PortB
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -94,7 +93,7 @@ Högerklicka på **MyFirstContainer** i Solution Explorer och välj **Publicera*
 
 ![Dialogrutan Publicera](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Ange anslutningsslutpunkten för klustret i fältet **Connection Endpoint** (Anslutningsslutpunkt) och klicka på **Publicera**. När du registrerar dig för partyklustret anger du anslutningsslutpunkten i webbläsaren, t.ex. `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Ange anslutningsslutpunkten för klustret i fältet **Connection Endpoint** (Anslutningsslutpunkt). När du registrerar dig för partyklustret anger du anslutningsslutpunkten i webbläsaren, t.ex. `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Klicka på **Publicera** så distribueras programmet.
 
 Öppna en webbläsare och gå till http://winh1x87d1d.westus.cloudapp.azure.com:80. Du bör se IIS-standardwebbsidan: ![IIS-standardwebbsidan][iis-default]
 
@@ -120,7 +119,7 @@ Här är de fullständiga tjänst- och programmanifesten som används i den här
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -198,4 +197,3 @@ I den här snabbstarten har du lärt dig att:
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
-

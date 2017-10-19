@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 8f16f23928977ef6bf53f41c79375290da70a2fa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Anslut din enhet till IoT Hub med hjälp av .NET
 
@@ -200,7 +200,7 @@ I det här avsnittet ska du skapa en .NET-konsolapp som simulerar en enhet som s
     Console.ReadLine();
     ```
 
-    Som standard skapar metoden **Create** i en .NET Framework-app en **DeviceClient**-instans som använder AMQP-protokollet för att kommunicera med IoT Hub. Om du vill använda MQTT eller HTTP-protokollet använder du åsidosättandet av **Create**-metoden som gör att du kan ange protokollet. UWP- och PCL-klienter använder HTTP-protokoll som standard. Om du använder HTTP-protokollet bör du också ta med namnområdet **System.Net.Http.Formatting** genom att lägga till NuGet-paketet **Microsoft.AspNet.WebApi.Client** till ditt projekt.
+    Som standard skapar metoden **Create** i en .NET Framework-app en **DeviceClient**-instans som använder AMQP-protokollet för att kommunicera med IoT Hub. Om du vill använda MQTT eller HTTPS-protokollet använder du åsidosättandet av **Create**-metoden som gör att du kan ange protokollet. UWP- och PCL-klienter använder HTTPS-protokollet som standard. Om du använder HTTPS-protokollet bör du också ta med namnrymden **System.Net.Http.Formatting** genom att lägga till NuGet-paketet **Microsoft.AspNet.WebApi.Client** till ditt projekt.
 
 Den här självstudiekursen beskriver steg för steg hur du skapar en IoT Hub-app. Du kan också lägga till nödvändig kod i enhetsprogrammet med hjälp av Visual Studio-tillägget [Ansluten tjänst för Azure IoT Hub][lnk-connected-service].
 

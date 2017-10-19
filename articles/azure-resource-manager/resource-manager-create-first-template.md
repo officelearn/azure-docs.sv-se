@@ -10,17 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/03/2017
+ms.date: 10/02/2017
 ms.topic: get-started-article
 ms.author: tomfitz
+ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Skapa och distribuera din första Azure Resource Manager-mall
 Den här artikeln beskriver steg för steg hur du skapar din första Azure Resource Manager-mall. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md). Om du har befintliga resurser och behöver en mall för dessa resurser kan du läsa [Exportera en Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
 
@@ -97,58 +95,21 @@ Nu är det dags att distribuera den här mallen. Du använder PowerShell eller A
 
 När distributionen är klar finns ditt lagringskonto i resursgruppen.
 
-## <a name="deploy-template-from-cloud-shell"></a>Distribuera mallen från Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Du kan använda [Cloud Shell](../cloud-shell/overview.md) för att köra Azure CLI-kommandona och distribuera mallen. Först måste du dock läsa in mallen till filresursen för Cloud Shell. Om du inte har använt Cloud Shell tidigare läser du [Overview of Azure Cloud Shell](../cloud-shell/overview.md) (Översikt över Azure Cloud Shell), som innehåller information om hur du konfigurerar Cloud Shell.
+För Azure CLI använder du följande kommandon:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).   
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+```
 
-2. Välj din Cloud Shell-resursgrupp. Namnet har formatet `cloud-shell-storage-<region>`.
+För närvarande är PowerShell tillgängligt i Cloud Shell som förhandsversion. För PowerShell använder du följande kommandon:
 
-   ![Välj resursgrupp](./media/resource-manager-create-first-template/select-cs-resource-group.png)
-
-3. Välj lagringskontot för Cloud Shell.
-
-   ![Välj lagringskonto](./media/resource-manager-create-first-template/select-storage.png)
-
-4. Välj **Filer**.
-
-   ![Välj filer](./media/resource-manager-create-first-template/select-files.png)
-
-5. Välj filresursen för Cloud Shell. Namnet har formatet `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Välj filresurs](./media/resource-manager-create-first-template/select-file-share.png)
-
-6. Välj **Lägg till katalog**.
-
-   ![Lägg till katalog](./media/resource-manager-create-first-template/select-add-directory.png)
-
-7. Ge den namnet **templates** och välj **OK**.
-
-   ![Namnge katalogen](./media/resource-manager-create-first-template/name-templates.png)
-
-8. Välj den nya katalogen.
-
-   ![Välj katalog](./media/resource-manager-create-first-template/select-templates.png)
-
-9. Välj **Överför**.
-
-   ![Välj Överför](./media/resource-manager-create-first-template/select-upload.png)
-
-10. Leta upp och överför mallen.
-
-   ![Ladda upp filen](./media/resource-manager-create-first-template/upload-files.png)
-
-11. Öppna kommandotolken.
-
-   ![Öppna Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
-
-12. Ange följande kommandon i Cloud Shell:
-
-   ```azurecli
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
+```
 
 När distributionen är klar finns ditt lagringskonto i resursgruppen.
 
@@ -445,4 +406,3 @@ az group delete --name examplegroup
 * Mer information om strukturen i en mall finns i [Redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).
 * Mer information om egenskaperna för ett lagringskonto finns i [mallreferensen för lagringskonton](/azure/templates/microsoft.storage/storageaccounts).
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
-

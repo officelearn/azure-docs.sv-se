@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 98e5964f4a2dffd728dae1c452facfa6ea488167
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET 
 > [!NOTE]
 > Den här artikeln visar hur du hanterar Azure Files med .NET-kod. Mer information om Azure Files finns i [Introduktion till Azure Files](storage-files-introduction.md).
@@ -326,6 +324,80 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
 Du kan kopiera en blobb till en fil på samma sätt. Om källobjektet är en blobb skapar du en SAS för att autentisera åtkomsten till blobben under kopieringen.
+
+## <a name="share-snapshots-preview"></a>Dela ögonblicksbilder (förhandsversion)
+Från och med version 8.5 av klientbiblioteket för Azure Storage kan du dela en ögonblicksbild (förhandsversion). Du kan också visa eller bläddra bland resursögonblicksbilder och ta bort resursögonblicksbilder. Resursögonblicksbilder är skrivskyddade så att inga skrivåtgärder tillåts på resursögonblicksbilder.
+
+**Skapa resursögonblicksbilder**
+
+I följande exempel skapas en ögonblicksbild av en filresurs.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**Lista över resursögonblicksbilder**
+
+Följande exempel visar en lista över ögonblicksbilder på en resurs.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**Bläddra bland filer och kataloger i resursögonblicksbilder**
+
+Följande exempel bläddrar bland filer och kataloger i resursögonblicksbilder.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**Visa en lista över resurser och resursögonblicksbilder och återställ filresurser eller filer från resursögonblicksbilder** 
+
+Genom att göra en ögonblicksbild av en filresurs kan du återställa enskilda filer eller hela filresursen i framtiden. 
+
+Du kan återställa en fil från en ögonblicksbild av en filresurs genom att skicka en fråga till ögonblicksbilderna av en filresurs. Du kan sedan hämta en fil som tillhör en viss resursögonblicksbild och använda den versionen för att antingen läsa direkt och jämföra eller för att återställa.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**Ta bort resursögonblicksbilder**
+
+Följande exempel tar bort en ögonblicksbild av en filresurs.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
 
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Felsöka Azure File Storage med hjälp av mätvärden
 Nu stöder Azure Storage Analytics mätvärden för Azure Files. Med hjälp av mätvärdesdata kan du spåra begäranden och diagnostisera problem.

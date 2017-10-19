@@ -13,14 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: dendeli
+ms.openlocfilehash: a416edaded8aa04c3229a5788d648de0a6afe2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data
 > [!NOTE]
@@ -381,7 +380,7 @@ Eftersom vi inte skickar de faktiska koordinaterna (som kanske inte ligger inom 
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="whats-next"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Det finns några steg som du kan behöva följa, förutom det som nämns ovan, för att försäkra dig om att lösningen är klar för produktion.
 
 Först och främst kan du behöva se till att geofence-områdena är dynamiska. Detta kräver lite extraarbete med Bing-API:iet för att kunna ladda upp nya gränser inom den befintliga datakällan. Läs [API-dokumentationen för Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx) för mer information om ämnet.
@@ -391,5 +390,4 @@ Och för det andra: När du jobbar med att säkerställa att leveransen görs ti
 Lösningen ovan beskriver ett scenario där du kan ha en stor mängd olika målplattformar. Därför begränsar vi inte denna geofencing till systemspecifika funktioner. Men det bör understrykas att UWP har inbyggda, [kraftfulla funktioner för att detektera geofence-områden](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 För mer information om funktioner i Notification Hubs, se vår [dokumentationsportal](https://azure.microsoft.com/documentation/services/notification-hubs/).
-
 

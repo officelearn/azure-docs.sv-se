@@ -12,22 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/14/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d290ee8a3cee1242f14726b5cf7ca531a3f5830a
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: b5f44d2ae42ffc6f75887a64c9ef988fe6d8fd69
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-the-azure-iot-hub-service"></a>Översikt över tjänsten Azure IoT Hub
 
 Välkommen till Azure IoT Hub. Den här artikeln innehåller en översikt över Azure IoT Hub och beskriver varför du bör använda den här tjänsten när du implementerar en IoT-lösning (Internet of Things). Azure IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller serverdelen för lösningar av den här typen. Azure IoT Hub:
 
-* Tillhandahåller flera alternativ för kommunikation från enhet till moln och från moln till enhet, inklusive enkelriktade meddelanden, filöverföringar och begäran/svar-metoder.
+* Ger flera alternativ för kommunikation från enhet till moln och från moln till enhet. Dessa alternativ omfattar enkelriktade meddelanden, filöverföring och begäran/svar-metoder.
 * Tillhandahåller inbyggd deklarativ meddelanderoutning till andra Azure-tjänster.
 * Tillhandahåller frågbart lager för enhetsmetadata och synkroniserad tillståndsinformation.
 * Kan skydda kommunikation och åtkomstkontroll med säkerhetsnycklar eller X.509-certifikat för varje enhet.
@@ -59,19 +57,19 @@ Förutom kraven ovan behöver alla IoT-lösningar också erbjuda skalbarhet, sä
 
 ## <a name="why-use-azure-iot-hub"></a>Varför ska du använda Azure IoT Hub?
 
-Förutom ett flertal alternativ för kommunikation [från enhet till moln][lnk-d2c-guidance] och [från moln till enhet][lnk-c2d-guidance], inklusive meddelanden, filöverföringar och begäran/svar-metoder, kan Azure IoT Hub hantera enhetsanslutningar på följande sätt:
+Azure IoT Hub har en stor uppsättning kommunikationsalternativ från [enhet till moln][lnk-d2c-guidance] och från [moln till enhet][lnk-c2d-guidance]. Azure IoT Hub bemöter dessutom utmaningarna med att ansluta till enheter på ett säkert och tillförlitligt sätt så här:
 
-* **Enhetstvillingar**. Med hjälp av [enhetstvillingar][lnk-twins] kan du lagra, synkronisera och fråga efter enhetsmetadata och tillståndsinformation. Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT Hub lagrar en enhetstvilling för varje enhet som du ansluter till IoT Hub.
+* **Enhetstvillingar**. Med hjälp av [enhetstvillingar][lnk-twins] kan du lagra, synkronisera och fråga efter enhetsmetadata och tillståndsinformation. Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd, som metadata, konfigurationer och villkor. IoT Hub lagrar en enhetstvilling för varje enhet som du ansluter till IoT Hub.
 
 * **Autentisering per enhet och säkra anslutningar**. Du kan etablera varje enhet med dess [säkerhetsnyckel][lnk-devguide-security] så att den kan ansluta till IoT Hub. [IoT Hub-identitetsregistret][lnk-devguide-identityregistry] lagrar enhetsidentiteter och nycklar i en lösning. Serverdelen i lösningen kan lägga till enskilda enheter på vitlistor eller svartlistor för att ge fullständig kontroll över enhetsåtkomsten.
 
 * **Routa enhet-till-moln-meddelanden till Azure-tjänster som baseras på deklarativa regler**. Med IoT Hub kan du definiera meddelandevägar baserade på hanteringsregler och styra vart hubben ska skicka enhet-till-moln-meddelandena. Hanteringsreglerna kräver inte att du skriver någon kod, och de kan ersätta anpassade avsändare av postpåfyllningsmeddelanden.
 
-* **Övervaka enhetsanslutningsåtgärder**. Du kan få detaljerade åtgärdsloggar om enhetsidentitetshanteringsåtgärder och enhetsanslutningshändelser. Denna övervakning gör att din IoT-lösning kan identifiera anslutningsproblem, t.ex. om enheter försöker ansluta med fel autentiseringsuppgifter, skickar meddelanden för ofta eller avvisar alla meddelanden från molnet till enheten.
+* **Övervaka enhetsanslutningsåtgärder**. Du kan få detaljerade åtgärdsloggar om enhetsidentitetshanteringsåtgärder och enhetsanslutningshändelser. Den här övervakningsfunktionen gör det möjligt för IoT-lösningen att identifiera anslutningsproblem. Använd de här loggarna för att identifiera enheter som anger fel autentiseringsuppgifter, skickar meddelanden för ofta eller avvisar alla moln-till-enhet-meddelanden.
 
 * **En omfattande uppsättning enhetsbibliotek**. [SDK:er för Azure IoT-enheter][lnk-device-sdks] är tillgängliga och stöds för olika språk och plattformar – C för många Linux-distributioner, Windows och realtidsoperativsystem. SDK:erna för Azure IoT-enheter stöder även hanterade språk som C#, Java och JavaScript.
 
-* **IoT-protokoll och utökningsbarhet**. Om din lösning inte kan använda enhetsbiblioteken exponerar IoT Hub ett offentligt protokoll som gör att enheter kan använda MQTT v3.1.1-, HTTP 1.1- och AMQP 1.0-protokoll. Du kan också utöka IoT Hub om du vill skapa stöd för anpassade protokoll genom att:
+* **IoT-protokoll och utökningsbarhet**. Om lösningen inte kan använda enhetsbiblioteken exponerar IoT Hub ett offentligt protokoll som gör att enheter kan använda MQTT v3.1.1-, HTTPS 1.1- och AMQP 1.0-protokoll. Du kan också utöka IoT Hub om du vill skapa stöd för anpassade protokoll genom att:
 
   * Skapa en fält-gateway med [Azure IoT Edge][lnk-iot-edge] som konverterar ditt anpassade protokoll till något av de tre protokollen som IoT Hub förstår.
   * Anpassa [protokoll-gatewayen i Azure IoT][protocol-gateway], en komponent med öppen källkod som körs i molnet.
@@ -80,7 +78,7 @@ Förutom ett flertal alternativ för kommunikation [från enhet till moln][lnk-d
 
 ## <a name="gateways"></a>Gateways
 
-En gateway i en IoT-lösning är vanligtvis antingen en [protokoll-gateway][lnk-iotedge] som har distribuerats i molnet eller en [fält-gateway][lnk-field-gateway] som har distribuerats lokalt med dina enheter. En protokoll-gateway utför protokollöversättning, t.ex. MQTT till AMQP. En fält-gateway kan köra analyser i gränsnätverket, fatta tidskänsliga beslut för att minska svarstiderna, tillhandahålla enhetshanteringstjänster, genomdriva säkerhets- och sekretessbegränsningar samt även utföra protokollöversättning. Båda typerna av gateways fungerar som en mellanhand mellan dina enheter och IoT Hub.
+En gateway i en IoT-lösning är vanligtvis antingen en [protokoll-gateway][lnk-iotedge] som har distribuerats i molnet eller en [fält-gateway][lnk-field-gateway] som har distribuerats lokalt med dina enheter. En protokoll-gateway utför protokollöversättning, t.ex. MQTT till AMQP. En fält-gateway kan köra analyser i gränsnätverket, fatta tidskänsliga beslut för att minska svarstiderna, tillhandahålla enhetshanteringstjänster, genomdriva säkerhets- och sekretessbegränsningar samt även utföra protokollöversättning. Båda gateway-typerna fungerar som en mellanhand mellan dina enheter och IoT Hub.
 
 En fält-gateway skiljer sig från en enkel trafikroutningsenhet (till exempel en enhet för översättning av nätverksadresser eller en brandvägg) eftersom den vanligtvis har en aktiv roll i hanteringen av åtkomst- och informationsflödet i din lösning.
 
@@ -88,7 +86,7 @@ En lösning kan omfatta både protokoll- och fält-gateways.
 
 ## <a name="how-does-iot-hub-work"></a>Hur fungerar IoT Hub?
 
-Azure IoT Hub implementerar [tjänstassisterad kommunikation][lnk-service-assisted-pattern] för att hantera interaktionen mellan dina enheter och serverdelen i lösningen. Målet med tjänstassisterad kommunikation är att upprätta tillförlitliga, dubbelriktade kommunikationsvägar mellan ett kontrollsystem, t.ex IoT Hub, och enheter för särskilda ändamål som har distribuerats i ett icke betrott fysiskt utrymme. Mönstret tillämpar följande principer:
+Azure IoT Hub implementerar [tjänstassisterad kommunikation][lnk-service-assisted-pattern] för att hantera interaktionen mellan dina enheter och serverdelen i lösningen. Målet med tjänstassisterad kommunikation är att upprätta tillförlitliga, dubbelriktade kommunikationsvägar mellan ett kontrollsystem, t.ex IoT Hub, och enheter för särskilda ändamål i ett icke betrott fysiskt utrymme. Mönstret tillämpar följande principer:
 
 * Säkerhet prioriteras högre än alla andra funktioner.
 
@@ -100,11 +98,11 @@ Azure IoT Hub implementerar [tjänstassisterad kommunikation][lnk-service-assist
 
 * Auktoriseringen och autentiseringen på systemnivå baseras på enhetsspecifika identiteter. De gör att autentiseringsuppgifter och behörigheter för åtkomst kan återkallas nästan omedelbart.
 
-* Dubbelriktad kommunikation för enheter som ansluter sporadiskt på grund av kapacitets- eller anslutningsbegränsningar förenklas genom att kommandon och enhetsmeddelanden hålls kvar tills en enhet ansluter för att ta emot dem. IoT Hub underhåller enhetsspecifika köer för de kommandon som tjänsten skickar.
+* För enheter som ansluter sporadiskt på grund av kapacitets- eller anslutningsbegränsningar fungerar dubbelriktad kommunikation genom att kommandon och meddelanden hålls kvar tills en enhet ansluter för att ta emot dem. IoT Hub underhåller enhetsspecifika köer för de kommandon som tjänsten skickar.
 
 * Data om programmets nyttolast skyddas separat för säker överföring via gateways till en viss tjänst.
 
-Mobilbranschen har använt tjänstassisterad kommunikation i extremt hög skala för att implementera push-meddelandetjänster som [Windows Push Notification Services][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] och [Apple Push Notification Service][lnk-apple-push].
+Mobilbranschen har använt tjänstassisterad kommunikation för att implementera push-meddelandetjänster som [Windows Push Notification Services][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] och [Apple Push Notification Service][lnk-apple-push].
 
 IoT Hub stöds över ExpressRoutes offentliga peering-sökväg.
 
@@ -142,4 +140,3 @@ Information om hur du börjar skriva kod och hur du kan köra några exempel fin
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
-

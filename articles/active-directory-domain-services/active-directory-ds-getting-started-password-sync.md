@@ -12,36 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/30/2017
+ms.date: 09/18/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4b6da997f44860dccb2aa2571ce099ab2d0231f3
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: c0cd24e03c24655adfe851bc85b721c0b617efcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Aktivera lösenordssynkronisering med Azure Active Directory Domain Services
 I föregående uppgifter aktiverade du Azure Active Directory Domain Services för din Azure Active Directory-klient (Azure AD). Nästa uppgift är att aktivera synkronisering av autentiseringshasher som krävs för NT LAN Manager (NTLM)- och Kerberos-autentisering till Azure AD Domain Services. När du har konfigurerat synkroniseringen av autentiseringsuppgifter kan användarna logga in till den hanterade domänen med sina företagsuppgifter.
 
-Stegen är olika för endast molnbaserade användarkonton och användarkonton som synkroniseras från din lokala katalog med Azure AD Connect.  Om Azure AD-klienten har en kombination av endast molnbaserade användare och användare från din lokala AD så måste du utföra båda dessa steg.
+Stegen är olika för endast molnbaserade användarkonton och användarkonton som synkroniseras från din lokala katalog med Azure AD Connect. 
+
+<br>
+| **Typ av användarkonto** | **Steg att utföra** |
+| --- |---|
+| **Molnanvändarkonton som har skapats i Azure AD** |**&#x2713;** [Följ anvisningarna i den här artikeln](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
+| **Användarkonton som synkroniserats från en lokal katalog** |**&#x2713;** [Synkronisera lösenord för användarkonton som synkroniserats från din lokala AD till din hanterade domän](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
-> [!div class="op_single_selector"]
-> * **Endast molnbaserade användarkonton**: [Synkronisera lösenord för endast molnbaserade användarkonton till din hanterade domän](active-directory-ds-getting-started-password-sync.md)
-> * **Lokala användarkonton**: [Synkronisera lösenord för användarkonton som synkroniserats från din lokala AD till din hanterade domän](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+> [!TIP]
+> **Du kan behöva utföra båda steguppsättningarna.**
+> Om Azure AD-klienten har en kombination av endast molnbaserade användare och användare från din lokala AD så måste du utföra båda dessa steguppsättningar.
 >
->
-
-<br>
 
 ## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts"></a>Uppgift 5: aktivera lösenordssynkronisering till din hanterade domän för endast molnbaserade användarkonton
 För att autentisera användare i den hanterade domänen behöver Azure Active Directory Domain Services autentiseringshasher i ett format som passar för NTLM- och Kerberos-autentisering. Om du inte aktiverar Azure Active Directory Domain Services för din klient så varken genererar eller lagrar Azure AD autentiseringshasher i det format som krävs för NTLM- eller Kerberos-autentisering. Av självklara säkerhetsskäl lagrar Azure AD inte heller lösenordsuppgifter i klartext. Detta betyder att Azure AD inte kan skapa dessa NTLM- eller Kerberos-autentiseringshasher automatiskt utifrån användarnas befintliga autentiseringsuppgifter.
 
 > [!NOTE]
-> Om din organisation har endast molnbaserade användarkonton måste användare som behöver använda Azure Active Directory Domain Services ändra sina lösenord. Ett endast molnbaserat användarkonto är ett konto som skapats i Azure AD-katalogen med antingen Azure Portal eller Azure AD PowerShell-cmdletar. Dessa användarkonton är inte synkroniserade från en lokal katalog.
+> **Om organisationen endast har molnbaserade användarkonton måste användare som behöver använda Azure Active Directory Domain Services ändra sina lösenord.** Ett endast molnbaserat användarkonto är ett konto som skapats i Azure AD-katalogen med antingen Azure Portal eller Azure AD PowerShell-cmdletar. Dessa användarkonton är inte synkroniserade från en lokal katalog.
 >
 >
 
@@ -62,7 +63,7 @@ Här är de instruktioner som du behöver ge användarna så att de kan ändra s
 
     ![Klicka på "Ändra lösenord"](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-   > [!NOTE]
+   > [!TIP]
    > Om alternativet **Ändra lösenord** inte visas i åtkomstpanelsfönstret kontrollerar du att din organisation har konfigurerat [lösenordshantering i Azure AD](../active-directory/active-directory-passwords-getting-started.md).
    >
    >
@@ -72,7 +73,7 @@ Här är de instruktioner som du behöver ge användarna så att de kan ändra s
 
 5. Klicka på **Skicka**.
 
-Ett par minuter efter att du har ändrat ditt lösenord kan det nya lösenordet användas i Azure Active Directory Domain Services. Efter ytterligare ett par minuter (oftast cirka 20 minuter) kan du logga in på datorer som är anslutna till den hanterade domänen med det nya lösenordet.
+Ett par minuter efter att du har ändrat ditt lösenord kan det nya lösenordet användas i Azure Active Directory Domain Services. Efter cirka 20 minuter kan du logga in på datorer som är anslutna till den hanterade domänen med det nya lösenordet.
 
 ## <a name="related-content"></a>Relaterat innehåll
 * [Uppdatera ditt eget lösenord](../active-directory/active-directory-passwords-update-your-own-password.md)
@@ -81,4 +82,3 @@ Ett par minuter efter att du har ändrat ditt lösenord kan det nya lösenordet 
 * [Administrera en Azure Active Directory Domain Services-hanterad domän](active-directory-ds-admin-guide-administer-domain.md)
 * [Ansluta en virtuell Windows-dator till en Azure Active Directory Domain Services-hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Ansluta en virtuell Linux-dator med Red Hat Enterprise till en Azure Active Directory Domain Services-hanterad domän](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-

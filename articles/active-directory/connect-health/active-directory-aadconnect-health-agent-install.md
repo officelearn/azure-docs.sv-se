@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: bfdcc4aadab18091b2f57e8bc751b37d1bac4d26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 8ef8a1cc2393f0befbf83c3124b67b405ae06898
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 Det här dokumentet beskriver hur du installerar och konfigurerar Azure AD Connect Health-agenterna. Du kan ladda ned agenterna [här](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -37,7 +36,19 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 | SSL-kontroll för utgående trafik filtreras eller inaktiveras | Agentregistreringsstegen eller dataöverföringsåtgärderna kan misslyckas om en SSL-inspektion utförs eller om den utgående trafiken på nätverksnivå avslutas. |
 | Brandväggsportar på servern som agenten körs på. |Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.</br></br><li>TCP-port 443</li><li>TCP-port 5671</li> |
 | Tillåt följande webbplatser om Förbättrad säkerhet i Internet Explorer är aktiverat |Följande webbplatser måste tillåtas om Förbättrad säkerhet i Internet Explorer är aktiverat på servern som agenten ska installeras på.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Federationsservern för din organisation måste vara betrodd av Azure Active Directory. Exempel: https://sts.contoso.com</li> |
+| Kontrollera att PowerShell v4.0 eller senare har installerats | <li>Windows Server 2008 R2 levereras med PowerShell v2.0, vilket inte är tillräckligt för agenten.  Uppdatera PowerShell enligt beskrivningen under [Agentinstallation på Windows Server 2008 R2-servrar](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 levereras med PowerShell v3.0, vilket inte är tillräckligt för agenten.  [Uppdatera](http://www.microsoft.com/en-us/download/details.aspx?id=40855) Windows Menagement Framework.</li><li>Windows Server 2012 R2 och senare levereras med en tillräckligt ny version av PowerShell.</li>|
 |Inaktivera FIPS|FIPS stöds inte av Azure AD Connect Health-agenter.|
+
+## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Ladda ned och installera Azure AD Connect Health-agenten
+* Säkerställ att du [uppfyller kraven](active-directory-aadconnect-health-agent-install.md#requirements) för Azure AD Connect Health.
+* Kom igång med Azure AD Connect Health för AD FS
+    * [Hämta Azure AD Connect Health Agent för AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Se installationsinstruktionerna](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+* Kom igång med Azure AD Connect Health för synkronisering
+    * [Hämta och installera den senaste versionen av Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). Hälsoagenten för synkronisering installeras som en del av installationen av Azure AD Connect (version 1.0.9125.0 eller senare).
+* Kom igång med Azure AD Connect Health för AD DS
+    * [Ladda ned Azure AD Connect Health Agent för AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Se installationsinstruktionerna](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Installera Azure AD Connect Health Agent för AD FS
 Starta agentinstallationen genom att dubbelklicka på EXE-filen som du laddade ned. Klicka på Installera på den första skärmen.
@@ -89,11 +100,11 @@ För att funktionen Användningsanalys ska kunna samla in och analysera data beh
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Så här aktiverar du granskning för AD FS i Windows Server 2008 R2
 1. Klicka på **Starta**, peka på **Program**, peka på **Administrationsverktyg** och klicka sedan på **Lokal säkerhetsprincip**.
-2. Navigera till mappen **Säkerhetsinställningar\Lokala principer\User Rights Management** och dubbelklicka sedan på Generera säkerhetsgranskningar.
+2. Gå till mappen **Säkerhetsinställningar\Lokala principer\Tilldelning av användarrättigheter** och dubbelklicka sedan på **Generera säkerhetsgranskningar**.
 3. På fliken **Lokal säkerhetsinställning** kontrollerar du att AD FS 2.0-tjänstkontot visas. Om det inte visas klickar du på **Lägg till användare eller grupp**, lägger till det i listan och klickar på **OK**.
 4. Öppna en kommandotolk med förhöjd behörighet och kör följande kommando för att aktivera granskning: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Stäng Lokal säkerhetsprincip och öppna sedan snapin-modulen för hantering. Öppna snapin-modulen för hantering genom att klicka på **Start**, peka på **Program**, peka på **Administrationsverktyg** och klicka på AD FS 2.0 Management.
-6. Klicka på Redigera egenskaper för Federation Service i fönstret Åtgärder.
+5. Stäng **Lokal säkerhetsprincip** och öppna sedan snapin-modulen för **AD FS-hantering**. Öppna snapin-modulen för AD FS-hantering genom att klicka på **Start**, peka på **Program**, peka på **Administrationsverktyg** och klicka på **AD FS 2.0 Management**.
+6. Klicka på **Redigera egenskaper för Federation Service** i fönstret **Åtgärder**.
 7. Klicka på fliken **Händelser** i dialogrutan **Egenskaper för Federation Service**.
 8. Markera kryssrutorna **Lyckade granskningar** och **Misslyckade granskningar**.
 9. Klicka på **OK**.
@@ -303,4 +314,3 @@ Du kan använda flaggan -ShowResults i kommandot om du vill visa detaljerade log
 * [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Versionshistorik för Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

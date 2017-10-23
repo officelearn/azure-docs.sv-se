@@ -59,6 +59,7 @@
 ## Felsöka
 ### [Felsöka fel i Application Gateway](application-gateway-troubleshooting-502.md)
 ### [Diagnostisk loggning och mått](application-gateway-diagnostics.md)
+### [Tillhörighetsproblem för Application Gateway-sessioner](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # Referens
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/network/application-gateway)

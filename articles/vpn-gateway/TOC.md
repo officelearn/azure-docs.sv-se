@@ -81,7 +81,6 @@
 ### [Problem med punkt-till-plats-anslutning](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [Plats-till-plats-anslutningen kopplas från periodvis](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Plats-till-plats-anslutningen kan inte ansluta](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [Tillhörighetsproblem för Application Gateway-sessioner](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [Konfigurera och verifiera VNet- eller VPN-anslutningar](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Referens

@@ -109,6 +109,7 @@
 ### Använda enhetsjobb för att uppdatera enhetens inbyggda programvara
 #### [Node-serverdel/Node-enhet](iot-hub-node-node-firmware-update.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-firmware-update.md)
+#### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java-serverdel/Java-enhet](iot-hub-java-java-firmware-update.md)
 ### Schemalägga och sända jobb
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-schedule-jobs.md)

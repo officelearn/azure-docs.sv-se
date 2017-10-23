@@ -1,6 +1,6 @@
 # Översikt
 ## [Linux SQL Server VM](sql-server-linux-virtual-machines-overview.md)
-## [Prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+## [Prissättning](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json)
 ## [Vanliga frågor och svar](sql-server-linux-faq.md)
 
 # Kom igång

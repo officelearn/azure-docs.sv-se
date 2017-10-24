@@ -11,6 +11,8 @@
       href: log-analytics-quick-collect-azurevm.md
     - name: Samla in – Linux-dator
       href: log-analytics-quick-collect-linux-computer.md
+    - name: Samla in – Windows-dator
+      href: log-analytics-quick-collect-windows-computer.md
 - name: Självstudier
   items:
     - name: 1 – Analysera data
@@ -25,20 +27,22 @@
       href: powershell-samples.md
 - name: Koncept
   items:
+    - name: Uppgradering av arbetsyta
+      href: log-analytics-log-search-upgrade.md
     - name: Vanliga frågor och svar om Log Analytics
       href: log-analytics-faq.md
     - name: Dataförbrukning
       href: log-analytics-usage.md
     - name: Hantera åtkomst
       href: log-analytics-manage-access.md
-    - name: Funktioner för tjänsteleverantörer
+    - name: Funktioner för tjänstleverantörer
       href: log-analytics-service-providers.md
     - name: Loggsökning
       items:
-        - name: Vanliga frågor och svar om loggsökning
-          href: log-analytics-log-search-faq.md
         - name: Översikt över loggsökningar
           href: log-analytics-log-search-new.md
+        - name: Vanliga frågor och svar om loggsökning
+          href: log-analytics-log-search-faq.md
         - name: Loggsökningsportaler
           href: log-analytics-log-search-portals.md
 - name: Gör så här för att
@@ -89,6 +93,20 @@
               href: log-analytics-custom-fields.md
     - name: Frågedata
       items:
+        - name: Språkdokumentation
+          href: 'https://docs.loganalytics.io'
+        - name: Övergång från äldre språk
+          href: log-analytics-log-search-transition.md
+        - name: Sökningar över arbetsytor
+          href: log-analytics-cross-workspace-search.md
+        - name: Utför åtgärder från sökresultat
+          href: log-analytics-log-search-takeaction.md
+        - name: Använda datorgrupper
+          href: log-analytics-computer-groups.md
+        - name: Flödesanslutning
+          href: log-analytics-flow-tutorial.md
+    - name: Äldre loggsökning
+      items:
         - name: Översikt över loggsökningar
           href: log-analytics-log-searches.md
         - name: Sökreferens
@@ -96,26 +114,18 @@
           items:
             - name: Reguljära uttryck
               href: log-analytics-log-searches-regex.md
-            - name: Sökningar över arbetsytor
-              href: log-analytics-cross-workspace-search.md
-        - name: Utför åtgärder från sökresultat
-          href: log-analytics-log-search-takeaction.md
-        - name: Datorgrupper
-          href: log-analytics-computer-groups.md
-    - name: Ny loggsökning
-      items:
-        - name: Uppgradera din arbetsyta
-          href: log-analytics-log-search-upgrade.md
-        - name: Övergång från äldre språk
-          href: log-analytics-log-search-transition.md
-        - name: Flödesanslutning
-          href: log-analytics-flow-tutorial.md
     - name: Analysera data
       items:
         - name: Instrumentpaneler
           href: log-analytics-dashboards.md
         - name: Vydesigner
-          href: log-analytics-view-designer.md
+          items:
+            - name: Översikt
+              href: log-analytics-view-designer.md
+            - name: Panelreferens
+              href: log-analytics-view-designer-tiles.md
+            - name: Referens för visualiseringsdel
+              href: log-analytics-view-designer-parts.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: Skapa aviseringar
@@ -231,14 +241,12 @@
           href: log-analytics-api-alerts.md
 - name: Referens
   items:
+    - name: Språkreferens
+      href: 'https://docs.loganalytics.io/docs/Language-Reference'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
-    - name: Panelreferens för Vydesigner
-      href: log-analytics-view-designer-tiles.md
-    - name: Referens för visualiseringsdel för Vydesigner
-      href: log-analytics-view-designer-parts.md
 - name: Resurser
   items:
     - name: Azure-översikt

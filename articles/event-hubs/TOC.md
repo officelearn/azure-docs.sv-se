@@ -34,6 +34,7 @@
 #### [Diagnostikloggar](event-hubs-diagnostic-logs.md)
 ### [AMQP 1.0-protokollguide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Hantera
+### [Övervaka Event Hubs med Azure-övervakning](event-hubs-metrics-azure-monitor.md)
 ### [Event Hubs-hanteringsbibliotek](event-hubs-management-libraries.md)
 ### Capture
 #### [Event Hubs Capture](event-hubs-capture-overview.md)

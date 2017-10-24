@@ -34,6 +34,8 @@
   items:
     - name: Använd ASE
       href: using-an-ase.md
+    - name: Integrera med Application Gateway
+      href: integrate-with-application-gateway.md
     - name: Skapa ASE från en mall
       href: create-from-template.md
 - name: Referens

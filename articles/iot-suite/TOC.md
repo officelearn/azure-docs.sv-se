@@ -37,7 +37,7 @@
 ## [Enhetsinformation i fjärrövervakningslösningen](iot-suite-remote-monitoring-device-info.md)
 ## [Distribuera en gateway för ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
 ## [Anpassa ansluten fabrik ](iot-suite-connected-factory-customize.md)
-
+## [Använda OPC-utgivaren för ansluten fabrik](iot-suite-connected-factory-publisher.md)
 # Referens
 ## [Säkerhetsarkitektur](iot-security-architecture.md)
 ## [Metodtips för säkerhet](iot-security-best-practices.md)

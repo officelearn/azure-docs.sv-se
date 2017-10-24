@@ -10,7 +10,7 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing (CORS)](cdn-cors.md)
-### [Mappa en anpassad domän till CDN](cdn-map-content-to-custom-domain.md)
+### [Lägga till en anpassad domän i CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
 ### [Aktivera HTTPS på en anpassad domän](cdn-custom-ssl.md)
 ## Optimera innehåll
 ### [Optimeringsöversikt](cdn-optimization-overview.md)
@@ -39,6 +39,7 @@
 ## Analysera
 ### [Analysera användningsmönster för Azure CDN](cdn-log-analysis.md)
 #### [Core-rapporter från Verizon](cdn-analyze-usage-patterns.md)
+#### [Anpassade rapporter från Verizon](cdn-verizon-custom-reports.md)
 #### [Azure-diagnostikloggar](cdn-azure-diagnostic-logs.md)
 ### Analysverktyg för Azure CDN från Verizon
 #### [Generera avancerade HTTP-rapporter](cdn-advanced-http-reports.md)

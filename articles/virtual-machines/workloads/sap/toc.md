@@ -20,9 +20,25 @@
 ## [Distributionsguide för SAP IDES i Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP NetWeaver på virtuella Azure Linux-datorer](suse-quickstart.md)
 ## [Planera och implementera SAP NetWeaver på Azure](planning-guide.md)
-## [Hög tillgänglighet i Windows](high-availability-guide.md)
-## [Hög tillgänglighet i SUSE Linux](high-availability-guide-suse.md)
-## [Multi-SID-konfigurationer](high-availability-multi-sid.md)
+## Hög tillgänglighet på Windows och Linux
+### [Översikt](sap-high-availability-guide-start.md)
+### Arkitektur med hög tillgänglighet
+#### [Arkitektur med hög tillgänglighet och scenarier](sap-high-availability-architecture-scenarios.md)
+#### [Arkitektur med högre tillgänglighet och scenarier](sap-higher-availability-architecture-scenarios.md)
+#### [Hög tillgänglighet på Windows med delad disk för (A)SCS-instans](sap-high-availability-guide-wsfc-shared-disk.md)
+#### [Hög tillgänglighet på Windows med SOFS-filresurs för (A)SCS-instans](sap-high-availability-guide-wsfc-file-share.md)
+#### [Hög tillgänglighet på SUSE Linux för (A)SCS-instans](high-availability-guide-suse.md)
+### Förberedelse av Azure-infrastruktur
+#### [Windows med delad disk för (A)SCS-instans](sap-high-availability-infrastructure-wsfc-shared-disk.md)
+#### [Windows med SOFS-filresurs för (A)SCS-instans](sap-high-availability-infrastructure-wsfc-file-share.md)
+#### [SUSE Linux med NFS för (A)SCS-instans](high-availability-guide-suse.md)
+### SAP-installation
+#### [Windows med delad disk för (A)SCS-instans](sap-high-availability-installation-wsfc-shared-disk.md)
+#### [Windows med SOFS-filresurs för (A)SCS-instans](sap-high-availability-installation-wsfc-file-share.md)
+#### [SUSE Linux med NFS för (A)SCS-instans](high-availability-guide-suse.md)
+### SAP – flera säkerhetsidentifierare
+#### [Windows med delad disk för (A)SCS-instans](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
+#### [Windows med SOFS-filresurs för (A)SCS-instans](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [Distributionsguide](deployment-guide.md)
 ## [Distributionsguide för DBMS](dbms-guide.md)
 ## [Haveriberedskap för Azure Site Recovery för SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)

@@ -59,6 +59,8 @@
           href: concepts-supported-versions.md
         - name: Serverloggar
           href: concepts-server-logs.md
+        - name: Hög tillgänglighet
+          href: concepts-high-availability.md
     - name: Resurser
       items:
         - name: Prisnivåer
@@ -73,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: Konfigurerar SSL
           href: concepts-ssl-connection-security.md
+    - name: Övervaka
+      href: concepts-monitoring.md
     - name: Utveckling
       items:
         - name: Anslutningsbibliotek
@@ -117,8 +121,14 @@
           href: howto-configure-server-parameters-using-cli.md
     - name: Åtkomst till serverloggar
       items:
+        - name: Azure Portal
+          href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
+    - name: Övervaka
+      items:
+        - name: Skapa aviseringar för mått
+          href: howto-alert-on-metric.md
 - name: Referens
   items:
     - name: Azure CLI

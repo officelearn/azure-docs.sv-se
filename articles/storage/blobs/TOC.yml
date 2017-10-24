@@ -1,3 +1,5 @@
+- name: Azure Storage-dokumentation
+  href: /azure/storage/
 - name: Översikt
   items:
     - name: Introduktion
@@ -16,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Arbeta med blobar – .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Arbeta med blobar – Python
+      href: storage-quickstart-blobs-python.md
 - name: Självstudier
   items:
     - name: Ladda upp och bearbeta en avbildning
@@ -28,6 +32,12 @@
           href: storage-secure-access-application.md
         - name: 4 – Övervaka och felsök lagring
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: Utforma för hög tillgänglighet i molnlagring
+      items:
+        - name: Skapa hög tillgänglighet för ditt program
+          href: storage-create-geo-redundant-storage.md
+        - name: Simulera ett fel med RA-GRS-lagring
+          href: storage-simulate-failure-ragrs-account-app.md
     - name: Sök efter ostrukturerade data i molnlagringen
       href: storage-unstructured-search.md
 - name: Exempel

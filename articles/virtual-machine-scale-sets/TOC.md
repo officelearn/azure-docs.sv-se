@@ -21,19 +21,20 @@
 ### [Skapa med Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Skapa med Azure PowerShell eller Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Skalningsuppsättning med hanterade diskar](virtual-machine-scale-sets-managed-disks.md)
-### [Linux-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-linux-autoscale.md)
-### [Windows-skalningsuppsättning med automatisk skalning](virtual-machine-scale-sets-windows-autoscale.md)
+### [Skala en skalningsuppsättning automatiskt](virtual-machine-scale-sets-autoscale-overview.md)
+#### [Använda Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+#### [Använda Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+#### [Använda Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [Avancerad automatisk skalning](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Program i skalningsuppsättningar](virtual-machine-scale-sets-deploy-app.md)
 ### [Använda datadiskar med skalningsuppsättningar](virtual-machine-scale-sets-attached-disks.md)
 ### [Arbeta med stora skalningsuppsättningar](virtual-machine-scale-sets-placement-groups.md)
 ### [Konvertera en skalningsuppsättningsmall för användning av hanterad disk](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Hantera
-### [Windows-skalningsuppsättning med Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Automatisk skalning och skalningsuppsättningar](virtual-machine-scale-sets-autoscale-overview.md)
-### [Avancerad automatisk skalning](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### Vanliga administrativa uppgifter
+#### [Använda Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
+#### [Använda Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Vertikal skalning i en skalningsuppsättning](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Uppgraderingar för skalningsuppsättningar](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Använda DSC och skalningsuppsättningar](virtual-machine-scale-sets-dsc.md)

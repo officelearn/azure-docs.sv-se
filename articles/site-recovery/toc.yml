@@ -73,26 +73,19 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: site-recovery-faq.md
-    - name: Planera kapacitet för VMware-replikering till Azure
-      href: site-recovery-plan-capacity-vmware.md
-      items:
-        - name: Distributionsplaneraren för VMware-replikering till Azure
-          href: site-recovery-deployment-planner.md
-    - name: Capacity Planner för Hyper-V-replikering
-      href: site-recovery-capacity-planner.md
 - name: Guider
   items:
     - name: Haveriberedskap
       items:
-        - name: Till Azure för virtuella VMware-datorer med stöd för flera klienter
+        - name: Virtuella VMware-datorer med stöd för flera klienter till Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
-        - name: Till Azure för virtuella Hyper-V-datorer
+        - name: Virtuella Hyper-V-datorer till Azure
           href: tutorial-hyper-v-to-azure.md
-        - name: Till Azure för fysiska servrar
+        - name: Fysiska servrar till Azure
           href: tutorial-physical-to-azure.md
-        - name: Till en sekundär plats för virtuella Hyper-V-datorer
+        - name: Virtuella Hyper-V-datorer till en sekundär plats
           href: tutorial-vmm-to-vmm.md
-        - name: Till en sekundär plats för virtuella VMware-datorer och fysiska servrar
+        - name: Virtuella VMware-datorer och fysiska servrar till en sekundär webbplats
           href: tutorial-vmware-to-vmware.md
         - name: Köra ett programåterställningstest till Azure
           href: tutorial-dr-drill-azure.md
@@ -104,6 +97,20 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Köra redundans och återställning efter fel mellan lokala platser
           href: tutorial-vmm-to-vmm-failover-failback.md
+    - name: Kapacitet och skalning
+      items:
+        - name: Planera kapacitet för VMware-replikering till Azure
+          href: site-recovery-plan-capacity-vmware.md
+        - name: Distributionsplaneringsverktyget för VMware-replikering till Azure
+          href: site-recovery-deployment-planner.md
+        - name: Kapacitetsplanering för Hyper-V-replikering till Azure
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+        - name: Kapacitetsplaneringsverktyg för Hyper-V-replikering till Azure
+          href: site-recovery-capacity-planner.md
+        - name: Skala ut processervrar för VMware-replikering
+          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Prestandaskalningstester för Hyper-V-replikering mellan lokala platser
+          href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Konfigurera
       items:
         - name: Konfigurera källmiljön
@@ -120,6 +127,8 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: Konfigurera replikeringsinställningar
           href: site-recovery-setup-replication-settings-vmware.md
+        - name: Undanta diskar från replikering
+          href: site-recovery-exclude-disk.md
         - name: Distribuera mobilitetstjänsten för VMware-replikering
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
@@ -157,9 +166,11 @@
         - name: Redundansväxla från Azure
           items:
             - name: Redundansväxla från Azure till VMware
-              href: site-recovery-failback-azure-to-vmware.md
+              href: site-recovery-how-to-failback-azure-to-vmware.md
             - name: Redundansväxla från Azure till Hyper-V
               href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: Konfigurera en Linux-huvudmålserver för återställning efter fel
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: Automatisera
       items:
         - name: Konfigurera Hyper-V-replikering till Azure (utan VMM) med PowerShell
@@ -202,8 +213,6 @@
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Hantera konfigurationsservern
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
-        - name: Hantera utskalade processervrar
-          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: Hantera vCenter-servrar
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Ta bort servrar och inaktivera skydd

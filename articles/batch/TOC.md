@@ -20,6 +20,7 @@
 ### [Samtidiga nodaktiviteter](batch-parallel-node-tasks.md)
 ### [Räkna aktiviteter efter tillstånd](batch-get-task-counts.md)
 ### [Skapa en pool med en anpassad bild](batch-custom-images.md)
+### [Skapa en pool i ett virtuellt nätverk](batch-virtual-network.md)
 ### [Effektiv lista: frågor](batch-efficient-list-queries.md)
 ### [Aktiviteter för jobbförberedelse och -slutförande](batch-job-prep-release.md)
 ### [Linux-beräkningsnoder](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Miljövariabler för Azure Batch-beräkningsnod](batch-compute-node-environment-variables.md)
 
 # Relaterat
+## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Databearbetning med Batch och Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch- och HPC-lösningar i Azure-molnet](batch-hpc-solutions.md)

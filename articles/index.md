@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: Microsoft Azure-dokumentation
 description: "Lär dig att skapa och hantera kraftfulla program med Microsoft Azure-molntjänster. Hämta dokumentation, exempelkod, självstudier och annat."
-ms.openlocfilehash: e87391e9662991a542ad58eafd9b4c2714f30d66
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 552739da2429fd747101ae5e28e805ca8559b431
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 10/21/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -658,7 +658,7 @@ ms.lasthandoff: 10/14/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/translator/">
+                                            <a href="/azure/cognitive-services/translator/translator-info-overview">
                                                 <img src="media/index/cognitive-services-translator.svg" alt="" />
                                                 <p>Translator Text API</p>
                                             </a>
@@ -712,7 +712,7 @@ ms.lasthandoff: 10/14/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/speech/">
+                                            <a href="/azure/cognitive-services/speech/home">
                                                 <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
                                                 <p>Tjänst för Bing-taligenkänning</p>
                                             </a>
@@ -791,6 +791,12 @@ ms.lasthandoff: 10/14/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>Disklagring</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/storage/queues/storage-queues-introduction/">
                                                 <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                 <p>Queue Storage</p>
@@ -800,12 +806,6 @@ ms.lasthandoff: 10/14/2017
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>File Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/disks/">
-                                                <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Disklagring</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1682,6 +1682,25 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Disklagring</h3>
+                                                    <p>Disklagring för virtuella datorer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/storage/queues/storage-queues-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1713,25 +1732,6 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
                                                     <p>Enkelt, distribuerat filsystem mellan plattformar</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Disks-color.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Disklagring</h3>
-                                                    <p>Disklagring för virtuella datorer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2590,7 +2590,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                         <h3>Tal</h3>
                                                         <ul class="noBullet">
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speech/"><img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />Tjänst för Bing-taligenkänning</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />Tjänst för Bing-taligenkänning</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Spc_CustomSpeechService.svg" alt="" /><span>Custom Speech Service&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a>
@@ -2621,10 +2621,10 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_Lang_LinguisticAnalysis.svg" alt="" /><span>Språklig analys&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/overview"><img src="media/index/API_Lang_TextAnalytics.svg" alt="" /><span>Textanalys&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/overview"><img src="media/index/API_Lang_TextAnalytics.svg" alt="" />Textanalys</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/translator/"><img src="media/index/cognitive-services-translator.svg" alt="" />Translator Text API</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/cognitive-services-translator.svg" alt="" />Textöversättning</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_Lang_WebLM.svg" alt="" /><span>Webbspråksmodell&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a>

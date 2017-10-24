@@ -13,6 +13,7 @@
 # Gör så här för att
 ## Distribuera och använda
 ### [Konfigurera inställningar](multi-factor-authentication-whats-next.md)
+#### [Använda phonefactor-portalen](multi-factor-authentication-whats-next-pfweb.md)
 ### [Rapporter i MFA](multi-factor-authentication-manage-reports.md)
 ### [Använd befintliga servrar för nätverksprinciper](multi-factor-authentication-nps-extension.md)
 #### [Avancerad konfiguration för NPS-tillägg](nps-extension-advanced-configuration.md)

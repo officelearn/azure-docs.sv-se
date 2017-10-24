@@ -95,6 +95,7 @@
 ## [Azure-säkerhet MVP-program](azure-security-mvp.md)
 ## [Cybersäkerhetsrådgivning](azure-security-cyber-services.md)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
+## [Säkerhetsrekommendationer för Azure Marketplace-avbildningar](security-recommendations-azure-marketplace-images.md)
 ## Scenarier
 ### [Hantera personliga data i Azure](manage-personal-data-azure.md)
 ### [Upptäcka, identifiera och klassificera personliga data i Azure](how-to-discover-classify-personal-data-azure.md)

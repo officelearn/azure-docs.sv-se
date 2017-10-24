@@ -5,8 +5,8 @@
 
 # Kom igång
 ## [Skapa din första logiska app](logic-apps-create-a-logic-app.md)
-## [Mallar till Logic Apps](logic-apps-use-logic-app-templates.md)
-## [Skapa Logic Apps från mallar](logic-apps-arm-provision.md)
+## [Skapa Logic Apps från mallar](logic-apps-create-logic-apps-from-templates.md)
+## [Skapa logikappar från Resource Manager-mallar](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [Flytta MABS-appar till Logic Apps](logic-apps-move-from-mabs.md)
 
 # Gör så här för att
@@ -108,7 +108,7 @@
 # Referens
 ## [Definitionsspråk för arbetsflöde](logic-apps-workflow-definition-language.md)
 ## [Åtgärder och utlösare för arbetsflöde](logic-apps-workflow-actions-triggers.md)
-## [REST-API](/rest/api/logic/)
+## [REST API](/rest/api/logic/)
 ## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Anslutningsappar: ämnesfördjupning
 ### [AS2](logic-apps-enterprise-integration-as2.md)

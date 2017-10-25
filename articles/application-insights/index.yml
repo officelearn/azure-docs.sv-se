@@ -80,7 +80,7 @@ sections:
           - title: Språk
             html: '<p><a href="https://docs.loganalytics.io/">Analys</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">API för dataåtkomst</a></p>'
           - title: Datamodell
-            html: <p><a href="application-insights-data-model-request-telemetry">Förfrågan</a></p><p><a href="application-insights-data-model-dependency-telemetry">Beroende</a></p><p><a href="application-insights-data-model-exception-telemetry">Undantag</a></p><p><a href="application-insights-data-model-trace-telemetry">Spårning</a></p><p><a href="application-insights-data-model-event-telemetry">Händelse</a></p><p><a href="application-insights-data-model-metric-telemetry">Mått</a></p><p><a href="application-insights-data-model-context">Contect</a></p>
+            html: <p><a href="application-insights-data-model-request-telemetry">Förfrågan</a></p><p><a href="application-insights-data-model-dependency-telemetry">Beroende</a></p><p><a href="application-insights-data-model-exception-telemetry">Undantag</a></p><p><a href="application-insights-data-model-trace-telemetry">Spårning</a></p><p><a href="application-insights-data-model-event-telemetry">Händelse</a></p><p><a href="application-insights-data-model-metric-telemetry">Mått</a></p><p><a href="application-insights-data-model-context">Kontext</a></p>
           - title: Telemetrikorrelation
             html: <p><a href="application-insights-correlation">Telemetrikorrelation</a></p>
           - title: Kodexempel

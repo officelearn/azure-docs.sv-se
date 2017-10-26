@@ -21,6 +21,8 @@
 ### [Tillgängliga API:er](relay-api-overview.md)
 #### [NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Hantera
+### [Övervaka Azure Relay med Azure-övervakning](relay-metrics-azure-monitor.md)
 
 # Referens
 ## .NET

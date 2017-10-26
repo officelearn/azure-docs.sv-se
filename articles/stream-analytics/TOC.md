@@ -20,6 +20,7 @@
 ### [Exempel på inmatade data](stream-analytics-sample-data-input.md)
 ### [Vanliga frågemönster](stream-analytics-stream-analytics-query-patterns.md)
 ### [Fönsterfunktioner](stream-analytics-window-functions.md)
+
 ### [Använd referensdata](stream-analytics-use-reference-data.md)
 ### [Testfrågor](stream-analytics-test-query.md)
 ### [Integrera UDF:er för JavaScript](stream-analytics-javascript-user-defined-functions.md)
@@ -53,6 +54,7 @@
 ### [Jobbdiagram och mått](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO-felsökning](stream-analytics-select-into.md)
 ### [Hantering av händelseordning](stream-analytics-out-of-order-and-late-events.md)
+### [Överväganden för händelseordning](stream-analytics-out-of-order-and-late-events.md)
 ### [Läsbegränsningar för händelsehubb](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostikloggar](stream-analytics-job-diagnostic-logs.md)
 

@@ -80,16 +80,15 @@
 #### [Anpassa användargränssnittet dynamiskt](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Anpassa token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Lösenordskomplexitet](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [Lösenordsändring](active-directory-b2c-reference-password-change-custom.md)
-
 #### [Aktivera ”Håll mig inloggad”](active-directory-b2c-reference-kmsi-custom.md)
-
 ### Felsökning
 #### [Samla in loggar med Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referens
 ### [Viktig information](active-directory-b2c-developer-notes-custom.md)
+### [Providrar för SSO-session](active-directory-b2c-reference-sso-custom.md)
 ### [Definition av betrott ramverk](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Ordlista

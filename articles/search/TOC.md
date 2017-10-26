@@ -1,6 +1,8 @@
-# Översikt
+# [Översikt](search-what-is-azure-search.md)
 ## [Vad är Azure Search?](search-what-is-azure-search.md)
+
 # Kom igång
+
 ## [Välja en SKU](search-sku-tier.md)
 ## [Skapa en tjänst](search-create-service-portal.md)
 ## [Skapa ett index](search-what-is-an-index.md)
@@ -15,18 +17,22 @@
 ### [Azure Portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
+
 # Självstudier
+
 ## [NET](search-howto-dotnet-sdk.md)
 ## [Förhandsversion av .NET-synonymer](search-synonyms-tutorial-sdk.md)
 ## [Portal](search-get-started-portal.md)
+## [Söka i halvstrukturerade data](search-semi-structured-data.md)
 ## [Node.js](search-get-started-nodejs.md)
 ## [Java](search-get-started-java.md)
+
 # Gör så här för att
+
 ## Planera och designa
 ### [Tjänstbegränsningar](search-limits-quotas-capacity.md)
 ### [Tjänstskalbarhet](search-capacity-planning.md)
 ### [Utforma mönster för flera innehavare](search-modeling-multitenant-saas-applications.md)
-
 ## Utveckla
 ### [API-versioner](search-api-versions.md)
 ### [Uppgradera SDK](search-dotnet-sdk-migration.md)
@@ -34,11 +40,10 @@
 ### [Skapa modeller över komplexa datatyper](search-howto-complex-data-types.md)
 ### [Hantera samtidiga uppdateringar](search-howto-concurrency.md)
 ### [Kodexempel](https://azure.microsoft.com/resources/samples/?service=search)
-
 ## Hantera
 ### Administrera Azure Search
 #### [Azure Portal](search-manage.md)
-#### Azure [Azure PowerShell](search-manage-powershell.md)
+#### [Azure PowerShell](search-manage-powershell.md)
 ### [Övervaka användning och statistik](search-monitor-usage.md)
 ### [Söktrafikanalys](search-traffic-analytics.md)
 ### [Prestanda och optimering](search-performance-optimization.md)
@@ -57,18 +62,23 @@
 ### Frågekonstruktion
 #### [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Exempel på Lucene-syntaxfråga](search-query-lucene-examples.md)
-#### [Filtrera uttryckssyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+#### [Lucene-exempelfrågor](search-query-lucene-examples.md)
 ### Analysverktyg i Azure Search
 #### [Översikt](search-analyzers.md)
 #### [Språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### Filter i Azure Search
+#### [Översikt](search-filters.md)
+#### [Facet-filter](search-filters-facets.md)
+#### [Språkfilter](search-filters-language.md)
+#### [Säkerhetsoptimering](search-security-trimming-for-azure-search.md)
+#### [Referens för uttryckssyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Växla resultat](search-pagination-page-layout.md)
 ### [Resultat](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Förslag](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Aspektbaserad navigering](search-faceted-navigation.md)
 ### [Förhandsversion av synonymer](search-synonyms.md)
-### [Säkerhetsfilter](search-security-trimming-for-azure-search.md)
+
 # Referens
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
@@ -80,7 +90,6 @@
 
 # Resurser
 
-## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Vanliga frågor och svar (FAQ)](search-faq-frequently-asked-questions.md)
 ## [Prissättning](https://azure.microsoft.com/pricing/details/search/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
@@ -97,7 +106,7 @@
 ### [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [blogg: Modeller med relationsdata](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [[blogg: Flernivåfasettering](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+### [blogg: Flernivåfasett](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 
 
 

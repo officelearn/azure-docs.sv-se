@@ -2,8 +2,6 @@
 
 ## [Vad är SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Arbetsbelastning i informationslager](sql-data-warehouse-overview-workload.md)
-## [Distribuerad data](sql-data-warehouse-distributed-data.md)
-## [Vanliga frågor och svar](sql-data-warehouse-overview-faq.md)
 
 # Kom igång
 
@@ -12,9 +10,13 @@
 ## [Bästa praxis](sql-data-warehouse-best-practices.md)
 ## [Hantera](sql-data-warehouse-overview-manage.md)
 
-
-
 # Gör så här för att
+
+## Tjänstfunktioner
+### [MPP-arkitektur](massively-parallel-processing-mpp-architecture.md)
+### [Prestandanivåer](performance-tiers.md)
+### [Informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Vanliga frågor och svar](sql-data-warehouse-overview-faq.md)
 
 ## Säkerhetskopiering och återställning
 
@@ -118,13 +120,15 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST-API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### Resursklasser
+#### [Riktlinjer](resource-classes-for-workload-management.md)
+#### [Analysera din arbetsbelastning](analyze-your-workload.md)
 
 ## Prestanda
 
 ### [Översikt](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Övervaka](sql-data-warehouse-manage-monitor.md)
-### [Arbetsbelastning](sql-data-warehouse-develop-concurrency.md)
 
 ## Säkerhet
 

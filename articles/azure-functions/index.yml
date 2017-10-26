@@ -15,7 +15,7 @@ metadata:
   ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: 'Azure Functions är en serverlös beräkningstjänst som gör det möjligt köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser. Lär dig hur du använder Azure Functions med våra snabbstarter, självstudier och exempel.'
+  description: 'Azure Functions är en beräkningstjänst <a href="https://azure.microsoft.com/overview/serverless-computing/">utan server</a> som gör det möjligt att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser. Lär dig hur du använder Azure Functions med våra snabbstarter, självstudier och exempel.'
   aside:
     image:
       alt: null

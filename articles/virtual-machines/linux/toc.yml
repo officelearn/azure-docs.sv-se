@@ -222,11 +222,25 @@
             - name: Distribuera din första app
               href: cloudfoundry-deploy-your-first-app.md
         - name: OpenShift
-          href: openshift-get-started.md
+          items:
+            - name: Översikt över OpenShift
+              href: openshift-get-started.md
+            - name: Krav för OpenShift
+              href: openshift-prerequisites.md
+            - name: OpenShift Origin
+              href: openshift-origin.md
+            - name: OpenShift Container Platform
+              href: openshift-container-platform.md
+            - name: Uppgifter efter distribution för OpenShift
+              href: openshift-post-deployment.md
+            - name: Felsöka distributioner
+              href: openshift-troubleshooting.md
         - name: SAP på Azure
           href: ../workloads/sap/get-started.md
         - name: Oracle
           href: ../workloads/oracle/oracle-database-quick-create.md
+        - name: Elasticsearch
+          href: tutorial-elasticsearch.md
         - name: FreeBSD-paketfilter
           href: freebsd-pf-nat.md
         - name: Databaser
@@ -247,7 +261,6 @@
             - name: Installera NVIDIA GPU-drivrutiner
               href: n-series-driver-setup.md
     - name: Hantera lagring
-      href: about-disks-and-vhds.md
       items:
         - name: Mer information om Managed Disks
           href: managed-disks-overview.md

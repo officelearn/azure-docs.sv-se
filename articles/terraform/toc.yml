@@ -1,0 +1,35 @@
+- name: Översikt
+  items:
+    - name: Om Terraform på Azure
+      href: terraform-overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Installera och konfigurera Terraform
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Skapa en virtuell Linux-dator
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
+- name: Självstudier
+  items:
+    - name: Skapa ett VM-kluster med Terraform-moduler
+      href: terraform-create-vm-cluster-module.md
+    - name: Skapa ett VM-kluster med Cloud Shell
+      href: terraform-create-vm-cluster-with-infrastructure.md
+    - name: Etablera virtuella skalningsuppsättningar med infrastruktur
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
+- name: Koncept
+  items:
+    - name: Cloud Shell-integrering
+      href: terraform-cloud-shell.md
+- name: Exempel
+  items:
+    - name: Konfigurationsmallar
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+- name: Referens
+  items:
+    - name: Azure-modulregister
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Terraform-referens
+      href: 'http://aka.ms/terraform'

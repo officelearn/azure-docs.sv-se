@@ -5,6 +5,8 @@
 ## [Välj en hybrididentitetslösning](choose-hybrid-identity-solution.md)
 ## [Associera Azure-prenumerationer](active-directory-how-subscriptions-associated-directory.md)
 ## [Vanliga frågor och svar](active-directory-faq.md)
+## [Nyheter](whats-new.md)
+
 
 # Kom igång
 ## [Kom igång med Azure AD](get-started-azure-ad.md)
@@ -302,6 +304,7 @@
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### Uppgifter
+##### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
 ##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurera appbaserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
 ##### [Ange användningsvillkor för användare och appar](active-directory-tou.md)

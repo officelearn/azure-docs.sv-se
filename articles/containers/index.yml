@@ -47,30 +47,22 @@ sections:
         className: cardsM
         columns: 2
         items:
+          - href: ../aks/kubernetes-walkthrough.md
+            title: Skapa ett Kubernetes-kluster med Azure Container Service (AKS)
+            image:
+              src: /azure/media/index/ContainerService.svg
           - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
             title: Distribuera ett Windows-behållarprogram med Service Fabric
             image:
               src: /azure/media/index/Fabric.svg
-          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough'
-            title: Skapa ett Kubernetes-kluster för Linux-behållare
-            image:
-              src: /azure/media/index/ContainerService.svg
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-swarm-walkthrough'
-            title: Distribuera ett Docker Swarm-kluster
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
-            title: Skapa ett privat Docker-register i Azure Container Registry
-            image:
-              src: /azure/media/index/container-registry.svg
           - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
             title: Skapa en behållarbaserad app med Azure Web Apps for Containers
             image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-          - href: 'https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-dcos-quickstart'
-            title: Distribuera ett DC/OS-kluster
+          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
+            title: Skapa ett privat Docker-register i Azure Container Registry
             image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+              src: /azure/media/index/container-registry.svg
   - title: Kostnadsfri videoutbildning för Pluralsight för Azure och behållare
     items:
       - type: list
@@ -93,14 +85,14 @@ sections:
   - title: Steg för steg-självstudier
     items:
       - type: paragraph
-        text: Lär dig hur du använder Azure-behållare
+        text: Lär dig hur du använder Azure Container Service (AKS)
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Skapa behållaravbildningar från ett program (Create container images from an application)</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Ladda upp behållaravbildningar till Azure Container Registry (Upload container images to the Azure Container Registry)</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Distribuera ett Kubernetes-kluster i Azure Container Service (Deploy a Kubernetes cluster in Azure Container Service)</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Kör dina behållaravbildningar i Kubernetes (Run your container images in Kubernetes)</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Skala ett program och Kubernetes-infrastruktur (Scale an application and Kubernetes infrastructure)</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Uppdatera ett program som körs i Kubernetes (Update an application running in Kubernetes)</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Övervaka Kubernetes med OMS (Monitor Kubernetes with OMS)</a>'
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Skapa behållaravbildningar från ett program (Create container images from an application)</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Ladda upp behållaravbildningar till Azure Container Registry (Upload container images to the Azure Container Registry)</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Distribuera ett AKS-kluster</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Kör dina behållaravbildningar i Kubernetes (Run your container images in Kubernetes)</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-scale">Skala ett program och Kubernetes-infrastruktur (Scale an application and Kubernetes infrastructure)</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Uppdatera ett program som körs i Kubernetes (Update an application running in Kubernetes)</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Övervaka Kubernetes med Log Analytics</a>

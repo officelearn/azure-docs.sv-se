@@ -63,6 +63,7 @@
 #### [Transaktionsbearbetning](service-bus-transactions.md)
 #### [Implementering av kopplat namnområde](service-bus-paired-namespaces.md)
 ## Hantera
+### [Övervaka Service Bus med Azure-övervakning](service-bus-metrics-azure-monitor.md)
 ### [Service Bus-hanteringsbibliotek](service-bus-management-libraries.md)
 ### [Diagnostikloggar](service-bus-diagnostic-logs.md)
 ### [Skjut upp och återaktivera meddelandeentiteter](entity-suspend.md)

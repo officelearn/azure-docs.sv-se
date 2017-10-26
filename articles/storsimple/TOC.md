@@ -119,7 +119,7 @@
 ##### [Konfigurera webbproxy](storsimple-8000-configure-web-proxy.md)
 ##### [Ändra DATA 0-inställningar](storsimple-8000-modify-data-0.md)
 
-#### [Använd exempelskript med Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
+
 
 #### [Använd StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [Vad är StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
@@ -131,6 +131,11 @@
 ##### [Hantera säkerhetskopieringsjobb via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [Hantera volymer via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Använd MMC-aktiviteter i StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+
+### Automatisera
+
+#### [Använd exempelskript med Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
+#### [Använda runbook-flöden för Azure Automation](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Skapa lösningar
 #### [StorSimple med Veeam](storsimple-configure-backup-target-veeam.md)
@@ -189,7 +194,7 @@
 #### [Version – GA](storsimple-july-2014-release-notes.md)
 
 ## Referens
-### [REST-API](https://docs.microsoft.com/rest/api/storsimple)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell för StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000-serien (klassisk portal)

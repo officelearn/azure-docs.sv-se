@@ -14,7 +14,7 @@
 # Instruktionsguider
 ## Använd virtuella datorer i ett labb
 ### [Skapa virtuella datorer](devtest-lab-add-vm.md)
-### [Skapa virtuell dator som kan hämtas](devtest-lab-add-claimable-vm.md)
+### [Skapa och hantera tillgängliga virtuella datorer](devtest-lab-add-claimable-vm.md)
 ### [Skapa och hantera virtuella datorer med Azure CLI](devtest-lab-vmcli.md)
 ### [Starta om en virtuell dator](devtest-lab-restart-vm.md)
 

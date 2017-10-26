@@ -12,15 +12,14 @@ ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: andrela
+ms.openlocfilehash: 943e355ffcc6c0670585936ec2e559b7fb592ff5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: f07f49e64f107ec063bfb755dbb89644f3d00576
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Fråga Azure SQL Database med Java
 
@@ -161,5 +160,4 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 - [Utforma din första Azure SQL Database](sql-database-design-first-database.md)
 - [Microsoft JDBC-drivrutin för SQL Server](https://github.com/microsoft/mssql-jdbc)
 - [Rapportera problem/ställ frågor](https://github.com/microsoft/mssql-jdbc/issues)
-
 

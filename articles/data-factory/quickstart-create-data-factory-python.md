@@ -9,18 +9,18 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 20a481443d8f456cb1109c046dbdfd42ead7c43c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea82b680213b72582667b2be15c0c2719ad7ff78
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Skapa en datafabrik och pipeline med Python
-Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
+Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda.
 
 Den här snabbstarten beskriver hur du använder Python till att skapa en Azure-datafabrik. Pipeline i den här datafabriken kopierar data från en mapp till en annan i Azure Blob Storage.
 
@@ -28,22 +28,22 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Krav
 
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** och **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) . 
-* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Notera följande värden som du använder i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program till rollen **Deltagare** enligt instruktionerna i samma artikel. 
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** och **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account) .
+* **Skapa en app i Azure Active Directory** med hjälp av [den här instruktionen](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Notera följande värden som du använder i senare steg: **program-ID**, **autentiseringsnyckel** och **klient-ID**. Tilldela program till rollen **Deltagare** enligt instruktionerna i samma artikel.
 
 ### <a name="create-and-upload-an-input-file"></a>Skapa och ladda upp en indatafil
 
 1. Öppna Anteckningar. Kopiera följande text och spara den som en **input.txt**-fil på din disk.
-    
+
     ```
     John|Doe
     Jane|Doe
     ```
-2.  Använd verktyg som [Azure Storage Explorer](http://storageexplorer.com/) till att skapa behållaren **adfv2tutorial** och mappen **input** i behållaren. Ladda sedan upp filen **input.txt** till mappen **input**. 
+2.  Använd verktyg som [Azure Storage Explorer](http://storageexplorer.com/) till att skapa behållaren **adfv2tutorial** och mappen **input** i behållaren. Ladda sedan upp filen **input.txt** till mappen **input**.
 
 ## <a name="install-the-python-package"></a>Installera Python-paketet
-1. Öppna en terminal eller kommandotolk med administratörsbehörighet.  
-2. Installera först Python-paketet för hanteringsresurser i Azure: 
+1. Öppna en terminal eller kommandotolk med administratörsbehörighet. 
+2. Installera först Python-paketet för hanteringsresurser i Azure:
 
     ```
     pip install azure-mgmt-resource
@@ -59,7 +59,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 ## <a name="create-a-data-factory-client"></a>Skapa en datafabriksklient
 
 1. Skapa en fil med namnet **datafactory.py**. Lägg till följande instruktioner för att lägga till referenser till namnområden.
-    
+
     ```python
     from azure.common.credentials import ServicePrincipalCredentials
     from azure.mgmt.resource import ResourceManagementClient
@@ -68,7 +68,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     from datetime import datetime, timedelta
     import time
     ```
-2. Lägg till följande funktioner som skriver ut information. 
+2. Lägg till följande funktioner som skriver ut information.
 
     ```python
     def print_item(group):
@@ -81,14 +81,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
             print("\tTags: {}".format(group.tags))
         if hasattr(group, 'properties'):
             print_properties(group.properties)
-    
+
     def print_properties(props):
         """Print a ResourceGroup properties instance."""
         if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
             print("\tProperties:")
             print("\t\tProvisioning State: {}".format(props.provisioning_state))
         print("\n\n")
-    
+
     def print_activity_run_details(activity_run):
         """Print activity run details."""
         print("\n\tActivity run details\n")
@@ -98,8 +98,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
             print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))           
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))           
         else:
-            print("\tErrors: {}".format(activity_run.error['message'])) 
-  
+            print("\tErrors: {}".format(activity_run.error['message']))
+
     ```
 3. Lägg till följande kod till **Main**-metoden som skapar en instans av klassen DataFactoryManagementClient. Du använde det är objektet till att skapa datafabriken, länkade tjänster, datauppsättningar och en pipeline. Du kan också använda det här objektet för att övervaka information om pipelinekörning. Ställ in variabeln **subscription_id** för ID:t för din Azure-prenumeration.
 
@@ -108,25 +108,25 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
         # Azure subscription ID
         subscription_id = '<Specify your Azure Subscription ID>'
-        
+
         # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
         rg_name = 'ADFTutorialResourceGroup'
-    
-        # The data factory name. It must be globally unique. 
+
+        # The data factory name. It must be globally unique.
         df_name = '<Specify a name for the data factory. It must be globally unique>'
-    
+
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ServicePrincipalCredentials(client_id='<Active Directory application/client ID>', secret='<client secret>', tenant='<Active Directory tenant ID>')
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
-    
+
         rg_params = {'location':'eastus'}
         df_params = {'location':'eastus'}    
     ```
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden. Om din resursgrupp redan finns kommenterar du ut det första `create_or_update`-instruktionen. 
+Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden. Om din resursgrupp redan finns kommenterar du ut det första `create_or_update`-instruktionen.
 
 ```python
     # create the resource group
@@ -146,13 +146,13 @@ Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden. Om 
 
 Lägg till följande kod i **Main**-metoden som skapar en **länkad Azure Storage-tjänst**.
 
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabbstarten behöver du bara skapa en Azure Storage-länkad tjänst som både kopia på källa och mottagarlagring, med namnet "AzureStorageLinkedService" i exemplet. Byt ut `<storageaccountname>` och `<storageaccountkey>` mot namnet på och nyckeln för ditt Azure-lagringskonto. 
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabbstarten behöver du bara skapa en Azure Storage-länkad tjänst som både kopia på källa och mottagarlagring, med namnet "AzureStorageLinkedService" i exemplet. Byt ut `<storageaccountname>` och `<storageaccountkey>` mot namnet på och nyckeln för ditt Azure-lagringskonto.
 
 ```python
     # Create an Azure Storage linked service
     ls_name = 'storageLinkedService'
 
-    # IMPORTANT: specify the name and key of your Azure Storage account. 
+    # IMPORTANT: specify the name and key of your Azure Storage account.
     storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>')
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
@@ -163,7 +163,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
 I det här avsnittet skapar du två datauppsättningar: en för källan och en för mottagaren.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Skapa en datauppsättning för Azure Blob-källan
-Lägg till följande kod till Main-metoden som skapar en Azure-blobdatauppsättning. Mer information om de här Azure-blobegenskaperna finns i artikeln [Azure Blob-anslutningsapp](connector-azure-blob-storage.md#dataset-properties). 
+Lägg till följande kod till Main-metoden som skapar en Azure-blobdatauppsättning. Mer information om de här Azure-blobegenskaperna finns i artikeln [Azure Blob-anslutningsapp](connector-azure-blob-storage.md#dataset-properties).
 
 Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna Blob-datauppsättning refererar till den Azure Storage-länkade tjänst som du skapar i föregående steg.
 
@@ -179,7 +179,7 @@ Du definierar en datauppsättning som representerar källdata i Azure Blob. Denn
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>Skapa en datauppsättning för Azure Blob-mottagaren
-Lägg till följande kod till Main-metoden som skapar en Azure-blobdatauppsättning. Mer information om de här Azure-blobegenskaperna finns i artikeln [Azure Blob-anslutningsapp](connector-azure-blob-storage.md#dataset-properties). 
+Lägg till följande kod till Main-metoden som skapar en Azure-blobdatauppsättning. Mer information om de här Azure-blobegenskaperna finns i artikeln [Azure Blob-anslutningsapp](connector-azure-blob-storage.md#dataset-properties).
 
 Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna Blob-datauppsättning refererar till den Azure Storage-länkade tjänst som du skapar i föregående steg.
 
@@ -197,14 +197,14 @@ Du definierar en datauppsättning som representerar källdata i Azure Blob. Denn
 Lägg till följande kod som skapar och **aktiverar en pipeline** till **Main**-metoden.
 
 ```python
-    # Create a copy activity 
+    # Create a copy activity
     act_name =  'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
     dsOut_ref = DatasetReference(dsOut_name)
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
-    
+
     #Create a pipeline with the copy activity
     p_name =  'copyPipeline'
     params_for_pipeline = {}
@@ -238,7 +238,7 @@ Om du vill övervaka pipelinekörningen lägger du till följande kod för **Mai
     print_activity_run_details(activity_runs_paged[0])
 ```
 
-Lägg nu till följande instruktion för att anropa **Main**-metoden när programmet körs: 
+Lägg nu till följande instruktion för att anropa **Main**-metoden när programmet körs:
 
 ```python
 # Start the main method
@@ -246,7 +246,7 @@ main()
 ```
 
 ## <a name="full-script"></a>Fullständigt skript
-Här är den fullständiga Python-koden: 
+Här är den fullständiga Python-koden:
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -294,7 +294,7 @@ def main():
     # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
     rg_name = '<Azure resource group name>'
 
-    # The data factory name. It must be globally unique. 
+    # The data factory name. It must be globally unique.
     df_name = '<Your data factory name>'        
 
     # Specify your Active Directory client ID, client secret, and tenant ID
@@ -380,7 +380,7 @@ Skapa och starta programmet och kontrollera sedan pipelinekörningen.
 
 Konsolen skriver ut förloppet för skapandet av datafabriken, den länkade tjänsten, datauppsättningar, pipeline och pipelinekörning. Vänta tills du ser information om körningen av kopieringsaktiviteten med storlek för lästa/skrivna data. Använd sedan verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att kontrollera de blob(ar) som kopierats till outputBlobPath från inputBlobPath som du angav i variablerna.
 
-Här är exempel på utdata: 
+Här är exempel på utdata:
 
 ```json
 Name: <data factory name>
@@ -391,34 +391,34 @@ Tags: {}
 Name: storageLinkedService
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/linkedservices/storageLinkedService
 
-Name: ds_in 
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in  
+Name: ds_in
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in
 
-Name: ds_out    
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out 
+Name: ds_out
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out
 
-Name: copyPipeline  
+Name: copyPipeline
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelines/copyPipeline
 
 Pipeline run status: Succeeded
 Datetime with no tzinfo will be considered UTC.
-Datetime with no tzinfo will be considered UTC. 
+Datetime with no tzinfo will be considered UTC.
 
-Activity run details    
+Activity run details
 
-Activity run status: Succeeded  
-Number of bytes read: 18    
-Number of bytes written: 18 
+Activity run status: Succeeded
+Number of bytes read: 18
+Number of bytes written: 18
 Copy duration: 4
 ```
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-För att ta bort datafabriken lägger du till följande kod till programmet: 
+För att ta bort datafabriken lägger du till följande kod till programmet:
 
-```csharp
+```python
 adf_client.data_factories.delete(rg_name, df_name)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Gå igenom [självstudiekurserna](tutorial-copy-data-dot-net.md) om du vill lära dig hur du använder Data Factory i fler scenarier. 
+Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Gå igenom [självstudiekurserna](tutorial-copy-data-dot-net.md) om du vill lära dig hur du använder Data Factory i fler scenarier.

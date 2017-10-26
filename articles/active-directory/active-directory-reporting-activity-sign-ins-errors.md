@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: dcdd8b5830edb542cb99d07f1b0087629d374264
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Rapporter om inloggningfelkoder i Azure Active Directory-portalen
 
@@ -101,5 +100,4 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i [inloggningsaktivitetsrapporter i Azure Active Directory-portalen](active-directory-reporting-activity-sign-ins.md).
-
 

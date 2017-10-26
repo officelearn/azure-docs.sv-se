@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aac9c9bcc609a91415438279419d4cc8e237fcb
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Kopiera data mellan lokalt system och molnet
-Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
+Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda.
 
-I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar en IR med egen värd i Azure Data Factory, som tillåter integrering av lokala datalager och molndatalager.  Läs mer om att använda andra verktyg/SDK:er för att skapa datafabriker i [Snabbstarter](quickstart-create-data-factory-dot-net.md). 
+I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar en IR med egen värd i Azure Data Factory, som tillåter integrering av lokala datalager och molndatalager.  Läs mer om att använda andra verktyg/SDK:er för att skapa datafabriker i [Snabbstarter](quickstart-create-data-factory-dot-net.md).
 
 I de här självstudierna går du igenom följande steg:
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Krav
 
-* **SQL Server**. Du använder en lokal SQL Server-databas som **källdata** i den här självstudien. 
+* **SQL Server**. Du använder en lokal SQL Server-databas som **källdata** i den här självstudien.
 * **Azure Storage-konto**. Du använder Azure Blob Storage som ett **mål-/mottagardatalager** i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -115,13 +115,13 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
    ```json
    Nodes                     : {}
    CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption : 
-   Version                   : 
+   InternalChannelEncryption :
+   Version                   :
    Capabilities              : {}
-   ScheduledUpdateDate       : 
-   UpdateDelayOffset         : 
-   LocalTimeZoneOffset       : 
-   AutoUpdate                : 
+   ScheduledUpdateDate       :
+   UpdateDelayOffset         :
+   LocalTimeZoneOffset       :
+   AutoUpdate                :
    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
@@ -135,7 +135,7 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   Här är exempel på utdata: 
+   Här är exempel på utdata:
 
    ```json
    {
@@ -144,19 +144,19 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
    }
    ```
 
-4. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) Integration Runtime med egen värd på en lokal Windows-dator och använd autentiseringsnyckeln du fick i det föregående steget för att manuellt registrera Integration Runtime med egen värd. 
+4. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) Integration Runtime med egen värd på en lokal Windows-dator och använd autentiseringsnyckeln du fick i det föregående steget för att manuellt registrera Integration Runtime med egen värd.
 
    ![Registrera Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-   När integration runtime med egen värd har registrerats ser du följande meddelande: 
+   När integration runtime med egen värd har registrerats ser du följande meddelande:
 
    ![Registered successfully (Registrerat)](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-   Du ser följande sida när noden är ansluten till molntjänsten: 
-    
+   Du ser följande sida när noden är ansluten till molntjänsten:
+
    ![Node is connected (Noden är ansluten)](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-## <a name="create-linked-services"></a>Skapa länkade tjänster 
+## <a name="create-linked-services"></a>Skapa länkade tjänster
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Skapa en länkad Azure Storage-tjänst (destination/mottagare)
 
@@ -167,7 +167,7 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": { 
+                "connectionString": {
                     "type": "SecureString",
                     "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
                 }
@@ -196,7 +196,7 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Skapa och kryptera en SQL Server som är länkad tjänst (källa)
 
-1. Skapa en JSON-fil med namnet **SqlServerLinkedService.json** i mappen **C:\ADFv2Tutorial** med följande innehåll: Ersätt **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** och **&lt;password>** med dina SQL Server-värden innan du sparar filen. Ersätt **&lt;integration** **runtime** **name>** med namnet på din Integration Runtime. 
+1. Skapa en JSON-fil med namnet **SqlServerLinkedService.json** i mappen **C:\ADFv2Tutorial** med följande innehåll: Ersätt **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** och **&lt;password>** med dina SQL Server-värden innan du sparar filen. Ersätt **&lt;integration** **runtime** **name>** med namnet på din Integration Runtime.
 
     ```json
     {
@@ -216,7 +216,7 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
         "name": "SqlServerLinkedService"
     }
    ```
-2. För att kryptera känsliga data från JSON-nyttolasten på en lokal IR med egen värd kan vi köra **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** och skicka vidare JSON-nyttolasten ovan. Den här krypteringen ser till att autentiseringsuppgifterna krypteras med Data Protection Application Programming Interface (DPAPI) och lagras på IR-noden med egen värd lokalt. Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet ”encryptedLinkedService.json”) som innehåller krypterade autentiseringsuppgifter. 
+2. För att kryptera känsliga data från JSON-nyttolasten på en lokal IR med egen värd kan vi köra **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** och skicka vidare JSON-nyttolasten ovan. Den här krypteringen ser till att autentiseringsuppgifterna krypteras med Data Protection Application Programming Interface (DPAPI) och lagras på IR-noden med egen värd lokalt. Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet ”encryptedLinkedService.json”) som innehåller krypterade autentiseringsuppgifter.
 
     Ersätt **&lt;integration runtime name&gt;** med namnet på din Integration Runtime innan du kör kommandot.
 
@@ -227,7 +227,7 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
 3. Kör följande kommando med hjälp av JSON-filen från föregående steg för att skapa **SqlServerLinkedService**:
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
+   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -315,7 +315,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>Skapa en datauppsättning för Azure Blob Storage-mottagaren
 
-1. Skapa en JSON-fil med namnet **AzureBlobDataset.json** i mappen **C:\ADFv2Tutorial** med följande innehåll: 
+1. Skapa en JSON-fil med namnet **AzureBlobDataset.json** i mappen **C:\ADFv2Tutorial** med följande innehåll:
 
     > [!IMPORTANT]
     > Den här exempelkoden förutsätter att du har en behållare med namnet **adftutorial** i Azure Blob Storage.
@@ -436,7 +436,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
             $result
             break
         }
-    } 
+    }
     ```
 
     Här är utdata för exempelkörningen:
@@ -449,7 +449,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
     PipelineName      : SQLServerToBlobPipeline
     Input             :  
     Output            :  
-    LinkedServiceName : 
+    LinkedServiceName :
     ActivityRunStart  : 9/13/2017 1:35:22 PM
     ActivityRunEnd    : 9/13/2017 1:35:42 PM
     DurationInMs      : 20824
@@ -479,7 +479,7 @@ I det här steget kan du skapa indata och utdata datauppsättningar som represen
 4. Anslut till ditt Azure Blob Storage-mottagare och bekräfta att data har kopierats från Azure SQL Database ordentligt.
 
 ## <a name="next-steps"></a>Nästa steg
-Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Du har lärt dig att: 
+Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.

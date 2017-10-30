@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
-ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -47,14 +47,14 @@ Du kan antingen använda privata IP-adresser eller offentliga IP-adresser för a
 #### <a name="example-for-private-peering"></a>Exempel på privat peering
 Om du väljer att använda a.b.c.d/29 för att konfigurera peeringen delas den upp i två /30-undernät. Exemplet nedan beskriver hur a.b.c.d/29-undernätet används. 
 
-a.b.c.d/29 kommer att delas upp till a.b.c.d/30 och a.b.c.d+4/30 samt skickas till Microsoft via etablerings-API: er. Du kommer att använda a.b.c.d+1 som VRF IP för din primära PE och Microsoft kommer att använda a.b.c.d+2 som VRF IP för den primära MSEE:n. Du kommer att använda a.b.c.d+5 som VRF IP för din sekundära PE och Microsoft kommer att använda a.b.c.d+6 som VRF IP för den sekundära MSEE:n.
+a.b.c.d/29 delas upp till a.b.c.d/30 och a.b.c.d+4/30 samt skickas till Microsoft via etablerings-API:er. Du använder a.b.c.d+1 som VRF IP för din primära PE och Microsoft kommer att använda a.b.c.d+2 som VRF IP för den primära MSEE:n. Du använder a.b.c.d+5 som VRF IP för din sekundära PE och Microsoft kommer att använda a.b.c.d+6 som VRF IP för den sekundära MSEE:n.
 
 Tänk dig ett fall där du väljer 192.168.100.128/29 för att konfigurera privat peering. 192.168.100.128/29 innehåller adresser från 192.168.100.128 till 192.168.100.135, däribland:
 
 * 192.168.100.128/30 som tilldelas till link1, där leverantören använder 192.168.100.129 och Microsoft använder 192.168.100.130.
 * 192.168.100.132/30 tilldelas till link2, där leverantören använder 192.168.100.133 och Microsoft använder 192.168.100.134.
 
-### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>IP-adresser för Azure offentlig och Microsoft peering
+### <a name="ip-addresses-used-for-azure-public-peering"></a>IP-adresser för Azures offentliga peering
 Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-sessionerna. Microsoft måste kunna verifiera ditt ägarskap till IP-adresserna via RIR (Routing Internet Registries) och IIR (Internet Routing Registries). 
 
 * Du måste använda ett unikt /29-undernät eller två /30-undernät till att konfigurera BGP-peeringen för varje peering per ExpressRoute-krets (om du har fler än en). 
@@ -62,6 +62,18 @@ Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-
   * Det första /30-undernätet används för den primära länken och det andra/30-undernätet används för den sekundära länken.
   * För båda /30-undernäten gäller att du måste använda den första IP-adressen för /30-undernätet på routern. Microsoft använder den andra IP-adressen för /30-undernätet för att konfigurera en BGP-session.
   * Du måste konfigurera båda BGP-sessionerna för att vårt [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltigt.
+
+### <a name="ip-addresses-used-for-microsoft-peering"></a>IP-adresser för Microsofts peering
+Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-sessionerna. Microsoft måste kunna verifiera ditt ägarskap till IP-adresserna via RIR (Routing Internet Registries) och IIR (Internet Routing Registries).
+
+* Du måste använda ett unikt /29 (IPv4) eller /125 (IPv6)-undernät eller två /30 (IPv4) eller /126 (IPv6)-undernät till att konfigurera BGP-peeringen för varje peering per ExpressRoute-krets (om du har fler än en).
+* Om ett /29-undernät används delas det upp i två /30-undernät.
+* Det första /30-undernätet används för den primära länken och det andra/30-undernätet används för den sekundära länken.
+* För båda /30-undernäten gäller att du måste använda den första IP-adressen för /30-undernätet på routern. Microsoft använder den andra IP-adressen för /30-undernätet för att konfigurera en BGP-session.
+* Om ett /125-undernät används delas det upp i två /126-undernät.
+* Det första /126-undernätet används för den primära länken och det andra/126-undernätet används för den sekundära länken.
+* För bägge /126-undernäten gäller att du måste använda den första IP-adressen för /126-undernätet på din router. Microsoft använder den andra IP-adressen för /126-undernätet för att konfigurera en BGP-session.
+* Du måste konfigurera båda BGP-sessionerna för att vårt [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltigt.
 
 ## <a name="public-ip-address-requirement"></a>Krav för offentliga IP-adress
 
@@ -80,7 +92,7 @@ Med Azures offentliga peeringsökväg kan du ansluta till alla tjänster som fin
 Ett privat AS-nummer tillåts med offentlig peering.
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
-Sökvägen för Microsoft-peering gör det möjligt att ansluta till alla Microsoft-molntjänster som har offentliga IP-adresser. Listan över tjänster omfattar Office 365, Dynamics 365 och Microsoft Azure PaaS-tjänster. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4/IPv6-adresser innan de kommer in i Microsoft-nätverket.
+Med Microsofts peeringsökväg kan du ansluta till Microsofts molntjänster som inte stöds via Azures offentliga peeringsökväg. Listan med tjänster innefattar Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och Dynamics 365. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
 
 Kontrollera att din IP-adress och ditt AS-nummer är registrerade på dig i något av följande register:
 
@@ -93,9 +105,9 @@ Kontrollera att din IP-adress och ditt AS-nummer är registrerade på dig i någ
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
 
-Om prefixen och AS-numren inte har tilldelats till dig i registren ovan måste du öppna ett supportärende för manuell validering av prefix och ASN. Supporten behöver dokumentation, t.ex. ett auktoriseringsdokument, som visar att du har behörighet att använda resurserna.
+Om dina prefixer och AS-nummer inte har tilldelats till dig i registren ovan måste du öppna ett supportärende för manuell validering av dina prefixer och ASN:er. Supporten behöver den dokumentation, som ett auktoriseringsdokument, som bevisar att du har behörighet att använda resurserna.
 
-Ett privat AS-nummer tillåts med Microsoft-peering men kräver även manuell verifiering.
+Ett privat AS-nummer tillåts med Microsoft-peering men kommer också att kräva manuell verifiering.
 
 > [!IMPORTANT]
 > Offentliga IP-adresser som skickas till Microsoft via ExpressRoute, får inte annonseras till Internet. Det kan bryta anslutningen till andra Microsoft-tjänster. Offentliga IP-adresser som används av servrar i ditt nätverk som kommunicerar med O365 slutpunkter inom Microsoft kan dock annonseras över ExpressRoute. 
@@ -227,7 +239,6 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 ## <a name="next-steps"></a>Nästa steg
 * Konfigurera ExpressRoute-anslutningen.
   
-  * [Skapa en ExpressRoute-krets för den klassiska distributionsmodellen](expressroute-howto-circuit-classic.md) eller [Skapa och ändra en ExpressRoute-krets med Azure Resource Manager](expressroute-howto-circuit-arm.md)
-  * [Konfigurera routning för den klassiska distributionsmodellen](expressroute-howto-routing-classic.md) eller [Konfigurera routning för Resource Manager-distributionsmodellen](expressroute-howto-routing-arm.md)
-  * [Länka ett klassiskt VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md) eller [Länka ett Resource Manager-VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)
-
+  * [Skapa och ändra en krets](expressroute-howto-circuit-arm.md)
+  * [Skapa och ändra peering-konfigurationen](expressroute-howto-routing-arm.md)
+  * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)

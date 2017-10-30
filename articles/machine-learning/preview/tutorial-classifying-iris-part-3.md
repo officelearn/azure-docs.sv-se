@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: distribuera en modell
 Azure Machine Learning (förhandsversion) är en integrerad, avancerad lösning för datavetenskap och analys, som datatekniker kan använda till att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -193,6 +193,9 @@ När installationen är klar ställer du in de miljövariabler som behövs för 
    ```
 
 Nu är du redo att skapa realtidswebbtjänsten.
+
+>[!NOTE]
+>Du kan återanvända ditt modellhanteringskonto och -miljö för efterföljande webbtjänstdistributioner. Du behöver inte skapa dem för varje webbtjänst. Ett konto eller en miljö kan ha flera webbtjänster kopplade till sig.
 
 ## <a name="create-a-real-time-web-service-in-one-command"></a>Skapa en realtidswebbtjänst med ett kommando
 1. Kör följande kommando för att skapa en realtidswebbtjänst:

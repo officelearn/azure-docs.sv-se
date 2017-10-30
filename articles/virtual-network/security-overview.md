@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>Nätverkssäkerhet
 
@@ -151,7 +151,10 @@ Om du skapar andra regler, anger andra programsäkerhetsgrupper som mål, tillä
  
 Mer information om begränsningar när du skapar programsäkerhetsgrupper och hur du anger dem finns i avsnittet om [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Programsäkerhetsgrupper är tillgängliga som förhandsversion. Innan du kan använda programsäkerhetsgrupper måste du registrera dig för att använda dem genom att slutföra steg 1 till 5 i [Skapa en nätverkssäkerhetsgrupp med programsäkerhetsgrupper](create-network-security-group-preview.md#powershell) och du bör också läsa viktig information i [Förhandsfunktioner](#preview-features). I förhandsversionen är programsäkerhetsgrupper begränsade till det virtuella nätverkets omfång. Virtuella nätverk som är peer-kopplade med korsreferenser till programsäkerhetsgrupper i en nätverkssäkerhetsgrupp tillämpas inte. 
+Programsäkerhetsgrupper är tillgängliga som förhandsversion. Innan du kan använda programsäkerhetsgrupper måste du registrera dig för att använda dem genom att slutföra steg 1 till 5 i [Skapa en nätverkssäkerhetsgrupp med programsäkerhetsgrupper](create-network-security-group-preview.md#powershell) och du bör också läsa viktig information i [Förhandsfunktioner](#preview-features). Programmet säkerhetsgrupper har följande begränsningar:
+
+-   Alla nätverksgränssnitt i en säkerhetsgrupp för programmet måste finnas i samma virtuella nätverk. Du kan inte lägga till nätverksgränssnitt från olika virtuella nätverk i säkerhetsgruppen för samma program. Det virtuella nätverket som det första nätverksgränssnittet som tilldelats programsäkerhetsgruppen är i, definierar det virtuella nätverket som alla efterföljande nätverksgränssnitt måste finnas i.
+- Om du anger programsäkerhetsgrupper som källa och mål i en säkerhetsregel måste nätverksgränssnitten i bägge programsäkerhetsgrupperna finnas i samma virtuella nätverk. Om till exempel ASG1 innehåller nätverksgränssnitt från VNet1 och ASG2 innehåller nätverksgränssnitt från VNet2 så går det inte att tilldela ASG1 som källa och ASG2 som mål i en regel. Alla nätverksgränssnitt måste finnas i VNet1. 
 
 Funktioner i förhandsversionen har inte samma grad av tillgänglighet och tillförlitlighet som funktioner i en allmän version. Innan du kan använda programsäkerhetsgrupper måste du registrera dig för att använda dem. Funktionerna är endast tillgängliga i följande regioner: västra centrala USA.
 

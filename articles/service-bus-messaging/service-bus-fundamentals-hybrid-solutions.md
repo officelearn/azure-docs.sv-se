@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -58,15 +58,15 @@ Processen är enkel: En avsändare skickar ett meddelande till en Service Bus-k�
 
 Varje meddelande består av två delar: en uppsättning egenskaper, som alla är ett nyckel-/värdepar, och en meddelandenyttolast. Nyttolasten kan vara binär, text eller till och med XML. Hur de används beror på vad en app försöker utföra. Ett exempel: Ett program som skickar ett meddelande om en nyligen genomförd försäljning kan innehålla egenskaperna **Säljare="Ava"** och **Belopp= 10000**. Meddelandetexten (brödtexten) kan innehålla en skannad bild av försäljningsavtalet, eller om det inte finns något sådant, bara vara tomt.
 
-En mottagare kan läsa ett meddelande från en Service Bus-kö på två olika sätt. Det första alternativet, som kallas *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, tar bort meddelandet från kön och raderar det direkt. Detta är ett enkelt alternativ men om mottagaren kraschar innan den har slutfört behandlingen av meddelandet så kommer det att gå förlorat. Eftersom det har tagits bort från kön kan inga andra mottagare komma åt det. 
+En mottagare kan läsa ett meddelande från en Service Bus-kö på två olika sätt. Det första alternativet, som heter *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, tar emot ett meddelande från kön och tar sedan bort det direkt. Detta är ett enkelt alternativ men om mottagaren kraschar innan den har slutfört behandlingen av meddelandet så kommer det att gå förlorat. Eftersom det har tagits bort från kön kan inga andra mottagare komma åt det. 
 
-Det andra alternativet, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, är utformat för att lösa detta problem. Precis som **ReceiveAndDelete**, tar **PeekLock** bort meddelandet från kön. Men det raderar inte meddelandet. I stället låser det meddelandet, vilket gör det osynligt för andra mottagare, och sedan inväntar alternativet en av följande tre händelser:
+Det andra alternativet, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)*, är utformat för att lösa detta problem. Precis som **ReceiveAndDelete**, tar **PeekLock** bort meddelandet från kön. Men det raderar inte meddelandet. I stället låser det meddelandet, vilket gör det osynligt för andra mottagare, och sedan inväntar alternativet en av följande tre händelser:
 
-* Om mottagaren kan bearbeta meddelandet anropas [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) och meddelandet tas bort i kön. 
-* Om mottagaren inte kan bearbeta meddelandet på rätt sätt anropas [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). Kön tar bort spärren från meddelandet och gör det tillgängligt för andra mottagare.
+* Om mottagaren kan bearbeta meddelandet anropas [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) och meddelandet tas bort i kön. 
+* Om mottagaren inte kan bearbeta meddelandet på rätt sätt anropas [Abandon()](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync). Kön tar bort spärren från meddelandet och gör det tillgängligt för andra mottagare.
 * Om mottagaren inte anropar något av dessa metoder inom en konfigurerbar tidsperiod (standardvärdet är 60 sekunder), förutsätter kön att mottagaren har misslyckats. I det här fallet reagerar den som om mottagaren hade anropat **Avbryt** och gör meddelandet tillgängligt för andra mottagare.
 
-Observera vad som kan inträffa här: samma meddelande kan levereras två gånger, kanske till två olika mottagare. Appar som använder Service Bus-köer måste förberedas för denna händelse. För att förenkla identifiering av dubbletter har varje meddelande en unik [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)-egenskap. Denna är som standard alltid densamma, oavsett hur många gånger meddelandet har lästs från en kö. 
+Observera vad som kan inträffa här: samma meddelande kan levereras två gånger, kanske till två olika mottagare. Appar som använder Service Bus-köer måste förberedas för denna händelse. För att förenkla identifiering av dubbletter har varje meddelande en unik [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId)-egenskap. Denna är som standard alltid densamma, oavsett hur många gånger meddelandet har lästs från en kö. 
 
 Köer är användbara i ett ganska stort antal situationer. De gör att appar kan kommunicera även när båda inte körs på samma gång, något som är särskilt praktiskt med batch- och mobilappar. En kö med flera mottagare ger också automatisk belastningsbalansering eftersom skickade meddelanden sprids ut bland dessa mottagare.
 
@@ -84,7 +84,7 @@ Ett *ämne* liknar på många sätt en kö. Avsändare skickar meddelanden till 
 * Prenumerant 2 tar emot meddelanden som innehåller egenskapen *Säljare="Ruth"* och/eller innehåller en egenskap för *belopp* vars värde är större än 100 000. Ruth kanske är försäljningschef så hon vill se både sina egna försäljningar och alla stora försäljningar, oavsett vem som gör dem.
 * Prenumerant 3 har ställt in sitt filter på *Sant*, vilket innebär att han eller hon får alla meddelanden. Den här appen kan till exempel ansvara för att bibehålla ett revisionsspår och därför behöver den visa alla meddelanden.
 
-På samma sätt som med köer kan de som prenumererar på ett ämne läsa meddelanden med antingen [ReceiveAndDelete eller PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Men till skillnad från köer kan ett enskilt meddelande som skickas till ett ämne tas emot av flera prenumerationer. Den här metoden, som ofta kallas *publicera och prenumerera*, (eller *pub/sub*) är användbar när flera appar är intresserade av samma meddelanden. Genom att definiera rätt typ av filter kan varje prenumerant ta del av enbart den del av meddelandeströmmen som de behöver se.
+På samma sätt som med köer kan de som prenumererar på ett ämne läsa meddelanden med antingen [ReceiveAndDelete eller PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). Men till skillnad från köer kan ett enskilt meddelande som skickas till ett ämne tas emot av flera prenumerationer. Den här metoden, som ofta kallas *publicera och prenumerera*, (eller *pub/sub*) är användbar när flera appar är intresserade av samma meddelanden. Genom att definiera rätt typ av filter kan varje prenumerant ta del av enbart den del av meddelandeströmmen som de behöver se.
 
 ## <a name="relays"></a>Reläer
 

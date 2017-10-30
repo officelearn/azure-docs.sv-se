@@ -1,11 +1,11 @@
-## <a name="scenario"></a>Scenario
+## <a name="configuration-scenario"></a>Konfigurationsscenario
 
-Du skapar en intern belastningsutjämnare enligt följande scenario
+I det här scenariot skapar vi en intern belastningsutjämnare i ett virtuellt nätverk som det visas i följande figur:
 
-![BESKRIVNING AV AVBILDNING](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![Scenario med intern belastningsutjämnare](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-En intern belastningsutjämnare konfigureras i ett virtuellt nätverk
+Konfigurationen för vårt scenario är följande:
 
-* 2 virtuella datorer som kallas DB1 och DB2
-* Slutpunkter
-* Intern belastningsutjämnare
+* Två virtuella datorer som heter **DB1** och **DB2**
+* Slutpunkter för den interna belastningsutjämnaren
+* En intern belastningsutjämnare

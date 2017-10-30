@@ -1,6 +1,6 @@
 ---
 title: "Anslutningsappar för Azure Logic Apps | Microsoft Docs"
-description: Bygg och skapa logikappar bland alla Microsoft-hanterade anslutningsappar
+description: "Välj mellan alla tillgängliga Microsoft-anslutningsappar för att bygga och skapa logikappar"
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -15,19 +15,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="connectors-list"></a>Lista över anslutningsappar
-> [!TIP]
-> I den [fullständiga A-Z-listan](#az) (i det här avsnittet) listas alla tillgängliga anslutningsappar du kan använda i Logic Apps. [Information om anslutningen](/connectors/) visar en lista över alla utlösare och åtgärder som definierats i swagger och visar också eventuella gränser för varje anslutning.
+Du hittar utlösare och åtgärder som definierats av Swagger-beskrivningen för varje anslutningsapp, plus eventuella begränsningar i [Information om anslutningsapp](/connectors/).
 
-Anslutningsappar är en viktig del när du skapar logikappar. Med sådana anslutningsappar kan du verkligen utöka dina lokala och molnbaserade program för att göra olika saker med data som du skapar och data du redan har. Anslutningsapparna finns i följande kategorier: 
+Anslutningsappar är en viktig del när du skapar logikappar. Med hjälp av de här anslutningsapparna, kan du utöka dina lokala och molnbaserade program för att göra olika saker med data som du skapar och data du redan har. Anslutningsapparna finns tillgängliga antingen som inbyggda åtgärder eller hanterade anslutningsappar.
 
-* **Standardanslutningsappar**: Automatiskt tillgängliga och ingår när du använder logikappar. Vissa exempel är Service Bus, Power BI, Oracle Database, OneDrive och många fler.
+**Inbyggda åtgärder**: Logic Apps-motorn innehåller inbyggda åtgärder för att kommunicera med slutpunkter och utföra uppgifter. Du kan till exempel använda åtgärderna för att anropa HTTP-slutpunkter, Azure Functions och Azure API-hanteringsåtgärder samt manipulera meddelanden med dataåtgärder och variabler.
+
+**Hanterade anslutningsappar**: ge åtkomst till API:er för olika tjänster genom att skapa API-anslutningar som Logic Apps-tjänsten är värd för och hanterar. Hanterade anslutningsappar kan delas in i följande kategorier:
+
+* **Standardanslutningsappar**: Automatiskt tillgängliga och ingår när du använder logikappar. Några exempel är Service Bus, Power BI, OneDrive och många fler.
+
+* **Lokala anslutningsappar**: Anslut till serverprogram lokalt med hjälp av den [lokala datagatewayen][gatewaydoc]. Lokala anslutningsappar inkluderar anslutningar till serverprogram som SharePoint Server, SQL Server, Oracle DB, filresurser och andra.
 
 * **Anslutningsappar för integrationskonton**: De här är tillgängliga när du köper ett integrationskonto. Med sådana anslutningsappar kan du omvandla och validera XML, bearbeta business-to-business-meddelanden med AS2 / X12 / EDIFACT och koda och avkoda flata filer. Om du arbetar med BizTalk Server är de här anslutningsapparna en bra metod för att utöka dina BizTalk-arbetsflöden till Azure.  
 
@@ -35,22 +40,41 @@ Anslutningsappar är en viktig del när du skapar logikappar. Med sådana anslut
 
 * **Enterprise-anslutningsappar**: Innehåller MQ och SAP. Tillgängligt för en extra kostnad. 
 
-I informationen om [Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps/) och [prismodellen](../logic-apps/logic-apps-pricing.md) kan du läsa mer om kostnaderna. 
+Mer information om kostnader finns i [prisinformationen](https://azure.microsoft.com/pricing/details/logic-apps/) och [prissättningsmodellen](../logic-apps/logic-apps-pricing.md) för Logic Apps. 
 
 ## <a name="popular-connectors"></a>Populära anslutningsappar
-Det finns tusentals program och miljontals körningar som bearbetar data och information med hjälp av dessa anslutningsappar. I följande tabell anges de populäraste och några favoriter hos våra användare:
+Det finns tusentals program och miljontals körningar som bearbetar data och information med hjälp av dessa anslutningsappar. 
+
+### <a name="built-in-actions"></a>Inbyggda åtgärder
+Logic Apps-motorn innehåller åtgärder som kan manipulera data, kommunicera över HTTP och styra flödet för logikappsdefinitionen. Några av dessa åtgärder är:
 
 | |  |  |  |
 | --- | --- | --- | --- |
-| [![API-ikon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Om du vill automatisera alla aktiviteter med ditt lagringskonto bör du titta på den här anslutningsappen. Stöder CRUD-åtgärder (skapa, läsa, uppdatera, ta bort). | [![API-ikon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Skapa funktioner som kör anpassade fragment för C# eller node.js och använd sedan använda dessa funktioner i logikapparna.  |
-| [![API-ikon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Detta är ett av de mest efterfrågade anslutningsprogrammen. Den har utlösare och åtgärder för att automatisera arbetsflöden med leads och mycket mer. | [![API-ikon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Använda och publicera händelser i en Event Hub. Du kan till exempel hämta utdata från din logikapp med Event Hubs och sedan skicka dem till en leverantör av realtidsanalys. |
-| [![API-ikon][FTPicon]<br/>**FTP**][FTPdoc] | Om FTP-servern är tillgänglig från internet kan du automatisera arbetsflöden att arbeta med filer och mappar. <br/><br/>Det finns också SFTP med SFTP-anslutningsappen. | [![API-ikon][HTTPicon]<br/>**HTTP**][httpdoc] | Använd logikappar för att kommunicera med valfri slutpunkt över HTTP. |
-| [![API-ikon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Massor av utlösare och många fler åtgärder för att använda e-post och händelser för Office 365 i dina arbetsflöden. <br/><br/>Den här anslutningsappen innehåller ett *e-postmeddelande med godkännande* för att godkänna semesteransökningar, utgiftsrapporter och så vidare. <br/><br/>Office 365-användare är också tillgängliga med anslutningsappen för Office 365-användare.| [![API-ikon][HTTP-Requesticon]<br/>**Begäran/svar**][HTTP-Requestdoc] | Den här anslutningsappen tillhandahåller en HTTPS-URL. När logikappen tar emot en begäran till denna URL startar logikappen. |
-| [![API-ikon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Logga enkelt in med ditt Salesforce-konto för att få åtkomst till objekt som leads med mera. |  [![API-ikon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Den populäraste anslutningsappen i Logic Apps, den innehåller utlösare och åtgärder för att göra asynkrona meddelanden och publicera/prenumerera på köer, prenumerationer och avsnitt. |
-|  [![API-ikon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Om du gör något med SharePoint och kan dra nytta av automatisering rekommenderar vi att du tittar på den här anslutningsappen. Kan användas med lokal SharePoint och SharePoint Online. | [![API-ikon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | En av de mest använda anslutningsapparna. Den kan ansluta till en lokal SQL Server och en Azure SQL Database. | 
-| [![API-ikon][Twittericon]<br/>**Twitter**][Twitterdoc] | Logga enkelt in med ett Twitter-konto, och påbörja sedan ett arbetsflöde när en ny tweet postas. Spara sedan dessa tweets till en SQL Database eller SharePoint-lista. | | | 
+| [![API-ikon][HTTPicon]<br/>**HTTP**][httpdoc] | Använd logikappar för att kommunicera med valfri slutpunkt över HTTP.| [![API-ikon][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Skapa funktioner som kör anpassade fragment för C# eller node.js och använd sedan använda dessa funktioner i logikapparna.  |
+| [![API-ikonen][HTTP-Requesticon]<br/>**Begäran**][HTTP-Requestdoc] | Ger en anropsbar HTTPS-URL som vanligtvis används som en webhook i andra program. När logikappen tar emot en begäran till denna URL startar logikappen. | [![API-ikon][Recurrenceicon]<br/>**Schemalägg**][recurrencedoc] | Starta logikappar baserat på enkla eller avancerade återkommande scheman. Skapa till exempel scheman som är så enkla som upprepa varje dag till upprepa varje timme den sista fredagen i varje månad mellan 09.00 och 17.00. |
+| [![API-ikon][CallLogicApp-icon]<br/>**Anropa<br/>Logikapp**][nested-logic-appdoc] | Anropa en kapslad logikapp. Alla logikappar med en begäransutlösare kan anropas som en kapslad logikapp.| [![API-ikon][API/Web-Appicon]<br/>**API-app**][api/web-appdoc] | Anropa en API-app i App Service. API-appar med swagger renderas precis som alla andra förstklassiga åtgärder.|
 
-## <a name="integration-account-connectors"></a>Anslutningar för integrationskonton 
+### <a name="standard-connectors"></a>Anslutningsappar av standardtyp
+I följande tabell anges de populäraste och några favoriter hos våra användare:
+
+| |  |  |  |
+| --- | --- | --- | --- |
+| [![API-ikon][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Om du vill automatisera alla aktiviteter med ditt lagringskonto bör du titta på den här anslutningsappen. Stöder CRUD-åtgärder (skapa, läsa, uppdatera, ta bort). | [![API-ikon][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Detta är ett av de mest efterfrågade anslutningsprogrammen. Den har utlösare och åtgärder för att automatisera arbetsflöden med leads och mycket mer. |
+| [![API-ikon][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Använda och publicera händelser i en Event Hub. Du kan till exempel hämta utdata från din logikapp med Event Hubs och sedan skicka dem till en leverantör av realtidsanalys. | [![API-ikon][FTPicon]<br/>**FTP**][FTPdoc] | Om FTP-servern är tillgänglig från internet kan du automatisera arbetsflöden att arbeta med filer och mappar. <br/><br/>Det finns också SFTP med SFTP-anslutningsappen. |
+| [![API-ikon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Massor av utlösare och många fler åtgärder för att använda e-post och händelser för Office 365 i dina arbetsflöden. <br/><br/>Den här anslutningsappen innehåller ett *e-postmeddelande med godkännande* för att godkänna semesteransökningar, utgiftsrapporter och så vidare. <br/><br/>Office 365-användare är också tillgängliga med anslutningsappen för Office 365-användare.| [![API-ikon][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Logga enkelt in med ditt Salesforce-konto för att få åtkomst till objekt som leads med mera. | 
+| [![API-ikon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Den populäraste anslutningsappen i Logic Apps, den innehåller utlösare och åtgärder för att göra asynkrona meddelanden och publicera/prenumerera på köer, prenumerationer och avsnitt. |  [![API-ikon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Om du gör något med SharePoint och kan dra nytta av automatisering rekommenderar vi att du tittar på den här anslutningsappen. Kan användas med lokal SharePoint och SharePoint Online. |
+| [![API-ikon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | En av de mest använda anslutningsapparna. Den kan ansluta till en lokal SQL Server och en Azure SQL Database. | [![API-ikon][Twittericon]<br/>**Twitter**][Twitterdoc] | Logga enkelt in med ett Twitter-konto, och påbörja sedan ett arbetsflöde när en ny tweet postas. Spara sedan dessa tweets till en SQL Database eller SharePoint-lista. | 
+
+### <a name="on-premises-connectors"></a>Lokala anslutningsappar 
+
+Lokala anslutnings appar ger åtkomst till data i lokala servrar.  Om du vill skapa en anslutning till en lokal server så krävs en [lokal datagateway][gatewaydoc] som erbjuder en säker kommunikationskanal utan nätverksinfrastruktur som behöver konfigureras.  Några av anslutningsapparna är:
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| [![API-ikon][db2icon]<br/>**DB2**][db2doc] | [![API-ikon][oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc] | [![API-ikon][sharepointicon]<br/>**SharePoint</br> Server**][sharepointserver] | [![API-ikon][filesystem-icon]<br/>**File</br> System**][filesystemdoc] |
+[![API-ikon][sql-servericon]<br/>**SQL</br> Server**][sql-serverdoc] | ![API-ikon][Biztalk-Servericon]<br/>**BizTalk</br> Server**| |
+
+### <a name="integration-account-connectors"></a>Anslutningar för integrationskonton 
 
 Enterprise-integrationspaketet (EIP) innehåller anslutningsappar som är välkända för BizTalk Server-communityn. När du köper ett [integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) får du också följande anslutningsappar: 
 
@@ -60,27 +84,13 @@ Enterprise-integrationspaketet (EIP) innehåller anslutningsappar som är välk�
 [![API-ikon][flatfileicon]<br/>**Flat fil</br>-kodning**][flatfiledoc] | [![API-ikon][flatfiledecodeicon]<br/>**Flat fil</br>-avkodning**][flatfiledecodedoc] | [![API-ikon][integrationaccounticon]<br/>**Integrationskonto<br/>**][integrationaccountdoc] | [![API-ikon][xmltransformicon]<br/>**Transformera<br/>XML**][xmltransformdoc] |
 | [![API-ikon][x12icon]<br/>**X12</br>-avkodning**][x12decode] | [![API-ikon][x12icon]<br/>**X12</br>-kodning**][x12encode] | [![API-ikon][xmlvalidateicon]<br/>**XML<br/>-verifiering**][xmlvalidatedoc] | |
 
-## <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
+### <a name="enterprise-connectors"></a>Enterprise-anslutningsappar
 
 Anslut dina företagsprogram med dina logikappar.
 
 |  |  |
 | --- | --- |
 |[![API-ikon][MQicon]<br/>**MQ**][mqdoc]|[![API-ikon][SAPicon]<br/>**SAP**][sapconnector]|
-
-
-## <a name="az"></a>Fullständig lista, A–Z
-
-[Information om anslutningen](/connectors/) visar en lista över alla utlösare och åtgärder som definierats i swagger och visar också eventuella gränser för varje anslutning.
-
-| | | | | | | | | | | | | |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| [**1**](#1) | [**A**](#a) | [**B**](#b) | [**C**](#c) | [**D**](#d) | [**E**](#e) | [**F**](#f) | [**G**](#g) | [**H**](#h) | [**I**](#i) | [**J**](#j) | [**L**](#l) | [**M**](#m) |
-| [**N**](#n) | [**O**](#o) | [**P**](#p) | [**R**](#r) | [**S**](#s) | [**T**](#t) | [**U**](#u) | [**V**](#v) | [**W**](#w) | [**X**](#x) | [**Y**](#y) | [**Z**](#z) | | 
-
-| | |
-|---|---|
-|<a name="1"></a>10to8-schemaläggning<br/><br/><a name="a"></a>Act!<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory (AD)<br/>Azure API Management<br/>Azure Apptjänster<br/>Azure Application<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure DocumentDB (Cosmos DB)<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Azure Queues<br/>Azure Resource Manager<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Batch<br/>Benchmark Email<br/>Bing Search<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Calendly<br/>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito-formulär<br/>Prissättning för Cognitive Services – API för visuellt innehåll<br/>Ansikts-API för Cognitive Services<br/>Cognitive Services LUIS<br/>Cognitive Services-textanalys<br/>Common Data Service<br/>Konvertering av innehåll<br/>Kontroll-avsluta<br/>[Custom APIs / web apps][api/web-appdoc]<br/><br/><a name="d"></a>Dataåtgärder<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[Filsystem][filesystemdoc]<br/>[Flat fil][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>Freshservice<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google Calendar<br/>Google Contacts<br/>Google Drive<br/>Google-blad<br/>Google-uppgifter<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP-webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Integrationskonto<br/>Intercom | <a name="j"></a>JotForm<br/>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Medel<br/>Microsoft Forms<br/>Microsoft Teams<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN Väder<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Office 365-användare<br/>Office 365 Video<br/>OneDrive<br/>OneDrive för företag<br/>OneNote (företag)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer Manager<br/>Outlook-uppgifter<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Begäran/svar][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[SAP Application Server][sapconnector]<br/>[SAP Message Server][sapconnector]<br/>[Schema][recurrencedoc]<br/>Omfång<br/>SendGrid<br/>Skicka meddelanden till en batch<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointserver]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teamwork Projects<br/>Teradata<br/>Todoist<br/>Toodledo<br/>[Omvandla XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Variabler<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[XML-verifiering][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
 
 > [!TIP]
 > För att komma igång med Azure Logic Apps innan du registrerar dig för ett Azure-konto går du till [Prova Logic Apps](https://tryappservice.azure.com/?appservice=logic). Du kan skapa en kortvarig startlogikapp omedelbart. Inget kreditkort krävs, och du gör inga åtaganden.
@@ -120,9 +130,9 @@ Logikappar innehåller inbyggda åtgärder som kan ändra eller manipulera nytto
 
 ## <a name="custom-connectors-and-azure-certification"></a>Anpassade anslutningsappar och Azure-certifiering 
 
-För att anropa API:er som kör anpassad kod eller som inte är tillgängliga som kopplingar kan du [utöka plattformen Logic Apps](../logic-apps/logic-apps-create-api-app.md) genom att skapa REST-baserade API Apps som anpassade kopplingar. 
+För att anropa API:er som kör anpassad kod eller som inte finns tillgängliga som anslutningsappar, kan du utöka Logic Apps-plattformen genom att [skapa REST-baserade API-appar](../logic-apps/logic-apps-create-api-app.md). Du kan också skapa dina egna [anpassade anslutningsappar](../logic-apps/custom-connector-overview.md) som kan göras tillgängliga för alla logikappar i din prenumeration.
 
-Om du vill göra dina anpassade API Apps offentliga och använda dem i Azure ska du skicka dina nomineringar till [programmet Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+Om du vill göra dina anpassade API-appar allmänt tillgängliga för användning i Azure, kan du [skicka in dina anslutningsappar för Microsoft-certifiering](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="get-help"></a>Få hjälp
 
@@ -139,6 +149,7 @@ Saknar vi ett avsnitt om anslutningsprogram eller någon annan viktig informatio
 
 <!--Connectors Documentation-->
 
+[gatewaydoc]: ../logic-apps/logic-apps-gateway-connection.md "Anslut till datakällor lokalt från logikappar med lokala datagatewayer"
 [api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrera logikappar med App Service API Apps"
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Hantera filer i blobbehållaren med Azure Blob Storage Connector"
 [azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integrera logikappar med Azure Functions"
@@ -216,6 +227,7 @@ Saknar vi ett avsnitt om anslutningsprogram eller någon annan viktig informatio
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
+[AppServices-icon]: ./media/apis-list/AppServices.png
 [Asanaicon]: ./media/apis-list/asana.png
 [Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
@@ -240,6 +252,8 @@ Saknar vi ett avsnitt om anslutningsprogram eller någon annan viktig informatio
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
 [Event-Hubs-icon]: ./media/apis-list/eventhubs.png
 [Facebookicon]: ./media/apis-list/facebook.png
+[FileSystem-icon]: ./media/apis-list/filesystem.png
+[FileSystemIcon]: ./media/apis-list/filesystem.png
 [FTPicon]: ./media/apis-list/ftp.png
 [GitHubicon]: ./media/apis-list/github.png
 [Google-Calendaricon]: ./media/apis-list/googlecalendar.png
@@ -293,10 +307,10 @@ Saknar vi ett avsnitt om anslutningsprogram eller någon annan viktig informatio
 [YouTubeicon]: ./media/apis-list/youtube.png
 
 <!-- Primitive Icons -->
-[API/Web-Appicon]: ./media/apis-list/api.png
+[API/Web-Appicon]: ./media/apis-list/appservices.png
 [Azure-Functionsicon]: ./media/apis-list/function.png
+[CallLogicApp-icon]: ./media/apis-list/calllogicapp.png
 [Delayicon]: ./media/apis-list/delay.png
-[FileSystemIcon]: ./media/apis-list/filesystem.png
 [HTTPicon]: ./media/apis-list/http.png
 [HTTP-Requesticon]: ./media/apis-list/request.png
 [HTTP-Responseicon]: ./media/apis-list/response.png

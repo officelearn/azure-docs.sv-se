@@ -105,6 +105,8 @@
       items:
         - name: Azure Portal
           href: howto-restore-server-portal.md
+        - name: Azure CLI
+          href: howto-restore-server-cli.md
     - name: Anslut program
       items:
         - name: Anslutningssträngar

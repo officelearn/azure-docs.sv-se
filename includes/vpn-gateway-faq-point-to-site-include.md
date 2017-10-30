@@ -1,3 +1,5 @@
+De här vanliga frågorna gäller för P2S-anslutningar som använder den klassiska distributionsmodellen.
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Vilka klientoperativsystem kan jag använda med punkt-till-plats?
 
 Följande klientoperativsystem stöds:

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Komma igång med Azure CDN
-Det här avsnittet beskriver steg för steg hur du aktiverar Azure CDN genom att skapa en ny profil och slutpunkt för CDN.
+Den här artikeln beskriver hur du aktiverar Azure CDN genom att skapa en ny profil och slutpunkt för CDN.
 
 > [!IMPORTANT]
-> En introduktion till hur CDN fungerar, samt en lista över funktioner, finns i [Översikt över CDN](cdn-overview.md).
+> En introduktion till CDN och en lista över funktioner finns i [CDN-översikt](cdn-overview.md).
 > 
 > 
 
@@ -64,7 +64,7 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
 4. I listrutan **Typ av ursprung** väljer du typ av ursprung.  Välj **Storage** för ett Azure Storage-konto, **Cloud Services** för ett Azure Cloud Services-konto, **Web Apps** för ett Azure Web Apps-konto eller **Anpassat ursprung** för ett annat ursprung i form av en offentligt tillgänglig webbserver (som finns i Azure eller någon annanstans).
    
     ![Ursprungstyp för CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. I listrutan **Ursprungets värdnamn** väljer du eller skriver din ursprungliga domän.  Listrutan visar en lista över alla tillgängliga ursprung av den typ som du angav i steg 4.  Om du valde *Anpassat ursprung* som **Typ av ursprung** skriver du domänen för ditt anpassade ursprung.
+5. I listrutan **Ursprungets värdnamn** väljer du eller skriver din ursprungliga domän.  Listrutan visar en lista över alla tillgängliga ursprung av den typ som du angav i steg 4.  Om du väljer *anpassat ursprung* som din **ursprungstyp** så anger du domänen för ditt anpassade ursprung.
 6. I textrutan **Sökväg till ursprung** anger du sökvägen till de resurser som du vill cachelagra eller lämnar fältet tomt om du vill tillåta cachelagring av alla resurser i domänen som du angav i steg 5.
 7. I **Ursprungsvärdadress** anger du värdhuvudet som du vill att CDN ska skicka med varje begäran, eller så lämnar du standardvärdet.
    
@@ -72,7 +72,7 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
    > Vissa typer av ursprung, till exempel Azure Storage och Web Apps, kräver att värdhuvudet matchar ursprungets domän. Lämna standardvärdet såvida du inte har ett ursprung som kräver ett värdhuvud som skiljer sig från dess domän.
    > 
    > 
-8. För **Protokoll** och **Ursprungsport** anger du protokollen och portarna som används för att komma åt resurser i ursprunget.  Du måste välja minst ett protokoll (HTTP eller HTTPS).
+8. För **Protokoll** och **Ursprungsport** anger du protokollen och portarna som används för att komma åt resurser i ursprunget. Du måste välja minst ett protokoll (HTTP eller HTTPS). Använd den CDN-definierade domänen (`<endpointname>.azureedge.net`) för att komma åt HTTPS-innehåll. 
    
    > [!NOTE]
    > **Ursprungsporten** påverkar endast vilken port som slutpunkten använder för att hämta information från ursprunget.  Själva slutpunkten är bara tillgänglig för slutklienter via HTTP- och HTTPS-standardportarna (80 och 443), oavsett **ursprungsporten**.  
@@ -82,20 +82,18 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
    > Följande begränsningar gäller för åtkomst till CDN-innehåll via HTTPS:
    > 
    > * Du måste använda SSL-certifikatet som tillhandahålls av CDN. Certifikat från tredje part stöds inte.
-   > * HTTPS-stöd för anpassade Azure CDN-domäner är endast tillgängligt med produkten av typen **Azure CDN from Verizon** (Standard och Premium). Det stöds inte på **Azure CDN från Akamai**. Mer information finns i [Aktivera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md).
-
-Använd den CDN-definierade domänen (`<endpointname>.azureedge.net`) för att komma åt HTTPS-innehåll. HTTPS-stöd är inte tillgängligt för anpassade domännamn (CNAME-poster) eftersom CDN inte stöder anpassade certifikat för närvarande.
-   > 
-   > 
+   > * HTTPS-stöd för anpassade Azure CDN-domäner är endast tillgängligt med produkten av typen **Azure CDN from Verizon** (Standard och Premium). Det stöds inte på **Azure CDN från Akamai**-produkter. Mer information finns i [aktivera eller inaktivera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md).
+  
 9. Klicka på knappen **Lägg till** för att skapa en ny slutpunkt.
-10. När slutpunkten har skapats visas den i en lista över slutpunkter för profilen. I listvyn visas bara URL:en som ska användas för att komma åt cachelagrat innehåll, samt ursprungsdomänen.
+   
+   När slutpunkten har skapats, visas den i en lista över slutpunkter för profilen.
     
-    ![CDN-slutpunkt][cdn-endpoint-success]
+   ![CDN-slutpunkt][cdn-endpoint-success]
     
-    > [!IMPORTANT]
-    > Slutpunkten är inte direkt tillgänglig för användning eftersom det tar tid för registreringen att spridas i CDN.  För profiler av typen <b>Azure CDN från Akamai</b> slutförs spridningen vanligtvis inom en minut.  För profiler av typen <b>Azure CDN från Verizon</b> slutförs spridningen vanligtvis inom 90 minuter, men i vissa fall kan det ta längre tid.
+   > [!IMPORTANT]
+   > Slutpunkten är inte direkt tillgänglig för användning eftersom det tar tid för registreringen att sprida sig.  För <b>Azure CDN från Akamai</b>-profiler, slutförs spridningen vanligtvis inom en minut. För <b>Azure CDN från Verizon</b>-profiler, slutförs spridningen vanligtvis inom 90 minuter, men i vissa fall kan det ta längre tid.
     > 
-    > HTTP 404-svarskoder returneras om användaren försöker använda CDN-domännamnet innan konfigurationen av slutpunkten har spritts till POP.  Om det har gått flera timmar sedan du skapade slutpunkten och du fortfarande får 404-svar läser du [Felsöka CDN-slutpunkter som returnerar 404-status](cdn-troubleshoot-endpoint.md).
+    > Användare som försöker använda CDN-domännamnet innan konfigurationen av slutpunkten har spritts till POP:erna kan få HTTP 404-svarskoder.  Om det har gått flera timmar sedan du skapade slutpunkten och du fortfarande får 404-svar, läs [felsök CDN-slutpunkter som returnerar 404-statusar](cdn-troubleshoot-endpoint.md).
     > 
     > 
 

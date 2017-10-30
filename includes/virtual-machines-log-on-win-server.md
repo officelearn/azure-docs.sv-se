@@ -1,8 +1,8 @@
 1. Om du klickar på **Anslut** så skapas och hämtas en protokollfil för fjärrskrivbord (.rdp-fil). Klicka på **Öppna** för att använda filen.
-2. Du får en varning om att RDP-filen kommer från en okänd utgivare. Detta är normalt. Fortsätt genom att klicka på **Anslut** i fjärrskrivbordsfönstret.
+2. Du får en varning att `.rdp`-filen kommer från en okänd utgivare. Detta är normalt. Fortsätt genom att klicka på **Anslut** i fjärrskrivbordsfönstret.
    
     ![Skärmbild med ett varning som meddelar att utgivaren är okänd.](./media/virtual-machines-log-on-win-server/rdp-warn.png)
-3. I **Windows-säkerhet**-fönstret, anger du autentiseringsuppgifterna för ett konto på den virtuella datorn och klickar sedan på **OK**.
+3. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange autentiseringsuppgifterna för ett konto på den virtuella datorn och klicka sedan på **Ok**.
    
      **Lokalt konto**: detta är vanligtvis det lokala kontots användarnamn och lösenord som du angav när du skapade den virtuella datorn. I det här fallet är domänen namnet på den virtuella datorn och är registrerad som *vmnamn*&#92;*användarnamn*.  
    

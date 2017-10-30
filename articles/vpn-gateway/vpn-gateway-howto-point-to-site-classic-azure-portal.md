@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2017
+ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7805e7c91c49fe1ef2d92b64c62bbfd15ab492b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med certifikatautentisering: den klassiska Azure-portalen
 
@@ -33,9 +33,9 @@ Den här artikeln visar dig hur du skapar ett virtuellt nätverk med en punkt-ti
 > * [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-Med en VPN-gateway med P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. Punkt-till-plats-VPN-anslutningar är användbara när du vill fjärransluta till ditt VNet, exempelvis när du distansarbetar från hemmet eller en konferens. En P2S-VPN-anslutning är också en bra lösning att använda i stället för en plats-till-plats-VPN-anslutning när du bara har ett fåtal klienter som behöver ansluta till ett VNet. 
+Med en VPN-gateway med P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. Punkt-till-plats-VPN-anslutningar är användbara när du vill fjärransluta till ditt VNet, exempelvis när du distansarbetar från hemmet eller en konferens. En P2S-VPN-anslutning är också en bra lösning att använda i stället för en plats-till-plats-VPN-anslutning när du bara har ett fåtal klienter som behöver ansluta till ett VNet. En P2S-VPN-anslutning upprättas genom att du startar den från klientdatorn.
 
-Med P2S används SSTP (Secure Socket Tunneling Protocol), som är ett SSL-baserat VPN-protokoll. En P2S-VPN-anslutning upprättas genom att du startar den från klientdatorn.
+Den klassiska distributionsmodellen stöder endast Windows VPN-klienter och använder Secure Socket Tunneling Protocol (SSTP), ett SSL-baserat VPN-protokoll. För att stödja icke-Windows VPN-klienter, måste ditt VNet skapas med hjälp av Resource Manager-distributionsmodellen. Resource Manager-distributionsmodellen stöder IKEv2 VPN, utöver SSTP. Mer information finns i [om P2S-anslutningar](point-to-site-about.md).
 
 
 ![Punkt-till-plats-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
@@ -96,7 +96,7 @@ Om du inte redan har ett virtuellt nätverk, skapa ett. Skärmbilderna anges som
 9. När du klickar på Skapa, kommer du att se en ikon på din instrumentpanel som visar förloppet för ditt VNet. Panelen ändras när VNet skapas.
 
   ![Skapa en virtuell nätverksikon](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
-10. När du har skapat det virtuella nätverket visas **Skapad** under **Status** på nätverkssidan på den klassiska Azure-portalen.
+10. När ditt virtuella nätverk har skapats, ser du **skapat**.
 11. Lägg till en DNS-server (valfritt). När du har skapat ditt virtuella nätverk kan du lägga till IP-adressen för en DNS-server för namnmatchning. Den ip-adress för DNS-server som du anger måste vara en adress till en DNS-server som kan matcha namn för resurserna i ditt virtuella nätverk.<br>Om du vill lägga till en DNS-server öppnar du inställningarna för det virtuella nätverket, klickar på DNS-servrar och lägger till IP-adressen för den DNS-server du vill använda.
 
 ### <a name="gateway"></a>Del 2: Skapa gateway-undernät och en dynamisk routningsgateway

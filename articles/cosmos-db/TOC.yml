@@ -139,6 +139,7 @@
     - name: Utveckla
       items:
         - name: DocumentDB-API
+          href: documentdb-index.md
           items:
             - name: Resurser
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 'Dra tillbaka S1, S2, S3'
                   href: performance-levels.md
         - name: MongoDB-API
+          href: mongodb-index.md
           items:
             - name: Anslut till MongoDB-kontot
               href: connect-mongodb-account.md

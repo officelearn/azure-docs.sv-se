@@ -14,16 +14,10 @@
 ## [Tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Kom igång
 ## Skapa en Application Gateway
-### Offentlig
-#### [Azure Portal](application-gateway-create-gateway-portal.md)
-#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-#### [Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
-#### [Azure PowerShell (klassisk)](application-gateway-create-gateway.md)
-### Intern
-#### [Azure PowerShell](application-gateway-ilb-arm.md)
-#### [Azure PowerShell (klassisk)](application-gateway-ilb.md)
+### [Azure Portal](application-gateway-create-gateway-portal.md)
+### [Azure PowerShell](application-gateway-create-gateway-arm.md)
+### [Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
+### [Azure CLI](application-gateway-create-gateway-cli.md)
 # Gör så här för att
 ## Konfigurera brandväggen för webbprogram
 ### [Azure Portal](application-gateway-web-application-firewall-portal.md)
@@ -35,9 +29,7 @@
 ## Konfigurera SSL
 ### [Azure Portal](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
-### [Azure PowerShell (klassisk)](application-gateway-ssl.md)
-### [Azure CLI](application-gateway-ssl.md)
-### [Slutpunkt till slutpunkt](application-gateway-end-to-end-ssl-powershell.md)
+### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL-princip](application-gateway-configure-ssl-policy-powershell.md)
 ## Konfigurera URL-baserad sökvägsroutning
 ### [Azure Portal](application-gateway-create-url-route-portal.md)
@@ -53,7 +45,6 @@
 ## Konfigurera hälsotillståndsavsökningar
 ### [Azure Portal](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
-### [Azure PowerShell (klassisk)](application-gateway-create-probe-classic-ps.md)
 ## [Azure Security Center-integration](application-gateway-integration-security-center.md)
 ## [Kombinera tjänster för belastningsutjämning](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Felsöka
@@ -69,7 +60,6 @@
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST (klassisk)](https://msdn.microsoft.com/library/azure/mt299393)
 # Relaterat
 ## [ExpressRoute](/azure/expressroute/)
 ## [Virtuellt nätverk](/azure/virtual-network/)

@@ -44,7 +44,7 @@
     - name: Konfigurera beräkningsmiljö
       items:
         - name: Konfigurera experimentering
-          href: experiment-execution-configuration.md
+          href: experimentation-service-configuration.md
         - name: Skapa DSVM och HDI Spark-kluster
           href: how-to-create-dsvm-hdi.md
         - name: 'Träna med GPU:er'
@@ -147,7 +147,7 @@
     - name: Experimentering
       items:
         - name: Konfiguration av experimenteringstjänst
-          href: experiment-execution-configuration-reference.md
+          href: experimentation-service-configuration-reference.md
         - name: API för loggning
           href: reference-logging-api.md
     - name: Modellhantering
@@ -175,7 +175,7 @@
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Priser
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: Stack Overflow

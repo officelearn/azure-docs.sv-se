@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 52e421a62fa24a56a077bc030e03c0fed34305fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e243189bc26566f9ca0850e95f98731ba4d97b6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
@@ -130,7 +130,7 @@ Security Center-principer innehåller följande komponenter:
 - [Prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing): val av kostnadsfritt eller standardpris, som bestämmer vilka Security Center-funktioner som är tillgängliga för resurser i omfattningen (kan anges för prenumerationer, resursgrupper och arbetsytor).
 
 > [!NOTE]
-> Om du anger ett säkerhetskontrakt säkerställer du att Azure kan nå rätt person i organisationen om en säkerhetsincident inträffar. Mer information om hur du aktiverar den här rekommendationen finns i [Lägga till kontaktuppgifter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
+> Om du anger en säkerhetskontakt säkerställer du att Azure kan nå rätt person i organisationen om en säkerhetsincident inträffar. Mer information om hur du aktiverar den här rekommendationen finns i [Lägga till kontaktuppgifter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 
 ### <a name="security-policies-definitions-and-recommendations"></a>Säkerhetsprincipdefinitioner och rekommendationer
 Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. Du kan redigera principen i Security Center eller använda Azure Policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer i hanteringsgrupper (som kan motsvara hela organisationen, en affärsenhet osv.) och övervaka efterlevnad av dessa principer i dessa omfattningar.

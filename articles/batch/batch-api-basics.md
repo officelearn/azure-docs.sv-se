@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 010/04/2017
+ms.date: 10/12/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f277f59982251eb66ca02e72b4ced7f765935b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -75,7 +75,7 @@ Du kan skapa ett Azure Batch-konto med [Azure Portal](batch-account-create-porta
 Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuera dina arbetsbelastningar mellan Batch-konton som är i samma prenumeration, men i olika Azure-regioner.
 
 > [!NOTE]
-> När du skapar ett Batch-konto ska du normalt välja standardläget för **Batch-tjänsten**. Där allokeras pooler bakom kulisserna i Azure-hanterade prenumerationer. I det alternativa läget **Användarprenumeration**, som inte längre rekommenderas, skapas virtuella Batch-datorer och andra resurser direkt i prenumerationen när en pool skapas.
+> När du skapar ett Batch-konto ska du normalt välja standardläget för **Batch-tjänsten**. Där allokeras pooler bakom kulisserna i Azure-hanterade prenumerationer. I det alternativa läget **Användarprenumeration**, som inte längre rekommenderas, skapas virtuella Batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Du måste koppla kontot till ett Azure Key Vault för att kunna skapa ett Batch-konto i läget Användarprenumeration.
 >
 
 
@@ -129,7 +129,7 @@ När du skapar en Batch-pool kan du ange en konfiguration för virtuella Azure-d
 
 - **Konfiguration av virtuell dator**, som anger att poolen består av virtuella Azure-datorer. Dessa virtuella datorer kan skapas från Linux- eller Windows-avbildningar. 
 
-    När du skapar en pool med noder i en konfiguration av en virtuell dator måste du inte bara ange storleken på noderna och källan för avbildningarna som användes för att skapa dem, utan även **referensen till avbildningen av den virtuella datorn** och Batch-**nodagentens SKU** som ska installeras på noderna. Mer information om hur du anger dessa poolegenskaper finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md).
+    När du skapar en pool med noder i en konfiguration av en virtuell dator måste du inte bara ange storleken på noderna och källan för avbildningarna som användes för att skapa dem, utan även **referensen till avbildningen av den virtuella datorn** och Batch-**nodagentens SKU** som ska installeras på noderna. Mer information om hur du anger dessa poolegenskaper finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md). Om du vill kan du koppla en eller flera tomma datadiskar till en pool med virtuella datorer som skapats av Microsoft Azure Marketplace-avbildningar. Alternativt kan du inkludera datadiskar i de anpassade avbildningar som används för att skapa de virtuella datorerna.
 
 - **Cloud Service-konfiguration**, som anger att poolen består av Azure Cloud Services-noder. Cloud Services tillhandahåller *endast* Windows-beräkningsnoder.
 
@@ -148,9 +148,11 @@ Om du vill använda en anpassad avbildning måste du förbereda avbildningen gen
 
 Detaljerade krav och steg finns i [Use a custom image to create a pool of virtual machines](batch-custom-images.md) (Använda en anpassad avbildning för att skapa en pool med virtuella datorer).
 
+#### <a name="container-support-in-virtual-machine-pools"></a>Stöd för behållare i pooler med virtuella datorer
 
+När du skapar en pool med virtuella datorer med hjälp av Batch-API:er kan du ställa in poolen på att köra uppgifter i Docker-behållare. För närvarande måste du skapa poolen med hjälp av Windows Server 2016 Datacenter och en behållaravbildning från Microsoft Azure Marketplace. Alternativt kan du ange en anpassad VM-avbildning som innehåller Docker Community Edition och alla nödvändiga drivrutiner. Poolinställningarna måste innehålla en [behållarkonfiguration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) som kopierar behållaravbildningar till de virtuella datorerna när poolen skapas. Uppgifter som körs i poolen kan sedan referera till behållaravbildningar och körningsalternativ för behållare.
 
-### <a name="compute-node-type-and-target-number-of-nodes"></a>Typ av beräkningsnod och antal målnoder
+## <a name="compute-node-type-and-target-number-of-nodes"></a>Typ av beräkningsnod och antal målnoder
 
 När du skapar en pool kan du ange vilka typer av beräkningsnoder du vill ha och antal målnoder för var och en av dem. Det finns två typer av beräkningsnoder:
 
@@ -258,6 +260,7 @@ När du skapar en aktivitet kan du ange:
 * **Miljövariablerna** som krävs av programmet. Mer information finns i avsnittet [Miljöinställningar för aktiviteter](#environment-settings-for-tasks).
 * **Begränsningarna** som aktiviteten ska köras under. Begränsningarna omfattar t.ex. den längsta tid som aktiviteten kan köras, det högsta antal omförsök som ska göras för en aktivitet som misslyckats, samt den längsta tid som filer i aktivitetens arbetskatalog ska bevaras.
 * **Programpaket** för distribution till beräkningsnoden som aktiviteten har schemalagts att köra på. Med [programpaket](#application-packages) blir det lättare att distribuera och hantera versionerna av de program som dina aktiviteter kör. Programpaket på aktivitetsnivå är särskilt användbara i miljöer med delade pooler där olika jobb körs i en pool och där poolen inte tas bort när ett jobb har slutförts. Om jobbet har färre aktiviteter än noder i poolen kan programpaket för aktiviteter minimera dataöverföringen eftersom ditt program bara distribueras till noderna som kör aktiviteterna.
+* En **behållaravbildning** refererar till Docker Hub eller ett privat register och andra inställningar som behövs för att skapa en Docker-behållare där uppgifter kan köras på noden. Den här informationen behöver du bara ange om poolen har skapats med en behållarkonfiguration.
 
 Utöver de aktiviteter som du definierar för att utföra beräkningen på en nod tillhandahålls även följande särskilda aktiviteter av Batch-tjänsten:
 
@@ -386,39 +389,12 @@ En kombinerad metod, som normalt används för att hantera en varierande men kon
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Konfiguration av virtuella nätverk (VNet) och brandväggar 
 
-När du etablerar en pool av beräkningsnoder i Batch kan du associera poolen med ett undernät för ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Mer information om hur du skapar ett VNet med undernät finns i [Create an Azure virtual network with subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) (Skapa ett virtuellt Azure-nätverk med undernät). 
+När du etablerar en pool av beräkningsnoder i Batch kan du associera poolen med ett undernät för ett [virtuellt Azure-nätverk (VNet)](../virtual-network/virtual-networks-overview.md). Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory).  
 
-VNet-krav:
+### <a name="vnet-requirements"></a>VNet-krav
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-* Det virtuella nätverket måste ha samma **region** och **prenumeration** för Azure som Azure Batch-kontot.
-
-* Endast Azure Resource Manager (ARM)-baserade virtuella nätverk stöds för pooler som skapas med en virtuell datorkonfiguration. Både ARM och klassiska virtuella nätverk stöds för pooler som skapas med en molntjänstkonfiguration. 
-
-* Om du vill använda ett ARM-baserat nätverk måste Batch-klientens API använda [Azure Active Directory-autentisering](batch-aad-auth.md). Om du vill använda ett klassiskt virtuellt nätverk måste MicrosoftAzureBatch-tjänstobjektet ha RBAC-rollen (rollbaserad åtkomstkontroll) ”Klassisk virtuell datordeltagare” för det angivna virtuella nätverket. 
-
-* Det angivna undernätet måste ha tillräckligt med lediga **IP-adresser** för det totala antalet målnoder, d.v.s. summan av egenskaperna `targetDedicatedNodes` och `targetLowPriorityNodes` för poolen. Om undernätet inte har tillräckligt med lediga IP-adresser blir Batch-tjänstens allokering av beräkningsnoder i poolen inte fullständig och ett storleksändringsfel returneras.
-
-* Det angivna undernätet måste tillåta kommunikation från Batch-tjänsten för att kunna schemalägga aktiviteter på beräkningsnoderna. Om kommunikation till beräkningsnoderna nekas av en **nätverkssäkerhetsgrupp (NSG)** som är associerad med din VNet, ändrar Batch-tjänsten beräkningsnodernas status till **Oanvändbar**.
-
-* Om det angivna virtuella nätverket har associerade **nätverkssäkerhetsgrupper (NSG)** och/eller en **brandvägg** måste ett par reserverade systemportar vara aktiverade för inkommande kommunikation:
-
-- För pooler som har skapats med en konfiguration av virtuell dator aktiverar du portarna 29876 och 29877, samt port 22 för Linux och port 3389 för Windows. 
-- För pooler som har skapats med en molntjänstkonfiguration aktiverar du portarna 10100, 20100 och 30100. 
-- Aktivera port 443 för utgående anslutningar till Azure Storage. Kontrollera också att din Azure Storage-slutpunkt kan matchas av eventuella anpassade DNS-servrar som betjänar ditt VNET. Mer specifikt ska en URL i formatet `<account>.table.core.windows.net` vara omvandlingsbar.
-
-    I följande tabell beskrivs de inkommande portar som du måste aktivera för pooler som du har skapat med en konfiguration av virtuell dator:
-
-    |    Målportar    |    Källans IP-adress      |    Lägger Batch till nätverkssäkerhetsgrupper?    |    Krävs detta för att VM ska kunna användas?    |    Åtgärd från användaren   |
-    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>För pooler som har skapats med konfigurationen av virtuell dator: 29876 och 29877</li><li>För pooler som har skapats med molntjänstkonfigurationen: 10100, 20100 och 30100</li></ul>         |    Endast IP-adresser för Batch-tjänstrollen |    Ja. Batch lägger till nätverkssäkerhetsgrupper på nivån för de nätverksgränssnitt (NIC) som är kopplade till virtuella datorer. Dessa nätverkssäkerhetsgrupper tillåter endast trafik från Batch-tjänstrollens IP-adresser. Även om du öppnar dessa portar för hela webben blockeras trafiken vid nätverksgränssnittet (NIC). |    Ja  |  Du behöver inte ange en NSG eftersom Batch endast tillåter Batch-IP-adresser. <br /><br /> Men om du anger en NSG måste du se till att dessa portar är öppna för inkommande trafik. <br /><br /> Om du anger * som käll-IP i NSG lägger Batch fortfarande till nätverkssäkerhetsgrupper på nivån för det nätverksgränssnitt (NIC) som är kopplade till virtuella datorer. |
-    |    3389, 22               |    Användarnas datorer (för felsökning), så att du har fjärråtkomst till den virtuella datorn.    |    Nej                                    |    Nej                     |    Lägg till nätverkssäkerhetsgrupper om du vill tillåta fjärråtkomst (RDP/SSH) till den virtuella datorn.   |                 
-
-    Följande tabell beskriver den utgående port som du måste aktivera för att tillåta åtkomst till Azure Storage:
-
-    |    Utgående portar    |    Mål    |    Lägger Batch till nätverkssäkerhetsgrupper?    |    Krävs detta för att VM ska kunna användas?    |    Åtgärd från användaren    |
-    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Azure Storage    |    Nej    |    Ja    |    Om du lägger till en nätverkssäkerhetsgrupp måste du se till att den här porten är öppen för utgående trafik.    |
-
+Läs mer om hur du konfigurerar en Batch-pool i ett VNet i [Create a pool of virtual machines with your virtual network](batch-virtual-network.md) (Skapa en pool av virtuella datorer med det virtuella nätverket).
 
 ## <a name="scaling-compute-resources"></a>Skala beräkningsresurser
 Med [automatisk skalning](batch-automatic-scaling.md) kan Batch-tjänsten dynamiskt justera antalet beräkningsnoder i en pool baserat på den aktuella arbetsbelastningen och resursanvändningen i beräkningsscenariot. På så sätt kan du sänka den totala kostnaden för programkörning genom att endast använda de resurser som du behöver och frisläppa de som du inte behöver.
@@ -525,11 +501,7 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
 ## <a name="next-steps"></a>Nästa steg
 * Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
 * Gå igenom ett Batch-exempelprogram steg för steg i [Komma igång med Azure Batch-biblioteket för .NET](batch-dotnet-get-started.md). Det finns också en [Python-version](batch-python-tutorial.md) i självstudien som kör en arbetsbelastning på Linux-beräkningsnoder.
-* Ladda ned, skapa och använd [Batch Explorer][github_batchexplorer]-exempelprojektet när du utvecklar dina Batch-lösningar. Med Batch Explorer kan du göra följande och mer:
-
-  * Övervaka och hantera pooler, jobb och aktiviteter i ditt Batch-konto
-  * Ladda ned `stdout.txt`, `stderr.txt` och andra filer från noder
-  * Skapa användare på noder och ladda ned RDP-filer för fjärrinloggning
+* Hämta och installera [BatchLabs] [ batch_labs] och använd verktyget i arbetet med att utveckla Batch-lösningar. Använd BatchLabs för att skapa, felsöka och övervaka Azure Batch-program. 
 * Lär dig hur du [skapar pooler för Linux-beräkningsnoder](batch-linux-nodes.md).
 * Besök [Azure Batch-forumet][batch_forum] på MSDN. Forumet är en bra plats om du vill ställa frågor, oavsett om du är helt ny eller expert på Batch.
 
@@ -541,7 +513,7 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

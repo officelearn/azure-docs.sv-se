@@ -1,20 +1,20 @@
 ---
-title: "Anpassade händelser för Azure Event Grid | Microsoft Docs"
-description: "Använd Azure Event Grid för att publicera ett ämne och prenumerera på händelsen."
+title: "Anpassade händelser för Azure Event Grid med CLI | Microsoft Docs"
+description: "Använd Azure Event Grid och Azure CLI för att publicera ett ämne och prenumerera på händelsen."
 services: event-grid
 keywords: 
 author: djrosanova
 ms.author: darosa
-ms.date: 08/15/2017
+ms.date: 10/11/2017
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: cd285471196f75f6a8c8ead0e2895fd71414f223
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d969b44bdfa610b18f3f934b48d987cb1735155f
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
-# <a name="create-and-route-custom-events-with-azure-event-grid"></a>Skapa och dirigera anpassade händelser med Azure Event Grid
+# <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Skapa och dirigera anpassade händelser med Azure CLI och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på ämnet och utlösa händelsen för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en URL som endast samlar in meddelanden. Du skapar denna URL med hjälp av en öppen källkod, ett tredjepartsverktyg som kallas [RequestBin](https://requestb.in/).
 
@@ -117,6 +117,6 @@ az group delete --name gridResourceGroup
 Nu när du vet hur du skapar ämnen och prenumerationer på händelser kan du läsa mer om vad Event Grid kan hjälpa dig med:
 
 - [Om Event Grid](overview.md)
-- [Dirigera Blob Storage-händelser till en anpassad webbslutpunkt (förhandsversion)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Dirigera Blob Storage-händelser till en anpassad webbslutpunkt](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Övervaka ändringar på virtuella maskiner med Azure Event Grid och Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Strömma stordata till ett datalager](event-grid-event-hubs-integration.md)

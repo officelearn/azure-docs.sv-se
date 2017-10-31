@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f43196b88cf22aab66c913d0bd659b3d654cef0
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen Ansluten fabrik
 
@@ -34,7 +34,7 @@ IoT Suites [förkonfigurerade lösning][lnk-preconfigured-solutions] är en impl
 
 Du kan använda lösningen som startpunkt för en egen implementering och [anpassa][lnk-customize] den efter dina egna affärsbehov.
 
-Den här artikeln beskriver några av de viktigaste elementen i den anslutna fabrikslösningen så att du förstår hur den fungerar. Med den här kunskapen kan du sedan:
+Den här artikeln beskriver några av de viktigaste elementen i den anslutna fabrikslösningen så att du förstår hur den fungerar. Artikeln beskriver också hur data flödar genom lösningen. Med den här kunskapen kan du sedan:
 
 * Felsöka problem i lösningen.
 * Planera hur lösningen kan anpassas för att uppfylla dina behov.
@@ -124,12 +124,116 @@ Lösningen använder Azure Blob Storage som disklagring för den virtuella dator
 ## <a name="web-app"></a>Webbapp
 Webbappen distribueras som en del av den förkonfigurerade lösningen består av en integrerad OPC UA-klient, aviseringsbehandling och telemetrivisualisering.
 
+## <a name="telemetry-data-flow"></a>Telemetridataflöde
+
+![Telemetridataflöde](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+
+### <a name="flow-steps"></a>Steg i flödet
+
+1. OPC Publisher läser in OPC UA X 509-certifikat och autentiseringsuppgifter för IoT Hub från det lokala certifikatarkivet.
+    - Om det behövs kommer OPC Publisher att skapa och lagra saknade certifikat och autentiseringsuppgifter i certifikatarkivet.
+
+2. OPC Publisher registreras automatiskt i IoT Hub.
+    - Använder det konfigurerade protokollet. Kan använda valfritt protokoll med stöd för IoT Hub Client SDK. Standardtypen är MQTT.
+    - Protokollkommunikationen skyddas av TLS.
+
+3. OPC Publisher läser in konfigurationsfilen.
+
+4. OPC Publisher skapar en OPC-session för varje konfigurerad OPC UA-server.
+    - Använder TCP-anslutning.
+    - OPC Publisher och OPC UA-servern autentiserar varandra med hjälp av X509-certifikaten.
+    - All annan OPC UA-trafik krypteras av mekanismen som konfigurerats för OPC UA-kryptering.
+    - OPC Publisher skapar en OPC-prenumeration i OPC-sessionen för varje konfigurerat publiceringsintervall.
+    - Skapar övervakade OPC-objekt för OPC-noderna som publiceras i OPC-prenumerationen.
+
+5. Om värdet för en övervakad OPC-nod ändras skickar OPC UA-servern uppdateringar till OPC Publisher.
+
+6. OPC Publisher omkodar det nya värdet.
+    - Om batchbearbetning har aktiverats kan flera ändringar behandlas samtidigt.
+    - Skapar ett IoT Hub-meddelande.
+
+7. OPC Publisher skickar ett meddelande till IoT Hub.
+    - Använder det konfigurerade protokollet.
+    - Kommunikationen skyddas av TLS.
+
+8. Time Series Insights (TSI) läser in meddelanden från IoT Hub.
+    - Använder AMQP via TCP/TLS.
+    - Det här steget utförs internt i datacentret.
+
+9. Data blir vilande i TSD.
+
+10. Den anslutna WebApp-fabriken i Azure App Service avfrågar TSI för att hitta alla nödvändiga data.
+    - Använder TCP/TLS för säker kommunikation.
+    - Det här steget utförs internt i datacentret.
+
+11. Webbläsaren ansluter till den anslutna WebApp-fabriken.
+    - En instrumentpanel renderas för den anslutna fabriken.
+    - Ansluter via HTTPS.
+    - Åtkomst till den anslutna appfabriken kräver användarautentisering via Azure Active Directory.
+    - Alla WebApi-anrop till den anslutna appfabriken skyddas av antiförfalskningstoken.
+
+12. När data uppdateras skickar den anslutna WebApp-fabriken uppdaterade data till webbläsaren.
+    - Använder SignalR-protokollet.
+    - Skyddas av TCP/TLS.
+
+## <a name="browsing-data-flow"></a>Dataflöde för webbläsaren
+
+![Dataflöde för webbläsaren](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+
+### <a name="flow-steps"></a>Steg i flödet
+
+1. OPC Proxy (serverkomponenten) startas.
+    - Läser in delade åtkomstnycklar från ett lokalt arkiv.
+    - Om det behövs lagras alla saknade åtkomstnycklar i arkivet.
+
+2. OPC Proxy (serverkomponenten) registreras automatiskt i IoT Hub.
+    - Läser in alla kända enheter från IoT Hub.
+    - Använder MQTT via TLS-socketanslutning eller säker Websocket-anslutning.
+
+3. Webbläsaren ansluter till den anslutna WebApp-fabriken. En instrumentpanel renderas för den anslutna fabriken.
+    - Använder HTTPS.
+    - Användaren väljer en OPC UA-server att ansluta till.
+
+4. Den anslutna WebApp-fabriken skapar en OPC UA-session för den valda OPC UA-servern.
+    - Använder OPC UA-stacken.
+
+5. OPC Proxy-transporten tar emot en begäran från OPC UA-stacken om att upprätta en TCP-socketanslutning till OPC UA-servern.
+    - TCP-nyttolasten hämtas och används utan några ändringar.
+    - Det här steget utförs internt i den anslutna WebApp-fabriken.
+
+6. OPC Proxy (klientkomponenten) letar upp OPC Proxy-enheten (serverkomponenten) i IoT Hubs enhetsregister. Därefter anropas en enhetsmetod för OPC Proxy-enheten (serverkomponenten) i IoT Hub.
+    - Använder HTTPS via TCP/TLS för att leta upp OPC Proxy.
+    - Använder HTTPS via TCP/TLS för att upprätta en TCP-socketanslutning till OPC UA-servern.
+    - Det här steget utförs internt i datacentret.
+
+7. IoT Hub-anropar en enhetsmetod på OPC Proxy-enheten (serverkomponenten).
+    - Använder en etablerad MQTT via TLS-socketanslutning eller säker Websocket-anslutning för att upprätta en TCP-socketanslutning till OPC UA-servern.
+
+8. OPC Proxy (serverkomponenten) skickar TCP-nyttolasten vidare till nätverket på butiksgolvet.
+
+9. OPC UA-servern bearbetar nyttolasten och skickar tillbaka svaret.
+
+10. Svaret tas emot av socketen på OPC Proxy (serverkomponenten).
+    - OPC Proxy skickar data som returvärde för enhetsmetoden till IoT Hub och OPC Proxy (klientkomponenten).
+    - Dessa data levereras till OPC UA-stacken i den anslutna appfabriken.
+
+11. Den anslutna WebApp-fabriken returnerar OPC Browser UX som berikats med OPC UA-specifik information som togs emot från OPC UA-servern och som renderas i webbläsaren.
+    - När du söker igenom OPC-adressutrymmet och tillämpar funktioner på noderna i OPC-adressutrymmet kommer OPC Browser UX-klienten att använda AJAX-anrop via HTTPS som skyddas av antiförfalskningstoken för att hämta data från den anslutna WebApp-fabriken.
+    - Vid behov använder klienten det kommunikationssätt som beskrivs i steg 4 till 10 för att få till ett informationsutbyte med OPC UA-servern.
+
+> [!NOTE]
+> OPC Proxy (serverkomponenten) och OPC Proxy-komponenten (klienten) utför steg 4 till 10 för all TCP-trafik som kan kopplas ihop med OPC UA-kommunikationen.
+
+> [!NOTE]
+> OPC Proxy-kommunikationen är transparent och alla OPC UA-säkerhetsfunktioner för autentisering och kryptering gäller för OPC UA-servern och OPC UA-stacken i den anslutna WebApp-fabriken.
+
 ## <a name="next-steps"></a>Nästa steg
 
 Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
 
 * [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions]
 * [Distribuera en gateway på Windows eller Linux för den förkonfigurerade lösningen Ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
+* [Referensimplementering för OPC Publisher](iot-suite-connected-factory-publisher.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

@@ -3,7 +3,7 @@ title: "Lägga till användare från andra kataloger eller partnerföretag i Azu
 description: "Beskriver hur du lägger till användare eller ändrar användarinformation i Azure Active Directory, inklusive externa användare och gästanvändare."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: 564a04ec-53c1-470b-9ab9-f3db57da0a89
@@ -16,11 +16,12 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 30dbd21c6d21aa55c2c7e84c315fba098674ddd8
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
+ms.contentlocale: sv-se
+ms.lasthandoff: 07/26/2017
+
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Lägga till användare från andra kataloger eller partnerföretag i Azure Active Directory
 
@@ -79,3 +80,4 @@ Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt 
 * [Administrera Azure AD](active-directory-administer.md)
 * [Hantera lösenord i Azure AD](active-directory-manage-passwords.md)
 * [Hantera grupper i Azure AD](active-directory-manage-groups.md)
+

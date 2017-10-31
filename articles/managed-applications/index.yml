@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure-hanterade program
+metadata:
+  title: 'Dokumentation om Azure-hanterade program – självstudier, API-referens'
+  description: Använd Azure-hanterade program för att publicera molnlösningar som är enklare för kunderna att hantera.
+  services: managed-applications
+  author: tfitzmac
+  manager: timlt
+  ms.service: managed-applications
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/25/2017
+  ms.author: tomfitz
+abstract:
+  description: Med Azure-hanterade program kan du erbjuda dina molnlösningar till interna och externa kunder. Du definierar infrastrukturen för lösningen samt villkoren för kontinuerlig hantering av lösningen. Faktureringen för lösningen hanteras genom Azure-fakturering.
+sections:
+  - title: Snabbstarter på 5 minuter
+    items:
+      - type: paragraph
+        text: Lär dig hur du publicerar och distribuerar ett hanterat program.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/managed-applications/media/index/cli.svg
+            text: Azure CLI
+            href: /azure/managed-applications/managed-apps-quickstart-cli
+  - title: Steg för steg-självstudier
+    items:
+      - type: paragraph
+        text: Lär dig hur du utvecklar och hanterade program och erbjuder dem via Azure Marketplace.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publicera ett hanterat program för interna användare</a>
+          - html: <a href="/azure/managed-applications/publish-marketplace-app">Publicera ett hanterat program för externa användare</a>
+  - title: Referens
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+          - title: 'REST API:er'
+            html: <p><a href="/rest/api/resources/">REST</a></p>
+          - title: Användargränssnitt
+            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Element för användargränssnitt</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Funktioner för användargränssnitt</a></p>

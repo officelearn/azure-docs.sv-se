@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Vad är skalningsuppsättningar för virtuella datorer i Azure?
 Skalningsuppsättningar för virtuella datorer är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning identiska virtuella datorer. När alla virtuella datorer har konfigurerats på samma sätt skapas skalningsuppsättningar för att stödja sann autoskalning. Ingen företablering av virtuella datorer krävs. Det gör det enklare att skapa storskaliga tjänster som riktar sig mot Big Compute, stordata och arbetsbelastningar i behållare.
@@ -33,7 +33,7 @@ Titta igenom dessa videor för mer information om skalningsuppsättningar:
 * [Skaluppsättningar för virtuell dator med Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Skapa och hantera skalningsuppsättningar
-Du kan skapa en skalningsuppsättning i [Azure Portal](https://portal.azure.com) genom att välja **Ny** och skriva in **skalning** i sökfältet. Bland resultaten ser du **Skalningsuppsättning för virtuella datorer**. Därifrån kan du fylla i fälten som krävs för att anpassa och distribuera din skalningsuppsättning. Observera att det även finns alternativ för att ställa in grundläggande regler för automatisk skalning som baseras på processoranvändningen i portalen. 
+Du kan skapa en skalningsuppsättning i [Azure Portal](https://portal.azure.com) genom att välja **Ny** och skriva in **skalning** i sökfältet. Bland resultaten ser du **Skalningsuppsättning för virtuella datorer**. Därifrån kan du fylla i fälten som krävs för att anpassa och distribuera din skalningsuppsättning. Observera att det även finns alternativ för att ställa in grundläggande regler för automatisk skalning som baseras på processoranvändningen i portalen. Om du vill hantera din skalningsuppsättning kan du använda Azure Portal, [Azure PowerShell-cmdletar](virtual-machine-scale-sets-windows-manage.md) eller Azure CLI 2.0.
 
 Skalningsuppsättningar kan distribueras i en [tillgänglighetszon](../availability-zones/az-overview.md).
 
@@ -46,8 +46,23 @@ Du hittar en uppsättning exempelmappar för skalningsuppsättningar till virtue
 
 För mallexemplen för snabbstart kopplar knappen ”Distribuera till Azure” i readme varje mall till funktionen portaldistribuering. Distribuera skalningsuppsättningen genom att klicka på knappen och sedan fylla i alla parametrar som krävs i portalen. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>Skala ut eller skala in en skalningsuppsättning
-Du kan ändra kapaciteten för en skalningsuppsättning i Azure Portal genom att klicka på avsnittet **Skalning** under **Inställningar**. 
+
+## <a name="autoscale"></a>Automatisk skalning
+För att upprätthålla konsekvent programprestanda kan du automatiskt öka eller minska antalet VM-instanser i en skalningsuppsättning. Den här funktionen för automatisk skalning minskar hanteringsomkostnaderna för att övervaka och finjustera din skalningsuppsättning enligt kundens behov över tid. Du kan definiera regler baserat på prestandavärden, programsvar eller ett fast schema och din skalningsuppsättning skalas automatiskt efter behov.
+
+Du kan använda värdbaserade prestandavärden som CPU-användning eller disk-I/O för grundläggande regler för automatisk skalning. De här värdbaserade måtten är tillgängliga direkt, utan ytterligare agenter eller tillägg som måste installeras och konfigureras. Regler för automatisk skalning som använder värdbaserade mått kan skapas med något av följande verktyg:
+
+- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+Du kan installera och konfigurera Azure-diagnostiktillägget på VM-instanser i en skalningsuppsättning för att använda mer detaljerade prestandavärden. Med Azure-diagnostiktillägget kan du samla in ytterligare prestandavärden, till exempel minnesförbrukning, inifrån varje VM-instans. De här prestandavärdena strömmas till ett Azure Storage-konto och du skapar regler för automatisk skalning för att använda dessa data. Mer information finns i artiklarna om att aktivera Azure-diagnostiktillägget på en [virtuell Linux-dator](../virtual-machines/linux/diagnostic-extension.md) eller en [virtuell Windows-dator](../virtual-machines/windows/ps-extensions-diagnostics.md).
+
+Om du vill övervaka själva programprestandan kan du installera och konfigurera ett litet instrumentationspaket i ditt program för App Insights. Detaljerade prestandavärden för programsvarstid eller antal sessioner kan sedan strömmas tillbaka från din app. Du kan sedan skapa regler för automatisk skalning med definierade tröskelvärden för själva prestandan på programnivå. Mer information om App Insights finns i artikeln [Vad är Application Insights](../application-insights/app-insights-overview.md).
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>Skala ut eller skala in en skalningsuppsättning manuellt
+Du kan manuellt ändra kapaciteten för en skalningsuppsättning i Azure Portal genom att klicka på avsnittet **Skalning** under **Inställningar**. 
 
 Om du vill ändra skalningsuppsättningens kapacitet på kommandoraden använder du kommandot **scale** i [Azure CLI](https://github.com/Azure/azure-cli). Du använder exempelvis följande kommando om du vill ställa in en skalningsuppsättnings kapacitet på 10 virtuella datorer:
 
@@ -67,26 +82,6 @@ Om du vill öka eller minska antalet virtuella datorer i en skalningsuppsättnin
 
 Om du omdistribuerar en Azure Resource Manager-mall för att ändra kapaciteten kan du definiera en mycket mindre mall som bara innehåller **SKU**-egenskapspaketet och den uppdaterade kapaciteten. [Här är ett exempel](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Automatisk skalning
-
-En skalningsuppsättning kan alternativt konfigureras med automatiska skalningsinställningar när den skapas i Azure Portal. Antalet virtuella datorer kan sedan ökas eller minskas utifrån genomsnittlig processoranvändning. 
-
-Många av skalningsuppsättningsmallarna i [Azures snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates) definierar inställningarna för automatisk skalning. Du kan också lägga till inställningar för automatisk skalning till en befintlig skalningsuppsättning. Det här Azure PowerShell-skript lägger exempelvis till processorbaserad automatisk skalning till en skalningsuppsättning:
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-Du hittar en lista över giltiga mått för skalning här: [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md) (Mått som stöds av Azure Monitor) under rubriken ”Microsoft.Compute/virtualMachineScaleSets”. Mer avancerade alternativ för automatisk skalning finns också, inklusive schemabaserad automatisk skalning och användning av webhook-konfigurationer för att integrera med aviseringssystem.
 
 ## <a name="monitoring-your-scale-set"></a>Övervaka din skalningsuppsättning
 I [Azure Portal](https://portal.azure.com) anges skalningsuppsättningar och där visas även deras egenskaper. Portalen har också stöd för hanteringsåtgärder. Du kan utföra hanteringsåtgärder på både skalningsuppsättningar och enskilda virtuella datorer i en skalningsuppsättning. Portalen innehåller också ett anpassningsbart resursanvändningsdiagram. 

@@ -3,7 +3,6 @@
 ## [Resursproviders och resurstyper](resource-manager-supported-services.md)
 ## [Resource Manager och klassisk distribution](resource-manager-deployment-model.md)
 ## [Prenumerationsåtgärder](resource-manager-subscription-governance.md)
-## [Hanterade program](managed-application-overview.md)
 
 # Kom igång
 ## [Skapa och distribuera mall](resource-manager-create-first-template.md)
@@ -46,7 +45,7 @@
 ### Azure Portal
 #### [Distribuera resurser](resource-group-template-deploy-portal.md)
 #### [Exportera mall](resource-manager-export-template.md)
-### [REST-API](resource-group-template-deploy-rest.md)
+### [REST API](resource-group-template-deploy-rest.md)
 ### [Distribution mellan resursgrupper](resource-manager-cross-resource-group-deployment.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)
@@ -60,6 +59,7 @@
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
 ### [Ordna prenumerationer med hanteringsgrupper](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Styrningsexempel](resource-manager-subscription-examples.md)
+### [Hanterade program](../managed-applications/overview.md)
 
 ## Styr åtkomsten
 ### Skapa tjänstens huvudnamn
@@ -80,13 +80,6 @@
 #### [Storage](resource-manager-policy-storage.md)
 #### [Virtuell Linux-dator](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Virtuell Windows-dator](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## Använda hanterade program
-### [Publicera tjänstkatalogprogram](managed-application-publishing.md)
-### [Använd tjänstkatalogprogram](managed-application-consumption.md)
-### [Publicera marknadsplatsprogram](managed-application-author-marketplace.md)
-### [Använd marknadsplatsprogram](managed-application-consume-marketplace.md)
-### [Skapa definitioner för användargränssnitt](managed-application-createuidefinition-overview.md)
 
 ## Granska
 ### [Visa aktivitetsloggar](resource-group-audit.md)
@@ -124,21 +117,6 @@
 ### [Numeriska funktioner](resource-group-template-functions-numeric.md)
 ### [Resursfunktioner](resource-group-template-functions-resource.md)
 ### [Strängfunktioner](resource-group-template-functions-string.md)
-## [Funktioner för användargränssnittsdefinition](managed-application-createuidefinition-functions.md)
-## [Definitionselement för användargränssnitt](managed-application-createuidefinition-elements.md)
-### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI](/cli/azure/resource)
 ## [NET](/dotnet/api/microsoft.azure.management.resourcemanager)

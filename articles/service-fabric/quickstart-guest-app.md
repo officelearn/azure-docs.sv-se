@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
-ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f63cf0baf7636d0294ced7c2dc6b3112fa9900ee
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 
@@ -43,7 +43,7 @@ Klicka på **Moln > Service Fabric-program** i dialogrutan **Nytt projekt**.
 Ge programmet namnet **MyGuestApp** och tryck på **OK**.
 
 >[!IMPORTANT]
->Node.js kan enkelt dela 260 tecken för sökvägar i windows. Använd en kort sökväg för projektet som **c:\code\svc1**.
+>Node.js kan enkelt dela 260 tecken för sökvägar i windows. Använd en kort sökväg för projektet som **c:\code\svc1**. Alternativt kan du följa [de här instruktionerna](https://stackoverflow.com/a/41687101/1664231) för att aktivera långa filsökvägar i Windows 10.
    
 ![Dialogrutan Nytt projekt i Visual Studio][new-project]
 

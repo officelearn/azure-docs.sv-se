@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Bevilja åtkomst till en Time Series Insights-miljö med Azure Portal
 
@@ -42,12 +42,13 @@ De två typerna av principer möjliggör en tydlig uppdelning mellan åtkomst ti
 I följande steg visas hur du ger åtkomst till data för en användares huvudnamn:
 
 1.  Logga in på [Azure Portal](https://portal.azure.com).
-2.  Klicka på ”Alla resurser” på menyn på vänster sida av Azure Portal.
-3.  Välj Time Series Insights-miljö.
+2.  Ange ”Time Series” i sökrutan.
+3.  Klicka på Time Series Environment
+4.  Välj Time Series Insights-miljön från listan.
 
   ![Hantera Time Series Insights-källan – miljö](media/data-access/getstarted-grant-data-access1.png)
 
-4.  Välj ”Dataplansåtkomst” och klicka på ”Lägg till”
+4.  Välj ”Dataåtkomstprinciper” och klicka på ”Lägg till”
 
   ![Hantera Time Series Insights-källan – lägg till](media/data-access/getstarted-grant-data-access2.png)
 

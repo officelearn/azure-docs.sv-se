@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
-## <a name="introduction"></a>Introduktion
+
 Att utveckla för Microsoft Azure är enkelt tack vare Visual Studio och det kostnadsfria utvecklingsverktyget Azure SDK för .NET. Den här självstudiekursen vägleder dig igenom stegen för att skapa en app som använder flera Azure-resurser som körs i din lokala miljö.
 
 Du kommer att få lära dig följande:
@@ -68,7 +68,7 @@ Innan du kan börja utveckla Azure-program måste du skaffa de verktyg som kräv
 5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
-Nästa steg är att skapa ett namnområde för tjänsten och få en nyckel till signatur för delad åtkomst (SAS). Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnområdet och SAS-nyckeln ger referensen för Service Bus som används för att tillåta åtkomst till ett program.
+Nästa steg är att skapa ett *namnområde* och få en [nyckel till signatur för delad åtkomst (SAS)](service-bus-sas.md) för det namnområdet. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -83,7 +83,7 @@ Efter det lägger du till kod som skickar objekt till en Service Bus-kö och vis
 2. Från **Installerade mallar**, under **Visual C#**, klickar du på **Moln** och sedan på **Azure Cloud Service**. Ge projektet följande namn: **MultiTierApp**. Klicka sedan på **OK**.
    
    ![][9]
-3. Dubbelklicka på **ASP.NET Web Role** från rollerna **.NET Framework 4.5**.
+3. Dubbelklicka på **ASP.NET Web Role** från fönstret **Roller**.
    
    ![][10]
 4. Hovra över **WebRole1** under **Azure Cloud Service Solution** och klicka på pennikonen. Byt sedan namn på webbrollen till **FrontendWebRole**. Klicka sedan på **OK**. (Kontrollera att du anger ”Frontend” med ett litet ”e”, det vill säga, inte ”FrontEnd”).
@@ -92,12 +92,12 @@ Efter det lägger du till kod som skickar objekt till en Service Bus-kö och vis
 5. Från dialogrutan **Nytt ASP.NET-projekt** klickar du på **MVC** i listan **Välj en mall**.
    
    ![][12]
-6. Medan du fortfarande är kvar i dialogrutan **Nytt ASP.NET-projekt**, klickar du på knappen **Ändra autentisering**. I dialogrutan **Ändra autentisering** klickar du på **Ingen autentisering** och sedan på **OK**. För den här självstudiekursen distribuerar du en app som inte kräver någon användarinloggning.
+6. Medan du fortfarande är kvar i dialogrutan **Nytt ASP.NET-projekt**, klickar du på knappen **Ändra autentisering**. I dialogrutan **Ändra autentisering** kontrollerar du att **Ingen autentisering** har markerats och klickar sedan på **OK**. För den här självstudiekursen distribuerar du en app som inte kräver någon användarinloggning.
    
     ![][16]
 7. Väl tillbaka i dialogrutan **Nytt ASP.NET-projekt** klickar du på **OK** för att skapa projektet.
 8. I projektet **FrontendWebRole** i **Solution Explorer** högerklickar du på **Referenser** och sedan klickar du på **Hantera NuGet-paket**.
-9. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus`. Välj paketet **WindowsAzure.ServiceBus** genom att klicka på **Installera** och godkänn användarvillkoren.
+9. Klicka på fliken **Bläddra** och sök sedan efter **WindowsAzure.ServiceBus**. Välj paketet **WindowsAzure.ServiceBus** genom att klicka på **Installera** och godkänn användarvillkoren.
    
    ![][13]
    
@@ -182,12 +182,12 @@ I detta avsnitt ska du skapa de olika sidor som din app visar.
 5. Nu ska du skapa vyn för den `Submit()`-metod som du skapade tidigare. Högerklicka inne i `Submit()`-metoden (överlagringen av `Submit()` som inte tar några parametrar) och välj sedan **Lägg till vy**.
    
    ![][14]
-6. En dialogruta för att skapa vyn visas. Välj **Skapa** i listan **Mall**. Klicka på klassen **OnlineOrder** i listan **Modellklass**.
+6. En dialogruta för att skapa vyn visas. Välj **Skapa** i listan **Mall**. Välj klassen **OnlineOrder** i listan **Modellklass**.
    
    ![][15]
 7. Klicka på **Lägg till**.
 8. Nu ska du ändra visningsnamnet för din app. Dubbelklicka på filen **Views\Shared\\_Layout.cshtml** i **Solution Explorer** för att öppna den i Visual Studio-redigeraren.
-9. Ersätt alla förekomster av **My ASP.NET Application** med **LITWARE'S Products**.
+9. Ersätt alla förekomster av **My ASP.NET Application** med **Northwind Traders Products**.
 10. Ta bort länkarna för **Start**, **Om** och **Kontakt**. Ta bort den markerade koden:
     
     ![][28]
@@ -361,9 +361,9 @@ Du ska nu skapa den arbetsroll som behandlar orderöverföringen. I det här exe
 ## <a name="next-steps"></a>Nästa steg
 Om du vill lära dig mer om Service Bus kan du använda följande resurser:  
 
-* [Dokumentation för Azure Service Bus][sbdocs]  
+* [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
+* [Komma igång med Service Bus-köer][sbacomqhowto]
 * [Tjänstesida för Service Bus][sbacom]  
-* [Använda Service Bus-köer][sbacomqhowto]  
 
 Mer information om flernivåscenarier finns i:  
 
@@ -390,7 +390,6 @@ Mer information om flernivåscenarier finns i:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

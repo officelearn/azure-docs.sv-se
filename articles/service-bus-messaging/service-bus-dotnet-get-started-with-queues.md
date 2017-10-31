@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Komma igång med Service Bus-köer
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Framework
 
 ### <a name="add-the-service-bus-nuget-package"></a>Lägga till Service Bus-NuGet-paketet
 1. Högerklicka på det nyskapade projektet och välj **Hantera Nuget-paket**.
-2. Klicka på fliken **Bläddra**, sök efter **Microsoft Azure Service Bus** och markera posten **WindowsAzure.ServiceBus**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
+2. Klicka på fliken **Bläddra**, sök efter **WindowsAzure.ServiceBus** och markera posten **WindowsAzure.ServiceBus**. Klicka på **Installera** för att slutföra installationen och stäng sedan den här dialogrutan.
    
     ![Välj ett NuGet-paket][nuget-pkg]
 
@@ -115,7 +115,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Framework
         }
     }
     ```
-3. Kör programmet och kontrollera Azure Portal: klicka på köns namn på bladet **Översikt** för namnområdet. Bladet **Grundläggande** för kön visas. Observera att värdet för **Antal aktiva meddelanden** nu bör vara 1. Varje gång du kör sändningsprogrammet utan att hämta meddelanden ökar detta värde med 1. Observera också att den aktuella storleken för kön ökar varje gång programmet lägger till ett meddelande i kön.
+3. Kör programmet och kontrollera Azure Portal: klicka på köns namn på fönstret **Översikt** för namnområdet. Fönstret **Grundläggande** för kön visas. Observera att värdet för **Antal aktiva meddelanden** nu bör vara 1. Varje gång du kör sändningsprogrammet utan att hämta meddelanden ökar detta värde med 1. Observera också att den aktuella storleken för kön ökar varje gång programmet lägger till ett meddelande i kön.
    
       ![Meddelandestorlek][queue-message]
 
@@ -178,7 +178,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Framework
    
     ![Kölängd][queue-message-receive]
 
-Grattis! Nu har du skapat en kö, skickat ett meddelande och tagit emot ett meddelande.
+Grattis! Nu har du skapat en kö, skickat ett meddelande till kön och tagit emot ett meddelande från samma kö.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -189,4 +189,4 @@ Kolla in våra [GitHub-databaser med exempel](https://github.com/Azure/azure-ser
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

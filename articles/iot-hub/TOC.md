@@ -86,6 +86,7 @@
 ### Ladda upp filer från enheter
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Kom igång med enhetstvillingar
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-twin-getstarted.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-getstarted.md)

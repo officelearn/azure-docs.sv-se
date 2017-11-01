@@ -15,7 +15,7 @@
       href: container-registry-get-started-powershell.md
 - name: Självstudier
   items:
-    - name: Geo-replikering
+    - name: Geo-replikering (förhandsversion)
       items:
         - name: 1 – Förbered behållarregister
           href: container-registry-tutorial-prepare-registry.md

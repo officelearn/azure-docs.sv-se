@@ -35,9 +35,9 @@
 ### [Länka Office 365-klientorganisation](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Betala för prenumerationer med faktura](billing-how-to-pay-by-invoice.md)
 ## Felsöka
-### [Registreringsproblem](billing-troubleshoot-azure-sign-up-issues.md)
-### [Nekat kort](billing-credit-card-fails-during-azure-sign-up.md)
-### [Inloggningsproblem](billing-cannot-login-subscription.md)
+### [Registreringsproblem](https://support.microsoft.com/en-us/help/4042959)
+### [Nekat kort](https://support.microsoft.com/en-us/help/4042960)
+### [Inloggningsproblem](https://support.microsoft.com/en-us/help/4042961)
 ### [Inga prenumerationer hittades](billing-no-subscriptions-found.md)
 ### [Företagskostnadsvy inaktiverad](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

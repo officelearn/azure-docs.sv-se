@@ -50,6 +50,7 @@
 ### [Konfigurera med Git](api-management-configuration-repository-git.md)
 ### [Övervaka med Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Använd rollbaserad åtkomstkontroll](api-management-role-based-access-control.md)
+### [Använda en hanterad tjänstidentitet](api-management-howto-use-managed-service-identity.md)
 ### Integrera med Service Fabric
 #### [Översikt](../service-fabric/service-fabric-api-management-overview.md)
 #### [Snabbstart](../service-fabric/service-fabric-api-management-quick-start.md)

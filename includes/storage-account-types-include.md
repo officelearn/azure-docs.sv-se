@@ -4,7 +4,7 @@ Det finns två typer av lagringskonton:
 Ett allmänt lagringskonto ger dig åtkomst till Azure Storage-tjänster som tabeller, köer, filer, blobbar och virtuella Azure-datordiskar, allt med ett enda konto. Den här typen av lagringskonto har två prestandanivåer:
 
 * Standardnivå för lagringsprestanda som låter dig lagra tabeller, köer, filer, blobbar och virtuella Azure-datordiskar.
-* Premiumnivån för lagringsprestanda som för närvarande bara stöder virtuella Azure-datordiskar. En detaljerad översikt över Premium-lagring finns i [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../articles/storage/common/storage-premium-storage.md).
+* Premiumnivån för lagringsprestanda som för närvarande bara stöder virtuella Azure-datordiskar. En detaljerad översikt över Premium-lagring finns i [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="blob-storage-accounts"></a>Blob Storage-konton
 Ett Blob-lagringskonto är ett specialiserat lagringskonto för lagring av ostrukturerad data som blobbar (objekt) i Azure Storage. Blob-lagringskonton liknar dina befintliga allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.

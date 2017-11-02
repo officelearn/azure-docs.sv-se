@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: mbullwin
+ms.openlocfilehash: bf7921926c69fff214e94a2d0edc22b28fb8eac0
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e7b78907fafcee99c807bfe8f7b311986ba7ffcc
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Konfigurera Application Insights för .NET manuellt
 
@@ -149,5 +148,4 @@ Mer information finns i [det här felsökningsavsnittet](app-insights-asp-net-tr
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till mer telemetri](app-insights-asp-net-more.md)för att få en heltäckande bild av ditt program.
-
 

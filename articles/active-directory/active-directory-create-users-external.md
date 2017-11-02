@@ -16,12 +16,11 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
+ms.openlocfilehash: c2e748d5b7ce958600d4da549bc4f2b085df83d8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Lägga till användare från andra kataloger eller partnerföretag i Azure Active Directory
 
@@ -80,4 +79,3 @@ Om en användare tas bort i sin hemkatalog eller om användaren säger upp sitt 
 * [Administrera Azure AD](active-directory-administer.md)
 * [Hantera lösenord i Azure AD](active-directory-manage-passwords.md)
 * [Hantera grupper i Azure AD](active-directory-manage-groups.md)
-

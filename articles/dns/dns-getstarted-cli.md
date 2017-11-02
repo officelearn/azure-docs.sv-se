@@ -3,7 +3,7 @@ title: "Komma igång med Azure DNS med hjälp av Azure CLI 2.0 | Microsoft Docs"
 description: "Läs om hur du skapar en DNS-zon och en DNS-post i Azure DNS. Detta är en steg-för-steg-guide om hur du skapar och hanterar din första DNS-zon och DNS-post med Azure CLI 2.0."
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumuD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 6958d61b29961f59cb22f62bec55f2d467e7e7cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: adcbe69abca72aa0372b78eb357efdc56acf1c26
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Komma igång med Azure DNS med hjälp av Azure CLI 2.0
 

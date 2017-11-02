@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
-ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
 
@@ -44,7 +44,7 @@ StorSimple-molninstallationen finns i två modeller, standardmodellen 8010 (kall
 | **Maximal kapacitet** |30 TB |64 TB |
 | **Virtuell Azure-dator** |Standard_A3 (4 kärnor, 7 GB minne)| Standard_DS3 (4 kärnor, 14 GB minne)|
 | **Regional tillgänglighet** |Alla Azure-regioner |Azure-regioner som har stöd för Premium Storage och virtuella Azure-datorer, DS3<br></br>Använd [listan](https://azure.microsoft.com/regions/services/) för att se om både **virtuella datorer > DS-serien** och **lagring > disklagring** är tillgängligt i din region. |
-| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/common/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../storage/common/storage-premium-storage.md) |
+| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/common/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../virtual-machines/windows/premium-storage.md) |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Utvecklings- och testscenarier i molnet <br></br>Arbetsbelastningar med kortare svarstider och högre prestanda<br></br>Sekundär enhet för katastrofåterställning |
 
 <sup>1</sup> *Kallades tidigare 1100*.
@@ -93,7 +93,7 @@ Innan du etablerar molninstallationen måste du göra följande förberedelser i
 Gör följande uppdateringar i StorSimple Device Manager-tjänsten innan du skapar en molninstallation:
 
 * Lägg till [åtkomstkontrollposter](storsimple-8000-manage-acrs.md) för de virtuella datorer som ska vara värdservrar för molninstallationen.
-* Använd ett [lagringskonto](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) i samma region som molninstallationen. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premium Storage-konto med molninstallationen. Mer information om hur du skapar ett [Standardlagringskonto](../storage/common/storage-create-storage-account.md) eller ett [Premiumlagringskonto](../storage/common/storage-premium-storage.md)
+* Använd ett [lagringskonto](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) i samma region som molninstallationen. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premium Storage-konto med molninstallationen. Mer information om hur du skapar ett [Standardlagringskonto](../storage/common/storage-create-storage-account.md) eller ett [Premiumlagringskonto](../virtual-machines/windows/premium-storage.md)
 * Använd ett annat lagringskonto när du skapar molninstallationen än det som används för dina data. Om samma lagringskonto används kan det resultera i sämre prestanda.
 
 Kontrollera att du har följande information innan du börjar:

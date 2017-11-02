@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 120810b2b112649e21ec4bfe0c0f58b1fe3d80ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3be12abaaedf5b0d66a484cbee48fe3df77f63fe
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -93,10 +93,10 @@ I följande tabell visas de Azure Backup-komponenter som har stöd för Linux.
 | Säkerhetskopiering av virtuella IaaS-datorer i Azure |Programkonsekvent säkerhetskopiering med [ramverk för förskript och efterskript](backup-azure-linux-app-consistent.md)<br/> [Detaljerad filåterställning](backup-azure-restore-files-from-vm.md)<br/> [Återställ alla diskar på virtuella datorer](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Återställning av virtuella datorer](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Använd virtuella Premium Storage-datorer med Azure Backup
-Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium-lagring finns i artikeln [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../storage/common/storage-premium-storage.md).
+Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium-lagring finns i artikeln [Premium Storage: högpresterande lagring för virtuella Azure-datorbelastningar](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Säkerhetskopiera virtuella datorer i Premium Storage
-När du säkerhetskopierar virtuella datorer i Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet ”AzureBackup-” i Premium Storage-kontot. Storleken på mellanlagringsplatsen är lika stor som återställningspunktens ögonblicksbild. Kontrollera att Premium Storage-kontot har tillräckligt med ledigt utrymme så att den tillfälliga mellanlagringsplatsen får plats. Mer information finns i artikeln om [Premium Storage-begränsningar](../storage/common/storage-premium-storage.md#scalability-and-performance-targets). När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för lagringen som används för mellanlagringsplatsen följer [prissättningen för Premium-lagring](../storage/common/storage-premium-storage.md#pricing-and-billing).
+När du säkerhetskopierar virtuella datorer i Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet ”AzureBackup-” i Premium Storage-kontot. Storleken på mellanlagringsplatsen är lika stor som återställningspunktens ögonblicksbild. Kontrollera att Premium Storage-kontot har tillräckligt med ledigt utrymme så att den tillfälliga mellanlagringsplatsen får plats. Mer information finns i artikeln om [Premium Storage-begränsningar](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för lagringen som används för mellanlagringsplatsen följer [prissättningen för Premium-lagring](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Ändra inte mellanlagringsplatsen.

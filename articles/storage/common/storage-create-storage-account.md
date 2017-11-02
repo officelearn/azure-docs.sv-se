@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Om Azure-lagringskonton
 
@@ -79,7 +79,7 @@ Du kan också konfigurera ett eget domännamn som ska användas med ditt lagring
 
 5. Välj typen av lagringskonto: **Allmänt** eller **Blob Storage**. **Allmänt** är standardinställningen.
    
-    Om du valde **Allmänt** anger du prestandanivån: **Standard** eller **Premium**. Standardinställningen är **Standard**. Mer information om standard- och premiumlagringskonton finns i [Introduktion till Microsoft Azure Storage](storage-introduction.md) och [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella Azure-datorer](storage-premium-storage.md).
+    Om du valde **Allmänt** anger du prestandanivån: **Standard** eller **Premium**. Standardinställningen är **Standard**. Mer information om standard- och premiumlagringskonton finns i [Introduktion till Microsoft Azure Storage](storage-introduction.md) och [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella Azure-datorer](../../virtual-machines/windows/premium-storage.md).
    
     Om du valde **Blob Storage** anger du åtkomstnivån: **Het** eller **Kall**. Standardinställningen är **Frekvent**. Mer information finns i [Azure Blob Storage: nivåerna Kall och Het](../blobs/storage-blob-storage-tiers.md).
 6. Välj replikeringsalternativet för lagringskontot: **LRS**, **GRS**, **RA-GRS** eller **ZRS**. Standardinställningen är **RA-GRS**. Mer information om replikeringsalternativen för Azure Storage finns i [Azure Storage-replikering](storage-redundancy.md).

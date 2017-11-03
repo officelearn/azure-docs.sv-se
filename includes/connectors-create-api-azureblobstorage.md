@@ -1,28 +1,28 @@
-### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* An [Azure Blob Storage account](../articles/storage/common/storage-create-storage-account.md) including the storage account name, and its access key. This information is listed in the properties of the storage account in the Azure portal. Read more about [Azure Storage](../articles/storage/common/storage-introduction.md).
+### <a name="prerequisites"></a>Krav
+* Ett Azure-konto; Du kan skapa en [kostnadsfritt konto](https://azure.microsoft.com/free)
+* En [Azure Blob Storage-konto](../articles/storage/common/storage-create-storage-account.md) inklusive lagringskontonamn och dess snabbtangent. Den här informationen visas i egenskaperna för storage-konto i Azure-portalen. Läs mer om [Azure Storage](../articles/storage/common/storage-introduction.md).
 
-Before using your Azure Blob Storage account in a logic app, connect to your Azure Blob Storage account. You can do this easily within your logic app on the Azure  portal.  
+Innan du använder Azure Blob Storage-konto i en logikapp kan du ansluta till Azure Blob Storage-konto. Du kan göra detta enkelt i din logikapp på Azure-portalen.  
 
-Connect to your Azure Blob Storage account using the following steps:  
+Anslut till ditt Azure Blob Storage-konto med följande steg:  
 
-1. Create a logic app. In the Logic Apps designer, add a trigger, and then add an action. Select **Show Microsoft managed APIs** in the drop down list, and then enter "blob" in the search box. Select one of the actions:  
+1. Skapa en logikapp. Lägg till en utlösare i Logic Apps-designer och sedan lägga till en åtgärd. Välj **visa Microsoft hanterade API: er** i nedrullningsbara listan, och ange sedan ”blob” i sökrutan. Välj något av åtgärderna som:  
    
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
-2. If you haven't previously created any connections to Azure storage, you are prompted for the connection details:   
+    ![Azure Blob Storage anslutning skapas steg](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
+2. Om du inte tidigare har skapat alla anslutningar till Azure storage, tillfrågas om anslutningsinformationen:   
    
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/connection-details.png)  
-3. Enter the storage account details. Properties with an asterisk are required.
+    ![Azure Blob Storage anslutning skapas steg](./media/connectors-create-api-azureblobstorage/connection-details.png)  
+3. Ange information om lagringskonto. Egenskaper med en asterisk krävs.
    
-   | Property | Details |
+   | Egenskap | Information |
    | --- | --- |
-   | Connection Name * |Enter any name for your connection. |
-   | Azure Storage Account Name * |Enter the storage account name. The storage account name is displayed in the storage properties in the Azure portal. |
-   | Azure Storage Account Access Key * |Enter the storage account key. The access keys are displayed in the storage properties in the Azure portal. |
+   | Anslutningsnamn * |Ange ett namn för anslutningen. |
+   | Azure Storage-kontonamnet * |Ange namnet på lagringskontot. Lagringskontonamn visas i egenskaperna för lagring i Azure-portalen. |
+   | Azure Storage åtkomstnyckel * |Ange lagringskontots åtkomstnyckel. Åtkomstnycklarna visas i egenskaperna för lagring i Azure-portalen. |
    
-    These credentials are used to authorize your logic app to connect, and access your data. 
-4. Select **Create**.
-5. Notice the connection has been created. Now, proceed with the other steps in your logic app: 
+    Dessa autentiseringsuppgifter används för att verifiera din logikapp för att ansluta och komma åt dina data. 
+4. Välj **Skapa**.
+5. Observera att anslutningen har skapats. Nu kan fortsätta med andra steg i din logikapp: 
    
-    ![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+    ![Azure Blob Storage anslutning skapas steg](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
 

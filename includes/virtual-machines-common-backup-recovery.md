@@ -1,31 +1,31 @@
 
 ## <a name="azure-backup"></a>Azure Backup
 
-For backing up Azure VMs running production workloads, use Azure Backup. Azure Backup supports application-consistent backups for both Windows and Linux VMs. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. 
+Använda Azure Backup för att säkerhetskopiera virtuella Azure-datorer kör produktionsarbetsbelastningar. Azure Backup stöder programkonsekvent säkerhetskopiering för både Windows och Linux virtuella datorer. Azure-säkerhetskopiering skapar återställningspunkter som är lagrade i geo-redundant recovery-valv. När du återställer från en återställningspunkt kan du återställa hela VM eller bara vissa filer. 
 
-For a simple, hands-on introduction to Azure Backup for Azure VMs, see the "Back up Windows virtual machines tutorial" for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
+En enkel, praktiska introduktion till Azure Backup för virtuella Azure-datorer finns i ”Säkerhetskopiera Windows virtuella datorer kursen” [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) eller [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
 
-For more information on how Azure Backup works, see [Plan your VM backup infrastructure in Azure](../articles/backup/backup-azure-vms-introduction.md)
+Mer information om hur Azure Backup fungerar finns [planera din infrastruktur för VM-säkerhetskopiering i Azure](../articles/backup/backup-azure-vms-introduction.md)
 
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Azure Site Recovery protects your VMs from a major disaster scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. You can configure Azure Site Recovery for your VMs so that you can recover your application with a single click in matter of minutes. You can replicate to an Azure region of your choice, it is not restricted to paired regions. 
+Azure Site Recovery skyddar dina virtuella datorer från ett scenario med en större katastrof när en hela region påträffar ett avbrott på grund av större naturkatastrof eller omfattande driftstopp. Du kan konfigurera Azure Site Recovery för din virtuella dator så att du kan återställa ditt program med en enda klickning i frågan minuter. Du kan replikera till en Azure-region önskat, är inte begränsat till parad regioner. 
 
-You can run disaster-recovery drills with on-demand test failovers, without affecting your production workloads or ongoing replication. Create recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature is integrated with Azure automation runbooks.
+Du kan köra katastrofåterställning flyttar med redundanstestningar på begäran, utan att påverka dina produktionsarbetsbelastningar eller pågående replikering. Skapa återställningsplaner för att samordna redundans och återställning efter fel för hela programmet körs på flera virtuella datorer. Funktionen återställning plan är integrerad med Azure automation-runbooks.
 
-You can get started by [replicating your virtual machines](https://aka.ms/a2a-getting-started). 
+Du kan komma igång med [replikering av virtuella datorer](https://aka.ms/a2a-getting-started). 
 
-## <a name="managed-snapshots"></a>Managed snapshots 
+## <a name="managed-snapshots"></a>Hanterad ögonblicksbilder 
 
-In development and test environments, snapshots provide a quick and simple option for backing up VMs that use Managed Disks. A managed snapshot is a read-only full copy of a managed disk. Snapshots exist independent of the source disk and can be used to create new managed disks for rebuilding a VM. They are billed based on the used portion of the disk. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
+I utvecklings- och testmiljöer ger ögonblicksbilder en snabb och enkel alternativet för att säkerhetskopiera virtuella datorer som använder hanterade diskar. En hanterad ögonblicksbild är en skrivskyddad fullständig kopia av hanterade diskar. Ögonblicksbilder finns oberoende av källdisken och kan användas för att skapa nya hanterade diskar för att återskapa en virtuell dator. De debiteras baserat på den använda delen av disken. Om du skapar en ögonblicksbild av en hanterad disk med etablerad kapacitet 64 GB och storleken för data som används på 10 GB, till exempel debiteras ögonblicksbild endast för storleken på 10 GB data som används.  
 
-For more information on creating snapshots, see:
+Mer information om hur du skapar ögonblicksbilder finns:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 
-## <a name="next-steps"></a>Next steps
-You can try out Azure Backup by following the "Back up Windows virtual machines tutorial" for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+## <a name="next-steps"></a>Nästa steg
+Du kan prova att använda Azure Backup genom att följa ”säkerhetskopiering av Windows-datorer kursen” i [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) eller [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).

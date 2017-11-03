@@ -1,6 +1,8 @@
 # Översikt
 ## [Vad är Azure AD Domain Services?](active-directory-ds-overview.md)
-## [Passar det dig?](active-directory-ds-comparison.md)
+## Är det rätt alternativ för dig?
+### [Jämför med Windows Server AD](active-directory-ds-comparison.md)
+### [Jämför med Azure AD Join](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Funktioner](active-directory-ds-features.md)
 ## [Scenarier](active-directory-ds-scenarios.md)
 ## [Så här fungerar synkronisering](active-directory-ds-synchronization.md)
@@ -36,6 +38,7 @@
 ### [Konfigurera support för profilsynkronisering för SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Konfigurera begränsad Kerberos-delegering](active-directory-ds-enable-kcd.md)
 ### [Distribuera Azure AD Application Proxy](active-directory-ds-deploy-azure-app-proxy.md)
+## [Ta bort en hanterad domän](active-directory-ds-disable-aadds.md)
 ## Felsöka
 ### [Vanliga frågor och svar](active-directory-ds-faqs.md)
 ### [Felsökningsguide](active-directory-ds-troubleshooting.md)

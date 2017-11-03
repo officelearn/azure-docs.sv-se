@@ -1,20 +1,20 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-direct-methods.md)
-> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
+> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-direct-methods.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-direct-methods.md)
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. IoT Hub also gives you the ability to invoke non-durable methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout) to let the user know the status of the call. [Invoke a direct method on a device][lnk-devguide-methods] describes direct methods in more detail and offers guidance about when to use direct methods rather than cloud-to-device messages or desired properties.
+Azure IoT Hub är en helt hanterad tjänst som gör tillförlitlig och säker dubbelriktad kommunikation mellan miljoner enheter och en lösning för serverdel. Föregående handledningar ([Kom igång med IoT-hubb] och [meddelanden moln till enhet med IoT-hubben]) visar grundläggande enhet till moln och moln till enhet meddelandetjänsten funktioner i IoT-hubb. IoT-hubb ger dig också möjligheten att anropa metoder i icke-beständiga på enheter från molnet. Direkta metoder representerar en request-reply-interaktion med en enhet som liknar en HTTPS-anrop i att de lyckas eller misslyckas omedelbart (efter en tidsgräns som användaren har angett) så att användarna vet status för anropet. [Anropa en metod som är direkt på en enhet] [ lnk-devguide-methods] beskriver direkt metoder i detalj och innehåller anvisningar om hur när du ska använda direkt metoder i stället moln till enhet meddelanden eller önskade egenskaper.
 
-This tutorial shows you how to:
+I den här självstudiekursen lär du dig att:
 
-* Use the Azure portal to create an IoT hub and create a device identity in your IoT hub.
-* Create a simulated device app that has a direct method which can be called by the cloud.
-* Create a console app that calls a direct method in the simulated device app through your IoT hub.
+* Använda Azure portal för att skapa en IoT-hubb och skapa en enhetsidentitet i din IoT-hubb.
+* Skapa en simulerad enhetsapp som har en direkt metod som kan anropas av molnet.
+* Skapa en konsolapp som anropar en direkt metod i appen simulerade enheten via din IoT-hubb.
 
 
 [lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-[Send Cloud-to-Device messages with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
-[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
+[meddelanden moln till enhet med IoT-hubben]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
+[Kom igång med IoT-hubb]: ../articles/iot-hub/iot-hub-node-node-getstarted.md

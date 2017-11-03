@@ -1,5 +1,5 @@
-### <a name="install-via-composer"></a>Install via Composer
-1. Create a file named **composer.json** in the root of your project and add the following code to it:
+### <a name="install-via-composer"></a>Installera via Composer
+1. Skapa en fil med namnet **composer.json** i roten av projektet och Lägg till följande kod:
    
     ```json
     {
@@ -8,14 +8,14 @@
       }
     }
     ```
-2. Download **[composer.phar][composer-phar]** in your project root.
-3. Open a command prompt and execute the following command in your project root
+2. Hämta  **[composer.phar] [ composer-phar]**  i projektroten.
+3. Öppna en kommandotolk och kör följande kommando i projektroten
    
     ```
     php composer.phar install
     ```
 
-Alternatively go to the [Azure Storage PHP Client Library][php-sdk-github] on GitHub to clone the source code.
+Du kan också gå till den [Azure Storage-klientbibliotek PHP] [ php-sdk-github] på GitHub att klona källkoden.
 
 [php-sdk-github]: https://github.com/Azure/azure-storage-php
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

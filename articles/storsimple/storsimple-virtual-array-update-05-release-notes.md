@@ -1,0 +1,89 @@
+---
+title: StorSimple virtuell matris uppdatering 0,5 viktig information | Microsoft Docs
+description: "Beskriver viktiga öppna problem och lösningar för den virtuella StorSimple-matrisen som kör uppdatering 0,5."
+services: storsimple
+documentationcenter: 
+author: alkohli
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 05/08/2017
+ms.author: alkohli
+ms.openlocfilehash: 4d020ff2b998da4cb52fe91e4d7d4b93544965a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
+---
+# <a name="storsimple-virtual-array-update-05-release-notes"></a>StorSimple virtuell matris uppdatering 0,5 viktig information
+
+## <a name="overview"></a>Översikt
+
+I följande versionsinformation identifiera kritiska öppna problem och löst problem för Microsoft Azure StorSimple virtuell matris uppdateringar.
+
+Viktig information uppdateras kontinuerligt, och allteftersom allvarliga problem som kräver en lösning upptäcks, läggs de. Granska noggrant uppgifterna i viktig information innan du distribuerar din virtuella StorSimple-matris.
+
+Uppdatera 0,5 motsvarar programvaruversionen **10.0.10290.0**.
+
+> [!NOTE]
+> Uppdateringar kan störande och starta om enheten. Om i/o som pågår, ådrar enheten driftstopp. Detaljerade anvisningar om hur du installerar uppdateringen, gå till [uppdatering 0,5](storsimple-virtual-array-install-update-05.md).
+
+
+## <a name="whats-new-in-the-update-05"></a>Vad är nytt i uppdateringen 0,5
+Uppdatering 0,5 är i första hand en buggfix version. De huvudsakliga förbättringar och korrigeringarna är följande:
+
+- **Säkerhetskopiera återhämtning förbättringar** -den här versionen har korrigeringar som förbättrar säkerhetskopiering återhämtning. I tidigare versioner gjordes säkerhetskopieringar endast för vissa undantag. Den här versionen återförsök alla undantag som säkerhetskopiering och gör säkerhetskopior mer robust.
+
+- **Uppdateringar för övervakning av lagringsutrymme användning** -starta 30 juni 2017, den användning övervakning av lagringsutrymme för StorSimple virtuell enhet serien ska tas bort. Detta gäller för övervakning diagram för alla virtuella matriser som kör uppdatering 0,4 eller lägre. Den här uppdateringen innehåller de ändringar som krävs att fortsätta använda övervakning av lagringsutrymme användning i Azure-portalen. Installera uppdateringen innan 30 juni 2017 fortsätta att använda funktionen för övervakning.
+
+
+## <a name="issues-fixed-in-the-update-05"></a>Problem som åtgärdas i uppdateringen 0,5
+
+Följande tabell innehåller en översikt över problem som åtgärdas i den här versionen.
+
+| Nej. | Funktion | Problem |
+| --- | --- | --- |
+| 1 |Säkerhetskopiering återhämtning| I tidigare versioner gjordes säkerhetskopieringar endast för vissa undantag. Den här versionen innehåller en lösning för att säkerhetskopiera mer robust av du försöker alla undantag som säkerhetskopiering.|
+| 2 |Övervakning| Den användning övervakning av lagringsutrymme för StorSimple virtuell enhet serien att bli inaktuell från 30 juni 2017. Den här åtgärden påverkar övervakning diagrammen i Enhetshanteraren för StorSimple-tjänsten körs på virtuella StorSimple-matriser (1200 model). Den här versionen har uppdateringar som används att fortsätta använda övervakning av lagringsutrymme användning på virtuella matriserna utöver 30 juni 2017.|
+| 3 |Filserver| I tidigare versioner, kan en användare av misstag kopiera krypterade filer till virtuella matrisen. Den här versionen innehåller en lösning som inte tillåter kopiering av krypterade filer till virtuella matrisen. Om enheten har befintliga krypterade filer före uppdateringen, fortsätter säkerhetskopieringar misslyckas tills alla krypterade filer tas bort från systemet. |
+
+
+## <a name="known-issues-in-the-update-05"></a>Kända problem i uppdateringen 0,5
+
+Följande tabell innehåller en översikt över kända problem för den virtuella StorSimple-matrisen och omfattar problem versionen anges från tidigare versioner.
+
+| Nej. | Funktion | Problem | Lösning/kommentarer |
+| --- | --- | --- | --- |
+| **1.** |Uppdateringar |Virtuella enheter skapas i förhandsversionen kan inte uppdateras till en allmän tillgänglighet-version som stöds. |Dessa virtuella enheter måste flyttas över för allmän tillgänglighet versionen med hjälp av ett arbetsflöde för disaster recovery (DR). |
+| **2.** |Etablerade datadisk |När du har etablerat en datadisk med en viss angiven storlek och skapa den virtuella enheten StorSimple motsvarande du måste inte öka eller minska datadisken. Om du försöker göra leder till förlust av alla data i de lokala nivåerna för enheten. | |
+| **3.** |Grupprincip |När en enhet är ansluten till domänen kan kan tillämpa en grupprincip påverkas negativt enhet. |Kontrollera att din virtuella matris är i sin egen organisationsenhet (OU) för Active Directory och inga grupprincipobjekt (GPO) tillämpas. |
+| **4.** |Lokala webbgränssnittet |Om Förbättrad säkerhetsfunktioner är aktiverade i Internet Explorer (IE ESC), vissa lokala webbsidor Användargränssnittet, till exempel felsökning eller underhåll kanske inte fungerar korrekt. Knapparna på dessa sidor fungerar kanske inte heller. |Inaktivera Förbättrad säkerhetsfunktioner i Internet Explorer. |
+| **5.** |Lokala webbgränssnittet |I en Hyper-V virtuell dator nätverksgränssnitt på den webbplatsen Användargränssnittet visas som 10 Gbit/s-gränssnitt. |Detta är en avbildning av Hyper-V. Hyper-V visas alltid 10 Gbit/s för virtuella nätverkskort. |
+| **6.** |Nivåindelade volymer eller resurser |Byteintervall låsning för program som fungerar med StorSimple nivåindelade volymer inte stöds. Om låsning byte-intervallet är aktiverad, fungerar StorSimple skiktning inte. |Rekommenderade åtgärder är: <br></br>Inaktivera låsning i applogiken byte-intervallet.<br></br>Välj att placera data för det här programmet i lokalt fästa volymer och nivåindelade volymer.<br></br>*Begränsning*: när med hjälp av lokalt fästa volymer och låsa byte-intervallet är aktiverat, lokalt Fäst volym kan det vara online innan återställningen är slutförd. I sådana fall om en återställning pågår måste sedan du vänta tills återställningen har slutförts. |
+| **7.** |Nivåindelad resurser |Arbeta med stora filer kan resultera i långsamma nivån. |När du arbetar med stora filer, rekommenderar vi att den största filen är mindre än 3% av storleken på filresursen. |
+| **8.** |Används kapacitet för resurser |Du kan se dela förbrukning när det finns inga data för resursen. Denna förbrukning beror Använd kapacitet för resurser som innehåller metadata. | |
+| **9.** |Haveriberedskap |Du kan bara utföra katastrofåterställning för en filserver i samma domän som källan. Återställning till en målenhet i en annan domän stöds inte i den här versionen. |Detta är implementerad i en senare version. Mer information finns på [redundans och disaster recovery för din virtuella StorSimple-matris](storsimple-virtual-array-failover-dr.md) |
+| **10.** |Azure PowerShell |Virtuella StorSimple-enheter kan inte hanteras via Azure PowerShell i den här versionen. |Alla hanteringen av virtuella enheter som ska utföras via Azure-portalen och lokala webbgränssnittet. |
+| **11.** |Ändra lösenordet |Virtuella matris klientenhetskonsolen endast accepterar indata i en-us tangentbord format. | |
+| **12.** |CHAP |CHAP autentiseringsuppgifter när skapat tas inte bort. Dessutom, om du ändrar CHAP autentiseringsuppgifterna behöver du ta volymerna offline och tar dem online för att ändringarna ska börja gälla. |Det här problemet åtgärdas i en senare version. |
+| **13.** |iSCSI-server |Den 'används för lagring, visas för en iSCSI-volym kan skilja sig i Enhetshanteraren för StorSimple-tjänsten och iSCSI-värden. |ISCSI-värden har vyn filsystem.<br></br>Enheten ser block allokerade när volymen på den maximala storleken. |
+| **14.** |Filserver |Om en fil i en mapp har en alternativ Data dataström (ADS) som är associerade med den kan säkerhetskopieras eller återställs via katastrofåterställning och klona objektet återställning ANNONSER de inte. | |
+| **15.** |Filserver |Symboliska länkar stöds inte. | |
+| **16.** |Filserver |Filer som skyddas av Windows Krypterande filsystem (EFS) när kopieras över eller på virtuella StorSimple-matris fil servern resulterar i en konfiguration som inte stöds.  | |
+
+## <a name="next-step"></a>Nästa steg
+[Installera uppdatering 0,5](storsimple-virtual-array-install-update-05.md) på din virtuella StorSimple-matrisen.
+
+## <a name="references"></a>Referenser
+Letar du efter en äldre version anteckning? Gå till:
+
+* [StorSimple virtuell matris Update 0,4 viktig information](storsimple-virtual-array-update-04-release-notes.md)
+* [StorSimple virtuell matris Update 0,3 viktig information](storsimple-ova-update-03-release-notes.md)
+* [StorSimple virtuell matris uppdatering 0.1 och 0,2 viktig information](storsimple-ova-update-01-release-notes.md)
+* [StorSimple virtuell matris allmän tillgänglighet viktig information](storsimple-ova-pp-release-notes.md)
+

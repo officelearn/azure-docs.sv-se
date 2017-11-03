@@ -1,13 +1,13 @@
-To create a premium cache, sign-in to the [Azure portal](https://portal.azure.com) and click **New** > **Databases** > **Redis Cache**.
+Om du vill skapa ett premium-cacheminne loggar du in på [Azure Portal](https://portal.azure.com) och klickar på **Ny** > **Databaser** > **Redis Cache**.
 
-![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
+![Skapa ett cacheminne](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Redis Cache, see [Create a cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+> Förutom att skapa cacheminnen i Azure Portal, kan du också skapa dem med hjälp av Resource Manager-mallar, PowerShell eller Azure CLI. Mer information om hur du skapar ett Azure Redis Cache finns i [Skapa en cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 > 
 > 
 
-To configure premium features, first select one of the premium pricing tiers in the **Pricing tier** drop-down list. For more information about each pricing tier, click **View full pricing details** and select a pricing tier from the **Choose your pricing tier** blade.
+Om du vill konfigurera premium-funktioner du först välja en premium prisnivåer i den **prisnivå** listrutan. Mer information om varje prisnivå, klickar du på **Visa fullständig prisinformation** och välj en prisnivå från den **Välj din prisnivå** bladet.
 
-![Choose your pricing tier](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
+![Välj din prisnivå](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 

@@ -1,17 +1,17 @@
-## <a name="prerequisites"></a>Prerequisites
-The Azure Toolkit for IntelliJ requires the following software components:
+## <a name="prerequisites"></a>Krav
+Azure-verktygen för IntelliJ kräver programvarukomponenter som följande:
 
-* IntelliJ IDEA Ultimate Edition, which can be downloaded from the [JetBrains website](https://www.jetbrains.com/idea/download/).
+* IntelliJ IDEA Ultimate Edition, som kan hämtas från den [JetBrains webbplats](https://www.jetbrains.com/idea/download/).
 
-* A Java Developer Kit (JDK), version 1.8 or later.
+* En Java Developer Kit (JDK), version 1,8 eller senare.
 
-* An Azure subscription, which can be acquired from <https://azure.microsoft.com/free/> or <http://azure.microsoft.com/pricing/purchase-options/>.
+* En Azure-prenumeration som kan erhållas från <https://azure.microsoft.com/free/> eller <http://azure.microsoft.com/pricing/purchase-options/>.
 
-* An operating system. The Azure Toolkit for IntelliJ has been tested on the following operating systems:
+* Ett operativsystem. Azure-verktygen för IntelliJ har testats på följande operativsystem:
   
-  * Windows 10, Windows 8.1, Windows 8, and Windows 7
-  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2008
-  * [Mac OS X](http://www.apple.com/osx) version "Yosemite" or later
-  * [Ubuntu Linux](http://www.ubuntu.com) version 14, 15, and 16
+  * Windows 10, Windows 8.1, Windows 8 och Windows 7
+  * Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 och Windows Server 2008
+  * [Mac OS X](http://www.apple.com/osx) version ”Yosemite” eller senare
+  * [Ubuntu Linux](http://www.ubuntu.com) version 14, 15 och 16
 
-For more information, see the [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) page at the JetBrains Plugin Repository.
+Mer information finns i [Azure Toolkit för IntelliJ](https://plugins.jetbrains.com/plugin/8053) sidan vid JetBrains plugin-programmet för databasen.

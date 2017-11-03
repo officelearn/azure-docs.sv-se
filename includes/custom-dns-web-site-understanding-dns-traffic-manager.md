@@ -1,25 +1,25 @@
-The Domain Name System (DNS) is used to locate things on the internet. For example, when you enter an address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address. The IP address is sort of like a street address, but it's not very human friendly. For example, it is much easier to remember a DNS name like **contoso.com** than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+Domain Name System (DNS) används för att hitta saker på internet. Till exempel när du anger en adress i webbläsaren eller på en länk på en webbsida, använder den DNS för att översätta domänen till en IP-adress. IP-adressen är till exempel en gatuadress, men det är inte mycket mänsklig eget. Exempelvis är det mycket enklare att komma ihåg en DNS-namn, till exempel **contoso.com** än att komma ihåg en IP-adress, till exempel 192.168.1.88 eller 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
-The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
+DNS-systemet är baserad på *poster*. Poster associera en specifik *namn*, som **contoso.com**, med en IP-adress eller ett annat DNS-namn. När ett program, till exempel en webbläsare, leta upp ett namn i DNS, söker efter post och använder det pekar på som adressen. Om värdet för den pekar på är en IP-adress, använder webbläsaren värdet. Om den pekar på en annan DNS-namn har programmet göra upplösning igen. Slutligen går all namnmatchning ut om en IP-adress.
 
-When you create an Azure Website, a DNS name is automatically assigned to the site. This name takes the form of **&lt;yoursitename&gt;.azurewebsites.net**. When you add your website as an Azure Traffic Manager endpoint, your website is then accessible through the **&lt;yourtrafficmanagerprofile&gt;.trafficmanager.net** domain.
-
-> [!NOTE]
-> When your website is configured as a Traffic Manager endpoint, you will use the **.trafficmanager.net** address when creating DNS records.
-> 
-> You can only use CNAME records with Traffic Manager
-> 
-> 
-
-There are also multiple types of records, each with their own functions and limitations, but for websites configured to as Traffic Manager endpoints, we only care about one; *CNAME* records.
-
-### <a name="cname-or-alias-record"></a>CNAME or Alias record
-A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of Azure Websites using Traffic Manager, the canonical domain name is the **&lt;myapp>.trafficmanager.net** domain name of your Traffic Manager profile. Once created, the CNAME creates an alias for the **&lt;myapp>.trafficmanager.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;myapp>.trafficmanager.net** domain name automatically, so if the IP address of the website changes, you do not have to take any action.
-
-Once traffic arrives at Traffic Manager, it then routes the traffic to your website, using the load balancing method it is configured for. This is completely transparent to visitors to your website. They will only see the custom domain name in their browser.
+När du skapar en Azure-webbplats, tilldelas platsen automatiskt ett DNS-namn. Det här namnet i form av  **&lt;yoursitename&gt;. azurewebsites.net**. När du lägger till webbplatsen som en Azure Traffic Manager-slutpunkt webbplatsen sedan är tillgänglig via den  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** domän.
 
 > [!NOTE]
-> Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
+> När webbplatsen har konfigurerats som en Traffic Manager-slutpunkt, använder du den **. trafficmanager.net** adressen när du skapar DNS-poster.
+> 
+> Du kan bara använda CNAME-poster med Traffic Manager
+> 
+> 
+
+Det finns flera typer av poster med sina egna funktioner och begränsningar, men för webbplatser som är konfigurerade att som Traffic Manager-slutpunkter vi bara hand om en; *CNAME* poster.
+
+### <a name="cname-or-alias-record"></a>Posten CNAME eller Alias
+En CNAME-post mappar en *specifika* DNS-namn, exempelvis **mail.contoso.com** eller **www.contoso.com**, till en annan (kanoniska) domännamn. När det gäller Azure Websites med Traffic Manager kanoniska domännamnet är den  **&lt;myapp >. trafficmanager.net** domännamnet för Traffic Manager-profilen. När du skapat CNAME skapas ett alias för den  **&lt;myapp >. trafficmanager.net** domännamn. CNAME-posten ska matcha IP-adressen för din  **&lt;myapp >. trafficmanager.net** domännamn automatiskt, så om IP-adressen för webbplatsen ändras, inte behöver du vidta några åtgärder.
+
+När trafik anländer på Traffic Manager, dirigerar sedan trafiken till din webbplats med hjälp av belastningsutjämningsmetod som den är konfigurerad för. Detta är helt transparent för besökare till din webbplats. De visas bara det anpassade domännamnet i webbläsaren.
+
+> [!NOTE]
+> Vissa domän-registratorer kan du mappa underdomäner när du använder en CNAME-post som bara **www.contoso.com**, och inte rot-namn som **contoso.com**. Mer information om CNAME-poster finns i dokumentationen från din registrator <a href="http://en.wikipedia.org/wiki/CNAME_record">Wikipedia posten CNAME-post</a>, eller <a href="http://tools.ietf.org/html/rfc1035">IETF domännamn - implementering och specifikation</a> dokumentet.
 > 
 > 
 

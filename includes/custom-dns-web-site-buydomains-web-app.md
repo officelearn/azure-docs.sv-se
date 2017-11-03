@@ -1,28 +1,28 @@
-If you want a domain, you can buy domains on [Azure Management Portal](https://portal.azure.com) directly. Use the following steps to buy domain names and assign to your web app.
+Om du vill att en domän kan du köpa domäner på [Azure-hanteringsportalen](https://portal.azure.com) direkt. Använd följande steg för att köpa domännamn och tilldela ditt webbprogram.
 
-1. In your browser, open the [Azure Management Portal](https://portal.azure.com).
-2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
+1. I webbläsaren och öppna den [Azure-hanteringsportalen](https://portal.azure.com).
+2. I den **Web Apps** klickar du på namnet på ditt webbprogram, Välj **inställningar**, och välj sedan **anpassade domäner och SSL**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. In the **Custom domains and SSL** blade, click **Buy domains**.
+3. I den **anpassade domäner och SSL** bladet, klickar du på **köpa domäner**.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-1.png)
-4. In the **Buy Domains** blade, use the text box to enter the domain name you want to buy. The suggested available domains will be shown just blow the text box. Select what domain you want to buy.
+4. I den **köpa domäner** blad, Använd textrutan för att ange domännamnet som du vill köpa. Föreslagna tillgängliga domäner visas bara blåsa textrutan. Välj vilken domän som du vill köpa.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-2.png)
-5. Click the **Contact Information** and fill the domain's contact information form.
+5. Klicka på den **kontaktuppgifter** och fyll domänens kontaktinformation formuläret.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-3.png)
-6. Click the **Select** on **Buy Domains** blade, then you will see the purchase information on **Purchase confirmation** blade. If you accept the legal terms and click **Buy**, your order will be submitted and you can monitor the purchasing process on **Notification**.
+6. Klicka på den **Välj** på **köpa domäner** bladet och sedan visas köpinformationen på **köpa bekräftelse** bladet. Om du accepterar de juridiska villkoren och klicka på **köpa**, din order kommer att skickas och du kan övervaka inköpsprocessen i **meddelande**.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-4.png)
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-5.png)
-7. If you successfully ordered a domain, you can manage the domain and assign to your web app. Click the **"..."** at the right side of your domain. Then you can **Cancel purchase** or **Manage domain**. Click **Manage domain**, then we can bind **subdomain** to our web app on **Manage domain** blade.
+7. Om du har ordnat en domän, kan du hantera domänen och tilldela ditt webbprogram. Klicka på den **”...”** längst till höger på din domän. Sedan kan du **Avbryt köp** eller **Hantera domänen**. Klicka på **hantera domän**, och vi kan binda **underdomän** till vår webbprogram på **hantera domän** bladet.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-6.png)
    
-    Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+    När konfigurationen är klar, visas det anpassade domännamnet i den **värdnamnsbindningar** avsnitt av ditt webbprogram.
 
-At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
+Nu ska du kunna ange det anpassade domännamnet i din webbläsare och se att det har tar dig till ditt webbprogram.
 

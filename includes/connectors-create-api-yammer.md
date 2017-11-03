@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [Yammer](https://www.yammer.com/) account 
+### <a name="prerequisites"></a>Krav
+* En [Yammer](https://www.yammer.com/) konto 
 
-Before you can use your Yammer account in a Logic app, you must authorize the Logic app to connect to your Yammer account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Innan du kan använda ditt Yammer-konto i en logikapp, måste du godkänna logik för att ansluta till ditt Yammer-konto. Lyckligtvis kan du göra detta direkt i din logikapp på Azure Portal. 
 
-Here are the steps to authorize your Logic app to connect to your Yammer account:
+Här följer stegen för att verifiera din logikapp för att ansluta till ditt Yammer-konto:
 
-1. To create a connection to Yammer, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Yammer* in the search box. Select the trigger or action you'll like to use:  
+1. Om du vill skapa en anslutning till Yammer, i logik app designer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *Yammer* i sökrutan. Välj utlösaren eller åtgärd du vill använda:  
    ![](./media/connectors-create-api-yammer/yammer-1.png)
-2. If you haven't created any connections to Yammer before, you'll get prompted to provide your Yammer credentials. These credentials will be used to authorize your Logic app to connect to, and access your Yammer account's data:  
+2. Om du inte har skapat alla anslutningar till Yammer innan du kan hämta uppmanas du att ange dina Yammer-autentiseringsuppgifter. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och komma åt kontot Yammer-data:  
    ![](./media/connectors-create-api-yammer/yammer-2.png)
-3. Provide your Yammer user name and password to authorize your Logic app:  
+3. Ange ditt Yammer-användarnamn och lösenord för att auktorisera logikappen:  
    ![](./media/connectors-create-api-yammer/yammer-3.png)   
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+4. Observera att anslutningen har skapats och du kan nu välja att fortsätta med andra steg i din logikapp:  
    ![](./media/connectors-create-api-yammer/yammer-4.png)   
 

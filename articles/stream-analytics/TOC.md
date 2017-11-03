@@ -24,6 +24,7 @@
 ### [Använd referensdata](stream-analytics-use-reference-data.md)
 ### [Testfrågor](stream-analytics-test-query.md)
 ### [Integrera UDF:er för JavaScript](stream-analytics-javascript-user-defined-functions.md)
+### [Integrera JavaScript UDA:er](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Integrera REST API och Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Skapa utdata](stream-analytics-define-outputs.md)
 ### [Utdata till Data Lake Store](stream-analytics-data-lake-output.md)
@@ -31,7 +32,7 @@
 
 ## Använda Visual Studio-verktyg
 ### [Installera](stream-analytics-tools-for-visual-studio-install.md)
-### [Komma igång](stream-analytics-tools-for-visual-studio.md)
+### [Kom igång](stream-analytics-tools-for-visual-studio.md)
 ### [Konfigurera CI/CD-pipelines](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Övervaka och optimera

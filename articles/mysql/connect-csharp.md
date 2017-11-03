@@ -6,21 +6,19 @@ author: seanli1988
 ms.author: seal
 manager: janders
 editor: jasonwhowell
-ms.service: MySQL-database
+ms.service: MySQL
 ms.custom: mvc
 ms.devlang: csharp
-ms.topic: hero-article
-ms.date: 07/10/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: f1488f6b4a240165c71c95f759af73d6b9fd7bfe
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/09/2017
-
+ms.topic: quickstart
+ms.date: 09/22/2017
+ms.openlocfilehash: f87c3c302ec25f33af4334c3753dfae0084e4393
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database för MySQL: Använda .NET (C#) för att ansluta och fråga efter data
-Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett C#-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om C# och att du inte har arbetat med Azure Database för MySQL tidigare.
+Den här snabbstarten visar hur du ansluter till en Azure-databas för MySQL med hjälp av C#-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är bekant med att utveckla med C# och att du har arbetat med Azure-databas för MySQL.
 
 ## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
@@ -36,14 +34,14 @@ Du måste också:
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser** och söker efter den server som du nyss skapade, till exempel **myserver4demo**.
+2. I den vänstra menyn i Azure-portalen klickar du på **alla resurser**, och sök sedan efter den server som du har skapat (exempelvis **myserver4demo**).
 3. Klicka på servernamnet.
-4. Välj sidan **Egenskaper** för servern. Anteckna **servernamn** och **inloggningsnamnet för serveradministratören**.
+4. Välj servern **egenskaper** sidan och anteckna sedan en av **servernamn** och **serverinloggningsnamnet för admin**.
  ![Azure Database för MySQL-servernamn](./media/connect-csharp/1_server-properties-name-login.png)
-5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
+5. Om du glömmer bort inloggningsinformationen servern navigerar du till den **översikt** om du vill visa serverinloggningsnamnet admin och återställa lösenordet om det behövs.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data med hjälp av SQL-instruktionerna **CREATE TABLE** och **INSERT**. Koden använder klassen QDBC med metoden [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) för att upprätta en anslutning till MySQL. Sedan använder koden metoden [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) för att köra databaskommandona. 
+Använd följande kod för att ansluta och läsa in data med hjälp av **CREATE TABLE** och **INSERT INTO** SQL-instruktioner. Koden använder klassen QDBC med metoden [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) för att upprätta en anslutning till MySQL. Sedan använder koden metoden [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) för att köra databaskommandona. 
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -104,7 +102,7 @@ namespace driver
 
 ## <a name="read-data"></a>Läsa data
 
-Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion. Koden använder klassen QDBC med metoden [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) för att upprätta en anslutning till MySQL. Sedan används metoden [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) och metoden [ExecuteReader()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executereader(v=vs.110).aspx) för att köra databaskommandona. Metoden [Read()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcdatareader.read(v=vs.110).aspx) används sedan för att gå vidare till posterna i resultaten. Koden använder sedan GetInt32 och GetString för att parsa värdena i posten.
+Använd följande kod för att ansluta och läsa data med hjälp av en **Välj** SQL-instruktionen. Koden använder klassen QDBC med metoden [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) för att upprätta en anslutning till MySQL. Sedan används metoden [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx) och metoden [ExecuteReader()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executereader(v=vs.110).aspx) för att köra databaskommandona. Metoden [Read()](https://msdn.microsoft.com/library/system.data.odbc.odbcdatareader.read(v=vs.110).aspx) används sedan för att gå vidare till posterna i resultaten. Koden använder sedan GetInt32 och GetString för att parsa värdena i posten.
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -160,7 +158,7 @@ namespace driver
 ```
 
 ## <a name="update-data"></a>Uppdatera data
-Använd följande kod för att ansluta och läsa data med en **UPDATE**-SQL-instruktion. Koden använder klassen QDBC med metoden [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) för att upprätta en anslutning till MySQL. Sedan använder koden metoden [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) för att köra databaskommandona.
+Använd följande kod för att ansluta och läsa data med hjälp av en **uppdatering** SQL-instruktionen. Koden använder klassen QDBC med metoden [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) för att upprätta en anslutning till MySQL. Sedan använder koden metoden [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) för att köra databaskommandona.
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -209,9 +207,9 @@ namespace driver
 
 
 ## <a name="delete-data"></a>Ta bort data
-Använd följande kod för att ansluta och läsa data med en **DELETE**-SQL-instruktion. 
+Använd följande kod för att ansluta och ta bort data med hjälp av en **ta bort** SQL-instruktionen. 
 
-Koden använder klassen QDBC med metoden [Open()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) för att upprätta en anslutning till MySQL. Sedan använder koden metoden [CreateCommand()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](https://msdn.microsoft.com/en-us/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) för att köra databaskommandona.
+Koden använder klassen QDBC med metoden [Open()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.open(v=vs.110).aspx) för att upprätta en anslutning till MySQL. Sedan använder koden metoden [CreateCommand()](https://msdn.microsoft.com/library/system.data.odbc.odbcconnection.createcommand(v=vs.110).aspx), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](https://msdn.microsoft.com/library/system.data.odbc.odbccommand.executenonquery(v=vs.110).aspx) för att köra databaskommandona.
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -256,4 +254,3 @@ namespace driver
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Migrera MySQL-databasen till Azure Database för MySQL med säkerhetskopiering och återställning](concepts-migrate-dump-restore.md)
-

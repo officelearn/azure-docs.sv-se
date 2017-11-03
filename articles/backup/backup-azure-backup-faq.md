@@ -1,4 +1,3 @@
-
 ---
 title: "Vanliga frågor och svar om Azure Backup | Microsoft Docs"
 description: "Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. "
@@ -13,15 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/09/2017
-
+ms.author: markgal;arunak;trinadhk;sogup;
+ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
 Den här artikeln har avsnitt med svar på vanliga frågor så att du snabbt kan förstå hur Azure Backup-komponenterna fungerar. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -47,7 +45,7 @@ Nej. Valvet skapas på prenumerationsnivå och kan inte tilldelas en annan prenu
 Alla befintliga säkerhetskopieringsvalv i den [klassiska portalen](https://manage.windowsazure.com) stöds även i fortsättningen. Du kan dock inte längre använda den klassiska portalen för att distribuera nya säkerhetskopieringsvalv. Microsoft rekommenderar att du skapar Recovery Services-valv för alla distributioner, eftersom framtida förbättringar endast kommer att gälla för Recovery Services-valv. Om du försöker skapa ett säkerhetskopieringsvalv i den klassiska portalen omdirigeras du till [Azure Portal](https://portal.azure.com).
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Kan jag migrera ett Backup-valv till ett Recovery Services-valv? <br/>
-Nej, tyvärr. Du kan inte migrera innehållet i ett Backup-valv till ett Recovery Services-valv. Vi arbetar med att lägga till den här funktionen, men den är inte tillgänglig för närvarande.
+Ja, nu kan du uppgradera din Backup-valvet till Recovery Services-valvet. Mer information finns i artikeln [uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Jag har säkerhetskopierat mina klassiska virtuella datorer i ett säkerhetskopieringsvalv. Kan jag migrera mina virtuella datorer från klassiskt läge till Resource Manager-läge och skydda dem i ett Recovery Services-valv?
 Återställningspunkter för klassiska virtuella datorer i ett säkerhetskopieringsvalv migreras inte automatiskt till ett Recovery Services-valv när du flyttar den virtuella datorn från klassiskt läge till Resource Manager-läge. Överför dina VM-säkerhetskopior genom att följa dessa anvisningar:
@@ -185,4 +183,3 @@ Krypteringsnyckeln ska innehålla minst 16 tecken när du använder Azure-säker
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>Vad händer om jag tappar bort krypteringsnyckeln? Kan jag (eller Microsoft) återställa mina data? <br/>
 Nyckeln som används för att kryptera säkerhetskopierade data finns bara hos kunden. Microsoft sparar ingen kopia i Azure och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan inte Microsoft återställa dina säkerhetskopierade data.
-

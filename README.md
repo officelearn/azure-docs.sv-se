@@ -1,94 +1,54 @@
-# Guide för bidragsinlämnare av teknisk dokumentation för Azure
-Du har kommit till GitHub-lagringsplatsen där källan för den tekniska dokumentationen som publiceras på Azure Documentation Center på [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) finns.
+## <a name="microsoft-open-source-code-of-conduct"></a>Microsoft Open källa uppförandekod
 
-På den här lagringsplatsen finns också anvisningar om hur du bidrar till vår tekniska dokumentation.  En lista över artiklarna i guiden för bidragsinlämnare finns i [indexet](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
+Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/).
+Mer information finns i [genomföra FAQ kod](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakta [ opencode@microsoft.com ](mailto:opencode@microsoft.com) med några andra frågor eller kommentarer.
 
-## Bidra till Azure-dokumentationen
-Tack för ditt intresse för Azure-dokumentation!
+## <a name="contribute-to-azure-technical-documentation"></a>Bidra till teknisk dokumentation för Azure
+Vi välkomnar bidrag från vår community (användare, kunder, partner, MSFT anställda utanför core Azure produktenheter, etc.) och från medarbetare som arbetar i core Azure produktenheter. Hur du bidra beror på vilka är:
 
-* [Sätt att bidra](#ways-to-contribute)
-* [Uppförandekod](#code-of-conduct)
-* [Om dina bidrag till Azure-innehåll](#about-your-contributions-to-azure-content)
-* [Så här är lagringsplatsen organiserad](#repository-organization)
-* [Använda GitHub, Git och den här lagringsplatsen](#use-github-git-and-this-repository)
-* [Så här använder du Markdown för att formatera ditt ämne](#how-to-use-markdown-to-format-your-topic)
-* [Feedback, kommentarer och support](./contributor-guide/feedback-and-comments.md)
-* [Fler resurser](#more-resources)
-* [Index över alla artiklar i guiden för bidragsinlämnare](./contributor-guide/contributor-guide-index.md) (öppnas i en ny sida)
+* **Community - mindre uppdateringar**: Om du bidrar med mindre uppdateringar utanför goodness av din hjärta, du kan hitta artikeln på den här lagringsplatsen eller finns i artikeln på [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) och klicka på den **Redigera** länken i den artikel som leder till GitHub-källan för artikeln. Sedan bara Använd GitHub UI för att göra din uppdateringar. Eller också är Välkommen till förgrening databasen och skicka uppdateringar från din förgrening.
 
-## Sätt att bidra
-Du kan bidra till [Azure-dokumentationen](http://azure.microsoft.com/documentation/) på olika sätt:
+* **Community - nya artiklar**: Om du är en del av Azure community och du vill skapa en ny artikel, du behöver arbeta med en medarbetare för att anpassa den nya innehållet i genom en kombination av resurser i offentligt och privata databasen.
 
-* Bidra med en [forumdiskussion](http://social.msdn.microsoft.com/Forums/windowsazure/home).
-* Skriv Disqus-kommentarer längst ned i artiklarna.
-* Du kan enkelt bidra med tekniska artiklar i användargränssnittet för GitHub. Du kan antingen hitta artikeln på den här lagringsplatsen eller så kan du söka efter artikeln på [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) och klicka på länken i den artikel som leder till GitHub-källan för artikeln.
-* Om du gör omfattande ändringar i en befintlig artikel, lägger till eller ändrar bilder eller bidrar med en ny artikel, måste du duplicera den här lagringsplatsen, installera Git BASH och Markdown Pad samt lära dig vissa git-kommandon.
+* **Anställda**: Om du är en teknisk skrivare, Programhanteraren eller utvecklaren från Produktteamet för en Azure-tjänst och det är ditt jobb att bidra till eller redigera tekniska artiklar, bör du använda privata databasen (https://github.com/ MicrosoftDocs/azure-docs-pr). Om du gör betydande ändringar i en befintlig artikel, måste lägger till eller ändrar bilder eller bidrar med en ny artikel du duplicera den här lagringsplatsen, installera Git Bash och markdown-redigerare och lära dig vissa git-kommandon. Se [interna deltagare guiden](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) för mer information.
 
-## Uppförandekod
-Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/). Läs [Vanliga frågor och svar om uppförandekoden](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakta [opencode@microsoft.com](mailto:opencode@microsoft.com) om du har några andra frågor eller kommentarer.
 
-## Om dina bidrag till Azure-innehåll
-### Mindre ändringar
-Mindre ändringar eller förtydliganden i dokumentation och kodexempel som du skickar in till den här lagringsplatsen styrs av [Användningsvillkoren för Azure-webbplatsen (ToU)](http://azure.microsoft.com/support/legal/website-terms-of-use/).
+## <a name="about-your-contributions-to-azure-content"></a>Om dina bidrag till Azure-innehåll
+### <a name="minor-corrections"></a>Mindre ändringar
+Mindre ändringar eller förtydliganden du skickar dokumentation och kodexempel i den här lagringsplatsen styrs av den [docs.microsoft.com användningsvillkoren](https://docs.microsoft.com/legal/termsofuse).
 
-### Större bidrag
-Om du skickar en pull-begäran med nya eller betydande förändringar av dokumentationen och kodexempel, skickar vi en kommentar i GitHub där du uppmanas att skicka ett licensavtal för bidragsinlämnare online (CLA, Contribution License Agreement), om du tillhör någon av dessa grupper:
+### <a name="larger-submissions"></a>Större bidrag
+Om du skickar en pull-begäran med nya eller betydande förändringar av dokumentationen och kodexempel skickar vi en kommentar i GitHub där du uppmanas att skicka ett online bidrag License avtal (CLA) om du inte är anställd hos Microsoft. Du måste fylla i hela online-formuläret innan vi kan acceptera din pull-begäran.
 
-* Medlemmar av gruppen Microsoft Open Technologies.
-* Bidragsinlämnare som inte arbetar för Microsoft.
+## <a name="tools-and-setup"></a>Verktyg och inställningar
+Communitydeltagare kan använda GitHub UI eller duplicera lagringsplatsen med egna bidrag. Anställda Gå [interna deltagare guiden](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master) för mer information om hur du kan bidra till den tekniska dokumentationen.
 
-Du måste fylla i hela online-formuläret innan vi kan acceptera din pull-begäran.
+## <a name="repository-organization"></a>Så här är lagringsplatsen organiserad
+Innehållet i dokumenten azure-databasen följer av dokumentationen på https://docs.microsoft.com/azure. Den här lagringsplatsen innehåller två rotmappar:
 
-Fullständig information finns på [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla).
+### <a name="articles"></a>\articles
+Mappen *\articles* innehåller dokumentationsartiklarna formaterade som Markdown-filer med filtillägget *.md*. Artiklar grupperas vanligtvis av Azure-tjänsten.
 
-## Så här är lagringsplatsen organiserad
-Innehållet på lagringsplatsen för Azure-innehåll följer samma struktur som dokumentationen på [Azure.Microsoft.com](http://azure.microsoft.com). Den här lagringsplatsen innehåller två rotmappar:
+Den *\articles* mappen innehåller de *\media* mapp för roten directory artikel mediefiler, inom vilket finns det undermappar med avbildningar för varje artikel.  Tjänstemapparna innehåller en separat mediemapp för artiklarna i varje enskild tjänstemapp. Mapparna med artikelavbildningar får samma namn som artikelfilen, minus filnamnstillägget *.md*.
 
-### \articles
-Mappen *\articles* innehåller dokumentationsartiklarna formaterade som Markdown-filer med filtillägget *.md*.
+### <a name="includes"></a>\includes
+Du kan skapa återanvändbara innehållssektioner som ska ingå i en eller flera artiklar. 
 
-Artiklar i rotkatalogen publiceras till Azure.Microsoft.com med sökvägen *http://azure.microsoft.com/documentation/articles/ {artikelns-namn-utan-md} /*.
-
-* **Filnamn för artiklar:** Se [våra riktlinjer för namngivning](./contributor-guide/file-names-and-locations.md).
-
-Artiklar som har en egen tjänstemapp publiceras till Azure.Microsoft.com med sökvägen *http://azure.microsoft.com/documentation/articles/service-folder/{artikelns-namn-utan-md}/*
-
-* **Undermappar för media:** Mappen *\articles* innehåller mappen *\media* där mediefilerna för rotkatalogens artikel finns. Inne i den här mappen finns det undermappar med bilder för varje artikel.  Tjänstemapparna innehåller en separat mediemapp för artiklarna i varje enskild tjänstemapp. Mapparna med artikelavbildningar får samma namn som artikelfilen, minus filnamnstillägget *.md*.
-
-### \includes
-Du kan skapa återanvändbara innehållssektioner som ska ingå i en eller flera artiklar. Se [Anpassade tillägg som används i det tekniska innehållet](./contributor-guide/custom-markdown-extensions.md).
-
-### \markdown templates
-Den här mappen innehåller den standardiserade Markdown-mallen, med den grundläggande Markdown-formatering som du behöver för en artikel.
-
-### \contributor-guide
-Den här mappen innehåller artiklar som ingår i vår guide för bidragsinlämnare.  
-
-## Använda GitHub, Git och den här lagringsplatsen
-Om du vill få mer information om hur du kan bidra, hur du använder GitHub UI för att bidra med små ändringar samt hur du kan duplicera och klona lagringsplatsen för att skicka in större bidrag, kan du gå till [Installera och konfigurera verktyg för redigering i GitHub](./contributor-guide/tools-and-setup.md).
-
-Om du installerar Git BASH och väljer att arbeta lokalt, kan du gå till [Git-kommandon för att skapa en ny artikel eller uppdatera en befintlig](./contributor-guide/git-commands-for-master.md) för att få anvisningar om hur du skapar en ny lokal arbetsgren, gör ändringar och skickar tillbaka ändringarna till huvudgrenen.
-
-### Grenar
-Vi rekommenderar att du skapar lokala arbetsgrenar som är inriktade på ett specifikt ändringsområde. Varje gren bör begränsas till ett enda koncept eller en enda artikel, både för att effektivisera arbetsflödet och för att minska risken för sammanslagningskonflikter.  Följande åtgärder har en lämplig omfattning för en ny gren:
-
-* En ny artikel (och associerade bilder)
-* Stavnings- och grammatikändringar i en artikel.
-* Tillämpa en enda typ av formatändringar på ett stort antal artiklar (t.ex. en ny sidfot angående upphovsrätten).
-
-## Så här använder du Markdown för att formatera ditt ämne
+## <a name="how-to-use-markdown-to-format-your-topic"></a>Så här använder du Markdown för att formatera ditt ämne
 Alla artiklar på den här lagringsplatsen använder informativ (flavored) markdown för GitHub.  Här följer en lista över resurser.
 
-* [Grunderna i Markdown](https://help.github.com/articles/markdown-basics/)
-* [Utskrivbara fusklappar för Markdown](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
-* En lista över Markdown-redigerare finns under [ämnet verktyg och installation](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
+* [Grunderna i markdown](https://help.github.com/articles/markdown-basics/)
+* [Utskrivbara fusklappar för markdown](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-## Metadata för artiklar
-Metadata för artiklar tillhandahåller vissa funktioner på webbplatsen azure.microsoft.com, till exempel författarattribut, attribut för bidragsinlämnare, synliga sökvägar, artikelbeskrivningar och SEO-optimeringar samt även rapportering av Microsoft-användning för att utvärdera hur väl innehållet fungerar. Metadata är därför viktiga! [Här följer riktlinjer om hur du för in dina metadata på rätt](./contributor-guide/article-metadata.md).
 
-## Fler resurser
-Gå till [indexet i guiden för bidragsinlämnare](./contributor-guide/contributor-guide-index.md) för att visa alla hjälpämnen.
+## <a name="labels"></a>Etiketter
+I offentliga azure-dokumenten-databasen tilldelas automatiskt etiketter pull-förfrågningar som hjälper oss att hantera arbetsflöden för pull-begäran och för att informera dig om vad som händer med din pull-begäran:
 
-<!--HONumber=Aug16_HO1-->
+* Bidrag licensavtalet relaterade
+  * CLA inte krävs: ändringen är relativt små och kräver inte att du registrerar en CLA.
+  * CLA krävs: omfånget för ändringen är relativt stora och kräver att du registrerar en CLA.
+  * CLA-signerad: deltagaren signerade CLA, så pull-begäran kan nu flytta framåt för granskning.
+* Ändra skickas till författare: författaren har underrättats om väntande pull-begäran.
+* redo att sammanfoga: klar för granskning av våra pull-begäran granska team.
 
 

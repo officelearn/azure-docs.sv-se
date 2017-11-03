@@ -1,8 +1,8 @@
-Data Lake Analytics makes the complex task of managing distributed infrastructure and complex code easy. It dynamically provisions resources and lets you do analytics on exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. Many of the default limits can be easily raised for your subscription by contacting support. 
+Med Datasjöanalys blir den komplicerade uppgiften med att hantera distribuerad infrastruktur och komplex kod enkel. Resurser etableras dynamiskt, vilket gör att du kan analysera exabyte med data. När jobbet har slutförts dras resurserna tillbaka automatiskt och du betalar bara för den bearbetning du använt. När du ökar eller minskar storleken på data som lagras eller mängden beräkning som används behöver du inte skriva om kod. Många av gränserna som standard kan enkelt höjas för din prenumeration genom att kontakta supporten. 
 
-| **Resource** | **Default Limit** | **Comments** |
+| **Resurs** | **Standardgräns** | **Kommentarer** |
 | --- | --- | --- |
-| Maximum number of concurrent jobs |20 | |
-| Maximum number of Analytics Units (AUs) per account |250 | Use any combination of up to a maximum of 250 AUs across 20 jobs. |
-| Maximum script size for job submission | 3 MB | |
+| Maximalt antal samtidiga jobb |20 | |
+| Maximalt antal Analytics (Australien) per konto |250 | Använda valfri kombination av upp till högst 250 Australien över 20 jobb. |
+| Skript för maximal storlek för jobbet | 3 MB | |
 

@@ -6,22 +6,17 @@ keywords:
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 08/18/2017
-ms.topic: hero-article
+ms.topic: article
 ms.service: storage
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: a68d5c4ee8ad69cd888765a96566a7ca6c13cff3
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/29/2017
-
+ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2017
 ---
-
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Dirigera Blob Storage-händelser till en anpassad webbslutpunkt (förhandsversion)
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att prenumerera på Blob Storage-händelser och utlösa händelsen för att visa resultatet. 
-
-> [!IMPORTANT]
-> Du måste vara registrerad för förhandsvisning av Blob Storage-händelser för att slutföra den här självstudien.  Mer information om förhandsvisningsprogrammet finns [här](storage-blob-event-overview.md#join-the-preview).
 
 Normalt kan du skicka händelser till en slutpunkt som svarar på händelsen, exempelvis en webhook eller Azure Function. För att enkelt beskriva exemplen i den här artikeln kan du skicka händelser till en URL som endast samlar in meddelanden. Du skapar denna URL med hjälp av en öppen källkod, ett tredjepartsverktyg som kallas [RequestBin](https://requestb.in/).
 
@@ -57,7 +52,7 @@ Om du vill använda Azure Storage behöver du ett lagringskonto.  Blob Storage-h
 Ett Blob-lagringskonto är ett specialiserat lagringskonto för lagring av ostrukturerad data som blobbar (objekt) i Azure Storage. Blob-lagringskonton liknar dina befintliga allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. För program som bara behöver lagring av block- eller tilläggsblobbar, rekommenderar vi att du använder Blob-lagringskonton.
 
 > [!NOTE]
-> För förhandsversionen är Blob Storage-händelser endast tillgängliga för lagringskonton på platsen **westcentralus**.
+> Händelsen rutnätet är för närvarande under förhandsgranskning, och kan bara storage-konton i den **westcentralus** och **westus2** regioner.
 
 Ersätt `<storage_account_name>` med ett unikt namn på ditt lagringskonto och `<resource_group_name>` med resursgruppen du skapade tidigare.
 
@@ -145,4 +140,3 @@ Nu när du vet hur du skapar ämnen och prenumerationer på händelser kan du l�
 
 - [Reagera på Blob Storage-händelser](storage-blob-event-overview.md)
 - [Om Event Grid](../../event-grid/overview.md)
-

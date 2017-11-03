@@ -11,17 +11,17 @@ keywords:
 ms.assetid: 64fbe43f-fdde-4c17-a39a-d04f2d6d90a1
 ms.service: container-registry
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: b6c26f28aa1e574ba3aabe53eda359cb6bf2edcc
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 10f01e4e8c86bbbfa17cf2559caca645ff13bdcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-behållarregister med hjälp av Docker CLI
 Ett Azure-behållarregister lagrar och hanterar privata [Docker](http://hub.docker.com)-behållaravbildningar, på samma sätt som [Docker Hub](https://hub.docker.com/) lagrar offentliga Docker-avbildningar. Du använder [Docker-kommandoradsgränssnittet](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) för att [logga in](https://docs.docker.com/engine/reference/commandline/login/), [skicka](https://docs.docker.com/engine/reference/commandline/push/) och [hämta](https://docs.docker.com/engine/reference/commandline/pull/), samt för andra åtgärder för behållarregistret.
@@ -116,4 +116,3 @@ I vissa situationer kan anrop som körs samtidigt resultera i fel. Följande tab
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du känner till grunderna är du redo att börja använda registret! Du kan till exempel börja distribuera behållaravbildningar till ett [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/)-kluster.
-

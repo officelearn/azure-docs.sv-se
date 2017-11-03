@@ -1,6 +1,6 @@
 ---
-title: Skapa en .NET-app i Azure Cosmos DB med Graph API | Microsoft Docs
-description: "Anger ett .NET kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB"
+title: Skapa ett Azure Cosmos DB .NET Framework eller Core program med Graph API | Microsoft Docs
+description: "Anger ett .NET Framework/Core-kodexempel som du kan använda för att ansluta till och fråga Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -12,17 +12,16 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 07/28/2017
+ms.topic: quickstart
+ms.date: 10/06/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa en .NET-app med Graph API
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa ett .NET Framework eller Core-program med hjälp av Graph-API
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
@@ -31,6 +30,8 @@ Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB-konto, en d
 ## <a name="prerequisites"></a>Krav
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+
+Om du redan har Visual Studio 2017 installerad, se till att installeras på upp till [Visual Studio 2017 uppdatering 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,6 +46,10 @@ Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Vis
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
 Nu ska vi klona en Graph API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+
+Den här exempelprojektet formatet .NET Core projekt och har konfigurerats för att rikta nedan:
+ - netcoreapp2.0
+ - net461
 
 1. Öppna ett git-terminalfönster, till exempel git bash, och `cd` till en arbetskatalog.  
 
@@ -103,35 +108,37 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs 
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Öppna filen App.config i Visual Studio 2017. 
+1. Öppna filen appsettings.json i Visual Studio 2017. 
 
 2. Klicka på **Nycklar** i ditt Azure Cosmos DB-konto i det vänstra navigeringsfönstret på Azure-portalen. 
 
     ![Visa och kopiera en primärnyckel i Azure-portalen på sidan nycklar](./media/create-graph-dotnet/keys.png)
 
-3. Kopiera ditt **URI**-värde från portalen och använd det som värdet för slutpunktsnyckeln i App.config. Du kan använda kopieringsknappen som du ser i föregående skärmbild för att kopiera värdet.
+3. Kopiera ditt **URI** värde från portalen och kontrollera värdet för nyckeln slutpunkt i appsettings.json. Du kan använda kopieringsknappen som du ser i föregående skärmbild för att kopiera värdet.
 
-    `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
+    `"endpoint": "https://FILLME.documents.azure.com:443/",`
 
 4. Kopiera värdet för din **PRIMÄRNYCKEL** från portalen och använd det som värdet för AuthKey-nyckeln i App.config. Avsluta med att spara dina ändringar. 
 
-    `<add key="AuthKey" value="FILLME" />`
+    `"authkey": "FILLME"`
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
 ## <a name="run-the-console-app"></a>Kör konsolappen
 
+Innan du kör programmet, rekommenderas att du uppdaterar den *Microsoft.Azure.Graphs* paketet till den senaste versionen.
+
 1. I Visual Studio högerklickar du på projektet **GraphGetStarted** i **Solution Explorer** och sedan på **Hantera NuGet-paket**. 
 
-2. I NuGet-rutan **Bläddra** skriver du *Microsoft.Azure.Graphs* och markerar kryssrutan **Include prerelease** (Ta med förhandsversioner). 
+2. I NuGet Package Manager **uppdateringar** Skriv *Microsoft.Azure.Graphs* och kontrollera den **innehåller förhandsversion** rutan. 
 
-3. Från resultatet installerar du **Microsoft.Azure.Graphs**-biblioteket. Detta installerar bibliotekspaketet för Azure Cosmos DB-graftillägget och alla beroenden.
+3. I resultaten uppdatera den **Microsoft.Azure.Graphs** biblioteket till den senaste versionen av paketet. Detta installerar bibliotekspaketet för Azure Cosmos DB-graftillägget och alla beroenden.
 
     Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
 
 4. Tryck på Ctrl + F5 för att köra programmet.
 
-   Hörn och gränser som läggs till i tabellen visas i konsolfönstret. Stäng konsolfönstret genom att trycka två gånger på RETUR när skriptet har körts. 
+   Hörn och gränser som läggs till i tabellen visas i konsolfönstret. Stäng konsolfönstret genom att trycka två gånger på RETUR när skriptet har körts.
 
 ## <a name="browse-using-the-data-explorer"></a>Bläddra med datautforskaren
 
@@ -162,5 +169,4 @@ I den här snabbstarten har du fått lära dig att skapa ett Azure Cosmos DB-kon
 
 > [!div class="nextstepaction"]
 > [Fråga med hjälp av Gremlin](tutorial-query-graph.md)
-
 

@@ -1,14 +1,14 @@
 * PDF
-* Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
+* Microsoft Office-format: DOCX/DOC, XLSX/XLS, PPTX/PPT Ignorerad (Outlook e-postmeddelanden)  
 * HTML
 * XML
-* ZIP
+* ZIP-
 * EML
 * RTF
-* Plain text files (see also [Indexing plain text](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
-* JSON (see [Indexing JSON blobs](../articles/search/search-howto-index-json-blobs.md))
-* CSV (see [Indexing CSV blobs](../articles/search/search-howto-index-csv-blobs.md) preview feature)
+* Filer med oformaterad text (Se även [indexering oformaterad text](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
+* JSON (se [indexering JSON-blobbar](../articles/search/search-howto-index-json-blobs.md))
+* CSV (se [indexering CSV-blobbar](../articles/search/search-howto-index-csv-blobs.md) förhandsgranskningsfunktion)
 
 > [!IMPORTANT]
-> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2016-09-01-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
+> Stöd för CSV och JSON-matriser stöds för närvarande under förhandsgranskning. Formaten är tillgänglig endast med version **2016-09-01-Preview** av version eller REST API 2.x-förhandsversionen av .NET SDK. Kontrollera komma ihåg, förhandsgranska API: er är avsedd för testning och utvärdering och ska inte användas i produktionsmiljöer.
 >

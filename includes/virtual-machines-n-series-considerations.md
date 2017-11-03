@@ -1,18 +1,18 @@
-## <a name="deployment-considerations"></a>Deployment considerations
+## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-* For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/).
+* Tillgängligheten för virtuella datorer N-serien finns [produkter som är tillgängliga efter region](https://azure.microsoft.com/en-us/regions/services/).
 
-* N-series VMs can only be deployed in the Resource Manager deployment model.
+* N-serien virtuella datorer kan bara distribueras i Resource Manager-distributionsmodellen.
 
-* When creating an N-series VM using the Azure portal, on the **Basics** blade, select a **VM disk type** of **HDD**. To choose an available N-series size, on the **Size** blade, click **View all**.
+* När du skapar en N-serien virtuell dator med hjälp av Azure portal på den **grunderna** bladet väljer en **VM disktyp** av **Hårddisk**. Välj en tillgänglig N-serien storlek på att den **storlek** bladet, klickar du på **visa alla**.
 
-* N-series VMs do not support VM disks that are backed by Azure Premium storage.
+* N-serien virtuella datorer stöder inte Virtuella diskar som backas upp av Azure Premium-lagring.
 
-* If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
+* Om du vill distribuera flera virtuella datorer N-serien du en prenumeration med användningsbaserad betalning eller andra köpalternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
 
-* You might need to increase the cores quota (per region) in your Azure subscription, and increase the separate quota for NC or NV cores. To request a quota increase, [open an online customer support request](../articles/azure-supportability/how-to-create-azure-support-request.md) at no charge. Default limits may vary depending on your subscription category.
+* Du kan behöva öka kvoten kärnor (per region) i din Azure-prenumeration och öka separat kvoten för NC eller NV kärnor. Att begära en ökad kvot [öppna en supportbegäran online customer](../articles/azure-supportability/how-to-create-azure-support-request.md) utan kostnad. Standardgränser kan variera beroende på din prenumerationskategori.
 
-* One VM image you can deploy on N-series VMs is the [Azure Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md). The Data Science Virtual Machine preinstalls and configures many popular data science and deep learning tools. It also preinstalls NVIDIA Tesla GPU drivers for NC instances.
+* En VM-avbildning som du kan distribuera på N-serien virtuella datorer är det [vetenskap virtuell dator i Azure Data](../articles/machine-learning/data-science-virtual-machine/overview.md). Datavetenskap Virtual Machine förinstallerar och konfigurerar många populära datavetenskap och djup learning verktyg. Det kan också förinstalleras NVIDIA Tesla GPU drivrutiner för NC-instanser.
 
 
 

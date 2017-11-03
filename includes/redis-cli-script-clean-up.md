@@ -1,6 +1,6 @@
-## <a name="clean-up-deployment"></a>Clean up deployment 
+## <a name="clean-up-deployment"></a>Rensa distribution 
 
-After the script sample has been run, the follow command can be used to remove the resource group, Azure Redis Cache instance, and any related resources in the resource group.
+Efter skriptexempel har körts, användas Följ kommandot för att ta bort resursgruppen, Azure Redis-Cache-instans och eventuella relaterade resurser i resursgruppen.
 
 ```azurecli
 az group delete --name contosoGroup

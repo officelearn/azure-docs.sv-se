@@ -10,15 +10,14 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/27/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Skapa, ställ frågor och bläddra i grafen i Gremlin-konsolen
 
@@ -28,7 +27,7 @@ Den här snabbstarten visar hur du kan skapa ett Azure Cosmos DB-konto, databas 
 
 ![Azure Cosmos DB från konsolen Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
-Gremlin-konsolen är Groovy-/Java-baserad och körs på Linux, Mac och Windows. Du kan ladda ned den på [Apache TinkerPop-webbplatsen](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
+Gremlin-konsolen är Groovy-/Java-baserad och körs på Linux, Mac och Windows. Du kan ladda ned den på [Apache TinkerPop-webbplatsen](http://tinkerpop.apache.org/downloads.html).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -47,7 +46,7 @@ Du måste också installera [Gremlin-konsolen](http://tinkerpop.apache.org/). An
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Ansluta till din apptjänst
-1. Innan du startar Gremlin-konsolen ska du skapa eller ändra din remote-secure.yaml-konfigurationsfil i katalogen apache-tinkerpop-gremlin-console-3.2.5/conf.
+1. Innan du startar konsolen Gremlin kan skapa eller ändra remote secure.yaml konfigurationsfilen i den `apache-tinkerpop-gremlin-console-3.2.5/conf` directory.
 2. Fyll i din *värd*, *port*, *användarnamn*, *lösenord*, *connectionPool* och *serialiserarens* konfigurationer:
 
     Inställning|Föreslaget värde|Beskrivning
@@ -63,6 +62,18 @@ Du måste också installera [Gremlin-konsolen](http://tinkerpop.apache.org/). An
 
     För lösenord, kopiera **Primärnyckeln** från sidan **Nycklar**: ![visa och kopiera primärnyckel i Azure portal, sidan Nycklar](./media/create-graph-gremlin-console/keys.png)
 
+Fjärr-secure.yaml-fil ska se ut så här:
+
+```
+hosts: [your_database_server.graphs.azure.com]
+port: 443
+username: /dbs/your_database_account/colls/your_collection
+password: your_primary_key
+connectionPool: {
+  enableSsl: true
+}
+serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
+```
 
 3. I terminalen, kör `bin/gremlin.bat` eller `bin/gremlin.sh` för att starta [Gremlin-konsolen](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. I terminalen, kör `:remote connect tinkerpop.server conf/remote-secure.yaml` för att ansluta till din apptjänst.
@@ -307,4 +318,3 @@ I den här snabbstarten har du lärt dig att skapa ett Azure Cosmos DB-konto, sk
 
 > [!div class="nextstepaction"]
 > [Fråga med hjälp av Gremlin](tutorial-query-graph.md)
-

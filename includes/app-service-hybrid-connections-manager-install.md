@@ -1,22 +1,22 @@
 
-1. In the **Hybrid connections** blade, click the hybrid connection you just created, then click **Listener Setup**.
+1. I den **hybridanslutningar** bladet, klickar du på hybridanslutning som du just skapat, klicka **lyssnare installationsprogrammet**.
    
-    ![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
-2. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **download and configure manually**, save the downloaded HybridConnectionManager.msi package, and copy the gateway connection string.
+    ![Klicka på lyssnaren installationsprogrammet](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
+2. Den **Hybrid anslutningsegenskaper** blad öppnas. Under **på lokal Hybridanslutningshanterare**, Välj **hämta och konfigurera manuellt**, spara det Hämta paketet HybridConnectionManager.msi och kopiera anslutningssträngen gateway.
    
-    ![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
-3. From an administrator command prompt, type the following command to start the installer:
+    ![Klicka här om du vill installera](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+3. Skriv följande kommando för att starta installationsprogrammet från en administratörskommandotolk:
    
         start HybridConnectionManager.msi
-4. After the installer runs, click **Not now**, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click **Yes** in the **User Account Control** dialog.
-5. Paste the hybrid connection string that you copied earlier and click **OK**. 
+4. När installationsprogrammet körs, klickar du på **inte**, bläddra till mappen %ProgramFiles%\Microsoft\HybridConnectionManager kör HCMConfigWizard.exe och klickar på **Ja** i den **användarkonto Kontrollen** dialogrutan.
+5. Klistra in anslutningssträngen hybrid som du kopierade tidigare och klicka på **OK**. 
    
-    ![Installing](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
-6. When the install completes, click **Close**.
+    ![Installera](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
+6. När installationen är klar klickar du på **Stäng**.
    
-    ![Click Close](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
+    ![Klicka på Stäng](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
    
-    On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
+    På den **hybridanslutningar** bladet den **Status** kolumnen visar nu **ansluten**. 
    
-    ![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
+    ![Anslutna Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 

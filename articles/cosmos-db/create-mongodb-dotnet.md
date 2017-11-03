@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b95afa4dd3cd264ea911c7aa809c7862f9576da8
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: c92d970783ae0fb36e5761e4f35af7d4d6718121
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: skapa en MongoDB-API-webbapp med .NET och Azure Portal
 
@@ -32,7 +30,9 @@ I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokume
 ## <a name="prerequisites"></a>Krav
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -138,5 +138,4 @@ I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos DB-konto
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB för användning med MongoDB-API:t](mongodb-migrate.md)
-
 

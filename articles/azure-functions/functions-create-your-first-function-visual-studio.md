@@ -4,33 +4,30 @@ description: "Skapa och publicera en enkel HTTP-utlöst funktion till Azure med 
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: azure functions, functions, event processing, compute, serverless architecture
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 10/16/2017
 ms.author: glenga
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 4a6b706b63c4e1b0df3c46bce4ff6877efca4ead
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio
 
-Med Azure Functions kan du köra kod i en serverfri miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp.
+Azure Functions kan du köra din kod i en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) miljö utan att först skapa en virtuell dator eller publicera ett webbprogram.
 
-> [!IMPORTANT]
-> Det här avsnittet använder vi en förhandsversion av Visual Studio för att kunna slutföra dessa steg. Se till att du har installerat [förhandsversionen av Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/) innan du fortsätter.
-
-I det här avsnittet lär du dig hur du använder Azure Functions Tools för Visual Studio 2017 för att skapa och testa en "hello world"-funktion lokalt. Du publicerar sedan funktionskoden till Azure.
+Lär dig hur du använder 2017 för Visual Studio tools för Azure Functions för att skapa och testa en ”hello world”-funktionen lokalt i det här avsnittet. Du publicerar sedan funktionskoden till Azure. De här verktygen är tillgängliga som en del av arbetsbelastningen Azure Development i Visual Studio 2017 version 15.3, eller en senare version.
 
 ![Azure Functions-kod i ett Visual Studio-projekt](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -38,17 +35,13 @@ I det här avsnittet lär du dig hur du använder Azure Functions Tools för Vis
 
 För att slutföra den här självstudien installerar du:
 
-* [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/) (Förhandsversion 15.3 av Visual Studio 2017) inklusive arbetsbelastningen **Azure Development**.
+* [Visual Studio 2017 version 15,3](https://www.visualstudio.com/vs/preview/) eller en senare version, inklusive den **Azure-utveckling** arbetsbelastning.
 
     ![Installera Visual Studio 2017 med arbetsbelastningen Azure Development](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+    
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="install-azure-functions-tools-for-visual-studio-2017"></a>Installera Azure Functions Tools för Visual Studio 2017
-
-Innan du börjar måste du ladda ned och installera Azure Functions Tools för Visual Studio 2017. Dessa verktyg kan endast användas med Förhandsversion 15.3 av Visual Studio 2017 eller en senare version. Om du redan har installerat Azure Functions Tools kan du hoppa över det här avsnittet.
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)]   
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Skapa ett Azure Functions-projekt i Visual Studio
 
@@ -64,6 +57,10 @@ Nu när du har skapat projektet kan du skapa din första funktion.
 
     ![Skapa en ny Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+    En kodfil läggs till ditt projekt som innehåller en klass som implementerar din funktionskoden. Den här koden är baserad på en mall, som tar emot ett namnvärde och ta bort eko tillbaka. Den **FunctionName** attributet anger namnet på funktionen. Den **HttpTrigger** attributet anger meddelandet som utlöser funktionen. 
+
+    ![Funktionen kodfilen](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+
 Nu när du har skapat en HTTP-utlöst funktion kan du testa den på en lokal dator.
 
 ## <a name="test-the-function-locally"></a>Testa funktionen lokalt
@@ -76,7 +73,7 @@ Med Azure Functions Core Tools kan du köra Azure Functions-projekt på din loka
 
     ![Lokal Azure-körningsmiljö](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Lägg till frågesträngen `&name=<yourname>` i webbadressen och kör din begäran. Nedan visas svaret på den lokala GET-begäran som returnerades av funktionen i webbläsaren: 
+3. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Lägg till frågesträngen `?name=<yourname>` i webbadressen och kör din begäran. Nedan visas svaret på den lokala GET-begäran som returnerades av funktionen i webbläsaren: 
 
     ![Svar för funktion-localhost i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -92,7 +89,7 @@ Du måste ha en funktionsapp i din Azure-prenumeration innan du kan publicera pr
 
 ## <a name="test-your-function-in-azure"></a>Testa din funktion i Azure
 
-1. Kopiera den grundläggande URL:en för funktionsappen från sidan Publicera profil. Ersätt `localhost:port`-delen av URL:en som du använde när du testade funktionen lokalt med den nya bas-URL:en. Lägg till frågesträngen `&name=<yourname>` i URL:en som tidigare och kör din begäran.
+1. Kopiera den grundläggande URL:en för funktionsappen från sidan Publicera profil. Ersätt `localhost:port`-delen av URL:en som du använde när du testade funktionen lokalt med den nya bas-URL:en. Lägg till frågesträngen `?name=<yourname>` i URL:en som tidigare och kör din begäran.
 
     Den URL som anropar den HTTP-utlösta funktionen ser ut så här:
 
@@ -109,5 +106,4 @@ Du har nu använt Visual Studio för att skapa en C#-funktionsapp med en enkel H
 + Information om hur du konfigurerar ditt projekt för att ge stöd för andra typer av utlösare och bindningar finns i [Configure the project for local development](functions-develop-vs.md#configure-the-project-for-local-development) (Konfigurera projektet för lokal utveckling) i avsnittet [Azure Functions Tools for Visual Studio](functions-develop-vs.md) (Azure Functions Tools för Visual Studio).
 + Läs mer om lokal testning och felsökning med hjälp av Azure Functions Core Tools i [Code and test Azure Functions locally](functions-run-local.md) (Koda och testa Azure Functions lokalt). 
 + Mer information om hur du utvecklar fungerar som .NET-klassbibliotek finns i [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Använda .NET-klassbibliotek med Azure Functions). 
-
 

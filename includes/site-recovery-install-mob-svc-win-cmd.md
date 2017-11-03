@@ -1,4 +1,4 @@
-1. Copy the installer to a local folder (for example, C:\Temp) on the server that you want to protect. Run the following commands as an administrator at a command prompt:
+1. Kopiera installationsprogrammet till en lokal mapp (exempelvis C:\Temp) på den server som du vill skydda. Kör följande kommandon som administratör i en kommandotolk:
 
   ```
   cd C:\Temp
@@ -6,47 +6,47 @@
   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted.
   ```
-2. To install Mobility Service, run the following command:
+2. För att installera Mobilitetstjänsten, kör du följande kommando:
 
   ```
   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
   ```
-3. Now the agent needs to be registered with the Configuration Server.
+3. Agenten måste vara registrerad med konfigurationsservern.
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
   UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
   ```
 
-#### <a name="mobility-service-installer-command-line-arguments"></a>Mobility Service installer command-line arguments
+#### <a name="mobility-service-installer-command-line-arguments"></a>Tjänsten Mobility installer kommandoradsargument
 
 ```
 Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| Parameter|Type|Description|Possible values|
+| Parameter|Typ|Beskrivning|Möjliga värden|
 |-|-|-|-|
-|/Role|Mandatory|Specifies whether Mobility Service (MS) should be installed or MasterTarget(MT) should be installed|MS </br> MT|
-|/InstallLocation|Optional|Location where Mobility Service is installed|Any folder on the computer|
-|/Platform|Mandatory|Specifies the platform on which the Mobility Service is getting installed </br> </br>- **VMware** : use this value if you are installing mobility service on a VM running on *VMware vSphere ESXi Hosts*, *Hyper-V Hosts* and *Phsyical Servers* </br> - **Azure** : use this value if you are installing agent on a Azure IaaS VM| VMware </br> Azure|
-|/Silent|Optional|Specifies to run the installer in silent mode| NA|
+|/ Roll|Obligatorisk|Anger om Mobility Service (MS) som ska installeras eller MasterTarget(MT) ska installeras|MS </br> HUVUDMÅLSERVERN|
+|/InstallLocation|Valfri|Plats där Mobilitetstjänsten är installerad|Vilken mapp på datorn som helst|
+|/ Platform|Obligatorisk|Anger plattformen där Mobilitetstjänsten komma installeras </br> </br>- **VMware** : Använd det här värdet om du installerar mobilitetstjänsten på en virtuell dator som körs på *vSphere VMware ESXi-värdar*, *Hyper-V-värdar* och *Phsyical servrar* </br> - **Azure** : Använd det här värdet om du installerar agenten på en Azure IaaS-VM| VMware </br> Azure|
+|/ Tyst|Valfri|Anger att installationsprogrammet körs i tyst läge| Ej tillämpligt|
 
 >[!TIP]
-> The setup logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
+> Installationsloggarna finns under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log
 
-#### <a name="mobility-service-registration-command-line-arguments"></a>Mobility Service registration command-line arguments
+#### <a name="mobility-service-registration-command-line-arguments"></a>Tjänsten Mobility registrering kommandoradsargument
 
 ```
 Usage :
 UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | Parameter|Type|Description|Possible values|
+  | Parameter|Typ|Beskrivning|Möjliga värden|
   |-|-|-|-|
-  |/CSEndPoint |Mandatory|IP address of the configuration server| Any valid IP address|
-  |/PassphraseFilePath|Mandatory|Location of the passphrase |Any valid UNC or local file path|
+  |/ CSEndPoint |Obligatorisk|IP-adress för konfigurationsservern| En giltig IP-adress|
+  |/PassphraseFilePath|Obligatorisk|Platsen för lösenfrasen |En giltig UNC- eller lokal filsökväg|
 
 
 >[!TIP]
-> The AgentConfiguration logs can be found under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log
+> AgentConfiguration-loggar finns under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log

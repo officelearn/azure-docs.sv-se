@@ -1,20 +1,20 @@
 
-By default, APIs in a Mobile Apps back end can be invoked anonymously. Next, you need to restrict access to only authenticated clients.  
+Som standard anropas API: er i en Mobile Apps-serverdel anonymt. Därefter måste du begränsa åtkomsten till endast autentiserade klienter.  
 
-* **Node.js back end (via the Azure portal)** :  
+* **Node.js tillbaka avslutas (via Azure portal)** :  
 
-    In your Mobile Apps settings, click **Easy Tables** and select your table. Click **Change permissions**, select **Authenticated access only** for all permissions, and then click **Save**.
-* **.NET back end (C#)**:  
+    I inställningarna för Mobilappar klickar du på **enkelt tabeller** och välj din tabell. Klicka på **ändra behörigheter**väljer **autentiserad åtkomst bara** för alla behörigheter och klicka sedan på **spara**.
+* **.NET serverdel (C#)**:  
 
-    In the server project, navigate to **Controllers** > **TodoItemController.cs**. Add the `[Authorize]` attribute to the **TodoItemController** class, as follows. To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class. Republish the server project.
+    I server-projekt går du till **domänkontrollanter** > **TodoItemController.cs**. Lägg till den `[Authorize]` attribut till den **TodoItemController** class, enligt följande. För att begränsa åtkomst till specifika metoder, kan du också använda det här attributet bara till de här metoderna i stället för klassen. Publicera om serverprojektet.
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
 
-* **Node.js backend (via Node.js code)** :  
+* **Node.js-serverdel (via Node.js-kod)** :  
 
-    To require authentication for table access, add the following line to the Node.js server script:
+    Lägg till följande rad Node.js server-skript för att kräva autentisering för tabellåtkomst:
 
         table.access = 'authenticated';
 
-    For more details, see [How to: Require authentication for access to tables](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). To learn how to download the quickstart code project from your site, see [How to: Download the Node.js backend quickstart code project using Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
+    Mer information finns i [så här: kräver autentisering för åtkomst till tabeller](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Information om hur du hämtar koden snabbstartsprojekt från webbplatsen finns [så här: ladda ned Node.js quickstart kod serverdelsprojektet med Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).

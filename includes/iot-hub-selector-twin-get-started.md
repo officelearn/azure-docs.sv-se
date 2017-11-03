@@ -1,37 +1,37 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 
-Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it.
+Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT-hubb kvarstår en enhet dubbla för varje enhet som ansluter till den.
 
-Use device twins to:
+Använd enhet twins till:
 
-* Store device metadata from your solution back end.
-* Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
-* Synchronize the state of long-running workflows (such as firmware and configuration updates) between a device app and a back-end app.
-* Query your device metadata, configuration, or state.
+* Lagra metadata om enheter från din lösningens serverdel.
+* Rapportera aktuell statusinformation, till exempel tillgängliga funktioner och villkor (till exempel anslutning metoden används) från din enhet.
+* Synkronisera tillståndet för tidskrävande arbetsflöden (till exempel uppdateringarna av inbyggd och konfiguration) mellan en enhetsapp och en backend-app.
+* Fråga din enhetsmetadata, konfiguration eller tillstånd.
 
 > [!NOTE]
-> Device twins are designed for synchronization and for querying device configurations and conditions. More informations on when to use device twins can be found in [Understand device twins][lnk-twins].
+> Enheten twins är utformade för synkronisering och för att fråga efter enhetskonfigurationer och villkor. Mer information om när enheten twins finns i [förstå enheten twins][lnk-twins].
 
-Device twins are stored in an IoT hub and contain:
+Enheten twins lagras i en IoT-hubb och innehålla:
 
-* *tags*, device metadata accessible only by the solution back end;
-* *desired properties*, JSON objects modifiable by the solution back end and observable by the device app; and
-* *reported properties*, JSON objects modifiable by the device app and readable by the solution back end. Tags and properties cannot contain arrays, but objects can be nested.
+* *taggar*, enhetens metadata endast kan nås av lösningens serverdel;
+* *Egenskaper för Desired*, JSON-objekt som kan ändras av lösningen tillbaka slutet och observeras via appen för enheter, och
+* *rapporterade egenskaper*, JSON-objekt kan ändras via appen för enheter och läsas av lösningens serverdel. Taggar och egenskaper får inte innehålla matriser, men kan vara kapslade objekt.
 
 ![][img-twin]
 
-Additionally, the solution back end can query device twins based on all the above data.
-Refer to [Understand device twins][lnk-twins] for more information about device twins, and to the [IoT Hub query language][lnk-query] reference for querying.
+Dessutom kan lösningens serverdel fråga enheten twins baserat på data som ovan.
+Referera till [förstå enheten twins] [ lnk-twins] för mer information om enheten twins och den [IoT-hubb frågespråket] [ lnk-query] referera för fråga.
 
 
-This tutorial shows you how to:
+I den här självstudiekursen lär du dig att:
 
-* Create a back-end app that adds *tags* to a device twin, and a simulated device app that reports its connectivity channel as a *reported property* on the device twin.
-* Query devices from your back-end app using filters on the tags and properties previously created.
+* Skapa en backend-app som lägger till *taggar* dubbla en enhet och en simulerad enhetsapp som rapporterar sin anslutning kanal som en *rapporterade egenskapen* på enheten dubbla.
+* Fråga enheter från en backend-app med hjälp av filter på taggar och egenskaper som tidigare har skapat.
 
 <!-- images -->
 [img-twin]: media/iot-hub-selector-twin-get-started/twin.png

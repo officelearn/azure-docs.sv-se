@@ -1,16 +1,16 @@
 ## <a name="scenario"></a>Scenario
-To better illustrate how to create NSGs, this document will use the scenario below.
+Det här dokumentet använder för att illustrera hur du skapar NSG: er bättre scenariot nedan.
 
-![VNet scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
+![VNet-scenario](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-In this scenario you will create an NSG for each subnet in the **TestVNet** virtual network, as described below: 
+I det här scenariot skapar du en NSG för varje undernät i den **TestVNet** virtuella nätverk som beskrivs nedan: 
 
-* **NSG-FrontEnd**. The front end NSG will be applied to the *FrontEnd* subnet, and contain two rules:    
-  * **rdp-rule**. This rule will allow RDP traffic to the *FrontEnd* subnet.
-  * **web-rule**. This rule will allow HTTP traffic to the *FrontEnd* subnet.
-* **NSG-BackEnd**. The back end NSG will be applied to the *BackEnd* subnet, and contain two rules:    
-  * **sql-rule**. This rule allows SQL traffic only from the *FrontEnd* subnet.
-  * **web-rule**. This rule denies all internet bound traffic from the *BackEnd* subnet.
+* **NSG-klientdel**. Klientdelen NSG tillämpas på den *klientdel* undernät, och innehåller två regler:    
+  * **RDP-regel**. Den här regeln tillåter RDP-trafik till den *klientdel* undernät.
+  * **regel för Web**. Den här regeln ska tillåta HTTP-trafik till den *klientdel* undernät.
+* **NSG-BackEnd**. NSG tillämpas på serverdelen i *BackEnd* undernät, och innehåller två regler:    
+  * **SQL-regel**. Den här regeln kan SQL-trafik från den *klientdel* undernät.
+  * **regel för Web**. Den här regeln nekar alla internet-bunden trafik från den *BackEnd* undernät.
 
-The combination of these rules create a DMZ-like scenario, where the back end subnet can only receive incoming traffic for SQL from the front end subnet, and has no access to the Internet, while the front end subnet can communicate with the Internet, and receive incoming HTTP requests only.
+Kombinationen av reglerna skapar ett DMZ-liknande scenario där backend-undernät kan endast ta emot inkommande trafik för SQL från klientdelens undernät, och inte har åtkomst till Internet, medan klientdelens undernät kan kommunicera med Internet och ta emot inkommande HTTP-begäranden endast.
 

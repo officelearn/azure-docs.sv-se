@@ -112,24 +112,23 @@
 #### [Inloggningsexempel](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Använda certifikat](active-directory-reporting-api-with-certificates.md)
 
-## [Hantera lösenord](active-directory-passwords-overview.md)
+## Hantera lösenord
+### [Lösenordsöversikt](active-directory-passwords-overview.md)
 ### Användardokument
 #### [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
 #### [Metodtips för lösenord](active-directory-secure-passwords.md)
 #### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
-### [Licensiera SSPR](active-directory-passwords-licensing.md)
-### [Distribuera SSPR](active-directory-passwords-best-practices.md)
+### [SSPR – så här fungerar det](active-directory-passwords-how-it-works.md)
+### [SSPR-distributionsguide](active-directory-passwords-best-practices.md)
+### [SSPR-principer ](active-directory-passwords-policy.md)
+### [SSPR-anpassning](active-directory-passwords-customize.md)
+### [SSPR-datakrav](active-directory-passwords-data.md)
+### [SSPR-rapportering](active-directory-passwords-reporting.md)
 ### IT-administratörer: Återställ lösenord
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 #### [Klassisk Azure-portal](active-directory-create-users-reset-password.md)
-### [Förstå SSPR-principer](active-directory-passwords-policy.md)
-### [Förstå lösenordsåterställning](active-directory-passwords-how-it-works.md)
-### [Anpassa SSPR](active-directory-passwords-customize.md)
-### [Data som används av SSPR](active-directory-passwords-data.md)
-### [Rapportering på SSPR](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Licensiera SSPR](active-directory-passwords-licensing.md)
 ### [Tillbakaskrivning av lösenord](active-directory-passwords-writeback.md)
-### [Synkronisering av lösenordshash](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Felsöka](active-directory-passwords-troubleshoot.md)
 ### [Vanliga frågor och svar](active-directory-passwords-faq.md)
 
@@ -313,8 +312,6 @@
 ##### [Reparation](active-directory-conditional-access-device-remediation.md)
 #### [Teknisk referens](active-directory-conditional-access-technical-reference.md)
 #### [Vanliga frågor och svar](active-directory-conditional-faqs.md)
-#### [Klassisk portal](active-directory-conditional-access.md)
-##### [Kom igång](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Autentisera utan lösenord](active-directory-azureadjoin-passport.md)

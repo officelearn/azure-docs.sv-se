@@ -12,16 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 26e3548bf6aacbc60c4c46a5cc88749ca14cec01
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: 70c99fc0a46c5b2d1818ea82ae2d36286c6a355e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: skapa en DocumentDB-API-app med Node.js och Azure Portal
 
@@ -35,7 +33,8 @@ I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokume
     * [Node.js](https://nodejs.org/en/) version v0.10.29 eller senare
     * [Git](http://git-scm.com/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -155,6 +154,5 @@ I den här snabbstarten har du lärt dig hur man skapar ett Azure Cosmos DB-kont
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB](import-data.md)
-
 
 

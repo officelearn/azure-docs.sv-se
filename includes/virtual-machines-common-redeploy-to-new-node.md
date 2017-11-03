@@ -1,17 +1,17 @@
-## <a name="use-the-azure-portal"></a>Use the Azure portal
-1. Select the VM you wish to redeploy, then select the *Redeploy* button in the *Settings* blade. You may need to scroll down to see the **Support and Troubleshooting** section that contains the 'Redeploy' button as in the following example:
+## <a name="use-the-azure-portal"></a>Använda Azure-portalen
+1. Välj den virtuella datorn som du vill distribuera om, och välj sedan den *omdistribuera* knappen i den *inställningar* bladet. Du kan behöva rulla finns i **Support och felsökning** avsnitt som innehåller knappen 'Omdistribuera' som i följande exempel:
    
-    ![Azure VM blade](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
-2. To confirm the operation, select the *Redeploy* button:
+    ![Azure VM-bladet](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
+2. Bekräfta åtgärden genom att välja den *omdistribuera* knappen:
    
-    ![Redeploy a VM blade](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
-3. The **Status** of the VM changes to *Updating* as the VM prepares to redeploy, as shown in the following example:
+    ![Distribuera en VM-bladet](./media/virtual-machines-common-redeploy-to-new-node/redeployvm.png)
+3. Den **Status** ändras till den virtuella datorns *uppdatering* som den virtuella datorn förbereds för att distribuera, som visas i följande exempel:
    
-    ![VM updating](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
-4. The **Status** then changes to *Starting* as the VM boots up on a new Azure host, as shown in the following example:
+    ![Uppdatering av virtuell dator](./media/virtual-machines-common-redeploy-to-new-node/vmupdating.png)
+4. Den **Status** ändras till *Start* som den virtuella datorn startar på en ny Azure-värd som visas i följande exempel:
    
-    ![VM starting](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
-5. After the VM finishes the boot process, the **Status** then returns to *Running*, indicating the VM has been successfully redeployed:
+    ![Starta VM](./media/virtual-machines-common-redeploy-to-new-node/vmstarting.png)
+5. När den virtuella datorn har slutförts startprocessen den **Status** återgår sedan till *kör*, som anger den virtuella datorn har varit distribuerades:
    
-    ![VM running](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
+    ![VM körs](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 

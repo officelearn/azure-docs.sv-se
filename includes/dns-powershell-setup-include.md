@@ -1,47 +1,47 @@
-## <a name="set-up-azure-powershell-for-azure-dns"></a>Set up Azure PowerShell for Azure DNS
+## <a name="set-up-azure-powershell-for-azure-dns"></a>Konfigurera Azure PowerShell för Azure DNS
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Innan du börjar
 
-Verify that you have the following items before beginning your configuration.
+Kontrollera att du har följande innan du påbörjar konfigurationen.
 
-* An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You need to install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
+* Du måste installera den senaste versionen av Azure Resource Manager PowerShell-cmdlets. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-### <a name="sign-in-to-your-azure-account"></a>Sign in to your Azure account
+### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
-Open your PowerShell console and connect to your account. For more information, see [Using PowerShell with Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
+Öppna PowerShell-konsolen och anslut till ditt konto. Mer information finns i [med hjälp av PowerShell med Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-### <a name="select-the-subscription"></a>Select the subscription
+### <a name="select-the-subscription"></a>Välja prenumerationen
  
-Check the subscriptions for the account.
+Kontrollera prenumerationerna för kontot.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Choose which of your Azure subscriptions to use.
+Välj vilka av dina Azure-prenumerationer som du vill använda.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
 ```
 
-### <a name="create-a-resource-group"></a>Create a resource group
+### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
+Azure Resource Manager kräver att alla resursgrupper anger en plats. Den här platsen används som standardplats för resurserna i den resursgruppen. Men eftersom alla DNS-resurser är globala, inte regionala, så påverkar inte valet av resursgruppens plats Azure DNS.
 
-You can skip this step if you are using an existing resource group.
+Du kan hoppa över det här steget om du använder en befintlig resursgrupp.
 
 ```powershell
 New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 ```
 
-### <a name="register-resource-provider"></a>Register resource provider
+### <a name="register-resource-provider"></a>Registrera resursprovider
 
-The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription must be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
+Azure DNS-tjänsten hanteras av Microsoft.Network-resursprovidern. Din Azure-prenumeration måste vara registrerad att använda den här resursprovidern innan du kan använda Azure DNS. Det här är en engångsåtgärd för varje prenumeration.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network

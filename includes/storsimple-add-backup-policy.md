@@ -1,14 +1,14 @@
 
 <!--author=alkohli last changed: 9/11/15-->
 
-#### <a name="to-add-a-storsimple-backup-policy"></a>To add a StorSimple backup policy
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
-2. At the bottom of the page, click **Add**.
-3. In the **Add Backup Policy** dialog box, do the following:
+#### <a name="to-add-a-storsimple-backup-policy"></a>Så här lägger du till en StorSimple-säkerhetskopieringsprincip
+1. Klicka på fliken **Principer för säkerhetskopiering** på bladet **Snabbstart** för enheten. Sidan **Principer för säkerhetskopiering** öppnas.
+2. Längst ned på sidan klickar du på **Lägg till**.
+3. I den **Lägg till princip för säkerhetskopiering** dialogrutan Gör följande:
    
-   1. Specify a backup policy name that contains between 3 and 150 characters.
-   2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the drop-down list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
-   3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
+   1. Ange ett namn på principen för säkerhetskopiering som innehåller mellan 3 och 150 tecken.
+   2. Tilldela en eller flera volymer till denna säkerhetskopieringsprincip. Om du använder andra molntjänstleverantörer baserat på den första markeringen visas i listrutan volymer som hör till endast den molntjänstleverantören. Detta gör att du till gruppen volymer som hör till en enda molntjänstleverantören för att ta en ögonblicksbild.
+   3. Klicka på kryssikonen ![kryssikon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) för att spara principen.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+Den nyligen tillagda principen visas i tabellvyn på sidan **Principer för säkerhetskopiering**.
 

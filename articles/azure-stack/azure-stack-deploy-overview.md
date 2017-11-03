@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment quickstart | Microsoft Docs
-description: Learn how to deploy the Azure Stack Development Kit
+title: Azure-stacken Development Kit distribution quickstart | Microsoft Docs
+description: "Lär dig hur du distribuerar Azure Stack Development Kit"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -11,30 +11,30 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 81b6282addd1e88e4146367c4dd9a2ee7b8c84bf
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Development Kit deployment quickstart
+# <a name="azure-stack-development-kit-deployment-quickstart"></a>Snabbstart för utveckling med Azure Stack Development Kit
 
-The [Azure Stack Development Kit](azure-stack-poc.md) is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you’ll need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and tenant portals to manage Azure Stack and test offers. 
+*Gäller för: Azure stacken Development Kit*
 
-1. [**Plan your hardware, software, and network**](azure-stack-deploy.md). The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory or Active Directory Federation Services. Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
+Den [Azure Stack Development Kit](azure-stack-poc.md) är en miljö för testning och utveckling som du kan distribuera om du vill utvärdera och visa Azure Stack-funktioner och tjänster. För att få behöver igång, du förbereda miljön maskinvaran och köra några skript (det kan ta flera timmar). Sedan kan logga du in på portalerna administratörs- och hantera Azure-stacken och testa erbjudanden. 
 
-2. [**Download and extract the deployment package**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). You can download the deployment package to the development kit host or to a another computer. The extracted deployment files take up 60 GB of free disk space, so using another computer can help reduce the hardware requirements for the development kit host.
+1. [**Planera din maskinvara, programvara och nätverk**](azure-stack-deploy.md). Den dator som är värd för development kit (development kit host) måste uppfylla nätverkskrav för maskinvara, programvara och. Du måste också välja mellan att använda Azure Active Directory eller Active Directory Federation Services. Se till att uppfylla dessa krav innan du påbörjar distributionen så att installationen körs utan problem. 
 
-3. [**Prepare the development kit host**](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) by using the installer. After this step, the development kit host will boot to the Cloudbuilder.vhdx (a virtual hard drive that includes a bootable operating system and the Azure Stack install files).
+2. [**Ladda ned och extrahera distributionspaketet**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). Du kan hämta distributionspaketet till development kit värden eller till en annan dator. De extraherade filerna tar upp 60 GB ledigt diskutrymme, så använder en annan dator kan minska maskinvarukraven för development kit värden.
 
-4. [**Deploy the development kit**](azure-stack-run-powershell-script.md#deploy-the-development-kit) on the development kit host.
+3. [**Förbereda development kit värden** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) med hjälp av installationsprogrammet. Efter det här steget startar development kit värden till Cloudbuilder.vhdx (installera filer i en virtuell hårddisk som innehåller ett startbart operativsystem och Azure-stacken).
 
-5. If your Azure Stack deployment uses Azure Active Directory, you must [register Azure Stack with Azure](azure-stack-register.md) so that you can [download Azure marketplace items](azure-stack-download-azure-marketplace-item.md) to Azure Stack.
+4. [**Distribuera i development kit** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) på development kit värden.
 
-After completing these steps, you’ll have a development kit environment with both administrator and tenant portals. Next, you can [connect and sign in](azure-stack-connect-azure-stack.md) to the portal. You can then start deploying resource providers, creating [offers](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions), and populating the Azure Stack [marketplace](azure-stack-marketplace.md).
+5. Om distributionen av Azure-stacken använder Azure Active Directory, måste du [registrera Azure stacken med Azure](azure-stack-register.md) så att du kan [hämta Azure marketplace-objekt](azure-stack-download-azure-marketplace-item.md) till Azure-stacken.
 
+När du har slutfört de här stegen har du en development kit miljö med både administratörs- och portaler. Därefter kan du [ansluta och logga in](azure-stack-connect-azure-stack.md) till portalen. Du kan sedan starta distribuera resursproviders, skapa [erbjuder](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions), och fylla i Azure-stacken [marketplace](azure-stack-marketplace.md).

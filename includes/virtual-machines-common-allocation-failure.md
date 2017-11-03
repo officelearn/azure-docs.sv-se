@@ -1,210 +1,210 @@
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
+Om din Azure problemet inte åtgärdas i den här artikeln, finns det [Azure-forum på MSDN och Stack Overflow](https://azure.microsoft.com/support/forums/). Du kan publicera problemet på dessa forum eller @AzureSupport på Twitter. Du kan också filen en Azure-supportbegäran genom att välja **få support** på den [Azure-supporten](https://azure.microsoft.com/support/options/) plats.
 
-## <a name="general-troubleshooting-steps"></a>General troubleshooting steps
-### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>Troubleshoot common allocation failures in the classic deployment model
-These steps can help resolve many allocation failures in virtual machines:
+## <a name="general-troubleshooting-steps"></a>Allmänna instruktioner för felsökning
+### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>Felsöka vanliga Tilldelningsfel i den klassiska distributionsmodellen
+Dessa steg hjälper dig att lösa många buffertallokeringsfel på virtuella datorer:
 
-* Resize the VM to a different VM size.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
-* Delete all VMs from the cloud service and re-create VMs.<br>
-    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+* Ändra storlek på den virtuella datorn till en annan VM-storlek.<br>
+    Klicka på **Bläddra igenom alla** > **virtuella datorer (klassisk)** > din virtuella dator > **inställningar** > **storlek**. Detaljerade anvisningar finns i [ändra storlek på den virtuella datorn](https://msdn.microsoft.com/library/dn168976.aspx).
+* Ta bort alla virtuella datorer från Molntjänsten och skapa virtuella datorer.<br>
+    Klicka på **Bläddra igenom alla** > **virtuella datorer (klassisk)** > din virtuella dator > **ta bort**. Klicka på **ny** > **Compute** > [avbildning av virtuell dator].
 
-### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Troubleshoot common allocation failures in the Azure Resource Manager deployment model
-These steps can help resolve many allocation failures in virtual machines:
+### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Felsöka vanliga Tilldelningsfel i Azure Resource Manager-distributionsmodellen
+Dessa steg hjälper dig att lösa många buffertallokeringsfel på virtuella datorer:
 
-* Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
-    To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
+* Stoppa (frigöra) alla virtuella datorer i samma tillgänglighetsuppsättning ange och sedan starta om var och en.<br>
+    Stoppa: Klicka på **resursgrupper** > resursgruppen > **resurser** > din tillgänglighetsuppsättning > **virtuella datorer** > din virtuella dator >  **Stoppa**.
   
-    After all VMs stop, select the first VM and click **Start**.
+    Efter alla virtuella datorer stoppa markerar du den första virtuella datorn och på **starta**.
 
-## <a name="background-information"></a>Background information
-### <a name="how-allocation-works"></a>How allocation works
-The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible that certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster." Diagram 1 below illustrates the case of a normal allocation that is attempted in multiple clusters. Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or availability set is hosted.
-![Allocation Diagram](./media/virtual-machines-common-allocation-failure/Allocation1.png)
+## <a name="background-information"></a>Bakgrundsinformation
+### <a name="how-allocation-works"></a>Så här fungerar allokering
+Servrarna i Azure-Datacenter partitioneras i kluster. Normalt en begäran om minnesallokering görs i flera kluster, men det är möjligt att vissa villkor från begäran om minnesallokering gällande Azure-plattformen för begäran i ett kluster. I den här artikeln ska vi referera till den här som ”fäst på ett kluster”. Bild 1 nedan visar skiftläget för en normal allokering som görs i flera kluster. Figur 2 visar i fallet med en allokering som har fäst på klustret 2 eftersom det är där den befintliga uppsättningen Cloud Service CS_1 eller tillgänglighet körs.
+![Allokering av Diagram](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-### <a name="why-allocation-failures-happen"></a>Why allocation failures happen
-When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resources. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
+### <a name="why-allocation-failures-happen"></a>Varför Allokeringsfel inträffa
+När en begäran om minnesallokering är fäst på ett kluster, finns en högre risk för att hitta lediga resurser eftersom tillgängliga resurspoolen är mindre inte. Dessutom misslyckas din begäran även om klustret har lediga resurser om din begäran om minnesallokering är fäst på ett kluster men typ av resurs som du har begärt stöds inte av klustret. Bild 3 nedan visar de fall där en fast allokering misslyckas eftersom endast candidate klustret inte har lediga resurser. Bild 4 visar de fall där en fast allokering misslyckas eftersom endast kandidat kluster inte stöder den begärda VM-storleken, även om klustret har lediga resurser.
 
-![Pinned Allocation Failure](./media/virtual-machines-common-allocation-failure/Allocation2.png)
+![Fäst Allokeringsfel](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Detailed troubleshoot steps specific allocation failure scenarios in the classic deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Detaljerad felsökning av steg allokering av specifika scenarier i den klassiska distributionsmodellen
+Här följer vanliga scenarier för allokering som gör en begäran om minnesallokering för att fästa. Vi kommer fördjupa dig i varje scenario senare i den här artikeln.
 
-* Resize a VM or add VMs or role instances to an existing cloud service
-* Restart partially stopped (deallocated) VMs
-* Restart fully stopped (deallocated) VMs
-* Staging/production deployments (platform as a service only)
-* Affinity group (VM/service proximity)
-* Affinity-group-based virtual network
+* Ändra storlek på en virtuell dator eller lägga till VM: ar eller rollinstanser i en befintlig molntjänst
+* Starta om delvis stoppats (frigjorts) virtuella datorer
+* Starta om fullständigt stoppats (frigjorts) virtuella datorer
+* Förproduktion/Produktionsdistribution (plattform som en tjänst endast)
+* Tillhörighetsgruppen (VM-tjänsten närhet)
+* Mappning mellan en gruppbaserad virtuellt nätverk
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+När du får ett Allokeringsfel se om någon av de scenarier som beskrivs gäller för din fel. Använd allokering felet som returnerades av Azure-plattformen för att identifiera motsvarande scenario. Om din begäran fästs avlägsna fästa begränsningarna för att öppna din förfrågan om att flera kluster, vilket ökar risken för allokering lyckades.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size. Otherwise, the only option is to remove the pinning constraint.
+I allmänhet så länge felet inte indikerar ”den begärda VM-storleken inte stöds”, kan du alltid försök vid ett senare tillfälle som tillräckligt med resurser kan ha frigjorts i klustret för att hantera din förfrågan. Om problemet är att den begärda VM-storleken inte stöds, kan du prova en annan VM-storlek. Annars är det enda alternativet att ta bort fästa begränsningen.
 
-Two common failure scenarios are related to affinity groups. In the past, an affinity group was used to provide close proximity to VMs/service instances, or it was used to enable the creation of a virtual network. With the introduction of regional virtual networks, affinity groups are no longer required to create a virtual network. With the reduction of network latency in Azure infrastructure, the recommendation to use affinity groups for VM/service proximity has changed.
+Två vanliga scenarier är relaterade till tillhörighetsgrupper. En tillhörighetsgrupp som användes för att ange närhet av virtuella datorer/tjänstinstanser tidigare eller användes för att skapa ett virtuellt nätverk. Tillhörighetsgrupper är inte längre krävs för att skapa ett virtuellt nätverk med introduktionen av regionala virtuella nätverk. Rekommendationen att använda tillhörighetsgrupper för VM-tjänsten närhet har ändrats med för att minska Nätverksfördröjningen i Azure-infrastrukturen.
 
-Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
-![Pinned Allocation Taxonomy](./media/virtual-machines-common-allocation-failure/Allocation3.png)
+Diagram över 5 nedan visar taxonomi (fast) fördelning scenarier.
+![Fäst allokering taxonomi](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
 > [!NOTE]
-> The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
+> Det fel som anges i varje allokering scenario är en kort form. Referera till den [sträng felsökning](#Error string lookup) för detaljerade felsträngar.
 > 
 > 
 
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
-**Error**
+## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Allokering av scenario: ändra storlek på en virtuell dator eller lägga till VM: ar eller rollinstanser i en befintlig molntjänst
+**Fel**
 
-Upgrade_VMSizeNotSupported or GeneralError
+Upgrade_VMSizeNotSupported eller GeneralError
 
-**Cause of cluster pinning**
+**Orsaken till klustret fästning**
 
-A request to resize a VM or add a VM or a role instance to an existing cloud service has to be attempted at the original cluster that hosts the existing cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+En begäran att ändra storlek på en virtuell dator eller lägga till en virtuell dator eller en rollinstans i en befintlig molntjänst måste göras i det ursprungliga klustret som är värd för befintlig molntjänst. Skapa en ny molntjänst kan Azure-plattformen att hitta ett annat kluster som har lediga resurser eller stöder VM-storlek som du har begärt.
 
-**Workaround**
+**Lösning**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new cloud service to host the new VM and add the new cloud service to the regional virtual network where the existing VMs are running. If your existing cloud service does not use a regional virtual network, you can still create a new virtual network for the new cloud service, and then connect your [existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Om felet är Upgrade_VMSizeNotSupported *, kan du prova en annan VM-storlek. Om du använder en annan VM-storlek inte är ett alternativ, men om det är tillåtet att använda en annan virtuell IP-adress (VIP), skapa en ny molntjänst för att vara värd för den nya virtuella datorn och Lägg till ny molntjänst regionalt virtuellt nätverk med de befintliga virtuella datorerna som kör. Om en befintlig molntjänst inte använder ett regionalt virtuellt nätverk du kan fortfarande skapa ett nytt virtuellt nätverk för den nya Molntjänsten och sedan ansluta din [befintligt virtuellt nätverk till ett nytt virtuellt nätverk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. Similar to the above scenario, add the desired compute resource through creating a new cloud service (note that the new cloud service has to use a different VIP) and use a regional virtual network to connect your cloud services.
+Om felet GeneralError *, är det troligt att typ av resurs (till exempel en viss VM-storlek) stöds av klustret, men klustret saknar lediga resurser för tillfället. Liknar scenariot ovan lägger du till den önskade beräkningsresursen genom att skapa en ny molntjänst (Observera att nya Molntjänsten måste använda en annan VIP) och ett regionalt virtuellt nätverk för att ansluta dina molntjänster.
 
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
+## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allokering av scenario: starta om delvis stoppats (frigjorts) virtuella datorer
+**Fel**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Orsaken till klustret fästning**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in a cloud service. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated cloud service is equivalent to adding VMs to an existing cloud service. The allocation request has to be attempted at the original cluster that hosts the existing cloud service. Creating a different cloud service allows the Azure platform to find another cluster that has free resource or supports the VM size that you requested.
+Flyttningen är delvis innebär att du har stoppats (frigjorts) en eller mer, men inte alla virtuella datorer i en molntjänst. När du stoppar (frigöra) en VM, associerade resurser släpps. Starta om den stoppats (frigjorts) VM är därför en ny begäran om minnesallokering. Starta om virtuella datorer i en delvis frigjord molntjänst är detsamma som att lägga till virtuella datorer i en befintlig molntjänst. Begäran om minnesallokering måste göras i det ursprungliga klustret som är värd för befintlig molntjänst. Skapa en annan molntjänst kan Azure-plattformen att hitta ett annat kluster som har fri resurs eller stöder VM-storlek som du har begärt.
 
-**Workaround**
+**Lösning**
 
-If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
+Om det går att använda en annan VIP, ta bort de stoppats (frigjorts) virtuella datorerna (men behålla de associera diskarna) och lägga till de virtuella datorerna tillbaka via en annan molntjänst. Använd ett regionalt virtuellt nätverk för att ansluta dina molntjänster:
 
-* If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
-* If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+* Om en befintlig molntjänst använder ett regionalt virtuellt nätverk kan bara lägga till ny molntjänst till samma virtuella nätverk.
+* Om en befintlig molntjänst inte använder ett regionalt virtuellt nätverk, skapa ett nytt virtuellt nätverk för den nya Molntjänsten och sedan [ansluta befintliga virtuella nätverket till ett nytt virtuellt nätverk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Allocation scenario: Restart fully stopped (deallocated) VMs
-**Error**
+## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Allokering av scenario: starta om fullständigt stoppats (frigjorts) virtuella datorer
+**Fel**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Orsaken till klustret fästning**
 
-Full deallocation means that you stopped (deallocated) all VMs from a cloud service. The allocation requests to restart these VMs have to be attempted at the original cluster that hosts the cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+Fullständig flyttningen innebär att du har stoppats frigjorts () alla virtuella datorer från en tjänst i molnet. Av allokeringsbegäranden att starta om dessa virtuella datorer måste göras i det ursprungliga klustret som är värd för Molntjänsten. Skapa en ny molntjänst kan Azure-plattformen att hitta ett annat kluster som har lediga resurser eller stöder VM-storlek som du har begärt.
 
-**Workaround**
+**Lösning**
 
-If it's acceptable to use a different VIP, delete the original stopped (deallocated) VMs (but keep the associated disks) and delete the corresponding cloud service (the associated compute resources were already released when you stopped (deallocated) the VMs). Create a new cloud service to add the VMs back.
+Om det går att använda en annan VIP, ta bort de ursprungliga stoppats (frigjorts) virtuella datorerna (men behåll de associera diskarna) och ta bort motsvarande Molntjänsten (associerade beräkningsresurser har redan getts ut när du stoppats (frigjorts) de virtuella datorerna). Skapa en ny molntjänst för att lägga till de virtuella datorerna tillbaka.
 
-## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Allocation scenario: Staging/production deployments (platform as a service only)
-**Error**
+## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Allokering av scenario: mellanlagring/Produktionsdistribution (plattform som en tjänst endast)
+**Fel**
 
-New_General* or New_VMSizeNotSupported*
+New_General * eller * New_VMSizeNotSupported
 
-**Cause of cluster pinning**
+**Orsaken till klustret fästning**
 
-The staging deployment and the production deployment of a cloud service are hosted in the same cluster. When you add the second deployment, the corresponding allocation request will be attempted in the same cluster that hosts the first deployment.
+Fristående distributionen och Produktionsdistribution av en tjänst i molnet finns i samma kluster. När du lägger till den andra distributionen görs motsvarande allokeringsbegäran i samma kluster som är värd för den första distributionen.
 
-**Workaround**
+**Lösning**
 
-Delete the first deployment and the original cloud service and redeploy the cloud service. This action may land the first deployment in a cluster that has enough free resources to fit both deployments or in a cluster that supports the VM sizes that you requested.
+Ta bort den första distributionen och ursprungligt Molntjänsten och distribuera Molntjänsten. Den här åtgärden kan hamna den första distributionen i ett kluster som har tillräckligt med lediga resurser för att få plats båda distributionerna eller i ett kluster som stöder VM-storlekar som du har begärt.
 
-## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Allocation scenario: Affinity group (VM/service proximity)
-**Error**
+## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Allokering av scenario: tillhörighetsgrupp (VM-tjänsten närhet)
+**Fel**
 
-New_General* or New_VMSizeNotSupported*
+New_General * eller * New_VMSizeNotSupported
 
-**Cause of cluster pinning**
+**Orsaken till klustret fästning**
 
-Any compute resource assigned to an affinity group is tied to one cluster. New compute resource requests in that affinity group are attempted in the same cluster where the existing resources are hosted. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
+Att beräkna någon resurs som tilldelats en tillhörighetsgrupp som är kopplat till ett kluster. Nya beräkningsresurser begäranden i den tillhörighetsgrupp görs i samma kluster där de befintliga resurserna finns. Detta är SANT om nya resurser som har skapats via en ny molntjänst eller en befintlig molntjänst.
 
-**Workaround**
+**Lösning**
 
-If an affinity group is not necessary, do not use an affinity group, or group your compute resources into multiple affinity groups.
+Om en tillhörighetsgrupp inte är nödvändigt, inte använda en tillhörighetsgrupp, eller gruppera dina beräkningsresurser i flera tillhörighetsgrupper.
 
-## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Allocation scenario: Affinity-group-based virtual network
-**Error**
+## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Allokering av scenario: tillhörighet-grupp-baserade virtuella nätverk
+**Fel**
 
-New_General* or New_VMSizeNotSupported*
+New_General * eller * New_VMSizeNotSupported
 
-**Cause of cluster pinning**
+**Orsaken till klustret fästning**
 
-Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
+Innan regionala virtuella nätverk har introducerats var du tvungen att koppla ett virtuellt nätverk med en tillhörighetsgrupp. Därför kan beräkna resurser placeras i en tillhörighetsgrupp som är bundna av samma begränsningar som beskrivs i den ”allokering scenario: tillhörighetsgrupp (VM-tjänsten närhet)” ovan. Beräkningsresurserna är knutna till ett kluster.
 
-**Workaround**
+**Lösning**
 
-If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+Om du inte behöver en tillhörighetsgrupp, skapa ett nytt regionalt virtuellt nätverk för de nya resurser som du vill lägga till, och sedan [ansluta befintliga virtuella nätverket till ett nytt virtuellt nätverk](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Läs mer [regionala virtuella nätverk](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
+Du kan också [migrera tillhörighet-grupp-baserat virtuellt nätverk till ett regionalt virtuellt nätverk](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), och Lägg sedan till önskade resurser.
 
-## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Detailed troubleshooting steps specific allocation failure scenarios in the Azure Resource Manager deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Detaljerad felsökning steg allokering av specifika scenarier i Azure Resource Manager-distributionsmodellen
+Här följer vanliga scenarier för allokering som gör en begäran om minnesallokering för att fästa. Vi kommer fördjupa dig i varje scenario senare i den här artikeln.
 
-* Resize a VM or add VMs or role instances to an existing cloud service
-* Restart partially stopped (deallocated) VMs
-* Restart fully stopped (deallocated) VMs
+* Ändra storlek på en virtuell dator eller lägga till VM: ar eller rollinstanser i en befintlig molntjänst
+* Starta om delvis stoppats (frigjorts) virtuella datorer
+* Starta om fullständigt stoppats (frigjorts) virtuella datorer
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned to an existing cluster, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+När du får ett Allokeringsfel se om någon av de scenarier som beskrivs gäller för din fel. Använd allokering felet som returnerades av Azure-plattformen för att identifiera motsvarande scenario. Om din begäran är fäst på ett befintligt kluster, kan du ta bort några av fästa begränsningarna för att öppna din förfrågan om att flera kluster, vilket ökar risken för allokering lyckades.
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, see below for workarounds.
+I allmänhet så länge felet inte indikerar ”den begärda VM-storleken inte stöds”, kan du alltid försök vid ett senare tillfälle som tillräckligt med resurser kan ha frigjorts i klustret för att hantera din förfrågan. Om problemet är att den begärda VM-storleken inte stöds, se nedan för lösningar.
 
-## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Allocation scenario: Resize a VM or add VMs to an existing availability set
-**Error**
+## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Allokering av scenario: ändra storlek på en virtuell dator eller Lägg till virtuella datorer i en befintlig tillgänglighetsuppsättning
+**Fel**
 
-Upgrade_VMSizeNotSupported* or GeneralError*
+Upgrade_VMSizeNotSupported * eller * GeneralError
 
-**Cause of cluster pinning**
+**Orsaken till klustret fästning**
 
-A request to resize a VM or add a VM to an existing availability set has to be attempted at the original cluster that hosts the existing availability set. Creating a new availability set allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+En begäran att ändra storlek på en virtuell dator eller lägga till en virtuell dator i en befintlig tillgänglighetsuppsättning måste göras i det ursprungliga klustret som är värd för den befintliga tillgänglighetsuppsättningen. Skapa en ny tillgänglighetsuppsättning kan Azure-plattformen att hitta ett annat kluster som har lediga resurser eller stöder VM-storlek som du har begärt.
 
-**Workaround**
+**Lösning**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, stop all VMs in the availability set. You can then change the size of the virtual machine that will allocate the VM to a cluster that supports the desired VM size.
+Om felet är Upgrade_VMSizeNotSupported *, kan du prova en annan VM-storlek. Om med en annan VM-storlek inte är ett alternativ, stoppas alla virtuella datorer i tillgänglighetsuppsättningen. Du kan sedan ändra storleken på den virtuella datorn som allokeras till den virtuella datorn till ett kluster som har stöd för den önskade Virtuella datorstorleken.
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. If the VM can be part of a different availability set, create a new VM in a different availability set (in the same region). This new VM can then be added to the same virtual network.  
+Om felet GeneralError *, är det troligt att typ av resurs (till exempel en viss VM-storlek) stöds av klustret, men klustret saknar lediga resurser för tillfället. Om den virtuella datorn kan vara en del av en annan tillgänglighetsuppsättning, kan du skapa en ny virtuell dator i en annan tillgänglighetsuppsättning (i samma region). Den här nya virtuella datorn kan sedan läggas till samma virtuella nätverk.  
 
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
+## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Allokering av scenario: starta om delvis stoppats (frigjorts) virtuella datorer
+**Fel**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Orsaken till klustret fästning**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in an availability set. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated availability set is equivalent to adding VMs to an existing availability set. The allocation request has to be attempted at the original cluster that hosts the existing availability set.
+Flyttningen är delvis innebär att du har stoppats (frigjorts) en eller flera, men inte alla, virtuella datorer i en tillgänglighetsgrupp. När du stoppar (frigöra) en VM, associerade resurser släpps. Starta om den stoppats (frigjorts) VM är därför en ny begäran om minnesallokering. Starta om virtuella datorer i en delvis frigjord tillgänglighetsuppsättning är detsamma som att lägga till virtuella datorer i en befintlig tillgänglighetsuppsättning. Begäran om minnesallokering måste göras i det ursprungliga klustret som är värd för den befintliga tillgänglighetsuppsättningen.
 
-**Workaround**
+**Lösning**
 
-Stop all VMs in the availability set before restarting the first one. This will ensure that a new allocation attempt is run and that a new cluster can be selected that has available capacity.
+Stoppa alla virtuella datorer i tillgänglighetsuppsättning innan du startar om det första. Detta garanterar att ett nytt försök för allokering körs och att ett nytt kluster kan väljas som har tillgänglig kapacitet.
 
-## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Allocation scenario: Restart fully stopped (deallocated)
-**Error**
+## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Allokering av scenario: starta om fullständigt stoppats (frigjorts)
+**Fel**
 
-GeneralError*
+GeneralError *
 
-**Cause of cluster pinning**
+**Orsaken till klustret fästning**
 
-Full deallocation means that you stopped (deallocated) all VMs in an availability set. The allocation request to restart these VMs will target all clusters that support the desired size.
+Fullständig flyttningen innebär att du har stoppats frigjorts () alla virtuella datorer i en tillgänglighetsuppsättning. Begäran om minnesallokering att starta om dessa virtuella datorer gäller alla kluster som har stöd för önskad storlek.
 
-**Workaround**
+**Lösning**
 
-Select a new VM size to allocate. If this does not work, please try again later.
+Välj en ny VM-storlek för att allokera. Försök igen senare om det inte fungerar.
 
 <a name="Error string lookup"></a>
 
-## <a name="error-string-lookup"></a>Error string lookup
+## <a name="error-string-lookup"></a>Felsökning av sträng
 **New_VMSizeNotSupported***
 
-"The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."
+”VM storlek (eller kombinationen av Virtuella datorstorlekar) krävs av den här distributionen kan inte tillhandahållas pga distribution begränsningar för begäran. Om möjligt försök lugnt begränsningarna, t.ex virtuella nätverksbindningar, distribution till en värdbaserad tjänst med ingen distribution och till en annan tillhörighetsgrupp eller utan någon tillhörighetsgrupp, eller försök att distribuera till en annan region ”.
 
 **New_General***
 
-"Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an affinity group, or it targets a virtual network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+”Gick inte att allokera; Det går inte att uppfylla begränsningarna i förfrågan. Den begärda nya tjänstdistributionen är bunden till en tillhörighetsgrupp eller den riktar sig till ett virtuellt nätverk eller det finns en befintlig distribution under den här värdbaserade tjänsten. Dessa omständigheter begränsar den nya distributionen till specifika Azure-resurser. Försök igen senare eller försök att minska den Virtuella datorstorleken eller antalet rollinstanser. Alternativt, om möjligt ta bort de tidigare nämnda begränsningarna eller försök att distribuera till en annan region ”.
 
 **Upgrade_VMSizeNotSupported***
 
-"Unable to upgrade the deployment. The requested VM size XXX may not be available in the resources supporting the existing deployment. Please try again later, try with a different VM size or smaller number of role instances, or create a deployment under an empty hosted service with a new affinity group or no affinity group binding."
+”Det gick inte att uppgradera distributionen. Den begärda VM-storleken XXX får inte vara tillgängliga i de resurser som stödjer den befintliga distributionen. Försök igen senare, försök med en annan VM-storlek eller ett mindre antal rollinstanser eller skapa en distribution under en tom värdtjänst med en ny tillhörighetsgrupp eller utan tillhörighetsgruppsbindning ”.
 
 **GeneralError***
 
-"The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
+”Ett internt fel påträffades av servern. Försök att utföra begäran ”. Eller ”det gick inte att skapa en allokering för tjänsten”.
 

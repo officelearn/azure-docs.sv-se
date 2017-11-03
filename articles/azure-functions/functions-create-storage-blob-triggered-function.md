@@ -4,24 +4,23 @@ description: "Använd Azure Functions till att skapa en serverfri funktion som a
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Skapa en funktion som utlöses av Azure Blob Storage
 
@@ -114,4 +113,3 @@ Du har skapat en funktion som körs när en blob läggs till eller uppdateras i 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Mer information om Blob Storage-utlösare finns i [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md) (Blob Storage-bindningar i Azure Functions).
-

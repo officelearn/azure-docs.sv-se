@@ -25,7 +25,8 @@
 #### [Säkra anslutningsappar med Azure AD](custom-connector-azure-active-directory-authentication.md)
 #### [Beskriv API:er med Postman](custom-connector-api-postman-collection.md)
 #### [Utöka OpenAPI för anpassade anslutningsappar](custom-connector-openapi-extensions.md)
-#### [Registrera din anslutningsapp](logic-apps-custom-connector-register.md)
+#### [Skapa och registrera en OpenAPI-anslutningsapp](logic-apps-custom-connector-register.md)
+#### [Skapa och registrera en SOAP-anslutningsapp](logic-apps-soap-connector-create-register.md)
 #### [Certifiera din anslutningsapp](custom-connector-submit-certification.md)
 #### [Vanliga frågor och svar för anpassade anslutningsappar](custom-connector-faq.md)
 ### Utveckla anpassade API:er

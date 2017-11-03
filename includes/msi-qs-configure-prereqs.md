@@ -1,3 +1,3 @@
-If you're unfamiliar with MSI, check out the [Managed Service Identity overview](../articles/active-directory/msi-overview.md).
+Om du är bekant med MSI kan ta en titt på [hanterade tjänstidentiteten översikt](../articles/active-directory/msi-overview.md).
 
-If you don't already have an Azure account, be sure to [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+Om du inte redan har ett Azure-konto [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.

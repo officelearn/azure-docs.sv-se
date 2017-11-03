@@ -1,4 +1,4 @@
-You can use an NSG to control traffic to one or more virtual machines (VMs), role instances, network adapters (NICs), or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.
+Du kan använda en NSG för trafiken till en eller flera virtuella datorer (VM), rollinstanser, nätverkskort (NIC) eller undernät i det virtuella nätverket. En NSG innehåller åtkomstkontrollregler som tillåter eller nekar trafik baserat på trafikriktningen, protokollet, källadressen och -porten, samt måladressen och -porten. Reglerna för en NSG kan ändras när som helst och ändringar tillämpas på alla kopplade instanser.
 
-For more information about NSGs, visit [what is an NSG](../articles/virtual-network/virtual-networks-nsg.md).
+Mer information om NSG: er finns [vad är en NSG](../articles/virtual-network/virtual-networks-nsg.md).
 

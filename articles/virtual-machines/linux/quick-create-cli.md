@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/14/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a7cba5b2c43704d92e36d6f808efaa9fc73fdf36
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: dab783e574ef4f5507737d5004fd8d2a98629458
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Skapa en virtuell Linux-dator med Azure CLI
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur man använder Azure CLI för att distribuera en virtuell dator som kör Ubuntu-servern. När servern har distribuerats skapas en SSH-anslutning och en NGINX-webbserver installeras.
@@ -46,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#create). 
+Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#az_vm_create). 
 
 Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
@@ -87,16 +85,14 @@ ssh <publicIpAddress>
 
 ## <a name="install-nginx"></a>Installera NGINX
 
-Använd följande bash-skript för att uppdatera paketkällor och installera det senaste NGINX-paketet. 
+Använd följande kommandon för att uppdatera paketet källor och installera det senaste NGINX-paketet. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## <a name="view-the-nginx-welcome-page"></a>Visa NGINX-välkomstsidan
@@ -108,7 +104,7 @@ Du kan använda en webbläsare som du väljer för att visa välkomstsidan till 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. Avsluta SSH-session till den virtuella datorn och ta sedan bort resurserna på följande sätt:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -121,4 +117,3 @@ I den här snabbstarten har du distribuerat en virtuell dator och en regel för 
 
 > [!div class="nextstepaction"]
 > [Självstudier om virtuella Azure Linux-datorer](./tutorial-manage-vm.md)
-

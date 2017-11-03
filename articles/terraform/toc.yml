@@ -19,6 +19,8 @@
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Etablera virtuella skalningsuppsättningar med infrastruktur
       href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Koncept
   items:
     - name: Cloud Shell-integrering

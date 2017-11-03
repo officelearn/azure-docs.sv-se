@@ -1,27 +1,26 @@
 ---
 title: "Skapa en funktion i Azure som utlöses av en GitHub-webhook | Microsoft Docs"
 description: "Använd Azure Functions för att skapa en funktion utan server som startas av en GitHub-webhook."
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Skapa en funktion som utlöses av en GitHub-webhook
 
@@ -52,7 +51,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Välj **GitHubWebHook**-mallen för språket. **Namnge funktionen** och klicka på **Skapa**.
+2. Välj den **GitHub-WebHook** mall för språket. **Namnge funktionen** och klicka på **Skapa**.
 
      ![Skapa en funktion som utlöses med en GitHub-webhook i Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 
@@ -109,4 +108,3 @@ Du har skapat en funktion som körs när en begäran tas emot från en GitHub-we
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Mer information om webhook-utlösare finns i [Azure Functions HTTP och webhook-bindningar](functions-bindings-http-webhook.md).
-

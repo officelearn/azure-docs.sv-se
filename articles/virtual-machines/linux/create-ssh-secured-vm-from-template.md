@@ -1,84 +1,68 @@
 ---
-title: "Skapa en virtuell Linux-dator med hjälp av en Azure-mall | Microsoft Docs"
-description: "Skapa en virtuell Linux-dator i Azure med hjälp av en Azure Resource Manager-mall."
+title: "Skapa en Linux-VM i Azure från en mall | Microsoft Docs"
+description: "Hur du använder Azure CLI 2.0 för att skapa en Linux VM från en Resource Manager-mall"
 services: virtual-machines-linux
 documentationcenter: 
-author: vlivech
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
-tags: azure-service-management,azure-resource-manager
+tags: azure-resource-manager
 ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.topic: hero-article
-ms.date: 10/24/2016
-ms.author: v-livech
+ms.topic: article
+ms.date: 09/26/2017
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: c268d87faf45d3ea02154b46903a73478a2a1f2f
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 938304efe5e4a13736a50348bd0531c475149aec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-create-a-linux-vm-using-an-azure-resource-manager-template"></a>Så här skapar du en virtuell Linux-dator med en Azure Resource Manager-mall
-I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator i Azure med hjälp av en Azure-mall.  Artikeln kräver:
+# <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Så här skapar du en virtuell Linux-dator med Azure Resource Manager-mallar
+Den här artikeln visar hur du snabbt distribuerar en Linux-dator (VM) med Azure Resource Manager-mallar och Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
 
-* ett Azure-konto ([hämta en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/)).
-* [Azure CLI](../../cli-install-nodejs.md) inloggad med `azure login`.
-* Azure CLI *måste vara i* Azure Resource Manager-läge `azure config mode arm`.
 
-Du kan även snabbt distribuera en virtuell Linux-datormall med hjälp av [Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="templates-overview"></a>Översikt över mallar
+Azure Resource Manager-mallarna är JSON-filer som definierar infrastrukturen och konfigurationen av din Azure-lösning. Genom att använda en mall kan du distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras konsekvent. Läs mer om formatet för mallen och hur du skapar i [skapa din första Azure Resource Manager-mallen](../../azure-resource-manager/resource-manager-create-first-template.md). JSON-syntaxen för resurstyper finns i [Define resources in Azure Resource Manager templates](/azure/templates/) (Definiera resurser i Azure Resource Manager-mallar).
 
-## <a name="quick-command-summary"></a>Snabb kommandosammanfattning
-```azurecli
-azure group create \
-    -n myResourceGroup \
-    -l westus \
-    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
-```
 
-## <a name="detailed-walkthrough"></a>Detaljerad genomgång
-Med mallar kan du skapa virtuella datorer i Azure med inställningar som du vill anpassa under starten, till exempel användarnamn och värdnamn. För den här artikeln startar vi en Azure-mall med hjälp av en virtuell Ubuntu-dator tillsammans med en nätverkssäkerhetsgrupp med port 22 öppen för SSH.
-
-Azure Resource Manager-mallar är JSON-filer som kan användas för enkla engångsuppgifter som generering av en virtuell Ubuntu-dator, så som det görs i den här artikeln.  Azure-mallar kan också användas för att skapa komplexa Azure-konfigurationer av hela miljöer som en distributionsstack för testning, utveckling eller produktion.
-
-## <a name="create-the-linux-vm"></a>Skapa den virtuella Linux-datorn
-Följande kodexempel illustrerar hur du anropar `azure group create` för att skapa en resursgrupp och distribuera en SSH-skyddad virtuell Linux-dator på samma gång med hjälp av [den här Azure Resource Manager-mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Tänk på att i ditt exempel måste du använda namn som är unika för din miljö. I det här exemplet används `myResourceGroup` som resursgruppens namn, `myVM` och som namn på den virtuella datorn.
+## <a name="create-resource-group"></a>Skapa resursgrupp
+En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator. I följande exempel skapas en resursgrupp med namnet *myResourceGroupVM* i den *eastus* region:
 
 ```azurecli
-azure group create \
-    --name myResourceGroup \
-    --location westus \
-    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+az group create --name myResourceGroup --location eastus
 ```
 
-Resultatet bör likna följande utdata:
+## <a name="create-virtual-machine"></a>Skapa en virtuell dator
+I följande exempel skapas en virtuell dator från [Azure Resource Manager-mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) med [az distribution skapa](/cli/azure/group/deployment#create). Ange värdet för egna SSH offentlig nyckel, till exempel innehållet i *~/.ssh/id_rsa.pub*. Om du behöver skapa en SSH-nyckel finns [hur du skapar och använder en SSH-nyckel för Linux virtuella datorer i Azure](mac-create-ssh-keys.md).
 
 ```azurecli
-info:    Executing command group create
-+ Getting resource group myResourceGroup
-+ Creating resource group myResourceGroup
-info:    Created resource group myResourceGroup
-info:    Supply values for the following parameters
-sshKeyData: ssh-rsa AAAAB3Nza<..ssh public key text..>VQgwjNjQ== myAdminUser@myVM
-+ Initializing template configurations and parameters
-+ Creating a deployment
-info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/<..subid text..>/resourceGroups/myResourceGroup
-data:    Name:                myResourceGroup
-data:    Location:            westus
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:
-info:    group create command OK
+az group deployment create --resource-group myResourceGroup \
+  --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
+  --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
 ```
 
-I det exemplet distribueras en virtuell dator med parametern `--template-uri`.  Du kan också ladda ned eller skapa en mall lokalt och överföra mallen med hjälp av parametern `--template-file` med en sökväg till mallfilen som argument. Azure CLI uppmanar dig att ange de parametrar som krävs av mallen.
+I det här exemplet anges en mall som lagras i GitHub. Du kan också hämta eller skapa en mall och ange en lokal sökväg med samma `--template-file` parameter.
+
+Hämta den offentliga IP-adressen till SSH till den virtuella datorn, [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#show):
+
+```azurecli
+az network public-ip show \
+    --resource-group myResourceGroup \
+    --name sshPublicIP \
+    --query [ipAddress] \
+    --output tsv
+```
+
+Du kan sedan SSH till den virtuella datorn som vanligt. Ger dig egen offentlig IP-adress från det föregående kommandot:
+
+```bash
+ssh azureuser@<ipAddress>
+```
 
 ## <a name="next-steps"></a>Nästa steg
-Sök i [mallgalleriet](https://azure.microsoft.com/documentation/templates/) för att se vilka appramverk som du ska distribuera härnäst.
-
-
+I det här exemplet skapas en grundläggande Linux VM. Fler Resource Manager-mallar som inkluderar ramverk för programmet eller skapa mer komplexa miljöer, bläddra i [Azure quickstart mallgalleriet](https://azure.microsoft.com/documentation/templates/).

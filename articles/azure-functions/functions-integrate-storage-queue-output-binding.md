@@ -1,27 +1,26 @@
 ---
-title: "Skapa en funktion i Azure som utlöses av kömeddelanden | Microsoft Docs"
+title: "Lägga till meddelanden i en kö för Azure Storage med hjälp av funktioner | Microsoft Docs"
 description: "Använd Azure Functions för att skapa en funktion utan server som startas av meddelanden som skickas till en Azure Storage-kö."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/02/2017
-
+ms.openlocfilehash: 822879861ee8189cdd413f0061f26fb91819d88d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
@@ -39,7 +38,7 @@ I Azure Functions kan du använda indata- och utdatabindningar för att ansluta 
  
 1. Expandera både din funktionsapp och din funktion.
 
-2. Välj **Integrera** och **+ Nya utdata** och klicka sedan på **Azure Queue Storage** och på **Välj**.
+2. Välj **integrera** och **+ nya utdata**, Välj **Azure Queue storage** och välj **Välj**.
     
     ![Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -51,7 +50,7 @@ I Azure Functions kan du använda indata- och utdatabindningar för att ansluta 
     | ------------ |  ------- | -------------------------------------------------- |
     | **Könamn**   | myqueue-items    | Namnet på kön som ska anslutas till i ditt Storage-konto. |
     | **Lagringskontoanslutning** | AzureWebJobStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |
-    | **Meddelandeparameternamn** | outQueueItem | Namnet på utdatabindningsparametern. | 
+    | **Meddelandeparameternamn** | outputQueueItem | Namnet på utdatabindningsparametern. | 
 
 4. Klicka på **Spara** för att lägga till bindningen.
  
@@ -61,11 +60,11 @@ Nu när du har definierat en utdatabindning måste du uppdatera koden så att bi
 
 1. Välj din funktion så att funktionskoden visas i redigeraren. 
 
-2. För en C#-funktion uppdaterar du funktionsdefinitionen på följande sätt för att lägga till lagringsbindningsparametern **outQueueItem**. Hoppa över det här steget om du använder en JavaScript-funktion.
+2. Uppdatera din funktionsdefinitionen enligt följande för att lägga till en C# funktion i **outputQueueItem** bindningsparameter för lagring. Hoppa över det här steget om du använder en JavaScript-funktion.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-        ICollector<string> outQueueItem, TraceWriter log)
+        ICollector<string> outputQueueItem, TraceWriter log)
     {
         ....
     }
@@ -74,12 +73,12 @@ Nu när du har definierat en utdatabindning måste du uppdatera koden så att bi
 3. Lägg till följande kod i funktionen precis innan metoden returneras. Använd lämpligt kodstycke för det språk som du använder för funktionen.
 
     ```javascript
-    context.bindings.outQueueItem = "Name passed to the function: " + 
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
                 (req.query.name || req.body.name);
     ```
 
     ```cs
-    outQueueItem.Add("Name passed to the function: " + name);     
+    outputQueueItem.Add("Name passed to the function: " + name);     
     ```
 
 4. Välj **Spara** för att spara ändringarna.
@@ -100,7 +99,7 @@ Därefter kan du ansluta till ditt lagringskonto och kontrollera den nya kön oc
 
 Hoppa över de första tre stegen om du redan har installerat Lagringsutforskaren och anslutit den till ditt lagringskonto.    
 
-1. Välj **Integrera** och ny bindning av utdata för **Azure Queue-storage** och expandera **Dokumentation**. Kopiera både **kontonamnet** och **kontonyckeln**. Du använder dessa autentiseringsuppgifter för att ansluta till lagringskontot.
+1. Välj i din funktion **integrera** och den nya **Azure Queue storage** utdatabindning och expandera sedan **dokumentationen**. Kopiera både **kontonamnet** och **kontonyckeln**. Du använder dessa autentiseringsuppgifter för att ansluta till lagringskontot.
  
     ![Hämta autentiseringsuppgifterna för att ansluta till lagringskontot.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -112,7 +111,7 @@ Hoppa över de första tre stegen om du redan har installerat Lagringsutforskare
   
     ![Klistra in autentiseringsuppgifter för lagringskontot och anslut.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Expandera det anslutna lagringskontot, högerklicka på **Köer** och kontrollera att det finns en kö med namnet **myqueue-items**. Du bör även se ett meddelande som redan finns i kön.  
+4. Expandera direktansluten lagring-kontot, expandera **köer** och verifiera att en kö med namnet **MinKö objekt** finns. Du bör även se ett meddelande som redan finns i kön.  
  
     ![Skapa en lagringskö.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
@@ -128,7 +127,6 @@ Du har lagt till en utdatabindning i en befintlig funktion.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Mer information om bindning till Queue Storage finns i [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Azure Functions-lagringsköbindningar). 
-
 
 
 

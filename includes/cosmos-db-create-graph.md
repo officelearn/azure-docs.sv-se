@@ -1,17 +1,17 @@
-You can now use the Data Explorer tool in the Azure portal to create a graph database. 
+Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafdatabas. 
 
-1. In the Azure portal, in the menu on the left, select **Data Explorer (Preview)**.
+1. Välj i Azure-portalen på menyn till vänster, **Data Explorer (förhandsgranskning)**.
 
-2. Under **Data Explorer (Preview)**, select **New Graph**. Then fill in the page by using the following information:
+2. Under **Data Explorer (förhandsgranskning)**väljer **nytt diagram**. Fyll i sidan med hjälp av följande information:
 
-    ![Data Explorer in the Azure portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+    ![Datautforskaren i Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
-    Setting|Suggested value|Description
+    Inställning|Föreslaget värde|Beskrivning
     ---|---|---
-    Database id|sample-database|The ID for your new database. Database names must be between 1 and 255 characters and can't contain `/ \ # ?` or a trailing space.
-    Graph id|sample-graph|The ID for your new graph. Graph names have the same character requirements as database IDs.
-    Storage capacity| 10 GB|Leave the default value. This is the storage capacity of the database.
-    Throughput|400 RUs|Leave the default value. You can scale up the throughput later if you want to reduce latency.
-    Partition key|/userid|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant graph. For more information, see [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    Databas-id|sample-database|ID för din nya databas. Databasnamn måste vara mellan 1 och 255 tecken och får inte innehålla `/ \ # ?` eller avslutande blanksteg.
+    Graf-id|sample-graph|ID för din nya graf. Diagrammet namn har samma krav på tecken som databas-ID: N.
+    Lagringskapacitet| 10 GB|Låt standardvärdet vara kvar. Det här är databasens lagringskapacitet.
+    Dataflöde|400 RU:er|Låt standardvärdet vara kvar. Du kan skala upp dataflödet senare om du vill minska svarstiden.
+    Partitionsnyckeln|/FirstName|En partitionsnyckel som distribuerar data jämnt till varje partition. Att välja rätt Partitionsnyckeln är viktigt att skapa ett performant diagram. Mer information finns i [utformning för partitionering](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
-3. After the form is filled out, select **OK**.
+3. När formuläret fylls, väljer du **OK**.

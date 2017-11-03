@@ -1,11 +1,11 @@
-The Mobile Apps feature of Azure App Service uses [Azure Notification Hubs] to send pushes, so you will be configuring a notification hub for your mobile app.
+Funktionen Mobilappar i Azure App Service använder [Azure Notification Hubs] att skicka push-meddelanden, så att du ska konfigurera en meddelandehubb för din mobila app.
 
-1. In the [Azure portal], go to **App Services**, and then click your app back end. Under **Settings**, click **Push**.
-2. Click **Connect** to add a notification hub resource to the app. You can either create a hub or connect to an existing one.
+1. I den [Azure-portalen], gå till **Apptjänster**, och klicka sedan på din app-serverdel. Under **inställningar**, klickar du på **Push**.
+2. Klicka på **Anslut** att lägga till en resurs för notification hub i appen. Du kan antingen skapa ett nav eller ansluta till en befintlig.
 
     ![](./media/app-service-mobile-create-notification-hub/configure-hub-flow.png)
 
-Now you have connected a notification hub to your Mobile Apps back-end project. Later you will configure this notification hub to connect to a platform notification system (PNS) to push to devices.
+Nu har du anslutit en meddelandehubb i projektet Mobile Apps serverdel. Du kommer senare att konfigurera den här meddelandehubben för att ansluta till ett plattform meddelandesystem (PNS) för att skicka till enheter.
 
-[Azure portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/

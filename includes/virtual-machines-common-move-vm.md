@@ -1,29 +1,29 @@
 
 
-## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Use the portal to move a VM to a different subscription
-You can move a VM and it's associated resources to a different subscription using the portal.
+## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Använda portalen för att flytta en virtuell dator till en annan prenumeration
+Du kan flytta en virtuell dator och dess tillhörande resurser till en annan prenumeration med hjälp av portalen.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Virtual machines** and select the VM you would like to move from the list.
+1. Öppna [Azure-portalen](https://portal.azure.com).
+2. Klicka på **Bläddra** > **virtuella datorer** och välj den virtuella datorn som du vill flytta från listan.
    
-    ![Screenshot of the Essentials section where you click the pencil icon to open the Move resources blade.](./media/virtual-machines-common-move-vm/move-button.png)
-3. In the **Essentials** section, click on the **Change subscription** pencil icon next to the subscription name. The **Move resources** blade will open.
+    ![Skärmbild av avsnittet Essentials där du kan klicka på pennikonen att öppna bladet flytta resurser.](./media/virtual-machines-common-move-vm/move-button.png)
+3. I den **Essentials** klickar du på den **ändra prenumerationen** pennikonen bredvid prenumerationsnamn. Den **flyttar resurser** öppnas bladet.
    
-    ![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move.png)
-4. Select each of the resources to move. In most cases, you should move all of the listed optional resources.
-5. Select the **Subscription** where you want the VM to be moved.
-6. Select an existing **Resource group** or type a name to have a new resource group created.
-7. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**.
+    ![Skärmbild av bladet flytta resurser.](./media/virtual-machines-common-move-vm/move.png)
+4. Välj var och en av resurserna som ska flyttas. I de flesta fall bör du flytta alla valfria resurser.
+5. Välj den **prenumeration** där du vill att den virtuella datorn flyttas.
+6. Välj en befintlig **resursgruppen** eller Skriv ett namn som har en ny resursgrupp som har skapats.
+7. När du är klar väljer du att du förstår att nya resursen med ID: N skapas och de måste användas med den virtuella datorn när den flyttas, sedan klickar du på **OK**.
 
-## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Use the portal to move a VM to another resource group
-You can move a VM and it's associated resources to another resource group using the portal.
+## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Använda portalen för att flytta en virtuell dator till en annan resursgrupp
+Du kan flytta en virtuell dator och dess tillhörande resurser till en annan resursgrupp med hjälp av portalen.
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. Click **Browse** > **Resource groups** and select the resource group that contains the VM.
-3. In the **Resource group** blade, select **Move** from the menu.
+1. Öppna [Azure-portalen](https://portal.azure.com).
+2. Klicka på **Bläddra** > **resursgrupper** och markera den resursgrupp som innehåller den virtuella datorn.
+3. I den **resursgruppen** bladet väljer **flytta** på menyn.
    
-    ![Screenshot of the Move button on the Resource groups menu.](./media/virtual-machines-common-move-vm/move-rg.png)
-4. In the **Move resources** blade, select the resources to be moved and then either type an existing resource group name or choose to create a new resource group. When you are done, select that you understand that new resource IDs will be created and those need to be used with the VM once it is moved, then click **OK**
+    ![Skärmbild av knappen Flytta på menyn resurs grupper.](./media/virtual-machines-common-move-vm/move-rg.png)
+4. I den **flyttar resurser** bladet väljer resurserna som ska flyttas och sedan skriva en befintlig resurs gruppnamn eller välj att skapa en ny resursgrupp. När du är klar väljer du att du förstår att nya resursen med ID: N skapas och de måste användas med den virtuella datorn när den flyttas, sedan klickar du på **OK**
    
-    ![Screenshot of the Move resources blade.](./media/virtual-machines-common-move-vm/move-rg-list.png)
+    ![Skärmbild av bladet flytta resurser.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 

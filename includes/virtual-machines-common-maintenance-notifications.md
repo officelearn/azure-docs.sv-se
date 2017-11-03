@@ -1,56 +1,56 @@
 
-## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>View VMs scheduled for maintenance in the portal
+## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visa VMs schemalagt underhåll i portalen
 
-Once a planned maintenance wave is scheduled, and notifications are sent, you can observe the list of virtual machines that are impacted by the upcoming maintenance wave. 
+När ett planerat underhåll wave schemaläggs och meddelanden skickas, kan du se listan över virtuella datorer som påverkas av kommande Underhåll wave. 
 
-You can use the Azure portal and look for VMs scheduled for maintenance.
+Du kan använda Azure portal och leta efter virtuella datorer som är schemalagda för underhåll.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. In the left navigation, click **Virtual Machines**.
+2. I det vänstra navigeringsfönstret klickar du på **virtuella datorer**.
 
-3. In the Virtual Machines pane, click the **Columns** button to open the list of available columns.
+3. Klicka på i fönstret virtuella datorer i **kolumner** knappen för att öppna listan över tillgängliga kolumner.
 
-4. Select and add the following columns:
+4. Välj och Lägg till följande kolumner:
 
-   **Maintenance** - shows the maintenance status for the VM. The following are the potential values:
+   **Underhåll** -visar Underhåll status för den virtuella datorn. Följande är möjliga värden:
       
-      | Value | Description |
+      | Värde | Beskrivning |
       |-------|-------------|
-      | Start now | The VM is in the self-service maintenance window which lets you initiate the maintenance yourself. See below on how to start maintenance on your VM | 
-      | Scheduled | The VM is scheduled for maintenance with no option for you to initiate maintenance. You can learn of the maintenance window by selecting the Auto-Scheduled window in this view or by clicking on the VM | 
-      | Completed | You have successfully initiated and completed maintenance on your VM. | 
-      | Skipped| You have selected to initiate maintenance with no success. Azure has canceled the maintenance for your VM and will reschedule it in a later time | 
-      | Retry later| You have selected to initiate maintenance and Azure was not able to fulfill your request. In this case, you can try again in a later time. | 
+      | Börja nu | Den virtuella datorn är i underhållsfönstret självbetjäning som gör att du kan initiera underhållet själv. Se nedan om hur du startar Underhåll på den virtuella datorn | 
+      | Schemalagda | Den virtuella datorn är schemalagt för underhåll utan något alternativ att initiera underhåll. Du kan lära dig för underhåll genom att välja fönstret automatiskt schemalagda i den här vyn eller genom att klicka på den virtuella datorn | 
+      | Slutfört | Du har initierat och slutföra Underhåll på den virtuella datorn. | 
+      | Hoppades över| Du har valt för att initiera underhåll utan framgång. Azure har avbrutit underhållet för den virtuella datorn och kommer att schemaläggas om den i ett senare tillfälle | 
+      | Försök igen senare| Du har valt för att initiera underhåll och Azure kunde inte slutföra din förfrågan. I det här fallet kan du försöka igen i ett senare tillfälle. | 
    
-   **Maintenance Pro-Active** - shows the time window when you can self-start maintenance on your VMs.
+   **Underhåll proaktiva** -visar tidsfönstret vid automatisk start Underhåll på dina virtuella datorer.
    
-   **Maintenance Scheduled** - shows the time window when Azure will reboot your VM in order to complete maintenance. 
+   **Underhåll schemalagda** -visar tidsfönstret när Azure startar om den virtuella datorn för att kunna utföra underhåll. 
 
 
 
 
-## <a name="notification-and-alerts-in-the-portal"></a>Notification and alerts in the portal
+## <a name="notification-and-alerts-in-the-portal"></a>Meddelanden och aviseringar i portalen
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till prenumerationen ägare och Medägare gruppen. Du kan lägga till ytterligare mottagare och kanaler denna kommunikation genom att skapa Azure aktivitet loggen aviseringar. Mer information finns i [övervakaren prenumeration aktivitet med Azure-aktivitetsloggen] (... / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the menu on the left, select **Monitor**. 
-3. In the **Monitor - Activity log** pane, select **Alerts**.
-4. In the **Monitor - Alerts** pane, click **+ Add activity log alert**.
-5. Complete the information in the **Add activity log alert** page and make sure you set the following in **Criteria**:  **Type**: Maintenance  **Status**: All (Do not set status to Active or Resolved)  **Level**: All
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj på menyn till vänster **övervakaren**. 
+3. I den **Monitor - aktivitetsloggen** väljer **aviseringar**.
+4. I den **Monitor - aviseringar** rutan klickar du på **+ Lägg till aktivitet loggen avisering**.
+5. Fyll i den **Lägg till aktivitet loggen avisering** sidan och se till att ange följande **kriterier**: **typen**: Underhåll **Status**: Alla (inte anger status till aktiv eller löst) **nivå**: alla
     
-To learn more on how to configure Activity Log Alerts, see [Create activity log alerts](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Mer information om hur du konfigurerar aktivitet loggen aviseringar finns [och skapa aktiviteten Logga varningar](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
     
     
-## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Start Maintenance on your VM from the portal
+## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Starta Underhåll på den virtuella datorn från portalen
 
-While looking at the VM details, you will be able to see more maintenance-related details.  
-At the top of the VM details view, a new notification ribbon will be added if your VM is included in a planned maintenance wave. In addition, a new option is added to start maintenance when possible. 
+Du kommer att kunna se mer underhållsrelaterade information när du tittar på VM-information.  
+Längst upp i Detaljvyn VM läggs en ny avisering menyfliksområdet om den virtuella datorn ingår i ett planerat underhåll wave. Dessutom läggs ett nytt alternativ för att starta Underhåll när det är möjligt. 
 
 
-Click on the maintenance notification to see the maintenance page with more details on the planned maintenance. From there you will be able to **start maintenance** on your VM.
+Klicka på Underhåll meddelandet om du vill se underhållssidan med mer information på planerat underhåll. Därifrån kommer du att kunna **starta Underhåll** på den virtuella datorn.
 
-Once you start maintenance, your virtual machine will be rebooted and the maintenance status will be updated to reflect the result within few minutes.
+När du startar underhåll, den virtuella datorn kommer att startas om och underhåll status kommer att uppdateras för att återspegla resultatet inom några minuter.
 
-If you missed the window where you can start maintenance, you will still be able to see the window when your VM will be rebooted by Azure. 
+Om du har missat fönstret där du kan starta Underhåll att du fortfarande kunna se fönstret när den virtuella datorn kommer att startas om av Azure. 

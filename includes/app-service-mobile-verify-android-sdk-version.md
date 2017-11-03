@@ -1,17 +1,17 @@
-Because of ongoing development, the Android SDK version installed in Android Studio might not match the version in the code. The Android SDK referenced in this tutorial is version 23, the latest at the time of writing. The version number may increase as new releases of the SDK appear, and we recommend using the latest version available.
+På grund av pågående utveckling, kan den Android SDK-version som installeras i Android Studio inte matchar versionen i koden. Android SDK som hänvisas till i den här kursen är version 23, senast vid tidpunkten för skrivning. Versionsnumret kan öka när nya versioner av SDK visas, och vi rekommenderar att du använder den senaste versionen.
 
-Two symptoms of version mismatch are:
+Två symptom på versionsmatchningsfel är:
 
-- When you build or rebuild the project, you may get Gradle error messages like "**failed to find target Google Inc.:Google APIs:n**".
-- Standard Android objects in code that should resolve based on `import` statements may be generating error messages.
+- När du skapar eller återskapa projektet, kan du få Gradle felmeddelanden som ”**det gick inte att hitta målet Google Inc.:Google APIs:n**”.
+- Android Standardobjekt i koden som ska matcha baserat på `import` instruktioner kan generera felmeddelanden.
 
-If either of these appears, the version of the Android SDK installed in Android Studio might not match the SDK target of the downloaded project. To verify the version, make the following changes:
+Om något av dessa visas överensstämmer SDK-målet för det hämta projektet inte med versionen av Android SDK installerad i Android Studio. Om du vill kontrollera vilken version du göra följande ändringar:
 
-1. In Android Studio, click **Tools** > **Android** > **SDK Manager**. If you have not installed the latest version of the SDK Platform, then click to install it. Make a note of the version number.
-2. On the **Project Explorer** tab, under **Gradle Scripts**, open the file **build.gradle (modeule: app)**. Ensure that the **compileSdkVersion** and **buildToolsVersion** are set to the latest SDK version installed. The tags might look like this:
+1. I Android Studio klickar du på **verktyg** > **Android** > **SDK Manager**. Om du inte har installerat den senaste versionen av SDK-plattformen, klicka om du vill installera den. Anteckna versionsnumret.
+2. På den **Projektutforskaren** fliken, under **Gradle skript**, öppna filen **build.gradle (modeule: app)**. Se till att den **compileSdkVersion** och **buildToolsVersion** är inställda på att SDK-version som är installerad. Taggar kan se ut så här:
 
              compileSdkVersion 'Google Inc.:Google APIs:23'
             buildToolsVersion "23.0.2"
-3. In the Android Studio Project Explorer, right-click the project node, choose **Properties**, and in the left column choose **Android**. Ensure that the **Project Build Target** is set to the same SDK version as the **targetSdkVersion**.
+3. Högerklicka på projektnoden i Android Studio Project Explorer, Välj **egenskaper**, och välj i den vänstra kolumnen **Android**. Se till att den **mål för projektgenerering** anges till samma SDK-version som den **targetSdkVersion**.
 
-In Android Studio, the manifest file is no longer used to specify the target SDK and minimum SDK version, unlike the case with Eclipse.
+I Android Studio är manifestfilen inte längre används för att ange mål SDK och minsta SDK-version, till skillnad från fallet med Eclipse.

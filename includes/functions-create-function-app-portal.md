@@ -1,15 +1,16 @@
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 
-1. Click **Compute** > **Function App**, select your **Subscription**. Then, use the function app settings as specified in the table.
+1. Klicka på **Compute** > **Funktionsapp**. Använd sedan funktionsappinställningarna enligt tabellen.
 
-    ![Create function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
+    ![Skapa en funktionsapp i Azure Portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-    | Setting      | Suggested value  | Description                                        |
+    | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **App name** | Globally unique name | Name that identifies your new function app. | 
-    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. | 
-    | **[Hosting plan](../articles/azure-functions/functions-scale.md)** |   Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. You only pay for the time your functions run.   |
-    | **Location** | West Europe | Choose a location near you or near other services your functions will access. |
-    | **[Storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globally unique name |  Name of the new storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account. |
+    | **Appens namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9`, och `-`.  | 
+    | **Prenumeration** | Din prenumeration | Den prenumeration som den här nya funktionen appen kommer att skapas. | 
+    | **[Resursgrupp](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. | 
+    | **[Värdplan](../articles/azure-functions/functions-scale.md)** |   Förbrukningsplan | Värdplan som definierar hur resurser allokeras till din funktionsapp. I **standardförbrukningsplanen** läggs resurser till dynamiskt när de behövs i funktionerna. Du betalar endast för den tid som dina funktioner körs.   |
+    | **Plats** | Västra Europa | Välj en plats nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
+    | **[Lagringskonto](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Globalt unikt namn |  Namnet på det nya lagringskonto som ska användas av funktionsappen. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto. |
 
-1. Click **Create** to provision and deploy the new function app.
+1. Klicka på **Skapa** för att etablera och distribuera den nya funktionsappen.

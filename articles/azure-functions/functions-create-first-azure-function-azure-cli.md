@@ -7,19 +7,17 @@ author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 08/22/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: ab35963dc9d10134799270e6ab3e6593be0e601a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-function-using-the-azure-cli"></a>Skapa din första funktion med Azure CLI
 
 I den här snabbstartsguiden får du hjälp att skapa din första funktion i Azure Functions. Du kan använda Azure CLI till att skapa en funktionsapp, som är den serverfria infrastruktur som är värd för funktionen. Själva funktionskoden distribueras från en GitHub-exempellagringsplats.    
@@ -37,7 +35,7 @@ Innan du kör exemplet måste du ha följande:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver Azure CLI version 2.0 eller senare i det här avsnittet. Kör `az --version` att hitta den version du har. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -45,7 +43,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare som Azure-resurser (t.ex. funktionsappar, databaser och lagringskonton) distribueras och hanteras i.
 
 I följande exempel skapas en resursgrupp med namnet `myResourceGroup`.  
-Om du inte använder Cloud Shell måste du först logga in med `az login`.
+Om du inte använder molnet Shell, logga in först använda `az login`.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
@@ -56,7 +54,7 @@ az group create --name myResourceGroup --location westeurope
 
 I funktioner används ett Azure Storage-konto till att lagra status och annan information om dina funktioner. Skapa ett lagringskonto i resursgruppen du skapade med hjälp av kommandot [az storage account create](/cli/azure/storage/account#create).
 
-I följande kommando infogar du ditt globalt unika lagringskontonamn istället för platshållaren `<storage_name>`. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
+Ersätta en globalt unik lagringskontonamnet där du ser i följande kommando i `<storage_name>` platshållare. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
@@ -86,7 +84,7 @@ När lagringskontot har skapats visas information som liknar följande exempel i
 
 Du måste ha en funktionsapp som värd för körning av dina funktioner. Funktionsappen är en miljö för serverfri körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#create). 
 
-I följande kommando infogar du ditt unika funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. 
+Ersätt namnet på appen en unik funktion där du ser i följande kommando i `<app_name>` platshållare och lagringskontot namn för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. 
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
@@ -125,7 +123,7 @@ az functionapp deployment source config --name <app_name> --resource-group myRes
 --repo-url https://github.com/Azure-Samples/functions-quickstart \
 --manual-integration 
 ```
-När distributionskällan har angetts visas information som liknar följande exempel i Azure CLI (nullvärden är borttagna för att öka läsbarheten):
+När distributionskälla har angetts, visar Azure CLI information liknar följande exempel (null-värden bort för att läsa):
 
 ```json
 {
@@ -170,4 +168,3 @@ Skriv `y` när du uppmanas till detta.
 ## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

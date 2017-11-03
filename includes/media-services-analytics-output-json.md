@@ -12,7 +12,7 @@ Utdata JSON innehåller följande attribut:
 | fragment |Metadata är chunked upp till olika segment som kallas fragment. Varje avsnitt innehåller en start, varaktighet, antalet och händelse(r). |
 | start |Starttiden för den första händelsen i 'tick'. |
 | Varaktighet |Längden på ett fragment, i ”tick”. |
-| intervall |Tidsintervall inom varje händelsepost i avsnittet i ”tick”. |
+| interval |Tidsintervall inom varje händelsepost i avsnittet i ”tick”. |
 | evenemang |Varje händelse innehåller ytor identifieras och spåras inom den varaktigheten. Det är en matris med matris av händelser. Yttre matrisen representerar ett tidsintervall. Den interna matrisen består av 0 eller fler händelser som skedde vid den punkten i tid. En tom hakparentes [] innebär att inga ytor upptäcktes. |
 | id |ID för de står inför som spåras. Det här antalet kan oavsiktligt ändra om ett ansikte blir oupptäckt. En viss person ska ha samma ID i hela övergripande video, men det går inte att garantera på grund av begränsningar i identifieringsalgoritm (är spärrat, etc.) |
 | x, y |Det övre vänstra hörnet X och Y-koordinaterna för de står inför angränsande ruta i en normaliserade skala av 0,0 till 1,0. <br/>-X och Y koordinater är relativa till liggande alltid, så om du har en stående video (eller upp och ned, när det gäller iOS), måste du därför transponera koordinaterna. |

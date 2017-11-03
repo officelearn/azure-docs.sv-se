@@ -1,4 +1,4 @@
 |  |
 |--|
-|Managed Service Identity (MSI) is currently a preview feature of Azure Active Directory and is for evaluation purposes only. MSI is deploying to regions globally and may take time to appear in your region. Make sure you review the [known issues](/azure/active-directory/msi-known-issues) before you begin. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|Hanterad tjänstidentitet är en funktion i förhandsversionen av Azure Active Directory.  Kontrollera att du läser den [kända problem](/azure/active-directory/msi-known-issues) innan du börjar. Läs mer om förhandsgranskningar [kompletterande användningsvillkor för Microsoft Azure-förhandsgranskningar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |  |

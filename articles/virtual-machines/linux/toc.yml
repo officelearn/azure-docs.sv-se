@@ -63,6 +63,27 @@
       href: regions-and-availability.md
     - name: VM-typer och storlekar
       href: sizes.md
+      items:
+        - name: Generellt syfte
+          href: sizes-general.md
+          items:
+            - name: Anpassningsbara B-serien
+              href: b-series-burstable.md
+        - name: Beräkningsoptimerad
+          href: sizes-compute.md
+        - name: Minnesoptimerad
+          href: sizes-memory.md
+        - name: Lagringsoptimerad
+          href: sizes-storage.md
+        - name: GPU-optimerad
+          href: sizes-gpu.md
+          items:
+            - name: Konfigurera GPU-drivrutiner
+              href: n-series-driver-setup.md
+        - name: Databehandling med höga prestanda
+          href: sizes-hpc.md
+        - name: Azure-beräkningsenheter (ACU)
+          href: sizes-general.md
     - name: Godkända distributioner
       href: endorsed-distros.md
     - name: Underhåll och uppdateringar

@@ -24,10 +24,16 @@
     - name: Hanteringsprincip
       href: azure-stack-servicing-policy.md
     - name: Viktig information
-      href: azure-stack-asdk-release-notes.md
+      items:
+        - name: Development kit viktig information
+          href: azure-stack-asdk-release-notes.md
+        - name: Integrerat system viktig information
+          items:
+            - name: 1710 uppdatering
+              href: azure-stack-update-1710.md
     - name: Huvudfunktioner och koncept
       href: azure-stack-key-features.md
-    - name: Azure Stack Development Kit-arkitektur
+    - name: Development kit arkitektur
       href: azure-stack-architecture.md
     - name: Grundläggande om administration
       href: azure-stack-manage-basics.md
@@ -39,6 +45,8 @@
           href: azure-stack-deploy.md
         - name: Distribuera
           href: azure-stack-run-powershell-script.md
+        - name: Installera PowerShell
+          href: azure-stack-powershell-configure-quickstart.md
         - name: Registrera dig
           href: azure-stack-register.md
         - name: Anslut till Azure Stack
@@ -49,10 +57,14 @@
           href: azure-stack-provision-vm.md
     - name: Datacenter-integrering
       items:
-        - name: Integrera DNS
+        - name: DNS
           href: azure-stack-integrate-dns.md
+        - name: Identitet
+          href: azure-stack-integrate-identity.md
         - name: Publicera slutpunkter
           href: azure-stack-integrate-endpoints.md
+        - name: Säkerhet
+          href: azure-stack-integrate-security.md
     - name: Hantera
       items:
         - name: Regionshantering
@@ -81,6 +93,8 @@
               href: azure-stack-updates.md
             - name: Tillämpa uppdateringar
               href: azure-stack-apply-updates.md
+            - name: Övervakaren uppdateringsstatus
+              href: azure-stack-monitor-update.md
         - name: Övervaka hälsotillstånd och aviseringar
           href: azure-stack-monitor-health.md
         - name: Hantera nätverksresurser
@@ -91,8 +105,14 @@
           href: azure-stack-manage-windows-azure-pack.md
         - name: Ersätta maskinvara
           items:
+            - name: Noden åtgärder
+              href: azure-stack-node-actions.md
+            - name: Ersätta nod
+              href: azure-stack-replace-node.md
             - name: Ersätta disk
               href: azure-stack-replace-disk.md
+            - name: Ersätt komponent
+              href: azure-stack-replace-component.md
     - name: 'Säkerhet, efterlevnad och identitet'
       items:
         - name: Säkerhetsöversikt
@@ -135,10 +155,16 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: Distribuera SQL-resursprovider
               href: azure-stack-sql-resource-provider-deploy.md
+            - name: Skapa SQL-databaser
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: Lägg till värdservrar
+              href: azure-stack-sql-resource-provider-hosting-servers.md
         - name: Erbjudande om App Service som PaaS
           items:
             - name: Översikt över App Service på Azure Stack
               href: azure-stack-app-service-overview.md
+            - name: Kapacitetsplanering
+              href: azure-stack-app-service-capacity-planning.md
             - name: Innan du börjar
               href: azure-stack-app-service-before-you-get-started.md
             - name: Distribuera App Service-resursprovider

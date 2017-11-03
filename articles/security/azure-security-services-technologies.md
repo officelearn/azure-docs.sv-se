@@ -1,0 +1,74 @@
+---
+title: "Säkerheten i Azure-tjänster och teknik | Microsoft Docs"
+description: "Artikeln innehåller en granskad lista över Azure-säkerhet tjänster och teknik."
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
+ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/02/2016
+ms.author: yurid
+ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
+---
+# <a name="azure-security-services-and-technologies"></a>Säkerheten i Azure-tjänster och teknik
+I vår diskussioner med aktuella och framtida Azure-kunder uppmanas vi ofta ”har du en lista över alla relaterade tjänster och teknik som Azure har att erbjuda”?
+
+Vi förstår att när du utvärderar cloud service provider tekniska alternativen är det bra att ha en sådan lista kan användas för att sätta igång ned djupare när tiden är rätt för dig.
+
+Följande är vårt första arbete med att tillhandahålla en lista. Över tiden, den här listan ändrar och växer, precis som Azure. Kategoriseras i listan och listan över kategorier kommer också att växa med tiden. Se till att markera den här sidan med jämna mellanrum att hålla dig uppdaterad på vår säkerhetsrelaterade tjänster och teknik.
+
+## <a name="azure-security---general"></a>Azure Security - Allmänt
+* [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)
+* [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)
+* [Azure Disk Encryption](azure-security-disk-encryption.md)
+* [Log Analytics](../log-analytics/log-analytics-overview.md)
+* [Utveckling och testning i Azure-labb](https://azure.microsoft.com/documentation/services/devtest-lab/)
+
+## <a name="azure-storage-security"></a>Azure Storage-säkerhet
+* [Azure Storage Service-kryptering](../storage/common/storage-service-encryption.md)
+* [StorSimple krypterade Hybrid lagring](https://azure.microsoft.com/documentation/services/storsimple/)
+* [Azure klientsidan kryptering](../storage/common/storage-client-side-encryption.md)
+* [Azure Storage signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Azure Lagringskontonycklar](../storage/common/storage-create-storage-account.md)
+* [Azure-filresurser med SMB 3.0-kryptering](../storage/files/storage-dotnet-how-to-use-files.md)
+* [Azure Storage Analytics](https://msdn.microsoft.com/library/hh343270.aspx)
+
+## <a name="azure-database-security"></a>Azure Database-säkerhet
+* [Azure SQL-brandvägg](../sql-database/sql-database-firewall-configure.md)
+* [Azure SQL Cell kryptering](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
+* [Kryptering för Azure SQL-anslutning](../sql-database/sql-database-control-access.md)
+* [Azure SQL-autentisering](../sql-database/sql-database-control-access.md)
+* [Azure SQL alltid kryptering](https://msdn.microsoft.com/library/mt163865.aspx)
+* [Kryptering på Azure SQL kolumn](https://msdn.microsoft.com/library/ms179331.aspx)
+* [Azure SQL Transparent datakryptering](https://msdn.microsoft.com/library/dn948096.aspx)
+* [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)
+
+## <a name="azure-identity-and-access-management"></a>Azure identitets- och åtkomsthantering
+* [Azure rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory](../active-directory/active-directory-whatis.md)
+* [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
+* [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)
+* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+
+## <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och katastrofåterställning
+* [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
+* [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/)
+
+## <a name="azure-networking"></a>Azure-nätverk
+* [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md)
+* [Azure VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+* [Azure Programgateway](../application-gateway/application-gateway-introduction.md)
+* [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
+* [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
+* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
+* [Azure Application Proxy](../active-directory/active-directory-application-proxy-enable.md)

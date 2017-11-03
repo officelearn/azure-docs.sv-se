@@ -62,6 +62,12 @@
           href: msi-howto-assign-access-powershell.md
         - name: Använda Azure CLI
           href: msi-howto-assign-access-cli.md
+    - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Data Lake Store
+      items:
+        - name: Från en virtuell Windows-dator
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: Från en virtuell Linux-dator
+          href: msi-tutorial-linux-vm-access-datalake.md
     - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Resource Manager
       items:
         - name: Från en virtuell Windows-dator

@@ -43,7 +43,7 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Geo-replikering för Container Registry</a>
+          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry med geo-replikering (förhandsversion)</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry med Azure Container Instances</a>
           - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Container Registry med Azure Container Service</a>
           - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry med Service Fabric</a>

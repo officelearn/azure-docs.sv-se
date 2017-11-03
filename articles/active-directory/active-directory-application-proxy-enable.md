@@ -1,94 +1,108 @@
 ---
-title: Aktivera Azure AD Application Proxy | Microsoft Docs
-description: "Aktivera Azure AD Application Proxy på den klassiska Azure-portalen och installera anslutningsverktyget för den omvända proxyn."
+title: "Azure AD App Proxy - börja installera connector | Microsoft Docs"
+description: "Aktivera Application Proxy på Azure-portalen och installera anslutningsverktyget för omvänd proxy."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
-editor: 
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 07/19/2016
-ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 45ecd5b16b874dcf0ddf16c58f6d9dea6f4afb00
-
-
+ms.topic: article
+ms.date: 10/02/2017
+ms.author: billmath
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.openlocfilehash: 3b0a3e315ecd98565a852b3a8190d78ccdefe42d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-application-proxy-in-the-azure-portal"></a>Aktivera Application Proxy på Azure-portalen
+# <a name="get-started-with-application-proxy-and-install-the-connector"></a>Kom igång med Application Proxy och installera connector
 I den här artikeln beskrivs steg för steg hur du aktiverar Microsoft Azure AD Application Proxy för din molnkatalog i Azure AD.
 
-Mer information om hur Application Proxy kan hjälpa dig finns i [Konfigurera säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md).
+Om du inte är medveten om säkerhet och produktivitet fördelarna Application Proxy ger för din organisation, lär du dig mer om [ge säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md).
 
 ## <a name="application-proxy-prerequisites"></a>Krav för Application Proxy
 Innan du kan aktivera och använda Application Proxy-tjänster behöver du:
 
 * En [Basic- eller Premium-prenumeration på Microsoft Azure AD](active-directory-editions.md) och en Azure AD-katalog som du är en global administratör för.
-* En server som kör Windows Server 2012 R2 eller Windows 8.1 eller senare, som du kan installera Application Proxy Connector på. Servern skickar förfrågningar till Application Proxy-tjänsterna i molnet och behöver en HTTP- eller HTTPS-anslutning till de program som du publicerar.
-  
-  * När det gäller enkel inloggning till dina publicerade program ska den här datorn vara domänansluten i samma AD-domän som de program som du publicerar.
-* Om det finns en brandvägg i sökvägen måste du se till att den är öppen så att anslutningsappen kan göra HTTPS-förfrågningar (TCP) till programproxyn. Anslutningsappen använder dessa portar tillsammans med underdomäner som ingår i högnivådomänerna msappproxy.net och servicebus.windows.net. Öppna följande portar för **utgående** trafik:
-  
-  | Portnummer | Beskrivning |
-  | --- | --- |
-  | 80 |Aktivera utgående HTTP-trafik för säkerhetsverifiering. |
-  | 443 |Aktivera användarautentisering mot Azure AD (krävs endast för registreringen av anslutningsappen) |
-  | 10100–10120 |Aktivera LOB-HTTP-svar som skickats tillbaka till proxyn |
-  | 9352, 5671 |Aktivera kommunikationen mellan anslutningsappen och Azure-tjänsten vid inkommande förfrågningar. |
-  | 9350 |För att förbättra prestanda vid inkommande förfrågningar (valfritt) |
-  | 8080 |Aktivera startsekvensen och den automatiska uppdateringen av anslutningsappen |
-  | 9090 |Aktivera registreringen av anslutningsappen (krävs endast för registreringsprocessen för anslutningsappen) |
-  | 9091 |Aktivera automatisk förnyelse av anslutningsappens förtroendecertifikat |
-  
-    Om brandväggstrafiken hanteras baserat på användarna som genererar den öppnar du dessa portar för trafik som kommer från Windows-tjänster som körs som en nätverkstjänst. Aktivera även port 8080 för NT Authority\System.
-* Om din organisation använder proxyservrar för att ansluta till Internet kan du ta en titt på blogginlägget [Arbeta med befintliga lokala proxyservrar](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/). Där hittar du mer information om hur du konfigurerar dem.
+* En server som kör Windows Server 2012 R2 eller 2016, där du kan installera Application Proxy Connector. Servern behöver för att kunna ansluta till Application Proxy-tjänster i molnet och lokala program som du publicerar.
+  * För enkel inloggning till ditt publicerade program med hjälp av Kerberos-begränsad delegering, måste den här datorn vara ansluten till domänen i samma AD-domän som de program som du publicerar. Mer information finns i [KCD för enkel inloggning med Application Proxy](active-directory-application-proxy-sso-using-kcd.md).
 
-## <a name="step-1-enable-application-proxy-in-azure-ad"></a>Steg 1: Aktivera Application Proxy i Azure AD
-1. Logga in som administratör på [den klassiska Azure-portalen](https://manage.windowsazure.com/).
-2. Gå till Active Directory och välj den katalog som du vill aktivera Application Proxy i.
-   
-    ![Active Directory – ikon](./media/active-directory-application-proxy-enable/ad_icon.png)
-3. Välj **Konfigurera** på katalogsidan och rulla ned till **Webbprogramproxy**.
-4. Ändra **Aktivera programproxytjänster för den här katalogen** till **Aktiverad**.
-   
-    ![Aktivera Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
-5. Välj **Hämta nu**. **Nedladdningssidan för Azure AD Application Proxy Connector** öppnas. Läs och godkänn licensvillkoren och spara Windows Installer-filen (.exe) för anslutningsappen genom att klicka på **Ladda ned**.
+Om din organisation använder proxyservrar för att ansluta till internet, kan du läsa [fungerar med befintliga lokala proxyservrar](application-proxy-working-with-proxy-servers.md) mer information om hur du konfigurerar dem innan du börjar med Application Proxy.
 
-## <a name="step-2-install-and-register-the-connector"></a>Steg 2: Installera och registrera anslutningsverktyget
-1. Kör **AADApplicationProxyConnectorInstaller.exe** på den server som du har förberett och som uppfyller kraven.
-2. Följ installationsanvisningarna i guiden.
-3. Under installationen uppmanas du att registrera anslutningsappen med din Azure AD-klients programproxy.
-   
+## <a name="open-your-ports"></a>Öppna portar
+
+För att förbereda din miljö för Azure AD Application Proxy, måste du först aktivera kommunikation till Azure-datacenter. Om det finns en brandvägg i sökvägen måste du se till att den är öppen så att anslutningsappen kan göra HTTPS-förfrågningar (TCP) till programproxyn.
+
+1. Öppna följande portar till **utgående** trafik:
+
+   | Portnummer | Hur den används |
+   | --- | --- |
+   | 80 | Hämta certifikatåterkallning listor över återkallade vid verifiering av SSL-certifikatet |
+   | 443 | All utgående kommunikation med tjänsten Application Proxy |
+
+   Om brandväggen tillämpar trafik enligt ursprung användare, kan du öppna dessa portar för trafik från Windows-tjänster som körs som Nätverkstjänst.
+
+   > [!IMPORTANT]
+   > Tabellen visar portkrav för koppling versioner 1.5.132.0 och senare. Om du fortfarande har en äldre version av koppling, du måste också aktivera följande portar förutom 80 och 443: 5671 8080 9090 9091 9350 9352 10100 – 10120.
+   >
+   >Information om hur du uppdaterar din kopplingar till den senaste versionen finns [förstå Azure AD Application Proxy kopplingar](application-proxy-understand-connectors.md#automatic-updates).
+
+2. Om din brandvägg eller proxyserver kan vitlistning av DNS kan du godkända anslutningar till msappproxy.net och servicebus.windows.net. Om inte, måste du tillåta åtkomst till den [Azure DataCenter-IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka.
+
+3. Microsoft använder fyra adresser för att verifiera certifikat. Tillåt åtkomst till följande URL-adresser om du inte gjort det för andra produkter:
+   * mscrl.microsoft.com:80
+   * CRL.microsoft.com:80
+   * OCSP.msocsp.com:80
+   * www.microsoft.com:80
+
+4. Din anslutningstjänst behöver åtkomst till login.windows.net och login.microsoftonline.com för registreringen.
+
+5. Använd den [Azure AD Application Proxy Connector portar Test Tool](https://aadap-portcheck.connectorporttest.msappproxy.net/) att verifiera att din connector kan nå tjänsten Application Proxy. Kontrollera att den centrala USA och region som är närmast dig har alla gröna bockmarkeringarna minimum. Utöver det kan innebär mer gröna bockmarkeringarna större flexibilitet.
+
+## <a name="install-and-register-a-connector"></a>Installera och registrera en koppling
+1. Logga in som administratör i den [Azure-portalen](https://portal.azure.com/).
+2. Den aktuella katalogen visas under ditt användarnamn i det övre högra hörnet. Om du behöver ändra kataloger väljer du ikonen.
+3. Gå till **Azure Active Directory** > **programproxy**.
+
+   ![Navigera till Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_navigate.png)
+
+4. Välj **hämta Connector**.
+
+   ![Hämta Connector](./media/active-directory-application-proxy-enable/download_connector.png)
+
+5. Kör **AADApplicationProxyConnectorInstaller.exe** på den server som du har förberett och som uppfyller kraven.
+6. Följ installationsanvisningarna i guiden. Under installationen uppmanas du att registrera anslutningsverktyget med programproxyn för din Azure AD-klient.
+
    * Ange dina autentiseringsuppgifter som global Azure AD-administratör. Autentiseringsuppgifterna för klienten som du är global administratör för kan skilja sig från dina Microsoft Azure-autentiseringsuppgifter.
    * Se till att den administratör som registrerar anslutningsappen finns i samma katalog där du har aktiverat programproxytjänsten. Om klientdomänen exempelvis är contoso.com ska administratören vara admin@contoso.com eller något annat alias på den domänen.
-   * Om **Förbättrad säkerhetskonfiguration i Internet Explorer** har inställningen **På** på den server där du installerar anslutningsappen så kan registreringsskärmen blockeras. Tillåt åtkomst genom att följa anvisningarna i felmeddelandet. Kontrollera att Förbättrad säkerhetskonfiguration i Internet Explorer är inaktiverat.
-   * Om registreringen av anslutningsappen inte lyckas så gå till [Felsöka programproxyn](active-directory-application-proxy-troubleshoot.md).  
-4. När installationen är klar läggs två nya tjänster till på servern:
-   
+   * Om **Förbättrad säkerhetskonfiguration** är inställd på **på** på servern där du installerar anslutningen, kanske inte visas registreringsskärmen. Följ instruktionerna i felmeddelandet för att få åtkomst. Kontrollera att Förbättrad säkerhetskonfiguration i Internet Explorer är inaktiverat.
+
+Om du vill upprätthålla hög tillgänglighet bör du distribuera minst två anslutningsappar. Varje anslutningsapp måste registreras separat.
+
+## <a name="test-that-the-connector-installed-correctly"></a>Kontrollera att anslutningen har installerats
+
+Du kan bekräfta att en ny koppling installerats korrekt genom att söka efter den antingen i Azure-portalen eller på servern. 
+
+Logga in på Azure-portalen på din klient och gå till **Azure Active Directory** > **Application Proxy**. Alla kopplingar och connector grupper visas på den här sidan. Välj en koppling för att visa information eller flytta den till en annan koppling grupp. 
+
+Kontrollera listan över aktiva tjänster för anslutningen och connector updater på servern. De två tjänsterna ska börja köras omedelbart, men om inte, aktivera dem: 
+
    * **Microsoft AAD Application Proxy Connector** upprättar anslutningarna.
-     
-     * **Microsoft AAD Application Proxy Connector Updater** är en tjänst för automatiska uppdateringar som med jämna mellanrum söker efter nya versioner av anslutningsappen och uppdaterar den när det behövs.
-     
-     ![Application Proxy Connector-tjänster – skärmbild](./media/active-directory-application-proxy-enable/app_proxy_services.png)
-5. Klicka på **Slutför** i installationsfönstret.
 
-Om du vill upprätthålla hög tillgänglighet bör du distribuera minst två anslutningsappar. Upprepa steg 2 och 3 ovan om du vill distribuera fler anslutningsappar. Varje anslutningsapp måste registreras separat.
+   * **Microsoft AAD Application Proxy Connector Updater** är en tjänst för automatiska uppdateringar. Uppdateringsfilen söker efter nya versioner av anslutningsverktyget och uppdaterar det efter behov.
 
-Om du vill avinstallera anslutningsappen måste du avinstallera både anslutnings- och uppdateringstjänsten. Ta bort tjänsten helt och hållet genom att starta om datorn.
+   ![Application Proxy Connector-tjänster – skärmbild](./media/active-directory-application-proxy-enable/app_proxy_services.png)
+
+Information om kopplingar och hur de hålls uppdaterad finns [förstå Azure AD Application Proxy kopplingar](application-proxy-understand-connectors.md).
+
 
 ## <a name="next-steps"></a>Nästa steg
-Nu kan du börja [publicera program med Application Proxy](active-directory-application-proxy-publish.md).
+Nu kan du börja [publicera program med Application Proxy](application-proxy-publish-azure-portal.md).
 
-Om du har program som finns på olika nätverk eller olika platser kan du använda anslutningsgrupper för att organisera olika anslutningar i logiska enheter. Läs mer i [Arbeta med programproxyanslutningar](active-directory-application-proxy-connectors.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-
+Om du har program som finns i separata nätverk eller olika platser kan du använda anslutningstjänsten grupper för att organisera olika kopplingar i logiska enheter. Läs mer i [Arbeta med programproxyanslutningar](active-directory-application-proxy-connectors-azure-portal.md).

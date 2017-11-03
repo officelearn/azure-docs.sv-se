@@ -1,12 +1,12 @@
-## <a name="display-the-azure-explorer-view"></a>Display the Azure Explorer view
+## <a name="display-the-azure-explorer-view"></a>Visa vyn Azure Explorer
 
-If the **Azure Explorer** view is not visible in Eclipse, display it by doing the following:
+Om den **Azure Explorer** vyn visas inte i Eclipse, visa genom att göra följande:
 
-1. Click **Window**, click **Show View**, and then click **Other**.
+1. Klicka på **fönstret**, klickar du på **visa**, och klicka sedan på **andra**.
 
-   ![Show View command](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
+   ![Visa vyn kommando](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-01.png)
 
-2. In the **Show View** dialog box, select **Azure Explorer**, and then click **OK**.
+2. I den **visa** dialogrutan **Azure Explorer**, och klicka sedan på **OK**.
 
-   ![Show View dialog box](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
+   ![Visa dialogrutan vy](./media/azure-toolkit-for-eclipse-show-azure-explorer/show-az-exp-02.png)
 

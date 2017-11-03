@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 6c9a50c1f3dcd55cd03a694c7d4e13b8a55c3cd4
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: fdd83f2386055fa9fac1ad50f4b01bf4419342b5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/16/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Skapa en virtuell Linux-dator med PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här guiden beskriver hur man använder Azure PowerShell-modul för att distribuera en virtuell dator som kör Ubuntu-servern. När servern har distribuerats skapas en SSH-anslutning och en NGINX-webbserver installeras.
@@ -33,6 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 Slutligen måste du ha en offentlig SSH-nyckel med namnet *id_rsa.pub* i katalogen *.ssh* i din Windows-användarprofil. Mer detaljerad information om hur du skapar SSH-nycklar för Azure finns i [Create SSH keys for Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Skapa SSH-nycklar för Azure).
+
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -140,16 +139,14 @@ När du får en uppmaning är *azureuser* användarnamnet för inloggningen. Om 
 
 ## <a name="install-nginx"></a>Installera NGINX
 
-Använd följande bash-skript för att uppdatera paketkällor och installera det senaste NGINX-paketet. 
+Använd följande kommandon för att uppdatera paketet källor och installera det senaste NGINX-paketet. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## <a name="view-the-ngix-welcome-page"></a>Visa NGIX-välkomstsidan
@@ -172,4 +169,3 @@ I den här snabbstarten har du distribuerat en virtuell dator och en regel för 
 
 > [!div class="nextstepaction"]
 > [Självstudier om virtuella Azure Linux-datorer](./tutorial-manage-vm.md)
-

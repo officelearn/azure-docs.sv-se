@@ -1,22 +1,22 @@
 <!--author=alkohli last changed: 08/29/17-->
 
-## <a name="troubleshooting-update-failures"></a>Troubleshooting update failures
-**What if you see a notification that the pre-upgrade checks have failed?**
+## <a name="troubleshooting-update-failures"></a>Felsökning av misslyckade uppdateringar
+**Vad händer om du ser en avisering om att kontrollerna före uppgradering har misslyckats?**
 
-If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page. This provides guidance as to which pre-check has failed. For instance, you receive a notification that the controller health check and hardware component health check have failed. Go to **Monitor > Hardware health**. You need to make sure that both controllers are healthy and online. You also need to make sure that all the hardware components in the StorSimple device are shown to be healthy in this blade. You can then try to install updates. If you are not able to fix the hardware component issues, then you will need to contact Microsoft Support for next steps.
+Om en förkontroll misslyckas kontrollerar du att du har tittat i det detaljerade meddelandefältet längst ned på sidan. Detta ger vägledning om vilken förkontroll som misslyckades. Exempelvis kan du få ett meddelande som domänkontrollant hälsokontrollen och maskinvara komponenten hälsokontroll har misslyckats. Gå till **övervakaren > maskinvara hälsa**. Du måste se till att både domänkontrollanter är felfri och online. Du måste också se till att alla maskinvarukomponenter i StorSimple-enhet visas vara felfria i det här bladet. Du kan sedan försöka installera uppdateringarna. Om du inte kan åtgärda problemen med maskinvarukomponenterna måste du kontakta Microsoft Support angående nästa steg.
 
-**What if you receive a "Could not install updates" error message, and the recommendation is to refer to the update troubleshooting guide to determine the cause of the failure?**
+**Vad händer om du ser felmeddelandet "Could not install updates" (Det gick inte att installera uppdateringarna), och rekommendationen är att läsa felsökningsguiden för uppdateringen för att fastställa orsaken till felet?**
 
-One likely cause for this could be that you do not have connectivity to the Microsoft Update servers. This is a manual check that needs to be performed. If you lose connectivity to the update server, your update job would fail. You can check the connectivity by running the following cmdlet from the Windows PowerShell interface of your StorSimple device:
+En trolig orsak till detta är att du inte har någon anslutning till Microsoft Update-servrarna. Det här är en manuell kontroll som behöver göras. Om du förlorar anslutningen till uppdateringsservern misslyckas uppdateringen. Du kan kontrollera anslutningen genom att köra följande cmdlet från Windows PowerShell-gränssnittet för StorSimple-enheten:
 
  `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
 
-Run the cmdlet on both controllers.
+Kör cmdlet:en på båda styrenheterna.
 
-If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.
+Om du har verifierat att anslutningen finns och du fortsätter att se det här problemet kontaktar du Microsoft Support angående nästa steg.
 
-**What if you see an update failure when updating your device to Update 4 and both the controllers are running Update 4?**
+**Vad händer om du ser ett uppdateringsfel när du uppdaterar enheten till uppdatering 4 och båda styrenheterna kör uppdatering 4?**
 
-Starting Update 4, if both the controllers are running the same software version and if there is an update failure, the controllers do not go into recovery mode. This situation can arise if the device software hotfix (1st order update) is applied to both the controllers successfully but other hotfixes (2nd order and 3rd order) are yet to be applied. Starting Update 4, the controllers will go into recovery mode only if the two controllers are running different software versions. 
+Om båda styrenheterna kör samma programvaruversion och om det finns ett uppdateringsfel när uppdatering 4 startas försätts inte styrenheterna i återställningsläge. Den här situationen kan uppstå om snabbkorrigeringarna i enhetens programvara (1:a ordningen) tillämpas på båda styrenheterna, men andra snabbkorrigeringar (2:a och 3:e ordningen) ännu inte har tillämpats. När uppdatering 4 startar försätts styrenheterna i återställningsläge endast om de två styrenheterna kör olika programvaruversioner. 
 
-If the user sees an update failure when both controllers are running Update 4, we recommend that they wait a few minutes and then retry updating. If the retry does not succeed, then they should contact Microsoft Support.
+Om användaren ser ett uppdateringsfel när båda styrenheterna kör uppdatering 4 rekommenderar vi att du väntar i några minuter och sedan försöker uppdatera igen. Om åtgärden misslyckas bör de kontakta Microsoft Support.

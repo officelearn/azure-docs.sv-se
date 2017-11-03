@@ -1,12 +1,12 @@
-For more information about the Azure toolkits for Java IDEs, see the following links:
+Mer information om Azure verktyg för Java IDEs finns i följande länkar:
 
-* [Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse)
-  * [What's new in the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-whats-new)
-  * [Installing the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-installation)
-  * [Sign-in instructions for the Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-sign-in-instructions)
-* [Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij)
-  * [What's new in the Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-whats-new)
-  * [Installing the Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-installation)
-  * [Sign-in instructions for the Azure Toolkit for IntelliJ](/azure/azure-toolkit-for-intellij-sign-in-instructions)
+* [Azure Toolkit för Eclipse](/azure/azure-toolkit-for-eclipse)
+  * [Vad är nytt i Azure-verktygen för Eclipse](/azure/azure-toolkit-for-eclipse-whats-new)
+  * [Installera Azure Toolkit för Eclipse](/azure/azure-toolkit-for-eclipse-installation)
+  * [Logga in-instruktioner för Azure-verktygen för Eclipse](/azure/azure-toolkit-for-eclipse-sign-in-instructions)
+* [Azure Toolkit för IntelliJ](/azure/azure-toolkit-for-intellij)
+  * [Vad är nytt i Azure-verktygen för IntelliJ](/azure/azure-toolkit-for-intellij-whats-new)
+  * [Installera Azure Toolkit för IntelliJ](/azure/azure-toolkit-for-intellij-installation)
+  * [Logga in instruktioner för Azure-Toolkit för IntelliJ](/azure/azure-toolkit-for-intellij-sign-in-instructions)
 
-For more information about using Java with Azure, see the [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) and the [Java Tools for Visual Studio Team Services](https://java.visualstudio.com/).
+Mer information om hur du använder Java med Azure finns i [Azure Java Developer Center](https://azure.microsoft.com/develop/java/) och [Java-verktyg för Visual Studio Team Services](https://java.visualstudio.com/).

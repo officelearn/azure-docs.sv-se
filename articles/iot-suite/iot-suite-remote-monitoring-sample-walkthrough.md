@@ -1,6 +1,6 @@
 ---
-title: "Genomgång av den förkonfigurerade lösningen för fjärrövervakning | Microsoft Docs"
-description: "En beskrivning av den förkonfigurerade fjärrövervakningslösningen i Azure IoT och dess arkitektur."
+title: "Arkitektur för fjärranslutna övervakningslösning - Azure | Microsoft Docs"
+description: "En genomgång av arkitekturen för fjärråtkomst övervakning förkonfigurerade lösningen."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -10,275 +10,136 @@ editor:
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen för fjärrövervakning
+# <a name="remote-monitoring-preconfigured-solution-architecture"></a>Fjärrövervaknings förkonfigurerade lösningsarkitektur
 
-Den [förkonfigurerade fjärrövervakningslösningen][lnk-preconfigured-solutions] i IoT Suite är en implementering av en övervakningslösning från slutpunkt till slutpunkt för flera datorer som körs på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som startpunkt för en egen implementering och [anpassa][lnk-customize] den efter dina egna affärsbehov.
+IoT Suite fjärråtkomst övervakning [förkonfigurerade lösningen](iot-suite-what-are-preconfigured-solutions.md) implementerar en övervakningslösning för slutpunkt till slutpunkt för flera datorer på fjärrplatser. I lösningen kombineras viktiga Azure-tjänster till en allmän implementering av affärsscenariot. Du kan använda lösningen som en startpunkt för din egen implementering och [anpassa](iot-suite-remote-monitoring-customize.md) att uppfylla dina egna specifika affärsbehov.
 
 Den här artikeln beskriver några av de viktigaste elementen i fjärrövervakningslösningen så att du förstår hur den fungerar. Med den här kunskapen kan du sedan:
 
 * Felsöka problem i lösningen.
-* Planera hur lösningen kan anpassas för att uppfylla dina behov. 
+* Planera hur lösningen kan anpassas för att uppfylla dina behov.
 * Utforma en egen IoT-lösning som använder Azure-tjänster.
 
 ## <a name="logical-architecture"></a>Logisk arkitektur
 
-Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade lösningen:
+Diagrammet nedan visar logiska komponenterna i den fjärranslutna förkonfigurerade övervakningslösning högst upp på den [IoT-arkitekturen](iot-suite-what-is-azure-iot.md):
 
 ![Logisk arkitektur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## <a name="simulated-devices"></a>Simulerade enheter
+## <a name="why-microservices"></a>Varför mikrotjänster?
 
-I den förkonfigurerade lösningen representerar den simulerade enheten en kylningsenhet (till exempel en ventilations- eller luftkonditioneringsapparat i en byggnad eller lokal). När du distribuerar den förkonfigurerade lösningen etablerar du också automatiskt fyra simulerade enheter som körs i ett [Azure-webbjobb][lnk-webjobs]. De simulerade enheterna gör det enkelt att utforska lösningens beteende utan att du behöver distribuera några fysiska enheter. Om du vill distribuera en riktig fysisk enhet går du självstudiekursen [Ansluta enheten till den förkonfigurerade fjärrövervakningslösningen][lnk-connect-rm].
+Molnarkitektur har utvecklats eftersom Microsoft har publicerat de första förkonfigurerade lösningarna. [Mikrotjänster](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) har vuxit fram som en beprövad idé att uppnå skalbarhet och flexibilitet utan att kompromissa development hastighet. Flera Microsoft-tjänster använder den här arkitekturen mönster internt med bra tillförlitlighet och skalbarhet resultat. Uppdaterade förkonfigurerade lösningar placera dessa learnings i praktiken så att du kan också dra nytta av dem.
 
-### <a name="device-to-cloud-messages"></a>Meddelanden från enheten till molnet
+> [!TIP]
+> Läs mer om mikrotjänster arkitekturer i [.NET programarkitektur](https://www.microsoft.com/net/learn/architecture) och [Mikrotjänster: ett program revolution drivs av molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
-Varje simulerad enhet kan skicka följande typer av meddelanden till IoT Hub:
+## <a name="device-connectivity"></a>Enhetsanslutning
 
-| Meddelande | Beskrivning |
-| --- | --- |
-| Start |När enheten startas skickar den ett **enhetsinformationsmeddelande** som innehåller information om enheten till backend-servern. Den här informationen är bland annat enhets-ID:t och en lista med kommandon och metoder som enheten har stöd för. |
-| Närvaro |En enhet skickar regelbundet ett **närvaromeddelande** för att rapportera om den kan känna av närvaron av en sensor. |
-| Telemetri |En enhet skickar regelbundet ett **telemetrimeddelande** för att rapporterar simulerade värden för temperaturen och fuktigheten som samlats in från enhetens simulerade sensorer. |
+Lösningen innehåller följande komponenter i enheten anslutning en del av logisk arkitektur:
 
-> [!NOTE]
-> Listan med kommandon som stöds av enheten lagras i en Cosmos DB-databas och inte i enhetstvillingen.
+### <a name="simulated-devices"></a>Simulerade enheter
 
-### <a name="properties-and-device-twins"></a>Egenskaper och enhetstvillingar
+Lösningen innehåller en mikrotjänster som gör det möjligt för dig att hantera en pool med simulerade enheter för att testa flödet för slutpunkt till slutpunkt i lösningen. Simulerade enheter:
 
-De simulerade enheterna skickar följande enhetsegenskaper till [tvillingen][lnk-device-twins] i IoT Hub som *rapporterade egenskaper*. Enheten skickar rapporterade egenskaper vid start och som svar på ett kommando eller en metod om att **ändra enhetens tillstånd**.
+* Generera enhet till moln telemetri.
+* Svara på metodanrop moln till enhet från IoT-hubb.
 
-| Egenskap | Syfte |
-| --- | --- |
-| Config.TelemetryInterval | Den frekvens (i sekunder) som enheten skickar telemetri med |
-| Config.TemperatureMeanValue | Anger medelvärdet för telemetrin för simulerad temperatur |
-| Device.DeviceID |Ett ID som antingen anges eller tilldelas när en enhet skapas i lösningen |
-| Device.DeviceState | Tillståndet som rapporteras av enheten |
-| Device.CreatedTime |Tiden då enheten skapades i lösningen |
-| Device.StartupTime |Tidpunkten då enheten startades |
-| Device.LastDesiredPropertyChange |Versionsnumret för den senast önskade egenskapsändringen |
-| Device.Location.Latitude |Enhetens latitud |
-| Device.Location.Longitude |Enhetens longitud |
-| System.Manufacturer |Enhetstillverkare |
-| System.ModelNumber |Enhetens modellnummer |
-| System.SerialNumber |Enhetens serienummer |
-| System.FirmwareVersion |Aktuell version av enhetens inbyggda programvara |
-| System.Platform |Enhetens plattformsarkitektur |
-| System.Processor |Processorn som kör enheten |
-| System.InstalledRAM |Mängden RAM-minne som är installerat på enheten |
+Mikrotjänster ger en RESTful-slutpunkt som du kan skapa, starta och stoppa simulering. Varje simuleringen består av en uppsättning virtuella enheter av olika typer som skicka telemetri och svara på metodanrop.
 
-Simulatorn lägger till dessa egenskaper på simulerade enheter med exempelvärden. Varje gång simulatorn initierar en simulerad enhet rapporterar enheten fördefinierade metadata till IoT Hub som rapporterade egenskaper. Det är bara enheten som kan uppdatera rapporterade egenskaper. Om du vill ändra en rapporterad egenskap anger du den önskade egenskapen i lösningsportalen. Enheten ansvarar för följande uppgifter:
+Du kan etablera simulerade enheter från instrumentpanelen i portalen för lösningen.
 
-1. Att med jämna mellanrum hämta önskade egenskaper från IoT Hub.
-2. Att uppdatera konfigurationen med önskade egenskapsvärden.
-3. Att skicka tillbaka det nya värdet till hubben som en rapporterad egenskap.
+### <a name="physical-devices"></a>Fysiska enheter
 
-Från instrumentpanelen i lösningen kan du använda *önskade egenskaper* till att ange egenskaper för en enhet med hjälp av [enhetstvillingen][lnk-device-twins]. En enhet läser vanligtvis av ett önskat egenskapsvärde från hubben, uppdaterar det interna tillståndet och rapporterar ändringen som en rapporterad egenskap.
+Du kan ansluta fysiska enheter till lösningen. Du kan implementera beteendet för din simulerade enheter med hjälp av Azure IoT-enhet SDK: er.
 
-> [!NOTE]
-> I koden för den simulerade enheten är det bara de önskade egenskaperna **Desired.Config.TemperatureMeanValue** och **Desired.Config.TelemetryInterval** som används till att uppdatera de rapporterade egenskaper som skickas tillbaka till IoT Hub. Alla andra förfrågningar om att ändra önskade egenskaper ignoreras i den simulerade enheten.
+Du kan etablera fysiska enheter från instrumentpanelen i portalen för lösningen.
 
-### <a name="methods"></a>Metoder
+### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT-hubb och mikrotjänster för IoT-hanteraren
 
-De simulerade enheterna kan hantera följande metoder ([direkta metoder][lnk-direct-methods]) som anropas från lösningsportalen via IoT Hub:
-
-| Metod | Beskrivning |
-| --- | --- |
-| InitiateFirmwareUpdate |Anger att enheten ska uppdatera den inbyggda programvaran |
-| Starta om |Anger att enheten ska startas om |
-| FactoryReset |Anger att enheten ska fabriksåterställas |
-
-I vissa metoder används rapporterade egenskaper till att informera om förloppet. I metoden **InitiateFirmwareUpdate** simuleras till exempel att uppdateringen körs asynkront på enheten. Metoden returnerar omedelbart ett resultat på enheten medan den asynkrona uppgiften fortsätter att skicka statusuppdateringar till lösningens instrumentpanel med hjälp av rapporterade egenskaper.
-
-### <a name="commands"></a>Kommandon
-
-De simulerade enheterna kan hantera följande kommandon (meddelanden från molnet till enheten) som skickas från lösningsportalen via IoT Hub:
-
-| Kommando | Beskrivning |
-| --- | --- |
-| PingDevice |Skickar en *ping* till enheten för att kontrollera att den är aktiv |
-| StartTelemetry |Startar enheten som skickar telemetri |
-| StopTelemetry |Stoppar enheten så att den inte skickar mer telemetri |
-| ChangeSetPointTemp |Ändrar värdet för den angivna punkten som slumpmässiga data skapas kring |
-| DiagnosticTelemetry |Utlöser enhetssimulatorn för att skicka ytterligare ett telemetrivärde (externalTemp) |
-| ChangeDeviceState |Ändrar en egenskap för utökat läge för enheten och skickar meddelandet med enhetsinformation från enheten |
-
-> [!NOTE]
-> En jämförelse av dessa kommandon (meddelanden från molnet till enheten) och metoder (direkta metoder) finns i artikeln om [kommunikation mellan moln och enheter][lnk-c2d-guidance].
-
-## <a name="iot-hub"></a>IoT Hub
-
-[IoT Hub][lnk-iothub] matar in data som skickas från enheterna till molnet och gör dem tillgängliga för ASA-jobben (Azure Stream Analytics). Varje ASA-jobb använder en separat IoT Hub-konsumentgrupp för att läsa strömmen av meddelanden från dina enheter.
+Den [IoT-hubb](../iot-hub/index.md) en data som skickas från enheter i molnet och gör den tillgänglig för den `telemetry-agent` mikrotjänster.
 
 IoT Hub ansvarar även för följande uppgifter i lösningen:
 
-- Att underhålla ett ID-register där ID:n och autentiseringsnycklar lagras för alla enheter som har behörighet att ansluta till portalen. Du kan aktivera och inaktivera enheter via ID-registret.
-- Att skicka kommandon till dina enheter för lösningsportalens räkning.
-- Att anropa metoder på dina enheter för lösningsportalens räkning.
-- Att underhålla enhetstvillingar för alla registrerade enheter. De egenskapsvärden som rapporteras av en enhet lagras i enhetstvillingen. De önskade egenskaper som anges i lösningsportalen och som enheten ska hämta vid nästa anslutning lagras också där.
-- Att schemalägga jobb där egenskaper ska anges för flera enheter eller där metoder ska anropas på flera enheter.
+* Upprätthåller en identitetsregistret som lagrar ID och autentiseringsnycklar över alla enheter som får ansluta till portalen. Du kan aktivera och inaktivera enheter via ID-registret.
+* Att anropa metoder på dina enheter för lösningsportalens räkning.
+* Att underhålla enhetstvillingar för alla registrerade enheter. De egenskapsvärden som rapporteras av en enhet lagras i enhetstvillingen. De önskade egenskaper som anges i lösningsportalen och som enheten ska hämta vid nästa anslutning lagras också där.
+* Att schemalägga jobb där egenskaper ska anges för flera enheter eller där metoder ska anropas på flera enheter.
 
-## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+Lösningen innehåller de `iot-manager` mikrotjänster att hantera interaktioner med din IoT-hubb som:
 
-I fjärrövervakningslösningen skickar [Azure Stream Analytics][lnk-asa] (ASA) meddelanden som tas emot av IoT Hub till andra serverkomponenter för bearbetning eller lagring. Olika ASA-jobb utför specifika funktioner baserat på innehållet i meddelandena.
+* Skapa och hantera IoT-enheter.
+* Hantering av enheten twins.
+* Anropar metoder på enheter.
+* Hantering av IoT-autentiseringsuppgifter.
 
-**Jobb 1: Enhetsinformation** filtrerar meddelandena med enhetsinformation från den inkommande meddelandeströmmen och skickar dem till slutpunkten för en händelsehubb. En enhet skickar meddelanden med enhetsinformation vid starten och som svar på ett **SendDeviceInfo**-kommando. Det här jobbet använder följande frågedefinition för att identifiera **device-info**-meddelanden:
+Den här tjänsten körs även IoT-hubb frågor för att hämta enheter som hör till användardefinierade grupper.
 
-```
-SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
-```
+Mikrotjänster ger en RESTful-slutpunkt för att hantera enheter och enheter twins, anropa metoder och köra frågor för IoT-hubb.
 
-Det här jobbet skickar sina utdata till en händelsehubb för vidare bearbetning.
+## <a name="data-processing-and-analytics"></a>Databearbetning och analys
 
-**Jobb 2: Regler** utvärderar inkommande telemetrivärden för temperatur och fuktighet mot tröskelvärdena för varje enhet. Tröskelvärdena anges i regelredigeraren som finns i lösningsportalen. Varje enhet/värde-par lagras med en tidsstämpel i en blobb som Stream Analytics läser in som **referensdata**. Jobbet jämför icke-tomma värden mot det angivna tröskelvärdet för enheten. Om det överskrider ” >”-villkoret returnerar jobbet en **larmhändelse** som anger att tröskelvärdet överskridits och som visar enheten, värdet och tidstämpeln. Det här jobbet använder följande frågedefinition för att identifiera telemetrimeddelanden som ska utlösa ett larm:
+Lösningen innehåller följande komponenter i databehandling och analytics en del av logisk arkitektur:
 
-```
-WITH AlarmsData AS 
-(
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Temperature' as ReadingType,
-     Stream.Temperature as Reading,
-     Ref.Temperature as Threshold,
-     Ref.TemperatureRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+### <a name="device-telemetry"></a>Enhetstelemetrin
 
-UNION ALL
+Lösningen innehåller två mikrotjänster för att hantera enheter telemetri.
 
-SELECT
-     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-     'Humidity' as ReadingType,
-     Stream.Humidity as Reading,
-     Ref.Humidity as Threshold,
-     Ref.HumidityRuleOutput as RuleOutput,
-     Stream.EventEnqueuedUtcTime AS [Time]
-FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-WHERE
-     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
-)
+Den [telemetri-agent](https://github.com/Azure/telemetry-agent-dotnet) mikrotjänster:
 
-SELECT *
-INTO DeviceRulesMonitoring
-FROM AlarmsData
+* Lagrar telemetri i Cosmos-databasen.
+* Analyserar dataströmmen telemetri från enheter.
+* Genererar larm enligt definierade regler.
 
-SELECT *
-INTO DeviceRulesHub
-FROM AlarmsData
-```
+Larm lagras i Cosmos-databasen.
 
-Jobbet skickar sina utdata till en händelsehubb för vidare bearbetning och sparar information om varje avisering i Blob Storage där lösningsportalen kan läsa aviseringarna.
+Den `telemetry-agent` mikrotjänster kan lösningen-portalen för att läsa telemetri som skickas från enheter. Lösning portalen använder också den här tjänsten till:
 
-**Jobb 3: Telemetri** används på inkommande telemetriströmmar för enheten på två sätt. Med det första skickas alla telemetrimeddelanden från enheterna till permanent blobblagring för långsiktig lagring. Med det andra beräknas värden för genomsnittlig, minsta och högsta fuktighet under en glidande femminutersperiod. Dessa data skickas sedan till blobblagring. Lösningsportalen läser av telemetridata från Blob Storage och fyller i diagrammen. Det här jobbet använder följande frågedefinition:
+* Definiera regler för övervakning, till exempel tröskelvärden som utlöser larm
+* Hämta listan över de senaste larm.
 
-```
-WITH 
-    [StreamData]
-AS (
-    SELECT
-        *
-    FROM [IoTHubStream]
-    WHERE
-        [ObjectType] IS NULL -- Filter out device info and command responses
-) 
+Använda RESTful slutpunkten som tillhandahålls av den här mikrotjänster för att hantera telemetri, regler och larm.
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    Temperature,
-    Humidity,
-    ExternalTemperature,
-    EventProcessedUtcTime,
-    PartitionId,
-    EventEnqueuedUtcTime,
-    * 
-INTO
-    [Telemetry]
-FROM
-    [StreamData]
+### <a name="storage"></a>Lagring
 
-SELECT
-    IoTHub.ConnectionDeviceId AS DeviceId,
-    AVG (Humidity) AS [AverageHumidity],
-    MIN(Humidity) AS [MinimumHumidity],
-    MAX(Humidity) AS [MaxHumidity],
-    5.0 AS TimeframeMinutes 
-INTO
-    [TelemetrySummary]
-FROM [StreamData]
-WHERE
-    [Humidity] IS NOT NULL
-GROUP BY
-    IoTHub.ConnectionDeviceId,
-    SlidingWindow (mi, 5)
-```
+Den [lagringsadapter](https://github.com/Azure/pcs-storage-adapter-dotnet) mikrotjänster är ett kort framför den huvudsakliga storage-tjänst som används för förkonfigurerade lösningen. Det ger enkel insamling och nyckel / värde-lagring.
 
-## <a name="event-hubs"></a>Händelsehubbar
+Standarddistribution av förkonfigurerade lösningen använder Cosmos DB som dess huvudsakliga storage-tjänst.
 
-ASA-jobben för **enhetsinformation** och **regler** skickar sina data till Event Hubs för bearbetning i **händelseprocessorn** som körs i webbjobbet.
+Cosmos-DB-databasen lagrar data i den förkonfigurerade lösningen. Den **lagringsadapter** mikrotjänster fungerar som ett kort för den andra mikrotjänster i lösningen till lagringstjänster för åtkomst.
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="presentation"></a>Presentation
 
-Lösningen använder Azure-blobblagring för att bevara alla rådata och sammanfattade telemetridata från enheterna i lösningen. Portalen läser av telemetridata från Blob Storage och fyller i diagrammen. När aviseringar ska visas läser lösningsportalen av data från Blob Storage som registreras när telemetrivärden överskrider de konfigurerade tröskelvärdena. I lösningen används också Blob Storage till att registrera de tröskelvärden du anger i lösningsportalen.
+Lösningen innehåller följande komponenter i presentation-delen av logisk arkitektur:
 
-## <a name="webjobs"></a>Webbjobb
+Den [webbanvändargränssnitt är ett reagera Javascript-program](https://github.com/Azure/pcs-remote-monitoring-webui). Program:
 
-Förutom att fungera som värdar för enhetssimulatorerna fungerar WebJobs i lösningen även som värdar för **händelseprocessorn** som körs i ett Azure WebJob som hanterar svar från kommandon. Svarsmeddelanden från kommandon används för att uppdatera enhetens kommandohistorik (lagras i Cosmos DB-databasen).
+* Använder Javascript reagera endast och körs i webbläsaren.
+* Är formaterad med CSS.
+* Samverkar med offentliga Internetriktade mikrotjänster via AJAX-anrop.
 
-## <a name="cosmos-db"></a>Cosmos DB
+Användargränssnittet visar alla förkonfigurerade lösningen funktioner och samverkar med andra tjänster som:
 
-Lösningen använder en Cosmos DB-databas för att lagra information om de enheter som är anslutna till lösningen. I den här informationen ingår historiken för de kommandon som skickas till enheter från lösningsportalen och för de metoder som anropas från lösningsportalen.
+* Den [autentisering](https://github.com/Azure/pcs-auth-dotnet) mikrotjänster att skydda användardata.
+* Den [iothub manager](https://github.com/Azure/iothub-manager-dotnet) mikrotjänster att visa och hantera IoT-enheter.
 
-## <a name="solution-portal"></a>Lösningsportal
-
-Lösningsportalen är en webbapp som ingår i distributionen av den förkonfigurerade lösningen. Några viktiga sidor i lösningsportalen är instrumentpanelen och enhetslistan.
-
-### <a name="dashboard"></a>Instrumentpanel
-
-På den här sidan i webbappen används javascript-baserade PowerBI-kontroller (se [PowerBI-visuals-databasen](https://www.github.com/Microsoft/PowerBI-visuals)) till att visualisera telemetridata från enheterna. Lösningen använder ASA-telemetrijobbet för att skriva telemetridata till blobblagring.
-
-### <a name="device-list"></a>Enhetslista
-
-På den här sidan i lösningsportalen kan du göra följande:
-
-* Etablera en ny enhet. Den här åtgärden anger det unika enhets-ID:t och genererar autentiseringsnyckeln. Den skriver information om enheten till både IoT Hub-identitetsregistret och den lösningsspecifika Cosmos DB-databasen.
-* Hantera enhetsegenskaper. Den här åtgärden används för att visa befintliga egenskaper och uppdatera dem med nya egenskaper.
-* Skicka kommandon till en enhet.
-* Visa kommandohistoriken för en enhet.
-* Aktivera och inaktivera enheter.
+Den [ui-config](https://github.com/Azure/pcs-config-dotnet) mikrotjänster aktiverar användargränssnittet för att lagra och hämta konfigurationsinställningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande blogginlägg på TechNet innehåller mer information om den förkonfigurerade lösningen för fjärrövervakning:
+Om du vill utforska källa kod och utvecklare dokumentationen börjar du med en två huvudsakliga GitHub-databaser:
 
-* [IoT Suite - Under The Hood - Remote Monitoring](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
-* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [Förkonfigurerade lösning för fjärråtkomst övervakning med Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Förkonfigurerade lösning för fjärråtkomst övervakning med Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
-Läs följande artiklar om du vill fortsätta och lära dig mer om IoT Suite:
-
-* [Ansluta enheten till den förkonfigurerade fjärrövervakningslösningen][lnk-connect-rm]
-* [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions]
-
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
-[lnk-connect-rm]: iot-suite-connecting-devices.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
+Mer information om fjärråtkomst övervakning förkonfigurerade lösningen finns [anpassa förkonfigurerade lösningen](iot-suite-remote-monitoring-customize.md).

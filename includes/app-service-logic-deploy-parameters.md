@@ -1,13 +1,10 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deploy. 
+Du kan definiera parametrar för värdena som ska användas när du distribuerar mallen med Azure Resource Manager. Mallen innehåller en `parameters` avsnitt som innehåller alla parametervärden. Varje parametervärdet används av mallen för att definiera de resurser som du vill distribuera.
 
-When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.
+> [!NOTE]
+> Definiera inte parametrar för värden som aldrig ändras. Definiera parametrar endast för värden som varierar baserat på projektet som du distribuerar eller baserat på miljön där du distribuerar.
 
-We will describe each parameter in the template.
+När du definierar parametrar:
 
-### <a name="logicappname"></a>logicAppName
-The name of the logic app to create.
+* Ange de tillåtna värdena som en användare kan ange under distributionen av **allowedValues** fältet.
 
-    "logicAppName": {
-        "type": "string"
-    }
+* Om du vill tilldela värden till parametern när inga värden anges under distributionen, Använd den **defaultValue** fältet. 

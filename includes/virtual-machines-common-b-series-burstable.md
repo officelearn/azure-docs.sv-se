@@ -1,23 +1,23 @@
 
 > [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> This preview is limited to the following regions:
-> - US - West 2
-> - US - East
-> - Europe - West
-> - Asia Pacific - Southeast
+> Förhandsgranskningar görs tillgängliga för dig under förutsättning att du godkänner användningsvillkoren. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här förhandsgranskningen är begränsad till följande områden:
+> - OSS - Väst 2
+> - OSS - Öst
+> - Europa - Väst
+> - Asien/Stillahavsområdet - sydost
 
 
-The B-series VM family allows you to choose which VM size provides you the necessary base level performance for your workload, with the ability to burst CPU performance up to 100% of an Intel® Broadwell E5-2673 v4 2.3GHz, or an Intel® Haswell 2.4 GHz E5-2673 v3 processor vCPU.
+B-serien VM-familjen kan du välja vilka VM-storlek ger dig den nödvändiga basnivån prestandan för din arbetsbelastning möjligheten att burst CPU-prestanda upp till 100% av en Intel® Broadwell E5-2673 v4 2.3 GHz eller en Intel® Haswell 2,4 GHz E5-2673 v3-processor vCPU.
 
-The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, it VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
+De virtuella datorerna B-serien är idealisk för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, små databaser och utveckling och testmiljöer. Dessa arbetsbelastningar har vanligtvis burstable prestandakrav. B-serien ger dig möjligheten att köpa en VM-storlek med baslinje-prestanda och VM-instans som bygger upp krediter när den använder mindre än dess baslinjen. När den virtuella datorn har ackumulerats kredit, kan den virtuella datorn burst ovanför baslinjen med upp till 100% av vCPU när programmet kräver högre CPU-prestanda.
 
-The B-series comes in the following six VM sizes:
+B-serien finns följande sex VM-storlekar:
 
-| Size          | vCPU's | Memory: GiB | Local SSD: GiB | Base CPU Perf of VM | Max CPU Perf of VM | Credits Banked / Hour | Max Banked Credits |
+| Storlek          | Vcpu's | Minne: GiB | Lokal SSD: GiB | Grundläggande CPU-prestanda för den virtuella datorn | Högsta CPU-prestanda för den virtuella datorn | Krediter till bank / timme | Max till bank krediter |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
-| Standard_B1s  | 1      | 1           | 4              | 10%                            | 100%                      | 6                     | 144                |
-| Standard_B1ms | 1      | 2           | 4              | 20%                            | 100%                      | 12                    | 288                |
+| Standard_B1s  | 1      | 1           | 4              | 10 %                            | 100%                      | 6                     | 144                |
+| Standard_B1ms | 1      | 2           | 4              | 20 %                            | 100%                      | 12                    | 288                |
 | Standard_B2s  | 2      | 4           | 8              | 40%                            | 200%                      | 24                    | 576                |
 | Standard_B2ms | 2      | 8           | 16             | 60%                            | 200%                      | 36                    | 864                |
 | Standard_B4ms | 4      | 16          | 32             | 90%                            | 400%                      | 54                    | 1296               |
@@ -26,46 +26,46 @@ The B-series comes in the following six VM sizes:
 
 
 
-## <a name="q--a-about-this-preview"></a>Q & A about this preview
+## <a name="q--a-about-this-preview"></a>Frågor och svar om den här förhandsgranskningen
 
-### <a name="q-how-can-i-participate-in-this-preview"></a>Q: How can I participate in this preview?
-**A**: Request quota for the B-series in one of the supported regions.  After your quota has been approved then you can use the portal or the APIs to do your deployment as you normally would. For more information, see [Resource Manager core quota increase requests](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+### <a name="q-how-can-i-participate-in-this-preview"></a>F: hur kan delta i den här förhandsgranskningen?
+**En**: begäran kvoten för B-serien i någon av regionerna som stöds.  När din kvot har godkänts kan du använda portalen eller API: er för att göra din distribution som du normalt skulle. Mer information finns i [Resource Manager kärnkvot öka begäranden](../articles/azure-supportability/resource-manager-core-quotas-request.md).
 
-### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>Q: How do you get 135% baseline performance from a VM?
-**A**: The 135% is shared amongst the 8 vCPU’s that make up the VM size. For example, if your application leverages 4 of the 8 cores working on batch processing and each of those 4 vCPU’s are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU’s giving that VM a Max CPU performance of 800%.
+### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>F: Hur skaffar du 135% baslinje-prestanda från en virtuell dator?
+**En**: 135% delas mellan den 8 Vcpu's som utgör VM-storlek. Till exempel om ditt program utnyttjar 4 8 kärnor arbetar med batch-bearbetning och var och en av de 4 vCPU körs med en 30% användning den totala mängden VM CPU-prestanda skulle vara lika med 120%.  Vilket innebär att den virtuella datorn skulle skapa kredit tid baserat på 15% delta från baslinje-prestanda.  Men det innebär också att om du har samma virtuella dator kan användas för 100% av alla 8 vCPU krediter ger den virtuella datorn en högsta CPU-prestanda för 800%.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>Q: Is there a discount on price during the preview?
-**A**: Yes, the preview prices can be viewed on our [pricing page](http://aka.ms/vmsizes).
+### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>F: finns det en rabatt på pris under förhandsgranskningen?
+**En**: Ja, du kan visa förhandsgranskning priser för våra [sida med priser](http://aka.ms/vmsizes).
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>Q: How can I monitor my credit balance and consumption
-**A**: We will be introducing 2 new metrics in the coming weeks, the **Credit** metric will allow you to view how many credits your VM has banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>F: hur övervakar jag min Kreditsaldot och förbrukning
+**En**: Vi kommer att 2 nya mått under de kommande veckorna den **kredit** mått kan du se hur många krediter som den virtuella datorn har till bank och **ConsumedCredit** måttet visar hur många CPU-krediter den virtuella datorn har förbrukat från banken.    Du kommer att kunna visa de här måtten från fönstret mått i portalen eller programmässigt via API: er för Azure-Monitor.
 
-For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Mer information om hur du kommer åt data för mått för Azure finns [översikt över mått i Microsoft Azure](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="q-how-are-credits-accumulated"></a>Q: How are credits accumulated?
-**A**: The VM accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits.  A VM will have a net increase in credits whenever it is running below its base performance level and will have a net decrease in credits whenever the VM is utilizing the CPU more than its base performance level.
+### <a name="q-how-are-credits-accumulated"></a>F: hur ackumulerade krediter?
+**En**: den virtuella datorns anhopning och förbrukning är inställda så att en virtuell dator som kör på exakt dess grundläggande prestandanivå har varken en net anhopning eller förbrukning av burst-överföring krediter.  En virtuell dator har en net ökning i krediter varje gång den körs under dess grundläggande prestandanivå och har en minskning av net krediter när den virtuella datorn använder Processorn som är större än dess grundläggande prestandanivå.
 
-**Example**:  I deploy a VM using the B1ms size for my small time and attendance database application. This size allows my application to use up to 20% of a vCPU as my baseline, which is .2 credits per minute I can use or bank. 
+**Exempel**: jag distribuera en virtuell dator med den B1ms storleken för min liten tid och närvaro databasprogram. Den här storleken kan mitt program att använda upp till 20% av en vCPU som min baslinje,.2 krediter per minut som jag kan använda eller bank. 
 
-My application is busy at the beginning and end of my employees work day, between 7:00-9:00 AM and 4:00 - 6:00PM. During the other 20 hours of the day, my application is typically at idle, only using 10% of the vCPU. For the non-peak hours I earn 0.2 credits per minute but only consume 0.l credits per minute, so my VM will bank .1 x 60 = 6 credits per hour.  For the 20 hours that I am off-peak, I will bank 120 credits.  
+Mina program är upptagen i början och slutet av arbetsdagen min anställda, mellan 7:00 – 9:00 AM och 4:00 – 18:00. Under de andra 20 timmarna, mitt program är vanligtvis vid inaktivitet, endast med 10% av vCPU. För icke-användningsnivå jag tjäna 0,2 krediter per minut, men endast använda 0.l krediter per minut, så att den virtuella datorn kommer bank.1 x 60 = 6 krediter per timme.  Jag kommer bank 120 krediter för 20 timmar som jag är låg.  
 
-During peak hours my application averages 60% vCPU utilization, I still earn 0.2 credits per minute but I consume 0.6 credits per minute, for a net cost of .4 credits a minute or .4 x 60 = 24 credits per hour. I have 4 hours per day of peak usage, so it costs 4 x 24 = 96 credits for my peak usage.
+Under vissa tider mitt program medelvärden 60% vCPU användning, jag fortfarande erhålla 0,2 krediter per minut, men jag använda 0,6 krediter per minut, för en net kostnaden för.4 krediter en minut eller.4 x 60 = 24 krediter per timme. Jag har fyra timmar per dag för maximal användning, så det kostar 4 x 24 = 96 krediter för min belastning användning.
 
-If I take the 120 credits I earned off-peak and subtract the 96 credits I used for my peak times, I bank an additional 24 credits per day that I can use for other bursts of activity.
+Om jag ta 120 krediter som jag har fått låg och subtrahera 96 krediter som jag använder för min Högbelastningstider bank jag en ytterligare 24 krediter per dag som jag kan använda för andra belastning för aktiviteten.
 
 
-### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Q: Does the B-Series support Premium Storage data disks?
-**A**: Yes, all B-Series sizes support Premium Storage data disks.   
+### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>F: B-serien stöder Premium-lagring datadiskar?
+**En**: Ja, alla B-serien storlekar stöd för Premium-lagring datadiskar.   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>Q: Which regions can I access the preview from?
-**A**:  The B-series preview will be available in the following regions:
-- US - West 2
-- US - East
-- Europe - West
-- Asia Pacific - Southeast
+### <a name="q-which-regions-can-i-access-the-preview-from"></a>F: vilka regioner kan jag använda förhandsversionen från?
+**En**: B-serien förhandsgranskningen blir tillgängligt i följande områden:
+- OSS - Väst 2
+- OSS - Öst
+- Europa - Väst
+- Asien/Stillahavsområdet - sydost
 
-After the preview has completed we will release the B-series to all remaining regions.
+När förhandsgranskningen har slutförts kommer vi att släppa B-serien för att alla återstående regioner.
     
 
     

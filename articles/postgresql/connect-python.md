@@ -6,19 +6,17 @@ author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
-ms.custom: mvc
+ms.service: postgresql
+ms.custom: mvc, devcenter
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 08/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 481e2552e2a2cd91d026774438788143109b28df
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda Python för att ansluta och fråga efter data
 Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure Database för PostgreSQL. Den visar också hur SQL-instruktioner används för att fråga, infoga, uppdatera och ta bort data i databasen i macOS-, Ubuntu Linux- och Windows-plattformar. I den här artikeln förutsätter vi att du har kunskaper om Python och att du inte har arbetat med Azure Database för PostgreSQL tidigare.
 
@@ -63,8 +61,8 @@ Det här ämnet innehåller totalt fyra kodexempel som vart och ett utför en vi
 
 - Skapa en ny fil i valfri textredigerare.
 - Kopiera och klistra in ett av kodexemplen i följande avsnitt i textfilen. Ersätt parametrarna **host**, **dbname**, **user** och **password** med de värden som du angav när du skapade servern och databasen.
-- Spara filen med filnamnstillägget .py (till exempel postgres.py) i projektmappen. Om du kör Windows-operativsystemet ska du se till att välja UTF-8-kodning när du sparar filen. 
-- Starta kommandotolken eller Bash-gränssnittet och byt katalog till din projektmapp, till exempel `cd postgres`.
+- Spara filen med filnamnstillägget .py (till exempel postgres.py) i projektmappen. Om du kör i Windows, måste du markera UTF-8-kodning när du sparar filen. 
+- Starta Kommandotolken, Terminal eller Bash-gränssnitt och ändra katalogen till projektmappen, till exempel `cd postgres`.
 -  Skriv Python-kommandot följt av filnamnet, till exempel `Python postgres.py`, för att köra koden.
 
 > [!NOTE]
@@ -211,4 +209,3 @@ conn.close()
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > [Migrera din databas med Exportera och importera](./howto-migrate-using-export-and-import.md)
-

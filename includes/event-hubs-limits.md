@@ -1,14 +1,14 @@
-The following table lists quotas and limits specific to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). For information about Event Hubs pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+I följande tabell visas kvoter och begränsar specifika för [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om priser för Händelsehubbar finns [priser för Händelsehubbar](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-| Limit | Scope | Type | Behavior when exceeded | Value |
+| Gräns | Omfång | Typ | Beteende när överskridits | Värde |
 | --- | --- | --- | --- | --- |
-| Number of event hubs per namespace |Namespace |Static |Subsequent requests for creation of a new event hub will be rejected. |10 |
-| Number of partitions per event hub |Entity |Static |- |32 |
-| Number of consumer groups per event hub |Entity |Static |- |20 |
-| Number of AMQP connections per namespace |Namespace |Static |Subsequent requests for additional connections will be rejected and an exception is received by the calling code. |5,000 |
-| Maximum size of Event Hubs event|System-wide |Static |- |256 KB |
-| Maximum size of an event hub name |Entity |Static |- |50 characters |
-| Number of non-epoch receivers per consumer group |Entity |Static |- |5 |
-| Maximum retention period of event data |Entity |Static |- |1-7 days |
-| Maximum throughput units |Namespace |Static |Exceeding the throughput unit limit causes your data to be throttled and generates a **[ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**. You can request a larger number of throughput units for a Standard tier by filing a [support request](/azure/azure-supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 |
-| Number of authorization rules per namespace |Namespace|Static |Subsequent requests for authorization rule creation will be rejected.|12 |
+| Antal händelsehubbar per namnområde |namnområde |Statisk |Efterföljande förfrågningar för att skapa en ny händelsehubb avvisas. |10 |
+| Antalet partitioner per händelsehubb |Entitet |Statisk |- |32 |
+| Antal konsumentgrupper per händelsehubb |Entitet |Statisk |- |20 |
+| Antalet AMQP anslutningar per namnområde |namnområde |Statisk |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |5,000 |
+| Maximal storlek för Händelsehubbar händelse|Hela systemet |Statisk |- |256 kB |
+| Maximal storlek för en händelsehubbens namn |Entitet |Statisk |- |50 tecken |
+| Antal icke-epok mottagare per konsumentgrupp |Entitet |Statisk |- |5 |
+| Högsta bevarandeperioden av händelsedata |Entitet |Statisk |- |1-7 dagar |
+| Högsta antal Throughput Units |namnområde |Statisk |Genomströmning enhet överskrids gör att dina data så att begränsas och genererar en  **[ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**. Du kan begära ett stort antal enheter för en Standard-lagret med ansökan en [supportbegäran](/azure/azure-supportability/how-to-create-azure-support-request). [Ytterligare genomflödesenheter](../articles/event-hubs/event-hubs-auto-inflate.md) är tillgängliga i block på 20 på bas allokerade inköp. |20 |
+| Antal regler för auktorisering per namnområde |namnområde|Statisk |Efterföljande förfrågningar för att skapa en regel för auktorisering avvisas.|12 |

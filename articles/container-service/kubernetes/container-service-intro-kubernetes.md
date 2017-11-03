@@ -11,20 +11,22 @@ keywords: Kubernetes, Docker, Containers, Microservices, Azure
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2017
 ms.author: gamonroy
-ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: ed3193cce078b4b81f269fe01a40d3aa4465782d
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/25/2017
-
+ms.custom: mvc
+ms.openlocfilehash: 65658985e3d09215578d50e39bbc1146d1bd81f9
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="introduction-to-azure-container-service-for-kubernetes"></a>Introduktion till Azure Container Service för Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 Azure Container Service för Kubernetes gör det enkelt för dig att skapa, konfigurera och hantera av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera behållarbaserade program i Microsoft Azure.
 
 Genom att använda Azure Container Service kan du dra nytta av Azures funktioner på företagsnivå samtidigt som programmen fortsätter att vara bärbara via Kubernetes och Docker-avbildningsformatet.

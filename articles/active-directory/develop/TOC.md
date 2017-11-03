@@ -108,5 +108,6 @@
 #### [Autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md)
 ### [Scope](active-directory-v2-scopes.md)
 # Resurser
+## [Få hjälp](active-directory-develop-help-support.md)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

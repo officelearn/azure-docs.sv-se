@@ -1,33 +1,33 @@
 <!--author=SharS last changed: 9/17/15-->
 
-### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSomple Adapter for SharePoint
+### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Uppgradera SharePoint 2010 SharePoint 2013 och installera sedan StorSomple-Adapter för SharePoint
 > [!IMPORTANT]
-> Any files that were previously moved to external storage via RBS will not be available until the upgrade is finished and the RBS feature is enabled again. To limit user impact, perform any upgrade or reinstallation during a planned maintenance window.
+> Alla filer som tidigare har flyttats till extern lagring via RBS blir inte tillgängliga förrän uppgraderingen är klar och RBS funktionen aktiveras igen. Om du vill begränsa effekten av användaren utför en uppgradering eller ominstallation under ett planerat underhåll.
 > 
 > 
 
-#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>To upgrade SharePoint 2010 to SharePoint 2013 and then install the adapter
-1. In the SharePoint 2010 farm, note the BLOB store path for the externalized BLOBs and the content databases for which RBS is enabled. 
-2. Install and configure the new SharePoint 2013 farm. 
-3. Move databases, applications, and site collections from the SharePoint 2010 farm to the new SharePoint 2013 farm. For instructions, go to [Overview of the upgrade process to SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
-4. Install the StorSimple Adapter for SharePoint on the new farm. Go to [Install the StorSimple Adapter for SharePoint](#install-the-storsimple-adapter-for-sharepoint) for procedures.
-5. Using the information that you noted in step 1, enable RBS for the same set of content databases and provide the same BLOB store path that was used in the SharePoint 2010 installation. Go to [Configure RBS](#configure-rbs) for procedures. After you complete this step, previously externalized files should be accessible from the new farm. 
+#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>Uppgradera SharePoint 2010 till SharePoint 2013 och sedan installera kortet
+1. Anteckna BLOB store sökvägen för externalized Blobbar och innehållsdatabaserna som RBS är aktiverad i SharePoint 2010-servergruppen. 
+2. Installera och konfigurera nya SharePoint 2013-grupp. 
+3. Flytta databaser, program och webbplatssamlingar från SharePoint 2010-servergruppen till den nya SharePoint 2013-gruppen. Mer information går du till [översikt över uppgraderingen till SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
+4. Installera StorSimple-kortet för SharePoint på den nya gruppen. Gå till [installerar StorSimple-kort för SharePoint](#install-the-storsimple-adapter-for-sharepoint) för procedurer.
+5. Med hjälp av information som du antecknade i steg 1, aktivera RBS för samma uppsättning innehållsdatabaser och ger samma BLOB store-sökväg som användes i SharePoint 2010-installationen. Gå till [konfigurera RBS](#configure-rbs) för procedurer. När du har slutfört det här steget ska tidigare externalized filer vara tillgänglig från den nya gruppen. 
 
-### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Upgrade the StorSimple Adapter for SharePoint
+### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>Uppgradera StorSimple-kortet för SharePoint
 > [!IMPORTANT]
-> You should schedule this upgrade to occur during a planned maintenance window for the following reasons:
+> Du bör planera uppgraderingen ska ske under planerat underhåll av följande skäl:
 > 
-> * Previously externalized content will not be available until the adapter is reinstalled.
-> * Any content uploaded to the site after you uninstall the previous version of the StorSimple Adapter for SharePoint, but before you install the new version, will be stored in the content database. You will need to move that content to the StorSimple device after you install the new adapter. You can use the Microsoft` RBS Migrate()` PowerShell cmdlet included with SharePoint to migrate the content. For more information, see [Migrate content into or out of RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Tidigare blir externalized innehåll inte tillgängliga förrän kortet installeras.
+> * Allt innehåll som överförs till platsen när du avinstallerar den tidigare versionen av StorSimple-kortet för SharePoint, men innan du installerar den nya versionen kommer att lagras i innehållsdatabasen. Du behöver flytta innehållet till StorSimple-enhet när du installerar det nya kortet. Du kan använda Microsoft` RBS Migrate()` PowerShell-cmdlet som ingår i SharePoint för att överföra innehållet. Mer information finns i [migrerar innehåll till eller från RBS](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 
-#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>To upgrade the StorSimple Adapter for SharePoint
-1. Uninstall the previous version of StorSimple Adapter for SharePoint.
+#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>Så här uppgraderar du StorSimple-kortet för SharePoint
+1. Avinstallera den tidigare versionen av StorSimple-kortet för SharePoint.
    
    > [!NOTE]
-   > This will automatically disable RBS on the content databases. However, existing BLOBs will remain on the StorSimple device. Because RBS is disabled and the BLOBs have not been migrated back to the content databases, any requests for those BLOBs will fail. 
+   > Detta inaktiverar automatiskt RBS på innehållsdatabaserna. Befintlig BLOB förblir dock på StorSimple-enheten. Eftersom RBS är inaktiverad och Blobar inte har migrerats till innehållsdatabaser, misslyckas alla förfrågningar för dessa BLOB. 
    > 
    > 
-2. Install the new StorSimple Adapter for SharePoint. The new adapter will automatically recognize the content databases that were previously enabled or disabled for RBS and will use the previous settings.
+2. Installera nya StorSimple-kortet för SharePoint. Det nya kortet identifieras innehållsdatabaser som tidigare aktiveras eller inaktiveras för RBS automatiskt och använder de tidigare inställningarna.
 

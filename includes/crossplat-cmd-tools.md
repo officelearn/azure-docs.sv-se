@@ -59,7 +59,7 @@ Sedan importerar `.publishsettings`-filen genom att köra följande kommando (er
 
     azure account import {path to .publishsettings file}
 
-Du kan ta bort all information som lagras av <code>import</code>-kommandot med hjälp av <code>account clear</code>-kommandot:
+Du kan ta bort all information som lagras av den <code>import</code> kommandot med hjälp av den <code>account clear</code> kommando:
 
     azure account clear
 

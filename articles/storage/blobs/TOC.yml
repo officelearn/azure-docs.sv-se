@@ -18,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: Arbeta med blobar – .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: Arbeta med blobar – Java
+      href: storage-quickstart-blobs-java.md
     - name: Arbeta med blobar – Python
       href: storage-quickstart-blobs-python.md
 - name: Självstudier

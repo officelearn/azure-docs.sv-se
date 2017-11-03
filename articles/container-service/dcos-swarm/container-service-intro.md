@@ -8,21 +8,19 @@ manager: timlt
 editor: 
 tags: acs, azure-container-service
 keywords: "Docker, behållare, Micro-tjänster, Mesos, Azure"
-ms.assetid: 52da4163-1182-4b2e-be00-4951e5c1da16
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2017
 ms.author: rogardle
-ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: d51f0fab9cd7904071c70f23aa6e424682b4b667
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/25/2017
-
+ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 3e263b88bf6afe652e06bd8cc109c98a17269cae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Introduktion till värdlösningar med Dockerbehållare med Azure Container Service 
 Azure Container Service gör det enklare för dig att skapa, konfigurera och hantera av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare. Det använder en optimerad konfiguration av populära verktyg för öppen källkod för schemaläggning och dirigering. På så sätt kan du använda dina befintliga kunskaper eller använda en stor och växande mängd communityexpertis för att distribuera och hantera behållarbaserade program i Microsoft Azure.

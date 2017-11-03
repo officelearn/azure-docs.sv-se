@@ -1,18 +1,18 @@
-### <a name="prerequisites"></a>Prerequisites
-* A [Dropbox](https://www.Dropbox.com/) account 
+### <a name="prerequisites"></a>Krav
+* En [Dropbox](https://www.Dropbox.com/) konto 
 
-Before you can use your Dropbox account in a Logic app, you must authorize the Logic app to connect to your Dropbox account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Innan du kan använda Dropbox-konto i en logikapp, måste du godkänna logik för att ansluta till Dropbox-konto. Lyckligtvis kan du göra detta direkt i din logikapp på Azure Portal. 
 
-Here are the steps to authorize your Logic app to connect to your Dropbox account:
+Här följer stegen för att verifiera din logikapp för att ansluta till Dropbox-konto:
 
-1. To create a connection to Dropbox, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Dropbox* in the search box. Select the trigger or action you'll like to use:  
-   ![Dropbox step 1](./media/connectors-create-api-dropbox/dropbox-1.png)
-2. If you haven't created any connections to Dropbox before, you'll get prompted to provide your Dropbox credentials. These credentials will be used to authorize your Logic app to connect to, and access your Dropbox account's data:  
-   ![Dropbox step 2](./media/connectors-create-api-dropbox/dropbox-2.png)
-3. Provide your Dropbox user name and password to authorize your Logic app:  
-   ![Dropbox step 3](./media/connectors-create-api-dropbox/dropbox-3.png)   
-4. Authorize the Logic app to use your Dropbox account:  
-   ![Dropbox step 4](./media/connectors-create-api-dropbox/dropbox-4.png)
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![Dropbox step 5](./media/connectors-create-api-dropbox/dropbox-5.png)   
+1. Om du vill skapa en anslutning till Dropbox, i logik app designer **visa Microsoft hanterade API: er** i nedrullningsbara listan anger *Dropbox* i sökrutan. Välj utlösaren eller åtgärd du vill använda:  
+   ![Dropbox steg 1](./media/connectors-create-api-dropbox/dropbox-1.png)
+2. Om du inte har skapat alla anslutningar till Dropbox innan du kan hämta uppmanas du att ange autentiseringsuppgifter för Dropbox. Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och komma åt data i din Dropbox-konto:  
+   ![Dropbox steg 2](./media/connectors-create-api-dropbox/dropbox-2.png)
+3. Ange din Dropbox användarnamn och lösenord för att auktorisera logikappen:  
+   ![Dropbox steg 3](./media/connectors-create-api-dropbox/dropbox-3.png)   
+4. Auktorisera logikappen att använda Dropbox-konto:  
+   ![Dropbox steg 4](./media/connectors-create-api-dropbox/dropbox-4.png)
+5. Observera att anslutningen har skapats och du kan nu välja att fortsätta med andra steg i din logikapp:  
+   ![Dropbox steg 5](./media/connectors-create-api-dropbox/dropbox-5.png)   
 

@@ -1,6 +1,9 @@
 # [Översikt](active-directory-b2c-overview.md)
 
 # Kom igång
+## [Testkör en Azure AD B2C-webbapp](active-directory-b2c-quickstarts-web-app.md)
+## [Testkör en Azure AD B2C-skrivbordsapp](active-directory-b2c-quickstarts-desktop-app.md)
+## [Testkör en enkelsidig Azure AD B2C-app](active-directory-b2c-quickstarts-spa.md)
 ## [Skapa en Azure AD B2C-katalog](active-directory-b2c-get-started.md)
 ## [Registrera ditt program](active-directory-b2c-app-registration.md)
 ## [Inbyggda principer](active-directory-b2c-reference-policies.md)
@@ -57,7 +60,7 @@
 # Identity Experience Framework
 ## [Anpassade principer](active-directory-b2c-overview-custom.md)
 ## Guider
-### [Komma igång](active-directory-b2c-get-started-custom.md)
+### [Kom igång](active-directory-b2c-get-started-custom.md)
 ### Konfigurera OIDC/OAUTH2-providrar
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft-konto](active-directory-b2c-custom-setup-msa-idp.md)

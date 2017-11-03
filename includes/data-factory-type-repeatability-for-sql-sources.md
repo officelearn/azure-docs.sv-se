@@ -1,7 +1,7 @@
-## <a name="repeatability-during-copy"></a>Repeatability during Copy
-When copying data to Azure SQL/SQL Server from other data stores one needs to keep repeatability in mind to avoid unintended outcomes. 
+## <a name="repeatability-during-copy"></a>Repeterbarhet vid kopiering
+När kopiering av data till Azure SQL/SQL Server från andra data lagras måste en repeterbarhet Tänk på att undvika oväntade resultat. 
 
-When copying data to Azure SQL/SQL Server Database, copy activity will by default APPEND the data set to the sink table by default. For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL/SQL Server Database, this is what the table looks like:
+När du kopierar data till Azure SQL/SQL Server-databas kommer kopieringsaktiviteten som standard APPEND datauppsättningen till tabellen mottagare som standard. När du kopierar data från en CSV (fil med kommaavgränsade värden) filen datakälla som innehåller två poster till Azure SQL/SQL Server-databas, är det till exempel tabellen ser ut:
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -10,7 +10,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4 in the source file. If you re-run the data slice for that period, you’ll find two new records appended to Azure SQL/SQL Server Database. The below assumes none of the columns in the table have the primary key constraint.
+Du kanske fel har påträffats på källfilen och uppdatera antalet ned röret från 2 till 4 i källfilen. Om du kör nytt datasektorn för denna period, hittar du två nya poster som läggs till Azure SQL/SQL Server-databas. Den nedan förutsätter att ingen av kolumnerna i tabellen har primärnyckelns begränsning.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -21,15 +21,15 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-To avoid this, you will need to specify UPSERT semantics by leveraging one of the below 2 mechanisms stated below.
+Om du vill undvika detta behöver du ange UPSERT semantik genom att använda en av de nedan 2 mekanismer som anges nedan.
 
 > [!NOTE]
-> A slice can be re-run automatically in Azure Data Factory as per the retry policy specified.
+> En sektor går att köra automatiskt i Azure Data Factory enligt återförsökspolicyn som anges.
 > 
 > 
 
-### <a name="mechanism-1"></a>Mechanism 1
-You can leverage **sqlWriterCleanupScript** property to first perform cleanup action when a slice is run. 
+### <a name="mechanism-1"></a>Mekanism 1
+Du kan utnyttja **sqlWriterCleanupScript** egenskapen att utföra rensning av åtgärden först när du kör ett segment. 
 
 ```json
 "sink":  
@@ -39,9 +39,9 @@ You can leverage **sqlWriterCleanupScript** property to first perform cleanup ac
 }
 ```
 
-The cleanup script would be executed first during copy for a given slice which would delete the data from the SQL Table corresponding to that slice. The activity will subsequently insert the data into the SQL Table. 
+Skriptet för rensning skulle köras första vid kopiering av för ett visst segment som skulle ta bort data från SQL-tabell som motsvarar den sektorn. Aktiviteten kommer därefter infoga data i SQL-tabellen. 
 
-If the slice is now re-run, then you will find the quantity is updated as desired.
+Om sektorn är nu kör igen och du hittar antalet uppdateras som önskade.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -50,25 +50,25 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Suppose the Flat Washer record is removed from the original csv. Then re-running the slice would produce the following result: 
+Anta att Flat bricka-posten tas bort från den ursprungliga csv. Köra sektorn igen skulle skapa följande resultat: 
 
 ```
 ID    Product        Quantity    ModifiedDate
 ...    ...            ...            ...
 7     Down Tube    4            2015-05-01 00:00:00
 ```
-Nothing new had to be done. The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which then contained only 1 record) and inserted it into the Table. 
+Inget nytt var du tvungen att. Kopieringsaktiviteten kördes skriptet för rensning för att ta bort motsvarande data för den sektorn. Sedan den läsa indata från CSV-filen (som sedan finns endast 1 post) och infogas i tabellen. 
 
-### <a name="mechanism-2"></a>Mechanism 2
+### <a name="mechanism-2"></a>Metod 2
 > [!IMPORTANT]
-> sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse at this time. 
+> sliceIdentifierColumnName stöds inte för Azure SQL Data Warehouse just nu. 
 
-Another mechanism to achieve repeatability is by having a dedicated column (**sliceIdentifierColumnName**) in the target Table. This column would be used by Azure Data Factory to ensure the source and destination stay synchronized. This approach works when there is flexibility in changing or defining the destination SQL Table schema. 
+En annan metod för att uppnå repeterbarhet av är att ha en dedikerad kolumn (**sliceIdentifierColumnName**) i mål-tabellen. Den här kolumnen kan användas av Azure Data Factory så att käll- och hålla synkroniserade. Den här metoden fungerar när det finns flexibilitet för att ändra eller definiera SQL-tabellschemat mål. 
 
-This column would be used by Azure Data Factory for repeatability purposes and in the process Azure Data Factory will not make any schema changes to the Table. Way to use this approach:
+Den här kolumnen som ska användas av Azure Data Factory för repeterbarhet och i processen kommer Azure Data Factory inte göra några schemaändringar i tabellen. Sätt att använda den här metoden:
 
-1. Define a column of type binary (32) in the destination SQL Table. There should be no constraints on this column. Let's name this column as ‘ColumnForADFuseOnly’ for this example.
-2. Use it in the copy activity as follows:
+1. Definiera en kolumn av typen binary (32) i målet SQL-tabell. Det bör finnas några begränsningar på den här kolumnen. Vi namn i den här kolumnen som 'ColumnForADFuseOnly' för det här exemplet.
+2. Använd den i kopieringsaktiviteten enligt följande:
    
     ```json
     "sink":  
@@ -79,7 +79,7 @@ This column would be used by Azure Data Factory for repeatability purposes and i
     }
     ```
 
-Azure Data Factory will populate this column as per its need to ensure the source and destination stay synchronized. The values of this column should not be used outside of this context by the user. 
+Azure Data Factory kommer att fylla i den här kolumnen enligt dess behovet av käll- och hålls synkroniserade. Värdena i den här kolumnen får inte användas utanför den här kontexten av användaren. 
 
-Similar to mechanism 1, Copy Activity will automatically first clean up the data for the given slice from the destination SQL Table and then run the copy activity normally to insert the data from source to destination for that slice. 
+Liknande mekanism 1, Kopieringsaktiviteten kommer automatiskt först rensa data för den angivna sektorn från målet SQL-tabellen och kör sedan kopieringsaktiviteten normalt om du vill infoga data från källan till målet för den sektorn. 
 

@@ -1,40 +1,40 @@
-## <a name="view-device-telemetry-in-the-dashboard"></a>Visa enhetstelemetri i instrumentpanelen
-Instrumentpanelen i fjärrövervakningslösningen visar den telemetri som enheterna skickar till IoT Hub.
+## <a name="view-device-telemetry"></a>Visa enhetstelemetri
 
-1. Gå tillbaka till fjärrövervakningslösningens instrumentpanel i webbläsaren och klicka på **Enheter** i den vänstra panelen för att navigera till **Enhetslistan**.
-2. I **enhetslistan** bör du se att statusen för din enhet är **Körs**. Om den inte körs klickar du på **Aktivera enhet** i panelen **Enhetsinformation**.
-   
-    ![Visa enhetsstatus][18]
-3. Klicka på **Instrumentpanel** för att gå tillbaka till instrumentpanelen och välj din enhet i listrutan **Enhet att visa** för att se dess telemetri. Telemetrin från exempelprogrammet är 50 enheter för intern temperatur, 55 enheter för extern temperatur och 50 enheter för fuktighet.
-   
-    ![Visa enhetstelemetri][img-telemetry]
+Du kan visa telemetri som skickas från enheten på den **enheter** sida i lösningen.
 
-## <a name="invoke-a-method-on-your-device"></a>Anropa en metod på enheten
-Instrumentpanelen i fjärrövervakningslösningen låter dig anropa metoder på enheterna genom IoT Hub. Du kan till exempel anropa en metod för att simulera en omstart av en enhet i fjärrövervakningslösningen.
+1. Välj den enhet som du har etablerats i listan över enheter på den **enheter** sidan. En panel visar information om enheten till exempel ett diagram där enheten telemetri:
 
-1. I fjärrövervakningslösningens instrumentpanel klickar du på **Enheter** i den vänstra panelen för att navigera till **Enhetslistan**.
-2. Klicka på din enhets **Enhets-ID** i **enhetslistan**.
-3. I panelen **Enhetsinformation** klickar du på **Metoder**.
-   
-    ![Enhetsmetoder][13]
-4. I listrutan **Metod**väljer du **InitiateFirmwareUpdate** och sedan anger du en dummy-URL i **FWPACKAGEURI**. Klicka på **Anropa metod** för att anropa metoden på enheten.
-   
-    ![Anropa en enhetsmetod][14]
-   
+    ![Se detaljer för enhet](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-5. Du ser ett meddelande i konsolen som kör enhetskoden när enheten hanterar metoden. Resultaten av metoden läggs till i historiken i lösningsportalen:
+1. Välj **tryck** ändra visningen av telemetri:
 
-    ![Visa metodhistorik][img-method-history]
+    ![Visa trycket telemetri](media/iot-suite-visualize-connecting/devicespressure.png)
+
+1. Om du vill visa diagnostisk information om enheten rulla ned till **diagnostik**:
+
+    ![Visa enheten diagnostik](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+
+## <a name="act-on-your-device"></a>Fungerar på din enhet
+
+Om du vill anropa metoder på dina enheter, använder den **enheter** sida i fjärranslutna övervakningslösning. Till exempel i fjärranslutna övervakningslösning **kylaggregat** enheter implementera en **omstart** metod.
+
+1. Välj **enheter** att navigera till den **enheter** sida i lösningen.
+
+1. Välj den enhet som du har etablerats i listan över enheter på den **enheter** sidan:
+
+    ![Välj den fysiska enheten](media/iot-suite-visualize-connecting/devicesselect.png)
+
+1. Om du vill visa en lista över de metoder som du kan anropa på enheten, Välj **schema**. Du kan välja flera enheter i listan om du vill schemalägga en metod för att köras på flera enheter. Den **schema** panelen visas typerna av metoden som är gemensamma för alla enheter som du har valt.
+
+1. Välj **omstart**, ange Jobbnamnet på **RebootPhysicalChiller**, och välj **Verkställ**:
+
+    ![Schemalägga omstarten](media/iot-suite-visualize-connecting/deviceschedule.png)
+
+1. Ett meddelande visas i konsolen köra din kod för enheten när enheten hanterar metoden.
+
+> [!NOTE]
+> För att spåra status för jobb i lösningen, Välj **visa**.
 
 ## <a name="next-steps"></a>Nästa steg
-Artikeln [Anpassning av förkonfigurerade lösningar][lnk-customize] beskriver några sätt du kan utöka det här exemplet. Möjliga tillägg kan vara att använda riktiga sensorer och att implementera ytterligare kommandon.
 
-Du kan lära dig mer om [behörigheter på webbplatsen azureiotsuite.com][lnk-permissions].
-
-[13]: ./media/iot-suite-visualize-connecting/suite4.png
-[14]: ./media/iot-suite-visualize-connecting/suite7-1.png
-[18]: ./media/iot-suite-visualize-connecting/suite10.png
-[img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
-[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
-[lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
+Artikeln [anpassa fjärråtkomst övervakning förkonfigurerade lösningen](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) beskrivs några sätt att anpassa den förkonfigurerade lösningen.

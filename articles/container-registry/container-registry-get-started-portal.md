@@ -1,74 +1,137 @@
 ---
-title: "Skapa privat Docker-register – Azure Portal | Microsoft-dokument"
-description: "Kom igång med att skapa och hantera privata Docker-behållarregister med Azure Portal"
+title: Snabbstart - skapa ett privat Docker-register i Azure med Azure-portalen
+description: "Snabbt lära dig skapa ett privat Docker behållare register med Azure-portalen."
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: dlepow
+author: mmacy
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
-ms.author: stevelas
-ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7fbbb56d775ee96c9a44363a4e41d4fc3c630582
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
-
+ms.date: 10/31/2017
+ms.author: marsma
+ms.custom: 
+ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/01/2017
 ---
+# <a name="create-a-container-registry-using-the-azure-portal"></a>Skapa ett behållarregister med hjälp av Azure Portal
 
-# <a name="create-a-private-docker-container-registry-using-the-azure-portal"></a>Skapa ett privat Docker-behållarregister med hjälp av Azure Portal
-Använd Azure Portal för att skapa ett behållarregister och hantera dess inställningar. Du kan också skapa och hantera behållarregister med hjälp av [Azure CLI 2.0-kommandona](container-registry-get-started-azure-cli.md), [Azure PowerShell](container-registry-get-started-powershell.md) eller via programmering med [REST-API:et](https://go.microsoft.com/fwlink/p/?linkid=834376) för Container Registry.
+En Azure-behållaren är en privat Docker-registret i Azure kan du lagra och hantera dina privata Docker behållare avbildningar. I Snabbstart skapar du en behållare registret med Azure-portalen.
 
-Bakgrund och koncept beskrivs i [översikten](container-registry-intro.md).
+För att slutföra den här snabbstarten, måste du ha Docker installeras lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-](https://docs.docker.com/docker-for-mac/), [Windows-](https://docs.docker.com/docker-for-windows/) eller [Linux-](https://docs.docker.com/engine/installation/#supported-platforms)dator.
+
+## <a name="log-in-to-azure"></a>Logga in på Azure
+
+Logga in på Azure-portalen på https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
-1. Klicka på **+ Nytt** på [Azure Portal](https://portal.azure.com).
-2. Sök efter **Azure Container Registry** på Marketplace.
-3. Välj **Azure Container Registry**, med **Microsoft** som utgivare.
-    ![Container Registry-tjänsten på Azure Marketplace](./media/container-registry-get-started-portal/container-registry-marketplace.png)
-4. Klicka på **Skapa**. Bladet **Azure Container Registry** öppnas.
 
-    ![Inställningar för behållarregister](./media/container-registry-get-started-portal/container-registry-settings.png)
-5. Ange informationen nedan på bladet **Azure Container Registry**. Klicka på **Skapa** när du är klar.
+Välj **nya** > **behållare** > **Azure-behållaren registret**.
 
-    a. **Registernamn**: Ett globalt unikt domännamn på den översta nivån för ditt specifika register. I det här exemplet är registernamnet *myRegistry01*, men du kan ersätta namnet med ett eget unikt namn. Namnet får bara innehålla bokstäver och siffror.
+![Skapa en behållare registret i Azure-portalen][qs-portal-01]
 
-    b. **Resursgrupp**: Välj en befintlig [resursgrupp](../azure-resource-manager/resource-group-overview.md#resource-groups) eller skriv namnet på en ny resursgrupp.
+Ange värden för **registrets** och **resursgruppen**. Registret namnet måste vara unikt i Azure och innehålla 5 50 alfanumeriska tecken. Skapa en ny resursgrupp med namnet `myResourceGroup`, och för **SKU**, Välj ”Basic”. Välj **skapa** att distribuera ACR-instans.
 
-    c. **Plats**: Välj en plats för ett Azure-datacenter där tjänsten är [tillgänglig](https://azure.microsoft.com/regions/services/), t.ex. **USA, södra centrala**.
+![Skapa en behållare registret i Azure-portalen][qs-portal-03]
 
-    d. **Administratörsanvändarnamn**: Om du vill ger du en administratörsanvändare åtkomst till registret. Du kan ändra den här inställningen när du har skapat registret.
+I den här snabbstarten skapar vi en *grundläggande* registret. Azure Container registret är tillgänglig i flera olika SKU: er, beskrivs kortfattat i följande tabell. Utökad information om varje finns [behållare registret SKU: er](container-registry-skus.md).
 
-      > [!IMPORTANT]
-      > Förutom att ge åtkomst genom ett administratörsanvändarkonto stöder behållarregister autentisering med Azure Active Directory-tjänstobjekt. Mer information och saker att tänka på finns i [Authenticate with a container registry](container-registry-authentication.md) (Autentisera med ett behållarregister).
-      >
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-    e. **Lagringskonto**: Använd standardinställningen för att skapa ett [lagringskonto](../storage/common/storage-introduction.md), eller välj ett befintligt lagringskonto på samma plats. Premium-lagring stöds inte för närvarande.
+När den **distributionen lyckades** meddelandet som visas väljer du behållare registret i portalen och markerar **åtkomstnycklar**.
 
-## <a name="manage-registry-settings"></a>Hantera registerinställningar
-När du har skapat registret kommer du åt registerinställningarna genom att först gå till bladet **Container Registries** (Behållarregister) på portalen. Du kan till exempel behöva inställningarna för att logga in i registret, eller så kanske du vill aktivera eller inaktivera administratörsanvändaren.
+![Skapa en behållare registret i Azure-portalen][qs-portal-05]
 
-1. På bladet **Container Registries** (Behållarregister) klickar du på namnet på registret.
+Under **administratörsanvändare**väljer **aktivera**. Anteckna följande värden:
 
-    ![Bladet för behållarregister](./media/container-registry-get-started-portal/container-registry-blade.png)
-2. Om du vill hantera åtkomstinställningarna klickar du på **Åtkomstnyckel**.
+* Inloggningsserver
+* Användarnamn
+* lösenord
 
-    ![Åtkomst till behållarregister](./media/container-registry-get-started-portal/container-registry-access.png)
-3. Notera följande inställningar:
+Du kan använda dessa värden i följande steg när du arbetar med registret med Docker CLI.
 
-   * **Inloggningsserver** –Det fullständigt kvalificerade namnet som du använder för att logga in i registret. I det här exemplet är det `myregistry01.azurecr.io`.
-   * **Administratörsanvändare** – Växla om du vill aktivera eller inaktivera administratörsanvändarkontot för registret.
-   * **Användarnamn** och **Lösenord** –Autentiseringsuppgifterna för administratörsanvändarkontot (om det är aktiverat) som du kan använda för att logga in i registret. Om du vill kan du återskapa lösenorden. Två lösenord skapas så att du kan upprätthålla anslutningar till registret genom att använda ett lösenord medan du återskapar det andra lösenordet. Om du vill autentisera med ett tjänstobjekt i stället läser du [Authenticate with a private Docker container registry](container-registry-authentication.md) (Autentisera med ett privat Docker-behållarregister).
+![Skapa en behållare registret i Azure-portalen][qs-portal-06]
+
+## <a name="log-in-to-acr"></a>Logga in på ACR
+
+Innan du skickar och hämtar behållaravbildningar måste du logga in på ACR-instansen. Det gör du genom att använda den [docker inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommando. Ersätt den *användarnamn*, *lösenord*, och *inloggningsserver* värden med de som du antecknade i föregående steg.
+
+```bash
+docker login --username <username> --password <password> <login server>
+```
+
+Kommandot returnerar `Login Succeeded` när den har slutförts. Du kan också se en säkerhetsvarning rekommenderar användning av den `--password-stdin` parameter. När användningen är utanför omfånget för den här artikeln, rekommenderar vi följande denna bästa praxis. Finns det [docker inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens för mer information.
+
+## <a name="push-image-to-acr"></a>Push-avbildningen till ACR
+
+Du måste ha en bild för att vidarebefordra en bild i registret för Azure-behållare. Om det behövs, kör du följande kommando för att hämta en befintlig avbildning från Docker-hubb.
+
+```bash
+docker pull microsoft/aci-helloworld
+```
+
+Innan du trycker på bilden i registret, måste du tagga avbildningen med ACR server inloggningsnamnet. Taggen bild med hjälp av den [docker-taggen](https://docs.docker.com/engine/reference/commandline/tag/) kommando. Ersätt *inloggningsserver* med inloggningsnamnet för servern som du antecknade tidigare.
+
+```
+docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+```
+
+Använd slutligen [docker push](https://docs.docker.com/engine/reference/commandline/push/) att skicka bilden till ACR-instans. Ersätt *inloggningsserver* med inloggningen servernamnet för din ACR-instans.
+
+```
+docker push <login server>/aci-helloworld:v1
+```
+
+Utdata från en lyckad `docker push` kommandot liknar:
+
+```
+The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
+7c701b1aeecd: Pushed
+c4332f071aa2: Pushed
+0607e25cc175: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+```
+
+## <a name="list-container-images"></a>Visa lista över behållaravbildningar
+
+Om du vill visa bilder i din ACR-instans, navigera till registret i portalen och välj **databaser**, sedan markerar du databasen som du skapat med `docker push`.
+
+I det här exemplet väljer vi den **aci helloworld** databasen, och vi kan se den `v1`-tagged image under **taggar**.
+
+![Skapa en behållare registret i Azure-portalen][qs-portal-09]
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När det inte längre behövs tar du bort den **myResourceGroup** resursgruppen. Detta tar bort resursgruppen, ACR-instans och alla bilder i behållaren.
+
+![Skapa en behållare registret i Azure-portalen][qs-portal-08]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skicka din första avbildning med hjälp av Docker CLI](container-registry-get-started-docker-cli.md)
 
+I den här snabbstarten skapat du ett Azure Container registret med Azure CLI. Om du vill använda Azure Container registret med Azure Container instanser fortsätta att Azure Behållarinstanser kursen.
+
+> [!div class="nextstepaction"]
+> [Azure Container Instances-självstudier](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- IMAGES -->
+[qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
+[qs-portal-02]: ./media/container-registry-get-started-portal/qs-portal-02.png
+[qs-portal-03]: ./media/container-registry-get-started-portal/qs-portal-03.png
+[qs-portal-04]: ./media/container-registry-get-started-portal/qs-portal-04.png
+[qs-portal-05]: ./media/container-registry-get-started-portal/qs-portal-05.png
+[qs-portal-06]: ./media/container-registry-get-started-portal/qs-portal-06.png
+[qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
+[qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
+[qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png

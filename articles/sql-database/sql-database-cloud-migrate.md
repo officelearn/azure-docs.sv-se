@@ -1,6 +1,6 @@
 ---
 title: Migrering av SQL Server-databas till Azure SQL Database | Microsoft Docs
-description: "Lär dig lokal migrering av SQL Server-databas till Azure SQL Database i molnet. Använda databasmigreringsverktyg för att testa kompatibilitet före databasmigrering."
+description: "Lär dig migrering av SQL Server-databas till Azure SQL Database i molnet."
 keywords: databasmigrering, sql server-databasmigrering, databasmigreringsverktyg, migrera databas, migrera sql-databas
 services: sql-database
 documentationcenter: 
@@ -9,55 +9,99 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: migrate and move
+ms.custom: migrate
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-migrate
-ms.date: 11/08/2016
+ms.workload: Active
+ms.date: 02/08/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
-
-
+ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migrering av SQL Server-databas till SQL Database i molnet
-I den här artikeln du lär dig hur du migrerar en lokal SQL Server 2005-databas eller senare till Azure SQL Database. I den här databasmigreringsprocessen kan du migrera ditt schema och dina data från SQL Server-databasen i din nuvarande miljö till SQL Database. För att det ska lyckas måste den befintliga databasen först klara ett kompatibilitetstest. Med SQL Database V12 var det [funktionsparitet](sql-database-features.md)som närmade sig, andra problem relaterade till servernivå och åtgärder över flera databaser. Databaser och program som förlitar sig på [funktioner som delvis eller inte stöds](sql-database-transact-sql-information.md) behöver viss omkonstruktion för att åtgärda dessa inkompatibiliteter innan SQL Server-databasen kan migreras.
+Den här artikeln beskriver de två huvudmetoderna för att migrera en SQL Server 2005-databas (eller senare) till Azure SQL Database. Den första metoden är enklare, men kräver viss till omfattande stilleståndstid under migreringen. Den andra metoden är mer komplicerad, men kräver mycket kortare stilleståndstid under migreringen.
 
-Följ dessa steg för att migrera:
-
-* **Testa för kompatibilitet**: Validera databasens kompatibilitet med SQL Database. 
-* **Åtgärda kompatibilitetsproblem, om det finns några**: Om valideringen misslyckas måste du åtgärda valideringsfelen.  
-* **Utför migreringen**: När databasen är kompatibel kan du använda en eller flera metoder för att utföra migreringen. 
-
-SQL Server erbjuder flera metoder för att åstadkomma dessa aktiviteter. Den här artikeln innehåller en översikt över tillgängliga metoder för varje aktivitet. Följande diagram illustrerar stegen och metoderna.
-
-  ![VSSSDT-migreringsdiagram](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
+I båda fallen måste du säkerställa att källdatabasen är kompatibelt med Azure SQL Database med hjälp av den [Data migrering Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 närmar sig [har paritet](sql-database-features.md) med SQL Server än problem relaterade till servernivå och flera databaser. Databaser och program som förlitar sig på [funktioner som delvis eller inte stöds](sql-database-transact-sql-information.md) behöver viss [omkonstruktion för att åtgärda dessa inkompatibiliteter](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) innan SQL Server-databasen kan migreras.
 
 > [!NOTE]
-> För att migrera en icke-SQL Server-databas, inklusive Microsoft Access, Sybase, MySQL Oracle och DB2 till Azure SQL Database, se [SQL Server-migreringsassistent](http://blogs.msdn.com/b/ssma/).
-> 
-> 
-
-## <a name="database-migration-tools-test-sql-server-database-compatibility-with-sql-database"></a>Databasmigreringsverktyg testar SQL Server-databasens kompatibilitet med SQL Database
-Använd någon av följande metoder för att testa kompatibilitetsproblem med SQL Database innan du påbörjar migreringen:
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-> * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
+> För att migrera en icke-SQL Server-databas, inklusive Microsoft Access, Sybase, MySQL Oracle och DB2 till Azure SQL Database, se [SQL Server-migreringsassistent](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
 > 
 
-* [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT använder de senaste kompatibilitetsreglerna för att identifiera inkompatibiliteter med SQL Database V12. Om inkompatibiliteter identifieras kan du kan åtgärda problemen direkt i det här verktyget. Den här metoden är den som rekommenderas för att testa och lösa kompatibilitetsproblem med SQL Database V12. 
-* [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage är ett kommandoradsverktyg som testar för kompatibilitetsproblem och genererar en rapport som innehåller identifierade problem. Om du använder det här verktyget ska du kontrollera att du använder den senaste versionen, så att du använder de senaste kompatibilitetsregler. Om fel identifieras måste du använda ett annat verktyg för att åtgärda alla identifierade kompatibilitetsproblem – vi rekommenderar SSDT.  
-* [Guiden Export Data Tier Application (Exportera datanivåprogram) i SQL Server Management Studio.](sql-database-cloud-migrate-determine-compatibility-ssms.md): Den här guiden identifierar och rapporterar fel på skärmen. Om inga fel rapporteras kan du fortsätta och slutföra migreringen till SQL Database. Om fel identifieras måste du använda ett annat verktyg för att åtgärda alla identifierade kompatibilitetsproblem – vi rekommenderar SSDT.
-* [SQL Azure Migration Wizard ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): SAMW är ett CodePlex-verktyg som använder Azure SQL Database V11-kompatibilitetsregler för att identifiera Azure SQL Database V12-inkompatibiliteter. Om inkompatibiliteter identifieras kan vissa problem åtgärdas direkt i det här verktyget. Verktyget kan hitta inkompatibiliteter som inte behöver åtgärdas. Det var det första migreringsverktyget för Azure SQL Database som fanns tillgängligt och stöds aktivt av SQL Server-communityn. Det här verktyget kan dessutom slutföra migreringen inifrån själva verktyget. 
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>Metod 1: Migrering med stilleståndstid under migreringen
 
-## <a name="fix-database-migration-compatibility-issues"></a>Åtgärda kompatibilitetsproblem vid databasmigrering
-Om kompatibilitetsproblem identifieras måste du åtgärda dem innan du går vidare med migreringen av SQL Server-databasen. Det finns en mängd olika kompatibilitetsproblem som kan uppstå, beroende på både versionen av SQL Server i källdatabasen och komplexiteten i databasen som du migrerar. Äldre versioner av SQL Server har fler kompatibilitetsproblem. Använd följande resurser, utöver en riktad Internetsökning med hjälp av sökmotor:
+ Om du har råd med en viss stilleståndstid eller om du utför en testmigrering av en produktionsdatabas som ska migreras senare, kan du använda den här metoden. En självstudiekurs finns [migrera en SQL Server-databas](sql-database-migrate-your-sql-server-database.md).
+
+Nedan visas det allmänna arbetsflödet en SQL Server Database-migrering med den här metoden.
+
+  ![VSSSDT-migreringsdiagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
+
+1. Utvärdera om databasen är kompatibel med den senaste versionen av [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+2. Förbered nödvändiga korrigeringar som Transact-SQL-skript.
+3. Skapa en konsekvent kopia (ur transaktionssynpunkt) av källdatabasen som ska migreras och se till att inga fler ändringar görs i källdatabasen (alternativt kan du tillämpa ändringar manuellt efter att migreringen är slutförd). Det finns många metoder för att inaktivera en databas, från att inaktivera klientanslutningarna till att skapa en [ögonblicksbild av databasen](https://msdn.microsoft.com/library/ms175876.aspx).
+4. Distribuera Transact-SQL-skripten för att tillämpa korrigeringar på databaskopian.
+5. [Exportera](sql-database-export.md) databaskopian till en BACPAC fil på en lokal enhet.
+6. [Importera](sql-database-import.md) BACPAC-filen som en ny Azure SQL-databas med hjälp av flera BACPAC importera verktyg, med SQLPackage.exe som verktyget rekommenderas för bästa prestanda.
+
+### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimera prestanda för dataöverföring under migreringen 
+
+Följande lista innehåller rekommendationer för bästa prestanda under importen.
+
+* Välj den högsta tjänstnivån och prestandanivån som din budget tillåter för att maximera överföringsprestanda. Du kan spara pengar genom att skala ned när migreringen är klar. 
+* Minska avståndet mellan din BACPAC fil- och mål-datacenter.
+* Inaktivera automatisk statistik under migreringen
+* Partitionstabeller och index
+* Ta bort indexerade vyer och återskapa dem när de är klara
+* Ta bort historiska data som sällan efterfrågas till en annan databas och migrera historiska data till en separat Azure SQL Database. Du kan sedan söka i historiska data med [elastiska frågor](sql-database-elastic-query-overview.md).
+
+### <a name="optimize-performance-after-the-migration-completes"></a>Optimera prestanda när migreringen är klar
+
+[Uppdatera statistik](https://msdn.microsoft.com/library/ms187348.aspx) med fullständig sökning när migreringen har slutförts.
+
+## <a name="method-2-use-transactional-replication"></a>Metod 2: Använd transaktionsreplikering
+
+Om du inte har råd att ta bort SQL Server-databasen från produktionen medan migreringen genomförs kan du använda transaktionsreplikering i SQL Server som migreringslösning. För att kunna använda den här metoden måste källdatabasen uppfylla [kraven för transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx) och vara kompatibel med Azure SQL Database. Information om SQL-replikeringen med AlwaysOn finns [konfigurerar replikering för Always On-Tillgänglighetsgrupper (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+
+När du använder den här lösningen konfigurerar du Azure SQL Database som prenumerant på den SQL Server-instans som du vill migrera. Distributören av transaktionsreplikeringen synkroniserar de data som ska synkroniseras från databasen (utgivaren) medan nya transaktioner fortsätter att göras. 
+
+Vid en transaktionsreplikering visas alla ändringar i dina data eller i ditt schema i Azure SQL Database. När synkroniseringen är klar och du är redo att migrera ändrar du anslutningssträngen för dina program så att de pekar på din Azure SQL Database. När transaktionsreplikeringen tömt alla ändringar som finns kvar i källdatabasen och alla program pekar på Azure DB kan du avinstallera transaktionsreplikeringen. Nu är Azure SQL Database ditt produktionssystem.
+
+ ![SeedCloudTR-diagram](./media/sql-database-cloud-migrate/SeedCloudTR.png)
+
+> [!TIP]
+> Du kan också använda transaktionsreplikering till att migrera en del av din källdatabas. Den publikation som du replikerar till Azure SQL Database kan begränsas till en del av tabellerna i databasen som replikeras. Du kan begränsa data till en del av raderna och/eller en del av kolumnerna för varje tabell som replikeras.
+>
+
+### <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>Migrera till SQL Database med arbetsflödet för transaktionsreplikering
+
+> [!IMPORTANT]
+> Använd den senaste versionen av SQL Server Management Studio för att behålla synkroniseringen med uppdateringar av Microsoft Azure och SQL Database. Äldre versioner av SQL Server Management Studio kan inte konfigurera SQL Database som en prenumerant. [Uppdatera SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> 
+
+1. Konfigurera distribution
+   -  [Med SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
+   -  [Med Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+2. Skapa publikation
+   -  [Med SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
+   -  [Med Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+3. Skapa en prenumeration
+   -  [Med SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
+   -  [Med Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+
+### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Tips och skillnader vid migrering till SQL Database
+
+1. Använda en lokal distributör 
+   - Detta påverkar serverns prestanda. 
+   - Om denna påverkan inte är acceptabel kan du använda en annan server men det innebär en mer komplicerad hantering och administration.
+2. När du väljer en mapp för ögonblicksbilder måste du se till att mappen är tillräckligt stor för att innehålla en BCP för varje tabell som du vill replikera. 
+3. När en ögonblicksbild skapas låses de associerade tabellerna tills den är klar. Se därför till att schemalägga ögonblicksbilden vid en lämplig tidpunkt. 
+4. Endast push-prenumerationer stöds i Azure SQL Database. Du kan bara lägga till prenumeranter från källdatabasen.
+
+## <a name="resolving-database-migration-compatibility-issues"></a>Åtgärda kompatibilitetsproblem vid databasmigrering
+Det finns en mängd olika kompatibilitetsproblem som kan uppstå, beroende på både versionen av SQL Server i källdatabasen och komplexiteten i databasen som du migrerar. Äldre versioner av SQL Server har fler kompatibilitetsproblem. Använd följande resurser, utöver en riktad Internetsökning med hjälp av sökmotor:
 
 * [SQL Server-databasfunktioner som inte stöds i Azure SQL Database](sql-database-transact-sql-information.md)
 * [Utgångna databasmotorfunktioner i SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
@@ -68,56 +112,11 @@ Om kompatibilitetsproblem identifieras måste du åtgärda dem innan du går vid
 
 Utöver att söka på Internet och använda dessa resurser kan du använda [MSDN SQL Server community-forumen](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) eller [StackOverflow](http://stackoverflow.com/).
 
-Använd något av följande databasmigreringsverktyg för att åtgärda problem som identifieras:
-
-> [!div class="op_single_selector"]
-> * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-> * [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
-> * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
-> 
-> 
-
-* Använda [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): Om du vill använda SSDT måste du importera ditt databasschema till SQL Server Data Tools for Visual Studio ("SSDT") och bygga projektet för en SQL Database V12-distribution. Därefter åtgärdar du alla identifierade kompatibilitetsproblem i SSDT. När du är klar synkroniserar du ändringarna tillbaka till källdatabasen (eller en kopia av källdatabasen). SSDT är för närvarande den metod som rekommenderas för att testa och lösa kompatibilitetsproblem med SQL Database V12. Följ länken för en [genomgång av SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
-* Använda [SQL Server Management Studio (”SSMS”)](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): Om du vill använda SSMS kör du Transact-SQL-kommandon för att korrigera de fel som identifierats med hjälp av ett annat verktyg. Den här metoden är främst för avancerade användare, där de kan ändra databasschemat direkt i källdatabasen. 
-* Använda [SQL Azure Migration Wizard ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): Om du vill använda SAMW skapar du ett Transact-SQL-skript från källdatabasen. Guiden transformerar skriptet, där detta är möjligt, för att göra schemat kompatibelt med SQL Database V12. När det är klart kan SAMW ansluta till SQL Database V12 för att köra skriptet. Det här verktyget analyserar även spårningsfiler för att fastställa kompatibilitetsproblem. Skriptet kan genereras med endast schema, eller kan innehålla data i BCP-format.
-
-## <a name="migrate-a-compatible-sql-server-database-to-sql-database"></a>Migrera en kompatibel SQL Server-databas till Azure SQL Database
-Microsoft tillhandahåller flera migreringsmetoder för olika scenarier vid migrering av en kompatibel SQL Server-databas. Den metod du väljer beror på toleransen för avbrott, din SQL Server-databas storlek och komplexitet samt anslutningen till Microsoft Azure-molnet.  
-
-> [!div class="op_single_selector"]
-> * [SSMS migreringsguide](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-> * [Export till BACPAC-fil](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-> * [Import från BACPAC-fil](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [Transaktionsreplikering](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
-> 
-> 
-
-Vid valet av migreringsmetod är den första frågan om du har råd att databasen står utanför produktion under migreringen. Migrering av en databas där aktiva transaktioner sker kan leda till inkonsekvenser i databasen och den kan skadas. Det finns många metoder för att inaktivera en databas, från att inaktivera klientanslutningarna till att skapa en [ögonblicksbild av databasen](https://msdn.microsoft.com/library/ms175876.aspx).
-
-Om du vill migrera med minimal avbrottstid ska du använda [SQL Server transaktionsreplikering](sql-database-cloud-migrate-compatible-using-transactional-replication.md), om din databas uppfyller kraven för transaktionsreplikering. Om du har råd med lite avbrott eller om du utför en testmigrering av en produktionsdatabas för senare migrering, pröva någon av följande tre metoder:
-
-* [SSMS migreringsguide](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): För små till medelstora databaser. Migrering av en kompatibel SQL Server 2005-databas eller senare är lika enkelt som att köra [guiden Deploy Database to Microsoft Azure Database](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) i SQL Server Management Studio.
-* [Exportera till BACPAC-fil](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) och därefter [importera från BACPAC-fil](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md): Om du har anslutningsproblem (ingen anslutning, låg bandbredd eller timeout-problem) och det gäller medelstora till stora databaser, använd en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-fil. Med den här metoden exporterar du SQL Server-schemat och data till en BACPAC-fil. Därefter importerar du BACPAC-filen till SQL Database med hjälp av Export Data Tier Application Wizard i SQL Server Management Studio eller [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx)-kommandotolkverktyget.
-* Använda BACPAC och BCP tillsammans: Använd en [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-fil och [BCP](https://msdn.microsoft.com/library/ms162802.aspx) för mycket större databaser för att uppnå större parallellisering för ökar prestanda, men med ökad komplexitet. Med den här metoden migreras schemat och data separat.
-  
-  * [Exportera endast schemat till en BACPAC-fil](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
-  * [Importera endast schemat från BACPAC-filen](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) till SQL Database.
-  * Använd [BCP](https://msdn.microsoft.com/library/ms162802.aspx) för att extrahera data till flat-filer och sedan [parallellinläsa](https://technet.microsoft.com/library/dd425070.aspx) filerna i Azure SQL Database.
-    
-     ![SQL Server databasmigrering – migrera SQL Database till molnet.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
-
 ## <a name="next-steps"></a>Nästa steg
-* [Nyaste versionen av SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-* [Nyaste versionen av SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-
-## <a name="additional-resources"></a>Ytterligare resurser
-* [SQL Database-funktioner](sql-database-features.md)
-  [Transact-SQL funktioner som delvis eller inte stöds](sql-database-transact-sql-information.md)
-* [Migrera icke-SQL Server-databaser med hjälp av SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
+* Använd skriptet i Azure SQL EMEA Engineers-bloggen för att [övervaka tempdb-användningen vid migrering](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/) (på engelska).
+* Använd skriptet i Azure SQL EMEA Engineers-bloggen för att [övervaka transaktionsloggutrymmet i databasen medan migreringen pågår](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0) (på engelska).
+* En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
+* Information om hur du arbetar med UTC-tid efter migreringen finns i [Ändra standardtidszon för den lokala tidszonen](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (på engelska).
+* Information om hur du ändrar standardspråk för en databas efter migreringen finns [Ändra standardspråk för Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (på engelska).
 
 

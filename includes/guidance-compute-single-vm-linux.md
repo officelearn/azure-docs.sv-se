@@ -155,7 +155,7 @@ En distribution för denna referensarkitektur finns tillgänglig på [GitHub][gi
    * Namnet **Resursgrupp** har redan definierats i parameterfilen så välj **Skapa nytt** och ange `ra-single-vm-rg` i textrutan.
    * Välj region från den listrutan **Plats**.
    * Redigera inte textrutorna för **mallrots-URI** eller **parameterrots-URI**.
-.   *Välj * *linux* * i listrutan * *OS-typ**.
+.   * Välj **linux** i den **Os-typen** listrutan.
    * Granska villkoren och klicka sedan i kryssrutan **Jag godkänner villkoren ovan**.
    * Klicka på **Köp**.
 3. Vänta tills distributionen har slutförts.
@@ -188,7 +188,7 @@ Distribuera två eller flera virtuella datorer bakom en belastningsutjämnare f�
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
-[premium-storage]:../articles/storage/common/storage-premium-storage.md
+[premium-storage]:../articles/virtual-machines/windows/premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user

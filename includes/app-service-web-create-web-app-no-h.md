@@ -11,6 +11,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 När webbappen har skapats visar Azure CLI information liknande den i följande exempel:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -19,24 +20,17 @@ När webbappen har skapats visar Azure CLI information liknande den i följande 
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
   "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<app_name>.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    }
-    < JSON data removed for brevity. >
+  < JSON data removed for brevity. >
 }
 ```
+
+Du har skapat en tom webbapp med git-distribution som är aktiverad.
+
+> [!NOTE]
+> URL för Git-fjärråtkomstprincipen visas i den `deploymentLocalGitUrl` egenskap med formatet `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Spara den här URL: en som du behöver senare.
+>
 
 Gå till webbplatsen för att se webbappen du precis skapade.
 

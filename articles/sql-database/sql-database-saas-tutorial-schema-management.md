@@ -5,47 +5,46 @@ keywords: sql database tutorial
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
-ms.workload: data-management
+ms.custom: scale out apps
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 19d02229781186053a0063af1c7e1a3280179f46
-ms.contentlocale: sv-se
-ms.lasthandoff: 05/12/2017
-
-
+ms.openlocfilehash: 14912df26074b525585594cc1b5d32c85ce9094f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="manage-schema-for-multiple-tenants-in-the-wtp-saas-application"></a>Hantera scheman för flera klienter i WTP SaaS-programmet
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Hantera scheman för flera klienter i ett program för flera klienter som använder Azure SQL Database
 
-Guiden introduktion till WTP-programmet visar hur WTP-appen kan etablera en klientdatabas med sitt ursprungliga schema och registrera den i katalogen. Precis som alla program, utvecklas WTP-appen med tiden och kommer ibland att kräva ändringar i databasen. Ändringarna kan inkludera nya eller ändrade scheman, nya eller ändrade referensdata och vanliga uppgifter för databasunderhåll för att säkerställa optimal apprestanda. Med ett SaaS-program, behöver de här ändringarna distribueras på ett samordnat sätt över en potentiellt massiv mängd klientdatabaser. Ändringarna måste också inkluderas i etableringsprocessen för framtida klientdatabaser.
+Den [första Wingtip SaaS-självstudierna](sql-database-saas-tutorial.md) visar hur appen kan etablera en klient-databas och registrera den i katalogen. Precis som alla program Wingtip SaaS-appen kommer att utvecklas över tid och kräver ibland ändringar i databasen. Ändringarna kan inkludera nya eller ändrade scheman, nya eller ändrade referensdata och vanliga uppgifter för databasunderhåll för att säkerställa optimal apprestanda. Med ett SaaS-program, behöver de här ändringarna distribueras på ett samordnat sätt över en potentiellt massiv mängd klientdatabaser. För att ändringarna ska vara i framtiden klient databaser måste de införlivas i etableringsprocessen.
 
-Den här guiden utforskar två scenarier. Distribuering av uppdateringar av referensdata för alla klienter och återställning av ett index i tabellen med referensdata. Funktionen [elastiska jobb](sql-database-elastic-jobs-overview.md) används för att utföra de här åtgärderna på alla klienter och en *gyllene* klientdatabas som används som mall för nya databaser.
+Den här guiden utforskar två scenarier. Distribuering av uppdateringar av referensdata för alla klienter och återställning av ett index i tabellen med referensdata. Den [elastiska jobb](sql-database-elastic-jobs-overview.md) funktionen används för att utföra dessa åtgärder på alla klienter och *gyllene* klient-databas som används som en mall för nya databaser.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 
-> * Skapar ett jobbkonto för att fråga över flera klienter
+> * Skapa ett konto för jobb
+> * Fråga på flera innehavare
 > * Uppdaterar data i alla klientdatabaser
 > * Skapar ett index i en tabell i alla klientdatabaser
 
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
-* WTP-appen ska ha distribuerats. Du kan distribuera appen på mindre än fem minuter genom att följa anvisningarna i [Distribuera och utforska WTP SaaS-appen](sql-database-saas-tutorial.md)
+* Wingtip SaaS-appen har distribuerats. För att distribuera på mindre än fem minuter finns [distribuera och utforska Wingtip SaaS-program](sql-database-saas-tutorial.md)
 * Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * Den senaste versionen av SQL Server Management Studio (SSMS) ska vara installerad. [Ladda ned och installera SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Den här guiden använder funktioner för SQL Database-tjänsten som är i en begränsad förhandsgranskning (elastiska databasjobb). Om du vill följa den här guiden, måste du ange ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = Förhandsgranskning av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Eftersom det här är en begränsad förhandsgranskning, bör du kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.*
+*Den här guiden använder funktioner för SQL Database-tjänsten som är i en begränsad förhandsgranskning (elastiska databasjobb). Om du vill följa den här guiden, måste du ange ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = Förhandsgranskning av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här förhandsgranskningen är begränsad, så Kontakta SaaSFeedback@microsoft.com för frågor eller support.*
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till SaaS-schemahanteringsmönster
@@ -60,11 +59,11 @@ SaaS-mönstret för enskilda innehavare per databas har många fördelar av data
 Det finns en ny version av elastiska jobb som nu är en inbyggd funktion i Azure SQL Database (som inte kräver några ytterligare tjänster eller komponenter). Den här nya versionen av elastiska jobb är för närvarande i begränsad förhandsvisning. Den här begränsade förhandsvisningen stöder för närvarande PowerShell för att skapa jobbkonton och T-SQL för att skapa och hantera jobb.
 
 > [!NOTE]
-> *Den här guiden använder funktioner för SQL Database-tjänsten som är i en begränsad förhandsgranskning (elastiska databasjobb). Om du vill följa den här guiden, måste du ange ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = Förhandsgranskning av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Eftersom det här är en begränsad förhandsgranskning, bör du kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.*
+> *Den här guiden använder funktioner för SQL Database-tjänsten som är i en begränsad förhandsgranskning (elastiska databasjobb). Om du vill följa den här guiden, måste du ange ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = Förhandsgranskning av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här förhandsgranskningen är begränsad, så Kontakta SaaSFeedback@microsoft.com för frågor eller support.*
 
-## <a name="get-the-wingtip-application-scripts"></a>Hämta Wingtip-programskripten
+## <a name="get-the-wingtip-application-scripts"></a>Hämta Wingtip-programskript
 
-Wingtip biljettskripten och programmets källkod finns tillgängliga från github-repon [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Skriptfilerna finns i [mappen inlärningsmoduler](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Ladda ner mappen **inlärningsmoduler** till din lokala dator med sin mappstruktur intakt.
+Wingtip SaaS-skript och programmets källkod är tillgängliga i den [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github-lagringsplatsen. [Steg för att hämta Wingtip SaaS-skripten](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Skapa en jobbkonto-databas och ett nytt jobbkonto
 
@@ -89,14 +88,14 @@ För att skapa ett nytt jobb, använder vi oss av en uppsättning jobbsystemlagr
 1. Anslut också till klientservern: tenants1-\<användare\>. database.windows.net
 1. Bläddra till *contosoconcerthall*-databasen på *tenants1*-servern och fråga *VenueTypes*-tabellen för att bekräfta att *Motorcycle Racing* och *Swimming Club* **inte finns** i resultatlistan.
 1. Öppna filen... \\inlärningsmoduler\\schemahantering\\DeployReferenceData.sql
-1. Ändra \<användare\>, använd användarnamnet som du använde när du distribuerade WTP-appen på alla 3 platser i skriptet
+1. Ändra instruktionen: Ange @wtpUser = &lt;användaren&gt; och Ersätt det användar-värde som används när du har distribuerat appen Wingtip
 1. Kontrollera att du är ansluten till jobaccount-databasen och tryck **F5** för att köra skriptet
 
 * **sp\_add\_target\_group** skapar målgruppnamnet DemoServerGroup, nu behöver vi lägga till målmedlemmar.
-* **sp\_add\_target\_group\_member** lägger till en målmedlemtyp som heter *server*, som bestämmer att alla databaser inom den servern (observera att det här är servern customer1-&lt;WtpUser&gt; som innehåller klientdatabasen) ska inkluderas i jobbet vid jobbkörningstillfället. Den andra lägger till en *databas*-målmedlemstyp, specifikt den ”gyllene” databasen, baseTenantDB som finns på servern catalog-&lt;WtpUser&gt;. Slutligen läggs en till *databas*-målmedlemstyp till för att inkludera adhocanalytics-databasen som används i en senare guide.
+* **SP\_lägga till\_mål\_grupp\_medlem** lägger till en *server* mål Medlemstyp som bedömer alla databaser på servern (Obs detta är tenants1-&lt; Användaren&gt; servern som innehåller klient-databaser) vid tiden för jobbet körningen ska inkluderas i jobbet, andra är att lägga till en *databasen* mål Medlemstyp, särskilt 'gyllene-databasen (basetenantdb) som finns i katalogen -&lt;användare&gt; server, och slutligen en annan *databasen* måltyp grupp medlem att inkludera adhocanalytics databasen som används i en senare vägledning.
 * **sp\_add\_job** skapar ett jobb som heter referensdatadistribution
-* **sp\_add\_jobstep** skapar jobbsteget med T-SQL-kommandotext för att uppdatera till referenstabellen VenueTypes
-* De återstående vyerna i skriptet visar att jobbet finns och övervakar jobbkörningen. Granska statusvärdet från kolumnen **livscykel**. Jobbet har slutförts på alla klientdatabaser och de två ytterligare databaserna som innehåller referenstabellen.
+* **SP\_lägga till\_jobbsteg** skapar de steg som innehåller text för T-SQL-kommandot om du vill uppdatera referenstabellen VenueTypes
+* De återstående vyerna i skriptet visar att jobbet finns och övervakar jobbkörningen. Använd de här frågorna för att granska statusvärde i den **livscykel** kolumnen att avgöra när jobbet har slutförts på alla klient-databaser och ytterligare två databaserna med referenstabellen.
 
 1. I SSMS, bläddrar du till *contosoconcerthall*-databasen på *tenants1*-servern och frågar *VenueTypes*-tabellen för att bekräfta att *Motorcycle Racing* och *Swimming Club* **nu finns** i resultatlistan.
 
@@ -107,9 +106,9 @@ På liknande vis som föregående övning så skapar den här ett jobb för att 
 
 Skapa ett jobb med samma jobbs systemlagrade procedurer.
 
-1. Öppna SSMS och anslut till servern catalog-&lt;användare&gt;.database.windows.net
+1. Öppna SSMS och Anslut till katalogen -&lt;användaren&gt;. database.windows.net server
 1. Öppna filen... \\inlärningsmoduler\\schemahantering\\OnlineReindex.sql
-1. Högerklicka, välj anslutning och anslut till servern catalog-&lt;WtpUser&gt;.database.windows.net, om du inte redan är ansluten
+1. Högerklicka på anslutningen och välj ansluta till katalogen -&lt;användaren&gt;. database.windows.net server, om inte redan är ansluten
 1. Kontrollera att du är ansluten till jobbkonto-databasen och tryck F5 för att köra skriptet
 
 * sp\_add\_job skapar ett nytt jobb som heter “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”
@@ -133,6 +132,6 @@ I den här guiden lärde du dig hur man:
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Ytterligare guider som bygger på den initiala programdistributionen av Wingtip biljettplattformen (WTP)](sql-database-wtp-overview.md#sql-database-wtp-saas-tutorials)
+* [Ytterligare självstudier som bygger på Wingtip SaaS-programdistribution](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Hantera utskalade molndatabaser](sql-database-elastic-jobs-overview.md)
 * [Skapa och hantera utskalade molndatabaser](sql-database-elastic-jobs-create-and-manage.md)

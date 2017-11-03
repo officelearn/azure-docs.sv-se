@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 06/30/2017
+ms.workload: Active
+ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/28/2017
-
+ms.openlocfilehash: f97a1e7977e28765985991ba9e38ed4618e00bda
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database? 
 
@@ -85,16 +84,20 @@ Azures branschledande serviceavtal [(SLA)](http://azure.microsoft.com/support/le
 
 Med SQL-databas får du inbyggd intelligens som hjälper dig att avsevärt minska kostnaderna för att köra och hantera databaser och maximera både prestanda och säkerhet för programmet. Miljontals kundarbetsflöden körs dygnet runt, SQL Database samlar in och bearbetar en omfattande mängd telemetridata, samtidigt som den helt respekterar kundens integritet i bakgrunden. Olika algoritmer utvärderar kontinuerligt telemetridata så att tjänsten kan lära sig och anpassa dem med ditt program. Baserat på den här analysen skapar tjänsten rekommendationer som ökar prestandan på ett sätt som är skräddarsytt för din arbetsbelastning. 
 
-### <a name="automatic-performance-tuning"></a>Automatisk prestandajustering
+### <a name="automatic-performance-monitoring-and-tuning"></a>Automatisk prestandaövervakning och justera
 
-SQL Database ger detaljerad inblick i frågor som du behöver övervaka. SQL-databas lär sig om din databas och du kan anpassa ditt databasschema för din arbetsbelastning. SQL-databasen innehåller rekommendationer för prestandajustering med [SQL Database Advisor](sql-database-advisor.md) där du kan granska prestandajusteringsåtgärder och använda dem. Det kan vara svårt att konstant övervaka databasen, särskilt när vi hanterar flera databaser. Det kan vara svårt att hantera ett stort antal databaser effektivt, även om du har alla verktyg och rapporter i SQL Database och Azure-portalen. I stället för att övervaka och justera databasen manuellt, kan du delegera vissa åtgärder som övervakar och justerar till SQL Database med hjälp av funktionen för automatisk justering. SQL Database tillämpar automatiskt rekommendationer, tester och verifierar var och en av prestandajusteringsåtgärderna för att kontrollera att prestandan ständigt förbättras. På så sätt kan SQL-databasen automatiskt anpassas efter din arbetsbelastning på ett kontrollerat och säkert sätt. Automatisk justering innebär att databasens prestanda övervakas och jämförs noggrant före och efter varje prestandajusteringsåtgärd. Om detta inte förbättrar prestandan återställs justeringsåtgärden.
+SQL Database ger detaljerad inblick i frågor som du behöver övervaka. SQL-databas lär sig om din databas och du kan anpassa ditt databasschema för din arbetsbelastning. SQL-databasen innehåller [rekommendationer för prestandajustering](sql-database-advisor.md), där du kan granska prestandajustering åtgärder och använda dem. 
+
+Det kan vara svårt att konstant övervaka databasen, särskilt när vi hanterar flera databaser. [Intelligent insikter](sql-database-intelligent-insights.md) gör jobbet åt dig genom att övervaka prestanda för SQL-databas i skala automatiskt och informerar dig om problem med prestanda försämras, den identifierar orsaken till problemet och ger prestandaförbättring rekommendationer när det är möjligt.
+
+Det kan vara svårt att hantera ett stort antal databaser effektivt, även om du har alla verktyg och rapporter i SQL Database och Azure-portalen. I stället för att övervaka och justera databasen manuellt, kan du delegera vissa av övervakning och finjustera åtgärder till SQL-databas med hjälp av [automatisk justering](sql-database-automatic-tuning.md). SQL Database tillämpar automatiskt rekommendationer, tester och verifierar var och en av prestandajusteringsåtgärderna för att kontrollera att prestandan ständigt förbättras. På så sätt kan SQL-databasen automatiskt anpassas efter din arbetsbelastning på ett kontrollerat och säkert sätt. Automatisk justering innebär att databasens prestanda övervakas och jämförs noggrant före och efter varje prestandajusteringsåtgärd. Om detta inte förbättrar prestandan återställs justeringsåtgärden.
 
 Idag förlitar sig många av våra samarbetspartners som använder [SaaS appar för flera appar](sql-database-design-patterns-multi-tenancy-saas-applications.md) utöver SQL-databasen på automatisk prestandajustering för att säkerställa att deras program alltid hade stabil och pålitlig prestanda. För dessa minskar funktionen risken för en prestandaincident mitt i natten. Eftersom en del av deras kundbas också använder SQL Server, använder de dessutom samma indexeringsrekommendationer som tillhandahålls av SQL Database för sina SQL Server-kunder.
 
-Det finns två automatiska justeringsaspekter som är tillgängliga i SQL Database:
+Det finns två automatisk justering aspekter som är [tillgängliga i SQL-databas](sql-database-automatic-tuning.md):
 
-- **[Automatisk indexhantering](sql-database-automatic-tuning.md#automatic-index-management)**: Identifierar index som bör läggas till i din databas och index som ska tas bort.
-- **[Plan för automatisk korrigering](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**: Identifierar problematiska planer och åtgärdar prestandaproblem i SQL planen (kommer snart, redan finns i SQL Server 2017).
+- **Automatisk indexhantering**: identifierar index som ska läggas till i din databas och index som ska tas bort.
+- **Plan för automatisk korrigering**: identifierar problematiska planer och åtgärdar SQL plan prestandaproblem (kommer snart, redan finns i SQL Server-2017).
 
 ### <a name="adaptive-query-processing"></a>Anpassningsbar frågebearbetning
 
@@ -114,7 +117,7 @@ SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet oc
 
 ### <a name="data-encryption-at-rest"></a>Datakryptering i vila
 
-SQL Database [transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) skyddar mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering av databas i realtid, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Från och med kan 2017 skyddas alla nyligen skapade Azure SQL-databaser automatiskt med transparent datakryptering (TDE). TDE är en SQL-beprövad kryptering i vila-teknik som krävs av många efterlevnadsstandarder för att skydda mot stöld av lagringsmedier. Kunder kan hantera TDE-krypteringsnycklar och andra hemligheter säkert och i efterlevnad av krav med Azure Key Vault.
+SQL Database [transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) skyddar mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering av databas i realtid, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet. Från och med kan 2017 skyddas alla nyligen skapade Azure SQL-databaser automatiskt med transparent datakryptering (TDE). TDE är en SQL-beprövad kryptering i vila-teknik som krävs av många efterlevnadsstandarder för att skydda mot stöld av lagringsmedier. Kunder kan hantera TDE-krypteringsnycklar och andra hemligheter säkert och i efterlevnad av krav med Azure Key Vault.
 
 ### <a name="data-encryption-in-motion"></a>Datakryptering i rörelse
 
@@ -147,6 +150,14 @@ SQL Database gör byggandet och underhållet av appar enklare och mer produktivt
 
 Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och Windows har stöd för SQL-databas. SQL Database stöder samma [anslutningsbibliotek](sql-database-libraries.md) som SQL Server.
 
+## <a name="engage-with-the-sql-server-engineering-team"></a>Tala med teknikteamet för SQL Server
+
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ställ frågor om databasadministration
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling
+- [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Ställ tekniska frågor
+- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): Rapportera fel och kom med förslag
+- [Reddit](https://www.reddit.com/r/SQLServer/): Diskutera SQL Server
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [Prissidan](https://azure.microsoft.com/pricing/details/sql-database/) för en kostnadsjämförelse och kostnadsberäknare för enskilda databaser och elastiska pooler.
@@ -160,4 +171,3 @@ Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och
 - En uppsättning Azure CLI- och PowerShell-exempel finns här:
   - [Azure CLI-exempel för SQL Database](sql-database-cli-samples.md)
   - [Azure PowerShell-exempel för SQL Database](sql-database-powershell-samples.md)
-

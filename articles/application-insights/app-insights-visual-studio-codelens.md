@@ -10,15 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 03/17/2017
-ms.author: daviste
-translationtype: Human Translation
-ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
-ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
-ms.lasthandoff: 11/16/2016
-
-
+ms.author: mbullwin
+ms.openlocfilehash: 418c391f896ac60f509b963f0aff70ad699fc43b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Application Insights Telemetry i Visual Studio CodeLens
 Metoderna i din webbapps kod kan kommenteras med telemetri om körtidsundantag och förfrågningssvarstider. Om du installerar [Azure Application Insights](app-insights-overview.md) i ditt program visas telemetrin i Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) – anteckningarna längst upp för varje funktion där du är van att se användbar information som antalet platser som refererar till funktionen, eller den person som senast redigerade den.
@@ -79,5 +78,4 @@ Om du vill se mer information klickar du på indikatorn CodeLens-begäran:
 | **[Arbeta med Application Insights i Visual Studio](app-insights-visual-studio.md)**<br/>Sök i telemetri, visa data i CodeLens och konfigurera Application Insights. Allt i Visual Studio. |![Högerklicka på projektet och välj Application Insights, Sök](./media/app-insights-visual-studio-codelens/34.png) |
 | **[Lägga till mer information](app-insights-asp-net-more.md)**<br/>Övervaka användning, tillgänglighet, beroenden och undantag. Integrera spårningar från loggningsramverk. Skriv anpassad telemetri. |![Visual Studio](./media/app-insights-visual-studio-codelens/64.png) |
 | **[Arbeta med Application Insights-portalen](app-insights-dashboards.md)**<br/>Instrumentpaneler, kraftfulla verktyg för diagnostik och analys, aviseringar, live-mappning över beroenden för din app och telemetriexport. |![Visual Studio](./media/app-insights-visual-studio-codelens/62.png) |
-
 

@@ -1,4 +1,4 @@
-I det lokala terminalfönstret kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas.
+I det lokala terminalfönstret kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Den här Azure remote skapades för dig i [skapa en webbapp](#create-a-web-app).
 
 ```bash
 git remote add azure <URI from previous step>

@@ -9,17 +9,16 @@ editor:
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 08/23/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 71e3d130f22515d22dc7f486f3dede936b874049
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: d9870fafab3df3ab0ec72305e76a4d3547cc5b2c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Skapa och distribuera ditt Java-program för Linux med hjälp av Jenkins
 Jenkins är ett populärt verktyg för kontinuerlig integrering och distribution av appar. Så här skapar och distribuerar du ett Azure Service Fabric-program med Jenkins.
@@ -30,7 +29,7 @@ Jenkins är ett populärt verktyg för kontinuerlig integrering och distribution
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Konfigurera Jenkins i ett Service Fabric-kluster
 
-Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följande avsnitt visas hur du konfigurerar Jenkins i ett kluster.
+Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följande avsnitt visar hur du konfigurerar det i ett kluster när ett Azure storage-konto för att spara tillståndet för behållaren-instans.
 
 ### <a name="prerequisites"></a>Krav
 1. Ha ett Service Fabric Linux-kluster redo. Docker finns redan installerat i Service Fabric-kluster som skapas via Azure Portal. Om du kör klustret lokalt kan du kontrollera om Docker är installerat med hjälp av kommandot ``docker info``. Om Docker inte är installerat kan du installera det med följande kommandon:
@@ -38,40 +37,65 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följa
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
-  ```
-2. Distribuera Service Fabric-behållarprogrammet till klustret enligt stegen nedan:
+  ``` 
+
+   > [!NOTE]
+   > Se till att 8081 port har angetts som en anpassad slutpunkt i klustret.
+   >
+2. Klona programmet, med hjälp av följande steg:
 
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker
+git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
-azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+```
+
+3. Spara tillståndet för behållaren Jenkins i en filresurs:
+  * Skapa ett Azure storage-konto i den **samma region** som klustret med ett namn som ``sfjenkinsstorage1``.
+  * Skapa en **filresurs** under lagringen konto med ett namn som ``sfjenkins``.
+  * Klicka på **Anslut** för filresurser och Observera värdena visas **ansluter från Linux**, värdet bör likna exemplet nedan:
+```sh
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+```
+
+> [!NOTE]
+> Att montera cifs-resurser som du behöver ha cifs-verktyg för webbplatsuppgradering paketet installerad på klusternoderna.         
+>
+
+4. Uppdatera platshållarvärdena i den ```setupentrypoint.sh``` skriptet med azure storage-information från steg 3.
+```sh
+vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
+```
+  * Ersätt ``[REMOTE_FILE_SHARE_LOCATION]`` med värdet ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` från utdata från connect i steg 3 ovan.
+  * Ersätt ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` med värdet ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` från steg 3 ovan.
+
+5. Anslut till klustret och installera behållarprogrammet.
+```sh
+sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 Detta installerar en Jenkins-behållare på klustret och kan övervakas med Service Fabric Explorer.
 
-### <a name="steps"></a>Steg
-1. Gå till ``http://PublicIPorFQDN:8081`` i webbläsaren. På sidan visas sökvägen till det ursprungliga administratörslösenordet som krävs för att logga in. Du kan fortsätta att använda Jenkins som administratörsanvändare. Eller så kan du skapa en ny användare och byta till den när du har loggat in med det ursprungliga administratörskontot.
-
    > [!NOTE]
-   > Se till att port 8081 anges som programmets slutpunktsport när du skapar klustret.
+   > Det kan ta några minuter för Jenkins avbildningen hämtas i klustret.
    >
 
-2. Hämta behållarens instans-ID med ``docker ps -a``.
-3. Logga in med SSH-inloggning (Secure Shell ) till behållaren och klistra in sökvägen som visades i Jenkins-portalen. Om exempelvis sökvägen `PATH_TO_INITIAL_ADMIN_PASSWORD` visas i portalen kan du köra följande:
+### <a name="steps"></a>Steg
+1. Gå till ``http://PublicIPorFQDN:8081`` i webbläsaren. På sidan visas sökvägen till det ursprungliga administratörslösenordet som krävs för att logga in. 
+2. Titta på den Service Fabric Explorer för att avgöra vilken nod behållaren Jenkins körs. Secure Shell (SSH) logga in på den här noden.
+```sh
+ssh user@PublicIPorFQDN -p [port]
+``` 
+3. Hämta behållarens instans-ID med ``docker ps -a``.
+4. Logga in med SSH-inloggning (Secure Shell ) till behållaren och klistra in sökvägen som visades i Jenkins-portalen. Om exempelvis sökvägen `PATH_TO_INITIAL_ADMIN_PASSWORD` visas i portalen kan du köra följande:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
-  cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
-
-4. Konfigurera GitHub för Jenkins genom att utföra åtgärderna som nämns i [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generera en ny SSH-nyckel och lägga till den i SSH-agenten).
-    * Använd instruktionerna från GitHub för att skapa SSH-nyckeln och lägg till SSH-nyckeln på det GitHub-konto som är (blir) värd för databasen.
-    * Kör de kommandon som nämns i länken ovan i Jenkins Docker-gränssnittet (och inte på värden).
-    * Om du vill logga in till Jenkins-gränssnittet från värden ska du använda följande kommando:
-
   ```sh
-  docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+  cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
   ```
+5. På sidan Jenkins Gettting igång väljer du väljer plugin-program om du vill installera alternativet väljer du den **ingen** kryssrutan och klicka på installera.
+6. Skapa en användare eller Välj för att fortsätta eftersom en administratör.
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Konfigurera Jenkins utanför ett Service Fabric-kluster
 
@@ -102,7 +126,7 @@ När du kör ``docker info`` på terminalen visar utdata nu att Docker-tjänsten
   5. Konfigurera GitHub för Jenkins genom att utföra åtgärderna som nämns i [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generera en ny SSH-nyckel och lägga till den i SSH-agenten).
         * Följ instruktionerna från GitHub för att skapa SSH-nyckeln och lägga till SSH-nyckeln på det GitHub-konto som är (blir) värd för databasen.
         * Kör de kommandon som nämns i länken ovan i Jenkins Docker-gränssnittet (och inte på värden).
-        * Om du vill logga in till Jenkins-gränssnittet från värden ska du använda följande kommandon:
+      * Om du vill logga in till Jenkins-gränssnittet från värden ska du använda följande kommandon:
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
@@ -114,7 +138,7 @@ Kontrollera att klustret eller datorn där Jenkins-behållaravbildningen finns h
 
 1. Gå till ``http://PublicIPorFQDN:8081``
 2. Från Jenkins-instrumentpanelen väljer du **Manage Jenkins (Hantera Jenkins)** > **Manage Plugins (Hantera plugin-program)** > **Avancerat**.
-Här kan du ladda upp ett plugin-program. Välj alternativet **Välj fil** och välj sedan den **serviceFabric.hpi**-fil som du har hämtat under Krav. När du väljer alternativet för att **ladda upp** installerar Jenkins automatiskt plugin-programmet åt dig. Tillåt en omstart om det begärs.
+Här kan du ladda upp ett plugin-program. Välj **Välj fil**, och välj sedan den **serviceFabric.hpi** filen som du hämtade under krav eller kan du hämta [här](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). När du väljer alternativet för att **ladda upp** installerar Jenkins automatiskt plugin-programmet åt dig. Tillåt en omstart om det begärs.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Skapa och konfigurera ett Jenkins-jobb
 
@@ -122,7 +146,7 @@ Här kan du ladda upp ett plugin-program. Välj alternativet **Välj fil** och v
 2. Ange ett namn (till exempel **MyJob**). Välj **free-style project** (freestyle-projekt) och klicka på **OK**.
 3. Gå till jobbsidan och klicka sedan på **Konfigurera**.
 
-   a. Ange URL:en för GitHub-projektet under **GitHub-projekt** i det allmänna avsnittet. Den här URL:en är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. ``https://github.com/sayantancs/SFJenkins``).
+   a. I avsnittet Allmänt markerar du kryssrutan för **GitHub projekt**, och ange URL för GitHub. Den här URL:en är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. ``https://github.com/sayantancs/SFJenkins``).
 
    b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange URL för databasen som är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. ``https://github.com/sayantancs/SFJenkins.git``). Du kan också ange här vilken gren som ska byggas (t.ex. ***/master**).
 4. Konfigurera din *GitHub* (som är värd för databasen) så att den kan kommunicera med Jenkins. Använd följande steg:
@@ -137,7 +161,7 @@ Här kan du ladda upp ett plugin-program. Välj alternativet **Välj fil** och v
 
    e. I avsnittet om **build-utlösare** väljer du önskat alternativ. I det här exemplet vill du utlösa en build när något skickas till databasen. Därför väljer du **GitHub hook trigger for GITScm polling** (GitHub-hookutlösare för GITScm-avsökning). (Tidigare hette det här alternativet **Build when a change is pushed to GitHub**) (Bygg när en ändring skickas till GitHub).
 
-   f. Under avsnittet **Build** (Bygg) i listrutan **Add build step** (Lägg till byggsteg) väljer du alternativet **Invoke Gradle Script** (Anropa Gradle-skript). I widgeten som visas anger du sökvägen till **rotbuildskript** för ditt program. Då hämtas build.gradle från den angivna sökvägen och fungerar på motsvarande sätt. Om du skapar ett projekt med namnet ``MyActor`` (med Eclipse-plugin-programmet eller Yeoman-generatorn), ska rotbuildskriptet innehålla ``${WORKSPACE}/MyActor``. Följande skärmbild visar ett exempel på hur det kan se ut:
+   f. Under avsnittet **Build** (Bygg) i listrutan **Add build step** (Lägg till byggsteg) väljer du alternativet **Invoke Gradle Script** (Anropa Gradle-skript). Ange sökvägen till i widget som medföljer öppna menyn Avancerade **rot skapa skriptet** för ditt program. Den hämtar build.gradle från den angivna sökvägen och fungerar därför. Om du skapar ett projekt med namnet ``MyActor`` (med Eclipse-plugin-programmet eller Yeoman-generatorn), ska rotbuildskriptet innehålla ``${WORKSPACE}/MyActor``. Följande skärmbild visar ett exempel på hur det kan se ut:
 
     ![Service Fabric Jenkins Build-åtgärd][build-step]
 
@@ -155,4 +179,3 @@ GitHub och Jenkins har nu konfigurerats. Fundera över om du vill göra ändring
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
   [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
-

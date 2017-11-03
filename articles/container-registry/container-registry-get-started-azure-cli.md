@@ -1,150 +1,163 @@
 ---
-title: "Skapa ett behållarregister med hjälp av Azure CLI | Microsoft Docs"
-description: "Kom igång med att skapa och hantera privata Dockerbehållarregister med Azure CLI 2.0"
+title: Snabbstart - skapa ett privat Docker-register i Azure med Azure CLI
+description: "Lär dig snabbt skapa en privat Docker behållare registret med Azure CLI."
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
 ms.devlang: azurecli
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 10/16/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
-
+ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Skapa ett privat Dockerbehållarregister med hjälp av Azure CLI 2.0
-Använd kommandon i [Azure CLI 2.0](https://github.com/Azure/azure-cli) för att skapa ett behållarregister och hantera inställningarna från din Linux-, Mac- eller Windows-dator. Du kan också skapa och hantera behållarregister med hjälp av [Azure Portal](container-registry-get-started-portal.md) eller via programmering med [REST-API:et](https://go.microsoft.com/fwlink/p/?linkid=834376) för Container Registry.
+# <a name="create-a-container-registry-using-the-azure-cli"></a>Skapa ett behållarregister med hjälp av Azure CLI
 
+Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. Den här guiden information att skapa en Azure-behållare registret-instans med hjälp av Azure CLI.
 
-* Bakgrund och koncept beskrivs i [översikten](container-registry-intro.md)
-* Om du vill visa hjälp om Container Registry CLI-kommandon (`az acr`-kommandon) använder du `-h`-parametern med valfritt kommando.
+Denna Snabbstart kräver att du använder Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
 
+Du måste också ha Docker installeras lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-](https://docs.docker.com/docker-for-mac/), [Windows-](https://docs.docker.com/docker-for-windows/) eller [Linux-](https://docs.docker.com/engine/installation/#supported-platforms)dator.
 
-## <a name="prerequisites"></a>Krav
-* **Azure CLI 2.0**: Information om hur du installerar och kommer igång med CLI 2.0 finns i avsnittet med [installationsanvisningar](/cli/azure/install-azure-cli). Logga in i din Azure-prenumeration genom att köra `az login`. Mer information finns i [Kom igång med CLI 2.0](/cli/azure/get-started-with-azure-cli).
-* **Resursgrupp**: Skapa en [resursgrupp](../azure-resource-manager/resource-group-overview.md#resource-groups) innan du skapar ett behållarregister eller använd en befintlig resursgrupp. Kontrollera att resursgruppen finns på en plats där Container Registry-tjänsten är [tillgänglig](https://azure.microsoft.com/regions/services/). Information om hur du skapar en resursgrupp med hjälp av CLI 2.0 finns i [CLI 2.0-referensen](/cli/azure/group).
-* **Lagringskonto** (valfritt): Skapa ett Azure-[standardlagringskonto](../storage/common/storage-introduction.md) för användning med behållarregistret på samma plats. Om du inte anger ett lagringskonto när du skapar ett register med `az acr create` skapar kommandot ett automatiskt. Information om hur du skapar ett lagringskonto med hjälp av CLI 2.0 finns i [CLI 2.0-referensen](/cli/azure/storage/account). Premium Storage stöds inte för närvarande.
-* **Tjänstobjekt** (valfritt): När du skapar ett register med CLI skapas det inte för åtkomst som standard. Beroende på dina behov kan du tilldela ett befintligt Azure Active Directory-tjänstobjekt till ett register (eller skapa och tilldela ett nytt) eller aktivera registrets administratörsanvändarkonto. Mer information finns i avsnitten nedan. Mer information om registeråtkomst finns i [Authenticate with a container registry](container-registry-authentication.md) (Autentisera med ett behållarregister).
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-## <a name="create-a-container-registry"></a>Skapa ett behållarregister
-Du skapar ett behållarregister genom att köra `az acr create`-kommandot.
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
 
-> [!TIP]
-> När du skapar ett register anger du ett globalt unikt domännamn på den översta nivån, som endast innehåller bokstäver och siffror. Registernamnet i exemplen är `myRegistry1`, men du kan ersätta det med ett eget unikt namn.
->
->
+I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
-Följande kommando använder de minsta nödvändiga parametrarna för att skapa behållarregistret `myRegistry1` i resursgruppen `myResourceGroup` med sku *Basic*:
-
-```azurecli
-az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
-* `--storage-account-name` är valfritt. Om inget annat anges skapas ett lagringskonto med ett namn som består av registrets namn och en tidsstämpel i den angivna resursgruppen.
+## <a name="create-a-container-registry"></a>Skapa ett behållarregister
+
+I den här snabbstarten skapar vi en *grundläggande* registret. Azure Container registret är tillgänglig i flera olika SKU: er, beskrivs kortfattat i följande tabell. Utökad information om varje finns [behållare registret SKU: er](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
+
+Skapa en ACR-instans med hjälp av kommandot [az acr create](/cli/azure/acr#create).
+
+Namnet på registret **måste vara unika**. I följande exempel *myContainerRegistry007* används. Uppdatera den till ett unikt värde.
+
+```azurecli
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
+```
 
 När registret har skapats ser utdata ut ungefär så här:
 
-```azurecli
+```json
 {
   "adminUserEnabled": false,
-  "creationDate": "2017-06-06T18:36:29.124842+00:00",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
-/registries/myRegistry1",
-  "location": "southcentralus",
-  "loginServer": "myregistry1.azurecr.io",
-  "name": "myRegistry1",
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "myContainerRegistry007.azurecr.io",
+  "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
     "tier": "Basic"
   },
   "storageAccount": {
-    "name": "myregistry123456789"
+    "name": "mycontainerregistr223140"
   },
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
-
 ```
 
+I resten av den här snabbstarten vi använder `<acrname>` som platshållare för registret behållarnamn.
 
-Notera särskilt:
+## <a name="log-in-to-acr"></a>Logga in på ACR
 
-* `id` – ID:t för registret i din prenumeration, som du behöver om du vill tilldela ett tjänstobjekt.
-* `loginServer` – Det fullständigt kvalificerade namnet som du anger för att [logga in i registret](container-registry-authentication.md). I det här exemplet är namnet `myregistry1.exp.azurecr.io` (endast gemener).
-
-## <a name="assign-a-service-principal"></a>Tilldela ett tjänstobjekt
-Använd CLI 2.0-kommandon om du vill associera ett Azure Active Directory-tjänstobjekt med ett register. Tjänstobjektet i dessa exempel tilldelas rollen Owner (ägare), men du kan tilldela [andra roller](../active-directory/role-based-access-control-configure.md) om du vill.
-
-### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Skapa ett tjänstobjekt och tilldela åtkomst till registret
-I följande kommando tilldelas ett nytt tjänstobjekt åtkomst med rollen Owner (ägare) till register-ID:t som anges med parametern `--scopes`. Ange ett starkt lösenord med parametern `--password`.
+Innan du skickar och hämtar behållaravbildningar måste du logga in på ACR-instansen. Det gör du med hjälp av kommandot [az acr login](/cli/azure/acr#login).
 
 ```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
+az acr login --name <acrname>
 ```
 
+Ett meddelande om att inloggningen lyckades returneras när inloggningen är klar.
 
+## <a name="push-image-to-acr"></a>Push-avbildningen till ACR
 
-### <a name="assign-an-existing-service-principal"></a>Tilldela ett befintligt tjänstobjekt
-Om du redan har ett tjänstobjekt och vill ge det åtkomst till registret med rollen Owner (ägare) kör du ett kommando liknande det i följande exempel. Du skickar tjänstobjektets app-ID med parametern `--assignee`:
+Du måste ha en bild för att vidarebefordra en avbildning till en Azure-behållare registret. Om det behövs, kör du följande kommando för att hämta en avbildning som skapats i förväg från Docker-hubb.
 
-```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
+Bilden måste taggas med ACR server inloggningsnamnet. Kör följande kommando för att gå tillbaka inloggning servernamnet för ACR-instans.
 
-
-## <a name="manage-admin-credentials"></a>Hantera administratörsautentiseringsuppgifter
-Ett administratörskonto skapas automatiskt för varje behållarregister och är inaktiverat som standard. Följande exempel visar `az acr` CLI-kommandon som du kan använda för att hantera administratörsautentiseringsuppgifter för ett behållarregister.
-
-### <a name="obtain-admin-user-credentials"></a>Hämta administratörsautentiseringsuppgifter
 ```azurecli
-az acr credential show -n myRegistry1
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>Aktivera en administratörsanvändare för ett befintligt register
-```azurecli
-az acr update -n myRegistry1 --admin-enabled true
+Taggen bild med hjälp av den [docker-taggen](https://docs.docker.com/engine/reference/commandline/tag/) kommando. Ersätt  *<acrLoginServer>*  med inloggningen servernamnet för din ACR-instans.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>Inaktivera en administratörsanvändare för ett befintligt register
-```azurecli
-az acr update -n myRegistry1 --admin-enabled false
+Använd slutligen [docker push](https://docs.docker.com/engine/reference/commandline/push/) att skicka bilden till ACR-instans. Ersätt  *<acrLoginServer>*  med inloggningen servernamnet för din ACR-instans.
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
-## <a name="list-images-and-tags"></a>Visa en lista med avbildningar och taggar
-Använd `az acr` CLI-kommandona för att skicka frågor mot avbildningarna och taggarna på en lagringsplats.
+## <a name="list-container-images"></a>Visa lista över behållaravbildningar
 
-> [!NOTE]
-> För närvarande stöder inte Container Registry `docker search`-kommandot för att hämta information om avbildningar och taggar.
-
-
-### <a name="list-repositories"></a>Visa en lista över lagringsplatser
-Följande exempel visar en lista över lagringsplatser i ett register, i JSON-format (JavaScript Object Notation):
+I följande exempel visar en lista över databaser i en registret:
 
 ```azurecli
-az acr repository list -n myRegistry1 -o json
+az acr repository list -n <acrname> -o table
 ```
 
-### <a name="list-tags"></a>Visa en lista över taggar
-Följande exempel visar en lista med taggarna som används för **samples/nginx**-lagringsplatsen, i JSON-format:
+Resultat:
+
+```bash
+Result
+----------------
+aci-helloworld
+```
+
+I följande exempel visar taggar på den **aci helloworld** databasen.
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+```
+
+Resultat:
+
+```bash
+Result
+--------
+v1
+```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du inte längre behövs kan du använda den [ta bort grupp az](/cli/azure/group#delete) kommando för att ta bort resursgruppen, ACR-instans och alla behållare bilder.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skicka din första avbildning med hjälp av Docker CLI](container-registry-get-started-docker-cli.md)
 
+I den här snabbstarten skapat du ett Azure Container registret med Azure CLI. Om du vill använda Azure Container registret med Azure Container instanser fortsätta att Azure Behållarinstanser kursen.
+
+> [!div class="nextstepaction"]
+> [Azure Behållarinstanser självstudiekursen](../container-instances/container-instances-tutorial-prepare-app.md)

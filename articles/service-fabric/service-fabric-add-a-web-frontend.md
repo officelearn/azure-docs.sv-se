@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b19aaa652f2c15573ded632ca1348e1a6752f080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Skapa en tjänst Frontwebb för ditt program med hjälp av ASP.NET Core
 Som standard tillhandahåller Azure Service Fabric-tjänster inte ett offentligt gränssnitt på webben. Du måste skapa ett webbprojekt för att fungera som en startpunkt och sedan kommunicera därifrån till enskilda tjänster för att exponera programfunktioner till http-klienter.
@@ -210,12 +210,6 @@ Vår tillståndskänslig service är nu redo att ta emot trafik från andra tjä
     ![Tillståndskänsliga räknarens värde visas i webbläsaren][browser-aspnet-counter-value]
    
     Uppdatera webbläsaren regelbundet för att se räknarvärdet uppdatera.
-
-## <a name="kestrel-and-weblistener"></a>Kestrel och WebListener
-
-Webbservern för ASP.NET Core, kallas även Kestrel, är [stöds för närvarande inte för hantering av direkt Internettrafik](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel). Därför använder ASP.NET Core tillståndslös tjänstmallen för Service Fabric [WebListener](https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener) som standard. 
-
-Om du vill veta mer om Kestrel och WebListener i Service Fabric services, se [ASP.NET Core i Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="connecting-to-a-reliable-actor-service"></a>Ansluta till en tillförlitlig aktören-tjänst
 Den här självstudiekursen fokuserar på att lägga till en frontwebb som kommunicerat med en tillståndskänslig tjänst. Du kan dock följa en mycket lik modell tala med aktörer. När du skapar en tillförlitlig aktören-projekt genererar automatiskt ett projekt för gränssnittet för Visual Studio. Du kan använda gränssnittet för att skapa en proxy aktören webbprojektet att kommunicera med den. Kommunikationskanalen tillhandahålls automatiskt. Så du inte behöver göra något som motsvarar att upprätta en `ServiceRemotingListener` som du gjorde för tillståndskänsliga tjänsten i den här självstudiekursen.

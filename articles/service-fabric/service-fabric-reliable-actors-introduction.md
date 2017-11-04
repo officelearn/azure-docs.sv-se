@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: e89be04a0d6fe90a89e293e67d42f0204eb7000a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 640e051a909b1b9457b20cbd507b418342297c6e
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introduktion till Service Fabric Reliable Actors
 Reliable Actors är ett ramverk för Service Fabric-program som baseras på den [virtuella aktören](http://research.microsoft.com/en-us/projects/orleans/) mönster. API: et för tillförlitlig aktörer är en enkeltrådig programmeringsmodell som bygger på skalbarhet och tillförlitlighet garantier som Service Fabric.
@@ -143,7 +143,7 @@ Aktörer körning kan återinträde som standard. Det innebär att om en aktörs
 Aktörer runtime tillhandahåller dessa samtidighet garantier i situationer där den styr anrop av metoderna. Till exempel tillhandahåller dessa garantier för metoden-anrop som görs som svar på en klientbegäran samt timer och påminnelser. Men om aktören koden anropar direkt metoderna utanför de metoder som tillhandahålls av körtidsbiblioteket aktörer, kan inte körningen ange samtidighet garantier. Till exempel om metoden anropas i kontexten för en uppgift som inte är associerad med aktiviteten som returneras av aktören metoder, sedan körningen kan inte tillhandahålla samtidighet garantier. Om metoden anropas från en tråd som aktören skapar själv, kan sedan körningen dessutom samtidighet garantier. Om du vill utföra bakgrundsåtgärder aktörer bör därför använda [aktören timers och aktören påminnelser](service-fabric-reliable-actors-timers-reminders.md) som respekterar bygger samtidighet.
 
 ## <a name="next-steps"></a>Nästa steg
-* Kom igång genom att skapa din första Reliable Actors-tjänst:
+Kom igång genom att skapa din första Reliable Actors-tjänst:
    * [Komma igång med Reliable Actors på .NET](service-fabric-reliable-actors-get-started.md)
    * [Komma igång med Reliable Actors Java](service-fabric-reliable-actors-get-started-java.md)
 

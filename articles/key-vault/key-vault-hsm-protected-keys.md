@@ -3,7 +3,7 @@ title: "Generera och överför HSM-skyddade nycklar för Azure Key Vault | Micro
 description: "Använd den här artikeln för att planera för, generera och överföra din egen HSM-skyddade nycklar som ska användas med Azure Key Vault. Kallas även BYOK eller egna nycklar."
 services: key-vault
 documentationcenter: 
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
-ms.author: ambapat
-ms.openlocfilehash: 8c56c7a5e48d956353d965337e0ccd1a7c5131b3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.author: barclayn
+ms.openlocfilehash: 6c49b086fd35a855fa8e32fa576c5b52d16f1d04
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Generera och överför HSM-skyddade nycklar för Azure Key Vault
 ## <a name="introduction"></a>Introduktion

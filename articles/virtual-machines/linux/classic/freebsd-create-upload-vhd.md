@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Skapa och ladda upp en FreeBSD VHD till Azure
 Den här artikeln visar hur du skapar och överför en virtuell hårddisk (VHD) som innehåller FreeBSD-operativsystem. När du har överfört kan du använda den som en egen avbildning för att skapa en virtuell dator (VM) i Azure.
@@ -39,7 +39,7 @@ Den här artikeln förutsätter att du har följande objekt:
 >
 >
 
-Den här uppgiften innehåller följande fem steg:
+Den här uppgiften innehåller följande fyra steg:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Steg 1: Förbered bilden för överföring
 På den virtuella datorn där du installerade operativsystemet FreeBSD, Slutför följande procedurer:
@@ -114,66 +114,21 @@ På den virtuella datorn där du installerade operativsystemet FreeBSD, Slutför
 
     Nu kan du stänga av den virtuella datorn.
 
-## <a name="step-2-create-a-storage-account-in-azure"></a>Steg 2: Skapa ett lagringskonto i Azure
-Du behöver ett lagringskonto i Azure för att ladda upp en VHD-fil så att den kan användas för att skapa en virtuell dator. Du kan använda den klassiska Azure-portalen för att skapa ett lagringskonto.
+## <a name="step-2-prepare-the-connection-to-azure"></a>Steg 2: Förbered anslutningen till Azure
+Kontrollera att du använder Azure CLI i den klassiska distributionsmodellen (`azure config mode asm`), sedan logga in på ditt konto:
 
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Välj på kommandofältet **ny**.
-3. Välj **datatjänster** > **lagring** > **Snabbregistrering**.
+```azurecli
+azure login
+```
 
-    ![Snabbt skapa ett lagringskonto](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
-4. Fyll i fälten på följande sätt:
 
-   * I den **URL** skriver du ett underdomännamn ska användas i URL: en för storage-konto. Posten kan innehålla 3 till 24 siffror och gemener. Det här namnet blir värdnamnet inom den URL som används för att adressera Azure Blob storage, Azure Queue storage eller Azure Table storage-resurser för prenumerationen.
-   * I den **plats/Tillhörighetsgrupp** nedrullningsbara menyn, Välj den **platsen eller tillhörighetsgruppen** för lagringskontot. En tillhörighetsgrupp kan du placera dina molntjänster och lagring i samma datacenter.
-   * I den **replikering** fältet, välja om du vill använda **Geo-Redundant** replikering för lagringskontot. GEO-replikering är aktiverad som standard. Det här alternativet replikerar data till en sekundär plats, utan kostnad, så att din lagring flyttas över till den platsen om en större fel uppstår på den primära platsen. Den sekundära platsen tilldelas automatiskt och kan inte ändras. Om du behöver mer kontroll över platsen för din molnbaserade lagringsenheter på grund av juridiska krav eller organisationens principer kan inaktivera du geo-replikering. Men tänk på att om du aktiverar senare geo-replikering kan du debiteras en avgift för överföringen av enstaka data replikeras dina befintliga data till den sekundära platsen. Lagringstjänster utan geo-replikering erbjuds med rabatt. Mer information om hur du hanterar geo-replikering av lagringskonton finns här: [Azure Storage-replikering](../../../storage/common/storage-redundancy.md).
+<a id="upload"> </a>
 
-     ![Ange information om lagringskonto](./media/freebsd-create-upload-vhd/Storage-create-account.png)
-5. Välj **skapa Lagringskonto**. Kontot visas nu under **lagring**.
 
-    ![Storage-konto har skapats](./media/freebsd-create-upload-vhd/Storagenewaccount.png)
-6. Skapa sedan en behållare för dina överförda VHD-filer. Välj lagringskontonamn och välj sedan **behållare**.
+## <a name="step-3-upload-the-vhd-file"></a>Steg 3: Överför VHD-filen
 
-    ![Kontoinformation för lagring](./media/freebsd-create-upload-vhd/storageaccount_detail.png)
-7. Välj **skapa en behållare**.
+Du behöver ett lagringskonto för att överföra VHD-filen till. Du kan antingen välja ett befintligt lagringskonto eller [skapa en ny](../../../storage/common/storage-create-storage-account.md).
 
-    ![Kontoinformation för lagring](./media/freebsd-create-upload-vhd/storageaccount_container.png)
-8. I den **namnet** skriver du ett namn för din behållare. I den **åtkomst** listrutan väljer du vilken typ av princip.
-
-    ![Behållarens namn](./media/freebsd-create-upload-vhd/storageaccount_containervalues.png)
-
-   > [!NOTE]
-   > Som standard behållaren är privat och kan bara användas av ägare. Om du vill ge offentlig läsbehörighet till blobarna i behållaren, men inte behållaregenskaperna och metadata, Använd den **offentlig Blob** alternativet. Om du vill ge fullständig offentlig läsbehörighet för behållare och blobbar använda av **offentlig behållare** alternativet.
-   >
-   >
-
-## <a name="step-3-prepare-the-connection-to-azure"></a>Steg 3: Förbered anslutningen till Azure
-Innan du kan ladda upp en VHD-fil, måste du upprätta en säker anslutning mellan datorn och din Azure-prenumeration. Du kan använda i Azure Active Directory (AD Azure) eller certifikat-metoden för att göra detta.
-
-### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>Använda Azure AD-metoden för att ladda upp en VHD-fil
-1. Öppna Azure PowerShell-konsolen.
-2. Ange följande kommando:  
-    `Add-AzureAccount`
-
-    Det här kommandot öppnas en inloggning där du kan logga in med ditt arbets- eller skolkonto.
-
-    ![PowerShell-fönster](./media/freebsd-create-upload-vhd/add_azureaccount.png)
-3. Azure autentiserar och sparar informationen om autentiseringsuppgifter. Sedan stängs fönstret.
-
-### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Använd metoden certifikat att ladda upp en VHD-fil
-1. Öppna Azure PowerShell-konsolen.
-2. Typ: `Get-AzurePublishSettingsFile`.
-3. Ett fönster i webbläsaren öppnas och du uppmanas att hämta .publishsettings-fil. Den här filen innehåller information och ett certifikat för din Azure-prenumeration.
-
-    ![Hämtningssidan för webbläsare](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
-4. Spara .publishsettings-fil.
-5. Typ: `Import-AzurePublishSettingsFile <PathToFile>`, där `<PathToFile>` är den fullständiga sökvägen till .publishsettings-fil.
-
-   Mer information finns i [Kom igång med Azure-cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
-
-   Mer information om hur du installerar och konfigurerar PowerShell finns [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
-
-## <a name="step-4-upload-the-vhd-file"></a>Steg 4: Överför VHD-filen
 När du överför VHD-filen placerar du den någonstans i Blob storage. Följande är vissa termer som du ska använda när du överför filen:
 
 * **BlobStorageURL** är URL-Adressen för det lagringskontot som du skapade i steg 2.
@@ -185,7 +140,7 @@ Från Azure PowerShell-fönster som du använde i det föregående steget, skriv
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>Steg 5: Skapa en virtuell dator med överförda VHD-filen
+## <a name="step-4-create-a-vm-with-the-uploaded-vhd-file"></a>Steg 4: Skapa en virtuell dator med överförda VHD-filen
 När du har överfört VHD-filen kan du lägga till den som en bild i listan över anpassade avbildningar som är associerade med din prenumeration och skapa en virtuell dator med den här anpassade avbildningen.
 
 1. Från Azure PowerShell-fönster som du använde i det föregående steget, skriver du:

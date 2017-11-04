@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i logganalys logga sökningar
 
@@ -109,13 +109,29 @@ Klicka på den **x** i den **ta bort** kolumnen att ta bort gruppen.  Klicka på
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>Använda en datorgrupp i en logg-sökning
-Du kan använda en datorgrupp i en fråga genom att behandla dess alias som en funktion, vanligtvis med följande syntax:
+Du kan använda en datorgrupp som skapas från en logg sökning i en fråga genom att behandla dess alias som en funktion, vanligtvis med följande syntax:
 
   `Table | where Computer in (ComputerGroup)`
 
 Exempelvis kan du använda följande för att returnera UpdateSummary poster för endast datorer i en datorgrupp som kallas mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+Importerade datorgrupper och deras inkluderade datorer lagras i den **ComputerGroup** tabell.  Följande fråga skulle till exempel returnera en lista över datorer i gruppen Domändatorer från Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+Följande fråga returnerar UpdateSummary poster för endast datorer i Domändatorer.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > Om arbetsytan fortfarande använder den [äldre Log Analytics-frågespråket](log-analytics-log-search-upgrade.md)>, kan du använda följande syntax för att referera till en datorgrupp i en sökning i loggen.  Ange den **kategori** > är valfria och endast krävs om du har datorgrupper med samma namn i olika kategorier. 

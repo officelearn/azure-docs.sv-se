@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: e1d35bcd51349e6460d50acec0d9706fcd291e89
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b8b1ac04c20cf9fe6d6d8ea58571af05010461d9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Skala ett Service Fabric-kluster
 
@@ -48,6 +48,11 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
+```azurecli
+az login
+az account set --subscription <guid>
+```
+
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
 För att slutföra den här delen av kursen, behöver du ansluta till både Service Fabric-kluster och virtuella datorns skaluppsättning (som är värd för klustret). Virtuella datorns skaluppsättning är Azure-resurs som är värd för Service Fabric på Azure.
@@ -67,7 +72,12 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
 Get-ServiceFabricClusterHealth
 ```
 
-Med den `Get-ServiceFabricClusterHealth` kommandot status returneras till dig med information om hälsotillståndet för varje nod i klustret.
+```azurecli
+sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
+--pem ./aztestcluster201709151446.pem --no-verify
+```
+
+Nu när du är ansluten kan använda du ett kommando för att hämta status för varje nod i klustret. PowerShell, Använd den `Get-ServiceFabricClusterHealth` kommando, och för **sfctl** använder den '' kommando.
 
 ## <a name="scale-out"></a>Skala ut
 
@@ -80,7 +90,15 @@ $scaleset.Sku.Capacity += 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-När uppdateringen är klar kör du den `Get-ServiceFabricClusterHealth` kommandot för att se den nya nod informationen.
+Den här koden anger kapaciteten till 6.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
+```
 
 ## <a name="scale-in"></a>Skala i
 
@@ -91,22 +109,29 @@ Skalning i är samma som skala ut, förutom att du använder en lägre **kapacit
 > [!NOTE]
 > Den här delen gäller bara den *Brons* hållbarhetsnivån. Läs mer om hållbarhet [kapacitetsplanering för Service Fabric-klustret][durability].
 
-När du skalar i en skaluppsättning för virtuell dator, skaluppsättningen (i de flesta fall) tar du bort den virtuella datorinstans som skapades senast. Så behöver du hitta den motsvarande senast skapade service fabric-noden. Du kan hitta den sista noden genom att kontrollera det största `NodeInstanceId` egenskapsvärdet på service fabric-noder. 
+När du skalar i en skaluppsättning för virtuell dator, skaluppsättningen (i de flesta fall) tar du bort den virtuella datorinstans som skapades senast. Så behöver du hitta den motsvarande senast skapade service fabric-noden. Du kan hitta den sista noden genom att kontrollera det största `NodeInstanceId` egenskapsvärdet på service fabric-noder. Kodexempel under Sortera efter noden instansen och returnera information om instansen med det största id-värdet. 
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
+```azurecli
+`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+```
+
 Service fabric-kluster behöver veta att den här noden kommer att tas bort. Det finns tre steg som du måste utföra:
 
 1. Inaktivera noden så att den inte längre är en kopia för data.  
-`Disable-ServiceFabricNode`
+PowerShell:`Disable-ServiceFabricNode`  
+sfcli:`sfctl node disable`
 
 2. Stoppa noden så att service fabric runtime avslutas korrekt och din app hämtar en avsluta begäran.  
-`Start-ServiceFabricNodeTransition -Stop`
+PowerShell:`Start-ServiceFabricNodeTransition -Stop`  
+sfcli:`sfctl node transition --node-transition-type Stop`
 
 2. Ta bort noden från klustret.  
-`Remove-ServiceFabricNodeState`
+PowerShell:`Remove-ServiceFabricNodeState`  
+sfcli:`sfctl node remove-state`
 
 När de här tre stegen har tillämpats på noden, kan tas bort från skaluppsättning. Om du använder någon hållbarhetsnivån förutom [Brons][durability], de här stegen är klar för dig när skaluppsättning instansen tas bort.
 
@@ -169,6 +194,30 @@ else
 }
 ```
 
+I den **sfctl** code nedan, används följande kommando för att hämta den **nodnamnet** och **nod-instans-id** värden för noden senast skapade:`sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+
+```azurecli
+# Inform the node that it is going to be removed
+sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
+
+# Stop the node using a random guid as our operation id
+sfctl node transition --node-instance-id 131541348482680775 --node-name _nt1vm_5 --node-transition-type Stop --operation-id c17bb4c5-9f6c-4eef-950f-3d03e1fef6fc --stop-duration-in-seconds 14400 -t 300
+
+# Remove the node from the cluster
+sfctl node remove-state --node-name _nt1vm_5
+```
+
+> [!TIP]
+> Använd följande **sfctl** frågor för att kontrollera status för varje steg
+>
+> **Kontrollera status för inaktivering**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+>
+> **Kontrollera status för stoppa**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+>
+
+
 ### <a name="scale-in-the-scale-set"></a>Skala i uppsättningen av skala
 
 Nu när service fabric-noden har tagits bort från klustret, kan virtuella datorns skaluppsättning skalas i. I exemplet nedan minskas scale set kapacitet med 1.
@@ -179,6 +228,17 @@ $scaleset.Sku.Capacity -= 1
 
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
+
+Den här koden anger kapaciteten till 5.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

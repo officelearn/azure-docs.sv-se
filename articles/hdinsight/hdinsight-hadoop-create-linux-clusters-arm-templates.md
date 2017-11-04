@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: jgao
-ms.openlocfilehash: 82733e2a3025f932961122bad9d70c26896837b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25a45a380db06808db352fa26b88235d6e4b8fd4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -34,8 +34,6 @@ Om du vill följa anvisningarna i den här artikeln behöver du:
 
 * En [Azure-prenumeration](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure PowerShell och/eller Azure CLI.
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 En mall för Resource Manager gör det enkelt att skapa följande för ditt program i en enda, samordnad åtgärd:
@@ -58,8 +56,7 @@ Med hjälp av Azure portal, kan du konfigurera alla egenskaper i ett kluster och
 **Att skapa en mall med hjälp av Azure portal**
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på **ny** på den vänstra menyn klickar du på **Intelligence + analys**, och klicka sedan på **HDInsight**.
-3. Följ instruktionerna för att ange egenskaper. Du kan använda antingen den **Snabbregistrering** eller **anpassad** alternativet.
+2. Klicka på **skapar du en resurs** på den vänstra menyn klickar du på **Data + analys**, och klicka sedan på **HDInsight**.
 4. På den **sammanfattning** klickar du på **ladda ned mall och parametrar**:
 
     ![HDInsight Hadoop skapa klustret Resource Manager hämtar en mall](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-download.png)
@@ -169,6 +166,7 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig att skapa ett HDInsight-kluster på flera olika sätt. Mer information finns i följande artiklar:
 
+* Flera HDInsight relaterade mallar finns i [Azure Quickstart mallar](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Ett exempel för att distribuera resurser via .NET-klientbiblioteket finns [distribuera resurser med hjälp av .NET-bibliotek och en mall](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * En detaljerad exempel för att distribuera ett program finns i [etablera och distribuera mikrotjänster förutsägbart i Azure](../app-service/app-service-deploy-complex-application-predictably.md).
 * Information om hur du distribuerar lösningen till olika miljöer finns i [Utvecklings- och testmiljöer i Microsoft Azure](../solution-dev-test-environments.md).
@@ -176,7 +174,7 @@ I den här artikeln har du lärt dig att skapa ett HDInsight-kluster på flera o
 * En lista över de funktioner som du kan använda i en Azure Resource Manager-mall finns [Mallfunktioner](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appendix-resource-manager-template-to-create-a-hadoop-cluster"></a>Bilaga: Resource Manager-mall för att skapa ett Hadoop-kluster
-Följande mall för Azure Resource Manager skapar ett Linux-baserade Hadoop-kluster med beroende Azure storage-konto.
+Följande mall för Azure Resource Manager skapar ett Hadoop-kluster med beroende Azure storage-konto.
 
 > [!NOTE]
 > Det här exemplet innehåller konfigurationsinformation för Hive metastore och Oozie metastore. Ta bort avsnittet eller konfigurera avsnittet innan du använder mallen.
@@ -289,7 +287,7 @@ Följande mall för Azure Resource Manager skapar ett Linux-baserade Hadoop-klus
 
         },
         "properties": {
-            "clusterVersion": "3.4",
+            "clusterVersion": "3.6",
             "osType": "Linux",
             "tier": "standard",
             "clusterDefinition": {
@@ -420,7 +418,7 @@ Om du ställer in alla en parameter i ett avsnitt som en del av själva mallen i
         },
         "clusterVersion": {
             "type": "string",
-            "defaultValue": "3.5",
+            "defaultValue": "3.6",
             "metadata": {
                 "description": "HDInsight cluster version."
             }

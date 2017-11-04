@@ -4,7 +4,7 @@ description: "Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-h
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05af1ccc9702891980e60a1c1db4c527ffbed0fa
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 Den här artikeln visar hur du kan aktivera säker Lightweight Directory Access Protocol (LDAPS) för din Azure AD Domain Services-hanterad domän. Säker LDAP kallas även ”Lightweight Directory Access Protocol (LDAP) över Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
@@ -55,31 +55,36 @@ Hämta ett giltigt certifikat enligt följande riktlinjer innan du aktiverar sä
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Uppgift 1 – skaffa ett certifikat för säker LDAP
 Den första aktiviteten innebär att erhålla ett certifikat som används för säker LDAP-åtkomst till den hanterade domänen. Du kan välja mellan två alternativ:
 
-* Skaffa ett certifikat från en certifikatutfärdare. Behörighet kan vara en offentlig certifikatutfärdare.
+* Skaffa ett certifikat från en offentlig certifikatutfärdare.
 * Skapa ett självsignerat certifikat.
-
-### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Alternativet (rekommenderas) – skaffa ett säkert LDAP-certifikat från en certifikatutfärdare
-Om din organisation hämtar certifikat från en offentlig certifikatutfärdare, måste du hämta säker LDAP-certifikatet från den offentlig certifikatutfärdaren.
-
-När du begär ett certifikat, se till att du uppfyller alla krav som beskrivs i [krav på säker LDAP-certifikatets](#requirements-for-the-secure-ldap-certificate).
 
 > [!NOTE]
 > Klientdatorer som behöver ansluta till den hanterade domänen med säker LDAP måste ha förtroende för säker LDAP-certifikatets utfärdare.
 >
+
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Alternativet (rekommenderas) – skaffa ett säkert LDAP-certifikat från en certifikatutfärdare
+Om din organisation hämtar certifikat från en offentlig certifikatutfärdare kan få säker LDAP-certifikat från den offentlig certifikatutfärdaren.
+
+> [!TIP]
+> **Använder självsignerade certifikat för hanterade domäner med '. onmicrosoft.com' domänsuffix.**
+> Om DNS-domännamnet för din hanterade domän slutar med '. onmicrosoft.com', du kan inte hämta en säker LDAP-certifikat från en offentlig certifikatutfärdare. Eftersom Microsoft äger för onmicrosoft.com, neka offentlig certifikatutfärdare att utfärda ett certifikat för säker LDAP till dig för en domän med det här suffixet. Skapa ett självsignerat certifikat i det här scenariot och använda den för att konfigurera säker LDAP.
 >
 
+Se till att det certifikat som du hämtar från offentlig certifikatutfärdare uppfyller alla krav som beskrivs i [krav på säker LDAP-certifikatets](#requirements-for-the-secure-ldap-certificate).
+
+
 ### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>Alternativ B – skapa ett självsignerat certifikat för säker LDAP
-Om du inte räknar med att använda ett certifikat från en offentlig certifikatutfärdare, kan du välja att skapa ett självsignerat certifikat för säker LDAP.
+Om du inte räknar med att använda ett certifikat från en offentlig certifikatutfärdare, kan du välja att skapa ett självsignerat certifikat för säker LDAP. Välj det här alternativet om DNS-domännamnet för din hanterade domän slutar med '. onmicrosoft.com'.
 
 **Skapa ett självsignerat certifikat med hjälp av PowerShell**
 
 På Windows-dator öppnar du ett nytt PowerShell-fönster som **administratör** och Skriv följande kommandon, för att skapa ett nytt självsignerat certifikat.
+```
+$lifetime=Get-Date
+New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
+```
 
-    $lifetime=Get-Date
-
-    New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
-
-I föregående exempel, ersätter '*. contoso100.com ”med DNS-domännamnet för din hanterade domän. Till exempel om du har skapat en hanterad domän som kallas ”contoso100.onmicrosoft.com” kan ersätta '*. contoso100.com ”i skriptet ovan med ' *. contoso100.onmicrosoft.com').
+I föregående exempel, ersätter '*. contoso100.com ”med DNS-domännamnet för din hanterade domän. Till exempel om du har skapat en hanterad domän som kallas ”contoso100.onmicrosoft.com” kan ersätta '*. contoso100.com ”i det här skriptet med ' *. contoso100.onmicrosoft.com').
 
 ![Välja Azure AD-katalog](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

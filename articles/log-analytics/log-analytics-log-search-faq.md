@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nya logganalys logga Sök vanliga frågor och kända problem
 
@@ -38,13 +38,6 @@ Nej, det finns vissa ändringar i webhook och runbook-åtgärder som kan kräva 
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Fråga: Jag får felmeddelanden när du försöker använda datorgrupper.  Har ändrats för sina syntax
 Ja, grupperas syntaxen för datorn ändringar när ditt arbetsområde har uppgraderats.  Se [datorgrupper i logganalys logga sökningar](log-analytics-computer-groups.md) mer information.
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>Kända problem: grupper som importeras från Active Directory
-För närvarande kan du skapa en fråga som använder en datorgrupp som importeras från Active Directory.  Skapa en ny datorgrupp med importerade Active Directory-gruppen och sedan använda den nya gruppen i frågan som en tillfällig lösning förrän problemet har åtgärdats.
-
-En exempelfråga för att skapa en ny datorgrupp som innehåller en importerade Active Directory-grupp är följande:
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>Instrumentpaneler
@@ -76,11 +69,6 @@ Minify är en funktion som ger en sammanfattande vy över sökresultat.  När du
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Kända problem: sökresultat i en lista kan innehålla egenskaper utan data
-Loggen sökresultat i en lista kan visa egenskaper utan data.  Före uppgraderingen måste ingå dessa egenskaper inte.  Det här problemet korrigeras så att tomma egenskaper inte visas.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Kända problem: du väljer ett värde i ett diagram visas inte detaljerade resultat
-När du har markerat ett värde i ett diagram före uppgraderingen, skulle den returnera en detaljerad lista över poster som matchar det markerade värdet.  Efter uppgraderingen returneras endast den sammanfattade raden.  Det här problemet undersöks för närvarande.
 
 ## <a name="log-search-api"></a>Loggsöknings-API
 
@@ -109,11 +97,9 @@ Din webbläsare kräver åtkomst till följande adresser till logganalys frågor
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Fråga: Ändras något med PowerBI-integration?
-Ja.  När ditt arbetsområde har uppgraderats fungerar inte längre processen för att exportera logganalys data till Power BI.  Alla befintliga scheman som du skapade innan du uppgraderar inaktiveras.  Efter uppgraderingen, Azure Log Analytics använder samma plattform som Application Insights och du använder samma process för att exportera logganalys frågor till Power BI som [processen för att exportera Application Insights frågor till Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Ja.  När ditt arbetsområde har uppgraderats fungerar inte längre processen för att exportera logganalys data till Power BI.  Alla befintliga scheman som du skapade innan du uppgraderar inaktiveras.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>Kända problem: storleksgränsen för Powerbi-begäran
-Det finns en maximal storlek på 8 MB för en Log Analytics-fråga som kan exporteras till Power BI.  Den här gränsen ska ökas snart.
-
+Efter uppgraderingen, Azure Log Analytics använder samma plattform som Application Insights och du använder samma process för att exportera logganalys frågor till Power BI som [processen för att exportera Application Insights frågor till Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Export till Power BI anropar nu direkt API-slutpunkt. Detta gör att du kan få upp till 500 000 rader eller 64,000,000 byte data, exportera långa frågor och anpassa tidsgränsen för frågan (standardvärdet är 3 minuter och högsta timeout-värdet är 10 minuter).
 
 ## <a name="powershell-cmdlets"></a>PowerShell-cmdletar
 
@@ -153,14 +139,11 @@ Ja.  Du måste använda en API-version av 2017-03-15-preview och inkluderar en *
 ### <a name="question-will-my-solutions-continue-to-work"></a>Fråga: Min lösningar fungerar fortfarande?
 Alla lösningar fortsätter att fungera i en uppgraderad arbetsyta, även om deras prestanda förbättras om de konverteras till det nya språket i fråga.  Det finns kända problem med vissa befintliga lösningar som beskrivs i det här avsnittet.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>Kända problem: Kapacitets- och lösning
-Vissa delar i den [kapacitet och prestanda](log-analytics-capacity.md) vyn kan vara tom.  En lösning på problemet kommer snart att vara tillgänglig.
-
-### <a name="known-issue-application-insights-connector"></a>Kända problem: Application Insights connector
-Perspektiv i [Application Insights Connector lösning](log-analytics-app-insights-connector.md) stöds inte för närvarande i en uppgraderad arbetsyta.  En lösning på problemet ligger under analys.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>Kända problem: perspektiv i Application Insights connector
+Perspektiv i [Application Insights Connector lösning](log-analytics-app-insights-connector.md) stöds inte längre i Application Insights connector lösningen.  Du kan använda View Designer för att skapa anpassade vyer med Application Insights-data.
 
 ### <a name="known-issue-backup-solution"></a>Kända problem: säkerhetskopieringslösning
-Lösningen för säkerhetskopiering inte samlar in data i en uppgraderad arbetsyta. En ny säkerhetskopieringslösning som fungerar med den uppgraderade arbetsytan kommer att utannonseras inom kort.
+Lösningen för säkerhetskopiering kan inte samla in data om har installerats innan du uppgraderar en arbetsyta. Avinstallera lösningen och installera den senaste versionen.  Den nya versionen av lösningen har inte stöd för klassiska säkerhetskopieringsvalv, så måste du också uppgradera till Recovery Services-valv att använda lösningen.
 
 ## <a name="upgrade-process"></a>Uppgraderingsprocessen
 
@@ -182,9 +165,6 @@ Innan allmän tillgänglighet kan du återställa din arbetsyta efter uppgraderi
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Fråga: Hur skapar jag en ny vy med Vydesigner?
 Före uppgraderingen måste kan du skapa en ny vy med Vydesigner från en panel på huvudinstrumentpanelen.  När din arbetsyta uppgraderas tas den här panelen bort.  Du kan skapa en ny vy med Vydesigner i OMS-portalen genom att klicka på den gröna + knappen i den vänstra menyn.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Kända problem: se alla alternativ för linjediagram i vyer inte resulterar i ett linjediagram
-Om du klickar på den *se alla* alternativet längst ned i en rad diagramdel i en vy visas en tabell.  Före uppgraderingen måste skulle du visas ett linjediagram.  Det här problemet analyseras för eventuella ändringar.
 
 
 ## <a name="next-steps"></a>Nästa steg

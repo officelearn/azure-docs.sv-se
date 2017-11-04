@@ -1,6 +1,6 @@
 ---
 title: "Azure Service Bus Relay för WCF-kursen | Microsoft Docs"
-description: "Skapa en Service Bus-klient och en tjänst med hjälp av WCF Relay."
+description: "Skapa en klient- och program med hjälp av WCF Relay."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure vidarebefordrande WCF-självstudier
 
@@ -54,7 +54,7 @@ Tjänstekontraktet anger vilka åtgärder (webbserviceterminologin för metoder 
 
 3. Installera Service Bus NuGet-paketet. Det här paketet lägger automatiskt till referenser till Service Bus-bibliotek, samt även WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) är det namnområde som ger dig programmatisk åtkomst till de grundläggande funktionerna i WCF. Service Bus använder många av WFC:s objekt och attribut för att definiera tjänstekontrakt.
 
-    Högerklicka på projektet i Solution Explorer och klicka sedan på **hantera NuGet-paket...** . Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus`. Kontrollera att projektnamnet är markerat i rutan **Versioner**. Klicka på **Installera** och godkänn användningsvillkoren.
+    Högerklicka på projektet i Solution Explorer och klicka sedan på **hantera NuGet-paket...** . Klicka på fliken **Bläddra** och sök sedan efter **WindowsAzure.ServiceBus**. Kontrollera att projektnamnet är markerat i rutan **Versioner**. Klicka på **Installera** och godkänn användningsvillkoren.
 
     ![][3]
 4. Dubbelklicka på filen Program.cs i Solution Explorer för att öppna den i redigeraren, om den inte redan är öppen.

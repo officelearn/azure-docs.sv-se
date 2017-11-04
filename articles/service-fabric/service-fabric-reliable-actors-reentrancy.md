@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 00fcccb379bf1ba3875fbaba57a05b00fa228622
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dec785757ac582f044811c0f64ae0d452d6ad9a0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reliable-actors-reentrancy"></a>Tillförlitliga aktörer återinträde
 Körningsmiljön Reliable Actors tillåter som standard logiska anropet kontext-baserade återinträde. Detta ger aktörer ska fleraktivt om de finns i samma kedja för anrop kontext. Till exempel skickar aktören A ett meddelande till aktören B, som skickar ett meddelande till aktören C. Som en del av meddelandebehandling, om aktören C anropar aktören A och är meddelandet fleraktivt, så ska tillåtas. Andra meddelanden som ingår i ett annat sammanhang blockeras på aktören A tills bearbetningen har slutförts.

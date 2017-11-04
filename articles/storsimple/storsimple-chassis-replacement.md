@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bc23e64331ad18c604ffaa29476766827119cd4
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Ersätt chassi på din StorSimple-enhet
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [ersätta chassi på StorSimple-enheten](storsimple-8000-chassis-replacement.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Den här självstudiekursen beskrivs hur du tar bort och ersätter ett chassi i en enhet med StorSimple 8000-serien. StorSimple 8100 modellen är en enda enhet enhet (samma chassi), medan 8600 är en dubbel höljet enhet (två chassi). För en modell av 8600 är potentiellt två chassi som kan ha i enheten: chassi för primära höljet eller chassi för EBOD höljet.
 

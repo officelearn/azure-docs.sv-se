@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be4a8facc2f5951b6ebc027088d43ef47504acd1
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Konfigurera en proxyserver för din StorSimple-enhet
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [konfigurera webbproxy för din StorSimple-enhet](storsimple-8000-configure-web-proxy.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Den här självstudiekursen beskrivs hur du använder Windows PowerShell för StorSimple för att konfigurera och visa web proxy-inställningar för din StorSimple-enhet. Webbproxyinställningarna som används av StorSimple-enhet när du kommunicerar med molnet. En proxyserver används för att lägga till ytterligare en säkerhetsnivå, filter innehåll cache bandbreddskraven för enkel eller även hjälp med analytics.
 

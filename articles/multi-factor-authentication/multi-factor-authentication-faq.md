@@ -3,7 +3,7 @@ title: "Azure Multi-Factor Authentication vanliga frågor och svar | Microsoft D
 description: "Vanliga frågor och svar som rör Azure Multi-Factor Authentication. Multi-Factor Authentication är en metod för att verifiera en användares identitet som kräver mer än ett användarnamn och lösenord. Det ger ett ytterligare säkerhetslager användarinloggning och transaktioner."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 023dee623ca6ec35ab77578c97e5bf197b4bfe75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b1d48d3ff0d264042f2d282c6b8006e16a251f5
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 Det här avsnittet får du svar vanliga frågor om Azure Multi-Factor Authentication och använder multi-Factor Authentication-tjänsten. Den är uppdelad i frågor om tjänsten i allmänhet modeller, användarupplevelser, fakturering och felsökning.

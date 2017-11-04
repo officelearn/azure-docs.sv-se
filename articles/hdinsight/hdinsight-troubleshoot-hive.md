@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398cc7cd0fa815f12ba5b503a1328688e1159eee
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Felsöka Hive med Azure HDInsight
 
 Läs mer om de vanligaste frågorna och sina lösningar när du arbetar med Apache Hive nyttolaster i Apache Ambari.
 
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hur gör exportera en Hive metastore och importera det till ett annat kluster
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hur gör exportera en Hive metastore och importera det till ett annat kluster?
 
 
 ### <a name="resolution-steps"></a>Lösningssteg
@@ -54,7 +54,7 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hur jag för att hitta Hive loggar på ett kluster
+## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hur jag för att hitta Hive loggar på ett kluster?
 
 ### <a name="resolution-steps"></a>Lösningssteg
 
@@ -83,7 +83,7 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Hur jag för att starta Hive-gränssnittet med specifika konfigurationer i ett kluster
+## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Hur jag för att starta Hive-gränssnittet med specifika konfigurationer i ett kluster?
 
 ### <a name="resolution-steps"></a>Lösningssteg
 
@@ -110,7 +110,7 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 - [Egenskaper för hive-konfiguration](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hur jag för att analysera Tez DAG data på ett kluster kritiska
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hur jag för att analysera Tez DAG data på ett kluster kritiska?
 
 
 ### <a name="resolution-steps"></a>Lösningssteg
@@ -150,7 +150,7 @@ Koden i Lösningssteg förutsätter att datasökvägar på det nya klustret är 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hur hämta Tez DAG data från ett kluster
+## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hur hämta Tez DAG data från ett kluster?
 
 
 #### <a name="resolution-steps"></a>Lösningssteg
@@ -177,6 +177,8 @@ Det finns två sätt att samla in data för Tez DAG:
 [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
+### <a name="see-also"></a>Se även
+[Felsöka med Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 
 

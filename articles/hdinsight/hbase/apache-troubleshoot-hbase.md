@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 7/7/2017
 ms.author: nitinver
-ms.openlocfilehash: f661aa5eb6ba87671a83b41aa25621da405aa335
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cd6315c192ad3c33d43406993b1a3e6bd6ec7e4d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Felsöka HBase med Azure HDInsight
 
 Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Apache HBase nyttolaster i Apache Ambari.
 
-## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Hur kör hbck kommandot rapporter med flera otilldelade regioner
+## <a name="how-do-i-run-hbck-command-reports-with-multiple-unassigned-regions"></a>Hur kör hbck kommandot rapporter med flera otilldelade regioner?
 
 Ett vanligt felmeddelande som kan visas när du kör den `hbase hbck` kommandot är ”flera regioner som otilldelade eller tomrum i kedjan av regioner”.
 
@@ -41,7 +41,7 @@ Utför följande steg för att göra otilldelade regioner till normalt läge:
 6. Kör den `hbase hbck` kommandot igen (utan alternativ). Kontrollera utdata från kommandot ska se till att alla regioner som tilldelas.
 
 
-## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Hur kan jag åtgärda timeout problem när du använder hbck kommandon för region tilldelningar
+## <a name="how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments"></a>Hur kan jag åtgärda timeout problem när du använder hbck kommandon för region tilldelningar?
 
 ### <a name="issue"></a>Problem
 
@@ -56,7 +56,7 @@ En möjlig orsak för timeout problem när du använder den `hbck` kommandot kan
 5. Starta om tjänsten Active HBase Master i Ambari-UI.
 6. Kör den `hbase hbck -fixAssignments` kommandot igen.
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hur jag force-inaktivera HDFS felsäkert läge i ett kluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hur jag force-inaktivera HDFS felsäkert läge i ett kluster?
 
 ### <a name="issue"></a>Problem
 
@@ -211,7 +211,7 @@ HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är
    ```
 
 
-## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Hur kan jag åtgärda JDBC eller SQLLine anslutningen problem med Apache Phoenix
+## <a name="how-do-i-fix-jdbc-or-sqlline-connectivity-issues-with-apache-phoenix"></a>Hur kan jag åtgärda JDBC eller SQLLine anslutningen problem med Apache Phoenix?
 
 ### <a name="resolution-steps"></a>Lösningssteg
 
@@ -262,7 +262,7 @@ Det kan ta upp till fem minuter för tjänsten HBase Master att hålla och slutf
 När systemet. KATALOGEN tabellen är tillbaka till normal, problemet med anslutningen till Phoenix bör lösas automatiskt.
 
 
-## <a name="what-causes-a-master-server-to-fail-to-start"></a>Vad som orsakar en huvudserver inte startas
+## <a name="what-causes-a-master-server-to-fail-to-start"></a>Vad som orsakar en huvudserver inte kunde starta?
 
 ### <a name="error"></a>Fel 
 
@@ -344,7 +344,7 @@ Detta är ett känt problem med tjänsten HMaster. Allmän klustret startades up
 2. Starta om nödvändiga tjänster (HMaster och eventuellt andra HBase-tjänster).  
 
 
-## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Vad som orsakar en omstart av fel på en region-server
+## <a name="what-causes-a-restart-failure-on-a-region-server"></a>Vad som orsakar en omstart av fel på en region server?
 
 ### <a name="issue"></a>Problem
 
@@ -421,3 +421,5 @@ På grund av abrupt avstängning kan den port som är associerade med processen 
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
+### <a name="see-also"></a>Se även
+[Felsöka med Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

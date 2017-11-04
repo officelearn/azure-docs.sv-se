@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1646d800692d93d7dfc2e9a9c48c3671c280e02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Ersätt batterimodulen säkerhetskopiering på din StorSimple-enhet
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [ersätta batterimodulen säkerhetskopiering på StorSimple-enheten](storsimple-8000-battery-replacement.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Primära höljet ström och kylning modul (PCM) på Microsoft Azure StorSimple-enheten har ett extra batteri pack. Paketet innehåller power så att StorSimple-enhet kan spara data om strömavbrott AC till primära höljet. Detta batteri pack kallas den *säkerhetskopiering batterimodulen*. Säkerhetskopiering batteri-modul finns bara för primära höljet i din StorSimple-enhet (EBOD höljet inte innehåller en säkerhetskopiering batteri modul). 
 

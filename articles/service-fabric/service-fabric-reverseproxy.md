@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/08/2017
+ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omvänd proxy i Azure Service Fabric
 Omvänd proxy som är inbyggda i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har HTTP-slutpunkter.
@@ -114,9 +114,7 @@ Gatewayen kommer sedan att vidarebefordra dessa begäranden till tjänstens URL:
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## <a name="special-handling-for-port-sharing-services"></a>Särskild hantering för delning av port tjänster
-Azure Application Gateway försöker lösa en tjänstadress igen och försök begäran när en tjänst inte kan nås. Detta är en större fördel av Programgateway eftersom klienten inte behöver implementerar sin egen tjänst-lösning och lösa loop.
-
-I allmänhet när en tjänst kan inte nås, service-instans eller replik har flyttats till en annan nod som en del av sin normala livscykel. När detta inträffar kan Programgateway får ett fel i anslutningen som anger att en slutpunkt är inte längre öppna den ursprungligen matcha adressen.
+Service Fabric omvänd proxy försöker lösa en tjänstadress igen och försök begäran när en tjänst inte kan nås. I allmänhet när en tjänst kan inte nås, service-instans eller replik har flyttats till en annan nod som en del av sin normala livscykel. När detta inträffar kan omvänd proxy får ett fel i anslutningen som anger att en slutpunkt är inte längre öppna den ursprungligen matcha adressen.
 
 Dock replikeringar eller instanser av tjänsten kan dela en värdprocess och kan också dela en port när finns en http.sys-baserade webbservern, inklusive:
 
@@ -124,21 +122,21 @@ Dock replikeringar eller instanser av tjänsten kan dela en värdprocess och kan
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-I det här fallet är det troligt att webbservern är tillgängliga i värdprocessen och svarar på begäran, men löst tjänstinstansen eller repliken inte längre tillgänglig på värden. I det här fallet får gatewayen ett HTTP 404-svar från webbservern. Därför har en HTTP 404 två distinkta innebörd:
+I det här fallet är det troligt att webbservern är tillgängliga i värdprocessen och svarar på begäran, men löst tjänstinstansen eller repliken inte längre tillgänglig på värden. I det här fallet får gatewayen ett HTTP 404-svar från webbservern. Ett HTTP 404-svar kan därför ha två distinkta innebörd:
 
 - Fall #1: serviceadressen är korrekt, men den resurs som användaren begärde finns inte.
 - Fall #2: serviceadressen är felaktig och resursen som användaren har begärt kan finnas på en annan nod.
 
-Det första fallet är en normal HTTP 404 som anses vara ett användarfel. I det andra fallet har dock användaren begärde en resurs som finns. Programgateway gick inte att hitta den eftersom själva tjänsten har flyttats. Programgateway måste matcha adressen igen och försök sedan begäran.
+Det första fallet är en normal HTTP 404 som anses vara ett användarfel. I det andra fallet har dock användaren begärde en resurs som finns. Omvänd proxy kunde inte hitta den eftersom själva tjänsten har flyttats. Omvänd proxy måste matcha adressen igen och försök sedan begäran.
 
-Programgateway måste därför kan skilja mellan dessa två fall. För att göra denna skillnad, krävs en ledtråd från servern.
+Omvänd proxy måste därför kan skilja mellan dessa två fall. För att göra denna skillnad, krävs en ledtråd från servern.
 
-* Som standard Programgateway förutsätter fall #2 och försöker lösa och skicka begäran igen.
-* Om du vill ange fall #1 till Programgateway ska tjänsten returnera följande HTTP-Svarsrubrik:
+* Som standard omvänd proxy förutsätter fall #2 och försöker matcha och skicka begäran igen.
+* Om du vill ange fall #1 till omvänd proxy ska tjänsten returnera följande HTTP-Svarsrubrik:
 
   `X-ServiceFabric : ResourceNotFound`
 
-Den här HTTP-Svarsrubrik visar en normal HTTP 404-situation där den begärda resursen finns inte och Programgateway försöker inte matcha tjänstadressen igen.
+Den här HTTP-Svarsrubrik visar en normal HTTP 404-situation där den begärda resursen finns inte och omvänd proxy försöker inte matcha tjänstadressen igen.
 
 ## <a name="setup-and-configuration"></a>Installation och konfiguration
 

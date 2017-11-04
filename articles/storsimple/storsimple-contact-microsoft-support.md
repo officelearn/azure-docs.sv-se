@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 11/02/2017
 ms.author: alkohli;anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d25fb4902d37faca5358e5a9010e9e146e344e1
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="contact-microsoft-support-for-your-storsimple"></a>Kontakta Microsofts Support för din StorSimple
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [kontakta Microsoft Support för din StorSimple](storsimple-8000-contact-microsoft-support.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 Om det uppstår problem med Microsoft Azure StorSimple-lösning kan du skapa en tjänstbegäran för teknisk support. I en online-session med supportpersonalen, kan du också behöva starta en session med stöd på StorSimple-enheten. Den här artikeln vägleder dig genom:
 
 * Så här skapar du en supportbegäran.

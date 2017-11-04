@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Cykeln filresurs Självstudier: avancerade förberedelse av data med Azure Machine Learning arbetsstationen
 Azure Machine Learning-tjänster (förhandsversion) är en integrerad, slutpunkt-till-slutpunkt datavetenskap och avancerade analyser lösning för professionella datavetare och förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -493,7 +493,7 @@ Välj __OK__ att tillämpa filtret.
 
 ### <a name="remove-columns"></a>Ta bort kolumner
 
-Varje rad representerar en cykel pickup händelse i resa-data. Den här kursen behöver du bara den **starttime** och **starta station** kolumner. Ta bort de andra kolumnerna som du väljer flera dessa två kolumner, högerklicka på kolumnrubriken och välj sedan **Behåll kolumnen**. Andra kolumner tas bort.
+Varje rad representerar en cykel pickup händelse i resa-data. Den här kursen behöver du bara den **starttime** och **starta station id** kolumner. Ta bort de andra kolumnerna som du väljer flera dessa två kolumner, högerklicka på kolumnrubriken och välj sedan **Behåll kolumnen**. Andra kolumner tas bort.
 
 ![Bild av alternativet Behåll kolumn](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

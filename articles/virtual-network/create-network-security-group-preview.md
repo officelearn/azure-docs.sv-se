@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 19f94f009aac53baca31dcb6973a8aff3f4f5ab9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrera nätverkstrafik med nätverks- och säkerhetsgrupper (förhandsgranskning)
 
@@ -53,7 +53,9 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    Fortsätt inte med stegen tills *registrerade* visas för **tillstånd** i utdatan från det föregående kommandot. Om du fortsätter innan registreras du stegen att misslyckas.
+    > [!WARNING]
+    > Registrering kan ta upp till en timme att slutföra. Fortsätt inte med stegen tills *registrerade* visas för **tillstånd** i utdatan från det föregående kommandot. Om du fortsätter innan registreras du stegen att misslyckas.
+
 6. Kör följande bash-skript för att skapa en resursgrupp:
 
     ```azurecli-interactive
@@ -161,7 +163,6 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -170,7 +171,6 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -179,12 +179,11 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    Endast motsvarande säkerhetsregeln du skapade i steg 9 tillämpas på nätverksgränssnitt, baserat på säkerhetsgruppen programmet nätverksgränssnittet är medlem i. Om du exempelvis bara den *WebRule* börjar gälla för den *myWebNic*eftersom nätverksgränssnittet är medlem i den *webbservrar* programmet säkerhetsgrupp och regeln Anger den *webbservrar* programmet säkerhetsgrupp som mål. Den *AppRule* och *DatabaseRule* regler tillämpas inte på den *myWebNic*eftersom nätverksgränssnittet inte är medlem i den *AppServers*och *DatabaseServers* säkerhetsgrupper för programmet.
+    Endast motsvarande säkerhetsregeln du skapade i steg 9 tillämpas på nätverksgränssnitt, baserat på säkerhetsgruppen programmet nätverksgränssnittet är medlem i. Om du exempelvis bara den *WebRule* börjar gälla för *myNic1*eftersom nätverksgränssnittet är medlem i den *webbservrar* programmet säkerhetsgrupp och regeln Anger den *webbservrar* programmet säkerhetsgrupp som mål. Den *AppRule* och *DatabaseRule* regler tillämpas inte på *myNic1*eftersom nätverksgränssnittet inte är medlem i den *AppServers*och *DatabaseServers* säkerhetsgrupper för programmet.
 
 13. Skapa en virtuell dator för varje servertyp som kopplar nätverksgränssnittet motsvarande till varje virtuell dator. Det här exemplet skapar Windows-datorer, men du kan ändra *win2016datacenter* till *UbuntuLTS* att skapa virtuella Linux-datorer i stället.
 
@@ -240,7 +239,8 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    Fortsätt inte med stegen tills *registrerade* visas i den **RegistrationState** i utdata returneras från det föregående kommandot. Om du fortsätter innan registreras du stegen att misslyckas.
+    > [!WARNING]
+    > Registrering kan ta upp till en timme att slutföra. Fortsätt inte med stegen tills *registrerade* visas för **RegistrationState** i utdatan från det föregående kommandot. Om du fortsätter innan registreras du stegen att misslyckas.
         
 6. Skapa en resursgrupp:
 
@@ -344,7 +344,6 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -352,7 +351,6 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -360,11 +358,10 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Endast motsvarande säkerhetsregeln du skapade i steg 8 tillämpas på nätverksgränssnitt, baserat på säkerhetsgruppen programmet nätverksgränssnittet är medlem i. Om du exempelvis bara den *WebRule* börjar gälla för den *myWebNic*eftersom nätverksgränssnittet är medlem i den *webbservrar* programmet säkerhetsgrupp och regeln Anger den *webbservrar* programmet säkerhetsgrupp som mål. Den *AppRule* och *DatabaseRule* regler tillämpas inte på den *myWebNic*eftersom nätverksgränssnittet inte är medlem i den *AppServers*och *DatabaseServers* säkerhetsgrupper för programmet.
+    Endast motsvarande säkerhetsregeln du skapade i steg 8 tillämpas på nätverksgränssnitt, baserat på säkerhetsgruppen programmet nätverksgränssnittet är medlem i. Om du exempelvis bara den *WebRule* börjar gälla för *myNic1*eftersom nätverksgränssnittet är medlem i den *webbservrar* programmet säkerhetsgrupp och regeln Anger den *webbservrar* programmet säkerhetsgrupp som mål. Den *AppRule* och *DatabaseRule* regler tillämpas inte på *myNic1*eftersom nätverksgränssnittet inte är medlem i den *AppServers*och *DatabaseServers* säkerhetsgrupper för programmet.
 
 13. Skapa en virtuell dator för varje servertyp som kopplar nätverksgränssnittet motsvarande till varje virtuell dator. Det här exemplet skapar Windows-datorer, men innan du kör skriptet kan du ändra *-Windows* till *- Linux*, *Microsoft Windows Server* till *Kanoniska*, *WindowsServer* till *UbuntuServer* och *2016 Datacenter* till *14.04.2-LTS*att skapa virtuella Linux-datorer i stället.
 

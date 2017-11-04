@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/26/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 0787d5366dbe59b35a297416ac3ce75e9e6e7d26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1a171aa07160fd68e3ee73a1606ae048e8e6e1b8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Distribuera Windows-dator till den nya noden i Azure
 Om du har med svårigheter kan RDP (Remote Desktop)-anslutning eller program åtkomst till Windows-baserad Azure virtuell dator (VM), omdistribuera den virtuella datorn felsökningshjälp. När du distribuerar en virtuell dator, flyttar den virtuella datorn till en ny nod i Azure-infrastrukturen och sedan aktiveras den tillbaka, behåller alla konfigurationsalternativ och associerade resurser. Den här artikeln visar hur du distribuerar en virtuell dator med hjälp av Azure PowerShell eller Azure-portalen.

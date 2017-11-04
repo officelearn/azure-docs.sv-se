@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 33562f5ac7acdf8f724ac2de68b9e66735af47b3
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 8cc4d44bff6284f2c52423f04e463e324a932abd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS-integrering körning i Azure Data Factory
 Den här artikeln innehåller steg för att etablera en Azure-SSIS-integrering körning i Azure Data Factory. Sedan kan du använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera SQL Server Integration Services-paket (SSIS) till den här körningen i Azure.
@@ -41,6 +41,10 @@ Konceptuell information om att ansluta en Azure-SSIS-IR till ett virtuellt nätv
     - Du vill ansluta till lokala datalager från SSIS-paket som körs på Azure-SSIS Integration Runtime.
 - **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps). Du använder PowerShell för att köra ett skript för att etablera en Azure-SSIS Integration Runtime som kör SSIS-paket i molnet. 
 
+> [!NOTE]
+> En lista över regioner som stöds av Azure Data Factory V2 och Azure-SSIS-integrering körning, se [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/). Expandera **Data + analys** att se **Data Factory V2** och **SSIS-integrering Runtime**.
+
+
 ## <a name="create-variables"></a>Skapa variabler
 Definiera variabler för användning i skripten i den här självstudien:
 
@@ -49,12 +53,12 @@ Definiera variabler för användning i skripten i den här självstudien:
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-$DataFactoryLocation = "EastUS" # In public preview, only EastUS|EastUS2 are supported.
+$DataFactoryLocation = "EastUS" 
 
 # Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[your Azure-SSIS integration runtime name]"
 $AzureSSISDescription = "This is my Azure-SSIS integration runtime"
-$AzureSSISLocation = "EastUS" # In public preview, only EastUS|NorthEurope are supported.
+$AzureSSISLocation = "EastUS" 
 $AzureSSISNodeSize = "Standard_A4_v2" # In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeNumber = 2 # In public preview, only 1-10 nodes are supported.
 $AzureSSISMaxParallelExecutionsPerNode = 2 # In public preview, only 1-8 parallel executions per node are supported.

@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c9d555130d806728f9d3a82f49e81b18c1e5125
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Felsöka HDFS med Azure HDInsight
 
 Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Hadoop Distributed File System (HDFS) nyttolaster i Apache Ambari.
 
-## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Hur kommer jag åt ditt lokala HDFS från i ett kluster
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Hur kommer jag åt ditt lokala HDFS från i ett kluster?
 
 ### <a name="issue"></a>Problem
 
@@ -79,7 +79,7 @@ Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Hado
     ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hur jag force-inaktivera HDFS felsäkert läge i ett kluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hur jag force-inaktivera HDFS felsäkert läge i ett kluster?
 
 ### <a name="issue"></a>Problem
 
@@ -232,3 +232,6 @@ HDInsight-klustret har minskats till ett mycket få noder. Antalet noder som är
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
+
+### <a name="see-also"></a>Se även
+[Felsöka med Azure HDInsight](hdinsight-troubleshoot-guide.md)

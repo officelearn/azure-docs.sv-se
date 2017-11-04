@@ -5,24 +5,26 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Skapa en tilldelning av principer för att identifiera icke-kompatibla resurser i Azure-miljön
-Det första steget i att förstå efterlevnad i Azure är viktigt att veta där du stå med aktuella resurserna. Denna Snabbstart vägleder dig genom processen att skapa en tilldelning av principer för att identifiera resurser som inte använder SQL Server version 12.0. I slutet av den här processen kommer har du har identifierat vilka servrar som är av en annan version, och därför *icke-kompatibla*.
+Det första steget i att förstå efterlevnad i Azure är viktigt att veta där du stå med aktuella resurserna. Denna Snabbstart vägleder dig genom processen att skapa en tilldelning av principer för att identifiera virtuella datorer som inte använder hanterade diskar.
+
+I slutet av den här processen kommer har du har identifierat virtuella datorer som inte använder hanterade diskar och är därför *icke-kompatibla*.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="opt-in-to-azure-policy"></a>Välja att Azure-princip
 
-Azure principen är nu tillgänglig i begränsad Preview så du behöver registrera för att begära åtkomst.
+Azure princip är nu tillgänglig som förhandsversion och du behöver registrera att begära åtkomst.
 
 1. Gå till Azure-princip på https://aka.ms/getpolicy och välj **registrera dig** i den vänstra rutan.
 
@@ -32,11 +34,11 @@ Azure principen är nu tillgänglig i begränsad Preview så du behöver registr
 
    ![Om du vill använda Azure-princip](media/assign-policy-definition/preview-opt-in.png)
 
-   Det kan ta ett par dagar för att vi ska ta emot din begäran om registrering, baserat på begäran. När din begäran hämtar godkänts meddelas du via e-post som du kan börja använda tjänsten.
+   Din förfrågan godkänns automatiskt för förhandsgranskning. Vänta i upp till 30 minuter för systemet för att bearbeta din registrering.
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
-I den här snabbstarten vi skapa en principtilldelning och tilldela den *kräver SQL Server Version 12.0* definition. 
+I den här snabbstarten vi skapa en principtilldelning och tilldela den *Audit virtuella datorer utan diskar hanteras* principdefinitionen.
 
 1. Välj **tilldelningar** till vänster på sidan för principer för Azure.
 2. Välj **tilldela principen** från början av den **tilldelningar** fönstret.
@@ -53,11 +55,11 @@ I den här snabbstarten vi skapa en principtilldelning och tilldela den *kräver
    - Tillämpa taggen och dess värde
    - Kräv SQL Server-Version 12.0
 
-4. Sök igenom definitionerna för att hitta den *kräver SQL Server Version 12.0* definition. Klicka på principen och på **Välj**.
+4. Sök igenom definitionerna för att hitta den *Audit virtuella datorer som inte använder hanterade diskar* definition. Klicka på principen och på **tilldela**.
 
    ![Hitta rätt principdefinitionen](media/assign-policy-definition/select-available-definition.png)
 
-5. Ange en bildskärm **namn** för tilldelning av principer. I det här fallet ska vi använda *kräver SQL Server version 12.0*. Du kan också lägga till en valfri **beskrivning**. Beskrivningen ger information om hur den här principtilldelning ser alla SQL-servrar som skapas i den här miljön är version 12.0.
+5. Ange en bildskärm **namn** för tilldelning av principer. I det här fallet ska vi använda *Audit virtuella datorer som inte använder hanterade diskar*. Du kan också lägga till en valfri **beskrivning**. Beskrivningen innehåller information om hur den här principtilldelning identifierar alla virtuella datorer som skapats i denna miljö som inte använder hanterade diskar.
 6. Ändra prisnivån till **Standard** så att principen tillämpas med befintliga resurser.
 
    Det finns två prisnivåer i Azure princip – *lediga* och *Standard*. Med den kostnadsfria nivån kan du bara tvinga principer för framtida resurser, medan med Standard, du kan även tillämpa dem på befintliga resurser för att bättre förstå din kompatibilitetstillstånd. Eftersom vi finns i begränsad förhandsgranskningen vi ännu inte har startats prisnivå modellen, så du får en faktura för att välja *Standard*. Du kan läsa mer om prissättning, titta på: [priser för Azure princip](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
@@ -108,4 +110,3 @@ Mer information om tilldelning av principer för att säkerställa att **framtid
 
 > [!div class="nextstepaction"]
 > [Skapa och hantera principer](./create-manage-policy.md)
-

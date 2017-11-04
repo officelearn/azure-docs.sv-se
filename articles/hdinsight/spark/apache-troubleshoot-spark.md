@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 03094a37185909855127a92d7dd10ad27e54c3f9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b75aca7d9f78cb425099cc33034b44a80d7b6b81
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Felsöka Spark med Azure HDInsight
 
 Läs mer om de vanligaste problemen och sina lösningar när du arbetar med Apache Spark nyttolaster i Apache Ambari.
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Hur konfigurerar jag ett Spark-program genom att använda Ambari på kluster
+## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Hur konfigurerar jag ett Spark-program genom att använda Ambari på kluster?
 
 ### <a name="resolution-steps"></a>Lösningssteg
 
@@ -94,7 +94,7 @@ De här ändringarna kan åsidosättas när du har skickat jobbet Spark är klus
 [Jobbet för Spark i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hur konfigurerar jag ett Spark-program med hjälp av en Jupyter-anteckningsbok på kluster
+## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hur konfigurerar jag ett Spark-program med hjälp av en Jupyter-anteckningsbok på kluster?
 
 ### <a name="resolution-steps"></a>Lösningssteg
 
@@ -109,7 +109,7 @@ De här ändringarna kan åsidosättas när du har skickat jobbet Spark är klus
 [Jobbet för Spark i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Hur konfigurerar jag ett Spark-program med hjälp av Livius på kluster
+## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Hur konfigurerar jag ett Spark-program med hjälp av Livius på kluster?
 
 ### <a name="resolution-steps"></a>Lösningssteg
 
@@ -126,7 +126,7 @@ De här ändringarna kan åsidosättas när du har skickat jobbet Spark är klus
 [Jobbet för Spark i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Hur konfigurerar ett program med hjälp av spark-skicka Spark på kluster
+## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Hur konfigurerar ett program med hjälp av spark-skicka Spark på kluster?
 
 ### <a name="resolution-steps"></a>Lösningssteg
 
@@ -143,7 +143,7 @@ De här ändringarna kan åsidosättas när du har skickat jobbet Spark är klus
 [Jobbet för Spark i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Vad som orsakar en Spark OutofMemoryError undantag
+## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Vad som orsakar en Spark OutofMemoryError programundantag?
 
 ### <a name="detailed-description"></a>Detaljerad beskrivning
 
@@ -226,4 +226,8 @@ Den mest troliga orsaken till det här undantaget är att det finns inte tillrä
 
 - [Översikt över Spark minne hantering](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Felsöka ett Spark-program på ett HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+
+
+### <a name="see-also"></a>Se även
+[Felsöka med Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
 

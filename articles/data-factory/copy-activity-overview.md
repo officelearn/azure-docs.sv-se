@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 037cd8ac0065adc7572f7a60bac019c05a6e308a
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 9629a86e72e0d5943f0e50e04268720fbedf6c35
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopieringsaktiviteten i Azure Data Factory
 
@@ -155,7 +155,7 @@ Kopiera aktivitetsinformation körning och prestandaegenskaper returneras i en K
 | sqlDwPolyBase | Om PolyBase används vid kopiering av data till SQL Data Warehouse. | Booleskt värde |
 | redshiftUnload | Om UNLOAD används när du kopierar data från Redshift. | Booleskt värde |
 | hdfsDistcp | Om DistCp används när du kopierar data från HDFS. | Booleskt värde |
-| effectiveIntegrationRuntime | Visa som Integration Runtime(s) används för att ge aktiviteten kör i formatet ”`<IR name> (<region if it's Azure IR>)`”. | Text (sträng) |
+| effectiveIntegrationRuntime | Visa som Integration Runtime(s) används för att ge aktiviteten kör i formatet `<IR name> (<region if it's Azure IR>)`. | Text (sträng) |
 | usedCloudDataMovementUnits | Effektiv moln data movement enheterna vid kopiering. | Int32-värde |
 | redirectRowPath | Sökvägen till en logg för överhoppade inkompatibla rader i blob storage som du konfigurerar under ”redirectIncompatibleRowSettings”. Se exemplet nedan. | Text (sträng) |
 | billedDuration | Den tid som debiteras för dataflytt. | Int32-värde i sekunder |

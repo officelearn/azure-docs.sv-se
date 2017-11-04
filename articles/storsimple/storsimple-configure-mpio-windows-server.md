@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f870df32bed8213f6252c70b2f687f436dbd71b8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Konfigurera MPIO för din StorSimple-enhet
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [konfigurera MPIO för din StorSimple-enhet](storsimple-8000-configure-mpio-windows-server.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 Microsoft har inbyggt stöd för MPIO (Multipath I/O)-funktion i Windows Server hjälp skapa hög tillgänglighet, feltolerant SAN konfigurationer. MPIO använder redundanta fysiska sökvägskomponenter – nätverkskort, kablar och växlar – att skapa logiska sökvägar mellan servern och lagringsenheten. Om det finns ett komponentfel orsakar logiska sökvägen misslyckas, använder multipathing-logik en alternativ sökväg för I/O så att program fortfarande kommer åt sina data. Dessutom beroende på din konfiguration kan MPIO också förbättra prestanda genom att belastningsutjämning mellan dessa sökvägar. Mer information finns i [översikt över MPIO](https://technet.microsoft.com/library/cc725907.aspx "MPIO översikt och funktioner").  
 
 MPIO bör vara konfigurerade på StorSimple-enheten för den hög tillgängligheten i StorSimple-lösningen. När MPIO har installerats på dina värdservrar som kör Windows Server 2012 R2 kan kan servrarna sedan tolerera länken, nätverk och fel. 

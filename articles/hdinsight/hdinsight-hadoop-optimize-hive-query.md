@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: 56c00c3ea885bd1f431613ea90868dc65c98818b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimera Hive-frågor i Azure HDInsight
 
@@ -51,7 +51,7 @@ Tez går snabbare eftersom:
 * **Undviker onödig skrivningar**. På grund av flera jobb som skapas för samma Hive-fråga i motorn MapReduce, skrivs utdata från varje jobb till HDFS för mellanliggande data. Eftersom Tez minimerar antalet jobb för varje Hive-fråga är det kunna undvika onödiga skrivåtgärder.
 * **Minimerar uppstart fördröjningar**. Tez är bättre att minimera uppstart fördröjning genom att minska antalet mappers som behövs för att starta och även förbättra optimering i hela.
 * **Återanvänder behållare**. När möjliga Tez kan återanvända behållare för att säkerställa att fördröjning på grund av att starta behållare minskas.
-* **Kontinuerlig optimeringstekniker**. Traditionellt gjordes optimering under kompilering fasen. Men mer information om den angivna informationen är tillgänglig som möjliggör bättre optimering under körningen. Tez använder kontinuerlig optimeringstekniker som gör att de kan optimera plan i runtime-fasen.
+* **Kontinuerlig optimeringstekniker**. Traditionellt gjordes optimering under kompilering fasen. Men mer information om den angivna informationen är tillgänglig som möjliggör bättre optimering under körningen. Tez använder kontinuerlig optimeringstekniker som tillåter att optimera plan i runtime-fasen.
 
 Mer information om dessa koncept finns [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 

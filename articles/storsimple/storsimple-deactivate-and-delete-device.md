@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
+ms.date: 11/03/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5778d54060c9be1b0c90c34bcf7c8e9bacb414d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Inaktivera och ta bort en enhet med StorSimple 8000-serien via StorSimple Manager-tjänsten
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [inaktivera och ta bort en enhet med StorSimple 8000-serien via StorSimple Manager-tjänsten](storsimple-8000-deactivate-and-delete-device.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Du kanske vill vidta en StorSimple-enhet out-of-service (till exempel om du ersätter eller uppgradera din enhet eller om du inte längre använder StorSimple). Om så är fallet kommer du behöva inaktivera enheten innan du kan ta bort den. Inaktivera servrarna anslutningen mellan enheten och motsvarande StorSimple Manager-tjänsten. Den här självstudiekursen beskrivs hur du tar bort en StorSimple-enhet från tjänsten genom att först avaktivera den och sedan ta bort den. 
 

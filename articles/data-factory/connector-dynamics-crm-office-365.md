@@ -11,16 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 74a4fca2ff5a0f913b5cb195f42482339e6200cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aab7dfff0b77b5f09a1388c9bac9bdd63ebd8b17
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-data-from-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiera data från Dynamics 365 / Dynamics CRM med hjälp av Azure Data Factory
+
 Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Dynamics 365 / Dynamics CRM. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+
+> [!NOTE]
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
@@ -39,6 +43,7 @@ Mer specifikt stöder den här anslutningen Dynamics nedan Dynamics versioner oc
 > Om du vill använda Dynamics connector lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån vid kopiering av data. Se hur du konfigurerar i [länkade tjänstegenskaper](#linked-service-properties) avsnitt.
 
 ## <a name="getting-started"></a>Komma igång
+
 Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Dynamics.

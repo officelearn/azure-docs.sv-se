@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installera uppdatering 5 på din StorSimple-enhet
 
@@ -30,7 +30,7 @@ Uppdatering 5 innehåller enhetsprogrammet Storport och Spaceport, OS säkerhets
 
 > [!IMPORTANT]
 > * En uppsättning manuella och automatiska före kontroller är klar innan du installera fastställa hälsotillståndet för enheten vad gäller maskinvara tillstånd och nätverksanslutningen. Kontrollerna före utförs endast om du installerar uppdateringarna från Azure-portalen.
-> * Vi rekommenderar starkt att du installerar uppdateringar med snabbkorrigeringen metoden när du uppdaterar en enhet som kör tidigare versioner än uppdatering 3. För att stöd för stegvisa uppdateringen [logga ett supportärende](storsimple-8000-contact-microsoft-support.md).
+> * Vi rekommenderar starkt att du installerar uppdateringar med snabbkorrigeringen metoden när du uppdaterar en enhet som kör tidigare versioner än uppdatering 3. Om det uppstår något fel [logga ett supportärende](storsimple-8000-contact-microsoft-support.md).
 > * Vi rekommenderar att du installerar programmet och andra regelbundna uppdateringar via Azure portal. Du bör bara gå till Windows PowerShell-gränssnittet för enheten (för att installera uppdateringar) om den före uppdateringen gateway inte i portalen. Beroende på vilken version som du uppdaterar från uppdateringarna kan ta 4 timmar (eller senare) att installera. Underhåll läge uppdateringar måste installeras via Windows PowerShell-gränssnittet för enheten. Eftersom Underhåll läge uppdateringar är störande uppdateringar, medföra dessa nertid för din enhet.
 > * Se till att du har uppgraderat din Snapshot Manager version till uppdatering 5 innan du uppdaterar enheten om kör valfria StorSimple Snapshot Manager.
 

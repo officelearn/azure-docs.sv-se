@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: willzhan;juliako
-ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: willzhan;juliako;johndeu
+ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Använd Azure AD-autentisering för åtkomst till Azure Media Services-API med övriga
 
@@ -86,21 +86,14 @@ Här följer mappningar mellan attribut i JWT och fyra program eller tjänster i
 |Programtyp |Program |JWT-attribut |
 |---|---|---|
 |Client |Kunden app eller lösning |AppID: ”02ed1e8e-af8b-477e-af3d-7e7219a99ac6”. Klient-ID för ett program som du ska registrera till Azure AD i nästa avsnitt. |
-|Identitetsprovider (IDP) | Azure AD som IDP |IDP: ”https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/”.  GUID är ID för Microsoft-klient (microsoft.onmicrosoft.com). Varje innehavare har sin egen, unikt ID. |
+|Identitetsprovider (IDP) | Azure AD som IDP |IDP: ”https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/” GUID är ID för Microsoft-klient (microsoft.onmicrosoft.com). Varje innehavare har sin egen, unikt ID. |
 |Skydda säkerhetstokentjänst (STS) / OAuth-server |Azure AD som STS | ISS: ”https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/”. GUID är ID för Microsoft-klient (microsoft.onmicrosoft.com). |
 |Resurs | Media Services REST API |eller: ”https://rest.media.azure.net”. Mottagaren eller målgruppen för åtkomst-token. |
 
 ## <a name="steps-for-setup"></a>Steg för installation
 
-Att registrera och konfigurera Azure AD-program för Azure AD-autentisering och få en åtkomsttoken för Azure Media Services REST API-slutpunkt anropas, gör du följande:
+Att registrera och konfigurera ett program för Azure Active Directory (AAD) och för att hämta nycklar för Azure Media Services REST API-slutpunkt anropas finns i artikel [komma igång med Azure AD-autentisering med hjälp av Azure portal](media-services-portal-get-started-with-aad.md)
 
-1.  I den [klassiska Azure-portalen](http://go.microsoft.com/fwlink/?LinkID=213885), registrera en Azure AD-program (till exempel wzmediaservice) till Azure AD-klient (till exempel microsoft.onmicrosoft.com). Det spelar ingen roll om du har registrerat som webbapp eller inbyggda appen. Du kan också välja alla inloggnings-URL och reply-URL (till exempel http://wzmediaservice.com för både).
-2. I den [klassiska Azure-portalen](http://go.microsoft.com/fwlink/?LinkID=213885), gå till den **konfigurera** fliken i ditt program. Observera den **klient-ID**. Sedan, under **nycklar**, generera en **klientnyckel** (klienthemlighet). 
-
-    > [!NOTE] 
-    > Anteckna klienthemligheten. Det kommer inte att visas igen.
-    
-3.  I den [Azure-portalen](http://ms.portal.azure.com), gå till Media Services-kontot. Välj den **åtkomstkontroll** (IAM)-fönstret. Lägg till en ny medlem som har ägaren eller deltagarrollen. Huvudnamn, söka efter namnet på programmet som du har registrerat i steg 1 (i det här exemplet wzmediaservice).
 
 ## <a name="info-to-collect"></a>Information för att samla in
 
@@ -138,9 +131,9 @@ Exempelprojektet har tre funktioner:
 
 Vissa webbläsare kan be: där är uppdateringstoken? Varför inte använda en uppdateringstoken här?
 
-Syftet med en uppdateringstoken är inte att uppdatera en åtkomst-token. I stället är den utformad att kringgå autentisering eller användaren någon åtgärd från slutanvändaren och fortfarande få en giltig åtkomsttoken när ett tidigare token upphör att gälla. Ett bättre namn för en uppdateringstoken kan vara ungefär ”kringgå återexport-sign in användartoken”.
+Syftet med en uppdateringstoken är inte att uppdatera en åtkomst-token. Den är utformad att kringgå slutanvändarens autentisering och fortfarande få en giltig åtkomsttoken när ett tidigare token upphör att gälla. Ett bättre namn för en uppdateringstoken kan vara ungefär ”kringgå återexport-sign in användartoken”.
 
-Om du använder OAuth 2.0 auktorisering bevilja flöde (användarnamn och lösenord, fungerar för en användares räkning), kan du hämta ett förnyat åtkomsttoken utan åtgärder från användaren begär en uppdateringstoken. För OAuth 2.0 klientens autentiseringsuppgifter bevilja flödet som beskrivs i den här artikeln, fungerar dock klienten för sin egen räkning. Du behöver inte användaren behöver göra något alls och auktorisering servern behöver inte (och inte) ger dig en uppdateringstoken. Om du felsöka den **GetUrlEncodedJWT** metod du märker att svaret från token slutpunkten har en åtkomst-token, men ingen uppdateringstoken.
+Om du använder OAuth 2.0 auktorisering bevilja flöde (användarnamn och lösenord, fungerar för en användares räkning), kan du hämta ett förnyat åtkomsttoken utan åtgärder från användaren begär en uppdateringstoken. För OAuth 2.0 klientens autentiseringsuppgifter bevilja flödet som beskrivs i den här artikeln, fungerar dock klienten för sin egen räkning. Du behöver inte användaren behöver göra något alls och auktorisering servern behöver inte ge dig en uppdateringstoken. Om du felsöka den **GetUrlEncodedJWT** metod du märker att svaret från token slutpunkten har en åtkomst-token, men ingen uppdateringstoken.
 
 ## <a name="next-steps"></a>Nästa steg
 

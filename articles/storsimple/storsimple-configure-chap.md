@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83ad256522ca19a19b3fe46fcc48e9cb37cbe246
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Konfigurera CHAP för din StorSimple-enhet
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [konfigurera CHAP för din StorSimple-enhet](storsimple-8000-configure-chap.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 Den här självstudiekursen beskrivs hur du konfigurerar CHAP för din StorSimple-enhet. Det förfarande som beskrivs i den här artikeln gäller StorSimple 8000-serien samt 1200 StorSimple-enheter.
 
 CHAP står för Challenge Handshake Authentication Protocol. Det är ett autentiseringsschema som används av servrar för att verifiera identiteten för fjärrklienter. Verifieringen baseras på en delad lösenord eller hemlighet. CHAP kan vara enkelriktade (enkelriktad) eller ömsesidig (dubbelriktad). Enkelriktade CHAP är när målet autentiserar en initierare. Ömsesidig eller omvänd CHAP, å andra sidan kräver att målet autentisera initieraren och sedan initieraren autentisera målet. Initieraren autentisering kan genomföras utan target autentisering. Mål-autentisering kan dock implementeras endast om initieraren authentication implementeras också. 

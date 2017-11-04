@@ -4,7 +4,7 @@ description: "Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-h
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 245ad4948cf4b8c2d44a0dafb61923b0b4267856
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2ef65bb4dc8e12a18265ae8264def2bb32e191f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 
@@ -48,8 +48,8 @@ Utför följande konfigurationssteg för att aktivera säker LDAP:
     ![Aktivera säker LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. Som standard inaktiveras säker LDAP-åtkomst till din hanterade domän via internet. Växla **ger LDAP åtkomst via internet** till **aktivera**om det behövs. 
 
-    > [!TIP]
-    > Om du aktiverar säker LDAP-åtkomst via internet, rekommenderar vi att ställa in en NSG till låsa åtkomst till nödvändiga käll-IP-adressintervall. Se instruktionerna för att [Lås LDAPS åtkomst till din hanterade domän via internet](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet).
+    > [!WARNING]
+    > När du aktiverar säker LDAP-åtkomst via internet, är din domän sårbara för lösenord brute force-attacker via internet. Därför rekommenderar vi hur du konfigurerar en NSG till låsa åtkomst till nödvändiga käll-IP-adressintervall. Se instruktionerna för att [Lås LDAPS åtkomst till din hanterade domän via internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Klicka på mappen ikonen följande **. PFX-filen med säker LDAP-certifikat**. Ange sökvägen till PFX-filen med certifikatet för säker LDAP-åtkomst till den hanterade domänen.
@@ -79,7 +79,7 @@ Innan du börjar den här uppgiften kan du kontrollera att du har slutfört steg
 
 När du har aktiverat säker LDAP-åtkomst via internet för din hanterade domän, måste du uppdatera DNS så att klientdatorerna kan hitta den här hanterade domänen. I slutet av uppgift 3 visas en extern IP-adress på det **egenskaper** fliken i **extern IP-adress för LDAPS åtkomst**.
 
-Konfigurera externa DNS-providern så att DNS-namnet på den hanterade domänen (till exempel ldaps.contoso100.com) pekar på den här externa IP-adressen. I vårt exempel måste vi skapa följande DNS-post:
+Konfigurera externa DNS-providern så att DNS-namnet på den hanterade domänen (till exempel ldaps.contoso100.com) pekar på den här externa IP-adressen. Till exempel skapa följande DNS-post:
 
     ldaps.contoso100.com  -> 52.165.38.113
 
@@ -91,9 +91,9 @@ Det - du är nu redo att ansluta till den hanterade domänen med säker LDAP via
 >
 
 
-## <a name="task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet"></a>Uppgift 5 - låsning LDAPS åtkomst till din hanterade domän via internet
+## <a name="task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Uppgift 5 – Lås säker LDAP-åtkomst till din hanterade domän via internet
 > [!NOTE]
-> **Frivillig uppgift** - om du inte har aktiverat LDAPS åtkomst till den hanterade domänen via internet, hoppa över det här konfiguration.
+> Hoppa över konfigurationsåtgärden om du inte har aktiverat LDAPS åtkomst till den hanterade domänen via internet.
 >
 >
 
@@ -101,13 +101,28 @@ Innan du börjar den här uppgiften kan du kontrollera att du har slutfört steg
 
 Exponera din hanterade domän för LDAPS åtkomst via internet representerar en säkerhetsrisk. Den hanterade domänen kan nås från internet på porten som används för säker LDAP (det vill säga port 636). Därför kan du välja att begränsa åtkomsten till den hanterade domänen till specifika kända IP-adresser. Skapa en nätverkssäkerhetsgrupp (NSG) för förbättrad säkerhet och associera den med undernätet där du har aktiverat Azure AD Domain Services.
 
-I följande tabell visas ett exempel på en NSG som du kan konfigurera för att låsa säker LDAP-åtkomst via internet. NSG: N innehåller en uppsättning regler som tillåter inkommande LDAPS åtkomst via TCP-port 636 endast från en angiven mängd av IP-adresser. 'DenyAll' Standardregeln gäller för inkommande trafik från internet. NSG-regel som tillåter LDAPS åtkomst via internet från den angivna IP-adresser har högre prioritet än DenyAll NSG-regeln.
+I följande tabell visas ett exempel på en NSG som du kan konfigurera för att låsa säker LDAP-åtkomst via internet. NSG: N innehåller en uppsättning regler som tillåter inkommande säker LDAP-åtkomst via TCP-port 636 endast från en angiven mängd av IP-adresser. 'DenyAll' Standardregeln gäller för inkommande trafik från internet. NSG-regel som tillåter LDAPS åtkomst via internet från den angivna IP-adresser har högre prioritet än DenyAll NSG-regeln.
 
 ![Exempel NSG till säker LDAPS åtkomst via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
 **Mer information** - [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).
 
 <br>
+
+
+## <a name="troubleshooting"></a>Felsökning
+Om du har problem att ansluta till den hanterade domänen med säker LDAP, utför du följande felsökningssteg:
+* Se till att utfärdaren kedjan för säker LDAP-certifikatet är betrott på klienten. Du kan välja att lägga till rotcertifikatutfärdaren certifikatarkivet för betrodda rotcertifikatutfärdare på klienten att upprätta förtroendet.
+* Kontrollera att säker LDAP-certifikatet inte är utfärdat av en mellanliggande certifikatutfärdare som inte är betrodd som standard på en ny windows-dator.
+* Kontrollera att LDAP-klient (till exempel ldp.exe) ansluter till den säkra LDAP-slutpunkten med hjälp av ett DNS-namn inte IP-adress.
+* Kontrollera DNS-namnet för LDAP-klient ansluter till den offentliga IP-adressen matchar för säkra LDAP på den hanterade domänen.
+* Verifiera det säkra LDAP-certifikatet för din hanterade domän har DNS-namnet i ett ämne eller Alternativt ämnesnamn attributet.
+
+Om du fortfarande har problem att ansluta till den hanterade domänen med säker LDAP [kontakta produktteamet](active-directory-ds-contact-us.md) för hjälp. Ange följande information för att diagnosticera problemet bättre:
+* En skärmbild av ldp.exe anslutning och misslyckas.
+* Din Azure AD-klient-ID och DNS-domännamnet för din hanterade domän.
+* Exakt användarnamnet som du vill binda som.
+
 
 ## <a name="related-content"></a>Relaterat innehåll
 * [Azure AD Domain Services - komma igång-guide](active-directory-ds-getting-started.md)

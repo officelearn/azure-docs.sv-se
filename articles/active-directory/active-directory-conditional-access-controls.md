@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16ce69855aa7505f52cd9d01dcd0843784fcb706
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Kontrollerna i Azure Active Directory för villkorlig åtkomst 
 
@@ -101,7 +101,7 @@ Du kan skapa anpassade kontroller för villkorlig åtkomst som dirigera använda
 
 ## <a name="custom-controls"></a>Anpassade kontroller
 
-Anpassade kontroller i villkorlig åtkomst dirigera användarna till en kompatibel tjänsten för att uppfylla ytterligare krav utanför Azure Active Directory. För att uppfylla den här kontrollen användarens webbläsare omdirigeras till externa tjänsten, utför alla nödvändiga autentisering eller verifiering aktiviteter och dirigeras sedan tillbaka till Azure Active Directory. Azure Active Directory verifierar svaret och om användaren har har autentiserad eller verifieras kan användaren fortfarande i flöde för villkorlig åtkomst.
+Anpassade kontroller är en funktion i Azure Active Directory Premium P2-utgåva. När du använder anpassade kontroller, omdirigeras användarna till en kompatibel tjänsten för att uppfylla ytterligare krav utanför Azure Active Directory. För att uppfylla den här kontrollen användarens webbläsare omdirigeras till externa tjänsten, utför alla nödvändiga autentisering eller verifiering aktiviteter och dirigeras sedan tillbaka till Azure Active Directory. Azure Active Directory verifierar svaret och om användaren har har autentiserad eller verifieras kan användaren fortfarande i flöde för villkorlig åtkomst.
 
 De här kontrollerna tillåter användning av vissa externa eller anpassade tjänster som villkorlig åtkomstkontroller och vanligtvis utöka funktionerna i villkorlig åtkomst.
 

@@ -4,7 +4,7 @@ description: "Den här artikeln beskrivs integrera din infrastruktur för Remote
 services: active-directory
 keywords: "Azure MFA integrera servern för fjärrskrivbordsgateway, Azure Active Directory, NPS-tillägg"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 2f43b7c11356b8d553bb593785b7b44ca2d4d285
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 01c5284a609a2246e32052985ad3a8c0475eafa5
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera din infrastruktur för Remote Desktop Gateway med tillägget Server (NPS) och Azure AD
 

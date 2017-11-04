@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: anandy
-ms.openlocfilehash: 6822320c92d106d28607289a90f2f08a51e04070
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc5ef81704423c5a1bc136fb2d51d79a9265e20
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect och federation
 Azure Active Directory (AD Azure) Connect, kan du konfigurera federation med lokala Active Directory Federation Services (AD FS) och Azure AD. Med federation inloggning, kan du aktivera användare att logga in på Azure AD-baserade tjänster med sina lokala lösenord – och på företagsnätverket, utan att behöva ange sina lösenord igen. Du kan distribuera en ny installation av AD FS med hjälp av alternativet federation med AD FS eller ange en befintlig installation i en Windows Server 2012 R2-servergrupp.
@@ -40,6 +40,7 @@ Det här avsnittet är hem för information om federation-relaterade funktioner 
 | [Lägg till en ny AD FS WAP-server](active-directory-aadconnect-federation-management.md#addwapserver) |Expandera en AD FS-servergrupp med ytterligare en Webbprogramproxy (WAP) server efter den första installationen. |
 | [Lägg till en ny extern domän](active-directory-aadconnect-federation-management.md#addfeddomain) |Lägg till en annan domän att bli federerad med Azure AD. |
 | [Uppdatera SSL-certifikatet](active-directory-aadconnectfed-ssl-update.md)| Uppdatera SSL-certifikatet för en AD FS-servergrupp. |
+| [Förnya federationscertifikat för Office 365 och Azure AD](active-directory-aadconnect-o365-certs.md)|Förnya ditt O365-certifikat med Azure AD.|
 | **Andra federation-konfiguration** | |
 | [Federera flera instanser av Azure AD med en enda instans av AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md) | Federera flera Azure AD med enda AD FS-servergrupp| 
 | [Lägg till en anpassad företagets logotyp/bild](active-directory-aadconnect-federation-management.md#customlogo) |Ändra inloggningen genom att ange anpassad logotyp som visas på inloggningssidan för AD FS. |

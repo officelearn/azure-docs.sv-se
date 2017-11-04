@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1ac5ca34e412aeb8b24e657abfe8eca04943799d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 31e35432ecc10b06c7a6400a1e0904e7bc2cd8c9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
 Den här kursen ingår i en serie. Du kommer lära dig hur du distribuerar ett Windows Service Fabric-kluster till ett befintligt Azure virtuellt nätverk (VNET) och underordnad net med hjälp av PowerShell. När du är klar kan har du ett kluster som körs i molnet som du kan distribuera program till.  För att skapa ett Linux-kluster med Azure CLI, se [skapa en säker Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -97,7 +97,16 @@ Du kan använda ett certifikat från en certifikatutfärdare (CA) som certifikat
 - skapas för nyckelutbyte, som kan exporteras till en Personal Information Exchange (.pfx)-fil.
 - ha ett ämnesnamn som matchar den domän som du använder för att få åtkomst till Service Fabric-klustret. Den här matchar krävs SSL för att klustrets HTTPS management slutpunkter och Service Fabric Explorer. Du kan skaffa ett SSL-certifikat från en certifikatutfärdare (CA) för det. cloudapp.azure.com domän. Du måste skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en Certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som du använder för klustret.
 
-Fyll i tomma *plats*, *clusterName*, *adminUserName*, och *adminPassword* parametrar i den  *cluster.parameters.JSON* filen för din distribution.  Lämna den *certificateThumbprint*, *certificateUrlValue*, och *sourceVaultValue* parametrar tomt om du vill skapa ett självsignerat certifikat.  Om du vill använda ett befintligt certifikat som tidigare har överförts till ett nyckelvalv kan fylla i de parametervärdena.
+Fyll i följande tomma parametrar i den *cluster.parameters.json* filen för din distribution:
+
+|Parameter|Värde|
+|---|---|
+|adminPassword|Lösenordet #1234|
+|adminUserName|vmadmin|
+|Klusternamn|mysfcluster|
+|location|southcentralus|
+
+Lämna den *certificateThumbprint*, *certificateUrlValue*, och *sourceVaultValue* parametrar tomt om du vill skapa ett självsignerat certifikat.  Om du vill använda ett befintligt certifikat som tidigare har överförts till ett nyckelvalv kan fylla i de parametervärdena.
 
 Följande skript använder den [ny AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet och mallen för att distribuera ett nytt kluster i Azure. Cmdlet även skapar ett nytt nyckelvalv i Azure, lägger till ett nytt självsignerat certifikat till nyckelvalvet och hämtar certifikatfilen lokalt. Du kan ange ett befintligt certifikat och/eller nyckelvalv med andra parametrar för den [ny AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet.
 
@@ -165,9 +174,9 @@ I den här självstudiekursen lärde du dig att:
 > * Ansluta till klustret med PowerShell
 > * Ta bort ett kluster
 
-Gå sedan till följande guiden för att lära dig hur du distribuerar API-hantering med Service Fabric.
+Gå sedan till följande kursen lär dig hur du skala ditt kluster.
 > [!div class="nextstepaction"]
-> [Distribuera API Management](service-fabric-tutorial-deploy-api-management.md)
+> [Skala ett kluster](service-fabric-tutorial-scale-cluster.md)
 
 
 [network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json

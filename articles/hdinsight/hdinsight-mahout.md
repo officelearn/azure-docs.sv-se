@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 569aeef58e601174aa9f28dc3ba39ebae17c17f8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8f40beb4e3eb8020a65eac6e43ffefe4fedfcee2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Generera filmrekommendationer med hjälp av Apache Mahout med Hadoop i HDInsight (PowerShell)
 
@@ -56,11 +56,11 @@ Följande exempel är en förenklad genomgång av hur rekommendationen processen
 
 ### <a name="understanding-the-data"></a>Förstå data
 
-[GroupLens Research] [ movielens] innehåller klassificering av data för filmer i ett format som är kompatibel med Mahout. Informationen är tillgänglig i standard lagringsutrymme för klustret på `/HdiSamples//HdiSamples/MahoutMovieData`.
+[GroupLens Research] [ movielens] innehåller klassificering av data för filmer i ett format som är kompatibel med Mahout. Informationen är tillgänglig i standard lagringsutrymme för klustret på `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 Det finns två filer, `moviedb.txt` (information om filmer) och `user-ratings.txt`. Den `user-ratings.txt` filen som ska användas vid analys. Den `moviedb.txt` filen används för att tillhandahålla användarvänliga text när du visar resultatet av analysen.
 
-Data i ratings.txt användare har en struktur med `userID`, `movieID`, `userRating`, och `timestamp`, som talar om för oss hur mycket en film klassificerats som varje användare. Här är ett exempel på data:
+Data i ratings.txt användare har en struktur med `userID`, `movieID`, `userRating`, och `timestamp`, som anger hur mycket en film klassificerats som varje användare. Här är ett exempel på data:
 
     196    242    3    881250949
     186    302    3    891717742

@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Hur du konfigurerar portar för hög tillgänglighet för interna belastningsutjämnare
 
-Den här artikeln innehåller ett exempel på distribution av hög tillgänglighet (HA) portar på en intern belastningsutjämnare. Virtuella nätverksinstallationer finns specifika konfigurationer i de motsvarande provider-webbplatserna.
+Den här artikeln innehåller ett exempel på distribution av hög tillgänglighet (HA) portar på en intern belastningsutjämnare. Virtuella nätverksinstallationer (NVAs) finns specifika konfigurationer i de motsvarande provider-webbplatserna.
 
 >[!NOTE]
 > Hög tillgänglighet portar funktionen är för närvarande under förhandsgranskning. Som förhandsversion kanske funktionen inte har samma tillgänglighet och pålitlighet som funktioner som är allmänt tillgängliga. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Bild 1 visar exempel för distribution som beskrivs i den här artikeln följande konfiguration:
 - NVAs distribueras i serverdelspoolen av en intern belastningsutjämnare bakom portkonfiguration för hög tillgänglighet. 
-- UDR tillämpats på DMZ undernätsvägar all trafik till <>? genom att göra nästa hopp som interna belastningen Belastningsutjämnarens virtuella IP-Adressen. 
+- UDR tillämpas på DMZ undernätsvägar all trafik NVAs genom att göra nästa hopp som interna belastningen Belastningsutjämnarens virtuella IP-Adressen. 
 - Interna belastningsutjämnare distribuerar trafik till en aktiv NVAs enligt LB-algoritmen.
 - NVA bearbetar trafiken och vidarebefordrar det till det ursprungliga målet i backend-undernät.
 - Returnerar sökvägen kan också ta samma flöde om motsvarande UDR konfigureras på backend-undernät. 
@@ -41,19 +41,13 @@ Bild 1 - nätverket virtuella installationer distribueras bakom en intern belast
 
 ## <a name="preview-sign-up"></a>Förhandsgranska registrering
 
-Registrera prenumerationen för att få åtkomst med hjälp av PowerShell eller Azure CLI 2.0 för att delta i förhandsversionen av funktionen hög tillgänglighet portar i belastningen belastningsutjämnaren Standard-SKU.
+Registrera prenumerationen för att få åtkomst med hjälp av Azure CLI 2.0 eller PowerShell för att delta i förhandsversionen av funktionen hög tillgänglighet portar i Load Balancer Standard.  Registrera prenumerationen för
 
-- Logga med hjälp av PowerShell
+1. [Belastningen belastningsutjämnaren Standard preview](https://aka.ms/lbpreview#preview-sign-up) och 
+2. [Hög tillgänglighet portar Förhandsgranska](https://aka.ms/haports#preview-sign-up).
 
-   ```powershell
-   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- Logga med Azure CLI 2.0
-
-    ```cli
-  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
-    ```
+>[!NOTE]
+>Om du vill använda den här funktionen måste du också registrera för belastningsutjämnaren [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) förutom HA portar. Registrering av hög tillgänglighet portar eller läsa in belastningsutjämning Standard förhandsversioner kan ta upp till en timme.
 
 ## <a name="configuring-ha-ports"></a>Hur du konfigurerar portar för hög tillgänglighet
 
@@ -68,6 +62,39 @@ Azure portal innehåller den **HA portar** alternativet via en kryssruta för de
 ![hög tillgänglighet portarna konfigurationen via Azure-portalen](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 Bild 2 – hög tillgänglighet portkonfiguration via portalen
+
+### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>Konfigurera hög tillgänglighet portar LB regel via Resource Manager-mall
+
+Du kan konfigurera hög tillgänglighet portar med hjälp av API-versionen 2017-08-01 för Microsoft.Network/loadBalancers i resursen belastningsutjämnaren. Följande JSON-fragment visar ändringarna i konfigurationen av belastningsutjämnaren för hög tillgänglighet portar via REST API.
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
 
 ### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>Konfigurera hög tillgänglighet portar belastningsutjämningsregeln med PowerShell
 

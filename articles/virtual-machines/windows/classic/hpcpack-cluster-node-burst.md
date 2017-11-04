@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8031c9bae923e19574b7189a97cb71a148b63d77
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Lägg till på begäran ”burst” noder i ett HPC Pack kluster i Azure
 Om du ställer in en [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) kluster i Azure, kan du ett sätt att snabbt skala klustret kapacitet upp eller ned, utan att behålla en uppsättning förinställda beräkningsnod virtuella datorer. Den här artikeln visar hur du lägger till noder på begäran ”burst” (worker-rollinstanser som körs i en tjänst i molnet) som beräkningsresurser till huvudnod i Azure. 
@@ -42,10 +42,10 @@ Stegen i den här artikeln hjälpa dig att snabbt lägga till Azure-noder till e
 * **Kärnor kvoten** – du kan behöva öka kvoten för kärnor, särskilt om du väljer att distribuera flera Azure-noder med flera kärnor. Att öka kvoten [öppna en supportbegäran online customer](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) utan kostnad.
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Steg 1: Skapa en molntjänst och ett lagringskonto för Azure-noder
-Använd den klassiska Azure-portalen eller likvärdiga verktyg för att konfigurera följande resurser som behövs för att distribuera din Azure-noder:
+Använd Azure-portalen eller likvärdiga verktyg för att konfigurera följande resurser som behövs för att distribuera din Azure-noder:
 
-* En ny Azure-molntjänst
-* Ett nytt Azure storage-konto
+* En ny Azure-molntjänst (klassisk)
+* Ett nytt Azure storage-konto (klassisk)
 
 > [!NOTE]
 > Inte återanvända en befintlig molntjänst i din prenumeration. 
@@ -60,7 +60,11 @@ Använd den klassiska Azure-portalen eller likvärdiga verktyg för att konfigur
 ## <a name="step-2-configure-an-azure-management-certificate"></a>Steg 2: Konfigurera ett Azure-hanteringscertifikat
 Om du vill lägga till Azure-noder som beräkningsresurser och behöver du ett certifikat på huvudnod och ladda upp en motsvarande certifikat till Azure-prenumerationen används för distribution av.
 
-I det här scenariot kan du välja den **standard HPC Azure-Hanteringscertifikatet** som HPC Pack installeras och konfigureras automatiskt på huvudnoden. Det här certifikatet är användbart för testning syfte och proof of concept distributioner. Ladda upp filen C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer från huvudnod VM till prenumerationen för att använda det här certifikatet. Att ladda upp certifikatet i den [klassiska Azure-portalen](https://manage.windowsazure.com), klickar du på **inställningar** > **Hanteringscertifikat**.
+I det här scenariot kan du välja den **standard HPC Azure-Hanteringscertifikatet** som HPC Pack installeras och konfigureras automatiskt på huvudnoden. Det här certifikatet är användbart för testning syfte och proof of concept distributioner. Ladda upp filen C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer från huvudnod VM till prenumerationen för att använda det här certifikatet. Att ladda upp certifikatet i den [Azure-portalen](https://portal.azure.com):
+
+1. Klicka på **prenumerationer** > *your_subscription_name*.
+
+2. Klicka på **hanteringscertifikat** > **överför**.
 
 Ytterligare alternativ för att konfigurera certifikatet, se [scenarier för att konfigurera Azure-Hanteringscertifikat för Azure Burst distributioner](http://technet.microsoft.com/library/gg481759.aspx).
 

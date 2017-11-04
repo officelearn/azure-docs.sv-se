@@ -11,16 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0a030c635255d2e6fcbacd5c138f8d09b1ef85b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d0505caf75a3e6433e2c9fd9795b3176d66d297
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory identitetsskydd vanliga frågor och svar
+
+Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active Directory (AD Azure) Identity Protection. Mer information finns i [Azure Active Directory Identity Protection](active-directory-identityprotection.md). 
 
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>Varför måste vissa riskhändelser ”stängd (system)” status?
@@ -30,12 +32,18 @@ ms.lasthandoff: 10/11/2017
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>Måste jag vara en global administratör för att använda Identity Protection i Azure portal?
-**S:** **nr**. Du kan antingen vara en läsare för säkerhet, en säkerhet administratör eller en Global administratör för att använda Identity Protection.
+**S:** Nej. Du kan antingen vara en läsare för säkerhet, en säkerhet administratör eller en Global administratör för att använda Identity Protection.
 
 ---
 
 ## <a name="how-do-i-get-identity-protection"></a>Hur skaffar Identity Protection?
+
 **S:** finns [komma igång med Azure Active Directory Premium](active-directory-get-started-premium.md) för ett svar på frågan.
 
 ---
 
+## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>Hur sorterar användare i ”användare som flaggats för risk”?
+
+**S:** hämta användare som flaggats för risk rapporten genom att klicka på den **hämta** ovanpå på den **användare som har flaggats för risk** sidan. Du kan sedan sortera hämtade data baserat på tillgängliga fält, inklusive senaste uppdaterade (UTC).
+
+---

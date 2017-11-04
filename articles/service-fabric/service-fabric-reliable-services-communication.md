@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: b418904f50b772c12bfcdbb95beb9312c8b9fb00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 006f32ea9dea18f8b8e454a256272ec87bfee7f3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Hur du använder Reliable Services kommunikationen API: er
 Azure Service Fabric en plattform som är helt oberoende om kommunikation mellan tjänster. Alla protokoll och stackar är acceptabla, från UDP till HTTP. Är det upp till tjänsten utvecklaren kan välja hur tjänster ska kommunicera. Application framework Reliable Services tillhandahåller inbyggd kommunikation stackar samt API: er som du kan använda för att skapa anpassade kommunikationskomponenter.
@@ -427,7 +427,6 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Se ett exempel på HTTP-kommunikation mellan tjänster i en [C#-exempelprojektet på GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount) eller [Java exempelprojektet på GitHUb](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Services/WatchDog).
+* [ASP.NET Core med Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
 * [RPC-anrop med Reliable Services fjärrkommunikation](service-fabric-reliable-services-communication-remoting.md)
-* [Webb-API som använder OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [WCF-kommunikation med hjälp av Reliable Services](service-fabric-reliable-services-communication-wcf.md)

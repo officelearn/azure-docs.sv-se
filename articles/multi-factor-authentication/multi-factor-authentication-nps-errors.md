@@ -3,7 +3,7 @@ title: "Felsök felkoder för Azure MFA NPS-tillägg | Microsoft Docs"
 description: "Få hjälp med att lösa problem med NPS-tillägget för Azure Multi-Factor Authentication med specifika lösningar på vanliga felmeddelanden"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 173353d67772c2549aa1b8ec9f2a471bd1c65677
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf1fc0f5cf0c53547c96b46404828f76a405650f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Lösa felmeddelanden från NPS-tillägg för Azure Multi-Factor Authentication
 

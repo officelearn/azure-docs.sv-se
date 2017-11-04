@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>Versionshistorik för anslutningsappen
 Kopplingar för Forefront Identity Manager (FIM) och Microsoft Identity Manager (MIM) uppdateras ofta.
 
 > [!NOTE]
 > Det här avsnittet finns bara på FIM och MIM. Följande kopplingar stöds inte för installation på Azure AD Connect. Utgiven kopplingar är förinstallerade på AADConnect när du uppgraderar till angivna Build.
+
 
 Det här avsnittet listas alla versioner av kopplingar som har släppts.
 
@@ -37,6 +38,29 @@ Relaterade länkar:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) refererar dokumentationen
 * [Kopplingen för Lotus Domino](active-directory-aadconnectsync-connector-domino.md) refererar dokumentationen
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>Fast problem:
+
+* Lotus Notes:
+  * Anpassade certifiers filtreringsalternativ
+  * Import av klassen ImportOperations åtgärdades definitionen av vilka åtgärder kan köras i läget 'Vyer' och som i ”Sök”-läge.
+* Allmän LDAP:
+  * OpenLDAP Directory använder DN som ankare i stället för entryUUI. Nya alternativet att GLDAP koppling som gör det möjligt för att ändra ankare
+* Allmän SQL:
+  * Fast export till fältet varbinary(max)-typ som har.
+  * När du lägger till binära data från en datakälla till CSEntry objekt i DataTypeConversion funktionen misslyckades på noll byte. Klassen CSEntryOperationBase fast DataTypeConversion funktion.
+
+
+
+
+### <a name="enhancements"></a>Förbättringar av:
+
+* Allmän SQL:
+  * Möjligheten att konfigurera läge för att utföra åtgärden lagrad procedur med namngivna parametrar eller namngivna inte har lagts till i ett fönster för konfiguration av allmänna SQL hanteringsagenten på sidan-globala parametrar'. På sidan-globala parametrar, det är kryssrutan med etiketten ”Använd namngivna parametrar att köra en lagrad procedur' som ansvarar för läge för execute lagrad procedur med namngivna parametrar eller inte.
+    * Möjligheten att köra den lagrade proceduren med namngivna parametrar fungerar för närvarande endast för databaser IBM DB2 och MSSQL. Den här metoden fungerar inte för Oracle och MySQL-databaser: 
+      * SQL-syntax för MySQL stöder inte namngivna parametrar i lagrade procedurer.
+      * ODBC-drivrutin för Oracle stöder inte namngivna parametrar för namngivna parametrar i lagrade procedurer)
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ Kopplingarna publicerades före mars 2016 som supportfrågor.
 * [KB2932635](https://support.microsoft.com/kb/2932635) -5.3.1003 februari 2014  
 * [KB2899874](https://support.microsoft.com/kb/2899874) -5.3.0721, oktober 2013
 * [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534 2013 augusti
+
+## <a name="troubleshooting"></a>Felsökning 
+
+> [!NOTE]
+> När du uppdaterar Microsoft Identity Manager eller AADConnect med användningen av ECMA2 kopplingar. 
+
+Du måste uppdatera connector-definitionen om du uppgraderar till matchar eller du får följande fel i händelseloggen programstart att rapportera varning 6947-ID: ”Sammansättningsversionen i AAD-kopplingskonfiguration (” X.X.XXX. X ”) är tidigare än den faktiska versionen (” X.X.XXX. X ”) för” C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll ”.
+
+Uppdatera definitionen:
+* Öppna Egenskaper för kopplingsinstansen
+* Klicka på anslutningen / ansluta till fliken
+  * Ange lösenordet för kontot Connector
+* Klicka på var och en av flikarna egenskapen i sin tur
+  * Om den här typen av koppling har en flik för partitioner, med en uppdateringsknappen klickar du på uppdateringsknappen på fliken
+* När alla egendom flikar har använts, klicka på OK om du vill spara ändringarna.
+
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om den [Azure AD Connect-synkronisering](active-directory-aadconnectsync-whatis.md) konfiguration.

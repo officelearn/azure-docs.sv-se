@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f1aa4117b389bb127eb7235f69f587dcb715ac25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
 Den här artikeln innehåller felsökningsinformation som hjälper dig att diagnostisera orsaken till långsam prestanda vid säkerhetskopiering av filer och mappar när du använder Azure Backup. När du använder Azure Backup-agenten för att säkerhetskopiera filer, kan det ta längre tid än förväntat säkerhetskopieringsprocessen. Den här fördröjningen kan bero på en eller flera av följande:

@@ -1,70 +1,70 @@
 
-1. To escalate privileges, type:
+1. För att eskalera privilegier, skriver du:
    
         sudo -s
    
-    Enter your password.
-2. To install MySQL Community Server edition, type:
+    Ange ditt lösenord
+2. Om du vill installera MySQL Community Server edition, skriver du:
    
         zypper install mysql-community-server
    
-    Wait while MySQL downloads and installs.
-3. To set MySQL to start when the system boots, type:
+    Vänta medan MySQL hämtas och installeras.
+3. Om du vill ange MySQL att starta när systemet startas, skriver du:
    
         insserv mysql
-4. Start the MySQL daemon (mysqld) manually with this command:
+4. Starta MySQL-daemon (mysqld) manuellt med det här kommandot:
    
         rcmysql start
    
-    To check the status of the MySQL daemon, type:
+    Om du vill kontrollera status för MySQL-daemon, skriver du:
    
         rcmysql status
    
-    To stop the MySQL daemon, type:
+    Om du vill stoppa MySQL-daemon, skriver du:
    
         rcmysql stop
    
    > [!IMPORTANT]
-   > After installation, the MySQL root password is empty by default. We recommended that you run **mysql\_secure\_installation**, a script that helps secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. We recommended that you answer yes to all of these options and change the root password.
+   > MySQL-rotlösenordet är tomt som standard efter installationen. Vi rekommenderar att du kör **mysql\_säker\_installation**, ett skript som hjälper till att säkra MySQL. Skriptet uppmanas du att ändra rotlösenordet MySQL, ta bort anonyma användarkonton, inaktivera fjärråtkomst rot-inloggningar, ta bort test databaser och läsa in tabellen privilegier. Vi rekommenderar att du svara Ja på alla dessa alternativ och ändra rotlösenordet.
    > 
    > 
-5. Type this to run the script MySQL installation script:
+5. Kör skriptet MySQL installationsskriptet skriver du:
    
         mysql_secure_installation
-6. Log in to MySQL:
+6. Logga in på MySQL:
    
         mysql -u root -p
    
-    Enter the MySQL root password (which you changed in the previous step) and you'll be presented with a prompt where you can issue SQL statements to interact with the database.
-7. To create a new MySQL user, run the following at the **mysql>** prompt:
+    Ange rotlösenordet MySQL (som du har ändrat i föregående steg) och visas med en uppmaning där du kan utfärda SQL-instruktioner kan interagera med databasen.
+7. Om du vill skapa en ny MySQL-användare, kör du följande i den **mysql >** prompten:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Note, the semi-colons (;) at the end of the lines are crucial for ending the commands.
-8. To create a database and grant the `mysqluser` user permissions on it, issue the following commands:
+    Obs!, semikolon (;) i slutet av raderna är avgörande för slutar kommandon.
+8. Skapa en databas och ge den `mysqluser` användarbehörigheter, utfärda följande kommandon:
    
         CREATE DATABASE testdatabase;
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Note that database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
-9. To log in from another computer, type:
+    Observera att databasen användarnamn och lösenord används endast av skript som ansluter till databasen.  Databasen användarkontonamn representerar inte nödvändigtvis faktiska användarkonton på systemet.
+9. För att logga in från en annan dator, skriver du:
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    where `ip-address` is the IP address of the computer from which you will connect to MySQL.
-10. To exit the MySQL database administration utility, type:
+    där `ip-address` är IP-adressen på den dator som du ansluter till MySQL.
+10. Om du vill avsluta verktyget för administration av MySQL-databas, skriver du:
     
         quit
 
-## <a name="add-an-endpoint"></a>Add an endpoint
-1. After MySQL is installed, you'll need to configure an endpoint to access MySQL remotely. Log in to the [Azure  classic portal][AzurePortal]. Click **Virtual Machines**, click the name of your new virtual machine, and then click **Endpoints**.
-2. Click **Add** at the bottom of the page.
-3. Add an endpoint named "MySQL" with protocol **TCP**, and **Public** and **Private** ports set to "3306".
-4. To remotely connect to the virtual machine from your computer, type:
+## <a name="add-an-endpoint"></a>Lägga till en slutpunkt
+1. När MySQL har installerats kan behöver du konfigurera en slutpunkt för att få fjärråtkomst till MySQL. Logga in på den [klassiska Azure-portalen][AzurePortal]. Klicka på **virtuella datorer**, klicka på namnet på den nya virtuella datorn och klicka sedan på **slutpunkter**.
+2. Klicka på **Lägg till** längst ned på sidan.
+3. Lägga till en slutpunkt med namnet ”MySQL” med protokollet **TCP**, och **offentliga** och **privata** portar inställd på ”3306”.
+4. För att fjärransluta till den virtuella datorn från datorn, skriver du:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    For example, using the virual machine we created in this tutorial, type this command:
+    Till exempel med hjälp av den virtuell datorn som vi skapade i den här självstudiekursen, ange följande kommando:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 

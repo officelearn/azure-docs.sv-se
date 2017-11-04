@@ -1,5 +1,5 @@
-Azure Cloud Shell is a browser-based shell experience to manage and develop Azure resources.
+Azure Cloud-gränssnittet är en webbläsarbaserad shell-upplevelse för att hantera och utveckla Azure-resurser.
 
-Cloud Shell offers a browser-accessible, pre-configured shell experience for managing Azure resources without the overhead of installing, versioning, and maintaining a machine yourself.
+Molnet Shell erbjuder en webbläsare tillgänglig, förkonfigurerade shell-upplevelse för att hantera Azure-resurser utan att behöva installera, versionshantering, och underhålla en dator själv.
 
-Cloud Shell provisions machines on a per-request basis and as a result machine state will not persist across sessions. Since Cloud Shell is built for interactive sessions, shells automatically terminate after 20 minutes of shell inactivity.
+Molnet Shell etablerar datorer på grundval av per begäran och därför datortillståndet kommer inte att spara mellan sessioner. Eftersom moln-gränssnittet är utformat för interaktiva sessioner, avsluta tankar automatiskt efter 20 minuters inaktivitet shell.

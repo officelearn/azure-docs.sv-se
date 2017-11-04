@@ -1,8 +1,8 @@
 
-| Resource | Default limit |
+| Resurs | Standardgräns |
 | --- | --- |
-| Zones per subscription |100 <sup>1</sup> |
-| Record sets per zone |5000 <sup>1</sup> |
-| Records per record set |20 |
+| Zoner per prenumeration |100 <sup>1</sup> |
+| Postuppsättningar per zon |5000 <sup>1</sup> |
+| Poster per uppsättningen av poster |20 |
 
-<sup>1</sup> Contact Azure Support in case you need to increase these limits.
+<sup>1</sup> kontakta Azure-supporten om du behöver utöka gränserna.

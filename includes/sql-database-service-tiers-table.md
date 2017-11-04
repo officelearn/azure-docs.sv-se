@@ -4,70 +4,70 @@ sql-database-performance-guidance.md
 sql-database-single-database-resources.md 
 -->
 
-### <a name="basic-service-tier"></a>Basic service tier
-| **Performance level** | **Basic** |
+### <a name="basic-service-tier"></a>Grundläggande tjänstenivå
+| **Prestandanivå** | **Basic** |
 | :--- | --: |
-| Max DTUs | 5 |
-| Included storage (GB) | 2 |
-| Max storage choices (GB) | 2 |
-| Max in-memory OLTP storage (GB) |N/A |
-| Max concurrent workers (requests) | 30 |
-| Max concurrent logins | 30 |
-| Max concurrent sessions | 300 |
+| Maximala DTU:er | 5 |
+| Ingår lagringsutrymme (GB) | 2 |
+| Maximalt antal lagringsalternativ (GB) | 2 |
+| Maximal InMemory-OLTP-lagring (GB) |Saknas |
+| Maximalt antal samtidiga arbetare (antal begäranden) | 30 |
+| Maximalt antal samtidiga inloggningar | 30 |
+| Maximalt antal samtidiga sessioner | 300 |
 |||
 
-### <a name="standard-service-tier"></a>Standard service tier
-| **Performance level** | **S0** | **S1** | **S2** | **S3** |
+### <a name="standard-service-tier"></a>Standardtjänstenivå
+| **Prestandanivå** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Max DTUs** | 10 | 20 | 50 | 100 |
-| Included storage (GB) | 250 | 250 | 250 | 250 |
-| Max storage choices (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |
-| Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
-| Max concurrent logins | 60 | 90 | 120 | 200 |
-| Max concurrent sessions |600 | 900 | 1200 | 2400 |
+| Max dtu: er ** | 10 | 20 | 50 | 100 |
+| Ingår lagringsutrymme (GB) | 250 | 250 | 250 | 250 |
+| Maximalt antal lagringsalternativ (GB) * | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |
+| Maximalt antal samtidiga arbetare (antal begäranden)| 60 | 90 | 120 | 200 |
+| Maximalt antal samtidiga inloggningar | 60 | 90 | 120 | 200 |
+| Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
 ||||||
 
-### <a name="standard-service-tier-continued"></a>Standard service tier (continued)
-| **Performance level** | **S4** | **S6** | **S7** | **S9** | **S12** |
+### <a name="standard-service-tier-continued"></a>Standard-tjänstnivå (fortsättning)
+| **Prestandanivå** | **S4** | **S6** | **S7** | **S9** | **S12 FÖRPACKNINGEN** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Max DTUs** | 200 | 400 | 800 | 1600 | 3000 |
-| Included storage (GB) | 250 | 250 | 250 | 250 | 250 |
-| Max storage choices (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Max in-memory OLTP storage (GB) | N/A | N/A | N/A | N/A |N/A |
-| Max concurrent workers (requests)| 400 | 800 | 1600 | 3200 |6000 |
-| Max concurrent logins | 400 | 800 | 1600 | 3200 |6000 |
-| Max concurrent sessions |4800 | 9600 | 19200 | 30000 |30000 |
+| Max dtu: er ** | 200 | 400 | 800 | 1600 | 3000 |
+| Ingår lagringsutrymme (GB) | 250 | 250 | 250 | 250 | 250 |
+| Maximalt antal lagringsalternativ (GB) * | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Maximal InMemory-OLTP-lagring (GB) | Saknas | Saknas | Saknas | Saknas |Saknas |
+| Maximalt antal samtidiga arbetare (antal begäranden)| 400 | 800 | 1600 | 3200 |6000 |
+| Maximalt antal samtidiga inloggningar | 400 | 800 | 1600 | 3200 |6000 |
+| Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>Premium service tier 
-| **Performance level** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
+### <a name="premium-service-tier"></a>Premium tjänstenivån 
+| **Prestandanivå** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** | 
 | :--- |---:|---:|---:|---:|---:|---:|
-| Max DTUs | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Included storage (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
-| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
-| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Max concurrent logins | 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Max concurrent sessions | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Maximala DTU:er | 125 | 250 | 500 | 1000 | 1750 | 4000 |
+| Ingår lagringsutrymme (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
+| Maximalt antal lagringsalternativ (GB) * | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| Maximal InMemory-OLTP-lagring (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
+| Maximalt antal samtidiga arbetare (antal begäranden)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Maximalt antal samtidiga inloggningar | 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Maximalt antal samtidiga sessioner | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-### <a name="premium-rs-service-tier"></a>Premium RS service tier 
-| **Performance level** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
+### <a name="premium-rs-service-tier"></a>Premiumnivån för RS 
+| **Prestandanivå** | **PRS1** | **PRS2** | **PRS4** | **PRS6** |
 | :--- |---:|---:|---:|---:|---:|---:|
-| Max DTUs | 125 | 250 | 500 | 1000 |
-| Included storage (GB) | 500 | 500 | 500 | 500 |
-| Max storage choices (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
-| Max in-memory OLTP storage (GB) | 1 | 2 | 4 | 8 |
-| Max concurrent workers (requests)| 200 | 400 | 800 | 1600 |
-| Max concurrent logins | 200 | 400 | 800 | 1600 |
-| Max concurrent sessions | 30000 | 30000 | 30000 | 30000 |
+| Maximala DTU:er | 125 | 250 | 500 | 1000 |
+| Ingår lagringsutrymme (GB) | 500 | 500 | 500 | 500 |
+| Maximalt antal lagringsalternativ (GB) * | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 |
+| Maximal InMemory-OLTP-lagring (GB) | 1 | 2 | 4 | 8 |
+| Maximalt antal samtidiga arbetare (antal begäranden)| 200 | 400 | 800 | 1600 |
+| Maximalt antal samtidiga inloggningar | 200 | 400 | 800 | 1600 |
+| Maximalt antal samtidiga sessioner | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
 > [!IMPORTANT]
-> \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+> \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\*I Premium-nivån finns för närvarande mer än 1 TB lagringsutrymme i följande regioner: Östra USA 2, USA, västra, Virginia (USA-förvaltad region), Europa, västra, Centrala Tyskland, Sydostasien, Östra Japan, Australien, östra, Centrala Kanada och Östra Kanada. Se [sidan 11-15 i Aktuella begränsningar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
->\*\* Max DTUs per database starting at 200 DTUs and higher in Standard are in preview.
+>\*\*Max Dtu per databas startar 200 dtu: er och högre i Standard finns i förhandsgranskningen.
 >

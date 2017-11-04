@@ -35,6 +35,8 @@
       href: container-registry-skus.md
     - name: Geo-replikering (förhandsversion)
       href: container-registry-geo-replication.md
+    - name: Registrera metodtips
+      href: container-registry-best-practices.md
 - name: Instruktionsguider
   items:
     - name: Skicka/hämta en avbildning

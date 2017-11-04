@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/18/2017
-
+ms.openlocfilehash: 15d4f81f8a7a835ea61a9056d83d8337d529c7cc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Skapa en virtuell Linux-dator med Azure Portal
 
 Det går att skapa virtuella datorer via Azure Portal. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera virtuella datorer och alla relaterade resurser. I den här snabbstarten beskrivs hur du skapar en virtuell dator och installerar en webbserver på den virtuella datorn.
@@ -58,18 +56,18 @@ Logga in på Azure Portal på http://portal.azure.com.
 
     ![Skärmbild som visar storlekar på virtuella datorer](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Acceptera alla standardvärden på bladet Inställningar och klicka på **OK**.
+5. Under **Inställningar** behåller du standardvärdena och klickar på **OK**.
 
 6. På sammanfattningssidan klickar du på **Ok** för att starta distributionen av den virtuella datorn.
 
-7. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnar den virtuella datorn VM-sammanfattningsbladet automatiskt.
+7. Den virtuella datorn fästs på Azure Portals instrumentpanel. När distributionen är klar öppnas sammanfattningen för den virtuella datorn automatiskt.
 
 
 ## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
 
 Skapa en SSH-anslutning med den virtuella datorn.
 
-1. Klicka på knappen **Anslut** på bladet för den virtuella datorn. Anslutningsknappen visar en SSH-anslutningssträng som kan användas för att ansluta till den virtuella datorn.
+1. Klicka på knappen **Anslut** på den virtuella datorns egenskaper. Anslutningsknappen visar en SSH-anslutningssträng som kan användas för att ansluta till den virtuella datorn.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
@@ -110,13 +108,13 @@ En nätverkssäkerhetsgrupp (NSG) säkrar ingående och utgående trafik. När e
 
 ## <a name="view-the-nginx-welcome-page"></a>Visa NGINX-välkomstsidan
 
-När NGINX är installerat och port 80 är öppen för din VM kan webbservern nu nås från internet. Öppna en webbläsare och ange den virtuella datorns offentliga IP-adress. Den offentliga IP-adressen finns på VM-bladet i Azure Portal.
+När NGINX är installerat och port 80 är öppen för din VM kan webbservern nu nås från internet. Öppna en webbläsare och ange den virtuella datorns offentliga IP-adress. Den offentliga IP-adressen finns på VM-egenskaper i Azure-portalen.
 
 ![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra det väljer du resursgruppen på bladet för den virtuella datorn och klickar på **Ta bort**.
+Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. Om du vill göra det, välja en resursgrupp för den virtuella datorn och klicka på **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -124,4 +122,3 @@ I den här snabbstarten har du distribuerat en virtuell dator och en regel för 
 
 > [!div class="nextstepaction"]
 > [Självstudier om virtuella Azure Linux-datorer](./tutorial-manage-vm.md)
-

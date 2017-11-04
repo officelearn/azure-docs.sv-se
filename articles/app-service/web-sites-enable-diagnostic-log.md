@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 42644bd97443e827b523503989b0b25d3d48028c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för web apps i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -180,17 +180,17 @@ Använd parametern - ListPath om du vill se en lista över tillgängliga sökvä
 ### <a name="streaming-with-azure-command-line-interface"></a>Strömning med Azure-kommandoradsgränssnittet
 Strömma loggningsinformation, öppna en ny kommandotolk, PowerShell, Bash eller terminalsession och ange följande kommando:
 
-    azure site log tail webappname
+    az webapp log tail --name webappname --resource-group myResourceGroup
 
 Detta ska ansluta till webbprogrammet med namnet 'webappname' och börja strömning information till fönstret när händelser inträffar kontinuerligt i webbprogrammet. All information som skrivs till filer som slutar på .txt, .log eller .htm som lagras i katalogen /LogFiles (d:/home/loggfilerna) kommer att strömmas till den lokala konsolen.
 
 För att filtrera specifika händelser, till exempel fel, använder den **--Filter** parameter. Exempel:
 
-    azure site log tail webappname --filter Error
+    az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
 För att filtrera viss loggning typer, till exempel HTTP, använder den **--sökväg** parameter. Exempel:
 
-    azure site log tail webappname --path http
+    az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
 > Om du inte har installerat Azure-kommandoradsgränssnittet eller inte har konfigurerat den att använda Azure-prenumeration, se [så att använda Azure-kommandoradsgränssnittet](../cli-install-nodejs.md).

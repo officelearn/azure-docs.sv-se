@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/01/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 8cde8e10b6789e930ea1deda2f4aa0d4a5e7ea97
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory villkorlig åtkomst Teknisk referens
 
@@ -135,7 +135,7 @@ Följande webbläsare stöds i principen för villkorlig åtkomst:
 | macOS                  | Chrome                      | Kommer snart |
 
 > [!NOTE]
-> För Chrome-support, muse du använda Windows 10 skapare Update (version 1703) eller senare.<br>
+> För Chrome-stöd, måste du använda Windows 10 skapare Update (version 1703) eller senare.<br>
 > Du kan installera [tillägget](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Stöd för mobila program och skrivbord klienter

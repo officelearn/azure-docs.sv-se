@@ -1,6 +1,6 @@
 ---
-title: Tools for Azure Stack storage
-description: Learn about Azure Stack storage data transfer tools
+title: "Verktyg för Azure-stacken lagring"
+description: "Lär dig mer om Stack för Azure storage-data transfer-verktyg"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,81 +14,80 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tools-for-azure-stack-storage"></a>Tools for Azure Stack Storage
+# <a name="tools-for-azure-stack-storage"></a>Verktyg för Azure-stacken lagring
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functionality. You can use a set of Azure Storage tools if you want to manage or move data to or from Azure Stack Storage. This article provides a quick overview of the tools available.
+Stacken för Microsoft Azure tillhandahåller en uppsättning lagringstjänster för diskar, blobbar, tabeller, köer och hanteringsfunktioner för kontot. Du kan använda en uppsättning av verktyg för Azure Storage om du vill hantera eller flytta data till eller från Azure Storage i stacken. Den här artikeln ger en snabb överblick över verktyg som finns tillgängliga.
 
-The tool that works best for you depends on your requirements:
+Ett verktyg som passar dig bäst beror på dina behov:
 * [AzCopy](#azcopy)
 
-    A storage-specific command-line utility that you can download to copy data from one object to another within your storage account, or between storage accounts.
+    Ett storage-specifika kommandoradsverktyg som du kan hämta för att kopiera data från ett objekt till en annan inom ditt lagringskonto eller mellan lagringskonton.
 
 * [Azure PowerShell](#azure-powershell)
 
-    A task-based command-line shell and scripting language designed especially for system administration.
+    Ett aktivitetsbaserat kommandoradsskal och skriptspråk som är särskilt utformat för systemadministration.
 
 * [Azure CLI](#azure-cli)
 
-    An open-source, cross-platform tool that provides a set of commands for working with the Azure and Azure Stack platforms.
+    En öppen källkod, plattformsoberoende verktyg som innehåller en uppsättning kommandon för att arbeta med Azure och Azure Stack-plattformar.
 
-* [Microsoft Storage Explorer (Preview)](#microsoft-azure-storage-explorer)
+* [Microsoft Lagringsutforskaren (förhandsversion)](#microsoft-azure-storage-explorer)
 
-    An easy to use standalone app with a user interface.
+    En lättanvänd fristående app med ett användargränssnitt.
 
-Due to the Storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md).
+På grund av Storage services skillnaderna mellan Azure och Azure-stacken kanske vissa krav för varje verktyg som beskrivs i följande avsnitt. En jämförelse mellan Azure Stack lagringsutrymmet och Azure storage finns [Azure Stack Storage: skillnader och överväganden](azure-stack-acs-differences.md).
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy is a command-line utility designed to copy data to and from Microsoft Azure Blob and Table storage using simple commands with optimal performance. You can copy data from one object to another within your storage account, or between storage accounts. There are two version of the AzCopy: AzCopy on Windows and AzCopy on Linux. Azure Stack only supports the Windows version. 
+AzCopy är ett kommandoradsverktyg för att kopiera data till och från Microsoft Azure Blob- och Table storage med hjälp av enkla kommandon med optimal prestanda. Du kan kopiera data från ett objekt till en annan inom ditt lagringskonto eller mellan lagringskonton. Det finns två versionen av AzCopy: AzCopy i Windows och AzCopy på Linux. Azure-stacken stöder endast Windows-versionen. 
  
-### <a name="download-and-install-azcopy"></a>Download and install AzCopy 
-[Download](https://aka.ms/azcopyforazurestack) the supported Windows version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md). 
+### <a name="download-and-install-azcopy"></a>Hämta och installera AzCopy 
+[Hämta](https://aka.ms/azcopyforazurestack) den Windows-versionen som stöds av AzCopy för Azure-stacken. Du kan installera och använda AzCopy på Azure-stacken på samma sätt som Azure. Läs mer i [överföra data med kommandoradsverktyget Azcopy](../../storage/common/storage-use-azcopy.md). 
 
-### <a name="azcopy-command-examples-for-data-transfer"></a>AzCopy command examples for data transfer
-The following examples demonstrate a few typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [Transfer data with the AzCopy Command-Line Utility](../../storage/storage-use-azcopy.md). 
-#### <a name="download-all-blobs-to-local-disk"></a>Download all blobs to local disk
+### <a name="azcopy-command-examples-for-data-transfer"></a>AzCopy kommandoexempel för dataöverföring
+Följande exempel visar några vanliga scenarier för att kopiera data till och från Azure Stack-BLOB. Läs mer i [överföra data med kommandoradsverktyget Azcopy](../../storage/storage-use-azcopy.md). 
+#### <a name="download-all-blobs-to-local-disk"></a>Hämta alla BLOB till lokal disk
 ```azcopy
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ```
-#### <a name="upload-single-file-to-virtual-directory"></a>Upload single file to virtual directory 
+#### <a name="upload-single-file-to-virtual-directory"></a>Överför en fil till virtuell katalog 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Move data between Azure and Azure Stack Storage 
-Asynchronous data transfer between Azure Storage and Azure Stack is not supported. you need to specify the transfer with the `/SyncCopy` option. 
+#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Flytta data mellan Azure och Azure-stacken Storage 
+Asynkron dataöverföring mellan Azure Storage och Azure Stack stöds inte. Du måste ange att överföra med den `/SyncCopy` alternativet. 
 ```azcopy 
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
-### <a name="azcopy-known-issues"></a>Azcopy Known issues
-* Any AzCopy operation on File storage is not available because File Storage is not yet available in Azure Stack.
-* Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You can specify the transfer with the `/SyncCopy` option to copy the data.
-* The Linux version of Azcopy is not supported for Azure Stack Storage. 
+### <a name="azcopy-known-issues"></a>Azcopy kända problem
+* En AzCopy-åtgärd på File storage är inte tillgänglig eftersom File Storage inte finns ännu i Azure-stacken.
+* Asynkron dataöverföring mellan Azure Storage och Azure Stack stöds inte. Du kan ange att överföra med den `/SyncCopy` alternativet att kopiera data.
+* Linux-versionen av Azcopy stöds inte för Azure Storage i stacken. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Azure PowerShell is a module that provides cmdlets for managing services on both Azure and Azure Stack. It's a task-based command-line shell and scripting language designed especially for system administration.
+Azure PowerShell är en modul som innehåller cmdlets för att hantera tjänster på både Azure och Azure-stacken. Det är ett uppgiftsbaserat kommandoradsgränssnitt och skriptspråk som utformats specifikt för systemadministration.
 
-### <a name="install-and-configure-powershell-for-azure-stack"></a>Install and Configure PowerShell for Azure Stack
-Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. For more information, see [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) and [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md) to learn more.
+### <a name="install-and-configure-powershell-for-azure-stack"></a>Installera och konfigurera PowerShell för Azure-Stack
+Azure Stack kompatibla Azure PowerShell-moduler som krävs för att arbeta med Azure-stacken. Mer information finns i [installera PowerShell för Azure-stacken](azure-stack-powershell-install.md) och [konfigurera Azure Stack användarens PowerShell-miljö](azure-stack-powershell-configure-user.md) vill veta mer.
 
-### <a name="powershell-sample-script-for-azure-stack"></a>PowerShell Sample script for Azure Stack 
-This sample assume you have successfully [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). This script will help you conplete the configuration and ask your Azure Stack tenant credentials to add your account to the local PowerShell environemnt. Then, the script will set the default Azure subscription, create a new storage account in Azure, create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.
+### <a name="powershell-sample-script-for-azure-stack"></a>PowerShell-exempelskript för Azure-stacken 
+Det här exemplet förutsätter att du har [installera PowerShell för Azure-stacken](azure-stack-powershell-install.md). Det här skriptet kommer att conplete konfigurationen och be din Azure Stack-klient autentiseringsuppgifter för att lägga till ditt konto i den lokala PowerShell environemnt. Sedan kommer skriptet standardvärdet Azure-prenumeration, skapa ett nytt lagringskonto i Azure, skapa en ny behållare i den här nya storage-konto och ladda upp en befintlig bildfil (blob) till behållaren. När skriptet visar alla blobbar i behållaren, kommer den skapa en ny målkatalog i den lokala datorn och hämta avbildningsfilen.
 
-1. Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-2. Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
-3. Open **Windows PowerShell ISE** and **Run as Administrator**, click **File** > **New** to create a new script file.
-4. Copy the script below and paste to the new script file.
-5. Update the script variables based on your configuration settings. 
-6. Note: this script has to be run under the root of downloaded **AzureStack_Tools**. 
+1. Installera [Azure Stack-kompatibla Azure PowerShell-moduler](azure-stack-powershell-install.md).  
+2. Hämta den [verktyg som krävs för att arbeta med Azure Stack](azure-stack-powershell-download.md).  
+3. Öppna **Windows PowerShell ISE** och **kör som administratör**, klickar du på **filen** > **ny** att skapa en ny skriptfil.
+4. Kopiera skriptet nedan och klistra in i en ny skriptfilen.
+5. Uppdatera skriptvariabler baserat på inställningarna. 
+6. Obs: det här skriptet måste köras under roten för hämtade **AzureStack_Tools**. 
 
 ```PowerShell 
 # begin
@@ -155,10 +154,10 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 # end
 ```
 
-### <a name="powershell-known-issues"></a>PowerShell Known Issues 
-The current compatible Azure PowerShell module version for Azure Stack is 1.2.10. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+### <a name="powershell-known-issues"></a>PowerShell kända problem 
+Den aktuella kompatibla Azure PowerShell-modulen versionen för Azure-stacken är 1.2.10. Den skiljer sig från den senaste versionen av Azure PowerShell. Denna skillnad påverkar Lagringsåtgärden tjänster:
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.10 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+* Returvärdet format `Get-AzureRmStorageAccountKey` i version 1.2.10 har två egenskaper: `Key1` och `Key2`, medan den aktuella versionen av Azure returnerar en matris som innehåller alla nycklar för kontot.
    ```
    # This command gets a specific key for a Storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
@@ -171,22 +170,22 @@ The current compatible Azure PowerShell module version for Azure Stack is 1.2.10
    -AccountName "MyStorageAccount").Key1
 
    ```
-   For more information, see [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+   Mer information finns i [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
 
 ## <a name="azure-cli"></a>Azure CLI
-The Azure CLI is Azure’s command-line experience for managing Azure resources. You can install it on macOS, Linux, and Windows and run it from the command line. 
+Azure CLI är Azures kommandoradsverktyget upplevelse för att hantera Azure-resurser. Du kan installera den på macOS, Linux och Windows och kör det från kommandoraden. 
 
-Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
+Azure CLI är optimerad för att hantera och administrera Azure-resurser från kommandoraden och för att skapa automatiseringsskript arbeta mot Azure Resource Manager. Det ger många av de funktioner i Azure Stack-portal, inklusive omfattande dataåtkomst.
 
-Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-connect-cli.md). For more information about how to use the Azure CLI 2.0 to perform several tasks working with resources in your Azure Stack Storage account, see [Using the Azure CLI2.0 with Azure Storage](../../storage/storage-azure-cli.md)
+Azure-stacken kräver Azure CLI version 2.0. Läs mer om att installera och konfigurera Azure CLI med Azure-stacken [installera och konfigurera Azure CLI för stacken](azure-stack-connect-cli.md). Mer information om hur du använder Azure CLI 2.0 för att utföra flera uppgifter arbeta med resurserna i Azure-stacken Storage-konto finns [med hjälp av Azure-CLI2.0 med Azure Storage](../../storage/storage-azure-cli.md)
 
-### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI sample script for Azure Stack 
-Once you complete the CLI installation and configuration, you can try the following steps to work with a small shell sample script to interact with Azure Stack Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container, lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify. Before you run this script, make sure you successfully connect and login to the target Azure Stack. 
-1. Open your favorite text editor, then copy and paste the preceding script into the editor.
-2. Update the script's variables to reflect your configuration settings. 
-3. After you've updated the necessary variables, save the script and exit your editor. The next steps assume you've named your script my_storage_sample.sh.
-4. Mark the script as executable, if necessary: `chmod +x my_storage_sample.sh`
-5. Execute the script. For example, in Bash: `./my_storage_sample.sh`
+### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI-exempelskript för Azure-Stack 
+När du har slutfört CLI installation och konfiguration kan du följande steg för att arbeta med en liten shell-exempelskript för att interagera med Azure-stacken lagringsresurser. Skriptet först skapar en ny behållare på ditt lagringskonto och sedan överför en befintlig fil (som en blob) till behållaren, visas alla blobbar i behållaren och slutligen hämtas filen till en plats på den lokala datorn som du anger. Innan du kör det här skriptet, kontrollera att du kan ansluta och logga in på målet Azure stacken. 
+1. Öppna valfri textredigerare, och sedan kopiera och klistra in det här skriptet i redigeraren.
+2. Uppdatera skriptvariabler för att återspegla konfigurationsinställningarna. 
+3. När du har uppdaterat de nödvändiga variablerna, spara skriptet och avsluta redigeringsprogram. Nästa steg förutsätter att du har namngett skript-my_storage_sample.sh.
+4. Markera skriptet som körbara, om det behövs:`chmod +x my_storage_sample.sh`
+5. Kör skriptet. Till exempel i Bash:`./my_storage_sample.sh`
 
 ```bash
 #!/bin/bash
@@ -223,16 +222,15 @@ echo "Done"
 
 ## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 
-Microsoft Azure Storage Explorer is a standalone app from Microsoft. It allows you to easily work with both Azure Storage and Azure Stack Storage data on Windows, macOS and Linux. If you want an easy way to manage your Azure Stack Storage data, then consider using Microsoft Azure Storage Explorer.
+Microsoft Azure Lagringsutforskaren är en fristående app från Microsoft. Det gör att du kan enkelt arbeta med Azure Storage- och Azure-stacken Storage-data i Windows, macOS och Linux. Om du vill att ett enkelt sätt att hantera dina Azure-stacken Storage data bör du använda Microsoft Azure Lagringsutforskaren.
 
-For more information about configuring Azure Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
+Mer information om hur du konfigurerar Azure Lagringsutforskaren för att arbeta med Azure-stacken finns [ansluta Lagringsutforskaren till en prenumeration på Azure-stacken](azure-stack-storage-connect-se.md).
 
-For more information about Microsoft Azure Storage Explorer, see [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+Läs mer om Microsoft Azure Lagringsutforskaren [Kom igång med Lagringsutforskaren (förhandsversion)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
-## <a name="next-steps"></a>Next steps
-* [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
-* [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
-
+## <a name="next-steps"></a>Nästa steg
+* [Ansluta Lagringsutforskaren till en Azure-Stack-prenumeration](azure-stack-storage-connect-se.md)
+* [Kom igång med Lagringsutforskaren (förhandsversion)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Konsekvent Azure storage: skillnader och överväganden](azure-stack-acs-differences.md)
+* [Introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 

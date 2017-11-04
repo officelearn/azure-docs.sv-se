@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 85424a00b34b4bccf7dc38b2bae1cfe31b2507d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operationalisera Spark-inbyggda machine learning-modeller
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -118,7 +118,7 @@ PySpark-kerneln innehåller vissa fördefinierade ”användbara”, som är sä
 * **%% sql -o<variable name>** 
 * Kör en Hive-fråga mot sqlContext. Om parametern -o skickas resultatet av frågan sparas i den %% lokala Python kontext som en Pandas dataframe.
 
-För mer information om kärnor för Jupyter-anteckningsböcker och den fördefinierade ”magics” som de tillhandahåller, se [kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+För mer information om kärnor för Jupyter-anteckningsböcker och den fördefinierade ”magics” som de tillhandahåller, se [kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Mata in data och skapa en rensade data-ram
 Det här avsnittet innehåller koden för en serie uppgifter som krävs för att mata in data som ska mätas. Läsa i en domänansluten 0,1% exemplet i taxi resa och avgiften filen (som lagras som en TSV-fil), format data och skapar sedan en ren data ram.
@@ -527,7 +527,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Använda Spark modeller via ett webbgränssnitt
-Spark tillhandahåller en mekanism för att skicka via fjärranslutning batchjobb eller interaktiva frågor via ett REST-gränssnitt med en komponent som kallas Livius. Livius är aktiverad som standard på HDInsight Spark-klustret. Läs mer på Livius: [skicka Spark jobb via fjärranslutning med Livy](../../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+Spark tillhandahåller en mekanism för att skicka via fjärranslutning batchjobb eller interaktiva frågor via ett REST-gränssnitt med en komponent som kallas Livius. Livius är aktiverad som standard på HDInsight Spark-klustret. Läs mer på Livius: [skicka Spark jobb via fjärranslutning med Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Du kan använda Livius för att skicka ett jobb som batch-resultat från en fjärrdator en fil som lagras i en Azure blob och skriver sedan resultaten till en annan blob. Om du vill göra detta måste överföra du Python-skriptet från  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) till blob med Spark-klustret. Du kan använda ett verktyg som **Microsoft Azure Lagringsutforskaren** eller **AzCopy** att kopiera skriptet till kluster-blob. I vårt fall vi överföra skriptet till ***wasb:///example/python/ConsumeGBNYCReg.py***.   

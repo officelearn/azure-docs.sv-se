@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;deguhath
-ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 19e963a56e8f905bb89d0162c65e893ae7515a97
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Datavetenskap med Scala och Spark på Azure
 Den här artikeln visar hur du använder Scala för övervakade machine learning uppgifter med Spark skalbara MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster. Den vägleder dig igenom de aktiviteter som utgör den [datavetenskap processen](http://aka.ms/datascienceprocess): datapåfyllning och undersökning, visualisering, funktionen tekniker, modellering och förbrukning av modellen. Modeller i artikeln är logistic och linjär regression, slumpmässiga skogar och ökat toningen träd (GBTs), förutom två övervakat utföra vanliga:
@@ -32,7 +32,7 @@ Modelleringsprocessen kräver träning och utvärdering på en datauppsättning 
 
 [Spark](http://spark.apache.org/) är ett ramverk för parallell bearbetning av öppen källkod som stöder minnesintern bearbetning för att höja prestandan hos analytics stordataprogram. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks funktioner för beräkning för distribuerade i minnet gör det ett bra alternativ för iterativa algoritmer i machine learning och grafberäkningar. Den [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) paketet ger en enhetlig uppsättning övergripande API: er som bygger på data ramar som kan hjälpa dig att skapa och finjustera praktiska maskininlärning pipelines. [MLlib](http://spark.apache.org/mllib/) är Sparks skalbara machine learning-biblioteket, som ger funktioner för modellering denna distribuerad miljö.
 
-[HDInsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) är värd för Azure-erbjudande för öppen källkod Spark. Det även inkluderar stöd för Jupyter Scala-anteckningsböcker i Spark-klustret och köra interaktiva Spark SQL-frågor för att omvandla, filtrera och visualisera data som lagras i Azure Blob storage. Scala kodavsnitten i den här artikeln som tillhandahåller lösningarna och visa relevanta områden att visualisera data körs i Jupyter-anteckningsböcker som är installerad på Spark-kluster. Modellering stegen i följande avsnitt har kod som visar hur du träna, utvärdera, spara och använda varje typ av modellen.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) är värd för Azure-erbjudande för öppen källkod Spark. Det även inkluderar stöd för Jupyter Scala-anteckningsböcker i Spark-klustret och köra interaktiva Spark SQL-frågor för att omvandla, filtrera och visualisera data som lagras i Azure Blob storage. Scala kodavsnitten i den här artikeln som tillhandahåller lösningarna och visa relevanta områden att visualisera data körs i Jupyter-anteckningsböcker som är installerad på Spark-kluster. Modellering stegen i följande avsnitt har kod som visar hur du träna, utvärdera, spara och använda varje typ av modellen.
 
 Konfigurationsstegen och kod i den här artikeln gäller Azure HDInsight 3.4 Spark 1.6. Men koden i den här artikeln och i den [Scala Jupyter-anteckningsbok](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) är allmänna och bör fungera på Spark-kluster. Klustret installation och hantering av stegen kanske skiljer sig från vad som anges i den här artikeln om du inte använder HDInsight Spark.
 
@@ -43,7 +43,7 @@ Konfigurationsstegen och kod i den här artikeln gäller Azure HDInsight 3.4 Spa
 
 ## <a name="prerequisites"></a>Krav
 * Du måste ha en Azure-prenumeration. Om du inte redan har en, [hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Du behöver ett Azure HDInsight 3.4 Spark 1.6 klustret för att slutföra följande procedurer. Om du vill skapa ett kluster, se anvisningarna i [komma igång: skapa Apache Spark på Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Anger typ av kluster och versionen på den **Välj typ av kluster** menyn.
+* Du behöver ett Azure HDInsight 3.4 Spark 1.6 klustret för att slutföra följande procedurer. Om du vill skapa ett kluster, se anvisningarna i [komma igång: skapa Apache Spark på Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Anger typ av kluster och versionen på den **Välj typ av kluster** menyn.
 
 ![HDInsight klusterkonfiguration för typen](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -86,7 +86,7 @@ Spark-kärnan innehåller vissa fördefinierade ”användbara”, som är särs
 * `%%local`Anger att koden i efterföljande rader körs lokalt. Koden måste vara en giltig Scala-kod.
 * `%%sql -o <variable name>`Kör en Hive-fråga mot `sqlContext`. Om den `-o` -parameter har skickats, resultatet av frågan sparas i den `%%local` Scala kontext som en Spark data ram.
 
-För mer information om kärnor för Jupyter-anteckningsböcker och deras fördefinierade ”magics” som du anropar med `%%` (till exempel `%%local`), se [kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+För mer information om kärnor för Jupyter-anteckningsböcker och deras fördefinierade ”magics” som du anropar med `%%` (till exempel `%%local`), se [kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ### <a name="import-libraries"></a>Importera bibliotek
 Importera Spark, MLlib och andra bibliotek som du behöver genom att använda följande kod.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: ashishtha
-ms.openlocfilehash: d08a9a7cc82095b0a90abd98bd4f6d13cdadb671
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 704d76808fbc5f7bde98d2fca291ac7c2796db88
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -163,7 +163,7 @@ Effekten av att ändra antalet datanoder som varierar för varje typ av kluster 
     >balancer
     ```
 
-    Mer information om hur du använder HBase-gränssnittet finns [komma igång med ett exempel Apache HBase i HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+    Mer information om hur du använder HBase-gränssnittet finns [komma igång med ett exempel Apache HBase i HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Storm
 
@@ -209,7 +209,7 @@ Det finns många sätt kan du programmerar processen:
 * Användaren Azure Data Factory. Se [skapa på begäran Linux-baserade Hadoop-kluster i HDInsight med hjälp av Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) länkade tjänster för att skapa HDInsight på begäran.
 * Använda Azure PowerShell.  Se [analysera svarta fördröjning](hdinsight-analyze-flight-delay-data.md).
 * Använda Azure CLI. Se [hantera HDInsight-kluster med hjälp av Azure CLI](hdinsight-administer-use-command-line.md).
-* Använda HDInsight .NET SDK. Se [skicka Hadoop-jobb](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Använda HDInsight .NET SDK. Se [skicka Hadoop-jobb](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Prisinformation, se [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/). Om du vill ta bort ett kluster från portalen finns [ta bort kluster](#delete-clusters)
 
@@ -341,7 +341,7 @@ Den **användning** på HDInsight-klusterbladet visar information om antal kärn
 
 ## <a name="connect-to-a-cluster"></a>Ansluta till ett kluster
 
-* [Använda Hive med HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Använda Hive med HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -353,10 +353,10 @@ I den här artikeln har du lärt dig vissa grundläggande administrativa funktio
 * [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
 * [Läs mer om hur du använder Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
 * [Information om hur du använder Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [Använda Hive i HDInsight](hdinsight-use-hive.md)
-* [Använda Pig i HDInsight](hdinsight-use-pig.md)
-* [Använda Sqoop i HDInsight](hdinsight-use-sqoop.md)
-* [Komma igång med Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Använda Hive i HDInsight](hadoop/hdinsight-use-hive.md)
+* [Använda Pig i HDInsight](hadoop/hdinsight-use-pig.md)
+* [Använda Sqoop i HDInsight](hadoop/hdinsight-use-sqoop.md)
+* [Komma igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Vilken version av Hadoop finns i Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

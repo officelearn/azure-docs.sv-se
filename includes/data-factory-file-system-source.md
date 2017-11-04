@@ -1,6 +1,6 @@
-In Copy Activity, when source is of type **FileSystemSource**, the following properties are available in typeProperties section:
+I en Kopieringsaktivitet när datakällan är av typen **FileSystemSource**, följande egenskaper finns i avsnittet typeProperties:
 
-| Property | Description | Allowed values | Required |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| recursive |Indicates whether the data is read recursively from the sub folders or only from the specified folder. |True, False (default) |No |
+| Rekursiva |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |SANT, FALSKT (standard) |Nej |
 

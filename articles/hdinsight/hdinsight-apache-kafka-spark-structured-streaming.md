@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 565f840e0ac7ec1a68361ac1613da5d42459c979
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Använda Spark strukturerade strömning med Kafka (förhandsversion) på HDInsight
 
@@ -158,4 +158,4 @@ Sidan Jupyter-anteckningsbok, Välj den __Spark-strukturerad-Streaming-från-Kaf
 Nu när du har lärt dig hur du använder Spark strukturerade strömning, finns i följande dokument vill lära dig mer om hur du arbetar med Spark och Kafka:
 
 * [Hur du använder Spark streaming (DStream) med Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Börja med Jupyter-anteckningsbok och Spark i HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md)
+* [Börja med Jupyter-anteckningsbok och Spark i HDInsight](spark/apache-spark-jupyter-spark-sql.md)

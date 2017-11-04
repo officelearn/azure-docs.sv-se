@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fc1aa4d778a6232258470fc9a58a98906c86ec7b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Distributionsscenarier och användningsfall
 I det här avsnittet ska titta vi på några scenarier och användningsområden som är undantagna från Azure Active Directory (AD) Domain Services.
@@ -85,4 +85,4 @@ Mer information om det här distributionsscenariot finns så [integrera Azure AD
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Domänanslutna HDInsight-kluster (förhandsgranskning)
 Du kan ställa in ett Azure HDInsight-kluster som är ansluten till en Azure AD Domain Services-hanterad domän med Apache Ranger aktiverad. Skapa och tillämpa principer för Hive via Apache Ranger och ge användare (till exempel datavetare) kan ansluta till registreringsdatafilen med hjälp av ODBC-baserade verktyg, till exempel Excel, Tableau osv. Microsoft arbetar med att lägga till andra arbetsbelastningar, t.ex HBase, Spark och Storm, domänanslutna HDInsight snart.
 
-Mer information om det här distributionsscenariot finns så [konfigurera domänanslutna HDInsight-kluster](../hdinsight/hdinsight-domain-joined-configure.md)
+Mer information om det här distributionsscenariot finns så [konfigurera domänanslutna HDInsight-kluster](../hdinsight/domain-joined/apache-domain-joined-configure.md)

@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: ad9aa6aee0a9f6407da6e9f45df71f8feb8b1500
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: df6cd9651d63ccea175fc8417d9f7dd2a9161f57
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="authorize-users-for-ambari-views"></a>Auktorisera användare för Ambari-vyer
 
-[Domänanslutna HDInsight-kluster](hdinsight-domain-joined-introduction.md) innehåller företagsklass funktioner, inklusive Azure Active Directory-baserad autentisering. Du kan synkronisera nya användare
+[Domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md) innehåller företagsklass funktioner, inklusive Azure Active Directory-baserad autentisering. Du kan synkronisera nya användare
 <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Currently, working with users, groups, and permissions in Ambari is only supported when using a domain-joined HDInsight cluster.
 
 Active Directory-användare kan logga in på noderna i med sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera klustret interaktioner med andra godkända slutpunkter som Hue, Ambari-vyer, ODBC, JDBC, PowerShell och REST API: er.
@@ -32,7 +32,7 @@ Active Directory-användare kan logga in på noderna i med sina domänautentiser
 > [!WARNING]
 > Ändra inte lösenordet för Ambari watchdog (hdinsightwatchdog) på Linux-baserade HDInsight-kluster. Ändra lösenord bryts möjligheten att använda script actions eller utföra skalning åtgärder med ditt kluster.
 
-Om du inte redan har gjort det, Följ [instruktionerna](hdinsight-domain-joined-configure.md) att etablera ett nytt kluster som ingår i domänen.
+Om du inte redan har gjort det, Följ [instruktionerna](./domain-joined/apache-domain-joined-configure.md) att etablera ett nytt kluster som ingår i domänen.
 
 ## <a name="access-the-ambari-management-page"></a>Komma åt sidan för hantering av Ambari
 
@@ -123,7 +123,7 @@ Listvyn ger snabb redigering funktioner i två kategorier: användare och gruppe
 
     ![Roller listvy - användare](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* Kategorin grupper i listan visas alla grupper och den roll som tilldelats till varje grupp. I vårt exempel listan över grupper som ska synkroniseras från Azure AD-grupper som anges i den **åtkomst användargrupp** -egenskapen för klustrets Domäninställningar. Se [skapa HDInsight-kluster](hdinsight-domain-joined-configure.md#create-hdinsight-cluster).
+* Kategorin grupper i listan visas alla grupper och den roll som tilldelats till varje grupp. I vårt exempel listan över grupper som ska synkroniseras från Azure AD-grupper som anges i den **åtkomst användargrupp** -egenskapen för klustrets Domäninställningar. Se [skapa HDInsight-kluster](./domain-joined/apache-domain-joined-configure.md#create-hdinsight-cluster).
 
     ![Roller listvy - grupper](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
@@ -143,8 +143,8 @@ Vi har tilldelats vårt Azure AD-domänanvändare ”hiveuser2” den *klustret 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera principer för Hive i HDInsight-domänansluten](hdinsight-domain-joined-run-hive.md)
-* [Hantera domänanslutna HDInsight-kluster](hdinsight-domain-joined-manage.md)
-* [Använd vyn Hive med Hadoop i HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Konfigurera principer för Hive i HDInsight-domänansluten](./domain-joined/apache-domain-joined-run-hive.md)
+* [Hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-manage.md)
+* [Använd vyn Hive med Hadoop i HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 
 <!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Verktyg för datavetenskap grupprojekt och plattformar
 
@@ -61,7 +61,7 @@ Apache Spark är en öppen källkod parallell bearbetning ramverk som stöder mi
 
 När du skapar ett Spark-kluster i HDInsight skapas Azure-beräkningsresurser med Spark installerat och konfigurerat. Det tar cirka 10 minuter för att skapa ett Spark-kluster i HDInsight. Lagra data som ska bearbetas i Azure Blob storage. Information om hur du använder Azure Blob Storage med ett kluster finns i [använda HDFS-kompatibla Azure Blob storage med Hadoop i HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-TDSP team från Microsoft har publicerat två slutpunkt till slutpunkt genomgång om hur du använder Azure HDInsight Spark-kluster för att skapa lösningar för vetenskap, en med hjälp av Python och andra Scala. Mer information om Azure HDInsight **Spark-kluster**, se [översikt: Apache Spark i HDInsight Linux](../../hdinsight/hdinsight-apache-spark-overview.md). Mer information om hur du skapar en datavetenskap lösning med hjälp av **Python** på ett Azure HDInsight Spark-kluster, se [översikt av datavetenskap med Spark på Azure HDInsight](spark-overview.md). Mer information om hur du skapar en datavetenskap lösning med hjälp av **Scala** på ett Azure HDInsight Spark-kluster, se [datavetenskap med hjälp av Scala och Spark på Azure](scala-walkthrough.md). 
+TDSP team från Microsoft har publicerat två slutpunkt till slutpunkt genomgång om hur du använder Azure HDInsight Spark-kluster för att skapa lösningar för vetenskap, en med hjälp av Python och andra Scala. Mer information om Azure HDInsight **Spark-kluster**, se [översikt: Apache Spark i HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Mer information om hur du skapar en datavetenskap lösning med hjälp av **Python** på ett Azure HDInsight Spark-kluster, se [översikt av datavetenskap med Spark på Azure HDInsight](spark-overview.md). Mer information om hur du skapar en datavetenskap lösning med hjälp av **Scala** på ett Azure HDInsight Spark-kluster, se [datavetenskap med hjälp av Scala och Spark på Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
@@ -86,7 +86,7 @@ Du kan projektstrukturen på i stort sett Ostrukturerade data i hive. Du kan anv
 
 För data forskare kör Hive Python User-Defined funktioner (UDF) i Hive-frågor för att bearbeta poster. Den här möjligheten utökar möjligheterna för Hive-frågor i dataanalys avsevärt. Kan data forskare att genomföra skalbara funktionen tekniker i de flesta är bekanta med språk: SQL-liknande HiveQL och Python. 
 
-Läs mer på Azure HDInsight Hive-kluster, [använda Hive och HiveQL med Hadoop i HDInsight](../../hdinsight/hdinsight-use-hive.md). Information om hur du skapar en skalbar slutpunkt till slutpunkt vetenskap lösning med Azure HDInsight Hive-kluster finns [Team datavetenskap Process i praktiken: med HDInsight Hadoop-kluster](hive-walkthrough.md).
+Läs mer på Azure HDInsight Hive-kluster, [använda Hive och HiveQL med Hadoop i HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Information om hur du skapar en skalbar slutpunkt till slutpunkt vetenskap lösning med Azure HDInsight Hive-kluster finns [Team datavetenskap Process i praktiken: med HDInsight Hadoop-kluster](hive-walkthrough.md).
 
 
 ## <a name="azure-file-storage"></a>Azure File Storage 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2017
-ms.openlocfilehash: b9287c7151c96aaccbcda81c111cfe36ead5ab38
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
-ms.translationtype: HT
+ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Felsöka service-distributionen och miljö
 Följande information kan hjälpa dig att fastställa orsaken till fel när du ställer in hanteringsmiljö modell.
@@ -30,13 +30,13 @@ Du måste också ägare behörighet att konfigurera ett kluster för distributio
 Du måste ha tillräckligt med resurser i din prenumeration så att du kan etablera miljö resurser.
 
 ### <a name="subscription-caps"></a>Prenumerationen Caps
-Din prenumeration kan ha ett tak på fakturering som kan förhindra att du etablerar resurser för miljön. Removet som cap för att aktivera etablering.
+Din prenumeration kan ha ett tak på fakturering som kan förhindra att du etablerar resurser för miljön. Ta bort åtkomstprincipen för att aktivera etablering.
 
 ### <a name="enable-debug-and-verbose-options"></a>Aktivera felsökning och utförlig alternativ
 Använd den `--debug` och `--verbose` flaggor i installationskommandot att visa information för felsökning och spårning enligt miljön etableras.
 
 ```
-az ml env setup -l <loation> -n <name> -c --debug --verbose 
+az ml env setup -l <location> -n <name> -c --debug --verbose 
 ```
 
 ## <a name="service-deployment"></a>Service-distributionen
@@ -89,7 +89,9 @@ Python-exempel:
 ```
 
 ## <a name="other-common-problems"></a>Andra vanliga problem
-- Om den `env setup` kommandot misslyckas, kontrollera att du har tillräckligt med kärnor i prenumerationen.
-- Använd inte understreck (_) i namnet på webben (som i *my_webservice*).
-- Försök igen om du får en **502 felaktig Gateway** fel vid anrop av webbtjänsten. Det innebär normalt behållaren inte har distribuerats till klustret ännu.
-- Om du får **CrashLoopBackOff** fel när du skapar en tjänst i loggarna. Det är vanligtvis resultatet av beroenden som saknas på den **init** funktion.
+- Om den `env setup` kommandot misslyckas med `LocationNotAvailableForResourceType`, använder du troligtvis fel plats (region) för den datorn utbildningsresurser. Kontrollera att platsen med den `-l` parametern är `eastus2`, `westcentralus`, eller `australiaeast`.
+- Om den `env setup` kommandot misslyckas med `Resource quota limit exceeded`, kontrollera att du har tillräckligt med tillgängliga i prenumerationen kärnor och att dina resurser inte används upp i andra processer.
+- Om den `env setup` kommandot misslyckas med `Invalid environment name. Name must only contain lowercase alphanumeric characters`, tjänstens namn kan inte innehålla versaler, symboler eller understreck (_) (som i *my_environment*).
+- Om den `service create` kommandot misslyckas med `Service Name: [service_name] is invalid. The name of a service must consist of lower case alphanumeric characters (etc.)`, kontrollera tjänstens namn är mellan 3 och 32 tecken; startar och slutar med gemena alfanumeriska tecken, och inte innehålla versaler, symboler än bindestreck (-) och period ( . ), eller understreck (_) (som i *my_webservice*).
+- Försök igen om du får en `502 Bad Gateway` fel vid anrop av webbtjänsten. Det innebär normalt behållaren inte har distribuerats till klustret ännu.
+- Om du får `CrashLoopBackOff` fel när du skapar en tjänst i loggarna. Det är vanligtvis resultatet av beroenden som saknas på den **init** funktion.

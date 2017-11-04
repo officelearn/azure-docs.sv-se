@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/06/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Vad är nytt i Azure Data Catalog
 Uppdateringar för **Azure Data Catalog** släpps regelbundet. Inte alla viktig innehåller nya funktioner för användarinriktad, vissa versioner fokuserar på funktioner för backend-tjänst. Den här sidan visar nya funktioner som användarinriktad har lagts till tjänsten Azure Data Catalog.
@@ -239,7 +239,7 @@ Från och med September 2015 har följande funktioner lagts till Azure Data Cata
 * Stöd för registrering och identifiera Azure SQL Data Warehouse-objekt och databaser. Ytterligare information om Azure SQL Data Warehouse finns [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Stöd för registrering och identifiering av SQL Server Analysis Services-modeller och SQL Server Reporting Services-servrar som behållare. När registrering SSAS och SSRS-objekt, skapas en post för SSAS-modell och SSRS-servern och för rapporter och andra objekt i Azure Data Catalog. Behållarna kan identifieras och kommenterats med hjälp av Azure Data Catalog-portalen. Användare kan också söka och filtrera innehållet i en modell eller server förutom sökning och filtrering innehållet i katalogen.
 * Stöd för registrering och identifiera SQL Server Analysis Services-objekt via HTTP eller HTTPS. Användare kan ansluta till SSAS-servrar med hjälp av en URL (t.ex https://servername/olap/msmdpump.dll) i stället för ett servernamn nu och kan använda grundläggande autentisering och anonyma anslutningar förutom Windows-autentisering. Ytterligare information om HTTP/HTTPS-anslutningar till SSAS finns [konfigurera HTTP-åtkomst till Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-* Stöd för Hive-datakällor på HDInsight. Användare kan nu registrera och identifierar Hive-tabeller för Apache Hive i Hadoop på HDInsight-datakällor. Ytterligare information om Hive i HDInsight finns i [HDInsight Dokumentationscenter](../hdinsight/hdinsight-use-hive.md).
+* Stöd för Hive-datakällor på HDInsight. Användare kan nu registrera och identifierar Hive-tabeller för Apache Hive i Hadoop på HDInsight-datakällor. Ytterligare information om Hive i HDInsight finns i [HDInsight Dokumentationscenter](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Stöd för registrering och identifiering av Oracle-databaser och HDFS-kluster som behållare. När du registrerar Oracle-tabeller och vyer eller HDFS skapas Azure Data Catalog en post för databasen, tabeller och vyer. Databasen kan identifieras och kommenterats med hjälp av Azure Data Catalog-portalen. Användare kan också söka och filtrera innehållet i en databas eller ett kluster utöver sökning och filtrering innehållet i katalogen.
 * Stöd för manuell registrering av okända typer av datakällor. Användare kan manuellt ange information om datakälla med hjälp av Azure Data Catalog-portalen så att de datakällor som inte stöds av registreringsverktyget för datakällor kan kommenterats och identifieras.
 * Stöd för registrering och identifiering av SQL Server-databaser som behållare. När registrering SQL Server-tabeller och vyer, skapas en post för databasen, tabeller och vyer i Azure Data Catalog. Databasen kan identifieras och kommenterats med hjälp av Azure Data Catalog-portalen. Användare kan också söka och filtrera innehållet i en databas utöver sökning och filtrering innehållet i katalogen.

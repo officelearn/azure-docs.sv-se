@@ -10,7 +10,7 @@
 | Reserverade IP-adresser per prenumeration |20 |100 |
 | Värdtjänsten certifikat per prenumeration |400 |400 |
 | [Tillhörighetsgrupper](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per prenumeration |256 |256 |
-| Varningsregler per prenumeration |250 |250 |
+
 
 <sup>1</sup>extra liten instanser antal som en vanlig mot core gränsen trots med hjälp av en partiell kärna.
 

@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Stack storage
-description: Learn about Azure Stack storage
+title: "Introduktion till stacken för Azure storage"
+description: "Lär dig mer om Azure-stacken lagring"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,80 +14,78 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8777aa486a627cf8b2d8ba443e115638354d10da
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Introduction to Azure Stack storage
+# <a name="introduction-to-azure-stack-storage"></a>Introduktion till stacken för Azure storage
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-## <a name="overview"></a>Overview
-Azure Stack Storage is a set of cloud storage services including Blobs, Tables and Queues which are consistent with Azure Storage services.
+## <a name="overview"></a>Översikt
+Azure-stacken Storage är en uppsättning lagring molntjänster inklusive Blobbar, tabeller och köer som är konsekventa med Azure Storage-tjänster.
 
-## <a name="azure-stack-storage-services"></a>Azure Stack Storage services
-Azure Stack storage provides the following three services:
+## <a name="azure-stack-storage-services"></a>Azure Stack-och lagringstjänster
+Azure Stack storage tillhandahåller följande tre tjänster:
 
 * **Blob Storage** 
 
-    Blob storage stores unstructured object data. A blob can be any type of text or binary data, such as a document, media file, or application installer.
+    BLOB storage lagrar Ostrukturerade objektdata. En blobb kan bestå av vilka slags textdata eller binära data som helst, till exempel ett dokument, en mediefil eller ett installationsprogram.
 * **Table Storage** 
 
-    Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
+    Table storage lagrar strukturerade datauppsättningar. Table Storage är en nyckel- och attributdatabas för NoSQL som möjliggör snabb utveckling och snabb tillgång till stora mängder data.
 * **Queue Storage** 
 
-    Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
+    Queue storage erbjuder tillförlitlig meddelandehantering för arbetsflödesbearbetning och för kommunikation mellan komponenter i molntjänster.
 
-An Azure Stack storage account is a secure account that gives you access to services in Azure Stack Storage. Your storage account provides the unique namespace for your storage resources. The following diagram shows the relationships between the Azure Stack storage resources in a storage account:
+Ett Azure-stacken storage-konto är ett säkert konto som ger dig åtkomst till tjänster i Azure Storage i stacken. Ditt lagringskonto tillhandahåller den unika namnrymden för dina lagringsresurser. Följande diagram visar relationerna mellan Stack för Azure storage-resurser i ett lagringskonto:
 
-![Azure Stack Storage overview](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
-
-
-### <a name="blob-storage"></a>Blob storage
-
-For users with a large amount of unstructured object data to store in the cloud, Blob storage offers an effective and scalable solution. You can use Blob storage to store content such as:
-
-* Documents
-* Social data such as photos, videos, music, and blogs
-* Backups of files, computers, databases, and devices
-* Images and text for web applications
-* Configuration data for cloud applications
-* Big data, such as logs and other large datasets
-
-Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the limit of storage account.
-
-Blob storage offers three types of blobs: 
-* **Block blobs** 
-
-    Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc.
-* **Append blobs** 
-
-    Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.
-* **Page blobs** 
-
-    Page blobs are optimized for representing IaaS disks and supporting random writes which is up to 1 TB in size. An Azure Stack virtual machine attached IaaS disk is a VHD stored as a page blob.
+![Översikt över Azure Storage-stacken](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 
-### <a name="table-storage"></a>Table storage
-Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly.
+### <a name="blob-storage"></a>Blob Storage
 
-Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types.
+Blob storage erbjuder en effektiv och skalbar lösning för användare med stora mängder Ostrukturerade objektdata för lagring i molnet. Du kan använda Blob Storage för att lagra innehåll som:
 
-You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases.
+* Dokument
+* Sociala data, till exempel foton, videor, musik och bloggar
+* Säkerhetskopior av filer, datorer, databaser och enheter
+* Bilder och text för webbprogram
+* Konfigurationsdata för molnprogram
+* Stordata, till exempel loggar och andra stora datauppsättningar
 
-A storage account can contain any number of tables, and a table can contain any number of entities, up to the capacity limit of the storage account.
+Blobbar ordnas i behållare. Behållare är också ett praktiskt sätt att tilldela säkerhetsprinciper till grupper med objekt. Ett lagringskonto kan innehålla valfritt antal behållare och en behållare kan innehålla valfritt antal blobbar, upp till högst storage-konto.
 
-### <a name="queue-storage"></a>Queue storage
-In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
+BLOB storage erbjuder tre typer av blobbar: 
+* **Blockblobbar** 
 
-A storage account can contain any number of queues, and a queue can contain any number of messages, up to the capacity limit of the storage account. Individual messages may be up to 64 KB in size.
+    Blockblobbar är optimerade för direktuppspelning och lagring av molnobjekt och är ett bra alternativ för att lagra dokument, mediefiler, säkerhetskopior osv.
+* **Tilläggsblobbar** 
 
-## <a name="next-steps"></a>Next steps
-* [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
+    Tilläggsblobbar påminner om blockblobbar, men är optimerade för tilläggsåtgärder. En tilläggsblobb kan bara uppdateras genom att ett nytt block läggs till i slutet. Tilläggsblobbar är praktiska i scenarier som loggning, där nya data bara behöver skrivas till slutet av blobben.
+* **Sidblobbar** 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+    Sidblobbar är optimerade för att representera IaaS-diskar och stöd för slumpmässiga skrivningar som är upp till 1 TB i storlek. En virtuell dator i Azure-stacken kopplade IaaS disken är en VHD som lagras som en sidblobb.
 
+
+### <a name="table-storage"></a>Table Storage
+Moderna program behöver ofta datalager med bättre skalbarhet och flexibilitet än tidigare versioner av den programvara som krävs. Table Storage erbjuder mycket skalbar lagring med hög tillgänglighet, så att ditt program kan anpassas automatiskt efter användarens behov. Table Storage är Microsofts nyckel- och attributdatabas för NoSQL. Tjänsten har en schemalös design, vilket skiljer den från traditionella relationsdatabaser. Ett schemalöst datalager gör det enkelt att anpassa data i takt med att programmets behov förändras. Table Storage är enkelt att använda, vilket gör det lätt för utvecklare att snabbt skapa program.
+
+Table Storage är en nyckel- och attributdatabas, vilket innebär att varje värde i en tabell lagras med ett typbestämt egenskapsnamn. Egenskapsnamnet kan användas för att filtrera och ange urvalskriterier. En uppsättning egenskaper och deras värden utgör en entitet. Eftersom Table Storage är schemalöst kan två entiteter i samma tabell innehålla olika samlingar egenskaper, och dessa egenskaper kan höra till olika typer.
+
+Du kan använda Table Storage för att lagra flexibla datauppsättningar, till exempel användardata för webbprogram, adressböcker, enhetsinformation och andra typer av metadata som din tjänst kräver. NoSQL-databaser som Table Storage erbjuder ett populärt alternativ till traditionella relationsdatabaser för dagens Internetbaserade program.
+
+Ett lagringskonto kan innehålla valfritt antal tabeller och en tabell kan innehålla valfritt antal entiteter, upp till lagringskontots kapacitetsgräns.
+
+### <a name="queue-storage"></a>Queue Storage
+När program utformas för skalning är programkomponenterna ofta fristående, så att de kan skalas oberoende av varandra. Queue Storage är en tillförlitlig meddelandelösning för asynkron kommunikation mellan programkomponenter, oavsett om de körs i molnet, på skrivbordet, på en lokal server eller på en mobil enhet. Queue Storage har också stöd för hantering av asynkrona åtgärder och utveckling av processarbetsflöden.
+
+Ett lagringskonto kan innehålla valfritt antal köer och en kö kan innehålla valfritt antal meddelanden, upp till lagringskontots kapacitetsgräns. Enskilda meddelanden kan vara upp till 64 kB stora.
+
+## <a name="next-steps"></a>Nästa steg
+* [Konsekvent Azure storage: skillnader och överväganden](azure-stack-acs-differences.md)
+
+* Mer information om Azure Storage finns [introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 

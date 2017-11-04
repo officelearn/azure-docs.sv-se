@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e182e6b43fd2d17524c1da36cf4c204bb1b865a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1b10887bcfa7f7c25375bd990ec5e97d0fefbacf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärd skript för HDInsight Windows-baserade kluster
 Lär dig hur du skriver skript för skriptåtgärder för HDInsight. Information om hur du använder skriptåtgärd skript finns [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster, se [utveckla skriptåtgärd skript för HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -245,7 +245,7 @@ Här följer de steg som vi har tagit när du förbereder att distribuera dessa 
 
 ## <a name="debug-custom-scripts"></a>Felsöka anpassade skript
 Felloggarna skriptet lagras tillsammans med andra utdata i standardkontot för lagring som angetts för klustret när skapandet. Loggfilerna lagras i en tabell med namnet *u < \cluster-name-fragment >< \time-stamp > setuplog*. Det här är sammanställda loggar som har poster från alla noder (huvudnod och arbetarnoder) där skriptet körs i klustret.
-Ett enkelt sätt att kontrollera loggarna är att använda HDInsight Tools för Visual Studio. För att installera verktygen finns [komma igång med Visual Studio Hadoop-verktyg för HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+Ett enkelt sätt att kontrollera loggarna är att använda HDInsight Tools för Visual Studio. För att installera verktygen finns [komma igång med Visual Studio Hadoop-verktyg för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
 
 **Kontrollera loggen med hjälp av Visual Studio**
 

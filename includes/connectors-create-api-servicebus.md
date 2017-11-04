@@ -1,16 +1,16 @@
-### <a name="prerequisites"></a>Prerequisites
-You must have a [Service Bus](https://azure.microsoft.com/services/service-bus/) account.  
+### <a name="prerequisites"></a>Krav
+Du måste ha en [Service Bus](https://azure.microsoft.com/services/service-bus/) konto.  
 
-Before you can use your Azure Service Bus account in a logic app, you must authorize the logic app to connect to your service bus account. Fortunately, you can do this easily from within your logic app on the Azure portal.  
+Innan du kan använda Azure Service Bus-konto i en logikapp, måste du godkänna logik för att ansluta till ditt service bus-konto. Lyckligtvis kan du göra detta enkelt från i din logikapp på Azure-portalen.  
 
-Here are the steps to authorize your logic app to connect to your Service Bus account:  
+Här följer stegen för att verifiera din logikapp för att ansluta till ditt Service Bus-konto:  
 
-1. To create a connection to Service Bus, in the logic app designer, select **Show Microsoft managed APIs** in the drop-down list. Then enter **service bus** in the search box. Select the trigger or action you want to use.  
-    ![Service Bus connection image 1](./media/connectors-create-api-servicebus/servicebus-1.png)  
-2. If you haven't created any connections to Service Bus before, you'll be prompted to provide your Service Bus credentials. These credentials are used to authorize your logic app to connect to and access your Service Bus account's data. The Service Bus connector needs the connection string for the Service Bus namespace. It also requires **Manage** permissions. A good way to know if your connection string is for the namespace or a specific entity is if it contains the `EntityPath` parameter. If it does, it is not the right connection string for a logic app.  
-    ![Service Bus connection string](./media/connectors-create-api-servicebus/connectionstring.png)
-3. After you have received the connection string for the namespace, you can use it for the API connection in Logic Apps.  
-    ![Service Bus connection image 2](./media/connectors-create-api-servicebus/servicebus-2.png)  
-4. Notice the connection has been created, and you are now free to proceed with the other steps in your logic app.  
-    ![Service Bus connection image 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
+1. Om du vill skapa en anslutning till Service Bus i logik app designer **visa Microsoft hanterade API: er** i den nedrullningsbara listan. Ange **service bus** i sökrutan. Välj utlösare eller åtgärden som du vill använda.  
+    ![Bild 1 Service Bus](./media/connectors-create-api-servicebus/servicebus-1.png)  
+2. Om du inte har skapat alla anslutningar till Service Bus innan du kan uppmanas att ange autentiseringsuppgifter för Service Bus. Dessa autentiseringsuppgifter används för att verifiera din logikapp för att ansluta till och komma åt data i ditt Service Bus-konto. Service Bus-anslutningen måste anslutningssträngen för Service Bus-namnrymd. Det kräver också **hantera** behörigheter. Ett bra sätt att veta om anslutningssträngen är för namnområdet eller en specifik entitet om den innehåller den `EntityPath` parameter. Om den finns, men det är inte rätt anslutningssträngen för en logikapp.  
+    ![Service Bus-anslutningssträng](./media/connectors-create-api-servicebus/connectionstring.png)
+3. När du har fått anslutningssträngen för namnområdet, kan du använda den för API-anslutningen i Logic Apps.  
+    ![Bild 2 Service Bus](./media/connectors-create-api-servicebus/servicebus-2.png)  
+4. Observera att anslutningen har skapats och du kan nu välja att fortsätta med andra steg i din logikapp.  
+    ![Bild 3 Service Bus](./media/connectors-create-api-servicebus/servicebus-3.png)   
 

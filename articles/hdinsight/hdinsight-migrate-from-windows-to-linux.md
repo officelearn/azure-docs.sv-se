@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: f2695d4f15fe984cd02cba9ff66033b90d0a4dc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e3bba2cfd765505a167fe4776f81d06445a8c39c
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrera från ett Windows-baserade HDInsight-kluster till ett Linux-baserade kluster
 
@@ -188,8 +188,8 @@ Pig och MapReduce arbetsbelastningar är liknande på Linux-baserade kluster. Li
 Linux-baserade HDInsight ger inte remote desktop funktioner. Använd istället SSH för att fjärransluta till head klusternoderna. Mer information finns i följande dokument:
 
 * [Använda Hive med SSH](hdinsight-hadoop-use-hive-ssh.md)
-* [Använda Pig med SSH](hdinsight-hadoop-use-pig-ssh.md)
-* [Använda MapReduce med SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [Använda Pig med SSH](hadoop/apache-hadoop-use-pig-ssh.md)
+* [Använda MapReduce med SSH](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
@@ -200,11 +200,11 @@ Följande diagram ger vägledning om hur du migrerar dina Hive-arbetsbelastninga
 
 | På Windows-baserade jag använda... | På Linux-baserade... |
 | --- | --- |
-| **Hive-redigeraren** |[Hive-vyn i Ambari](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **Hive-redigeraren** |[Hive-vyn i Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;`Så här aktiverar du Tez |Tez är standard Körningsmotor för Linux-baserade kluster så set-satsen är inte längre behövs. |
 | C# användardefinierade funktioner | Mer information om verifiering C#-komponenter med Linux-baserat HDInsight finns [migrera .NET lösningar på Linux-baserat HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD-filer eller skript på den server som anropas som en del av ett Hive-jobb |Använd Bash-skript |
-| `hive`kommando från fjärrskrivbord |Använd [Beeline](hdinsight-hadoop-use-hive-beeline.md) eller [Hive från en SSH-session](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive`kommando från fjärrskrivbord |Använd [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) eller [Hive från en SSH-session](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -233,7 +233,7 @@ Om du har ett arbetsflöde som använder en C#-program kan du verifiera dessa pr
 
 | På Windows-baserade jag använda... | På Linux-baserade... |
 | --- | --- |
-| Storm-instrumentpanelen |Storm-instrumentpanelen är inte tillgänglig. Se [distribuera och hantera Storm-topologier på Linux-baserade HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) för sätt att skicka topologier |
+| Storm-instrumentpanelen |Storm-instrumentpanelen är inte tillgänglig. Se [distribuera och hantera Storm-topologier på Linux-baserade HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) för sätt att skicka topologier |
 | Storm UI |Storm-Användargränssnittet är tillgänglig på https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio för att skapa, distribuera och hantera topologier för C# eller hybrid |Visual Studio kan användas för att skapa, distribuera och hantera C# (SCP.NET) eller hybridtopologier på Linux-baserade Storm på HDInsight. Det kan bara användas med kluster som skapas efter 2016/10/28. |
 

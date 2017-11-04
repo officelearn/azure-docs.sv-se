@@ -1,7 +1,7 @@
 ---
-title: "Skapa din första Azure Container Instances-behållare | Azure Docs"
+title: "Snabbstart - skapa din första Azure Behållarinstanser behållare"
 description: "Distribuera och kom igång med Azure Container Instances"
-services: container-service
+services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
@@ -9,25 +9,22 @@ editor:
 tags: 
 keywords: 
 ms.assetid: 
-ms.service: 
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/26/2017
 ms.author: seanmck
-ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/28/2017
-
+ms.custom: mvc
+ms.openlocfilehash: e4af46f4b750937a636af3fe667c9979fdedfdc8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 11/03/2017
 ---
-
 # <a name="create-your-first-container-in-azure-container-instances"></a>Skapa din första behållare i Azure Container Instances
-
-Med Azure Container Instances är det enkelt att skapa och hantera behållare i Azure. I den här snabbstartsguiden ska du skapa en behållare i Azure och göra den tillgänglig på Internet med en offentlig IP-adress. Den här åtgärden utförs med ett enda kommando. Inom några sekunder visas det här i webbläsaren:
+Azure Behållarinstanser som gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller anta en högre nivå tjänst. I Snabbstart, skapa en behållare i Azure och exponera till internet med en offentlig IP-adress. Den här åtgärden utförs med ett enda kommando. Inom några sekunder visas det i webbläsaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][aci-app-browser]
 
@@ -35,29 +32,29 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.12 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.12 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Azure Container Instances är Azure-resurser och måste vara placerade i en Azure-resursgrupp, en logisk samling dit Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). 
+Skapa en resursgrupp med det [az gruppen skapa] [ az-group-create] kommando.
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-a-container"></a>Skapa en behållare
 
-Du kan skapa en behållare genom att ange ett namn, en Docker-avbildning och en Azure-resursgrupp. Du kan också göra behållaren tillgänglig på Internet med en offentlig IP-adress. I så fall använder vi en behållare som är värd för en väldigt enkel webbapp skriven i [Node.js](http://nodejs.org).
+Du kan skapa en behållare genom att ange ett namn, en Docker-avbildning och en Azure-resursgrupp till den [az behållaren skapa] [ az-container-create] kommando. Du kan också göra behållaren tillgänglig på Internet med en offentlig IP-adress. I så fall använder vi en behållare som är värd för en väldigt enkel webbapp skriven i [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
+az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
-Om några sekunder bör du få ett svar på din begäran. Först har behållaren statusen **Creating** (skapas) men bör starta inom några sekunder. Du kan kontrollera statusen med kommandot `show`:
+Om några sekunder bör du få ett svar på din begäran. Först har behållaren statusen **Creating** (skapas) men bör starta inom några sekunder. Du kan kontrollera status med hjälp av den [az behållaren visa] [ az-container-show] kommando:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -68,7 +65,7 @@ Längst ned i resultatet visas behållarens etableringsstatus och IP-adress:
 ```json
 ...
 "ipAddress": {
-      "ip": "13.88.8.148",
+      "ip": "13.88.176.27",
       "ports": [
         {
           "port": 80,
@@ -81,13 +78,13 @@ Längst ned i resultatet visas behållarens etableringsstatus och IP-adress:
 ...
 ```
 
-När behållaren övergår i status **Succeeded** (lyckades) kan du nå den via webbläsaren med den angivna IP-adressen. 
+När behållaren flyttas till den **lyckades** tillstånd, kan du nå den i din webbläsare med den angivna IP-adressen.
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Hämta behållarloggarna
 
-Du kan hämta loggarna för den behållare du skapat med kommandot `logs`:
+Du kan hämta loggar för den behållare som du skapat med hjälp av [az behållaren loggar] [ az-container-logs] kommando:
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -103,7 +100,7 @@ listening on port 80
 
 ## <a name="delete-the-container"></a>Ta bort behållaren
 
-När du är klar med behållaren kan du ta bort den med kommandot `delete`:
+När du är klar med behållaren du kan ta bort den med hjälp av den [az behållaren bort] [ az-container-delete] kommando:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
@@ -111,14 +108,24 @@ az container delete --name mycontainer --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-All kod för behållaren som används i den här snabbstartsguiden finns [på GitHub][app-github-repo] tillsammans med dess Dockerfile. Om du vill försöka skapa den på egen hand och distribuera den till Azure Container Instances via Azure Container Registry, går du vidare till självstudierna för Azure Container Instances.
+Koden för den behållare som används i denna Snabbstart finns [på GitHub][app-github-repo], tillsammans med dess Dockerfile. Om du vill försöka skapa den på egen hand och distribuera den till Azure Container Instances via Azure Container Registry, går du vidare till självstudierna för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudier](./container-instances-tutorial-prepare-app.md)
 
+Om du vill testa alternativ för att köra behållare i ett orchestration-system på Azure, finns det [Service Fabric] [ service-fabric] eller [Azure Container Service (AKS)] [ container-service] Snabbstart.  
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
+[az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
+[az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md
+[container-service]: ../aks/kubernetes-walkthrough.md
+
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

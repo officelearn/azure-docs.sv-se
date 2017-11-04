@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: b3bab57f5ca6627b4532284376a9809d5ab543f2
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: 1ac5ca34e412aeb8b24e657abfe8eca04943799d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
 Den här kursen ingår i en serie. Du kommer lära dig hur du distribuerar ett Windows Service Fabric-kluster till ett befintligt Azure virtuellt nätverk (VNET) och underordnad net med hjälp av PowerShell. När du är klar kan har du ett kluster som körs i molnet som du kan distribuera program till.  För att skapa ett Linux-kluster med Azure CLI, se [skapa en säker Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -78,44 +78,42 @@ Hämta följande Resource Manager-mall och parametrar filen:
 Använd följande PowerShell-kommando för att distribuera Resource Manager-mall och parametern-filer för installation av nätverk:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile C:\winclustertutorial\network.json -TemplateParameterFile C:\winclustertutorial\network.parameters.json -Verbose
 ```
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>Distribuera Service Fabric-kluster
-När nätverksresurser är klar för distribution, är nästa steg att distribuera ett Service Fabric-kluster till VNET i undernät och NSG: N för Service Fabric-klustret. Distribuera ett kluster till ett befintligt VNET och undernät (distribuerad tidigare i den här artikeln) kräver en Resource Manager-mall.  Mer information finns i [skapa ett kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). För den här självstudiekursen serien är mallen förkonfigurerad att använda namnen på virtuella nätverk, undernät och NSG: N som du skapade i föregående steg.  Hämta följande Resource Manager-mall och parametrar filen:
+När nätverksresurser är klar för distribution, är nästa steg att distribuera ett Service Fabric-kluster till VNET i undernät och NSG: N för Service Fabric-klustret. Distribuera ett kluster till ett befintligt VNET och undernät (distribuerad tidigare i den här artikeln) kräver en Resource Manager-mall.  För den här självstudiekursen serien är mallen förkonfigurerad att använda namnen på virtuella nätverk, undernät och NSG: N som du skapade i föregående steg.  
+
+Hämta följande Resource Manager-mall och parametrar filen:
 - [cluster.JSON][cluster-arm]
 - [cluster.parameters.JSON][cluster-parameters-arm]
 
-Ett certifikat används för säker kommunikation nod till noden för klustret och för att hantera användarnas åtkomst till Service Fabric-klustret. API Management använder detta certifikat för att få åtkomst till Service Fabric Naming Service för identifiering av tjänst. 
+Du kan använda mallen för att skapa en säker kluster.  Ett certifikat för klustret är ett X.509-certifikat som används för att skydda kommunikationen nod till nod och autentisera att klustret management slutpunkter management-klienten.  Certifikat för klustret ger också en SSL för HTTPS-hanterings-API och för Service Fabric Explorer via HTTPS. Azure Key Vault används för att hantera certifikat för Service Fabric-kluster i Azure.  När ett kluster distribueras i Azure, Azure resursprovidern ansvarar för att skapa Service Fabric-kluster hämtar certifikat från Nyckelvalvet och installerar dem på klustret virtuella datorer. 
 
-Följande skript använder den [ny AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) att distribuera ett nytt kluster i Azure. Cmdlet även skapar en nyckelvalvet i Azure, skapar ett självsignerat certifikat och nyckelvalvet och hämtar certifikatfilen lokalt.   
+Du kan använda ett certifikat från en certifikatutfärdare (CA) som certifikatet klustret eller för testning, skapa ett självsignerat certifikat. Certifikat för klustret måste:
+
+- innehåller en privat nyckel.
+- skapas för nyckelutbyte, som kan exporteras till en Personal Information Exchange (.pfx)-fil.
+- ha ett ämnesnamn som matchar den domän som du använder för att få åtkomst till Service Fabric-klustret. Den här matchar krävs SSL för att klustrets HTTPS management slutpunkter och Service Fabric Explorer. Du kan skaffa ett SSL-certifikat från en certifikatutfärdare (CA) för det. cloudapp.azure.com domän. Du måste skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en Certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som du använder för klustret.
+
+Fyll i tomma *plats*, *clusterName*, *adminUserName*, och *adminPassword* parametrar i den  *cluster.parameters.JSON* filen för din distribution.  Lämna den *certificateThumbprint*, *certificateUrlValue*, och *sourceVaultValue* parametrar tomt om du vill skapa ett självsignerat certifikat.  Om du vill använda ett befintligt certifikat som tidigare har överförts till ett nyckelvalv kan fylla i de parametervärdena.
+
+Följande skript använder den [ny AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet och mallen för att distribuera ett nytt kluster i Azure. Cmdlet även skapar ett nytt nyckelvalv i Azure, lägger till ett nytt självsignerat certifikat till nyckelvalvet och hämtar certifikatfilen lokalt. Du kan ange ett befintligt certifikat och/eller nyckelvalv med andra parametrar för den [ny AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) cmdlet.
 
 ```powershell
-# Certificate variables.
+# Variables.
 $certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
 $certfolder="c:\mycertificates\"
-
-# Variables for VM admin.
-$adminuser="vmadmin"
-$adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-
-# Variables for common values
 $clustername = "mysfcluster"
-$vmsku = "Standard_D2_v2"
-$vaultname = "clusterkeyvault"
-$vaultgroupname="clusterkeyvaultgroup"
+$vaultname = "clusterkeyvault111"
+$vaultgroupname="clusterkeyvaultgroup111"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
-# Set the number of cluster nodes. Possible values: 1, 3-99
-$clustersize=5 
-
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
--ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
--CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
--OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname `
--TemplateFile .\cluster.json -ParameterFile .\cluster.parameters.json
+New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile 'C:\winclustertutorial\cluster.json' `
+-ParameterFile 'C:\winclustertutorial\cluster.parameters.json' -CertificatePassword $certpwd `
+-CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Ansluta till det säkra klustret

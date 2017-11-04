@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c90c3d3c0effd68a4a5962d4d097fccbdc3fee56
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och Läs in data från Azure Blob Storage
 Det här avsnittet innehåller allmänna Hive-frågor som skapar Hive-tabeller och läsa in data från Azure blob storage. Vägledning finns även på partitionering Hive-tabeller och använda den optimerade raden kolumner (ORC) formatering för att förbättra frågeprestanda.
@@ -120,7 +120,7 @@ Om du öppnar standardbehållaren för Hadoop-kluster med Azure Lagringsutforska
 Du kan också använda konsolen fråga (Hive-redigeraren) genom att ange en URL i formatet *https://&#60; Hadoop-klusternamn >.azurehdinsight.net/Home/HiveEditor* i en webbläsare. Du måste vara inloggad i ser den här konsolen och du måste ha autentiseringsuppgifter här din Hadoop-kluster.
 
 ### <a name="ps"></a> 3. Skicka Hive-frågor med Azure PowerShell-kommandon
-Du kan också använda PowerShell för att skicka Hive-frågor. Instruktioner finns i [skicka Hive-jobb med hjälp av PowerShell](../../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+Du kan också använda PowerShell för att skicka Hive-frågor. Instruktioner finns i [skicka Hive-jobb med hjälp av PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Skapa Hive-databasen och tabeller
 Hive-frågor delas i den [GitHub-lagringsplatsen](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) och kan hämtas därifrån.

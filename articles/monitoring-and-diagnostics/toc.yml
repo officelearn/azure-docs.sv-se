@@ -134,6 +134,8 @@
       items:
         - name: Arkiv
           href: monitoring-archive-diagnostic-logs.md
+        - name: Skicka till Log Analytics
+          href: monitor-stream-diagnostic-logs-log-analytics.md
         - name: Strömma till Event Hubs
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Aktivera diagnostikinställningar med Resource Manager-mallar

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7c8c10f96a742092bb7b8453698d498707b0b2c2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Anpassa Linux-baserat HDInsight-kluster med skriptåtgärder
 
@@ -40,7 +40,7 @@ Om du använder en domänansluten HDInsight-kluster, finns det två Ambari-behö
 * **AMBARI. KÖR\_anpassad\_kommandot**: den Ambari administratörsroll har denna behörighet som standard.
 * **KLUSTER. KÖR\_anpassad\_kommandot**: båda HDInsight-klustrets administratör och Ambari-administratören har denna behörighet som standard.
 
-Mer information om hur du arbetar med behörigheter med domänanslutna HDInsight finns [hantera domänanslutna HDInsight-kluster](hdinsight-domain-joined-manage.md).
+Mer information om hur du arbetar med behörigheter med domänanslutna HDInsight finns [hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-manage.md).
 
 ## <a name="access-control"></a>Åtkomstkontroll
 

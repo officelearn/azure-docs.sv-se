@@ -1,34 +1,34 @@
-## <a name="install-the-prerequisites"></a>Install the prerequisites
+## <a name="install-the-prerequisites"></a>Installera nödvändiga komponenter
 
-1. Install [Visual Studio 2015 or 2017](https://www.visualstudio.com). You can use the free Community Edition if you meet the licensing requirements. Be sure to include Visual C++ and NuGet Package Manager.
+1. Installera [Visual Studio 2015 eller 2017](https://www.visualstudio.com). Du kan använda den kostnadsfria Community Edition om du uppfyller licenskraven. Se till att inkludera Visual C++ och NuGet Package Manager.
 
-1. Install [git](http://www.git-scm.com) and make sure you can run git.exe from the command line.
+1. Installera [git](http://www.git-scm.com) och kontrollera att du kan köra git.exe från kommandoraden.
 
-1. Install [CMake](https://cmake.org/download/) and make sure you can run cmake.exe from the command line. CMake version 3.7.2 or later is recommended. The **.msi** installer is the easiest option on Windows. Add CMake to the PATH for at least the current user when the installer prompts you.
+1. Installera [CMake](https://cmake.org/download/) och kontrollera att du kan köra cmake.exe från kommandoraden. CMake version 3.7.2 eller senare rekommenderas. Den **.msi** installer är det enklaste alternativet i Windows. Lägg till CMake minst till SÖKVÄGEN för den aktuella användaren när du uppmanas av installationsprogrammet.
 
-1. Install [Python 2.7](https://www.python.org/downloads/release/python-27). Make sure you add Python to your `PATH` environment variable in **Control Panel -> System -> Advanced system settings -> Environment Variables**.
+1. Installera [Python 2.7](https://www.python.org/downloads/release/python-27). Kontrollera att du kan lägga till Python till din `PATH` miljövariabeln. Gå till **Kontrollpanelen** > **System och säkerhet** > **System** > **avancerade systeminställningar**  >  **Miljövariabler**. Lägg till `C:\Python27` till din sökväg. 
 
-1. At a command prompt, run the following command to clone the Azure IoT Edge GitHub repository to your local machine:
+1. Kör följande kommando för att klona Azure IoT kant GitHub-lagringsplatsen till den lokala datorn i en kommandotolk:
 
     ```cmd
     git clone https://github.com/Azure/iot-edge.git
     ```
 
-## <a name="how-to-build-the-sample"></a>How to build the sample
+## <a name="how-to-build-the-sample"></a>Hur du skapar provet
 
-You can now build the IoT Edge runtime and samples on your local machine:
+Du kan nu skapa IoT-Edge runtime och exempel på den lokala datorn:
 
-1. Open a **Developer Command Prompt for VS 2015** or **Developer Command Prompt for VS 2017** command prompt.
+1. Öppna **Developer kommandotolk för VS 2015** eller **Developer kommandotolk för VS 2017**, beroende på din version.
 
-1. Navigate to the root folder in your local copy of the **iot-edge** repository.
+1. Navigera till rotmappen i den lokala kopian av databasen **iot-edge**.
 
-1. Run the build script as follows:
+1. Kör skriptet bygga på följande sätt:
 
     ```cmd
     tools\build.cmd --disable-native-remote-modules
     ```
 
-This script creates a Visual Studio solution file and builds the solution. You can find the Visual Studio solution in the **build** folder in your local copy of the **iot-edge** repository. If you want to build and run the unit tests, add the `--run-unittests` parameter. If you want to build and run the end to end tests, add the `--run-e2e-tests`.
+Det här skriptet skapar en fil för Visual Studio-lösning och bygger lösningen. Du kan hitta Visual Studio-lösning i den **skapa** mapp i den lokala kopian av den **iot-edge** databasen. Om du vill skapa och köra testerna enhet, lägga till den `--run-unittests` parameter. Om du vill skapa och köra testerna slutpunkt till slutpunkt, lägga till den `--run-e2e-tests`.
 
 > [!NOTE]
-> Every time you run the **build.cmd** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **iot-edge** repository.
+> Varje gång du kör den **build.cmd** skript, tas bort och återskapas den **skapa** mapp i rotmappen på den lokala kopian av den **iot-edge** databasen.

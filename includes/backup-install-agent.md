@@ -1,42 +1,42 @@
-## <a name="download-install-and-register-the-azure-backup-agent"></a>Download, install, and register the Azure Backup agent
-After creating the Azure Backup vault, an agent should be installed on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) that enables back up of data and applications to Azure.
+## <a name="download-install-and-register-the-azure-backup-agent"></a>Hämta, installera och registrera på Azure Backup-agenten
+När du har skapat Azure Backup-valvet, ska en agent installeras på var och en av dina Windows-datorer (Windows Server, Windows-klient, System Center Data Protection Manager-server eller Azure Backup Server-dator) som möjliggör säkerhetskopiering av data och program till Azure .
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
-2. Click **Recovery Services**, then select the backup vault that you want to register with a server. The Quick Start page for that backup vault appears.
+1. Logga in på den [hanteringsportalen](https://manage.windowsazure.com/)
+2. Klicka på **återställningstjänster**, välj sedan det säkerhetskopieringsvalv som du vill registrera en server. Sidan Snabbstart för att säkerhetskopieringsvalvet visas.
    
-    ![Quick start](./media/backup-install-agent/quickstart.png)
-3. On the Quick Start page, click the **For Windows Server or System Center Data Protection Manager or Windows client** option under **Download Agent**. Click **Save** to copy it to the local machine.
+    ![Snabbstart](./media/backup-install-agent/quickstart.png)
+3. På sidan Snabbstart klickar du på den **för Windows Server eller System Center Data Protection Manager eller Windows-klienten** alternativ **hämta Agent**. Klicka på **spara** att kopiera den till den lokala datorn.
    
-    ![Save agent](./media/backup-install-agent/agent.png)
-4. Once the agent is installed, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup agent. Choose the installation folder and scratch folder required for the agent. The cache location specified must have free space which is at least 5% of the backup data.
-5. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
-6. The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.
-7. Once the agent is installed, click the **Proceed to Registration** button to continue with the workflow.
+    ![Spara agent](./media/backup-install-agent/agent.png)
+4. När agenten har installerats, dubbelklicka på MARSAgentInstaller.exe om du vill starta installationen av Azure Backup-agenten. Välj installationsmappen och tillfälliga mapp som krävs för agenten. Cacheplats som anges måste ha ledigt utrymme som är minst 5% av säkerhetskopierade data.
+5. Om du använder en proxyserver för att ansluta till internet, i den **proxykonfiguration** anger information för proxy-server. Om du använder en autentiserad proxyserver måste du ange användarinformation namn och lösenord i den här skärmen.
+6. Azure Backup-agenten installerar .NET Framework 4.5 och Windows PowerShell (om det inte är tillgänglig) om du vill slutföra installationen.
+7. När agenten är installerad klickar du på den **fortsätta till registreringen** för att fortsätta med arbetsflödet.
    
-   ![Register](./media/backup-install-agent/register.png)
-8. In the vault credentials screen, browse to and select the vault credentials file which was previously downloaded.
+   ![Registrera dig](./media/backup-install-agent/register.png)
+8. Bläddra till och markera valvautentiseringsfilen som tidigare har hämtat på skärmen valvet autentiseringsuppgifter.
    
-    ![Vault credentials](./media/backup-install-agent/vc.png)
+    ![Valvautentiseringsuppgifter](./media/backup-install-agent/vc.png)
    
-    The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal). If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.
+    Valvautentiseringsfilen är endast giltig för 48 timmar (när den har hämtats från portalen). Om du påträffar eventuella fel i den här skärmen (t.ex. ”valvautentiseringsfilen som har upphört att gälla”), inloggning till Azure-portalen och hämta valvautentiseringsfilen igen.
    
-    Ensure that the vault credentials file is available in a location which can be accessed by the setup application. If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.
+    Se till att valvautentiseringsfilen finns på en plats som kan användas av installationsprogrammet. Om du får åtkomst till relaterade fel, kopiera valvautentiseringsfilen till en tillfällig plats på den här datorn och försök igen.
    
-    If you encounter an invalid vault credential error (e.g “Invalid vault credentials provided") the file is either corrupted or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error is typically seen if the user clicks on the **Download vault credential** option in the Azure portal, in quick succession. In this case, only the second vault credential file is valid.
-9. In the **Encryption setting** screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
+    Om det uppstår ett fel för ogiltiga autentiseringsuppgifter (t.ex. ”ogiltiga autentiseringsuppgifterna”) i filen är antingen skadad eller har inte har de senaste autentiseringsuppgifterna som är associerade med recovery-tjänsten. Försök igen när du har hämtat en ny valvautentiseringsfil från portalen. Det här felet visas vanligen om användaren klickar på den **Download valvautentiseringen** alternativ i Azure-portalen i snabb följd. I det här fallet gäller endast andra valvautentiseringsfilen.
+9. I den **krypteringsinställning** skärmen, kan du antingen skapa en lösenfras eller ange en lösenfras (minst 16 tecken). Kom ihåg att spara lösenfrasen på en säker plats.
    
-    ![Encryption](./media/backup-install-agent/encryption.png)
+    ![Kryptering](./media/backup-install-agent/encryption.png)
    
    > [!WARNING]
-   > If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
+   > Om de tappar bort lösenfrasen eller glömt; Microsoft går inte att återställa säkerhetskopierade data. Användaren äger krypteringslösenfrasen och Microsoft har inte insyn i den lösenfras som används av slutanvändaren. Spara filen på en säker plats när den behövs under en återställning.
    > 
    > 
-10. Once you click the **Finish** button, the machine is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure.
-11. When using Microsoft Azure Backup standalone you can modify the settings specified during the registration workflow by clicking on the **Change Properties** option in the Azure Backup mmc snap in.
+10. När du klickar på den **Slutför** , datorn har registrerats i valvet och du är nu redo att börja säkerhetskopiera till Microsoft Azure.
+11. När du använder fristående Microsoft Azure Backup kan du ändra de inställningar som anges under registreringen arbetsflödet genom att klicka på den **ändra egenskaper för** alternativ i Azure Backup mmc snapin-modulen.
     
-    ![Change Properties](./media/backup-install-agent/change.png)
+    ![Ändra egenskaper för](./media/backup-install-agent/change.png)
     
-    Alternatively, when using Data Protection Manager, you can modify the settings specified  during the registration workflow by clicking the **Configure** option by selecting **Online** under the **Management** Tab.
+    Du kan också när du använder Data Protection Manager, du kan ändra de inställningar som anges under registreringen arbetsflödet genom att klicka på den **konfigurera** alternativet genom att välja **Online** under **Management** fliken.
     
-    ![Configure Azure Backup](./media/backup-install-agent/configure.png)
+    ![Konfigurera Azure Backup](./media/backup-install-agent/configure.png)
 

@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 3a4764ddf2dea68bf25bd46b9691429ad3341678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: aba231a91efafa48837e45435efd51769b12374b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Hantera åtkomst till resurser med Azure Active Directory-grupper
 Azure Active Directory (AD Azure) är en omfattande identitets- och hanteringslösning som tillhandahåller kraftfulla och stabila funktioner för att hantera åtkomst till lokala och molnprogram och resurser inklusive Microsofts onlinetjänster som Office 365 och en värld av icke - Microsoft SaaS-program. Den här artikeln innehåller en översikt, men om du vill börja använda Azure AD grupper just nu, följ instruktionerna i [hantera säkerhetsgrupper i Azure AD](active-directory-accessmanagement-manage-groups.md). Om du vill se hur du kan använda PowerShell för att hantera grupper i Azure Active directory kan du läsa mer i [Azure Active Directory-cmdlets för grupphantering](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
@@ -66,7 +66,7 @@ Lösning för hantering av åtkomst är säkerhetsgruppen i mitten av Azure AD. 
 ## <a name="getting-started-with-access-management"></a>Komma igång med åtkomsthantering
 Redo att sätta igång? Du bör testa några av de grundläggande åtgärderna som du kan göra med Azure AD-grupper. Använd dessa funktioner för att ge särskilda åtkomst till olika grupper av personer för olika resurser i din organisation. Nedan visas en lista över grundläggande första steg.
 
-* [Skapa en enkel regel om du vill konfigurera dynamiskt medlemskap för en grupp](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
+* [Skapa en enkel regel om du vill konfigurera dynamiskt medlemskap för en grupp](active-directory-accessmanagement-manage-groups.md)
 * [Hantera åtkomst till SaaS-program med hjälp av en grupp](active-directory-accessmanagement-group-saasapps.md)
 * [Göra en grupp tillgänglig för slutanvändaren självbetjäning](active-directory-accessmanagement-self-service-group-management.md)
 * [Synkroniserar en lokal grupp till Azure med Azure AD Connect](active-directory-aadconnect.md)

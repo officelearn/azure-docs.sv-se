@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>Hantera användarbehörighet på fil- och programnivå
 
-[Domänanslutna HDInsight-kluster](hdinsight-domain-joined-introduction.md) använder stark autentisering med Azure Active Directory (AD Azure) användare, och även *rollbaserad åtkomstkontroll* (RBAC)-principer för olika tjänster, till exempel YARN och Hive. Om data standardplatsen för klustret är Azure Storage, eller Windows Azure Storage BLOB (WASB), kan du även tillämpa fil- och mapp-behörighet. Du kan använda Apache Ranger för att styra åtkomsten till klustrets filer för en synkroniserad Azure AD-användare och grupper.
+[Domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md) använder stark autentisering med Azure Active Directory (AD Azure) användare, och även *rollbaserad åtkomstkontroll* (RBAC)-principer för olika tjänster, till exempel YARN och Hive. Om data standardplatsen för klustret är Azure Storage, eller Windows Azure Storage BLOB (WASB), kan du även tillämpa fil- och mapp-behörighet. Du kan använda Apache Ranger för att styra åtkomsten till klustrets filer för en synkroniserad Azure AD-användare och grupper.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 Apache Ranger instansen för domänanslutna HDInsight-kluster innehåller förkonfigurerade med Ranger WASB-tjänsten. Ranger WASB-tjänsten är en principmodulen management som liknar Ranger HDFS, men med en annan tillämpning av principer för Rangers åtkomst. I tjänsten Ranger WASB om en inkommande resursbegäran om inte har en matchande Ranger princip standard svaret är NEKA. Tjänsten Ranger klarar inte på kontrollen till WASB behörighet.
@@ -69,7 +69,7 @@ När ett jokertecken (`*`) finns i sökvägen för en princip jokertecknet avser
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Hantera fil- och mappnivå behörigheter med Apache Ranger
 
-Om du inte redan har gjort det, Följ [instruktionerna](hdinsight-domain-joined-configure.md) att etablera ett nytt kluster som ingår i domänen.
+Om du inte redan har gjort det, Följ [instruktionerna](./domain-joined/apache-domain-joined-configure.md) att etablera ett nytt kluster som ingår i domänen.
 
 Öppna Ranger WASB genom att bläddra till `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`. Ange klustrets administratörsanvändarnamn och lösenord som du definierade när du skapar klustret.
 
@@ -117,8 +117,8 @@ Apache Ranger [princip utvärdering flödet](#permission-and-policy-model) kan d
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera principer för Hive i HDInsight-domänansluten](hdinsight-domain-joined-run-hive.md)
-* [Hantera domänanslutna HDInsight-kluster](hdinsight-domain-joined-manage.md)
+* [Konfigurera principer för Hive i HDInsight-domänansluten](./domain-joined/apache-domain-joined-run-hive.md)
+* [Hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-manage.md)
 * [Hantera Ambari - auktorisera användare till Ambari](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

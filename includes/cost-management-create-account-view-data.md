@@ -31,3 +31,5 @@ Följande bild visar kostnaderna för Azure-resurser som Contoso har ådragit si
 Högerklicka på en resurstyp och välj **Cost Entities** (Kostnadsenheter) för att visa kostnadsenheter och de tjänster som har förbrukat resursen. Tjänsterna VM och Workers i DevOps har förbrukat 486,60 USD och 435,71 i det här exemplet. Totalsumman för båda är 922 USD.
 
 ![kostnadsenheter och tjänster](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+Om du vill se en video som självstudier om hur du visar ditt moln fakturering data, se [analysera ditt moln fakturering data med Azure kostnaden Management med Cloudyn](https://youtu.be/G0pvI3iLH-Y).

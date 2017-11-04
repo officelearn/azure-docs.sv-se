@@ -2,8 +2,7 @@
 
 #### <a name="to-add-a-storsimple-backup-policy"></a>Så här lägger du till en StorSimple-säkerhetskopieringsprincip
 1. Klicka på fliken **Principer för säkerhetskopiering** på bladet **Snabbstart** för enheten. Sidan **Principer för säkerhetskopiering** öppnas.
-2. Klicka på **Lägg till** längst ned på sidan för att starta guiden Add Backup Policy
-(Lägg till princip för säkerhetskopiering).
+2. Klicka på **Lägg till** längst ned på sidan för att starta guiden Add Backup Policy(Lägg till princip för säkerhetskopiering).
    
     ![Lägga till en princip för säkerhetskopiering 1](./media/storsimple-add-backup-policy-u2/AddBackupPolicy1.png)
 3. Gör följande under **Define your backup policy** (Definiera din princip för säkerhetskopiering) i dialogrutan **Add Backup Policy** (Lägg till princip för säkerhetskopiering):

@@ -1,229 +1,229 @@
-# <a name="internet-of-things-security-architecture"></a>Internet of Things security architecture
-When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is particularly important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning. 
+# <a name="internet-of-things-security-architecture"></a>Sakernas Internet-säkerhetsarkitekturen
+När ett system utformas, är det viktigt att förstå potentiella hot på systemet och lägga till lämpliga försvar därför eftersom systemet är utformad och konstruerad. Det är särskilt viktigt att utforma produkten från början med säkerhet i åtanke eftersom förstå hur en angripare kan vara att en dator gör att lämpliga åtgärder finns på plats från början. 
 
-## <a name="security-starts-with-a-threat-model"></a>Security starts with a threat model
-Microsoft has long used threat models for its products and has made the company’s threat modeling process publically available. The company experience demonstrates that the modelling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
+## <a name="security-starts-with-a-threat-model"></a>Säkerhet som börjar med en hotmodell
+Microsoft har länge använt hot modeller för sina produkter och gjort företagets hot modellera processen offentligt tillgängliga. Företagets erfarenhet visar att modellering har oväntat fördelar utöver den omedelbara förståelsen för vilka hot är den mest om. Till exempel skapar det också en väg för en öppen diskussion med andra utanför Utvecklingsteamet, vilket kan leda till nya idéer och förbättringar i produkten.
 
-The objective of threat modeling is to understand how an attacker might be able to compromise a system and then make sure appropriate mitigations are in place. Threat modeling forces the design team to consider mitigations as the system is designed rather than after a system is deployed. This fact is critically important, because retrofitting security defenses to a myriad of devices in the field is infeasible, error prone and will leave customers at risk.
+Syftet med hotmodellering är att förstå hur en angripare kan vara att en dator och kontrollera att lämpliga åtgärder finns på plats. Hot modellering framtvingar designgruppen för att överväga åtgärder som att systemet i stället för efter en distribueras. Detta är ytterst viktigt eftersom onlineåterställningspunkter säkerhetsskyddet på en mängd enheter på fältet är omöjligt, tillförlitligt och lämnar kunder i fara.
 
-Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why. Threat modeling is a structured process that creates a discussion about the security design decisions in the system, as well as changes to the design that are made along the way that impact security. While a threat model is simply a document, this documentation also represents an ideal way to ensure continuity of knowledge, retention of lessons learned, and help new team onboard rapidly. Finally, an outcome of threat modeling is to enable you to consider other aspects of security, such as what security commitments you wish to provide to your customers. These commitments in conjunction with threat modeling will inform and drive testing of your Internet of Things (IoT) solution.
+Många utvecklingsgrupper göra en utmärkt jobb som avbildar funktionella krav för system som har nytta av kunder. Identifiera icke-uppenbara sätt att någon kan missbrukas systemet är dock mer utmanande. Hotmodellering hjälper dig att förstå vad en angripare kan göra utvecklingsgrupper och varför. Hotmodellering är en strukturerad process som skapar en diskussion om säkerheten designbeslut i systemet, samt ändringar av design som görs på vägen att påverkan säkerhet. En hotmodell är bara ett dokument, representerar den här dokumentationen också ett enkelt sätt att kontrollera kontinuitet i knowledge kvarhållning av erfarenheter lärt dig och hjälp nytt team komma igång snabbt. Slutligen är ett resultat av hotmodellering så att du kan överväga andra aspekter av säkerhet, till exempel vilka säkerhetsåtaganden som du vill ge dina kunder. Dessa åtaganden tillsammans med hotmodellering informera och enheten testning av din lösning för Sakernas Internet (IoT).
 
-### <a name="when-to-threat-model"></a>When to threat model
-[Threat modeling](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) offers the greatest value if it is incorporated into the design phase. When you are designing, you have the greatest flexibility to make changes to eliminate threats. Eliminating threats by design is the desired outcome. It is much easier than adding mitigations, testing them, and ensuring they remain current and moreover, such elimination is not always possible. It becomes harder to eliminate threats as a product becomes more mature, and in turn will ultimately require more work and a lot harder tradeoffs than threat modeling early on in the development.
+### <a name="when-to-threat-model"></a>När du ska hot modellen
+[Hotmodellering](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) ger det största värdet om det ingår i designfasen. När du designar har störst flexibilitet att göra ändringar eliminera hot. Eliminera hot avsiktligt är önskat utfall. Det är mycket enklare än att lägga till åtgärder, testa dem och att de fortfarande är aktuella och dessutom sådan eliminering är inte alltid möjligt. Det blir svårare att eliminera hot som en produkt blir mer mogen och i sin tur slutligen kräver mer arbete och mycket svårare kompromisser än hot modeling tidigt i utvecklingen.
 
-### <a name="what-to-threat-model"></a>What to threat model
-You should thread model the solution as a whole and also focus in the following areas:
+### <a name="what-to-threat-model"></a>Vad du hotmodell
+Du bör tråd modellen hela lösningen och även fokusera på följande områden:
 
-* The security and privacy features
-* The features whose failures are security relevant
-* The features that touch a trust boundary 
+* Funktioner för säkerhet och sekretess
+* De funktioner som fel är relevanta säkerhet
+* De funktioner som rör en förtroendegräns 
 
-### <a name="who-threat-models"></a>Who threat models
-Threat modeling is a process like any other.  It is a good idea to treat the threat model document like any other component of the solution and validate it. Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why.
+### <a name="who-threat-models"></a>Som hot modeller
+Hotmodellering är en process som någon annan.  Det är en bra idé att behandla modelldokument hot som alla andra komponenter i lösningen och verifiera den. Många utvecklingsgrupper göra en utmärkt jobb som avbildar funktionella krav för system som har nytta av kunder. Identifiera icke-uppenbara sätt att någon kan missbrukas systemet är dock mer utmanande. Hotmodellering hjälper dig att förstå vad en angripare kan göra utvecklingsgrupper och varför.
 
-### <a name="how-to-threat-model"></a>How to threat model
-The threat modeling process is composed of four steps; the steps are:
+### <a name="how-to-threat-model"></a>Så här hotmodell
+Hotet modellera processen består av fyra steg; stegen är:
 
-* Model the application
-* Enumerate Threats
-* Mitigate threats
-* Validate the mitigations
+* Modellen programmet
+* Räkna upp hot
+* Risken för hot
+* Validera åtgärder
 
-#### <a name="the-process-steps"></a>The process steps
-Three rules of thumb to keep in mind when building a threat model:
+#### <a name="the-process-steps"></a>I steg
+Tre tumregel att tänka på när du skapar en hotmodell:
 
-1. Create a diagram out of reference architecture. 
-2. Start breadth-first. Get an overview, and understand the system as a whole, before deep-diving.  This helps ensure that you deep-dive in the right places.
-3. Drive the process, don’t let the process drive you. If you find an issue in the modeling phase and want to explore it, go for it!  Don’t feel you need to follow these steps slavishly.  
+1. Skapa ett diagram utanför Referensarkitektur. 
+2. Starta första bredd. Få en översikt och förstå systemet som helhet innan du dyker djup.  Detta säkerställer att du tittar på rätt plats.
+3. Enheten processen, låt inte processen enhet du. Om du hittar ett problem i fasen modellering och vill utforska den går för den!  Tycker att du inte behöver utföra dessa steg slavishly.  
 
-#### <a name="threats"></a>Threats
-The four core elements of a threat model are:
+#### <a name="threats"></a>Hot
+De fyra Kärnelementen i en hotmodell är:
 
-* Processes (web services, Win32 services, *nix daemons, etc. Note that some complex entities (for example field gateways and sensors) can be abstracted as a process when a technical drill down in these areas is not possible.
-* Data stores (anywhere data is stored, such as a configuration file or database)
-* Data flow (where data moves between other elements in the application)
-* External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)
+* Processer (web services, Win32-tjänster, * nix Daemon osv. Observera att vissa avancerade entiteter (till exempel fältet gateways och sensorer) kan representeras som en processen när en teknisk detaljnivån i dessa områden inte är möjlig.
+* Datalager (var som helst data lagras, till exempel en konfigurationsfil eller databas)
+* Dataflöde (där data flyttas mellan olika element i programmet)
+* Externa enheter (något som interagerar med systemet, men som inte kontrolleras av programmet, exempel innehåller användare och satellit feeds)
 
-All elements in the architectural diagram are subject to various threats; we will use the STRIDE mnemonic. Read [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) to know more about the STRIDE elements.
+Alla element i Arkitekturdiagram regleras hot; Vi använder STRIDE mnemonik. Läs [hot Modeling igen, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) vill veta mer om STRIDE-element.
 
-Different elements of the application diagram are subject to certain STRIDE threats:
+Olika element i diagrammet programmet regleras vissa STRIDE hot:
 
-* Processes are subject to STRIDE
-* Data flows are subject to TID
-* Data stores are subject to TID, and sometimes R, if the data stores are log files.
-* External entities are subject to SRD
+* Processer som omfattas av STRIDE
+* Dataflöden regleras TID
+* Datalager regleras TID, och ibland R, om datalager loggfiler.
+* Externa enheter regleras SRD
 
-## <a name="security-in-iot"></a>Security in IoT
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+## <a name="security-in-iot"></a>Säkerhet i IoT
+Den anslutna särskilda enheter har ett stort antal potentiella interaktion ytan områden och interaktion mönster, som måste beaktas för att tillhandahålla ett ramverk för att skydda digital åtkomst till dessa enheter. Termen ”digitala åtkomst” används här att skilja från alla åtgärder som utförs via direkt enhetsinteraktion där åtkomstsäkerhet tillhandahålls via fysiska åtkomstkontroll. Till exempel placera enheten i en plats med ett lås på dörren. Även om fysisk åtkomst kan nekas med hjälp av programvara och maskinvara, vidtas åtgärder för att förhindra fysisk åtkomst leder till system störningar. 
 
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment.
+Vi utforska interaktion mönster ska vi titta på ”enhetskontroll” och ”enhetsdata” med samma nivå av uppmärksamhet. ”Enhetskontroll” kan klassificeras som all information som har angetts för en enhet av part med målet att ändra eller påverka sitt beteende mot dess tillstånd eller tillståndet för sin miljö. ”Enhetsdata” kan klassificeras som all information som en enhet genererar en annan part om dess tillstånd och observerade tillståndet för sin miljö.
 
-In order to optimize security best practices, it is recommended that a typical IoT architecture be divided into several component/zones as part of the threat modeling exercise. These zones are described fully throughout this section and include:
+För att optimera säkerhetsmetoder, rekommenderas det att en typisk IoT-arkitekturen delas upp i flera komponent-zoner som en del av hotet modeling övningen. Dessa zoner beskrivs fullständigt i det här avsnittet och inkluderar:
 
-* Device,
-* Field Gateway,
-* Cloud gateways, and
-* Services.
+* Enheten
+* Fältet Gateway
+* Molnet gateways, och
+* Tjänster.
 
-Zones are broad way to segment a solution; each zone often has its own data and authentication and authorization requirements. Zones can also be used to isolation damage and restrict the impact of low trust zones on higher trust zones.
+Zoner är breda sätt att segmentera en lösning. varje zon har ofta krav data och autentisering och auktorisering. Zoner kan också användas för att skada isolering och begränsa effekten av låg förtroende zoner på högre förtroende zoner.
 
-Each zone is separated by a Trust Boundary, which is noted as the dotted red line in the diagram below. It represents a transition of data/information from one source to another. During this transition, the data/information could be subject to Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service and Elevation of Privilege (STRIDE).
+Varje zon skiljs åt av en förtroende gräns som anges som prickad röd linje i diagrammet nedan. Representerar en övergång av data/information från en källa till en annan. Under den här övergången kan informationen vara föremål Spoofing, Tampering, Repudiation, avslöjande av Information, Denial of Service och höjning av privilegier (STRIDE).
 
-![IoT Security Zones](media/iot-security-architecture/iot-security-architecture-fig1.png) 
+![IoT-säkerhetszoner](media/iot-security-architecture/iot-security-architecture-fig1.png) 
 
-The components depicted within each boundary are also subjected to STRIDE, enabling a full 360 threat modeling view of the solution. The sections below elaborate on each of the components and specific security concerns and solutions that should be put into place.
+De komponenter som beskrivs i varje gräns genomgår också STRIDE som aktiverar en fullständig 360 hot modeling vy av lösningen. I avsnitten nedan utveckla var och en av komponenterna och specifika säkerhetsfrågor och lösningar som ska införas.
 
-The sections that follows will discuss standard components typically found in these zones.
+Avsnitten som följer beskrivs standard komponenter som vanligtvis finns i dessa zoner.
 
-### <a name="the-device-zone"></a>The Device Zone
-The device environment is the immediate physical space around the device where physical access and/or “local network” peer-to-peer digital access to the device is feasible. A “local network” is assumed to be a network that is distinct and insulated from – but potentially bridged to – the public Internet, and includes any short-range wireless radio technology that permits peer-to-peer communication of devices. It does *not* include any network virtualization technology creating the illusion of such a local network and it does also not include public operator networks that require any two devices to communicate across public network space if they were to enter a peer-to-peer communication relationship.
+### <a name="the-device-zone"></a>Zonen enhet
+Enheten miljön är omedelbar fysiskt utrymme runt enheten där fysisk åtkomst och/eller ”lokala nätverk” peer-to-peer digitala åtkomst till enheten är möjligt. ”Lokala nätverk” antas vara ett nätverk som är separat och isolerade från – men potentiellt bryggade till – det offentliga Internet och innehåller alla kort Håll trådlösa alternativknapp-teknik som möjliggör peer-to-peer-kommunikation av enheter. Det gör *inte* omfattar alla nätverk virtualiseringsteknik skapar illusionen av ett lokalt nätverk och det också omfattar inte offentlig operatör nätverk som kräver att alla enheter som har två kan kommunicera över offentligt nätverk utrymme om de anger en relation för peer-to-peer-kommunikation.
 
-### <a name="the-field-gateway-zone"></a>The Field Gateway Zone
-Field gateway is a device/appliance or some general-purpose server computer software that acts as communication enabler and, potentially, as a device control system and device data processing hub. The field gateway zone includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities, are usually location bound, are potentially subject to physical intrusion, and will have limited operational redundancy. All to say that a field gateway is commonly a thing one can touch and sabotage while knowing what its function is. 
+### <a name="the-field-gateway-zone"></a>Zonen fältet Gateway
+Fältet gateway är en enhet/installation eller vissa generell server-programvara som fungerar som kommunikation aktiveraren och eventuella som ett system för enheten och enheten databearbetning hubb. Zonen fältet gateway innehåller fältet gatewayen och alla enheter som är kopplade till den. Som namnet antyder fältet gateways fungerar utanför dedikerade databearbetning verksamhet, är vanligtvis plats bunden, regleras potentiellt fysiska intrång och begränsad operativa redundans. Alla när du säger att en gateway för fältet är ofta en sak en touch och sabotera samtidigt som du vet vad dess funktion är. 
 
-A field gateway is different from a mere traffic router in that it has had an active role in managing access and information flow, meaning it is an application addressed entity and network connection or session terminal. An NAT device or firewall, in contrast, do not qualify as field gateways since they are not explicit connection or session terminals, but rather a route (or block) connections or sessions made through them. The field gateway has two distinct surface areas. One faces the devices that are attached to it and represents the inside of the zone, and the other faces all external parties and is the edge of the zone.   
+En gateway för fältet skiljer sig från en router för enbart trafik i att den har en aktiv roll vid hantering av åtkomst som informationsflödet, vilket innebär att det är ett program åtgärdas entiteten och nätverksanslutning eller session terminal. En NAT-enhet eller brandvägg däremot inte uppfyller kraven som fältet gateways eftersom de inte är explicit anslutning eller session terminaler, men i stället en väg (eller block) anslutningar eller sessioner görs via dem. Fältet gateway har två olika områden i ytan. En står de enheter som är kopplade till den och representerar för zonen och den andra står alla externa parter och är i utkanten av zonen.   
 
-### <a name="the-cloud-gateway-zone"></a>The cloud gateway zone
-Cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways. Also in a Cloud Zone, operational measures prevent targeted physical access and is not necessarily exposed to a “public cloud” infrastructure.  
+### <a name="the-cloud-gateway-zone"></a>Zonen molnet gateway
+Molngatewayen är ett system som möjliggör kommunikation från och till enheter eller gateways för fältet från flera olika platser över offentligt nätverk utrymme, vanligtvis mot en molnbaserad kontroll- och system för analys, ett federationsförtroende på sådana system. I vissa fall kan underlätta en molngateway omedelbart åtkomst till särskilda enheter från terminaler, till exempel surfplattor eller telefoner. ”Moln” är avsedd att referera till en dedikerad databearbetning system som inte har bundits till samma plats som anslutna enheter eller gateways för fältet i kontexten som beskrivs här. Också förhindra riktade fysisk åtkomst operativa åtgärder i en zon för molnet och exponeras inte nödvändigtvis att en ”offentliga” molninfrastruktur.  
 
-A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it. The edge of the zone is a distinct surface area where all external parties communicate through.
+En molngateway kan potentiellt mappas till ett nätverksvirtualisering överlägg till certifikatutfärdarhierarki gateway för moln och alla dess anslutna enheter eller gateways för fältet från annan nätverkstrafik. Molngatewayen själva är varken ett system för enheten eller en bearbetning eller lagringsutrymmet för enhetsdata; Dessa anläggningar gränssnittet med molngateway. Zonen molnet gateway innehåller själva molngatewayen tillsammans med alla fält gatewayer och enheter som är direkt eller indirekt kopplade till den. Kanten på zonen är en distinkta ytan där alla externa parter kommunicerar via.
 
-### <a name="the-services-zone"></a>The services zone
-A “service” is defined for this context as any software component or module that is interfacing with devices through a field- or cloud gateway for data collection and analysis, as well as for command and control.  Services are mediators. They act under their identity towards gateways and other subsystems, store and analyze data, autonomously issue commands to devices based on data insights or schedules and expose information and control capabilities to authorized end-users.
+### <a name="the-services-zone"></a>Zonen tjänster
+”Tjänst” har definierats för den här kontexten som en programvarukomponent eller modul som samverkar med enheter via en gateway fältet eller molnet för insamling och analys, samt för kommandot och kontroll.  Tjänster är medlare. De fungerar under sin identitet mot gateways och andra undersystem, lagra och analysera data, självständigt ge kommandon till enheter baserat på datainsikter eller scheman och avslöja information och styra funktioner för behöriga slutanvändarna.
 
-### <a name="information-devices-vs-special-purpose-devices"></a>Information-devices vs. special-purpose devices
-PCs, phones, and tablets are primarily interactive information devices. Phones and tablets are explicitly optimized around maximizing battery lifetime. They preferably turn off partially when not immediately interacting with a person, or when not providing services like playing music or guiding their owner to a particular location. From a systems perspective, these information technology devices are mainly acting as proxies towards people. They are “people actuators” suggesting actions and “people sensors” collecting input. 
+### <a name="information-devices-vs-special-purpose-devices"></a>Information enheter jämfört med särskilda enheter
+Datorer, telefoner och surfplattor är främst interaktiv information enheter. Telefoner och surfplattor är uttryckligen optimerade runt maximera batteri livslängd. De helst inaktivera delvis när inte omedelbart interagerar med en person eller när de inte tillhandahåller tjänster som spela musik eller styra sin ägare till en viss plats. Ur system fungerar enheterna information technology huvudsakligen som proxy för personer. De är ”personer motstånd” föreslå ”personer sensorer” samla in indata och åtgärder. 
 
-Special-purpose devices, from simple temperature sensors to complex factory production lines with thousands of components inside them, are different. These devices are much more scoped in purpose and even if they provide some user interface, they are largely scoped to interfacing with or be integrated into assets in the physical world. They measure and report environmental circumstances, turn valves, control servos, sound alarms, switch lights, and do many other tasks. They help to do work for which an information device is either too generic, too expensive, too big, or too brittle. The concrete purpose immediately dictates their technical design as well the available monetary budget for their production and scheduled lifetime operation. The combination of these two key factors constrains the available operational energy budget, physical footprint, and thus available storage, compute, and security capabilities.  
+Särskilda enheter, är från enkla temperatursensorer till komplexa factory produktion rader med tusentals komponenter i dem, olika. Dessa enheter är mycket mer begränsade i syfte och även om de tillhandahåller vissa användargränssnittet i hög grad är begränsade till fingrarna med eller integreras i tillgångar i den fysiska världen. De mått och rapportera miljömässiga omständigheter, aktivera ventiler, styra servos, ljud larm, Växla ljus och utföra andra uppgifter. De bidrar till att den fungerar som en information-enhet är antingen för Allmänt för dyr, för stort eller för sprödbrott. Konkret syftet avgör omedelbart sina tekniska designen som också tillgängliga monetära budgeten för produktions- och schemalagda livstid igen. Kombinationen av dessa två viktiga faktorer begränsar tillgängliga operativa energi budget fysiska storleken och därmed tillgängligt lagringsutrymme beräknings- och säkerhetsfunktioner.  
 
-If something “goes wrong” with automated or remote controllable devices, for example, physical defects or control logic defects to willful unauthorized intrusion and manipulation. The production lots may be destroyed, buildings may be looted or burned down, and people may be injured or even die. This is, of course, a whole different class of damage than someone maxing out a stolen credit card's limit. The security bar for devices that make things move, and also for sensor data that eventually results in commands that cause things to move, must be higher than in any e-commerce or banking scenario. 
+Om något ”går fel” automatiserad eller fjärråtkomst kan kontrolleras enheter, till exempel fel fysiska fel eller logik willful obehöriga intrång och manipulation. Produktion många kan förstöras, byggnader kan looted eller bränt och personer kan vara skadade eller även die. Detta är naturligtvis en helt annan klass skadan än någon ökar ett stulna kreditkort gränsen. Säkerhetsfältet för enheter som sätt att flytta och för sensordata som slutligen leder kommandon som orsakar saker att flytta, måste vara högre än i e-handel eller banktjänstscenario. 
 
-### <a name="device-control-and-device-data-interactions"></a>Device control and device data interactions
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+### <a name="device-control-and-device-data-interactions"></a>Kontroll av enhet och enheten data interaktioner
+Den anslutna särskilda enheter har ett stort antal potentiella interaktion ytan områden och interaktion mönster, som måste beaktas för att tillhandahålla ett ramverk för att skydda digital åtkomst till dessa enheter. Termen ”digitala åtkomst” används här att skilja från alla åtgärder som utförs via direkt enhetsinteraktion där åtkomstsäkerhet tillhandahålls via fysiska åtkomstkontroll. Till exempel placera enheten i en plats med ett lås på dörren. Även om fysisk åtkomst kan nekas med hjälp av programvara och maskinvara, vidtas åtgärder för att förhindra fysisk åtkomst leder till system störningar. 
 
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention while threat modeling. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment. 
+Vi utforska interaktion mönster ska vi titta på ”enhetskontroll” och ”enhetsdata” med samma nivå av kontrolleras när hotmodellering. ”Enhetskontroll” kan klassificeras som all information som har angetts för en enhet av part med målet att ändra eller påverka sitt beteende mot dess tillstånd eller tillståndet för sin miljö. ”Enhetsdata” kan klassificeras som all information som en enhet genererar en annan part om dess tillstånd och observerade tillståndet för sin miljö. 
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Threat modeling the Azure IoT reference architecture
-Microsoft uses the framework outlined above to do threat modelling for Azure IoT. In the section below we therefore use the concrete example of Azure IoT Reference Architecture to demonstrate how to think about threat modelling for IoT and how to address the threats identified. In our case we identified four main areas of focus:
+## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Hot modeling Azure IoT-Referensarkitektur
+Microsoft använder ramen som beskrivits ovan för att hot modellering för Azure IoT. I avsnittet nedan använder vi därför konkreta exempel på Azure IoT-Referensarkitektur för att demonstrera hur du tycker om hot modellering för IoT och åtgärda hot som identifieras. I vårt fall har identifierat fyra huvudsakliga områden i fokus:
 
-* Devices and Data Sources,
-* Data Transport,
-* Device and Event Processing, and
+* Enheter och datakällor
+* Datatransport
+* Enheten och händelsebearbetning, och
 * Presentation
 
-![Threat Modeling for Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png) 
+![Hot modellering för Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png) 
 
-The diagram below provides a simplified view of Microsoft’s IoT Architecture using a Data Flow Diagram model that is used by the Microsoft Threat Modeling Tool:
+Diagrammet nedan ger en förenklad vy av Microsofts IoT-arkitekturen med hjälp av en modell för Flödesdiagram för Data som används av hot Modeling-verktyget:
 
-![Threat Modeling for Azure IoT using MS Threat Modeling Tool](media/iot-security-architecture/iot-security-architecture-fig3.png)
+![Hot modellering för Azure IoT verktyget MS hot modellering](media/iot-security-architecture/iot-security-architecture-fig3.png)
 
-It is important to note that the architecture separates the device and gateway capabilities. This allows the user to leverage gateway devices that are more secure: they are capable of communicating with the cloud gateway using secure protocols, which typically requires greater processing overhead that a native device  - such as a thermostat - could provide on its own. In the Azure services zone, we assume that the Cloud Gateway is represented by the Azure IoT Hub service.
+Det är viktigt att notera att arkitekturen avgränsar enheter och gateway-funktioner. Detta gör att användaren kan utnyttja gatewayenheter som är säkrare: de är kan kommunicera med molngatewayen med säkra protokoll, som kräver normalt större bearbetning omkostnader att tillhandahålla en ursprunglig enhet – till exempel en termostat - egen. I zonen Azure-tjänster förutsätter att Molngatewayen representeras av tjänsten Azure IoT Hub.
 
-### <a name="device-and-data-sourcesdata-transport"></a>Device and data sources/data transport
-This section explores the architecture outlined above through the lens of threat modeling and gives an overview of how we are addressing some of the inherent concerns. We will focus on the core elements of a threat model:
+### <a name="device-and-data-sourcesdata-transport"></a>Transport-enheten och data källor/data
+Det här avsnittet behandlar arkitekturen som beskrivs ovan via för hotmodellering och ger en översikt över hur diskuterar vi några av inbyggd problem. Vi kommer att inriktas på grundelementen i en hotmodell:
 
-* Processes (those under our control and external items)
-* Communication (also called data flows)
-* Storage (also called data stores)
+* Processer (de under våra kontroll och externa objekt)
+* Kommunikation (kallas även dataflöden)
+* Lagring (kallas även för datalager)
 
-#### <a name="processes"></a>Processes
-In each of the categories outlined in the Azure IoT architecture, we try to mitigate a number of different threats across the different stages data/information exists in: process, communication, and storage. Below we give an overview of the most common ones for the “process” category, followed by an overview of how these could be best mitigated: 
+#### <a name="processes"></a>Processer
+Vi försöker minimera ett antal olika hot mellan de olika stegen data/information finns i i var och en av de kategorier som beskrivs i Azure IoT-arkitekturen: processen, kommunikation och lagring. Nedan ger vi en översikt över vanligaste för kategorin ”process” följt av en översikt över hur dessa kunde bäst undvikas: 
 
-**Spoofing (S)**: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**(S)-förfalskning**: en angripare kan extrahera kryptografiska nyckelmaterial från en enhet, antingen på nivån programvara eller maskinvara och därefter åtkomst system med en annan fysisk eller virtuell enhet under identitet på enheten som nyckelmaterialet har hämtats från. En bra bild är fjärransluten kontroller som kan aktivera valfri TV och som är populära prankster verktyg.
 
-**Denial of Service (D)**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**Denial för tjänsten (D)**: en enhet kan återges inte klarar fungerar eller kommunikation med stör alternativknapp frekvenser eller skärande kablar. Till exempel rapporterar övervakning kamera som hade ström eller nätverket anslutningen avsiktligt blockerade inte data, alls.
 
-**Tampering (T)**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program. For example, an attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**Manipulering (T)**: en angripare kan helt eller delvis ersätta program som körs på enheten kan vara så att programmet ersatta utnyttja äkta identiteten för enheten om nyckelmaterialet eller kryptografiska verksamhet hålla viktiga material var tillgänglig för olaglig program. Till exempel att en angripare kan utnyttja extraherade nyckelmaterial för att fånga och utelämna data från enheten på kommunikationssökvägen och Ersätt den med falska data som har verifierats med stulna nyckelmaterial.
 
-**Information Disclosure (I)**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties. For example, an attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Avslöjande av information (I)**: om enheten kör behandlas för programvara, behandlas programvaran potentiellt kan läcka ut data till obehöriga personer. Till exempel att en angripare kan utnyttja extraherade nyckelmaterial för att mata in sig i kommunikationssökvägen mellan enheten och en domänkontrollant eller fältet gateway eller molngateway till siphon av information.
 
-**Elevation of Privilege (E)**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Höjning av privilegier (E)**: en enhet som har en specifik funktion kan tvingas att göra något annat. En ventilen är programmerad att öppna halvvägs kan till exempel att öppna ända.
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Komponent** | **Hot** | **Lösning** | **Risk** | **Implementering** |
 | --- | --- | --- | --- | --- |
-| Device |S |Assigning identity to the device and authenticating the device |Replacing device or part of the device with some other device. How do we know we are talking to the right device? |Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
-| TRID |Apply tamperproof mechanisms to the device for example by making it very hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are we sure, that device has not tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. | |
-| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it will allow the attack to perform operations not otherwise accessible. |Having authorization scheme for the device | |
-| Field Gateway |S |Authenticating the Field gateway to Cloud Gateway (cert based, PSK, Claim based,..) |If someone can spoof Field Gateway, then it can present itself as any device. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN). |
-| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. | |
-| E |Access control mechanism for Field Gateway | | | |
+| Enhet |S |Tilldela identitet till enheten och autentisering av enheten |Ersätt enhet eller en del av enheten med en annan enhet. Hur vet vi pratar vi på rätt enhet? |Autentisering av den enhet som använder Transport Layer Security (TLS) eller IPSec. Infrastrukturen ska ha stöd för med i förväg delad nyckel (PSK) på de enheter som inte kan hantera fullständig asymmetrisk kryptering. Använda Azure AD [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| TRID |Gäller tamperproof mekanismer för enheten till exempel genom att göra det mycket svårt att det går inte att extrahera nycklar och andra kryptografiska material från enheten. |Risken är om någon är manipulation enheten (fysiska störningar). Hur ska vi visst kan enheten inte har manipulerats. |Den mest effektiva begränsande faktorn är en betrodd platform module (TPM)-funktion som gör att lagra nycklar på särskilda-chip kretsar som nycklarna går inte att läsa, men kan endast användas för kryptografiska åtgärder som använder nyckeln men lämna aldrig ut nyckeln. Minne kryptering av enheten. Nyckelhantering för enheten. Koden för signering. | |
+| E |Med åtkomstkontroll på enheten. Auktoriseringsschema. |Om enheten kan för enskilda åtgärder som ska utföras baserat på kommandon från en extern källa eller även avslöjade sensorer kommer du att kunna angrepp att utföra åtgärder på ett annat tillgänglig. |Med auktoriseringsschema för enheten | |
+| Fältet Gateway |S |Autentisera fältet gateway till Molngateway (certifikatbaserad, PSK, anspråk baserat,...) |Om någon kan imitera fältet Gateway att den sig själv som en enhet. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Samma nyckel lagring och attestering gäller för enheter i allmänt – bästa möjliga är använda TPM. 6LowPAN tillägget för IPSec att stödja trådlösa Sensor nätverk (WSN). |
+| TRID |Skydda fältet Gateway mot manipulation (TPM)? |Bedrägeri som lura molnet gateway-tänka pratar till fältet gateway kan leda till avslöjande av information och data manipulation |Minne-kryptering, TPM'S, autentisering. | |
+| E |Åtkomstkontroll för fältet Gateway | | | |
 
-Here are some examples of threats in this category:
+Här följer några exempel på hot i den här kategorin:
 
-Spoofing: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from.
+Förfalskning: Kan en angripare extrahera kryptografiska nyckelmaterial från en enhet, antingen på programvara eller maskinvara och därefter åtkomst system med en annan fysisk eller virtuell enhet under identitet på enheten som nyckelmaterialet har hämtats från.
 
-**Denial of Service**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**DOS-attack**: en enhet kan återges inte klarar fungerar eller kommunikation med stör alternativknapp frekvenser eller skärande kablar. Till exempel rapporterar övervakning kamera som hade ström eller nätverket anslutningen avsiktligt blockerade inte data, alls.
 
-**Tampering**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**Manipulering**: en angripare kan helt eller delvis ersätta program som körs på enheten kan vara så att programmet ersatta utnyttja äkta identiteten för enheten om nyckelmaterialet eller kryptografiska verksamhet hålla viktiga material var tillgänglig för olaglig program.
 
-**Tampering**: A surveillance camera that’s showing a visible-spectrum picture of an empty hallway could be aimed at a photograph of such a hallway. A smoke or fire sensor could be reporting someone holding a lighter under it. In either case, the device may be technically fully trustworthy towards the system, but it will report manipulated information.
+**Manipulering**: kamera övervakning som visas en synliga spektrumet bild av ett tomt Hall kunde syftar på ett foto av sådana Hall. En rök eller brand sensor kunde reporting någon hålla en ljusare under den. I båda fallen enheten kan vara tekniskt fullständigt betrodd mot systemet, men den rapporteras behandlas för information.
 
-**Tampering**: An attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**Manipulering**: en angripare kan utnyttja extraherade nyckelmaterial för att fånga och utelämna data från enheten på kommunikationssökvägen och Ersätt den med falska data som har verifierats med stulna nyckelmaterial.
 
-**Tampering**: An attacker may partially or completely replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**Manipulering**: en angripare kan helt eller delvis ersätta program som körs på enheten kan vara så att programmet ersatta utnyttja äkta identiteten för enheten om nyckelmaterialet eller kryptografiska verksamhet hålla viktiga material var tillgänglig för olaglig program.
 
-**Information Disclosure**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties.
+**Avslöjande av information**: om enheten kör behandlas för programvara, behandlas programvaran potentiellt kan läcka ut data till obehöriga personer.
 
-**Information Disclosure**: An attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Avslöjande av information**: en angripare kan utnyttja extraherade nyckelmaterial för att mata in sig i kommunikationssökvägen mellan gateway-enhet och en domänkontrollant eller ett fält eller molngateway till siphon av information.
 
-**Denial of Service**: The device can be turned off or turned into a mode where communication is not possible (which is intentional in many industrial machines).
+**DOS-attack**: enheten kan stängas av eller aktiverat i ett läge där kommunikation är möjlig (vilket är avsiktlig i många industriella datorer).
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted
+**Manipulering**: enheten kan konfigureras för att fungera i ett tillstånd som är okända för kontrollsystem (utanför kända kalibreringsparametrar) och därför ger data som kan tolkas
 
-**Elevation of Privilege**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Rättighetsökning**: en enhet som har en specifik funktion kan tvingas att göra något annat. En ventilen är programmerad att öppna halvvägs kan till exempel att öppna ända.
 
-**Denial of Service**: The device can be turned into a state where communication is not possible.
+**DOS-attack**: enheten kan omvandlas till ett tillstånd där kommunikation är möjlig.
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted.
+**Manipulering**: enheten kan konfigureras för att fungera i ett tillstånd som är okända för kontrollsystem (utanför kända kalibreringsparametrar) och därför ger data som kan tolkas.
 
-**Spoofing/Tampering/Repudiation**: If not secured (which is rarely the case with consumer remote controls) an attacker can manipulate the state of a device anonymously. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**Förfalskning/Tampering/Repudiation**: om inte skyddade (vilket är det sällan med konsumenten remote kontroller) kan en angripare ändra tillståndet för en enhet anonymt. En bra bild är fjärransluten kontroller som kan aktivera valfri TV och som är populära prankster verktyg.
 
-#### <a name="communication"></a>Communication
-Threats around communication path between devices, devices and field gateways and device and cloud gateway. The table below has some guidance around open sockets on the device/VPN:
+#### <a name="communication"></a>Kommunikation
+Hot runt kommunikationssökvägen mellan enheter, enheter och fältet gateways och gateway-enhet och molnet. Tabellen nedan innehåller vägledning runt öppna sockets på enheten/VPN:
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Komponent** | **Hot** | **Lösning** | **Risk** | **Implementering** |
 | --- | --- | --- | --- | --- |
-| Device IoT Hub |TID |(D)TLS (PSK/RSA) to encrypt the traffic |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level. With custom protocols, we need to figure out how to protect them. In most cases, the communication takes place from the device to the IoT Hub (device initiates the connection). |
-| Device Device |TID |(D)TLS (PSK/RSA) to encrypt the traffic. |Reading data in transit between devices. Tampering with the data. Overloading the device with new connections |Security on the protocol level (MQTT/AMQP/HTTP/CoAP. With custom protocols, we need to figure out how to protect them. The mitigation for the DoS threat is to peer devices through a cloud or field gateway and have them only act as clients towards the network. The peering may result in a direct connection between the peers after having been brokered by the gateway |
-| External Entity Device |TID |Strong pairing of the external entity to the device |Eavesdropping the connection to the device. Interfering the communication with the device |Securely pairing the external entity to the device NFC/Bluetooth LE. Controlling the operational panel of the device (Physical) |
-| Field Gateway Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, we need to figure out how to protect them. |
-| Device Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, we need to figure out how to protect them. |
+| Enheten IoT-hubb |TID |(D) TLS (PSK/RSA) att kryptera trafiken |Avlyssning eller stör kommunikationen mellan enheten och gateway |Säkerhet på protokollnivå. Vi behöver ta reda på hur du skyddar dem med anpassade protokoll. I de flesta fall sker kommunikationen från enheten till IoT-hubben (enheten inleder anslutningen). |
+| Enheten enhet |TID |(D) TLS (PSK/RSA) att kryptera trafiken. |Läsningen av data som överförs mellan enheter. Manipulation av data. Överbelastning enheten med nya anslutningar |Säkerhet på protokollnivå (MQTT/AMQP/HTTP/CoAP. Vi behöver ta reda på hur du skyddar dem med anpassade protokoll. Lösning för DoS-hot är att peer-enheter via en moln- eller gateway och har endast act som klienter mot nätverket. Peering kan resultera i en direkt anslutning mellan peer-datorer efter att ha varit asynkrona av gateway |
+| Extern enhet enhet |TID |Stark länkning av den externa enheten till enheten |Avlyssning anslutningen till enheten. Stör enheten kommunikationen |Länkning av den externa enheten till enheten NFC/Bluetooth LE på ett säkert sätt. Kontrollera den operativa panelen på enheten (fysiska) |
+| Fältet Gateway Cloud Gateway |TID |TLS (PSK/RSA) att kryptera trafiken. |Avlyssning eller stör kommunikationen mellan enheten och gateway |Säkerhet på protokollnivå (MQTT/AMQP/HTTP/CoAP). Vi behöver ta reda på hur du skyddar dem med anpassade protokoll. |
+| Gateway för enhet moln |TID |TLS (PSK/RSA) att kryptera trafiken. |Avlyssning eller stör kommunikationen mellan enheten och gateway |Säkerhet på protokollnivå (MQTT/AMQP/HTTP/CoAP). Vi behöver ta reda på hur du skyddar dem med anpassade protokoll. |
 
-Here are some examples of threats in this category:
+Här följer några exempel på hot i den här kategorin:
 
-**Denial of Service**: Constrained devices are generally under DoS threat when they actively listen for inbound connections or unsolicited datagrams on a network, because an attacker can open many connections in parallel and not service them or service them very slowly, or the device can be flooded with unsolicited traffic. In both cases, the device can effectively be rendered inoperable on the network.
+**DOS-attack**: begränsad enheter är vanligtvis hotas DoS när de aktivt lyssna efter inkommande anslutningar eller oönskad datagram i ett nätverk, eftersom en angripare kan öppna många anslutningar parallellt och inte tjänsten dem eller tjänst dem mycket långsamt eller enheten kan vara översvämmat med oönskad trafik. I båda fallen måste återges enheten effektivt inte fungerar alls i nätverket.
 
-**Spoofing, Information Disclosure**: Constrained devices and special-purpose devices often have one-for-all security facilities like password or PIN protection, or they wholly rely on trusting the network, meaning they will grant access to information when a device is on the same network, and that network is often only protected by a shared key. That means that when the shared secret to device or network is disclosed, it is possible to control the device or observe data emitted from the device.  
+**Förfalskning, avslöjande av Information**: begränsad enheter och särskilda enheter har ofta en för alla säkerhet verksamhet som lösenord eller PIN-skydd eller de helt förlitar sig på betrodda nätverk, vilket innebär att de kommer att ge åtkomst till information om en enhet i samma nätverk och nätverket är ofta endast skyddas av en delad nyckel. Det innebär att när den delade hemligheten enhet eller nätverket lämnas, är det möjligt att styra enheten eller se data som sänds från enheten.  
 
-**Spoofing**: an attacker may intercept or partially override the broadcast and spoof the originator (man in the middle)
+**Förfalskning**: en angripare kan fånga upp eller delvis åsidosätta sändningen och förfalska avsändaren (man i mitten)
 
-**Tampering**: an attacker may intercept or partially override the broadcast and send false information 
+**Manipulering**: en angripare kan fånga upp eller delvis åsidosätta sändningen och skicka falsk information 
 
-**Information Disclosure:** an attacker may eavesdrop on a broadcast and obtain information without authorization **Denial of Service:** an attacker may jam the broadcast signal and deny information distribution
+**Avslöjande av information:** en angripare kan eavesdrop på en sändning och få information utan tillstånd **Denial of Service:** en angripare kan sylt broadcast signalen och neka information distribution
 
-#### <a name="storage"></a>Storage
-Every device and field gateway has some form of storage (temporary for queuing the data, operating system (OS) image storage).
+#### <a name="storage"></a>Lagring
+Varje enhet och fältet gateway har någon form av lagring (tillfälliga för queuing data, operativsystem (OS) bildlagring).
 
-| **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
+| **Komponent** | **Hot** | **Lösning** | **Risk** | **Implementering** |
 | --- | --- | --- | --- | --- |
-| Device storage |TRID |Storage encryption, signing the logs |Reading data from the storage (PII data), tampering with telemetry data. Tampering with queued or cached command control data. Tampering with configuration or firmware update packages while cached or queued locally can lead to OS and/or system components being compromised |Encryption, message authentication code (MAC) or digital signature. Where possible, strong access control through resource access control lists (ACLs) or permissions. |
-| Device OS image |TRID | |Tampering with OS /replacing the OS components |Read-only OS partition, signed OS image, Encryption |
-| Field Gateway storage (queuing the data) |TRID |Storage encryption, signing the logs |Reading data from the storage (PII data), tampering with telemetry data, tampering with queued or cached command control data. Tampering with configuration or firmware update packages (destined for devices or field gateway) while cached or queued locally can lead to OS and/or system components being compromised |BitLocker |
-| Field Gateway OS image |TRID | |Tampering with OS /replacing the OS components |Read-only OS partition, signed OS image, Encryption |
+| Enhetslagring |TRID |Lagringskryptering signering loggarna |Läsning av data från lagring (personligt identifierbar information data), manipulera telemetridata. Manipulera i kö eller cachelagrad kommandot kontrolldata. Manipulera konfiguration eller inbyggd programvara uppdateringspaket kan medan cachelagras eller köade lokalt leda till OS-och/eller system komponenter komprometteras |Kryptering, message authentication code (MAC) eller digital signatur. Möjligt, starkt åtkomstkontroll via resursåtkomst styra där listor (ACL) eller behörigheter. |
+| Enhetens OS-bild |TRID | |Manipulera OS / ersätta OS-komponenter |OS-partitionen är skrivskyddad, signerade OS-avbildning, kryptering |
+| Fältet Gateway-lagring (queuing data) |TRID |Lagringskryptering signering loggarna |Läsning av data från lagring (personligt identifierbar information data), manipulera telemetridata, manipulera i kö eller cachelagrad kommandot kontrolldata. Manipulera konfiguration eller inbyggd programvara uppdateringspaket (avsedda för enheter eller fältet gateway) kan medan cachelagras eller köade lokalt leda till OS-och/eller system komponenter komprometteras |BitLocker |
+| Fältet Gateway OS-avbildningen |TRID | |Manipulera OS / ersätta OS-komponenter |OS-partitionen är skrivskyddad, signerade OS-avbildning, kryptering |
 
-### <a name="device-and-event-processingcloud-gateway-zone"></a>Device and event processing/cloud gateway zone
-A cloud gateway is system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways, and where operational measures prevent targeted physical access but is not necessarily to a “public cloud” infrastructure.  A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it.
+### <a name="device-and-event-processingcloud-gateway-zone"></a>Enheten och händelsen bearbetning eller ett moln gateway zon
+En molngateway är system som aktiverar fjärrkommunikation från och till enheter eller gateways för fältet från flera olika platser över offentligt nätverk utrymme, vanligtvis mot en molnbaserad kontroll- och system för analys, ett federationsförtroende på sådana system. I vissa fall kan underlätta en molngateway omedelbart åtkomst till särskilda enheter från terminaler, till exempel surfplattor eller telefoner. Kontexten som beskrivs här ”moln” är avsedd att referera till en dedikerad databearbetning system som inte har bundits till samma plats som den anslutna enheter eller fältet gateways och där operativa åtgärder för att förhindra fysisk åtkomst som mål men inte nödvändigtvis att en ”offentliga” molninfrastruktur.  En molngateway kan potentiellt mappas till ett nätverksvirtualisering överlägg till certifikatutfärdarhierarki gateway för moln och alla dess anslutna enheter eller gateways för fältet från annan nätverkstrafik. Molngatewayen själva är varken ett system för enheten eller en bearbetning eller lagringsutrymmet för enhetsdata; Dessa anläggningar gränssnittet med molngateway. Zonen molnet gateway innehåller själva molngatewayen tillsammans med alla fält gatewayer och enheter som är direkt eller indirekt kopplade till den.
 
-Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Please follow [SDL](http://www.microsoft.com/sdl) process for designing and building this service. 
+Molngatewayen är främst anpassade inbyggda program som körs som en tjänst med exponerade slutpunkter som fältet gateway och enheter att ansluta. Det måste därför utformas med säkerhet i åtanke. Följ [SDL](http://www.microsoft.com/sdl) processer för att designa och skapa den här tjänsten. 
 
-#### <a name="services-zone"></a>Services zone
-A control system (or controller) is a software solution that interfaces with a device, or a field gateway, or cloud gateway for the purpose of controlling one or multiple devices and/or to collect and/or store and/or analyze device data for presentation, or subsequent control purposes. Control systems are the only entities in the scope of this discussion that may immediately facilitate interaction with people. The exception are intermediate physical control surfaces on devices, like a switch that allows a person to turn the device off or change other properties, and for which there is no functional equivalent that can be accessed digitally. 
+#### <a name="services-zone"></a>Zonen för tjänster
+Kontrollsystem (eller domänkontrollant) är en programvarulösning som har kontakt med en enhet eller en fältet gateway eller molngateway för att styra en eller flera enheter och/eller för att samla in och/eller lagra och analysera data på enheten för presentation eller efterföljande kontroll syften. System är endast enheter i omfånget för den här diskussionen som kan underlätta interaktion med personer omedelbart. Undantaget är mellanliggande fysisk kontroll på portalen innehåller på enheter som en växel som gör att en person för att inaktivera enheten eller ändra andra egenskaper och där det inte finns ingen funktionell ekvivalent som kan nås digitalt. 
 
-Intermediate physical control surfaces are those where any sort of governing logic constrains the function of the physical control surface such that an equivalent function can be initiated remotely or input conflicts with remote input can be avoided – such intermediated control surfaces are conceptually attached to a local control system that leverages the same underlying functionality as any other remote control system that the device may be attached to in parallel. Top threats to the cloud computing can be read at [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) page.
+Mellanliggande fysisk kontroll på portalen innehåller är sådana där alla slags styr logik avgränsar funktionen av fysiska yta så att en motsvarande funktion kan initieras via fjärranslutning eller inkommande står i konflikt med fjärråtkomst indata kan undvikas – sådana intermediated kontrollen hämtar begreppsmässigt är ansluten till ett lokalt system som använder samma underliggande funktioner som alla andra fjärrstyrning system som enheten kan kopplas till parallellt. Övre hot mot cloud computing-lösningar kan läsas på [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) sidan.
 
-## <a name="additional-resources"></a>Additional resources
-Refer to the following articles for additional information:
+## <a name="additional-resources"></a>Ytterligare resurser
+Se följande artiklar för ytterligare information:
 
-* [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-* [Microsoft Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
+* [SDL hot modellering verktyget](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
+* [Microsoft Azure IoT Referensarkitektur](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
 

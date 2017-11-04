@@ -1,25 +1,25 @@
-## <a name="wordpress-and-azure-app-service"></a>WordPress and Azure App Service
-* [What is WordPress?](https://wordpress.org/)
-* [How to purchase ClearDB Shared MySQL hosting for your WordPress app](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
-* [How to Purchase ClearDB dedicated MySQL cluster for your WordPress app ](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
-* [Deploy a WordPress web app backed with MySQL replication cluster](/documentation/templates/wordpress-mysql-replication/)
-* [Build your own Master-Master MySQL Cluster using Percona Cluster](/documentation/templates/mysql-ha-pxc/) and [learn more on how to manage the cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
-* [Deploy WordPress backed by MySQL replication cluster with master-slave configuration](/documentation/templates/mysql-replication/)
-* [Deploy a WordPress app backed by SQL Azure DB managed by ProjectNami](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ProjectNami.ProjectNami?tab=Overview)
+## <a name="wordpress-and-azure-app-service"></a>WordPress och Azure Apptjänst
+* [Vad är WordPress?](https://wordpress.org/)
+* [Hur du köper ClearDB delade MySQL som är värd för din WordPress-appen](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
+* [Hur till köp ClearDB MySQL dedikerade kluster för WordPress-appen](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
+* [Distribuera en WordPress-webbapp som säkerhetskopieras med MySQL replikering kluster](/documentation/templates/wordpress-mysql-replication/)
+* [Skapa din egen Master-Master MySQL-kluster med Percona kluster](/documentation/templates/mysql-ha-pxc/) och [Lär dig mer om hur du hanterar klustret](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
+* [Distribuera WordPress backas upp av MySQL replikering kluster med master-slavserver konfiguration](/documentation/templates/mysql-replication/)
+* [Distribuera en WordPress-appen som backas upp av SQL Azure DB som hanteras av ProjectNami](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ProjectNami.ProjectNami?tab=Overview)
 
-## <a name="troubleshooting-wordpress-application"></a>Troubleshooting WordPress Application
-* [How to troubleshoot your WordPress app](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
-* [Gather usage  telemetry using Azure Application Insights  service](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
-* [Run Zend Zray profiler against your web app to diagnose issues and performance](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
-* [Use Kudu Support portal to diagnose and mitigate issues in real time](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
-* [Use various auto-heal rules to automate resolving real time incidents](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
-* [How to backup your web app](../articles/app-service/web-sites-backup.md) and [How to restore your web app](../articles/app-service/web-sites-restore.md)
+## <a name="troubleshooting-wordpress-application"></a>Felsökning av WordPress-program
+* [Felsökning av WordPress-appen](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
+* [Samla in telemetri med hjälp av Azure Application Insights-tjänsten](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
+* [Kör Zend Zray profileraren mot ditt webbprogram till att diagnostisera problem och prestanda](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
+* [Använda portalen för Kudu-stöd för att diagnostisera och åtgärda problem i realtid](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
+* [Använd olika auto-läka regler för att automatisera lösa incidenter i realtid](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
+* [Hur du säkerhetskopierar din webbapp](../articles/app-service/web-sites-backup.md) och [återställa ditt webbprogram](../articles/app-service/web-sites-restore.md)
 
-## <a name="performance"></a>Performance
-* [How to speed up WordPress web app](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
-* [How to enabled redis cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) using [redis cache plugin](https://wordpress.org/plugins/wp-redis/)
-* [Enable wincache with W3 total cache plugin](https://wordpress.org/plugins/w3-total-cache/)
-* [How to use supercache plugin to speed up WordPress app](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
-* [How to server caching using IIS output caching](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
-* [How to enabled browser caching for static content](http://www.iis.net/configreference/system.webserver/staticcontent)
+## <a name="performance"></a>Prestanda
+* [Hur du snabbare WordPress-webbapp](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
+* [Hur du aktiverade redis-cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) med [redis cache-plugin-programmet](https://wordpress.org/plugins/wp-redis/)
+* [Aktivera wincache med W3 cacheminnets totala plugin-program](https://wordpress.org/plugins/w3-total-cache/)
+* [Hur du använder supercache plugin-programmet för att påskynda WordPress-appen](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
+* [Hur till servern cachelagring med hjälp av IIS utdata cachelagring](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
+* [Hur du aktiverade webbläsare cachelagring för statiskt innehåll](http://www.iis.net/configreference/system.webserver/staticcontent)
 

@@ -15,20 +15,20 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 28b6885e7e74a44f4d00f4a804a93e74f6eec685
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Dölj tredjepartsprogram från användarens upplevelse i Azure Active Directory
 
 Om du har en tredje parts-program (en app som publicerats av andra än Microsoft) att du inte vill visas på användarnas åtkomst paneler eller Office 365 startprogram, finns alternativet att dölja den här app-panelen. Genom att dölja appanvändare fortfarande har behörighet att appen men kommer inte se dem visas på deras app startprogram. Du måste ha behörighet att hantera enterprise-appen och du måste vara global administratör för katalogen.
 
-## <a name="hiding-a-users-access-panel"></a>Dölja åtkomstpanelen för en användare
-Använd följande steg för att dölja en användares åtkomstpanelen och Office 365 app startprogram
+## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Dölja en tredjeparts-app från användarens upplevelse
+Använd följande steg för att dölja en tredjeparts-app från en användares åtkomstpanelen och Office 365 app startprogram
 
-### <a name="how-do-i-hide-an-app-from-users-access-panel-and-o365-app-launchers"></a>Hur döljer en app från användarens åtkomstpanelen och O365 app startprogram?
+### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Hur döljer en tredjeparts-app från användarens åtkomstpanelen och O365 app startprogram?
 
 1.  Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 2.  Välj **fler tjänster**, ange **Azure Active Directory** i textrutan och välj sedan **RETUR**.

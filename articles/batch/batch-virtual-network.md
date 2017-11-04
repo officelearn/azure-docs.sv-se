@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-dotren
-ms.openlocfilehash: 3c62bff7ba37f7e45d73fa2cf67a4aee3b4a7a38
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch-pool i ett virtuellt nätverk
 
@@ -62,7 +62,12 @@ För att säkerställa att det fungerar Azure Batch-pool compute-noder i ett vir
 * Batch-tjänsten måste kommunicera med poolen compute-noder för schemalagda aktiviteter. Lägg till en användardefinierad väg för varje IP-adress som används av Batch-tjänsten i den region där Batch-kontot finns om du vill aktivera den här kommunikationen. Kontakta Azure-supporten om du vill hämta listan över IP-adresser för Batch-tjänsten.
 
 * Se till att all utgående trafik till Azure Storage (särskilt URL: er för formuläret `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, och `<account>.blob.core.windows.net`) inte blockeras via din lokala nätverksenhet.
-    
+
+När du lägger till en användardefinierad väg definiera vägen för varje relaterade Batch IP-adressprefixet och ange **nästa hopptyp** till **Internet**. Se följande exempel:
+
+![Användardefinierad väg](./media/batch-virtual-network/user-defined-route.png)
+
 ## <a name="next-steps"></a>Nästa steg
 
 - En detaljerad översikt över Batch finns [utveckla storskaliga parallell compute lösningar med Batch](batch-api-basics.md).
+- Mer information om hur du skapar en användardefinierad väg finns [skapa en användardefinierad väg - Azure-portalen](../virtual-network/create-user-defined-route-portal.md).

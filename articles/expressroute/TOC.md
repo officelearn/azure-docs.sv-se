@@ -41,6 +41,7 @@
 ## Konfigurera en router för ExpressRoute
 ### [Konfigurera en router](expressroute-config-samples-routing.md)
 ### [Exempel på routerkonfigurationer för NAT](expressroute-config-samples-nat.md)
+## [Konfigurera övervakare av nätverksprestanda för ExpressRoute](how-to-npm.md)
 
 ## Metodtips
 ### [Bästa metoder för nätverkssäkerhet och molntjänster](../best-practices-network-security.md)

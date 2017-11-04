@@ -1,29 +1,29 @@
-## <a name="specifying-formats"></a>Specifying formats
-Azure Data Factory supports the following format types:
+## <a name="specifying-formats"></a>Ange format
+Azure Data Factory har stöd för följande typer av format:
 
-* [Text Format](#specifying-textformat)
-* [JSON Format](#specifying-jsonformat)
-* [Avro Format](#specifying-avroformat)
-* [ORC Format](#specifying-orcformat)
-* [Parquet Format](#specifying-parquetformat)
+* [Textformat](#specifying-textformat)
+* [JSON-Format](#specifying-jsonformat)
+* [Avro-format](#specifying-avroformat)
+* [ORC-format](#specifying-orcformat)
+* [Parquet-format](#specifying-parquetformat)
 
-### <a name="specifying-textformat"></a>Specifying TextFormat
-If you want to parse the text files or write the data in text format, set the `format` `type` property to **TextFormat**. You can also specify the following **optional** properties in the `format` section. See [TextFormat example](#textformat-example) section on how to configure.
+### <a name="specifying-textformat"></a>Ange TextFormat
+Om du vill parsa textfilerna eller skriva data i textformat anger du egenskapen `format` `type` till **TextFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
 
-| Property | Description | Allowed values | Required |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| columnDelimiter |The character used to separate columns in a file. You can consider to use a rare unprintable char which not likely exists in your data: e.g. specify "\u0001" which represents Start of Heading (SOH). |Only one character is allowed. The **default** value is **comma (',')**. <br/><br/>To use an Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. |No |
-| rowDelimiter |The character used to separate rows in a file. |Only one character is allowed. The **default** value is any of the following values on read: **["\r\n", "\r", "\n"]** and **"\r\n"** on write. |No |
-| escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define ‘$’ as the escape character and use string "Hello$, world" in the source. |No |
-| quoteChar |The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. |No |
-| nullValue |One or more characters used to represent a null value. |One or more characters. The **default** values are **"\N" and "NULL"** on read and **"\N"** on write. |No |
-| encodingName |Specify the encoding name. |A valid encoding name. see [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Example: windows-1250 or shift_jis. The **default** value is **UTF-8**. |No |
-| firstRowAsHeader |Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |True<br/>**False (default)** |No |
-| skipLineCount |Indicates the number of rows to skip when reading data from input files. If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |Integer |No |
-| treatEmptyAsNull |Specifies whether to treat null or empty string as a null value when reading data from an input file. |**True (default)**<br/>False |No |
+| columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Överväg att använda ett sällsynt icke utskrivbart tecken som sannolikt inte finns i dina data: använd till exempel "\u0001" som representerar rubrikens början (SOH, Start of Heading). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda ett Unicode-tecken letar du upp motsvarande kod i avsnittet med [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters). |Nej |
+| rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |Nej |
+| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: Om du använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel: "Hello, world") kan du definiera "$" som escape-tecken och använda strängen "$Hello, world" i källan. |Nej |
+| quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Nej |
+| nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |Nej |
+| encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Nej |
+| firstRowAsHeader |Anger om den första raden ska behandlas som en rubrik. För en indatauppsättning läser Data Factory den första raden som en rubrik. För en utdatauppsättning skriver Data Factory den första raden som en rubrik. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/>**False (standard)** |Nej |
+| skipLineCount |Anger hur många rader som ska hoppas över vid läsning av data från indatafiler. Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. <br/><br/>Exempelscenarier finns i avsnittet med [användningsscenarier för `firstRowAsHeader` och `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Integer |Nej |
+| treatEmptyAsNull |Anger om du vill hantera null-strängar eller tomma strängar som ett null-värde vid läsning av data från en indatafil. |**True (standard)**<br/>False |Nej |
 
-#### <a name="textformat-example"></a>TextFormat example
-The following sample shows some of the format properties for TextFormat.
+#### <a name="textformat-example"></a>TextFormat-exempel
+Följande exempel visar några av formategenskaperna för TextFormat.
 
 ```json
 "typeProperties":
@@ -44,39 +44,39 @@ The following sample shows some of the format properties for TextFormat.
 },
 ```
 
-To use an `escapeChar` instead of `quoteChar`, replace the line with `quoteChar` with the following escapeChar:
+Om du vill använda ett `escapeChar` i stället för `quoteChar` ersätter du raden med `quoteChar` med följande escapeChar:
 
 ```json
 "escapeChar": "$",
 ```
 
-#### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Scenarios for using firstRowAsHeader and skipLineCount
-* You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata (for example: SQL schema). Specify `firstRowAsHeader` as true in the output dataset for this scenario.
-* You are copying from a text file containing a header line to a non-file sink and would like to drop that line. Specify `firstRowAsHeader` as true in the input dataset.
-* You are copying from a text file and want to skip a few lines at the beginning that contain no data or header information. Specify `skipLineCount` to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify `firstRowAsHeader`. If both `skipLineCount` and `firstRowAsHeader` are specified, the lines are skipped first and then the header information is read from the input file
+#### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Användningsscenarier för firstRowAsHeader och skipLineCount
+* Du kopierar från en källa som inte är filbaserad till en textfil och vill lägga till en rubrikrad som innehåller schemametadata (till exempel: SQL-schema). Ange `firstRowAsHeader` som true i utdatauppsättningen för det här scenariot.
+* Du kopierar från en textfil som innehåller en rubrikrad till en mottagare som inte är filbaserad och vill ignorera raden. Ange `firstRowAsHeader` som true i indatauppsättningen.
+* Du kopierar från en textfil och vill hoppa över några rader i början som antingen inte innehåller några data eller som innehåller rubrikinformation. Ange `skipLineCount` för att ange antalet rader som ska hoppas över. Om resten av filen innehåller en rubrikrad kan du också ange `firstRowAsHeader`. Om både `skipLineCount` och `firstRowAsHeader` anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen
 
-### <a name="specifying-jsonformat"></a>Specifying JsonFormat
-To **import/export JSON files as-is into/from Azure Cosmos DB**, see [Import/export JSON documents](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) section in the Azure Cosmos DB connector with details.
+### <a name="specifying-jsonformat"></a>Ange JsonFormat
+Till **import/export av JSON-filer som-är i/från Azure Cosmos DB**, se [Import/export JSON-dokument](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) avsnitt i Azure DB som Cosmos-koppling med information.
 
-If you want to parse the JSON files or write the data in JSON format, set the `format` `type` property to **JsonFormat**. You can also specify the following **optional** properties in the `format` section. See [JsonFormat example](#jsonformat-example) section on how to configure.
+Om du vill parsa JSON-filerna eller skriva data i JSON-format anger du egenskapen `format` `type` till **JsonFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example).
 
-| Property | Description | Required |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
-| jsonNodeReference | If you want to iterate and extract data from the objects inside an array field with the same pattern, specify the JSON path of that array. This property is supported only when copying data from JSON files. | No |
-| jsonPathDefinition | Specify the JSON path expression for each column mapping with a customized column name (start with lowercase). This property is supported only when copying data from JSON files, and you can extract data from object or array. <br/><br/> For fields under root object, start with root $; for fields inside the array chosen by `jsonNodeReference` property, start from the array element. See [JsonFormat example](#jsonformat-example) section on how to configure. | No |
-| encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
-| nestingSeparator |Character that is used to separate nesting levels. The default value is '.' (dot). |No |
+| filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Nej |
+| jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data från JSON-filer. | Nej |
+| jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data från JSON-filer, och du kan extrahera data från objekt eller matriser. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | Nej |
+| encodingName |Ange kodningsnamnet. En lista över giltiga kodningsnamn finns i avsnittet om egenskapen [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Nej |
+| nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |Nej |
 
-#### <a name="json-file-patterns"></a>JSON file patterns
+#### <a name="json-file-patterns"></a>JSON-filmönster
 
-Copy activity can parse below patterns of JSON files:
+Kopieringsaktiviteten kan parsa under JSON-filmönster:
 
-- **Type I: setOfObjects**
+- **Typ I: setOfObjects**
 
-    Each file contains single object, or line-delimited/concatenated multiple objects. When this option is chosen in an output dataset, copy activity produces a single JSON file with each object per line (line-delimited).
+    Varje fil som innehåller ett enskilt objekt eller flera radavgränsade/sammanfogade objekt. När det här alternativet väljs i en utdatauppsättning genererar kopieringsaktiviteten en enskild JSON-fil med ett objekt per rad (radavgränsade).
 
-    * **single object JSON example**
+    * **Exempel på JSON med enskilda objekt**
 
         ```json
         {
@@ -89,7 +89,7 @@ Copy activity can parse below patterns of JSON files:
         }
         ```
 
-    * **line-delimited JSON example**
+    * **Exempel med radavgränsad JSON**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -97,7 +97,7 @@ Copy activity can parse below patterns of JSON files:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **concatenated JSON example**
+    * **Exempel med sammanfogad JSON**
 
         ```json
         {
@@ -126,9 +126,9 @@ Copy activity can parse below patterns of JSON files:
         }
         ```
 
-- **Type II: arrayOfObjects**
+- **Typ II: arrayOfObjects**
 
-    Each file contains an array of objects.
+    Varje fil innehåller en matris med objekt.
 
     ```json
     [
@@ -159,15 +159,15 @@ Copy activity can parse below patterns of JSON files:
     ]
     ```
 
-#### <a name="jsonformat-example"></a>JsonFormat example
+#### <a name="jsonformat-example"></a>JsonFormat-exempel
 
-**Case 1: Copying data from JSON files**
+**Fall 1: Kopiera data från JSON-filer**
 
-See below two types of samples when copying data from JSON files, and the generic points to note:
+Nedan följer två typer av exempel när du kopierar data från JSON-filer samt punkter att notera:
 
-**Sample 1: extract data from object and array**
+**Exempel 1: hämta data från objektet och matrisen**
 
-In this sample, you expect one root JSON object maps to single record in tabular result. If you have a JSON file with the following content:  
+I det här exemplet mappas ett JSON-rotobjekt till en enskild post i tabellformat. Om du har en JSON-fil med följande innehåll:  
 
 ```json
 {
@@ -192,16 +192,16 @@ In this sample, you expect one root JSON object maps to single record in tabular
     }
 }
 ```
-and you want to copy it into an Azure SQL table in the following format, by extracting data from both objects and array:
+och du vill kopiera den till en Azure SQL-tabell i följande format, genom att extrahera data från både objekten och matrisen:
 
 | id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
-The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
+Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) section for more details.
-- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. To copy data from array, you can use **array[x].property** to extract value of the given property from the xth object, or you can use **array[*].property** to find the value from any object containing such property.
+- Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i avsnittet [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) (Ange strukturdefinition för rektangulära datauppsättningar).
+- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Om du vill kopiera data från matrisen kan du använda **matris[x].egenskap** för att extrahera värdet för en viss egenskap från objekt nr x, eller så kan du använda **matris[*].egenskap** för att hitta värdet från alla objekt som innehåller en sådan egenskap.
 
 ```json
 "properties": {
@@ -238,9 +238,9 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
 }
 ```
 
-**Sample 2: cross apply multiple objects with the same pattern from array**
+**Exempel 2: korstillämpa flera objekt med samma mönster från en matris**
 
-In this sample, you expect to transform one root JSON object into multiple records in tabular result. If you have a JSON file with the following content:  
+I det här exemplet omvandlas ett JSON-rotobjekt till flera poster i tabellform. Om du har en JSON-fil med följande innehåll:  
 
 ```json
 {
@@ -263,7 +263,7 @@ In this sample, you expect to transform one root JSON object into multiple recor
     "city": [ { "sanmateo": "No 1" } ]
 }
 ```
-and you want to copy it into an Azure SQL table in the following format, by flattening the data inside the array and cross join with the common root info:
+som du vill kopiera till en Azure SQL-tabell i följande format genom att förenkla data i matrisen och korskoppla med den gemensamma rotinformationen:
 
 | ordernumber | orderdate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
@@ -271,11 +271,11 @@ and you want to copy it into an Azure SQL table in the following format, by flat
 | 01 | 20170122 | P2 | 13 | [{"sanmateo":"No 1"}] |
 | 01 | 20170122 | P3 | 231 | [{"sanmateo":"No 1"}] |
 
-The input dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically:
+Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
-- `structure` section defines the customized column names and the corresponding data type while converting to tabular data. This section is **optional** unless you need to do column mapping. See [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) section for more details.
-- `jsonNodeReference` indicates to iterate and extract data from the objects with the same pattern under **array** orderlines.
-- `jsonPathDefinition` specifies the JSON path for each column indicating where to extract the data from. In this example, "ordernumber", "orderdate" and "city" are under root object with JSON path starting with "$.", while "order_pd" and "order_price" are defined with path derived from the array element without "$.".
+- Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Mer information finns i avsnittet [Specifying structure definition for rectangular datasets](#specifying-structure-definition-for-rectangular-datasets) (Ange strukturdefinition för rektangulära datauppsättningar).
+- `jsonNodeReference` anger att data ska itereras och extraheras från objekten med samma mönster under **matrisens** orderLines.
+- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. I det här exemplet finns ”ordernumber”, ”orderdate” och ”city” under rotobjektet med JSON-sökvägen som börjar med ”$.”, medan ”order_pd” och ”order_price” definieras med sökvägen från matriselementet utan ”$.”.
 
 ```json
 "properties": {
@@ -313,16 +313,16 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
 }
 ```
 
-**Note the following points:**
+**Observera följande:**
 
-* If the `structure` and `jsonPathDefinition` are not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object.
-* If the JSON input has an array, by default the Copy Activity converts the entire array value into a string. You can choose to extract data from it using `jsonNodeReference` and/or `jsonPathDefinition`, or skip it by not specifying it in `jsonPathDefinition`.
-* If there are duplicate names at the same level, the Copy Activity picks the last one.
-* Property names are case-sensitive. Two properties with same name but different casings are treated as two separate properties.
+* Om `structure` och `jsonPathDefinition` inte har definierats i Data Factory-datauppsättningen identifierar kopieringsaktiviteten schemat från det första objektet och förenklar hela objektet.
+* Om JSON-indata har en matris konverterar kopieringsaktiviteten som standard hela matrisvärdet till en sträng. Du kan välja att extrahera data från den med hjälp av `jsonNodeReference` och/eller `jsonPathDefinition`, eller hoppa över det genom att inte ange den i `jsonPathDefinition`.
+* Om det finns dubblettnamn på samma nivå väljer kopieringsaktiviteten det sista.
+* Egenskapsnamn är skiftlägeskänsliga. Två egenskaper med samma namn men med olika skiftlägen behandlas som två olika egenskaper.
 
-**Case 2: Writing data to JSON file**
+**Fall 2: Skriva data till JSON-fil**
 
-If you have below table in SQL Database:
+Anta att du har följande tabell i SQL Database:
 
 | id | order_date | order_price | order_by |
 | --- | --- | --- | --- |
@@ -330,7 +330,7 @@ If you have below table in SQL Database:
 | 2 | 20170120 | 3500 | Patrick |
 | 3 | 20170121 | 4000 | Jason |
 
-and for each record, you expect to write to a JSON object in below format:
+och att du för varje post vill skriva till ett JSON-objekt i formatet nedan:
 ```json
 {
     "id": "1",
@@ -342,7 +342,7 @@ and for each record, you expect to write to a JSON object in below format:
 }
 ```
 
-The output dataset with **JsonFormat** type is defined as follows: (partial definition with only the relevant parts). More specifically, `structure` section defines the customized property names in destination file, `nestingSeparator` (default is ".") will be used to identify the nest layer from the name. This section is **optional** unless you want to change the property name comparing with source column name, or nest some of the properties.
+Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt definierar avsnittet `structure` de anpassade egenskapsnamnen i målfilen, och `nestingSeparator` (standardvärdet är ”.”) används för att identifiera kapslingslagret från namnet. Det här avsnittet är **valfritt** såvida du inte vill ändra egenskapsnamnet som jämförs med källkolumnnamnet, eller kapsla vissa av egenskaperna.
 
 ```json
 "properties": {
@@ -373,8 +373,8 @@ The output dataset with **JsonFormat** type is defined as follows: (partial defi
 }
 ```
 
-### <a name="specifying-avroformat"></a>Specifying AvroFormat
-If you want to parse the Avro files or write the data in Avro format, set the `format` `type` property to **AvroFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
+### <a name="specifying-avroformat"></a>Ange AvroFormat
+Om du vill parsa Avro-filerna eller skriva data i Avro-format anger du egenskapen `format` `type` till **AvroFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 
 ```json
 "format":
@@ -383,14 +383,14 @@ If you want to parse the Avro files or write the data in Avro format, set the `f
 }
 ```
 
-To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Om du vill använda Avro-formatet i en Hive-tabell går du [självstudiekursen om Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
-Note the following points:  
+Observera följande punkter:  
 
-* [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions and fixed).
+* [Komplexa datatyper](http://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, mappningar, unioner och fasta).
 
-### <a name="specifying-orcformat"></a>Specifying OrcFormat
-If you want to parse the ORC files or write the data in ORC format, set the `format` `type` property to **OrcFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
+### <a name="specifying-orcformat"></a>Ange OrcFormat
+Om du vill parsa ORC-filerna eller skriva data i ORC-format ange du egenskapen `format` `type` till **OrcFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 
 ```json
 "format":
@@ -400,17 +400,17 @@ If you want to parse the ORC files or write the data in ORC format, set the `for
 ```
 
 > [!IMPORTANT]
-> If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+> Om du inte kopierar ORC-filer **som de är** mellan lokala och molnbaserade datalager måste du installera JRE 8 (Java Runtime Environment) på din gateway-dator. En 64-bitars gateway kräver 64-bitars JRE och en 32-bitars gateway kräver 32-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605). Välj lämplig version.
 >
 >
 
-Note the following points:
+Observera följande punkter:
 
-* Complex data types are not supported (STRUCT, MAP, LIST, UNION)
-* ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
+* Komplexa datatyper stöds inte (STRUCT, MAP, LIST, UNION)
+* ORC-filen har tre [komprimeringsrelaterade alternativ](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB och SNAPPY. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
-### <a name="specifying-parquetformat"></a>Specifying ParquetFormat
-If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
+### <a name="specifying-parquetformat"></a>Ange ParquetFormat
+Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egenskapen `format` `type` till **ParquetFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 
 ```json
 "format":
@@ -419,11 +419,11 @@ If you want to parse the Parquet files or write the data in Parquet format, set 
 }
 ```
 > [!IMPORTANT]
-> If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+> Om du inte kopierar Parquet-filer **som de är** mellan lokala och molnbaserade datalager måste du installera JRE 8 (Java Runtime Environment) på din gateway-dator. En 64-bitars gateway kräver 64-bitars JRE och en 32-bitars gateway kräver 32-bitars JRE. Du hittar båda versionerna [här](http://go.microsoft.com/fwlink/?LinkId=808605). Välj lämplig version.
 >
 >
 
-Note the following points:
+Observera följande punkter:
 
-* Complex data types are not supported (MAP, LIST)
-* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
+* Komplexa datatyper stöds inte (MAP, LIST)
+* Parquet-filer har följande komprimeringsrelaterade alternativ: NONE, SNAPPY, GZIP och LZO. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.

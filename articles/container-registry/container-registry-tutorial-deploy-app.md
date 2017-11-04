@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 749a536fea50d0f45b021cfeaffe8e493faa9b3f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 90d4b51dfaad409298f72887480dfaf827aef9f0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>Distribuera webbapp från Azure-behållare registret
 
@@ -36,7 +36,7 @@ Om du inte har skapat ett geo-replikerade register och pushas bild av container 
 
 I nästa del av serien du uppdatera programmet och sedan push-en ny behållare avbildning till registret. Slutligen Bläddra du till varje Web App-instans som körs ska kunna se ändringen återspeglas automatiskt i både visar Azure Container registret geo-replikering och webhooks i åtgärden.
 
-## <a name="automatic-deployment-to-web-app-for-containers"></a>Automatisk distribution till webbprogram för behållare
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>Automatisk distribution för Web Apps för behållare
 
 Azure Container registret ger stöd för distribution av program direkt till [Web Apps för behållare](../app-service/containers/index.yml). I den här kursen använder du Azure-portalen ska distribuera avbildningen behållaren skapade i föregående kursen till två web app planer finns i olika Azure-regioner.
 
@@ -48,11 +48,11 @@ I det här steget skapar du en Webbapp för behållare instans i den *västra US
 
 Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till registernyckeln som du skapade i föregående kursen.
 
-Välj **databaser** > **acr helloworld**, högerklicka på den **v1** tagg **taggar** och välj **Till apptjänst**.
+Välj **databaser** > **acr helloworld**, högerklicka på den **v1** tagg **taggar** och välj **Till webbprogrammet**.
 
 ![Distribuera till app service i Azure-portalen][deploy-app-portal-01]
 
-Under **webbprogrammet på Linux (förhandsversion)** som visas, ange följande värden för varje inställning:
+Under **Web App för behållare** som visas, ange följande värden för varje inställning:
 
 | Inställning | Värde |
 |---|---|
@@ -71,7 +71,7 @@ När installationen är klar använder kan du visa körs programmet genom att g�
 
 I portalen, Välj **Apptjänster**, och sedan webbprogrammet etableras i föregående steg. I det här exemplet webbprogrammet med namnet *uniqueregistryname westus*.
 
-Välj länkade URL: en för webbappen i upp till höger på den **översikt över App Service** att visa program som körs i webbläsaren.
+Välj länkade URL: en för webbappen i upp till höger på den **Apptjänst** översikt för att visa programmet som körs i webbläsaren.
 
 ![Webbprogrammet på Linux-konfiguration i Azure-portalen][deploy-app-portal-04]
 
@@ -81,7 +81,7 @@ När Docker-avbildningen har distribuerats från registret georeplikerad behåll
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Distribuera andra webbprogram för behållare instans
 
-Använd proceduren som beskrivs i föregående avsnitt för att distribuera en andra webbprogram för att den *östra USA* region. Under **webbprogrammet på Linux (förhandsversion)**, ange följande värden:
+Använd proceduren som beskrivs i föregående avsnitt för att distribuera en andra webbprogram för att den *östra USA* region. Under **Web App för behållare**, ange följande värden:
 
 | Inställning | Värde |
 |---|---|

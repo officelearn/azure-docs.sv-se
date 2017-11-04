@@ -9,19 +9,18 @@ manager: jhubbard
 editor: cjgronlund
 ms.assetid: 7467f422-b77d-4b60-9cb5-0f1ec17ec565
 ms.service: sql-database
-ms.custom: compare
-ms.workload: data-management
+ms.custom: DBs & servers
+ms.workload: Active
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 48e95d51cb9414fb5ff50e587645ee6fd46abd5b
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: 436166fcb0fa9103c6b702b63d93a0b222d536d0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på Azure Virtual Machines (IaaS)
 Azure har två alternativ för att hantera SQL Server-arbetsbelastningar i Microsoft Azure:
@@ -64,13 +63,12 @@ Följande tabell sammanfattar de huvudsakliga egenskaperna för SQL Database och
 | --- | --- | --- |
 |  |Nya molnbaserade program med tidsbegränsningar på utveckling och marknadsföring. |Befintliga program som kräver snabb migrering till molnet med minimala ändringar. Snabba utvecklings- och test-scenarier där du inte vill köpa lokal SQL Server-maskinvara som inte är för produktion. |
 |  | Team som behöver inbyggd hög tillgänglighet, haveriberedskap och uppgradering för databasen. |Team som kan konfigurera och hantera hög tillgänglighet, haveriberedskap och korrigeringar för SQL Server. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. | |
-|  | Team som inte vill hantera de underliggande operativsystemen och konfigurationsinställningarna. |Om du behöver en anpassad miljö med fullständiga administrativa rättigheter. | |
-|  | Databaser på upp till 1 TB eller större databaser som kan vara [vågrätt eller lodrätt partitionerade](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) med ett skalbart mönster. |SQL Server-instanser med upp till 64 TB lagring. Instansen har stöd för så många databaser som behövs. | |
-|  | [Skapa programvara som en tjänst (SaaS)-program](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrera och utveckla företags- och hybridprogram. | |
+|  | Team som inte vill hantera de underliggande operativsystemen och konfigurationsinställningarna. |Du behöver en anpassad miljö med fullständiga administrativa rättigheter. | |
+|  | Databaser på upp till 4 TB eller större databaser som kan vara [vågrätt eller lodrätt partitionerad](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) ett skalbara mönster. |SQL Server-instanser med upp till 64 TB lagring. Instansen har stöd för så många databaser som behövs. | |
 |  | | |
 | **Resurser:** |Du vill inte använda IT-resurser för konfiguration och hantering av den underliggande infrastrukturen, utan vill fokusera på programnivån. |Du har några IT-resurser som ansvarar för konfiguration och hantering. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. |
 | **Totalkostnad för ägarskap:** |Eliminerar kostnaderna för maskinvara och reducerar de administrativa kostnaderna. |Eliminerar maskinvarukostnaderna. |
-| **Verksamhetskontinuitet:** |Utöver inbyggt feltolerant infrastruktur, erbjuder Azure SQL Database även funktioner som [automatiserad säkerhetskopiering](sql-database-automated-backups.md), [återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore), [geo-återställning](sql-database-recovery-using-backups.md#geo-restore) och [aktiv geo-replikering](sql-database-geo-replication-overview.md) för att öka verksamhetskontinuiteten. Mer information finns i [översikt över verksamhetskontinuitet i SQL Database](sql-database-business-continuity.md). |Med SQL Server på Azure Virtual Machines kan du konfigurera en lösning med hög tillgänglighet och haveriberedskap för din databas specifika behov. Du kan därmed få ett system som är höggradigt optimerat för just ditt program. Du kan själv testa och köra felväxling vid behov. Mer information finns i [Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
+| **Verksamhetskontinuitet:** |Förutom inbyggda infrastruktur feltolerans, Azure SQL Database tillhandahåller funktioner, t.ex [automatisk säkerhetskopiering](sql-database-automated-backups.md), [Point-In-Time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore), [geo-återställning](sql-database-recovery-using-backups.md#geo-restore), och [aktiv geo-replikering](sql-database-geo-replication-overview.md) att öka verksamhetskontinuiteten. Mer information finns i [översikt över verksamhetskontinuitet i SQL Database](sql-database-business-continuity.md). |Med SQL Server på Azure Virtual Machines kan du konfigurera en lösning med hög tillgänglighet och haveriberedskap för din databas specifika behov. Du kan därmed få ett system som är höggradigt optimerat för just ditt program. Du kan själv testa och köra felväxling vid behov. Mer information finns i [Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Hybridmoln:** |Ditt lokala program har åtkomst till data i Azure SQL Database. |Med SQL Server på virtuella Azure-datorer kan du ha program som kör delvis i molnet och delvis lokalt. Du kan till exempel utöka ditt lokala nätverk och Active Directory-domän till molnet via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Dessutom kan du lagra lokala datafiler i Azure Storage med [SQL Server-datafiler i Azure](http://msdn.microsoft.com/library/dn385720.aspx). Mer information finns i [Introduktion till SQL Server 2014 Hybridmoln](http://msdn.microsoft.com/library/dn606154.aspx). |
 |  | Har stöd för [SQL Server-transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx) som en prenumerant för att replikera data. |Har fullständigt stöd för [SQL Server-transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx), [AlwaysOn-tillgänglighetsgrupper](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services och loggöverföring för att replikera data. Dessutom finns fullständigt stöd för traditionella SQL Server-säkerhetskopieringar | |
 |  | | |
@@ -139,12 +137,11 @@ Välj **Azure SQL Database** om:
 
 Välj **SQL Server på virtuella Azure-datorer** om:
 
-* Du har befintliga lokala program som du vill migrera eller utöka till molnet, eller om du vill utveckla företagsprogram som är större än 1 TB. Den här lösningen har fördelar som till exempel fullständig kompatibilitet med SQL, stor databaskapacitet, full kontroll över SQL Server och Windows samt säker händelsedirigering nedåt (tunneling) till den lokala infrastrukturen. Lösningen minimerar kostnaderna för utveckling och ändringar av befintliga program.
+* Du har befintliga lokala program som du vill migrera eller utöka till molnet, eller om du vill skapa företagsprogram som är större än 4 TB. Den här lösningen har fördelar som till exempel fullständig kompatibilitet med SQL, stor databaskapacitet, full kontroll över SQL Server och Windows samt säker händelsedirigering nedåt (tunneling) till den lokala infrastrukturen. Lösningen minimerar kostnaderna för utveckling och ändringar av befintliga program.
 * Du har befintliga IT-resurser och kan själv hantera korrigeringar, säkerhetskopieringar och hög databastillgänglighet. Observera att vissa automatiska funktioner avsevärt förenklar dessa åtgärder. 
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [Din första Azure SQL Database](sql-database-get-started-portal.md) för att komma igång med SQL Database.
 * Se [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 * Se [Etablera en virtuell SQL Server-dator i Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) för att komma igång med SQL Server på virtuella Azure-datorer.
-
 

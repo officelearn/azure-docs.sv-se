@@ -1,14 +1,14 @@
-It is important to realize that there are two ways to configure an availability group listener in Azure. The ways differ in the type of Azure load balancer you use when you create the listener. The following table describes the differences:
+Det är viktigt att det finns två sätt att konfigurera en tillgänglighetsgruppslyssnare i Azure. Hur skiljer sig i typ av Azure belastningsutjämnare som du använder när du skapar lyssnaren. I följande tabell beskrivs skillnaderna:
 
-| Load balancer type | Implementation | Use when: |
+| Typer av belastningsutjämnare | Implementering | Använd när: |
 | --- | --- | --- |
-| **External** |Uses the *public virtual IP address* of the cloud service that hosts the virtual machines (VMs). |You need to access the listener from outside the virtual network, including from the Internet. |
-| **Internal** |Uses an *internal load balancer* with a private address for the listener. |You can access the listener only from within the same virtual network. This access includes site-to-site VPN in hybrid scenarios. |
+| **Externa** |Använder den *offentliga virtuella IP-adressen* av Molntjänsten som är värd för virtuella datorer (VM). |Du behöver åtkomst till lyssnaren från utanför det virtuella nätverket, inklusive från Internet. |
+| **Internt** |Använder en *intern belastningsutjämnare* med en privat adress för lyssnaren. |Du kan öppna lyssnaren endast från inom samma virtuella nätverk. Den här access innehåller plats-till-plats VPN för hybridscenarion. |
 
 > [!IMPORTANT]
-> For a listener that uses the cloud service's public VIP (external load balancer), as long as the client, listener, and databases are in the same Azure region, you will not incur egress charges. Otherwise, any data returned through the listener is considered egress, and it is charged at normal data-transfer rates. 
+> För en lyssnare som använder Molntjänsten offentliga VIP (extern belastningsutjämnare), så länge som klienten lyssnaren och databaser som finns i samma Azure-region, kommer du inte betalar utgång avgifter. Annars alla data som returneras via lyssnaren anses utgång och den debiteras med normal dataöverföring priser. 
 > 
 > 
 
-An ILB can be configured only on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use an ILB. For more information, see [Internal load balancer overview](../articles/load-balancer/load-balancer-internal-overview.md).
+En ILB kan konfigureras bara på virtuella nätverk med ett regionalt omfång. Befintliga virtuella nätverk som har konfigurerats för en tillhörighetsgrupp kan inte använda en ILB. Mer information finns i [översikt över intern belastningsutjämnare](../articles/load-balancer/load-balancer-internal-overview.md).
 

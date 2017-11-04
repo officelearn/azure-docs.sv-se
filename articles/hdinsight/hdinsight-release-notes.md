@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Viktig information för Hadoop-komponenter på Azure HDInsight
 
@@ -61,7 +61,7 @@ Den här artikeln innehåller information om den **senaste** uppdateringar med A
 
 * **Nya funktioner i Hive**. Se [Hortonworks dokumentationen](https://hortonworks.com/apache/hive/#section_4).
 
-* **Hive CLI utfasningen**: Hive CLI är inaktuell och kunder uppmuntras att använda Beeline i stället. Mer information finns i [Apache-dokumentationen](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Instruktioner om hur du använder Beeline med HDInsight finns [använder Beeline med HDInsight Hadoop-kluster](hdinsight-hadoop-use-hive-beeline.md).
+* **Hive CLI utfasningen**: Hive CLI är inaktuell och kunder uppmuntras att använda Beeline i stället. Mer information finns i [Apache-dokumentationen](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). Instruktioner om hur du använder Beeline med HDInsight finns [använder Beeline med HDInsight Hadoop-kluster](hadoop/apache-hadoop-use-hive-beeline.md).
 
 * **Nya funktioner i Apache Phoenix och HBase**.
     * Kvot för Lagringsstöd: ofta används i miljöer med flera innehavare så att begränsat lagringsutrymme på en per tabell och namnområdesnivån.

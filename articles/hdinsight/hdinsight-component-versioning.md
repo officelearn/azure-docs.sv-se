@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -174,7 +174,7 @@ Azure HDInsight erbjuder molntjänster för stordata i två kategorier: _Standar
 
 | HDInsight Premium-funktion | Beskrivning |
 | --- | --- |
-| Domänanslutna HDInsight-kluster |Ansluta till HDInsight-kluster till Azure Active Directory (AD Azure) domäner för säkerhet på företagsnivå. Du kan konfigurera en lista över anställda från ditt företag som kan autentisera till Azure AD för att logga in på ett HDInsight-kluster i HDInsight Premium. Enterprise-administratören kan konfigurera rollbaserad åtkomstkontroll för Hive-säkerhet med hjälp av [Apache Ranger](http://hortonworks.com/apache/ranger/) och begränsa åtkomst till data du använder bara så mycket som behövs. Administratören kan dessutom granska data som nås genom att anställda och ändringar för att få åtkomst till principer för åtkomstkontroll, vilket bidrar till att en hög grad av styrning av företagets resurser. Mer information finns i [konfigurera domänanslutna HDInsight-kluster](hdinsight-domain-joined-configure.md). |
+| Domänanslutna HDInsight-kluster |Ansluta till HDInsight-kluster till Azure Active Directory (AD Azure) domäner för säkerhet på företagsnivå. Du kan konfigurera en lista över anställda från ditt företag som kan autentisera till Azure AD för att logga in på ett HDInsight-kluster i HDInsight Premium. Enterprise-administratören kan konfigurera rollbaserad åtkomstkontroll för Hive-säkerhet med hjälp av [Apache Ranger](http://hortonworks.com/apache/ranger/) och begränsa åtkomst till data du använder bara så mycket som behövs. Administratören kan dessutom granska data som nås genom att anställda och ändringar för att få åtkomst till principer för åtkomstkontroll, vilket bidrar till att en hög grad av styrning av företagets resurser. Mer information finns i [konfigurera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-configure.md). |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>Klustertyper som stöds i HDInsight Premium
 I följande tabell visas de klustertyper som stöds i HDInsight Premium.

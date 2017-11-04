@@ -1,112 +1,112 @@
-# <a name="using-cdn-for-azure"></a>Using CDN for Azure
-The Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content by caching blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia and South America. For a current list of CDN node locations, see [Azure CDN Node Locations].
+# <a name="using-cdn-for-azure"></a>Med hjälp av CDN för Azure
+Den Azure innehåll innehållsleveransnätverk (CDN) ger utvecklare en global för att leverera innehåll med hög bandbredd genom cachelagring av blobbar och compute-instanser på fysiska noder i USA, Europa, Asien, Australien och Sydamerika statiskt innehåll. En aktuell lista över CDN-nodplatser finns [Azure CDN-Nodplatser].
 
-This task includes the following steps:
+Den här uppgiften innehåller följande steg:
 
-* [Step 1: Create a storage account](#Step1)
-* [Step 2: Create a new CDN endpoint for your storage account](#Step2)
-* [Step 3: Access your CDN content](#Step3)
-* [Step 4: Remove your CDN content](#Step4)
+* [Steg 1: Skapa ett lagringskonto](#Step1)
+* [Steg 2: Skapa en ny CDN-slutpunkt för ditt lagringskonto](#Step2)
+* [Steg 3: Komma åt din CDN-innehåll](#Step3)
+* [Steg 4: Ta bort CDN-innehåll](#Step4)
 
-The benefits of using CDN to cache Azure data include:
+Fördelarna med att använda CDN kan cachelagra Azure data omfattar:
 
-* Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content
-* Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch
+* Bättre prestanda och användarens upplevelse för slutanvändare som är långt från en innehållskälla och använder program där flera internet resor' krävs för att läsa in innehåll
+* Distribuerade storskaliga bättre hantera omedelbar hög belastning, exempelvis i början av en händelse, till exempel en produktlanseringen
 
-Existing CDN customers can now use the Azure CDN in the [Azure classic portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
+Befintliga CDN-kunder kan nu använda Azure CDN i den [klassiska Azure-portalen]. CDN är en funktion i tillägg till din prenumeration och har en separat [faktureringsavtal].
 
 <a id="Step1"> </a>
 
-<h2>Step 1: Create a storage account</h2>
+<h2>Steg 1: Skapa ett lagringskonto</h2>
 
-Use the following procedure to create a new storage account for a Azure subscription. A storage account gives access to Azure storage services. The storage account represents the highest level of the namespace for accessing each of the Azure storage service components: Blob services, Queue services, and Table services. For more information about the Azure storage services, see [Using the Azure Storage Services](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+Använd följande procedur för att skapa ett nytt lagringskonto för en Azure-prenumeration. Ett lagringskonto ger åtkomst till Azure storage-tjänster. Lagringskontot representerar den högsta nivån av namnområdet för åtkomst till alla komponenter för Azure storage-tjänsten: Blob-tjänster, Queue-tjänster och tabellen tjänster. Mer information om Azure-lagringstjänster finns [med hjälp av Azure Storage-tjänster](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 
-To create a storage account, you must be either the service administrator or a co-administrator for the associated subscription.
+Du måste vara tjänstadministratör eller en medadministratör för den associera prenumerationen om du vill skapa ett lagringskonto.
 
 > [!NOTE]
-> For information about performing this operation by using the Azure Service Management API, see the [Create Storage Account](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) reference topic.
+> Information om hur du utför den här åtgärden med hjälp av Azure Service Management API finns i [skapa Lagringskonto](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx) referensavsnittet.
 > 
 > 
 
-**To create a storage account for an Azure subscription**
+**Skapa ett lagringskonto för en Azure-prenumeration**
 
-1. Log into the [Azure classic portal].
-2. In the lower left corner, click **New**. In the **New** Dialog, select **Data Services**, then click **Storage**, then **Quick Create**.
+1. Logga in på den [klassiska Azure-portalen].
+2. I det nedre vänstra hörnet, klickar du på **ny**. I den **ny** väljer **datatjänster**, klicka på **lagring**, sedan **Snabbregistrering**.
    
-   The **Create Storage Account** dialog appears.
+   Den **skapa Lagringskonto** visas.
    
-   ![Create Storage Account][create-new-storage-account]
-3. In the **URL** field, type a subdomain name. This entry can contain from 3-24 lowercase letters and numbers.
+   ![Skapa Lagringskonto][create-new-storage-account]
+3. I den **URL** skriver du ett underdomännamn. Den här posten kan innehålla mellan 3 till 24 gemena bokstäver och siffror.
    
-    This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription. To address a container resource in the Blob service, you would use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you typed in **Enter a URL**:
+    Det här värdet blir värdnamnet inom URI: N som används för att adressera Blob, kö eller tabell resurser för prenumerationen. För att lösa en behållare resurs i Blob-tjänsten har du använder en URI i följande format, där  *&lt;StorageAccountLabel&gt;*  refererar till värdet du angav i **ange en URL**:
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;minbehållare&gt;*
    
-    **Important:** The URL label forms the subdomain of the storage  account URI and must be unique among all hosted services in  Azure.
+    **Viktigt:** URL: en etikett formulär underdomänen lagringskontot URI och måste vara unika bland alla värdbaserade tjänster i Azure.
    
-    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
-4. From the **Region/Affinity Group** drop-down list, select a region or affinity group for the storage account. Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using. This can improve performance, and no charges are incurred for egress.  
+    Det här värdet används också som namn på det här lagringskontot i portalen eller vid åtkomst till det här kontot programmässigt.
+4. Från den **Region/Tillhörighetsgrupp** listrutan, Välj en region eller mappning mellan gruppen för lagringskontot. Välj en tillhörighetsgrupp i stället för en region om du vill storage-tjänster i samma datacenter med andra Windows Azure-tjänster som du använder. Detta kan förbättra prestanda och inga avgifter tas ut utgående.  
    
-   **Note:** To create an affinity group, open the **Settings** area of the Management Portal, click **Affinity Groups**, and then click either **Add an affinity group** or **Add**. You can also create and manage affinity groups using the Windows Azure Service Management API. For more information, see [Operations on Affinity Groups].
-5. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
-6. Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
-7. To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
+   **Obs:** för att skapa en tillhörighetsgrupp, öppna den **inställningar** område i hanteringsportalen klickar du på **Tillhörighetsgrupper**, och klicka sedan på antingen **Lägg till en tillhörighetsgrupp** eller **lägga till**. Du kan också skapa och hantera tillhörighetsgrupper med hjälp av Windows Azure Service Management API. Mer information finns i [åtgärder med Tillhörighetsgrupper].
+5. Från den **prenumeration** nedrullningsbara listan, Välj den prenumeration som lagringskontot kommer att användas med.
+6. Klicka på **Create Storage Account** (Skapa lagringskonto). Processen att skapa lagringskontot kan ta flera minuter att slutföra.
+7. Kontrollera att lagringskontot har skapats, kontrollera att kontot visas i de objekt som visas för **lagring** med statusen **Online**.
 
 <a id="Step2"> </a>
 
-<h2>Step 2: Create a new CDN endpoint for your storage account</h2>
+<h2>Steg 2: Skapa en ny CDN-slutpunkt för ditt lagringskonto</h2>
 
-Once you enable CDN access to a storage account or hosted service, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
+När du aktiverar CDN åtkomst till ett lagringskonto eller värdtjänsten är alla offentligt tillgängliga objekt berättigade för cachelagring av CDN kant. Om du ändrar ett objekt som för tillfället är cachelagrade i CDN nytt innehåll inte tillgängliga via CDN förrän CDN uppdateras dess innehåll när den cachelagrade innehållet time to live-perioden har löpt ut.
 
-**To create a new CDN endpoint for your storage account**
+**Skapa en ny CDN-slutpunkt för ditt lagringskonto**
 
-1. In the [Azure classic portal], in the navigation pane, click **CDN**.
-2. On the ribbon, click **New**. In the **New** dialog, select **App Services**, then **CDN**, then **Quick Create**.
-3. In the **Origin Domain** dropdown, select the storage account you created in the previous section from the list of your available storage accounts. 
-4. Click the **Create** button to create the new endpoint.
-5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
+1. I den [klassiska Azure-portalen], i navigeringsfönstret klickar du på **CDN**.
+2. Klicka på menyfliken **ny**. I den **ny** markerar **Apptjänster**, sedan **CDN**, sedan **Snabbregistrering**.
+3. I den **ursprungsdomän** listrutan, Välj lagring kontot du skapade i föregående avsnitt från listan över konton tillgängligt lagringsutrymme. 
+4. Klicka på den **skapa** för att skapa en ny slutpunkt.
+5. När slutpunkten har skapats visas den i en lista över slutpunkter för prenumerationen. I listvyn visas bara URL:en som ska användas för att komma åt cachelagrat innehåll, samt ursprungsdomänen. 
    
-    The origin domain is the location from which the CDN caches content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. 
+    Den ursprungliga domänen är den plats där CDN cachelagrar innehåll. Den ursprungliga domänen kan vara antingen ett lagringskonto eller en tjänst i molnet; storage-konto används för det här exemplet. Lagring innehåll cachelagras edge servrar enligt en cache-control-inställning som du anger, eller i standard heuristik för cachelagring nätverk. 
 
-    > [AZURE.NOTE] The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
+    > [AZURE.NOTE]Konfigurationen för slutpunkten blir omedelbart inte tillgängliga; Det kan ta upp till 60 minuter för registreringen ska spridas via nätverket CDN. Användare som försöker använda domännamnet CDN direkt får statuskod: 400 (felaktig begäran) tills innehållet är tillgängligt via CDN.
 
 <a id="Step3"> </a>
 
-<h2>Step 3: Access CDN content</h2> 
+<h2>Steg 3: Åtkomst CDN innehåll</h2> 
 
-To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
+Använd CDN-URL som anges i portalen för att komma åt cachelagrade innehåll på CDN. Adressen för en cachelagrade blob ska vara liknar följande:
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*\>.vo.msecnd.net/ <*myPublicContainer*\>/<*BlobName*\>
 
 <a id="Step4"> </a>
 
-<h2>Step 4: Remove content from the CDN</h2>
+<h2>Steg 4: Ta bort innehåll från CDN</h2>
 
-If you no longer wish to cache an object in the Azure Content Delivery Network (CDN), you can take one of the following steps:
+Om du inte längre vill cachelagra ett objekt i Azure Content Delivery innehållsleveransnätverk (CDN) kan du göra något av följande steg:
 
-* For an Azure blob, you can delete the blob from the public container.
-* You can make the container private instead of public. See [Restrict Access to Containers and Blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) for more information.
-* You can disable or delete the CDN endpoint using the Management Portal.
-* You can modify your hosted service to no longer respond to requests for the object.
+* Du kan ta bort blobben från offentliga behållare för en Azure blob.
+* Du kan göra behållaren privat i stället för allmänheten. Se [begränsa åtkomsten till behållare och Blobbar](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) för mer information.
+* Du kan inaktivera eller ta bort CDN-slutpunkten med hanteringsportalen.
+* Du kan ändra din värdbaserade tjänst för att inte längre svarar på begäranden för objektet.
 
-An object already cached in the CDN will remain cached until the time-to-live period for the object expires. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
+Ett objekt som redan har cachelagrats i CDN förblir cachelagrade tills time to live-period för objektet har löpt ut. När time to live-period har löpt ut ska CDN kontrollera om CDN-slutpunkten är fortfarande giltigt och anonymt fortfarande komma åt objektet. Om det inte är det, kommer inte längre objektet cachelagras.
 
-The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](https://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
+Möjlighet att rensa omedelbart innehåll stöds för närvarande inte på Azure-hanteringsportalen. Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) om du vill rensa innehållet omedelbart. 
 
-## <a name="additional-resources"></a>Additional resources
-* [How to Create an Affinity Group in Azure]
-* [How to: Manage Storage Accounts for an Azure Subscription]
-* [About the Service Management API]
-* [How to Map CDN Content to a Custom Domain]
+## <a name="additional-resources"></a>Ytterligare resurser
+* [Så här skapar du en Tillhörighetsgrupp i Azure]
+* [Så här: hantera Lagringskonton för en Azure-prenumeration]
+* [Om Service Management API]
+* [Mappa CDN-innehåll till en anpassad domän]
 
 [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
-[Azure CDN Node Locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-[Azure classic portal]: https://manage.windowsazure.com/
-[billing plan]: /pricing/calculator/?scenario=full
-[How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
+[Azure CDN-Nodplatser]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
+[klassiska Azure-portalen]: https://manage.windowsazure.com/
+[faktureringsavtal]: /pricing/calculator/?scenario=full
+[Så här skapar du en Tillhörighetsgrupp i Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
-[About the Service Management API]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
-[How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
+[Om Service Management API]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
+[Mappa CDN-innehåll till en anpassad domän]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
 
 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png

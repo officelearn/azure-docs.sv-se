@@ -1,9 +1,9 @@
-Now that you've learned the basics of Azure Table storage, follow these links to learn about more complex storage tasks.
+Nu när du har lärt dig grunderna i Azure Table storage, följa dessa länkar för att lära dig mer komplexa lagringsuppgifter.
 
-* View the Table Service reference documentation in the [Azure Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
-* To learn how to simplify the code you write to work with Azure Storage, check out [What is the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
-* View more feature guides to learn about additional options for storing data in Azure.
-  * To work with Azure Storage Blobs, see [Get Started with Azure Blob storage using .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
-  * To work with Azure Storage Queues, [Get started with Azure Queue storage using .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
-  * To store relational data, see [Connect to SQL Database by using .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
+* Referensdokumentationen för Tabelltjänsten i den [Azure Storage-klientbibliotek för .NET](http://go.microsoft.com/fwlink/?LinkID=390731) referens för fullständig information om tillgängliga API: er.
+* Information om hur du förenklar koden du skriver så att arbeta med Azure Storage, kolla [vad är Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
+  * Om du vill arbeta med Azure Storage-Blobbar finns [komma igång med Azure Blob storage med hjälp av .NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md).
+  * Arbeta med Azure Storage-köer, [komma igång med Azure Queue storage med hjälp av .NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md).
+  * Om du vill lagra relationsdata finns [Anslut till SQL-databas med hjälp av .NET (C#)](../articles/sql-database/sql-database-develop-dotnet-simple.md).
 

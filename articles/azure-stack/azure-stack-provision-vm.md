@@ -1,6 +1,6 @@
 ---
-title: Create a test VM in Azure Stack | Microsoft Docs
-description: Learn how to provision a test VM in Azure Stack as a cloud operator.
+title: Skapa en test VM i Azure-stacken | Microsoft Docs
+description: "Lär dig hur du etablerar ett test VM i Azure-stacken som en moln-operator."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,34 +14,32 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 98770945d5cccc27bfce971491e6ea30fee2460a
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 233cf4df53af6a49e5fe4c5d51e112d8196a7530
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Create a test virtual machine in Azure Stack
+# <a name="create-a-test-virtual-machine-in-azure-stack"></a>Skapa en virtuell testdator i Azure-stacken
 
-*Applies to: Azure Stack Development Kit*
+*Gäller för: Azure stacken Development Kit*
 
-As a cloud operator, you can create a test virtual machine to validate your [Azure Stack](azure-stack-poc.md) deployment.
+Som operatör Azure Stack du kan skapa en virtuell testdator för att verifiera din [Azure Stack](azure-stack-poc.md) Developer Kit distribution.
 
 > [!NOTE]
-> Before you can provision virtual machines, you must [add the Windows Server 2016 Evaluation image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+> Innan du kan distribuera virtuella datorer, måste du [lägga till utvärdering av Windows Server 2016-avbildningen till Azure-stacken marketplace](azure-stack-add-default-image.md).
 > 
 > 
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-1. On the Azure Stack Development Kit host, [sign in](azure-stack-connect-azure-stack.md) to the administrator portal (`https://adminportal.local.azurestack.external`), and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval** > **Create**.  
-2. In the **Basics** blade, type a **Name**, **User name**, and **Password**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
-3. In the **Choose a size** blade, click **A1 Standard**, and then click **Select**.  
-4. In the **Settings** blade, accept the defaults and click **OK**
-5. In the **Summary** blade, click **OK** to create the virtual machine.  
-6. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
+1. På Azure-stacken Development Kit-värden [logga in](azure-stack-connect-azure-stack.md) till administratörsportalen (`https://adminportal.local.azurestack.external`), och klicka sedan på **ny** > **Compute**  >  **Windows Server 2016 Datacenter Eval** > **skapa**.  
+2. I den **grunderna** bladet typ a **namn**, **användarnamn**, och **lösenord**. Välj en **prenumeration**. Skapa en **resursgruppen**, eller välj en befintlig och klicka sedan på **OK**.  
+3. I den **välja en storlek** bladet, klickar du på **A1 Standard**, och klicka sedan på **Välj**.  
+4. I den **inställningar** bladet acceptera standardinställningarna och klickar på **OK**
+5. Klicka **OK** på bladet **Sammanfattning** för att skapa den virtuella datorn.  
+6. Klicka för att visa den nya virtuella datorn **alla resurser**, Sök sedan efter den virtuella datorn och klickar på dess namn.
     ![](media/azure-stack-provision-vm/image06.png)
 
 
-## <a name="next-steps"></a>Next steps
-[Using the administrator and user portals in Azure Stack](azure-stack-manage-portals.md)
-
+## <a name="next-steps"></a>Nästa steg
+[Med hjälp av administratörs- och portaler i Azure-stacken](azure-stack-manage-portals.md)

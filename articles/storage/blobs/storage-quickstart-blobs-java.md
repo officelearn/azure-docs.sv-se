@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: 0ed27077f649df2d0673351cda708b9a358ff92b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 4c917a500e8d230c5b9885d9c0a96424201588f7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Överför objekt till/från Azure Blob storage med hjälp av Java
 
@@ -23,32 +23,15 @@ I den här snabbstarten att lära dig hur du använder Java att överföra, häm
 
 För att slutföra den här snabbstarten behöver du:
 
-* Antingen installera IDE-miljö som har Maven-integration eller installera och konfigurera Maven att arbeta med kommandorad
-    * Den här kursen använder [Eclipse](http://www.eclipse.org/downloads/) med ”Eclipse IDE för Java-utvecklare”-konfiguration
-    
+* Installera IDE-miljö som har Maven-integration
 
+* Du kan också installera och konfigurera Maven ska fungera från kommandoraden
+
+Den här kursen använder [Eclipse](http://www.eclipse.org/downloads/) med ”Eclipse IDE för Java-utvecklare” konfiguration.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Skapa ett lagringskonto med hjälp av Azure portal
-
-Först skapa Allmänt lagringskonto ska användas för denna Snabbstart. 
-
-1. Gå till den [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-konto. 
-2. På navmenyn väljer **ny** > **lagring** > **lagringskonto - blob, fil, tabell, kö**. 
-3. Ange ett namn för lagringskontot. Namnet måste vara mellan 3 och 24 tecken långt och får innehålla siffror och gemener. Det måste också vara unikt.
-4. Ange `Deployment model` till **Resource manager**.
-5. Ange `Account kind` till **generella**.
-6. Ange `Performance` till **Standard**. 
-7. Ange `Replication` till **lokalt Redundant lagring (LRS)**.
-8. Ange `Storage service encryption` till **inaktiverade**.
-9. Ange `Secure transfer required` till **inaktiverade**.
-10. Välj din prenumeration. 
-11. För `resource group`, skapa en ny och ge den ett unikt namn. 
-12. Välj den `Location` ska användas för ditt lagringskonto.
-13. Kontrollera **fäst på instrumentpanelen** och på **skapa** att skapa ditt lagringskonto. 
-
-När ditt lagringskonto har skapats kan är den fäst på instrumentpanelen. Klicka på den för att öppna den. Under inställningar, klickar du på **åtkomstnycklar**. Välj en nyckel och kopiera den till Urklipp och klistrar in den i en textredigerare för senare användning. Kopiera namnet på ditt lagringskonto och klistra in den i en textredigerare för senare användning.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
@@ -110,6 +93,9 @@ Det första du gör är att skapa referenser till objekt som används för att k
 * Skapa en instans av den **CloudBlobContainer** objekt som representerar den [behållare](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) du ansluter till. Behållare för att organisera dina blobbar som du använder mappar på din dator för att ordna dina filer.
 
 När du har den **CloudBlobContainer**, du kan skapa en instans av den **CloudBlockBlob** objekt som hänvisar till specifikt [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) i som du är intresserad av, och utföra en överföring, hämta, kopiera, etc. igen.
+
+> [!IMPORTANT]
+> Behållarnamn måste vara gemener. Se [namnge och referera till behållare, Blobbar och Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) för mer information om behållaren och blob-namn.
 
 I det här avsnittet, skapa en instans av objekten, skapa en ny behållare och ange behörigheter för behållaren så att blobbarna är offentliga och kan nås med bara en URL. Behållaren kallas **quickstartblobs**. 
 

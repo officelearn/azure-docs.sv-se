@@ -10,21 +10,21 @@ keywords:
 ms.assetid: 
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9211b28debc2f0df194eded564e2a4d52303f3e6
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/25/2017
-
+ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 7dd58ae747a1009b5db99e0fec741272d98b36ad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Distribuera Kubernets-kluster för Windows-behållare
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur Azure CLI används för att distribuera ett [Kubernetes](https://kubernetes.io/docs/home/)-kluster i [Azure Container Service](../container-service-intro.md). När klustret distribueras kan du ansluta till det med kommandoradsverktyget för Kubernetes `kubectl` och distribuera din första Windows-behållare.
 
@@ -110,7 +110,7 @@ Du kan köra en dockerbehållare i en Kubernetes-*pod*, som innehåller en eller
 
 Det här grundläggande exemplet använder en JSON-fil för att ange en behållare för Microsoft Internet Information Server (IIS) och skapar sedan poden med hjälp av `kubctl apply`. 
 
-Skapa en lokal fil med namnet `iis.json` och kopiera följande text. Filen uppmanar Kubernetes att köra IIS på Windows Server 2016 Nano Server med en offentlig avbildning från [Docker Hub](https://hub.docker.com/r/nanoserver/iis/). Behållaren använder port 80, men är ursprungligen endast tillgänglig i nätverket för klustret.
+Skapa en lokal fil med namnet `iis.json` och kopiera följande text. Filen uppmanar Kubernetes att köra IIS på Windows Server 2016 Nano Server med en offentlig avbildning från [Docker Hub](https://hub.docker.com/r/microsoft/iis/). Behållaren använder port 80, men är ursprungligen endast tillgänglig i nätverket för klustret.
 
  ```JSON
  {
@@ -126,7 +126,7 @@ Skapa en lokal fil med namnet `iis.json` och kopiera följande text. Filen uppma
     "containers": [
       {
         "name": "iis",
-        "image": "nanoserver/iis",
+        "image": "microsoft/iis:nanoserver",
         "ports": [
           {
           "containerPort": 80
@@ -168,7 +168,7 @@ Om du vill exponera din pod för alla med en offentlig IP-adress skriver du föl
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Med detta kommando skapar Kubernetes en tjänst och en [Azure Load Balancer-regel](container-service-kubernetes-load-balancing.md) med en offentlig IP-adress för tjänsten. 
+Med det här kommandot skapar en tjänst och en Azure-regel för belastningsutjämning med en offentlig IP-adress för tjänsten Kubernetes. 
 
 Kör följande kommando för att se status för tjänsten.
 
@@ -203,4 +203,3 @@ I den här snabbstartsguide du har distribuerat ett Kubernetes-kluster med `kube
 
 > [!div class="nextstepaction"]
 > [Hantera ett ACS Kubernets-kluster](container-service-tutorial-kubernetes-prepare-app.md)
-

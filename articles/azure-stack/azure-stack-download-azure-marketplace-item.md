@@ -1,6 +1,6 @@
 ---
-title: Download marketplace items from Azure | Microsoft Docs
-description: I can download marketplace items from Azure to my Azure Stack deployment.
+title: "Hämta marketplace-objekt från Azure | Microsoft Docs"
+description: "I min Azure Stack-distribution kan jag hämta marketplace-objekt från Azure."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 4baa1b675d2930cd111b5b8368ac081dc2b77841
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: 4d7c335a3c68cc9bb8cb0c823883716a3dd6620a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Download marketplace items from Azure to Azure Stack
+# <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure-stacken
 
-As you decide what content to include in your Azure Stack marketplace, you should consider the content available from the Azure marketplace. You can download from a curated list of Azure marketplace items that have been pre-tested to run on Azure Stack. New items are frequently added to this list, so make sure check back for new content.
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-To download marketplace items, you must first [register Azure Stack with Azure](azure-stack-register.md). 
+Som du bestämmer vilket innehåll som ska ingå i din Azure-stacken marketplace bör du innehållet från Azure marketplace. Du kan hämta från en granskad lista över Azure marketplace-objekt som har förhandstestade körs på Azure-stacken. Nya objekt är ofta läggs till i listan, så se till att kontrollera för nytt innehåll.
 
-## <a name="download"></a>Download
-1. Sign in to the Azure Stack administrator portal (https://portal.local.azurestack.external).
-2. Some marketplace items can be very large.  Check to make sure you have enough space on your system by clicking **Resource Providers** > **Storage**.
+Om du vill hämta marketplace-objekt måste du först [registrera Azure stacken med Azure](azure-stack-register.md). 
+
+## <a name="download"></a>Ladda ned
+1. Logga in på Azure Stack-administratörsportalen (https://portal.local.azurestack.external).
+2. Vissa marketplace-objekt kan vara mycket stor.  Kontrollera att du har tillräckligt med utrymme på datorn genom att klicka på **Resursproviders** > **lagring**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
 
-3. Click **More Services** > **Marketplace Management**.
+3. Klicka på **fler tjänster** > **Marketplace Management**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image02.png)
 
-4. Click **Add from Azure** to see a list of items available for download. You can click on each item in the list to view its description and download size.
+4. Klicka på **Lägg till från Azure** att se en lista med objekt som är tillgängliga för hämtning. Du kan klicka på varje objekt i listan om du vill visa dess beskrivning och filstorlek.
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Select the item you want in the list and then click **Download**. This starts downloading the VM image for the item you selected. Download times vary.
+5. Välj ett objekt i listan och klickar sedan på **hämta**. Detta startar hämta VM-avbildning för det valda objektet. Hämtningstider variera.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
-6. After the download completes, you can deploy your new marketplace item as either a cloud operator or tenant user. Click **+New**, search among the categories for the new marketplace item, and then select the item.
-7. Click **Create** to open up the creation experience for the newly downloaded item. Follow the step-by-step instructions to deploy your item.
+6. När nedladdningen är klar kan du distribuera din nya marketplace-objektet som ett Azure-stacken operator eller användare. Klicka på **+ ny**söka bland kategorier för nya marketplace-objektet och välj ett objekt.
+7. Klicka på **skapa** öppna skapa upplevelsen för det nyligen hämtade objektet. Följ instruktionerna för att distribuera objektet.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Nästa steg
 
-[Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
-
+[Skapa och publicera ett Marketplace-objekt](azure-stack-create-and-publish-marketplace-item.md)

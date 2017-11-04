@@ -11,7 +11,7 @@
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>NC-instanser – NVIDIA Tesla-drivrutiner
 | Distribution | Drivrutin |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS-baserad 7.3 | NVIDIA CUDA 8.0, drivrutinslinje R375 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS-baserad 7.3 | NVIDIA CUDA 9.0, drivrutinen gren R384 |
 
 
 

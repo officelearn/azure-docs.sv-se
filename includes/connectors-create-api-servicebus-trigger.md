@@ -1,16 +1,16 @@
-Here's how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is sent to a Service Bus queue.  
+Så här använder du den **Service Bus - när ett meddelande tas emot i en kö** trigger för att initiera en logik app arbetsflödet när ett nytt objekt skickas till en Service Bus-kö.  
 
 > [!NOTE]
-> You will be prompted to sign in with your Service Bus connection string if you have not already created a connection to Service Bus.  
+> Du uppmanas att logga in med ditt Service Bus-anslutningssträng om du inte redan har skapat en anslutning till Service Bus.  
 > 
 > 
 
-1. In the search box on the logic apps designer, enter **service bus**. Then select the **Service Bus - When a message is received in a queue** trigger.  
-   ![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-2. The **When a message is received in a queue** dialog box is displayed.  
-   ![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-3. Enter the name of the Service Bus queue you would like the trigger to monitor.   
-   ![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. Skriv i sökrutan på logic apps designer **service bus**. Välj sedan den **Service Bus - när ett meddelande tas emot i en kö** utlösare.  
+   ![Service Bus utlösarbild 1](./media/connectors-create-api-servicebus/trigger-1.png)   
+2. Den **när ett meddelande i en kö** dialogrutan visas.  
+   ![Bild 2 till Service Bus-utlösare](./media/connectors-create-api-servicebus/trigger-2.png)   
+3. Ange namnet på Service Bus-kö som du vill att utlösaren ska övervakas.   
+   ![Bild 3 till Service Bus-utlösare](./media/connectors-create-api-servicebus/trigger-3.png)   
 
-At this point, your logic app has been configured with a trigger. When a new item is received in the queue you selected, the trigger will begin a run of the other triggers and actions in the workflow.    
+Din logikapp har nu konfigurerats med en utlösare. När du har fått ett nytt objekt i kön som du har valt börjar utlösaren en körning av andra utlösare och åtgärder i arbetsflödet.    
 

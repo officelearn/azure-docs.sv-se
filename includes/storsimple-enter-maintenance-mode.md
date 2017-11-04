@@ -1,12 +1,12 @@
 <!--author=SharS last changed: 12/01/15-->
 
-#### <a name="to-enter-maintenance-mode"></a>To enter Maintenance mode
-1. In the serial console menu, choose option 1, **Log in with full access**.
-2. Type the password. The default password is **Password1**.
-3. At the command prompt, type
+#### <a name="to-enter-maintenance-mode"></a>Ange underhållsläge
+1. I menyn för seriekonsolen väljer du alternativ 1, **logga in med fullständig åtkomst**.
+2. Ange lösenordet. Standardlösenordet är **Password1**.
+3. I Kommandotolken, skriver du:
    
      `Enter-HcsMaintenanceMode`
-4. You will see a warning message telling you that Maintenance mode will disrupt all I/O requests and sever the connection to the Azure classic portal, and you will be prompted for confirmation. Type **Y** to enter Maintenance mode.
+4. Visas ett varningsmeddelande som talar om att underhållsläge ska störa alla i/o-begäranden och sever anslutningen till den klassiska Azure portalen och du uppmanas att bekräfta. Typen **Y** anger underhållsläge.
    
-    Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in Maintenance mode.
+    Både domänkontrollanter startas om. När omstarten är klar, visas ett annat meddelande som anger att enheten är i underhållsläge.
 

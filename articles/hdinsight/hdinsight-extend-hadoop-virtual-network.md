@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: larryfr
-ms.openlocfilehash: 17059c5861962a56ed2011a8f8874fc23673ed68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5835d4ac83b54648b4f7885de577f90008018baa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk
 
@@ -671,8 +671,8 @@ När du har slutfört de här stegen kan du ansluta till resurser i det virtuell
 ## <a name="next-steps"></a>Nästa steg
 
 * Slutpunkt till slutpunkt-exempel på hur du konfigurerar HDInsight för att ansluta till ett lokalt nätverk finns i [ansluta HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
-* Konfigurera Hbase-kluster i Azure-nätverk, finns i [skapa HBase-kluster i HDInsight i Azure Virtual Network](./hdinsight-hbase-provision-vnet.md).
-* Konfigurera HBase geo-replikering finns i [konfigurera HBase-kluster-replikering i Azure-nätverk](./hdinsight-hbase-replication.md).
+* Konfigurera Hbase-kluster i Azure-nätverk, finns i [skapa HBase-kluster i HDInsight i Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* Konfigurera HBase geo-replikering finns i [konfigurera HBase-kluster-replikering i Azure-nätverk](hbase/apache-hbase-replication.md).
 * Mer information om virtuella Azure-nätverk finns i [översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 * Mer information om nätverkssäkerhetsgrupper finns [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md).

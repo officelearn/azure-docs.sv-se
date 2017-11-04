@@ -1,18 +1,18 @@
-#### <a name="prerequisites"></a>Prerequisites
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
-* A [Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx) account 
+#### <a name="prerequisites"></a>Krav
+* Ett Azure-konto; Du kan skapa en [kostnadsfritt konto](https://azure.microsoft.com/free)
+* En [Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx) konto 
 
-Before using your Dynamics account in a logic app, authorize the logic app to connect to your CRM Online account. You can do this easily within your logic app on the Azure portal. 
+Innan du använder Dynamics-konto i en logikapp, auktorisera logik för att ansluta till din CRM Online-konto. Du kan göra detta enkelt i din logikapp på Azure-portalen. 
 
-Authorize your logic app to connect to your CRM Online account using the following steps:
+Verifiera din logikapp för att ansluta till din CRM Online-konto med följande steg:
 
-1. Create a logic app. In the Logic Apps designer, select **Show Microsoft managed APIs** in the drop down list, and then enter "dynamics" in the search box. Select one of the triggers or actions:  
+1. Skapa en logikapp. Välj i Logic Apps-designer **visa Microsoft hanterade API: er** i nedrullningsbara listrutan, och ange sedan ”dynamics” i sökrutan. Välj något av utlösare eller åtgärder:  
    ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
-2. If you haven't previously created any connections to Dynamics, you are prompted to sign in using your Dynamics credentials:  
+2. Om du inte tidigare har skapat alla anslutningar till Dynamics, uppmanas du att logga in med dina inloggningsuppgifter för Dynamics:  
    ![](./media/connectors-create-api-crmonline/dynamics-signin.png)
-3. Select **Sign in**, and enter your user name and password. Select **Sign in**. 
+3. Välj **logga in**, och ange ditt användarnamn och lösenord. Välj **logga in**. 
    
-    These credentials are used to authorize your logic app to connect to, and access the data in your Dynamics account. 
-4. Notice the connection has been created. Now, proceed with the other steps in your logic app:  
+    Dessa autentiseringsuppgifter används för att auktorisera din logikapp för att ansluta till och komma åt data i din Dynamics-konto. 
+4. Observera att anslutningen har skapats. Nu kan fortsätta med andra steg i din logikapp:  
    ![](./media/connectors-create-api-crmonline/dynamics-properties.png)
 

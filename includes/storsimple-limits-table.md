@@ -1,29 +1,29 @@
 <!--author=alkohli last changed: 12/15/15-->
 
-| Limit identifier | Limit | Comments |
+| Gräns för identifierare | Gräns | Kommentarer |
 | --- | --- | --- |
-| Maximum number of storage account credentials |64 | |
-| Maximum number of volume containers |64 | |
-| Maximum number of volumes |255 | |
-| Maximum number of schedules per bandwidth template |168 |A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a tiered volume on physical devices |64 TB for 8100 and 8600 |8100 and 8600 are physical devices. |
-| Maximum size of a tiered volume on virtual devices in Azure |30 TB for 8010 <br></br> 64 TB for 8020 |8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |
-| Maximum size of a locally pinned volume on physical devices |9 TB for 8100 <br></br> 24 TB for 8600 |8100 and 8600 are physical devices. |
-| Maximum number of iSCSI connections |512 | |
-| Maximum number of iSCSI connections from initiators |512 | |
-| Maximum number of access control records per device |64 | |
-| Maximum number of volumes per backup policy |24 | |
-| Maximum number of backups retained per backup policy |64 | |
-| Maximum number of schedules per backup policy |10 | |
-| Maximum number of snapshots of any type that can be retained per volume |256 |This includes local snapshots and cloud snapshots. |
-| Maximum number of snapshots that can be present in any device |10,000 | |
-| Maximum number of volumes that can be processed in parallel for backup, restore, or clone |16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored tiered volume cannot occur until the operation is finished. However, for a local volume, backups are allowed after the volume is online.</li></ul> |
-| Restore and clone recover time for tiered volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete. |
-| Restore recover time for locally pinned volumes |< 2 minutes |<ul><li>The volume is made available within 2 minutes of the restore operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>Unlike tiered volumes, in the case of locally pinned volumes, the volume data is also downloaded locally on the device. The restore operation is complete when all the volume data has been brought to the device.</li><li>The restore operations may be long and the total time to complete the restore will depend on the size of the provisioned local volume, your Internet bandwidth and the existing data on the device. Backup operations on the locally pinned volume are allowed while the restore operation is in progress. |
-| Thin-restore availability |Last failover | |
-| Maximum client read/write throughput (when served from the SSD tier)* |920/720 MB/s with a single 10GbE network interface |Up to 2x with MPIO and two network interfaces. |
-| Maximum client read/write throughput (when served from the HDD tier)* |120/250 MB/s | |
-| Maximum client read/write throughput (when served from the cloud tier)* |11/41 MB/s |Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
+| Maximalt antal lagringskontouppgifter |64 | |
+| Maximalt antal volymbehållare |64 | |
+| Maximalt antal volymer |255 | |
+| Maximalt antal scheman per bandbreddsmall |168 |Ett schema för varje timme, varje dag i veckan (24 * 7). |
+| Maximal storlek för en nivåindelad volym på fysiska enheter |64 TB för 8100 och 8600 |8100 och 8600 är fysiska enheter. |
+| Maximal storlek för en nivåindelad volym på virtuella enheter i Azure |30 TB för 8010 <br></br> 64 TB för 8020 |8010 och 8020 är virtuella enheter i Azure som använder standardlagring respektive Premium-lagring. |
+| Maximal storlek för en lokalt Fäst volym på fysiska enheter |9 TB för 8100 <br></br> 24 TB för 8600 |8100 och 8600 är fysiska enheter. |
+| Maximalt antal iSCSI-anslutningar |512 | |
+| Maximalt antal iSCSI klientanslutningar från initierarna |512 | |
+| Högsta antal access control poster per enhet |64 | |
+| Maximalt antal volymer per princip för säkerhetskopiering |24 | |
+| Maximalt antal säkerhetskopior behålls per princip för säkerhetskopiering |64 | |
+| Maximalt antal scheman per princip för säkerhetskopiering |10 | |
+| Maximalt antal ögonblicksbilder av typer som kan behållas per volym |256 |Detta inkluderar lokala ögonblicksbilder och molnbaserade ögonblicksbilder. |
+| Maximalt antal ögonblicksbilder som kan finnas i valfri enhet |10 000 | |
+| Maximalt antal volymer som kan bearbetas parallellt för säkerhetskopiering, återställning eller klona |16 |<ul><li>Om det finns fler än 16 volymer kan bearbetas de sekventiellt när bearbetningen fack blir tillgängliga.</li><li>Nya säkerhetskopior av en klonade eller en återställd nivåindelad volym kan inte ske förrän åtgärden har slutförts. Men för en lokal volym är säkerhetskopior tillåtna när volymen är online.</li></ul> |
+| Återställa och klona Återställ tid för nivåindelade volymer |< 2 minuter |<ul><li>Volymen görs tillgänglig inom 2 minuter för återställning eller klona igen, oavsett volymens storlek.</li><li>Den volymen först gå långsammare än normalt som de flesta data och metadata finns fortfarande i molnet. Prestanda kan öka som data flödar från molnet till StorSimple-enhet.</li><li>Total tid för att hämta metadata är beroende av allokerade volymens storlek. Metadata hämtas automatiskt till enheten i bakgrunden i frekvens på 5 minuter per TB allokerade volymdata. Detta värde kan påverkas av Internet-bandbredd till molnet.</li><li>Restore- eller kopieringen är klar när alla metadata finns på enheten.</li><li>Säkerhetskopieringsåtgärder kan inte utföras förrän återställningen eller kopieringen är helt klar. |
+| Återställning återställa tid för lokalt fästa volymer |< 2 minuter |<ul><li>Volymen görs tillgänglig inom 2 minuter efter återställningen, oavsett volymens storlek.</li><li>Den volymen först gå långsammare än normalt som de flesta data och metadata finns fortfarande i molnet. Prestanda kan öka som data flödar från molnet till StorSimple-enhet.</li><li>Total tid för att hämta metadata är beroende av allokerade volymens storlek. Metadata hämtas automatiskt till enheten i bakgrunden i frekvens på 5 minuter per TB allokerade volymdata. Detta värde kan påverkas av Internet-bandbredd till molnet.</li><li>Till skillnad från nivåindelade volymer för lokalt fästa volymer hämtas även volymens data lokalt på enheten. Återställningen är klar när alla volymdata har trätt till enheten.</li><li>Återställningsåtgärderna kan bli långa och den totala tid att slutföra återställningen beror på storleken på den etablerade volymen för lokala och Internet-bandbredd och befintliga data på enheten. Säkerhetskopieringsåtgärder på lokalt Fäst volym tillåts medan återställningen pågår. |
+| Tunn-återställning tillgänglighet |Senaste redundans | |
+| Maximalt antal klienter läsning och skrivning genomströmning (när hanteras från SSD-nivån) * |920/720 MB/s med en enda 10GbE nätverksgränssnittet |Upp till 2 x med MPIO och två nätverksgränssnitt. |
+| Maximalt antal klienter läsning och skrivning genomströmning (när hanteras från hårddisknivån) * |120/250 MB/s | |
+| Maximalt antal klienter läsning och skrivning genomströmning (när hanteras från molnnivån) * |11/41 MB/s |Läs genomströmning beroende klienter skapa och upprätthålla tillräcklig i/o-ködjup. |
 
-&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
+&#42; Maximalt dataflöde per i/o-typ har mätt med 100 procent Läs- och 100 procent skrivåtgärder scenarier. Faktiska genomflöde kan vara lägre och beror på i/o blanda och nätverk villkor.
 

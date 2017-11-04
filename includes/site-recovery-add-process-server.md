@@ -34,8 +34,3 @@
 9. I **Sammanfattning** granskar du informationen och klickar på **Installera**. När installationen är klar skapas en lösenfras. Du behöver den när du aktiverar replikering. Kopiera lösenfrasen och förvara den på en säker plats.
 
      ![Lägga till processerver 7](./media/site-recovery-add-process-server/ps-page-8.png)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

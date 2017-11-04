@@ -1,17 +1,17 @@
-## <a name="load-balancer"></a>Load Balancer
-A load balancer is used when you want to scale your applications. Typical deployment scenarios involve applications running on multiple VM instances. The VM instances are fronted by a load balancer that helps to distribute network traffic to the various instances. 
+## <a name="load-balancer"></a>Belastningsutjämnare
+En belastningsutjämnare används när du vill skala ditt program. Vanliga distributionsscenarier omfattar program som körs på flera VM-instanser. VM-instanser fronted av en belastningsutjämnare som hjälper dig för att distribuera nätverkstrafik till de olika instanserna. 
 
-![NIC's on a single VM](./media/resource-groups-networking/figure8.png)
+![NIC på en enda virtuell dator](./media/resource-groups-networking/figure8.png)
 
-| Property | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
-| *frontendIPConfigurations* |a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic and can be public IP or private IP |
-| *backendAddressPools* |these are IP addresses associated with the VM NICs to which load will be distributed |
-| *loadBalancingRules* |a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with virtual machines. The rule is one port in the front end pool to many virtual machines in the back end pool |
-| *Probes* |probes enable you to keep track of the health of VM instances. If a health probe fails, the virtual machine instance will be taken out of rotation automatically |
-| *inboundNatRules* |NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP to a specific virtual machine instance. NAT rule is one port in the front end pool to one virtual machine in the back end pool |
+| *frontendIPConfigurations* |en belastningsutjämnare kan innehålla en eller flera klientdelen IP-adresser, kallas även för en virtuell IP-adresser (VIP). IP-adresserna som fungerar som ingång för trafik och kan vara offentlig IP-adress eller privat IP |
+| *backendAddressPools* |Dessa är IP-adresser som är kopplade till de Virtuella nätverkskorten belastningen ska distribueras |
+| *loadBalancingRules* |en regel för egenskapen mappar en given klientdelen IP och port-kombination till en uppsättning serverdel IP-adresser och port-kombination. Med en definition av en belastningsutjämningsresurs, kan du definiera flera regler för belastningsutjämning, varje regel reflektion av en kombination av en framför avslutas IP och port och tillbaka slut-IP och port som är kopplade till virtuella datorer. Regeln är en port i klientdelen poolen till många virtuella datorer i backend-adresspool |
+| *Avsökningar* |avsökningar kan du hålla reda på hälsotillståndet för VM-instanser. Om en hälsoavsökningen misslyckas ska den virtuella datorinstans automatiskt tas bort från rotation |
+| *inboundNatRules* |NAT-regler som definierar den inkommande trafik som passerar genom framför avsluta IP och distribueras till backend-IP-Adressen till en specifik virtuell dator. NAT-regel är en port i klientdelen poolen till en virtuell dator i backend-pool |
 
-Example of load balancer template in Json format:
+Exempel på mall för belastningsutjämnare i Json-format:
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -186,6 +186,6 @@ Example of load balancer template in Json format:
       ]
     }
 
-### <a name="additional-resources"></a>Additional resources
-Read [load balancer REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) for more information.
+### <a name="additional-resources"></a>Ytterligare resurser
+Läs [belastningsutjämnare REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx) för mer information.
 

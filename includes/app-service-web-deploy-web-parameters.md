@@ -1,26 +1,26 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed. 
+Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter parametrar som innehåller alla parametervärdena.
+Du bör definiera en parameter för de värden som varierar baserat på projektet som du distribuerar eller baserat på miljön som du distribuerar till. Definiera inte parametrar för värden som alltid inte ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras. 
 
-When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.
+När du definierar parametrar, använda den **allowedValues** fältet för att ange vilka värden en användare kan ange under distributionen. Använd den **defaultValue** fält som du vill tilldela ett värde för parametern, om inget värde anges under distributionen.
 
-We will describe each parameter in the template.
+Vi beskriver varje parameter i mallen.
 
-### <a name="sitename"></a>siteName
-The name of the web app that you wish to create.
+### <a name="sitename"></a>Platsnamn
+Namnet på webbprogrammet som du vill skapa.
 
     "siteName":{
       "type":"string"
     }
 
 ### <a name="hostingplanname"></a>hostingPlanName
-The name of the App Service plan to use for hosting the web app.
+Namnet på App Service-plan för att använda som värd för webbprogrammet.
 
     "hostingPlanName":{
       "type":"string"
     }
 
-### <a name="sku"></a>sku
-The pricing tier for the hosting plan.
+### <a name="sku"></a>SKU
+Prisnivån för den värd planen.
 
     "sku": {
       "type": "string",
@@ -44,10 +44,10 @@ The pricing tier for the hosting plan.
       }
     }
 
-The template defines the values that are permitted for this parameter, and assigns a default value (S1) if no value is specified.
+Mallen definierar de värden som tillåts för den här parametern och tilldelar ett standardvärde (S1) om inget värde anges.
 
 ### <a name="workersize"></a>workerSize
-The instance size of the hosting plan (small, medium, or large).
+Instansstorleken för värd planen (liten, medel eller hög).
 
     "workerSize":{
       "type":"string",
@@ -59,5 +59,5 @@ The instance size of the hosting plan (small, medium, or large).
       "defaultValue":"0"
     }
 
-The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified. The values correspond to small, medium and large.
+Mallen definierar de värden som tillåts för den här parametern (0, 1 eller 2) och tilldelar ett standardvärde (0) om inget värde anges. Värdena motsvarar små, medelstora och stora.
 

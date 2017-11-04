@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment prerequisites| Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack Development Kit (cloud operator).
+title: "Kraven för distribution av Azure-stacken Development Kit | Microsoft Docs"
+description: "Visa kraven på miljö och maskinvara för Azure-stacken Development Kit (moln operator)."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,95 +14,94 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/11/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4a53065f76cef7b711f4a656b437cbefaf47c5d0
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-deployment-prerequisites"></a>Azure Stack deployment prerequisites
+# <a name="azure-stack-deployment-prerequisites"></a>Distributionskrav för Azure Stack
 
-*Applies to: Azure Stack Development Kit*
+*Gäller för: Azure stacken Development Kit*
 
-Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements:
+Innan du distribuerar [Azure Stack Development Kit](azure-stack-poc.md), kontrollera att datorn uppfyller följande krav:
 
 
-## <a name="hardware"></a>Hardware
-| Component | Minimum | Recommended |
+## <a name="hardware"></a>Maskinvara
+| Komponent | Minimum | Rekommenderas |
 | --- | --- | --- |
-| Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
-| Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
-| Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
-| Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
-| Network: NIC |Windows Server 2012 R2 Certification required for NIC; no specialized features required |Windows Server 2012 R2 Certification required for NIC; no specialized features required |
-| HW logo certification |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Diskenheter: operativsystem |1 OS-disk med minst 200 GB tillgängligt för systempartitionering (SSD och HDD) |1 OS-disk med minst 200 GB tillgängligt för systempartitionering (SSD och HDD) |
+| Diskenheter: Allmänt development kit data * |4 diskar. Varje disk innehåller minst 140 GB kapacitet (SSD och HDD). Alla tillgängliga diskar används. |4 diskar. Varje disk innehåller minst 250 GB kapacitet (SSD eller HDD). Alla tillgängliga diskar används. |
+| Beräkna: CPU |Dubbla uttag: 12 fysiska kärnor (totalt) |Dubbla uttag: 16 fysiska kärnor (totalt) |
+| Beräkna: minne |96 GB RAM-minne |128 GB RAM-minne (det är minst som stöd för PaaS-resursprovidrar.)|
+| Beräkna: BIOS |Hyper-V aktiverat (med stöd för SLAT) |Hyper-V aktiverat (med stöd för SLAT) |
+| Nätverk: NIC |Windows Server 2012 R2-certifiering krävs för NIC, inga specialfunktioner krävs |Windows Server 2012 R2-certifiering krävs för NIC, inga specialfunktioner krävs |
+| HW-logotypcertifiering |[Certifierade för Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifierade för Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
-\*You will need more than this recommended capacity if you plan on adding many of the [marketplace items](azure-stack-download-azure-marketplace-item.md) from Azure.
+\*Du behöver fler än det rekommenderade kapacitet om du planerar att lägga till många av de [marketplace-objekt](azure-stack-download-azure-marketplace-item.md) från Azure.
 
-**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
+**Konfiguration av datadiskenhet:** Alla dataenheter måste vara av samma typ (alla ska vara SAS eller SATA) och ha samma kapacitet. Om SAS-hårddiskar används måste diskenheter kopplas via en enskild sökväg (inga MPIO, stöd för flera sökvägar, tillhandahålls).
 
-**HBA configuration options**
+**HBA-konfigurationsalternativ**
 
-* (Preferred) Simple HBA
-* RAID HBA – Adapter must be configured in “pass through” mode
-* RAID HBA – Disks should be configured as Single-Disk, RAID-0
+* (Rekommenderas) Enkel HBA
+* RAID HBA – Adaptern måste konfigureras i genomströmningsläge (”pass through”)
+* RAID HBA – Diskar ska konfigureras som enskild disk, RAID-0
 
-**Supported bus and media type combinations**
+**Skriv kombinationer stöds bus och media**
 
-* SATA HDD
-* SAS HDD
-* RAID HDD
-* RAID SSD (If the media type is unspecified/unknown\*)
-* SATA SSD + SATA HDD
-* SAS SSD + SAS HDD
+* SATA-hårddisk
+* SAS-hårddisk
+* RAID-hårddisk
+* RAID-SSD (om medietypen är ospecificerad/okänd\*)
+* SATA SSD + SATA-hårddisk
+* SAS SSD + SAS-hårddisk
 
-\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
+\*RAID-styrenheter utan direkt funktionen kan inte identifiera medietyp. Sådana styrenheter markerar både HDD och SSD som ospecificerade. I så fall ska SSD användas som permanent lagring i stället för cachelagringsenheter. Därför kan du distribuera development kit på dessa SSD.
 
-**Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
+**Exempel på HBA**: LSI 9207-8i, LSI-9300-8i eller LSI-9265-8i i genomströmningsläge (pass-through)
 
-Sample OEM configurations are available.
+Det finns tillgängliga exempel på OEM-konfigurationer.
 
-## <a name="operating-system"></a>Operating system
-|  | **Requirements** |
+## <a name="operating-system"></a>Operativsystem
+|  | **Krav** |
 | --- | --- |
-| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
+| **OS-Version** |Windows Server 2012 R2 eller senare. Operativsystemets version inte är driftskritisk innan distributionen startar, som du ska starta värddatorn till den virtuella Hårddisken som ingår i Azure Stack-installationen. Operativsystem och alla uppdateringar som krävs är redan integrerade i avbildningen. Använd inte en för att aktivera alla Windows Server-instanser som används i development kit. |
 
-## <a name="deployment-requirements-check-tool"></a>Deployment requirements check tool
-After installing the operating system, you can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.
+## <a name="deployment-requirements-check-tool"></a>Krav för distribution Kontrollera verktyget
+När du har installerat operativsystemet, kan du använda den [distribution av förutsättningar för Azure-stacken](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) att bekräfta att maskinvaran uppfyller alla krav.
 
-## <a name="account-requirements"></a>Account requirements
-Typically, you deploy the development kit with internet connectivity, where you can connect to Microsoft Azure. In this case, you must configure an Azure Active Directory (Azure AD) account to deploy the development kit.
+## <a name="account-requirements"></a>Kontokrav
+Normalt distribuerar du development kit med anslutning till internet, där du kan ansluta till Microsoft Azure. I det här fallet måste du konfigurera ett konto för Azure Active Directory (Azure AD) för att distribuera development kit.
 
-If your environment is not connected to the internet, or you don't want to use Azure AD, you can deploy Azure Stack by using Active Directory Federation Services (AD FS). The development kit includes its own AD FS and Active Directory Domain Services instances. If you deploy by using this option, you don't have to set up accounts ahead of time.
+Om din miljö inte är ansluten till internet, eller om du inte vill använda Azure AD, kan du distribuera Azure-stacken genom att använda Active Directory Federation Services (AD FS). I development kit ingår instanser AD FS och Active Directory Domain Services. Om du distribuerar med hjälp av det här alternativet om behöver du inte konfigurera konton i förväg.
 
 >[!NOTE]
-If you deploy by using the AD FS option, you must redeploy Azure Stack to switch to Azure AD.
+Om du distribuerar med hjälp av AD FS-alternativet måste du omdistribuera Azure stackutrymme för att växla till Azure AD.
 
-### <a name="azure-active-directory-accounts"></a>Azure Active Directory accounts
-To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD account before you run the deployment PowerShell script. This account becomes the Global Admin for the Azure AD tenant. It's used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graph API. It's also used as the owner of the default provider subscription (which you can later change). You can log in to your Azure Stack system’s administrator portal by using this account.
+### <a name="azure-active-directory-accounts"></a>Azure Active Directory-konton
+För att distribuera Azure-stacken genom att använda en Azure AD-konto, måste du förbereda en Azure AD-kontot innan du kör PowerShell-skript för distribution. Det här kontot blir Global administratör för Azure AD-klient. Den används för att etablera och delegera program och tjänstens huvudnamn för alla Azure Stack-tjänster som samverkar med Azure Active Directory och Graph API. Det används också som ägare till prenumerationen för standard-providern (som du kan ändra senare). Du kan logga in till Azure-stacken systemets administratörsportal genom att använda det här kontot.
 
-1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead). If you plan to later [register Azure Stack with Azure](azure-stack-register.md), you must also have a subscription in this newly created account.
+1. Skapa ett Azure AD-konto som är directory-administratör för minst en Azure AD. Om du redan har ett konto kan använda du det. Annars kan du skapa ett kostnadsfritt på [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (i Kina, besök <http://go.microsoft.com/fwlink/?LinkID=717821> i stället). Om du planerar att senare [registrera Azure stacken med Azure](azure-stack-register.md), du måste ha en prenumeration i den nya konto.
    
-    Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
-2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
+    Spara autentiseringsuppgifterna för användning i steg 6 i [distribuera development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). Med det här *tjänstadministratörkontot* kan du konfigurera och hantera resursmoln, användarkonton, klientplaner för innehavare, kvoter och priser. I portalen kan de skapa webbplatsmoln, privata moln för virtuella datorer, skapa planer och hantera användarprenumerationer.
+2. [Skapa](azure-stack-add-new-user-aad.md) minst ett konto så att du kan logga in i development Kit som en klient.
    
-   | **Azure Active Directory account** | **Supported?** |
+   | **Azure Active Directory-konto** | **Stöds?** |
    | --- | --- |
-   | Work or school account with valid Public Azure Subscription |Yes |
-   | Microsoft Account with valid Public Azure Subscription |Yes |
-   | Work or school account with valid China Azure Subscription |Yes |
-   | Work or school account with valid US Government Azure Subscription |Yes |
+   | Arbets- eller skolkonto konto med giltig offentlig Azure-prenumeration |Ja |
+   | Microsoft-konto med giltig prenumeration på offentlig Azure |Ja |
+   | Arbets- eller skolkonto konto med giltig Kina Azure-prenumeration |Ja |
+   | Arbets- eller skolkonto konto med giltig US Government Azure-prenumeration |Ja |
 
-## <a name="network"></a>Network
-### <a name="switch"></a>Switch
-One available port on a switch for the development kit machine.  
+## <a name="network"></a>Nätverk
+### <a name="switch"></a>Växel
+En tillgänglig port på en växel för den development kit datorn.  
 
-The development kit machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+Development kit datorn stöder anslutning till en åtkomst-växelport eller trunk port. Inga särskilda funktioner krävs på växeln. Om du använder en segmentport eller om du behöver konfigurera ett VLAN-ID måste du ange VLAN-ID som en parameter för distribution. Du kan se exemplen i den [lista över distributionsparametrarna](azure-stack-run-powershell-script.md).
 
-### <a name="subnet"></a>Subnet
-Do not connect the development kit machine to the following subnets:
+### <a name="subnet"></a>Undernät
+Anslut inte development kit datorn till följande undernät:
 
 * 192.168.200.0/24
 * 192.168.100.0/27
@@ -111,35 +110,35 @@ Do not connect the development kit machine to the following subnets:
 * 192.168.103.0/25
 * 192.168.104.0/25
 
-These subnets are reserved for the internal networks within the development kit environment.
+Dessa undernät är reserverade för interna nätverk i miljön development kit.
 
 ### <a name="ipv4ipv6"></a>IPv4/IPv6
-Only IPv4 is supported. You cannot create IPv6 networks.
+Endast IPv4 stöds. Du kan inte skapa IPv6-nätverk.
 
 ### <a name="dhcp"></a>DHCP
-Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and gateway as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+Kontrollera att det finns en DHCP-server i nätverket som nätverkskortet ansluts till. Om DHCP inte är tillgängligt måste du förbereda ytterligare ett statiskt IPv4-nätverk än det som används av värden. Du måste ange IP-adress och gateway som distributionsparameter. Du kan se exemplen i den [lista över distributionsparametrarna](azure-stack-run-powershell-script.md).
 
-### <a name="internet-access"></a>Internet access
-Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.microsoftonline.com domains.
+### <a name="internet-access"></a>Internet-åtkomst
+Azure-stacken kräver åtkomst till Internet, antingen direkt eller via en transparent proxy. Azure-stacken stöder inte konfigurationen av en webbproxy för Internet-åtkomst. Både värd-IP och nya IP-Adressen som tilldelats MAS-BGPNAT01 (med DHCP eller statiska IP-) måste kunna få åtkomst till Internet. Portarna 80 och 443 används under graph.windows.net och login.microsoftonline.com domäner.
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetri
 
-Telemetry helps us shape future versions of Azure Stack. It lets us respond quickly to feedback, provide new features, and improve quality. Microsoft Azure Stack includes Windows Server 2016 and SQL Server 2014. Neither of these products are changed from default settings and both are described by the Microsoft Enterprise Privacy Statement. Azure Stack also contains open source software which has not been modified to send telemetry to Microsoft. Here are some examples of Azure Stack telemetry data:
+Telemetri hjälper oss att formar framtida versioner av Azure-stacken. Det gör oss snabbt svara på feedback, innehåller nya funktioner och förbättra kvaliteten. Microsoft Azure-stacken innehåller Windows Server 2016 och SQL Server 2014. Ingen av dessa produkter har ändrats från standardinställningarna och båda beskrivs av sekretesspolicyn för Microsoft Enterprise. Azure stacken innehåller också programvara med öppen källkod som inte har ändrats för att skicka telemetri till Microsoft. Här följer några exempel på Azure-stacken telemetridata:
 
-- deployment registration information
-- when an alert is opened and closed
-- the number of network resources
+- information om distribution
+- När en avisering öppnas och stängs
+- antalet nätverksresurser
 
-To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
+För att stödja telemetri dataflöde, öppnas port 443 (HTTPS) i nätverket. Klientslutpunkten är https://vortex-win.data.microsoft.com.
 
-If you don’t want to provide telemetry for Azure Stack, you can turn it off on the development kit host and the infrastructure virtual machines as explained below.
+Om du inte vill ange telemetri för Azure-stacken kan inaktivera du den på development kit värden och infrastruktur för virtuella datorer som beskrivs nedan.
 
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Turn off telemetry on the development kit host (optional)
+### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Inaktivera telemetri för development kit värden (valfritt)
 
 >[!NOTE]
-If you want to turn off telemetry for the development kit host, you must do so before you run the deployment script.
+Om du vill inaktivera telemetri för development kit värden måste du göra det innan du kör skriptet för distribution.
 
-Before [running the asdk-installer.ps1 script]() to deploy the development kit host, boot into the CloudBuilder.vhdx and run the following script in an elevated PowerShell window:
+Innan du [kör skriptet asdk installer.ps1]() för att distribuera development kit värden, starta i CloudBuilder.vhdx och kör följande skript i ett upphöjt PowerShell-fönster:
 ```powershell
 ### Get current AllowTelmetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
@@ -151,12 +150,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 -Name AllowTelemetry).AllowTelemetry
 ```
 
-Setting **AllowTelemetry** to 0 turns off telemetry for both Windows and Azure Stack deployment. Only critical security events from the operating system are sent. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur.
+Ange **AllowTelemetry** till 0 inaktiveras telemetri för både Windows- och Azure Stack-distribution. Endast kritiska säkerhetshändelser från operativsystemet skickas. Inställningen styr Windows telemetri över alla värdar och infrastruktur för virtuella datorer och används igen till nya noder/virtuella datorer när skalbar åtgärder vidtas.
 
 
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Turn off telemetry on the infrastructure virtual machines (optional)
+### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Inaktivera telemetri för infrastruktur för virtuella datorer (valfritt)
 
-After the deployment is successful, run the following script in an elevated PowerShell window (as the AzureStack\AzureStackAdmin user) on the development kit host:
+När distributionen är klar kör du följande skript i ett upphöjt PowerShell-fönster (som AzureStack\AzureStackAdmin användare) på värden development kit:
 
 ```powershell
 $AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
@@ -170,18 +169,17 @@ invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
 "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
 ```
 
-To configure SQL Server telemetry, see [How to configure SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
+Om du vill konfigurera SQL Server-telemetri finns [hur du konfigurerar SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
 
-### <a name="usage-reporting"></a>Usage reporting
+### <a name="usage-reporting"></a>Användningsrapportering
 
-Through registration, Azure Stack is also configured to forward usage information to Azure. Usage reporting is controlled independently from telemetry. You can turn off usage reporting when [registering](azure-stack-register.md) by using the script on Github. Just set the **$reportUsage** parameter to **$false**.
+Via registrering, Azure Stack även är konfigurerat med vanlig användningsinformation till Azure. Användningsrapport styrs oberoende från telemetri. Du kan inaktivera användning reporting när [registrera](azure-stack-register.md) med hjälp av skript på Github. Anger den **$reportUsage** parameter till **$false**.
 
-Usage data is formatted as detailed in the [Report Azure Stack usage data to Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure Stack Development Kit users are not actually charged. This functionality is included in the development kit so that you can test to see how usage reporting works. 
+Användningsdata är formaterad enligt anvisningarna i den [rapporten Azure Stack användningsdata till Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure-stacken Development Kit användare är faktiskt inte debiteras. Den här funktionen ingår i development kit så att du kan testa hur användningsrapportering fungerar. 
 
 
-## <a name="next-steps"></a>Next steps
-[Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+## <a name="next-steps"></a>Nästa steg
+[Hämta Azure Stack development kit distributionspaketet](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Deploy Azure Stack development kit](azure-stack-run-powershell-script.md)
-
+[Distribuera Azure-stacken development kit](azure-stack-run-powershell-script.md)
 

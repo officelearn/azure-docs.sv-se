@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 44ec416a814ff6a5fef79ef21e2f54ce4ce4da17
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
+ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Överför objekt till/från Azure Blob storage med hjälp av Python
 I den här snabbstarten att lära dig hur du använder Python att överföra, hämta och visa en lista med blockblobbar i en behållare i Azure Blob storage. 
@@ -32,25 +32,7 @@ För att slutföra den här snabbstarten behöver du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Skapa ett lagringskonto med hjälp av Azure portal
-
-Först skapa Allmänt lagringskonto ska användas för denna Snabbstart. 
-
-1. Gå till den [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-konto. 
-2. På navmenyn väljer **ny** > **lagring** > **lagringskonto - blob, fil, tabell, kö**. 
-3. Ange ett namn för lagringskontot. Namnet måste vara mellan 3 och 24 tecken långt och får innehålla siffror och gemener. Det måste också vara unikt.
-4. Ange `Deployment model` till **Resource manager**.
-5. Ange `Account kind` till **generella**.
-6. Ange `Performance` till **Standard**. 
-7. Ange `Replication` till **lokalt Redundant lagring (LRS)**.
-8. Ange `Storage service encryption` till **inaktiverade**.
-9. Ange `Secure transfer required` till **inaktiverade**.
-10. Välj din prenumeration. 
-11. För `resource group`, skapa en ny och ge den ett unikt namn. 
-12. Välj den `Location` ska användas för ditt lagringskonto.
-13. Kontrollera **fäst på instrumentpanelen** och på **skapa** att skapa ditt lagringskonto. 
-
-När ditt lagringskonto har skapats kan är den fäst på instrumentpanelen. Klicka på den för att öppna den. Under **inställningar**, klickar du på **åtkomstnycklar**. Välj en nyckel och kopiera lagringskontonamnet till Urklipp och klistrar in den i anteckningar för senare användning.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 Den [exempelprogram](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) används i den här snabbstarten är ett grundläggande Python-program.  
@@ -100,8 +82,10 @@ Det första du gör är att skapa referenser till objekt som används för att k
 
 När du har molnet Blob-behållare kan du initiera den **CloudBlockBlob** objekt som hänvisar till specifika blob som du är intresserad av och utföra åtgärder som att ladda upp, hämta och kopiera.
 
-I det här avsnittet instansiera objekt, skapa en ny behållare och ange behörigheter för behållaren så att blobbarna är offentliga. Behållaren kallas **quickstartblobs**. 
+> [!IMPORTANT]
+> Behållarnamn måste vara gemener. Se [namnge och referera till behållare, Blobbar och Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) för mer information om behållaren och blob-namn.
 
+I det här avsnittet instansiera objekt, skapa en ny behållare och ange behörigheter för behållaren så att blobbarna är offentliga. Behållaren kallas **quickstartblobs**. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account
@@ -156,7 +140,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Hämta Blobbarna
+## <a name="download-the-blobs"></a>Hämta blobbarna
 
 Ladda ned blobbar till din lokala disk med hjälp av den **hämta\_blob\_till\_sökväg** metod. Följande kod hämtar blob som överförts i föregående avsnitt. ”_DOWNLOADED” läggs till som ett suffix till blob-namn så att du kan se båda filerna på lokal disk. 
 

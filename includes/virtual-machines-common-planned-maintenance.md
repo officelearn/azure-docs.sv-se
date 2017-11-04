@@ -1,50 +1,50 @@
-Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. These updates range from patching software components in the hosting environment (like operating system, hypervisor, and various agents deployed on the host), upgrading networking components, to hardware decommissioning. The majority of these updates are performed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
+Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten, prestanda och säkerhet för infrastrukturen för värd för virtuella datorer. Dessa uppdateringar mellan korrigering programvarukomponenter i värdmiljön (till exempel operativsystem, hypervisor och olika agenter distribueras på värden), uppgraderar nätverkskomponenter, till inaktivering av maskinvara. Flesta av de här uppdateringarna utförs utan någon inverkan på de virtuella datorerna. Det finns dock fall där uppdateringar har konsekvenser:
 
-- If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated.
+- Om underhåll som inte kräver en omstart, använder Azure migrering på plats för att pausa den virtuella datorn när värden har uppdaterats.
 
-- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you'll also be given a time window where you can start the maintenance yourself, at a time that works for you.
+- Om en omstart krävs för underhåll, får du ett meddelande om vid underhåll är planerade. I dessa fall kan också får du ett tidsfönster där du kan starta underhållet själv, samtidigt som passar dig.
 
-This page describes how Microsoft Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows] (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Den här sidan beskrivs hur Microsoft Azure utför båda typerna av underhåll. Mer information om oplanerade händelser (avbrott) finns i Hantera tillgängligheten för virtuella datorer [Windows] (... / articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Applications running in a virtual machine can gather information about upcoming updates by using the Azure Metadata Service for [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) or [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+Program som körs på en virtuell dator kan samla in information om kommande uppdateringar genom att använda tjänsten Azure Metadata för [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) eller [Linux] (... / articles/virtual-machines/linux/instance-metadata-service.md).
 
-For "how-to" information on managing planned maintence, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+”” Information om hur du hanterar planerade maintence, finns i ”Hantera planerat underhåll meddelanden” för [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) eller [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>In-place VM migration
+## <a name="in-place-vm-migration"></a>VM-migrering på plats
 
-When updates don't require a full reboot, an in-place live migration is used. During the update the virtual machine is paused for about 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized.
+När uppdateringar inte kräver en omstart för fullständig, används en aktiv migrering på plats. Den virtuella datorn är pausad i 30 sekunder, bevarar minnet i RAM, medan värdmiljön gäller nödvändiga uppdateringar och korrigeringsfiler under uppdateringen. Den virtuella datorn sedan återupptas och klockan på den virtuella datorn synkroniseras automatiskt.
 
-For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
+För virtuella datorer i tillgänglighetsuppsättningar kan är uppdatera domäner uppdaterade ett i taget. Alla virtuella datorer i en uppdateringsdomän (UD) pausas, uppdateras och återupptas innan planerat underhåll flyttar till nästa UD.
 
-Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> 
+Vissa program kan påverkas av dessa typer av uppdateringar. Program som utför realtid händelsebearbetning, som direktuppspelning eller omkodning eller hög genomströmning nätverk scenarier kan inte konstrueras klarar en paus på 30 sekund. <!-- sooooo, what should they do? --> 
 
 
-## <a name="maintenance-requiring-a-reboot"></a>Maintenance requiring a reboot
+## <a name="maintenance-requiring-a-reboot"></a>Underhåll som kräver en omstart
 
-When VMs need to be rebooted for planned maintenance, you are notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
+När virtuella datorer måste startas om för planerat underhåll, meddelas du i förväg. Planerat underhåll har två faser: fönstret självbetjäning och schemalagda underhållsperiod.
 
-The **self-service window** lets you initiate the maintenance on your VMs. During this time, you can query each VM to see their status and check the result of your last maintenance request.
+Den **självbetjäning fönstret** kan du initiera Underhåll på dina virtuella datorer. Under denna tid kan fråga du varje virtuell dator för att se deras status och kontrollera resultatet av din senaste begäran.
 
-When you start self-service maintenance, your VM is moved to a node that has already been updated and then powers it back on. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
+När du startar självbetjäning Underhåll flyttas den virtuella datorn till en nod som redan har uppdaterats och sedan aktiveras den tillbaka. Eftersom den virtuella datorn startas om tillfälligt disken går förlorad och dynamiska IP-adresser som är kopplade till virtuella nätverksgränssnittet har uppdaterats.
 
-If you start self-service maintenance and there is an error during the process, the operation is stopped, the VM is not updated and it is also removed from the planned maintenance iteration. You will be contacted in a later time with a new schedule and offered a new opportunity to do self-service maintenance. 
+Om du startar självbetjäning underhåll och det finns ett fel under processen igen har stoppats, uppdateras inte den virtuella datorn och den också tas bort från upprepning planerat underhåll. Du kontakta i ett senare tillfälle med ett nytt schema och erbjuder en ny möjlighet att utföra underhåll för självbetjäning. 
 
-When the self-service window has passed, the **scheduled maintenance window** begins. During this time window, you can still query for the maintenance window, but no longer be able to start the maintenance yourself.
+När fönstret självbetjäning har passerat den **schemalagda underhållsperiod** börjar. Under den här tidsfönstret du fortfarande fråga efter underhållsfönstret, men inte längre att kunna starta underhållet själv.
 
-## <a name="availability-considerations-during-planned-maintenance"></a>Availability Considerations during Planned Maintenance 
+## <a name="availability-considerations-during-planned-maintenance"></a>Tillgänglighet under planerat underhåll 
 
-If you decide to wait until the planned maintenance window, there are a few things to consider for maintaining the highest availabilty of your VMs. 
+Om du vill vänta tills fönstret planerat underhåll finns det några saker att tänka på för att underhålla den högsta availabilty för dina virtuella datorer. 
 
-### <a name="paired-regions"></a>Paired Regions
+### <a name="paired-regions"></a>Parad regioner
 
-Each Azure region is paired with another region within the same geography, together they make a regional pair. During planned maintenance, Azure will only update the VMs in a single region of a region pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Varje Azure-region paras ihop med en annan region inom samma geografiska, samman de gör ett regionalt par. Under planerat underhåll uppdatera Azure bara virtuella datorer i en region i en region-par. När du till exempel uppdaterar de virtuella datorerna i regionen USA, norra centrala så uppdaterar inte Azure inte alla virtuella datorer i regionen USA, södra centrala på samma gång. Andra regioner än Europa, norra kan emellertid ges underhåll samtidigt som USA, östra. Så här fungerar region par kan hjälpa dig att förstå bättre distribuera din virtuella dator över regioner. Mer information finns i [Azure-region par](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-### <a name="availability-sets-and-scale-sets"></a>Availability sets and scale sets
+### <a name="availability-sets-and-scale-sets"></a>Tillgänglighetsuppsättningar och skaluppsättningar
 
-When deploying a workload on Azure VMs, you can create the VMs within an availability set to provide high availability to your application. This ensures that during either an outage or maintenance events, at least one virtual machine is available.
+När du distribuerar en arbetsbelastningen på virtuella Azure-datorer kan skapa du de virtuella datorerna i en tillgänglighetsuppsättning för att tillhandahålla hög tillgänglighet för ditt program. Detta garanterar att minst en virtuell dator vid ett strömavbrott eller underhåll händelser är tillgänglig.
 
-Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially. 
+I en tillgänglighetsuppsättning sprids enskilda virtuella datorer över upp till 20 update domäner (UDs). Endast en enskild uppdateringsdomän påverkas vid en given tidpunkt under planerat underhåll. Tänk på att ordningen för update-domäner som påverkas inte nödvändigtvis sker sekventiellt. 
 
-Virtual machine scale sets are an Azure compute resource that enables you to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across update domains, like VMs in an availability set. Just like with availability sets, with scale sets only a single update domain is impacted at any given time.
+Skaluppsättningar för den virtuella datorn är en Azure compute-resurs som du kan distribuera och hantera en uppsättning identiska virtuella datorer som en enskild resurs. Skaluppsättning distribueras automatiskt uppdatera domäner som virtuella datorer i en tillgänglighetsuppsättning. Precis som med tillgänglighetsuppsättningar påverkas med skalningsuppsättningar i en enda uppdateringsdomän vid en given tidpunkt.
 
-For more information about configuring your virtual machines for high availability, see Manage the availability of your virtual machines for Windows (../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Mer information om hur du konfigurerar dina virtuella datorer för hög tillgänglighet finns i Hantera tillgängligheten för virtuella datorer för Windows (... / articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).

@@ -1,25 +1,25 @@
-## <a name="create-a-simulated-device-app"></a>Create a simulated device app
-In this section, you:
+## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
+I det här avsnittet får du:
 
-* Create a Node.js console app that responds to a direct method called by the cloud
-* Trigger a simulated firmware update
-* Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
+* Skapa en Node.js-konsolapp som svarar på en direkt metod som anropas via molnet
+* Utlösa en simulerad uppdatering av inbyggd programvara
+* Använda rapporterade egenskaper för att aktivera enhetstvillingfrågor för att identifiera enheter och ta reda på när de senast slutfört en uppdatering av en inbyggd programvara
 
-Step 1: Create an empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Skapa en tom mapp med namnet **manageddevice**.  I mappen **manageddevice** skapar du en package.json-fil med hjälp av följande kommando i Kommandotolken. Acceptera alla standardvärden:
    
     ```
     npm init
     ```
 
-Step 2: At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** Device SDK packages:
+2. I Kommandotolken i mappen **manageddevice** kör du följande kommando för att installera SDK-paketeten **azure-iot-device** och **azure-iot-device-mqtt**:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-Step 3: Using a text editor, create a **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
+3. Skapa en **dmpatterns_fwupdate_device.js**-fil i mappen **manageddevice** med hjälp av ett textredigeringsprogram.
 
-Step 4: Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
+4. Lägg till följande ”require”-instruktioner i början av **dmpatterns_fwupdate_device.js**-filen:
    
     ```
     'use strict';
@@ -27,14 +27,14 @@ Step 4: Add the following 'require' statements at the start of the **dmpatterns_
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-Step 5: Add a **connectionString** variable and use it to create a **Client** instance. Replace the `{yourdeviceconnectionstring}` placeholder with the connection string you previously made a note of in the "Create a device identity" section previously:
+5. Lägg till en **connectionString**-variabel och använd den för att skapa en **klientinstans**. Ersätt platshållaren `{yourdeviceconnectionstring}` med den anslutningssträng som du noterade tidigare i avsnittet Skapa en enhetsidentifitet:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-Step 6: Add the following function that is used to update reported properties:
+6. Lägg till följande funktion som används för att uppdatera rapporterade egenskaper:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -51,7 +51,7 @@ Step 6: Add the following function that is used to update reported properties:
     };
     ```
 
-Step 7: Add the following functions that simulate downloading and applying the firmware image:
+7. Lägg till följande funktioner som simulerar nedladdning och användning av en avbildning för inbyggd programvara:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -74,7 +74,7 @@ Step 7: Add the following functions that simulate downloading and applying the f
     }
     ```
 
-Step 8: Add the following function that updates the firmware update status through the reported properties to **waiting**. Typically, devices are informed of an available update and an administrator defined policy causes the device to start downloading and applying the update. This function is where the logic to enable that policy should run. For simplicity, the sample waits for four seconds before proceeding to download the firmware image:
+8. Lägg till följande funktion som uppdaterar uppdateringstatusen för den inbyggda programvaran via rapporterade egenskaper till **waiting** (väntande). Normalt informeras enheter när en uppdatering är tillgänglig och när en princip som en administaratör har definierat börjar ladda ned och tillämpa uppdateringen. Logiken för att aktivera principen ska köras i den här funktionen. För enkelhetens skull väntar exemplet på fyra sekunder innan du fortsätter att ladda ned firmware-avbildningen:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -90,7 +90,7 @@ Step 8: Add the following function that updates the firmware update status throu
     };
     ```
 
-Step 9: Add the following function that updates the firmware update status through the reported properties to **downloading**. The function then simulates a firmware download and finally updates the firmware update status to either **downloadFailed** or **downloadComplete**:
+9. Lägg till följande funktion som uppdaterar uppdateringsstatusen för den inbyggda programvaran via rapporterade egenskaper till **downloading** (laddar ned). Funktionen simulerar sedan en nedladdning av den inbyggda programvaran och uppdaterar slutligen uppdateringsstatusen för den inbyggda programvaran till antingen **downloadFailed** (nedladdningen misslyckades) eller **downloadComplete** (nedladdningen har slutförts):
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -128,7 +128,7 @@ Step 9: Add the following function that updates the firmware update status throu
     }
     ```
 
-Step 10: Add the following function that updates the firmware update status through the reported properties to **applying**. The function then simulates applying the firmware image and finally updates the firmware update status to either **applyFailed** or **applyComplete**:
+10. Lägg till följande funktion som uppdaterar uppdateringsstatusen för den inbyggda programvaran via rapporterade egenskaper till **applying** (tillämpas). Funktionen simulerar sedan tillämpning av avbildningen för den inbyggda programvaran och uppdaterar slutligen uppdateringsstatusen för den inbyggda programvaran till antingen **applyFailed** (tillämpningen misslyckades) eller **applyComplete** (tillämpningen har slutförts):
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -166,7 +166,7 @@ Step 10: Add the following function that updates the firmware update status thro
     }
     ```
 
-Step 11: Add the following function that handles the **firmwareUpdate** direct method and initiates the multi-stage firmware update process:
+11. Lägg till följande funktion som hanterar den direkta **firmwareUpdate**-metoden och initierar uppdateringsprocessen för den inbyggda programvaran som sker i flera steg:
     
     ```
     var onFirmwareUpdate = function(request, response) {
@@ -202,7 +202,7 @@ Step 11: Add the following function that handles the **firmwareUpdate** direct m
     }
     ```
 
-Step 12: Finally, add the following code that connects to your IoT hub:
+12. Slutligen lägger du till följande kod som ansluter till IoT-hubben:
     
     ```
     client.open(function(err) {
@@ -217,6 +217,6 @@ Step 12: Finally, add the following code that connects to your IoT hub:
     ```
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling](https://msdn.microsoft.com/library/hh675232.aspx).
+> För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktionskod, bör du implementera försök principer (till exempel en exponentiell backoff) enligt förslaget i MSDN-artikel [hantering av tillfälliga fel](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 > 

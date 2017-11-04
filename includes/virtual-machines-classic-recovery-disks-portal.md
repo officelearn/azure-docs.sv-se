@@ -53,9 +53,9 @@ När eventuella fel har åtgärdats demonterar du och kopplar från den befintli
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>Skapa en virtuell dator från den ursprungliga hårddisken
 
-Använd [den klassiska Azure-portalen](https://manage.windowsazure.com) när du skapar en virtuell dator från den ursprungliga virtuella hårddisken.
+Så här skapar du en virtuell dator från den ursprungliga virtuella hårddisken [Azure-portalen](https://portal.azure.com).
 
-1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Längst ned på portalen väljer du **Nytt** > **Dator** > **Virtuell dator** > **From Gallery** (Från galleri).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Längst upp till vänster i portalen, Välj **ny** > **Compute** > **virtuella** > **från galleriet**.
 3. Välj **My disks** (Mina diskar) i avsnittet **Choose an Image** (Välj en avbildning) och välj sedan den ursprungliga virtuella hårddisken. Kontrollera platsinformationen. Det här är den region där den virtuella datorn måste distribueras. Klicka på Nästa.
 4. I avsnittet **Konfiguration av virtuell dator** skriver du namnet på den virtuella datorn och väljer en storlek för den virtuella datorn.

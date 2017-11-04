@@ -12,21 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Strömma data från Azure Storage Blob till Data Lake Store med Azure Stream Analytics
 I den här artikeln får du lära dig hur du använder Azure Data Lake Store som utdata för ett Azure Stream Analytics-jobb. Den här artikeln visar ett enkelt scenario som läser data från ett Azure Storage blob (indata) och skriver data till Data Lake Store (utdata).
-
-> [!NOTE]
-> För tillfället skapande och konfiguration av Data Lake Store matar ut för Stream Analytics stöds bara i den [klassiska Azure-portalen](https://manage.windowsazure.com). Därför kan använder vissa delar av den här kursen den klassiska Azure-portalen.
->
->
 
 ## <a name="prerequisites"></a>Krav
 Innan du påbörjar de här självstudierna måste du ha:

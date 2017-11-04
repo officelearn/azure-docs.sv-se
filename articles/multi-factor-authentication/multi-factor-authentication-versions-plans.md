@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: kgremban
-ms.openlocfilehash: cacb027fad4127072e542f554373881932870841
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 159e56c7ba1e0c27cd854f7d835611d5707c7a23
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Hur du hämtar Azure Multi-Factor Authentication
 
 När det gäller att skydda dina konton, vara tvåstegsverifiering standard i din organisation. Den här funktionen är särskilt viktigt för administrativa konton som har privilegierad åtkomst till resurser. Därför Microsoft erbjuder grundläggande tvåstegsverifiering verifiering funktioner på Office 365 och Azure administratörer för inget extra kostnad. Om du vill uppgradera funktionerna för dina administratörer eller utöka tvåstegsverifiering till resten av dina användare kan du köpa Azure Multi-Factor Authentication. 
 
 Den här artikeln förklarar skillnaden mellan de versioner som erbjuds för administratörer och den fullständiga versionen av Azure MFA. Om du är redo att distribuera den fullständiga Azure MFA ger beskriver senare avsnitt implementeringsalternativ och hur Microsoft beräknar förbrukning.
+
 
 >[!IMPORTANT]
 >Den här artikeln är avsedd att vara en guide som hjälper dig att förstå de olika sätten att köpa Azure Multi-Factor Authentication. Specifik information om priser och fakturering bör du alltid referera till den [Multifaktorautentisering sida med priser](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
@@ -55,6 +56,7 @@ Följande tabell innehåller en lista över funktioner som är tillgängliga i d
 | SMS som ett andra alternativ |● |● |● |
 | Applösenord för klienter som inte har stöd för MFA |● |● |● |
 | -Administratörer kontroll över verifieringsmetoderna |● |● |● |
+| Skydda icke-administratörskonton med MFA | | |● |
 | PIN-läge | | |● |
 | Bedrägerivarning | | |● |
 | MFA-rapporter | | |● |
@@ -87,7 +89,7 @@ Skapa ett Azure Multi-Factor Authentication-leverantör i en Azure-prenumeration
 
 När du använder Azure Multi-Factor Authentication-leverantör, finns det två användning modeller som är tillgängliga som debiteras via din Azure-prenumeration:  
 
-1. **Per användare** – för företag som vill aktivera tvåstegsverifiering för ett fast antal anställda som regelbundet behöver autentisering. Per användare fakturering baseras på antalet användare som har aktiverats för Multifaktorautentisering i Azure AD-klient och Azure MFA-Server. Om användarna har aktiverats för MFA i både Azure AD och Azure MFA-Server och domän synkronisering (Azure AD Connect) är aktiverat och sedan vi räkna större uppsättning användare. Om domänen synkronisering har inte aktiverats, så vi räkna summan av alla användare som har aktiverats för Multifaktorautentisering i Azure AD och Azure MFA-Server. Fakturering linjärt och rapporteras till Commerce-systemet varje dag. 
+1. **Per aktiverad användare** – för företag som vill aktivera tvåstegsverifiering för ett fast antal anställda som regelbundet behöver autentisering. Per användare fakturering baseras på antalet användare som har aktiverats för Multifaktorautentisering i Azure AD-klient och Azure MFA-Server. Om användarna har aktiverats för MFA i både Azure AD och Azure MFA-Server och domän synkronisering (Azure AD Connect) är aktiverat och sedan vi räkna större uppsättning användare. Om domänen synkronisering har inte aktiverats, så vi räkna summan av alla användare som har aktiverats för Multifaktorautentisering i Azure AD och Azure MFA-Server. Fakturering linjärt och rapporteras till Commerce-systemet varje dag. 
 
   > [!NOTE]
   > Fakturering exempel 1: du har 5 000 användare som har aktiverats för MFA idag. Systemets MFA dividerar numret med 31 och rapporter 161.29 användare för den dagen. I morgon aktiverar du 15 fler användare, så att systemet MFA rapporterar 161.77 användare för den dagen. I slutet av faktureringsperioden läggs det totala antalet användare som faktureras mot Azure-prenumerationen upp till runt 5 000. 

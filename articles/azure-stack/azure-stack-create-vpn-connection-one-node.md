@@ -1,6 +1,6 @@
 ---
-title: Create a site-to-site VPN connection between two virtual networks in different Azure Stack Development Kit environments | Microsoft Docs
-description: Step-by-step procedure that a cloud administrator uses to create a site-to-site VPN connection between two single-node Azure Stack Development Kit environments.
+title: "Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk i olika miljöer i Azure-stacken Development Kit | Microsoft Docs"
+description: "Stegvisa anvisningar som molnadministratören använder för att skapa en plats-till-plats VPN-anslutning mellan två nod Azure Stack Development Kit miljöer."
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,57 +14,56 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Create a site-to-site VPN connection between two virtual networks in different Azure Stack Development Kit environments
-## <a name="overview"></a>Overview
-This article shows you how to create a site-to-site VPN connection between two virtual networks in two separate Azure Stack Development Kit environments. While you configure the connections, you learn how VPN gateways in Azure Stack work.
+# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk i olika Azure-stacken Development Kit miljöer
+## <a name="overview"></a>Översikt
+Den här artikeln visar hur du skapar en plats-till-plats VPN-anslutning mellan två virtuella nätverk i två separata Azure Stack Development Kit miljöer. När du konfigurerar anslutningar kan du lära dig hur VPN-gatewayer i Azure-stacken fungerar.
 
-### <a name="connection-diagram"></a>Connection diagram
-The following diagram shows what the connection configuration should look like when you’re done.
+### <a name="connection-diagram"></a>Anslutningsdiagram
+Följande diagram visar hur konfigurationen ska se ut när du är klar.
 
-![Site-to-site VPN connection configuration](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
+![Konfiguration för plats-till-plats VPN-anslutning](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
 
-### <a name="before-you-begin"></a>Before you begin
-To complete the connection configuration, ensure that you have the following items before you begin:
+### <a name="before-you-begin"></a>Innan du börjar
+Slutför konfigurationen genom att se till att du har följande innan du börjar:
 
-* Two servers that meet the Azure Stack Development Kit hardware requirements, which are defined by the [Azure Stack deployment prerequisites](azure-stack-deploy.md). Ensure that the other prerequisites that appear in the [article](azure-stack-deploy.md) are fulfilled too.
-* The [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) deployment package.
+* Två servrar som uppfyller maskinvarukraven Azure Stack Development Kit, som definieras av den [kraven för distribution av Azure-stacken](azure-stack-deploy.md). Se till att de förutsättningar som visas i den [artikel](azure-stack-deploy.md) uppfylls för.
+* Den [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) distributionspaketet.
 
-## <a name="deploy-the-azure-stack-development-kit-environments"></a>Deploy the Azure Stack Development Kit environments
-To complete the connection configuration, you must deploy two Azure Stack Development Kit environments.
+## <a name="deploy-the-azure-stack-development-kit-environments"></a>Distribuera Azure Stack Development Kit-miljöer
+För att slutföra konfigurationen måste du distribuera två Azure Stack Development Kit miljöer.
 > [!NOTE] 
-> For each Azure Stack Development Kit that you deploy, follow the [deployment instructions](azure-stack-run-powershell-script.md). In this article, the Azure Stack Development Kit environments are called *POC1* and *POC2*.
+> För varje Azure-stacken Development Kit som du distribuerar, följer du de [distributionsanvisningarna](azure-stack-run-powershell-script.md). I den här artikeln Azure Stack Development Kit miljöer kallas *POC1* och *POC2*.
 
 
-## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Prepare an offer on POC1 and POC2
-On both POC1 and POC2, prepare an offer so that a user can subscribe to the offer and deploy the virtual machines. For information on how to create an offer, see [Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md).
+## <a name="prepare-an-offer-on-poc1-and-poc2"></a>Förbereda ett erbjudande på POC1 och POC2
+Förbered ett erbjudande på både POC1 och POC2 så att en användare kan prenumerera på erbjudandet och distribuera virtuella datorer. Information om hur du skapar ett erbjudande finns [tillgängliggöra virtuella datorer till Azure-stacken användarna](azure-stack-tutorial-tenant-vm.md).
 
-## <a name="review-and-complete-the-network-configuration-table"></a>Review and complete the network configuration table
-The following table summarizes the network configuration for both Azure Stack Development Kit environments. Use the procedure that appears after the table to add the External BGPNAT address that is specific for your network.
+## <a name="review-and-complete-the-network-configuration-table"></a>Granska och fylla i tabellen för konfiguration av nätverk
+I följande tabell sammanfattas nätverkskonfigurationen för både Azure-stacken Development Kit-miljöer. Använd proceduren som visas efter tabellen om du vill lägga till externa BGPNAT adressen som är specifik för ditt nätverk.
 
-**Network configuration table**
+**Tabell för konfiguration av nätverk**
 |   |POC1|POC2|
 |---------|---------|---------|
-|Virtual network name     |VNET-01|VNET-02 |
-|Virtual network address space |10.0.10.0/23|10.0.20.0/23|
-|Subnet name     |Subnet-01|Subnet-02|
-|Subnet address range|10.0.10.0/24 |10.0.20.0/24 |
-|Gateway subnet     |10.0.11.0/24|10.0.21.0/24|
-|External BGPNAT address     |         |         |
+|Namn för virtuellt nätverk     |VNET-01|VNET-02 |
+|Virtuellt adressutrymme |10.0.10.0/23|10.0.20.0/23|
+|Namn på undernät     |Undernät-01|Undernät-02|
+|Adressintervall för undernätet|10.0.10.0/24 |10.0.20.0/24 |
+|Gateway-undernät      |10.0.11.0/24|10.0.21.0/24|
+|Extern BGPNAT adress     |         |         |
 
 > [!NOTE]
-> The external BGPNAT IP addresses in the example environment are 10.16.167.195 for POC1, and 10.16.169.131 for POC2. Use the following procedure to determine the external BGPNAT IP addresses for your Azure Stack Development Kit hosts, and then add them to the previous network configuration table.
+> De externa BGPNAT IP-adresserna i exempel-miljö är 10.16.167.195 för POC1 och 10.16.169.131 för POC2. Använd följande procedur för att fastställa de externa BGPNAT IP-adresserna för dina Azure-stacken Development Kit värdar och lägga till dem i tabellen för föregående konfiguration nätverk.
 
 
-### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Get the IP address of the external adapter of the NAT VM
-1. Sign in to the Azure Stack physical machine for POC1.
-2. Edit the following Powershell code to replace your administrator password, and then run the code on the POC host:
+### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Hämta IP-adressen för den externa adaptern för den virtuella datorns NAT
+1. Logga in på den fysiska datorn i Azure-Stack för POC1.
+2. Redigera följande Powershell-koden för att ersätta lösenord för administratörskontot och sedan köra koden på POC värden:
 
    ```powershell
    cd \AzureStack-Tools-master\connect
@@ -76,199 +75,199 @@ The following table summarizes the network configuration for both Azure Stack De
     -HostComputer "AzS-bgpnat01" `
     -Password $Password
    ```
-3. Add the IP address to the network configuration table that appears in the previous section.
+3. Lägga till IP-adressen i tabellen nätverket konfiguration som visas i föregående avsnitt.
 
-4. Repeat this procedure on POC2.
+4. Upprepa den här proceduren på POC2.
 
-## <a name="create-the-network-resources-in-poc1"></a>Create the network resources in POC1
-Now you create the POC1 network resources that you need to set up your gateways. The following instructions show you how to create the resources by using the user portal. You can also use PowerShell code to create the resources.
+## <a name="create-the-network-resources-in-poc1"></a>Skapa nätverksresurser i POC1
+Nu kan du skapa POC1 nätverksresurser som måste du ställa in din gateway. I följande anvisningar visar hur du skapar resurser med hjälp av användarportalen. Du kan också använda PowerShell-koden för att skapa resurser.
 
-![Workflow that is used to create resources](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
+![Arbetsflöde som används för att skapa resurser](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
-### <a name="sign-in-as-a-tenant"></a>Sign in as a tenant
-A service administrator can sign in as a tenant to test the plans, offers, and subscriptions that their tenants might use. If you don’t already have one, [create a tenant account](azure-stack-add-new-user-aad.md) before you sign in.
+### <a name="sign-in-as-a-tenant"></a>Logga in som en klient
+En tjänstadministratör kan logga in som en klient att testa planer, erbjudanden och prenumerationer som kan använda för sina klienter. Om du inte redan har en, [skapa ett klient-konto](azure-stack-add-new-user-aad.md) innan du loggar in.
 
-### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
-1. Use a tenant account to sign in to the user portal.
-2. In the user portal, select **New**.
+### <a name="create-the-virtual-network-and-vm-subnet"></a>Skapa ett undernät för det virtuella nätverket och den virtuella datorn
+1. Använda ett klient-konto för att logga in på användarportalen.
+2. Välj i användarportalen, **ny**.
 
-    ![Create new virtual network](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![Skapa ett nytt virtuellt nätverk](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. For **Name**, **Address space**, **Subnet name**, and **Subnet address range**, use the values that appear earlier in the network configuration table.
-6. In **Subscription**, the subscription that you created earlier appears.
-7. For **Resource Group**, you can either create a resource group or if you already have one, select **Use existing**.
-8. Verify the default location.
-9. Select **Pin to dashboard**.
-10. Select **Create**.
+3. Gå till **Marketplace**, och välj sedan **nätverk**.
+4. Välj **för virtuella nätverk**.
+5. För **namn**, **adressutrymmet**, **undernätsnamn**, och **adressintervall för Gatewayundernät**, använder de värden som visas tidigare i nätverket av konfigurationstabellen.
+6. I **prenumeration**, visas den prenumeration som du skapade tidigare.
+7. För **resursgruppen**, kan du antingen skapa en resursgrupp eller om du redan har en, Välj **använda befintliga**.
+8. Verifiera den förvalda platsen.
+9. Välj **fäst till instrumentpanelen**.
+10. Välj **Skapa**.
 
-### <a name="create-the-gateway-subnet"></a>Create the gateway subnet
-1. On the dashboard, open the VNET-01 virtual network resource that you created earlier.
-2. On the **Settings** blade, select **Subnets**.
-3. To add a gateway subnet to the virtual network, select **Gateway Subnet**.
+### <a name="create-the-gateway-subnet"></a>Skapa gateway-undernätet
+1. Öppna resursen VNET-01 virtuella nätverk som du skapade tidigare på instrumentpanelen.
+2. På bladet **Inställningar** väljer du **Undernät**.
+3. Om du vill lägga till ett gateway-undernät i det virtuella nätverket, Välj **Gatewayundernät**.
    
-    ![Add gateway subnet](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![Lägg till gateway-undernät](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
-4. By default, the subnet name is set to **GatewaySubnet**.
-   Gateway subnets are special. To function properly, they must use the *GatewaySubnet* name.
-5. In **Address range**, verify that the address is **10.0.11.0/24**.
-6. Select **OK** to create the gateway subnet.
+4. Undernätnamnet är som standard **GatewaySubnet**.
+   Gateway-undernät är särskilda. För att fungera korrekt måste de använda den *GatewaySubnet* namn.
+5. I **adressintervall**, kontrollera att adressen är **10.0.11.0/24**.
+6. Välj **OK** att skapa gateway-undernätet.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
-1. In the Azure portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, enter **GW1**.
-5. Select the **Virtual network** item to choose a virtual network.
-   Select **VNET-01** from the list.
-6. Select the **Public IP address** menu item. When the **Choose public IP address** blade opens, select **Create new**.
-7. In **Name**, enter **GW1-PiP**, and then select **OK**.
-8.  By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+### <a name="create-the-virtual-network-gateway"></a>Skapa den virtuella nätverksgatewayen
+1. Välj i Azure-portalen **ny**. 
+2. Gå till **Marketplace**, och välj sedan **nätverk**.
+3. Välj i listan över nätverksresurser **virtuell nätverksgateway**.
+4. I **namn**, ange **GW1**.
+5. Välj den **för virtuella nätverk** objektet om du vill välja ett virtuellt nätverk.
+   Välj **VNET-01** från listan.
+6. Välj den **offentliga IP-adressen** menyalternativet. När den **Välj offentlig IP-adress** blad öppnas väljer **Skapa nytt**.
+7. I **namn**, ange **GW1 PiP**, och välj sedan **OK**.
+8.  Som standard för **VPN-typ**, **ruttbaserad** är markerad.
+    Behåll den **ruttbaserad** VPN-typ.
+9. Verifiera att **Prenumeration** och **Plats** stämmer. Du kan fästa på instrumentpanelen till resursen. Välj **Skapa**.
 
-### <a name="create-the-local-network-gateway"></a>Create the local network gateway
-The implementation of a *local network gateway* in this Azure Stack evaluation deployment is a bit different than in an actual Azure deployment.
+### <a name="create-the-local-network-gateway"></a>Skapa den lokala nätverksgatewayen
+Implementeringen av en *lokal nätverksgateway* i den här distributionen av Azure Stack-utvärderingen är lite annorlunda än i en befintlig Azure-distribution.
 
-In an Azure deployment, a local network gateway represents an on-premises (at the tenant) physical device, that you use to connect to a virtual network gateway in Azure. In this Azure Stack evaluation deployment, both ends of the connection are virtual network gateways!
+En lokal nätverksgateway representerar en fysisk enhet lokalt (på klient), som används för att ansluta till en virtuell nätverksgateway i Azure i Azure-distribution. I den här Azure-stacken utvärdering distributionen är båda ändar av anslutningen virtuella nätverksgatewayerna!
 
-A way to think about this more generically is that the local network gateway resource always indicates the remote gateway at the other end of the connection. Because of the way the Azure Stack Development Kit was designed, you need to provide the IP address of the external network adapter on the network address translation (NAT) VM of the other Azure Stack Development Kit as the Public IP Address of the local network gateway. You then create NAT mappings on the NAT VM to make sure that both ends are connected properly.
-
-
-### <a name="create-the-local-network-gateway-resource"></a>Create the local network gateway resource
-1. Sign in to the Azure Stack physical machine for POC1.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. From the list of resources, select **local network gateway**.
-5. In **Name**, enter **POC2-GW**.
-6. In **IP address**, enter the External BGPNAT address for POC2. This address appears earlier in the network configuration table.
-7. In **Address Space**, for the address space of the POC2 VNET that you create later, enter **10.0.20.0/23**.
-8. Verify that your **Subscription**, **Resource Group**, and **location** are correct, and then select **Create**.
-
-### <a name="create-the-connection"></a>Create the connection
-1. In the user portal, select **New**.
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basics** settings blade, for the **Connection type**, select **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** blade,  select **Virtual network gateway**, and then select **GW1**.
-7. Select **Local network gateway**, and then select **POC2-GW**.
-8. In **Connection Name**, enter **POC1-POC2**.
-9. In **Shared key (PSK)**, enter **12345**, and then select **OK**.
-10. On the **Summary** blade, select **OK**.
-
-### <a name="create-a-vm"></a>Create a VM
-To validate the data that travels through the VPN connection, you need the virtual machines to send and receive data in each Azure Stack Development Kit. Create a virtual machine in POC1 now, and then in your virtual network, put it on your VM subnet.
-
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** blade, in **Name**, enter **VM01**.
-5. Enter a valid username and password. You use this account to sign in to the VM after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** blade, for this instance, select a virtual machine size, and then select **Select**.
-8. On the **Settings** blade, accept the defaults. Ensure that the **VNET-01** virtual network is selected. Verify that the subnet is set to **10.0.10.0/24**. Then select **OK**.
-9. On the **Summary** blade, review the settings, and then select **OK**.
+Ett sätt att tänka på detta mer allmänna är att den lokala gateway nätverksresursen alltid anger fjärrgatewayen i slutet av anslutningen. På grund av hur Azure-stacken Development Kit har utformats, måste du ange IP-adressen för det externa nätverkskortet på network address translation (NAT) VM i andra Azure-stacken Development Kit som den offentliga IP-adressen för den lokala gatewayen. Du kan sedan skapa NAT-mappningar på NAT-VM för att se till att båda ändarna är ordentligt anslutna.
 
 
+### <a name="create-the-local-network-gateway-resource"></a>Skapa lokal gateway nätverksresursen
+1. Logga in på den fysiska datorn i Azure-Stack för POC1.
+2. Välj i användarportalen, **ny**.
+3. Gå till **Marketplace**, och välj sedan **nätverk**.
+4. Välj i listan över resurser **lokal nätverksgateway**.
+5. I **namn**, ange **POC2 GW**.
+6. I **IP-adress**, ange den externa BGPNAT-adressen för POC2. Den här adressen visas tidigare i tabellen nätverket konfiguration.
+7. I **adressutrymme**, adressutrymmet för det POC2 VNET som du skapar senare, ange **10.0.20.0/23**.
+8. Kontrollera att din **prenumeration**, **resursgruppen**, och **plats** är korrekta och välj sedan **skapa**.
 
-## <a name="create-the-network-resources-in-poc2"></a>Create the network resources in POC2
+### <a name="create-the-connection"></a>Skapa anslutningen
+1. Välj i användarportalen, **ny**.
+2. Gå till **Marketplace**, och välj sedan **nätverk**.
+3. Välj i listan över resurser **anslutning**.
+4. På den **grunderna** inställningar-bladet för den **anslutningstypen**väljer **plats-till-plats (IPSec)**.
+5. Välj den **prenumeration**, **resursgruppen**, och **plats**, och välj sedan **OK**.
+6. På den **inställningar** bladet väljer **virtuell nätverksgateway**, och välj sedan **GW1**.
+7. Välj **lokal nätverksgateway**, och välj sedan **POC2 GW**.
+8. I **anslutningsnamn**, ange **POC1 POC2**.
+9. I **delad nyckel (PSK)**, ange **12345**, och välj sedan **OK**.
+10. På den **sammanfattning** bladet väljer **OK**.
 
-The next step is to create the network resources for POC2. The following instructions show how to create the resources by using the user portal.
+### <a name="create-a-vm"></a>Skapa en virtuell dator
+För att validera data som överförs via VPN-anslutningen, måste de virtuella datorerna för att skicka och ta emot data i varje Azure-stacken Development Kit. Skapa en virtuell dator i POC1 nu och sedan placera den på VM-undernät i det virtuella nätverket.
 
-### <a name="sign-in-as-a-tenant"></a>Sign in as a tenant
-A service administrator can sign in as a tenant to test the plans, offers, and subscriptions that their tenants might use. If you don’t already have one, [create a tenant account](azure-stack-add-new-user-aad.md) before you sign in.
+1. Välj i Azure-portalen **ny**.
+2. Gå till **Marketplace**, och välj sedan **Compute**.
+3. I listan över virtuella datoravbildningar, väljer du den **Windows Server 2016 Datacenter Eval** bild.
+4. På den **grunderna** bladet i **namn**, ange **VM01**.
+5. Ange ett giltigt användarnamn och lösenord. Du kan använda det här kontot för att logga in på den virtuella datorn när den har skapats.
+6. Ange en **prenumeration**, **resursgruppen**, och **plats**, och välj sedan **OK**.
+7. På den **storlek** bladet för den här instansen, välja en storlek för virtuell dator och välj sedan **Välj**.
+8. På den **inställningar** bladet standardvärdena. Se till att den **VNET-01** virtuellt nätverk har valts. Kontrollera att undernätet är **10.0.10.0/24**. Välj sedan **OK**.
+9. På den **sammanfattning** bladet granskar du inställningarna och välj sedan **OK**.
 
-### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
 
-1. Sign in by using a tenant account.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. Use the information appearing earlier in the network configuration table to identify the values for the POC2 **Name**, **Address space**, **Subnet name**, and **Subnet address range**.
-6. In **Subscription**, the subscription that you created earlier appears.
-7. For **Resource Group**, create a new resource group or, if you already have one, select **Use existing**.
-8. Verify the default **Location**.
-9. Select **Pin to dashboard**.
-10. Select **Create**.
 
-### <a name="create-the-gateway-subnet"></a>Create the Gateway Subnet
-1. Open the Virtual network resource you created (**VNET-02**) from the dashboard.
-2. On the **Settings** blade, select **Subnets**.
-3. Select  **Gateway subnet** to add a gateway subnet to the virtual network.
-4. The name of the subnet is set to **GatewaySubnet** by default.
-   Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, verify the address is **10.0.21.0/24**.
-6. Select **OK** to create the gateway subnet.
+## <a name="create-the-network-resources-in-poc2"></a>Skapa nätverksresurser i POC2
 
-### <a name="create-the-virtual-network-gateway"></a>Create the virtual network gateway
-1. In the Azure portal, select **New**.  
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, enter **GW2**.
-5. To choose a virtual network, select **Virtual network**. Then select **VNET-02** from the list.
-6. Select **Public IP address**. When the **Choose public IP address** blade opens, select **Create new**.
-7. In **Name**, enter **GW2-PiP**, and then select **OK**.
-8. By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+Nästa steg är att skapa nätverksresurser för POC2. I följande anvisningar visar hur du skapar resurser med hjälp av användarportalen.
 
-### <a name="create-the-local-network-gateway-resource"></a>Create the local network gateway resource
+### <a name="sign-in-as-a-tenant"></a>Logga in som en klient
+En tjänstadministratör kan logga in som en klient att testa planer, erbjudanden och prenumerationer som kan använda för sina klienter. Om du inte redan har en, [skapa ett klient-konto](azure-stack-add-new-user-aad.md) innan du loggar in.
 
-1. In the POC2 user portal, select **New**. 
-4. Go to **Marketplace**, and then select **Networking**.
-5. From the list of resources, select **Local network gateway**.
-6. In **Name**, enter **POC1-GW**.
-7. In **IP address**, enter the External BGPNAT address for POC1 that is listed earlier in the network configuration table.
-8. In **Address Space**, from POC1, enter the **10.0.10.0/23** address space of **VNET-01**.
-9. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then select **Create**.
+### <a name="create-the-virtual-network-and-vm-subnet"></a>Skapa ett undernät för det virtuella nätverket och den virtuella datorn
 
-## <a name="create-the-connection"></a>Create the connection
-1. In the user portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basic** settings blade, for the **Connection type**, choose **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** blade, select **Virtual network gateway**, and then select **GW2**.
-7. Select **Local network gateway**, and then select **POC1-GW**.
-8. In **Connection name**, enter **POC2-POC1**.
-9. In **Shared key (PSK)**, enter **12345**. If you choose a different value, remember that it *must* match the value for the shared key that you created on POC1. Select **OK**.
-10. Review the **Summary** blade, and then select **OK**.
+1. Logga in med ett klient-konto.
+2. Välj i användarportalen, **ny**.
+3. Gå till **Marketplace**, och välj sedan **nätverk**.
+4. Välj **för virtuella nätverk**.
+5. Använd informationen som visas tidigare i tabellen nätverket konfiguration för att identifiera värdena för POC2 **namn**, **adressutrymmet**, **undernätsnamn**, och **Adressintervall för gatewayundernät**.
+6. I **prenumeration**, visas den prenumeration som du skapade tidigare.
+7. För **resursgruppen**, skapa en ny resursgrupp eller om du redan har en **använda befintliga**.
+8. Kontrollera standard **plats**.
+9. Välj **fäst till instrumentpanelen**.
+10. Välj **Skapa**.
 
-## <a name="create-a-virtual-machine"></a>Create a virtual machine
-Create a virtual machine in POC2 now, and put it on your VM subnet in your virtual network.
+### <a name="create-the-gateway-subnet"></a>Skapa gateway-undernätet
+1. Öppna virtuella nätverksresurs som du skapade (**VNET-02**) från instrumentpanelen.
+2. På bladet **Inställningar** väljer du **Undernät**.
+3. Välj **gatewayundernät** att lägga till ett gateway-undernät i det virtuella nätverket.
+4. Namnet på undernätet ställs in på **GatewaySubnet** som standard.
+   Gatewayundernät är speciella och måste ha det här specifika namnet för att fungera ordentligt.
+5. I den **adressintervall** fältet, kontrollera att adressen är **10.0.21.0/24**.
+6. Välj **OK** att skapa gateway-undernätet.
 
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** blade, for **Name**, enter **VM02**.
-5. Enter a valid username and password. You use this account to sign in to the virtual machine after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** blade, select a virtual machine size for this instance, and then select **Select**.
-8. On the **Settings** blade, you can accept the defaults. Ensure that the **VNET-02** virtual network is selected, and verify that the subnet is set to **10.0.20.0/24**. Select **OK**.
-9. Review the settings on the **Summary** blade, and then select **OK**.
+### <a name="create-the-virtual-network-gateway"></a>Skapa den virtuella nätverksgatewayen
+1. Välj i Azure-portalen **ny**.  
+2. Gå till **Marketplace**, och välj sedan **nätverk**.
+3. Välj i listan över nätverksresurser **virtuell nätverksgateway**.
+4. I **namn**, ange **GW2**.
+5. Om du vill välja ett virtuellt nätverk väljer **för virtuella nätverk**. Välj sedan **VNET-02** från listan.
+6. Välj **offentliga IP-adressen**. När den **Välj offentlig IP-adress** blad öppnas väljer **Skapa nytt**.
+7. I **namn**, ange **GW2 PiP**, och välj sedan **OK**.
+8. Som standard för **VPN-typ**, **ruttbaserad** är markerad.
+    Behåll den **ruttbaserad** VPN-typ.
+9. Verifiera att **Prenumeration** och **Plats** stämmer. Du kan fästa på instrumentpanelen till resursen. Välj **Skapa**.
 
-## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>Configure the NAT virtual machine on each Azure Stack Development Kit for gateway traversal
-Because the Azure Stack Development Kit is self-contained and isolated from the network on which the physical host is deployed, the *external* VIP network that the gateways are connected to is not actually external. Instead, the VIP network is hidden behind a router that performs network address translation. 
+### <a name="create-the-local-network-gateway-resource"></a>Skapa lokal gateway nätverksresursen
 
-The router is a Windows Server virtual machine, called *AzS-bgpnat01*, that runs the Routing and Remote Access Services (RRAS) role in the Azure Stack Development Kit infrastructure. You must configure NAT on the AzS-bgpnat01 virtual machine to allow the site-to-site VPN connection to connect on both ends. 
+1. Välj i användarportalen POC2 **ny**. 
+4. Gå till **Marketplace**, och välj sedan **nätverk**.
+5. Välj i listan över resurser **lokal nätverksgateway**.
+6. I **namn**, ange **POC1 GW**.
+7. I **IP-adress**, ange adressen externa BGPNAT för POC1 som anges tidigare i tabellen nätverket konfiguration.
+8. I **adressutrymme**, från POC1, ange den **10.0.10.0/23** adressutrymmet för **VNET-01**.
+9. Kontrollera att din **prenumeration**, **resursgruppen**, och **plats** är korrekta och välj sedan **skapa**.
 
-To configure the VPN connection, you must create a static NAT map route that maps the external interface on the BGPNAT virtual machine to the VIP of the Edge Gateway Pool. A static NAT map route is required for each port in a VPN connection.
+## <a name="create-the-connection"></a>Skapa anslutningen
+1. Välj i användarportalen, **ny**. 
+2. Gå till **Marketplace**, och välj sedan **nätverk**.
+3. Välj i listan över resurser **anslutning**.
+4. På den **grundläggande** inställningar-bladet för den **anslutningstypen**, Välj **plats-till-plats (IPSec)**.
+5. Välj den **prenumeration**, **resursgruppen**, och **plats**, och välj sedan **OK**.
+6. På den **inställningar** bladet väljer **virtuell nätverksgateway**, och välj sedan **GW2**.
+7. Välj **lokal nätverksgateway**, och välj sedan **POC1 GW**.
+8. I **anslutningsnamn**, ange **POC2 POC1**.
+9. I **delad nyckel (PSK)**, ange **12345**. Om du väljer ett annat värde, Kom ihåg att den *måste* matcha värdet för den delade nyckeln som du skapade på POC1. Välj **OK**.
+10. Granska de **sammanfattning** bladet och väljer sedan **OK**.
+
+## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
+Skapa en virtuell dator i POC2 nu och placera den på VM-undernät i det virtuella nätverket.
+
+1. Välj i Azure-portalen **ny**.
+2. Gå till **Marketplace**, och välj sedan **Compute**.
+3. I listan över virtuella datoravbildningar, väljer du den **Windows Server 2016 Datacenter Eval** bild.
+4. På den **grunderna** bladet för **namn**, ange **VM02**.
+5. Ange ett giltigt användarnamn och lösenord. Du kan använda det här kontot för att logga in på den virtuella datorn när den har skapats.
+6. Ange en **prenumeration**, **resursgruppen**, och **plats**, och välj sedan **OK**.
+7. På den **storlek** bladet Välj en virtuell dator storleken för den här instansen och välj sedan **Välj**.
+8. På den **inställningar** bladet du kan acceptera standardinställningarna. Se till att den **VNET-02** virtuellt nätverk är markerad och kontrollera att undernätet är **10.0.20.0/24**. Välj **OK**.
+9. Granska inställningarna på den **sammanfattning** bladet och väljer sedan **OK**.
+
+## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>Konfigurera virtuella NAT på varje Azure-stacken Development Kit för gateway-traversal
+Eftersom Azure Stack Development Kit är fristående och isolerade från ett nätverk som den fysiska värden har distribuerats, den *externa* VIP-nätverk som gateway är ansluten till inte är faktiskt extern. I stället döljs nätverkets VIP bakom en router som utför nätverksadresser. 
+
+Routern är en Windows Server-dator som kallas *AzS bgpnat01*, som kör rollen Routning och fjärråtkomsttjänster (RRAS) i Azure-stacken Development Kit-infrastruktur. Du måste konfigurera NAT på den virtuella datorn i AzS bgpnat01 att plats-till-plats VPN-anslutningen att ansluta på båda ändarna. 
+
+Om du vill konfigurera VPN-anslutningen måste du skapa en statisk NAT kartan väg som matchar det externa gränssnittet på den virtuella datorn BGPNAT med VIP-Adressen för Gateway-poolen kant. En statisk väg för NAT-mappning måste anges för varje port i en VPN-anslutning.
 
 > [!NOTE]
-> This configuration is required for Azure Stack Development Kit environments only.
+> Den här konfigurationen krävs för Azure-stacken Development Kit-miljöer.
 > 
 > 
 
-### <a name="configure-the-nat"></a>Configure the NAT
+### <a name="configure-the-nat"></a>Konfigurera NAT
 > [!IMPORTANT]
-> You must complete this procedure for *both* Azure Stack Development Kit environments.
+> Du måste slutföra den här proceduren för *både* Azure Stack Development Kit miljöer.
 
-1. Determine the **Internal IP address** to use in the following PowerShell script. Open the virtual network gateway (GW1 and GW2), and then on the **Overview** blade, save the value for the **Public IP address** for later use.
-![Internal IP address](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
-2. Sign in to the Azure Stack physical machine for POC1.
-3. Copy and edit the following PowerShell script. To configure the NAT on each Azure Stack Development Kit, run the script in an elevated Windows PowerShell ISE. In the script, add values to the *External BGPNAT address* and *Internal IP address* placeholders:
+1. Ta reda på **interna IP-adress** ska användas i följande PowerShell-skript. Öppna den virtuella nätverksgatewayen (GW1 och GW2), och klicka sedan på den **översikt** bladet spara värdet för den **offentliga IP-adressen** för senare användning.
+![Intern IP-adress](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
+2. Logga in på den fysiska datorn i Azure-Stack för POC1.
+3. Kopiera och redigera följande PowerShell-skript. För att konfigurera NAT på varje Azure-stacken Development Kit, kör du skriptet i en upphöjd Windows PowerShell ISE. Lägga till värden till skriptet i *externa BGPNAT adress* och *interna IP-adress* platshållare:
 
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
@@ -310,25 +309,25 @@ To configure the VPN connection, you must create a static NAT map route that map
       -InternalPort 4500}
    ```
 
-4. Repeat this procedure on POC2.
+4. Upprepa den här proceduren på POC2.
 
-## <a name="test-the-connection"></a>Test the connection
-Now that the site-to-site connection is established, you should validate that you can get traffic flowing through it. To validate, sign in to one of the virtual machines that you created in either Azure Stack Development Kit environment. Then, ping the virtual machine that you created in the other environment. 
+## <a name="test-the-connection"></a>Testa anslutningen
+Nu när plats-till-plats-anslutning har upprättats bör du verifiera att du kan få trafik som passerar genom den. För att validera, logga in på någon av de virtuella datorerna som du skapade i antingen Azure Stack Development Kit-miljö. Pinga den virtuella datorn som du skapade i den andra miljön. 
 
-To ensure that you send the traffic through the site-to-site connection, ensure that you ping the Direct IP (DIP) address of the virtual machine on the remote subnet, not the VIP. To do this, find the DIP address on the other end of the connection. Save the address for later use.
+Se till att du pinga direkt IP-Adressen (DIP)-adressen för den virtuella datorn på det fjärranslutna undernätet inte VIP för att säkerställa att skicka trafik via plats-till-plats-anslutning. Gör detta genom att hitta den DIP-adressen på den andra änden av anslutningen. Spara den för senare användning.
 
-### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>Sign in to the tenant VM in POC1
-1. Sign in to the Azure Stack physical machine for POC1, and then use a tenant account to sign in to the user portal.
-2. In the left navigation bar, select **Compute**.
-3. In the list of VMs, find **VM01** that you created previously, and then select it.
-4. On the blade for the virtual machine, click **Connect**, and then open the VM01.rdp file.
+### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>Logga in på klienten VM i POC1
+1. Logga in på den fysiska datorn i Azure-Stack för POC1 och sedan använda ett klient-kontot för att logga in på användarportalen.
+2. I det vänstra navigeringsfältet väljer **Compute**.
+3. I listan över virtuella datorer, hitta **VM01** som du skapade tidigare och markerar den.
+4. På bladet för den virtuella datorn klickar du på **Anslut**, och sedan öppna filen VM01.rdp.
    
-     ![Connect button](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Enter **ipconfig /all**.
-8. In the output, find the **IPv4 Address**, and then save the address for later use. This is the address that you will ping from POC2. In the example environment, the address is **10.0.10.4**, but in your environment it might be different. It should fall within the **10.0.10.0/24** subnet that you created previously.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+     ![Ansluta knappen](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+5. Logga in med det konto som du konfigurerade när du har skapat den virtuella datorn.
+6. Öppna en förhöjd behörighet **Windows PowerShell** fönster.
+7. Ange **ipconfig/all**.
+8. I resultatet är att hitta den **IPv4-adress**, och sedan spara adress för senare användning. Det här är den adress som du kan pinga från POC2. I exempelmiljön är adressen **10.0.10.4**, men i din miljö kan det bli annorlunda. Det bör omfattas av **10.0.10.0/24** undernät som du skapade tidigare.
+9. Om du vill skapa en brandväggsregel som tillåter den virtuella datorn som svar på pingmeddelanden, kör du följande PowerShell-kommando:
 
    ```powershell
    New-NetFirewallRule `
@@ -336,16 +335,16 @@ To ensure that you send the traffic through the site-to-site connection, ensure 
     –Protocol ICMPv4
    ```
 
-### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>Sign in to the tenant VM in POC2
-1. Sign in to the Azure Stack physical machine for POC2, and then use a tenant account to sign in to the user portal.
-2. In the left navigation bar, click **Compute**.
-3. From the list of virtual machines, find **VM02** that you created previously, and then select it.
-4. On the blade for the virtual machine, click **Connect**.
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Enter **ipconfig /all**.
-8. You should see an IPv4 address that falls within **10.0.20.0/24**. In the example environment, the address is **10.0.20.4**, but your address might be different.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>Logga in på klienten VM i POC2
+1. Logga in på den fysiska datorn i Azure-Stack för POC2 och sedan använda ett klient-kontot för att logga in på användarportalen.
+2. I det vänstra navigeringsfältet klickar du på **Compute**.
+3. Listan över virtuella datorer och hitta **VM02** som du skapade tidigare och markerar den.
+4. Klicka på **Anslut** i bladet för den virtuella datorn.
+5. Logga in med det konto som du konfigurerade när du har skapat den virtuella datorn.
+6. Öppna en förhöjd behörighet **Windows PowerShell** fönster.
+7. Ange **ipconfig/all**.
+8. Du bör se en IPv4-adress som ligger inom **10.0.20.0/24**. I exempel-miljö adressen är **10.0.20.4**, men din adress vara annorlunda.
+9. Om du vill skapa en brandväggsregel som tillåter den virtuella datorn som svar på pingmeddelanden, kör du följande PowerShell-kommando:
 
    ```powershell
    New-NetFirewallRule `
@@ -353,18 +352,17 @@ To ensure that you send the traffic through the site-to-site connection, ensure 
     –Protocol ICMPv4
    ```
 
-10. From the virtual machine on POC2, ping the virtual machine on POC1, through the tunnel. To do this, you ping the DIP that you recorded from VM01.
-   In the example environment, this is **10.0.10.4**, but be sure to ping the address you noted in your lab. You should see a result that looks like the following:
+10. Pinga den virtuella datorn på POC1, via tunneln från den virtuella datorn på POC2. Om du vill göra detta pinga DIP-ADRESSEN som du antecknade från VM01.
+   I exempel-miljö är **10.0.10.4**, men se till att pinga den adress som du antecknade i labbet. Du bör se ett resultat som ser ut som följande:
    
-    ![Successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-11. A reply from the remote virtual machine indicates a successful test! You can close the virtual machine window. To test your connection, you can try other kinds of data transfers like a file copy.
+    ![Lyckad ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+11. Ett svar från fjärrdatorn virtuella anger en lyckad testa! Du kan stänga fönstret för den virtuella dator. Om du vill testa anslutningen kan du andra typer av överföring av data som en kopia av filen.
 
-### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Viewing data transfer statistics through the gateway connection
-If you want to know how much data passes through your site-to-site connection, this information is available on the **Connection** blade. This test is also another way to verify that the ping you just sent actually went through the VPN connection.
+### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Visa statistik via gatewayanslutningen för dataöverföring
+Om du vill veta hur mycket data som skickas via plats-till-plats-anslutning till den här informationen är tillgänglig på den **anslutning** bladet. Det här testet är också ett annat sätt att kontrollera att ping som skickas bara faktiskt har gått igenom VPN-anslutningen.
 
-1. While you're signed in to the tenant virtual machine in POC2, use your tenant account to sign in to the user portal.
-2. Go to **All resources**, and then select the **POC2-POC1** connection. **Connections** appears.
-4. On the **Connection** blade, the statistics for **Data in** and **Data out** appear. In the following screenshot, the large numbers are attributed to additional file transfer. You should see some nonzero values there.
+1. När du är inloggad på den virtuella datorn för klienten i POC2 kan du använda klientkontot för att logga in på användarportalen.
+2. Gå till **alla resurser**, och välj sedan den **POC2 POC1** anslutning. **Anslutningar** visas.
+4. På den **anslutning** bladet, statistik för **Data i** och **ut Data** visas. I följande skärmbild hänföras stora tal till ytterligare filöverföring. Du bör se vissa inte är noll värden.
    
-    ![Data in and out](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
-
+    ![Data i och ut](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

@@ -82,6 +82,13 @@
       href: maintenance-and-updates.md
     - name: Lagring
       href: about-disks-and-vhds.md
+      items:
+        - name: Premium Storage
+          href: premium-storage.md
+        - name: Premium-lagringsprestanda
+          href: premium-storage-performance.md
+        - name: Standard Storage
+          href: standard-storage.md
     - name: Nätverk
       href: network-overview.md
     - name: Skala program automatiskt
@@ -235,12 +242,16 @@
           href: detach-disk.md
         - name: Ändra storlek på en disk
           href: expand-os-disk.md
+        - name: Lagring och haveriberedskap för diskar
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Ögonblicksbild av en disk
           href: snapshot-copy-managed-disk.md
         - name: Säkerhetskopiera ohanterade diskar
           href: incremental-snapshots.md
         - name: Konvertera en disk mellan Standard och Premium
           href: convert-disk-storage.md
+        - name: Migrera till Premium Storage med Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Använda fillagring
           href: mount-azure-file-storage.md
         - name: Distribuera diskar med mall

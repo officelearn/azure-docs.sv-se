@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e0df58c24653d60e7594a70b911540662548a236
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Använda Ambari-vyer för att felsöka Tez-jobb i HDInsight
 
@@ -30,7 +30,7 @@ Ambari-Webbgränssnittet för HDInsight innehåller en vy i Tez som kan använda
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Linux-baserat HDInsight-kluster. Anvisningar om hur du skapar ett kluster finns [komma igång med Linux-baserat HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+* Ett Linux-baserat HDInsight-kluster. Anvisningar om hur du skapar ett kluster finns [komma igång med Linux-baserat HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * En modern webbläsare som stöder HTML5.
 
 ## <a name="understanding-tez"></a>Förstå Tez
@@ -106,7 +106,7 @@ Använd följande steg för att köra en Hive-fråga som använder Tez:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder vyn Tez, lär du dig mer om [med hjälp av Hive i HDInsight](hdinsight-use-hive.md).
+Nu när du har lärt dig hur du använder vyn Tez, lär du dig mer om [med hjälp av Hive i HDInsight](hadoop/hdinsight-use-hive.md).
 
 Mer teknisk information om Tez finns i [Tez sidan vid Hortonworks](http://hortonworks.com/hadoop/tez/).
 

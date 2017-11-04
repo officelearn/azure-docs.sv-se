@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: df931d0f76498506cfc946501e4d385d0dfead80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 978606aa5f16842f8198ee67a65b476b4f560ab7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrera .NET lösningar för Windows-baserade HDInsight på Linux-baserat HDInsight
 
@@ -33,7 +33,7 @@ Monoljud version 4.2.1 ingår i HDInsight version 3.5. Mer information om versio
 Mer information om kompatibilitet mellan Mono och .NET finns i [monoljud kompatibilitet (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentet.
 
 > [!IMPORTANT]
-> SCP.NET framework är kompatibel med Mono. Mer information om hur du använder SCP.NET med Mono finns [använda Visual Studio för att utveckla C#-topologier för Apache Storm på HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+> SCP.NET framework är kompatibel med Mono. Mer information om hur du använder SCP.NET med Mono finns [använda Visual Studio för att utveckla C#-topologier för Apache Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Automatisk överföring analys
 
@@ -74,8 +74,8 @@ Mer information om hur du använder loggar finns i följande dokument:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda C# med MapReduce på HDInsight](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Använda C# med MapReduce på HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Använda C# användardefinierade funktioner med Hive och Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Använda C# användardefinierade funktioner med Hive och Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Utveckla C#-topologier för Storm på HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Utveckla C#-topologier för Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

@@ -1,10 +1,10 @@
-This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps); for Cloud Services, see [Configuring a custom domain name for an Azure cloud service](../articles/cloud-services/cloud-services-custom-domain-name.md).
+Den här artikeln är Azure App Service (Web Apps, API Apps, Mobilappar, Logic Apps); Cloud Services, se [konfigurera ett anpassat domännamn för en Azure-molntjänst](../articles/cloud-services/cloud-services-custom-domain-name.md).
 
 > [!NOTE]
-> If you app is load-balanced by [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), click the selector at the top of this article to get specific steps.
+> Om appen är belastningsutjämnad med [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), klickar du på väljaren överst i den här artikeln för att hämta specifika steg.
 > 
-> **Custom domain names are not enabled for Free tier**. You must [scale up to a higher pricing tier](../articles/app-service/web-sites-scale.md), which may change how much you are billed for your subscription. 
-> See [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) for more information.
+> **Anpassad domän namn inte är aktiverat kostnadsfritt nivå**. Du måste [skala upp till en högre prisnivå](../articles/app-service/web-sites-scale.md), vilket kan ändra hur mycket du debiteras för din prenumeration. 
+> Se [priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/) för mer information.
 > 
 > 
 

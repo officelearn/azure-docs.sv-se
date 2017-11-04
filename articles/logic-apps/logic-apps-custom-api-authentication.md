@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6ccd8728697040b4c783d8a1e51bc68c09ef7001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Säker anrop till dina anpassade API: er från logikappar
 
@@ -49,7 +49,7 @@ Här följer de allmänna stegen för den här metoden:
 
 #### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Del 1: Skapa en Azure AD application identitet för din logikapp
 
-Din logikapp använder den här identiteten för Azure AD-program för att autentisera mot Azure AD. Du behöver bara konfigurera den här identiteten en gång för din katalog. Exempelvis kan du använda samma identitet för dina logikappar trots att du kan skapa unika identiteter för varje logikapp. Du kan konfigurera dessa identiteter i Azure-portalen [klassiska Azure-portalen](#app-identity-logic-classic), eller Använd [PowerShell](#powershell).
+Din logikapp använder den här identiteten för Azure AD-program för att autentisera mot Azure AD. Du behöver bara konfigurera den här identiteten en gång för din katalog. Exempelvis kan du använda samma identitet för dina logikappar trots att du kan skapa unika identiteter för varje logikapp. Du kan konfigurera dessa identiteter i Azure-portalen eller använda [PowerShell](#powershell).
 
 **Skapa programidentiteten för logikappen i Azure-portalen**
 
@@ -94,34 +94,6 @@ Din logikapp använder den här identiteten för Azure AD-program för att auten
 
    ![Kopiera och spara nyckeln för senare](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**Skapa programidentiteten för din logikapp i den klassiska Azure-portalen**
-
-1. I den klassiska Azure-portalen väljer [ **Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2. Välj den katalog som du använder för ditt webbprogram eller API-app.
-
-3. På den **program** , Välj **Lägg till** längst ned på sidan.
-
-4. Namnge din identitet för programmet och välj **nästa** (HÖGERPIL).
-
-5. Under **appegenskaper**, ange en unik sträng formaterad som en domän för **inloggnings-URL** och **App-ID URI**, och välj **Slutför** (markering).
-
-6. På den **konfigurera** fliken, kopiera och spara den **klient-ID** för din logikapp ska användas i en del 3.
-
-7. Under **nycklar**öppnar den **Markera varaktighet** lista. Markera en varaktighet för din nyckel.
-
-   Den nyckel som du skapar fungerar som programidentiteten ”hemliga” eller lösenordet för din logikapp.
-
-8. Längst ned på sidan Välj **spara**. Du kan behöva vänta några sekunder.
-
-9. Under **nycklar**, Kom ihåg att kopiera och spara krypteringsnyckeln som nu visas. 
-
-   När du konfigurerar din logikapp i del 3 kan ange du den här nyckeln ”secret” eller lösenord.
-
-Mer information lär du dig hur du [konfigurera din App Service-program att använda Azure Active Directory-inloggningen](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
-
 <a name="powershell"></a>
 
 **Skapa programidentiteten för din logikapp i PowerShell**
@@ -156,7 +128,7 @@ Om ditt webbprogram eller API-app redan har distribuerats, kan du aktivera auten
 
 4. På den **autentisering / auktorisering** väljer **spara**.
 
-Nu måste du hittar klient-ID och klient-ID för Programidentitet som är kopplad till ditt webbprogram eller API-app. Du kan använda dessa ID: N i del 3. Så att fortsätta med de här stegen för Azure-portalen eller [klassiska Azure-portalen](#find-id-classic).
+Nu måste du hittar klient-ID och klient-ID för Programidentitet som är kopplad till ditt webbprogram eller API-app. Du kan använda dessa ID: N i del 3. Så att fortsätta med de här stegen för Azure-portalen.
 
 **Hitta tillämpningsprogrammets identitet klient-ID och klient-ID för ditt webbprogram eller API-app i Azure-portalen**
 
@@ -177,32 +149,6 @@ Nu måste du hittar klient-ID och klient-ID för Programidentitet som är koppla
 
 5. Utan att spara ändringarna, Stäng av **inställningarna för Azure Active Directory** sidan.
 
-<a name="find-id-classic"></a>
-
-**Hitta tillämpningsprogrammets identitet klient-ID och klient-ID för ditt webbprogram eller API-app i den klassiska Azure-portalen**
-
-1. I den klassiska Azure-portalen väljer [ **Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2.  Välj en katalog som du använder för ditt webbprogram eller API-app.
-
-3. I den **Sök** , söka efter och välj programidentiteten för ditt webbprogram eller API-app.
-
-4. På den **konfigurera** fliken, kopiera den **klient-ID**, och spara det GUID för användning i del 3.
-
-5. När du har fått klient-ID längst ned i den **konfigurera** , Välj **visa slutpunkter**.
-
-6. Kopiera URL-Adressen för **Federation Metadata dokumentet**, och bläddra till URL: en.
-
-7. Hitta roten i metadata-dokument som öppnar **EntityDescriptor ID** element som har en **ID för entiteterna** attribut i det här formuläret:`https://sts.windows.net/{GUID}` 
-
-   GUID i det här attributet är din klient-GUID (klient-ID).
-
-8. Kopiera klient-ID och spara detta ID för användning i en del 3 och även för att använda i ditt webbprogram eller mallen för distribution av API-app om det behövs.
-
-Mer information finns i följande avsnitt:
-
-* [Autentisering och auktorisering i Azure App Service](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Aktivera autentisering när du distribuerar med en Azure Resource Manager-mall**
@@ -212,7 +158,7 @@ Du måste fortfarande skapa en Azure AD-programidentitet för ditt webbprogram e
 Du kan också följa stegen i del 1, men se till att använda din webbapp eller API-app faktiska `https://{URL}` för **inloggnings-URL** och **App-ID URI**. Du måste spara både klient-ID och klient-ID för användning i din app Distributionsmall och för del 3 från de här stegen.
 
 > [!NOTE]
-> När du skapar Azure AD-programidentitet för ditt webbprogram eller API-app måste du använda den Azure-portalen eller klassiska Azure-portalen i stället PowerShell. PowerShell-cmdlet ställa inte in behörigheterna som krävs för att logga in användare på en webbplats.
+> När du skapar Azure AD-programidentitet för ditt webbprogram eller API-app måste du använda Azure-portalen inte PowerShell. PowerShell-cmdlet ställa inte in behörigheterna som krävs för att logga in användare på en webbplats.
 
 När du har fått klient-ID och klient-ID är dessa ID: N som en subresource av ditt webbprogram eller API-app i mallen för distribution:
 

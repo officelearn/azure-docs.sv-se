@@ -1,6 +1,6 @@
 ---
-title: Deploy a virtual machine with a securely stored certificate on Azure Stack | Microsoft Docs
-description: Learn how to deploy a virtual machine and push a certificate onto it by using a key vault in Azure Stack
+title: "Distribuera en virtuell dator med ett säkert lagrade på Azure-stacken | Microsoft Docs"
+description: "Lär dig hur du distribuerar en virtuell dator och push-installera ett certifikat på den med hjälp av en nyckelvalvet i Azure-stacken"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,36 +14,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Create a virtual machine and include certificate retrieved from a key vault
+# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Skapa en virtuell dator och inkludera certifikat som hämtats från ett nyckelvalv
 
-This article helps you to create a virtual machine in Azure Stack and push certificates onto it. 
+Den här artikeln hjälper dig att skapa en virtuell dator i Azure-stacken och push-certifikat på den. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Krav
 
-* You must must subscribe to an offer that includes the Key Vault service. 
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
+* Du måste prenumerera på ett erbjudande som innehåller Key Vault-tjänsten. 
+* [Installera PowerShell för Azure-stacken.](azure-stack-powershell-install.md)  
+* [Konfigurera Azure Stack användarens PowerShell-miljö](azure-stack-powershell-configure-user.md)
 
-A key vault in Azure Stack is used to store certificates. Certificates are helpful in many different scenarios. For example, consider a scenario where you have a virtual machine in Azure Stack that is running an application that needs a certificate. This certificate can be used for encrypting, for authenticating to Active Directory, or for SSL on a website. Having the certificate in a key vault helps make sure that it's secure.
+Nyckelvalv i Azure-stacken används för att lagra certifikat. Certifikat är bra i många olika scenarier. Tänk dig ett scenario där du har en virtuell dator i Azure-stacken som kör ett program som behöver ett certifikat. Det här certifikatet kan användas för att kryptera för autentisering av Active Directory eller för SSL på en webbplats. Med certifikatet i en key vault hjälper dig se till att det är säkert.
 
-In this article, we walk you through the steps required to push a certificate onto a Windows virtual machine in Azure Stack. You can use these steps either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
+I den här artikeln vägleder vi dig genom de steg som krävs för att pressa ett certifikat på en Windows-dator i Azure-stacken. Du kan använda de här stegen från Azure Stack Development Kit eller från en extern Windows-baserad klient om du är ansluten via VPN.
 
-The following steps describe the process required to push a certificate onto the virtual machine:
+Följande steg beskriver den process som krävs för att pressa ett certifikat på den virtuella datorn:
 
-1. Create a Key Vault secret.
-2. Update the azuredeploy.parameters.json file.
-3. Deploy the template
+1. Skapa ett Nyckelvalv hemliga.
+2. Uppdatera azuredeploy.parameters.json-filen.
+3. Distribuera mallen
 
-## <a name="create-a-key-vault-secret"></a>Create a Key Vault secret
+## <a name="create-a-key-vault-secret"></a>Skapa ett Nyckelvalv hemliga
 
-The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret. You must use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+Följande skript skapar ett certifikat i PFX-format, skapas en nyckelvalvet och lagrar certifikatet i nyckelvalvet som en hemlighet. Du måste använda den `-EnabledForDeployment` parameter när du skapar nyckelvalvet. Den här parametern säkerställer att nyckelvalvet kan refereras från Azure Resource Manager-mallar.
 
 ```powershell
 
@@ -106,13 +105,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Push certificate to Windows Resource Manager template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Download the [vm-push-certificate-windows template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
+När du kör skriptet tidigare innehåller utdata hemliga URI: N. Anteckna denna URI. Du måste referera till den i den [Push-certifikatet till Windows Resource Manager-mall](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Hämta den [vm-push-certifikat-windows-mallen](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) mapp på utvecklingsdatorn. Den här mappen innehåller de `azuredeploy.json` och `azuredeploy.parameters.json` filer som behövs i nästa steg.
 
-Modify the `azuredeploy.parameters.json` file according to your environment values. The parameters of special interest are the vault name, the vault resource group, and the secret URI (as generated by the previous script). The following file is an example of a parameter file:
+Ändra den `azuredeploy.parameters.json` filen enligt miljövärden för din. Parametrarna särskilt intressanta är valvnamnet, resursgruppen valvet och hemlighet URI (som genererats av föregående skriptet). Följande fil är ett exempel på en parameterfil:
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Update the azuredeploy.parameters.json file
+## <a name="update-the-azuredeployparametersjson-file"></a>Uppdatera azuredeploy.parameters.json-filen
 
-Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmName, and other values as per your environment. The following JSON file shows an example of the template parameters file: 
+Uppdatera azuredeploy.parameters.json-filen med vaultName, hemliga URI, VmName och andra värden i din miljö. Följande JSON-filen visas ett exempel på mallfilen parametrar: 
 
 ```json
 {
@@ -147,9 +146,9 @@ Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmNa
 }
 ```
 
-## <a name="deploy-the-template"></a>Deploy the template
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-Now deploy the template by using the following PowerShell script:
+Nu distribuera mallen med hjälp av följande PowerShell-skript:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
@@ -160,24 +159,23 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-When the template is deployed successfully, it results in the following output:
+När mallen distribueras har resulterar det i följande utdata:
 
-![Deployment output](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Distribution av utdata](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-When this virtual machine is deployed, Azure Stack pushes the certificate onto the virtual machine. In Windows, the certificate is added to the LocalMachine certificate location, with the certificate store that the user provided. In Linux, the certificate is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for the private key.
+När den här virtuella datorn distribueras skickar Azure Stack certifikatet till den virtuella datorn. Certifikatet har lagts till med certifikatarkivet som användaren har angett i certifikatsplatsen LocalMachine i Windows. I Linux, certifikatet placeras under katalogen /var/lib/waagent med filnamnet &lt;UppercaseThumbprint&gt;.crt för X509 certifikatfilen och &lt;UppercaseThumbprint&gt;.prv för den privata nyckeln .
 
-## <a name="retire-certificates"></a>Retire certificates
+## <a name="retire-certificates"></a>Dra tillbaka certifikat
 
-In the preceding section, we showed you how to push a new certificate onto a virtual machine. Your old certificate is still on the virtual machine, and it can't be removed. However, you can disable the older version of the secret by using the `Set-AzureKeyVaultSecretAttribute` cmdlet. The following is an example usage of this cmdlet. Make sure to replace the vault name, secret name, and version values according to your environment:
+I föregående avsnitt visade vi hur att skicka ett nytt certifikat på en virtuell dator. Din gamla certifikatet är fortfarande på den virtuella datorn och kan inte tas bort. Men du kan inaktivera den äldre versionen av hemligheten med den `Set-AzureKeyVaultSecretAttribute` cmdlet. Följande är ett exempel på användning av denna cmdlet. Se till att ersätta valvnamnet, hemliga namnet och Versionsvärden enligt din miljö:
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Nästa steg
 
-* [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-* [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
-
+* [Distribuera en VM med ett Key Vault-lösenord](azure-stack-kv-deploy-vm-with-secret.md)
+* [Att ett program kan komma åt Nyckelvalvet](azure-stack-kv-sample-app.md)
 
 

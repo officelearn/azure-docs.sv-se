@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/17/2017
 ms.author: jgao
-ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f9885a9c99288208445d661e1c29ce680c245b43
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av .NET SDK
 
@@ -379,29 +379,29 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 Nu när du har skapat ett HDInsight-kluster, kan du använda följande för att lära dig hur du arbetar med ditt kluster. 
 
 ### <a name="hadoop-clusters"></a>Hadoop-kluster
-* [Använda Hive med HDInsight](hdinsight-use-hive.md)
-* [Använda Pig med HDInsight](hdinsight-use-pig.md)
-* [Använda MapReduce med HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Hive med HDInsight](hadoop/hdinsight-use-hive.md)
+* [Använda Pig med HDInsight](hadoop/hdinsight-use-pig.md)
+* [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>HBase-kluster
-* [Kom igång med HBase på HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Utveckla Java-program för HBase i HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Kom igång med HBase på HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Utveckla Java-program för HBase i HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm-kluster
-* [Utveckla Java-topologier för Storm på HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Använda Python komponenter i Storm på HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Distribuera och övervaka topologier med Storm på HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Utveckla Java-topologier för Storm på HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Använda Python komponenter i Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Distribuera och övervaka topologier med Storm på HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Spark-kluster
-* [Skapa ett fristående program med hjälp av Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](hdinsight-apache-spark-eventhub-streaming.md)
+* [Skapa ett fristående program med hjälp av Scala](spark/apache-spark-create-standalone-application.md)
+* [Köra jobb via fjärranslutning på ett Spark-kluster med Livy](spark/apache-spark-livy-rest-interface.md)
+* [Spark med BI: Utföra interaktiv dataanalys med hjälp av Spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
+* [Spark med Machine Learning: Använda Spark i HDInsight för att förutsäga resultatet av en livsmedelskontroll](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark Streaming: Använda Spark i HDInsight för att bygga program för strömning i realtid](spark/apache-spark-eventhub-streaming.md)
 
 ### <a name="run-jobs"></a>Kör jobb
-* [Köra Hive-jobb i HDInsight med .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-* [Köra Pig-jobb i HDInsight med hjälp av .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-* [Kör Sqoop jobb i HDInsight med hjälp av .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+* [Köra Hive-jobb i HDInsight med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Köra Pig-jobb i HDInsight med hjälp av .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
+* [Kör Sqoop jobb i HDInsight med hjälp av .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Kör Oozie-jobb i HDInsight](hdinsight-use-oozie.md)
 

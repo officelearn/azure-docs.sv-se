@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokalt och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller både stöds och som inte stöds.
@@ -111,7 +111,7 @@ Vissa Office 365-arbetsbelastningar har vissa begränsningar på topologier som 
 
 | Arbetsbelastning | Begränsningar |
 --------- | ---------
-| exchange online | Om det finns mer än en lokal Exchange-organisation (det vill säga Exchange har distribuerats till mer än en skog), måste du använda Exchange 2013 SP1 eller senare. Mer information finns i [hybriddistributioner med flera Active Directory-skogar](https://technet.microsoft.com/library/jj873754.aspx). |
+| exchange online | Mer information om hybridtopologier som stöds av Exchange Online finns [hybriddistributioner med flera Active Directory-skogar](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype för företag | När du använder flera lokala skogar stöds endast skogstopologi konto-resurs. Mer information finns i [miljökrav för Skype för Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 

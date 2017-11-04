@@ -1,7 +1,7 @@
 
-1. Open the project in Android Studio.
+1. Öppna projektet i Android Studio.
 
-2. In **Project Explorer** in Android Studio, open the ToDoActivity.java file and add the following import statements:
+2. I **Projektutforskaren** i Android Studio öppna ToDoActivity.java-filen och Lägg till följande importuttryck:
 
         import java.util.concurrent.ExecutionException;
         import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,7 +13,7 @@
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-3. Add the following method to the **ToDoActivity** class:
+3. Lägg till följande metod för att den **ToDoActivity** klass:
 
         // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
         public static final int GOOGLE_LOGIN_REQUEST_CODE = 1;
@@ -43,18 +43,18 @@
             }
         }
 
-    This code creates a method to handle the Google authentication process. A dialog displays the ID of the authenticated user. You can only proceed on a successful authentication.
+    Den här koden skapar en metod för att hantera autentiseringsprocessen Google. En dialogruta visas ID för den autentiserade användaren. Du kan bara fortsätta på en lyckad autentisering.
 
     > [!NOTE]
-    > If you are using an identity provider other than Google, change the value passed to the **login** method to one of the following values: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.
+    > Om du använder en identitetsleverantör än Google, ändra värdet som skickas till den **inloggning** metod för att ett av följande värden: _MicrosoftAccount_, _Facebook_, _Twitter_, eller _windowsazureactivedirectory_.
 
-4. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
+4. I den **onCreate** metod, Lägg till följande kodrad efter den kod som instantierar den `MobileServiceClient` objekt.
 
         authenticate();
 
-    This call starts the authentication process.
+    Det här anropet startar autentiseringsprocessen.
 
-5. Move the remaining code after `authenticate();` in the **onCreate** method to a new **createTable** method:
+5. Flytta återstående kod efter `authenticate();` i den **onCreate** metod för att en ny **createTable** metod:
 
         private void createTable() {
 
@@ -72,7 +72,7 @@
             refreshItemsFromTable();
         }
 
-6. To ensure redirection works as expected, add the following snippet of _RedirectUrlActivity_ to _AndroidManifest.xml_:
+6. För att säkerställa omdirigering fungerar som förväntat, lägger du till följande fragment av _RedirectUrlActivity_ till _AndroidManifest.xml_:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
             <intent-filter>
@@ -84,7 +84,7 @@
             </intent-filter>
         </activity>
 
-7. Add redirectUriScheme to _build.gradle_ of your Android application.
+7. Lägg till redirectUriScheme till _build.gradle_ för din Android-App.
 
         android {
             buildTypes {
@@ -99,13 +99,13 @@
             }
         }
 
-8. Add com.android.support:customtabs:23.0.1 to the dependencies in your build.gradle:
+8. Lägg till com.android.support:customtabs:23.0.1 beroenden i din build.gradle:
 
-      dependencies {        // ...        compile 'com.android.support:customtabs:23.0.1'    }
+      beroenden {/ /... kompilera 'com.android.support:customtabs:23.0.1'}
 
-9. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
+9. Från den **kör** -menyn klickar du på **kör app** att starta appen och logga in med ditt valda identitetsleverantör.
 
 > [!WARNING]
-> The URL Scheme mentioned is case-sensitive.  Ensure that all occurrences of `{url_scheme_of_you_app}` use the same case.
+> URL-schemat som nämns är skiftlägeskänslig.  Se till att alla förekomster av `{url_scheme_of_you_app}` används på samma sätt.
 
-When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.
+När du har loggat in, appen körs utan fel och du ska kunna skicka frågor till backend-tjänsten och göra uppdateringar till data.

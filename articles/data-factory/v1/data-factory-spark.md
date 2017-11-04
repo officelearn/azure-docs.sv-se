@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 5220ca664d5c7584f3aada0bb707099f91d5650f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 0eff48ec65a01a2fc3fa9f7652dd8e1a0fc8dd2a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Anropa Spark-program från Azure Data Factory pipelines
 
@@ -56,7 +56,7 @@ Här följer vanliga stegen för att skapa Data Factory-pipelinen med ett Spark-
 
 ### <a name="prerequisites"></a>Krav
 1. Skapa en **allmänna Azure Storage-konto** genom att följa anvisningarna i den här genomgången: [skapa ett lagringskonto](../../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Skapa en **Apache Spark-kluster i Azure HDInsight** genom att följa anvisningarna i kursen: [skapa Apache Spark-kluster i Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Koppla Azure storage-konto som du skapade i steg #1 med det här klustret.  
+2. Skapa en **Apache Spark-kluster i Azure HDInsight** genom att följa anvisningarna i kursen: [skapa Apache Spark-kluster i Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Koppla Azure storage-konto som du skapade i steg #1 med det här klustret.  
 3. Hämta och granska skriptfilen python **test.py** finns på: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Överför **test.py** till den **pyFiles** mapp i den **adfspark** behållare i Azure Blob storage. Skapa behållaren och mappen om de inte finns.
 
@@ -234,7 +234,7 @@ I det här steget skapar du en pipeline med en **HDInsightSpark** aktivitet. Fö
     ![Jupyter frågeresultat](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Se [köra Spark SQL-fråga](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) avsnittet detaljerade anvisningar. 
+Se [köra Spark SQL-fråga](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) avsnittet detaljerade anvisningar. 
 
 ### <a name="troubleshooting"></a>Felsökning
 Eftersom du ställer in **getDebugInfo** till **alltid**, visas en **loggen** undermapp i den **pyFiles** mapp i Azure Blob-behållare. I loggfilen i loggmappen innehåller ytterligare information. Den här loggfilen är användbart när det uppstår ett fel. I en produktionsmiljö kan du vill ange **fel**.

@@ -1,6 +1,6 @@
 ---
-title: Connect Storage Explorer to an Azure Stack subscription
-description: Learn how to connect Storage Exporer to an  Azure Stack subscription
+title: Ansluta Lagringsutforskaren till en Azure-Stack-prenumeration
+description: "Lär dig att ansluta Exporer lagring till en Azure-Stack-prenumeration"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,97 +14,96 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/12/2017
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Connect Storage Explorer to an Azure Stack subscription
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Ansluta Lagringsutforskaren till en Azure-Stack-prenumeration
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools avaialble to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
+Azure Lagringsutforskaren (förhandsversion) är en fristående app som gör det enkelt att arbeta med data i Azure-stacken Storage i Windows, macOS och Linux. Det finns flera verktyg avaialble att flytta data till och från Azure Storage i stacken. Mer information finns i [dataöverföring verktyg för Azure-stacken lagring](azure-stack-storage-transfer.md).
 
-In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. 
+Lär dig hur du ansluter till din Azure-stacken storage-konton med Lagringsutforskaren i den här artikeln. 
 
-If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and and install it.
+Om du inte har installerat Lagringsutforskaren ännu, [hämta](http://www.storageexplorer.com/) och och installera den.
 
-After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
+När du ansluter till din prenumeration på Azure-stacken, kan du använda den [Azure Lagringsutforskaren artiklar](../../vs-azure-tools-storage-manage-with-storage-explorer.md) att arbeta med Azure Stack-data. 
 
-## <a name="prepare-an-azure-stack-subscription"></a>Prepare an Azure Stack subscription
+## <a name="prepare-an-azure-stack-subscription"></a>Förbereda en prenumeration på Azure-stacken
 
-You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Du behöver åtkomst till Azure-stacken värddatorn skrivbordet eller en VPN-anslutning för Lagringsutforskaren får åtkomst till stacken för Azure-prenumeration. Information om hur du konfigurerar en VPN-anslutning till Azure Stack finns i [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) (Anslut till Azure Stack via VPN).
 
-For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+För Azure-stacken Development Kit måste du exportera Azure Stack rotcertifikat.
 
-### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>To export and then import the Azure Stack certificate
+### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>Exportera och importera sedan certifikatet för Azure-stacken
 
-1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
+1. Öppna `mmc.exe` på en Azure-Stack-värddatorn eller en lokal dator med en VPN-anslutning till Azure-stacken. 
 
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
-
-
-
-3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackSelfSignedRootCert**.
-
-    ![Load the Azure Stack root certificate through mmc.exe][25]
-
-4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
-
-    The exported certificate will be used in the next step.
-5. Start Storage Explorer (Preview), and if you see the **Connect to Azure Storage** dialog box, cancel it.
-
-6. On the **Edit** menu, point to **SSL Certificates**, and then click **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
-
-    After importing, you are prompted to restart Storage Explorer.
-
-    ![Import the certificate into Storage Explorer (Preview)][27]
-
-Now you are ready to connect Storage Explorer to an Azure Stack subscription.
-
-### <a name="to-connect-an-azure-stack-subscription"></a>To connect an Azure Stack subscription
+2. I **filen**väljer **Lägg till/ta bort snapin-modulen**, och Lägg sedan till **certifikat** att hantera **mitt användarkonto**.
 
 
-1. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
-    ![Ensure Target Azure Stack is selected][28]
+3. Under **konsolen Root\Certificated (lokal dator) \Trusted Root Certification Authorities\Certificates** hitta **AzureStackSelfSignedRootCert**.
 
-7. In the left pane, select **Manage Accounts**.  
-    All the Microsoft accounts that you are signed in to are displayed.
+    ![Läsa in rotcertifikatet för Azure Stack via mmc.exe][25]
 
-8. To connect to the Azure Stack account, select **Add an account**.
+4. Högerklicka på certifikatet, Välj **alla aktiviteter** > **exportera**, och följ sedan anvisningarna för att exportera certifikat med **Base64-kodad X.509 (. CER)**.  
 
-    ![Add an Azure Stack account][29]
+    Det exporterade certifikatet ska användas i nästa steg.
+5. Starta Lagringsutforskaren (förhandsversion), och om du ser den **Anslut till Azure Storage** dialogrutan rutan, avbryta den.
 
-9. In the **Connect to Azure Storage** dialog box, under **Azure environment**, select **Use Azure Stack Environment**, and then click **Next**.
+6. På den **redigera** menyn, peka på **SSL-certifikat**, och klicka sedan på **Importera certifikat**. Använd filväljaren till att leta rätt på och öppna certifikatet du exporterade i föregående steg.
 
-10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to Azure Stack Environment** dialog box.  
+    Efter importen uppmanas du att starta om Lagringsutforskaren.
 
-    The details for each field are as follows:
+    ![Importera certifikatet till Lagringsutforskaren (förhandsversion)][27]
 
-    * **Environment name**: The field can be customized by user.
-    * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
+Du är nu redo att ansluta Lagringsutforskaren till en Azure-Stack-prenumeration.
 
-        * For cloud operator:<br> https://adminmanagement.local.azurestack.external   
-        * For tenant:<br> https://management.local.azurestack.external
+### <a name="to-connect-an-azure-stack-subscription"></a>Att ansluta en prenumeration på Azure-stacken
+
+
+1. När Lagringsutforskaren (förhandsversion) startats om väljer du **Redigera**-menyn och ser till att **Target Azure Stack** (Använd Azure Stack som mål) är markerat. Om alternativet inte är markerat markerar du det och startar om Lagringsutforskaren så att ändringen börjar gälla. Denna konfiguration krävs för kompatibilitet med Azure Stack-miljön.
+
+    ![Se till att Target Azure Stack (Använd Azure Stack som mål) är markerat][28]
+
+7. Välj **Hantera konton** i den vänstra rutan.  
+    Alla Microsoft-konton som du är inloggad på visas.
+
+8. Om du vill ansluta till Azure Stack-kontot väljer du **Lägg till ett konto**.
+
+    ![Lägga till ett Azure Stack-konto][29]
+
+9. I den **Anslut till Azure Storage** dialogrutan under **Azure-miljön**väljer **Använd Azure Stack miljö**, och klicka sedan på **nästa**.
+
+10. Logga in med Azure Stack-konto som är kopplad till minst en aktiv prenumeration i Azure-stacken genom att fylla i den **logga in på Azure-stacken miljö** dialogrutan.  
+
+    Information om de olika fälten:
+
+    * **Miljönamn**: fältet kan anpassas av användaren.
+    * **ARM resurs endpoint** (Slutpunkt för ARM-resurs): exempel på slutpunkter för Azure Resource Manager-resursen:
+
+        * För operatorn i molnet:<br> https://adminmanagement.Local.azurestack.external   
+        * För klient:<br> https://Management.Local.azurestack.external
  
-    * **Tenant Id**: Optional. The value is given only when the directory must be specified.
+    * **Klient-Id**: valfria. Värdet anges bara när du måste ange katalogen.
 
-12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
+12. När du har loggat in med ett Azure Stack-konto fylls den vänstra rutan i med de Azure Stack-prenumerationer som är kopplade till kontot. Välj de Azure Stack-prenumerationer som du vill arbeta med och välj sedan **Använd**. (Om du markerar eller avmarkerar kryssrutan **Alla prenumerationer** växlar du mellan att välja alla eller inga av de Azure Stack-prenumerationer som visas.)
 
-    ![Select the Azure Stack subscriptions after filling out the Custom Cloud Environment dialog box][30]  
-    The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
+    ![Välj Azure Stack-prenumerationer när du har fyllt i dialogrutan Custom Cloud Environment (Anpassad molnmiljö)][30]  
+    I den vänstra rutan visas de lagringskonton som är kopplade till de valda Azure Stack-prenumerationerna.
 
-    ![List of storage accounts including Azure Stack subscription accounts][31]
+    ![Lista med lagringskonton inklusive konton för Azure Stack-prenumerationer][31]
 
-## <a name="next-steps"></a>Next steps
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
+## <a name="next-steps"></a>Nästa steg
+* [Kom igång med Lagringsutforskaren (förhandsversion)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Azure Storage för stacken: skillnader och överväganden](azure-stack-acs-differences.md)
 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* Mer information om Azure Storage finns [introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 
 [25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
 [26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png
@@ -113,4 +112,3 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 [29]: ./media/azure-stack-storage-connect-se/add-azure-stack-account.png
 [30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
 [31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
-

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 016179372d69dc63f5e5226723d87ac6e74b31fd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: aeac4feaeea376ae5231d9c24d44d94f8132af42
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio
 
@@ -35,12 +35,10 @@ Lär dig hur du använder 2017 för Visual Studio tools för Azure Functions fö
 
 För att slutföra den här självstudien installerar du:
 
-* [Visual Studio 2017 version 15,3](https://www.visualstudio.com/vs/preview/) eller en senare version, inklusive den **Azure-utveckling** arbetsbelastning.
+* [Visual Studio 2017 version 15,4](https://www.visualstudio.com/vs/) eller en senare version, inklusive den **Azure-utveckling** arbetsbelastning.
 
     ![Installera Visual Studio 2017 med arbetsbelastningen Azure Development](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>Skapa ett Azure Functions-projekt i Visual Studio
@@ -51,9 +49,9 @@ Nu när du har skapat projektet kan du skapa din första funktion.
 
 ## <a name="create-the-function"></a>Skapa funktionen
 
-1. I **Solution Explorer** högerklickar du på projektnoden och väljer **Lägg till** > **Nytt objekt**. Välj **Azure Function** och klicka på **Lägg till**.
+1. I **Solution Explorer** högerklickar du på projektnoden och väljer **Lägg till** > **Nytt objekt**. Välj **Azure-funktion**, ange `HttpTriggerCSharp.cs` för **namn**, och klicka på **Lägg till**.
 
-2. Välj **HttpTrigger**, ange ett **Funktionsnamn**, välj **Anonym** för **Åtkomsträttigheter** och klicka på **Skapa**. Funktionen som skapas kan nås av en HTTP-begäran från alla klienter. 
+2. Välj **HttpTrigger**väljer **anonym** för **åtkomstbehörigheter**, och klicka på **OK**. Funktionen som skapas kan nås av en HTTP-begäran från alla klienter. 
 
     ![Skapa en ny Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 

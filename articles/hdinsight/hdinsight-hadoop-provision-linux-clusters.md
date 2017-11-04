@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: 8118570071aa5af6ec74c971a711b2eab07fb1b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Ställ in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer
 
@@ -76,13 +76,13 @@ Azure HDInsight innehåller för närvarande följande typer av klustret, var oc
 
 | Klustertyp | Funktioner |
 | --- | --- |
-| [Hadoop](hdinsight-hadoop-introduction.md) |Batch-fråga och analys av lagrade data |
-| [HBase](hdinsight-hbase-overview.md) |För stora mängder schemalös, NoSQL-data bearbetades. |
-| [Storm](hdinsight-storm-overview.md) |Händelsebearbetning i realtid |
-| [Spark](hdinsight-apache-spark-overview.md) |Minnesintern bearbetning, interaktiva frågor dataströmmen micro batch-bearbetning |
-| [Kafka (förhandsgranskning)](hdinsight-apache-kafka-introduction.md) | En distribuerad strömmande plattform som kan användas för att skapa realtid strömmande data pipelines och program |
-| [R Server](hdinsight-hadoop-r-server-overview.md) |Olika stordata statistik, förutsägelsemodellering och maskininlärning funktioner |
-| [Interaktiva fråga](hdinsight-hadoop-use-interactive-hive.md) |Cachelagra i minnet för interaktiva och snabbare Hive-frågor |
+| [Hadoop](hadoop/apache-hadoop-introduction.md) |Batch-fråga och analys av lagrade data |
+| [HBase](hbase/apache-hbase-overview.md) |För stora mängder schemalös, NoSQL-data bearbetades. |
+| [Storm](storm/apache-storm-overview.md) |Händelsebearbetning i realtid |
+| [Spark](spark/apache-spark-overview.md) |Minnesintern bearbetning, interaktiva frågor dataströmmen micro batch-bearbetning |
+| [Kafka (förhandsgranskning)](kafka/apache-kafka-introduction.md) | En distribuerad strömmande plattform som kan användas för att skapa realtid strömmande data pipelines och program |
+| [R Server](r-server/r-server-overview.md) |Olika stordata statistik, förutsägelsemodellering och maskininlärning funktioner |
+| [Interaktiva fråga](./interactive-query/apache-interactive-query-get-started.md) |Cachelagra i minnet för interaktiva och snabbare Hive-frågor |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Antalet noder för varje typ av kluster
 Varje typ av kluster har sin egen antal noder, terminologi för noderna och standard VM-storlek. I följande tabell är antalet noder för varje nodtyp inom parentes.
@@ -208,7 +208,7 @@ De flesta av HDInsight-program är installerade på en tom kantnod.  En tom kant
 
 Du kan installera ytterligare komponenter eller anpassa klustrets konfiguration med hjälp av skript när du skapar. Dessa skript anropas **skriptåtgärd**, vilket är ett konfigurationsalternativ som kan användas från Azure-portalen, HDInsight Windows PowerShell-cmdlets eller HDInsight .NET SDK. Mer information finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
-Vissa inbyggda Java-komponenter som Mahout och kaskad, kan köras i klustret som Java Arkiv (JAR) filer. Dessa JAR-filer kan distribueras till Azure Storage och skickas till HDInsight-kluster med Hadoop-jobbet skicka mekanismer. Mer information finns i [skicka Hadoop-jobb via programmering](hdinsight-submit-hadoop-jobs-programmatically.md).
+Vissa inbyggda Java-komponenter som Mahout och kaskad, kan köras i klustret som Java Arkiv (JAR) filer. Dessa JAR-filer kan distribueras till Azure Storage och skickas till HDInsight-kluster med Hadoop-jobbet skicka mekanismer. Mer information finns i [skicka Hadoop-jobb via programmering](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 > [!NOTE]
 > Om du har problem med distribution av JAR-filer till HDInsight-kluster eller anropa JAR-filer på HDInsight-kluster, kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/).
@@ -242,7 +242,7 @@ Om din lösning kräver tekniker som är fördelade på flera typer för HDInsig
 
 Mer information om hur du använder Azure-nätverk med HDInsight finns [utöka HDInsight med virtuella Azure-nätverk](hdinsight-extend-hadoop-virtual-network.md).
 
-Ett exempel på hur du använder två typer av klustret i Azure-nätverk finns [analysera sensordata med Storm och HBase](hdinsight-storm-sensor-data-analysis.md). Mer information om hur du använder HDInsight med ett virtuellt nätverk, inklusive specifika konfigurationskrav för det virtuella nätverket finns [utöka HDInsight funktioner med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+Ett exempel på hur du använder två typer av klustret i Azure-nätverk finns [analysera sensordata med Storm och HBase](storm/apache-storm-sensor-data-analysis.md). Mer information om hur du använder HDInsight med ett virtuellt nätverk, inklusive specifika konfigurationskrav för det virtuella nätverket finns [utöka HDInsight funktioner med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Felsökning av problem med åtkomstkontroll
 
@@ -250,6 +250,6 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är HDInsight Hadoop-ekosystemet och Hadoop-kluster?](hdinsight-hadoop-introduction.md)
-- [Komma igång med Hadoop i HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Vad är HDInsight Hadoop-ekosystemet och Hadoop-kluster?](hadoop/apache-hadoop-introduction.md)
+- [Komma igång med Hadoop i HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [Fungera med Hadoop i HDInsight från en Windows-dator](hdinsight-hadoop-windows-tools.md)

@@ -3,23 +3,22 @@ title: "Kom igång med Lagringsutforskaren (förhandsversion) | Microsoft Docs"
 description: "Hantera Azure-lagringsresurser med Lagringsutforskaren (förhandsversion)"
 services: storage
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: cawa
+manager: paulyuk
 editor: 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/17/2017
-ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/21/2017
-
+ms.date: 07/17/2017
+ms.author: cawa
+ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Kom igång med Lagringsutforskaren (förhandsversion)
 ## <a name="overview"></a>Översikt
@@ -43,6 +42,7 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 * [Ansluta till extern lagring](#attach-or-detach-an-external-storage-account): hantera lagringsresurser som hör till en annan Azure-prenumeration eller nationella Azure-moln med hjälp av lagringskontots namn, nyckel och slutpunkter.
 * [Ansluta ett lagringskonto med hjälp av en SAS](#attach-storage-account-using-sas): hantera lagringsresurser som tillhör en annan Azure-prenumeration med hjälp av en signatur för delad åtkomst (SAS).
 * [Ansluta en tjänst med hjälp av SAS](#attach-service-using-sas): hantera en specifik lagringstjänst (blobbehållare, kö eller tabell) som hör till en annan Azure-prenumeration med hjälp av en SAS.
+* [Ansluta till ett Azure DB som Cosmos-konto med hjälp av en anslutningssträng](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): hantera Cosmos-DB-konto med hjälp av en anslutningssträng.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
 > [!NOTE]
@@ -68,7 +68,7 @@ Dessutom kan du arbeta med lagringskonton i globala och nationella Azure:
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>Ansluta till en Azure Stack-prenumeration
 
-Information om hur du ansluter till en Azure Stackprenumeration finns i [Ansluta Storage Explorer till en prenumeration på Azure Stack](azure-stack/azure-stack-storage-connect-se.md).
+Information om hur du ansluter till en Azure Stackprenumeration finns i [Ansluta Storage Explorer till en prenumeration på Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## <a name="work-with-local-development-storage"></a>Arbeta med lokal utvecklingslagring
 Med Lagringsutforskaren (förhandsversion) kan du arbeta mot lokal lagring med hjälp av Azure Storage-emulatorn. På så sätt kan du skriva kod mot och testa lagring utan att nödvändigtvis ha distribuerat ett lagringskonto i Azure (eftersom lagringskontot emuleras av Azure Storage-emulatorn).
@@ -223,6 +223,17 @@ I det här scenariot kan en tjänst vara en blobbehållare, en kö eller en tabe
 
     ![Resultatet av att ansluta till en delad tjänst med en SAS][20]
 
+## <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Ansluta till ett Azure DB som Cosmos-konto med hjälp av en anslutningssträng
+Förutom hantera Azure Cosmos DB konton via Azure-prenumeration, ett alternativt sätt att ansluta till en Azure-Cosmos-databas är att använda en anslutningssträng. Använd följande steg för att ansluta med en anslutningssträng.
+
+1. Hitta **lokala och bifogad** i vänster träd högerklickar du på **Azure Cosmos DB konton**, Välj **Anslut till Azure Cosmos DB...**
+
+    ![ansluta till Azure Cosmos-databas med anslutningssträngen][33]
+
+2. Välj Azure Cosmos DB-API, klistra in din **anslutningssträngen**, och klicka sedan på **OK** att ansluta till Azure DB som Cosmos-konto. Information om hur du hämtar anslutningssträngen finns [hämta anslutningssträngen](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![connection-string][32]
+
 ## <a name="search-for-storage-accounts"></a>Söka efter lagringskonton
 Om du har en lång lista med lagringskonton kan du snabbt hitta ett visst lagringskonto genom att använda sökrutan överst i den vänstra rutan.
 
@@ -232,6 +243,7 @@ När du skriver i sökrutan visas de lagringskonton som matchar sökvärdet som 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera Azure Blob Storage-resurser med Lagringsutforskaren (förhandsversion)](vs-azure-tools-storage-explorer-blobs.md)
+* [Hantera Azure Cosmos DB i Azure Lagringsutforskaren (förhandsversion)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -260,4 +272,5 @@ När du skriver i sökrutan visas de lagringskonton som matchar sökvärdet som 
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
-
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till Azure AD
 Något av det ursprungligen puzzling när du visar en lista över program i din instans av Azure Active Directory för att förstå var program kommer ifrån och varför de finns.  Den här artikeln ger en översiktlig överblick över hur program visas i katalogen och förse dig med kontext som hjälper dig att förstå hur ett program kommer att finnas i katalogen.
@@ -84,8 +84,8 @@ Program som du lägger till dig själv innehåller:
   * Regler för omvandling av anspråk
   * Attributmappning (användaretablering)
 * Mer detaljerad information om tjänstens huvudnamn och programobjekt finns information i dokumentationen för Azure AD Graph REST API-referens.  *Tipset*: I Azure AD Graph API-dokumentationen är det närmaste bör en Schemareferens för Azure AD som är tillgänglig.  
-  * [Programmet](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [Tjänstens huvudnamn](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [Programmet](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Tjänstens huvudnamn](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>Hur läggs appar till Azure AD-instans?
 Det finns många sätt en app kan läggas till Azure AD:

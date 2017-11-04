@@ -1,5 +1,5 @@
 
-The code for all of the functions in a given function app lives in a root folder that contains a host configuration file and one or more subfolders, each of which contain the code for a separate function, as in the following example:
+Koden för alla funktioner i en viss funktionsapp finns i rotmappen som innehåller en konfigurationsfil för värden och en eller flera undermappar som innehåller koden för en separat funktion, som i följande exempel:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-The *host.json* file contains some runtime-specific configuration and sits in the root folder of the function app. For information on settings that are available, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
+Den *host.json* filen innehåller vissa runtime konfiguration och placeras i rotmappen på appen funktion. Mer information om inställningar som är tillgängliga finns [host.json referens](../articles/azure-functions/functions-host-json.md).
 
-Each function has a folder that contains one or more code files, the function.json configuration and other dependencies.
+Varje funktion har en mapp som innehåller en eller flera kodfiler, function.json-konfiguration och andra beroenden.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Portar som används av Hadoop-tjänster på HDInsight
 
@@ -48,17 +48,17 @@ Alla noder i ett HDInsight-kluster finns i ett virtuellt Azure-nätverk och kan 
 | sshd |23 |SSH |Ansluter klienter till sshd på den sekundära headnode. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
 | Ambari |443 |HTTPS |Ambari-webbgränssnittet. Se [hantera HDInsight med Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. Se [hantera HDInsight med Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. Se [använda Hive med Curl](hdinsight-hadoop-use-pig-curl.md), [använda Pig med Curl](hdinsight-hadoop-use-pig-curl.md), [använder MapReduce med Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |Ansluter till Hive med ODBC. Se [ansluta Excel till HDInsight med Microsoft ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Ansluter till Hive med JDBC. Se [Anslut till Hive i HDInsight med hjälp av Hive JDBC-drivrutinen](hdinsight-connect-hive-jdbc-driver.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. Se [använda Hive med Curl](hadoop/apache-hadoop-use-pig-curl.md), [använda Pig med Curl](hadoop/apache-hadoop-use-pig-curl.md), [använder MapReduce med Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |Ansluter till Hive med ODBC. Se [ansluta Excel till HDInsight med Microsoft ODBC driver](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |JDBC |Ansluter till Hive med JDBC. Se [Anslut till Hive i HDInsight med hjälp av Hive JDBC-drivrutinen](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Följande är tillgängliga för specifika klustertyper:
 
 | Tjänst | Port | Protokoll | Klustertyp | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST-API. Se [komma igång med HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST API. Se [skicka Spark jobb via fjärranslutning med Livy](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm-webbgränssnittet. Se [distribuera och hantera Storm-topologier på HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST-API. Se [komma igång med HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API. Se [skicka Spark jobb via fjärranslutning med Livy](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Storm-webbgränssnittet. Se [distribuera och hantera Storm-topologier på HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Autentisering
 

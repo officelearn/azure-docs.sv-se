@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/11/2017
+ms.date: 11/02/2017
 ms.author: larryfr
-ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd Azure Storage signaturer för delad åtkomst för att begränsa åtkomsten till data i HDInsight
 
 HDInsight har fullständig åtkomst till data i Azure Storage-konton som är associerade med klustret. Du kan använda signaturer för delad åtkomst på blob-behållaren för att begränsa åtkomsten till data. Till exempel för att ge skrivskyddad åtkomst till data. Delad åtkomst signaturer (SAS) är en funktion i Azure storage-konton som gör att du kan begränsa åtkomsten till data. Till exempel ger skrivskyddad åtkomst till data.
 
 > [!IMPORTANT]
-> Överväg att använda domänanslutna HDInsight för en lösning som använder Apache Ranger. Mer information finns i [konfigurera domänanslutna HDInsight](hdinsight-domain-joined-configure.md) dokumentet.
+> Överväg att använda domänanslutna HDInsight för en lösning som använder Apache Ranger. Mer information finns i [konfigurera domänanslutna HDInsight](./domain-joined/apache-domain-joined-configure.md) dokumentet.
 
 > [!WARNING]
 > HDInsight måste ha fullständig åtkomst till standardlagring för klustret.
@@ -304,8 +304,8 @@ När du är ansluten till klustret, Använd följande steg för att verifiera at
 
 Nu när du har lärt dig hur du lägger till lagring med begränsad åtkomst till ditt HDInsight-kluster, lär du dig andra sätt att arbeta med data på ditt kluster:
 
-* [Använda Hive med HDInsight](hdinsight-use-hive.md)
-* [Använda Pig med HDInsight](hdinsight-use-pig.md)
-* [Använda MapReduce med HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Hive med HDInsight](hadoop/hdinsight-use-hive.md)
+* [Använda Pig med HDInsight](hadoop/hdinsight-use-pig.md)
+* [Använda MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

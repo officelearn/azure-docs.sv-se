@@ -1,4 +1,4 @@
-If you use a parameter file to pass parameter values during deployment, you need to create a JSON file with a format similar to the following example:
+Om du använder en parameterfil för att ange parametervärden under distributionen, måste du skapa en JSON-fil med ett format som liknar följande exempel:
 
 ```json
 {
@@ -26,7 +26,7 @@ If you use a parameter file to pass parameter values during deployment, you need
 }
 ```
 
-The size of the parameter file cannot be more than 64 KB.
+Parametern-filens storlek kan inte vara mer än 64 KB.
 
-If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
+Lägga till värdet i ett nyckelvalv om du behöver ange något känsligt värde för en parameter (till exempel ett lösenord). Hämta nyckelvalvet under distributionen som visas i föregående exempel. Mer information finns i [skicka säkra värden under distributionen av](../articles/azure-resource-manager/resource-manager-keyvault-parameter.md). 
 

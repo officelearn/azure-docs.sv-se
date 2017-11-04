@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/03/2017
+ms.date: 10/15/2017
 ms.author: spelluru
-ms.openlocfilehash: f48eb610b47820e6d7438520a00a5e6dfe879e01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e3c26c2358c15d18c71b82fe1f389c039ecbd97b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Begrepp för utvecklare för Azure Data Catalog
 Microsoft **Azure Data Catalog** är en helt hanterad molntjänst som tillhandahåller funktioner för upptäckt av datakälla och gemensamt skapade metadata från datakällan. Utvecklare kan använda tjänsten via dess REST-API: er. Förstå begrepp som implementerats i tjänsten är viktigt för utvecklare att integrera med **Azure Data Catalog**.

@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04392b535965edd785bbb66a52eb6b41b768553e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 64a4c5b158ebe0119f2f0133587a743fd2dbf0ff
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>Använda Apache Phoenix och SQuirreL med Windows-baserade HBase-kluster i HDInsight
 Lär dig hur du använder [Apache Phoenix](http://phoenix.apache.org/) i HDInsight och hur du installerar och konfigurerar SQuirreL på din arbetsstation för att ansluta till ett HBase-kluster i HDInsight. Läs mer om Phoenix [Phoenix i 15 minuter eller mindre](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix-grammatik finns [Phoenix grammatik](http://phoenix.apache.org/language/index.html).
@@ -29,7 +29,7 @@ Lär dig hur du använder [Apache Phoenix](http://phoenix.apache.org/) i HDInsig
 >
 
 > [!IMPORTANT]
-> Stegen i det här dokumentet fungerar endast för Windows-baserade HDInsight-kluster. HDInsight är endast tillgängligt i Windows för versioner som är lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om hur du använder Phoenix på Linux-baserat HDInsight finns i [använda Apache Phoenix med Linux-baserade HBase-kluster i HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> Stegen i det här dokumentet fungerar endast för Windows-baserade HDInsight-kluster. HDInsight är endast tillgängligt i Windows för versioner som är lägre än HDInsight 3.4. Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Information om hur du använder Phoenix på Linux-baserat HDInsight finns i [använda Apache Phoenix med Linux-baserade HBase-kluster i HDInsight](hbase/apache-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -269,7 +269,7 @@ I den här artikeln har du lärt dig hur du använder Apache Phoenix i HDInsight
 
 * [HDInsight HBase-översikt][hdinsight-hbase-overview]: HBase är en NoSQL-databas av Apachetyp med öppen källkod som bygger på Hadoop och som ger direktåtkomst och stark konsekvens för stora mängder ostrukturerade och semistrukturerade data.
 * [Etablera HBase-kluster i Azure Virtual Network][hdinsight-hbase-provision-vnet]: med virtuell nätverksintegration HBase-kluster kan bara distribueras till samma virtuella nätverk som dina program så att program kan kommunicera med HBase direkt.
-* [Konfigurera HBase-replikering i HDInsight](hdinsight-hbase-replication.md): Lär dig att konfigurera HBase-replikering mellan två Azure-datacenter.
+* [Konfigurera HBase-replikering i HDInsight](hbase/apache-hbase-replication.md): Lär dig att konfigurera HBase-replikering mellan två Azure-datacenter.
 
 
 [azure-portal]: https://portal.azure.com
@@ -278,8 +278,8 @@ I den här artikeln har du lärt dig hur du använder Apache Phoenix i HDInsight
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
-[hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-[hdinsight-hbase-overview]: hdinsight-hbase-overview.md
+[hdinsight-hbase-provision-vnet]:hbase/apache-hbase-provision-vnet.md
+[hdinsight-hbase-overview]:hbase/apache-hbase-overview.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png

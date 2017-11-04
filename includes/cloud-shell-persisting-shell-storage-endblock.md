@@ -1,19 +1,19 @@
-## <a name="transfer-local-files-to-cloud-shell"></a>Transfer local files to Cloud Shell
-The `clouddrive` directory syncs with the Azure portal storage blade. Use this blade to transfer local files to or from your file share. Updating files from within Cloud Shell is reflected in the file storage GUI when you refresh the blade.
+## <a name="transfer-local-files-to-cloud-shell"></a>Överföring av lokala filer till molnet Shell
+Den `clouddrive` directory synkroniseras med Azure portal lagring-bladet. Använd det här bladet för överföring av lokala filer till eller från filresursen. Uppdatera filer i molnet Shell avspeglas i fillagring GUI när du uppdaterar bladet.
 
-### <a name="download-files"></a>Download files
+### <a name="download-files"></a>Hämta filer
 
-![List of local files](../articles/cloud-shell/media/persisting-shell-storage/download.png)
-1. In the Azure portal, go to the mounted file share.
-2. Select the target file.
-3. Select the **Download** button.
+![Lista över lokala filer](../articles/cloud-shell/media/persisting-shell-storage/download.png)
+1. Gå till den monterade filresursen i Azure-portalen.
+2. Välj målfilen.
+3. Välj den **hämta** knappen.
 
-### <a name="upload-files"></a>Upload files
+### <a name="upload-files"></a>Överföra filer
 
-![Local files to be uploaded](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
-1. Go to your mounted file share.
-2. Select the **Upload** button.
-3. Select the file or files that you want to upload.
-4. Confirm the upload.
+![Lokala filer som ska överföras](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
+1. Gå till din monterade filresurs.
+2. Välj den **överför** knappen.
+3. Välj den eller de filer som du vill överföra.
+4. Bekräfta överföringen.
 
-You should now see the files that are accessible in your `clouddrive` directory in Cloud Shell.
+Du bör nu se de filer som är tillgängliga i din `clouddrive` katalog i molnet Shell.

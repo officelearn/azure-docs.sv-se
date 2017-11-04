@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Windows-baserade Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -61,7 +61,7 @@ HDInsight fungerar med en bred Hadoop-komponenter. Lista över de komponenter so
 
 * Använd skriptåtgärder om du vill köra anpassade skript som kan anpassa ett kluster om du vill ändra klusterkonfigurationen eller installera anpassade komponenter, till exempel Giraph eller Solr. Mer information finns i [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster.md).
 * Använd anpassning Klusterparametrar i Azure PowerShell eller HDInsight .NET SDK när klustret skapas. Ändringarna sparas sedan via livslängden för klustret och påverkas inte av klustret nod reimages som Azure-plattformen utför med jämna mellanrum för underhåll. Mer information om hur du använder anpassning Klusterparametrar finns [skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
-* Vissa inbyggda Java-komponenter som Mahout och kaskad, kan köras i klustret som JAR-filer. Dessa JAR-filer kan distribueras till Azure Blob storage och skickas till HDInsight-kluster med Hadoop-jobbet skicka mekanismer. Mer information finns i [skicka Hadoop-jobb via programmering](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Vissa inbyggda Java-komponenter som Mahout och kaskad, kan köras i klustret som JAR-filer. Dessa JAR-filer kan distribueras till Azure Blob storage och skickas till HDInsight-kluster med Hadoop-jobbet skicka mekanismer. Mer information finns i [skicka Hadoop-jobb via programmering](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
   > Om du har problem med distribution av JAR-filer till HDInsight-kluster eller anropa JAR-filer på HDInsight-kluster, kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/).
@@ -213,7 +213,7 @@ Det finns många sätt kan du programmerar processen:
 * Användaren Azure Data Factory. Se [länkad Azure HDInsight-tjänst](../data-factory/compute-linked-services.md) och [transformera och analysera med hjälp av Azure Data Factory](../data-factory/transform-data.md) för HDInsight på begäran och automatisk definierad länkade tjänster.
 * Använda Azure PowerShell.  Se [analysera svarta fördröjning](hdinsight-analyze-flight-delay-data.md).
 * Använda Azure CLI. Se [hantera HDInsight-kluster med hjälp av Azure CLI](hdinsight-administer-use-command-line.md).
-* Använda HDInsight .NET SDK. Se [skicka Hadoop-jobb](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Använda HDInsight .NET SDK. Se [skicka Hadoop-jobb](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Prisinformation, se [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/). Om du vill ta bort ett kluster från portalen finns [ta bort kluster](#delete-clusters)
 
@@ -271,7 +271,7 @@ Se [listan och visa](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>Öppna konsolen för HDInsight-fråga
 Konsolen HDInsight frågan innehåller följande funktioner:
 
-* **Hive Editor**: A GUI Webbgränssnitt för att skicka Hive-jobb.  Se [köra Hive-frågor via konsolen frågan](hdinsight-hadoop-use-hive-query-console.md).
+* **Hive Editor**: A GUI Webbgränssnitt för att skicka Hive-jobb.  Se [köra Hive-frågor via konsolen frågan](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive-redigeraren](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Jobbhistorik**: övervaka Hadoop-jobb.  
@@ -371,8 +371,8 @@ I den här artikeln har du lärt dig hur du skapar ett HDInsight-kluster med hj�
 * [Administrera HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administrera HDInsight med hjälp av Azure CLI](hdinsight-administer-use-command-line.md)
 * [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md)
-* [Skicka Hadoop-jobb via programmering](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Komma igång med Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Skicka Hadoop-jobb via programmering](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Komma igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Vilken version av Hadoop finns i Azure HDInsight?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

@@ -1,56 +1,56 @@
-You can easily [automatically scale](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) your [virtual machines (VMs)](../articles/virtual-machines/windows/overview.md) when you use [virtual machine scale sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) and the [autoscaling feature of Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Your VMs need to be members of a scale set to be automatically scaled. This article provides information that enables you to better understand how to scale your VMs both vertically and horizontally using automatic and manual methods.
+Du kan enkelt [skala automatiskt](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) din [virtuella maskiner (VMs)](../articles/virtual-machines/windows/overview.md) när du använder [skalningsuppsättningar i virtuella](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) och [autoskalning funktion i Azure Övervakaren](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Din virtuella dator måste vara medlemmar i en skaluppsättningen skalas automatiskt. Den här artikeln innehåller information som gör det möjligt för dig att bättre förstå hur du skalar dina virtuella datorer både vågrätt och lodrätt med automatisk och manuell metoder.
 
-## <a name="horizontal-or-vertical-scaling"></a>Horizontal or vertical scaling
+## <a name="horizontal-or-vertical-scaling"></a>Vågrät eller lodrät skalning
 
-The autoscale feature of Azure Monitor only scales horizontally, which is an increase ("out") or decrease ("in") of the number of VMs. Horizontal scaling is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. You scale horizontally by either automatically or manually changing the capacity (or instance count) of the the scale set. 
+Funktionen Autoskala i Azure-Monitor endast skalas vågrätt, vilket ökar (”out”) eller minska antalet virtuella datorer (”i”). Teckenbredden är mer flexibelt i en situation med molnet som du kan köra potentiellt tusentals virtuella datorer för att hantera belastningen. Du skala horisontellt genom att automatiskt eller manuellt ändra kapacitet (eller instansantalet) för den skaluppsättning. 
 
-Vertical scaling keeps the same number of VMs, but makes the VMs more ("up") or less ("down") powerful. Power is measured in attributes such as memory, CPU speed, or disk space. Vertical scaling is dependent on the availability of larger hardware, which quickly hits an upper limit and can vary by region. Vertical scaling also usually requires a VM to stop and restart. You scale vertically by setting a new size in the configuration of the VMs in the scale set.
+Lodrät skalning behåller samma antal virtuella datorer, men gör de virtuella datorerna mer (”upp”) eller mindre (”nedåt”) kraftfulla. Power mäts i attribut, till exempel minne, processorhastighet och ledigt diskutrymme. Lodrät skalning är beroende av tillgängligheten för större maskinvara, vilket snabbt träffar en övre gräns och kan variera beroende på region. Lodrät skalning kräver också vanligtvis en VM att stoppa och starta om. Du skala lodrätt genom att ange en ny storlek i konfigurationen för de virtuella datorerna i skaluppsättning.
 
-Using runbooks in [Azure Automation](../articles/automation/automation-intro.md), you can easily [scale VMs in a scale set](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) up or down.
+Använda runbooks i [Azure Automation](../articles/automation/automation-intro.md), kan du enkelt [skala virtuella datorer i en skaluppsättning](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) uppåt eller nedåt.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Create a virtual machine scale set
+## <a name="create-a-virtual-machine-scale-set"></a>Skapa en skaluppsättning för virtuell dator
 
-Scale sets make it easy for you to deploy and manage identical VMs as a set. You can create Linux or Windows scale sets using the [Azure portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), or the [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). You can also create and manage scale sets with SDKs such as [Python](/develop/python) or [Node.js](/nodejs/azure), or directly with the [REST APIs](/rest/api/compute/virtualmachinescalesets). Automatic scaling of VMs is accomplished by applying metrics and rules to the scale set.
+Skaluppsättningar gör det enkelt att distribuera och hantera identiska virtuella datorer som en uppsättning. Du kan skapa Linux eller Windows skalningsuppsättningarna med hjälp av den [Azure-portalen](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), eller [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). Du kan också skapa och hantera skalningsuppsättningar med SDK: er som [Python](/develop/python) eller [Node.js](/nodejs/azure), eller direkt med den [REST API: er](/rest/api/compute/virtualmachinescalesets). Automatisk skalning av virtuella datorer kan åstadkommas genom att använda mått och regler i uppsättningen skala.
 
-## <a name="configure-autoscale-for-a-scale-set"></a>Configure autoscale for a scale set
+## <a name="configure-autoscale-for-a-scale-set"></a>Konfigurera Autoskala för en skaluppsättning
 
-Automatic scaling provides the right number of VMs to handle the load on your application. It enables you to add VMs to handle increases in load and save money by removing VMs that are sitting idle. You specify a minimum and maximum number of VMs to run based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum value limits your total possible hourly cost.
+Automatisk skalning innehåller antalet virtuella datorer för att hantera belastningen på ditt program. Det kan du lägga till virtuella datorer för att hantera belastningen ökar och spara pengar genom att ta bort virtuella datorer som placerad inaktiv. Du kan ange lägsta och högsta antal virtuella datorer ska köras baserat på en uppsättning regler. Med en minsta gör att körs programmet alltid även under ingen belastning. Med ett maximalt värde som begränsar din totalkostnaden möjliga varje timme.
 
-You can enable autoscale when you create the scale set using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) or [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). You can also enable it after the scale set is created. You can create a scale set, install the extension, and configure autoscale using an [Azure Resource Manager template](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). In the Azure portal, enable autoscale from Azure Monitor, or enable autoscale from the scale set settings.
+Du kan aktivera Autoskala när du skapar skaluppsättningen med [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) eller [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Du kan också aktivera den när skaluppsättning har skapats. Du kan skapa en skalningsuppsättning, installera tillägget och konfigurera Autoskala med hjälp av en [Azure Resource Manager-mall](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Aktivera Autoskala från Azure-Monitor i Azure-portalen eller aktivera Autoskala från ange inställningar för skalan.
 
-![Enable autoscale](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
+![Aktivera Autoskala](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>Metrics
+### <a name="metrics"></a>Mått
 
-The autoscale feature of Azure Monitor enables you to scale the number of running VMs up or down based on [metrics](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). By default, VMs provide basic host-level metrics for disk, network, and CPU usage. When you configure the collection of diagnostics data using the diagnostic extension, additional guest OS performance counters become available for disk, CPU, and memory.
+Funktionen Autoskala i Azure-Monitor kan du skala antalet virtuella datorer som körs eller inaktiv baserat på [mått](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Som standard ange VMs grundläggande värdnivå mått för disk-, nätverks- och CPU-användning. När du konfigurerar insamling av diagnostikdata med diagnostiska blir prestandaräknare för ytterligare gäst-OS tillgängliga för disk, CPU och minne.
 
-![Metric criteria](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
+![Mått villkor](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
-If your application needs to scale based on metrics that are not available through the host, then the VMs in the scale set need to have either the [Linux diagnostic extension](../articles/virtual-machines/linux/diagnostic-extension.md) or [Windows diagnostics extension](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) installed. If you create a scale set using the Azure portal, you need to also use Azure PowerShell or the Azure CLI to install the extension with the diagnostics configuration that you need.
+Om programmet behöver skala baserat på mått som inte är tillgängliga via värden, så att de virtuella datorerna i skaluppsättning måste ha antingen den [Linux diagnostiska tillägget](../articles/virtual-machines/linux/diagnostic-extension.md) eller [Windows diagnostik tillägget](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)installerad. Om du skapar en skala som anges med Azure-portalen måste du också använda Azure PowerShell eller Azure CLI för att installera tillägget med diagnostik-konfigurationer som du behöver.
  
-### <a name="rules"></a>Rules
+### <a name="rules"></a>Regler
 
-[Rules](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) combine a metric with an action to be performed. When rule conditions are met, one or more autoscale actions are triggered. For example, you might have a rule defined that increases the number of VMs by 1 if the average CPU usage goes above 85 percent.
+[Regler](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) kombinera ett mått med en åtgärd som ska utföras. När villkor uppfylls, utlöses en eller flera automatiska åtgärder. Du kan till exempel ha en regel som definierats som ökar antalet virtuella datorer med 1 om den genomsnittliga processoranvändningen går över 85 procent.
 
-![Autoscale actions](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
+![Automatiska åtgärder](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
  
-### <a name="notifications"></a>Notifications
+### <a name="notifications"></a>Meddelanden
 
-You can [set up triggers](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) so that specific web URLs are called or emails are sent based on the autoscale rules that you create. Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications.
+Du kan [definiera utlösare](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) så att specifika URL: er kallas eller e-postmeddelanden skickas utifrån de automatiska regler som du skapar. Webhooks kan du dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade meddelanden.
 
-## <a name="manually-scale-vms-in-a-scale-set"></a>Manually scale VMs in a scale set
+## <a name="manually-scale-vms-in-a-scale-set"></a>Skala manuellt virtuella datorer i en skaluppsättning
 
-### <a name="horizontal"></a>Horizontal
+### <a name="horizontal"></a>vågrät
 
-You can add or remove VMs by changing the capacity of the scale set. In the Azure portal, you can decrease or increase the number of VMs (shown as **instance count**) in the scale set by sliding the Override condition bar on the Scaling screen left or right.
+Du kan lägga till eller ta bort virtuella datorer genom att ändra kapacitet för skaluppsättning. I Azure-portalen kan du öka eller minska antalet virtuella datorer (visas som **instansen antal**) i skaluppsättningen med hjälp av skjutreglaget åsidosättning villkor på skärmen skalning åt vänster eller höger.
 
-Using Azure PowerShell, you need to get the scale set object using [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). You then set the **sku.capacity** property to the number of VMs that you want and update the scale set with [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Using Azure CLI, you change the capacity with the **--new-capacity** parameter for the [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) command.
+Med Azure PowerShell kan du behöver skala uppsättning objekt med [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Sedan ställer du in den **sku.capacity** för hur många virtuella datorer som du vill använda och uppdatera skalan egenskapsuppsättning med [uppdatering AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Med Azure CLI kan du ändra kapacitet med den **--ny kapacitet** parameter för den [az vmss skala](https://docs.microsoft.com/cli/azure/vmss#scale) kommando.
 
-### <a name="vertical"></a>Vertical
+### <a name="vertical"></a>Lodrät
 
-You can manually change the size of the VMs in the Azure portal on the Size screen for the scale set. You can use Azure PowerShell with Get-AzureRmVmss, setting the image reference sku property, and then using [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) and [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+Du kan ändra storleken på de virtuella datorerna i Azure-portalen på skärmen storlek för skaluppsättning manuellt. Du kan använda Azure PowerShell med Get-AzureRmVmss egenskapen avbildningen referens sku, och sedan använda [uppdatering AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) och [uppdatering AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Nästa steg
 
-- Learn more about scale sets in [Design Considerations for Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md).
+- Mer information om skalningsuppsättningar i [beaktanden vid utformning av Skalningsuppsättningarna](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md).
 

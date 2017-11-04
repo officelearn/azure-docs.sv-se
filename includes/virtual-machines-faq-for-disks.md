@@ -54,7 +54,7 @@ Nej. De virtuella datorerna i en tillgänglighetsuppsättning måste använda al
 
 **Är standardalternativet i Azure-portalen för hanterade diskar?**
 
-För närvarande inte, men det blir standardvärdet i framtiden.
+Ja. 
 
 **Kan jag skapa en tom disk som hanterade?**
 

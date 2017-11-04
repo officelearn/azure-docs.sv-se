@@ -1,4 +1,3 @@
-# <a name="scale-agent-nodes-in-a-container-service-cluster"></a>Skala agentnoder i ett behållartjänstkluster
 När du har [distribuerat ett Azure Container Service-kluster](../articles/container-service/dcos-swarm/container-service-deployment.md) kanske du behöver ändra antalet agentnoder. Till exempel kan du behöva fler agenter så att du kan köra flera behållarprogram eller instanser. 
 
 Du kan ändra antalet agentnoder i ett DC/OS-, Docker Swarm- eller Kubernetes-kluster med Azure Portal eller Azure CLI 2.0. 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
-ms.openlocfilehash: 934de9ca2df48b29ef7a56d5729d59d77875ea7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 569aeef58e601174aa9f28dc3ba39ebae17c17f8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Generera filmrekommendationer med hjälp av Apache Mahout med Hadoop i HDInsight (PowerShell)
 
@@ -42,7 +42,7 @@ Lär dig hur du använder den [Apache Mahout](http://mahout.apache.org) machine 
 > [!WARNING]
 > Jobbet i det här avsnittet fungerar med hjälp av Azure PowerShell. Många av de klasser som medföljer Mahout fungerar inte för närvarande med Azure PowerShell. En lista med klasser som inte fungerar med Azure PowerShell finns i [felsökning](#troubleshooting) avsnitt.
 >
-> Ett exempel på hur du använder SSH för att ansluta till HDInsight och kör Mahout exempel direkt på klustret finns [generera filmrekommendationer med hjälp av Mahout och HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
+> Ett exempel på hur du använder SSH för att ansluta till HDInsight och kör Mahout exempel direkt på klustret finns [generera filmrekommendationer med hjälp av Mahout och HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 En av de funktioner som tillhandahålls av Mahout är en rekommendation motor. Den här motorn accepterar data i formatet `userID`, `itemId`, och `prefValue` (användare preferens för artikeln). Mahout använder informationen för att avgöra användare med liknande objekt inställningar som kan användas för att ge rekommendationer.
 
@@ -208,21 +208,21 @@ Mahout jobb som använder följande klasser returnera olika felmeddelanden när 
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-För att köra jobb som använder dessa klasser, ansluta till HDInsight-klustret med SSH och köra jobb från kommandoraden. Ett exempel för att använda SSH för att köra Mahout jobb finns [generera filmrekommendationer med hjälp av Mahout och HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
+För att köra jobb som använder dessa klasser, ansluta till HDInsight-klustret med SSH och köra jobb från kommandoraden. Ett exempel för att använda SSH för att köra Mahout jobb finns [generera filmrekommendationer med hjälp av Mahout och HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du använder Mahout, identifiera andra sätt att arbeta med data i HDInsight:
 
-* [Hive med HDInsight](hdinsight-use-hive.md)
-* [Pig med HDInsight](hdinsight-use-pig.md)
-* [MapReduce med HDInsight](hdinsight-use-mapreduce.md)
+* [Hive med HDInsight](hadoop/hdinsight-use-hive.md)
+* [Pig med HDInsight](hadoop/hdinsight-use-pig.md)
+* [MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: /powershell/azureps-cmdlets-docs
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
+[getstarted]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest

@@ -1,31 +1,31 @@
 
-You can learn about Azure Cosmos DB global distribution in this Azure Friday video with Scott Hanselman and Principal Engineering Manager Karthik Raman.
+Du kan lära dig om Azure Cosmos DB globala distribution i den här Azure fredag video med Scott Hanselman och huvudnamn tekniker Manager Karthik Raman.
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-For more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
+Mer information om hur globala databasreplikering fungerar i Azure Cosmos DB, finns [distribuera data globalt med Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
 
-## <a id="addregion"></a>Add global database regions using the Azure Portal
-Azure Cosmos DB is available in all [Azure regions][azureregions] world-wide. After selecting the default consistency level for your database account, you can associate one or more regions (depending on your choice of default consistency level and global distribution needs).
+## <a id="addregion"></a>Lägga till den globala databasen områden med Azure-portalen
+Azure Cosmos-DB är tillgänglig i alla [Azure-regioner] [ azureregions] över hela världen. När du har valt standardnivån för konsekvens för ditt konto, kan du associera en eller flera regioner (beroende på ditt val av standard konsekvenskontroll nivå och global distributionsplatsen behov).
 
-1. In the [Azure portal](https://portal.azure.com/), in the left bar, click **Azure Cosmos DB**.
-2. In the **Azure Cosmos DB** blade, select the database account to modify.
-3. In the account blade, click **Replicate data globally** from the menu.
-4. In the **Replicate data globally** blade, select the regions to add or remove by clicking regions in the map, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) or the [Distribute data globally with Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md) article for more information.
+1. I den [Azure-portalen](https://portal.azure.com/), i fältet till vänster klickar du på **Azure Cosmos DB**.
+2. I den **Azure Cosmos DB** bladet väljer databasen konto för att ändra.
+3. I bladet konto klickar du på **replikera data globalt** på menyn.
+4. I den **replikera data globalt** bladet välj regioner att lägga till eller ta bort genom att klicka på regioner på kartan klicka sedan på **spara**. Det finns en kostnad för att lägga till regioner, se den [sida med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) eller [distribuera data globalt med Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md) artikel för mer information.
    
-    ![Click the regions in the map to add or remove them][1]
+    ![Klicka på regioner på kartan för att lägga till eller ta bort dem.][1]
     
-Once you add a second region, the **Manual Failover** option is enabled on the **Replicate data globally** blade in the portal. You can use this option to test the failover process or change the primary write region. Once you add a third region, the **Failover Priorities** option is enabled on the same blade so that you can change the failover order for reads.  
+När du lägger till en andra region i **manuell redundans** är aktiverat på den **replikera data globalt** blad i portalen. Du kan använda det här alternativet för att testa redundans processen eller ändra den primära write-regionen. När du lägger till en tredje region i **redundans prioriteter** är aktiverat på samma bladet så att du kan ändra ordning för växling vid fel för läsning.  
 
-### <a name="selecting-global-database-regions"></a>Selecting global database regions
-There are two common scenarios for configuring two or more regions:
+### <a name="selecting-global-database-regions"></a>Markera den globala databasen regioner
+Det finns två vanliga scenarier för att konfigurera två eller flera områden:
 
-1. Delivering low-latency access to data to end users no matter where they are located around the globe
-2. Adding regional resiliency for business continuity and disaster recovery (BCDR)
+1. Leverera låg latens åtkomst till data till slutanvändare oavsett var de befinner sig över hela världen
+2. Lägga till regionala återhämtning för affärskontinuitet och haveriberedskap (BCDR)
 
-For delivering low-latency to end-users, it is recommended to deploy both the application and add Azure Cosmos DB in the regions thats correspond to where the application's users are located.
+För att leverera låg latens för slutanvändarna, rekommenderas att distribuera både programmet och lägga till Azure Cosmos-DB i områden som är motsvarar där programmets användare finns.
 
-For BCDR, it is recommended to add regions based on the region pairs described in the [Business continuity and disaster recovery (BCDR): Azure Paired Regions][bcdr] article.
+För BCDR, rekommenderas du lägger till regioner baserat på region-par som beskrivs i den [Business affärskontinuitet och haveriberedskap återställning (BCDR): parad Azure-regioner] [ bcdr] artikel.
 
 <!--
 

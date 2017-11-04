@@ -1,16 +1,16 @@
-## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Specifying structure definition for rectangular datasets
-The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 
+## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Ange struktur definition för rektangulär datauppsättningar
+Avsnittet strukturen i datauppsättningar JSON är en **valfria** avsnittet för rektangulär tabeller (med rader och kolumner) och innehåller en uppsättning kolumner för tabellen. Du använder avsnittet struktur för antingen tillhandahåller typinformation för typkonverteringar eller göra kolumnmappningarna. I följande avsnitt beskrivs de här funktionerna i detalj. 
 
-Each column contains the following properties:
+Varje kolumn innehåller följande egenskaper:
 
-| Property | Description | Required |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| name |Name of the column. |Yes |
-| type |Data type of the column. See type conversions section below for more details regarding when should you specify type information |No |
-| culture |.NET based culture to be used when type is specified and is .NET type Datetime or Datetimeoffset. Default is “en-us”. |No |
-| format |Format string to be used when type is specified and is .NET type Datetime or Datetimeoffset. |No |
+| namn |Namnet på kolumnen. |Ja |
+| typ |Datatypen för kolumnen. Se typen konverteringar avsnittet nedan för mer information om när ska du ange typinformation |Nej |
+| Kultur |.NET baserat kulturen som ska användas när typ har angetts och är .NET typen Datetime eller Datetimeoffset. Standardvärdet är ”en-us”. |Nej |
+| Format |Formatsträng som ska användas när typ har angetts och är .NET typen Datetime eller Datetimeoffset. |Nej |
 
-The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.
+I följande exempel visas avsnittet struktur JSON för en tabell som har tre kolumner användar-ID, namn och lastlogindate.
 
 ```json
 "structure": 
@@ -21,31 +21,31 @@ The following sample shows the structure section JSON for a table that has three
 ],
 ```
 
-Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.
+Använd följande riktlinjer för när du ska inkludera ”struktur” information och vad som ska ingå i den **struktur** avsnitt.
 
-* **For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below). 
+* **För strukturerade datakällor** att lagra data schema och ange information tillsammans med själva (källor som Azure tabell för SQL Server, Oracle, etc.), bör du ange avsnittet ”struktur” om du vill att informationen göra kolumnmappningen för specifika källa kolumner till specifika kolumner i mottagare och deras namn är inte samma (Mer information finns i kolumnen mappning nedan). 
   
-    As mentioned above, the type information is optional in “structure” section. For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
-* **For schema on read data sources (specifically Azure blob)**  you can choose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
-  * You want to do column mapping.
-  * When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move data to and from Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) article for more information.
+    Som nämnts ovan är är typinformationen valfri i avsnittet ”struktur”. För strukturerade källor typinformation finns redan som en del av definitionen för datamängden i datalagret, så du bör inte inkludera typinformation när du inkluderar avsnittet ”struktur”.
+* **För schemat för skrivskyddade datakällor (specifikt Azure blob)** kan du lagra data utan att spara schemat eller typ information med data. Du bör ta ”struktur” för dessa typer av datakällor i följande fall 2:
+  * Du vill göra kolumnmappningen.
+  * När dataset är en datakälla i en Kopieringsaktivitet kan du kan ange av typinformation i ”struktur” och data factory använder den här typinformation för konvertering till inbyggda typer för sink. Se [flytta data till och från Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) artikel för mer information.
 
-### <a name="supported-net-based-types"></a>Supported .NET-based types
-Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
+### <a name="supported-net-based-types"></a>Stöd för. NET-baserade typer
+Data factory stöder följande CLS kompatibla .NET baserat typen värden för att ange information i ”struktur” för schemat för skrivskyddade datakällor som Azure blob.
 
 * Int16
 * Int32 
 * Int64
-* Single
-* Double
+* Enskild
+* dubbla
 * Decimal
-* Byte[]
-* Bool
-* String 
-* Guid
-* Datetime
-* Datetimeoffset
-* Timespan 
+* byte]
+* bool
+* Sträng 
+* GUID
+* Datum och tid
+* DateTimeOffset
+* Tidsintervall 
 
-For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion below.
+Du kan också ange ”kultur” & ”format” sträng för att underlätta tolkning av din egen Datetime-sträng för Datetime & Datetimeoffset. Se exemplet för typkonvertering nedan.
 

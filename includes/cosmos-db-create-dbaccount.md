@@ -1,31 +1,27 @@
-1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
-2. In the left pane, click **New**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**.
+1. Ett nytt fönster i webbläsaren, logga in på [Azure-portalen](https://portal.azure.com/).
+2. Klicka på **nya** > **databaser** > **Cosmos Azure DB**.
    
-   ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
+   ![Azure Portal-databasfönstret](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-3. On the **New account** blade, specify the configuration that you want for this Azure Cosmos DB account. 
-
-    With Azure Cosmos DB, you can choose one of four programming models: Gremlin (graph), MongoDB, SQL (DocumentDB), and Table (key-value), each which currently require a separate account.
-    
-    In this quick-start article we program against the DocumentDB API, so choose **SQL (DocumentDB)** as you fill out the form. If you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally distributed database service platform for all your mission-critical applications.
-
-    Complete the fields on the **New account** blade, using the information in the following screenshot as a guide- your values may be different than the values in the screenshot.
+3. I den **nytt konto** anger du inställningarna för det nya kontot i Azure Cosmos DB. 
  
-    ![The new account blade for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
-
-    Setting|Suggested value|Description
+    Inställning|Föreslaget värde|Beskrivning
     ---|---|---
-    ID|*Unique value*|A unique name that identifies this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID. The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
-    API|SQL (DocumentDB)|We program against the [DocumentDB API](../articles/cosmos-db/documentdb-introduction.md) later in this article.|
-    Subscription|*Your subscription*|The Azure subscription that you want to use for this Azure Cosmos DB account. 
-    Resource Group|*The same value as ID*|The new resource-group name for your account. For simplicity, you can use the same name as your ID. 
-    Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location that's closest to your users to give them the fastest access to the data.
-4. Click **Create** to create the account.
-5. On the top toolbar, click the **Notifications** icon ![The notification icon](./media/cosmos-db-create-dbaccount/notification-icon.png) to monitor the deployment process.
+    ID|*Ange ett unikt namn*|Ange ett unikt namn som identifierar det här kontot i Azure Cosmos DB. Eftersom*documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt id får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 50 tecken.
+    API|SQL (DocumentDB)|API: et avgör vilken typ av konto för att skapa. Azure Cosmos-DB innehåller fyra-API: er som passar bäst för ditt program: Gremlin (diagram), MongoDB, SQL (DocumentDB) och tabellen (nyckelvärde) varje som för närvarande kräver ett särskilt konto. <br><br>Välj **SQL (DocumentDB)** eftersom den här snabbstarten du skapar en databas för dokument som är frågbar med hjälp av SQL-syntax.<br><br>[Mer information om DocumentDB-API](../articles/cosmos-db/documentdb-introduction.md)|
+    Prenumeration|*Din prenumeration*|Välj Azure-prenumeration som du vill använda för det här kontot i Azure Cosmos DB. 
+    Resursgrupp|*Ange samma unika namn som anges ovan i ID: T*|Ange ett nytt resursgrupp namn för ditt konto. För enkelhetens skull kan du använda samma namn som för ditt ID. 
+    Plats|*Välj regionen som är närmast dina användare*|Välj geografisk plats som värd för ditt Azure DB som Cosmos-konto. Använd den plats som är närmast dina användare att ge dem snabbast åtkomst till data.
+    Aktivera geo-redundans| Lämna tomt | Detta skapar en replikerad version av databasen i en region för andra (parad). Lämna tomt.  
+    Fäst vid instrumentpanelen | Välj | Markera den här kryssrutan så att ditt nya konto har lagts till på portalen instrumentpanelen för enkel åtkomst.
 
-    ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
+    Klicka sedan på **Skapa**.
 
-6.  When the Notifications window indicates the deployment succeeded, close the notification window and open the new account from the **All Resources** tile on the Dashboard. 
+    ![Det nya kontobladet för Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
-    ![The Azure Cosmos DB account on the All Resources tile](./media/cosmos-db-create-dbaccount/all-resources.png)
- 
+4. Skapa konto tar några minuter. När kontot skapas i portalen visas den **distribuerar Azure Cosmos DB** panelen.
+
+    ![Meddelandefönstret i Azure-portalen](./media/cosmos-db-create-dbaccount/deploying-cosmos-db.png)
+
+    När kontot har skapats kan den **Grattis! Azure DB som Cosmos-kontot skapades** visas. 
+

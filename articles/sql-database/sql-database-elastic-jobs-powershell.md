@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 12ace2ff3bcb967ec5e0ae88d3ce79a53836dd5e
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Skapa och hantera SQL Database: elastiska jobb med hjälp av PowerShell (förhandsgranskning)
 
@@ -68,7 +68,6 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
   <tr>
     <td>DACPAC</td>
     <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">Programmet på datanivå </a> paket som ska tillämpas över databaser.
-
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
@@ -79,7 +78,6 @@ I följande tabell visas ut alla objekttyper för **elastisk databas jobb** till
   <tr>
     <td>Databasen mål</td>
     <td>Namn för databasen och pekar på en Azure SQL Database.
-
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>

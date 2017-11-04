@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Stack | Microsoft Docs
-description: Learn how to connect Azure Stack
+title: Ansluta till Azure-stacken | Microsoft Docs
+description: "Lär dig hur du ansluter Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,45 +14,44 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+# <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
-To manage resources, you must connect to the Azure Stack Development Kit. This topic details the steps required to connect to the development kit. You can use either of the following connection options:
+För att hantera resurser, måste du ansluta till Azure-stacken Development Kit. Det här avsnittet beskriver steg som krävs för att ansluta development Kit. Du kan använda något av följande anslutningsalternativ för:
 
-* [Remote Desktop](#connect-with-remote-desktop): lets a single concurrent user quickly connect from the development kit.
-* [Virtual Private Network (VPN)](#connect-with-vpn): lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
+* [Fjärrskrivbord](#connect-with-remote-desktop): tillåter att en enskild samtidiga användare enkelt kan ansluta development Kit.
+* [Virtuella privata nätverk (VPN)](#connect-with-vpn): tillåter att flera samtidiga användare ansluta från klienter utanför Azure Stack-infrastruktur (kräver konfiguration).
 
-## <a name="connect-to-azure-stack-with-remote-desktop"></a>Connect to Azure Stack with Remote Desktop
-With a Remote Desktop connection, a single concurrent user can work with the portal to manage resources.
+## <a name="connect-to-azure-stack-with-remote-desktop"></a>Ansluta till Azure-stacken med fjärrskrivbord
+En enskild samtidiga användare kan arbeta med portalen för att hantera resurser med en fjärrskrivbordsanslutning.
 
-1. Open a Remote Desktop Connection and connect to the development kit. Enter **AzureStack\AzureStackAdmin** as the username, and the administrative password that you provided during Azure Stack setup.  
+1. Öppna en anslutning till fjärrskrivbord och Anslut development Kit. Ange **AzureStack\AzureStackAdmin** som användarnamnet och lösenordet för administratörer som du angav under installationen av Azure-stacken.  
 
-2. From the development kit computer, open Server Manager, click **Local Server**, turn off Internet Explorer Enhanced Security, and then close Server Manager.
+2. Från development kit datorn, öppna Serverhanteraren klickar du på **lokal Server**, inaktivera Förbättrad säkerhetskonfiguration i Internet Explorer och sedan stänger du Server Manager.
 
-3. To open the  portal, navigate to (https://portal.local.azurestack.external/) and sign in using user credentials.
+3. Navigera till (https://portal.local.azurestack.external/) om du vill öppna portalen och logga in med autentiseringsuppgifterna för användaren.
 
 
-## <a name="connect-to-azure-stack-with-vpn"></a>Connect to Azure Stack with VPN
+## <a name="connect-to-azure-stack-with-vpn"></a>Ansluta till Azure-stacken med VPN
 
-You can establish a split tunnel Virtual Private Network (VPN) connection to an Azure Stack Development Kit. Through the VPN connection, you can access the administrator portal, user portal, and locally installed tools such as Visual Studio and PowerShell to manage Azure Stack resources. VPN connectivity is supported in both Azure Active Directory(AAD) and Active Directory Federation Services(AD FS) based deployments. VPN connections enable multiple clients to connect to Azure Stack at the same time. 
+Du kan upprätta en delad tunnel virtuella privata nätverk (VPN)-anslutning till en Azure-stacken Development Kit. Via VPN-anslutningen kan komma åt administratörsportal användarportalen, och verktyg som Visual Studio och PowerShell för att hantera Azure-stacken resurser har installerats lokalt. VPN-anslutningar stöds i både aktiva Directory(AAD) Azure och Active Directory Federation Services(AD FS) baserade distributioner. VPN-anslutningar kan flera klienter att ansluta till Azure-stacken på samma gång. 
 
 > [!NOTE] 
-> This VPN connection does not provide connectivity to Azure Stack infrastructure VMs. 
+> Den här VPN-anslutningen ger inte anslutningen till Azure-stacken infrastruktur virtuella datorer. 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Krav
 
-* Install [Azure Stack compatible Azure PowerShell](azure-stack-powershell-install.md) on your local computer.  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+* Installera [Azure Stack kompatibla Azure PowerShell](azure-stack-powershell-install.md) på den lokala datorn.  
+* Hämta den [verktyg som krävs för att arbeta med Azure Stack](azure-stack-powershell-download.md). 
 
-### <a name="configure-vpn-connectivity"></a>Configure VPN connectivity
+### <a name="configure-vpn-connectivity"></a>Konfigurera VPN-anslutning
 
-To create a VPN connection to the development kit, open an elevated PowerShell session from your local Windows-based computer and run the following script (make sure to update the the IP address and password values for your environment):
+Om du vill skapa en VPN-anslutning i development Kit, öppna en upphöjd PowerShell-session från den lokala Windows-baserade datorn och kör följande skript (se till att uppdatera den IP-adress och lösenord värden för din miljö):
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -83,31 +82,30 @@ Add-AzsVpnConnection `
 
 ```
 
-If the set up succeeds, you should see **azurestack** in your list of VPN connections.
+Om Ställ in lyckas, bör du se **azurestack** i listan över VPN-anslutningar.
 
-![Network connections](media/azure-stack-connect-azure-stack/image3.png)  
+![Nätverksanslutningar](media/azure-stack-connect-azure-stack/image3.png)  
 
-### <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+### <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
-Connect to the Azure Stack instance by using either of the following two methods:  
+Anslut till Azure Stack-instans med någon av följande två metoder:  
 
-* By using the `Connect-AzsVpn ` command: 
+* Med hjälp av den `Connect-AzsVpn ` kommando: 
     
   ```PowerShell
   Connect-AzsVpn `
     -Password $Password
   ```
 
-  When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** onto your local computer’s certificate store. (the prompt might appear behind the PowerShell session window). 
+  När du uppmanas, litar Azure Stack-värden och installera certifikatet från **AzureStackCertificateAuthority** till den lokala datorns certifikatarkiv. (uppmaningen visas bakom fönstret PowerShell-session). 
 
-* Open your local computer’s **Network Settings** > **VPN** > click **azurestack** > **connect**. At the sign-in prompt, enter the username (AzureStack\AzureStackAdmin) and the password.
+* Öppna den lokala datorn **nätverksinställningar** > **VPN** > klickar du på **azurestack** > **ansluta**. Ange användarnamnet (AzureStack\AzureStackAdmin) och lösenordet i Kommandotolken inloggning.
 
-### <a name="test-the-vpn-connectivity"></a>Test the VPN connectivity
+### <a name="test-the-vpn-connectivity"></a>Testa VPN-anslutningen
 
-To test the portal connection, open an Internet browser and navigate to the user portal (https://portal.local.azurestack.external/), sign in and create resources.  
+Om du vill testa anslutningen portal, öppna en webbläsare och gå till användarportalen (https://portal.local.azurestack.external/), logga in och skapa resurser.  
 
-## <a name="next-steps"></a>Next steps
-
+## <a name="next-steps"></a>Nästa steg
 
 
 

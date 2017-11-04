@@ -1,5 +1,5 @@
 > [!WARNING]
-> När du aktiverar diagnostik på en befintlig roll inaktiveras alla tillägg som du har aktiverat när paketet distribueras. Exempel på dessa är:
+> När du aktiverar diagnostik för en befintlig roll inaktiveras alla tillägg som du har angett när paketet distribueras. Exempel på dessa är:
 >
 > * Microsoft Monitoring Agent-diagnostik
 > * Microsoft Azure säkerhetsövervakning
@@ -11,5 +11,5 @@
 > * Windows Azure Remote Desktop-tillägget
 > * Windows Azure Logginsamlaren
 >
-> Du kan återaktivera ditt tillägg via Azure Portal eller PowerShell när du har distribuerat den uppdaterade rollen.
+> När du distribuerar den uppdaterade rollen kan du återställa din tillägg via Azure-portalen eller PowerShell.
 >

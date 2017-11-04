@@ -1,20 +1,20 @@
 
 <!--author=SharS last changed: 9/15/15-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>To add or modify a StorSimple backup schedule
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
-2. In the tabular listing of the policies, select and click the policy that you want to edit.
-3. Under **general**, you can modify the backup policy name.
-4. Under **schedules**, click **manage schedules** to add or remove schedules. In the **Manage Schedule** dialog box, do the following:
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Lägga till eller ändra ett schema för säkerhetskopiering av StorSimple
+1. Klicka på fliken **Principer för säkerhetskopiering** på bladet **Snabbstart** för enheten. Sidan **Principer för säkerhetskopiering** öppnas.
+2. Välj i tabellform lista över principerna, och klicka på den princip som du vill redigera.
+3. Under **allmänna**, du kan ändra namnet på säkerhetskopieringsprincipen.
+4. Under **scheman**, klickar du på **hantera scheman** att lägga till eller ta bort scheman. I den **hantera schemat** dialogrutan Gör följande:
    
-   1. Choose an existing schedule or create a new schedule.
-   2. Select the type of backup as local or cloud snapshot.
-   3. Specify the backup frequency, retention, and starting time of the schedule.
-   4. Enable or disable the schedule.
-   5. Click the check icon ![check icon](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) to save the changes to the schedule.
-5. In the **Volumes** section, add or remove the volumes to this policy.
-6. Save the changes to this policy.
-7. You will prompted for confirmation. Click **OK** to save the policy.
+   1. Välj ett befintligt schema eller skapa ett nytt schema.
+   2. Välj typ av säkerhetskopiering som lokala eller ögonblicksbild i molnet.
+   3. Ange frekvens för säkerhetskopiering, bevarande och starttiden för schemat.
+   4. Aktivera eller inaktivera schemat.
+   5. Klicka på kryssikonen ![kryssikon](./media/storsimple-add-modify-backup-schedule/HCS_CheckIcon-include.png) Spara ändringarna till schemat.
+5. I den **volymer** avsnittet, lägga till eller ta bort volymer på den här principen.
+6. Spara ändringarna i den här principen.
+7. Du uppmanas att bekräfta. Klicka på **OK** spara principen.
 
-The **Backup Policies** page will be updated to save the changes to the policy.
+Den **Säkerhetskopieringsprinciper** sidan uppdateras för att spara ändringarna i policyn.
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: c1aeed8c6fe4f83b170838e4efb9d9c4744fb951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 00eb9f6e13035ba5827b70e911be4afeafd442a2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Skapa en icke-interaktiv autentisering .NET HDInsight-program
 Du kan köra programmet Microsoft .NET Azure HDInsight under programmets egen identitet (icke-interaktiv) eller under identiteten för den inloggade användaren för programmet (Interaktiv). Den här artikeln visar hur du skapar en icke-interaktiv autentisering .NET-program att ansluta till Azure och hantera HDInsight. Ett exempel på ett interaktivt program finns i [Anslut till Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -32,7 +32,7 @@ Från ditt icke-interaktiv .NET-program behöver du:
 * Azure AD application hemliga nyckeln. Se [Get programmet autentiseringsnyckel](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Krav
-* Ett HDInsight-kluster. Finns det [komma igång-självstudiekurs](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+* Ett HDInsight-kluster. Finns det [komma igång-självstudiekurs](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Tilldela en roll till Azure AD-program
 Tilldela Azure AD-program en [rollen](../active-directory/role-based-access-built-in-roles.md), för att bevilja behörighet för att utföra åtgärder. Du kan ange omfånget för prenumerationen, resursgruppen eller resursen. Behörigheter ärvs på lägre nivåer i omfånget. (Till exempel lägga till ett program rollen Läsare för en resursgrupp innebär att programmet kan läsa resursgruppen och alla resurser i den.) I kursen får ange du omfånget på resursgruppsnivå. Mer information finns i [använda rolltilldelningar för att hantera åtkomst till resurserna i Azure-prenumeration](../active-directory/role-based-access-control-configure.md).

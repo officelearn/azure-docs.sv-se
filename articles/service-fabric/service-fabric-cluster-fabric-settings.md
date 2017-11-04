@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Anpassa inställningar för Service Fabric-kluster och Fabric-uppgradera princip
 Det här dokumentet förklarar hur du anpassar olika infrastrukturinställningarna och infrastrukturen uppgradera princip för Service Fabric-klustret. Du kan anpassa dem via den [Azure-portalen](https://portal.azure.com) eller med en Azure Resource Manager-mall.
@@ -596,7 +596,7 @@ PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 | PeriodicApiSlowTraceInterval | Tid i sekunder, standardvärdet är 5 minuter |Dynamisk| Ange tidsintervall i sekunder. PeriodicApiSlowTraceInterval definierar intervallet över vilket långsam API-anrop ska fångas av API-Övervakare. |
 | NodeDeactivationMaxReplicaCloseDuration | Tid i sekunder är standardvärdet 900 |Dynamisk|Ange tidsintervall i sekunder. Den varaktighet som systemet ska vänta innan försöket avbryts värdar som har repliker som fastnat i Stäng under nodinaktiveringen. |
 | FabricUpgradeMaxReplicaCloseDuration | Tid i sekunder är standardvärdet 900 |Dynamisk| Ange tidsintervall i sekunder. Den varaktighet som systemet ska vänta innan försöket avbryts värdar som har repliker som fastnat i Stäng under fabric-uppgraderingen. |
-|GracefulReplicaShutdownMaxDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(120)|Dynamisk|Ange tidsintervall i sekunder. Den varaktighet som systemet ska vänta innan försöket avbryts värdar som har repliker som fastnat i Stäng.|
+|GracefulReplicaShutdownMaxDuration|TimeSpan, standard är Common::TimeSpan::FromSeconds(120)|Dynamisk|Ange tidsintervall i sekunder. Den varaktighet som systemet ska vänta innan försöket avbryts värdar som har repliker som fastnat i Stäng. Om det här värdet anges till 0 instrueras repliker inte att stänga.|
 |ReplicaChangeRoleFailureRestartThreshold|Int, standardvärdet är 10|Dynamisk| Heltal. Ange antalet API-fel under primära befordran efter vilken åtgärd för automatisk lösning (replik omstart) kommer att tillämpas. |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, standardvärdet är 2147483647|Dynamisk| Heltal. Ange antalet API-fel under primära befordran efter vilken varning hälsorapport aktiveras.|
 

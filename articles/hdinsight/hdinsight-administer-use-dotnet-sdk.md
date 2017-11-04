@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
-ms.openlocfilehash: e3e67ab865a68867a3f76fe4cce51685f9ea98dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 97141b2360c88f11830147b9592c9c8538af383c
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hantera Hadoop-kluster i HDInsight med hjälp av .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -250,19 +250,19 @@ foreach (var key in results.Configuration.Keys)
 ## <a name="submit-jobs"></a>Skicka jobb
 **Att skicka MapReduce-jobb**
 
-Se [kör Hadoop-MapReduce-exempel i HDInsight](hdinsight-hadoop-run-samples-linux.md).
+Se [kör Hadoop-MapReduce-exempel i HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Att skicka Hive-jobb** 
 
-Se [köra Hive-frågor med .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).
+Se [köra Hive-frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
 **Skicka Pig-jobb**
 
-Se [köra Pig-jobb med hjälp av .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md).
+Se [köra Pig-jobb med hjälp av .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **Skicka Sqoop jobb**
 
-Se [använda Sqoop med HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md).
+Se [använda Sqoop med HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
 **Skicka Oozie jobb**
 
@@ -283,16 +283,16 @@ Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-provision-custom-options]: hdinsight-hadoop-provision-linux-clusters.md#configuration
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-admin-portal]: hdinsight-administer-use-portal-linux.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 

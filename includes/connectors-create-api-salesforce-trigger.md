@@ -1,18 +1,18 @@
-In this walk-through, you will learn how to use the **Salesforce - When an object is created** trigger to initiate a logic app workflow when a new lead is created in your Salesforce.
+I den här genomgången kommer du lära dig hur du använder den **Salesforce - när ett objekt skapas** trigger för att initiera en logik app arbetsflödet när en ny lead skapas i ditt Salesforce.
 
 > [!NOTE]
-> You will get prompted to sign into your Salesforce account if you have not already created a *connection* to Salesforce.  
+> Hämta uppmanas du att logga in på ditt Salesforce-konto om du inte redan har skapat en *anslutning* till Salesforce.  
 > 
 > 
 
-1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created**  trigger.  
-   ![Salesforce trigger image 1](./media/connectors-create-api-salesforce/trigger-1.png)   
-2. The **When an object is created** control is displayed.  
-   ![Salesforce trigger image 2](./media/connectors-create-api-salesforce/trigger-2.png)   
-3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.   
-   ![Salesforce trigger image 3](./media/connectors-create-api-salesforce/trigger-3.png)   
-4. That's it. You've created the trigger. However, you need to create at least one action in order to make this a valid logic app.    
-   ![Salesforce trigger image 4](./media/connectors-create-api-salesforce/trigger-4.png)   
+1. Ange *salesforce* i sökrutan på logic apps designer väljer den **Salesforce - när ett objekt skapas** utlösare.  
+   ![Salesforce utlösarbild 1](./media/connectors-create-api-salesforce/trigger-1.png)   
+2. Den **när ett objekt skapas** kontrollen visas.  
+   ![Bild 2 till Salesforce-utlösare](./media/connectors-create-api-salesforce/trigger-2.png)   
+3. Välj den **objekttyp** Välj *leda* från listan över objekt. I det här steget anger du att du skapar en utlösare som meddelar logikappen när en ny lead skapas i Salesforce.   
+   ![Bild 3 till Salesforce-utlösare](./media/connectors-create-api-salesforce/trigger-3.png)   
+4. Det var allt. Du har skapat utlösaren. Dock måste du skapa minst en åtgärd för att göra detta en giltig logikapp.    
+   ![Bild 4 till Salesforce-utlösare](./media/connectors-create-api-salesforce/trigger-4.png)   
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is created in your Salesforce.  
+Din logikapp har nu konfigurerats med en utlösare som börjar på andra utlösare och åtgärder i arbetsflödet körs när ett nytt objekt skapas i ditt Salesforce.  
 

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera prestanda för frågor med Azure Cosmos DB
 Azure Cosmos-DB tillhandahåller en [SQL API för datafrågor](documentdb-sql-query.md), utan att schemat eller sekundärindex. Den här artikeln innehåller följande information för utvecklare:
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | millisekunder | Tid i inläsning av dokument  | 
 | `systemFunctionExecuteTimeInMs` | millisekunder | Total tid som ägnats verkställande system (inbyggda) funktioner i millisekunder  | 
 | `userFunctionExecuteTimeInMs` | millisekunder | Total tid som ägnats verkställande användardefinierade funktioner i millisekunder | 
-| `retrievedDocumentCount` | millisekunder | Totalt antal hämtade dokument  | 
+| `retrievedDocumentCount` | Antal | Totalt antal hämtade dokument  | 
 | `retrievedDocumentSize` | Byte | Total storlek på hämtade dokument i byte  | 
 | `outputDocumentCount` | Antal | Antal dokument som utdata | 
 | `writeOutputTimeInMs` | millisekunder | Tid i millisekunder för att köra frågan | 

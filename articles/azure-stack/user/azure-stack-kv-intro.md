@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Key Vault introduction | Microsoft Docs
-description: Learn how Azure Stack Key Vault manages keys and secrets
+title: Azure Key Vault-stacken introduktion | Microsoft Docs
+description: "Lär dig hur Azure-stacken Key Vault hanterar nycklar och hemligheter"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,57 +14,60 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecb542e967669fc4e4465ae59b3e9c37e4a5c332
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 621a0cb865d0c050d7271d10bd14076f9f0c6f67
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction to Key Vault in Azure Stack
+# <a name="introduction-to-key-vault-in-azure-stack"></a>Introduktion till Nyckelvalvet i Azure-stacken
 
-## <a name="before-you-start"></a>Before you start
-This article assumes the following:
+## <a name="prerequisites"></a>Krav 
 
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
+* Du måste prenumerera på ett erbjudande som innehåller Azure Key Vault-tjänsten.  
+* [PowerShell har konfigurerats för användning med Azure Stack](azure-stack-powershell-configure-user.md).
  
-## <a name="key-vault-basics"></a>Key Vault basics
-Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
+## <a name="key-vault-basics"></a>Key Vault-grunderna
+Key Vault i Azure-stacken hjälper dig att skydda krypteringsnycklar och hemligheter som molnet program och tjänster använder. Med Key Vault kan kryptera du nycklar och hemligheter, som:
+   * Autentiseringsnycklar 
+   * Lagringskontonycklar
+   * Datakrypteringsnycklar
+   * PFX-filer
+   * Lösenord
 
-Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
+Key Vault förenklar nyckelhanteringen och låter dig behålla kontrollen över nycklar som kommer åt och krypterar data. Utvecklare kan skapa nycklar för utveckling och testning på några minuter och sedan sömlöst migrera dem till produktionsnycklar. Säkerhetsadministratörer kan bevilja (och återkalla) behörighet till nycklar efter behov.
 
-Anybody with an Azure Stack subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by the operator who manages other Azure Stack services for an organization. For example, the Azure Stack operator can sign in with an Azure Stack subscription, create a vault for the organization in which to store keys, and then be responsible for these operational tasks:
+Vem som helst med en Stack för Azure-prenumeration kan skapa och använda nyckelvalv. Även om Key Vault hjälper utvecklare och säkerhetsadministratörer, kan en operatör som hanterar andra Azure-Stack-tjänster för en organisation implementera och hantera den. Till exempel skapa Azure-stacken operatorn kan logga in med en Stack för Azure-prenumeration, ett valv för organisationen att lagra nycklar och sedan ansvara för dessa åtgärder:
 
-* Create or import a key or secret
-* Revoke or delete a key or secret
-* Authorize users or applications to access the key vault, so they can   then manage or use its keys and secrets
-* Configure key usage (for example, sign or encrypt)
+* Skapa eller importera en nyckel eller hemlighet.
+* Återkalla eller ta bort en nyckel eller hemlighet.
+* Auktorisera användare eller program åtkomst till nyckelvalvet, så att de kan sedan hantera eller använda sina nycklar och hemligheter.
+* Konfigurera nyckelanvändningen (till exempel signera eller kryptera).
 
-The operator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
+Operatorn kan sedan ge utvecklare Uniform Resource Identifier () att anropa från sina program. Operatörer kan också ge säkerhetsadministratörer nyckelanvändning loggningsinformation.
 
-Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
+Utvecklare kan också hantera nycklar direkt, med hjälp av API:er. Mer information finns i guiden för Key Vault-utvecklare.
 
-## <a name="scenarios"></a>Scenarios
-The following table depicts some of the scenarios where Key Vault can help meet the needs of developers and security administrators:
+## <a name="scenarios"></a>Scenarier
+Nedan beskrivs hur Key Vault kan hjälpa dig att möta behoven hos utvecklare och säkerhetsadministratörer.
 
-### <a name="developer-for-an-azure-stack-application"></a>Developer for an Azure Stack application
-**Problem**: I want to write an application for Azure Stack that uses keys for signing and encryption, but I want these to be external from my application so that the solution is suitable for an application that is geographically distributed.
+### <a name="developer-for-an-azure-stack-application"></a>Utvecklare för ett program för Azure-stacken
+**Problem:** jag vill skriva ett program för Azure-stacken som använder nycklar för signering och kryptering. Jag vill att dessa nycklar ska vara externa från mitt program så att lösningen passar för ett program som distribueras geografiskt.
 
-**Statement**: Keys are stored in a vault and invoked by URI when needed.
+**Instruktionen:** nycklar lagras i ett valv och anropas av en URI vid behov.
 
-### <a name="developer-for-software-as-a-service-saas"></a>Developer for software as a service (SaaS)
-**Problem:** I don’t want the responsibility or potential liability for my customer's keys and secrets.
+### <a name="developer-for-software-as-a-service-saas"></a>Utvecklare av programvara som en tjänst (SaaS)
+**Problem:** jag vill inte ansvar eller hitta potentiella ansvar för min kunds nycklar och hemligheter. Jag vill att kunderna ska äga och hantera sina nycklar så att jag kan koncentrera dig på att göra vad jag gör bäst, vilket är att erbjuda grundläggande funktioner.
 
-**Statement:** Customers can import their own keys into Azure Stack, and manage them. I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.
+**Instruktionen:** kunder kan importera sina egna nycklar till Azure-stacken och hantera dem. 
 
-### <a name="chief-security-officer-cso"></a>Chief Security Officer (CSO)
-**Problem:** I want to make sure that my organization is in control of the key life cycle and can monitor key usage.
+### <a name="chief-security-officer-cso"></a>Chefen säkerhetsansvarig (rederiets)
+**Problem:** jag vill se till att min organisation har kontrollen över nyckelns livscykel och kan övervaka nyckelanvändningen.
 
-**Statement** Key Vault is designed so that Microsoft does not see or extract your keys.  When an application needs to perform cryptographic operations by using customers’ keys, Key Vault does this on behalf of the application. The application does not see the customers’ keys.  Although we use multiple Azure Stack services and resources, I want to manage the keys from a single location in Azure Stack. The vault provides a single interface, regardless of how many vaults you have in Azure Stack, which regions they support, and which applications use them.
+**Instruktionen:** Key Vault är utformat så att Microsoft inte kan se eller extrahera dina nycklar. När ett program behöver utföra kryptografiska åtgärder med hjälp av kunders nycklar används Key Vault nycklar för programmet. Programmet kan inte se kundernas nycklar. Även om vi använder flera Azure-stacken tjänster och resurser kan du hantera nycklarna från en enda plats i Azure-stacken. Valvet tillhandahåller ett enda gränssnitt, oavsett hur många valv du har i Azure-stacken, vilka regioner de support och vilka program som använder dem.
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>Nästa steg
 
-* [Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)  
-* [Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
+* [Hantera Key Vault i Azure-stacken med hjälp av portalen](azure-stack-kv-manage-portal.md)  
+* [Hantera Key Vault i Azure-stacken med hjälp av PowerShell](azure-stack-kv-manage-powershell.md)
 

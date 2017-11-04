@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barclayn
-ms.openlocfilehash: abaf78428cb12235a659bad5c13d64e8e51f4ba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 114ef434e6167ef2b25b040e35ab3ce1b85151a9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="pim-for-azure-resources-preview"></a>PIM för Azure-resurser (förhandsgranskning)
 
@@ -43,11 +43,12 @@ Azure AD PIM kan hantera inbyggda roller i Azure-resurshanteraren, samt anpassad
 - Säkerhetshanteraren och mycket mer
 
 >[!NOTE]
-Användare eller medlemmar i en grupp som tilldelats ägare eller administratör för användaråtkomst roller och globala administratörer som möjliggör prenumerationshantering av i Azure AD är administratörer för resursen. Dessa administratörer kan tilldela roller, konfigurera rollinställningar för och granska åtkomst med hjälp av PIM för Azure-resurser. Visa en lista över [inbyggda roller för Azure-resurser](../role-based-access-built-in-roles.md)
+Användare eller medlemmar i en grupp som tilldelats ägare eller administratör för användaråtkomst roller och globala administratörer som möjliggör prenumerationshantering av i Azure AD är administratörer för resursen. Dessa administratörer kan tilldela roller, konfigurera rollinställningar för och granska åtkomst med hjälp av PIM för Azure-resurser. Visa en lista över [inbyggda roller för Azure-resurser](../role-based-access-built-in-roles.md).
 
 ## <a name="tasks"></a>Uppgifter
 
 PIM ger åtkomst till Aktivera roller, visa väntande aktiveringar/begäranden väntande godkännanden (för [Azure AD directory roller](azure-ad-pim-approval-workflow.md)), och granskar väntar på ditt svar från avsnittet uppgifter i den vänstra navigeringsmenyn.
+
 Vid åtkomst till alla menyalternativ uppgifter från översikt startpunkt innehåller resulterande vyn resultat för både roller för Azure AD-katalog och Azure-resurshanteraren roller (förhandsversion). 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
@@ -56,7 +57,7 @@ Min roller innehåller en lista över dina aktiva och berättigade rolltilldelni
 
 ## <a name="activate-roles"></a>Aktivera roller
 
-Aktivera roller för Azure-resurser (förhandsgranskning) introducerar en ny upplevelse som berättigade rollmedlemmar kan schemalägga aktivering för framtida datum/tid och välj en specifik aktivering varaktighet inom den Maxtid (konfigurerad av administratörer). Lär dig mer om [aktiverar här Azure AD-roller](../active-directory-privileged-identity-management-how-to-activate-role.md)
+Aktivera roller för Azure-resurser (förhandsgranskning) introducerar en ny upplevelse som berättigade rollmedlemmar kan schemalägga aktivering för framtida datum/tid och välj en specifik aktivering varaktighet inom den Maxtid (konfigurerad av administratörer). Lär dig mer om [aktivera Azure AD-roller här](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 

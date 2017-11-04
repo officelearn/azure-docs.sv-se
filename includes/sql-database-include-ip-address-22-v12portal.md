@@ -15,25 +15,25 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
-2. In the left banner, click **BROWSE ALL**. The **Browse** blade is displayed.
-3. Scroll and click **SQL servers**. The **SQL servers** blade is displayed.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) på http://portal.azure.com/.
+2. Klicka i den vänstra banderollen **Bläddra bland alla**. Den **Bläddra** bladet visas.
+3. Bläddra och klicka på **SQL-servrar**. Den **SQL-servrar** bladet visas.
    
-    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
-4. For convenience, click the minimize control on the earlier **Browse** blade.
-5. In the filter text box, start typing the name of your server. Your row is displayed.
-6. Click the row for your server. A blade for your server is displayed.
-7. On your server blade, click **Settings**. The **Settings** blade is displayed.
-8. Click **Firewall**. The **Firewall Settings** blade is displayed.
+    ![Hitta din Azure SQL Database-server i portalen][b21-FindServerInPortal]
+4. Klicka på Minimera-kontrollen på den tidigare för enkelhetens skull **Bläddra** bladet.
+5. Börja skriva namnet på servern i filter-textrutan. Raden visas.
+6. Klicka på raden för servern. Ett blad för servern visas.
+7. Klicka på din server-bladet **inställningar**. Den **inställningar** bladet visas.
+8. Klicka på **brandväggen**. Den **brandväggsinställningar** bladet visas.
    
-    ![Click Settings > Firewall][b31-SettingsFirewallNavig]
-9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
-10. Type in the low and high IP address values for the range you want to enable.
+    ![Klicka på Inställningar > brandväggen][b31-SettingsFirewallNavig]
+9. Klicka på **Lägg till klient IP**. Skriv ett namn för din nya regel i den första textrutan.
+10. Ange de lägsta och högsta IP-adressvärdena för intervallet som du vill aktivera.
     
-    * It can be handy to have the low value end with **.0** and the high with **.255**.
+    * Det kan vara praktiskt att ha lågt värde för end med **.0** och hög med **.255**.
     
-    ![Add an IP address range to allow][b41-AddRange]
-11. Click **Save**.
+    ![Lägg till ett IP-adressintervall för att tillåta][b41-AddRange]
+11. Klicka på **Spara**.
 
 <!-- Image references. -->
 

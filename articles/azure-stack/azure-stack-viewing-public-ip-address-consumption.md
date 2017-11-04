@@ -1,6 +1,6 @@
 ---
-title: View public IP address consumption in Azure Stack | Microsoft Docs
-description: Administrators can view the consumption of public IP addresses in a region
+title: "Visa offentlig IP-adress användning i Azure-stacken | Microsoft Docs"
+description: "Administratörer kan visa förbrukningen av offentliga IP-adresser i en region"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -14,55 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7651565eebf6272f307a4ce4790ca19b41bfa826
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="view-public-ip-address-consumption-in-azure-stack"></a>View public IP address consumption in Azure Stack
+# <a name="view-public-ip-address-consumption-in-azure-stack"></a>Visa offentlig IP-adress användning i Azure-stacken
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-As a cloud administrator, you can view the number of public IP addresses that have been allocated to tenants, the number of public IP addresses that are still available for allocation, and the percentage of public IP addresses that have been allocated in that location.
+Du kan visa antalet offentliga IP-adresser som har allokerats till klienter, antal offentliga IP-adresser som är fortfarande tillgängliga för tilldelning och procentandelen av offentliga IP-adresser som har tilldelats på den platsen som en moln-administratör.
 
-The **Public IP pools usage** tile shows the total number of public IP addresses that have been consumed across all public IP address pools on the fabric, whether they have been used for tenant IaaS VM instances, fabric infrastructure services, or public IP address resources that were explicitly created by tenants.
+Den **offentliga IP-adresspooler användning** panelen visar det totala antalet offentliga IP-adresser som har förbrukats över alla offentliga IP-adresspooler på infrastrukturen, om de har använts för klienten IaaS VM instanser infrastruktur tjänster eller offentlig IP-resurser som uttryckligen har skapats av klienter.
 
-The purpose of this tile is to give Azure Stack administrators a sense of the overall number of public IP addresses that have been consumed in this location. This helps administrators determine whether they are running low on this resource.
+Syftet med den här panelen är att ge Azure-stacken administratörer en uppfattning om det totala antalet offentliga IP-adresser som har förbrukats på den här platsen. Detta hjälper administratörer att avgöra om de körs lågt på den här resursen.
 
-On the **Resource providers**, **Network** blade, the **Public IP addresses** menu item under **Tenant Resources** lists only those public IP addresses that have been *explicitly created by tenants*. As such, the number of **Used** public IP addresses on the **Public IP pools usage** tile is always different from (larger than) the number on the **Public IP Addresses** tile under **Tenant Resources**.
+På den **resursproviders**, **nätverk** bladet den **offentliga IP-adresser** menyalternativet **Klientresurser** visas endast de offentligt IP-adresser som har *skapats av klientorganisationer explicit*. Således antalet **används** offentliga IP-adresser på det **offentliga IP-adresspooler användning** panelen alltid skiljer sig från (större än) numret på den **offentliga IP-adresser** panelen under **klient resurser**.
 
-## <a name="view-the-public-ip-address-usage-information"></a>View the public IP address usage information
-To view the total number of public IP addresses that have been consumed in the region:
+## <a name="view-the-public-ip-address-usage-information"></a>Visa användningsinformation för den offentliga IP-adress
+Så här visar det totala antalet offentliga IP-adresser som har förbrukats i region:
 
-1. In the Azure Stack administrator portal, click **More services**, under **Administrative Resources**, click **Resource providers**.
-2. From the list of **Resource Providers**, select **Network**.
-3. The **Network** blade displays the **Public IP pools usage** tile in the **Overview** section.
+1. Klicka på Azure Stack-administratörsportalen kan **fler tjänster**under **administrationsresurser**, klickar du på **resursproviders**.
+2. I listan över **Resursproviders**väljer **nätverket**.
+3. Den **nätverk** bladet visar den **offentliga IP-adresspooler användning** panelen i den **översikt** avsnitt.
 
-![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![Resursprovidern nätverksblad](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
-Keep in mind that the **Used** number represents the number of public IP addresses from all public IP address pools in that location that are assigned. The **Free** number represents the number of public IP addresses from all public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in all public IP address pools in that location.
+Tänk på att den **används** representerar antalet offentliga IP-adresser från alla offentliga IP-adresspooler på den platsen som har tilldelats. Den **lediga** nummer representerar antalet offentliga IP-adresser från alla offentliga IP-adresspooler som inte har tilldelats och är fortfarande tillgängliga. Den **% används** representerar antalet används eller tilldelade adresser som en procentandel av det totala antalet offentliga IP-adresser i alla offentliga IP-adresspooler på den platsen.
 
-## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>View the public IP addresses that were created by tenant subscriptions
-To see a list of public IP addresses that were explicitly created by tenant subscriptions in a specific region, click **Public IP addresses** under **Tenant Resources**.
+## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Visa de offentliga IP-adresser som har skapats av klient prenumerationer
+Klicka för att visa en lista över offentliga IP-adresser som uttryckligen har skapats av klient prenumerationer i en viss region **offentliga IP-adresser** under **Klientresurser**.
 
-![Tenant public IP addresses](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![Klient offentliga IP-adresser](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
-You might notice that some public IP addresses that have been dynamically allocated appear in the list but do not have an address associated with them yet. This is because the address resource has been created in the Network Resource Provider, but not in the Network Controller yet.
+Du kan se att vissa offentliga IP-adresser som har tilldelats dynamiskt visas i listan, men inte har en adress som är kopplade till dem ännu. Det beror på att adressresursen har skapats i den Nätverksresursprovidern, men inte i nätverksstyrenheten ännu.
 
-The Network Controller does not assign an address to this resource until it is actually bound to an interface, a network interface card (NIC), a load balancer, or a virtual network gateway. When the public IP address is bound to an interface, the Network Controller allocates an IP address to it, and it appears in the **Address** field.
+Nätverksstyrenheten tilldelar inte en adress till den här resursen förrän den faktiskt är bunden till ett gränssnitt, nätverksgränssnittskortet (NIC), en belastningsutjämnare eller en virtuell nätverksgateway. När den offentliga IP-adressen är bunden till ett gränssnitt, nätverksstyrenheten allokerar en IP-adress till den och den visas i den **adress** fältet.
 
-## <a name="view-the-public-ip-address-information-summary-table"></a>View the public IP address information summary table
-There are a number of different cases in which public IP addresses are assigned that determine whether the address appears in one list or another.
+## <a name="view-the-public-ip-address-information-summary-table"></a>Visa den offentliga IP-adress information Sammanfattningstabellen
+Det finns ett antal olika fall där offentliga IP-adresser tilldelas som avgör om adressen som ska visas i en lista eller en annan.
 
-| **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
+| **Offentliga IP-adresstilldelning fall** | **Visas i Användningsöversikt** | **Visas i listan för klient offentliga IP-adresser** |
 | --- | --- | --- |
-| Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) |No |Yes |
-| Dynamic public IP address assigned to an NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a tenant NIC or load balancer. |Yes |Yes |
-| Static public IP address assigned to a fabric infrastructure service endpoint. |Yes |No |
-| Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. |Yes |No |
+| Dynamiska offentliga IP-adressen har ännu inte tilldelats ett nätverkskort eller läsa in belastningsutjämning (tillfällig) |Nej |Ja |
+| Dynamiska offentliga IP-adressen till ett nätverkskort eller läsa in belastningsutjämning. |Ja |Ja |
+| Statiska offentliga IP-adressen till en klient-NIC eller läsa in belastningsutjämning. |Ja |Ja |
+| Statiska offentliga IP-adressen till en tjänstslutpunkt för fabric-infrastruktur. |Ja |Nej |
+| Offentliga IP-adressen implicit för IaaS-VM-instanser och används för utgående NAT på det virtuella nätverket. Dessa skapas i bakgrunden när en klient skapar en VM-instans så att virtuella datorer kan skicka information till Internet. |Ja |Nej |
 
-## <a name="next-steps"></a>Next steps
-[Manage Storage Accounts in Azure Stack](azure-stack-manage-storage-accounts.md)
+## <a name="next-steps"></a>Nästa steg
+[Hantera Storage-konton i Azure-stacken](azure-stack-manage-storage-accounts.md)

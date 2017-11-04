@@ -1,21 +1,21 @@
-Click the **New** button. In the **Search the marketplace** field, enter `Azure Active Directory B2C`.
+Klicka på **Nytt**. I fältet **Sök på marketplace** skriver du `Azure Active Directory B2C`.
 
-![Add button highlighted and the text Azure Active Directory B2C in the search the marketplace field](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Knappen Lägg till markerad och texten Azure Active Directory B2C i fältet Sök på marketplace](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-In the results list, select **Azure Active Directory B2C**.
+Välj **Azure Active Directory B2C** i resultatlistan.
 
-![Azure Active Directory B2C selected in the results list](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
+![Azure Active Directory B2C markerat i resultatlistan](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-Details about Azure Active Directory B2C are shown. To begin configuring your new Azure Active Directory B2C tenant, click the **Create** button.
+Information om Azure Active Directory B2C visas. Du börjar konfigurera den nya Azure Active Directory B2C-klientorganisationen genom att klicka på **Skapa**.
 
-Select **Create a new Azure AD B2C Tenant**. The settings specified in the following table use the company name Contoso as an example. You will need to provide your own organization name and a unique tenant name when creating your tenant.  
+Välj **Skapa en ny Azure AD B2C-klient**. De inställningar som anges i följande tabell kan du använda namnet på företaget Contoso som exempel. Du måste ange organisationens namn och en unik innehavarens namn när du skapar din klient.  
 
-![Azure AD B2C create tenant with sample text in the available fields](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
+![Azure AD B2C skapa klient med exempeltext i tillgängliga fält](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
 
-| Setting      | Sample value  | Description                                        |
+| Inställning      | Exempelvärde  | Beskrivning                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Organization name** | Contoso | Name of the organization. | 
-| **Initial domain name** |  ContosoB2CTenant | Domain name for the B2C tenant. By default, the initial domain name includes .onmicrosoft.com. If you are creating a test tenant, choose a non-production name such as ContosoB2CTesting. |
-| **Country or region** | United States | Choose the country or region for the directory. The directory will be created in this location and cannot be changed later.  |
+| **Organisationens namn** | Contoso | Namn på organisationen. | 
+| **Ursprungligt domännamn** |  ContosoB2CTenant | Domännamn för B2C-klientorganisationen. Som standard innehåller namnet på första domänen. onmicrosoft.com. Om du skapar en Testklient, väljer du en icke-produktion namn, till exempel ContosoB2CTesting. |
+| **Land eller region** | USA | Välj land eller region för katalogen. Katalogen skapas på den här platsen och kan inte ändras senare.  |
 
-Click the **Create** button to create your tenant. Creating the tenant may take a few minutes. You are alerted in your notifications when it is complete.
+Klicka på **Skapa** för att skapa klientorganisationen. Det kan ta några minuter att skapa klientorganisationen. Du meddelas när det är klart.

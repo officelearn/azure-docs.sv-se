@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -39,9 +39,9 @@ Många av stegen i det här dokumentet använder följande verktyg, som kan beh�
 
 ## <a name="users"></a>Användare
 
-Om inte [domänanslutna](hdinsight-domain-joined-introduction.md), HDInsight ska betraktas som en **enanvändarläge** system. En SSH-användarkontot skapas med i klustret, med administratörsbehörighet för nivån. Ytterligare SSH-konton kan skapas, men de har också administratörsåtkomst till klustret.
+Om inte [domänanslutna](./domain-joined/apache-domain-joined-introduction.md), HDInsight ska betraktas som en **enanvändarläge** system. En SSH-användarkontot skapas med i klustret, med administratörsbehörighet för nivån. Ytterligare SSH-konton kan skapas, men de har också administratörsåtkomst till klustret.
 
-Domänanslutna HDInsight har stöd för flera användare och mer detaljerade inställningar för behörighet och roll. Mer information finns i [hantera domänanslutna HDInsight-kluster](hdinsight-domain-joined-manage.md).
+Domänanslutna HDInsight har stöd för flera användare och mer detaljerade inställningar för behörighet och roll. Mer information finns i [hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-manage.md).
 
 ## <a name="domain-names"></a>Domännamn
 
@@ -277,6 +277,6 @@ Om du vill använda den senaste versionen av till exempel [DataFu](http://datafu
 ## <a name="next-steps"></a>Nästa steg
 
 * [Migrera från Windows-baserade HDInsight till Linux-baserade](hdinsight-migrate-from-windows-to-linux.md)
-* [Använda Hive med HDInsight](hdinsight-use-hive.md)
-* [Använda Pig med HDInsight](hdinsight-use-pig.md)
-* [Använda MapReduce-jobb med HDInsight](hdinsight-use-mapreduce.md)
+* [Använda Hive med HDInsight](hadoop/hdinsight-use-hive.md)
+* [Använda Pig med HDInsight](hadoop/hdinsight-use-pig.md)
+* [Använda MapReduce-jobb med HDInsight](hadoop/hdinsight-use-mapreduce.md)

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 82b1916a49cd1e04580fdb848545ce7d52299579
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -31,7 +31,7 @@ Efter distributionen som många organisationer vill veta hur eller om SSPR verkl
 Följande frågor kan betjänas av rapporter som finns i [Azure-portalen] (https://portal.azure.com/).
 
 > [!NOTE]
-> Du måste vara [en global administratör](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) och måste välja i dessa data samlas in för din organisation genom att besöka reporting TABB eller granska loggarna minst en gång. Tills gör det, kommer inte samlas in för din organisation
+> Du måste vara [en global administratör](active-directory-assign-admin-roles.md) och måste välja i dessa data samlas in för din organisation genom att besöka reporting TABB eller granska loggarna minst en gång. Tills gör det, kommer inte samlas in för din organisation
 
 * Hur många som har registrerats för återställning av lösenord?
 * Vem som har registrerats för återställning av lösenord?

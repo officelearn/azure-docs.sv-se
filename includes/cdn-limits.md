@@ -1,11 +1,11 @@
 
-| Resource | Default limit | Maximum limit | 
+| Resurs | Standardgräns | Övre gräns | 
 | --- | --- | --- |
-| CDN profiles |8 |25 |
-| CDN endpoints per profile |10 |25 |
-| Custom domains per endpoint |10 |25 |
+| CDN-profiler |8 |25 |
+| CDN-slutpunkter per profil |10 |25 |
+| Anpassade domäner per slutpunkt |10 |25 |
 
-A CDN subscription can contain one or more CDN profiles and a CDN profile can contain one or more CDN endpoints. You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria. 
+En CDN-prenumeration kan innehålla en eller flera CDN-profiler och en CDN-profil kan innehålla en eller flera CDN-slutpunkter. Du kanske vill använda flera profiler för att organisera dina CDN-slutpunkter efter Internetdomän, webbapp eller andra kriterier. 
 
-To request an update to your subscription's default limits, open a support ticket. 
+Om du vill begära en uppdatering till standard prenumerationsbegränsningar, öppna ett supportärende. 
 

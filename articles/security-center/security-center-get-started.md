@@ -1,121 +1,136 @@
 ---
-title: Snabbstartsguide för Azure Security Center | Microsoft Docs
-description: Det här dokumentet hjälper dig att komma igång snabbt med Azure Security Center och guidar dig genom komponenterna för säkerhetsövervakning och principhantering och länkar till nästa steg.
+title: "Snabbstartsguide för Azure Security Center | Microsoft Docs"
+description: "Den här artikeln hjälper dig att komma igång snabbt med Azure Security Center och guidar dig genom komponenterna för säkerhetsövervakning och principhantering och länkar till nästa steg."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
-editor: ''
-
+manager: MBaldwin
+editor: 
+ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2016
+ms.date: 09/14/2017
 ms.author: terrylan
-
+ms.openlocfilehash: c28f92af96f31d1c386cf072f83fc142b9a7f588
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# Snabbstartsguide för Azure Security Center
-Det här dokumentet hjälper dig att komma igång snabbt med Azure Security Center och guidar dig genom komponenterna för säkerhetsövervakning och principhantering och länkar till nästa steg.
+# <a name="azure-security-center-quick-start-guide"></a>Snabbstartsguide för Azure Security Center
+Den här artikeln hjälper dig att komma igång med Azure Security Center och guidar dig genom komponenterna för säkerhetsövervakning och principhantering i Security Center.
+
+## <a name="prerequisites"></a>Krav
+Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
+
+Den kostnadsfria nivån av Security Center aktiveras automatiskt på alla Azure-prenumerationer och ger säkerhetsprincip och kontinuerlig security assessment tillämplig säkerhetsrekommendationer som hjälper dig att skydda dina Azure-resurser.
+
+Security Center öppnas från [Azure Portal](https://azure.microsoft.com/features/azure-portal/). Om du vill ta reda på mer om Azure Portal går du till [portaldokumentationen](https://azure.microsoft.com/documentation/services/azure-portal/).
+
+## <a name="permissions"></a>Behörigheter
+I Security Center kan se du bara information relaterad till en resurs när du har tilldelats rollen ägare, deltagare eller läsare för prenumeration eller resursgrupp som en resurs tillhör. Se [behörigheter i Azure Security Center](security-center-permissions.md) för mer information om roller och tillåtna åtgärder i Security Center.
+
+## <a name="data-collection"></a>Datainsamling
+Security Center samlar in data från dina virtuella Azure-datorer (VM) och Azure-datorer att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent som läser olika säkerhetsrelaterade konfigurationer och händelseloggar på datorn och kopierar data till din arbetsyta för analys. Security Center tillhandahåller Microsoft Monitoring Agent på alla befintliga stöds virtuella Azure-datorer och nya filer som skapas. Se [Aktivera datainsamling](security-center-enable-data-collection.md) vill veta mer om hur datainsamling fungerar.
+
+Automatisk etablering rekommenderas och krävs för prenumerationer på standardnivån av Security Center. Inaktivera automatisk etablering gränser säkerhetsövervakning för dina resurser.
+
+Se [Security Center priser](security-center-pricing.md) lära dig mer om den kostnadsfria och Standard prisnivåer.
+
+I följande steg beskrivs hur du får åtkomst till och använder komponenterna i Security Center.
 
 > [!NOTE]
-> Informationen i det här dokumentet rör förhandsversionen av Azure Security Center. I det här dokumentet presenteras tjänsten genom en exempeldistribution. Det är inte en steg-för-steg-guide.
-> 
-> 
+> I den här artikeln beskrivs tjänsten genom en exempeldistribution. Artikeln är alltså inte en steg-för-steg-guide.
+>
+>
 
-## Vad är Azure Security Center?
- Med hjälp av Security Center kan du förebygga, upptäcka och åtgärda hot med ökad överblick i, och kontroll över, säkerheten för dina resurser i Azure. Härifrån kan du övervaka och hantera principer för alla prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
-
-## Nödvändiga komponenter
-Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Security Center aktiveras med din prenumeration. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
-
- Security Center öppnas från den [Azure Portal](https://azure.microsoft.com/features/azure-portal/). [Portaldokumentationen](https://azure.microsoft.com/documentation/services/azure-portal/) innehåller mer information.
-
-## Öppna Security Center
+## <a name="access-security-center"></a>Öppna Security Center
 Följ anvisningarna för att öppna Security Center i portalen:
 
-1. Välj **Bläddra** och rulla sedan till alternativet **Security Center**.
-   ![Öppna Azure  Security Center i portalen][1]
-2. Välj **Security Center**. Då öppnas bladet **Security Center**.
-3. Om du enkelt vill komma åt bladet **Security Center** framöver markerar du alternativet **Fäst bladet på instrumentpanelen** (längst upp till höger).
+1. På menyn **Microsoft Azure** väljer du **Security Center**.
+
+   ![Azure-menyn][1]
+2. Om du öppnar Security Center för första gången visas **välkomstbladet**. Välj **starta Security Center** att öppna **Security Center**.
+   ![Välkomstskärmen][10]
+3. När du startar Security Center från bladet Välkommen eller välj Security Center från Microsoft Azure-menyn **Security Center** öppnas. Om du enkelt vill komma åt bladet **Security Center** framöver markerar du alternativet **Fäst bladet på instrumentpanelen** (längst upp till höger).
    ![Alternativet Fäst bladet på instrumentpanelen][2]
 
-## Använda Security Center
-Du kan konfigurera säkerhetsprinciper för dina Azure-prenumerationer och -resursgrupper. Vi ska konfigurera en säkerhets**princip** för din prenumeration:
+## <a name="use-security-center"></a>Använda Security Center
+Du kan konfigurera säkerhetsprinciper för dina Azure-prenumerationer och -resursgrupper. Vi ska konfigurera en säkerhetsprincip för din prenumeration:
 
-1. Välj ikonen **Princip** i bladet **Security Center**.
-   ![Security Center][3]
-2. I bladet **Säkerhetsprincip – Definiera princip per prenumeration eller resursgrupp** väljer du en prenumeration.
-   ![Bladet med säkerhetsprinciper i Azure Security Center][4]
-3. I bladet **Säkerhetsprincip** aktiverar du **Datainsamling** så att loggar samlas in automatiskt. När du aktiverar **datainsamling** etableras även övervakningstillägget på alla aktuella och nya virtuella datorer i prenumerationen.
-4. Markera **Välj ett lagringskonto per region**. För var och en av de regioner där du har virtuella datorer som körs, väljer du det lagringskonto där data som samlas in från dessa datorer ska lagras. Om du inte väljer ett lagringskonto för varje region skapas ett åt dig. Data som samlas in blir logiskt isolerade från andra kunders data av säkerhetsskäl.
-   
-   > [!NOTE]
-   > Vi rekommenderar att du aktiverar datainsamling och väljer ett lagringskonto på prenumerationsnivån först.  Säkerhetsprinciper kan ställas in på prenumerations- och resursgruppsnivå i Azure, men konfigurationen för datainsamling och lagringskontot kan bara ställas in på prenumerationsnivå.
-   > 
-   > 
-5. Aktivera de **rekommendationer** du vill ha som en del av din säkerhetsprincip. Exempel:
-   
-   * Om du aktiverar **Systemuppdateringar** genomsöks alla virtuella datorer som stöds efter saknade OS-uppdateringar.
-   * Om du aktiverar **Baslinjeregler** genomsöks alla virtuella datorer  som stöds för att identifiera OS-konfigurationer som kan göra en virtuell dator känsligare för angrepp.
+1. Välj på huvudmenyn Security Center **säkerhetsprincip**.
+2. Under **Security Center - säkerhetsprincip**, välja en prenumeration.
+3. Under **säkerhetsprincip - datainsamling**, **Automatisk etablering** är aktiverat. Security Center tillhandahåller Microsoft Monitoring Agent på alla befintliga stöds virtuella Azure-datorer och nya filer som skapas.
 
-Hantera **Rekommendationer**:
+    ![Säkerhetsprincip][12]
 
-1. Gå tillbaka till bladet **Security Center** och välj panelen **Rekommendationer**. Security Center analyserar regelbundet säkerhetstillståndet hos dina Azure-resurser. När eventuella säkerhetsproblem identifieras visas en rekommendation här.
-2. Markera varje rekommendation om du vill se mer information och/eller vidta åtgärder för att lösa problemet.
+4. På den **säkerhetsprincip** bladet Välj komponenten princip **säkerhetsprincip**.
+
+     ![Säkerhetsprincip][11]
+
+5. Under **visa rekommendationer för**, aktivera rekommendationer som du vill ska visas som en del av din säkerhetsprincip. Exempel:
+
+   * Ange **systemuppdateringar** till **på** genomsökningar alla stöd för virtuella datorer för saknade OS-uppdateringar.
+   * Ange **OS säkerhetsrisker** till **på** genomsökningar alla stöd för virtuella datorer för att identifiera OS-konfigurationer som kan göra den virtuella datorn mer sårbara för angrepp.
+
+6. Välj **Spara**.
+
+### <a name="view-recommendations"></a>Visa rekommendationer
+1. Gå tillbaka till bladet **Security Center** och välj panelen **Rekommendationer**. Security Center analyserar regelbundet säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem visas rekommendationer på bladet **Rekommendationer**.
    ![Rekommendationer i Azure Security Center][5]
+2. Markera en rekommendation på bladet **Rekommendationer** om du vill se mer information och/eller vidta åtgärder för att lösa problemet.
 
-Visa hälso- och säkerhetsstatus för dina resurser via **resursens säkerhetshälsa**:
+### <a name="view-the-security-state-of-your-resources"></a>Se säkerhetsstatus för dina resurser
+1. Gå tillbaka till bladet **Security Center**. Den **förebyggande** på instrumentpanelen innehåller indikatorer gällande säkerhetsstatus för virtuella datorer, nätverk, data och program.
+2. Välj **Compute** vill visa mer information. Den **Compute** blad öppnas som visar tre flikar:
 
-1. Gå tillbaka till bladet **Security Center**.
-2. Panelen för **resursens säkerhetshälsa** innehåller indikatorer gällande säkerhetsstatus för **virtuella datorer**, **nätverk**, **SQL**, och **program**.
-3. Välj **Virtuella datorer** för mer information.
-4. Bladet **Virtuella datorer** visar en statussammanfattning som anger status för program mot skadlig kod, systemuppdateringar, omstarter och baslinjeregler för de virtuella datorerna.
-5. Välj ett objekt under **REKOMMENDATIONER FÖR VIRTUELLA DATORER** om du vill visa mer information och/eller vidta åtgärder för att konfigurera nödvändiga kontroller.
-6. Sök för att visa ytterligare information för specifika virtuella datorer.
-   ![Panelen för resursernas hälsotillstånd i Azure Security Center][6]
+  - **Översikt över** -innehåller övervakning och rekommendationer för Virtuella datorer.
+  - **Virtuella datorer och datorer** -visar det aktuella tillståndet för säkerhet för alla virtuella datorer och datorer.
+  - **Molntjänster** -listar webb- och arbetsroller roller som övervakas via Security Center.
 
-Hantera **säkerhetsaviseringar**:
+    ![Beräkna säkerhetshälsa][6]
 
-1. Gå tillbaka till bladet **Security Center** och välj panelen **Säkerhetsaviseringar**. En lista över aviseringar visas i bladet **Säkerhetsaviseringar** . Aviseringarna genereras av Security Centers analys av dina säkerhetsloggar och din nätverksaktivitet. Aviseringar från integrerade partnerlösningar ingår också.
+3. På den **översikt** väljer du en rekommendation under för att visa mer information och/eller vidta åtgärder för att konfigurera nödvändiga kontroller.
+4. På den **virtuella datorer och datorer** väljer du en resurs för att visa ytterligare information.
+
+### <a name="view-security-alerts"></a>Visa säkerhetsaviseringar
+1. Gå tillbaka till bladet **Security Center** och välj panelen **Säkerhetsaviseringar**. Bladet **Säkerhetsaviseringar** öppnas och visar en lista över aviseringar. Aviseringarna genereras av Security Centers analys av dina säkerhetsloggar och din nätverksaktivitet. Aviseringar från integrerade partnerlösningar ingår.
    ![Säkerhetsaviseringar i Azure Security Center][7]
-2. Välj en avisering om du vill visa ytterligare information.
+
+2. Välj en avisering om du vill visa ytterligare information. I det här exemplet ska vi väljer **ändras för systemet dump filter har identifierats**. Blad som kan ger mer information om aviseringen öppnas.
    ![Information om säkerhetsaviseringar i Azure Security Center][8]
 
-Visa hälsotillstånd för dina **partnerlösningar**:
-
-1. Gå tillbaka till bladet **Security Center**. I panelen **Partnerlösningar** kan du snabbt se hälsostatusen på de partnerlösningar som är integrerade med din Azure-prenumeration.
-2. Klicka på panelen **Partnerlösningar**. Då öppnas ett blad med en lista över alla partnerlösningar som är anslutna till Security Center.
+### <a name="view-the-health-of-your-partner-solutions"></a>Visa hälsotillstånd för dina partnerlösningar
+1. Gå tillbaka till bladet **Security Center**. Den **säkerhetslösningar** kan du snabbt kan övervaka hälsostatusen på de partnerlösningar som är integrerade i azureprenumerationen.
+2. Välj den **säkerhetslösningar** panelen. Då öppnas ett blad som visar lista över alla partnerlösningar som är anslutna till Security Center.
    ![Partnerlösningar][9]
-3. Markera en partnerlösning. I det här exemplet väljer vi lösningen **F5-WAF2**.  Då öppnas ett blad som visar statusen för partnerlösningen och resurserna som är kopplade till lösningen. Om du klickar på **Lösningskonsol** öppnas partnerhanteringsfunktionen för lösningen i fråga.
-   ![Information om partnerlösning][10]
+3. Markera en partnerlösning. Då öppnas ett blad som visar status för partnerlösningen och resurserna som är kopplade till lösningen. Om du klickar på **Solution console (Lösningskonsol)** öppnas partnerhanteringsfunktionen för lösningen i fråga.
 
-## Nästa steg
-I det här dokumentet har du introducerats för komponenterna säkerhetsövervakning och principhantering i Security Center. Läs mer i:
+   ![Partnerlösningar][13]
 
-* [Ange säkerhetsprinciper i Azure Security Center](security-center-policies.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper.
-* [Hantera säkerhetsrekommendationer i  Azure Security Center](security-center-recommendations.md) – Här får du lära dig hur du kan skydda resurserna i Azure med hjälp av rekommendationer.
-* [Säkerhetshälsoövervakning i Azure Security Center](security-center-monitoring.md) – Här kan du läsa om hur du övervakar dina Azure-resursers hälsa.
-* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Här får du lära dig hur övervakar dina partnerlösningars hälsostatus.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här finns vanliga frågor om tjänsten.
-* [Azures säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
+## <a name="next-steps"></a>Nästa steg
+I den här artikeln har du introducerats för komponenterna säkerhetsövervakning och principhantering i Security Center. Nu när du är bekant med Security Center kan du prova följande steg:
+
+* Konfigurera en säkerhetsprincip för din Azure-prenumeration, se [ställa in säkerhetsprinciper i Azure Security Center](security-center-policies.md).
+* Använder rekommendationerna i Security Center hjälper dig skydda dina Azure-resurser, se [hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md).
+* Granska och hantera din aktuella säkerhetsaviseringar, se [hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
+- Lär dig mer om hur du integrerar med partners för att förbättra den övergripande säkerheten finns [Partner och lösningar Integration](security-center-partner-integration.md).
+- Lär dig hur data hanteras och skyddade i Security Center, se [datasäkerhet i Azure Security Center](security-center-data-security.md).
+* Lär dig mer om [funktionerna för avancerad hotidentifiering](security-center-detection-capabilities.md) som medföljde [standardnivån](security-center-pricing.md) i Security Center. Standardnivån erbjuds kostnadsfritt de första 60 dagarna.
+* Om du har frågor om hur du använder Security Center går du till [Vanliga frågor och svar om Azure Security Center](security-center-faq.md).
 
 <!--Image references-->
-[1]: ./media/security-center-get-started/security-tile.png
-[2]: ./media/security-center-get-started/pin-blade.png
-[3]: ./media/security-center-get-started/security-center.png
-[4]: ./media/security-center-get-started/security-policy.png
+[1]: ./media/security-center-get-started/azure-menu.png
+[2]: ./media/security-center-get-started/security-center-pin.png
 [5]: ./media/security-center-get-started/recommendations.png
 [6]: ./media/security-center-get-started/resources-health.png
 [7]: ./media/security-center-get-started/security-alert.png
 [8]: ./media/security-center-get-started/security-alert-detail.png
 [9]: ./media/security-center-get-started/partner-solutions.png
-[10]: ./media/security-center-get-started/partner-solutions-detail.png
-
-
-
-<!---HONumber=Jun16_HO2-->
-
-
+[10]: ./media/security-center-get-started/welcome.png
+[11]: ./media/security-center-get-started/show-recommendations-for.png
+[12]: ./media/security-center-get-started/automatic-provisioning.png
+[13]: ./media/security-center-get-started/partner-solutions-detail.png

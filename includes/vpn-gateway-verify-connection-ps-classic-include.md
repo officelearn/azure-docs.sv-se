@@ -1,11 +1,11 @@
-You can verify that your connection succeeded by using the 'Get-AzureVNetConnection' cmdlet.
+Du kan kontrollera att din anslutning lyckats med hjälp av cmdleten 'Get-AzureVNetConnection'.
 
-1. Use the following cmdlet example, configuring the values to match your own. The name of the virtual network must be in quotes if it contains spaces.
+1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Namnet på det virtuella nätverket måste vara inom citattecken om det innehåller blanksteg.
 
   ```powershell
   Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
   ```
-2. After the cmdlet has finished, view the values. In the example below, the Connectivity State shows as 'Connected' and you can see ingress and egress bytes.
+2. Visa värdena när cmdlet:en har slutförts. I exemplet nedan tillståndet anslutningen visas som ”ansluten” och du kan se ingående och utgående byte.
 
         ConnectivityState         : Connected
         EgressBytesTransferred    : 181664

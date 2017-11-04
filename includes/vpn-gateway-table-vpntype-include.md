@@ -1,20 +1,20 @@
-#### <a name="vpn-type---resource-manager-deployment-model"></a>VPN type - Resource Manager deployment model
-|  | **RouteBased** | **PolicyBased** |
+#### <a name="vpn-type---resource-manager-deployment-model"></a>Typ av VPN - Resource Manager-distributionsmodellen
+|  | **Routningsbaserad** | **Principbaserad** |
 | --- | --- | --- |
-| **Site-to-Site** |Supported |Supported |
-| **VNet-to-VNet** |Supported |Not Supported |
-| **Multi-Site** |Supported |Not Supported |
-| **S2S and ExpressRoute coexist** |Supported |Not Supported |
-| **Point-to-Site** |Supported |Not Supported |
-| **Classic to Resource Manager** |Supported |Not Supported |
+| **Plats-till-plats** |Stöds |Stöds |
+| **VNet-till-VNet** |Stöds |Stöds inte |
+| **Flera platser** |Stöds |Stöds inte |
+| **S2S och ExpressRoute samexisterar** |Stöds |Stöds inte |
+| **Punkt-till-plats** |Stöds |Stöds inte |
+| **Klassisk till Resource Manager** |Stöds |Stöds inte |
 
-#### <a name="vpn-type---classic-deployment-model"></a>VPN type - classic deployment model
-|  | **Dynamic** | **Static** |
+#### <a name="vpn-type---classic-deployment-model"></a>Typ av VPN - klassiska distributionsmodellen
+|  | **Dynamisk** | **Statisk** |
 | --- | --- | --- |
-| **Site-to-Site** |Supported |Supported |
-| **VNet-to-VNet** |Supported |Not Supported |
-| **Multi-Site** |Supported |Not Supported |
-| **S2S and ExpressRoute coexist** |Supported |Not Supported |
-| **Point-to-Site** |Supported |Not Supported |
-| **Classic to Resource Manager** |Supported |Not Supported |
+| **Plats-till-plats** |Stöds |Stöds |
+| **VNet-till-VNet** |Stöds |Stöds inte |
+| **Flera platser** |Stöds |Stöds inte |
+| **S2S och ExpressRoute samexisterar** |Stöds |Stöds inte |
+| **Punkt-till-plats** |Stöds |Stöds inte |
+| **Klassisk till Resource Manager** |Stöds |Stöds inte |
 

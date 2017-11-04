@@ -1,101 +1,101 @@
-## <a name="log-in-to-the-azure-portal"></a>Log in to the Azure portal
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database"></a>Create a blank SQL database
+## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
 
-An Azure SQL database is created with a defined set of [compute and storage resources](../articles/sql-database/sql-database-service-tiers.md). The database is created within an [Azure resource group](../articles/azure-resource-manager/resource-group-overview.md) and in an [Azure SQL Database logical server](../articles/sql-database/sql-database-features.md). 
+Azure SQL-databasen skapas med en definierad uppsättning [beräknings-och lagringsresurser](../articles/sql-database/sql-database-service-tiers.md). Databasen skapas i en [Azure-resursgrupp](../articles/azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL Database-server](../articles/sql-database/sql-database-features.md). 
 
-Follow these steps to create a blank SQL database. 
+Följ dessa steg om du vill skapa en tom SQL-databas. 
 
-1. Click the **New** button found on the upper left-hand corner of the Azure portal.
+1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 
-2. Select **Databases** from the **New** page, and select **Create** under **SQL Database** on the **New** page.
+2. Välj **Databaser** på sidan **Nytt** och välj **Skapa** under **SQL Database** på sidan **Nytt**.
 
-   ![create empty-database](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
+   ![Skapa en tom databas](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
-3. Fill out the SQL Database form with the following information, as shown on the preceding image:   
+3. Fyll i följande information i SQL Database-formuläret (se föregående bild):   
 
-   | Setting       | Suggested value | Description | 
+   | Inställning       | Föreslaget värde | Beskrivning | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Database name** | mySampleDatabase | For valid database names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
-   | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-   | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Select source** | Blank database | Specifies that a blank database should be created. |
+   | **Databasnamn** | mySampleDatabase | För giltiga databasnamn, se [databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
+   | **Prenumeration** | Din prenumeration  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
+   | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. |
 
-4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
+4. Klicka på **Server** för att skapa och konfigurera en ny server för den nya databasen. Fyll i den **nytt serverformulär** med följande information: 
 
-   | Setting       | Suggested value | Description | 
+   | Inställning       | Föreslaget värde | Beskrivning | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
-   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-   | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
+   | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+   | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
+   | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst 8 tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och specialtecken. |
+   | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
-   ![create database-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
+   ![skapa databas-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 
-5. Click **Select**.
+5. Klicka på **Välj**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs, and the amount of storage. Explore the options for the amount of DTUs and storage that is available to you for each service tier. 
+6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er och mängden lagring. Undersök alternativen för mängden DTU:er och lagring som är tillgänglig på varje tjänstnivå. 
 
-7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
+7. Den här självstudiekursen, Välj den **Standard** servicenivå och Använd sedan skjutreglaget för att välja **100 dtu: er (S3)** och **400** GB lagringsutrymme.
 
-   ![create database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+   ![skapa databas-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
-8. Accept the preview terms to use the **Add-on Storage** option. 
+8. Godkänn förhandsgranskningsvillkoren för att använda alternativet **Lägg till mer lagringsutrymme**. 
 
    > [!IMPORTANT]
-   > \* Storage sizes greater than the amount of included storage are in preview and extra costs apply. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). 
+   > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [Priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: US East2, West US, US Gov Virginia, West Europe, Germany Central, South East Asia, Japan East, Australia East, Canada Central, and Canada East. See [P11-P15 Current Limitations](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\*I Premium-nivån finns för närvarande mer än 1 TB lagringsutrymme i följande regioner: Östra USA 2, USA, västra, Virginia (USA-förvaltad region), Europa, västra, Centrala Tyskland, Sydostasien, Östra Japan, Australien, östra, Centrala Kanada och Östra Kanada. Se [sidan 11-15 i Aktuella begränsningar](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
-9. After selecting the server tier, the number of DTUs, and the amount of storage, click **Apply**.  
+9. När du har valt tjänstenivå, antalet DTU:er och mängden lagring klickar du på **Apply** (Använd).  
 
-10. Select a **collation** for the blank database (for this tutorial, use the default value). For more information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Välj en **sorteringen** för tom databas (använda standardvärdet för den här självstudiekursen). Mer information om sorteringar finns [sorteringar](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-11. Click **Create** to provision the database. Provisioning takes about a minute and a half to complete. 
+11. Klicka på **Skapa** för att etablera databasen. Etablering tar om en och en halv minut att slutföra. 
 
-12. On the toolbar, click **Notifications** to monitor the deployment process.
+12. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
     
-     ![notification](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
+     ![avisering](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>Create a server-level firewall rule
+## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-The SQL Database service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. Follow these steps to create a [SQL Database server-level firewall rule](../articles/sql-database/sql-database-firewall-configure.md) for your client's IP address and enable external connectivity through the SQL Database firewall for your IP address only. 
+SQL Database-tjänsten skapar en brandvägg på servernivå som hindrar externa program och verktyg från att ansluta till servern eller databaser på servern, såvida inte en brandväggsregel konfigureras som öppnar brandväggen för specifika IP-adresser. Följ de här stegen om du vill skapa en [brandväggsregel på SQL Database-servernivå](../articles/sql-database/sql-database-firewall-configure.md) för din klients IP-adress och aktivera extern anslutning genom SQL Database-brandväggen endast för din IP-adress. 
 
 > [!NOTE]
-> SQL Database communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
+> SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 nekas av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver20170824.database.windows.net**) and provides options for further configuration. 
+1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. På översiktssidan för din databas öppnas och visar fullständigt kvalificerade servernamnet (exempelvis **mynewserver20170824.database.windows.net**) och innehåller alternativ för ytterligare konfiguration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. 
+2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. 
 
-   ![server name](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
+   ![servernamn](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-3. Click **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL Database server opens. 
+3. Klicka på **ange serverbrandvägg** i verktygsfältet. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
 
-   ![server firewall rule](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![brandväggsregler för server](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 
-4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4. Klicka på **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
-5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+5. Klicka på **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
 
-6. Click **OK** and then close the **Firewall settings** page.
+6. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
-You can now connect to the SQL Database server and its databases using SQL Server Management Studio or another tool of your choice from this IP address using the server admin account created previously.
+Nu kan du ansluta till SQL Server Database-servern och dess databaser med SQL Server Management Studio eller något annat verktyg från den här IP-adressen med det Server-administratörskonto som skapades tidigare.
 
 
 > [!IMPORTANT]
-> By default, access through the SQL Database firewall is enabled for all Azure services. Click **OFF** on this page to disable for all Azure services.
+> Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan om du vill inaktivera åtkomsten för alla Azure-tjänster.
 
-## <a name="sql-server-connection-information"></a>SQL server connection information
+## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
 
-Get the fully qualified server name for your Azure SQL Database server in the Azure portal. You use the fully qualified server name to connect to your server using SQL Server Management Studio.
+Hämta det fullständigt kvalificerade servernamnet för Azure SQL Database-servern i Azure Portal. Du kan använda det fullständigt kvalificerade servernamnet för att ansluta till servern med hjälp av SQL Server Management Studio.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
+3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**.
 
-   ![connection information](../articles/sql-database/media/sql-database-get-started-portal/server-name.png)
+   ![anslutningsinformation](../articles/sql-database/media/sql-database-get-started-portal/server-name.png)

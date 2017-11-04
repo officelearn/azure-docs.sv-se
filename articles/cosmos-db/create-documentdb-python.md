@@ -8,20 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
-ms.date: 05/13/2017
+ms.topic: quickstart
+ms.date: 10/16/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 08d467ea27484e7d1d07d6c21b2e04b6525fbcd8
-ms.contentlocale: sv-se
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: 8a5c9b7861e63ef76ec338072eafcd7905c258f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: skapa en DocumentDB-API-app med Python och Azure Portal
 
@@ -32,11 +30,12 @@ I den här snabbstarten visas hur du skapar ett Azure Cosmos DB-konto, en dokume
 ## <a name="prerequisites"></a>Krav
 
 * Innan du kan köra det här exemplet måste du uppfylla följande krav:
-    * [Visual Studio 2015](http://www.visualstudio.com/) eller senare.
+    * Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
     * Python Tools för Visual Studio från [GitHub](http://microsoft.github.io/PTVS/). I den här självstudien används Python Tools för VS 2015.
     * Python 2.7 från [python.org](https://www.python.org/downloads/release/python-2712/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -132,11 +131,11 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 3. Kopiera ditt URI-värde från portalen (med kopieringsknappen) och gör det till värdet för slutpunktsnyckeln i `DocumentDBGetStarted.py`. 
 
-    `config.ENDPOINT : "https://FILLME.documents.azure.com"`
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
 4. Kopiera sedan värdet för primärnyckeln från portalen och gör det till värdet för `config.MASTERKEY` i `DocumentDBGetStarted.py`. Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
-    `config.MASTERKEY : "FILLME"`
+    `'MASTERKEY': 'FILLME',`
     
 ## <a name="run-the-app"></a>Kör appen
 1. I Visual Studio högerklickar du på projektet i **Solution Explorer**, väljer den aktuella Python-miljön och högerklickar.
@@ -164,6 +163,5 @@ I den här snabbstarten har du lärt dig hur man skapar ett Azure Cosmos DB-kont
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB för DocumentDB-API](import-data.md)
-
 
 

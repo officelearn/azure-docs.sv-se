@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 24b8a9852395c26a40adb406bd706283e1a96d5d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 2eeb49cb6ab39c78612e0f1b3e08130ba88cf356
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Felsökning av lösenordsåterställning via självbetjäning
 
@@ -102,6 +102,7 @@ Ett bra tips när du felsöker problem med tillbakaskrivning av lösenord är at
 | Kod | Namn/meddelande | Beskrivning |
 | --- | --- | --- |
 | 6329 | BORGEN: MMS(4924) 0x80230619 – ”en begränsning förhindrar att lösenordet ändras i den aktuella som anges”. | Den här händelsen inträffar när tjänsten tillbakaskrivning av lösenord försöker ange ett lösenord för din lokala katalog som inte uppfyller ålder för lösenord, historik, komplexitet eller filtrera kraven i domänen. <br> <br> Om du har en lägsta ålder för lösenord och nyligen har ändrat lösenordet i fönstret tid, går det inte att ändra lösenordet igen tills den angivna ålder i din domän. I testsyfte kan ska minimiålder anges till 0. <br> <br> Om du har tidigare lösenordskrav aktiverad och du måste välja ett lösenord som inte har använts i den senaste tidpunkten för N, där N är inställningen tidigare lösenord. Om du väljer ett lösenord som har använts i den senaste tidpunkten för N måste se du ett fel i det här fallet. I testsyfte kan ska historik anges till 0. <br> <br> Om du har kraven på lösenordskomplexitet tillämpas alla när användaren försöker att ändra eller återställa ett lösenord. <br> <br> Om du har aktiverat lösenordsfilter och en användare väljer ett lösenord som uppfyller inte filtreringskriterier sedan återställa eller ändra åtgärden misslyckas. |
+| 6329 | MMS(3040): admaexport.cpp(2837): servern inte innehåller principkontroll för LDAP-lösenord. | Det här problemet uppstår om LDAP_SERVER_POLICY_HINTS_OID kontrollen (1.2.840.113556.1.4.2066) inte är aktiverat på domänkontrollanter. Om du vill använda funktionen för tillbakaskrivning av lösenord, måste du aktivera kontrollen. Om du vill göra det, måste domänkontrollanterna vara på Windows Server 2008 (med senaste SP) eller senare. Om din domänkontrollanter är 2008 (pre-R2) och sedan måste du också installera snabbkorrigering [KB2386717](http://support.microsoft.com/kb/2386717). |
 | HR 8023042 | Synkroniseringsmotorn returnerade ett fel hr = 80230402, message = ett försök att hämta ett objekt misslyckades eftersom det finns duplicerade poster med samma fästpunkt | Den här händelsen inträffar när samma användar-id är aktiverat i flera domäner. Det här felet kan till exempel uppstå om du synkroniserar konto/resursskogar och har samma användar-id finns och är aktiverad i varje. <br> <br> Det här felet kan också inträffa om du använder en icke-unikt fästpunktsattributet (till exempel alias eller UPN) och två användare delar samma fästpunktsattributet. <br> <br> Lös problemet genom att se till att du inte har några dubbletter av användare inom din domäner och att du använder en unik fästpunktsattributet för varje användare. |
 
 ### <a name="source-of-event-is-passwordresetservice"></a>Källan för händelsen är PasswordResetService

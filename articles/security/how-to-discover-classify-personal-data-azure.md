@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d60a5ca6229939e5d368c216688e4964261f85c7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Identifiera, identifiera och klassificera personliga data i Microsoft Azure
 
@@ -150,13 +150,13 @@ Personliga data som är associerade med Hadoop-kluster i Azure HDInsight kan imp
 
 #### <a name="how-do-i-use-excel-power-query-to-import-hadoop-clusters-in-azure-hdinsight-into-excel"></a>Hur använder jag Power Query för Excel för att importera Hadoop-kluster i Azure HDInsight till Excel
 
-Ett HDInsight-kursen vägleder dig genom hela processen. Det beskrivs förutsättningar och innehåller en länk till en [komma igång med Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) kursen. Anvisningar om Excel 2016 samt 2013 och 2010 (steg är något annorlunda för äldre versioner av Excel). Om du inte har Excel Power Query-tillägget i kursen visar hur du gör den. Du börjar kursen i Excel och måste ha ett Azure Blob storage-konto som är associerade med klustret.
+Ett HDInsight-kursen vägleder dig genom hela processen. Det beskrivs förutsättningar och innehåller en länk till en [komma igång med Azure HDInsight](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md) kursen. Anvisningar om Excel 2016 samt 2013 och 2010 (steg är något annorlunda för äldre versioner av Excel). Om du inte har Excel Power Query-tillägget i kursen visar hur du gör den. Du börjar kursen i Excel och måste ha ett Azure Blob storage-konto som är associerade med klustret.
 
   ![Frågan i Excel](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-Om du vill veta hur du gör detta finns i [ansluta Excel till Hadoop med Power Query](../hdinsight/hdinsight-connect-excel-power-query.md) kursen.
+Om du vill veta hur du gör detta finns i [ansluta Excel till Hadoop med Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md) kursen.
 
-Källa: [Anslut Excel till Hadoop med Power Query](../hdinsight/hdinsight-connect-excel-power-query.md)
+Källa: [Anslut Excel till Hadoop med Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## <a name="azure-information-protection-personal-data-classification-for-documents-and-email"></a>Azure Information Protection: personuppgifter klassificering för dokument och e-post
 

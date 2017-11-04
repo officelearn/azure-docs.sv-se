@@ -37,6 +37,8 @@
       href: kubernetes-helm.md
     - name: Utveckla program med Draft
       href: kubernetes-draft.md
+    - name: Spara data med Azure Files
+      href: azure-files.md
     - name: Använda Kubernetes-instrumentpanelen
       href: kubernetes-dashboard.md
     - name: Skapa tjänstens huvudnamn

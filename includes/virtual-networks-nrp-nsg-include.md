@@ -67,7 +67,7 @@ Exempel NSG i JSON-format:
         }
     }
 
-### <a name="default-security-rules"></a>Standardregler för säkerhet
+### <a name="default-security-rules"></a>Standardsäkerhetsregler
 
 Standard säkerhetsregler ha samma egenskaper som är tillgängliga i säkerhetsregler. De finns för att ge grundläggande anslutning mellan resurser som har NSG: er som tillämpas på. Kontrollera att du vet vilken [standard säkerhetsregler](../articles/virtual-network/virtual-networks-nsg.md#default-rules) finns.
 

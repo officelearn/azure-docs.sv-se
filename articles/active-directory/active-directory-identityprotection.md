@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a4473f25fefd65de75996240955302abb08762da
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Identitetsskydd för Azure Active Directory
 
@@ -34,7 +34,7 @@ Azure Active Directory Identity Protection är en funktion i Azure AD Premium P2
 
 ## <a name="getting-started"></a>Komma igång
 
-Microsoft skyddar molnbaserade identiteter för mer än en tio åren. Med Azure Active Directory Identity Protection kan i din miljö, du använda samma skyddssystem som Microsoft använder för att skydda identiteter.
+Microsoft innehåller skyddade molnbaserade identiteter för mer än en tio åren. Med Azure Active Directory Identity Protection kan i din miljö, du använda samma skyddssystem som Microsoft använder för att skydda identiteter.
 
 Det stora flertalet av säkerhetsintrång sker när angripare får tillgång till en miljö genom att stjäla en användares identitet. Angripare har blivit allt mer effektivt utnyttja från tredje part överträdelser och använda avancerade nätfiskeattacker åren har. När en angripare får åtkomst till även låg Privilegierade konton, är det relativt enkelt att få åtkomst till viktiga företagets resurser via lateral förflyttning.
 
@@ -67,7 +67,7 @@ Azure Active Directory Identity Protection är mer än en övervakning och rappo
 
 **Principer för risk-baserad villkorlig åtkomst:**
 
-* Princip för att minska riskfyllda inloggningar genom att blockera inloggningar eller att kräva multifaktorautentisering utmaningar.
+* Princip för att minska riskfyllda inloggningar genom att blockera inloggningar eller att kräva multifaktorautentisering utmaningar
 * Princip för att blockera eller säker riskfyllda användarkonton
 * Princip för att kräva att användarna registrera sig för multifaktorautentisering
 
@@ -81,7 +81,7 @@ För att belastningsutjämna hanteringsaktiviteter runt implementeringen Identit
 | :--                          | ---                                |  ---   |
 | Global administratör         | Fullständig åtkomst till identitetsskydd, publicera identitetsskydd| |
 | Säkerhetsadministratör       | Fullständig åtkomst till Identity Protection | Publicera identitetsskydd, återställa lösenord för en användare |
-| Säkerhetsläsare              | Endast klar åtkomst till Identity Protection | Publicera identitetsskydd, remidiate användare konfigurera principer, återställa lösenord |
+| Säkerhetsläsare              | Skrivskyddad åtkomst till Identity Protection | Publicera identitetsskydd, remidiate användare konfigurera principer, återställa lösenord |
 
 
 

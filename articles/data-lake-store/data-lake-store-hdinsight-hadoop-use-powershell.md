@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 0e2e0d02677013252b0806558535fe970b5c50b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2d601cfa6e2e89ef26d4a2d7824b239a2f6ca7a7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Använda Azure PowerShell för att skapa ett HDInsight-kluster med Data Lake Store (som ytterligare lagringsutrymme)
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Följ dessa steg om du vill skapa ett Data Lake Store.
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Konfigurera autentisering för rollbaserad åtkomst till Data Lake Store
-Varje Azure-prenumeration är associerad med ett Azure Active Directory. Användare och tjänster som har åtkomst till resurserna i prenumerationen med den klassiska Azure-portalen eller Azure Resource Manager API måste först autentisera med den Azure Active Directory. Åtkomst till Azure-prenumerationer och tjänster genom att tilldela dem sedan rätt roll för en Azure-resurs.  För tjänster identifierar ett huvudnamn för tjänsten tjänsten i Azure Active Directory (AAD). Det här avsnittet beskriver hur du ger en programtjänst som HDInsight, åtkomst till en Azure-resurs (det Azure Data Lake Store-konto du skapade tidigare) genom att skapa ett huvudnamn för tjänsten för programmet och tilldela roller till som via Azure PowerShell.
+Varje Azure-prenumeration är associerad med ett Azure Active Directory. Användare och tjänster som har åtkomst till resurserna i prenumerationen med Azure-portalen eller Azure Resource Manager API måste först autentisera med den Azure Active Directory. Åtkomst till Azure-prenumerationer och tjänster genom att tilldela dem sedan rätt roll för en Azure-resurs.  För tjänster identifierar ett huvudnamn för tjänsten tjänsten i Azure Active Directory (AAD). Det här avsnittet beskriver hur du ger en programtjänst som HDInsight, åtkomst till en Azure-resurs (det Azure Data Lake Store-konto du skapade tidigare) genom att skapa ett huvudnamn för tjänsten för programmet och tilldela roller till som via Azure PowerShell.
 
 Om du vill konfigurera Active Directory-autentisering för Azure Data Lake måste du utföra följande uppgifter.
 

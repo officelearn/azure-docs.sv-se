@@ -1,0 +1,309 @@
+---
+title: "Java-utvecklare för Azure Functions | Microsoft Docs"
+description: "Förstå hur du utvecklar fungerar med Java."
+services: functions
+documentationcenter: na
+author: rloutlaw
+manager: justhe
+keywords: "Azure functions, funktioner, händelsebearbetning, webhooks, dynamiska beräkning, serverlösa arkitektur, java"
+ms.service: functions
+ms.devlang: java
+ms.topic: article
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 09/20/2017
+ms.author: routlaw
+ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/23/2017
+---
+# <a name="azure-functions-java-developer-guide"></a>Utvecklarhandbok för Azure Functions Java
+> [!div class="op_single_selector"]
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
+
+## <a name="programming-model"></a>Programmeringsmodell 
+
+Din Azure-funktion måste vara en tillståndslös klassmetod som bearbetar indata och utdata. Även om du ska kunna skriva Instansmetoder måste din funktion inte beroende av några Instansfält i klassen. Alla metoder i funktionen måste ha en `public` åtkomstmodifierare.
+
+## <a name="triggers-and-annotations"></a>Utlösare och anteckningar
+
+En Azure-funktion anropas vanligtvis på grund av en extern utlösare. Funktionen måste bearbeta denna utlösare och dess associerade indata och skapar en eller flera utdata.
+
+Java-kommentarer ingår i den `azure-functions-java-core` paketet binda indata och utdata till din metoder. Utlösare för stöds indata och utdata bindning anteckningar ingår i följande tabell:
+
+Bindning | Anteckningen
+---|---
+CosmosDB | Saknas
+HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
+Mobile Apps | Saknas
+Notification Hubs | Saknas
+Lagringsblob | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
+Storage-kö | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
+Tabell för lagring | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
+Timer | <ul><li>`TimerTrigger`</li></ul>
+Twilio | Saknas
+
+Utlösaren indata och utdata kan också definieras i den [function.json](/azure/azure-functions/functions-reference#function-code) för ditt program.
+
+> [!IMPORTANT] 
+> Du måste konfigurera ett Azure Storage-konto i din [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) att köra Azure Storage Blob, kö eller tabell utlösare lokalt.
+
+Exempel på användning av anteckningar:
+
+```java
+import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
+import com.microsoft.azure.serverless.functions.ExecutionContext;
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+        String req, ExecutionContext context) {
+        return String.format(req);
+    }
+}
+```
+
+Samma funktion som skrivits utan kommentarer:
+
+```java
+package com.example;
+
+public class MyClass {
+    public static String echo(String in) {
+        return in;
+    }
+}
+```
+
+med motsvarande `function.json`:
+
+```json
+{
+  "scriptFile": "azure-functions-example.jar",
+  "entryPoint": "com.example.MyClass.echo",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "name": "req",
+      "direction": "in",
+      "authLevel": "anonymous",
+      "methods": [ "post" ]
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ]
+}
+
+```
+
+## <a name="data-types"></a>Datatyper
+
+Du kan använda alla datatyper i Java för inkommande och utgående data, inklusive inbyggda typer. anpassad Java-typer och särskilda Azure typer som definieras i `azure-functions-java-core` paketet. Azure-funktioner runtime försöker konvertera indata till i den typen som begärts av din kod.
+
+### <a name="strings"></a>Strängar
+
+Värden som skickades till funktionen metoder att konverteras till strängar om typen motsvarande Indataparametern för funktionen är av typen `String`. 
+
+### <a name="plain-old-java-objects-pojos"></a>Vanlig gamla Java objects (Pojo)
+
+Strängar som formaterats med JSON att konverteras till Java-typer om indata för metoden funktionen förväntar sig att Java-datatypen. Den här konverteringen kan du skicka JSON-indata till dina funktioner och arbeta med Java-typer i koden utan att behöva implementera konverteringen i din kod.
+
+POJO typer som används som indata till funktioner måste samma `public` Åtkomstmodifieraren som de som används i funktionen metoderna. Du måste inte deklarera POJO klassfält `public`. Till exempel en JSON-sträng `{ "x": 3 }` kan konverteras till typen följande POJO:
+
+```Java
+public class MyData {
+    private int x;
+}
+```
+
+### <a name="binary-data"></a>Binära data
+
+Binära data representeras som en `byte[]` i Azure functions koden. Binda binära indata eller utdata till dina funktioner genom att ange den `dataType` i din function.json till `binary`:
+
+```json
+ {
+  "scriptFile": "azure-functions-example.jar",
+  "entryPoint": "com.example.MyClass.echo",
+  "bindings": [
+    {
+      "type": "blob",
+      "name": "content",
+      "direction": "in",
+      "dataType": "binary",
+      "path": "container/myfile.bin",
+      "connection": "ExampleStorageAccount"
+    },
+  ]
+}
+```
+
+Använd det sedan i Funktionskoden:
+
+```java
+// Class definition and imports are omitted here
+public static String echoLength(byte[] content) {
+}
+```
+
+Använd `OutputBinding<byte[]>` typ att göra en binär utdata-bindning.
+
+
+## <a name="function-method-overloading"></a>Funktionen metoden överbelastning
+
+Du får överlagra funktionen metoder med samma namn men med olika typer. Du kan till exempel ha både `String echo(String s)` och `String echo(MyType s)` i en klass och Azure Functions runtime bestämmer vilken de ska anropa genom att undersöka faktiska Indatatyp (för HTTP-indata, MIME-typ `text/plain` leder till `String` medan `application/json` representerar `MyType`).
+
+## <a name="inputs"></a>Indata
+
+Indata är indelade i två kategorier i Azure Functions: en är utlösaren indata och den andra ytterligare indata. Även om de skiljer sig i `function.json`, användningen är identiska i Java-kod. Låt oss ta följande kodavsnitt som ett exempel:
+
+```java
+package com.example;
+
+import com.microsoft.azure.serverless.functions.annotation.BindingName;
+
+public class MyClass {
+    public static String echo(String in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in + " and " + obj.getKey() + ".";
+    }
+
+    private static class MyObject {
+        public String getKey() { return this.RowKey; }
+        private String RowKey;
+    }
+}
+```
+
+Den `@BindingName` anteckningen accepterar en `String` egenskap som representerar namnet på bindningen/utlösare som definieras i `function.json`:
+
+```json
+{
+  "scriptFile": "azure-functions-example.jar",
+  "entryPoint": "com.example.MyClass.echo",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "name": "req",
+      "direction": "in",
+      "authLevel": "anonymous",
+      "methods": [ "put" ],
+      "route": "items/{id}"
+    },
+    {
+      "type": "table",
+      "name": "item",
+      "direction": "in",
+      "tableName": "items",
+      "partitionKey": "Example",
+      "rowKey": "{id}",
+      "connection": "ExampleStorageAccount"
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+När den här funktionen anropas HTTP begär nyttolast överför en `String` för argumentet `in` och en Azure-tabellagring `MyObject` typ skickades till argumentet `obj`.
+
+## <a name="outputs"></a>utdata
+
+Utdata kan uttryckas både i returvärde eller utdataparametrar. Om det finns endast en utdata, rekommenderas du att använda det returnera värdet. Du måste använda utdataparametrar flera utdata.
+
+Returnerade värdet är den enklaste formen av utdata, du returnera bara värdet av valfri typ och Azure Functions-runtime görs ett försök att konvertera tillbaka till den faktiska typen (till exempel ett HTTP-svar). I `functions.json`, du använder `$return` som namn på utdata-bindning.
+
+För att skapa flera utdatavärden använda `OutputBinding<T>` typ som definierats i den `azure-functions-java-core` paketet. Om du behöver göra ett HTTP-svar och skicka ett meddelande till en kö och kan du skriva något som liknar:
+
+```java
+package com.example;
+
+import com.microsoft.azure.serverless.functions.OutputBinding;
+import com.microsoft.azure.serverless.functions.annotation.BindingName;
+
+public class MyClass {
+    public static String echo(String body, 
+    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
+        String result = "Hello, " + body + ".";
+        queue.setValue(result);
+        return result;
+    }
+}
+```
+
+som ska definiera utdata-bindning i `function.json`:
+
+```json
+{
+  "scriptFile": "azure-functions-example.jar",
+  "entryPoint": "com.example.MyClass.echo",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "name": "req",
+      "direction": "in",
+      "authLevel": "anonymous",
+      "methods": [ "post" ]
+    },
+    {
+      "type": "queue",
+      "name": "queue",
+      "direction": "out",
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ]
+}
+```
+## <a name="specialized-types"></a>Särskilda typer
+
+En funktion måste ibland har detaljerad kontroll över indata och utdata. Särskilda typer i den `azure-functions-java-core` paketet har angetts för att manipulera begäraninformation och anpassa returnera statusen för en HTTP-utlösare:
+
+| Specialiserad typ      |       mål        | Normal användning                  |
+| --------------------- | :-----------------: | ------------------------------ |
+| `HttpRequestMessage`  |    HTTP-utlösare     | Hämta-metoden, sidhuvud eller frågor |
+| `HttpResponseMessage` | Utdata för HTTP-bindning | Returstatus än 200   |
+
+> [!NOTE] 
+> Du kan också använda `@BindingName` anteckningen att hämta HTTP-huvuden och frågor. Till exempel `@Bind("name") String query` itererar HTTP-huvuden för begäran och frågor och skickar det värdet till metoden. Till exempel `query` blir `"test"` om URL: en för begäran är `http://example.org/api/echo?name=test`.
+
+## <a name="functions-execution-context"></a>Funktioner körningskontext
+
+Du interagerar med Azure Functions körningsmiljö via den `ExecutionContext` objekt som definieras i den `azure-functions-java-core` paketet. Använd den `ExecutionContext` objekt som ska användas anrop och funktioner runtime information i koden.
+
+### <a name="logging"></a>Loggning
+
+Åtkomst till funktioner runtime loggaren är tillgänglig via den `ExecutionContext` objekt. Den här loggaren är knutna till övervakaren Azure och du flaggan varningar och fel som uppstod under körningen av funktionen.
+
+Följande exempelkod loggar en varning visas när begärandetexten emot är tom.
+
+```java
+import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
+import com.microsoft.azure.serverless.functions.ExecutionContext;
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+        if (req.isEmpty()) {
+            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+        }
+        return String.format(req);
+    }
+}
+```
+
+## <a name="next-steps"></a>Nästa steg
+Mer information finns i följande resurser:
+
+* [Metodtips för Azure Functions](functions-best-practices.md)
+* [Azure Functions, info för utvecklare](functions-reference.md)
+* [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)

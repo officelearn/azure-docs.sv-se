@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
-ms.openlocfilehash: c1c74c797449c2fa6d76438f9ec33eaf0fe51af4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dbd3d0ed4337d4fe86465c5c59bf20c0a50a87b4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>Använda Azure Log Analytics för att övervaka HDInsight-kluster (förhandsgranskning)
 
@@ -39,7 +39,7 @@ Log Analytics är en tjänst i [Operations Management Suite (OMS)](../operations
     * Kafka
     * Interaktiva Hive
 
-    Instruktioner om hur du skapar ett HDInsight-kluster finns i [komma igång med Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+    Instruktioner om hur du skapar ett HDInsight-kluster finns i [komma igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 
 * **Logganalys-arbetsytan**. Du kan se den här arbetsytan som en unik logganalys-miljö med en egen lagringsplats för data, datakällor och lösningar. Du måste ha en sådan arbetsyta som redan har skapats som du kan associera med Azure HDInsight-kluster. Instruktioner finns i [skapa logganalys-arbetsytan](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).

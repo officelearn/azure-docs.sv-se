@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Använda tjänsten Azure Import/Export för offline kopia av data till Data Lake Store
 I den här artikeln får du lära dig hur att kopiera stora datamängder (> 200 GB) till ett Azure Data Lake Store med hjälp av offline kopiera metoder som den [Azure Import/Export service](../storage/common/storage-import-export-service.md). Den fil som används som exempel i den här artikeln är särskilt 339,420,860,416 byte eller om 319 GB på disken. Vi ska anropa den här filen 319GB.tsv.
@@ -58,7 +58,7 @@ Följ instruktionerna i [med hjälp av tjänsten Azure Import/Export](../storage
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
     Se [med hjälp av tjänsten Azure Import/Export](../storage/common/storage-import-export-service.md) för flera exempel kodavsnitt.
-4. Föregående kommando skapar en journal-fil på den angivna platsen. Använda filen ändringsjournalen för att skapa ett importjobb från den [klassiska Azure-portalen](https://manage.windowsazure.com).
+4. Föregående kommando skapar en journal-fil på den angivna platsen. Använda filen ändringsjournalen för att skapa ett importjobb från den [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-an-import-job"></a>Skapa ett importjobb
 Du kan nu skapa ett importjobb med hjälp av anvisningarna i [med hjälp av tjänsten Azure Import/Export](../storage/common/storage-import-export-service.md) (under den **skapa importjobbet** avsnitt). För det här importjobbet med annan information, tillhandahålla journal-fil som skapats under förberedelserna för diskenheter.

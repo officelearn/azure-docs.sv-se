@@ -1,32 +1,32 @@
-## <a name="nic"></a>NIC
-A network interface card (NIC) resource provides network connectivity to an existing subnet in a VNet resource. Although you can create a NIC as a stand alone object, you need to associate it to another object to actually provide connectivity. A NIC can be used to connect a VM to a subnet, a public IP address, or a load balancer.  
+## <a name="nic"></a>NÄTVERKSKORT
+En nätverksresurs interface card (NIC) ger nätverksanslutning till ett befintligt undernät i ett VNet-resursen. Även om du kan skapa ett nätverkskort som ett fristående objekt, måste du koppla den till ett annat objekt att faktiskt tillhandahålla anslutningar. Ett nätverkskort kan användas för att ansluta en virtuell dator till ett undernät, en offentlig IP-adress eller en belastningsutjämnare.  
 
-| Property | Description | Sample values |
+| Egenskap | Beskrivning | Exempelvärden |
 | --- | --- | --- |
-| **virtualMachine** |VM the NIC is associated with. |/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1 |
-| **macAddress** |MAC address for the NIC |any value between 4 and 30 |
-| **networkSecurityGroup** |NSG associated to the NIC |/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1 |
-| **dnsSettings** |DNS settings for the NIC |see [PIP](#Public-IP-address) |
+| **virtualMachine** |Virtuella nätverkskortet är associerad med. |/subscriptions/{GUID}/../microsoft.Compute/virtualMachines/vm1 |
+| **MAC-adress** |MAC-adress för nätverkskortet |ett värde mellan 4 och 30 |
+| **networkSecurityGroup** |NSG som kopplats till nätverkskortet |/subscriptions/{GUID}/../microsoft.Network/networkSecurityGroups/myNSG1 |
+| **dnsSettings** |DNS-inställningarna för nätverkskortet |Se [PIP](#Public-IP-address) |
 
-A Network Interface Card, or NIC, represents a network interface that can be associated to a virtual machine (VM). A VM can have one or more NICs.
+Ett nätverkskort eller NIC, representerar ett nätverksgränssnitt som kan kopplas till en virtuell dator (VM). En virtuell dator kan ha en eller flera nätverkskort.
 
-![NIC's on a single VM](./media/resource-groups-networking/Figure3.png)
+![NIC på en enda virtuell dator](./media/resource-groups-networking/Figure3.png)
 
-### <a name="ip-configurations"></a>IP configurations
-NICs have a child object named **ipConfigurations** containing the following properties:
+### <a name="ip-configurations"></a>IP-konfigurationer
+Är ett underordnat objekt med namnet **ipConfigurations** som innehåller följande egenskaper:
 
-| Property | Description | Sample values |
+| Egenskap | Beskrivning | Exempelvärden |
 | --- | --- | --- |
-| **subnet** |Subnet the NIC is onnected to. |/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
-| **privateIPAddress** |IP address for the NIC in the subnet |10.0.0.8 |
-| **privateIPAllocationMethod** |IP allocation method |Dynamic or Static |
-| **enableIPForwarding** |Whether the NIC can be used for routing |true or false |
-| **primary** |Whether the NIC is the primary NIC for the VM |true or false |
-| **publicIPAddress** |PIP associated with the NIC |see [DNS Settings](#DNS-settings) |
-| **loadBalancerBackendAddressPools** |Back end address pools the NIC is associated with | |
-| **loadBalancerInboundNatRules** |Inbound load balancer NAT rules the NIC is associated with | |
+| **undernät** |NIC-undernätet har onnected till. |/subscriptions/{GUID}/../microsoft.Network/virtualNetworks/myvnet1/Subnets/mysub1 |
+| **privateIPAddress** |IP-adress för nätverkskortet i undernätet |10.0.0.8 |
+| **privateIPAllocationMethod** |IP-allokeringsmetod |Dynamiska eller statiska |
+| **enableIPForwarding** |Om nätverkskortet kan användas för Routning |True eller false |
+| **primär** |Om nätverkskortet är det primära nätverkskortet för den virtuella datorn |True eller false |
+| **publicIPAddress** |PIP som är kopplade till nätverkskortet |Se [DNS-inställningar](#DNS-settings) |
+| **loadBalancerBackendAddressPools** |Säkerhetskopiera end-adresspooler nätverkskortet som är associerad med | |
+| **loadBalancerInboundNatRules** |Inkommande belastningen belastningsutjämnaren NAT-regler som nätverkskortet är kopplad till | |
 
-Sample public IP address in JSON format:
+Exempel offentliga IP-adressen i JSON-format:
 
     {
         "name": "lb-nic1-be",
@@ -72,6 +72,6 @@ Sample public IP address in JSON format:
         }
     }
 
-### <a name="additional-resources"></a>Additional resources
-* Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163579.aspx) for NICs.
+### <a name="additional-resources"></a>Ytterligare resurser
+* Läs den [REST API-referensdokumentation](https://msdn.microsoft.com/library/azure/mt163579.aspx) för nätverkskort.
 

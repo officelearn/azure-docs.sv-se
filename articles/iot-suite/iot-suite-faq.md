@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2017
 ms.author: dobett
-ms.openlocfilehash: 9dfb0c898e74063719b3fd242d1fa9be2b89246c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 63b059cb91956231fd3bafbe9770a04a0b7e347a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Vanliga frågor och svar om IoT Suite
 
@@ -30,7 +30,7 @@ Se även anslutna factory-specifika [vanliga frågor och svar](iot-suite-faq-cf.
 Källkoden lagras i följande GitHub-databaser:
 
 * [Fjärrövervaknings förkonfigurerade lösningen (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Fjärrövervaknings förkonfigurerade lösningen (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Fjärrövervaknings förkonfigurerade lösningen (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Förutsägande Underhåll förkonfigurerade lösningen](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Anslutna factory förkonfigurerade lösningen](https://github.com/Azure/azure-iot-connected-factory)
 

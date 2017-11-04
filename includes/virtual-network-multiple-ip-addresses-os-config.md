@@ -1,67 +1,67 @@
-## <a name="os-config"></a>Add IP addresses to a VM operating system
+## <a name="os-config"></a>Lägg till IP-adresser till ett VM-operativsystem
 
-Connect and login to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the following steps for your VM operating system:
+Anslut och logga in på en virtuell dator som du skapade med flera privata IP-adresser. Du måste manuellt lägga till alla de privata IP-adresser (inklusive det primära) som du lade till den virtuella datorn. Utför följande steg för ditt VM-operativsystem:
 
 ### <a name="windows"></a>Windows
 
-1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
-2. Type *ncpa.cpl* in the command prompt to open the **Network connections** window.
-3. Open the properties for the appropriate adapter: **Local Area Connection**.
-4. Double-click Internet Protocol version 4 (IPv4).
-5. Select **Use the following IP address** and enter the following values:
+1. Från en kommandotolk skriver du *ipconfig /all*.  Du ser bara den *primära* privata IP-adressen (via DHCP).
+2. Skriv *ncpa.cpl* i kommandotolken för att öppna fönstret **Nätverksanslutningar**.
+3. Öppna egenskaperna för det passande nätverkskortet: **Anslutning till lokalt nätverk**.
+4. Dubbelklicka på Internet Protocol version 4 (IPv4).
+5. Välj **Använd följande IP-adress** och ange följande värden:
 
-    * **IP address**: Enter the *Primary* private IP address
-    * **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
-    * **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
-    * Click **Use the following DNS server addresses** and enter the following values:
-        * **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
-    * Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
+    * **IP-adress**: Ange den *primära* privata IP-adressen
+    * **Nätmask**: Ställ in beroende på ditt undernät. Om undernätet till exempel är ett /24-undernät så är nätmasken 255.255.255.0.
+    * **Standard-gateway**: Den första IP-adressen i undernätet. Om undernätet är 10.0.0.0/24 så är gateway-IP-adressen 10.0.0.1.
+    * Klicka på **Använd följande DNS-serveradresser** och ange följande värden:
+        * **Önskad DNS-server**: Ange 168.63.129.16 om du inte använder en egen DNS-server.  Om du använder en egen DNS-server måste du ange dess IP-adress.
+    * Klicka på knappen **Avancerat** och lägg till ytterligare IP-adresser. Lägg till varje sekundär privat IP-adress som anges i steg 8 till NIC med samma undernät som angetts för den primära IP-adressen.
         >[!WARNING] 
-        >If you do not follow the steps above correctly, you may lose connectivity to your VM. Ensure the information entered for step 5 is accurate before proceeding.
+        >Om du inte följer du stegen ovan på rätt sätt kan du förlora anslutningen till den virtuella datorn. Kontrollera att informationen i steg 5 är korrekt innan du fortsätter.
 
-    * Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
+    * Klicka på **OK** för att stänga TCP/IP-inställningarna och sedan på **OK** igen för att stänga inställningarna för nätverkskortet. RDP-anslutningen återupprättats.
 
-6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
+6. Från en kommandotolk skriver du *ipconfig /all*. Alla IP-adresser som du lade till visas och DHCP är avstängt.
 
 
-### <a name="validation-windows"></a>Validation (Windows)
+### <a name="validation-windows"></a>Validering (Windows)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command:
+Om du vill kontrollera att du kan ansluta till internet från den sekundära IP-konfigurationen via den offentliga IP-adress som är knuten till den använder du följande kommando när du har lagt till den korrekt med hjälp av stegen ovan:
 
 ```bash
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>För sekundära IP-konfigurationer, kan du endast pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplade till den. För den primära IP-konfigurationer krävs inte en offentlig IP-adress för att pinga till Internet.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+1. Öppna ett terminalfönster.
+2. Kontrollera att du är rotanvändaren. Om inte anger du följande kommando:
 
     ```bash
     sudo -i
     ```
 
-3. Update the configuration file of the network interface (assuming ‘eth0’).
+3. Uppdatera konfigurationsfilen för nätverksgränssnittet (förutsätter 'eth0').
 
-    * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
-    * Add a configuration for an additional static IP address with the following commands:
+    * Behåll det befintliga radobjektet för dhcp. Den primära IP-adressen är fortfarande konfigurerad som den var tidigare.
+    * Lägg till en konfiguration för ytterligare en statisk IP-adress med följande kommandon:
 
         ```bash
         cd /etc/network/interfaces.d/
         ls
         ```
 
-    You should see a .cfg file.
-4. Open the file. You should see the following lines at the end of the file:
+    Du bör se en .cfg-fil.
+4. Öppna filen. Du bör se följande rader i slutet av filen:
 
     ```bash
     auto eth0
     iface eth0 inet dhcp
     ```
 
-5. Add the following lines after the lines that exist in this file:
+5. Lägg till följande rader efter de rader som redan finns i den här filen:
 
     ```bash
     iface eth0 inet static
@@ -69,66 +69,66 @@ ping -S 10.0.0.5 hotmail.com
     netmask <your subnet mask>
     ```
 
-6. Save the file by using the following command:
+6. Spara filen med följande kommando:
 
     ```bash
     :wq
     ```
 
-7. Reset the network interface with the following command:
+7. Återställ nätverksgränssnittet med följande kommando:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
     > [!IMPORTANT]
-    > Run both ifdown and ifup in the same line if using a remote connection.
+    > Kör både ifdown och ifup i samma rad om du använder en fjärranslutning.
     >
 
-8. Verify the IP address is added to the network interface with the following command:
+8. Kontrollera att IP-adressen läggs till i nätverksgränssnittet med följande kommando:
 
     ```bash
     ip addr list eth0
     ```
 
-    You should see the IP address you added as part of the list.
+    Du bör se IP-adressen som du lade till i listan.
 
-### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS, and others)
+### <a name="linux-redhat-centos-and-others"></a>Linux (Redhat, CentOS och andra)
 
-1. Open a terminal window.
-2. Make sure you are the root user. If you are not, enter the following command:
+1. Öppna ett terminalfönster.
+2. Kontrollera att du är rotanvändaren. Om inte anger du följande kommando:
 
     ```bash
     sudo -i
     ```
 
-3. Enter your password and follow instructions as prompted. Once you are the root user, navigate to the network scripts folder with the following command:
+3. Ange ditt lösenord och följ instruktionerna som efterfrågas. När du är rotanvändaren navigerar du till mappen för nätverksskript med följande kommando:
 
     ```bash
     cd /etc/sysconfig/network-scripts
     ```
 
-4. List the related ifcfg files using the following command:
+4. Skapa en lista över de relaterade ifcfg-filerna med följande kommando:
 
     ```bash
     ls ifcfg-*
     ```
 
-    You should see *ifcfg-eth0* as one of the files.
+    Du bör se *ifcfg-eth0* som en av filerna.
 
-5. To add an IP address, create a configuration file for it as shown below. Note that one file must be created for each IP configuration.
+5. För att lägga till en IP-adress skapar du en konfigurationsfil för den enligt anvisningarna nedan. Observera att en fil måste skapas för varje IP-konfiguration.
 
     ```bash
     touch ifcfg-eth0:0
     ```
 
-6. Open the *ifcfg-eth0:0* file with the following command:
+6. Öppna filen *ifcfg-eth0:0* med följande kommando:
 
     ```bash
     vi ifcfg-eth0:0
     ```
 
-7. Add content to the file, *eth0:0* in this case, with the following command. Be sure to update information based on your IP address.
+7. Lägg till innehåll till filen *eth0:0*, i det här fallet med följande kommando. Se till att uppdatera informationen baserat på din IP-adress.
 
     ```bash
     DEVICE=eth0:0
@@ -138,32 +138,32 @@ ping -S 10.0.0.5 hotmail.com
     NETMASK=255.255.255.0
     ```
 
-8. Save the file with the following command:
+8. Spara filen med följande kommando:
 
     ```bash
     :wq
     ```
 
-9. Restart the network services and make sure the changes are successful by running the following commands:
+9. Starta om nätverkstjänsterna och kontrollera att ändringarna körs med följande kommandon:
 
     ```bash
     /etc/init.d/network restart
     ifconfig
     ```
 
-    You should see the IP address you added, *eth0:0*, in the list returned.
+    Du bör se IP-adressen som du lade till, *eth0:0*, i listan som returneras.
 
-### <a name="validation-linux"></a>Validation (Linux)
+### <a name="validation-linux"></a>Validering (Linux)
 
-To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
+Om du vill kontrollera att du kan ansluta till Internet från en sekundär IP-konfiguration via den offentliga IP-adress som är kopplad till den använder du följande kommando:
 
 ```bash
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>För sekundära IP-konfigurationer, kan du endast pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplade till den. För den primära IP-konfigurationer krävs inte en offentlig IP-adress för att pinga till Internet.
 
-For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+För virtuella Linux-datorer kan du behöva lägga till lämpliga vägar när du försöker verifiera utgående anslutningar från ett sekundärt nätverkskort. Det finns flera sätt att göra detta på. Se motsvarande dokumentation för din distribution av Linux. Detta går exempelvis att åstadkomma med hjälp av följande metod:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -172,7 +172,7 @@ ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
 
 ```
-- Be sure to replace:
-    - **10.0.0.5** with the private IP address that has a public IP address associated to it
-    - **10.0.0.1** to your default gateway
-    - **eth2** to the name of your secondary NIC
+- Se till att ersätta:
+    - **10.0.0.5** med den privata IP-adress som har en offentlig IP-adress som är kopplad till den
+    - **10.0.0.1** till standard-gatewayen
+    - **eth2** till namnet på det sekundära nätverkskortet

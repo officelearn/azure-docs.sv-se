@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: ec6e6d07b0933504ffee17912aac9ee3ef937688
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Hantera HDInsight-kluster med Ambari-Webbgränssnittet
 
@@ -151,7 +151,7 @@ När du väljer ett av dessa länkar öppnas en ny flik i webbläsaren, som visa
 
 ### <a name="ambari-users-groups-and-permissions"></a>Ambari användare, grupper och behörigheter
 
-Arbeta med användare, grupper och behörigheter stöds när du använder en [domänanslutna](hdinsight-domain-joined-introduction.md) HDInsight-kluster. Mer information om med hjälp av Användargränssnittet för hantering av Ambari på en domänansluten klustret finns [hantera domänanslutna HDInsight-kluster](hdinsight-domain-joined-introduction.md).
+Arbeta med användare, grupper och behörigheter stöds när du använder en [domänanslutna](./domain-joined/apache-domain-joined-introduction.md) HDInsight-kluster. Mer information om med hjälp av Användargränssnittet för hantering av Ambari på en domänansluten klustret finns [hantera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md).
 
 > [!WARNING]
 > Ändra inte lösenordet för Ambari watchdog (hdinsightwatchdog) på Linux-baserade HDInsight-kluster. Ändra lösenord bryts möjligheten att använda script actions eller utföra skalning åtgärder med ditt kluster.
@@ -236,7 +236,7 @@ Ambari Views kan utvecklare plugin-UI-element i en Ambari-Webbgränssnittet med 
 
 * Yarn Queue Manager: köhanteraren ger ett enkelt gränssnitt för att visa och ändra YARN köer.
 
-* Hive-vyn: Hive-vy kan du köra Hive-frågor direkt från din webbläsare. Du kan spara frågor, visa resultat, spara resultaten för klusterlagring eller hämta resultaten till din lokala dator. Mer information om hur du använder Hive vyer finns [Använd Hive-vyer med HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+* Hive-vyn: Hive-vy kan du köra Hive-frågor direkt från din webbläsare. Du kan spara frågor, visa resultat, spara resultaten för klusterlagring eller hämta resultaten till din lokala dator. Mer information om hur du använder Hive vyer finns [Använd Hive-vyer med HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 * Tez vy: Visa Tez kan du bättre förstå och optimera jobb. Du kan visa information om hur Tez-jobb körs och vilka resurser som används.
 

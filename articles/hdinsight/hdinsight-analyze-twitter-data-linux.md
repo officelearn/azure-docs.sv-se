@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/02/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5be05fabf03e7e3ccaa3bf66ffefdd6406a06b3e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analysera Twitter-data med Hive och Hadoop på HDInsight
 
@@ -158,6 +158,9 @@ Följande Python-kod hämtar 10 000 tweets från Twitter och spara dem till en f
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
+
+    > [!TIP]
+    > Justera filtret avsnitt på den sista raden att spåra populära nyckelord. Med hjälp av nyckelord populära när du kör skriptet ger snabbare insamlingen av data.
 
 6. Använd **Ctrl + X**, sedan **Y** att spara filen.
 
@@ -312,19 +315,22 @@ Dessa kommandon lagra data på en plats som har åtkomst till alla noder i klust
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
-       FROM tweets
-       WHERE text like "%Azure%"
-       GROUP BY name,screen_name
-       ORDER BY cc DESC LIMIT 10;
+   FROM tweets
+   WHERE text like "%Azure%"
+   GROUP BY name,screen_name
+   ORDER BY cc DESC LIMIT 10;
    ```
 
     Den här frågan returnerar högst 10 tweets som innehåller ordet **Azure** i meddelandetexten.
+
+    > [!NOTE]
+    > Om du har ändrat filter i den `gettweets.py` skript genom att ersätta **Azure** med ett av filtren som du använde.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du har lärt dig hur du omvandlar en ostrukturerad datauppsättning JSON till en strukturerad Hive-tabell. Mer information om Hive i HDInsight finns i följande dokument:
 
-* [Komma igång med HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Komma igång med HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analysera svarta fördröjning data med HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se

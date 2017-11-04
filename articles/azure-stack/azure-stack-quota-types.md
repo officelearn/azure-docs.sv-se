@@ -1,6 +1,6 @@
 ---
-title: Quota types in Azure Stack | Microsoft Docs
-description: Review the different quota types available for services and resources in Azure Stack.
+title: Kvottyper i stacken Azure | Microsoft Docs
+description: "Granska de olika kvoten typerna som är tillgängliga för tjänster och resurser i Azure-stacken."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,53 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 9c65abd596b1a67175a4f91558c318f16ddbb11f
-ms.contentlocale: sv-se
-ms.lasthandoff: 08/24/2017
-
+ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="quota-types-in-azure-stack"></a>Quota types in Azure Stack
-[Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
+# <a name="quota-types-in-azure-stack"></a>Kvottyper i Azure-stacken
 
-## <a name="compute-quota-types"></a>Compute quota types
-| **Type** | **Default value** | **Description** |
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+
+[Kvoter](azure-stack-plan-offer-quota-overview.md#plans) definiera gränserna för resurser som en användare-prenumeration kan etablera eller använda. En kvot kan exempelvis tillåta en användare att skapa upp till fem virtuella datorer. Varje resurs kan ha sin egen typer av kvoter.
+
+## <a name="compute-quota-types"></a>Beräkna kvottyper
+| **Typ** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
-| Max number of virtual machines |50 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores |100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets |10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets |100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| Max antal virtuella datorer | 20 | Maximalt antal virtuella datorer som en prenumeration kan skapa i den här platsen. |
+| Max antal virtuella kärnor | 50 | Det högsta antalet kärnor som skapar en prenumeration på den här platsen (till exempel en A3 VM har fyra kärnor). |
+| Max antal tillgänglighetsuppsättningar | 10 | Maximalt antal tillgänglighetsuppsättningar som kan skapas på den här platsen. |
+| Anger högsta antal virtuella datorn | 20 | Det maximala antalet skalningsuppsättningar i virtuella datorer som kan skapas på den här platsen. |
 
 > [!NOTE]
-> Compute quotas are not enforced in this technical preview.
+> Beräkna kvoter inte tillämpas i den här tekniska förhandsversionen.
 > 
 > 
 
-## <a name="storage-quota-types"></a>Storage quota types
-| **Item** | **Default value** | **Description** |
+## <a name="storage-quota-types"></a>Kvoten lagringstyper
+| **Objektet** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
-| Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
-| Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
+| Maximal kapacitet (GB) |500 |Totalt antal lagringskapacitet som kan användas av en prenumeration på den här platsen. |
+| Totalt antal storage-konton |20 |Maximalt antal lagringskonton som skapar en prenumeration på den här platsen. |
 
-## <a name="network-quota-types"></a>Network quota types
-| **Item** | **Default value** | **Description** |
+## <a name="network-quota-types"></a>Typer av nätverk kvot
+| **Objektet** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
-| Max public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |
-| Max virtual networks |50 |The maximum number of virtual networks that a subscription can create in this location. |
-| Max virtual network gateways |1 |The maximum number of virtual network gateways (VPN Gateways) that a subscription can create in this location. |
-| Max network connections |2 |The maximum number of network connections (point-to-point or site-to-site) that a subscription can create across all virtual network gateways in this location. |
-| Max load balancers |50 |The maximum number of load balancers that a subscription can create in this location. |
-| Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
-| Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
+| Maximalt antal offentliga IP-adresser |50 |Det maximala antalet offentliga IP-adresser som en prenumeration kan skapa i den här platsen. |
+| Maximalt antal virtuella nätverk |50 |Maximalt antal virtuella nätverk som skapar en prenumeration på den här platsen. |
+| Maximalt antal virtuella nätverks-gateway |1 |Maximalt antal virtuella nätverks-gateway (VPN-gateway) som skapar en prenumeration på den här platsen. |
+| Max nätverksanslutningar |2 |Maximalt antal nätverksanslutningar (point-to-point eller plats-till-plats) som en prenumeration kan skapa över alla virtuella nätverks-gateway på den här platsen. |
+| Max belastningsutjämnare |50 |Det maximala antalet belastningsutjämnare som skapar en prenumeration på den här platsen. |
+| Maximalt antal nätverkskort |100 |Det maximala antalet nätverksgränssnitt som skapar en prenumeration på den här platsen. |
+| Maximalt antal nätverkssäkerhetsgrupper |50 |Maximalt antal nätverkssäkerhetsgrupper som skapar en prenumeration på den här platsen. |
 
-## <a name="view-an-existing-quota"></a>View an existing quota
-1. Click **More services** > **Resource Providers**.
-2. Select the service with the quota that you want to view.
-3. Click **Quotas**, and select the quota you want to view.
+## <a name="view-an-existing-quota"></a>Visa en befintlig kvot
+1. Klicka på **fler tjänster** > **Resursproviders**.
+2. Välj tjänsten med den kvot som du vill visa.
+3. Klicka på **kvoter**, och välj den kvot som du vill visa.
 
-## <a name="next-steps"></a>Next steps
-[Learn more about plans, offers, and quotas.](azure-stack-plan-offer-quota-overview.md)
+## <a name="next-steps"></a>Nästa steg
+[Lär dig mer om planer, erbjudanden och kvoter.](azure-stack-plan-offer-quota-overview.md)
 
-[Create quotas while creating a plan.](azure-stack-create-plan.md)
-
+[Skapa kvoter medan du skapar en plan.](azure-stack-create-plan.md)

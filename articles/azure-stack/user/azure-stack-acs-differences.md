@@ -1,6 +1,6 @@
 ---
-title: 'Azure Stack Storage: Differences and considerations'
-description: Understand the differences between Azure Stack Storage and Azure Storage, along with Azure Stack deployment considerations.
+title: "Azure Storage för stacken: Skillnader och överväganden"
+description: "Förstå skillnaderna mellan Azure Stack Storage och Azure Storage, tillsammans med överväganden vid distribution av Azure-stacken."
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,52 +14,51 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 381950321ac3a5ea8a43b76f3fba868da4be4682
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Differences and considerations
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage för stacken: Skillnader och överväganden
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
+Azure-stacken Storage är en uppsättning lagring molntjänster i Microsoft Azure-stacken. Azure-stacken Storage tillhandahåller blob, tabell, kö och hanteringsfunktioner för konto med Azure-konsekvent semantik.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+Den här artikeln sammanfattar kända Azure-stacken Storage skillnaderna från Azure Storage. Det sammanfattar också andra överväganden att tänka på när du distribuerar Azure stacken. Mer information om övergripande skillnader mellan Azure-stacken och Azure, finns det [nyckeln överväganden](azure-stack-considerations.md) avsnittet.
 
-## <a name="cheat-sheet-storage-differences"></a>Cheat sheet: Storage differences
+## <a name="cheat-sheet-storage-differences"></a>Cheat blad: lagring skillnader
 
-| Feature | Azure (global) | Azure Stack |
+| Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- |
-|File storage|Cloud-based SMB file shares supported|Not yet supported
-|Data at rest encryption|256-bit AES encryption|Not yet supported
-|Storage account type|General-purpose and Azure Blob storage accounts|General-purpose only
-|Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage
-|Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee
-|Managed disks|Premium and standard supported|Not yet supported
-|Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
-|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|50,000 X 4 MB (approx. 195 GB)
-|Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported
-|Page blob max size|8 TB|1 TB
-|Page blob page size|512 bytes|4 KB
-|Table partition key and row key size|1,024 characters (2,048 bytes)|400 characters (800 bytes)
+|File Storage|Molnbaserade SMB-filresurser som stöds|Stöds inte än
+|Data för kryptering av vilande data|256-bitars AES-kryptering|Stöds inte än
+|Storage Account-typ|Allmänna och Azure Blob storage-konton|Allmänna endast
+|Alternativ för datareplikering|Lokalt redundant lagring, geo-redundant lagring, geo-redundant lagring med läsbehörighet och zonredundant lagring|Lokalt redundant lagring
+|Premium Storage|Fullt stöd|Kan etableras, men det finns ingen gräns för prestanda eller garantera
+|Hanterade diskar|Premium- och standard som stöds|Stöds inte än
+|Blobbnamnet|1 024 tecken (2 048 byte)|880 tecken (1,760 byte)
+|Max storlek för block-blob|4,75 TB (100 MB × 50 000 block)|50 000 x 4 MB (uppskattat 195 GB)
+|Sidan blob ögonblicksbild kopia|Säkerhetskopiering Azure ohanterade Virtuella diskar som är anslutna till en aktiv virtuell dator stöds|Stöds inte än
+|Sidan blob inkrementell ögonblicksbild kopia|Premium- och standard Azure sidblobbar som stöds|Stöds inte än
+|Sidan blob maxstorlek|8 TB|1 TB
+|Sidstorleken för blob-sida|512 byte|4 KB
+|Tabell partitionsnyckel och rad nyckelstorlek|1 024 tecken (2 048 byte)|400 tecken (800 byte)
 
-### <a name="metrics"></a>Metrics
-There are also some differences with storage metrics:
-* The transaction data in storage metrics does not differentiate internal or external network bandwidth.
-* The transaction data in storage metrics does not include virtual machine access to the mounted disks.
+### <a name="metrics"></a>Mått
+Det finns vissa skillnader i jämförelse med storage-mätvärden:
+* Transaktionsdata i storage-mätvärden görs ingen åtskillnad interna eller externa nätverksbandbredd.
+* Transaktionsdata i storage-mätvärden inkluderar inte åtkomst till de monterade diskarna virtuella datorn.
 
-## <a name="api-version"></a>API version
-The following versions are supported with Azure Stack Storage:
+## <a name="api-version"></a>API-version
+Följande versioner stöds med Azure Storage för Stack:
 
-* Azure Storage data services: [2015-04-05 REST API version](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
-* Azure Storage management services: [2015-05-01-preview, 2015-06-15, and 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
+* Azure Storage data services: [2015-04-05 REST API-version](https://docs.microsoft.com/rest/api/storageservices/Version-2015-04-05?redirectedfrom=MSDN)
+* Azure Storage management-tjänster: [2015-05-01-preview 2015-06-15 och 2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN) 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Nästa steg
 
-* [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
-* [Introduction to Azure Stack Storage](azure-stack-storage-overview.md)
-
+* [Kom igång med Azure-stacken Storage utvecklingsverktyg](azure-stack-storage-dev.md)
+* [Introduktion till Azure-stacken Storage](azure-stack-storage-overview.md)
 

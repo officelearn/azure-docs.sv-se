@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: b2542af86be236b8d575fcaf7687222cd74af661
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: 983abcd103a58be63053e466c767015c0835eaba
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric Linux-kluster till ett virtuellt Azure-nätverk
 Den här kursen ingår i en serie. Du kommer lära dig hur du distribuerar en Linux Service Fabric-kluster till ett befintligt Azure virtuellt nätverk (VNET) och underordnad net med Azure CLI. När du är klar kan har du ett kluster som körs i molnet som du kan distribuera program till. För att skapa ett Windows-kluster med hjälp av PowerShell Se [skapa en säker Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -84,17 +84,27 @@ az group deployment create \
 ```
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>Distribuera Service Fabric-kluster
-När nätverksresurser är klar för distribution, är nästa steg att distribuera ett Service Fabric-kluster till VNET i undernät och NSG: N för Service Fabric-klustret. Distribuera ett kluster till ett befintligt VNET och undernät (distribuerad tidigare i den här artikeln) kräver en Resource Manager-mall.  Mer information finns i [skapa ett kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). För den här självstudiekursen serien är mallen förkonfigurerad att använda namnen på virtuella nätverk, undernät och NSG: N som du skapade i föregående steg.  Hämta följande Resource Manager-mall och parametrar filen:
+När nätverksresurser är klar för distribution, är nästa steg att distribuera ett Service Fabric-kluster till VNET i undernät och NSG: N för Service Fabric-klustret. Distribuera ett kluster till ett befintligt VNET och undernät (distribuerad tidigare i den här artikeln) kräver en Resource Manager-mall.  Mer information finns i [skapa ett kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). För den här självstudiekursen serien är mallen förkonfigurerad att använda namnen på virtuella nätverk, undernät och NSG: N som du skapade i föregående steg.  
+
+Hämta följande Resource Manager-mall och parametrar filen:
 - [linuxcluster.JSON][cluster-arm]
 - [linuxcluster.parameters.JSON][cluster-parameters-arm]
 
-Fyll i tomma **clusterName**, **adminUserName**, och **adminPassword** parametrar i den *linuxcluster.parameters.json* fil för din distribution.  Lämna den **certificateThumbprint**, **certificateUrlValue**, och **sourceVaultValue** parametrar tomma om du vill skapa ett självsignerat certifikat.  Om du har ett befintligt certifikat som tidigare har överförts till ett nyckelvalv kan fylla i de parametervärdena.
+Du kan använda mallen för att skapa en säker kluster.  Ett certifikat för klustret är ett X.509-certifikat som används för att skydda kommunikationen nod till nod och autentisera att klustret management slutpunkter management-klienten.  Certifikat för klustret ger också en SSL för HTTPS-hanterings-API och för Service Fabric Explorer via HTTPS. Azure Key Vault används för att hantera certifikat för Service Fabric-kluster i Azure.  När ett kluster distribueras i Azure, Azure resursprovidern ansvarar för att skapa Service Fabric-kluster hämtar certifikat från Nyckelvalvet och installerar dem på klustret virtuella datorer. 
 
-Använd följande skript för att distribuera klustret med Resource Manager-mall och parametern filer.  Ett självsignerat certifikat som skapas i det angivna nyckelvalvet och används för att skydda klustret.  Certifikatet hämtas även lokalt.
+Du kan använda ett certifikat från en certifikatutfärdare (CA) som certifikatet klustret eller för testning, skapa ett självsignerat certifikat. Certifikat för klustret måste:
+
+- innehåller en privat nyckel.
+- skapas för nyckelutbyte, som kan exporteras till en Personal Information Exchange (.pfx)-fil.
+- ha ett ämnesnamn som matchar den domän som du använder för att få åtkomst till Service Fabric-klustret. Den här matchar krävs SSL för att klustrets HTTPS management slutpunkter och Service Fabric Explorer. Du kan skaffa ett SSL-certifikat från en certifikatutfärdare (CA) för det. cloudapp.azure.com domän. Du måste skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en Certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som du använder för klustret.
+
+Fyll i tomma **clusterName**, **adminUserName**, och **adminPassword** parametrar i den *linuxcluster.parameters.json* fil för din distribution.  Lämna den **certificateThumbprint**, **certificateUrlValue**, och **sourceVaultValue** parametrar tomt om du vill skapa ett självsignerat certifikat.  Om du vill använda ett befintligt certifikat som tidigare har överförts till ett nyckelvalv kan fylla i de parametervärdena.
+
+Följande skript använder den [az SA kluster skapa](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) kommandot och mallen för att distribuera ett nytt kluster i Azure. Cmdlet även skapar ett nytt nyckelvalv i Azure, lägger till ett nytt självsignerat certifikat till nyckelvalvet och hämtar certifikatfilen lokalt. Du kan ange ett befintligt certifikat och/eller nyckelvalv med andra parametrar för den [az SA kluster skapa](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) kommando.
 
 ```azurecli
 Password="q6D7nN%6ck@6"
-Subject="aztestcluster.southcentralus.cloudapp.azure.com"
+Subject="mysfcluster.southcentralus.cloudapp.azure.com"
 VaultName="linuxclusterkeyvault"
 az group create --name $ResourceGroupName --location $Location
 

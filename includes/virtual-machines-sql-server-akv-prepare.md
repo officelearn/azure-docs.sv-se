@@ -15,8 +15,7 @@ Måste du ha en [Azure Active Directory](https://azure.microsoft.com/trial/get-s
 
 Registrera ett program med AAD. Detta ger ett huvudnamn för tjänsten-konto som har åtkomst till nyckelvalvet som behöver den virtuella datorn. Azure Key Vault-artikeln hittar de här stegen i den [registrera ett program med Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) avsnitt eller du kan se steg med skärmdumpar i den **hämta en identitet för programavsnittet**  av [i det här blogginlägget](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Observera att du behöver samla in följande information under registreringen som behövs för senare när du aktiverar Azure Key Vault-integrering på din SQL-VM innan du utför de här stegen.
 
-* När programmet har lagts till, finns det **klient-ID** på den **konfigurera** fliken. 
-    ![Azure Active Directory klient-ID](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* När programmet har lagts till, finns det **klient-ID** på den **konfigurera** fliken.   ![Azure Active Directory klient-ID](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
     Klient-ID tilldelas senare till den **$spName** (Service Principal name)-parametern i PowerShell-skript för att aktivera Azure Key Vault-integrering. 
 * Dessutom under de här stegen när du skapar din nyckel kopiera hemligheten för din nyckel som visas i följande skärmbild. Den här nyckeln hemlig tilldelas senare till den **$spSecret** (Service Principal hemliga) parameter i PowerShell-skript.  

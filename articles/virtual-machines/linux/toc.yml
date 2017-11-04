@@ -90,6 +90,13 @@
       href: maintenance-and-updates.md
     - name: Lagring
       href: azure-vm-storage-overview.md
+      items:
+        - name: Premium Storage
+          href: premium-storage.md
+        - name: Premium-lagringsprestanda
+          href: premium-storage-performance.md
+        - name: Standard Storage
+          href: standard-storage.md
     - name: Nätverk
       href: network-overview.md
     - name: Skala program automatiskt
@@ -310,6 +317,8 @@
           href: expand-disks.md
         - name: Ögonblicksbild av en disk
           href: snapshot-copy-managed-disk.md
+        - name: Lagring och haveriberedskap för diskar
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Säkerhetskopiera ohanterade diskar
           href: incremental-snapshots.md
         - name: Konvertera till Managed Disks
@@ -318,6 +327,8 @@
           href: convert-disk-storage.md
         - name: Kopiera filer till en virtuell dator
           href: copy-files-to-linux-vm-using-scp.md
+        - name: Migrera till Premium Storage med Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Använda fillagring
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Distribuera diskar med mall

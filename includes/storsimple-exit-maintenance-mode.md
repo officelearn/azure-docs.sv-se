@@ -1,10 +1,10 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-exit-maintenance-mode"></a>To exit Maintenance mode
-1. At the command prompt type:
+#### <a name="to-exit-maintenance-mode"></a>Avsluta underhållsläge
+1. I Kommandotolken:
    
      `Exit-HcsMaintenanceMode`
-2. A warning message and a confirmation message will appear. Type **Y** to exit Maintenance mode.
+2. Ett varningsmeddelande och ett meddelande visas. Typen **Y** du avsluta underhållsläget.
    
-    Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in Normal mode.
+    Både domänkontrollanter startas om. När omstarten är klar, visas ett annat meddelande som anger att enheten är i normalläge.
 

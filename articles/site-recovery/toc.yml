@@ -79,8 +79,6 @@
   items:
     - name: Haveriberedskap
       items:
-        - name: Virtuella VMware-datorer med stöd för flera klienter till Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Virtuella Hyper-V-datorer till Azure
           href: tutorial-hyper-v-to-azure.md
         - name: Fysiska servrar till Azure
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Köra redundans och återställning efter fel mellan lokala platser
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: Virtuella VMware-datorer med stöd för flera klienter till Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Kapacitet och skalning
       items:
         - name: Planera kapacitet för VMware-replikering till Azure
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: Filserver
+          href: file-server-disaster-recovery.md
         - name: IIS-baserade webbprogram
           href: site-recovery-iis.md
         - name: Citrix XenApp och XenDesktop

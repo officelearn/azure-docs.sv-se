@@ -1,6 +1,6 @@
-| Resource | Default Limit | Maximum Limit |
+| Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Maximum number of VMs in a scale set |1000 |1000 |
-| Maximum number of VMs based on a custom VM image in a scale set|300 |300 |
-| Maximum number of scale sets in a region |2000 |2000 |
+| Maximalt antal virtuella datorer i en skalningsuppsättning |1000 |1000 |
+| Ange maximalt antal virtuella datorer baserat på en anpassad VM-avbildning i en skala|300 |300 |
+| Maximalt antal skalningsuppsättningar i en region |2000 |2000 |
 

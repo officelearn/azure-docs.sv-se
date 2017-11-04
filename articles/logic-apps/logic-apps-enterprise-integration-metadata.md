@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Hantera artefakt metadata i integrationskonton för logic apps
 
-Du kan ange anpassade metadata för artefakter i integrationskonton och hämta den metadata under körningen för din logikapp. Exempelvis kan du ange metadata för artefakter som partners, avtal, scheman och maps - alla lagrar metadata med nyckel-värdepar. För närvarande artefakter kan inte skapa metadata via Användargränssnittet, men du kan också använda REST API: er för att skapa metadata. Om du vill lägga till metadata när du skapar eller välj en partner, avtal eller schemat i Azure portal, Välj **redigera som JSON**. Du kan använda funktionen Integration artefakt Kontouppslag för att hämta metadata för artefakten i logikappar.
+Du kan ange anpassade metadata för artefakter i integrationskonton och hämta den metadata under körningen för din logikapp. Exempelvis kan du ange metadata för artefakter som partners, avtal, scheman och maps - alla lagrar metadata med nyckel-värdepar. För närvarande artefakter kan inte skapa metadata via Användargränssnittet, men du kan också använda REST API: er för att skapa metadata. Om du vill lägga till metadata när du skapar eller välj en partner, avtal eller schemat i Azure portal, Välj **redigera**. Du kan använda funktionen Integration artefakt Kontouppslag för att hämta metadata för artefakten i logikappar.
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Lägga till metadata artefakter i integrationskonton
 
@@ -31,7 +31,7 @@ Du kan ange anpassade metadata för artefakter i integrationskonton och hämta d
 
 2. Lägga till en artefakt till ditt konto integration, till exempel en [partner](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), [avtal](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements), eller [schemat](logic-apps-enterprise-integration-schemas.md).
 
-3.  Markera artefakten, Välj **redigera som JSON**, och ange information om metadata.
+3.  Markera artefakten, Välj **redigera**, och ange information om metadata.
 
     ![Ange metadata](media/logic-apps-enterprise-integration-metadata/image1.png)
 

@@ -1,47 +1,47 @@
-### <a name="noconnection"></a>To modify local network gateway IP address prefixes - no gateway connection
+### <a name="noconnection"></a>Ändra IP-adressprefix för nätverksgateway – ingen gatewayanslutning
 
-#### <a name="to-add-additional-address-prefixes"></a>To add additional address prefixes:
+#### <a name="to-add-additional-address-prefixes"></a>Så här lägger du till ytterligare adressprefix:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space in the *Add additional address range* box.
-3. Click **Save** to save your settings.
+1. På lokala nätverkets Gateway-resursen i den **inställningar** klickar du på **Configuration**.
+2. Lägg till IP-adressutrymme i den *Lägg till ytterligare adressintervall* rutan.
+3. Klicka på **spara** att spara dina inställningar.
 
-#### <a name="to-remove-address-prefixes"></a>To remove address prefixes:
+#### <a name="to-remove-address-prefixes"></a>Så här tar du bort adressprefix:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **'...'** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. På lokala nätverkets Gateway-resursen i den **inställningar** klickar du på **Configuration**.
+2. Klicka på den **”...”** på den rad som innehåller det prefix som du vill ta bort.
+3. Klicka på **ta bort**.
+4. Klicka på **spara** att spara dina inställningar.
 
-### <a name="withconnection"></a>To modify local network gateway IP address prefixes - existing gateway connection
+### <a name="withconnection"></a>Ändra IP-adressprefix för nätverksgateway – existerande gatewayanslutning
 
-If you have a gateway connection and want to add or remove the IP address prefixes contained in your local network gateway, you need to do the following steps, in order. This results in some downtime for your VPN connection. When modifying IP address prefixes, you don't need to delete the VPN gateway. You only need to remove the connection.
+Om du har en gatewayanslutning och vill lägga till eller ta bort IP-adressprefixet som ingår i din lokala nätverksgateway, behöver du genomföra följande steg i turordning. Det medför en del avbrott för din VPN-anslutning. När du ändrar IP-adressprefix behöver du inte ta bort VPN-gatewayen. Du måste bara ta bort anslutningen.
 
-#### <a name="1-remove-the-connection"></a>1. Remove the connection.
+#### <a name="1-remove-the-connection"></a>1. Ta bort anslutningen.
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Connections**.
-2. Click the **...** on the line for each connection, then click **Delete**.
-3. Click **Save** to save your settings.
+1. På lokala nätverkets Gateway-resursen i den **inställningar** klickar du på **anslutningar**.
+2. Klicka på den **...**  på rad för varje anslutning, klicka sedan på **ta bort**.
+3. Klicka på **spara** att spara dina inställningar.
 
-#### <a name="2-modify-the-address-prefixes"></a>2. Modify the address prefixes.
+#### <a name="2-modify-the-address-prefixes"></a>2. Ändra adressprefixen.
 
-To add additional address prefixes:
+Så här lägger du till ytterligare adressprefix:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Add the IP address space.
-3. Click **Save** to save your settings.
+1. På lokala nätverkets Gateway-resursen i den **inställningar** klickar du på **Configuration**.
+2. Lägg till IP-adressutrymme.
+3. Klicka på **spara** att spara dina inställningar.
 
-To remove address prefixes:
+Så här tar du bort adressprefix:
 
-1. On the Local Network Gateway resource, in the **Settings** section, click **Configuration**.
-2. Click the **...** on the line containing the prefix you want to remove.
-3. Click **Remove**.
-4. Click **Save** to save your settings.
+1. På lokala nätverkets Gateway-resursen i den **inställningar** klickar du på **Configuration**.
+2. Klicka på den **...**  på den rad som innehåller det prefix som du vill ta bort.
+3. Klicka på **ta bort**.
+4. Klicka på **spara** att spara dina inställningar.
 
-#### <a name="3-recreate-the-connection"></a>3. Recreate the connection.
+#### <a name="3-recreate-the-connection"></a>3. Skapa anslutningen.
 
-1. Navigate to the Virtual Network Gateway for your VNet. (Not the Local Network Gateway.)
-2. On the Virtual Network Gateway, in the **Settings** section, click **Connections**.
-3. Click the **+ Add** to open the **Add connection** blade.
-4. Recreate your connection.
-5. Click **OK** to create the connection.
+1. Navigera till den virtuella Nätverksgatewayen för din VNet. (Inte den lokala Nätverksgatewayen.)
+2. På den virtuella Nätverksgatewayen i den **inställningar** klickar du på **anslutningar**.
+3. Klicka på den **+ Lägg till** att öppna den **Lägg till anslutning** bladet.
+4. Återskapa din anslutning.
+5. Klicka på **OK** att skapa anslutningen.

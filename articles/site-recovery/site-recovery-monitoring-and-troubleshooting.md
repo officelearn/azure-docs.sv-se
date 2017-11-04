@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Övervaka och felsöka skydd för virtuella datorer och fysiska servrar
 Den här övervakning och felsökning hjälper dig att lära dig hur du spårar replikeringshälsa och felsöker tekniker för Azure Site Recovery.
@@ -55,7 +55,7 @@ Felinformationen hjälper dig att identifiera en möjlig orsak och rekommendatio
 
 ![Dialogruta som visar information om fel för ett specifikt jobb](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-I exemplet ovan verkar en annan åtgärd pågår orsaka skyddskonfigurationen misslyckas. Lös problemet enligt rekommendationerna och klicka sedan på **RESART** att initiera igen.
+I exemplet ovan verkar en annan åtgärd pågår orsaka skyddskonfigurationen misslyckas. Lös problemet enligt rekommendationerna och klicka sedan på **starta om** att initiera igen.
 
 ![Knappen omstart i på fliken jobb](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 

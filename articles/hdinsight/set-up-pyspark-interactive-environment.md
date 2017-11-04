@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 839f379228322eb2da0ff61609634bf1f86e4bb3
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 24839aadaee07b98ac5a6e6cfd14e44de54e7e7e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="set-up-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurera PySpark interaktiv miljö för Visual Studio Code
 
@@ -96,14 +96,14 @@ Du måste använda kommandot **pip3** för följande, om det är **python 3.x**.
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda Azure HDInsight-verktyg för Visual Studio Code](hdinsight-for-vscode.md)
-* [Använda Azure Toolkit för IntelliJ för att skapa och skicka Spark Scala-program](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Använda Azure Toolkit för IntelliJ för att felsöka Spark-program via fjärranslutning via SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Använda Azure Toolkit för IntelliJ för att felsöka Spark-program via fjärranslutning via VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda HDInsight-verktyg i Azure Toolkit för Eclipse för att skapa Spark-program](hdinsight-apache-spark-eclipse-tool-plugin.md)
-* [Använda HDInsight Tools för IntelliJ med Hortonworks Sandbox](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
-* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Använda externa paket med Jupyter-anteckningsböcker](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-* [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
-* [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
+* [Använda Azure Toolkit för IntelliJ för att skapa och skicka Spark Scala-program](spark/apache-spark-intellij-tool-plugin.md)
+* [Använda Azure Toolkit för IntelliJ för att felsöka Spark-program via fjärranslutning via SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Använda Azure Toolkit för IntelliJ för att felsöka Spark-program via fjärranslutning via VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda HDInsight-verktyg i Azure Toolkit för Eclipse för att skapa Spark-program](spark/apache-spark-eclipse-tool-plugin.md)
+* [Använda HDInsight Tools för IntelliJ med Hortonworks Sandbox](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Använda Zeppelin-anteckningsböcker med ett Spark-kluster i HDInsight](spark/apache-spark-zeppelin-notebook.md)
+* [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
+* [Använda externa paket med Jupyter-anteckningsböcker](spark/apache-spark-jupyter-notebook-use-external-packages.md)
+* [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](spark/apache-spark-jupyter-notebook-install-locally.md)
+* [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight](hdinsight-connect-hive-zeppelin.md)

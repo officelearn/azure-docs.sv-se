@@ -1,26 +1,26 @@
-## <a name="traffic-manager-profile"></a>Traffic Manager Profile
-Traffic manager and its child endpoint resource enable DNS routing to endpoints in Azure and outside of Azure. Such traffic distribution is governed by routing  policy methods. Traffic manager also allows endpoint health to be monitored, and traffic diverted appropriately based on the health of an endpoint. 
+## <a name="traffic-manager-profile"></a>Traffic Manager-profilen
+Traffic manager och dess underordnade endpoint-resursen kan du aktivera DNS-routning till slutpunkter i Azure och utanför Azure. Sådana trafikfördelning styrs av routningsmetoder för principen. Traffic manager kan också endpoint hälsotillstånd som ska övervakas och trafik som distribueras på rätt sätt baserat på hälsotillståndet för en slutpunkt. 
 
-| Property | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
-| **trafficRoutingMethod** |possible values are *Performance*, *Weighted*, and *Priority* |
-| **dnsConfig** |FQDN for the profile |
-| **Protocol** |monitoring protocol, possible values are *HTTP* and *HTTPS* |
-| **Port** |monitoring port |
-| **Path** |monitoring path |
-| **Endpoints** |container for endpoint resources |
+| **trafficRoutingMethod** |möjliga värden är *prestanda*, *viktat*, och *prioritet* |
+| **Det går** |FQDN för profilen |
+| **Protokoll** |övervakning, möjliga värden är *HTTP* och *HTTPS* |
+| **Port** |övervakning av port |
+| **Sökväg** |övervakningssökvägen |
+| **Slutpunkter** |behållare för slutpunkt-resurser |
 
-### <a name="endpoint"></a>Endpoint
-An endpoint is a child resource of a Traffic Manager Profile. It represents a service or web endpoint to which user traffic is distributed based on the configured policy in the Traffic Manager Profile resource. 
+### <a name="endpoint"></a>Slutpunkt
+En slutpunkt är en underordnad resurs för en Traffic Manager-profil. Representerar en tjänst eller webbslutpunkten som trafiken fördelas baserat på de konfigurerade principinställningarna i resursen Traffic Manager-profilen. 
 
-| Property | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
-| **Type** |the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* |
-| **targetResourceId** |public IP address of a service or web endpoint. This can be an Azure or external endpoint. |
-| **Weight** |endpoint weight used in traffic management. |
-| **Priority** |priority of the endpoint, used to define a failover action |
+| **Typ** |typ av slutpunkten möjliga värden är *Azure slutpunkt*, *extern slutpunkt*, och *kapslade slutpunkt* |
+| **targetResourceId** |offentliga IP-adressen för en tjänst eller web slutpunkt. Detta kan vara en Azure eller extern slutpunkt. |
+| **Vikt** |slutpunkten vikten som används vid hantering av nätverkstrafik. |
+| **Prioritet** |prioriteten för slutpunkten, används för att definiera Redundansåtgärden |
 
-Sample of Traffic Manager in Json format: 
+Exempel på Traffic Manager i Json-format: 
 
         {
             "apiVersion": "[variables('tmApiVersion')]",
@@ -77,6 +77,6 @@ Sample of Traffic Manager in Json format:
         }
 
 
-## <a name="additional-resources"></a>Additional resources
-Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) for more information.
+## <a name="additional-resources"></a>Ytterligare resurser
+Läs [REST API-dokumentation för Traffic Manager](https://msdn.microsoft.com/library/azure/mt163664.aspx) för mer information.
 

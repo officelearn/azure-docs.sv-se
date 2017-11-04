@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ta emot händelser från Event Hubs använder Apache Storm
 
@@ -30,7 +30,7 @@ Mer information om Händelsehubbar får mönster, finns det [översikt av Hände
 
 Den här kursen använder en [HDInsight Storm] [ HDInsight Storm] installation som medföljer den Händelsehubbar kanal som redan finns.
 
-1. Följ den [HDInsight Storm - komma igång](../hdinsight/hdinsight-storm-overview.md) proceduren för att skapa ett nytt HDInsight-kluster och ansluta till den via fjärrskrivbord.
+1. Följ den [HDInsight Storm - komma igång](../hdinsight/storm/apache-storm-overview.md) proceduren för att skapa ett nytt HDInsight-kluster och ansluta till den via fjärrskrivbord.
 2. Kopiera den `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` filen till din lokala utvecklingsmiljö. Innehåller händelser-storm-kanal.
 3. Använd följande kommando för att installera paketet i det lokala arkivet Maven. På så sätt kan du lägga till den som en referens i projektet Storm i ett senare steg.
 
@@ -246,8 +246,8 @@ Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
-[HDInsight sensor analys kursen]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
+[HDInsight sensor analys kursen]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
 
 <!-- Images -->
 

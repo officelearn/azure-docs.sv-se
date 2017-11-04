@@ -39,6 +39,8 @@
       href: container-service-kubernetes-helm.md
     - name: Använd Jenkins med ACS
       href: container-service-kubernetes-jenkins.md
+    - name: Spara data med Azure Files
+      href: ../../aks/azure-files.md?toc=%2fazure%2fcontainer-service%2fkubernetes%2ftoc.json
     - name: Använd Draft med ACS
       href: container-service-draft-up.md
     - name: Skala ett kluster

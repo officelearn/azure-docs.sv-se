@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5b9b793d49217acd9f0c6c518596a7afb5600d69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 666b51970bf04634708cbf65b8bca0c05412934b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>Installera och använda R på HDInsight Hadoop-kluster
 
-Lär dig hur du anpassar Windows-baserade HDInsight-kluster med R med skriptåtgärder och hur du använder R på HDInsight-kluster. Den [HDInsight erbjudande](https://azure.microsoft.com/pricing/details/hdinsight/) innehåller R-Server som en del av ditt HDInsight-kluster. På så sätt kan R-skript för att köra distribuerade beräkningar med MapReduce och Spark. Mer information finns i [Komma igång med R Server på HDInsight](hdinsight-hadoop-r-server-get-started.md). Information om hur du använder R med ett Linux-baserade kluster finns i [installerar och använder R på HDinsight Hadoop-kluster (Linux)](hdinsight-hadoop-r-scripts-linux.md).
+Lär dig hur du anpassar Windows-baserade HDInsight-kluster med R med skriptåtgärder och hur du använder R på HDInsight-kluster. Den [HDInsight erbjudande](https://azure.microsoft.com/pricing/details/hdinsight/) innehåller R-Server som en del av ditt HDInsight-kluster. På så sätt kan R-skript för att köra distribuerade beräkningar med MapReduce och Spark. Mer information finns i [Komma igång med R Server på HDInsight](r-server/r-server-get-started.md). Information om hur du använder R med ett Linux-baserade kluster finns i [installerar och använder R på HDinsight Hadoop-kluster (Linux)](hdinsight-hadoop-r-scripts-linux.md).
 
 Du kan installera R på någon typ av kluster (Hadoop, Storm, HBase, Spark) på Azure HDInsight med hjälp av *skriptåtgärd*. Ett exempelskript för att installera R på ett HDInsight-kluster är tillgänglig från en skrivskyddad Azure storage blob [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
@@ -112,4 +112,4 @@ Se [anpassa HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-c
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-[hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
+[hdinsight-install-spark]:spark/apache-spark-jupyter-spark-sql.md

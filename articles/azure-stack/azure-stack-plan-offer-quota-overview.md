@@ -1,6 +1,6 @@
 ---
-title: Azure Stack plan, offer, quota, and subscription overview | Microsoft Docs
-description: As a cloud operator, I want to understand Azure Stack plans, offers, quotas, and subscriptions.
+title: "Stacken plan, erbjudande, kvoter och prenumeration översikt över Azure | Microsoft Docs"
+description: "Jag vill förstå Azure Stack planer, erbjudanden, kvoter och prenumerationer som en moln-operator."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,69 +14,67 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bfed4c557a420eda14cafe5b1cf8ad11476e2d79
-ms.contentlocale: sv-se
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="plan-offer-quota-and-subscription-overview"></a>Plan, offer, quota, and subscription overview
+# <a name="plan-offer-quota-and-subscription-overview"></a>Översikt över plan, erbjudande, kvot och prenumeration
 
-*Applies to: Azure Stack Development Kit*
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-[Azure Stack](azure-stack-poc.md) lets you deliver a wide variety of services, like virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As a cloud operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
+[Azure-stacken](azure-stack-poc.md) kan du tillhandahålla en mängd olika tjänster, t.ex. virtuella datorer, SQL Server-databaser, SharePoint, Exchange, och även [Azure Marketplace-objekt](azure-stack-marketplace-azure-items.md). Som operatör Azure Stack du konfigurerar och leverera sådana tjänster i Azure-stacken genom att använda planer, erbjudanden och kvoter.
 
-Offers contain one or more plans, and each plan includes one or more services. By creating plans and combining them into different offers, you control
-- which services and resources users can access
-- the amount of those resources that users can consume
-- which regions have access to the resources
+Erbjudanden som innehåller en eller flera planer och varje plan innehåller en eller flera tjänster. Genom att skapa planer och att kombinera dem till olika erbjudanden kan styra du
+- vilka tjänster och resurser som användare kan komma åt
+- mängden de resurser som användare kan använda
+- vilka regioner som har åtkomst till resurser
 
-When you deliver a service, you'll follow these high-level steps:
+När du levererar en tjänst, ska du följa dessa anvisningar:
 
-1. Add a service that you want to deliver to your users.
-2. Create a plan that contains one or more services. When creating a plan, you will select or create quotas that define the resource limits of each service in the plan.
-3. Create an offer that contains one or more plans (including base plans and optional add-on plans).
+1. Lägg till en tjänst som du vill skicka till användarna.
+2. Skapa en plan som innehåller en eller flera tjänster. När du skapar en plan, kommer du väljer eller skapar kvoter som definierar gränserna för varje tjänst resurs i planen.
+3. Skapa ett erbjudande som innehåller en eller flera planer (inklusive basen planer och valfria tillägg planer).
 
-After you have created the offer, your users can subscribe to it to access the services and resources it provides. Users can subscribe to as many offers as they want. The following diagram shows a simple example of a user who has subscribed to two offers. Each offer has a plan or two, and each plan gives them access to services.
+När du har skapat erbjudandet kan användarna prenumerera på komma åt de tjänster och resurser som den innehåller. Användare kan prenumerera på valfritt antal erbjudanden som de vill. Följande diagram visar ett enkelt exempel på en användare som prenumererar på två erbjudanden. Varje erbjudandet har en plan eller ett par och varje plan ger dem åtkomst till tjänster.
 
 ![](media/azure-stack-key-features/image4.png)
 
-## <a name="plans"></a>Plans
+## <a name="plans"></a>Planer
 
-Plans are groupings of one or more services. As a cloud operator, you [create plans](azure-stack-create-plan.md) to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include. When creating plans, make sure to set your quotas, define your base plans, and consider including optional add-on plans.
+Planer är grupperingar av en eller flera tjänster. Som operatör Azure Stack du [skapa planer](azure-stack-create-plan.md) att erbjuda användarna. I sin tur prenumerera användarna på dina erbjudanden använda planer och tjänster som de innehåller. När du skapar planer, se till att ange din kvoter, definiera dina basen planer och överväga att använda valfria tillägg planer.
 
-### <a name="quotas"></a>Quotas
+### <a name="quotas"></a>Kvoter
 
-To help you manage your cloud capacity, you select or create a quota for each service in a plan. Quotas define the upper resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines. Quotas can limit a variety of resources, like virtual machines, RAM, and CPU limits.
+För att hjälpa dig att hantera din kapacitet, Välj eller skapa en kvot för varje tjänst i en plan. Kvoter definiera de övre gränserna som en användare-prenumeration kan etablera eller använda. En kvot kan exempelvis tillåta en användare att skapa upp till fem virtuella datorer. Kvoter kan begränsa en mängd resurser, t.ex. virtuella datorer, RAM-minne och processor gränser.
 
-Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. In the Azure Stack Development Kit, only one region (named *local*) is available.
+Kvoter kan konfigureras per region. En plan som innehåller beräknings-tjänster från Region A kan till exempel ha en kvot på två virtuella datorer, 4 GB RAM-minne och 10 CPU-kärnor. I Azure-stacken Development Kit endast en region (med namnet *lokala*) är tillgänglig.
 
-### <a name="base-plan"></a>Base plan
+### <a name="base-plan"></a>Basplan
 
-When creating an offer, the service administrator can include a base plan. These base plans are included by default when a user subscribes to that offer. When a user subscribes, they have access to all the resource providers specified in those base plans (with the corresponding quotas).
+När du skapar ett erbjudande kan tjänstadministratören innehålla en Basplan. Dessa basen planer ingår som standard när en användare som prenumererar på det erbjudandet. När en användare prenumererar har åtkomst till alla providrar som anges i dessa basen planer (med motsvarande kvoter).
 
-### <a name="add-on-plans"></a>Add-on plans
+### <a name="add-on-plans"></a>Tillägget planer
 
-You can also include optional add-on plans in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscriber can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
+Du kan även inkludera valfria tillägg planer i ett erbjudande. Tillägget planer ingår inte som standard i prenumerationen. Tillägget är ytterligare scheman (med kvoter) tillgängliga i ett erbjudande som en prenumerant kan lägga till sina prenumerationer. Exempelvis kan du erbjuda en grundläggande plan med begränsade resurser för en utvärderingsversion och en plan för tillägget med mer omfattande resurser för kunder som vill använda tjänsten.
 
-## <a name="offers"></a>Offers
+## <a name="offers"></a>Erbjudande
 
-Offers are groups of one or more plans that you create so that users can subscribe to them. For example, Offer Alpha can contain Plan A containing a set of compute services and Plan B containing a set of storage and network services. 
+Erbjudanden är grupper med en eller flera scheman som du skapar så att användarna kan prenumerera på dem. Erbjuder Alpha kan till exempel innehålla planera en som innehåller en uppsättning tjänster för beräkning och planera B som innehåller en uppsättning tjänster för lagring och nätverk. 
 
-When you [create an offer](azure-stack-create-offer.md), you must include at least one base plan, but you can also create add-on plans that users can add to their subscription.
-
-
-## <a name="subscriptions"></a>Subscriptions
-
-A subscription is how users access your offers. If you’re a cloud operator at a service provider, your users (tenants) buy your services by subscribing to your offers. If you’re a cloud operator at an organization, your users (employees) can subscribe to the services you offer without paying. Each combination of a user with an offer is a unique subscription. Thus, a user can have subscriptions to multiple offers, but each subscription applies to only one offer. Plans, offers, and quotas apply only to each unique subscription – they can’t be shared between subscriptions. Each resource that a user creates is associated with one subscription.
+När du [skapa ett erbjudande](azure-stack-create-offer.md), du måste inkludera minst en Basplan, men du kan också skapa tillägg planer som användare kan lägga till prenumerationen.
 
 
-### <a name="default-provider-subscription"></a>Default provider subscription
+## <a name="subscriptions"></a>Prenumerationer
 
-The Default Provider Subscription is automatically created when you deploy the Azure Stack Development Kit. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for users. For security and licensing reasons, it should not be used to run customer workloads and applications. 
+En prenumeration är hur användare kommer åt dina erbjudanden. Om du är operatör Azure Stack hos en Internetleverantör köpa användarna (klienter) dina tjänster genom att prenumerera på dina erbjudanden. Om du är en Azure-stacken operator i en organisation kan kan användarna (anställda) prenumerera på de tjänster du erbjuder utan att betala. Varje kombination av en användare med ett erbjudande är en unik prenumeration. Det innebär en användare kan ha flera erbjudanden prenumerationer, men varje prenumeration gäller endast ett erbjudande. Planer, erbjudanden och kvoter gäller endast för varje unik prenumeration – kan inte delas mellan prenumerationer. Varje resurs som en användare skapar associeras med en prenumeration.
 
-## <a name="next-steps"></a>Next steps
 
-[Create a plan](azure-stack-create-plan.md)
+### <a name="default-provider-subscription"></a>Standard-providern prenumeration
 
+Standard-providern prenumerationen skapas automatiskt när du distribuerar Azure Stack Development Kit. Den här prenumerationen kan användas för att hantera Azure-stacken, distribuera ytterligare resursproviders och skapa planer och erbjudanden för användare. För säkerhets- och licensiering orsaker ska det inte användas att köra kundens arbetsbelastningar och program. 
+
+## <a name="next-steps"></a>Nästa steg
+
+[Skapa en plan](azure-stack-create-plan.md)

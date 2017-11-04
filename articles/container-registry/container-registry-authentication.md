@@ -1,11 +1,11 @@
 ---
-title: "Autentisera med en Azure-behållaren registret | Microsoft Docs"
-description: "Hur du loggar in till en Azure-behållaren registret med hjälp av ett huvudnamn för tjänsten Azure Active Directory eller ett administratörskonto"
+title: "Autentisera med en Azure-behållaren registret"
+description: "Alternativ för autentisering för ett Azure-behållaren registret, inklusive Azure Active Directory-tjänsten säkerhetsobjekt direkt och via registret inloggningen."
 services: container-registry
 documentationcenter: 
 author: stevelas
 manager: balans
-editor: cristyg
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 128a937a-766a-415b-b9fc-35a6c2f27417
@@ -14,21 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 11/05/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d7d2ae0e9b1f7850332d151d78a4a5fdb013777
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 51fb72fc3c0e9b9e261f19883820f5d7399a57ab
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autentisera med ett privat Docker behållare register
-Om du vill arbeta med behållare avbildningar i Azure-behållaren-registret, logga in med den `docker login` kommando. Du kan logga in med antingen en  **[Azure Active Directory-tjänstens huvudnamn](../active-directory/active-directory-application-objects.md)**  eller registret-specifika **administratörskonto**. Den här artikeln innehåller mer information om dessa identiteter.
+
+Det finns flera sätt att autentisera med en Azure-behållaren registret, som gäller för en eller flera Användningsscenarier för registret.
+
+Du kan logga in till ett register direkt via [enskilda inloggningen](#individual-login-with-azure-ad), och dina program och behållare orchestrators kan utföra obevakade eller ”fjärradministrerade” autentisering med hjälp av en Azure Active Directory (AD Azure) [ tjänstens huvudnamn](#service-principal).
+
+Azure Container registret stöder inte oautentiserad Docker-operationer eller anonym åtkomst. Du kan använda för offentliga bilder [Docker-hubb](https://docs.docker.com/docker-hub/).
+
+## <a name="individual-login-with-azure-ad"></a>Enskilda inloggning med Azure AD
+
+När du arbetar med registret direkt, till exempel dra bilder till och skicka bilder från utvecklingsdatorn, autentisera med hjälp av den [az acr inloggning](/cli/azure/acr?view=azure-cli-latest#az_acr_login) i den [Azure CLI](/cli/azure/install-azure-cli):
+
+```azurecli
+az acr login --name <acrName>
+```
+
+När du loggar in med `az acr login`, CLI använder den token som skapas när du körde `az login` att sömlöst autentisera sessionen med registret. När du har loggat in det här sättet kan dina autentiseringsuppgifter är cachelagrade och efterföljande `docker` kommandon inte kräver ett användarnamn eller lösenord. Om din token upphör att gälla, kan du uppdatera den med hjälp av den `az acr login` kommandot igen för att autentiseras.
 
 ## <a name="service-principal"></a>Tjänstens huvudnamn
 
-Du kan tilldela ett huvudnamn för tjänsten i registret och använda den för grundläggande Docker-autentisering. Du bör använda ett huvudnamn för tjänsten för de flesta scenarier. Ange app-ID och lösenord för tjänsten huvudnamn för den `docker login` kommandot som visas i följande exempel:
+Du kan tilldela en [tjänstens huvudnamn](../active-directory/develop/active-directory-application-objects.md) i registret och programmet eller tjänsten kan använda den för fjärradministrerade autentisering. Tjänstens huvudnamn Tillåt [rollbaserad åtkomst](../active-directory/role-based-access-control-configure.md) registret, och du kan tilldela ett register flera tjänstens huvudnamn. Flera tjänstens huvudnamn kan du definiera olika åtkomst för olika program.
+
+Tillgängliga roller är:
+
+  * **Läsaren**: pull
+  * **Deltagare**: pull och push
+  * **Ägare**: pull-, push och tilldela roller till andra användare
+
+Tjänstens huvudnamn aktivera fjärradministrerade anslutning till ett register i både sändnings- och scenarier som liknar följande:
+
+  * *Läsaren*: distribution i behållare från ett register till orchestration system, inklusive Kubernetes DC/OS och Docker Swarm. Du kan också dra från behållaren register till relaterade Azure-tjänster som [AKS](../aks/index.yml), [Apptjänst](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/), och övriga.
+
+  * *Deltagare*: kontinuerlig integration och distribuera lösningar som Visual Studio Team Services VSTS () eller Jenkins som bygger avbildningar för behållaren och skicka dem till ett register.
+
+> [!TIP]
+> Du kan återskapa lösenordet för ett huvudnamn för tjänsten genom att köra den [az Återställ-autentiseringsuppgifter för sp ad](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials) kommando.
+>
+
+Du kan också logga in direkt med en tjänstens huvudnamn. Ange app-ID och lösenord för tjänsten huvudnamn för den `docker login` kommando:
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -36,35 +69,37 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 När du loggade in cachelagrar Docker autentiseringsuppgifter så att du inte behöver komma ihåg app-ID.
 
-> [!TIP]
-> Om du vill kan du återskapa lösenordet för ett huvudnamn för tjänsten genom att köra den `az ad sp reset-credentials` kommando.
->
-
-Tjänstens huvudnamn Tillåt [rollbaserad åtkomst](../active-directory/role-based-access-control-configure.md) till ett register. Tillgängliga roller är:
-  * Läsare (pull endast åtkomst).
-  * Deltagare (pull och push).
-  * Ägaren (pull-, push- och tilldela roller till andra användare).
-
-Anonym åtkomst är inte tillgänglig på Azure-behållare register. Du kan använda för offentliga bilder [Docker-hubb](https://docs.docker.com/docker-hub/).
-
-Du kan tilldela flera tjänstens huvudnamn i registret, där du kan definiera åtkomst för olika användare eller program. Tjänstens huvudnamn också aktivera ”fjärradministrerade” anslutning till ett register i utvecklare eller DevOps scenarier, till exempel i följande exempel:
-
-  * Distribution i behållare från ett register till orchestration system, inklusive DC/OS, Docker Swarm och Kubernetes. Du kan också dra behållaren register till relaterade Azure-tjänster som [Behållartjänsten](../container-service/index.yml), [Apptjänst](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/), med mera.
-
-  * Kontinuerlig integration och distribuera lösningar (till exempel Visual Studio Team Services eller Jenkins) som bygger avbildningar för behållaren och skicka dem till ett register.
-
+Beroende på vilken version av Docker som du har installerat kan du se en säkerhetsvarning rekommenderar användning av den `--password-stdin` parameter. När användningen är utanför omfånget för den här artikeln, rekommenderar vi följande denna bästa praxis. Mer information finns i [docker inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens.
 
 ## <a name="admin-account"></a>Administratörskonto
-Med varje register som du skapar skapas ett administratörskonto automatiskt. Kontot är inaktiverat som standard, men du kan aktivera och hantera autentiseringsuppgifter, till exempel via den [portal](container-registry-get-started-portal.md#create-a-container-registry) eller med hjälp av den [Azure CLI 2.0 kommandon](container-registry-get-started-azure-cli.md#create-a-container-registry). Varje administratörskontot tillhandahålls med två lösenord som genereras. De båda lösenorden kan du hantera anslutningar till registret med hjälp av ett lösenord när du återskapar det andra lösenordet. Om kontot är aktiverat kan du skickar användarnamnet och antingen lösenord för att den `docker login` kommandot för grundläggande autentisering i registret. Exempel:
+
+Varje behållare registret innehåller ett administratörskonto för användare som är inaktiverad som standard. Du kan aktivera administratörsanvändare och hantera sina autentiseringsuppgifter i den [Azure-portalen](container-registry-get-started-portal.md#create-a-container-registry), eller genom att använda Azure CLI.
+
+Administratörskontot tillhandahålls med två lösenord som genereras. Två lösenord kan du hantera anslutning i registret med hjälp av ett lösenord när du återskapar den andra. Om administratörskontot är aktiverad, du kan ange användarnamnet och antingen lösenord för att den `docker login` kommandot för grundläggande autentisering i registret. Exempel:
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 ```
 
+Igen, Docker rekommenderar att du använder den `--password-stdin` parameter i stället för att tillhandahålla på kommandoraden för ökad säkerhet. Du kan också ange bara användarnamnet utan `-p`, och ange ditt lösenord när du uppmanas.
+
+Om du vill aktivera administratörsanvändare för en befintlig registernyckeln kan du använda den `--admin-enabled` parameter för den [az acr uppdatering](/cli/azure/acr?view=azure-cli-latest#az_acr_update) i Azure CLI:
+
+```azurecli
+az acr update -n <acrName> --admin-enabled true
+```
+
+Du kan aktivera administratörsanvändare i Azure-portalen genom att navigera i registret, välja **åtkomstnycklar** under **inställningar**, sedan **aktivera** under **Admin användaren**.
+
+![Aktivera administratörsanvändare Användargränssnittet i Azure-portalen][auth-portal-01]
+
 > [!IMPORTANT]
-> Administratörskontot är avsett för en enskild användare att komma åt registret, främst för testning. Det rekommenderas inte att dela konto administratörsautentiseringsuppgifter bland andra användare. Alla användare som visas som en enskild användare i registret. Ändra eller inaktivera det här kontot inaktiverar du registret åtkomst för alla användare som använder autentiseringsuppgifterna.
+> Administratörskontot är avsett för en enskild användare att komma åt registret, främst för testning. Vi rekommenderar inte dela administratörsautentiseringsuppgifter för kontot med flera användare. Alla användare som autentiseras med administratörskontot visas som en enskild användare i registret. Ändra eller inaktivera det här kontot inaktiverar du registret åtkomst för alla användare som använder sina autentiseringsuppgifter.
 >
 
-### <a name="next-steps"></a>Nästa steg
-* [Push-en avbildning med hjälp av Docker CLI](container-registry-get-started-docker-cli.md).
-* Mer information om autentisering i behållaren registret preview finns i [blogginlägget](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/).
+## <a name="next-steps"></a>Nästa steg
+
+* [Push-en avbildning med hjälp av Azure CLI](container-registry-get-started-azure-cli.md)
+
+<!-- IMAGES -->
+[auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png

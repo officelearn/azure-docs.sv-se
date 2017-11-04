@@ -1,6 +1,6 @@
 ---
-title: Subscribe to an offer | Microsoft Docs
-description: As a tenant, learn how to subscribe to an offer.
+title: "Prenumerera på ett erbjudande | Microsoft Docs"
+description: "Lär dig hur du prenumererar på ett erbjudande som en användare."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,35 +14,36 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/03/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 3cd87ebe9827249d32f15b5de0ad8521d0282c47
-ms.contentlocale: sv-se
-ms.lasthandoff: 07/10/2017
-
+ms.openlocfilehash: f70815b5e89753a4b0083ffbe10d9920062d1ff0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="subscribe-to-an-offer"></a>Subscribe to an offer
-Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.
+# <a name="subscribe-to-an-offer"></a>Prenumerera på ett erbjudande
 
-1. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack tenant portal (https://portal.local.azurestack.external) and click **Get a Subscription**.
+*Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
+
+Nu när du har [skapas ett erbjudande](azure-stack-create-offer.md), testa att användarna kan skapa en prenumeration.
+
+1. [Logga in](azure-stack-connect-azure-stack.md) på Azure-stacken användarportalen (https://portal.local.azurestack.external) och klicka på **skaffa en prenumeration**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
-2. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
+2. I den **visningsnamn** fältet, Skriv ett namn för din prenumeration, klickar du på **erbjuder**, klicka på någon av erbjudanden i den **väljer du ett erbjudande** bladet och klicka sedan på  **Skapa**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
-3. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
+3. Så här visar du skapade prenumerationen **fler tjänster**, klickar du på **prenumerationer**, klicka på den nya prenumerationen.  
 
-After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
+När du prenumererar på ett erbjudande uppdatera portalen om du vill se vilka tjänster som är en del av den nya prenumerationen.
 
-## <a name="subscribe-to-an-add-on-plan"></a>Subscribe to an add-on plan
-If the offer has an add-on plan, tenants can add them to their subscription at any time.  
+## <a name="subscribe-to-an-add-on-plan"></a>Prenumerera på en plan för tillägg
+Om erbjudandet har en plan för tillägg, kan användare lägga till prenumerationen när som helst.  
 
-1. In the tenant portal, select **More services** > **Subscriptions**.
+1. Välj i användarportalen, **fler tjänster** > **prenumerationer**.
 
-2. Click on the subscription > **Add Plan** button, and select the add-on plan.
+2. Klicka på prenumerationen > **lägga till Plan** och välj tillägg planen.
 
 
 
-## <a name="next-steps"></a>Next steps
-[Provision a virtual machine](azure-stack-provision-vm.md)
-
+## <a name="next-steps"></a>Nästa steg
+[Etablera en virtuell dator](azure-stack-provision-vm.md)

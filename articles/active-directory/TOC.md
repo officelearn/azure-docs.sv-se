@@ -48,7 +48,6 @@
 #### [Azure PowerShell-exempel för gruppbaserad licensiering](active-directory-licensing-ps-examples.md)
 #### [Referens för produkter och tjänstplaner i Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
-### [Återställ ett lösenord](active-directory-users-reset-password-azure-portal.md)
 ### [Hantera information om användarens arbete](active-directory-users-work-info-azure-portal.md)
 ### [Dela konton](active-directory-sharing-accounts.md)
 
@@ -126,7 +125,6 @@
 ### [SSPR-rapportering](active-directory-passwords-reporting.md)
 ### IT-administratörer: Återställ lösenord
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-#### [Klassisk Azure-portal](active-directory-create-users-reset-password.md)
 ### [Licensiera SSPR](active-directory-passwords-licensing.md)
 ### [Tillbakaskrivning av lösenord](active-directory-passwords-writeback.md)
 ### [Felsöka](active-directory-passwords-troubleshoot.md)
@@ -299,7 +297,7 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
-#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### Uppgifter

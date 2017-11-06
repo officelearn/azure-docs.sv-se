@@ -54,7 +54,7 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure Portal](resource-group-portal.md)
-### [REST-API](resource-manager-rest-api.md)
+### [REST API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
 ### [Ordna prenumerationer med hanteringsgrupper](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -71,15 +71,10 @@
 
 ## Ange resursprinciper
 ### [Vad är resursprinciper?](resource-manager-policy.md)
-### [Tilldela en princip med hjälp av Azure Portal](resource-manager-policy-portal.md)
 ### [Tilldela en princip med hjälp av skript](resource-manager-policy-create-assign.md)
 ### Exempel
 #### [Taggar](resource-manager-policy-tags.md)
 #### [Namngivningskonventioner](resource-manager-policy-naming-convention.md)
-#### [Nätverk](resource-manager-policy-network.md)
-#### [Storage](resource-manager-policy-storage.md)
-#### [Virtuell Linux-dator](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Virtuell Windows-dator](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Granska
 ### [Visa aktivitetsloggar](resource-group-audit.md)

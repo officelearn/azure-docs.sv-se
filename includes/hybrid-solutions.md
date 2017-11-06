@@ -1,90 +1,90 @@
 # <a name="azure-service-bus"></a>Azure Service Bus
-Whether an application or service runs in the cloud or on premises, it often needs to interact with other applications or services. To provide a broadly useful way to do this, Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
+Oavsett om en app eller tjänst körs i molnet eller lokalt, måste den ofta samverka med andra program eller tjänster. För att ge ett fritt och praktiskt sätt att göra detta, erbjuder Azure Service Bus. I den här artikeln tar vi en titt på denna teknik och beskriver vad den är och varför du kanske vill använda den.
 
-## <a name="service-bus-fundamentals"></a>Service Bus fundamentals
-Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. And in some cases, all that's really needed is a connection between applications&#151;queues aren't required. Service Bus provides all three options, letting your applications interact in several different ways.
+## <a name="service-bus-fundamentals"></a>Grunderna i Service Bus
+Olika situationer kräver olika kommunikationsstilar. Ibland är den bästa lösningen att låta appar skicka och ta emot meddelanden via en enkel kö. I vissa situationer räcker det inte med en vanlig kö, utan det är bättre att använda en kö med en mekanism av typen publicera och prenumerera. Och i vissa fall kan allt som behövs är en anslutning mellan program & #151, köer är överflödiga. Service Bus innehåller alla tre alternativ att låta dina program interagera på flera olika sätt.
 
-Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. [Figure 1](#Fig1) shows how this looks.
+Service Bus är en molntjänst med flera klienter, vilket innebär att tjänsten delas av flera användare. Varje användare, till exempel en programutvecklare, skapar ett *namnområde*, och sedan definierar utvecklaren de kommunikationsmekanismer som han eller hon vill använda inom det här namnområdet. [Bild 1](#Fig1) visar hur det ser ut.
 
-<a name="Fig1"></a>![Diagram of Azure Service Bus][svc-bus]
+<a name="Fig1"></a>![Diagram över Azure Service Bus][svc-bus]
 
-**Figure 1: Service Bus provides a multi-tenant service for connecting applications through the cloud.**
+**Bild 1: Service Bus erbjuder en tjänst för flera innehavare för att ansluta program via molnet.**
 
-Within a namespace, you can use one or more instances of four different communication mechanisms, each of which connects applications in a different way. The choices are:
+Du kan använda en eller flera instanser av fyra olika kommunikationsmekanismer inom namnområdet. Dessa ansluter till appar på olika sätt. Alternativen är:
 
-* *Queues*, which allow one-directional communication. Each queue acts as an intermediary (sometimes called a *broker*) that stores sent messages until they are received. Each message is received by a single recipient.
-* *Topics*, which provide one-directional communication using *subscriptions*-a single topic can have multiple subscriptions. Like a queue, a topic acts as a broker, but each subscription can optionally use a filter to receive only messages that match specific criteria.
-* *Relays*, which provide bi-directional communication. Unlike queues and topics, a relay doesn't store in-flight messages-it's not a broker. Instead, it just passes them on to the destination application.
-* *Event Hubs*, which provide event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.
+* *Köer*, som tillåter en enkelriktad kommunikation. Varje kö fungerar som en mellanhand (kallas ibland för en *koordinator*) som sparar skickade meddelanden tills de tas emot. Varje meddelande tas emot av en enda mottagare.
+* *Ämnen*, som ger enkelriktad kommunikation med hjälp av *prenumerationer*. Ett ämne kan ha flera prenumerationer. Precis som med köerna fungerar ämnena som en koordinator (broker), men varje prenumeration kan sedan använda ett filter för att endast ta emot meddelanden som uppfyller specifika villkor.
+* *Reläer* (relays), som ger dubbelriktad kommunikation. Till skillnad från köer och ämne lagrar inte ett relä meddelanden som redan startats. Det är alltså inte en koordinator. I stället skickar reläet bara meddelandena vidare till målprogrammet.
+* *Händelsehubbar* ger händelse- och telemetritillträde till molnet i massiv skala, med kort svarstid och hög tillförlitlighet.
 
-When you create a queue, topic, relay, or Event Hub, you give it a name. Combined with whatever you called your namespace, this name creates a unique identifier for the object. Applications can provide this name to Service Bus, then use that queue, topic, relay, or Event Hub to communicate with one another. 
+När du skapar en kö, ett ämne, ett relä eller en händelsehubb, ger du dem ett namn. Det här namnet, tillsammans med det namn som du gav namnområdet, skapar en unik identifierare för objektet. Appen kan överföra detta namn till Service Bus och sedan använda den kön, det ämnet, det reläet eller den händelsehubben i sin kommunikation med varandra. 
 
-To use any of these objects, Windows applications can use Windows Communication Foundation (WCF). For queues, topics, and Event Hubs Windows applications can also use Service Bus-defined messaging APIs. To make these objects easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages. You can also access queues, topics, and Event Hubs using REST APIs over HTTP. 
+Windows-program kan använda Windows Communication Foundation (WCF) för att använda något av dessa objekt. För köer, ämnen och händelsehubbar kan Windows-program även använda API:er för Service Bus-definierade meddelandefunktioner. Om du vill att det ska vara enklare att använda objekten från andra program som inte är från Windows, tillhandahåller Microsoft SDK:er för Java, Node.js och andra programmeringsspråk. Du kan även få åtkomst till köer, ämnen och händelsehubbar med hjälp av REST-API:er via HTTP. 
 
-It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a generic communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
+Det är viktigt att förstå att även om själva Service Bus körs i molnet (det vill säga i datacenter för Microsoft Azure) så kan apparna som använder den köras var som helst. Du kan använda Service Bus för att ansluta appar som körs på Azure, till exempel, eller program som körs i ditt eget datacenter. Du kan också använda Service Bus för att ansluta en app som körs på Azure eller på en annan molnplattform med ett lokalt program, eller med surfplattor och smartmobiler. Det går till och med att ansluta hushållsapparater, sensorer och andra enheter till ett centralt program eller till varandra. Service Bus är en allmän kommunikationsmekanism i molnet och den är tillgänglig från nästan var som helst. Hur du använder den beror på vad dina appar behöver göra.
 
-## <a name="queues"></a>Queues
-Suppose you decide to connect two applications using a Service Bus queue. [Figure 2](#Fig2) illustrates this situation.
+## <a name="queues"></a>Köer
+Anta att du bestämmer dig för att ansluta två appar med hjälp av en Service Bus-kö. [Bild 2](#Fig2) visar den här situationen.
 
-<a name="Fig2"></a>![Diagram of Service Bus Queues][queues]
+<a name="Fig2"></a>![Diagram över Service Bus-köer][queues]
 
-**Figure 2: Service Bus queues provide one-way asynchronous queuing.**
+**Bild 2: Service Bus-köer erbjuder enkelriktade asynkrona köer.**
 
-The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as [Figure 2](#Fig2) shows, or multiple applications can read from the same queue. In the latter situation, each message is read by just one receiver-for a multi-cast service you should use a topic instead.
+Processen är enkel: En avsändare skickar ett meddelande till en Service Bus-kö och en mottagare hämtar meddelandet vid ett senare tillfälle. En kö kan ha bara en enda mottagare som [bild 2](#Fig2) visar eller flera program kan läsa från samma kö. I det senare fallet läses varje meddelande av enbart en mottagare. För en tjänst med multi-cast bör du istället använda ett ämne.
 
-Each message has two parts: a set of properties, each a key/value pair, and a binary message body. How they're used depends on what an application is trying to do. For example, an application sending a message about a recent sale might include the properties *Seller="Ava"* and *Amount=10000*. The message body might contain a scanned image of the sale's signed contract or, if there isn't one, just remain empty.
+Varje meddelande består av två delar: en uppsättning av egenskaper, som alla är ett nyckel-/värdepar, och en binär meddelandetext. Hur de används beror på vad en app försöker utföra. Ett exempel: Ett program som skickar ett meddelande om en nyligen genomförd försäljning kan innehålla egenskaperna *Säljare="Ava"* och *Belopp= 10000*. Meddelandetexten (brödtexten) kan innehålla en skannad bild av försäljningsavtalet, eller om det inte finns något sådant, bara vara tomt.
 
-A receiver can read a message from a Service Bus queue in two different ways. The first option, called *ReceiveAndDelete*, removes a message from the queue and immediately deletes it. This is simple, but if the receiver crashes before it finishes processing the message, the message will be lost. Because it's been removed from the queue, no other receiver can access it. 
+En mottagare kan läsa ett meddelande från en Service Bus-kö på två olika sätt. Det första alternativet, som kallas *ReceiveAndDelete*, tar bort meddelandet från kön och raderar det direkt. Detta är ett enkelt alternativ men om mottagaren kraschar innan den har slutfört behandlingen av meddelandet så kommer det att gå förlorat. Eftersom det har tagits bort från kön kan inga andra mottagare komma åt det. 
 
-The second option, *PeekLock*, is meant to help with this problem. Like ReceiveAndDelete, a PeekLock read removes a message from the queue. It doesn't delete the message, however. Instead, it locks the message, making it invisible to other receivers, then waits for one of three events:
+Det andra alternativet, *PeekLock*, är utformat för att lösa detta problem. Som ReceiveAndDelete bort en PeekLock meddelandet från kön. Men det raderar inte meddelandet. I stället låser det meddelandet, vilket gör det osynligt för andra mottagare, och sedan inväntar alternativet en av följande tre händelser:
 
-* If the receiver processes the message successfully, it calls *Complete*, and the queue deletes the message. 
-* If the receiver decides that it can't process the message successfully, it calls *Abandon*. The queue then removes the lock from the message and makes it available to other receivers.
-* If the receiver calls neither of these within a configurable period of time (by default, 60 seconds), the queue assumes the receiver has failed. In this case, it behaves as if the receiver had called Abandon, making the message available to other receivers.
+* Om mottagaren bearbetar meddelandet på ett framgångsrikt sätt, anropar det *Slutför* och kön raderar meddelandet. 
+* Om mottagaren beslutar att den inte kan bearbeta meddelandet på rätt sätt, anropar det *Avbryt*. Kön tar bort spärren från meddelandet och gör det tillgängligt för andra mottagare.
+* Om mottagaren inte anropar något av dessa alternativ inom en konfigurerbar tidsperiod (standardvärdet är 60 sekunder), förutsätter kön att mottagaren har misslyckats. I det här fallet fungerar som om mottagaren hade anropat avbryta, gör meddelandet tillgängligt för andra mottagare.
 
-Notice what can happen here: The same message might be delivered twice, perhaps to two different receivers. Applications using Service Bus queues must be prepared for this. To make duplicate detection easier, each message has a unique MessageID property that by default stays the same no matter how many times the message is read from a queue. 
+Observera vad som kan inträffa här: Samma meddelande kan levereras två gånger, kanske till två olika mottagare. Appar som använder Service Bus-köer måste förberedas för detta. Om du vill förenkla identifiering av dubbletter, varje meddelande har en unik MessageID-egenskap som standard alltid densamma, oavsett hur många gånger har meddelandet lästs från en kö. 
 
-Queues are useful in quite a few situations. They let applications communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
+Köer är användbara i ett ganska stort antal situationer. De låter appar kommunicera även när båda inte körs på samma gång, något som är särskilt praktiskt med batch- och mobilappar. En kö med flera mottagare ger också automatisk belastningsbalansering eftersom skickade meddelanden sprids ut bland dessa mottagare.
 
-## <a name="topics"></a>Topics
-Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. [Figure 3](#Fig3) illustrates this idea.
+## <a name="topics"></a>Ämnen
+Även om köer ofta är väldigt användbara, är de inte alltid den rätta lösningen. Ibland är det bättre att använda Service Bus-ämnen. [Bild 3](#Fig3) visar den här idén.
 
-<a name="Fig3"></a>![Diagram of Service Bus Topics and Subscriptions][topics-subs]
+<a name="Fig3"></a>![Diagram över Service Bus-ämnen och prenumerationer][topics-subs]
 
-**Figure 3: Based on the filter a subscribing application specifies, it can receive some or all of the messages sent to a Service Bus topic.**
+**Bild 3: Baserat på de filter ett prenumererande program specificerar så kan det ta emot en del eller alla meddelanden som skickats till ett Service Bus-ämne.**
 
-A topic is similar in many ways to a queue. Senders submit messages to a topic in the same way that they submit messages to a queue, and those messages look the same as with queues. The big difference is that topics let each receiving application create its own subscription by defining a *filter*. A subscriber will then see only the messages that match that filter. For example, [Figure 3](#Fig3) shows a sender and a topic with three subscribers, each with its own filter:
+Ett ämne liknar på många sätt en kö. Avsändare skickar meddelanden till ett ämne på samma sätt som de skickar meddelanden till en kö. Och dessa meddelanden ser likadana ut som när de används i köer. Den stora skillnaden är att avsnitt om att varje mottagande programmet skapa sin egen prenumeration genom att definiera en *filter*. Prenumeranten kommer därefter endast att se de meddelanden som matchar filtret. Till exempel [bild 3](#Fig3) visar en avsändare och ett ämne med tre prenumeranter, var och en med sitt eget filter:
 
-* Subscriber 1 receives only messages that contain the property *Seller="Ava"*.
-* Subscriber 2 receives messages that contain the property *Seller="Ruby"* and/or contain an *Amount* property whose value is greater than 100,000. Perhaps Ruby is the sales manager, and so she wants to see both her own sales and all big sales regardless of who makes them.
-* Subscriber 3 has set its filter to *True*, which means that it receives all messages. For example, this application might be responsible for maintaining an audit trail and therefore it needs to see all the messages.
+* Prenumerant 1 får endast meddelanden som innehåller egenskapen *Säljare="Ava"*.
+* Prenumerant 2 tar emot meddelanden som innehåller egenskapen *Säljare="Ruth"* och/eller innehåller en egenskap för *belopp* vars värde är större än 100 000. Ruth kanske är försäljningschef och så hon vill se både sina egna försäljningar och alla stora försäljningar, oavsett vem som gör dem.
+* Prenumerant 3 har ställt in sitt filter på *Sant*, vilket innebär att han eller hon får alla meddelanden. Den här appen kan till exempel ansvara för att bibehålla ett revisionsspår och därför behöver den visa alla meddelanden.
 
-As with queues, subscribers to a topic can read messages using either ReceiveAndDelete or PeekLock. Unlike queues, however, a single message sent to a topic can be received by multiple subscribers. This approach, commonly called *publish and subscribe*, is useful whenever multiple applications might be interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
+Precis som med köer, läsa prenumeranter till ett ämne meddelanden med ReceiveAndDelete och PeekLock. Men till skillnad från köer kan ett enskilt meddelande som skickas till ett ämne tas emot av flera prenumeranter. Den här metoden anropas ofta *publicera och prenumerera*, är användbart när flera program kan ha intresse av samma meddelanden. Genom att definiera rätt typ av filter kan varje prenumerant ta del av enbart den del av meddelandeströmmen som de behöver se.
 
-## <a name="relays"></a>Relays
-Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive messages, or perhaps you want a direct link between them and you don't need a broker to store messages. To address scenarios such as this, Service Bus provides relays, as [Figure 4](#Fig4) shows.
+## <a name="relays"></a>Reläer
+Både köer och ämnen ger dig enkelriktad, asynkron kommunikation via en koordinator. Trafiken flödar endast i en riktning och det finns ingen direkt anslutning mellan avsändarna och mottagarna. Men vad händer om du inte vill använda denna lösning? Anta att dina appar både måste kunna skicka och ta emot meddelanden. Eller så kanske du vill ha en direktlänk mellan dem och du har inget behov av en koordinator för att lagra meddelanden. Att hantera scenarier som detta tillhandahåller Service Bus reläer (relays), som [bild 4](#Fig4) visar.
 
-<a name="Fig4"></a>![Diagram of Service Bus Relay][relay]
+<a name="Fig4"></a>![Diagram över Service Bus Relay][relay]
 
-**Figure 4: Service Bus relay provides synchronous, two-way communication between applications.**
+**Bild 4: Service Bus Relay erbjuder synkron, dubbelriktad kommunikation mellan program.**
 
-The obvious question to ask about relays is this: Why would I use one? Even if I don't need queues, why make applications communicate via a cloud service rather than just interact directly? The answer is that talking directly can be harder than you might think.
+Den naturliga frågan när det gäller reläer är följande: Varför bör jag använda ett sådant? Även om jag inte behöver köer, varför göra så att appar kommunicerar via en molnbaserad tjänst i stället för att helt enkelt interagera direkt med varandra? Svaret är att det här med att prata direkt med varandra kan vara svårare än du tror.
 
-Suppose you want to connect two on-premises applications, both running inside corporate datacenters. Each of these applications sits behind a firewall, and each datacenter probably uses network address translation (NAT). The firewall blocks incoming data on all but a few ports, and NAT implies that the machine each application is running on doesn't have a fixed IP address that you can reach directly from outside the datacenter. Without some extra help, connecting these applications over the public Internet is problematic.
+Anta att du vill ansluta två lokala appar. Båda körs på företagets eget datacenter. Var och en av dessa appar ligger bakom en brandvägg och varje datacenter använder antagligen nätadressöversättning (NAT). Brandväggen blockerar inkommande data på i princip alla portar och NAT-användningen antyder att datorerna där apparna körs inte har en fast IP-adress som gör att du kan nå dem direkt från en plats utanför datacentret. Utan extra hjälp är det problematiskt att ansluta dessa appar till varandra med hjälp av en offentlig Internetanslutning.
 
-A Service Bus relay provides this help. To communicate bi-directionally through a relay, each application establishes an outbound TCP connection with Service Bus, then keeps it open. All communication between the two applications will travel over these connections. Because each connection was established from inside the datacenter, the firewall will allow incoming traffic to each application without opening new ports. This approach also gets around the NAT problem, because each application has a consistent endpoint in the cloud throughout the communication. By exchanging data through the relay, the applications can avoid the problems that would otherwise make communication difficult. 
+Ett Service Bus-relä ger dig denna hjälp. För att kommunicera i båda riktningarna via ett relä, upprättar varje app en utgående TCP-anslutning med Service Bus och håller den sedan öppen. All kommunikation mellan de två apparna kommer att överföras via dessa anslutningar. Eftersom varje anslutning har upprättats inifrån datacentret, kommer brandväggen att tillåta inkommande trafik till varje app utan att öppna nya portar. Med hjälp av den här metoden kringgår du också problemet med NAT eftersom varje app har en konsistent slutpunkt i molnet under hela kommunikationen. Genom att utföra utbyte av data via reläet kan apparna undvika problem som annars skulle ha försvårat kommunikationen. 
 
-To use Service Bus relays, applications rely on Windows Communication Foundation (WCF). Service Bus provides WCF bindings that make it straightforward for Windows applications to interact via relays. Applications that already use WCF can typically just specify one of these bindings, then talk to each other through a relay. Unlike queues and topics, however, using relays from non-Windows applications, while possible, requires some programming effort; no standard libraries are provided.
+Om du vill använda Service Bus reläer bygger program på Windows Communication Foundation (WCF). Service Bus ger dig WCF-bindningar som gör det enkelt för Windows-program att interagera via reläer. Program som redan använder WCF behöver normalt bara ange en av dessa bindningar och sedan kan de kommunicera med varandra via ett relä. Men till skillnad från köer och ämnen kräver användningen av reläer från andra program än Windows-program en hel del programmeringsarbete, även om det går att genomföra. Det medföljer inga standardbibliotek.
 
-Unlike queues and topics, applications don't explicitly create relays. Instead, when an application that wishes to receive messages establishes a TCP connection with Service Bus, a relay is created automatically. When the connection is dropped, the relay is deleted. To let an application find the relay created by a specific listener, Service Bus provides a registry that enables applications to locate a specific relay by name.
+Till skillnad från köer och ämnen skapar apparna inga reläer rent uttryckligen. När en app som du vill ta emot meddelanden med upprättar en TCP-anslutning med Service Bus, skapas istället ett relä automatiskt. När anslutningen avbryts tas reläet bort. Om du vill att ett program att hitta det relä som skapats av en viss lyssnare, innehåller Service Bus ett register som gör det möjligt att söka efter en specifik vidarebefordran efter namn.
 
-Relays are the right solution when you need direct communication between applications. For example, consider an airline reservation system running in an on-premises datacenter that must be accessed from check-in kiosks, mobile devices, and other computers. Applications running on all of these systems could rely on Service Bus relays in the cloud to communicate, wherever they might be running.
+Reläer är den rätta lösningen när du behöver upprätta direkt kommunikation mellan program. Föreställ dig till exempel ett bokningssystem från ett flygbolag som körs i ett lokalt datacenter. Detta måste kunna nås från incheckningskiosker, mobila enheter och andra datorer. Program som körs på alla dessa system kan förlita sig på Service Bus Relays i molnet för att kommunicera med varandra, oavsett var de körs.
 
-## <a name="event-hubs"></a>Event Hubs
-Event Hubs is a highly scalable ingestion system that can process millions of events per second, enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. For example, you could use an Event Hub to collect live engine performance data from a fleet of cars. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster. For more information about Event Hubs, see the [Event Hubs overview][Event Hubs overview].
+## <a name="event-hubs"></a>Händelsehubbar
+Händelsehubbar i Azure är ett mycket skalbart system som kan behandla miljontals händelser per sekund. Tack vare detta kan din app behandla och analysera de enorma mängder data som produceras av dina anslutna enheter och program. Du kan till exempel använda en händelsehubb för att samla in prestandadata live från motorer i en bilpark. När uppgifterna väl samlats i Event Hubs, kan du omvandla och lagra data med hjälp av en leverantör av realtidsanalyser eller lagringskluster. Mer information om Händelsehubbar finns i [översikt av Händelsehubbar][Event Hubs overview].
 
-## <a name="summary"></a>Summary
-Connecting applications has always been part of building complete solutions, and the range of scenarios that require applications and services to communicate with each other is set to increase as more applications and devices are connected to the Internet. By providing cloud-based technologies for achieving this through queues, topics, relays, and Event Hubs, Service Bus aims to make this essential function easier to implement and more broadly available.
+## <a name="summary"></a>Sammanfattning
+Att ansluta program har alltid varit en del av arbetet när man skapar kompletta lösningar. Mängden scenarier som dyker upp och kräver att program och tjänster ska kunna kommunicera med varandra kommer med all säkerhet att öka eftersom fler och fler program och enheter ansluts till Internet. Syftet med Service Bus är att göra denna absolut nödvändiga funktion enklare att implementera och se till att tekniken blir mer tillgänglig, genom att tillhandahålla molnbaserad teknik och använda köer, ämnen, reläer och händelsehubbar.
 
 [svc-bus]: ./media/hybrid-solutions/SvcBus_01_architecture.png
 [queues]: ./media/hybrid-solutions/SvcBus_02_queues.png

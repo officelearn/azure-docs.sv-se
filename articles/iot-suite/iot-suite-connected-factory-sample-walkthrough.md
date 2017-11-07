@@ -1,5 +1,5 @@
 ---
-title: "Genomgång av ansluten fabrikslösning i Azure IoT Suite | Microsoft Docs"
+title: "Genomgång av lösningen Ansluten fabrik – Azure | Microsoft Docs"
 description: "En beskrivning av den förkonfigurerade lösningen Ansluten fabrik i Azure IoT och dess arkitektur."
 services: 
 suite: iot-suite
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: 8f43196b88cf22aab66c913d0bd659b3d654cef0
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 675a3b0fb59e449f0f76f8201d62768c03144818
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen Ansluten fabrik
 

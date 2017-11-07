@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -105,7 +105,7 @@ Genom en enkel konfiguration kan du köra experiment i flera olika beräkningsmi
 
 Experimenteringstjänsten skapar virtuella miljöer för att säkerställa att ditt skript kan köras isolerat med reproducerbara resultat. Tjänsten registrerar information om körningshistorik och visar historiken visuellt. Du kan enkelt välja den bästa modellen utifrån dina experimentkörningar. 
 
-Mer information finns i [Experimentation Execution Configuration](experiment-execution-configuration.md) (Konfiguration av experimentkörning).
+Mer information finns i [Konfiguration av experimenteringstjänst](experimentation-service-configuration.md).
 
 ## <a name="azure-machine-learning-model-management-service"></a>Tjänst för Azure Machine Learning-modellhantering
 

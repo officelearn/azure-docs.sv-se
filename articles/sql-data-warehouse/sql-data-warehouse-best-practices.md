@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
+ms.date: 10/31/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: b3a7755281ceb2818f80e0e6b31cf51a46c8f650
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: ef6abba371d3a22d1cbaeb88dbd242f9f97b361c
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Metodtips för Azure SQL Data Warehouse
 Den här artikeln innehåller en samling metodtips som hjälper dig att uppnå optimala prestanda med Azure SQL Data Warehouse.  Vissa begrepp i artikeln är grundläggande och enkla att förklara. Andra begrepp är mer avancerade och vi kommer bara att skrapa på ytan i den här artikeln.  Avsikten med den här artikeln är att ge dig grundläggande vägledning och att göra dig uppmärksam på viktiga områden som du bör fokusera på när du skapar ditt informationslager.  Varje avsnitt innehåller en introduktion till ett begrepp och hänvisar till mer detaljerade artiklar som beskriver begreppet i mer detalj.
@@ -82,7 +82,7 @@ När du tillfälligt hanterar data i SQL Data Warehouse kan processen gå snabba
 Se även [Temporary tables][Temporary tables] (Temporära tabeller), [CREATE TABLE][CREATE TABLE] och [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Optimera grupperade columnstore-tabeller
-Grupperade columnstore-index är ett av de mest effektiva sätten att lagra data i Azure SQL Data Warehouse.  Som standard skapas tabeller i SQL Data Warehouse som grupperade ColumnStore-tabeller.  Det är viktigt att segmentkvaliteten är bra för att uppnå bästa prestanda med frågor mot columnstore-tabeller.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Segmentkvaliteten kan mätas utifrån antalet rader i en komprimerad radgrupp.  Stegvisa anvisningar för hur du identifierar och förbättrar segmentkvaliteten för grupperade columnstore-tabeller finns i avsnittet [Causes of poor columnstore index quality][Causes of poor columnstore index quality] (Orsaker till låg columnstore-indexkvalitet) i artikeln [Table indexes][Table indexes] (Tabellindex).  Eftersom det är viktigt att columnstore-segmenten har hög kvalitet är det en bra idé att använda användar-ID:n som finns i den medelstora eller stora resursklassen för inläsning av data.  Ju färre DWU:er du använder, desto större resursklass bör du tilldela till inläsningsanvändaren.
+Grupperade columnstore-index är ett av de mest effektiva sätten att lagra data i SQL Data Warehouse.  Som standard skapas tabeller i SQL Data Warehouse som grupperade ColumnStore-tabeller.  Det är viktigt att segmentkvaliteten är bra för att uppnå bästa prestanda med frågor mot columnstore-tabeller.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Segmentkvaliteten kan mätas utifrån antalet rader i en komprimerad radgrupp.  Stegvisa anvisningar för hur du identifierar och förbättrar segmentkvaliteten för grupperade columnstore-tabeller finns i avsnittet [Causes of poor columnstore index quality][Causes of poor columnstore index quality] (Orsaker till låg columnstore-indexkvalitet) i artikeln [Table indexes][Table indexes] (Tabellindex).  Eftersom det är viktigt att columnstore-segmenten har hög kvalitet är det en bra idé att använda användar-ID:n som finns i den medelstora eller stora resursklassen för inläsning av data. Om du använder lägre [servicenivåer](performance-tiers.md#service-levels) så vill du tilldela en större resursklass till användaren som läser in.
 
 Eftersom columnstore-tabeller normalt inte skickar data till ett komprimerat columnstore-segment förrän det finns fler än 1 miljon rader per tabell och varje SQL Data Warehouse-tabell har partitionerats i 60 tabeller, så är tumregeln att columnstore-tabeller inte har nytta av en fråga om tabellen innehåller färre än 60 miljoner rader.  För tabeller med färre än 60 miljoner rader kanske det inte tjänar något till att ha ett columnstore-index.  Men det skadar inte heller.  Om du partitionerar data bör du dessutom tänka på att varje partition måste innehålla 1 miljon rader för att kunna dra nytta av ett grupperat columnstore-index.  Om en tabell har 100 partitioner måste den innehålla minst 6 miljarder rader för att ha nytta av ett arkiv med grupperade kolumner (60 distributioner * 100 partitioner * 1 miljoner rader).  Om din tabell inte innehåller 6 miljarder rader i det här exemplet minskar du antalet partitioner eller överväger att använda en heap-tabell i stället.  Det kan också vara värt att experimentera och se om du kan förbättra prestanda med en heap-tabell med sekundära index i stället för en columnstore-tabell.  Columnstore-tabeller stöder inte sekundära index än.
 

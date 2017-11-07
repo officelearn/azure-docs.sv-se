@@ -1,19 +1,14 @@
 
-# <a name="azure-and-internet-of-things"></a>Azure och Sakernas Internet
+# <a name="azure-and-the-internet-of-things"></a>Azure och Sakernas Internet
 
-Välkommen till Microsoft Azure och Sakernas Internet (Internet of Things, IoT). Den här artikeln introducerar de vanligast förekommande egenskaperna för en IoT-lösning som du kan distribuera med hjälp av Azure-tjänster. IoT-lösningar kräver säker, dubbelriktad kommunikation mellan stora antal enheter och en serverdelslösning. Serverdelslösningen kan använda automatiserad, förutsägande analys för att få fram insikter från din enhet-till-molnet händelseström.
-
-[Azure IoT Hub][lnk-iot-hub] är en viktig byggsten för alla IoT-lösningar som använder Azure-tjänster. IoT Hub är en helt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan flera miljoner IoT-enheter och som tillhandahåller serverdelen för lösningar av den här typen. 
-
-[Azure IoT Suite][lnk-iot-suite] tillhandahåller fullständiga, slutpunkt-till-slutpunkts-implementeringar av den här arkitekturen för specifika IoT-scenarier. Exempel:
-
-* *Fjärrövervaknings*-lösningen låter dig övervaka status för enheter som till exempel varuautomater.
-* *Förutsägbart underhålls*-lösningen hjälper dig att förutse underhållsbehov av enheter som till exempel pumpar vid avlägsna pumpstationer för att kunna undvika oplanerade avbrott.
-* Lösningen *connected factory* hjälper dig att ansluta och övervaka dina industriella enheter.
+Välkommen till Microsoft Azure och Sakernas Internet (Internet of Things, IoT). Den här artikeln beskriver de vanligast förekommande egenskaperna för en IoT-lösning i molnet. IoT-lösningar kräver säker, dubbelriktad kommunikation mellan enheter, potentiellt miljontals, samt en serverdelslösning. En lösning kan exempelvis använda automatiserad, förutsägande analys för att få fram insikter från din enhet-till-molnet händelseström.
 
 ## <a name="iot-solution-architecture"></a>IoT-lösningsarkitektur
 
-I följande diagram visas en typisk IoT-lösningsarkitektur. Diagrammet innehåller inte namnen på några specifika Azure-tjänster, utan beskriver snarare nyckelelementen för en generisk IoT-lösningsarkitektur. I den här lösningen samlar IoT-enheter in data som de sedan skickar till en molngateway. Molngatewayen tillhandahåller data för bearbetning av andra serverdeltjänster. Lösningens serverdel levererar data till företagsprogram eller till mänskliga operatörer via en instrumentpanel eller rapport.
+I följande diagram visas nyckelelement för en typisk IoT-lösningsarkitektur. Diagrammet är oberoende av specifik implementeringsinformation, till exempel vilka Azure-tjänster som används och enhetens operativsystem. I den här lösningen samlar IoT-enheter in data som de sedan skickar till en molngateway. Molngatewayen tillhandahåller data för bearbetning av andra serverdeltjänster. Dessa serverdelstjänster kan skicka data till:
+
+* Andra verksamhetsspecifika program.
+* Mänskliga operatörer via en instrumentpanel eller annan presentationsenhet.
 
 ![IoT-lösningsarkitektur][img-solution-architecture]
 
@@ -22,11 +17,11 @@ I följande diagram visas en typisk IoT-lösningsarkitektur. Diagrammet innehål
 
 ### <a name="device-connectivity"></a>Enhetsanslutning
 
-I den här IoT-lösningen skickar enheter telemetri, till exempel sensoravläsningar från en pumpstation, till en molnslutpunkt för lagring och bearbetning. I ett scenario med förutsägande underhåll kan lösningen för serverdelen använda sig av strömmen med sensordata för att fastställa när en specifik pump kräver underhåll. Enheter kan också ta emot och svara på meddelanden från moln till enhet genom att läsa meddelanden från en molnslutpunkt. Exempelvis kan serverdelen av lösningen i scenariot med förutsägande underhåll skicka meddelanden till andra pumpar på pumpstationen för att börja dirigera om flöden strax innan underhållet ska påbörjas. Den här proceduren säkerställer att underhållsteknikern kan sätta igång med att lösa problemet direkt.
+I en IoT-lösningsarkitektur skickar enheter vanligtvis telemetri till molnet för lagring och bearbetning. Till exempel, i ett scenario med förutsägande underhåll kan lösningen för serverdelen använda sig av strömmen med sensordata för att fastställa när en specifik pump kräver underhåll. Enheter kan också ta emot och svara på meddelanden från moln till enhet genom att läsa meddelanden från en molnslutpunkt. I samma exempel kan serverdelen av lösningen skicka meddelanden till andra pumpar på pumpstationen för att börja dirigera om flöden strax innan underhållet ska påbörjas. Den här proceduren säkerställer att underhållsteknikern kan sätta igång så fort han anländer.
 
-En av de största utmaningarna med IoT-projekt är att på ett tillförlitligt och säkert sätt kunna ansluta enheter till lösningens serverdel. IoT-enheter skiljer sig från andra klienter, till exempel webbläsare och mobilappar. IoT-enheter:
+Att ansluta enheter säkert och tillförlitligt är ofta den största utmaningen för IoT-lösningar. Det här beror på att IoT-enheter skiljer sig från andra klienter som till exempel webbläsare och mobilappar. IoT-enheter är mer specifikt:
 
-* Är ofta inbyggda system utan en mänsklig operatör.
+* Ofta inbyggda system utan mänskliga operatörer (till skillnad från en telefon).
 * Kan distribueras på avlägsna platser, där fysisk åtkomst är dyr.
 * Kan i vissa fall enbart nås via lösningens serverdel. Det finns inget annat sätt att interagera med enheten.
 * Kan ha begränsade ström- och bearbetningsresurser.
@@ -34,28 +29,36 @@ En av de största utmaningarna med IoT-projekt är att på ett tillförlitligt o
 * Kan behöva använda patentskyddade, anpassade eller branschspecifika programprotokoll.
 * Kan skapas med en stor mängd populära maskinvaru- och programvaruplattformar.
 
-Förutom kraven ovan behöver alla IoT-lösningar också erbjuda skalbarhet, säkerhet och tillförlitlighet. Den resulterande uppsättningen anslutningskrav är svår och tidskrävande att implementera med traditionella teknologier, till exempel webbehållare och asynkrona meddelandeköer. Azure IoT Hub och enhets-SDK:erna för Azure IoT gör det enklare att implementera lösningar som uppfyller dessa krav.
+Utöver föregående restriktioner måste alla IoT-lösningar också vara skalbara, säkra och tillförlitliga.
 
-En enhet kan kommunicera direkt med en slutpunkt för en molngateway. Om enheten inte kan använda sig av något av de kommunikationsprotokoll som molgatewayen stöder så kan den ansluta via en mellanliggande gateway. Till exempel kan [Azure IoT-protokollgatewayen][lnk-protocol-gateway] utföra protokollöversättningar om enheter inte kan använda sig av något av de protokoll som stöds av IoT Hub.
+Beroende på vilket kommunikationsprotokoll som används och nätverkstillgänglighet kan en enhet antingen kommunicera med molnet direkt eller via en mellanliggande gateway. IoT-arkitekturer har ofta en blandning av dessa två kommunikationsmönster.
 
 ### <a name="data-processing-and-analytics"></a>Databearbetning och analys
 
-I molnet sker det mesta av databearbetningen i en IoT-lösning. Serverdelen för IoT-lösningen:
+I moderna IoT-lösningar kan databearbetning ske i molnet eller på enheten. Bearbetning på enheten kallas *Edge computing* (Edge-databehandling). Valet av var du vill bearbeta data beror på faktorer som:
 
-* Tar emot stora mängder telemetri från dina enheter och bestämmer hur telemetridata bearbetas och lagras. 
-* Kan låta dig skicka kommandon från molnet till specifika enheter.
-* Möjliggör enhetsregistrering, vilket låter dig etablera enheter och styra vilka enheter som kan ansluta till din infrastruktur.
-* Låter dig kontrollera status för enheter och övervaka deras verksamhet.
+* Nätverksbegränsningar. Om bandbredden mellan enheterna och molnet är begränsad så kan det vara en anledning att utföra mer edge-bearbetning.
+* Svarstid. Om det finns ett krav på att agera på en enhet i nära realtid kan det vara bättre att bearbeta svaret på själva enheten. Till exempel om en robotarm måste stoppas i ett nödfall.
+* Föreskriftsmiljö. Vissa data kan inte skickas till molnet.
 
-I det förutsägande underhållsscenariot, lagrar lösningens serverdel historisk telemetridata. Lösningens serverdel kan använda sig av dessa data för att identifiera mönster som indikerar att det är dags för underhåll av en viss pump.
+I allmänhet är edge-databehandling och i databehandling i molnet en kombination av följande funktioner:
 
-IoT-lösningar kan inkludera automatiska feedback-slingor. En analysmodul i lösningens serverdel kan exempelvis utläsa från telemetridata att temperaturen för en specifik enhet är över normal driftsnivå. Lösningen kan sedan skicka ett kommando till enheten och instruera den att vidta åtgärder.
+* Ta emot stora mängder telemetri från dina enheter och bestämma hur telemetridata bearbetas och lagras.
+* Analysera telemetri för att ge insikter, oavsett om de skickas i realtid eller i efterhand.
+* Skicka kommandon från molnet eller en gateway-enhet till en specifik enhet.
+
+Dessutom bör en serverdel för IoT-molnet tillhandahålla:
+
+* Funktioner för enhetsregistrering för att:
+    * Etablera enheter.
+    * Styra vilka enheter som tillåts att ansluta till din infrastruktur.
+* Enhetshantering för att kontrollera status för enheter och övervaka deras verksamhet.
+
+I ett förutsägande underhållsscenario lagrar till exempel molnserverdelen historisk telemetridata. Lösningen använder dessa data för att identifiera potentiellt avvikande beteenden på specifika pumpar innan de orsakar verkliga problem. Med hjälp av dataanalys kan den identifiera att den förebyggande lösningen ska skicka ett kommando till enheten för att vidta en korrigerande åtgärd. Den här processen skapar en automatisk feedback-loop mellan enheten och molnet som ökar effektiviteten för lösningen dramatiskt.
 
 ### <a name="presentation-and-business-connectivity"></a>Presentation och företagsanslutningar
 
-Slutanvändarna kan interagera med IoT-lösningen och enheterna via ett presentations- och företagsanslutningsskikt. I det här skiktet kan användare se och analysera data som samlats in från deras enheter. Vyerna kan bestå av instrumentpaneler eller rapporter som kan visa både historiska data eller nästan realtidsdata. En operatör kan exempelvis kontrollera statusen för en viss pumpstation och se alla varningar som har utlösts i systemet. Här kan även IoT-lösningens serverdel integreras med befintliga branschspecifika program för att knyta samman med företagets verksamhetsprocesser eller arbetsflöden. Exempelvis kan den förebyggande underhållslösningen integrera med ett schemaläggningssystem. När lösningen identifierar att en pump är i behov av underhåll bokar systemet för schemaläggning in en ingenjör som ska besöka en pumpstation.
-
-![Instrumentpanel för IoT-lösning][img-dashboard]
+Slutanvändarna kan interagera med IoT-lösningen och enheterna via ett presentations- och företagsanslutningsskikt. I det här skiktet kan användare se och analysera data som samlats in från deras enheter. Vyerna kan bestå av instrumentpaneler eller BI-rapporter som kan visa både historiska data eller nästan realtidsdata. En operatör kan exempelvis kontrollera statusen för en viss pumpstation och se alla varningar som har utlösts i systemet. Här kan även IoT-lösningens serverdel integreras med befintliga branschspecifika program för att knytas samman med företagets verksamhetsprocesser eller arbetsflöden. En förutsägande underhållslösning kan till exempel integreras med ett system för schemaläggning som bokar in en ingenjör att besöka en pumpstation när en pump är i behov av underhåll.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png

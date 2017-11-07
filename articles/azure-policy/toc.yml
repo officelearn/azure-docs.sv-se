@@ -15,6 +15,14 @@
   items:
     - name: Skapa och hantera Azure Policy
       href: create-manage-policy.md
+- name: Exempel
+  items:
+    - name: Principmallar
+      href: json-samples.md
+- name: Koncept
+  items:
+    - name: Azure Policy-definitionsstruktur
+      href: policy-definition.md
 - name: Referens
   items:
     - name: Azure CLI

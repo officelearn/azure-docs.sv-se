@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: Utveckling
       items:
-        - name: Anslutningsbibliotek
-          href: concepts-connection-libraries.md
+        - name: Kompatibilitet för drivrutiner och verktyg
+          href: concepts-compatibility.md
         - name: Programutveckling
           href: concepts-database-application-development.md
     - name: Migrera databasen

@@ -309,6 +309,10 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
+        - name: Regelverk för SQL Data Sync
+          href: sql-database-best-practices-data-sync.md
+        - name: Felsöka SQL Data Sync
+          href: sql-database-troubleshoot-data-sync.md
     - name: Skala ut
       items:
         - name: Skapa shardad app

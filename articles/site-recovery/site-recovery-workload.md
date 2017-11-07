@@ -1,6 +1,6 @@
 ---
-title: Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
-description: "Azure Site Recovery skyddar dina arbetsbelastningar och program genom att samordna replikering, redundans och återställning av lokala virtuella datorer och fysiska servrar till Azure eller till en sekundär lokal plats"
+title: Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery? | Microsoft Docs
+description: "Beskriver de arbetsbelastningar som kan skyddas med haveriberedskap med Azure Site Recovery-tjänsten."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
-Den här artikeln beskriver arbetsbelastningar och program som kan replikeras med Azure Site Recovery-tjänsten.
 
-Skriv dina kommentarer eller frågor längst ned i den här artikeln eller i [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Den här artikeln beskriver arbetsbelastningar och program som kan replikeras med [Azure Site Recovery](site-recovery-overview.md)-tjänsten.
+
+
 
 ## <a name="overview"></a>Översikt
+
 Organisationer behöver en strategi för affärskontinuitet och haveriberedskap (BCDR) för att hålla arbetsbelastningar och data säker och tillgänglig vid planerade såväl som oplanerade avbrott, samt återställa dem till fungerande tillstånd så snabbt som möjligt.
 
 Site Recovery är en Azure-tjänst som bidrar till din BCDR-strategi. Med Site Recovery kan du distribuera programmedveten replikering till molnet eller till en sekundär plats. Oavsett om dina appar är Windows- eller Linux-baserade, körs på fysiska servrar, VMware eller Hyper-V så kan du använda Site Recovery för att samordna replikering, utföra haveriberedskapstester, köra redundansväxlingar och återställning efter fel.
@@ -33,6 +35,7 @@ Site Recovery är en Azure-tjänst som bidrar till din BCDR-strategi. Med Site R
 Site Recovery integrerar med Microsoft-program som SharePoint, Exchange, Dynamics, SQL Server och Active Directory. Microsoft samarbetar även nära med ledande leverantörer som Oracle, SAP och Red Hat. Du kan anpassa replikeringslösningar på appbasis.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Varför ska man använda Site Recovery för programreplikering?
+
 Site Recovery erbjuder skydd och återställning på programnivå enligt följande:
 
 * App-oberoende replikering för alla arbetsbelastningar som körs på en dator som stöds.
@@ -157,4 +160,5 @@ Använd Site Recovery för att skydda dina Citrix XenApp- och XenDesktop-distrib
 [Lär dig mer](site-recovery-citrix-xenapp-and-xendesktop.md) om att skydda Citrix XenApp- och XenDesktop-distributioner. Alternativt kan du läsa ett [whitepaper från Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) med samma information.
 
 ## <a name="next-steps"></a>Nästa steg
-[Kontrollera krav](site-recovery-prereq.md)
+
+[Kom igång](azure-to-azure-quickstart.md) med replikering av virtuella Azure-datorer.

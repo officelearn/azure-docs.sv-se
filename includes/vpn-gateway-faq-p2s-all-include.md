@@ -8,6 +8,7 @@ Följande klientoperativsystem stöds:
 * Windows 8.1 (32-bitars och 64-bitars)
 * Windows Server 2012 (endast 64-bitars)
 * Windows Server 2012 R2 (endast 64-bitars)
+* Windows Server 2016 (endast 64-bitars)
 * Windows 10
 * OSX version 10.11 för Mac (El Capitan)
 * macOS version 10.12 för Mac (Sierra)

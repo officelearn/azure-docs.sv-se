@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/09/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ffa1c0d062d1c8ff1fc8e20e37d105fdbaaeaa4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 37eb7b728bebcec5c389a8bdf68be6baf97f3c38
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Flytta data till och från SQL Server lokalt eller på IaaS (Azure VM) med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -126,7 +126,7 @@ Data Management Gateway kommer att personifiera det angivna användarkontot kan 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 I prover, du har använt ett DataSet-objekt av typen **SqlServerTable** som representerar en tabell i SQL Server-databasen.  
 
-En fullständig lista över egenskaper som är tillgängliga för att definiera datauppsättningarna & avsnitt finns i [skapa datauppsättningar](data-factory-create-datasets.md) artikel. Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av datauppsättningen (SQL Server, Azure blob, Azure-tabellen, osv.).
+En fullständig lista över egenskaper som är tillgängliga för att definiera datauppsättningarna & avsnitt finns i [skapa datauppsättningar](data-factory-create-datasets.md) artikel. Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av datauppsättningen (SQL Server, Azure blob, Azure-tabellen, osv).
 
 Avsnittet typeProperties är olika för varje typ av dataset och ger information om placeringen av data i datalagret. Den **typeProperties** avsnittet för datauppsättningen av typen **SqlServerTable** har följande egenskaper:
 
@@ -554,7 +554,7 @@ Pipelinen innehåller en kopia-aktivitet som är konfigurerad för att använda 
 3. Dubbelklicka i samma fönster **TCP/IP** att starta **TCP/IP-egenskaper** fönster.
 4. Växla till den **IP-adresser** fliken. Rulla Se **IPAll** avsnitt. Notera den ** TCP-Port ** (standard är **1433**).
 5. Skapa en **regeln för Windows-brandväggen** på datorn för att tillåta inkommande trafik via den här porten.  
-6. **Verifiera anslutning**: använda SQL Server Management Studio för att ansluta till SQL Server med hjälp av fullständigt kvalificerat namn, från en annan dator. Till exempel ”:<machine>.<domain>. Corp.<company>.com, 1433 ”.
+6. **Verifiera anslutning**: använda SQL Server Management Studio för att ansluta till SQL Server med hjälp av fullständigt kvalificerat namn, från en annan dator. Till exempel: ”<machine>.<domain>.corp.<company>.com,1433.”
 
    > [!IMPORTANT]
 

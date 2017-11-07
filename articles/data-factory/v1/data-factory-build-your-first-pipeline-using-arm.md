@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 1778a4af004afd45464e37e198d78b4f0977c1c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d4681e2f2552589e310f80cbf763bd453c0eba84
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa din första Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector"]
@@ -28,9 +28,11 @@ ms.lasthandoff: 10/11/2017
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 > 
-> 
+ 
+> [!NOTE]
+> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Läs [Quickstart: Create a data factory using Azure Data Factory version 2](../quickstart-create-data-factory-dot-net.md) (Snabbstart: Skapa en datafabrik med Azure Data Factory version 2) om du använder version 2 av Data Factory-tjänsten, som finns tillgänglig som förhandsversion.
 
 I den här artikeln får du lära dig hur du använder en Azure Resource Manager-mall för att skapa din första Azure-datafabrik. Om du vill gå igenom självstudien med andra verktyg/SDK:er kan du välja något av alternativen i listrutan.
 

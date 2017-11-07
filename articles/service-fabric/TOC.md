@@ -6,6 +6,7 @@
 ## [Skapa ett .NET-program](service-fabric-quickstart-dotnet.md)
 ## [Distribuera ett program för Linux-behållare](service-fabric-quickstart-containers-linux.md)
 ## [Distribuera ett program för Windows-behållare](service-fabric-quickstart-containers.md)
+## [Distribuera ett Java-program](service-fabric-quickstart-java.md)
 
 # Självstudier
 ## Distribuera ett .NET-program
@@ -28,7 +29,9 @@
 ### 1- Skapa ett kluster på Azure
 #### [1a- Skapa ett Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1a- Skapa ett Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2- Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [2- Skala klustret](service-fabric-tutorial-scale-cluster.md)
+### [3- Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Exempel
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=service-fabric)

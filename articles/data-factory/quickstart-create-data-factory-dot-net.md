@@ -13,16 +13,23 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
-ms.openlocfilehash: d78176eca6bdbf32d6b4400ad2812dea98703d67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 579311b28abb650c6527fe1160ebf875ce7e8c82
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Skapa en datafabrik och pipeline med .NET SDK
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 – allmänt tillgänglig](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Version 2 – förhandsversion](quickstart-create-data-factory-dot-net.md)
+
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
 
 Den här snabbstarten beskriver hur du använder .NET SDK till att skapa en Azure-datafabrik. Pipeline i den här datafabriken kopierar data från en mapp till en annan i Azure Blob Storage.
+
+> [!NOTE]
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Kom igång med Data Factory version 1).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

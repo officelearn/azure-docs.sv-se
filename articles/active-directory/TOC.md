@@ -240,6 +240,7 @@
 ### [Flera kataloger](active-directory-licensing-directory-independence.md)
 ### [O365-kataloger](active-directory-manage-o365-subscription.md)
 ### [Registrering av självbetjäning](active-directory-self-service-signup.md)
+#### [Ta över en ohanterad katalog](domains-admin-takeover.md)
 ### [Företagsroaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Aktivera](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Grupprincipinställningar](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

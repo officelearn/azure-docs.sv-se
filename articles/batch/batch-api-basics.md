@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 10/12/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f277f59982251eb66ca02e72b4ced7f765935b9d
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -409,7 +409,7 @@ En skalningsformel kan baseras på följande mått:
 * **Resursmått** baseras på processoranvändning, bandbreddsanvändning, minnesanvändning och antalet noder.
 * **Aktivitetsmått** baseras på aktivitetens tillstånd, t.ex. *Aktiv* (köad), *Körs* eller *Slutförd*.
 
-Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. I Batch kan detta kan hanteras med en *nodavallokeringsprincip* som du lägger till i formeln. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt, att de ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen.
+Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. I Batch kan detta kan hanteras med en *nodavallokeringsprincip* som du lägger till i formeln. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen.
 
 Mer information om automatisk skalning av program finns i [Skala beräkningsnoder automatiskt i en Azure Batch-pool](batch-automatic-scaling.md).
 

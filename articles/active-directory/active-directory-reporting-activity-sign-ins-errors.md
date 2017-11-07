@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dcdd8b5830edb542cb99d07f1b0087629d374264
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 3b8653b3bddd8bf2ee01c2e68da763e803711633
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Rapporter om inloggningfelkoder i Azure Active Directory-portalen
 
@@ -58,16 +58,17 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 
 | Fel| Beskrivning |
 | --- | --- |
-| 50001| Tjänstens huvudnamn med namnet X hittades inte i klienten Y. Detta kan inträffa om programmet inte har installerats av administratören för klienten. Eller huvudresursen kunde inte hittas i katalogen eller är ogiltig|
+| 50001| Tjänstens huvudnamn med namnet X hittades inte i klienten Y. Detta kan inträffa om programmet inte har installerats av administratören för klienten. Alternativt kunde huvudresursen inte hittas i katalogen eller är ogiltig.|
 | 50008| SAML-kontrollen saknas eller är felkonfigurerad i token.|
 | 50011| Svarsadressen saknas, är felkonfigurerad eller matchar inte svarsadresserna som har konfigurerats för programmet.|
+| 50012| Användarrapporterat bedrägeri under multifaktorautentisering.|
 | 50053| Ditt konto är låst eftersom du har försökt logga in för många gånger med ett felaktigt användar-ID eller lösenord.|
 | 50054| Det gamla lösenordet krävs för autentiseringen.|
 | 50055| Ogiltigt lösenord, ange lösenordet som har gått ut.|
 | 50057| Användarkontot är inaktiverat.|
 | 50058| Det gick inte att hitta information om användarens identitet finns bland angivna autentiseringsuppgifter eller användaren i klienten eller En tyst inloggningsbegäran har skickats men ingen användare är inloggad eller det gick inte att autentisera användaren.|
-| 50074| Stark autentisering (tvåfaktorsautentisering) krävs|
-| 50079| Användaren måste registrera sig för tvåfaktorsautentisering|
+| 50074| Användaren godkändes inte av MFA-kontrollen.|
+| 50079| Användaren måste registrera sig för tvåfaktorsautentisering.|
 | 50126| Ogiltigt användarnamn eller lösenord eller ogiltigt lokalt användarnamn eller lösenord.|
 | 50131| Används i olika fel för villkorlig åtkomst. T.ex felaktigt Windows-enhettillstånd, begäran som blockerats på grund av misstänkt aktivitet, åtkomstprincip och säkerhetsprincipbeslut.|
 | 50133| Sessionen är ogiltig på grund av förfallotid eller lösenordsändring.|
@@ -75,13 +76,14 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 | 65001| Programmet X har inte behörighet att komma åt programmet Y eller behörigheten har återkallats. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en auktoriseringsbegäran till din klientadministratör som gäller i appens ställe: Y för resursen: Z.|
 | 65005| Programmet som krävs resursåtkomstlistan innehåller inte program som kan upptäckas av resursen eller Klientprogrammet har begärt åtkomst till resurs som inte har angetts i listan över resurser som med åtkomst eller Diagramtjänsten returnerade ogiltig begäran eller resursen hittades inte.|
 | 70001| Programmet X hittades inte i klienten Y. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänts av någon användare på klienten. Du kanske har skickat din begäran om autentisering till fel klient.|
-| 80001| Ingen autentiseringsagent är tillgänglig.|
+| 80001| Det gick inte att ansluta autentiseringsagenten till Active Directory.|
 | 80002| Den tillåtna tiden för autentiseringsagentens lösenordsvalidering överskreds.|
 | 80003| Ogiltigt svar har tagits emot av autentiseringsagenten.|
 | 80004| Felaktig UPN (User Principal Name) används i begäran om inloggning.|
 | 80005| Autentiseringsagent: Fel uppstod.|
-| 80007| Det gick inte att ansluta autentiseringsagenten till Active Directory.|
+| 80007| Autentiseringsagenten kunde inte verifiera användarens lösenord.|
 | 80010| Autentiseringsagenten kan inte dekryptera lösenordet.|
+| 80011| Autentiseringsagenten kunde inte hämta dekrypteringsnyckeln.|
 | 81001| Användarens Kerberos-biljett är för stor.|
 | 81002| Det gick inte att verifiera användarens Kerberos-biljett.|
 | 81003| Det gick inte att verifiera användarens Kerberos-biljett.|
@@ -94,6 +96,7 @@ Följande avsnitt ger en fullständig översikt över alla eventuella fel och re
 | 81013| Det gick inte att hitta användarobjektet baserat på informationen i användarens Kerberos-biljett.|
 | 90014| Används i olika fall när ett förväntat fält inte finns i autentiseringsuppgifterna.|
 | 90093| Diagram som returneras med otillåten felkod för begäran.|
+
 
 
 

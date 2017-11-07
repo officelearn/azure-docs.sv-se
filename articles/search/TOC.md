@@ -78,6 +78,7 @@
 ### [Förslag](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Aspektbaserad navigering](search-faceted-navigation.md)
 ### [Förhandsversion av synonymer](search-synonyms.md)
+### [moreLikeThis-förhandsversion](search-more-like-this.md)
 
 # Referens
 
@@ -86,7 +87,7 @@
 ## [Python (hantering)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (hantering)](/rest/api/searchmanagement)
-## [Tjänst-REST (förhandsversion)](search-api-2015-02-28-preview.md)
+## [Tjänst-REST (förhandsversion)](search-api-2016-09-01-preview.md)
 
 # Resurser
 

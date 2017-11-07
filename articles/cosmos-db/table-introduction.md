@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Azure Cosmos DB | Tabell-API
 
@@ -38,10 +38,10 @@ Vi rekommenderar att du tittar på nedanstående video, där Aravind Ramachandra
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>Tabell-API:er för premium och standard
-Om du använder tabellagring får du följande fördelar genom att byta till Azure Cosmos DB:s premiumtabellförhandsversion:
+## <a name="table-offerings"></a>Tabellerbjudanden
+Om du använder Azure Table Storage får du följande fördelar genom att byta till Azure Cosmos DB:s tabell-API (förhandsversion):
 
-| | Azure Table Storage | Azure Cosmos DB: Table Storage (förhandsversion) |
+| | Azure Table Storage | Azure Cosmos DB tabell-API (förhandsversion) |
 | --- | --- | --- |
 | Svarstid | Snabb, men inga övre gränser för svarstid. | Ensiffrig millisekundsvarstid för läsningar och skrivningar med <10 ms svarstid för läsning och <15 ms svarstid vid skrivning vid 99:e percentilen, i valfri skala, var som helst i världen. |
 | Dataflöde | Modell med variabelt dataflöde. Tabeller har en gräns för skalbarhet på 20 000 åtgärder/s. | Mycket skalbara med [dedikerat reserverat dataflöde per tabell](request-units.md) som understöds av serviceavtal. Konton har ingen maxgräns för dataflöde och kan hantera >10 miljoner åtgärder/s per tabell. |

@@ -1,0 +1,120 @@
+- name: Dokumentation om Azure HDInsight
+  href: /azure/hdinsight
+- name: HBase på HDInsight
+  items:
+    - name: Översikt
+      href: apache-hbase-overview.md
+    - name: Versionshantering för komponenter
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
+- name: Kom igång
+  items:
+    - name: Börja med HBase och NoSQL
+      href: apache-hbase-tutorial-get-started-linux.md
+    - name: Kapacitetsplanering
+      href: ../hdinsight-capacity-planning.md
+      maintainContext: true
+- name: Gör så här för att
+  items:
+    - name: Skapa kluster i virtuellt nätverk
+      href: apache-hbase-provision-vnet.md
+    - name: Konfigurera HBase-replikering
+      href: apache-hbase-replication.md
+    - name: Använd Phoenix och SQLLine
+      href: apache-hbase-phoenix-squirrel-linux.md
+    - name: Utveckla Java-program
+      href: apache-hbase-build-java-maven-linux.md
+    - name: Felsöka HBase
+      href: apache-troubleshoot-hbase.md
+- name: Referens
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.hdinsight
+    - name: .NET (Hadoop)
+      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet'
+    - name: .NET (HBase)
+      href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
+    - name: .NET (Avro)
+      href: 'https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library'
+    - name: REST
+      href: /rest/api/hdinsight/
+    - name: REST (Spark)
+      href: /rest/api/hdinsightspark/
+- name: Relaterat
+  items:
+    - name: Windows-kluster
+      items:
+        - name: Migrera Windows-kluster till Linux-kluster
+          href: ../hdinsight-migrate-from-windows-to-linux.md
+          maintainContext: true
+        - name: Migrera .NET-lösningar till Linux-kluster
+          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
+          maintainContext: true
+        - name: Kör MapReduce-exempel i Hadoop
+          href: ../hdinsight-run-samples.md
+          maintainContext: true
+        - name: Använda Solr i kluster
+          href: ../hdinsight-hadoop-solr-install-linux.md
+          maintainContext: true
+        - name: Använda Giraph för att bearbeta storskaliga diagram
+          href: ../hdinsight-hadoop-giraph-install.md
+          maintainContext: true
+        - name: Använda Oozie för arbetsflöden
+          href: ../hdinsight-use-oozie.md
+          maintainContext: true
+        - name: Distribuera och hantera Storm-topologier
+          href: ../storm/apache-storm-deploy-monitor-topology.md
+          maintainContext: true
+        - name: Använda Maven för att skapa Java-program
+          href: ../hdinsight-hbase-build-java-maven.md
+          maintainContext: true
+        - name: Använda Tez-användargränssnittet för att felsöka Tez-jobb
+          href: ../hdinsight-debug-tez-ui.md
+          maintainContext: true
+        - name: Anpassa med skriptåtgärd
+          href: ../hdinsight-hadoop-customize-cluster.md
+          maintainContext: true
+        - name: Åtkomst till YARN-programloggar
+          href: ../hdinsight-hadoop-access-yarn-app-logs.md
+          maintainContext: true
+        - name: Använda Apache Phoenix och SQuirreL
+          href: ../hdinsight-hbase-phoenix-squirrel.md
+          maintainContext: true
+        - name: Skapa filmrekommendationer med Mahout
+          href: ../hdinsight-mahout.md
+          maintainContext: true
+        - name: Analysera flygförseningsdata
+          href: ../hdinsight-analyze-flight-delay-data.md
+          maintainContext: true
+        - name: Utveckla skriptåtgärder
+          href: ../hdinsight-hadoop-script-actions.md
+          maintainContext: true
+        - name: Analysera Twitter-data
+          href: ../hdinsight-analyze-twitter-data.md
+          maintainContext: true
+        - name: Hantera kluster med Azure-portalen
+          href: ../hdinsight-administer-use-management-portal.md
+          maintainContext: true
+        - name: Övervaka kluster med Ambari-API
+          href: ../hdinsight-monitor-use-ambari-api.md
+          maintainContext: true
+- name: Resurser
+  items:
+    - name: Viktig information
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: Få hjälp i forumet
+      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight'
+    - name: Utbildningsväg
+      href: 'https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/'
+    - name: Microsoft Professional Program för stordata
+      href: 'https://academy.microsoft.com/en-us/professional-program/big-data/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Windows-verktyg för HDInsight
+      href: ../hdinsight-hadoop-windows-tools.md
+      maintainContext: true

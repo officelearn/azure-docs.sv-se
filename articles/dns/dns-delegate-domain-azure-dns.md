@@ -3,8 +3,8 @@ title: "Delegera din domän till Azure DNS | Microsoft Docs"
 description: "Lär dig hur du ändrar domändelegering och använder Azure DNS-namnservrar för att tillhandahålla domänvärdtjänster."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: gwallace
-ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: kumud
+ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegera en domän till Azure DNS
 
@@ -30,11 +30,11 @@ Anta exempelvis att du köper domänen ”contoso.net” och skapar en zon med n
 ## <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
 1. Logga in på Azure Portal
-1. Klicka på **Nytt > Nätverk >** på navmenyn och klicka sedan på **DNS-zon** för att öppna bladet Skapa DNS-zon.
+1. Klicka på **Nytt > Nätverk >** på navmenyn och klicka sedan på **DNS-zon** för att öppna sidan Skapa DNS-zon.
 
     ![DNS-zon](./media/dns-domain-delegation/dns.png)
 
-1. På bladet **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
+1. På sidan **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
 
    | **Inställning** | **Värde** | **Detaljer** |
    |---|---|---|
@@ -50,9 +50,9 @@ Anta exempelvis att du köper domänen ”contoso.net” och skapar en zon med n
 
 Innan du kan delegera din DNS-zon till Azure DNS måste du känna till namnservernamnen för din zon. Azure DNS allokerar namnservrar från en pool varje gång en zon skapas.
 
-1. I Azure Portal klickar du på **Alla resurser** i rutan **Favoriter** för den DNS-zon du skapade. Klicka på DNS-zonen **contoso.net** på bladet **Alla resurser**. Om den prenumeration du valde redan har flera resurser kan du ange **contoso.net** i rutan Filtrera efter namn... för att enkelt få åtkomst till Application Gateway. 
+1. I Azure Portal klickar du på **Alla resurser** i rutan **Favoriter** för den DNS-zon du skapade. Klicka på DNS-zonen **contoso.net** på sidan **Alla resurser**. Om den prenumeration du valde redan har flera resurser kan du ange **contoso.net** i rutan Filtrera efter namn... för att enkelt få åtkomst till Application Gateway. 
 
-1. Hämta namnservrarna på bladet DNS-zon. I det här exemplet har zonen ”contoso.net” tilldelats namnservrarna ”ns1-01.azure-dns.com”, ”ns2-01.azure-dns.net”, ”ns3-01.azure-dns.org” och ”ns4-01.azure-dns.info”:
+1. Hämta namnservrarna på sidan DNS-zon. I det här exemplet har zonen ”contoso.net” tilldelats namnservrarna ”ns1-01.azure-dns.com”, ”ns2-01.azure-dns.net”, ”ns3-01.azure-dns.org” och ”ns4-01.azure-dns.info”:
 
  ![DNS-namnserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -161,11 +161,11 @@ Om du vill konfigurera en separat underordnad zon kan du delegera en underdomän
 ### <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
 1. Logga in på Azure Portal
-1. Klicka på **Nytt > Nätverk >** på navmenyn och klicka sedan på **DNS-zon** för att öppna bladet Skapa DNS-zon.
+1. Klicka på **Nytt > Nätverk >** på navmenyn och klicka sedan på **DNS-zon** för att öppna sidan Skapa DNS-zon.
 
     ![DNS-zon](./media/dns-domain-delegation/dns.png)
 
-1. På bladet **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
+1. På sidan **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
 
    | **Inställning** | **Värde** | **Detaljer** |
    |---|---|---|
@@ -179,9 +179,9 @@ Om du vill konfigurera en separat underordnad zon kan du delegera en underdomän
 
 ### <a name="retrieve-name-servers"></a>Hämta namnservrar
 
-1. I Azure Portal klickar du på **Alla resurser** i rutan **Favoriter** för den DNS-zon du skapade. Klicka på DNS-zonen **partners.contoso.net** på bladet **Alla resurser**. Om den prenumeration du valde redan har flera resurser kan du ange **partners.contoso.net** i rutan Filtrera efter namn... när du ska hitta din DNS-zon.
+1. I Azure Portal klickar du på **Alla resurser** i rutan **Favoriter** för den DNS-zon du skapade. Klicka på DNS-zonen **partners.contoso.net** på sidan **Alla resurser**. Om den prenumeration du valde redan har flera resurser kan du ange **partners.contoso.net** i rutan Filtrera efter namn... när du ska hitta din DNS-zon.
 
-1. Hämta namnservrarna på bladet DNS-zon. I det här exemplet har zonen ”contoso.net” tilldelats namnservrarna ”ns1-01.azure-dns.com”, ”ns2-01.azure-dns.net”, ”ns3-01.azure-dns.org” och ”ns4-01.azure-dns.info”:
+1. Hämta namnservrarna på sidan DNS-zon. I det här exemplet har zonen ”contoso.net” tilldelats namnservrarna ”ns1-01.azure-dns.com”, ”ns2-01.azure-dns.net”, ”ns3-01.azure-dns.org” och ”ns4-01.azure-dns.info”:
 
  ![DNS-namnserver](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -191,7 +191,7 @@ Azure DNS skapar automatiskt auktoritativa NS-poster i din zon som innehåller d
 
 1. Navigera till DNS-zonen **contoso.net** i Azure Portal.
 1. Klicka på **+ Postuppsättning**
-1. Ange följande värden på bladet **Lägg till uppsättning av poster** och klicka sedan på **OK**.
+1. Ange följande värden på sidan **Lägg till uppsättning av poster** och klicka sedan på **OK**:
 
    | **Inställning** | **Värde** | **Detaljer** |
    |---|---|---|
@@ -297,8 +297,8 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 Så här tar du bort alla resurser som skapats i den här artikeln:
 
-1. Klicka på **Alla resurser** i rutan **Favoriter** i Azure Portal. Klicka på resursgruppen **contosorg** på bladet Alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange **contosorg** i rutan **Filtrera efter namn...** när du ska hitta resursgruppen.
-1. Klicka på knappen **Ta bort** i bladet **contosorg**.
+1. Klicka på **Alla resurser** i rutan **Favoriter** i Azure Portal. Klicka på resursgruppen **contosorg** på sidan Alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange **contosorg** i rutan **Filtrera efter namn...** när du ska hitta resursgruppen.
+1. Klicka på knappen **Ta bort** på sidan **contosorg**.
 1. Du måste ange namnet på resursgruppen i portalen som bekräftelse på att du vill ta bort den. Skriv *contosorg* som resursgruppnamn och klicka sedan på **Ta bort**. När du tar bort en resursgrupp så tas alla resurser i resursgruppen bort, så du måste alltid kontrollera innehållet i en resursgrupp innan du tar bort den. Portalen tar bort alla resurser som finns i resursgruppen och sedan tas själva resursgruppen bort. Den här processen tar flera minuter.
 
 ## <a name="next-steps"></a>Nästa steg

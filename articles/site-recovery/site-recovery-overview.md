@@ -1,5 +1,5 @@
 ---
-title: "Vad är Azure Site Recovery? | Microsoft Docs"
+title: Om Azure Site Recovery? | Microsoft Docs
 description: "Ger en översikt över Azure Site Recovery-tjänsten och sammanfattar distributionsscenarier."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/25/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: aa657c92f347f7529affee78ad1842e5e066b74d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="what-is-site-recovery"></a>Vad är Site Recovery?
+# <a name="about-site-recovery"></a>Om Site Recovery
 
 Välkommen till Azure Site Recovery-tjänsten! Den här artikeln innehåller en snabb översikt över tjänsten.
 
@@ -62,19 +63,15 @@ Site Recovery kan hantera replikering för:
 
 **Stöds** | **Detaljer**
 --- | ---
-**Vad kan jag replikera?** | Migrera virtuella Azure-datorer mellan Azure-regioner (förhandsversion)<br/><br/>  Lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer samt fysiska Windows- och Linux-servrar<br/<br/> Lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar på sekundär plats. Replikering till en sekundär plats stöds endast för Hyper-V-datorer om Hyper-V-värdar hanteras av System Center VMM.
+**Vad kan jag replikera?** | Virtuella Azure-datorer mellan Azure-regioner.<br/><br/>  Lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer samt fysiska Windows- och Linux-servrar.<br/><br/> Lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer samt fysiska servrar till Virtual Machine Manager (VMM).
 **Vilka regioner har stöd för Site Recovery?** | [Regioner som stöds](https://azure.microsoft.com/regions/services/) |
-**Vilka operativsystem behöver replikerade datorer?** | [Krav för virtuella Azure-datorer](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)s<br></br>[Krav för virtuella VMware-datorer](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> För virtuella Hyper-V-datorer stöds samtliga [gästoperativsystem](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) som kan användas i Azure samt Hyper-V.<br/><br/> [Krav för fysisk server](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**Vilka servrar/värdar för VMware behöver jag?** | Virtuella VMware-datorer kan finnas på [vSphere värdar/vCenter-servrar som stöds](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
+**Vilka operativsystem behöver replikerade datorer?** | [Virtuella Azure VMware-datorer](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Krav för virtuella VMware-datorer](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> För virtuella Hyper-V-datorer stöds samtliga [gästoperativsystem](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) som kan användas i Azure samt Hyper-V.<br/><br/> [Krav för fysisk server](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+**Vilka servrar/värdar för VMware behöver jag?** | Virtuella VMware-datorer kan finnas på [vSphere värdar/vCenter-servrar som stöds](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+
 **Vilka arbetsbelastningar kan jag replikera?** | Du kan replikera alla arbetsbelastningar som körs på en dator det finns replikeringsstöd för. Dessutom har Site Recovery-teamet utfört appspecifika tester för ett [antal appar](site-recovery-workload.md#workload-summary).
 
 
-## <a name="azure-portal-considerations"></a>Att tänka på om Azure portal
-
-* Site Recovery kan distribueras i [Azure-portalen](https://portal.azure.com).
-* På den klassiska Azure-portalen kan du använda Site Recovery med den klassiska tjänsthanteringsmodellen.
-- Du bör bara använda den klassiska portalen till att underhålla befintliga Site Recovery-distributioner. Du kan inte skapa nya valv i den klassiska portalen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [stöd för arbetsbelastning](site-recovery-workload.md)
-* Kom igång med [Azure VM replikering mellan regioner](site-recovery-azure-to-azure.md), [VMware-replikering till Azure](vmware-walkthrough-overview.md) eller [Hyper-V-replikering till Azure](hyper-v-site-walkthrough-overview.md).
+* Läs mer om [stöd för arbetsbelastning](site-recovery-workload.md).
+* Kom igång med replikering av [virtuella Azure-datorer mellan regioner](azure-to-azure-quickstart.md). 

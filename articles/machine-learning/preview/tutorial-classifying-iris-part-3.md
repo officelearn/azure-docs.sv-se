@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 048d734277f855086a48ad00a52b873adbf419b4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: distribuera en modell
 Azure Machine Learning (förhandsversion) är en integrerad, avancerad lösning för datavetenskap och analys, som datatekniker kan använda till att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -85,15 +85,15 @@ Om du vill distribuera webbtjänsten behöver du förutom modellfilen även ett 
 
    ![Bedömningsfil](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. Du skapar schemafilen genom att köra skriptet. Välj miljön **lokalt** och skriptet **iris_score.py** i kommandofältet och klicka sedan på knappen **Kör**. 
+4. Du skapar schemafilen genom att köra skriptet. Välj miljön **lokalt** och skriptet **iris-score.py** i kommandofältet och klicka sedan på knappen **Kör**. 
 
 5. Det här skriptet skapar en JSON-fil i mappen **outputs**, som fångar det indataschema som behövs i modellen.
 
-6. Lägg märke till fönstret Jobb till höger om Machine Learning Workbench-fönstret. Vänta tills det senaste jobbet **iris\_score.py** visar den gröna statusen **Slutfört**. Klicka på hyperlänken **iris\_score.py [1]** för den senaste jobbkörningen så att du ser körningsdetaljerna för körningen av **iris_score.py**. 
+6. Lägg märke till fönstret Jobb till höger om Machine Learning Workbench-fönstret. Vänta tills det senaste jobbet **iris-score.py** visar den gröna statusen **Slutfört**. Klicka på hyperlänken **iris-score.py [1]** för den senaste jobbkörningen så att du ser körningsdetaljerna för körningen av **iris-score.py**. 
 
 7. I avsnittet **Utdata** på sidan Körningsegenskaper väljer du den nya filen **service_schema.json**. **Markera** filen och klicka på **Ladda ned**. Spara filen i rotmappen för projektet.
 
-8. Gå tillbaka till den föregående fliken där du öppnade skriptet **iris_score.py**. 
+8. Gå tillbaka till den föregående fliken där du öppnade skriptet **iris-score.py**. 
 
    Notera användningen av datainsamling som låter dig fånga modellindata och förutsägelser från webbtjänsten. Följande punkter är särskilt intressanta vid datainsamling:
 
@@ -120,6 +120,9 @@ Om du vill distribuera webbtjänsten behöver du förutom modellfilen även ett 
    ```
 
 Du är nu redo att förbereda miljön för att operationalisera modellen.
+
+>[!NOTE]
+>För att distribuera modeller måste du ha ägaråtkomst till en Azure-prenumeration.
 
 ## <a name="prepare-to-operationalize-locally"></a>Förbereda för att operationalisera lokalt
 Använd _lokalt läge_ som distribution för att köra i Docker-behållare lokalt.
@@ -201,7 +204,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
 1. Kör följande kommando för att skapa en realtidswebbtjänst:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    Det här genererar ett webbtjänst-ID som du kan använda senare.
 
@@ -241,7 +244,7 @@ Som ett alternativ till kommandot **az ml service create realtime** ovan kan du 
    Använd det här kommandot när du ska skapa ett manifest, och ange modell-ID:t från föregående steg:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    Det här kommandot genererar ett manifest-ID.
 

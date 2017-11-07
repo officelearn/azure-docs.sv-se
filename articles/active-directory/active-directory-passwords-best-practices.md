@@ -13,31 +13,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4cfc1652377f0cfd059e336aec6994b40d32c559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="roll-out-password-reset-for-users"></a>Distribuera lösenordsåterställning till användare
+# <a name="how-to-successfully-rollout-self-service-password-reset"></a>Så här distribuerar du självbetjäning för återställning av lösenord
 
-Merparten av kunderna följer helt enkelt stegen nedan för att säkerställa en smidig distribution av självbetjäningsfunktionen för återställning av lösenord (SSPR).
+Merparten av kunderna följer stegen nedan för att säkerställa en smidig distribution av självbetjäningsfunktionen för återställning av lösenord (SSPR).
 
-1. [Aktivera lösenordsåterställning i katalogen](active-directory-passwords-getting-started.md)
-2. [Konfigurera lokala AD-behörigheter för tillbakaskrivning av lösenord](active-directory-passwords-how-it-works.md#active-directory-permissions)
-3. [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback) för att skriva lösenord från Azure AD tillbaka till din lokala katalog
-4. [Tilldela och verifiera nödvändiga licenser](active-directory-passwords-licensing.md)
-5. Om du vill distribuera tjänsten gradvis kan du välja att begränsa lösenordsåterställning till en viss grupp användare och sedan utöka gruppen långsamt över tid. Gör detta genom att gå till **Återställning av lösenord via självbetjäning har aktiverats** och byta inställning från **Alla** till **En grupp**. Välj en säkerhetsgrupp för aktivering av lösenordsåterställning. Alla medlemmarna i den här gruppen måste ha fått licenser tilldelade. Det här är ett ypperligt tillfälle att prova [gruppbaserad licensiering](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing).
-6. Fyll i [autentiseringsdata](active-directory-passwords-data.md) i den utsträckning som era principer kräver.
-7. Lär gärna era användare hur de gör för att använda SSPR – skicka ut anvisningar för hur man registrerar sig och återställer lösenord.
-    > [!NOTE]
+1. [Aktivera lösenordsåterställning i katalogen](active-directory-passwords-getting-started.md).
+2. [Konfigurera lokala AD-behörigheter för tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#active-directory-permissions).
+3. [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback) för att skriva lösenord från Azure AD tillbaka till din lokala katalog.
+4. [Tilldela och verifiera nödvändiga licenser](active-directory-passwords-licensing.md).
+5. Om du vill distribuera SSPR gradvis kan du begränsa åtkomsten till en grupp användare så att du först kan testa med en viss grupp. Gör detta genom att gå till **Återställning av lösenord via självbetjäning har aktiverats**, byta inställning till **Valda** och välja säkerhetsgruppen för aktivering av lösenordsåterställning. 
+6. Fyll i [Autentiseringsdata](active-directory-passwords-data.md) för användarna, till exempel deras arbetstelefon, mobiltelefon och alternativa e-postadress.
+7. [Anpassa Azure AD-inloggningen för att inkludera din företagsanpassning](active-directory-passwords-customize.md).
+8. Lär gärna era användare hur de gör för att använda SSPR – skicka ut anvisningar för hur man registrerar sig och återställer lösenord.
+9. Du kan välja att framtvinga registrering när som helst. Användaren måste då bekräfta sin autentiseringsinformation efter en viss tidsperiod.
+10. Om du vill granska användarnas registreringar och användning kan du gå igenom [rapporterna från Azure AD](active-directory-passwords-reporting.md).
+11. När du är redo kan du aktivera återställning av lösenord för alla användare genom att ställa in **Återställning av lösenord via självbetjäning har aktiverats** på **Alla**. 
+
+    > [!IMPORTANT]
     > Testa SSPR med en användare och inte en administratör eftersom Microsoft tillämpar starka autentiseringskrav för Azure-konton av administratörstyp. Mer information om lösenordsprinciper för administratörer finns i vår [djupgående artikel](active-directory-passwords-how-it-works.md).
-
-8. Du kan välja att framtvinga registrering när som helst. Användaren måste då bekräfta sin autentiseringsinformation efter en viss tidsperiod. Om du inte vill att användarna ska behöva registrera sig kan du [distribuera lösenordsåterställning utan registrerad slutanvändare](active-directory-passwords-data.md).
-9. Om du vill granska användarnas registreringar och användning kan du gå igenom [rapporterna från Azure AD](active-directory-passwords-reporting.md).
 
 ## <a name="email-based-rollout"></a>E-postbaserad distribution
 
@@ -47,13 +49,17 @@ Många kunder tycker att det enklaste sättet att få användarna att använda S
 * **Available Now** (Nu tillgänglig) – Den här e-postmallen används samma dag som distributionen äger rum för att tvinga användarna att registrera sig och bekräfta sina autentiseringsdata, så att de kan använda SSPR vid behov.
 * **Sign up Reminder** (Påminnelse om registrering) – Den här e-postmallen används under några dagar eller veckor efter distributionen för att påminna användarna om att de måste registrera sig och bekräfta sina autentiseringsdata.
 
+![E-post][Email]
+
 ## <a name="creating-your-own-password-portal"></a>Skapa din egen lösenordsportal
 
 Många av våra större kunder väljer att själva agera värd för webbsidan och skapar en DNS-rot, till exempel https://passwords.contoso.com. De fyller vanligtvis sidan med länkar till återställning av Azure AD-lösenord, registrering inför lösenordsåterställning och annan företagsspecifik information. De kan då skicka ut e-post eller flygblad med en egen URL som är lätt att komma ihåg, och dit användarna kan vända sig när de behöver använda tjänsterna.
 
-* Portal för lösenordsåterställning – https://passwordreset.microsoftonline.com/
+* Portal för lösenordsåterställning – https://aka.ms/sspr
 * Portal för registrering inför lösenordsåterställning – http://aka.ms/ssprsetup
 * Portal för ändring av lösenord – https://account.activedirectory.windowsazure.com/ChangePassword.aspx
+
+Vi har skapat en exempelsida som du kan använda och anpassa efter din organisations behov. Sidan kan hämtas från [GitHub](https://github.com/ajamess/password-reset-page).
 
 ## <a name="using-enforced-registration"></a>Använda tvingade registrering
 
@@ -73,15 +79,15 @@ Om du vill inaktivera självbetjäningsfunktionen för återställning av lösen
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande länkar ger ytterligare information om lösenordsåterställning med Azure AD
+* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
+* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md).
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
+* [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](active-directory-passwords-writeback.md)
+* [Hur gör jag för att rapportera på aktivitet i SSPR?](active-directory-passwords-reporting.md)
+* [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
+* [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
-* [**Snabbstart** ](active-directory-passwords-getting-started.md) – Kom igång med självbetjäningsfunktionen för återställning av lösenord i Azure AD 
-* [**Licensiering**](active-directory-passwords-licensing.md) – Konfigurera Azure AD-licensiering
-* [**Data**](active-directory-passwords-data.md) – Förstå de data som krävs och hur de används för lösenordshantering
-* [**Anpassa**](active-directory-passwords-customize.md) – Anpassa utseendet för företagets SSPR-funktion.
-* [**Princip**](active-directory-passwords-policy.md) – Förstå och ange principer för Azure AD-lösenord
-* [**Tillbakaskrivning av lösenord**](active-directory-passwords-writeback.md) – Hur fungerar tillbakaskrivning av lösenord tillsammans med din lokala katalog?
-* [**Rapportering**](active-directory-passwords-reporting.md) – Identifiera om, när och var dina användare kommer åt SSPR-funktioner
-* [**Teknisk djupdykning** ](active-directory-passwords-how-it-works.md) – Ta en titt bakom kulisserna för att förstå hur det hela fungerar
-* [**Vanliga frågor och svar**](active-directory-passwords-faq.md) – Hur gör man? Varför? Vad? Var? Vem? När? – Svar på allt du någonsin velat fråga
-* [**Felsökning** ](active-directory-passwords-troubleshoot.md) – Lär dig att lösa vanliga problem med SSPR
+[Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Anpassa de här e-postmallarna så att de passar din organisations krav"

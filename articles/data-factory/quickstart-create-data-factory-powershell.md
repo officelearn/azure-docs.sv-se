@@ -13,16 +13,23 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: efcdcac0edcdc3e3bd87dae89609e04985a3579e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 82c6f69e886bfe86b2839e7efc3579782c8c3dce
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>Skapa en datafabrik och pipeline med PowerShell
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 – allmänt tillgänglig](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Version 2 – förhandsversion](quickstart-create-data-factory-powershell.md)
+
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
 
 Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Azure-datafabrik. Pipeline i den här datafabriken kopierar data från en plats till en annan i Azure Blob Storage.
+
+> [!NOTE]
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Kom igång med Data Factory version 1).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

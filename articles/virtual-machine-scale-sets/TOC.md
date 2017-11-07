@@ -36,6 +36,7 @@
 #### [Använda Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
 #### [Använda Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Vertikal skalning i en skalningsuppsättning](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+### [Automatiska OS-uppgraderingar](virtual-machine-scale-sets-automatic-upgrade.md)
 ### [Uppgraderingar för skalningsuppsättningar](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Använda DSC och skalningsuppsättningar](virtual-machine-scale-sets-dsc.md)
 ### [Nätverk för skalningsuppsättningar](virtual-machine-scale-sets-networking.md)

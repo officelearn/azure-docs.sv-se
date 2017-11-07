@@ -3,7 +3,7 @@ title: "Komma igång med Azure DNS med PowerShell | Microsoft Docs"
 description: "Läs om hur du skapar en DNS-zon och en DNS-post i Azure DNS. Detta är en steg-för-steg-guide om hur du skapar och hanterar din första DNS-zon och DNS-post med PowerShell."
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0b0d474752615e60747ffe7681c2d04cd2685bba
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>Komma igång med Azure DNS med PowerShell
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
-Den här artikeln visar hur du skapar din första DNS-zon och DNS-post med Azure PowerShell. Du kan också utföra dessa steg med Azure Portal eller plattformsoberoende Azure CLI.
+Den här artikeln visar hur du skapar din första DNS-zon och DNS-post med Azure PowerShell. Du kan också utföra dessa steg med Azure Portal eller plattformsoberoende Azure CLI. Azure DNS stöder också skapandet av privata domäner. Stegvisa instruktioner för hur du skapar din första privata DNS-zon och post finns i [Komma igång med privata Azure DNS-zoner med PowerShell](private-dns-getstarted-powershell.md).
 
 En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera din DNS-zon på Internet måste du konfigurera namnservrarna för domänen. Dessa steg beskrivs nedan.
 

@@ -1,24 +1,24 @@
 ---
 title: "Hantera uppdateringar för flera virtuella Azure-datorer | Microsoft Docs"
-description: "Publicera virtuella Azure-datorer för att hantera uppdateringar."
-services: operations-management-suite
+description: "Det här ämnet beskriver hur du hanterar uppdateringar för virtuella Azure-datorer."
+services: automation
 documentationcenter: 
 author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 89bf87f27fdf276068cba261fc6ae1660307e0b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/31/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Hantera uppdateringar för flera virtuella Azure-datorer
 
@@ -27,10 +27,46 @@ Från ditt [Azure Automation](automation-offering-get-started.md)-konto kan du s
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra stegen i den här guiden behöver du:
+Om du vill använda uppdateringshantering behöver du:
 
-* Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
-* En virtuell dator med Azure Resource Manager (inte klassisk). Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* Ett Azure Automation-konto. Se [Getting Started with Azure Automation](automation-offering-get-started.md) (Komma igång med Azure Automation) för instruktioner om hur du skapar ett Kör som-konto för Azure Automation.
+
+* En virtuell dator eller en dator med ett operativsystem som stöds installerat.
+
+## <a name="supported-operating-systems"></a>Operativsystem som stöds
+
+Uppdateringshantering stöds på följande operativsystem.
+
+### <a name="windows"></a>Windows
+
+* Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2008 R2 SP1 och högre.  Installationsalternativ för Server Core och Nano Server stöds inte.
+
+    > [!NOTE]
+    > Stöd för att distribuera uppdateringar till Windows Server 2008 R2 SP1 kräver .NET Framework 4.5 och WMF 5.0 eller senare.
+    > 
+* Windows-klientoperativsystem stöds inte.
+
+Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-server (Windows Server Update Services) eller ha åtkomst till Microsoft Update.
+
+> [!NOTE]
+> Windows-agenten kan inte hanteras samtidigt av System Center Configuration Manager.
+>
+
+### <a name="linux"></a>Linux
+
+* CentOS 6 (x86/x64) och 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64) och 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)  
+* Ubuntu 12.04 LTS och senare x86/x64   
+
+> [!NOTE]  
+> Konfigurera om Unattended Upgrade-paketet om du vill inaktivera automatiska uppdateringar för att undvika att uppdateringar tillämpas utanför en underhållsperiod på Ubuntu. Mer information om hur du konfigurerar detta finns i avsnittet [automatiska uppdateringar i handboken för Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
+Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.
+
+> [!NOTE]
+> En OMS-agent för Linux som konfigurerats för att rapportera till flera OMS-arbetsytor stöds inte av den här lösningen.  
+>
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Aktivera uppdateringshantering för virtuella Azure-datorer
 
@@ -45,9 +81,36 @@ För att slutföra stegen i den här guiden behöver du:
 
 Uppdateringshantering har aktiverats för den virtuella datorn.
 
+## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Aktivera uppdateringshantering för virtuella datorer som inte använder Azure och datorer
+
+Instruktioner om hur du aktiverar uppdateringshantering för virtuella datorer som inte använder Azure Windows och datorer finns i [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md) (Anslut Windows-datorer till Log Analytics-tjänsten i Azure).
+
+Instruktioner om hur du aktiverar uppdateringshantering för virtuella datorer som inte använder Azure Linux och datorer finns i [Connect your Linux Computers to Operations Management Suite (OMS)](../log-analytics/log-analytics-agent-linux.md) (Anslut Linux-datorer till Operations Management Suite (OMS)).
+
 ## <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
 När **uppdateringshantering** är aktiverat visas skärmen **Hantering av uppdateringar**. Du kan se en lista med uppdateringar som saknas på fliken  **Uppdateringar som saknas**.
+
+## <a name="data-collection"></a>Datainsamling
+
+Agenter som installerats på virtuella datorer och datorer samlar in data om uppdateringar och skickar dem till Azures uppdateringshantering.
+
+### <a name="supported-agents"></a>Agenter som stöds
+
+I följande tabell beskrivs de anslutna källor som stöds av den här lösningen.
+
+| Ansluten källa | Stöds | Beskrivning |
+| --- | --- | --- |
+| Windows-agenter |Ja |Uppdateringshanteringen samlar in information om systemuppdateringar från Windows-agenter och initierar installationen av nödvändiga uppdateringar. |
+| Linux-agenter |Ja |Uppdateringshanteringen samlar in information om systemuppdateringar från Linux-agenter och initierar installationen av nödvändiga uppdateringar för distributioner som stöds. |
+| Operations Manager-hanteringsgrupp |Ja |Uppdateringshanteringen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp. |
+| Azure Storage-konto |Nej |Azure Storage inkluderar inte information om systemuppdateringar. |
+
+### <a name="collection-frequency"></a>Insamlingsfrekvens
+
+För varje hanterad Windows-dator utförs en genomsökning två gånger per dag. Var 15:e minut anropas Windows API för att fråga efter den senaste uppdateringstiden för att fastställa om statusen har ändrats, och i så fall om en fullständig genomsökning har initierats.  För varje hanterad Linux-dator utförs en sökning var tredje timme.
+
+Det kan ta alltifrån 30 minuter upp till 6 timmar för instrumentpanelen att visa uppdaterade data från hanterade datorer.
 
 ## <a name="schedule-an-update-deployment"></a>Schemalägga en uppdateringsdistribution
 
@@ -106,6 +169,8 @@ Klicka på **Alla loggar** om du vill se alla loggposter som har skapats för di
 Klicka på panelen **Utdata** om du vill se jobbströmmen för den runbook som ansvarar för att hantera uppdateringsdistributionen på den virtuella måldatorn.
 
 Klicka på **Fel** om du vill se detaljerad information om fel som uppstått vid distributionen.
+
+Mer information om loggar, utdata och felinformation finns i [Uppdateringshantering](../operations-management-suite/oms-solution-update-management.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

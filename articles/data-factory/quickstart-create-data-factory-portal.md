@@ -11,16 +11,23 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: b884d7f08311cc60dc3af500f552d525d23b91e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f49fbff9f66dc081e94b35e1318a2c9aee60dc0
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-data-factory-using-the-azure-portal"></a>Skapa en datafabrik med hjälp av Azure-portalen
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 – allmänt tillgänglig](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Version 2 – förhandsversion](quickstart-create-data-factory-portal.md)
+
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
 
 I den här snabbstartsguiden använder du Azure-portalen för att skapa en datafabrik. När du har skapat datafabriken behöver du använda PowerShell, .NET SDK, Python SDK eller REST API och en datapipeline som kopierar data från ett källdatalager till ett måldatalager, precis som i andra snabbstarter. För närvarande kan du inte skapa pipelines i en datafabrik med hjälp av Azure-portalen.
+
+> [!NOTE]
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Läs [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (kom igång med Data Factory version 1) om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

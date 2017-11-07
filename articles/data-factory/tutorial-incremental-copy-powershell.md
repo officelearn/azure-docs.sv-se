@@ -11,16 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: a9d59e8ad2669b7a00ec83e019148bbac96f679f
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: f6f90f35fc4d26c0cdb021e85a159d4984d48399
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage
-Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
+
+[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
+
+#### <a name="this-tutorial"></a>Den här självstudien
+
+> [!NOTE]
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen för Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Under dataintegreringen är en av de vanliga scenarierna att stegvis läsa in data regelbundet för att uppdatera uppdaterade analysresultat efter de första databelastningarna och analyserna. I den här självstudiekursen fokuserar du på att endast läsa in nya eller uppdaterade poster från datakällor i datamottagare. Då blir körningen effektivare än fullständiga inläsningar, särskilt för stora datauppsättningar.    
 

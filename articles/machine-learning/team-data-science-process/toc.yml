@@ -84,8 +84,20 @@
         - name: Azure Machine Learning-arbetsyta
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: Konfigurera virtuella datorer
-          href: virtual-machines.md
+        - name: Konfigurera en virtuell dator för datavetenskap
+          items:
+            - name: Skapa en virtuell Windows-dator för datavetenskap
+              href: ../data-science-virtual-machine/provision-vm.md
+              maintainContext: true
+            - name: Skapa en virtuell Ubuntu-dator för datavetenskap
+              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+              maintainContext: true
+            - name: Skapa en virtuell CentOS-dator för datavetenskap
+              href: ../data-science-virtual-machine/linux-dsvm-intro.md
+              maintainContext: true
+            - name: Skapa en virtuell dator för djupinlärning
+              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+              maintainContext: true
     - name: Analysera verksamhetsbehov
       items:
         - name: Identifiera ditt scenario

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 070805ed4cd7e2d03a47fc04c01ea331c664e2cb
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 832cb92f07696ac5ea4df74467899adcc0de0903
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI
 
@@ -87,6 +87,11 @@ az group create --name TestRG1 --location eastus
 ## <a name="VNet"></a>3. Skapa ett virtuellt nätverk
 
 Om du inte redan har ett virtuellt nätverk skapar du ett med kommandot [az network vnet create](/cli/azure/network/vnet#create). När du skapar ett virtuellt nätverk ska du kontrollera att de adressutrymmen du anger inte överlappar några adressutrymmen som du har i det lokala nätverket.
+
+>[!NOTE]
+>För att detta VNet ska anslutas till en lokal plats måste du kontakta den lokala nätverksadministratören för att få ett intervall med IP-adresser som du kan använda specifikt för det här virtuella nätverket. Annars dirigeras inte trafiken rätt om det finns ett duplicerat adressintervall på båda sidorna av VPN-anslutningen.
+>
+>
 
 I följande exempel skapas ett virtuellt nätverk med namnet ”TestVNet1” och ett undernät, ”Subnet1”.
 

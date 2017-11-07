@@ -1,133 +1,133 @@
-You can create virtual machines in Azure by using Server Explorer in Visual Studio.
+Du kan skapa virtuella datorer i Azure med hjälp av Server Explorer i Visual Studio.
 
-## <a name="create-an-azure-virtual-machine-in-server-explorer"></a>Create an Azure virtual machine in Server Explorer
-While you can create a virtual machine in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103), you can also create a virtual machine in Azure by using commands in Server Explorer. Virtual machines can be used, for example, to provide a front end behind a common load-balanced public endpoint.
+## <a name="create-an-azure-virtual-machine-in-server-explorer"></a>Skapa en virtuell Azure-dator i Server Explorer
+Du kan skapa en virtuell dator i den [Azure-hanteringsportalen](http://go.microsoft.com/fwlink/?LinkID=253103), du kan också skapa en virtuell dator i Azure med hjälp av kommandon i Server Explorer. Virtuella datorer kan användas, till exempel att tillhandahålla en klientdel bakom en gemensam offentlig belastningsutjämnade-slutpunkt.
 
-### <a name="to-create-a-new-virtual-machine"></a>To create a new virtual machine
-1. In Server Explorer, open the **Azure** node and click **Virtual Machines**.
-2. On the context menu, click **Create Virtual Machine**.
+### <a name="to-create-a-new-virtual-machine"></a>Skapa en ny virtuell dator
+1. I Server Explorer öppnar den **Azure** och klickar på **virtuella datorer**.
+2. Klicka på snabbmenyn **Skapa virtuell dator**.
    
-    The **Create a New Virtual Machine** wizard appears.
+    Den **skapa en ny virtuell dator** guiden visas.
    
-    ![The Create Virtual Machine command](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
-3. On the **Choose a Subscription** page, select a subscription to use when creating the virtual machine and then click **Next**.
+    ![Kommandot Skapa virtuell dator](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
+3. På den **Välj en prenumeration** , välja en prenumeration att använda när du skapar den virtuella datorn och klickar sedan på **nästa**.
    
-    If you aren’t signed in to Azure, click **Sign In** to sign in. Then, select your Azure subscription in the dropdown list box if it’s not already selected.
-4. On the **Select a Virtual Machine Image** page, select an image type in the **Image type** dropdown list box, and then select a virtual machine images in the **Image name** list box. When you're done, click **Next**.
+    Om du inte är inloggad på Azure, klickar du på **logga In** att logga in. Markera din Azure-prenumeration i listrutan om den inte redan är markerad.
+4. På den **markerar du en avbildning av virtuell dator** väljer du en bildtyp i den **bildtypen** nedrullningsbar listruta och välj sedan en avbildningar av virtuella datorer i den **avbildningsnamn** listruta . När du är klar klickar du på **nästa**.
    
-    ![Select a virtual machine image page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
+    ![Välj en virtuell dator sida](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
    
-    You can choose the following image types.
+    Du kan välja följande bildtyper.
    
-   * **Public Images** lists virtual machine images of operating systems and server software such as Windows Server and SQL Server.
-   * **MSDN Images** lists virtual machine images of software available to MSDN subscribers, such as Visual Studio and Microsoft Dynamics.
-   * **Private Images** lists specialized and generalized virtual machine images that you've created.
+   * **Offentliga bilder** visar virtuella avbildningar av operativsystem och serverprogram, till exempel Windows Server och SQL Server.
+   * **MSDN-bilder** visar virtuella avbildningar av program som är tillgängliga för MSDN-prenumeranter som Visual Studio och Microsoft Dynamics.
+   * **Privat bilder** listor specialiserade och generaliserad avbildningar av virtuella datorer som du har skapat.
      
-     To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
+     Mer information om särskilda och generaliserad virtuella datorer, se [VM-avbildning](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). Se [så här skapar du en virtuell dator i Windows till mall](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) för information om hur du aktiverar en virtuell dator till en mall som du kan använda för att snabbt skapa nya förkonfigurerade virtuella datorer.
      
-     You can click a virtual machine image name to see information about the image on the right side of the page.
+     Du kan klicka på en virtuell dator avbildningen kan se information om bilden till höger på sidan.
      
      > [!NOTE]
-     > You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
+     > Du kan inte lägga till avbildningar av virtuella datorer till den **offentliga bilder** eller **MSDN-bilder** visas eftersom de är skrivskyddad. Alla virtuella datorer som du skapar läggs till i **privata bilder** lista.
      > 
      > 
      
-     If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images. For more information, see [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) and [MSDN subscriptions](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
-5. On the **Virtual Machine Basic Settings** page, enter a machine name and then add the specifications for the virtual machine, including the size, and a user name and password. When you're done, click **Next**.
+     Om du är en MSDN-prenumerant med en prenumeration på Visual Studio-nivån, kan du skapa en förskapad Azure virtuell dator som innehåller Visual Studio, samt andra bilder. Mer information finns i [skapar en virtuell dator i Visual Studio av avbildningen med hjälp av avbildningar Visual Studio 2013-galleriet för MSDN-prenumeranter](http://visualstudio2013msdngalleryimage.azurewebsites.net) och [MSDN prenumerationer](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
+5. På den **grundläggande inställningar för virtuell dator** anger du ett namn för datorn och Lägg sedan till specifikationerna för den virtuella datorn, inklusive storlek, och ett användarnamn och lösenord. När du är klar klickar du på **nästa**.
    
-    You’ll use the new name and password to log into the machine using remote desktop, so it’s a good idea to write them down in case you forget. After you create an Azure virtual machine in Visual Studio, you can change its size and other settings in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
-   
-   > [!NOTE]
-   > If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
-   > 
-   > 
-6. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Microsoft Azure Storage](../articles/storage/common/storage-introduction.md) for more information.
-7. If you want to specify a virtual network (which is optional), select it in the Virtual Network and Subnet dropdown list boxes.
-   
-    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) for more information.
-8. If you want your virtual machine to belong to an availability set (also optional), select the **Specify an availability set** check box and then choose an availability set in the dropdown list box. When you're done, choose the **Next** button.
-   
-    Adding your virtual machine to an availability set helps your application stay available during network failures, local disk hardware failures, and any planned downtime. You need to use the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103) to create virtual networks, subnets, and availability sets. See [Manage the Availability of Virtual Machines](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) for more information.
-9. On the **Endpoints** page, specify the public endpoints that you want available to users of your virtual machine. For example, you might choose to enable HTTP (Port 80) in addition to the Remote Desktop and PowerShell endpoints, which are enabled by default. To add an endpoint, choose one in the **Port Name** dropdown list box and then choose the **Add** button. To remove an endpoint, choose the red **X** next to the name in the endpoints list.
-   
-    ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
-   
-    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
+    Du ska använda nytt namn och lösenord för att logga in på datorn med hjälp av fjärrskrivbord, så det är en bra idé att skriva ned om du skulle glömma. När du har skapat en virtuell Azure-dator i Visual Studio kan du ändra dess storlek och andra inställningar i den [Azure-hanteringsportalen](http://go.microsoft.com/fwlink/?LinkID=253103).
    
    > [!NOTE]
-   > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
+   > Om du väljer större storlek för den virtuella datorn, kan extra avgifter tillkomma. Se [prisinformation för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/) för mer information.
    > 
    > 
-10. After you’re done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
+6. Virtuella datorer som skapats i Visual Studio kräver en tjänst i molnet. På den **moln tjänstinställningar** väljer du en tjänst i molnet för den virtuella datorn, eller klicka på **< Skapa nytt >** i den nedrullningsbara listan om du inte redan har ett moln tjänst eller använda en ny. Ett lagringskonto krävs också, så väljer något lagringskonto (eller skapa ett nytt lagringskonto) i den **lagringskonto** listrutan. Se [introduktion till Microsoft Azure Storage](../articles/storage/common/storage-introduction.md) för mer information.
+7. Om du vill ange ett virtuellt nätverk (som är valfri) markerar du den i listrutorna för listrutan virtuellt nätverk och undernät.
+   
+    Virtuella datorer som är medlemmar i en tillgänglighetsuppsättning har distribuerats till olika feldomäner. Se [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) för mer information.
+8. Om du vill att den virtuella datorn ska tillhöra en tillgänglighetsuppsättning (även valfritt) Välj den **ange en tillgänglighetsuppsättning** kryssrutan och välj sedan en tillgänglighetsuppsättning i den nedrullningsbara listrutan. När du är klar väljer du den **nästa** knappen.
+   
+    Lägger till den virtuella datorn i en tillgänglighetsuppsättning hjälper ditt program vara tillgängliga under nätverksfel, lokal disk maskinvarufel och planerade driftavbrott. Du måste använda den [Azure-hanteringsportalen](http://go.microsoft.com/fwlink/?LinkID=253103) att skapa virtuella nätverk, undernät och tillgänglighet. Se [hantera tillgängligheten för Virtual Machines](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) för mer information.
+9. På den **slutpunkter** anger de offentliga slutpunkterna som finns tillgängliga för användare av den virtuella datorn. Du kan till exempel välja att aktivera HTTP (Port 80) förutom fjärrskrivbord och PowerShell-slutpunkter som är aktiverade som standard. Om du vill lägga till en slutpunkt kan du välja det i den **portnamn** nedrullningsbara listan listruta och välj sedan den **Lägg till** knappen. Ta bort en slutpunkt, välja röda **X** bredvid namnet i listan över slutpunkter.
+   
+    ![Sidan slutpunkter i guiden för virtuella datorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
+   
+    Slutpunkter som är tillgängliga beror på den molntjänst som du valt för den virtuella datorn. Se [Azure Tjänsteslutpunkter](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) för mer information.
+   
+   > [!NOTE]
+   > Aktivera offentliga slutpunkter tillgängliggör services på den virtuella datorn till internet. Se till att installera och konfigurera slutpunkter och tjänster på den virtuella datorn som inställningen åtkomstkontrollistor (ACL) för slutpunkter. Se [så ange slutpunkter till en virtuell dator](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) för mer information.
+   > 
+   > 
+10. När du är klar väljer du konfigurerar inställningarna för virtuella datorn, den **skapa** för att skapa den virtuella datorn.
     
-     As Azure creates the virtual machine, the **Azure Activity Log** shows the progress of the virtual machine creation operation.
+     Eftersom Azure skapar den virtuella datorn, den **Azure-aktivitetsloggen** visar förloppet för åtgärden för att skapa virtuella datorn.
     
-     ![Virtual machine activity log - in progress.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
+     ![Virtuella aktivitetsloggen - pågår.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
     
-     To view only virtual machine information, choose the **Virtual Machines** tab in the **Azure Activity Log**.
+     Välj för att visa information om virtuella datorn endast den **virtuella datorer** fliken i den **Azure-aktivitetsloggen**.
     
-     ![Virtual machine activity log - completed.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
+     ![Virtuella aktivitetsloggen - slutfördes.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
     
-     If the operation completes successfully, the new virtual machine appears under the **Virtual Machines** node in Server Explorer. You can log into it by clicking the **Connect using Remote Desktop** shortcut.
+     Om åtgärden är klar visas den nya virtuella datorn under den **virtuella datorer** nod i Server Explorer. Du kan logga in på den genom att klicka på den **ansluta med hjälp av fjärrskrivbord** genväg.
     
-     ![Virtual machine appearing in Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
+     ![Den virtuella datorn som visas i Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 
-## <a name="manage-your-virtual-machines"></a>Manage your virtual machines
-On the virtual machine configuration page, in addition to shutting down, connecting, refreshing, and adding checkpoints to the selected virtual machine, you can also view or change settings for the virtual machine. You can:
+## <a name="manage-your-virtual-machines"></a>Hantera dina virtuella datorer
+Du kan också visa eller ändra inställningarna för den virtuella datorn på konfigurationssidan virtuella förutom avslutas, ansluta, uppdatera och lägga till kontrollpunkter till den valda virtuella datorn. Du kan:
 
-* Change the virtual machine size.
-* Select the availability set to use with the virtual machine.
-* Add, remove, or change settings for public endpoints.
-* Add, remove, or configure virtual machine extensions.
-* View information about the disks associated with the virtual machine.
+* Ändra storleken på virtuella datorn.
+* Välj tillgänglighetsuppsättning för att använda med den virtuella datorn.
+* Lägga till, ta bort eller ändra inställningar för offentliga slutpunkter.
+* Lägga till, ta bort eller konfigurera tillägg för virtuell dator.
+* Visa information om de diskar som är kopplade till den virtuella datorn.
 
-### <a name="view-or-change-virtual-machine-settings"></a>View or change virtual machine settings
-1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
-2. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
+### <a name="view-or-change-virtual-machine-settings"></a>Visa eller ändra inställningar för virtuell dator
+1. I Server Explorer, väljer du den virtuella datorn i den **Azure Virtual Machines** nod.
+2. Välj på snabbmenyn **konfigurera** att visa konfigurationssidan för virtuell dator.
    
-    ![The Azure virtual machine configuration page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
-3. View the virtual machine information or change it.
+    ![Konfigurationssidan för virtuell Azure-dator](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
+3. Visa informationen om virtuella datorn eller ändra den.
 
-### <a name="save-or-restore-the-status-of-your-virtual-machine"></a>Save or restore the status of your virtual machine
-As you configure your virtual machine and install software on it, it's a good idea to regularly save your progress by creating virtual machine checkpoints. A checkpoint is a snapshot, or image, of the current state of your virtual machine. If something goes wrong with the virtual machine, or you want to reconfigure the virtual machine, you can save time by restoring it to a previous checkpoint state rather than starting over from scratch.
+### <a name="save-or-restore-the-status-of-your-virtual-machine"></a>Spara eller återställa status för den virtuella datorn
+När du konfigurera den virtuella datorn och installera programvara på den är en bra idé att regelbundet spara ditt arbete genom att skapa kontrollpunkter för virtuell dator. En kontrollpunkt är en ögonblicksbild eller avbildning av det aktuella tillståndet för den virtuella datorn. Om något går fel med den virtuella datorn eller om du vill konfigurera om den virtuella datorn, kan du spara tid genom att återställa den till ett tidigare tillstånd kontrollpunkt i stället för att börja om från början.
 
-### <a name="to-create-a-virtual-machine-checkpoint"></a>To create a virtual machine checkpoint
-1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
-2. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
-3. On the configuration page, choose the **Capture Image** button.
+### <a name="to-create-a-virtual-machine-checkpoint"></a>Skapa en kontrollpunkt för virtuell dator
+1. I Server Explorer, väljer du den virtuella datorn i den **Azure Virtual Machines** nod.
+2. Välj på snabbmenyn **konfigurera** att visa konfigurationssidan för virtuell dator.
+3. På konfigurationssidan, väljer du den **Skapa avbildning** knappen.
    
-    ![Azure configuration page capture button](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
+    ![Konfigurationen av Azure sidan klipp ut](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
    
-    The **Capture Virtual Machine** dialog appears.
+    Den **avbilda virtuella** visas.
    
-    ![Azure capture virtual machine dialog box](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
-4. Provide an image label and description. A default label and description are provided, but you can overwrite them with your own if you like.
-5. If you have already run Sysprep on this virtual machine, select the **I have run Sysprep on the virtual machine** box.
+    ![Dialogrutan för Azure avbilda virtuell dator](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
+4. Ange en avbildningsetiketten och en beskrivning. En standardetikett och en beskrivning finns, men du kan skriva över dem med din egen om du vill.
+5. Om du redan har kört Sysprep på den virtuella datorn, väljer du den **jag har kört Sysprep på den virtuella datorn** rutan.
    
-    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine’s version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for more information. Back up the VM before running Sysprep.
-6. After you’re done configuring the capture settings, choose the **Capture** button to create the checkpoint.
+    Sysprep är ett verktyg som bland annat tar bort system-specifika data från den virtuella datorns version av Windows, vilket gör den mall som andra kan använda. Se [så här skapar du en virtuell dator i Windows till mall](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) för mer information. Säkerhetskopiera den virtuella datorn innan du kör Sysprep.
+6. När du är klar väljer du konfigurera inställningar för avbildning, den **avbilda** för att skapa kontrollpunkten.
    
-    As Azure creates the checkpoint, the **Azure Activity Log** shows the progress of the operation.
+    Eftersom Azure skapar kontrollpunkt, den **Azure-aktivitetsloggen** visar status för åtgärden.
    
-    ![Capturing a virtual machine checkpoint](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
+    ![Skapa en kontrollpunkt för virtuell dator](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
    
-    When the checkpoint operation completes, you’ll see it in the **Azure Activity Log**.
+    När kontrollpunkt har slutförts, visas den i den **Azure-aktivitetsloggen**.
    
-    ![Checkpoint operation completed](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
+    ![CheckPoint-åtgärden slutfördes](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
 
-## <a name="to-manage-virtual-machine-checkpoints"></a>To manage virtual machine checkpoints
-### <a name="to-restore-a-virtual-machine-to-a-previously-saved-state"></a>To restore a virtual machine to a previously saved state
-* Follow the steps outlined in [Step-by-Step: Perform Cloud Restores of Microsoft Azure Virtual Machines using PowerShell - Part 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+## <a name="to-manage-virtual-machine-checkpoints"></a>Att hantera kontrollpunkter för virtuell dator
+### <a name="to-restore-a-virtual-machine-to-a-previously-saved-state"></a>Återställa en virtuell dator till ett tidigare sparat läge
+* Följ stegen som beskrivs i [stegvisa: utföra molnet återställer av Microsoft Azure virtuella datorer med hjälp av PowerShell - del 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
-### <a name="to-delete-a-checkpoint"></a>To delete a checkpoint
-1. Go to the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
-2. On the virtual machine configuration page, choose the **Images** tab at the top of the page.
-3. Choose the checkpoint you want to delete, and then choose the **Delete**  button at the bottom of the page.
+### <a name="to-delete-a-checkpoint"></a>Ta bort en kontrollpunkt
+1. Gå till den [Azure-hanteringsportalen](http://go.microsoft.com/fwlink/?LinkID=253103).
+2. På sidan för konfiguration av virtuell dator väljer du den **bilder** högst upp på sidan.
+3. Välj den kontrollpunkt som du vill ta bort och välj sedan den **ta bort** längst ned på sidan.
 
-## <a name="shut-down-your-virtual-machine"></a>Shut down your virtual machine
-1. In Server Explorer, choose the virtual machine you want to shut down in the **Azure Virtual Machines** node.
-2. On the shortcut menu, either choose the **Shutdown** command, or choose **Configure** to view the virtual machine configuration page, and then choose the **Shutdown** button.
+## <a name="shut-down-your-virtual-machine"></a>Stäng av den virtuella datorn
+1. I Server Explorer, väljer du den virtuella datorn som du vill stänga av i den **Azure Virtual Machines** nod.
+2. På snabbmenyn, väljer du antingen den **avstängning** kommandot, eller välj **konfigurera** att visa konfigurationssidan för virtuell dator och välj sedan den **avstängning** knappen.
 
-## <a name="next-steps"></a>Next steps
-To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual machine running Windows in the Azure preview portal](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+## <a name="next-steps"></a>Nästa steg
+Mer information om hur du skapar virtuella datorer finns [skapa en virtuell dator kör Linux](../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [skapa en virtuell dator som kör Windows i Azure preview portal](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

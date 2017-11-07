@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 4264af14370557c55050b0c4951812090d33d7a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -416,7 +416,7 @@ Här är vad du behöver göra i det här avsnittet:
 4. Skapa en **pipeline** som använder den anpassade aktiviteten.
 
 > [!NOTE]
-> Skapa den **fil.txt** och överföra den till en blob-behållare, om du inte redan gjort det.. Se anvisningarna i föregående avsnitt.   
+> Skapa den **fil.txt** och överföra den till en blob-behållare, om du inte redan gjort det. Se anvisningarna i föregående avsnitt.   
 
 ### <a name="step-1-create-the-data-factory"></a>Steg 1: Skapa datafabriken
 1. När du loggar in på Azure-portalen, gör du följande steg:

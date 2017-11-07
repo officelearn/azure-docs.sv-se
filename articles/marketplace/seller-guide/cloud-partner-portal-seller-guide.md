@@ -1,30 +1,35 @@
 ---
 title: "Guide för säljare för Azure Marketplace | Microsoft Docs"
-description: "Den här guiden används för företagsanvändare och produktchefer på oberoende programvaruleverantörer (ISV) som är intresserade sälja sina Azure certifierade avbildningar av virtuella datorer till IT-proffs och utvecklare."
+description: "Den här guiden används för företagsanvändare och produktchefer på oberoende programvaruleverantörer (ISV) som är intresserade sälja sina Azure certifierade avbildningar av virtuella datorer och hanterade program för IT-proffs och utvecklare."
 documentationcenter: 
-author: rupeshazure
-manager: hamidm
+author: divacc
+manager: prkumar
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: rupesk@microsoft.com
-ms.robots: NOINDEX, NOFOLLOW
-ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.author: divacc@microsoft.com
+ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Säljguide för Azure Marketplace
 
-Välkommen till guiden för säljare Azure Marketplace. Den här guiden är utformad för företagsanvändare och produktchefer på oberoende programvaruleverantörer (ISV) som är intresserade sälja sina Azure certifierade avbildningar av virtuella datorer till IT-proffs och utvecklare. Med Azure-kunder finns runtom i världen i [Marketplace](https://azuremarketplace.microsoft.com/) kan ge bra reach och exponering för dina produkter.
-
+Välkommen till guiden för säljare Azure Marketplace. Den här guiden är utformad för företagsanvändare och produktchefer på oberoende programvaruleverantörer (ISV) som är intresserade sälja sina Azure certifierade avbildningar av virtuella datorer och hanterade program för IT-proffs och utvecklare. Med Azure-kunder finns runtom i världen, [Azure Marketplace](https://azuremarketplace.microsoft.com/) kan ge bra reach och exponering för dina produkter.
 
 > [!NOTE]
-> Om du är intresserad av att sälja programvaran klar som en tjänst (SaaS)-produkter för användare i verksamheten kan du undersöka alternativ för att lista dem i [AppSource](https://appsource.microsoft.com).
+> Om du är intresserad av att sälja din [hanterat program](https://docs.microsoft.com/en-us/azure/managed-applications/overview), bör du följa instruktionerna för att lista dem i Azure Marketplace [här](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Om du är intresserad av att sälja programvaran klar som en tjänst (SaaS) produkter som ska _IT-proffs och utvecklare_, du kan nå ut till saas-on-amp@microsoft.com vill veta mer om alternativen.
+
+> [!NOTE]
+> Om du är intresserad av att sälja programvaran klar som en tjänst (SaaS) produkter som ska _företagsanvändare_, kan du undersöka alternativ för att lista dem i [AppSource](https://appsource.microsoft.com).
+
 
 I slutet av den här guiden vet du var du hittar mer information om dessa avsnitt:
 
@@ -43,9 +48,9 @@ Nu sätter vi igång.
 
 ## <a name="whats-the-azure-marketplace"></a>Vad är Azure Marketplace?
 
-Azure Marketplace är en online marketplace för program och tjänster som ISV--från nystartade företag till företag--har sina lösningar för Azure-kunder runtom i världen. På marknadsplatsen Azure utgivare distribuera och sälja sina avbildningar av virtuella datorer till andra tekniker som vill snabbt utveckla sina molnbaserade program och mobila lösningar i Azure. Marketplace stöder ett antal erbjudanden--från slutpunkt till slutpunkt data analytics program med databearbetning, datalagring och analys lager till nivåindelade e-handel appar (data, tjänst och Internet).
+Azure Marketplace är en online marketplace för program och tjänster som ISV--från nystartade företag till företag--har sina lösningar för Azure-kunder runtom i världen. På marknadsplatsen Azure utgivare kan distribuera och sälja sina avbildningar av virtuella datorer, hanterade program och SaaS-program till andra tekniker som snabbt vill utveckla sina molnbaserade program och mobila lösningar i Azure. Azure Marketplace stöder ett antal erbjudanden--från slutpunkt till slutpunkt data analytics program med databearbetning, datalagring och analys lager till nivåindelade e-handel appar (data, tjänst och Internet).
 
-Moln som kunderna står inför flera utmaningar när du söker efter lösningar på passar deras unika behov. Marketplace innehåller ett sätt att lösa dessa problem och ansluta kunder med innovativa ISV-lösningar som beskrivs i följande tabell:
+Moln som kunderna står inför flera utmaningar när du söker efter lösningar på passar deras unika behov. Azure Marketplace är ett sätt att lösa dessa problem och ansluta kunder med innovativa ISV-lösningar som beskrivs i följande tabell:
 
 | Kundens behov | Azure Marketplace-lösning |
 | --- | --- |
@@ -54,14 +59,14 @@ Moln som kunderna står inför flera utmaningar när du söker efter lösningar 
 | Behöver en skalbar distribution mekanism för tredje parts-program och tjänster | Gör det möjligt att skapa och konfigurationen för skalbara distributioner för tredje parts-program och tjänster |
 | Kräver nya program och tjänster för att integrera och arbeta med befintliga lösningar | Enkelt integreras från tredje part, program och tjänster med befintliga lösningar på Azure |
 
-Marketplace ger kvalitet, val och styrkan hos Azure partner-ekosystemet för globala kunder. Viktiga fördelar är:
+Azure Marketplace ger kvalitet, val och styrkan hos Azure partner-ekosystemet för globala kunder. Viktiga fördelar är:
 
 - Enhetlig platsen för Azure-baserade erbjudanden från Microsoft och partner.
 - Mer än 5 000 erbjudanden.
 - Integrerad plattform upplevelse.
 - Effektiv konfiguration, distribution och hantering.
 
-## <a name="is-the-marketplace-right-for-my-business"></a>Passar i Marketplace mitt företag?
+## <a name="is-azure-marketplace-right-for-my-business"></a>Är Azure Marketplace rätt för mitt företag?
 
 Nu kanske du undrar om Azure Marketplace är den högra för just din verksamhet. Och om det är vad du får slut på den? Marketplace skapar nya affärsmöjligheter du:
 
@@ -74,23 +79,32 @@ Nu kanske du undrar om Azure Marketplace är den högra för just din verksamhet
 
 Marketplace-kunder är olika. Azure har också en av de snabbast växande kund grunderna för alla molntjänstleverantörer. Du får åtkomst till IT-proffs och utvecklare som arbetar för företag, från nystartade företag till företag i branscher, och i både offentliga och privata sektorn.
 
-## <a name="how-does-the-marketplace-work"></a>Hur fungerar Marketplace?
+## <a name="how-does-marketplace-work"></a>Hur fungerar Marketplace?
 
-Den &#39; s ganska enkelt. När du &#39; godkänts re du skapar din Azure-certifierade avbildning av virtuell dator och publicera det till Marketplace. Det, Azure-kunder kan hitta köpa och distribuera din produkt i minuter. Ännu bättre distribuerar kunder din lösning med förtroende. De vet att miljön är konfigurerad för lyckad på Azure och att infrastrukturen som är redo att sätta igång inom några minuter.
+Den &#39; s ganska enkelt. När du &#39; godkänts re du skapar din Azure-certifierade avbildning av virtuell dator eller hanterade program och publicera det till Marketplace. Det, Azure-kunder kan hitta köpa och distribuera din produkt i minuter. Ännu bättre distribuerar kunder din lösning med förtroende. De vet att miljön är konfigurerad för lyckad på Azure och att infrastrukturen som är redo att sätta igång inom några minuter.
 
-Partnerportalen molnet är hubb för att skapa erbjudandet på Marketplace. Förkonfigurerade avbildningar av virtuella datorer med ett fullständigt installerat operativsystem och en eller flera program. Att certifiera bilden så att den &#39; s redo för publikationen, måste du uppfylla vissa krav. Diskuterar vi dessa i nästa avsnitt.
+Partnerportalen molnet är hubb för att skapa erbjudandet på Marketplace. Att certifiera erbjudandet så att den &#39; s redo för publikationen, måste du uppfylla vissa krav. Diskuterar vi dessa i nästa avsnitt.
 
 
 ## <a name="whats-next"></a>Nästa steg
 
-Du kanske tänker att Azure Marketplace verkligen är det rätta just för din produkt. Hur kommer du igång? Det här avsnittet handlar om att komma och körs på Marketplace (bild 1): 
+Du kanske tänker att Azure Marketplace verkligen är det rätta just för din produkt. Hur kommer du igång? Det här avsnittet fokuserar på att komma och körs på Marketplace (bild 1) för avbildningar av virtuella datorer genom att: 
 * Blir Azure certifierade.
 * Hämtar godkända sälja produkten.
-* Skapa erbjudandet i partnerportalen molnet. 
+* Skapa och publicera erbjudandet via molnet Partner-portalen. 
 
 ![Processen för att sälja på Azure Marketplace](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
 Bild 1: Process för att sälja på Azure Marketplace
+
+Beroende på arbetsbelastningen (virtuella eller hanterade program) som du planerar att publicera, ska du följa en annan process för att publicera erbjudandet. Följande innehåll fokuserar på publicering _virtuella erbjudanden_.
+
+> [!NOTE]
+> Om du är intresserad av att sälja din [hanterat program](https://docs.microsoft.com/en-us/azure/managed-applications/overview), bör du följa instruktionerna för att lista dem i Azure Marketplace [här](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> Om du är intresserad av att sälja programvaran klar som en tjänst (SaaS) produkter som ska _IT-proffs och utvecklare_, du kan nå ut till saas-on-amp@microsoft.com vill veta mer om alternativen.
+
 
 Först uppfyller en uppsättning tekniska och sökassistent krav och förbereda avbildning av virtuell dator. Du utse produkten och registrera som en säljare. Slutligen kan du lägga till marknadsföring innehåll och skicka för publicering. Du kan granska erbjudandet i preview/mellanlagring miljö innan du gör det live på Marketplace.
 
@@ -103,6 +117,7 @@ Det första steget i att skapa erbjudandet för Azure Marketplace är att bli Az
 ![Kraven för att bli Azure certifierad](./media/cloud-partner-portal-seller-guide/azurecertified.png)
 
 Bild 2: Kraven för att bli Azure certifierad
+
 
 ### <a name="technical-prerequisites"></a>Tekniska krav
 
@@ -147,13 +162,15 @@ Skaffa _Azure certifierade_ status representerar slutförande av onboarding-proc
 
 ## <a name="how-do-i-nominate-my-product-and-get-approved"></a>Hur utse produkten och hämta godkänts?
 
-Nu är det dags att få tillåtelse att sälja på Marketplace (bild 3). Microsoft gör det enkelt att utse produkten Slutför publiceringsprocessen och registrera som en säljare.
+Nu är det dags att få tillåtelse att sälja på Marketplace (bild 3). 
+
+Microsoft gör det enkelt att utse produkten Slutför publiceringsprocessen och registrera som en säljare. Beroende på arbetsbelastningen (virtuella eller hanterade program) som du planerar att publicera, ska du följa en annan kandidat process.
 
 ![hämtar godkända sälja på Azure Marketplace](./media/cloud-partner-portal-seller-guide/gettingapprovedsteps.png)
 
 Bild 3: Steg för att hämta godkända sälja på Azure Marketplace
 
-Första steget mot godkännande är att [utse](https://createopportunity.azurewebsites.net/) produkten före registrering och publicering. Godkännande kan ta _upp till tre arbetsdagar_.
+Om du vill publicera en _virtuella erbjudande_, ska du välja att produkten [här](https://createopportunity.azurewebsites.net/). Godkännande kan ta _upp till tre arbetsdagar_.
 
 När godkännande får du följande:
 
@@ -172,17 +189,19 @@ Du är nu redo att certifiera avbildning av virtuell dator och publicera erbjuda
 
 ## <a name="what-about-best-practices"></a>Nyheter om bästa praxis?
 
-Här följer några verktyg och metodtips som hjälper dig att få ut mesta av som en säljare på Marketplace.
+Här följer några rekommendationer som hjälper dig att få ut mesta av som en säljare på Marketplace.
 
 ### <a name="azure-test-drives"></a>Azure test-enheter
 
 [Azure test enheter](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/test-drives?page=1) är ett bra sätt att presentera produkten för potentiella kunder och ge dem möjlighet att prova innan de köpa. Test-enheter kan du öka konvertering och generera leads.
 
-När du har angett kontaktuppgifter kunder kan komma åt din färdiga testversionen. De uppvisar en praktisk självguidade provversion av produkten &#39; s viktiga funktioner och fördelar i ett verkligt scenario.
+När du har angett kontaktuppgifter kunder kan komma åt din färdiga testversionen. De uppvisar en praktisk självguidade provversion av produkten &#39; s viktiga funktioner och fördelar i ett verkligt scenario. Även bättre? Du kan få upp till 36% mer leads genom att publicera en test-enhet som är kopplade till erbjudandet.
 
-Publicera en testkörning för produkten är för närvarande bara tillgängliga på den klassiska portalen för publicering. Mer information genom att gå till dokumentationen [hur du publicerar en ny testkörning](https://github.com/Azure/AzureTestDrive/wiki).
+Vi ger dig med de riktlinjer som du vill publicera ett test enhet i molnet partnerportalen under onboarding-processen. Lär dig mer om [Azure test enheter](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
-Lär dig mer om [Azure test enheter](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
+###<a name="lead-generation"></a>Leda generation
+
+En av nyckel/värde-egenskaper i sin produkt på Azure Marketplace är som vi skickar du hög kvalificerade leads för kunder som är intresserade eller har distribuerat produkten. Vad är ännu bättre är vi skicka dessa leads direkt till dina CRM, så att du kan vidta åtgärder och följa upp snabbt skapa flera affärsmöjligheter och stänga flera avtal. Integrering för generering av lead tar några minuter och görs under publiceringsprocessen i partnerportalen molnet.
 
 ### <a name="go-to-market-checklist"></a>Gå till marknaden Checklista
 
@@ -198,21 +217,20 @@ Innan dina starta rekommenderar vi att utföra några åtgärder för att få sn
 
 ## <a name="what-about-reports"></a>Nyheter om rapporter?
 
-Marketplace erbjuder rapporter på din order, användning och dina kunder som är tillgängligt via Marketplace [Publisher Reporting portal](https://reports.azure.com). Förutom användbara insikter och analytics rådata har angetts i en navigera på portalerna tangentbordsgenvägarna tabell och kan hämtas som en CSV-volym eller XLS-fil.
+Marketplace erbjuder rapporter på din order, användning och dina kunder som är tillgängliga via avsnittet molnet Partner-portalen insikter. Förutom användbara insikter och analytics rådata har angetts i en navigera på portalerna tangentbordsgenvägarna tabell och kan hämtas som en CSV-volym eller XLS-fil.
 
-[Den här videon](https://player.vimeo.com/video/200859918) ger dig en tjuvtitt av rapporten funktioner och fördelar, inklusive:
+Här är några av insikter funktioner och fördelar:
 
-- Typer av rapporter: Sammanfattning ögonblicksbild av order, användning och kunden trender på startsidan.
+- Typer av rapporter: Sammanfattning ögonblicksbild av order, användning, deployements och kunden trender på startsidan insikter.
 - Detaljerad order, användning och kundens data.
 - Order- och användningsdata visas som månatligen eller som en vy i sex månader trend.
-- Flera insikter visas som standard.
 - Användning/order av:
   - Marknad
   - Kanal
   - Trender erbjudanden
   - Marketplace-licenstyp
 
-Detaljerade rapporter visar kundinformation, exempelvis företagsnamn och geografisk plats till postnumret, så kan du jämföra dina kunder. Följande lista innehåller specifika attribut som vi tillhandahåller om dina kunder:
+Detaljerade rapporter visar kundinformation, exempelvis företagsnamn och geografisk plats till postnumret, så att du kan jämföra kunder och kompensera din säljare. Följande lista innehåller specifika attribut som vi tillhandahåller om dina kunder:
 
 - Återförsäljare
 - Förnamn
@@ -221,7 +239,7 @@ Detaljerade rapporter visar kundinformation, exempelvis företagsnamn och geogra
 - Företagsnamn
 - TransactionDate
 - SubscriptionName
-- AzureSubscriptionId
+- AzureSubscriptionId (endast PAYG kunder)
 - CloudInstanceName
 - OrderCount
 - CustomerCountryRegion
@@ -229,7 +247,7 @@ Detaljerade rapporter visar kundinformation, exempelvis företagsnamn och geogra
 - CustomerCommunicationCulture
 - CustomerZipCode
 
-Vi erbjuder också utbildning via Hjälp dokumentation, en ordlista och en inspelade demonstration. Om du behöver hjälp eller har stöd för med dina rapporter, öppnar du en [stöder biljett](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249).
+Vi erbjuder också utbildning via Hjälp dokumentation, en ordlista och en inspelade demonstration. Om du behöver hjälp eller har stöd för med dina rapporter, kan du öppna ett supportärende via molnet partnerportalen när som helst.
 
 Vi Välkommen du till gruppen av ISV säljare och hoppas att du ser erbjudandet.
 

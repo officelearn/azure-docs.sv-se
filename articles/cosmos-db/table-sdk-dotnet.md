@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 7d641d4089f8bce86633b7c476f10617bc642e2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b61ed9e4ccbf6961ee465461eab3dce2b758a1c
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET-API: Hämta och viktig information
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 |---|---|
 |**SDK-hämtningen**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API-dokumentationen**|[.NET API-referensdokumentation](https://aka.ms/acdbtableapiref)|
-|**Snabbstart**|[Azure Cosmos DB: Skapa en app med .NET och tabellen API](https://aka.ms/acdbtnetqs)|
+|**Snabbstart**|[Azure Cosmos DB: skapa en app med .NET och tabellen API] (skapa-table-dotnet.md|
 |**Självstudie**|[Azure CosmosDB: Skapa en behållare med Graph-API](tutorial-develop-graph-dotnet.md)|
 |**Aktuella framework som stöds**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 

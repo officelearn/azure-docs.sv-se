@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/31/2017
-ms.openlocfilehash: 0ebdced6ac748245faed90949fd0e76c0eacb2d3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure-databas för PostgreSQL-alternativ och prestanda: förstå vad som är tillgängliga i varje prisnivå
 När du skapar en Azure-databas för PostgreSQL-servern, besluta om tre huvudsakliga alternativ för att konfigurera de resurser som allokerats för servern. Dessa alternativ kan påverka prestanda och skalning av servern.
@@ -53,7 +53,7 @@ Om du vill välja en prisnivå, först starta genom att fastställa om din arbet
 Du kan inte ändra prisnivån när servern har skapats under tidsramen för förhandsgranskning. I framtiden, ska det vara möjligt att uppgradera eller nedgradera en server från en prisnivå till ett annat skikt.
 
 ## <a name="understand-the-price"></a>Förstå priset
-När du skapar en ny Azure-databas för PostgreSQL inuti den [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), klicka på den **prisnivå** bladet och månadskostnaden visas baserat på de alternativ som du har valt. Om du inte har en Azure-prenumeration kan du använda Azure prisnivå Kalkylatorn för att få ett beräknat pris. Besök den [Azure prisnivå Kalkylatorn](https://azure.microsoft.com/pricing/calculator/) webbplats, klicka sedan på **lägga till objekt**, expandera den **databaser** kategori, och välj **Azure-databas för PostgreSQL**  du anpassar alternativen.
+När du skapar en ny Azure-databas för PostgreSQL inuti den [Azure-portalen](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), klicka på den **prisnivå** sida och månadskostnaden visas baserat på de alternativ som du har valt. Om du inte har en Azure-prenumeration kan du använda Azure prisnivå Kalkylatorn för att få ett beräknat pris. Besök den [Azure prisnivå Kalkylatorn](https://azure.microsoft.com/pricing/calculator/) webbplats, klicka sedan på **lägga till objekt**, expandera den **databaser** kategori, och välj **Azure-databas för PostgreSQL**  du anpassar alternativen.
 
 ## <a name="choose-a-performance-level-compute-units"></a>Välj prestandanivå (Compute-enheter)
 När du har konstaterat prisnivån för din Azure-databas för PostgreSQL-server, är du redo att fastställa prestandanivå genom att välja antalet Compute enheter behövs. En bra utgångspunkt är 200 eller 400 Compute-enheter för program som kräver högre samtidig användning för webb- eller analytiska arbetsbelastningar och justera inkrementellt efter behov. 
@@ -85,7 +85,7 @@ Lagringskonfigurationen definierar mängden lagringskapacitet till en Azure-data
 
 Vissa lagringskapacitet ingår minst med varje prisnivå som anges i tabellen ovan som ”ingår lagringsstorlek”. Ytterligare lagringskapacitet kan läggas till när servern har skapats i steg om 125 GB, upp till maximalt tillåtna lagringsutrymme. Ytterligare lagringskapaciteten kan konfigureras oberoende av konfigurationen Compute-enheter. Kursen ändras baserat på hur mycket lagringsutrymme som valts.
 
-IOPS-konfigurationen i varje prestandanivå relaterar till prisnivån och lagringsstorlek valt. Grundläggande nivån innehåller inte en IOPS-garanti. Inom Standardprisnivån, skala IOPS proportionerligt till maximala lagringsstorleken i en fast 3:1-förhållande. Inkluderade lagring av 125 GB garanterar för 375 etablerade IOPS, var och en med en i/o-storlek på upp till 256 KB. Du kan välja ytterligare lagringsutrymme till 1 TB maximalt att garantera 3 000 etablerade IOPS.
+IOPS-konfigurationen i varje prestandanivå relaterar till prisnivån och lagringsstorlek valt. Grundläggande nivån innehåller inte en IOPS-garanti. Inom Standardprisnivån, skala IOPS proportionerligt till maximala lagringsstorleken i en fast 3:1-förhållande. Inkluderade lagring av 125 GB garantier för 375 etablerats IOPS, var och en med en i/o-storlek på upp till 256 KB. Du kan välja ytterligare lagringsutrymme till 1 TB maximalt att garantera 3 000 etablerade IOPS.
 
 Övervaka diagrammet mätvärden i Azure-portalen eller skriva Azure CLI-kommandona för att mäta användningen av lagringsutrymme och IOPS. Relevanta är övervaka lagringsgräns, lagringsprocent, lagringsutrymme som används och IO-procent.
 
@@ -93,11 +93,11 @@ IOPS-konfigurationen i varje prestandanivå relaterar till prisnivån och lagrin
 > Välj mängden lagringsutrymme som vid den tidpunkt då servern skapas i förhandsgranskningen. Ändrar lagringsstorlek på på en befintlig server stöds inte ännu. 
 
 ## <a name="scaling-a-server-up-or-down"></a>Skala en server uppåt eller nedåt
-Du välja först vilken prisnivå tjänstnivå och prestandanivå när du skapar din Azure-databas för PostgreSQL. Senare kan du skala beräknings-enheter uppåt eller nedåt dynamiskt, inom intervallet för samma prisnivå. Dra Compute-enheter på serverns priser nivå bladet i Azure-portalen eller skript genom att följa det här exemplet: [Övervakare och skala en enskild PostgreSQL-server med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md)
+Du välja först vilken prisnivå tjänstnivå och prestandanivå när du skapar din Azure-databas för PostgreSQL. Senare kan du skala beräknings-enheter uppåt eller nedåt dynamiskt, inom intervallet för samma prisnivå. Dra Compute-enheter på serverns priser nivå sida i Azure-portalen eller skript genom att följa det här exemplet: [Övervakare och skala en enskild PostgreSQL-server med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md)
 
 Skalning Compute-enheter sker oberoende av den maximala lagringsstorleken som du har valt.
 
-I bakgrunden, ändra prestandanivåerna för en databas skapar en replik av den ursprungliga databasen på prestandanivån och sedan växlar anslutningar till repliken. Inga data går förlorade under den här processen. Under kort nu när vi växlar till repliken har anslutningar till databasen inaktiverats, så vissa transaktioner som rör sig kan återställas. Det här fönstret varierar, men i genomsnitt är än 4 sekunder, och i mer än 99% fall är mindre än 30 sekunder. Om många transaktioner sker just då anslutningarna är inaktiverade kan det ta lite längre tid.
+I bakgrunden, ändra prestandanivåerna för en databas skapas en kopia av den ursprungliga servern på prestandanivån och sedan växlar anslutningar till den kopierade servern. Inga data går förlorade under den här processen. Under kort nu när systemet växlar till den nya kopian av servern inaktiveras anslutningar till databasen, så vissa transaktioner som rör sig kan återställas. Det här fönstret varierar, men i genomsnitt är än 4 sekunder, och i mer än 99% fall är mindre än 30 sekunder. Om många transaktioner sker just då anslutningarna är inaktiverade kan det ta lite längre tid.
 
 Varaktighet för hela skalan processen är beroende av både storlek och prisnivån på servern före och efter ändringen. Till exempel bör en server som ändrar Compute enheter inom Standard prisnivån slutföras inom några minuter. Nya egenskaper för servern börjar inte gälla förrän ändringarna är klara.
 

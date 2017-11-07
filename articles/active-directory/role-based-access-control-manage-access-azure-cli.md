@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88a5fe33d048814d956a1221802f059cfbcccb0a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Hantera rollbaserad åtkomstkontroll med kommandoradsgränssnittet i Azure
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ I exemplet tar bort rolltilldelningen från en grupp i prenumerationen.
 ## <a name="create-a-custom-role"></a>Skapa en anpassad roll
 Använd för att skapa en anpassad roll:
 
-    azure role definition create --role-definition <file path>
+    azure role create --inputfile <file path>
 
 I följande exempel skapas en anpassad roll som kallas *virtuella operatorn*. Den här anpassade rollen ger åtkomst till alla läsåtgärder av *Microsoft.Compute*, *Microsoft.Storage*, och *Microsoft.Network* resursproviders och ger åtkomst till Starta, starta om och övervaka virtuella datorer. Den här anpassade rollen kan användas i två prenumerationer. Det här exemplet används en JSON-fil som indata.
 
@@ -159,9 +159,9 @@ I följande exempel skapas en anpassad roll som kallas *virtuella operatorn*. De
 ![RBAC Azure kommandoraden - azure rollen skapa – skärmbild](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Ändra en anpassad roll
-Om du vill ändra en anpassad roll först använda den `azure role definition list` kommando för att hämta rolldefinitionen. Andra, gör ändringarna till definitionsfilen för rollen. Använd slutligen `azure role definition update` att spara ändrade rolldefinitionen.
+Om du vill ändra en anpassad roll först använda den `azure role list` kommando för att hämta rolldefinitionen. Andra, gör ändringarna till definitionsfilen för rollen. Använd slutligen `azure role set` att spara ändrade rolldefinitionen.
 
-    azure role definition update --role-definition <file path>
+    azure role set --inputfile <file path>
 
 I följande exempel läggs den *Microsoft.Insights/diagnosticSettings/* åtgärden den **åtgärder**, och en Azure-prenumeration i **AssignableScopes** av den Virtual Machine anpassade operatörsrollen.
 
@@ -170,7 +170,7 @@ I följande exempel läggs den *Microsoft.Insights/diagnosticSettings/* åtgärd
 ![Azure RBAC kommandoraden - azure rollen set - skärmbild](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Ta bort en anpassad roll
-Ta bort en anpassad roll genom att först använda den `azure role definition list` kommando för att fastställa den **ID** av rollen. Använd sedan den `azure role definition delete` kommando för att ta bort rollen genom att ange den **ID**.
+Ta bort en anpassad roll genom att först använda den `azure role list` kommando för att fastställa den **ID** av rollen. Använd sedan den `azure role delete` kommando för att ta bort rollen genom att ange den **ID**.
 
 I följande exempel tar bort den *virtuella operatorn* anpassad roll.
 
@@ -182,7 +182,7 @@ Om du vill visa de roller som är tillgängliga för tilldelning på scopenivå,
 Följande kommando visar alla roller som är tillgängliga för tilldelning i den valda prenumerationen.
 
 ```
-azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![Azure RBAC kommandoraden - azure rollen list - skärmbild](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -190,7 +190,7 @@ azure role definition list --json | jq '.[] | {"name":.properties.roleName, type
 I följande exempel visas den *virtuella operatorn* anpassad roll är inte tillgänglig i den *Production4* prenumeration eftersom den prenumerationen finns inte i den **AssignableScopes** av rollen.
 
 ```
-azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![Azure RBAC kommandoraden - azure rollen listan för anpassade roller – skärmbild](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)

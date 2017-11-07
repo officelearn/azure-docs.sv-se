@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
-ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Skapa en Azure-databas för PostgreSQL-server i Azure-portalen
 
@@ -124,7 +124,7 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
 
     psql-parameter |Föreslaget värde|Beskrivning
     ---|---|---
-    --host | servernamn | Värdet för servernamnet som du använde när du skapade Azure-databas för tidigare PostgreSQL-server. Vårt exempel server visas är **mypgserver 20170401.postgres.database.azure.com.** Använd det fullständigt kvalificerade domännamnet (**\*. postgres.database.azure.com**) som visas i exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
+    --host | servernamn | Värdet för servernamnet som du använde när du skapade Azure-databas för tidigare PostgreSQL-server. Exempel-servern som visas är **mypgserver 20170401.postgres.database.azure.com.** Använd det fullständigt kvalificerade domännamnet (**\*. postgres.database.azure.com**) som visas i exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
     --port | 5432 | Porten som ska användas när du ansluter till Azure-databasen för PostgreSQL-servern. 
     --username | Serverinloggningsnamnet för admin |Server-inloggning administratörsanvändarnamnet som du angav när du skapade Azure-databas för tidigare PostgreSQL-server. Om du inte kommer ihåg ditt användarnamn, följer du stegen i föregående avsnitt för att hämta anslutningsinformation om. Formatet är *username@servername*.
     --dbname | *postgres* | Standard systemgenererade databasnamnet som har skapats för den första anslutningen. Senare kan skapa du en egen databas.
@@ -199,13 +199,13 @@ Att ansluta till Azure PostgreSQL-server med GUI-verktyget pgAdmin:
 
 6. I den **webbläsare** fönstret till vänster, expandera den **servrar** nod. Markera din server, till exempel **Azure PostgreSQL Server**. Klicka för att ansluta till den.
 
-7. Expandera servernoden och expandera sedan **Databaser** under den. I listan ska innehålla din befintliga *postgres* databasen och alla nyligen skapade användaren databasen som **mypgsqldb**, som vi skapade i föregående avsnitt. Observera att du kan skapa flera databaser per server med Azure-databas för PostgreSQL.
+7. Expandera servernoden och expandera sedan **Databaser** under den. I listan ska innehålla din befintliga *postgres* databasen och alla nyligen skapade användaren databasen som **mypgsqldb**, som skapades i föregående avsnitt. Observera att du kan skapa flera databaser per server med Azure-databas för PostgreSQL.
 
 8. Högerklicka på **databaser**, Välj den **skapa** -menyn och välj sedan **databasen**.
 
 9. Ange ett databasnamn som du väljer i den **databasen** fält som **mypgsqldb**som visas i exemplet.
 
-10. Välj den **ägare** för databasen i listrutan. Välj din server admin inloggningsnamn, till exempel vårt exempel **mylogin**.
+10. Välj den **ägare** för databasen i listrutan. Välj din server admin inloggningsnamn, till exempel det här exemplet **mylogin**.
 
 11. Välj **spara** att skapa en ny tom databas.
 
@@ -221,9 +221,9 @@ Du kan rensa de resurser som du skapade i Snabbstart i ett av två sätt. Du kan
 > De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Rensa inte upp resurserna som du skapade i den här snabbstarten om du tänker fortsätta att arbeta med efterföljande snabbstarter. Om du inte planerar att fortsätta, Följ dessa steg för att ta bort de resurser som har skapats av denna Snabbstart i portalen.
 
 Ta bort hela resursgruppen, inklusive den nya servern:
-1. Leta upp din resursgrupp i portalen. Välj på menyn till vänster **resursgrupper**. Välj sedan namnet på resursgruppen, till exempel vårt exempel **myresourcegroup**.
+1. Leta upp din resursgrupp i portalen. Välj på menyn till vänster **resursgrupper**. Välj sedan namnet på resursgruppen, som i exempel **myresourcegroup**.
 
-2. Välj **Ta bort** på din resursgruppssida. Skriv namnet på resursgruppen, till exempel vårt exempel **myresourcegroup**, i textrutan för att bekräfta borttagningen. Välj **Ta bort**.
+2. Välj **Ta bort** på din resursgruppssida. Skriv namnet på resursgruppen, som i exempel **myresourcegroup**, i textrutan för att bekräfta borttagningen. Välj **Ta bort**.
 
 Ta bort nyskapade servern:
 1. Leta upp din server i portalen om du inte har öppnat. Välj på menyn till vänster **alla resurser**. Sök sedan efter den server som du skapade.
@@ -232,7 +232,7 @@ Ta bort nyskapade servern:
 
     ![Knappen ”Ta bort”](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Kontrollera servernamnet som du vill ta bort och visa databaserna under den som påverkas. Skriv namnet på servern i textrutan, till exempel vårt exempel **mypgserver 20170401**. Välj **Ta bort**.
+3. Kontrollera servernamnet som du vill ta bort och visa databaserna under den som påverkas. Skriv namnet på servern i textrutan, till exempel exemplet **mypgserver 20170401**. Välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

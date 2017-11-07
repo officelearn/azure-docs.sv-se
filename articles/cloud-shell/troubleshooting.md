@@ -12,27 +12,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 4c99ae37b66200244514ee554c9696cf18c1b800
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 1bf0acdfad04a55d5b85aabee150526836062002
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Felsöka Azure-molnet Shell
 
 Kända lösningar på problem i Azure Cloud Shell inkluderar:
 
-## <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Lagring dialogruta - fel: 403 RequestDisallowedByPolicy
+## <a name="general-resolutions"></a>Allmän lösningar
+
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Lagring dialogruta - fel: 403 RequestDisallowedByPolicy
 - **Information om**: när du skapar ett lagringskonto via molnet Shell, är det misslyckas på grund av en Azure-princip placeras av din administratör. Felmeddelande innehåller:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Lösning**: Kontakta Azure-administratören om du vill ta bort eller uppdatera Azure principen neka lagring skapas.
 
-## <a name="storage-dialog---error-400-disallowedoperation"></a>Lagring dialogruta - fel: 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>Lagring dialogruta - fel: 400 DisallowedOperation
  - **Information om**: när du använder en prenumeration på Azure Active Directory, du kan inte skapa lagring.
  - **Lösning**: använda en Azure-prenumeration kan skapa lagringsresurser. Azure AD-prenumerationer går inte att skapa Azure-resurser.
 
-## <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal utdata - fel: Det gick inte att ansluta en terminal: websocket kan inte upprättas. Tryck på `Enter` återansluta.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Terminal utdata - fel: Det gick inte att ansluta en terminal: websocket kan inte upprättas. Tryck på `Enter` återansluta.
  - **Information om**: molnet Shell kräver möjlighet att upprätta en websocket-anslutning till molnet Shell-infrastruktur.
  - **Lösning**: Kontrollera att du har konfigurerat inställningarna för att aktivera skicka https-förfrågningar och websocket-begäranden till domäner på *. console.azure.com.
 

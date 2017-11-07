@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: ece09277d26fafb7c0eebf62730031c4dc01bfe0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Skapa innehåll nycklar med övriga
 > [!div class="op_single_selector"]
@@ -47,23 +47,23 @@ Följande är allmänna steg för att generera innehåll nycklar som ska associe
 4. Skapa ett kontrollsummevärde (baserat på algoritmen PlayReady AES kontrollsumma) beräknas med hjälp av nyckelidentifierare och innehållsnyckeln. Mer information finns i avsnittet ”PlayReady AES kontrollsumma nyckelalgoritm” i dokumentet PlayReady-objektet finns [här](http://www.microsoft.com/playready/documents/).
    
    Följande är en .NET-exempel som beräknar kontrollsumma använder GUID-del av Nyckelidentifieraren och avmarkera innehållsnyckeln.
-
-         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
+   
+        public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
-
-            byte[] array = null;
-            using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
-            {
-                aesCryptoServiceProvider.Mode = CipherMode.ECB;
-                aesCryptoServiceProvider.Key = contentKey;
-                aesCryptoServiceProvider.Padding = PaddingMode.None;
-                ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-                array = new byte[16];
-                cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
-            }
-            byte[] array2 = new byte[8];
-            Array.Copy(array, array2, 8);
-            return Convert.ToBase64String(array2);
+ 
+             byte[] array = null;
+             using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+             {
+                 aesCryptoServiceProvider.Mode = CipherMode.ECB;
+                 aesCryptoServiceProvider.Key = contentKey;
+                 aesCryptoServiceProvider.Padding = PaddingMode.None;
+                 ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+                 array = new byte[16];
+                 cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+             }
+             byte[] array2 = new byte[8];
+             Array.Copy(array, array2, 8);
+             return Convert.ToBase64String(array2);
          }
 5. Skapa innehållsnyckel med den **EncryptedContentKey** (konverteras till base64-kodad sträng) **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, och **kontrollsumma** värden som du har fått i föregående steg.
 6. Koppla den **ContentKey** entitet med din **tillgången** via $links igen.

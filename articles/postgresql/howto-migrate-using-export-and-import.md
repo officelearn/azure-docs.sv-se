@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/14/2017
-ms.openlocfilehash: 5c3a642940bbaf766b87c74522a97b145632291f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 937423d0b844f6ce30e532bbae12b85071a6f8d4
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrera din PostgreSQL-databas med hjälp av export och import
 Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en skriptfil och [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) att importera data till måldatabasen från filen.
@@ -37,7 +37,7 @@ pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sq
 ```
 
 ## <a name="import-the-data-on-target-azure-database-for-postrgesql"></a>Importera data på målet Azure-databas för PostrgeSQL
-Du kan använda kommandoraden psql och den -d,--dbname-parametern för att importera data till Azure-databas för PostrgeSQL som vi skapade och läsa in data från sql-filen.
+Du kan använda kommandoraden psql och--dbname-parameter (-d) att importera data till Azure-databas för PostgreSQL-servern och Läs in data från sql-filen.
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```

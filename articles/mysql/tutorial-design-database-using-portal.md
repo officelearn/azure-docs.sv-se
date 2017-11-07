@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 06/06/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 92ae809646cb956b0b7cb71cf2a21610bb2d610f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Utforma din första Azure-databas för MySQL-databas
 Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Med Azure-portalen kan du enkelt hantera servern och utforma en databas.
@@ -41,7 +41,7 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
 
 2. Klicka på **Azure-databas för MySQL** panelen och klicka sedan på **skapa**.
 
-I vårt exempel, fyller du i Azure-databasen för MySQL formulär med följande information:
+I det här exemplet, fyller du i Azure-databasen för MySQL formulär med följande information:
 
 | **Inställning** | **Föreslaget värde** | **Fältbeskrivning** |
 |---|---|---|
@@ -98,9 +98,9 @@ USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Skapa tabeller i databasen
-Nu när du vet hur du ansluter till Azure-databasen för MySQL-databas, gå vi igenom hur du utför några grundläggande uppgifter.
+Nu när du vet hur du ansluter till Azure-databasen för MySQL-databas, kan du utföra vissa grundläggande uppgifter:
 
-Vi kan först skapa en tabell och läsa in den med vissa data. Nu ska vi skapa en tabell som innehåller information om maskinvaruinventering.
+Först skapar en tabell och läsa in den med vissa data. Nu ska vi skapa en tabell som innehåller information om maskinvaruinventering.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -110,7 +110,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Läser in data i tabeller
-Nu när vi har en tabell kan vi infoga vissa data i den. Kör följande fråga för att infoga vissa rader med data i öppna en kommandotolk-fönster.
+Nu när du har en tabell att infoga vissa data i den. Kör följande fråga för att infoga vissa rader med data i öppna en kommandotolk-fönster.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

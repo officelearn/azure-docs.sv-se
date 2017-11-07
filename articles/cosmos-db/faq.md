@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 534bf37cc70420dc30fcd5c994ae7d9beb654072
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 091446fd45b09913dee70dbb4c7e5ebbca02819b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -81,7 +81,7 @@ Prova Azure Cosmos DB prenumerationer som visas i Azure portal bredvid andra pre
 
 Följande villkor gäller för försök Azure Cosmos DB prenumerationer:
 
-* En behållare per prenumeration för SQL (DocumentDB-API), Gremlin (Graph API) och konton för tabellen.
+* En behållare per prenumeration för SQL (DocumentDB-API), Gremlin (Graph API) och tabellen API-konton.
 * Upp till 3 samlingar per prenumeration för MongoDB-konton.
 * 10 GB lagringskapacitet.
 * Globala replikering är tillgänglig i följande [Azure-regioner](https://azure.microsoft.com/regions/): centrala USA, Norra Europa och Asien/Stillahavsområdet, sydost
@@ -181,9 +181,7 @@ Förutom MongoDB vanliga felkoder har MongoDB-API: et sin egen specifika felkode
 ## <a name="develop-with-the-table-api-preview"></a>Utveckla med tabell-API (förhandsgranskning)
 
 ### <a name="terms"></a>Villkor 
-Azure Cosmos DB: Tabell-API (förhandsgranskning) refererar till premium erbjudande med Azure Cosmos DB för tabellen support presenterades vid Build 2017. 
-
-Standardtabell SDK är den befintliga Azure Storage-tabellen SDK. 
+Azure Cosmos DB tabell API (förhandsgranskning) refererar till premium för en tabell datamodell som presenterades vid Build 2017 med Azure Cosmos DB. 
 
 ### <a name="how-can-i-use-the-new-table-api-preview-offering"></a>Hur kan jag använda nytt erbjudande för tabell-API (förhandsgranskning)? 
 Azure Cosmos DB tabell API är tillgängliga i den [Azure-portalen][azure-portal]. Du måste först registrera dig för en Azure-prenumeration. När du har registrerat dig kan du lägga till ett Azure Cosmos DB tabell API-konto till din Azure-prenumeration och sedan lägga till tabeller i ditt konto. 
@@ -191,7 +189,7 @@ Azure Cosmos DB tabell API är tillgängliga i den [Azure-portalen][azure-portal
 I förhandsversionen, när [SDK](../cosmos-db/table-sdk-dotnet.md) är tillgänglig för .NET, kan du sätta igång genom att slutföra den [tabell API](../cosmos-db/create-table-dotnet.md) Snabbkurs artikel.
 
 ### <a name="do-i-need-a-new-sdk-to-use-the-table-api-preview"></a>Måste en ny SDK använda tabell-API (förhandsgranskning)? 
-Ja, den [Windows Azure Storage Premium Table (förhandsgranskning) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) är tillgängligt på NuGet. Mer information finns på den [Cosmos-tabellen på Azure DB .NET API: et: hämta och viktig information](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md) sidan. 
+Ja, den [Windows Azure Storage Premium Table (förhandsgranskning) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) är tillgänglig på NuGet och krävs för att använda Azure Cosmos DB tabell API. Mer information finns på den [Cosmos-tabellen på Azure DB .NET API: et: hämta och viktig information](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md) sidan. 
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>Hur jag för att ge feedback om SDK eller buggar?
 Du kan dela din feedback i något av följande sätt:
@@ -219,8 +217,8 @@ Information om konfigurationsinställningarna finns [Azure Cosmos DB funktioner]
     </appSettings>
 
 
-### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-standard-table-sdk"></a>Finns det några ändringar för kunder som använder den befintliga tabellen SDK som standard?
-Ingen. Det finns inga ändringar för befintliga eller nya kunder som använder den befintliga tabellen SDK som standard. 
+### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdk"></a>Finns det några ändringar för kunder som använder den befintliga Azure Table storage SDK?
+Ingen. Det finns inga ändringar för befintliga eller nya kunder som använder den befintliga Azure Table storage SDK: er. 
 
 ### <a name="how-do-i-view-table-data-that-is-stored-in-azure-cosmos-db-for-use-with-the-table-api-review"></a>Hur visar tabelldata som lagras i Azure Cosmos-databasen för användning med tabell-API (granskning)? 
 Du kan använda Azure-portalen för att bläddra i data. Du kan också använda tabellen API (förhandsgranskning)-koden eller verktyg som nämns i nästa svar. 
@@ -239,11 +237,11 @@ Ja, tillhandahålls Optimistisk samtidighet med hjälp av mekanismen för ETag.
 ### <a name="is-the-odata-query-model-supported-for-entities"></a>Stöds modellen för OData-frågan för enheter? 
 Ja, tabell-API (förhandsversion) stöder OData-fråge- och LINQ-fråga. 
 
-### <a name="can-i-connect-to-the-standard-azure-table-and-the-new-premium-table-api-preview-side-by-side-in-the-same-application"></a>Kan ansluta till standard Azure-tabellen och nya premium tabell API (förhandsgranskning) sida vid sida i samma program? 
+### <a name="can-i-connect-to-the-azure-table-storage-and-the-azure-cosmos-db-table-api-preview-side-by-side-in-the-same-application"></a>Kan ansluta till Azure Table storage och Azure Cosmos DB tabell API (förhandsgranskning) sida vid sida i samma program? 
 Ja, du kan ansluta genom att skapa två separata instanser av CloudTableClient, varje pekar på en egen URI via anslutningssträngen.
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-new-offering"></a>Hur jag för att migrera en befintlig Azure Table storage-program till den här nya erbjudande?
-Om du vill dra nytta av nya tabell API erbjudandet på din befintliga lagring tabelldata, kontakta [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
+Om du vill dra nytta av nya Azure Cosmos DB tabell API erbjudandet på din befintliga lagring tabelldata, kontakta [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
 
 ### <a name="what-is-the-roadmap-for-this-service-and-when-will-you-offer-other-standard-table-api-functionality"></a>Vad är översikt för den här tjänsten och när du erbjuder andra standard tabell API-funktioner?
 Vi planerar att lägga till stöd för SAS-token, ServiceContext, statistik, kryptering, analyser och andra funktioner på klientsidan när vi går vidare mot GA. Du kan ge oss feedback om [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api). 
@@ -252,7 +250,7 @@ Vi planerar att lägga till stöd för SAS-token, ServiceContext, statistik, kry
 Azure Cosmos-DB är utformad att ge obegränsad lagring med hjälp av teckenbredden. Tjänsten kan övervaka och effektivt öka din lagring. 
 
 ### <a name="how-do-i-monitor-the-table-api-preview-offering"></a>Hur övervakar erbjudandet tabell-API (förhandsgranskning)?
-Du kan använda tabellen API (förhandsgranskning) **mått** fönstret för att övervaka begäranden och lagringskvoten. 
+Du kan använda tabellen API (förhandsgranskning) **mått** rutan i Azure portal för att övervaka begäranden och lagringskvoten. 
 
 ### <a name="how-do-i-calculate-the-throughput-i-require"></a>Hur jag för att beräkna genomflöde I kräver?
 Du kan använda kapacitet exteriörbedömning för att beräkna TableThroughput som krävs för åtgärderna. Mer information finns i [uppskattning begära enheter och datalagring](https://www.documentdb.com/capacityplanner). I allmänhet kan du representerar entiteten som JSON och ange siffrorna för din verksamhet. 
@@ -264,16 +262,16 @@ Ja, du kan använda tabellen API (förhandsversion) med lokala emulatorn när du
 DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
 ```
 
-### <a name="can-my-existing-application-work-with-the-table-api-preview"></a>Fungerar mitt befintliga program med tabell-API (förhandsgranskning) 
-Ytan på den nya tabellen API (förhandsversion) är kompatibel med den befintliga Azure standard tabellen SDK över skapa, ta bort, uppdatera och fråga åtgärder i .NET-API. Se till att du har en radnyckel eftersom tabellen API (förhandsgranskning) kräver både en partition och en nyckel för raden. Vi planerar också att lägga till flera SDK-stöd när vi går vidare mot GA för det här tjänsterbjudandet.
+### <a name="can-my-existing-azure-table-storage-application-work-with-the-table-api-preview"></a>Fungerar mitt befintliga Azure Table storage-program med tabell-API (förhandsgranskning) 
+Ytan på den nya tabellen API (förhandsversion) är kompatibel med den befintliga Azure Table-lagringen SDK över skapa, ta bort, uppdatera och fråga åtgärder i .NET-API. Se till att du har en radnyckel eftersom tabellen API (förhandsgranskning) kräver både en partition och en nyckel för raden. Vi planerar också att lägga till flera SDK-stöd när vi går vidare mot GA för det här tjänsterbjudandet.
 
-### <a name="do-i-need-to-migrate-my-existing-azure-table-based-applications-to-the-new-sdk-if-i-do-not-want-to-use-the-table-api-preview-features"></a>Behöver jag migrera Mina befintliga Azure table-baserade program till nya SDK om jag inte vill använda funktioner i tabell-API (förhandsgranskning)?
-Nej, kan du skapa och använda den befintliga Standardtabell tillgångar utan avbrott av något slag. Om du inte använder den nya tabellen API (förhandsgranskning) kan inte du omfattas av automatisk indexet, ytterligare konsekvenskontroll alternativet eller distributionslistor. 
+### <a name="do-i-need-to-migrate-my-existing-azure-table-storage-applications-to-the-new-sdk-if-i-do-not-want-to-use-the-table-api-preview-features"></a>Behöver jag migrera Mina befintliga Azure Table storage-program till nya SDK om jag inte vill använda funktioner i tabell-API (förhandsgranskning)?
+Nej, kan du skapa och använda befintliga Azure Table storage tillgångar utan avbrott av något slag. Om du inte använder den nya tabellen API (förhandsgranskning) kan inte du omfattas av automatisk indexet, ytterligare konsekvenskontroll alternativet eller distributionslistor. 
 
-### <a name="how-do-i-add-replication-of-the-data-in-the-premium-table-api-preview-across-multiple-regions-of-azure"></a>Hur lägger jag till replikering av data i premium tabell-API (förhandsgranskning) över flera regioner Azure?
+### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-preview-across-multiple-regions-of-azure"></a>Hur lägger jag till replikering av data i tabellen API (förhandsgranskning) över flera regioner Azure?
 Du kan använda Azure DB som Cosmos-portalen [globala replikeringsinställningarna](tutorial-global-distribution-documentdb.md#portal) du lägger till regioner som är lämpliga för ditt program. För att utveckla ett globalt distribuerat program bör du också lägga till programmet PreferredLocation uppgifterna till den lokala regionen för att tillhandahålla låg latens som skrivskyddade. 
 
-### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-premium-table-api-preview"></a>Hur ändrar jag primära write-region för kontot i premium tabell-API (förhandsgranskning)
+### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api-preview"></a>Hur ändrar jag primära write-region för kontot i tabell-API (förhandsgranskning)
 Du kan använda fönstret Azure Cosmos DB globala replikering portal för att lägga till en region och sedan växla över till den nödvändiga regionen. Instruktioner finns i [utveckling med flera regioner Azure Cosmos DB konton](regional-failover.md). 
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>Hur konfigurerar jag min primära skrivskyddade regioner för låg fördröjning när jag fördela mina data? 
@@ -286,26 +284,26 @@ Tabell-API (förhandsversion) ger låg latens läser med ”Läs egna skrivninga
 
 Som standard ger Azure Table storage stark konsekvens inom en region och Eventual konsekvens på sekundära platser. 
 
-### <a name="does-azure-cosmos-db-offer-more-consistency-levels-than-standard-tables"></a>Erbjuder Azure Cosmos DB mer konsekvensnivåer än standardtabeller?
+### <a name="does-the-azure-cosmos-db-table-api-offer-more-consistency-levels-than-azure-table-storage"></a>Erbjuder Azure Cosmos DB tabell API mer konsekvensnivåer än Azure Table storage?
 Ja, finns information om hur du kan utnyttja distribuerade uppbyggnad Azure Cosmos DB [konsekvensnivåer](consistency-levels.md). Eftersom garantier har angetts för nivåerna konsekvens, kan du använda dem med förtroende. Mer information finns i [Azure Cosmos DB funktioner](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>När globala distribution är aktiverat, hur lång tid tar det för att replikera data?
-Vi genomför data varaktigt i den lokala regionen och skicka data till andra regioner direkt i en fråga i millisekunder. Replikeringen är beroende av endast de fram och åter tid för datacenter. Läs mer om Azure Cosmos DB global distributionsplatsen kapacitet i [Azure Cosmos DB: en tjänst för globalt distribuerad databas på Azure](distribute-data-globally.md).
+Azure Cosmos-DB sparar data varaktigt i den lokala regionen och skickar data till andra regioner direkt i en fråga i millisekunder. Replikeringen är beroende av endast de fram och åter tid för datacenter. Läs mer om Azure Cosmos DB global distributionsplatsen kapacitet i [Azure Cosmos DB: en tjänst för globalt distribuerad databas på Azure](distribute-data-globally.md).
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>Kan konsekvensnivå läsbegäran ändras?
 Med Azure Cosmos DB, kan du ange nivån konsekvenskontroll på nivån behållare (på tabellen). Du kan ändra nivån genom att ange värdet för TableConsistencyLevel nyckel i filen app.config med hjälp av SDK. Möjliga värden är: stark, begränsat föråldrad, Session, konsekvent Prefix och Eventual. Mer information finns i [data justerbara konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Viktiga idé är att du inte kan ange begäran konsekvenskontrollen nivån på mer än inställningen för tabellen. Du kan exempelvis ange konsekvensnivå för tabellen på Eventual och begäran konsekvensnivå på starka. 
 
-### <a name="how-does-the-premium-table-api-preview-account-handle-failover-if-a-region-goes-down"></a>Hur hanterar redundans kontot premium tabell-API (förhandsgranskning) om en region kraschar? 
-Premium API för tabellen (förhandsgranskning) lånar från Azure Cosmos DB globalt distribuerade plattform. Aktivera minst en mer region för kontot i Azure DB som Cosmos-portal för att säkerställa att ditt program kan tolerera datacenter driftstopp, [utveckling med flera regioner Azure Cosmos DB konton](regional-failover.md). Du kan ange prioritet för regionen med hjälp av portalen [utveckling med flera regioner Azure Cosmos DB konton](regional-failover.md). 
+### <a name="how-does-the-table-api-preview-account-handle-failover-if-a-region-goes-down"></a>Hur hanterar redundans kontot tabell-API (förhandsgranskning) om en region kraschar? 
+Azure Cosmos DB tabell API (förhandsgranskning) lånar från Azure Cosmos DB globalt distribuerade plattform. Aktivera minst en mer region för kontot i Azure DB som Cosmos-portal för att säkerställa att ditt program kan tolerera datacenter driftstopp, [utveckling med flera regioner Azure Cosmos DB konton](regional-failover.md). Du kan ange prioritet för regionen med hjälp av portalen [utveckling med flera regioner Azure Cosmos DB konton](regional-failover.md). 
 
 Du kan lägga till så många områden som du vill använda för kontot och styra där den kan växla över till genom att tillhandahålla en prioritet för växling vid fel. Naturligtvis för att använda databasen, måste du ge det ett program för. När du gör det får inte driftstopp för dina kunder. Klienten SDK är auto värdar. Det vill säga kan identifiera den region som är igång och automatiskt växla över till den nya regionen.
 
-### <a name="is-the-premium-table-api-preview-enabled-for-backups"></a>Premium tabell-API (förhandsversion) har aktiverats för säkerhetskopiering?
-Ja, premium tabell-API (förhandsgranskning) lånar från Azure Cosmos DB plattform för säkerhetskopiering. Säkerhetskopieringar görs automatiskt. Mer information finns i [Online säkerhetskopiering och återställning med Azure Cosmos DB](online-backup-and-restore.md).
+### <a name="is-the-table-api-preview-enabled-for-backups"></a>Tabell-API (förhandsversion) har aktiverats för säkerhetskopiering?
+Ja, Azure Cosmos DB tabell API (förhandsgranskning) lånar från Azure Cosmos DB plattform för säkerhetskopiering. Säkerhetskopieringar görs automatiskt. Mer information finns i [Online säkerhetskopiering och återställning med Azure Cosmos DB](online-backup-and-restore.md).
 
  
 ### <a name="does-the-table-api-preview-index-all-attributes-of-an-entity-by-default"></a>Tabell-API (förhandsversion) index alla attribut för en entitet som standard?
-Ja, alla attribut för en entitet indexeras som standard. Mer information finns i [Azure Cosmos DB: indexering principer](indexing-policies.md). 
+Ja, alla attribut för en entitet indexeras som standard av Azure Cosmos DB. Mer information finns i [Azure Cosmos DB: indexering principer](indexing-policies.md). 
 
 ### <a name="does-this-mean-i-do-not-have-to-create-multiple-indexes-to-satisfy-the-queries"></a>Detta betyder det inte behöver skapa flera index för frågorna? 
 Ja, Azure Cosmos DB ger automatisk indexering av alla attribut utan någon schemadefinition. Det här automation Frigör utvecklare kan fokusera på programmet istället för på skapandet av index och hantering. Mer information finns i [Azure Cosmos DB: indexering principer](indexing-policies.md).
@@ -358,16 +356,16 @@ Ja, kan du använda portalen Azure Cosmos DB skala fönstret för att skala geno
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>Är en standarduppsättning TableThroughput för nyetablerade tabeller?
 Ja, om du inte åsidosätter TableThroughput via app.config och Använd inte en förskapad behållare i Azure Cosmos DB tjänsten skapar en tabell med genomströmning på 400.
  
-### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-standard-table-api"></a>Finns det några ändringar av priser för befintliga kunder standard tabell API?
-Ingen. Det finns ingen ändring i priset för befintliga standard tabell API-kunder. 
+### <a name="is-there-any-change-of-pricing-for-existing-customers-of-azure-table-storage"></a>Finns det några ändringar av priser för befintliga kunder i Azure Table storage?
+Ingen. Det finns ingen ändring i priset för befintliga Azure Table storage-kunder. 
 
 ### <a name="how-is-the-price-calculated-for-the-table-api-preview"></a>Hur beräknas priset för tabell-API (förhandsgranskning)? 
-Priset beror på allokerade TableThroughput. 
+Priset för Azure Cosmos DB tabell API (förhandsversion) är beroende av den allokerade TableThroughput. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-preview-offering"></a>Hur hanterar jag en begränsning på tabellerna i tabell-API (förhandsversion) ger? 
+### <a name="how-do-i-handle-any-throttling-in-table-api-preview-offering"></a>Hur hanterar jag en begränsning i tabellen API (förhandsgranskning) erbjudandet? 
 Om frekvensen för begäran överskrider det tillhandahållna dataflödet kapacitet för den underliggande behållaren, du får ett fel och SDK kommer att försöka anropet genom att använda principen försök igen.
 
-### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-premium-table-api-preview-offering-of-azure-cosmos-db"></a>Varför måste välja en genomströmning förutom PartitionKey och RowKey för att dra nytta av premium tabell-API (förhandsgranskning) erbjudande på Azure Cosmos DB?
+### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-azure-cosmos-db-table-api-preview"></a>Varför måste välja en genomströmning förutom PartitionKey och RowKey för att kunna utnyttja Azure Cosmos DB tabell API (förhandsgranskning)?
 Azure Cosmos-DB anger en standard-genomströmning för din behållaren om du inte anger något i filen app.config. 
 
 Azure Cosmos-DB tillhandahåller garantier för prestanda och fördröjning med övre gränser för åtgärden. Garantin är möjligt när motorn kan tillämpa styrning på klientens åtgärder. Ange TableThroughput garanterar att du får garanterad genomflöde och svarstid, eftersom plattformen reserverar denna kapacitet och garanterar operativa lyckades. 
@@ -378,15 +376,15 @@ Med specifikationen dataflöde kan ändra du Elastiskt den om du vill dra nytta 
 
 Azure Cosmos-DB är avsedd att vara ett globalt distribuerade, SLA-baserade system med garantier för tillgänglighet, svarstid och genomströmning. När du reserverar genomflöde i Azure Cosmos DB garanteras den, till skillnad från genomflödet i andra system. Azure Cosmos-DB tillhandahåller ytterligare funktioner som kunder har begärt, till exempel sekundärindex och distributionslistor.  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Jag får aldrig en ”full” kvotmeddelanden (som anger att en partition är full) när jag mata in data i Table storage. Med tabell-API (förhandsgranskning) detta meddelande visas. Detta ger att begränsa mig och tvinga jag ändra Mina befintliga program?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-preview-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Jag får aldrig en ”full” kvotmeddelanden (som anger att en partition är full) när jag mata in data i Azure Table storage. Med tabell-API (förhandsgranskning) detta meddelande visas. Detta ger att begränsa mig och tvinga jag ändra Mina befintliga program?
 
 Azure Cosmos-DB är ett SLA-baserat system som ger obegränsad skala garantier för latens, dataflöde, tillgänglighet och konsekvenskontroll. Kontrollera att index och Datastorleken är hanterbar och skalbar för att säkerställa prestanda Garanterad premium. 10 GB-gränsen för antalet enheter eller objekt per Partitionsnyckeln är att säkerställa att vi ger utmärkt prestanda för sökning och fråga. För att säkerställa att programmet ska skalas bra även för Azure Storage, rekommenderar vi att du *inte* skapa en varm partition genom att lagra all information i en partition och exempelvärden. 
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-new-table-api-preview"></a>Så PartitionKey och RowKey krävs fortfarande med den nya tabellen API (förhandsgranskning)? 
-Ja. Eftersom ytan på tabell-API (förhandsversion) är samma som Table storage SDK innehåller Partitionsnyckeln ett effektivt sätt att fördela data. Radnyckeln är unikt i den aktuella partitionen. Radnyckeln måste finnas och får inte vara null som standard SDK. RowKey längd är 255 byte och längden på PartitionKey är 100 byte (snart ska ökas till 1 KB). 
+Ja. Eftersom ytan på tabell-API (förhandsversion) är samma som Azure Table storage SDK innehåller Partitionsnyckeln ett effektivt sätt att fördela data. Radnyckeln är unikt i den aktuella partitionen. Radnyckeln måste finnas och får inte vara null som standard SDK. RowKey längd är 255 byte och längden på PartitionKey är 100 byte (snart ska ökas till 1 KB). 
 
 ### <a name="what-are-the-error-messages-for-the-table-api-preview"></a>Vad är felmeddelanden för tabell-API (förhandsgranskning)?
-Eftersom den här förhandsgranskningen är kompatibel med tabellen standard mappar de flesta av fel som till felen från tabellen standard. 
+Eftersom den här förhandsgranskningen är kompatibelt med Azure Table storage, mappar de flesta av fel som till felen från tabellen standard. 
 
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api-preview"></a>Varför jag hämta begränsas när jag försöker skapa många tabeller efter varandra i tabell-API (förhandsgranskning)?
 Azure Cosmos-DB är ett SLA-baserat system som tillhandahåller svarstid, dataflöde, tillgänglighet och konsekvens garanterar. Eftersom det är ett etablerade system, reserverar resurser för att garantera att dessa krav. Snabb frekvensen för skapande av tabeller identifieras och begränsas. Vi rekommenderar att du tittar på frekvensen för skapande av tabeller och sänka den till mindre än 5 per minut. Kom ihåg att tabellen API (förhandsversion) är ett etablerade system. Den tidpunkt då du etablera, börjar du betalar för den. 
@@ -411,7 +409,7 @@ Azure Cosmos-DB starta som en ”projekt Florens” 2010 för att åtgärda de e
 
 Sedan dess har vi lagt till nya funktioner och introduceras viktiga nya funktioner. Azure Cosmos-DB är resultatet. Som en del av den här versionen blir DocumentDB kunder med sina data automatiskt och sömlöst du Azure DB som Cosmos-kunder. Dessa funktioner finns i områden som core databasmotorn, samt global distributionsplatsen, elastisk skalbarhet och branschledande, omfattande SLA: er. Vi har särskilt utvecklats Azure Cosmos DB databasmotorn effektivt att mappa alla populära datamodeller typen System och API: er till den underliggande datamodellen av Azure Cosmos DB. 
 
-Den aktuella developer-riktade uttryck för att arbetet är nytt stöd för [Gremlin](../cosmos-db/graph-introduction.md) och [Table storage API: er](../cosmos-db/table-introduction.md). Detta är bara början. Vi planerar att lägga till andra populära API: er och nyare datamodeller över tid, med mer utvecklingen av prestanda och lagringsutrymme på global nivå. 
+Den aktuella developer-riktade uttryck för att arbetet är nytt stöd för [Gremlin](../cosmos-db/graph-introduction.md) och [tabell-API: er](../cosmos-db/table-introduction.md). Detta är bara början. Vi planerar att lägga till andra populära API: er och nyare datamodeller över tid, med mer utvecklingen av prestanda och lagringsutrymme på global nivå. 
 
 Det är viktigt att påpeka att av DocumentDB [SQL dialect](../documentdb/documentdb-sql-query.md) har alltid varit en av de många API: er som har stöd för den underliggande Azure Cosmos DB. För utvecklare som använder en helt hanterad tjänst, till exempel Azure Cosmos DB, är det enda gränssnittet till tjänsten API: er som exponeras av tjänsten. Inget verkligen ändringar för befintliga DocumentDB-kunder. I Azure Cosmos DB få exakt samma SQL API som erbjuder DocumentDB. Och nu (och senare) du kan komma åt andra funktioner som tidigare inte tillgänglig 
 

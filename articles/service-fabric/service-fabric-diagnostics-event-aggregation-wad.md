@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregering av händelse och med Windows Azure-diagnostik
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ När du har ändrat filen template.json enligt publicera Resource Manager-mallen
 
 Från och med 5.4 för Service Fabric, är hälsotillstånd och Läs in mått händelser tillgängliga för samlingen. Dessa händelser återspeglar händelser som genererats av systemet eller din kod med hjälp av hälsotillstånd eller läsa in reporting API: er som [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) eller [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Detta gör för att sammanställa och visa systemhälsa över tid och aviseringar baserat på händelser hälsa eller belastningsutjämning. Visa dessa händelser i Loggboken för Visual Studio diagnostiska lägga till ”Microsoft-ServiceFabric:4:0x4000000000000008” i listan över ETW-providers.
 
-Ändra Resource Manager-mallen ska inkludera för att samla in händelser
+Om du vill samla in händelser i klustret, ändra den `scheduledTransferKeywordFilter` i WadCfg av Resource Manager-mall att `4611686018427387912`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ Från och med 5.4 för Service Fabric, är hälsotillstånd och Läs in mått h�
 
 ## <a name="collect-reverse-proxy-events"></a>Samla in händelser för omvänd proxy
 
-Från och med 5.7 för Service Fabric [omvänd proxy](service-fabric-reverseproxy.md) händelser finns tillgängliga för samlingen.
-Omvänd proxy skickar händelser till två kanaler, något som innehåller felhändelser reflektion fel och den andra som innehåller utförlig händelser för alla begäranden för begäranden som bearbetas på omvänd proxy. 
+Från och med 5.7 för Service Fabric [omvänd proxy](service-fabric-reverseproxy.md) händelser finns tillgängliga för samlingen via Data & Messaging kanaler. 
 
-1. Samla in felhändelser: visa dessa händelser i Loggboken för Visual Studio diagnostiska lägga till ”Microsoft-ServiceFabric:4:0x4000000000000010” i listan över ETW-providers.
-Ändra Resource Manager-mallen ska inkludera för att samla in händelser från Azure-kluster
+Omvänd proxy skickas endast felhändelser via viktigaste Data & Messaging-kanalen - reflektion kritiska problem och fel för begäranden. Detaljerad kanalen innehåller utförlig händelser för alla begäranden som bearbetas av omvänd proxy. 
+
+Visa felhändelser i Visual Studio diagnostiska Loggboken lägga till ”Microsoft-ServiceFabric:4:0x4000000000000010” i listan över ETW-providers. För alla begärandetelemetri uppdatera Microsoft-ServiceFabric posten i listan för ETW-provider till ”Microsoft-ServiceFabric:4:0x4000000000000020”.
+
+För kluster som körs i Azure:
+
+För att hämta upp spåren i viktigaste Data & Messaging kanalen, ändra den `scheduledTransferKeywordFilter` värde i WadCfg av Resource Manager-mall att `4611686018427387920`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ Omvänd proxy skickar händelser till två kanaler, något som innehåller felh�
     }
 ```
 
-2. Samla in alla begära att bearbeta händelser: I Visual Studios diagnostiska Loggboken, uppdatera Microsoft-ServiceFabric post i listan ETW-provider till ”Microsoft-ServiceFabric:4:0x4000000000000020”.
-Ändra resource manager-mall att inkludera för Azure Service Fabric-kluster
+Om du vill samla in händelser från alla begäranbearbetningen aktivera Data & Messaging - detaljerad kanal genom att ändra den `scheduledTransferKeywordFilter` värde i WadCfg av Resource Manager-mall att `4611686018427387936`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ Omvänd proxy skickar händelser till två kanaler, något som innehåller felh�
       }
     }
 ```
-> Det rekommenderas att aktivera klokt att samla in händelser från den här kanalen som detta samlar in all trafik via omvänd proxy och snabbt förbruka lagringskapacitet.
 
-I Azure Service Fabric-kluster är samlas in och samman i SystemEventTable händelser från alla noder.
+Att aktivera att samla in händelser från den här detaljerade kanal resultat i en stor mängd spårningar skapas snabbt och kan använda lagringskapacitet. Endast aktivera detta när det är nödvändigt.
 För detaljerad felsökning av händelser för omvänd proxy, finns det [omvänd proxy diagnostik guiden](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Samla in från den nya EventSource kanaler

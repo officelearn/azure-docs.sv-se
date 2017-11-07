@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Bind ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -151,13 +151,13 @@ Om du använder IIS eller _Certreq.exe_ generera certifikatbegäran genom att in
 
 Om du vill överföra SSL-certifikat klickar du på **SSL-certifikat** i navigeringen till vänster i ditt webbprogram.
 
-Klicka på **överför certifikat**.
+Klicka på **överför certifikat**. 
 
 I **PFX-certifikatsfilen**, Välj din PFX-fil. I **certifikatlösenord**, Skriv in lösenordet som du skapade när du exporterade PFX-filen.
 
 Klicka på **Överför**.
 
-![Överför certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Överför certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 När Apptjänst har överförts certifikatet, visas den i den **SSL-certifikat** sidan.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>Offentliga certifikat (valfritt)
+Du kan ladda upp [offentliga certifikat](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) till ditt webbprogram. Du kan använda certifikat för offentlig med Web Apps i Apptjänst eller App Service-miljö (ASE). Om du behöver lagra certifikatet i arkivet LocalMachine certifikat, måste du använda en webbapp i App Service-miljö. Mer information finns i [hur du konfigurerar offentliga certifikat till ditt webbprogram](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Överför offentliga certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

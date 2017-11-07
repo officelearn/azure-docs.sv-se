@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 549582b0282a7b0382496b89dbcb4330ab67192a
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Anpassa Linux-baserat HDInsight-kluster med skriptåtgärder
+# <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
 HDInsight tillhandahåller ett konfigurationsalternativ som kallas **skriptåtgärd** som anropar anpassade skript för att anpassa klustret. Dessa skript används för att installera ytterligare komponenter och ändra konfigurationsinställningarna. Skriptåtgärder kan användas under eller efter att klustret har skapats.
 
@@ -55,7 +55,7 @@ Se följande dokument för mer information om arbete med åtkomst hantering:
 
 ## <a name="understanding-script-actions"></a>Förstå skriptåtgärder
 
-En skriptåtgärd är bara ett Bash-skript som du anger en URI för och parametrar för. Skriptet körs på noder i HDInsight-klustret. Följande är egenskaper och funktioner för skriptåtgärder.
+En skriptåtgärd är Bash-skript som du anger en URI för och parametrar för. Skriptet körs på noder i HDInsight-klustret. Följande är egenskaper och funktioner för skriptåtgärder.
 
 * Måste vara lagrade på en URI som är tillgänglig från HDInsight-klustret. Följande är möjliga lagringsplatser:
 
@@ -150,7 +150,7 @@ När du använder ett skript i ett kluster, klustertillstånd ändras från **k�
 > [!NOTE]
 > Om du har ändrat kluster-användarlösenord (admin) när klustret har skapats, misslyckas skriptet åtgärder har körts för det här klustret. Om du har några beständiga skriptåtgärder arbetsnoder som mål, misslyckas dessa skript när du skalar klustret.
 
-## <a name="example-script-action-scripts"></a>Exempelskript för skriptåtgärder
+## <a name="example-script-action-scripts"></a>Exempelskript skript åtgärd
 
 Skriptet åtgärd skript kan användas via följande verktyg:
 
@@ -233,7 +233,7 @@ Information om hur du distribuerar en mall finns i följande dokument:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Använd en skriptåtgärd när klustret skapas från Azure PowerShell
 
-I det här avsnittet kan du använda den [Lägg till AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) för att anropa skript med hjälp av skriptåtgärder för att anpassa ett kluster. Innan du fortsätter bör du kontrollera att du har installerat och konfigurerat Azure PowerShell. Information om hur du konfigurerar en arbetsstation för att köra HDInsight PowerShell-cmdlets finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+I det här avsnittet kan du använda den [Lägg till AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) för att anropa skript för att anpassa ett kluster. Innan du fortsätter bör du kontrollera att du har installerat och konfigurerat Azure PowerShell. Information om hur du konfigurerar en arbetsstation för att köra HDInsight PowerShell-cmdlets finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
 Följande skript visar hur du använder en skriptåtgärd när du skapar ett kluster med hjälp av PowerShell:
 
@@ -260,7 +260,7 @@ I det här avsnittet lär du dig hur du vidtar skriptåtgärder på ett kluster 
    > [!NOTE]
    > Du kan också välja **alla inställningar** och välj sedan **skriptåtgärder** från avsnittet Inställningar.
 
-3. Upp i avsnittet skriptåtgärder, Välj **skicka nya**.
+3. Upp i avsnittet script actions, Välj **skicka nya**.
 
     ![Lägga till ett skript i ett kluster som körs](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -354,15 +354,15 @@ Ett exempel på med .NET SDK för att använda skript till ett kluster, se [http
    > [!NOTE]
    > Du kan också välja **alla inställningar** och välj sedan **skriptåtgärder** från avsnittet Inställningar.
 
-4. En historik över skript för det här klustret visas i avsnittet skriptåtgärder. Den här informationen innehåller en lista över bestående skript. I skärmbilden nedan ser du att Solr skriptet har körts på detta kluster. Skärmbilden visar inte alla beständiga skript.
+4. En historik över skript för det här klustret visas i avsnittet skript åtgärder. Den här informationen innehåller en lista över bestående skript. I skärmbilden nedan ser du att Solr skriptet har körts på detta kluster. Skärmbilden visar inte alla beständiga skript.
 
-    ![Script Actions-avsnitt](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
+    ![Skriptet Åtgärdsavsnitt](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
 5. Om du väljer ett skript från historiken visas avsnittet Egenskaper för det här skriptet. Du kan köra skriptet eller befordra högst upp på skärmen.
 
     ![Åtgärder skriptegenskaper](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. Du kan också använda den **...**  till höger om poster i avsnittet skriptåtgärder att utföra åtgärder.
+6. Du kan också använda den **...**  till höger om poster i avsnittet skript åtgärder att utföra åtgärder.
 
     ![Script åtgärder... användning](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
@@ -439,7 +439,7 @@ Du kan använda Ambari-webbgränssnittet för att visa information som loggas av
 
     ![Ambari web UI-fältet med ops som valts](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
 
-3. Poster som har **kör\_customscriptaction** i den **Operations** kolumn. Dessa poster skapas när de åtgärder som skript körs.
+3. Poster som har **kör\_customscriptaction** i den **Operations** kolumn. Dessa poster skapas när åtgärderna som skript körs.
 
     ![Skärmbild av åtgärder](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
@@ -447,7 +447,7 @@ Du kan använda Ambari-webbgränssnittet för att visa information som loggas av
 
 ### <a name="access-logs-from-the-default-storage-account"></a>Åtkomstloggar från standardkontot för lagring
 
-Om det inte går att skapa ett kluster på grund av ett skriptfel åtgärd, kan loggarna nås från klustrets storage-konto.
+Om klustret har skapats misslyckas på grund av ett skriptfel, behålls loggarna i klustret storage-konto.
 
 * Storage-loggar finns på `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
@@ -503,7 +503,7 @@ Information om hur du ansluter till klustret med SSH finns [använda SSH med HDI
 
 ### <a name="history-doesnt-show-scripts-used-during-cluster-creation"></a>Historik visar inte skript som ska användas när klustret skapas
 
-Om klustret har skapats innan den 15 mars 2016 kan du inte se en post i historiken för skriptåtgärder. Om du ändrar storlek på klustret efter den 15 mars 2016 visas i skript med hjälp av när klustret skapas i historiken som de ska tillämpas på nya noder i klustret under åtgärden Ändra storlek.
+Om klustret har skapats innan den 15 mars 2016 kan du inte se en post i historiken för skriptåtgärder. Ändra storlek på klustret gör skript ska visas i historiken för skriptåtgärder.
 
 Det finns två undantag:
 
@@ -515,7 +515,7 @@ Det finns två undantag:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utveckla skriptåtgärd skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)
+* [Utveckla skript åtgärd skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Installera och använda Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md)
 * [Installera och använda Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
 * [Lägga till ytterligare lagringsutrymme i ett HDInsight-kluster](hdinsight-hadoop-add-storage.md)

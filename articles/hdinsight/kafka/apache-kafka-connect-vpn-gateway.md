@@ -13,17 +13,17 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/01/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 7bb9939df413bfea2b3b8545c29a20feb623f94e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Ansluta till Kafka på HDInsight (förhandsgranskning) via ett virtuellt Azure-nätverk
 
-Lär dig mer om att ansluta direkt till Kafka på HDInsight med virtuella Azure-nätverk. Det här dokumentet innehåller information om hur du ansluter till Kafka med hjälp av följande konfigurationer:
+Lär dig mer om att ansluta direkt till Kafka på HDInsight via ett Azure Virtual Network. Det här dokumentet innehåller information om hur du ansluter till Kafka med hjälp av följande konfigurationer:
 
 * Från resurser i ett lokalt nätverk. Den här anslutningen har upprättats med hjälp av en VPN-enhet (programvara eller maskinvara) på nätverket.
 * Med hjälp av en VPN-programvaruklient från en utvecklingsmiljö.
@@ -58,7 +58,7 @@ HDInsight kan inte direkt anslutning till Kafka via det offentliga internet. Anv
     > Den här konfigurationen rekommenderas endast för utveckling på grund av följande begränsningar:
     >
     > * Varje klient måste ansluta med en VPN-programvaruklient. Azure tillhandahåller endast en Windows-baserad klient.
-    > * Klienten överför inte namnmatchning till det virtuella nätverket, så du måste använda IP-adresser för att kommunicera med Kafka. IP-kommunikation kräver ytterligare konfiguration på Kafka-klustret.
+    > * VPN-klienten klarar inte namnmatchning till det virtuella nätverket, så du måste använda IP-adresser för att kommunicera med Kafka. IP-kommunikation kräver ytterligare konfiguration på Kafka-klustret.
 
 Mer information om hur du använder HDInsight i ett virtuellt nätverk finns [utöka HDInsight med hjälp av Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
 
@@ -130,7 +130,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
 
     # HDInsight settings
     $HdiWorkerNodes = 4
-    $hdiVersion = "3.5"
+    $hdiVersion = "3.6"
     $hdiType = "Kafka"
     ```
 
@@ -237,7 +237,7 @@ Använd stegen i det här avsnittet för att skapa följande konfiguration:
     ```
 
   > [!WARNING]
-  > Den här processen tar cirka 20 minuter för att slutföra.
+  > Den här processen tar ungefär 15 minuter för att slutföra.
 
 8. Använd följande cmdlet för att hämta URL: en för Windows VPN-klienten för det virtuella nätverket:
 

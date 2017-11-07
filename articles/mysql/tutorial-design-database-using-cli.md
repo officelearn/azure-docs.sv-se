@@ -5,16 +5,17 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
+editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 0e6a92eeb9711b086359ab2cd1aea87a57f1fc36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd59442c0b3aa5d6ed1a9ef287949d1d17fa80f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Utforma din första Azure-databas för MySQL-databas
 
@@ -33,7 +34,7 @@ Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI 2.0
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kräver i den här artikeln att du använder Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#set).
 ```azurecli-interactive
@@ -102,7 +103,7 @@ Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **admini
 ```
 
 ## <a name="connect-to-the-server-using-mysql"></a>Ansluta till servern med mysql
-Använd [mysql kommandoradsverktyget](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) att upprätta en anslutning till din Azure-databas för MySQL-servern. I det här exemplet är kommandot:
+Använd den [mysql kommandoradsverktyget](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) att upprätta en anslutning till din Azure-databas för MySQL-servern. I det här exemplet är kommandot:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
@@ -119,9 +120,9 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Skapa tabeller i databasen
-Nu när du vet hur du ansluter till Azure-databasen för MySQL-databas, gå vi igenom hur du utför några grundläggande uppgifter.
+Nu när du vet hur du ansluter till Azure-databasen för MySQL-databas, utföra vissa grundläggande uppgifter:
 
-Vi kan först skapa en tabell och läsa in den med vissa data. Nu ska vi skapa en tabell som innehåller information om maskinvaruinventering.
+Först skapar en tabell och läsa in den med vissa data. Nu ska vi skapa en tabell som innehåller information om maskinvaruinventering.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -131,7 +132,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Läser in data i tabeller
-Nu när vi har en tabell kan vi infoga vissa data i den. Kör följande fråga för att infoga vissa rader med data i öppna en kommandotolk-fönster.
+Nu när du har en tabell att infoga vissa data i den. Kör följande fråga för att infoga vissa rader med data i öppna en kommandotolk-fönster.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -158,7 +159,7 @@ SELECT * FROM inventory;
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Återställa en databas till en tidigare tidpunkt
 Anta att du av misstag har tagit bort den här tabellen. Detta är något du lätt kan återställa från. Azure MySQL-databas kan du gå tillbaka till valfri punkt i tiden i den senaste upp till 35 dagar och en återställningspunkt i tid till en ny server. Du kan använda den här nya servern för att återställa dina data. Följande steg återställa exempelserver till en innan tabellen har lagts till.
 
-För återställningen måste du följande information:
+För återställning behöver du följande information:
 
 - Återställningspunkt: Välj en i tidpunkt som inträffar innan servern har ändrats. Måste vara större än eller lika med värdet i källdatabasen äldsta säkerhetskopiering.
 - Målservern: Ange ett nytt servernamn som du vill återställa till

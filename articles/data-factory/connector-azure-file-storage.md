@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 97ce45f93964ac6759a40f4496256167d99190d4
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiera data från eller till Azure File Storage med hjälp av Azure Data Factory
 
@@ -26,7 +26,7 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
 
-## <a name="supported-scenarios"></a>Scenarier som stöds
+## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Du kan kopiera data från Azure File Storage till alla stöds sink-datalagret eller kopiera data från alla datalager stöds källa till Azure File Storage. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
@@ -48,7 +48,11 @@ Följande egenskaper stöds för länkad Azure File Storage-tjänst:
 | värden | Anger Azure File Storage-slutpunkt som `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ja |
 | användar-ID | Ange vilken användare för att komma åt Azure File Storage som `"userid": "AZURE\\<storage name>"`. | Ja |
 | lösenord | Ange lagringsåtkomstnyckel. Markera det här fältet som SecureString.<br/> | Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
+
+>[!TIP]
+> - Kopiera till Azure File Storage med hjälp av Azure Integration Runtime explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med plats för lagring av filer, och koppla i den länkade tjänsten som i följande exempel.
+> - Kom ihåg att öppna utgående TCP-port 445 i ditt lokala nätverk för att kopiera från/till Azure File Storage med hjälp av Self-hosted integrering körning utanför Azure.
 
 **Exempel:**
 
@@ -72,9 +76,6 @@ Följande egenskaper stöds för länkad Azure File Storage-tjänst:
     }
 }
 ```
-
-> [!TIP]
-> När du använder Self-hosted integrering körning utanför Azure för att kopiera data från/till Azure File Storage, Kom ihåg att öppna utgående TCP-port 445 i ditt lokala nätverk.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 

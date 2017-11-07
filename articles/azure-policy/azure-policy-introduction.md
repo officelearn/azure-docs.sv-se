@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark; nini
-ms.date: 10/25/2017
+ms.date: 11/06/2017
 ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: 82721fe984ff7b3c7440b11d7526a9413b0770de
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure principen?
 
@@ -55,7 +55,7 @@ Mer information om strukturerna för principdefinitioner titta på den här arti
 
 ## <a name="policy-assignment"></a>Tilldelning av principer
 
-En principtilldelning är en principdefinition som tilldelats äga rum inom ett specifikt omfång. Det här området kan röra sig om en hanteringsgrupp till en resursgrupp. Principtilldelningar ärvs av alla underordnade resurser. Så om en princip används för en resursgrupp, tillämpas den till alla resurser i resursgruppen. Termen *omfång* avser alla resursgrupper, prenumerationer eller hanteringsgrupper som har tilldelats principdefinitionen.
+En principtilldelning är en principdefinition som tilldelats äga rum inom ett specifikt omfång. Det här området kan röra sig om en hanteringsgrupp till en resursgrupp. Termen *omfång* avser alla resursgrupper, prenumerationer eller hanteringsgrupper som har tilldelats principdefinitionen. Principtilldelningar ärvs av alla underordnade resurser. Så om en princip används för en resursgrupp, tillämpas den till alla resurser i resursgruppen. Du kan dock utesluta en subscope från principtilldelningen. Du kan till exempel tilldela en princip som förhindrar skapande av nätverksresurser definitionsområdet prenumeration. Dock utesluta en resursgrupp i prenumerationen som är avsedd för nätverksinfrastruktur. Du kan bevilja åtkomst till i resursgruppen nätverk till användare som du litar på med att skapa nätverksresurser.
 
 Mer information om inställningen principdefinitioner och tilldelningar finns [skapa en tilldelning av principer för att identifiera icke-kompatibla resurser i Azure-miljön](assign-policy-definition.md).
 

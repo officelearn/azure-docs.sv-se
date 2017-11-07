@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: cca748eafc547d808a3bee6bb8dedcec821f6cb5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 5f5b34c6610a1c07687f0681480f7422986d6f20
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Använda Pig med Hadoop i HDInsight
 
@@ -31,7 +31,7 @@ Pig är en plattform för att skapa program för Hadoop med hjälp av en procedu
 | **Använd den här** om du vill... | ...an **interaktiva** shell | ...**batch** bearbetning | ...med detta **klustret operativsystem** | ...from detta **klientoperativsystem** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X eller Windows |
-| [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- eller Windows |Linux, Unix, Mac OS X eller Windows |
+| [REST-API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux- eller Windows |Linux, Unix, Mac OS X eller Windows |
 | [.NET SDK för Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux- eller Windows |Windows (för tillfället) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux- eller Windows |Windows |
 | [Fjärrskrivbord](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 och 3.3) |✔ |✔ |Windows |Windows |

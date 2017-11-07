@@ -1,6 +1,6 @@
 ---
-title: "Använda Azure Import/Export för att överföra data till och från blob storage | Microsoft Docs"
-description: "Lär dig hur du skapar importera och exportera jobben i Azure-portalen för att överföra data till och från blobblagring."
+title: "Använda Azure Import/Export för att överföra data till och från Azure Storage | Microsoft Docs"
+description: "Lär dig hur du skapar importera och exportera jobben i Azure-portalen för att överföra data till och från Azure Storage."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure-lagring
-I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export-tjänsten på ett säkert sätt överföra stora mängder data till Azure blob och fillagring genom att leverera diskenheter till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure blob storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enda interna SATA-diskenhet antingen Azure blob Storage eller Azure File storage. 
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure Storage
+I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export service att säkert överföra stora mängder data till Azure Blob storage och Azure filer av leverans diskenheterna till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enskild interna SATA-disk till Azure Blob storage eller Azure-filer. 
 
 > [!IMPORTANT] 
-> Den här tjänsten accepteras bara interna SATA-hårddiskar och SSD-enheter bara. Inga andra enheten stöds. Skicka inte externa hårddiskar eller NAS-enheter osv som kommer att returneras när det är möjligt eller tas bort.
+> Den här tjänsten accepteras bara interna SATA-hårddiskar och SSD-enheter bara. Inga andra enheten stöds. Skicka inte externa hårddiskar NAS-enheter, osv., som de ska returneras om möjligt eller på annat sätt borttagna.
 >
 >
 
-Följ de nedanstående steg om data på disken som ska importeras till Azure Blob Storage.
+Följ de nedanstående steg om data på disken som ska importeras till Azure Storage.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Steg 1: Förbered enheten/s-verktyget WAImportExport och generera journal fil/s.
 
-1.  Identifiera vilka data som ska importeras till Azure-blobblagring. Detta kan vara kataloger och fristående filer på en lokal server eller en nätverksresurs.
+1.  Identifiera vilka data som ska importeras till Azure Storage. Detta kan vara kataloger och fristående filer på en lokal server eller en nätverksresurs.
 2.  Beroende på storleken på data anskaffa antalet krävs 2,5 tum SSD eller 2,5-tums eller 3,5-tums SATA II eller III hårddiskar.
 3.  Koppla hårddiskar direkt med SATA eller med adaptrar för externa USB till en windows-dator.
 4.  Skapa en NTFS-volym på varje hårddisk och tilldela en enhetsbeteckning till volymen. Inga monteringspunkter.
@@ -80,7 +80,7 @@ Du kan använda den här tjänsten i scenarier såsom:
 
 * Migrering av data till molnet: flytta stora mängder data till Azure snabbt och kostnadseffektivt sätt.
 * Innehållsdistribution: snabbt skicka data till customer-platser.
-* Säkerhetskopiering: Ta säkerhetskopior av lokala data att lagra i Azure blob storage.
+* Säkerhetskopiering: Ta säkerhetskopior av lokala data ska lagras i Azure Storage.
 * Återställning av data: återställa stora mängder data som lagras i lagring och dem till din lokala plats.
 
 ## <a name="prerequisites"></a>Krav
@@ -90,13 +90,13 @@ I det här avsnittet listas vi kraven för att använda den här tjänsten. Gran
 Du måste ha en befintlig Azure-prenumeration och en eller flera lagringskonton för att använda tjänsten Import/Export. Varje jobb kan användas för att överföra data till eller från en enda storage-konto. Med andra ord kan inte ett enda import/export-jobb vara över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Datatyper
-Du kan använda tjänsten Azure Import/Export för att kopiera data till **Block** blobbar eller **sidan** blobbar eller **filer**. Däremot kan du bara exportera **Block** blobar **sidan** blobbar eller **Append** blobbar från Azure storage med hjälp av den här tjänsten. Tjänsten stöder inte export av Azure-filer och kan bara importera filerna till Azure storage.
+Du kan använda tjänsten Azure Import/Export för att kopiera data till **Block** blobar **sidan** blobbar, eller **filer**. Däremot kan du bara exportera **Block** blobar **sidan** blobbar eller **Append** blobbar från Azure storage med hjälp av den här tjänsten. Tjänsten stöder endast import av Azure-filer till Azure storage. Exportera Azure-filer stöds inte för närvarande.
 
 ### <a name="job"></a>Jobb
 Om du vill påbörja processen att importeras till eller exporteras från lagring skapa du först ett jobb. Ett jobb kan vara ett importjobb eller ett exportjobb:
 
-* Skapa ett importjobb när du vill överföra data som du har lokal till blobbar i ditt Azure storage-konto.
-* Skapa ett exportjobb när du vill överföra data som för närvarande lagras som blobar i ditt lagringskonto till hårddiskar som levereras till oss. När du skapar ett jobb kan meddela du tjänsten Import/Export att du kommer att leverera en eller flera hårddiskar till ett Azure-datacenter.
+* Skapa ett importjobb när du vill överföra data du har lokala till Azure storage-konto.
+* Skapa ett exportjobb när du vill överföra data som lagras i ditt lagringskonto till hårddiskar som levereras till oss. När du skapar ett jobb kan meddela du tjänsten Import/Export att du kommer att leverera en eller flera hårddiskar till ett Azure-datacenter.
 
 * För ett importjobb ska du leverera hårddiskar som innehåller dina data.
 * För ett exportjobb ska du leverera tomt hårddiskar.
@@ -107,7 +107,7 @@ Du kan skapa en importera eller exportera jobb med hjälp av Azure-portalen elle
 ### <a name="waimportexport-tool"></a>WAImportExport-verktyget
 Det första steget i att skapa en **importera** jobbet är att förbereda dina enheter som ska levereras för import. För att förbereda dina enheter, måste du ansluta till en lokal server och kör verktyget WAImportExport på den lokala servern. Verktyget WAImportExport underlättar kopiera dina data från enheten, kryptera data på enheten med BitLocker och generera journalfiler enhet.
 
-Journal-filer lagrar grundläggande information om jobbet och enheten, till exempel serienummer för enheten och lagringskontonamn. Den här journalfilen lagras inte på enheten. Den används när importen jobbet skapades. Steg för steg finns information om jobb skapas senare i den här artikeln.
+Journal-filer lagrar grundläggande information om jobbet och enheten, till exempel serienummer för enheten och lagringskontonamn. Den här journalfilen lagras inte på enheten. Den används när importen jobbet skapades. Steg för steg-information om jobb skapas tillhandahålls nedan.
 
 Verktyget WAImportExport är endast kompatibel med 64-bitars Windows-operativsystem. Finns det [operativsystemet](#operating-system) för specifika OS-versioner som stöds.
 
@@ -294,7 +294,7 @@ När du levererar enheter till Azure betalar kostnaden leverans till leverans op
 
 **Transaktionskostnader**
 
-Det finns inga transaktionskostnader när du importerar data till blob-lagring. Standard utgång avgifterna är tillämpliga när exporteras data från blob storage. Mer information om transaktionskostnader finns [dataöverföring priser.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Det finns inga transaktionskostnader när du importerar data till Azure Storage. Standard utgång avgifterna är tillämpliga när exporteras data från Blob storage. Mer information om transaktionskostnader finns [dataöverföring priser.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -304,7 +304,6 @@ Det första steget när du importerar data med hjälp av tjänsten Azure Import/
 
 1. Identifiera vilka data som ska importeras till Azure File Storage. Detta kan vara kataloger och fristående filer på den lokala servern eller en nätverksresurs.  
 2. Bestämma antalet enheter som du behöver beroende på storleken på data. Ange antalet krävs 2,5 tum SSD eller 2,5-tums eller 3,5-tums SATA II eller III hårddiskar.
-3. Identifiera mål-lagringskontot, behållare, virtuella kataloger och blobbar.
 4. Fastställa kataloger och/eller fristående filer som ska kopieras till varje hårddisk.
 5. Skapa CSV-filer för datauppsättningen och driveset.
     
@@ -498,11 +497,11 @@ Informationen under Azure storage-konto kan nås via Azure-portalen eller med et
 
 **När importjobbet slutförs vad kommer Mina data ut i storage-konto? Min kataloghierarkin bevaras?**
 
-När du förbereder en hårddisk på en importjobb anges målet av DstBlobPathOrPrefix fält i datamängden CSV. Detta är målbehållare i storage-konto som kopieras data från hårddisken. I den här målbehållare virtuella kataloger har skapats för mappar från hårddisken och blobbar skapas för filer. 
+När du förbereder en hårddisk på en importjobb anges målet av DstBlobPathOrPrefix-fält i datamängden CSV. Detta är målbehållare i storage-konto som kopieras data från hårddisken. I den här målbehållare virtuella kataloger har skapats för mappar från hårddisken och blobbar skapas för filer. 
 
-**Om det finns filer som redan finns i mitt lagringskonto, tjänsten skriver över befintliga blobbar i mitt lagringskonto?**
+**Om det finns filer som redan finns i mitt lagringskonto, tjänsten skriver över befintliga blobbar eller filer i mitt lagringskonto?**
 
-När du förbereder enheten du kan ange om målfiler ska skrivas över eller ignoreras använda fält i datamängden CSV-fil som kallas Disposition: < Byt namn på | Nej skriva över | skriva över >. Som standard tjänsten kommer Byt namn på nya filer i stället skriva över befintliga blobbar.
+När du förbereder enheten du kan ange om målfiler ska skrivas över eller ignoreras använda fält i datamängden CSV-fil som kallas Disposition: < Byt namn på | Nej skriva över | skriva över >. Som standard tjänsten kommer Byt namn på nya filer i stället skriva över befintliga blobbar eller filer.
 
 **Är verktyget WAImportExport kompatibel med 32-bitars operativsystem?**
 Nej. Verktyget WAImportExport är endast kompatibel med 64-bitars Windows-operativsystem. Mer information finns i avsnittet om operativsystem i den [förutsättningar](#pre-requisites) för en fullständig lista över operativsystemversioner som stöds.

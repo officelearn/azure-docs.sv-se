@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 7396b8f66dc65cfad497e336887978fa487c42f6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 11/03/2017
+ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure-databas för MySQL-alternativ och prestanda: förstå vad som är tillgängliga i varje prisnivå
 När du skapar en Azure-databas för MySQL-servern, besluta om tre huvudsakliga alternativ för att konfigurera de resurser som allokerats för servern. Dessa alternativ kan påverka prestanda och skalning av servern.
@@ -96,7 +96,7 @@ Du välja först vilken prisnivå tjänstnivå och prestandanivå när du skapar
 
 Skalning Compute-enheter sker oberoende av den maximala lagringsstorleken som du har valt.
 
-I bakgrunden, ändra prestandanivåerna för en databas skapas en kopia av den ursprungliga databasen på prestandanivån och sedan växlar anslutningar till den kopierade servern. Inga data går förlorade under den här processen. Under kort nu när systemet växlar till den nya kopian av servern inaktiveras anslutningar till databasen, så vissa transaktioner som rör sig kan återställas. Det här tidsfönstret varierar, men är i genomsnitt är det under 4 sekunder, och i mer än 99% av fallen rör det sig om mindre än 30 sekunder. Om många transaktioner sker just då anslutningarna är inaktiverade kan det ta lite längre tid.
+I bakgrunden, ändra prestandanivåerna för en server skapar en kopia av den ursprungliga servern på den nya prestandanivån och sedan växlar anslutningar till den kopierade servern. Inga data går förlorade under den här processen. Under kort nu när systemet växlar till den nya kopian av servern inaktiveras anslutningar till databasen, så vissa transaktioner som rör sig kan återställas. Det här tidsfönstret varierar, men är i genomsnitt är det under 4 sekunder, och i mer än 99% av fallen rör det sig om mindre än 30 sekunder. Om många transaktioner sker just då anslutningarna är inaktiverade kan det ta lite längre tid.
 
 Varaktighet för hela skalan processen är beroende av både storlek och prisnivån på servern före och efter ändringen. Till exempel bör en server som ändrar Compute enheter inom Standard prisnivån slutföras inom några minuter. Nya egenskaper för servern börjar inte gälla förrän ändringarna är klara.
 

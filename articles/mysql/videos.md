@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/05/2017
-ms.openlocfilehash: 49d81c5b449b9af7ac025296982aa5ff82aa8b09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 88a3114271088ad49a3d4231facc88ee6f89b54b
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure-databas för MySQL-videor
 
@@ -21,4 +21,4 @@ ms.lasthandoff: 10/11/2017
 
 <iframe src="https://channel9.msdn.com/Events/Build/2017/B8045/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
 
-I det här videoklippet från maj 2017 Microsoft //Build konferens Lär dig mer om Microsofts hanterade MySQL erbjudande i Azure. Vi går igenom Microsofts strategi för att stödja öppen källkod databassystem i Azure. Diskuterar vi vad det innebär att du som utvecklare att utveckla eller distribuera program som använder MySQL i Azure. Vi visar en översikt över arkitekturen för tjänsten och visa Azure-databas för MySQL är integrerad med andra Azure-tjänster som Web Apps.
+I det här videoklippet från maj 2017 Microsoft //Build konferens Lär dig mer om Microsofts hanterade MySQL erbjudande i Azure. Videon går igenom Microsofts strategi för att stödja öppen källkod databassystem i Azure. Videon beskrivs vad det innebär att du som utvecklare att utveckla eller distribuera program som använder MySQL i Azure. Den här videon visar en översikt över arkitekturen för tjänsten och visar Azure-databas för MySQL är integrerad med andra Azure-tjänster som Web Apps.

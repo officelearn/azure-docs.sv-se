@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 4c3c4ec341a0e5f4f0e7415128479f6448f7db6b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Överför objekt till/från Azure Blob storage med hjälp av Node.js
 
@@ -51,7 +51,7 @@ Det här kommandot klonar databasen till din lokala git-mapp. Öppna den för at
 
 Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Öppna den `index.js` filen, söka efter den `connectionString` variabeln. Ersätt värdet med hela värdet för anslutningssträngen med den som du sparade från Azure-portalen. Anslutningssträngen för lagring bör se ut ungefär så här:
 
-```node
+```javascript
 // Create a blob client for interacting with the blob service from connection string
 // How to create a storage connection string - http://msdn.microsoft.com/library/azure/ee758697.aspx
 var connectionString = '<Your connection string here>';
@@ -62,7 +62,7 @@ var blobService = storage.createBlobService(connectionString);
 
 I programkatalogen kör `npm install` krävs för att installera någon paket som anges i den `package.json` filen.
 
-```node
+```javascript
 npm install
 ```
 
@@ -113,7 +113,7 @@ Det första du gör är att skapa en referens till den `BlobService` används f�
 
 Det här exemplet används [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) eftersom vi vill skapa en ny behållare varje gång exemplet körs. I en produktionsmiljö där du använder samma behållare i ett program, är det bättre att man bara anropa CreateIfNotExists en gång. Du kan också skapa behållaren i förväg så du inte behöver skapa i koden.
 
-```node
+```javascript
 // Create a container for organizing blobs within the storage account.
 console.log('1. Creating a Container with Public Access:', blockBlobContainerName, '\n');
 blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLevel': 'blob' }, function (error) {
@@ -128,7 +128,7 @@ Om du vill överföra en fil till en blobb måste du använda den [createBlockBl
 
 Exempelkoden skapar en lokal fil som ska användas för överföring och hämtning, spara filen ska överföras som **localPath** och namnet på blob i **localFileToUpload**. I följande exempel överför filen till den behållare som börjar med **quickstartcontainer -**.
 
-```node
+```javascript
 console.log('2. Creating a file in ~/Documents folder to test the upload and download\n');
 console.log('   Local File:', LOCAL_FILE_PATH, '\n');
 fs.writeFileSync(LOCAL_FILE_PATH, 'Greetings from Microsoft!');
@@ -147,7 +147,7 @@ Därefter programmet hämtar en lista över filer i behållare med [listBlobsSeg
 
 Om du har 5 000 eller färre blobbar i behållaren, hämtas alla blob-namn i ett anrop till [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Om du har mer än 5 000 blobbar i behållaren, hämtar tjänsten i listan i uppsättningar med 5 000 tills alla blob-namn har hämtats. Så första gången detta API anropas returnerar de första 5 000 blob-namn och en fortsättningstoken. Den andra gången du ange token, hämtar tjänsten nästa uppsättning blobbnamnen och förrän fortsättningstoken är null, vilket anger att alla blob-namn har hämtats.
 
-```node
+```javascript
 console.log('4. Listing blobs in container\n');
 blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     handleError(error);
@@ -164,7 +164,7 @@ Ladda ned blobbar till din lokala disk med hjälp av [getBlobToLocalFile](/nodej
 
 Följande kod hämtar blob som överförs i föregående avsnitt, att suffixet ”_DOWNLOADED” till blob-namn så att du kan se både filer på hårddisken. 
 
-```node
+```javascript
 console.log('5. Downloading blob\n');
 blobService.getBlobToLocalFile(CONTAINER_NAME, BLOCK_BLOB_NAME, DOWNLOADED_FILE_PATH, function (error) {
 handleError(error);
@@ -175,7 +175,7 @@ console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 
 Om du behöver inte längre blobbar på den här snabbstarten, kan du ta bort hela behållaren med hjälp av [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) och [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Också ta bort de filer som skapas om de inte längre behövs. Detta har åtgärdat i programmet när du trycker på RETUR för att avsluta programmet.
 
-```node
+```javascript
 console.log('6. Deleting block Blob\n');
     blobService.deleteBlobIfExists(CONTAINER_NAME, BLOCK_BLOB_NAME, function (error) {
         handleError(error);

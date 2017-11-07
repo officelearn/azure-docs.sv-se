@@ -14,25 +14,93 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: c1a3370d29b47da752e4ab1ea67ccc1a4cdd94df
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Viktig information för Microsoft Azure Lagringsutforskaren (förhandsversion)
 
-Den här artikeln innehåller versionen viktig information för Azure Lagringsutforskaren 0.9.0 (förhandsgranskning) samt viktig information för tidigare versioner.
+Den här artikeln innehåller versionen viktig information för Azure Lagringsutforskaren 0.9.2 (förhandsgranskning) samt viktig information för tidigare versioner.
 
 [Microsoft Azure Lagringsutforskaren (förhandsversion)](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
+## <a name="version-092"></a>Version 0.9.2
+11/01/2017
+
+### <a name="download-azure-storage-explorer-092-preview"></a>Hämta Azure Lagringsutforskaren 0.9.2 (förhandsgranskning)
+- [Azure Lagringsutforskaren 0.9.2 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Lagringsutforskaren (förhandsversion) för 0.9.2 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Lagringsutforskaren (förhandsversion) för 0.9.2 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Snabbkorrigeringar
+* Oväntade data har möjligt när du redigerar Edm.DateTime värden för tabellentiteter beroende på den lokala tidszonen. Nu används en oformaterad textruta med exakt och konsekvent kontroll över Edm.DateTime värden.
+* Överför/hämta en uppsättning blobbar när kopplade till namn och nyckel startar inte. Problemet har åtgärdats.
+* Tidigare Lagringsutforskaren endast ombeds du att autentiseras en inaktuella konto om en eller flera av kontots prenumerationer har valts. Nu uppmanas Lagringsutforskaren du även om kontot fullständigt har filtrerats ut.
+* Domänen slutpunkter för Azure som tillhör amerikanska myndigheter var fel. Den har korrigerats.
+* Verkställ-knappen på panelen hantera konton har ibland svårt att klicka på. Detta ska inte längre inträffa.
+
+### <a name="new"></a>Ny
+* Förhandsgranska stöd för Azure Cosmos DB:
+    * [Onlinedokumentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * Skapa databaser och samlingar
+    * Ändra data
+    * Fråga, skapa eller ta bort dokument
+    * Uppdatera lagrade procedurer, användardefinierade funktioner eller utlösare
+    * Använd anslutningssträngar för att ansluta till och hantera dina databaser
+* Bättre prestanda för att ladda upp/hämta många små blobbar.
+* Lägga till en ”försök alla”-åtgärd om det finns fel i en blob överför eller blob download gruppen.
+* Lagringsutforskaren pausar nu iteration under blob överför/hämta om nätverksanslutningen har brutits. Du kan sedan återuppta iteration när nätverksanslutningen har återupprättats.
+* Lägga till möjligheten att ”Stäng alla”, ”Stäng andra” och ”Stäng” flikar via snabbmenyn.
+* Lagringsutforskaren använder nu inbyggd dialogrutor och inbyggda snabbmenyer.
+* Lagringsutforskaren är nu mer tillgängligt. Förbättringarna innefattar:
+    * Förbättrat stöd för skärmläsare, för NVDA i Windows och VoiceOver på Mac
+    * Förbättrad hög kontrast teman
+    * Tabbar och tangentbordet tangentbordsfokus åtgärdas
+
+### <a name="fixes"></a>Korrigeringar
+* Om du försöker öppna eller hämta en blob med ett ogiltigt namn på Windows-filen misslyckas åtgärden. Lagringsutforskaren nu identifierar om en blobbnamnet är ogiltigt och be om du vill koda den eller hoppa över blob. Lagringsutforskaren identifierar även om ett filnamn verkar vara kodad och be dig om att avkoda innan du laddar upp.
+* Under blob filöverföringen redigerare mål blob-behållaren skulle ibland inte korrekt att uppdatera. Problemet har åtgärdats.
+* Stöd för flera typer av anslutningssträngar och SAS-URI: er regressed. Vi har löst alla kända problem men skicka feedback om du får ytterligare problem.
+* Meddelanden om uppdateringar bröts för vissa användare i 0.9.0. Det här problemet har åtgärdats och dem som berörs av felet, du manuellt kan hämta den senaste versionen av Lagringsutforskaren [här](https://azure.microsoft.com/en-us/features/storage-explorer/).
+
+### <a name="known-issues"></a>Kända problem
+* Lagringsutforskaren stöder inte ADFS-konton.
+* Kortkommandon för ”Visa Explorer” och ”visa kontohantering” ska vara Ctrl / Cmd + SKIFT + E och Ctrl / Cmd + SKIFT + A respektive.
+* När måldatorn Azure Stack misslyckas överföring av filer tilläggsblobar.
+* När du klickar på ”Avbryt” för en uppgift, kan det ta ett tag att avbryta aktiviteten. Det beror på att vi använder Avbryt filter lösningen som beskrivs här.
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Panelen konto inställningar kan indikera att du måste ange autentiseringsuppgifter för att filtrera prenumerationer.
+* Byta namn på blobbar (individuellt eller i en bytt namn till blob-behållare) bevaras inte ögonblicksbilder. Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras vid ett byte av namn.
+* Även om Azure-stacken inte stöder filresurser, visas en filresurser nod fortfarande under ett bifogade Stack för Azure storage-konto.
+* Electron-gränssnittet som används av Lagringsutforskaren har problem med vissa maskinvaruacceleration GPU (graphics bearbetning unit). Om Lagringsutforskaren visas en tom (tom) huvudfönstret, kan du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växel:
+```
+./StorageExplorer.exe --disable-gpu
+```
+* Du behöver kontrollera GCC är uppdaterad – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu 14.04:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Du måste installera GConf – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu nr 17.04 från:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
+
 ## <a name="version-091--090-preview"></a>Version 0.9.1 / 0.9.0 (förhandsgranskning)
 10/20/2017
-
 ### <a name="download-azure-storage-explorer-091-preview"></a>Hämta Azure Lagringsutforskaren 0.9.1 (förhandsgranskning)
-- [Azure Lagringsutforskaren 0.9.1 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.1 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.1 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Hämta Azure Lagringsutforskaren 0.9.1 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.9.1 för Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.9.1 för Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Ny
 * Förhandsgranska stöd för Azure Cosmos DB:
@@ -86,13 +154,30 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0816-preview"></a>Version 0.8.16 (förhandsgranskning)
-8/21/2017
 
-### <a name="download-azure-storage-explorer-0816-preview"></a>Hämta Azure Lagringsutforskaren 0.8.16 (förhandsgranskning)
-* [Hämta Azure Lagringsutforskaren 0.8.16 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.8.16 för Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.8.16 för Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+## <a name="previous-releases"></a>Tidigare versioner
+
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Version 0.8.9 / 0.8.8](#version-089--088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-0816"></a>Version 0.8.16
+8/21/2017
 
 ### <a name="new"></a>Ny
 * När du öppnar en blob uppmanas Lagringsutforskaren du att ladda upp den hämta filen om en ändring identifieras
@@ -130,26 +215,6 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Tidigare versioner
-
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Version 0.8.9 / 0.8.8](#version-089--088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
-
 
 ### <a name="version-0814"></a>Version 0.8.14
 06/22/2017

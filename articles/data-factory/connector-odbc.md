@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 1422dfb616c1b2d533fcbf1f6377db8c391f7dd8
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopieringsdata från och till ODBC-datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du använder aktiviteten kopiera i Azure Data Fa
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [ODBC-anslutning i V1](v1/data-factory-odata-connector.md).
 
-## <a name="supported-scenarios"></a>Scenarier som stöds
+## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Du kan kopiera data från ODBC-datakällan till alla stöds sink-datalagret eller kopiera från alla datalager stöds källa till ODBC-mottagare. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 

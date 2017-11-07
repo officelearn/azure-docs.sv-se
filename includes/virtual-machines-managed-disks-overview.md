@@ -1,142 +1,142 @@
-# <a name="azure-managed-disks-overview"></a>Azure Managed Disks Overview
+# <a name="azure-managed-disks-overview"></a>Översikt över Azure-hanterade diskar
 
-Azure Managed Disks simplifies disk management for Azure IaaS VMs by managing the [storage accounts](../articles/storage/common/storage-introduction.md) associated with the VM disks. You only have to specify the type ([Premium](../articles/storage/common/storage-premium-storage.md) or [Standard](../articles/storage/common/storage-standard-storage.md)) and the size of disk you need, and Azure creates and manages the disk for you.
+Azure-hanterade diskar förenklar Diskhantering för virtuella Azure IaaS-datorer genom att hantera den [lagringskonton](../articles/storage/common/storage-introduction.md) som är associerade med VM-diskarna. Du behöver bara ange ([Premium](../articles/virtual-machines/windows/premium-storage.md) eller [Standard](../articles/virtual-machines/windows/standard-storage.md)) och storleken på disken som du behöver och Azure skapar och hanterar disken åt dig.
 
-## <a name="benefits-of-managed-disks"></a>Benefits of managed disks
+## <a name="benefits-of-managed-disks"></a>Fördelarna med hanterade diskar
 
-Let's take a look at some of the benefits you gain by using managed disks, starting with this Channel 9 video, [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
+Låt oss ta en titt på några av fördelarna med får du med hjälp av hanterade diskar från och med den här Channel 9 videon [bättre Azure VM återhämtning med hanterade diskar](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 <br/>
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
 
-### <a name="simple-and-scalable-vm-deployment"></a>Simple and scalable VM deployment
+### <a name="simple-and-scalable-vm-deployment"></a>Enkel och skalbar distribution av Virtuella datorer
 
-Managed Disks handles storage for you behind the scenes. Previously, you had to create storage accounts to hold the disks (VHD files) for your Azure VMs. When scaling up, you had to make sure you created additional storage accounts so you didn't exceed the IOPS limit for storage with any of your disks. With Managed Disks handling storage, you are no longer limited by the storage account limits (such as 20,000 IOPS / account). You also no longer have to copy your custom images (VHD files) to multiple storage accounts. You can manage them in a central location – one storage account per Azure region – and use them to create hundreds of VMs in a subscription.
+Hanterade diskar handtag lagring för dig i bakgrunden. Tidigare var tvungen du att skapa storage-konton för att lagra diskar (VHD-filer) för din virtuella Azure-datorer. När du ökar, var du tvungen att kontrollera att du har skapat ytterligare lagringskonton, så att du inte överskrider gränsen på IOPS för lagring med alla diskar. För hanterade diskar hantering lagring, är du inte längre begränsad lagringskontogränser (till exempel 20 000 IOPS / -kontot). Du måste också längre kopiera egna, anpassade avbildningar (VHD-filer) till flera lagringskonton. Du kan hantera dem på en central plats – ett lagringskonto per Azure-region – och använda dem för att skapa hundratals virtuella datorer i en prenumeration.
 
-Managed Disks will allow you to create up to 10,000 VM **disks** in a subscription, which will enable you to create thousands of **VMs** in a single subscription. This feature also further increases the scalability of [Virtual Machine Scale Sets (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) by allowing you to create up to a thousand VMs in a VMSS using a Marketplace image.
+Hanterade diskar gör att du kan skapa upp till 10 000 VM **diskar** för en prenumeration som gör att du kan skapa tusentals **VMs** i en enda prenumeration. Den här funktionen dessutom ytterligare ökar skalbarheten för [virtuella skala uppsättningar (VMSS)](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) genom att du kan skapa upp till tusen virtuella datorer i en VMSS med hjälp av en Marketplace-avbildning.
 
-### <a name="better-reliability-for-availability-sets"></a>Better reliability for Availability Sets
+### <a name="better-reliability-for-availability-sets"></a>Bättre tillförlitlighet för Tillgänglighetsuppsättningar
 
-Managed Disks provides better reliability for Availability Sets by ensuring that the disks of [VMs in an Availability Set](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) are sufficiently isolated from each other to avoid single points of failure. It does this by automatically placing the disks in different storage scale units (stamps). If a stamp fails due to hardware or software failure, only the VM instances with disks on those stamps fail. For example, let's say you have an application running on five VMs, and the VMs are in an Availability Set. The disks for those VMs won't all be stored in the same stamp, so if one stamp goes down, the other instances of the application continue to run.
+Hanterade diskar ger bättre tillförlitlighet för Tillgänglighetsuppsättningar genom att säkerställa att diskar [virtuella datorer i en Tillgänglighetsuppsättning](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) är tillräckligt isolerade från varandra för att undvika enskilda felpunkter. Detta sker automatiskt placerar diskarna i olika skalningsenheter (stämplar). Om en stämpel misslyckas på grund av maskinvara eller programvara, inte bara VM-instanser med diskar på de stämplarna. Till exempel att anta du har ett program som körs på fem virtuella datorer och de virtuella datorerna finns i en Tillgänglighetsuppsättning. Diskarna fortsätter för dessa virtuella datorer inte alla lagras i samma stämpel, så om en stämpel kraschar andra instanser av programmet att köras.
 
-### <a name="highly-durable-and-available"></a>Highly durable and available
+### <a name="highly-durable-and-available"></a>Extremt tillförlitliga och tillgängliga
 
-Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate. 
+Azure-diskar har en tillförlitlighet på 99,999 %. REST-lättare att veta att du har tre kopior av dina data som möjliggör hög hållbarhet. Om en eller två repliker får problem kan återstående replik(er) ta över för att säkerställa beständigheten hos dina data och ge en hög tolerans mot fel. Tack vare den här arkitekturen har Azure oavbrutet kunnat tillhandahålla tillförlitlighet på storföretagsnivå för sina IaaS-diskar. Azure är branschledande inom detta område med 0 % driftstopp per år. 
 
-### <a name="granular-access-control"></a>Granular access control
+### <a name="granular-access-control"></a>Detaljerad åtkomstkontroll
 
-You can use [Azure Role-Based Access Control (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) to assign specific permissions for a managed disk to one or more users. Managed Disks exposes a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform his job. For example, if you don't want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don't want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
+Du kan använda [rollbaserad åtkomstkontroll (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) tilldela specifika behörigheter för hanterade diskar till en eller flera användare. Hanterade diskar visar olika åtgärder, inklusive läsa, skriva (skapa/uppdatera), ta bort och hämtar en [signatur för delad åtkomst (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) för disken. Du kan bevilja åtkomst till de åtgärder som en person behöver för att utföra sitt jobb. Till exempel om du inte vill att en person för att kopiera en hanterade diskar till ett lagringskonto kan du inte att bevilja åtkomst till export-åtgärd för den hantera disken. På samma sätt om du inte vill att en person för att använda en SAS-URI för att kopiera en hanterade diskar, kan du inte bevilja behörigheten till den hantera disken.
 
-### <a name="azure-backup-service-support"></a>Azure Backup service support
-Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option; this means it keeps three copies of the data within a single region. For regional disaster recovery, you must backup your VM disks in a different region using [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Currently Azure Backup supports data disk sizes up to 1TB for backup. Read more about this at [Using Azure Backup service for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+### <a name="azure-backup-service-support"></a>Stöd för Azure Backup service
+Använda Azure Backup service med hanterade diskar för att skapa en säkerhetskopiering med tidsbaserade säkerhetskopieringar, enkelt VM-återställning och principer för lagring av säkerhetskopior. Hanterade diskar stöder endast lokalt Redundant lagring (LRS) som replikeringsalternativet; Det innebär att den bevarar tre kopior av data inom en enskild region. För regional katastrofåterställning, måste du säkerhetskopiera din Virtuella diskar i en annan region med hjälp av [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) och ett GRS-lagringskonto som säkerhetskopieringsvalvet. För närvarande storlek datadisk för Azure Backup stöder upp till 1TB för säkerhetskopiering. Läs mer om detta i [med hjälp av Azure Backup-tjänsten för virtuella datorer med hanterade diskar](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
-## <a name="pricing-and-billing"></a>Pricing and Billing
+## <a name="pricing-and-billing"></a>Priser och fakturering
 
-When using Managed Disks, the following billing considerations apply:
-* Storage Type
+När du använder hanterade diskar på följande för debitering:
+* Lagringstyp
 
-* Disk Size
+* Diskstorlek
 
-* Number of transactions
+* Antal transaktioner
 
-* Outbound data transfers
+* Utgående dataöverföringar
 
-* Managed Disk Snapshots (full disk copy)
+* Hanterade diskbilder (fullständig kopia)
 
-Let's take a closer look at these.
+Låt oss ta en närmare titt på dessa.
 
-**Storage Type:** Managed Disks offers 2 performance tiers: [Premium](../articles/storage/common/storage-premium-storage.md) (SSD-based) and [Standard](../articles/storage/common/storage-standard-storage.md) (HDD-based). The billing of a managed disk depends on which type of storage you have selected for the disk.
+**Lagringstyp:** hanterade diskar erbjuder 2 prestandanivåer: [Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-baserad) och [Standard](../articles/virtual-machines/windows/standard-storage.md) (HDD-baserat). Fakturering för hanterade diskar beror på vilken typ av lagring som du har valt för disken.
 
 
-**Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S20 Disk type.
+**Diskstorlek**: fakturering för hanterade diskar beror på den etablerade storleken på disken. Azure mappar etablerade storleken (avrunda uppåt) till närmaste hanterade diskar alternativet som anges i tabellerna nedan. Varje hanterade disken mappar till en av de etablerade storlekarna som stöds och därefter faktureras. Om du skapar en standard hanterade diskar och ange en etablerade storlek på 200 GB debiteras du till exempel enligt prissättning S20 disktyp.
 
-Here are the disk sizes available for a premium managed disk:
+Här är storlekar för diskar som är tillgängliga för en hanterad premium-disk:
 
-| **Premium Managed <br>Disk Type** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
+| **Premium hanteras <br>disktyp** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P 50** | 
 |------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Size        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Diskstorlek        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
-Here are the disk sizes available for a standard managed disk:
+Här är storlekar för diskar som är tillgängliga för en standard hanterade diskar:
 
-| **Standard Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
+| **Standard hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Disk Size        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Diskstorlek        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
-**Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk. There is no cost for transactions for a premium managed disk.
+**Antal transaktioner**: du debiteras för antal transaktioner som du kan utföra på en standard hanterade disk. Det kostar inget för transaktioner för en hanterad premium-disk.
 
-**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
+**Utgående dataöverföringar**: [utgående dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/) (data skickas från Azure-datacenter) debiteras för bandbreddsanvändning.
 
-For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
-
-
-## <a name="managed-disk-snapshots"></a>Managed Disk Snapshots
-
-A Managed Snapshot is a read-only full copy of a managed disk which is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new Managed Disks. They are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GB and actual used data size of 10 GB, snapshot will be billed only for the used data size of 10 GB.  
-
-[Incremental snapshots](../articles/virtual-machines/windows/incremental-snapshots.md) are currently not supported for Managed Disks, but will be supported in the future.
-
-To learn more about how to create snapshots with Managed Disks, please check out these resources:
-
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+Detaljerad information om priser för hanterade diskar finns [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
 
 
-## <a name="images"></a>Images
+## <a name="managed-disk-snapshots"></a>Hanterade diskbilder
 
-Managed Disks also support creating a managed custom image. You can create an image from your custom VHD in a storage account or directly from a generalized (sys-prepped) VM. This captures in a single image all managed disks associated with a VM, including both the OS and data disks. This enables creating hundreds of VMs using your custom image without the need to copy or manage any storage accounts.
+En hanterad ögonblicksbild är en skrivskyddad fullständig kopia av en hanterad disk som lagras som standard hanterade disk som standard. Med ögonblicksbilder, kan du säkerhetskopiera hanterade diskar när som helst i tid. Dessa ögonblicksbilder finns oberoende av källdisken och kan användas för att skapa nya hanterade diskar. De debiteras baserat på används storlek. Om du skapar en ögonblicksbild av en hanterad disk med etablerad kapacitet 64 GB och storleken för data som används på 10 GB, till exempel debiteras ögonblicksbild endast för storleken på 10 GB data som används.  
 
-For information on creating images, please check out the following articles:
-* [How to capture a managed image of a generalized VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md)
+[Inkrementell ögonblicksbilder](../articles/virtual-machines/windows/incremental-snapshots.md) stöds inte för närvarande för hanterade diskar, men kommer att stödjas framöver.
 
-## <a name="images-versus-snapshots"></a>Images versus snapshots
+Mer information om hur du skapar ögonblicksbilder med hanterade diskar finns följande resurser:
 
-You often see the word "image" used with VMs, and now you see "snapshots" as well. It's important to understand the difference between these. With Managed Disks, you can take an image of a generalized VM that has been deallocated. This image will include all of the disks attached to the VM. You can use this image to create a new VM, and it will include all of the disks.
+* [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Skapa kopia av en virtuell hårddisk som lagras som en hanterad disk med hjälp av ögonblicksbilder i Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-A snapshot is a copy of a disk at the point in time it is taken. It only applies to one disk. If you have a VM that only has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
 
-What if a VM has five disks and they are striped? You could take a snapshot of each of the disks, but there is no awareness within the VM of the state of the disks – the snapshots only know about that one disk. In this case, the snapshots would need to be coordinated with each other, and that is not currently supported.
+## <a name="images"></a>Avbildningar
 
-## <a name="managed-disks-and-encryption"></a>Managed Disks and Encryption
+Hanterade diskar också stöd för att skapa en anpassad hanterad avbildning. Du kan skapa en avbildning från din anpassade virtuella hårddiskar i ett lagringskonto eller direkt från en generaliserad (sys prepped) VM. Detta samlar in i en enda avbildning samtliga hanterade diskar som är kopplad till en virtuell dator, inklusive både i Operativsystemet och datadiskarna. Detta gör att skapa hundratals virtuella datorer med hjälp av den anpassade avbildningen utan att behöva kopiera eller hantera storage-konton.
 
-There are two kinds of encryption to discuss in reference to managed disks. The first one is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs.
+Information om hur du skapar bilder finns i följande artiklar:
+* [Så här skapar du en hanterad avbildning av en generaliserad virtuell dator i Azure](../articles/virtual-machines/windows/capture-image-resource.md)
+* [Hur du generalisera och avbildar en Linux-dator som använder Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md)
 
-### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
+## <a name="images-versus-snapshots"></a>Bilder jämfört med ögonblicksbilder
 
-[Azure Storage Service Encryption](../articles/storage/common/storage-service-encryption.md) provides encryption-at-rest and safeguard your data to meet your organizational security and compliance commitments. SSE is enabled by default for all Managed Disks, Snapshots and Images in all the regions where managed disks is available. Starting June 10th, 2017, all new managed disks/snapshots/images and new data written to existing managed disks are automatically encrypted-at-rest with keys managed by Microsoft.  Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
+Du ser ofta ordet ”bild” användes med virtuella datorer, men nu ”ögonblicksbilder” samt. Det är viktigt att förstå skillnaden mellan dessa. För hanterade diskar, kan du ta en bild av en generaliserad virtuell dator som har frigjorts. Den här avbildningen innehåller alla diskar som är kopplade till den virtuella datorn. Du kan använda den här avbildningen för att skapa en ny virtuell dator och den innehåller alla diskar.
+
+En ögonblicksbild är en kopia av en disk på platsen i hämtas. Det gäller bara för en disk. Om du har en virtuell dator som bara har en disk (OS) kan du skapa en virtuell dator från ögonblicksbilden eller avbildningen ta en ögonblicksbild eller en avbildning av den.
+
+Vad händer om en virtuell dator har fem diskar och de stripe? Du kan ta en ögonblicksbild av var och en av diskarna, men det finns inga medvetenhet inifrån den virtuella datorn över diskar – status ögonblicksbilderna veta endast om en disk. I det här fallet ögonblicksbilderna skulle behöva samordnas med varandra och som inte stöds.
+
+## <a name="managed-disks-and-encryption"></a>Hanterade diskar och kryptering
+
+Det finns två typer av kryptering att diskutera förhållande till hanterade diskar. Den första är Storage Service kryptering (SSE), som utförs av storage-tjänst. Den andra är Azure Disk Encryption, där du kan aktivera på Operativsystemet och datadiskarna för dina virtuella datorer.
+
+### <a name="storage-service-encryption-sse"></a>Storage Service-kryptering (SSE)
+
+[Azure Storage Service-kryptering](../articles/storage/common/storage-service-encryption.md) tillhandahåller kryptering i vila och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. SSE är aktiverat som standard för alla hanterade diskar, ögonblicksbilder och bilder i alla regioner där hanterade diskar är tillgänglig. Startar den 10 juni 2017 samtliga nya hanterade diskar-ögonblicksbilder-avbildningar och nya data skrivs till befintliga hanterade diskar är automatiskt krypterat i vila med nycklar som hanteras av Microsoft.  Besök den [hanterade diskar vanliga frågor om sidan](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) för mer information.
 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
-Azure Disk Encryption allows you to encrypt the OS and Data disks used by an IaaS Virtual Machine. This includes managed disks. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. For more information, please see [Azure Disk Encryption for Windows and Linux IaaS VMs](../articles/security/azure-security-disk-encryption.md).
+Azure Disk Encryption kan du kryptera Operativsystemet och datadiskarna som används av en virtuell IaaS-dator. Detta omfattar hanterade diskar. För Windows krypteras enheterna med BitLocker-kryptering branschstandard. För Linux krypteras diskarna med DM-Crypt-teknik. Detta är integrerad med Azure Key Vault så att du kan styra och hantera krypteringsnycklar disk. Mer information finns [Azure Disk Encryption för Windows och Linux IaaS-VM](../articles/security/azure-security-disk-encryption.md).
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Nästa steg
 
-For more information about Managed Disks, please refer to the following articles.
+Mer information om hanterade diskar finns i följande artiklar.
 
-### <a name="get-started-with-managed-disks"></a>Get started with Managed Disks
+### <a name="get-started-with-managed-disks"></a>Kom igång med Managed Disks
 
-* [Create a VM using Resource Manager and PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
+* [Skapa en virtuell dator med Resource Manager och PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
 
-* [Create a Linux VM using the Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Skapa en virtuell Linux-dator med hjälp av Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
 
-* [Attach a managed data disk to a Windows VM using PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
+* [Ansluta en datadisk hanterade till en virtuell Windows-dator med hjälp av PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
 
-* [Add a managed disk to a Linux VM](../articles/virtual-machines/linux/add-disk.md)
+* [Lägga till en hanterad disk till en virtuell Linux-dator](../articles/virtual-machines/linux/add-disk.md)
 
-* [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
+* [Hanterade diskar PowerShell-exempelskript](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
 
-* [Use Managed Disks in Azure Resource Manager templates](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
+* [Använda hanterade diskar i Azure Resource Manager-mallar](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
 
-### <a name="compare-managed-disks-storage-options"></a>Compare Managed Disks storage options
+### <a name="compare-managed-disks-storage-options"></a>Jämför lagringsalternativ för hanterade diskar
 
-* [Premium storage and disks](../articles/storage/common/storage-premium-storage.md)
+* [Premium-lagring och diskar](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Standard storage and disks](../articles/storage/common/storage-standard-storage.md)
+* [Standardlagring och diskar](../articles/virtual-machines/windows/standard-storage.md)
 
-### <a name="operational-guidance"></a>Operational guidance
+### <a name="operational-guidance"></a>Driftvägledning
 
-* [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
+* [Migrera från andra plattformar och AWS till hanterade diskar i Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
 
-* [Convert Azure VMs to managed disks in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
+* [Konvertera virtuella Azure-datorer till hanterade diskar i Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)

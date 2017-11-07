@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 31f80e93dc741d41a00826c9c8b7ab061c0ca414
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, vägleder dig genom förbereder de virtuella hårddiskar (VHD) som du ska distribuera till Azure Marketplace. De virtuella hårddiskarna är grunden för dina SKU: N. Processen skiljer sig åt beroende på om du tillhandahåller en Linux- eller Windows-baserade SKU. Den här artikeln täcker båda scenarierna. Den här processen kan utföras parallellt med [skapande av konton och registrering][link-acct-creation].
@@ -289,6 +289,8 @@ När du har slutfört frågeformuläret, kan du ange ytterligare information, ti
 Under publiceringsprocessen, kan du ange de uniform resource Identifier () som kan leda till var och en av de virtuella hårddiskarna som du har skapat för ditt SKU. Microsoft behöver åtkomst till dessa VHD:er under certifieringsprocessen. Därför måste du skapa en signatur för delad åtkomst URI för varje virtuell Hårddisk. Det här är den URI som ska anges i den **bilder** fliken i Publishing Portal.
 
 Signatur för delad åtkomst URI skapas måste uppfylla följande krav:
+
+Obs: följande instruktioner gäller endast för ohanterade diskar som är den typ som stöds.
 
 * När du genererar signatur för delad åtkomst URI: er för de virtuella hårddiskarna räcker lista och läsbehörighet. Bevilja inte skriv- eller raderingsbehörighet.
 * Varaktighet för åtkomst ska vara minst tre (3) veckor från när signatur för delad åtkomst URI: N har skapats.

@@ -12,19 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/02/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 9c6035e97de38ff63ef074109afd9f3c7484f828
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Lägg till eller ta bort noder i ett fristående Service Fabric-kluster som körs på Windows Server
-När du har [skapa fristående Service Fabric-klustret på Windows Server-datorer](service-fabric-cluster-creation-for-windows-server.md)behoven för din verksamhet kan ändras och du kan behöva lägga till eller ta bort noder i klustret. Den här artikeln innehåller detaljerade anvisningar för att åstadkomma detta. Observera att lägga till/ta bort noden funktionen inte stöds i kluster för lokal utveckling.
+När du har [skapa fristående Service Fabric-klustret på Windows Server-datorer](service-fabric-cluster-creation-for-windows-server.md), () affärsbehoven ändras och du behöver lägga till eller ta bort noder i klustret. Den här artikeln innehåller detaljerade anvisningar för att åstadkomma detta. Observera att lägga till/ta bort noden funktionen inte stöds i kluster för lokal utveckling.
 
 ## <a name="add-nodes-to-your-cluster"></a>Lägg till noder i klustret
-1. Förbered den VM/datorn som du vill lägga till i klustret genom att följa anvisningarna i den [förbereda datorer uppfyller kraven för klusterdistribution](service-fabric-cluster-creation-for-windows-server.md) avsnitt
+
+1. Förbered den VM/datorn som du vill lägga till i klustret genom att följa anvisningarna i [planera och förbereda distributionen av Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md)
 2. Identifiera vilka feldomän och du ska lägga till den Virtuella/datorn till domänen
 3. Fjärrskrivbord (RDP) till den Virtuella/datorn som du vill lägga till i klustret
 4. Kopiera eller [hämta fristående paketet för Service Fabric för Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) till VM/datorn och packa upp paketet

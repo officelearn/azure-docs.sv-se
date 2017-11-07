@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.openlocfilehash: 9f1c8241d0d7e68abd175c7c1c3b023d18b24a68
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Utforma din första Azure-databas för PostgreSQL med Azure-portalen
 
@@ -71,13 +71,13 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurera en brandväggsregel på servernivå
 
-Azure Database för PostgreSQL-tjänsten skapar en brandvägg på server-nivå. Som standard förhindrar den här brandväggen alla externa program och verktyg ansluter till servern och alla databaser på servern såvida inte en brandväggsregel skapas för att öppna brandväggen för ett specifikt IP-adressintervall. 
+Azure-databasen för PostgreSQL-tjänsten använder en brandvägg på servernivå. Som standard förhindrar den här brandväggen alla externa program och verktyg ansluter till servern och alla databaser på servern såvida inte en brandväggsregel skapas för att öppna brandväggen för ett specifikt IP-adressintervall. 
 
 1.  När distributionen är klar, klickar du på **alla resurser** från den vänstra menyn och skriver in namnet **mypgserver-20170401** för att söka efter din nyskapade server. Klicka på servernamnet som listas i sökresultatet. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
  
  ![Azure Database för PostgreSQL – sök efter server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.  I bladet server väljer **anslutningssäkerhet**. 
+2.  På serversidan väljer du **Anslutningssäkerhet**. 
 3.  Klicka i textrutan under **regelnamn** och lägg till en ny brandväggsregel som vitlistar IP-adressintervallet för anslutningen. För den här självstudiekursen kommer vi att alla IP-adresser genom att skriva in **Regelnamnet = AllowAllIps**, **första IP-= 0.0.0.0** och **sista IP = 255.255.255.255** och klicka sedan på **spara** . Du kan ange en specifik brandväggsregel som omfattar ett mindre IP-intervall för att kunna ansluta från nätverket.
  
  ![Azure Database för PostgreSQL – Skapa brandväggsregel](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
@@ -85,19 +85,20 @@ Azure Database för PostgreSQL-tjänsten skapar en brandvägg på server-nivå. 
 4.  Klicka på **spara** och klicka sedan på den **X** att stänga den **anslutningssäkerhet** sidan.
 
   > [!NOTE]
-  > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 5432.
+  > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall, kan du ansluta till din Azure SQL Database-server om din IT-avdelning öppnar port 5432.
   >
 
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 
-När vi skapade vår Azure Database för PostgreSQL-server, skapades även standard-**postgres**-databasen. För att ansluta till din databasserver, måste du ange värddatorinformation och autentiseringsuppgifter för åtkomst.
+När du skapade Azure-databasen för standard-PostgreSQL server **postgres** databasen skapades. För att ansluta till din databasserver, måste du ange värddatorinformation och autentiseringsuppgifter för åtkomst.
 
 1. I den vänstra menyn i Azure-portalen klickar du på **alla resurser** och Sök efter den server som du just har skapat **mypgserver 20170401**.
 
   ![Azure Database för PostgreSQL – sök efter server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 3. Klicka på servernamnet **mypgserver-20170401**.
+
 4. Välj serverns **översikt**-sida. Anteckna **servernamn** och **inloggningsnamnet för serveradministratören**.
 
  ![Azure Database för PostgreSQL – inloggning för serveradministratör](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
@@ -136,9 +137,9 @@ I prompten kör du följande kommando för att växla anslutning till den nylige
 \c mypgsqldb
 ```
 ## <a name="create-tables-in-the-database"></a>Skapa tabeller i databasen
-Nu när du vet hur du ansluter till Azure-databasen för PostgreSQL gå vi igenom hur du utför några grundläggande uppgifter.
+Nu när du vet hur du ansluter till Azure-databasen för PostgreSQL kan du utföra vissa grundläggande uppgifter:
 
-Vi kan först skapa en tabell och läsa in den med vissa data. Nu ska vi skapa en tabell som spårar inventeringsinformation.
+Först skapar en tabell och läsa in den med vissa data. Nu ska vi skapa en tabell som spårar inventeringsinformation som använder den här SQL-koden:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -153,7 +154,7 @@ Du kan se den nyligen skapade tabellen i listan över tabeller nu genom att skri
 ```
 
 ## <a name="load-data-into-the-tables"></a>Läser in data i tabeller
-Nu när vi har en tabell kan vi infoga vissa data i den. Kör följande fråga för att infoga vissa rader med data i öppna en kommandotolk-fönster.
+Nu när du har en tabell att infoga vissa data i den. Kör följande fråga för att infoga vissa rader med data i öppna en kommandotolk-fönster.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 453c774c97b77dd7829a50fa5e5668d06f817a1d
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: c37c56fb88e3cd36c4ac08b2c61cacbbf5ab2b38
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Självstudier: Klassificera Iris med hjälp av kommandoradsgränssnittet
 Azure Machine Learning (förhandsversion) är en integrerad, avancerad lösning för datavetenskap och analys, som datatekniker kan använda till att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -242,7 +242,7 @@ $ az ml account modelmanagement create -n <model management account name> -g <re
 Vi kan sedan skapa en webbtjänst som returnerar en förutsägelse med hjälp av modellen som vi har distribuerats. 
 
 ```azure-cli
-$ az ml service create realtime -m asset_download/model.pkl -f score.py -r python –n <web service name>
+$ az ml service create realtime -m asset_download/model.pkl -f iris-score.py -r python –n <web service name>
 ```
 
 ## <a name="step-10-run-the-web-service"></a>Steg 10. Kör webbtjänst

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systemkrav för StorSimple Virtual Array
 ## <a name="overview"></a>Översikt
@@ -50,7 +50,7 @@ Programvarukraven innehålla information om webbläsare som stöds, SMB-versione
 | Minsta RAM-minne |8 GB <br> För en filserver, 8 GB för mindre än 2 miljoner filer och 16 GB för 2-4 miljoner filer|
 | Diskutrymme<sup>1</sup> |OS-disk - 80 GB <br></br>Datadisk - 500 GB till 8 TB |
 | Minsta antalet nätverksgränssnitt |1 |
-| Minsta bandbredd för Internet<sup>2</sup> |5 Mbit/s |
+| Internet-bandbredd<sup>2</sup> |Minsta bandbredd som krävs: 5 Mbit/s <br> Rekommenderat bandbredd: 100 Mbit/s <br> Hastigheten på data transfer skalas med Internet-bandbredd. Till exempel tar 100 GB data 2 dagar att överföra med 5 Mbit/s som kan leda till Säkerhetskopieringsfel eftersom daglig säkerhetskopiering inte slutförs under en dag. 100 GB data kan överföras i 2,5 timmar med en bandbredd på 100 Mbit/s.   |
 
 <sup>1</sup> - tunn etablerad
 
@@ -113,7 +113,7 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 > [!NOTE]
 > 
 > * Enheten (källa) IP-adresser ska alltid vara satt till alla moln-aktiverat nätverksgränssnitt. 
-> * Mål-IP-adresser ska anges till [IP-adressintervall för Azure-datacenter](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> * Mål-IP-adresser ska anges till [IP-adressintervall för Azure-datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
@@ -128,6 +128,5 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 | `https://*.partners.extranet.microsoft.com/*` |Support-paket |
 | `http://*.data.microsoft.com ` |Telemetri service i Windows kan se den [uppdatering för customer experience och diagnostik telemetri](https://support.microsoft.com/en-us/kb/3068708) |
 
-## <a name="next-step"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 * [Förbereda portalen för att distribuera din virtuella StorSimple-matris](storsimple-virtual-array-deploy1-portal-prep.md)
-

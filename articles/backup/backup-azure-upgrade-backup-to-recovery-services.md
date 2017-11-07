@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet
 
@@ -120,7 +120,7 @@ När du uppgraderar till Recovery Services-valvet, konfigurera rapporter för Az
 Nej. Säkerhetskopiorna pågående fortsätta utan avbrott under och efter uppgraderingen.
 
 **Vad händer med min valv om jag inte uppgradera snart kan?**</br>
-Eftersom alla nya funktioner som gäller endast för Recovery Services-valv, bör du uppgradera ditt valv. Microsoft kommer så småningom inaktualisera den klassiska portalen. Startar den 1 September 2017 börjar Microsoft automatiskt uppgradera säkerhetskopieringsvalv till Recovery Services-valv. Med den 1 November 2017 kommer Microsoft att slutföra uppgraderingen. Ditt valv kan uppgraderas automatiskt under September eller oktober. Microsoft rekommenderar att du uppgraderar ditt valv så snart som möjligt.
+Eftersom alla nya funktioner som gäller endast för Recovery Services-valv, bör du uppgradera ditt valv. Microsoft kommer så småningom inaktualisera den klassiska portalen. Startar den 1 September 2017 börjar Microsoft automatiskt uppgradera säkerhetskopieringsvalv till Recovery Services-valv. Med 30 November 2017 kommer Microsoft att slutföra uppgraderingen. Ditt valv kan uppgraderas automatiskt i mellan. Microsoft rekommenderar att du uppgraderar ditt valv så snart som möjligt.
 
 **Vad betyder det här uppgradering för Mina befintliga verktygsuppsättning?**</br>
 Uppdatera din verktygsuppsättning till Resource Manager-distributionsmodellen. Recovery Services-valv skapades för använder i Resource Manager-distributionsmodellen. Det är viktigt att planera för Resource Manager-distributionsmodellen och redovisning för skillnaden i ditt valv. 

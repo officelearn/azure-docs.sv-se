@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: d23721eba308096a05211eb6e26e1338a69cae0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara token livslängd i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token som utfärdas av Azure Active Directory (AD Azure). Du kan ange token livslängd för alla program i din organisation, för ett program för flera innehavare (flera organisation) eller för en specifik tjänstens huvudnamn i din organisation.
@@ -58,9 +58,9 @@ Offentliga klienter kan inte på ett säkert sätt att lagra ett klient-lösenor
 ID-token skickas till webbplatser och interna klienter. ID-token innehåller profilinformation om en användare. En ID-token är bunden till en specifik kombination av användar- och klienten. ID-token anses giltiga tills de upphör att gälla. Vanligtvis ett webbprogram matchar en användare har sessioners livstid i tillämpningsprogrammet att livslängden för ID-token som utfärdas för användaren. Du kan justera livslängden för en ID-token för att styra hur ofta webbprogrammet upphör sessionen program och hur ofta den kräver att användaren autentiseras med Azure AD (tyst eller interaktivt).
 
 ### <a name="single-sign-on-session-tokens"></a>Enkel inloggning session token
-När en användare autentiserar med Azure AD och väljer den **Håll mig inloggad** kryssrutan, en enkel inloggning (SSO) upprättas session med användarens webbläsare och Azure AD. SSO-token i form av en cookie representerar den här sessionen. Observera sessionstoken SSO inte är bunden till en specifik resurs/klientprogrammet. SSO session token kan återkallas och deras giltighet kontrolleras varje gång de används.
+När en användare autentiseras med Azure AD upprättas en enkel inloggning (SSO) session med användarens webbläsare och Azure AD. SSO-token i form av en cookie representerar den här sessionen. Observera sessionstoken SSO inte är bunden till en specifik resurs/klientprogrammet. SSO session token kan återkallas och deras giltighet kontrolleras varje gång de används.
 
-Azure AD använder två typer av token för SSO-session: beständiga och Uppdateringsvärdet. Beständiga session token lagras som beständiga cookies i webbläsaren. Uppdateringsvärdet session token lagras som sessions-cookies. (Sessionscookies förstörs när webbläsaren stängs.)
+Azure AD använder två typer av token för SSO-session: beständiga och Uppdateringsvärdet. Beständiga session token lagras som beständiga cookies i webbläsaren. Uppdateringsvärdet session token lagras som sessions-cookies. (Sessionscookies förstörs när webbläsaren stängs.) Vanligtvis lagras Uppdateringsvärdet sessionstoken. Men när användaren väljer den **Håll mig inloggad** kryssrutan under autentiseringen beständiga sessionstoken lagras.
 
 Uppdateringsvärdet session token har en livslängd på 24 timmar. Beständiga token har en livslängd på 180 dagar. Varje gång en SSO sessionstoken används inom sin giltighetstid förlängs giltighetsperioden annat 24 timmar eller 180 dagar, beroende på typen av token. Om en SSO sessionstoken inte används inom sin giltighetstid, anses det upphört att gälla och är inte längre att accepteras.
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple enheten Manager för att hantera aviseringar för den virtuella StorSimple-matrisen
 
@@ -146,6 +146,11 @@ I tabellerna nedan listas vissa av StorSimple-aviseringar som kan uppstå, samt 
 |:--- |:--- |:--- |
 | Säkerhetskopiering av <*enhetsnamn*> Det gick inte att slutföra. |Säkerhetskopieringsjobbet misslyckades. |Det gick inte att skapa en säkerhetskopia. Överväg att något av följande:<ul><li>Problem med nätverksanslutningen kan hindra att säkerhetskopieringen från en lyckad. Se till att det inte finns några anslutningsproblem. Mer information om hur du felsöker problem med nätverksanslutningen går du till den [lokala webbgränssnittet](storsimple-ova-web-ui-admin.md) för din virtuella enhet.</li><li>Tillgängligt lagringsutrymme gränsen har uppnåtts. Om du vill frigöra utrymme, Överväg att ta bort alla säkerhetskopieringar som inte längre behövs.</li></ul> Lös problemen, rensa aviseringen och försök igen. |
 | Klona av <*enhetsnamn*> Det gick inte att slutföra. |Klona jobbet misslyckades. |Det gick inte att skapa en klon. Överväg att något av följande:<ul><li>Säkerhetskopiera listan kanske inte giltig. Uppdatera listan för att kontrollera att den fortfarande är giltig.</li><li>Problem med nätverksanslutningen kan hindra att kopieringen från en lyckad. Se till att det inte finns några anslutningsproblem.</li><li>Tillgängligt lagringsutrymme gränsen har uppnåtts. Om du vill frigöra utrymme, Överväg att ta bort alla säkerhetskopieringar som inte längre behövs.</li></ul>Lös problemen, rensa aviseringen och försök igen. |
+
+### <a name="networking-alerts"></a>Aviseringar för nätverk
+| Varningstexten | Händelse | Mer information / rekommenderade åtgärder |
+|:--- |:--- |:--- |
+| Det gick inte att ansluta till Autentiseringstjänsten. |DataPath fel |Den URL som används för att autentisera kan inte nås. Se till att brandväggsreglerna URL-mönster som angetts för StorSimple-enhet. Mer information om URL-mönster i Azure-portalen går du till [StorSimple virtuell matris nätverkskrav](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
 ### <a name="performance-alerts"></a>Prestandavarningar
 

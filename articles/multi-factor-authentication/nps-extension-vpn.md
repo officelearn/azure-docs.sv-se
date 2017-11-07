@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 92b95b91073ef0a53a936bea53a7c63fe37f1746
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 8bb4c754f7bf22198b997ded7a994ccf0e4ad265
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -99,7 +99,7 @@ Det här avsnittet beskrivs de förutsättningar som måste slutföras innan du 
 Den här artikeln förutsätter att du har en fungerande VPN-infrastruktur som använder Microsoft Windows Server 2016 och att VPN-servern för närvarande inte har konfigurerats att vidarebefordra anslutningsförfrågningar till en RADIUS-server. I artikeln får konfigurera du VPN-infrastruktur för att använda en central RADIUS-server.
 
 Om du inte har en fungerande VPN-infrastruktur på plats kan du snabbt skapa en genom att följa riktlinjerna i flera VPN-installationen självstudier som du hittar på Microsoft och tredje parters webbplatser. 
-
+            
 ### <a name="the-network-policy-and-access-services-role"></a>Rollen Nätverksprincip och åtkomsttjänster
 
 Nätverksprincip och åtkomsttjänster innehåller funktioner för RADIUS-server och klient. Den här artikeln förutsätter att du har installerat rollen Nätverksprincip och åtkomsttjänster på en medlemsserver eller domänkontrollant i din miljö. I den här guiden konfigurerar du RADIUS för en VPN-konfiguration. Installera rollen Nätverksprincip och åtkomsttjänster på en server *än* VPN-servern.
@@ -108,7 +108,7 @@ Information om hur du installerar rollen Nätverksprincip och åtkomsttjänster 
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licens
 
-Det krävs en licens för Azure Multi-Factor Authentication och är tillgänglig via en Azure AD Premium, Enterprise Mobility + Security eller en Multi-Factor Authentication-prenumeration. Mer information finns i [hur du hämtar Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). I testsyfte kan använda du en utvärderingsprenumeration.
+Det krävs en licens för Azure Multi-Factor Authentication och är tillgänglig via en Azure AD Premium, Enterprise Mobility + Security eller en Multi-Factor Authentication-prenumeration. Förbrukningsbaserad licenser för Azure MFA som per användare eller per autentisering licenser är inte kompatibla med NPS-tillägget. Mer information finns i [hur du hämtar Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). I testsyfte kan använda du en utvärderingsprenumeration.
 
 ### <a name="windows-server-software"></a>Windows Server-programvara
 

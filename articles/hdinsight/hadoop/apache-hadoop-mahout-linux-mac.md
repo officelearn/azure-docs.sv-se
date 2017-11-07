@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: c8a992e84d770295a6c7008cfa85ca947fb8fca5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 65d6dc7bf96666f004038c6dae00d2f4e9ea5d7f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Generera filmrekommendationer med hjälp av Apache Mahout med Linux-baserade Hadoop i HDInsight (SSH)
 
@@ -59,9 +59,9 @@ Följande arbetsflöde är en förenklad exempel som använder filmdata:
 
 Enkelt, [GroupLens Research] [ movielens] innehåller klassificering av data för filmer i ett format som är kompatibel med Mahout. Dessa data är tillgängliga på ditt kluster standardlagring på `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Det finns två filer, `moviedb.txt` och `user-ratings.txt`. Användaren ratings.txt filen används under analys, medan moviedb.txt används för att tillhandahålla användarvänliga textinformation när du visar resultatet av analysen.
+Det finns två filer, `moviedb.txt` och `user-ratings.txt`. Den `user-ratings.txt` filen som ska användas vid analys. Den `moviedb.txt` används för att ange användarvänliga textinformation när du visar resultaten.
 
-Data i ratings.txt användare har en struktur med `userID`, `movieID`, `userRating`, och `timestamp`, som talar om för oss hur mycket en film klassificerats som varje användare. Här är ett exempel på data:
+Data i ratings.txt användare har en struktur med `userID`, `movieID`, `userRating`, och `timestamp`, vilket anger hur mycket en film klassificerats som varje användare. Här är ett exempel på data:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -97,7 +97,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Den första kolumnen är den `userID`. Värdena i ' [' och ']' är `movieId`:`recommendationScore`.
 
-2. Du kan använda utdata, tillsammans med moviedb.txt, för att ge mer information om rekommendationer. Vi måste först kopiera filerna lokalt med hjälp av följande kommandon:
+2. Du kan använda utdata, tillsammans med moviedb.txt, för att ge mer information om rekommendationer. Kopierar du filerna lokalt med hjälp av följande kommandon:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt

@@ -12,18 +12,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/02/2017
 ms.author: juluk
-ms.openlocfilehash: 7f5c034df3410fc5563a5ed657f7c1aa0f4135ec
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3acea56ea414f0c43333a02274e91226db29d454
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Översikt över Azure-molnet Shell (förhandsgranskning)
 Azure Cloud-gränssnittet är en interaktiv, webbläsare-tillgängliga shell för att hantera Azure-resurser.
 Den ger dig möjlighet att välja shell-upplevelse som bäst passar arbetet.
 Linux-användare kan välja Bash och Windows-användare kan välja PowerShell.
+
+Starta via Azure-portalen från ikonen molnet Shell:
+
+![Starta företagsportal](media/overview/portal-launch-icon.png)
+
+Använda Bash eller PowerShell shell selector listrutan:
 
 ![Bash i molnet Shell](media/overview/overview-bash-pic.png)
 
@@ -44,16 +50,16 @@ Molnet Shell finns förinstallerat med populära kommandoradsverktyg och språks
 Visa listan över fullständig verktygsuppsättning för [Bash upplevelse](features.md#tools) och [PowerShell upplevelse.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Automatisk autentisering
-Molnet Shell autentiserar på ett säkert sätt automatiskt på varje session för omedelbar åtkomst till resurser via PowerShell-Cmdlets och Azure CLI 2.0.
+Molnet Shell autentiserar på ett säkert sätt automatiskt på varje session för omedelbar åtkomst till resurser via Azure CLI 2.0 eller Azure PowerShell-cmdlets.
 
 ### <a name="connect-your-azure-file-storage"></a>Anslut Azure File storage
-Molnet Shell datorer är tillfälliga och därför kräver en Azure-filresurs som ska monteras som `clouddrive` att bevara $Home-katalogen.
+Molnet Shell datorer är tillfälliga och därför kräver en resurs för Azure-filer som ska monteras som `clouddrive` att bevara $Home-katalogen.
 Första start molnet Shell uppmanas du för att skapa en resurs dela grupp, storage-konto och filen på å dina vägnar. Detta är ett enstaka steg och bifogas automatiskt för alla sessioner. En enda filresurs kan mappas och kommer att användas av både Bash och PowerShell i molnet Shell.
 
 #### <a name="create-new-storage"></a>Skapa nya lagringsenheter
 ![](media/overview/basic-storage.png)
 
-Ett lokalt redundant lagringskonto (LRS) och Azure-filresurs kan skapas för din räkning. Om du väljer att använda både används Azure-filresursen för Bash- och PowerShell-miljöer. Vanliga lagringskostnader gäller.
+Ett lokalt redundant lagringskonto (LRS) och Azure-filer resursen kan skapas för din räkning. Resursen Azure-filer ska användas för både Bash och PowerShell miljöer om du väljer att använda båda. Vanliga lagringskostnader gäller.
 
 Tre resurser kommer att skapas för din räkning:
 1. En resursgrupp med namnet:`cloud-shell-storage-<region>`
@@ -90,7 +96,7 @@ Mer information om funktioner i [Bash i molnet Shell](features.md) och [PowerShe
 Prova att använda de här exemplen i Snabbstart för [Bash i molnet Shell](quickstart.md) och [PowerShell i molnet Shell](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Prissättning
-Den dator som är värd molnet Shell är ledigt, med ett krav för en monterad Azure-filresursen. Vanliga lagringskostnader gäller.
+Den dator som är värd molnet Shell är ledigt, med ett krav för en monterad resurs i Azure-filer. Vanliga lagringskostnader gäller.
 
 ## <a name="supported-browsers"></a>Webbläsare som stöds
 Molnet Shell rekommenderas för Chrome, kant och Safari.

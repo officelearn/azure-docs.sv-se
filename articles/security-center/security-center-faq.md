@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Det här avsnittet får du svar frågor om Azure Security Center, en tjänst som hjälper dig att förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för din Microsoft Azure-resurser.
@@ -127,6 +127,15 @@ Azure Security Center har insyn i program mot skadlig kod installeras via Azure-
 
 ### <a name="why-do-i-get-the-message-missing-scan-data-for-my-vm"></a>Varför visas meddelandet ”Genomsök Data som saknas” för den virtuella datorn?
 Det här meddelandet visas när det finns inga genomsökningsdata för en virtuell dator. Det kan ta lite tid (mindre än en timme) för genomsökningsdata fylls i när datainsamling har aktiverats i Azure Security Center. Efter första befolkningen i genomsökningsdata får detta felmeddelande eftersom det finns inga sökningsdata på alla eller inga senaste genomsökning data. Inte att fylla sökningar för en virtuell dator i ett stoppat tillstånd. Det här meddelandet kan också visas om genomsökningsdata inte har fyllts i nyligen (i enlighet med bevarandeprincipen för Windows-agent som har ett standardvärde av 30 dagar).
+
+### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Hur ofta Security Center igenom för säkerhetsrisker i operativsystemet, uppdateringar och endpoint protection-problem?
+Fördröjning i Security Center söker efter säkerhetsrisker, uppdateringar, och problem är:
+
+- Säkerhetsproblem för operativsystemet (från Microsoft) – uppdatera data inom 48 timmar
+- Systemuppdateringar – data uppdateras inom 24 timmar
+- Endpoint Protection skickar – uppdatera data i 8 timmar
+
+Security Center vanligtvis söker efter nya data varje timme. Värdena svarstiden är ett värsta scenario där det inte senaste skanningen eller en sökning misslyckades.
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Varför visas meddelandet ”VM-agenten är saknas”?
 VM-agenten måste installeras på virtuella datorer om du vill aktivera datainsamling. VM-agenten installeras som standard för virtuella datorer som distribueras från Azure Marketplace. Information om hur du installerar den Virtuella Datoragenten på andra virtuella datorer finns i bloggposten [VM-Agent och tillägg för](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

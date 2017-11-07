@@ -1,6 +1,6 @@
 ---
 title: "Senaste nytt Viktig information för Azure Active Directory | Microsoft Docs"
-description: "Använd denna viktiga information föråldrade funktioner programfel korrigeringar, om du vill hålla kontakten med de senaste versionerna kända problem och planerar för ändringar i Azure Active Directory (AD Azure)."
+description: "Läs mer om nyheterna i Azure Active Directory (AD Azure) inklusive senaste viktig information, kända problem, felkorrigeringar, föråldrade funktioner och kommande ändringar."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 54a6f197de82e5c4ae93d196a532aec7793bbd4c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0fd0ee5bb0bc3e9dcda9db291a1f9dbac6a2e7dc
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
 
----
 
-Hålla dig uppdaterad med vad är nytt i Azure Active Directory genom att prenumerera på detta [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3%22&locale=en-us) i din favorit RSS-feed läsare.
 
----
+> Hålla dig uppdaterad med vad är nytt i Azure Active Directory genom att prenumerera på detta [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) i din favorit RSS-feed läsare.
+
 
 
 Vi förbättrar Azure Active Directory med jämna mellanrum. Om du vill aktivera dig att hålla dig uppdaterad med den senaste utvecklingen finns i det här avsnittet information om:

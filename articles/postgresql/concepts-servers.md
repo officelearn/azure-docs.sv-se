@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/06/2017
-ms.openlocfilehash: 09b8634160c35f3c6a48812358ec872e52d8b21c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure-databas för PostgreSQL-servrar
-Det här avsnittet innehåller information och riktlinjer för att arbeta med Azure-databas för PostgreSQL-servrar.
+Den här artikeln innehåller information och riktlinjer för att arbeta med Azure-databas för PostgreSQL-servrar.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Vad är en Azure-databas för PostgreSQL-servern?
 En Azure-databas för PostgreSQL-server är en central administrativ plats för flera databaser. Det är samma PostgreSQL server-konstruktion som du kanske känner till i den lokala världen. Mer specifikt tjänsten PostgreSQL hanteras, ger garanti vad gäller prestanda, exponerar åtkomst och funktioner på servernivå.
@@ -43,7 +43,7 @@ Följande element att säkerställa säker åtkomst till databasen.
 | **Autentisering och auktorisering** | Azure-databas för PostgreSQL server stöder interna PostgreSQL-autentisering. Du kan ansluta och autentisera till servern med serverns administratör för inloggning. |
 | **Protokoll** | Tjänsten stöder en message-baserat protokoll som används av PostgreSQL. |
 | **TCP/IP** | Protokollet stöds via TCP/IP och över sockets för Unix-domän. |
-| **Brandvägg** | För att skydda dina data, förhindrar en brandväggsregel all åtkomst till databasservern och dess databaser förrän du anger vilka datorer som har behörighet. Se [Azure-databas för PostgreSQL serverbrandväggsreglerna](concepts-firewall-rules.md). |
+| **Brandvägg** | För att skydda dina data, förhindrar en brandväggsregel all åtkomst till servern och dess databaser förrän du anger vilka datorer som har behörighet. Se [Azure-databas för PostgreSQL serverbrandväggsreglerna](concepts-firewall-rules.md). |
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Hur hanterar ett server?

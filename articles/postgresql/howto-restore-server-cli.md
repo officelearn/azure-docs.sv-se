@@ -1,6 +1,6 @@
 ---
 title: "Säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL | Microsoft Docs"
-description: "Lär dig mer om att säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL med hjälp av Azure CLI."
+description: "Lär dig hur du säkerhetskopierar och återställer en server i Azure-databas för PostgreSQL med hjälp av Azure CLI."
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 0cfce63b1523f939dc2d706dba771e56ce9ccd6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL med hjälp av Azure CLI
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL med hjälp av Azure CLI
 
 Använd Azure-databas för PostgreSQL för att återställa en server-databas till ett tidigare datum som sträcker sig från 7 till 35 dagar.
 
@@ -31,7 +31,7 @@ Du behöver följande för att slutföra den här instruktioner:
 > [!IMPORTANT]
 > Om du installerar och använder Azure CLI lokalt, kräver den här instruktioner att du använder Azure CLI version 2.0 eller senare. Om du vill bekräfta version Kommandotolken Azure CLI, ange `az --version`. Om du vill installera eller uppgradera, se [installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="back-up-happens-automatically"></a>Säkerhetskopiera sker automatiskt
+## <a name="backup-happens-automatically"></a>Säkerhetskopieringen sker automatiskt
 När du använder Azure-databas för PostgreSQL görs databastjänsten en säkerhetskopia av tjänsten var femte minut. 
 
 För grundläggande nivån finns säkerhetskopieringar för 7 dagar. För standardnivån är säkerhetskopior tillgängliga för 35 dagar. Mer information finns i [Azure-databas för PostgreSQL prisnivåer](concepts-service-tiers.md).
@@ -56,7 +56,7 @@ Den `az postgres server restore` kommandot kräver följande parametrar:
 | --- | --- | --- |
 | resursgruppen. |  myResourceGroup |  Resursgruppen där källservern finns.  |
 | namn | mypgserver återställs | Namnet på den nya servern som skapas med kommandot restore. |
-| Återställ punkt i tiden | 2017-04-13T13:59:00Z | Välj en punkt i tid att återställa till. Datumet och tiden måste vara inom källserverns säkerhetskopiera Bevarandeperiod. Använd formatet ISO8601 datum och tid. Exempelvis kan du använda din egen lokala tidszon som `2017-04-13T05:59:00-08:00`. Du kan också använda Zulu UTC-format, till exempel `2017-04-13T13:59:00Z`. |
+| Återställ punkt i tiden | 2017-04-13T13:59:00Z | Välj en punkt i tid att återställa till. Datumet och tiden måste vara inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd formatet ISO8601 datum och tid. Exempelvis kan du använda din egen lokala tidszon som `2017-04-13T05:59:00-08:00`. Du kan också använda Zulu UTC-format, till exempel `2017-04-13T13:59:00Z`. |
 | käll-servern | mypgserver 20170401 | Namnet eller ID på källservern för att återställa från. |
 
 När du återställer en server till en tidigare tidpunkt, skapas en ny server. Den ursprungliga servern och dess databaser från den angivna tidpunkten kopieras till den nya servern.

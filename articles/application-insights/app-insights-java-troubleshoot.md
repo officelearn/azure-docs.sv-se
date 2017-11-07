@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -124,6 +124,13 @@ Du kan behöva öppna TCP-portarna 80 och 443 för utgående trafik till dc.serv
 **Hur länge sparas data i portalen? Är det säkra?**
 
 Se [datalagring och sekretess][data].
+
+## <a name="debug-logging"></a>Felsökningsloggning
+Application Insights använder `org.apache.http`. Detta har flyttats i Application Insights core burkar i namnområdet `com.microsoft.applicationinsights.core.dependencies.http`. Detta gör Application Insights att hantera scenarier där olika versioner av samma `org.apache.http` finns i en kodbas. 
+
+>[!NOTE]
+>Om du aktiverar felsökningsloggning för nivån för alla namnområden i appen, den kan användas av alla verkställande moduler, inklusive `org.apache.http` ändras namnet till `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights kommer inte att kunna använda filtrering för dessa anrop eftersom loggen anropet görs av Apache-biblioteket. Nivån felsökningsloggning ger mycket av loggdata och rekommenderas inte för live produktion instanser.
+
 
 ## <a name="next-steps"></a>Nästa steg
 **Jag konfigurera Application Insights för Min server Java-app. Vad kan jag göra?**

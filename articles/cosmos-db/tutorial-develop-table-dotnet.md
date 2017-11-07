@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/03/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Utveckla med tabell-API i .NET
 
@@ -41,29 +41,11 @@ Den här kursen ingår följande uppgifter:
  
 ## <a name="tables-in-azure-cosmos-db"></a>Tabeller i Azure Cosmos DB 
 
-Azure Cosmos-DB tillhandahåller den [tabell API](table-introduction.md) (förhandsgranskning) för program som behöver ett nyckel / värde-Arkiv med en mindre schema-design. SDK:er och REST API:er för [Azure Table Storage](../storage/common/storage-introduction.md) kan användas med Azure Cosmos DB. Du kan använda Azure Cosmos DB för att skapa tabeller med höga krav på dataflöde. Azure Cosmos DB stöder dataflödesoptimerade tabeller (kallas informellt "premiumtabeller"), för närvarande i allmänt tillgängliga förhandsversioner. 
+Azure Cosmos-DB tillhandahåller den [tabell API](table-introduction.md) (förhandsversion) för program som behöver en nyckel / värde-lagra med en mindre schemat design och har hög througput krav. [Azure Table storage](../storage/common/storage-introduction.md) SDK: er och REST API: er som kan användas för att arbeta med tabeller i Azure Cosmos DB.   
 
-Du kan fortsätta att använda Azure Table Storage för tabeller med hög lagring och lägre dataflödeskrav.
+Den här kursen är avsedd för utvecklare som är bekant med Azure Table storage SDK och vill använda premium-funktioner tillgängliga med Azure Cosmos DB. Den är baserad på [komma igång med Azure Table storage med hjälp av .NET](table-storage-how-to-use-dotnet.md) och visar hur du kan dra nytta av ytterligare funktioner som sekundärindex, dataflöde och multihoming. Den här självstudiekursen beskrivs hur du använder Azure-portalen för att skapa ett Azure DB som Cosmos-konto och sedan skapa och distribuera ett tabell-API-program. Vi också igenom .NET-exempel för att skapa och tar bort en tabell och infoga, uppdatera, ta bort och frågar tabelldata. 
 
-Om du använder Azure Table storage, får du följande fördelar med ”premium table”-förhandsgranskning:
-
-- Nyckelfärdig [global distributionsplatsen](distribute-data-globally.md) med multihoming och [automatisk och manuell växling vid fel](regional-failover.md)
-- Stöd för automatisk schema-oberoende indexering mot alla egenskaper (”sekundärindex”) och snabb frågor 
-- Stöd för [oberoende skalning av lagring och genomströmning](partition-data.md), till alla områden
-- Stöd för [dedikerad genomströmning per tabell](request-units.md) som kan skalas från 500 till miljoner förfrågningar per sekund
-- Stöd för [fem justerbara konsekvensnivåer](consistency-levels.md) för handel av tillgänglighet, svarstid och konsekvenskontroll baserat på ditt program måste
-- 99,99% tillgänglighet inom en enskild region och möjligheten att lägga till fler regioner för högre tillgänglighet och [branschledande omfattande SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) på allmän tillgänglighet
-- Arbeta med den befintliga lagringen av Azure .NET SDK och inga kodändringar i ditt program
-
-I förhandsversionen stöder Azure Cosmos DB tabell-API med .NET SDK. Du kan hämta den [Azure Storage Preview SDK](https://aka.ms/premiumtablenuget) från NuGet, som har samma klasser och metoden signaturer som den [Azure Storage SDK: N](https://www.nuget.org/packages/WindowsAzure.Storage), men kan också ansluta till Azure Cosmos DB konton med tabell-API.
-
-Mer information om komplexa lagringsuppgifter för Azure Table finns:
-
-* [Introduktion till Azure Cosmos DB: tabell API](table-introduction.md)
-* Den tabell referensdokumentationen för kötjänsten fullständig information om tillgängliga API: er [Storage-klientbibliotek för .NET-referens](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-
-### <a name="about-this-tutorial"></a>Om den här självstudiekursen
-Den här kursen används för utvecklare som är bekant med Azure Table storage SDK och vill använda premium-funktioner tillgängliga Azure Cosmos DB. Den är baserad på [komma igång med Azure Table storage med hjälp av .NET](table-storage-how-to-use-dotnet.md) och visar hur du kan dra nytta av ytterligare funktioner som sekundärindex, dataflöde och multihoming. Vi upp hur du använder Azure-portalen för att skapa ett Azure DB som Cosmos-konto och sedan skapa och distribuera ett program för tabellen. Vi också igenom .NET-exempel för att skapa och tar bort en tabell och infoga, uppdatera, ta bort och frågar tabelldata. 
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har Visual Studio 2017 installerat, du kan hämta och använda den **ledigt** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -72,14 +54,6 @@ Om du inte redan har Visual Studio 2017 installerat, du kan hämta och använda 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
 Börja med att skapa ett Azure DB som Cosmos-konto i Azure-portalen.  
-
-> [!TIP]
-> * Redan har ett Azure DB som Cosmos-konto? I så fall, gå vidare till [konfigurera Visual Studio-lösning](#SetupVS).
-> * Hade du ett Azure DocumentDB-konto? Om ditt konto är nu ett Azure DB som Cosmos-konto och du kan gå vidare till så [konfigurera Visual Studio-lösning](#SetupVS).  
-> * Om du använder Azure Cosmos DB-emulatorn, följer du stegen i [Azure Cosmos DB emulatorn](local-emulator.md) konfigurera emulatorn och gå vidare till [ställa in din Visual Studio-lösning](#SetupVS).
-<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
->
->
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -112,7 +86,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 ```
 
 > [!NOTE]
-> Om du vill använda den här appen med standard Azure Table Storage, du behöver ändra anslutningssträngen i `app.config file`. Använda kontonamnet som tabellen kontonamnet och nyckeln som primärnyckel för Azure-lagring. <br>
+> Om du vill använda den här appen med Azure Table storage, du behöver ändra anslutningssträngen i `app.config file`. Använda kontonamnet som tabellen kontonamnet och nyckeln som primärnyckel för Azure-lagring. <br>
 >`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
 > 
 >
@@ -135,7 +109,7 @@ Du kan nu gå tillbaka till Data Explorer Se fråga, ändra och arbeta med tabel
 >
 
 ## <a name="azure-cosmos-db-capabilities"></a>Azure DB Cosmos-funktioner
-Azure Cosmos-DB stöder ett antal funktioner som inte är tillgängliga i Azure Table storage API. De nya funktionerna kan aktiveras via följande `appSettings` konfigurationsvärden. Vi inte införa några nya signaturer eller överlagringar till förhandsversionen av Azure Storage SDK: N. På så sätt kan du ansluta till både standard- och premium-tabeller och arbeta med andra Azure Storage-tjänster som Blobbar och köer. 
+Azure Cosmos DB tabell API: et stöder ett antal funktioner som inte är tillgängliga i Azure Table storage. De nya funktionerna kan aktiveras via följande `appSettings` konfigurationsvärden. Inga nya signaturer eller överlagringar har inte lagts till tabellen API: N som inte i den Azure Storage SDK: N. På så sätt kan du ansluta till tabeller i både Azure Table storage och Azure Cosmos DB och arbeta med andra Azure Storage-tjänster som Blobbar och köer. 
 
 
 | Nyckel | Beskrivning |

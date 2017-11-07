@@ -1,9 +1,9 @@
 ---
-title: Replikera virtuella VMware-datorer eller fysiska servrar till en annan plats (klassiska Azure-portalen) | Microsoft Docs
-description: "Använd den här artikeln för att replikera virtuella VMware-datorer eller Windows-/ Linux fysiska servrar till en sekundär plats med Azure Site Recovery."
+title: "Ställ in återställning av virtuella VMware-datorer eller fysiska servrar till en sekundär plats | Microsoft Docs"
+description: "Den här artikeln beskriver hur du replikera lokala virtuella VMware-datorer eller Windows-/ Linux fysiska servrar till en sekundär plats med Azure Site Recovery-tjänsten."
 services: site-recovery
 documentationcenter: 
-author: nsoneji
+author: rayne-wiselman
 manager: jwhit
 editor: 
 ms.assetid: b2cba944-d3b4-473c-8d97-9945c7eabf63
@@ -12,33 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: nisoneji
-ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: raynew
+ms.openlocfilehash: 8cfaa56735c1f4e2e01b58fdde2ad0e77b388762
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Replikera lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats i den klassiska Azure-portalen
+# <a name="set-up-disaster-recovery-of-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Ställ in återställning av virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
-## <a name="overview"></a>Översikt
-InMage Scout i Azure Site Recovery tillhandahåller realtid replikering mellan lokala platser för VMware. InMage Scout ingår i Azure Site Recovery-tjänsten prenumerationer. 
 
-## <a name="prerequisites"></a>Krav
-**Azure-konto**: du behöver en [Microsoft Azure](https://azure.microsoft.com/) konto. Du kan börja med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/). [Lär dig mer](https://azure.microsoft.com/pricing/details/site-recovery/) om priserna för Site Recovery.
+InMage Scout i Azure Site Recovery tillhandahåller realtid replikering mellan lokala platser för VMware. InMage Scout ingår i Azure Site Recovery-tjänsten prenumerationer.
 
-## <a name="step-1-create-a-vault"></a>Steg 1: Skapa ett valv
-1. Logga in på [Azure Portal](https://portal.azure.com).
+Om du inte har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+
+
+## <a name="create-a-vault"></a>Skapa ett valv
+1. Logga in på [Azure-portalen](https://portal.azure.com/) > **Recovery Services**.
 2. Klicka på Ny > Management > säkerhetskopiering och återställning (OMS). Du kan också klicka på Bläddra > Återställningstjänstvalvet > Lägg till.
 3. I **Namn** anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du en av dem.
 4. I **resursgruppen** skapa en ny resursgrupp eller välj en befintlig. Ange en Azure-region för att slutföra obligatoriska fält.
 5. I **plats**, väljer du ett geografiskt område för valvet. Regioner som stöds finns i [priser för Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Om du vill komma åt valvet från instrumentpanelen på Fäst på instrumentpanelen och klicka på Skapa.
-7. Det nya valvet visas på instrumentpanelen > alla resurser, och på den huvudsakliga Recovery Services-valv bladet.
+7. Det nya valvet visas på instrumentpanelen > alla resurser, och på den huvudsakliga Recovery Services-valv sidan.
 
-## <a name="step-2-configure-the-vault-and-download-inmage-scout-components"></a>Steg 2: Konfigurera valvet och ladda ned InMage Scout komponenter
-1. Välj ditt valv och klicka på inställningar i bladet Recovery Services-valv.
+## <a name="configure-the-vault-and-download-inmage-scout-components"></a>Konfigurera valvet och ladda ned InMage Scout komponenter
+1. Gå till Recovery Services valv väljer du ditt valv och klickar på **inställningar**.
 2. I **inställningar** > **komma igång** klickar du på **Site Recovery** > steg 1: **Förbered infrastrukturen**  >  **Skyddsmål**.
 3. I **skyddsmål** välja till återställningsplatsen och välj Ja, med VMware vSphere-hypervisor-programmet. Klicka sedan på OK.
 4. I **Scout installationsprogrammet**, klicka på hämta ladda ned InMage Scout 8.0.1 GA programvara och registrering nyckel. Installationsfilerna för alla nödvändiga komponenter finns i den hämtade ZIP-fil.
@@ -46,7 +46,7 @@ InMage Scout i Azure Site Recovery tillhandahåller realtid replikering mellan l
 ## <a name="step-3-install-component-updates"></a>Steg 3: Installera Komponentuppdateringar
 Läs mer om senast [uppdateringar](#updates). Du måste installera uppdateringsfiler på servrar i följande ordning:
 
-1. Om det finns en RX-server
+1. RX server om relevant
 2. Konfigurationsservrar
 3. Process-servrar
 4. Huvudmålservern servrar
@@ -69,7 +69,7 @@ Installera uppdateringar på följande sätt:
 5. **För Windows-huvudmålservern**: Om du vill uppdatera enhetlig agenten kopiera **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till huvudmålservern. Dubbelklicka på den att köra den. Observera att enhetlig agenten gäller även för källservern om datakällan inte uppdateras till Update4. Du bör installera den på källservern och, som tidigare nämnts senare i den här listan.<br>
 6. **För vContinuum-servern**: kopiera **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** till vContinuum-servern.  Kontrollera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.<br>
 7. **För Linux-huvudmålservern**: Om du vill uppdatera enhetlig agenten kopiera **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till huvudservern målet server och extrahera den. I den extraherade mappen kör **/Install**.<br>
-8. **För Windows-källservern**: du behöver inte installera uppdatering 5-agenten på källan om soruce finns redan på update4. Om det är mindre än update4 gäller uppdatering 5-agenten.
+8. **För Windows-källservern**: du behöver inte installera uppdatering 5-agenten på källan om det redan körs uppdatering 4. Om den körs mindre än uppdatering 4 gäller uppdatering 5-agenten.
 Om du vill uppdatera enhetlig agenten kopiera **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till källservern. Dubbelklicka på den att köra den. <br>
 9. **För Linux-källservern**: Om du vill uppdatera enhetlig agenten kopiera motsvarande version av filen UA till Linux-servern och extrahera den. I den extraherade mappen kör **/Install**.  Exempel: För RHEL 6,7 64 bitarsserver kopierar **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** till servern och extrahera den. I den extraherade mappen kör **/Install**.
 
@@ -86,7 +86,7 @@ Om du vill uppdatera enhetlig agenten kopiera **UA_Windows_8.0.5.0_GA_Update_5_1
 ## <a name="updates"></a>Uppdateringar
 ### <a name="azure-site-recovery-scout-801-update-5"></a>Azure Site Recovery Scout 8.0.1 uppdatering 5
 Scout uppdatering 5 är en kumulativ uppdatering. Den innehåller alla korrigeringsfiler för update1 till update4 och följande nya felkorrigeringar och förbättringar.
-Korrigeringar som har lagts till från ASR Scout update4 till update5 är specifika för huvudserver och vContinuum-komponenter. Om alla dina källservrar, Huvudmålet, konfigurationsservern, Processervern och RX redan finns på ASR Scout update4 måste du installera uppdateringen 5 endast på huvudmålservern. 
+Korrigeringar som har lagts till från Site Recovery Scout update4 till update5 är specifika för huvudserver och vContinuum-komponenter. Om alla dina källservrar, Huvudmålet, konfigurationsservern, Processervern och RX redan finns på Site Recovery Scout update4 måste du installera uppdatering 5 endast på huvudmålservern. 
 
 **Stöd för nya plattformar**
 * SUSE Linux Enterprise Server 11 Service Pack-4(SP4)
@@ -109,11 +109,11 @@ Korrigeringar som har lagts till från ASR Scout update4 till update5 är specif
 
 > [!NOTE]
 > 
-> * Korrigeringar är tillämpliga på endast de fysiska MSCS-kluster som nyligen skyddade med ASR Scout update5 över P2V-klustret. Att använda klustret åtgärdas på redan skyddade P2V MSCS-kluster med äldre uppdateringar, måste du följa Uppgraderingsstegen som nämns i avsnittet 12, uppgradering skyddade P2V MSCS-kluster till Scout Update5 av [ASR Scout viktig information](https://aka.ms/asr-scout-release-notes).
+> * Korrigeringar kan användas till endast de fysiska MSCS-kluster som nyligen skyddade med Site Recovery Scout update5 över P2V-klustret. Att använda klustret åtgärdas på redan skyddade P2V MSCS-kluster med äldre uppdateringar, måste du följa Uppgraderingsstegen som nämns i avsnittet 12, uppgradering skyddade P2V MSCS-kluster-Scout uppdatering 5 i den [viktig information](https://aka.ms/asr-scout-release-notes) .
 > 
-> * Skydda igen av fysiskt MSCS-kluster kan återanvända befintliga måldiskarna endast om vid tidpunkten för återaktivera skyddet, samma uppsättning med diskar är aktiva på alla klusternoder som de var när skyddat från början. Om inte, finns manuella åtgärder som anges i avsnitt 12 i [ASR Scout viktig information](https://aka.ms/asr-scout-release-notes) att flytta sidan måldiskarna till rätt datastore-sökvägen för att använda dem igen under återaktivera skyddet. Om du skyddar MSCS-kluster i P2V läge utan att uppgradera följande kommer den Skapa ny disk på ESXi målservern. Du måste manuellt ta bort gamla diskar från databasen.
+> * Skydda igen av fysiskt MSCS-kluster kan återanvända befintliga måldiskarna endast om vid tidpunkten för återaktivera skyddet, samma uppsättning med diskar är aktiva på alla klusternoder som de var när skyddat från början. Om inte, sedan manuella åtgärder som anges i avsnitt 12 i den [viktig information](https://aka.ms/asr-scout-release-notes) att flytta sidan måldiskarna till rätt datastore-sökvägen för att använda dem igen under återaktivera skyddet. Om du skyddar MSCS-kluster i P2V läge utan att uppgradera följande kommer den Skapa ny disk på ESXi målservern. Du måste manuellt ta bort gamla diskar från databasen.
 > 
-> * När datakällan SLES11 eller SLES11 med alla service pack-servern startas utan problem och sedan markera en manuellt i **rot** disk replikering par för synkroniserar som inte ska meddelas i CX UI. Om du inte ' Markera disken roten för omsynkronisering kan det uppstå problem med dataintegriteten (DI).
+> * När datakällan SLES11 eller SLES11 med alla service pack-servern startas utan problem och sedan markera en manuellt i **rot** disk replikering par för synkroniserar som inte ska meddelas i CX UI. Om du inte markerar disken roten för omsynkronisering kan uppstå problem med dataintegriteten (DI).
 > 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 uppdatering 4
@@ -144,7 +144,7 @@ Scout Update 4 är en kumulativ uppdatering. Den innehåller alla korrigeringsfi
 * VMware vCLI 6.0 länken läggs till grundläggande Huvudmålet för Windows-installationsprogrammet.
 * Lägga till fler kontroller och loggar för nätverket konfigurationer ändringar under växling vid fel och DR övningar.
 * Tid kvarhållning information har inte rapporterats till CX.  
-* För fysiska klustret misslyckas volym ändra storlek igen guiden vContinuum när datakällan volym förminskas inträffade.
+* För fysiska kluster misslyckas volym ändra storlek igen vContinuum-guiden när källan volym förminskas inträffar.
 * Klustret skydd misslyckades med felet ”Det gick inte att hitta disksignaturen” när klustret är PRDM disk.
 * cxps transport server kraschar på grund av undantaget intervall.
 * Servernamn och IP-kolumner är nu ändra storlek på sidan för push-installera vContinuum-guiden.
@@ -164,7 +164,7 @@ Scout Update 4 är en kumulativ uppdatering. Den innehåller alla korrigeringsfi
 Uppdatering 3 innehåller följande felkorrigeringar och förbättringar:
 
 * Det gick inte att registrera i Site Recovery-valvet när de är bakom proxyn konfigurationsservern och RX.
-* Antalet timmar som återställningspunktmål (RPO) inte är uppfyllt uppdateras inte i hälsorapporten.
+* Antalet timmar som återställningspunktmål (RPO) inte har uppfyllts uppdateras inte i hälsorapporten.
 * Konfigurationsservern inte synkroniserar med RX när information om ESX maskinvara eller nätverksinformation innehåller UTF-8 tecken.
 * Det gick inte att starta efter återställning av Windows Server 2008 R2-domänkontrollanter.
 * Offlinesynkronisering fungerar inte som förväntat.

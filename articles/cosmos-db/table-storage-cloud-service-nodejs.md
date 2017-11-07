@@ -1,5 +1,5 @@
 ---
-title: Webbprogram med tabellagring (Node.js) | Microsoft Docs
+title: 'Azure Table storage: skapa en Node.js-webbapp | Microsoft Docs'
 description: "En självstudiekurs som bygger på webbprogram med snabb kursen genom att lägga till Azure Storage-tjänster och Azure-modulen."
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,15 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Node.js-Webbapp som använder lagring
+# <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: Node.js-Webbapp
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>Översikt
 I den här självstudiekursen programmet du skapade i den [Node.js-Webbapp med hjälp av] kursen utökas som arbetar med data management-tjänster med Microsoft Azure-klientbibliotek för Node.js. Du kan utöka ditt program genom att skapa en webbaserad-uppgiftslista program som du kan distribuera till Azure. Listan kan användaren hämta uppgifter, lägga till nya aktiviteter och markera aktiviteter som slutförda.
 

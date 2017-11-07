@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 05e645ebafd8c8b9f3078524b76732b3e1be05f8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: ec362cec28160b5c4827f6e47614661319ba4039
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure-databas för PostgreSQL-Server från en specifik IP-adress eller intervall av IP-adresser. Med hjälp av lämplig Azure CLI-kommandona, kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure-databas för PostgreSQL brandväggsregler, se [Azure-databas för PostgreSQL serverbrandväggsreglerna](concepts-firewall-rules.md)
@@ -22,7 +22,7 @@ Brandväggsregler på servernivå kan administratörer hantera åtkomst till en 
 ## <a name="prerequisites"></a>Krav
 Du behöver följande för att gå igenom den här instruktioner:
 - En [Azure-databas för PostgreSQL-servern och databasen](quickstart-create-server-database-azure-cli.md).
-- Installera [Azure CLI 2.0](/cli/azure/install-azure-cli) kommandot kommandoradsverktyget eller använda Azure Cloud Shell i webbläsaren.
+- Installera [Azure CLI 2.0](/cli/azure/install-azure-cli) -kommandoradsverktyget eller Använd Azure Cloud-gränssnittet i webbläsaren.
 
 ## <a name="configure-firewall-rules-for-azure-database-for-postgresql"></a>Konfigurera brandväggsregler för Azure-databas för PostgreSQL
 Den [az postgres-brandväggsregel](/cli/azure/postgres/server/firewall-rule) kommandon som används för att konfigurera brandväggens regler.
@@ -39,7 +39,7 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server 
 ## <a name="create-firewall-rule"></a>Skapa brandväggsregel
 Om du vill skapa en ny brandväggsregel på servern, kör den [az postgres-brandväggsregel skapa](/cli/azure/postgres/server/firewall-rule#create) kommando. 
 
-Genom att ange 0.0.0.0 som den `--start-ip-address` och 255.255.255.255 som den `--end-ip-address` intervallet, i exemplet nedan gör att alla IP-adresser att ansluta till servern **mypgserver 20170401.postgres.database.azure.com**
+Genom att ange 0.0.0.0 som den `--start-ip-address` och 255.255.255.255 som den `--end-ip-address` intervallet, i följande exempel tillåts alla IP-adresser för åtkomst till servern **mypgserver 20170401.postgres.database.azure.com**
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup  --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```

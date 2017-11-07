@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Anslutningsbibliotek för Azure-databas för PostgreSQL
-Det här avsnittet listar bibliotek och drivrutiner som utvecklare kan använda du programmerar program att ansluta till och frågar Azure-databas för PostgreSQL.
+Den här artikeln innehåller bibliotek och drivrutiner som utvecklare kan använda för att utveckla program för att ansluta till och frågar Azure-databas för PostgreSQL.
 
 ## <a name="client-interfaces"></a>Klient-gränssnitt
-De flesta språk klientbibliotek som används för att ansluta till PostgreSQL-servern är externa projekt och distribueras separat. Dessa stöds på Windows, Linux och Mac-plattformar. Vissa av populära klientdrivrutiner listas i följande tabell:
+De flesta språk klientbibliotek som används för att ansluta till PostgreSQL-servern är externa projekt och distribueras separat. Bibliotek i listan stöds på Windows, Linux och Mac-plattformar, för att ansluta till Azure-databas för PostgreSQL. Flera quickstart-exempel finns i avsnittet nästa steg.
 
 | **Språk** | **Klientgränssnitt** | **Ytterligare information** | **Ladda ned** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|

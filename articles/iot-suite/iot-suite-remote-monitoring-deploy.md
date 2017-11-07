@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: b16990d41b691c13b01d61aa0cde7d14e533e440
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1442f6ccc1d4ec349bb20d302faabd6788ff9253
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Distribuera fjärråtkomst övervakning förkonfigurerade lösningen
 
@@ -39,9 +39,13 @@ Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto p�
 
 Innan du distribuerar den förkonfigurerade lösningen till din Azure-prenumeration måste du välja vissa konfigurationsalternativ:
 
-1. Logga in på [azureiotsuite.com](https://www.azureiotsuite.com) med din Azure kontoautentiseringsuppgifter och klicka på  **+**  att skapa en lösning.
+1. Logga in på [azureiotsuite.com](https://www.azureiotsuite.com) med din Azure kontoautentiseringsuppgifter och klicka på  **+**  att skapa en ny lösning:
 
-1. Klicka på **Välj** på panelen **Fjärrövervakning**.
+    ![Skapa en ny lösning](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+
+1. Klicka på **Välj** på den **fjärråtkomst övervakning preview** panelen.
+
+    ![Välj fjärrövervaknings](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
 1. På den **skapa Fjärrövervaknings lösning** anger en **lösningsnamn** för fjärråtkomst övervakningen förkonfigurerade lösningen.
 
@@ -53,7 +57,9 @@ Innan du distribuerar den förkonfigurerade lösningen till din Azure-prenumerat
 
 1. Välj den **prenumeration** och **region** som du vill använda för att etablera lösningen.
 
-1. Klicka på **Skapa lösning** för att påbörja etableringen. Den här processen tar normalt flera minuter.
+1. Klicka på **Skapa lösning** för att påbörja etableringen. Denna process brukar ta flera minuter att köra:
+
+    ![Fjärråtkomst övervakning lösningsinformation](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 Information om felsökning finns [vad du gör om en distribution misslyckas](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) i GitHub-lagringsplatsen.
 
@@ -61,12 +67,16 @@ Information om felsökning finns [vad du gör om en distribution misslyckas](htt
 
 När etableringen är klar kan du logga in i fjärråtkomst övervakning förkonfigurerade lösningen.
 
-1. På den **etablerade lösningar** väljer du den nya lösningen för fjärråtkomst övervakning.
+1. På den **etablerade lösningar** väljer du den nya lösningen för fjärråtkomst övervakning:
+
+    ![Välj ny lösning](media/iot-suite-remote-monitoring-deploy/choosenew.png)
 
 1. Du kan visa information om din fjärranslutna övervakningslösning på panelen som visas. Välj **lösning instrumentpanelen** att ansluta till din fjärranslutna övervakningslösning.
 
     > [!NOTE]
     > Du kan ta bort din fjärranslutna övervakningslösning från den här panelen när du är klar med den.
+
+    ![Lösning panelen](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
 
 1. Instrumentpanelen för fjärråtkomst övervakning lösning visas i webbläsaren.
 

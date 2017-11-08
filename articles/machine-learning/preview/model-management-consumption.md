@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 8b2f806b81bbc6d9328ab179644b79b97d68e7b9
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="consuming-web-services"></a>Konsumera webbtjänster
 När du distribuerar en modell som en webbtjänst i realtid kan du skicka data och få förutsägelser från en mängd olika plattformar och program. Webbtjänsten realtid visar ett REST-API för att hämta förutsägelser. Du kan skicka data till webbtjänsten i formatet en eller flera rader för att hämta en eller flera förutsägelser på tidpunkt.
 
-Azure Machine Learning webbtjänsten kommunicerar ett externt program med en förutsägelsemodell synkront genom att göra HTTP POST anrop till tjänsten URL-Adressen. Om du vill göra ett webbtjänstanrop måste klientprogrammet ange API-nyckeln som skapas när du distribuerar en förutsägelse och placera data för begäran i begärandetexten POST.
+Med den [Azure Machine Learning-webbtjänst](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy), ett externt program synkront kommunicerar med en förutsägelsemodell genom att göra HTTP POST-anrop till tjänsten URL-Adressen. Om du vill göra ett webbtjänstanrop måste klientprogrammet ange API-nyckeln som skapas när du distribuerar en förutsägelse och placera data för begäran i begärandetexten POST.
 
 Observera att API-nycklar är bara tillgängliga i distributionsläget klustret. Lokala webbtjänster saknar nycklar.
 

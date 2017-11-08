@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 10/20/2017
-ms.openlocfilehash: 5b5da758e966cc5ca536d7b291be74409f02ca73
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9aa24dd10ef29c716c05cafeb84e0beb23d50628
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure-databas för PostgreSQL?
 
@@ -39,7 +39,7 @@ För en uppsättning exempel som Azure CLI, se:
 - [Azure CLI-exempel för Azure-databas för PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Justera prestanda och skalning inom några sekunder
-Under förhandsgranskning, Azure-databas för MySQL-tjänst som erbjuder två tjänstnivåer: Basic och Standard. Varje nivå har olika prestanda och funktioner för att stödja lätta till tunga arbetsbelastningar. Du kan skapa din första app på en liten databas för några kronor i månaden och sedan justera skalan för att uppfylla behoven i din lösning. Dynamisk skalbarhet gör databasen besvarar transparent snabbt ändra resurskraven. Du betalar bara för resurserna du behöver och endast när det behövs. Se [prisnivåer](concepts-service-tiers.md) mer information.
+Erbjuder två tjänstnivåer i förhandsgranskning, Azure-databasen för PostgreSQL-tjänsten: Basic och Standard. Varje nivå har olika prestanda och funktioner för att stödja lätta till tunga arbetsbelastningar. Du kan skapa din första app på en liten databas för några kronor i månaden och sedan justera skalan för att uppfylla behoven i din lösning. Dynamisk skalbarhet gör databasen besvarar transparent snabbt ändra resurskraven. Du betalar bara för resurserna du behöver och endast när det behövs. Se [prisnivåer](concepts-service-tiers.md) mer information.
 
 ## <a name="monitoring-and-alerting"></a>Övervakning och avisering
 Hur du bestämmer dig för när ska man reglerar upp eller ner? Du kan använda inbyggda prestanda övervakning och avisering funktioner, kombinerat med klassificeringarna prestanda baserat på Compute-enheter. Använda dessa verktyg kan du bedöma snabbt effekten av Compute enheter skala upp eller ned baserat på din aktuella eller planerade prestandabehov. Se [aviseringar](howto-alert-on-metric.md) mer information.

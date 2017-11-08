@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031aff9d4797e99e6523a65ded7495c88aff282
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Ersätta en ström och kylning modulen på din StorSimple-enhet
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [ersätta en ström och kylning modulen på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Ström och kylning modul (PCM) i Microsoft Azure StorSimple-enheten består av en strömförsörjning och kylfläktar som styrs från den primära servern och EBOD höljen. Det finns endast en modell för PCM som är certifierad för varje enhet. Primär höljet är certifierad för en 764 W PCM och EBOD höljet är certifierad för en 580 W PCM. Även om PCMs för primära höljet och EBOD höljet är olika, är ersättning proceduren identiska.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 96e429ae0e9462e6046a4aaabc5ab9281f2e67ce
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera drivrutiner för NVIDIA GPU på N-serien virtuella datorer som kör Linux
 
@@ -205,13 +205,13 @@ Den här filen kan anropas som rot på Start genom att skapa en post för den i 
 
 ## <a name="install-cuda-drivers-for-nc-vms"></a>Installera CUDA drivrutiner för NC virtuella datorer
 
-Här följer stegen för att installera drivrutinerna på Linux NC virtuella datorer från NVIDIA CUDA Toolkit 8.0. 
+Här följer stegen för att installera drivrutinerna på Linux NC virtuella datorer från NVIDIA CUDA Toolkit. 
 
 C och C++ utvecklare kan välja att installera fullständig Toolkit för att skapa GPU-snabbare program. Mer information finns i [CUDA installationsguiden](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> CUDA drivrutinen länkar som anges här aktuella vid tiden för publikationen. De senaste drivrutinerna för CUDA, finns det [NVIDIA](http://www.nvidia.com/) webbplats.
+> CUDA drivrutinen länkar som anges här aktuella vid tiden för publikationen. De senaste drivrutinerna för CUDA, finns det [NVIDIA](https://developer.nvidia.com/cuda-zone) webbplats.
 >
 
 Om du vill installera CUDA Toolkit gör du en SSH-anslutning på varje virtuell dator. Kontrollera att systemet har en CUDA-kompatibla GPU genom att köra följande kommando:
@@ -273,20 +273,16 @@ sudo reboot
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS-baserade 7.3 eller Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Kör inte `sudo yum update` att uppdatera versionen på CentOS 7.3 eller Red Hat Enterprise Linux 7.3 kernel. För närvarande fungerar installation av drivrutiner och uppdateringar inte om kernel uppdateras.
->
-
 1. Installera de senaste Linux integreringstjänsterna för Hyper-V.
 
   > [!IMPORTANT]
-  > Om du har installerat en CentOS-baserade HPC-avbildning på en virtuell dator NC24r vidare till steg3. Eftersom Azure RDMA drivrutiner och Linux-integreringstjänster är förinstallerade i avbildningen LIS uppgraderas inte och kernel-uppdateringar är inaktiverad som standard.
+  > Om du har installerat en CentOS-baserade HPC-avbildning på en virtuell dator NC24r vidare till steg3. Eftersom Azure RDMA drivrutiner och Linux-integreringstjänster är förinstallerade i HPC-avbildningen LIS uppgraderas inte och kernel-uppdateringar är inaktiverad som standard.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
  
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-1.tar.gz
  
   cd LISISO
  
@@ -304,7 +300,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 

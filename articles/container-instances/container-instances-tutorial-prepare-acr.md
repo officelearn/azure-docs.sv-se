@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
+editor: mmacy
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 848f6cbde49efdcfe96fc58ebc4160e0ea39f3f2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container registret
 
@@ -54,13 +54,19 @@ Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). I
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en Azure-behållare registret med den [az acr skapa](/cli/azure/acr#create) kommando. Namnet på en behållare registret **måste vara unika**. I följande exempel använder vi namnet *mycontainerregistry082*.
+Skapa en Azure-behållaren registret med den [az acr skapa](/cli/azure/acr#create) kommando. Registret behållarnamn **måste vara unika** i Azure, och måste innehålla 5 50 alfanumeriska tecken. Ersätt `<acrName>` med ett unikt namn för registret:
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+Till exempel att skapa ett Azure-behållaren registernyckel med namnet *mycontainerregistry082*:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-I resten av den här kursen använder vi `<acrname>` som platshållare för registret behållarnamn som du har valt.
+I resten av den här kursen använder vi `<acrName>` som platshållare för registret behållarnamn som du har valt.
 
 ## <a name="container-registry-login"></a>Behållaren registret inloggning
 
@@ -70,7 +76,7 @@ Du måste logga in till din ACR-instansen innan du skickar bilder till den. Anv�
 az acr login --name <acrName>
 ```
 
-Kommandot returnerar ett inloggningen lyckades meddelande när den har slutförts.
+Kommandot returnerar en `Login Succeeded` meddelande när den har slutförts.
 
 ## <a name="tag-container-image"></a>Taggen behållaren bild
 
@@ -89,13 +95,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-För att få namnet loginServer, kör du följande kommando:
+Kör följande kommando för att få namnet loginServer. Ersätt `<acrName>` med namnet på behållaren registret.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Taggen i *aci kursen app* avbildningen med loginServer av registret i behållaren. Lägg även till `:v1` till slutet av avbildningens namn. Den här taggen anger versionsnumret för avbildningen.
+Exempel på utdata:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+Taggen i *aci kursen app* avbildningen med loginServer behållare registret. Lägg även till `:v1` till slutet av avbildningens namn. Den här taggen anger versionsnumret för avbildningen. Ersätt `<acrLoginServer>` med resultatet av den `az acr show` kommando du precis körde.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -117,12 +131,23 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## <a name="push-image-to-azure-container-registry"></a>Push-avbildningen till registret för Azure-behållare
 
-Push den *aci kursen app* avbildningen till registret.
-
-Med följande exempel ersätta behållarnamn registret loginServer med loginServer från din miljö.
+Push den *aci kursen app* avbildningen till registret med den `docker push` kommando. Ersätt `<acrLoginServer>` med fullständig server inloggningsnamnet hämta i tidigare steg.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
+```
+
+Den `push` åtgärden bör ta några sekunder att några minuter beroende på din Internet-anslutning och utdata som liknar följande:
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
 ## <a name="list-images-in-azure-container-registry"></a>Listan avbildningar i Azure Container registret

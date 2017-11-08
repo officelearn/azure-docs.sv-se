@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 730917b6859f8dbd800ef2cb141062f45d7779ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC med Multi-DRM och åtkomstkontroll: En referensdesign och implementering i Azure och Azure Media Services
  
@@ -207,7 +207,7 @@ Implementeringen omfattar följande steg:
 
 George Trifonov för Azure Media Services-teamet har skrivit en blogg som ger detaljerade anvisningar för att konfigurera Azure Active Directory för en ASP.NET MVC player app: [integrera Azure Media Services OWIN MVC baserat app med Azure Active Directory och begränsa innehåll viktiga leverans baserat på JWT anspråk](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-George har skapat en blogg på [JWT-token autentisering i Azure Media Services och dynamisk kryptering](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). Och här är operativsystemets [på Azure AD-integrering med Azure Media Services viktiga leverans](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
+George har skapat en blogg på [JWT-token autentisering i Azure Media Services och dynamisk kryptering](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 Information om Azure Active Directory:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter ger systemhälsa rapporter om alla entiteter i klustret direkt ur lådan. Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
@@ -55,6 +55,18 @@ Rapporten anger den globala kontraktstidsgräns som den time to live (TTL). Rapp
 * **SourceId**: System.Federation
 * **Egenskapen**: börjar med **nätverket** och innehåller information om noden.
 * **Nästa steg**: undersöka varför i nätverket går förlorad, till exempel, kontrollera kommunikationen mellan noder i klustret.
+
+### <a name="rebuild"></a>Återskapa
+
+Den **Failover Manager** service (**FM**) hanterar information om klusternoderna. När FM förlorar data och leder till förlust av data den inte kan garantera att har den den allra senaste informationen om klusternoderna. I det här fallet systemet genomgår en **återskapa**, och **System.FM** samlar in data från alla noder i klustret för att återskapa dess tillstånd. Ibland på grund av nätverks- eller problem med noden kan återskapa hämta fastnat eller stoppats. Det kan hända med den **Failover Manager Master** service (**FMM**). Den **FMM** är en tillståndslös systemtjänst som håller reda på om alla de **FMs** i klustret. Den **FMMs** primära är alltid noden med ID som är närmast 0. Om noden utesluts en **återskapa** utlöses.
+När något av föregående villkor inträffar, **System.FM** eller **System.FMM** flaggan via en felrapport. Återskapa kan ha fastnat i en av två faser:
+
+* Väntar på sändningen: **FM/FMM** väntar broadcast-meddelande-svar från de andra noderna. **Nästa steg:** undersöka om det finns ett nätverksanslutningsproblem mellan noder.   
+* Väntar på noder: **FM/FMM** redan tagit emot ett broadcast svar från de andra noderna och väntar på svar från specifika noder. Hälsorapporten visar noderna som den **FM/FMM** väntar på ett svar. **Nästa steg:** undersöka nätverksanslutningen mellan de **FM/FMM** och de angivna noderna. Ta reda på varje nod som visas för andra möjliga problem.
+
+* **SourceID**: System.FM eller System.FMM
+* **Egenskapen**: återskapa.
+* **Nästa steg**: undersöka nätverksanslutningen mellan noder, samt status för de specifika noder som visas på beskrivningen av rapporten hälsa.
 
 ## <a name="node-system-health-reports"></a>Noden system hälsorapporter
 **System.FM**, som representerar Failover Manager-tjänsten är utfärdaren som hanterar information om klusternoderna. Varje nod bör ha en rapport från System.FM som visar sitt tillstånd. Noden enheter tas bort när tillståndet noden tas bort. Mer information finns i [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).

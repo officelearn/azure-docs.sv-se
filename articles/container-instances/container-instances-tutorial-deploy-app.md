@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 2858f20cd9da469d5983e2bef9176f5922349196
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Distribuera en behållare till Behållarinstanser som Azure
 
@@ -56,31 +56,31 @@ Behållaren registret lösenord:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-För att distribuera avbildningen behållare från behållaren registret med en resursbegäran av 1 processorkärna och 1 GB minne, kör du följande kommando:
+Kör följande kommando för att distribuera avbildningen behållare från behållaren registret med en resursbegäran av 1 processorkärna och 1 GB minne. Ersätt `<acrLoginServer>` och `<acrPassword>` med värden som du fick från föregående två kommandon.
 
 ```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Inom några sekunder bör du få ett inledande svar från Azure Resource Manager. Om du vill visa status för distributionen, använder du:
+Inom några sekunder bör du få ett inledande svar från Azure Resource Manager. Du kan visa statusen för distributionen [az behållaren visa](/cli/azure/container#az_container_show):
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
 ```
 
-Vi kan fortsätta att köra det här kommandot förrän tillståndet ändras från *väntande* till *kör*. Vi kan sedan fortsätta.
+Upprepa den `az container show` kommandot förrän tillståndet ändras från *väntande* till *kör*, vilka som ska ha under en minut. När behållaren är *kör*, Fortsätt till nästa steg.
 
 ## <a name="view-the-application-and-container-logs"></a>Kontrollera händelseloggarna för programmet och en behållare
 
-När distributionen lyckas, öppna webbläsaren till IP-adressen som visas i utdata från kommandot:
+När distributionen lyckas, visa behållarens offentliga IP-adressen med den [az behållaren visa](/cli/azure/container#az_container_show) kommando:
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
 ```
 
-```json
-"13.88.176.27"
-```
+Exempel på utdata:`"13.88.176.27"`
+
+Navigera till den offentliga IP-adressen i webbläsaren om du vill se programmet som körs.
 
 ![Hello world-app i webbläsaren][aci-app-browser]
 
@@ -96,6 +96,14 @@ Resultat:
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du behöver inte längre någon av de resurser som du skapade i den här självstudiekursen serien, kan du köra den [ta bort grupp az](/cli/azure/group#delete) kommando för att ta bort resursgruppen och alla resurser som den innehåller. Det här kommandot tar bort registernyckeln behållare som du skapade samt körs behållaren och alla relaterade resurser.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg

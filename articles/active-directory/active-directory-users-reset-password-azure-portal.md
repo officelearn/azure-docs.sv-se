@@ -16,11 +16,11 @@ ms.date: 11/01/2017
 ms.author: joflore
 ms.reviewer: sahenry
 ms.custom: it-pro
-ms.openlocfilehash: 3dede0f026ab38bae64df664d190b47937416d2d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: bea082081e3f3f52ba78188903a9536fe9de9392
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Återställa lösenordet för en användare i Azure Active Directory
 
@@ -37,6 +37,9 @@ Administratörer kan behöva återställa en användares lösenord i fall där d
     
 6. På **Återställ lösenord**väljer **Återställ lösenord**.
 7. Ett tillfälligt lösenord visas som du sedan kan vidarebefordra till användaren. Användaren blir ombedd att ändra sina lösenord nästa gång de loggar in. 
+
+   > [!NOTE]
+   > Den här tillfälliga lösenord inte har en förfallotid så att den kommer att gälla tills de loggar in är sedan tvingas ändra den. 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägga till en användare](active-directory-users-create-azure-portal.md)

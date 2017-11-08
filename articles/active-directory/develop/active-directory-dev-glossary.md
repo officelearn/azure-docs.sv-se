@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory developer ordlista
 Den här artikeln innehåller definitioner för några av de Azure Active Directory (AD) developer grundbegrepp, vilket underlättar vid utbildning om programutveckling för Azure AD.
@@ -153,13 +153,13 @@ Funktionen logga in i ett program används vanligtvis för att implementera enke
 Processen för icke autentiserande slutanvändaren frånkoppling användarens tillstånd som associeras med den [klientprogrammet](#client-application) session under [inloggning](#sign-in)
 
 ## <a name="tenant"></a>Klient
-En instans av en Azure AD-katalog kallas för en Azure AD-klient. Det finns en mängd olika funktioner, inklusive:
+En instans av en Azure AD-katalog kallas för en Azure AD-klient. Det innehåller flera funktioner, inklusive:
 
 * registry-tjänsten för integrerade program
 * autentisering av användarkonton och registrerade program
 * REST-slutpunkter som krävs för att stödja olika protokoll, inklusive OAuth2 och SAML, inklusive den [autentiseringsslutpunkt](#authorization-endpoint), [tokenslutpunkten](#token-endpoint) och ”vanliga” slutpunkt som används av [program med flera klienter](#multi-tenant-application).
 
-En klient är även associerat med en Azure AD eller Office 365-prenumeration under etablering av prenumerationen på att tillhandahålla Identity & Access Management-funktioner för prenumerationen. Se [skaffa en Azure Active Directory-klient] [ AAD-How-To-Tenant] information om de olika sätt kan du få åtkomst till en klient. Se [hur Azure-prenumerationer är associerade med Azure Active Directory] [ AAD-How-Subscriptions-Assoc] information om relationen mellan prenumerationer och Azure AD-klient.
+Azure AD-klienter kan skapas/kopplade till Azure och Office 365-prenumerationer under registreringen, tillhandahåller Identity & Access Management-funktioner för prenumerationen. Azure-prenumerationsadministratörer kan också skapa ytterligare Azure AD-klienter via Azure portal. Se [skaffa en Azure Active Directory-klient] [ AAD-How-To-Tenant] information om de olika sätt kan du få åtkomst till en klient. Se [hur Azure-prenumerationer är associerade med Azure Active Directory] [ AAD-How-Subscriptions-Assoc] information om relationen mellan prenumerationer och Azure AD-klient.
 
 ## <a name="token-endpoint"></a>token för slutpunkt
 En av slutpunkterna som implementerats av den [auktorisering server](#authorization-server) till support OAuth2 [auktorisering ger](#authorization-grant). Beroende på att bevilja den kan användas för att få en [åtkomsttoken](#access-token) (och relaterade ”uppdatera” token) till en [klienten](#client-application), eller [ID token](#ID-token) när det används med den [OpenID Connect] [ OpenIDConnect] protokoll.

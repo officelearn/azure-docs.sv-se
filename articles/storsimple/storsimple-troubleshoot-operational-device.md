@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/16/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 8d1b4905d0a24c8df9eb2c986459286909fd20dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4639e749cfaa6b38fa6b91ddebfc17924c1d5bd6
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Felsöka en operativa StorSimple-enhet
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Den här artikeln innehåller användbar felsökningsinformation för att lösa konfigurationsproblem som kan uppstå när din StorSimple-enhet är distribuerade och fungerar. Här beskrivs vanliga problem, möjliga orsaker och rekommenderade steg för att hjälpa dig att lösa problem som kan uppstå när du kör Microsoft Azure StorSimple. Den här informationen gäller både den lokala fysiska StorSimple-enheten och den virtuella StorSimple-enheten.
 

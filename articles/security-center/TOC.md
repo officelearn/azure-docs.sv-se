@@ -1,6 +1,5 @@
 # Översikt
 ## [Vad är Azure Security Center?](security-center-intro.md)
-## [Få insikter med Power BI](security-center-powerbi.md)
 ## [Datasäkerhet](security-center-data-security.md)
 ## Scenarier
 ### [Incidenthantering](security-center-incident-response.md)

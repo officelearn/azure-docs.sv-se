@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811c06c6355ae881037cceb573ae0f96fa1ec2ad
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använda Windows PowerShell för StorSimple för att administrera din enhet
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [använda Windows PowerShell för StorSimple att administrera din enhet](storsimple-8000-windows-powershell-administration.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Windows PowerShell för StorSimple innehåller ett kommandoradsgränssnitt som du kan använda för att hantera din Microsoft Azure StorSimple-enhet. Som namnet antyder är ett kommandoradsgränssnitt för Windows PowerShell-baserade, som är inbyggd i ett begränsat körningsutrymme. Ur ett användare på kommandoraden visas ett begränsat körningsutrymme som en begränsad version av Windows PowerShell. Det här gränssnittet har ytterligare dedikerad cmdlets som är inriktad på att hantera din Microsoft Azure StorSimple-enhet utan att några av de grundläggande funktionerna i Windows PowerShell. 
 

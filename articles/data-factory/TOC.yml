@@ -166,6 +166,8 @@
           href: compute-linked-services.md
     - name: Kontrollflöde
       items:
+        - name: If-villkorsaktivitet
+          href: control-flow-if-condition-activity.md
         - name: Webbaktivitet
           href: control-flow-web-activity.md
         - name: Sökningsaktivitet

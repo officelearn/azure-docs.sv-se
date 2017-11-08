@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/08/2017
+ms.date: 11/03/2017
 ms.author: anbacker
-ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3ca8e1f22e50f5cffa982f321c9a6c325785a2d
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Använda StorSimple Manager-tjänsten för att visa och hantera aviseringar för StorSimple
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [använda StorSimple Manager-tjänsten för att visa och hantera aviseringar för StorSimple](storsimple-8000-manage-alerts.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Den **aviseringar** fliken i StorSimple Manager-tjänsten kan du granska och avmarkera StorSimple-enhet – relaterade aviseringar på en i realtid. Från den här fliken kan övervaka du centralt hälsotillstånd problem med din StorSimple-enheter och den övergripande Microsoft Azure StorSimple-lösningen.
 

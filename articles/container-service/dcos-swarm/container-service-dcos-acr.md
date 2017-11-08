@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 7fdcff5ed93e56e4ac70dd9dcee0056a4cbef0bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36e57bb6ebf9f55d42c526a361fed33b4238b313
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Använda ACR med ett DC/OS-klustret för att distribuera programmet
 
@@ -46,7 +46,7 @@ Om det behövs, skapa ett Azure-behållare registret med den [az acr skapa](/cli
 I följande exempel skapas ett register med ett slumpmässigt Generera namn. Registret konfigureras också med en admin-kontot med den `--admin-enabled` argumentet.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
 När registret har skapats, Azure CLI matar ut data som liknar följande. Anteckna den `name` och `loginServer`, dessa används i senare steg.

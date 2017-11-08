@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -176,6 +176,11 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
   > **S:** sessioners livstid för återställning av lösenord är 15 minuter. Användaren har från början av återställning av lösenord, 15 minuter att återställa sina lösenord. E-post och SMS engångskod är ogiltiga när den här tiden har löpt ut.
   >
   >
+* **F: kan jag blockera användare från att återställa sina lösenord?**
+
+  > **S:** Ja, om du använder en grupp för att aktivera lösenordsåterställning via självbetjäning du kan ta bort dem från den grupp som kan användas för den här möjligheten.
+  >
+  >
 
 ## <a name="password-change"></a>Ändra lösenordet
 
@@ -187,6 +192,11 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
 * **F: kan användarna meddelas i Office-portalen när sina lokala lösenord upphör att gälla?**
 
   > **S:** detta är idag möjligt om du använder AD FS genom att följa anvisningarna här: [skicka lösenord princip anspråk med AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Om du använder hash-synkronisering av lösenord, är det inte möjligt i dag. Det beror på att vi inte synkronisera lösenordsprinciper från lokalt, så det inte är möjligt för oss att publicera utgången meddelanden till molnet upplevelser. I båda fallen är det också möjligt att [meddela användare vars lösenord ska upphöra att gälla med hjälp av PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **F: kan jag blockera användare från att ändra sina lösenord?**
+
+  > **S:** för endast molnbaserad användare som det inte går att blockera. Du kan ange för lokala användare `User cannot change password` ska kontrolleras och dessa användare kommer inte att kunna ändra sina lösenord.
   >
   >
 
@@ -263,14 +273,14 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
-* [Återställa eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
-* [Registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla för dina användare?](active-directory-passwords-data.md)
-* [Vilka autentiseringsmetoder som är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Vad är policyalternativen med SSPR?](active-directory-passwords-policy.md)
-* [Vad är tillbakaskrivning av lösenord och varför jag är intresserad av den?](active-directory-passwords-writeback.md)
-* [Hur rapporterar på aktivitet i SSPR?](active-directory-passwords-reporting.md)
-* [Vad är alla alternativ i SSPR och vad de betyder?](active-directory-passwords-how-it-works.md)
-* [Jag tror att något har brutits. Hur felsöker SSPR?](active-directory-passwords-troubleshoot.md)
+* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
+* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
+* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md).
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](active-directory-passwords-writeback.md)
+* [Hur gör jag för att rapportera på aktivitet i SSPR?](active-directory-passwords-reporting.md)
+* [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
+* [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)

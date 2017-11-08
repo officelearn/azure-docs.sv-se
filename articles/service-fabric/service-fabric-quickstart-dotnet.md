@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Skapa ett .NET Service Fabric-program i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
@@ -57,12 +57,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
 Högerklicka på ikonen Visual Studio i Start-menyn och välj **kör som administratör**. Du behöver köra Visual Studio som administratör för att kunna koppla felsökaren till dina tjänster.
 
-Öppna den **Voting.sln** Visual Studio-lösning från databasen som du har klonat.
+Öppna den **Voting.sln** Visual Studio-lösning från databasen som du har klonat.  
+
+Programmet Röstningsdatabasen är som standard lyssnar på port 8080.  Program-port har angetts i den */VotingWeb/PackageRoot/ServiceManifest.xml* fil.  Du kan ändra porten som programmet genom att uppdatera den **Port** attribut för den **Endpoint** element.  Om du vill distribuera och köra programmet lokalt, måste program-porten vara öppen och tillgänglig på datorn.  Om du ändrar porten som programmet kan ersätta det nya programmet Portvärdet ”8080” i den här artikeln.
 
 Distribuera programmet genom att trycka på **F5**.
 
 > [!NOTE]
-> Första gången du kör och distribuera programmet, skapar Visual Studio ett kluster som är lokala för felsökning. Den här åtgärden kan ta lite tid. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.
+> Första gången du kör och distribuera programmet, skapar Visual Studio ett kluster som är lokala för felsökning. Den här åtgärden kan ta lite tid. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.  I utdata visas meddelandet ”programmets URL inte har angetts eller är inte en HTTP/HTTPS-URL så inte kommer att öppna webbläsaren till programmet”.  Det här meddelandet anger inte ett fel men som en webbläsare inte kommer automatisk start.
 
 När installationen är klar, öppnar en webbläsare och öppna den här sidan: `http://localhost:8080` -webbklientdelen av programmet.
 
@@ -114,14 +116,15 @@ Om du vill titta på vad som händer i koden, gör du följande:
 Om du vill stoppa felsökningssessionen trycker du på **SKIFT + F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
-Om du vill distribuera programmet till ett kluster i Azure, kan du antingen välja att skapa ditt eget kluster, eller Använd ett kluster part.
+Om du vill distribuera programmet till Azure, behöver du ett Service Fabric-kluster som kör programmet. 
 
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster. 
+### <a name="join-a-party-cluster"></a>Ansluta till ett kluster part
+Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster i Azure som körs av Service Fabric-teamet där vem som helst kan distribuera program och lära sig mer om plattformen. 
 
-Information om hur du skapar ett eget kluster finns i [Skapa ditt första Service Fabric-kluster i Azure](service-fabric-get-started-azure-cluster.md).
+Logga in och [ansluta till ett Windows-kluster](http://aka.ms/tryservicefabric). Kom ihåg den **Anslutningens slutpunkt** -värde som används i följande steg.
 
 > [!Note]
-> Webbtjänsten front-end konfigureras så att den lyssnar på port 8080 för inkommande trafik. Se till att den porten är öppen i ditt kluster. Om du använder part klustret är den här porten öppen.
+> Som standard konfigureras web frontend-tjänsten så att den lyssnar på port 8080 för inkommande trafik. Port 8080 är öppen i klustret part.  Om du behöver ändra porten som programmet kan du ändra den till en av de portar som är öppna i klustret part.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Distribuera programmet med hjälp av Visual Studio
@@ -131,7 +134,9 @@ Nu när programmet är redo kan du distribuera det till ett kluster direkt från
 
     ![Dialogrutan Publicera](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Ange anslutningsslutpunkten för klustret i fältet **Connection Endpoint** (Anslutningsslutpunkt) och klicka på **Publicera**. När du registrerar dig för klustret part har Anslutningens slutpunkt angetts i webbläsaren. – till exempel `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Kopiera den **Anslutningens slutpunkt** från sidan part klustret till det **Anslutningens slutpunkt** fältet och klickar på **publicera**. Till exempel `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+
+    Varje program i klustret måste ha ett unikt namn.  Part kluster är en offentlig, delad miljö men det kan finnas en konflikt med ett befintligt program.  Om det finns en namnkonflikt, byta namn på Visual Studio-projektet och distribuera igen.
 
 3. Öppna en webbläsare och Skriv i klustret adress foolowed av ': 8080' till program i klustret – till exempel `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Du bör nu se det program som körs i klustret i Azure.
 

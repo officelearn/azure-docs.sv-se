@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 82b1916a49cd1e04580fdb848545ce7d52299579
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -78,13 +78,7 @@ För närvarande Azure AD-rapporter och händelser API hämtar upp till **75 000
 
 Om du behöver hämta eller lagra data utöver det här fönstret, föreslår vi beständighet i en extern databas och använder API: et för att fråga går som uppstår. Vår rekommendation är att börja hämta dessa data när du börjar använda SSPR i din organisation, spara den externt och sedan fortsätta att spåra går från den här tidpunkten och framåt.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Hämta lösenordet för återställning registrering händelser snabbt med PowerShell
-
-Förutom att använda Azure AD-rapporter och händelser API direkt, kan du också använda den under PowerShell-skript till den senaste registreringen händelser i din katalog. Detta är användbart om du vill se vem som har registrerats nyligen eller skulle vilja se till att distributionen återställning av lösenord pågår som förväntat.
-
-* [Azure AD SSPR-registrering aktivitet PowerShell-skript](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Beskrivning av rapportkolumner i Azure-portalen
+## <a name="description-of-report-columns-in-azure-portal"></a>Beskrivning av rapportkolumner i Azure-portalen
 
 I följande lista beskrivs var och en av rapportkolumner i detalj:
 
@@ -93,7 +87,7 @@ I följande lista beskrivs var och en av rapportkolumner i detalj:
 * **Datum och tid** – datum och tid för försöket.
 * **Data registrerade** – vilka autentiseringsdata som användaren har angett under lösenord återställer registrering.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Beskrivning av rapporten värden i Azure-portalen
+## <a name="description-of-report-values-in-azure-portal"></a>Beskrivning av rapporten värden i Azure-portalen
 
 I följande tabell beskrivs de olika värden som tillåts för varje kolumn:
 
@@ -198,16 +192,16 @@ I följande lista beskrivs den här aktiviteten i detalj:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
-* [Återställa eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
-* [Registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla för dina användare?](active-directory-passwords-data.md)
-* [Vilka autentiseringsmetoder som är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Vad är policyalternativen med SSPR?](active-directory-passwords-policy.md)
-* [Vad är tillbakaskrivning av lösenord och varför jag är intresserad av den?](active-directory-passwords-writeback.md)
-* [Vad är alla alternativ i SSPR och vad de betyder?](active-directory-passwords-how-it-works.md)
-* [Jag tror att något har brutits. Hur felsöker SSPR?](active-directory-passwords-troubleshoot.md)
-* [Jag har en fråga som inte var motsvarar någon annan](active-directory-passwords-faq.md)
+* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
+* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
+* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md).
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](active-directory-passwords-writeback.md)
+* [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
+* [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Exempel på SSPR aktivitet audit loggar i Azure AD"

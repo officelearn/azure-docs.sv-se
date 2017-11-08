@@ -13,7 +13,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
+  ms.date: 11/03/2017
   ms.author: carolz
 abstract:
   description: 'Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och behållare. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Lär dig hur du använder Azure Service Fabric med hjälp av våra snabbstarter, självstudier och exempel.'
@@ -26,9 +26,13 @@ sections:
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg'
+              src: 'https://docs.microsoft.com/media/logos/logo_net.svg'
             text: .NET
             href: service-fabric-quickstart-dotnet
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Java.svg'
+            text: Java
+            href: service-fabric-quickstart-java
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
             text: Linux-behållare

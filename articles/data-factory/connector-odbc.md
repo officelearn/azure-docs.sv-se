@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 1422dfb616c1b2d533fcbf1f6377db8c391f7dd8
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: d8fa78585842a7e4414c8decf422c971938b683f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopieringsdata från och till ODBC-datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,11 +66,9 @@ Följande egenskaper stöds för ODBC länkade tjänsten:
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
@@ -95,11 +93,9 @@ Följande egenskaper stöds för ODBC länkade tjänsten:
 ```json
 {
     "name": "ODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
@@ -134,15 +130,13 @@ Ange typegenskapen för dataset för att kopiera data från/till datalagret för
 ```json
 {
     "name": "ODBCDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<ODBC linked service name>",
             "type": "LinkedServiceReference"
         },
-        "typeProperties":
-        {
+        "typeProperties": {
             "tableName": "<table name>"
         }
     }
@@ -253,11 +247,9 @@ Skapa en ODBC-länkad tjänst om du vill länka en IBM Informix-databas till en 
 ```json
 {
     "name": "InformixLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<Informix connection string or DSN>"
@@ -292,11 +284,9 @@ Skapa en ODBC-länkad tjänst om du vill länka en Microsoft Access-databas till
 ```json
 {
     "name": "MicrosoftAccessLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
@@ -331,11 +321,9 @@ Skapa en ODBC-länkad tjänst om du vill länka en Microsoft Access-databas till
 ```json
 {
     "name": "HistorianLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "<GE Historian store connection string or DSN>"
@@ -374,11 +362,9 @@ Skapa en ODBC-länkad tjänst om du vill länka en SAP HANA-databas till en Azur
 ```json
 {
     "name": "SAPHANAViaODBCLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Odbc",
-        "typeProperties":
-        {
+        "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"

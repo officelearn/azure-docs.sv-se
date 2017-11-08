@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 1b9bb331c534474440a2f3054fedbdbf75be488e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 20d6f463d135028bf272c23de9f34be66e73325a
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,11 +73,9 @@ Följande egenskaper stöds för SAP Business Warehouse (BW) länkade tjänsten:
 ```json
 {
     "name": "SapBwLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "SapBw",
-        "typeProperties":
-        {
+        "typeProperties": {
             "server": "<server name>",
             "systemNumber": "<system number>",
             "clientId": "<client id>",
@@ -106,8 +104,7 @@ Ange typegenskapen för dataset för att kopiera data från SAP BW, **Relational
 ```json
 {
     "name": "SAPBWDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
@@ -194,4 +191,4 @@ När du kopierar data från SAP BW, används följande mappningar från SAP BW-d
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1442f6ccc1d4ec349bb20d302faabd6788ff9253
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 159397ba4fc93628acbf2bb53edf5eb88fd0cac7
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Distribuera fjärråtkomst övervakning förkonfigurerade lösningen
 
@@ -49,7 +49,7 @@ Innan du distribuerar den förkonfigurerade lösningen till din Azure-prenumerat
 
 1. På den **skapa Fjärrövervaknings lösning** anger en **lösningsnamn** för fjärråtkomst övervakningen förkonfigurerade lösningen.
 
-1. Välj en **grundläggande** eller **Standard** distribution. Om du deplying lösning för att lära dig hur det fungerar eller för att köra en demonstration, Välj den **grundläggande** alternativet för att minimera kostnaderna.
+1. Välj en **grundläggande** eller **Standard** distribution. Om du distribuerar lösningen för att lära dig hur det fungerar eller för att köra en demonstration, Välj den **grundläggande** alternativet för att minimera kostnaderna.
 
 1. Välj antingen **Java** eller **.NET** som språk. Alla mikrotjänster är tillgängliga som Java eller .NET-implementeringar.
 

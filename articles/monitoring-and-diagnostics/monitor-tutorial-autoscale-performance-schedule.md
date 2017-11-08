@@ -10,20 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en Autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
-Autoskala inställningar kan du lägga till/ta bort instanser av tjänsten baserat på förinställda villkor. De här inställningarna kan skapas via portalen. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera en autoskalningsinställning. Den här kursen går igenom:
+Autoskala inställningar kan du lägga till/ta bort instanser av tjänsten baserat på förinställda villkor. De här inställningarna kan skapas via portalen. Den här metoden ger ett webbläsarbaserat användargränssnitt för att skapa och konfigurera en autoskalningsinställning. 
 
-1. Skapa en Apptjänst
-2. Konfigurera en autoskalningsinställning
-3. Utlöser en skalbar åtgärd
-4. Utlösa en åtgärd för skalan
+I den här självstudiekursen kommer du att 
+> [!div class="checklist"]
+> * Skapa en Webbapp och Programtjänstplanen
+> * Konfigurera automatiska regler för skala- och skala ut baserat på antalet begäranden som tar emot en Webbapp
+> * Utlösa en åtgärd för skalbar och titta på antalet förekomster av öka
+> * Utlösa en åtgärd för skala och titta på antalet förekomster av minska
+> * Rensa dina resurser
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -32,12 +35,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Skapa en Webbapp och Programtjänstplanen
-1. Klicka på den **ny** alternativet från det vänstra navigeringsfönstret
-2. Söka efter och välja den *Webbapp* och klickar på **skapa**
-3. Välj en appnamn, till exempel *MyTestScaleWebApp*. Skapa en ny resursgrupp * myResourceGroup' och placera det i resursgruppen du väljer.
-4. Dina resurser ska etableras inom några minuter. Vi referera till webbprogram och motsvarande App Service-Plan som precis har skapats i resten av den här kursen.
+Klicka på den **ny** alternativet från det vänstra navigeringsfönstret
 
-    ![Skapa en ny app i portalen](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+Söka efter och välja den *Webbapp* och klickar på **skapa**
+
+Välj en appnamn, till exempel *MyTestScaleWebApp*. Skapa en ny resursgrupp * myResourceGroup' och placera det i resursgruppen du väljer.
+
+Dina resurser ska etableras inom några minuter. Använda Web App och motsvarande Apptjänstplan i resten av den här kursen.
+
+    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Navigera till Autoskala inställningar
 1. I det vänstra navigeringsfönstret väljer du den **övervakaren** alternativet. När sidan läses in väljer du den **Autoskala** fliken.
@@ -45,7 +51,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
     ![Navigera till Autoskala inställningar](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
-3. Autoskalningsinställningen på den **aktivera Autoskala** knappen
+3. Autoskalningsinställningen, klicka på den **aktivera Autoskala** knappen
 
 Nästa några steg hjälp du fyllde skärmen Autoskala ska se ut som på bilden nedan:
 
@@ -54,12 +60,12 @@ Nästa några steg hjälp du fyllde skärmen Autoskala ska se ut som på bilden 
  ## <a name="configure-default-profile"></a>Konfigurera standardprofil
 1. Ange en **namn** för autoskalningsinställningen
 2. Standardprofilen, se till att den **skala läge** är inställd på 'Skala till specifika instanser'
-3. Ange instansantalet 1. Den här inställningen garanterar att när inga andra profilen är aktiv eller i själva verket standardprofilen returnerar instansantalet 1.
+3. Ange instansantal till **1**. Den här inställningen garanterar att när inga andra profilen är aktiv eller i själva verket standardprofilen returnerar instansantalet 1.
 
   ![Navigera till Autoskala inställningar](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrence-profile"></a>Skapa profil för upprepning
+## <a name="create-recurrance-profile"></a>Skapa recurrance profil
 
 1. Klicka på den **Lägg till ett villkor för skala** länken under standardprofil
 
@@ -67,11 +73,11 @@ Nästa några steg hjälp du fyllde skärmen Autoskala ska se ut som på bilden 
 
 3. Se till att den **skala läge** är inställd på 'Skala baserat på ett mått'
 
-4. För **instansen gränser** ange den **minsta** som '1', den **maximala** som '2' och **standard** som '1'. Detta säkerställer att den här profilen har inte Autoskala serviceplan som har mindre än 1, eller mer än 2 instanser. Om profilen inte har tillräckliga data kan besluta, använder standardvärdet för antalet instanser (i det här fallet 1).
+4. För **instansen gränser** ange den **minsta** som '1', den **maximala** som '2' och **standard** som '1'. Den här inställningen garanterar att den här profilen har inte Autoskala serviceplan som har mindre än 1, eller mer än 2 instanser. Om profilen inte har tillräckliga data kan besluta, använder standardvärdet för antalet instanser (i det här fallet 1).
 
-5. För **schema** Välj 'Upprepa särskilda dagar ”
+5. För **schema**, Välj 'Upprepa särskilda dagar ”
 
-6. Ange profil ska upprepas måndag-fredag från 09:00 PST till 18:00 PST. Detta garanterar att den här profilen är bara aktiva och tillämpliga 9: 00 till 18: 00, måndag-fredag. Vid andra tider är 'Default' profilen den autoskalningsinställning som använder profilen.
+6. Ange profil ska upprepas måndag-fredag från 09:00 PST till 18:00 PST. Den här inställningen garanterar att den här profilen är bara aktiva och tillämpliga 9: 00 till 18: 00, måndag-fredag. Vid andra tider är 'Default' profilen den autoskalningsinställning som använder profilen.
 
 ## <a name="create-a-scale-out-rule"></a>Skapa en skalbar regel
 
@@ -125,7 +131,7 @@ Webbprogrammet måste ha fler än 10 begäranden på mindre än 5 minuter för a
 
 3. I det vänstra navigeringsfönstret väljer du den **övervakaren** alternativet. När sidan läses in väljer du den **Autoskala** fliken.
 
-4. I listan väljer du den Apptjänstplan som används i den här självstudiekursen
+4. I listan, Välj Apptjänstplan används i den här självstudiekursen
 
 5. Autoskalningsinställningen, klicka på den **kör historik** fliken
 
@@ -150,7 +156,7 @@ Skala i villkoret i utlösare för autoskalningsinställning, om det finns färr
 
 6. Du ser ett diagram som avspeglar instansantalet med den App Service-Plan över tid.
 
-7. Om några minuter instansantalet bör ta bort från 2, 1. Processen tar minst tio minuter.  
+7. Om några minuter instansantalet bör ta bort från 2, 1. Processen tar minst 100 minuter.  
 
 8. Under diagrammet är motsvarande uppsättning aktivitet loggposter för varje skala åtgärd som den här automatiska måttinställningarna
 
@@ -168,7 +174,16 @@ Skala i villkoret i utlösare för autoskalningsinställning, om det finns färr
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får skapat du en enkel Webbapp och App Service-Plan. Du sedan skapar en autoskalningsinställning som skala i App Service-Plan baserat på antalet begäranden mottagning av webbprogrammet. Mer information om automatiska fortsätter inställningar du med Autoskala Översikt.
+I kursen får du  
+> [!div class="checklist"]
+> * Skapa en Webbapp och Programtjänstplanen
+> * Konfigurerade automatiska regler för skalan i och skala ut baserat på antalet begäranden i appen tas emot
+> * Utlöses en skalbar åtgärd och bevakade antalet instanser öka
+> * Utlöses en åtgärd för skala och bevakade antalet instanser minska
+> * Rensa dina resurser
+
+
+Om du vill veta mer om inställningar för Autoskala fortsätta till den [Autoskala översikt](monitoring-overview-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Arkivera övervakningsdata](./monitor-tutorial-archive-monitoring-data.md)
+> [Arkivera övervakningsdata](monitor-tutorial-archive-monitoring-data.md)

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/05/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51fb72fc3c0e9b9e261f19883820f5d7399a57ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 37514e7b90afe1162aa4bbd2869326a691f75c4e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autentisera med ett privat Docker behållare register
 
@@ -39,7 +39,7 @@ När du arbetar med registret direkt, till exempel dra bilder till och skicka bi
 az acr login --name <acrName>
 ```
 
-När du loggar in med `az acr login`, CLI använder den token som skapas när du körde `az login` att sömlöst autentisera sessionen med registret. När du har loggat in det här sättet kan dina autentiseringsuppgifter är cachelagrade och efterföljande `docker` kommandon inte kräver ett användarnamn eller lösenord. Om din token upphör att gälla, kan du uppdatera den med hjälp av den `az acr login` kommandot igen för att autentiseras.
+När du loggar in med `az acr login`, CLI använder den token som skapas när du körde `az login` att sömlöst autentisera sessionen med registret. När du har loggat in det här sättet kan dina autentiseringsuppgifter är cachelagrade och efterföljande `docker` kommandon inte kräver ett användarnamn eller lösenord. Om din token upphör att gälla, kan du uppdatera den med hjälp av den `az acr login` kommandot igen för att autentiseras. Med hjälp av `az acr login` med identiteter som Azure tillhandahåller [rollbaserad åtkomst](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="service-principal"></a>Tjänstens huvudnamn
 
@@ -75,6 +75,10 @@ Beroende på vilken version av Docker som du har installerat kan du se en säker
 
 Varje behållare registret innehåller ett administratörskonto för användare som är inaktiverad som standard. Du kan aktivera administratörsanvändare och hantera sina autentiseringsuppgifter i den [Azure-portalen](container-registry-get-started-portal.md#create-a-container-registry), eller genom att använda Azure CLI.
 
+> [!IMPORTANT]
+> Administratörskontot är avsett för en enskild användare att komma åt registret, främst för testning. Vi rekommenderar inte dela administratörsautentiseringsuppgifter för kontot med flera användare. Alla användare som autentiseras med administratörskontot visas som en enskild användare med push och pull åtkomst till registret. Ändra eller inaktivera det här kontot inaktiverar du registret åtkomst för alla användare som använder sina autentiseringsuppgifter. Enskilda identitet rekommenderas för användare och tjänstens huvudnamn för fjärradministrerade scenarier.
+>
+
 Administratörskontot tillhandahålls med två lösenord som genereras. Två lösenord kan du hantera anslutning i registret med hjälp av ett lösenord när du återskapar den andra. Om administratörskontot är aktiverad, du kan ange användarnamnet och antingen lösenord för att den `docker login` kommandot för grundläggande autentisering i registret. Exempel:
 
 ```
@@ -92,10 +96,6 @@ az acr update -n <acrName> --admin-enabled true
 Du kan aktivera administratörsanvändare i Azure-portalen genom att navigera i registret, välja **åtkomstnycklar** under **inställningar**, sedan **aktivera** under **Admin användaren**.
 
 ![Aktivera administratörsanvändare Användargränssnittet i Azure-portalen][auth-portal-01]
-
-> [!IMPORTANT]
-> Administratörskontot är avsett för en enskild användare att komma åt registret, främst för testning. Vi rekommenderar inte dela administratörsautentiseringsuppgifter för kontot med flera användare. Alla användare som autentiseras med administratörskontot visas som en enskild användare i registret. Ändra eller inaktivera det här kontot inaktiverar du registret åtkomst för alla användare som använder sina autentiseringsuppgifter.
->
 
 ## <a name="next-steps"></a>Nästa steg
 

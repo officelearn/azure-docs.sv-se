@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Optimera MySQL prestanda på virtuella Azure Linux-datorer
 Det finns många faktorer som påverkar prestanda MySQL på Azure, både i val av virtuell maskinvara och konfiguration av programvara. Den här artikeln fokuserar på optimera prestanda via lagring, system och konfigurationer för databasen.
 
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Azure Resource Manager](../../../resource-manager-deployment-model.md) och klassisk. Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Information om Linux VM optimeringar med Resource Manager-modellen finns [optimera din Linux VM på Azure](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Använda RAID på en virtuell Azure-dator
 Lagring är avgörande som påverkar databasprestanda i miljöer i molnet. Jämfört med en enskild disk ger RAID snabbare åtkomst via samtidighet. Mer information finns i [Standard RAID-nivåer](http://en.wikipedia.org/wiki/Standard_RAID_levels).   

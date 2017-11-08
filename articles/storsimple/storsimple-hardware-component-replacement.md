@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2c8945dd06f0372c4260e0553e15627607be6979
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Ersätta en maskinvarukomponent på enheten StorSimple 8000-serien
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [ersätta en maskinvarukomponent på enheten StorSimple 8000-serien](storsimple-8000-hardware-component-replacement.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Översikt
 Maskinvara komponenten ersättning självstudier beskriver maskinvarukomponenter för din enhet för Microsoft Azure StorSimple 8000-serien och stegen för att byta ut. Den här artikeln beskriver säkerhet ikoner, ger länkar till detaljerade självstudier och visar en lista över de komponenter som är utbytbara.

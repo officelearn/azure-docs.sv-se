@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 67dbb0c4066002256efbab6061157c641527e441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8182d0ccf9fb57a9dba383d376d1c557845bcc8a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Hantera din StorSimple-styrenheter
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [hantera din StorSimple-styrenheter](storsimple-8000-manage-device-controller.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Den här självstudiekursen beskriver de olika åtgärder som kan utföras på din StorSimple-styrenheter. Domänkontrollanter i din StorSimple-enhet är redundant (peer) domänkontrollanter i ett aktivt-passivt konfiguration. Endast en domänkontrollant är aktiv vid en given tidpunkt och bearbetar alla disk- och åtgärder. Den andra styrenheten är i passivt läge. Om den aktiva styrenheten misslyckas aktiveras passiva controller automatiskt.
 

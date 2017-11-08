@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Konfigurera en enhet för att etablera med hjälp av Azure IoT-hubb enheten Etableringstjänsten
 
@@ -35,7 +35,7 @@ Innan du fortsätter, skapa din enhet etablering tjänstinstansen och en IoT-hub
 
 ## <a name="select-a-hardware-security-module"></a>Välj en maskinvarusäkerhetsmodul
 
-Den [enhet Etableringstjänsten klient-SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) har stöd för två typer av Maskinvarusäkerhetsmoduler (eller HSM: er): 
+Den [enhet Etableringstjänsten klient-SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) har stöd för två typer av Maskinvarusäkerhetsmoduler (eller HSM: er): 
 
 - [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - TPM är en etablerad standard för de flesta plattformar för Windows-baserade enheter, samt några Linux/Ubuntu-baserade enheter. Du kan välja denna HSM om du har något av dessa operativsystem som körs på dina enheter, och om du söker efter en etablerad standard för HSM som en enhetstillverkare. Du kan bara registrera varje enhet individuellt för att enheten Etableringstjänsten med TPM-chip. För utveckling, kan du använda TPM-simulatorn på utvecklingsdatorn Windows eller Linux.

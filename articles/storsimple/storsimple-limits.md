@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adefbe89108bc5a807b7413e821f8fcd0f3f325
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Vad är StorSimple 8000-serien system gränser?
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [vad är StorSimple 8000-serien system gränser?](storsimple-8000-limits.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 StorSimple innehåller skalbara och flexibla lagring för ditt datacenter. Det finns dock vissa begränsningar som du bör tänka på när du planerar, distribuerar och fungerar din StorSimple-lösning. Följande tabell beskriver dessa begränsningar och innehåller några rekommendationer så att du kan få ut mesta möjliga av din StorSimple-lösning.
 

@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 02/08/2017
+ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migrering av SQL Server-databas till SQL Database i molnet
 Den här artikeln beskriver de två huvudmetoderna för att migrera en SQL Server 2005-databas (eller senare) till Azure SQL Database. Den första metoden är enklare, men kräver viss till omfattande stilleståndstid under migreringen. Den andra metoden är mer komplicerad, men kräver mycket kortare stilleståndstid under migreringen.
@@ -28,7 +28,7 @@ Den här artikeln beskriver de två huvudmetoderna för att migrera en SQL Serve
 I båda fallen måste du säkerställa att källdatabasen är kompatibelt med Azure SQL Database med hjälp av den [Data migrering Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 närmar sig [har paritet](sql-database-features.md) med SQL Server än problem relaterade till servernivå och flera databaser. Databaser och program som förlitar sig på [funktioner som delvis eller inte stöds](sql-database-transact-sql-information.md) behöver viss [omkonstruktion för att åtgärda dessa inkompatibiliteter](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) innan SQL Server-databasen kan migreras.
 
 > [!NOTE]
-> För att migrera en icke-SQL Server-databas, inklusive Microsoft Access, Sybase, MySQL Oracle och DB2 till Azure SQL Database, se [SQL Server-migreringsassistent](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
+> För att migrera en icke-SQL Server-databas, inklusive Microsoft Access, Sybase, MySQL Oracle och DB2 till Azure SQL Database, se [SQL Server-migreringsassistent](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 > 
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Metod 1: Migrering med stilleståndstid under migreringen
@@ -39,12 +39,11 @@ Nedan visas det allmänna arbetsflödet en SQL Server Database-migrering med den
 
   ![VSSSDT-migreringsdiagram](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. Utvärdera om databasen är kompatibel med den senaste versionen av [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Utvärdera](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) databasen för kompatibilitet med hjälp av den senaste versionen av den [Data migrering Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Förbered nödvändiga korrigeringar som Transact-SQL-skript.
-3. Skapa en konsekvent kopia (ur transaktionssynpunkt) av källdatabasen som ska migreras och se till att inga fler ändringar görs i källdatabasen (alternativt kan du tillämpa ändringar manuellt efter att migreringen är slutförd). Det finns många metoder för att inaktivera en databas, från att inaktivera klientanslutningarna till att skapa en [ögonblicksbild av databasen](https://msdn.microsoft.com/library/ms175876.aspx).
+3. Källdatabasen transaktionellt konsekvent kopiera migreras - och se till att inga ytterligare ändringar görs för källdatabasen (eller kan du manuellt koppla sådana ändringar när migreringen är klar). Det finns många metoder för att inaktivera en databas, från att inaktivera klientanslutningarna till att skapa en [ögonblicksbild av databasen](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Distribuera Transact-SQL-skripten för att tillämpa korrigeringar på databaskopian.
-5. [Exportera](sql-database-export.md) databaskopian till en BACPAC fil på en lokal enhet.
-6. [Importera](sql-database-import.md) BACPAC-filen som en ny Azure SQL-databas med hjälp av flera BACPAC importera verktyg, med SQLPackage.exe som verktyget rekommenderas för bästa prestanda.
+5. [Migrera](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) databaskopian till en ny Azure SQL-databas med hjälp av Data Migration Assistant.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimera prestanda för dataöverföring under migreringen 
 
@@ -94,7 +93,7 @@ Vid en transaktionsreplikering visas alla ändringar i dina data eller i ditt sc
 ### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Tips och skillnader vid migrering till SQL Database
 
 1. Använda en lokal distributör 
-   - Detta påverkar serverns prestanda. 
+   - Detta gör att påverka prestanda på servern. 
    - Om denna påverkan inte är acceptabel kan du använda en annan server men det innebär en mer komplicerad hantering och administration.
 2. När du väljer en mapp för ögonblicksbilder måste du se till att mappen är tillräckligt stor för att innehålla en BCP för varje tabell som du vill replikera. 
 3. När en ögonblicksbild skapas låses de associerade tabellerna tills den är klar. Se därför till att schemalägga ögonblicksbilden vid en lämplig tidpunkt. 

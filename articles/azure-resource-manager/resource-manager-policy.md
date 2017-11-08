@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2e0d2e9830639209a22e9b62b0679d31854150e4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6faa8b4d259eddb1b26345d8900e829f6ca4dba8
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="resource-policy-overview"></a>Översikt över princip för resurs
 Principer för företagsresurser kan du etablera konventioner för resurser i din organisation. Du kan styra kostnader genom att definiera konventioner och mer hantera enkelt dina resurser. Du kan till exempel ange att endast vissa typer av virtuella datorer är tillåtna. Eller, du kan kräva att alla resurser som har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip används för en resursgrupp, är det så gäller för alla resurser i resursgruppen.
@@ -55,8 +55,6 @@ Azure tillhandahåller vissa inbyggda principdefinitioner som kan minska antalet
 * Inte tillåtet resurstyper
 * Kräv SQL Server version 12.0
 * Kräv kryptering för storage-konto
-
-Du kan tilldela någon av dessa policys via den [portal](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell), eller [Azure CLI](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>Definition av principstruktur
 Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:

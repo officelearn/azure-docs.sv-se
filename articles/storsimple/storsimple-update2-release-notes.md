@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/25/2017
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: d03e45b839e3630e7f5df4b3144b823955920088
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 285c5abf574544737f3d30981a6c5b8f9548922a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>StorSimple 8000 Series uppdatering 2 viktig information
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Följande information beskriver de nya funktionerna och identifiera kritiska öppna problem för StorSimple 8000 Series uppdatering 2. De innehåller också en lista över StorSimple-programvara, drivrutiner och uppdateringar av inbyggd disk i den här versionen. 
 
@@ -87,7 +90,7 @@ Följande tabell innehåller en översikt över kända problem i den här versio
 | 12 |Migrering |När migreringen är klar, måste enheten 5000/7000-serien inte komma åt behållarna migrerade data. |Vi rekommenderar att du tar bort migrerade databehållare när migreringen har slutförts och bekräftats. |Ja |Nej |
 | 13 |Klona och Katastrofåterställning |En StorSimple-enhet som kör uppdatering 1 kan inte klona eller utföra en återställning till en enhet med före uppdateringen 1 programvara. |Du behöver uppdatera målenheten uppdatering 1 för att tillåta dessa åtgärder |Ja |Ja |
 | 14 |Migrering |Konfigurationssäkerhetskopia för migrering kan misslyckas på en serieenhet för 5000 7000-när volymen grupper med inga associerade volymer. |Ta bort alla tomma volym grupper med inga associerade volymer och försök sedan säkerhetskopian av konfigurationen. |Ja |Nej |
-| 15 |Azure PowerShell-cmdlets och lokalt fästa volymer |Du kan inte skapa en lokalt Fäst volym via Azure PowerShell-cmdlets. (Alla volymer som du skapar via Azure PowerShell kommer att skikt.) Dessutom använder inte Azure PowerShell-cmdlets att ändra några egenskaper för en lokalt Fäst volym, eftersom det skulle ha områdena leda till att volymtypen till nivåindelade. |Använd alltid StorSimple Manager-tjänsten för att konfigurera eller ändra lokalt fästa volymer. |Ja |Nej |
+| 15 |Azure PowerShell-cmdlets och lokalt fästa volymer |Du kan inte skapa en lokalt Fäst volym via Azure PowerShell-cmdlets. (Alla volymer som du skapar via Azure PowerShell kommer att skikt.) |Använd alltid StorSimple Manager-tjänsten för att konfigurera lokalt fästa volymer. |Ja |Nej |
 | 16 |Diskutrymme för lokalt fästa volymer |Om du tar bort en lokalt Fäst volym kan det tillgängliga utrymmet för nya volymer inte uppdateras omedelbart. StorSimple Manager-tjänsten uppdaterar lokalt tillgängligt utrymme cirka varje timme. |Vänta tills en timme innan du försöker skapa den nya volymen. |Ja |Nej |
 | 17 |Lokalt fästa volymer |Din återställningsjobbet exponerar tillfälliga ögonblicksbilden säkerhetskopieringen i katalogen för säkerhetskopiering, men bara för återställningsjobbet varaktighet. Dessutom det visar att en virtuell diskgrupp med prefixet **tmpCollection** på den **Säkerhetskopieringsprinciper** sidan, men endast för återställningsjobbet varaktighet. |Detta kan inträffa om din Återställningsjobbet har bara lokalt Fäst volymer eller en blandning av lokalt Fäst och nivåindelade volymer. Om återställningsjobbet innehåller endast nivåindelade volymer, sker inte det här beteendet. Inga användaråtgärder krävs. |Ja |Nej |
 | 18 |Lokalt fästa volymer |Om du avbryter en återställningsjobbet och det uppstår redundans controller omedelbart efteråt återställningsjobbet visas **misslyckades** i stället för **avbruten**. Om en återställningsjobbet misslyckas och det uppstår redundans controller omedelbart efteråt återställningsjobbet visas **avbruten** i stället för **misslyckades**. |Detta kan inträffa om din Återställningsjobbet har bara lokalt Fäst volymer eller en blandning av lokalt Fäst och nivåindelade volymer. Om återställningsjobbet innehåller endast nivåindelade volymer, sker inte det här beteendet. Inga användaråtgärder krävs. |Ja |Nej |

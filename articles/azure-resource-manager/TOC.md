@@ -71,7 +71,6 @@
 
 ## Ange resursprinciper
 ### [Vad är resursprinciper?](resource-manager-policy.md)
-### [Tilldela en princip med hjälp av skript](resource-manager-policy-create-assign.md)
 ### Exempel
 #### [Taggar](resource-manager-policy-tags.md)
 #### [Namngivningskonventioner](resource-manager-policy-naming-convention.md)

@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 089988354c5e1ca2e8d5d1554084062a655e43da
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>Ändra DATA 0-gränssnittet nätverksinställningarna på din StorSimple-enhet
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [ändra DATA 0-gränssnittet nätverksinställningarna på din StorSimple-enhet](storsimple-8000-modify-data-0.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Microsoft Azure StorSimple-enheten har sex nätverksgränssnitt från DATA 0 till DATA 5. DATA 0 gränssnittet är alltid konfigurerad via Windows PowerShell-gränssnittet eller seriekonsolen och är automatiskt moln-aktiverat. Observera att du kan konfigurera DATA 0-nätverksgränssnittet via den klassiska Azure-portalen. 
 

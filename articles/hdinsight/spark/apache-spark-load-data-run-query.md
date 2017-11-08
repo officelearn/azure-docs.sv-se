@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: nitinme
-ms.openlocfilehash: ef9154b0d400ff23c53460454c886ab90e290f0c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0d93e261121f11d2a1082b9672e6d979955d3bee
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Köra interaktiva frågor på ett HDInsight Spark-kluster
 
@@ -34,10 +34,12 @@ Den här kursen kan du använda den **PySpark** kernel i Jupyter-anteckningsboke
 
 ## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Skapa en Jupyter-anteckningsboken för att köra interaktiva frågor
 
-Om du vill köra frågor som vi använder exempeldata är som standard tillgängligt i lagringen som är associerade med klustret. Du måste dock först hämta dessa data till Spark som en dataframe. När du har dataframe kan köra du frågor i det med Jupyter-anteckningsboken. I det här avsnittet titta på hur du:
+Om du vill köra frågor som vi använder exempeldata är som standard tillgängligt i lagringen som är associerade med klustret. Du måste dock först hämta dessa data till Spark som en dataframe. När du har dataframe kan köra du frågor i det med Jupyter-anteckningsboken. I den här artikeln titta på hur du:
 
 * Registrera data exempeldata som ett Spark-dataframe.
 * Köra frågor på dataframe.
+
+Nu sätter vi igång.
 
 1. Öppna [Azure-portalen](https://portal.azure.com/). Om du har valt att fästa klustret på instrumentpanelen klickar du på klusterikonen på instrumentpanelen för att öppna klusterbladet.
 
@@ -78,7 +80,7 @@ Om du vill köra frågor som vi använder exempeldata är som standard tillgäng
 
     ![Ögonblicksbild av data för interaktiva Spark SQL-frågan](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "ögonblicksbild av data för interaktiva Spark SQL-fråga")
 
-6. Skapa en dataframe och en tillfällig tabell (**hvac**) genom att köra följande kod. För den här självstudiekursen kommer skapa vi inte alla kolumner i den temporära tabellen jämfört med kolumnerna i rådata för CSV. 
+6. Skapa en dataframe och en tillfällig tabell (**hvac**) genom att köra följande kod. Den här självstudiekursen kommer skapar vi inte alla kolumner som är tillgängliga i CSV-filen. 
 
         # Create an RDD from sample data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -96,7 +98,7 @@ Om du vill köra frågor som vi använder exempeldata är som standard tillgäng
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-7. När tabellen har skapats, köra interaktiva fråga på data, kan du använda följande kod.
+7. När tabellen har skapats kan köra en interaktiv fråga på data, kan du använda följande kod.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -107,11 +109,13 @@ Om du vill köra frågor som vi använder exempeldata är som standard tillgäng
 
      ![Tabellutdata från interaktivt Spark-frågeresultat](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabellutdata från interaktivt Spark-frågeresultat")
 
-    Du kan också visa resultaten i andra visualiseringar. Ett områdesdiagram för samma utdata skulle som exempel se ut enligt nedan.
+9. Du kan också visa resultaten i andra visualiseringar. Om du vill se ett Områdesdiagram för samma utdata, Välj **område** sedan ange andra värden som visas.
 
     ![Områdesdiagram över interaktivt Spark-frågeresultat](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Områdesdiagram över interaktivt Spark-frågeresultat")
 
-9. När du har kört programmet stänger du anteckningsboken för att frigöra klusterresurserna. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny.
+10. Från den **filen** Klicka på menyn i anteckningsbokens **kontrollpunkten och spara**. 
+
+11. Om du startar den [nästa kurs](apache-spark-use-bi-tools.md) nu lämna anteckningsboken öppen. Om inte, stänga ned anteckningsboken för att frigöra resurserna i klustret: från den **filen** Klicka på menyn i anteckningsbokens **Stäng och stoppa**.
 
 ## <a name="next-step"></a>Nästa steg
 

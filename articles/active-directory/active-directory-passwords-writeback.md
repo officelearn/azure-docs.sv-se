@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9733774570f3148e0092f42c1321b4fac1c80b54
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-writeback-overview"></a>Översikt över tillbakaskrivning av lösenord
 
@@ -91,6 +91,8 @@ Stegen nedan förutsätter att du redan har konfigurerat Azure AD Connect i din 
    ![Aktivera tillbakaskrivning av lösenord i Azure AD Connect][Writeback]
 7. Klicka på klart att konfigurera skärmen, **konfigurera** och vänta på att processen skulle slutföras.
 8. När du ser konfiguration slutföra, klickar du på **avsluta**
+
+För gemensamma felsökning uppgifter som rör tillbakaskrivning av lösenord i avsnittet [felsöka tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) i vår felsökningsartikel.
 
 ## <a name="active-directory-permissions"></a>Active Directory-behörigheter
 
@@ -212,16 +214,16 @@ Storleken på varje meddelande som beskrivs ovan är vanligtvis under 1 kb, äve
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
-* [Återställa eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
-* [Registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla för dina användare?](active-directory-passwords-data.md)
-* [Vilka autentiseringsmetoder som är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Vad är policyalternativen med SSPR?](active-directory-passwords-policy.md)
-* [Hur rapporterar på aktivitet i SSPR?](active-directory-passwords-reporting.md)
-* [Vad är alla alternativ i SSPR och vad de betyder?](active-directory-passwords-how-it-works.md)
-* [Jag tror att något har brutits. Hur felsöker SSPR?](active-directory-passwords-troubleshoot.md)
-* [Jag har en fråga som inte var motsvarar någon annan](active-directory-passwords-faq.md)
+* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
+* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
+* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md).
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)
+* [Hur gör jag för att rapportera på aktivitet i SSPR?](active-directory-passwords-reporting.md)
+* [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
+* [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Aktivera tillbakaskrivning av lösenord i Azure AD Connect"

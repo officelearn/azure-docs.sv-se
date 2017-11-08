@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/16/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2fc50f7faddb4b61ea5e7d328469fc3cc0eb6f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2b147f32f10208b8daa391095a7d0094a0c2c09
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-update-02-release-notes---january-2015"></a>StorSimple 8000 uppdatering 0,2 viktig information - januari 2015
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 I följande versionsinformation identifiera kritiska öppna problem för januari 2015-versionen av Microsoft Azure StorSimple. De innehåller också en lista över StorSimple programvara och inbyggd programvara uppdateringar som ingår i den här versionen. Det här är den andra utgåvan efter version StorSimple 8000-serien släpper gjordes allmänt tillgänglig i juli 2014.
 

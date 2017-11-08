@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Träna om en befintlig förutsägande webbtjänst
 Det här dokumentet beskriver omtränings för följande scenario:
@@ -86,9 +86,10 @@ I den **grundläggande förbrukning info** avsnitt i den **förbruka** , leta up
 ### <a name="update-the-azure-storage-information"></a>Uppdatera Azure Storage-informationen
 Exempelkoden BES överför en fil från en lokal enhet (till exempel ”C:\temp\CensusIpnput.csv”) till Azure Storage, bearbetar den och skriver resultatet till Azure Storage.  
 
-Om du vill uppdatera Azure Storage-informationen måste du hämta lagringskontonamnet, behållare information och nyckeln för ditt lagringskonto från den klassiska Azure-portalen och sedan uppdatera correspondi när du har kört experimentet resulterande arbetsflödet bör likna följande:
+Om du vill uppdatera Azure Storage-informationen måste du hämta den lagringskontonamn och nyckel behållaren information för ditt lagringskonto från den klassiska Azure-portalen och uppdatera sedan motsvarande värden i koden.
+När du har kört experimentet bör resulterande arbetsflödet likna följande:
 
-![Resulterande arbetsflödet när kör][4]NG värden i koden.
+![Resulterande arbetsflödet när kör][4]
 
 1. Logga in på den klassiska Azure-portalen.
 2. Klicka på den vänstra navigeringsfönstret i kolumnen **lagring**.
@@ -119,7 +120,9 @@ När du anger platsen i begäran nyttolasten tillägget på den fil som har ange
             }
         },
 
-Följande är ett exempel på omtränings utdata: ![Omtränings utdata][6]
+Följande är ett exempel på omtränings utdata:
+
+![Omtränings utdata][6]
 
 ## <a name="evaluate-the-retraining-results"></a>Utvärdera omtränings resultaten
 När du kör programmet innehåller utdata URL och delade signaturer åtkomsttoken som är nödvändiga för att komma åt utvärderingsresultaten.

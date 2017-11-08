@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -94,7 +94,7 @@ I följande tabell beskrivs de tillgängliga lösenordsprincip som kan tillämpa
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Ange lösenordet upphör att gälla principer i Azure Active Directory
 
-En global administratör för en Microsoft-molntjänst kan använda i Microsoft Azure Active Directory-modulen för Windows PowerShell för att ställa in lösenord inte upphör att gälla. Du kan också använda Windows PowerShell-cmdlets för att ta bort den-upphör aldrig konfiguration eller för att se vilka användare lösenord ställs in inte upphör. Den här vägledningen gäller andra leverantörer som Microsoft Intune och Office 365 som också förlitar sig på Microsoft Azure Active Directory för identitets- och directory services.
+En global administratör för en Microsoft-molntjänst kan använda i Microsoft Azure Active Directory-modulen för Windows PowerShell för att ställa in lösenord inte upphör att gälla. Du kan också använda Windows PowerShell-cmdlets för att ta bort den-upphör aldrig konfiguration eller för att se vilka användare lösenord ställs in inte upphör. Den här vägledningen gäller andra leverantörer som Microsoft Intune och Office 365 som också förlitar sig på Microsoft Azure Active Directory för identitets- och directory services. Detta är endast en del av den princip som kan ändras.
 
 > [!NOTE]
 > Endast lösenord för användarkonton som inte är synkroniserade med katalogsynkronisering kan konfigureras för att inte upphör för att gälla. Läs mer om katalogsynkronisering[Anslut AD med Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -128,18 +128,21 @@ Om du vill komma igång behöver du [ladda ned och installera Azure AD PowerShel
    * Kör följande cmdlet för att ange lösenordet för en användare att aldrig upphöra, med hjälp av användarens huvudnamn (UPN) eller användar-ID för användaren:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * För att ange lösenord för alla användare i en organisation aldrig upphör att gälla, kör du följande cmdlet:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
+   > [!WARNING]
+   > Om du ställer in `-PasswordNeverExpires $true` lösenordet kommer fortfarande ålder baseras på den `pwdLastSet` attribut. Detta innebär att om du ställer in lösenorden aldrig går ut och sedan 90 dagar utifrån `pwdLastSet` och ändrar `-PasswordNeverExpires $false` alla lösenord som har en `pwdLastSet` äldre än 90 dagar kommer att behöva ändras vid nästa inloggning. Den här ändringen kan påverka ett stort antal användare. 
+
 ## <a name="next-steps"></a>Nästa steg
 
 Följande länkar ger ytterligare information om lösenordsåterställning med Azure AD
 
-* [Hur jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
-* [Återställa eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
-* [Registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla för dina användare?](active-directory-passwords-data.md)
-* [Vilka autentiseringsmetoder som är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Vad är tillbakaskrivning av lösenord och varför jag är intresserad av den?](active-directory-passwords-writeback.md)
-* [Hur rapporterar på aktivitet i SSPR?](active-directory-passwords-reporting.md)
-* [Vad är alla alternativ i SSPR och vad de betyder?](active-directory-passwords-how-it-works.md)
-* [Jag tror att något har brutits. Hur felsöker SSPR?](active-directory-passwords-troubleshoot.md)
-* [Jag har en fråga som inte var motsvarar någon annan](active-directory-passwords-faq.md)
+* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
+* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
+* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md).
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](active-directory-passwords-writeback.md)
+* [Hur gör jag för att rapportera på aktivitet i SSPR?](active-directory-passwords-reporting.md)
+* [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
+* [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)

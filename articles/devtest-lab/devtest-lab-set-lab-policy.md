@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Hantera alla principer för ett labb i Azure DevTest Labs
 
@@ -28,7 +28,11 @@ Azure DevTest Labs kan du styra kostnader och minimera skräp i din labs genom a
 ## <a name="set-allowed-virtual-machine-sizes"></a>Ange tillåtna storlekar för virtuella datorer
 Principen för att ange tillåtna VM-storlekar hjälper till att minimera skräp lab genom att du kan ange vilka VM-storlekar som tillåts i labbet. Om den här principen aktiveras användas endast VM-storlekar från den här listan för att skapa virtuella datorer.
 
-1. På testmiljön **konfiguration och principer** bladet väljer **tillåtna storlekar för virtuella datorer**.
+1. I den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040), Välj ett labb och välj sedan **konfiguration och principer**.
+
+    ![Åtkomst till testmiljön konfiguration och principer](./media/devtest-lab-set-lab-policy/policies-menu.png)
+
+1. På testmiljön **konfiguration och principer** väljer **tillåtna storlekar för virtuella datorer**.
    
     ![Tillåtna virtuella datorer storlekar](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
 
@@ -41,7 +45,7 @@ Principen för att ange tillåtna VM-storlekar hjälper till att minimera skräp
 ## <a name="set-virtual-machines-per-user"></a>Ange virtuella datorer per användare
 Principen för **virtuella datorer per användare** kan du ange det maximala antalet virtuella datorer som kan skapas av en enskild användare. Om en användare försöker skapa eller begära en virtuell dator när antalet användare som har uppfyllts, ett felmeddelande som anger att den virtuella datorn inte kan skapas/anspråk. 
 
-1. På testmiljön **konfiguration och principer** väljer du **virtuella datorer per användare**.
+1. På testmiljön **konfiguration och principer** väljer **virtuella datorer per användare**.
    
     ![Virtuella datorer per användare](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
@@ -54,7 +58,7 @@ Principen för **virtuella datorer per användare** kan du ange det maximala ant
 ## <a name="set-virtual-machines-per-lab"></a>Ange virtuella datorer per labb
 Principen för **virtuella datorer per labb** kan du ange det maximala antalet virtuella datorer som kan skapas för det aktuella labbet. Om en användare försöker skapa en virtuell dator när lab gränsen har uppfyllts, ett felmeddelande som anger att det inte går att skapa den virtuella datorn. 
 
-1. På testmiljön **konfiguration och principer** väljer du **virtuella datorer per labb**.
+1. På testmiljön **konfiguration och principer** väljer **virtuella datorer per labb**.
    
     ![Virtuella datorer per labb](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
@@ -65,9 +69,9 @@ Principen för **virtuella datorer per labb** kan du ange det maximala antalet v
 1. Välj **Spara**.
 
 ## <a name="set-auto-shutdown"></a>Ange automatisk avstängning
-Principen för automatisk avstängning hjälper till att minimera skräp lab genom att du kan ange hur lång tid som den här övningen VMs stängs.
+Principen för automatisk avstängning bidrar till att minimera skräp lab genom att du kan ange hur lång tid som den här övningen VMs stängs.
 
-1. På testmiljön **konfiguration och principer** bladet väljer **automatisk avstängning**.
+1. På testmiljön **konfiguration och principer** väljer **automatisk avstängning**.
    
     ![Automatisk avstängning](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -75,16 +79,16 @@ Principen för automatisk avstängning hjälper till att minimera skräp lab gen
 
 1. Om du aktiverar den här principen kan du ange tid (och tidszon) för att stänga av alla virtuella datorer i det aktuella labbet.
 
-1. Ange **Ja** eller **nr** för alternativet att skicka en avisering 15 minuter innan den angivna automatisk avstängning tid. Om du anger **Ja**, ange en webhook URL-slutpunkt för att ta emot meddelandet. Läs mer om webhooks [skapa en webhook eller API Azure-funktion](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Ange **Ja** eller **nr** för alternativet att skicka en avisering 15 minuter innan den angivna automatisk avstängning tid. Om du anger **Ja**, ange en webhook URL-slutpunkt eller en e-postadress för där meddelandet bokförd eller skickas. Läs mer om webhooks [skapa en webhook eller API Azure-funktion](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Välj **Spara**.
 
-    Som standard när du har aktiverat, den här principen gäller för alla virtuella datorer i det aktuella labbet. Om du vill ta bort den här inställningen från en specifik VM, öppna bladet för den virtuella datorn och ändra dess **automatisk avstängning** inställning 
+Som standard när du har aktiverat, den här principen gäller för alla virtuella datorer i det aktuella labbet. Om du vill ta bort den här inställningen från en specifik VM, öppna hanteringsfönstret för den virtuella datorn och ändra dess **automatisk avstängning** inställningen.
 
 ## <a name="set-auto-start"></a>Ange automatisk start
 Principen för automatisk start kan du ange när de virtuella datorerna i det aktuella labbet ska startas.  
 
-1. På testmiljön **konfiguration och principer** bladet väljer **Autostart**.
+1. På testmiljön **konfiguration och principer** väljer **Autostart**.
    
     ![Automatisk start](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -94,10 +98,10 @@ Principen för automatisk start kan du ange när de virtuella datorerna i det ak
 
 4. Välj **Spara**.
 
-    När du har aktiverat, tillämpas inte principen automatiskt till alla virtuella datorer i det aktuella labbet. Öppna bladet för den virtuella datorn för att använda den här inställningen för en specifik VM, och ändra dess **Autostart** inställning 
+När du har aktiverat, tillämpas inte principen automatiskt till alla virtuella datorer i det aktuella labbet. För att använda den här inställningen för en specifik VM, öppna hanteringsfönstret för den virtuella datorn och ändra dess **Autostart** inställningen.
 
 ## <a name="set-expiration-date"></a>Ange förfallodatum
-Du kan ange ett förfallodatum när du [skapa den virtuella datorn](devtest-lab-add-vm.md). I **avancerade inställningar**, väljer du kalenderikonen för att ange ett datum då den virtuella datorn tas bort automatiskt.  Som standard upphör aldrig den virtuella datorn.
+Du kan ange ett förfallodatum när du [skapa den virtuella datorn](devtest-lab-add-vm.md). I **avancerade inställningar**, väljer du kalenderikonen för att ange ett datum då den virtuella datorn automatiskt bort. Som standard den virtuella datorn upphör aldrig att gälla.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

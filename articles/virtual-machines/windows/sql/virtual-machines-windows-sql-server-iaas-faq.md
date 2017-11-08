@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 10/04/2017
 ms.author: v-shysun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88c54293b4a9b470febeda3c0e9a1755ad3b0638
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d692d806bab072fc2c4b734677223bad4142561
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Vanliga frågor och svar för SQL Server på virtuella Windows Azure-datorer
 
@@ -60,6 +60,9 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
       Ett nätverksrelaterat eller instansspecifikt fel uppstod när en anslutning till SQL Server. Servern hittades inte eller är inte tillgänglig.
 
    Om du bestämmer dig att avinstallera standardinstansen, avinstallera även den [tillägg för SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md) samt.
+   
+   >[!NOTE]
+   >En virtuell dator för SQL Server Azure faktureras enligt beskrivningen i [priser för SQL Server Azure Virtual Machines](virtual-machines-windows-sql-server-pricing-guidance.md). Om du tar bort SQL Server, fortsätter avgifterna för användning. Om du behöver inte längre SQL Server kan du distribuera en ny virtuell dator och migrera data och program till den nya virtuella datorn. Du kan ta bort den virtuella datorn för SQL Server.
 
 1. **Hur uppgraderar till en ny version/utgåva av SQL Server i en Azure VM?**
 

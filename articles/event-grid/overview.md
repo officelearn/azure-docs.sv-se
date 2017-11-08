@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>En introduktion till Azure händelse rutnätet
 
@@ -50,6 +50,8 @@ Här följer några viktiga funktioner i Azure händelse rutnätet:
 * **Hög genomströmning** -skapa omfattande arbetsbelastningar i händelse rutnät med stöd för miljontals händelser per sekund.
 * **Inbyggda händelser** – komma igång snabbt och köra med resurs-definierade inbyggda händelser.
 * **Anpassade händelser** -Använd händelse rutnätet flödet, filter och tillförlitligt leverera anpassade händelser i din app.
+
+En jämförelse av händelse rutnät, Händelsehubbar och Service Bus finns [Välj mellan Azure-tjänster som levererar meddelanden](compare-messaging-services.md).
 
 ## <a name="built-in-publisher-and-handler-integration"></a>Inbyggd integrering av utgivare och hanterare
 
@@ -100,14 +102,6 @@ Event Grid ger snabbare automatisering och enklare principtillämpning. Event Gr
 ![Integrering av program](./media/overview/app_integration.png)
 
 Event Grid ansluter din app till andra tjänster. Till exempel skapa en anpassad avsnittet för att skicka data om din app till händelse rutnätet och dra nytta av dess tillförlitlig leverans, avancerad routning, och dirigera integrering med Azure. Du kan även använda Event Grid med Logic Apps för att bearbeta data var som helst, utan att skriva kod. 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>Hur skiljer händelse rutnätet från andra Azure integration services?
-
-Händelsen rutnätet är en eventing bakplan som möjliggör händelsedriven, reaktiv programmering. Den är helt integrerat med Azure-tjänster och kan integreras med tjänster från tredje part. Händelsemeddelandet innehåller den information du behöver ta hänsyn till ändringar i tjänster och program. Händelsen rutnätet är inte en data-pipeline och leverera inte det faktiska objektet har uppdaterats.
-
-Service Bus passar bra för traditionella företagsprogram som kräver transaktioner, ordning, dubblettidentifiering och omedelbar konsekvenskontroll. Händelsen rutnätet är utformad för hastighet, skala, bredd och billig reaktiv modellen. Det är bra att serverlösa arkitektur.
-
-Händelsen rutnätet kompletterar andra Azure-tjänster som Logic Apps och Händelsehubbar. Händelsen rutnätet utlöser logikappen om du vill starta arbetsflödet. Händelsehubbar fungerar med händelsen rutnätet genom att du kan reagera på händelser från Event Hubs avbilda och skapa pipelines för ingång och omvandling av data.
 
 ## <a name="how-much-does-event-grid-cost"></a>Hur mycket kostar händelse rutnätet?
 

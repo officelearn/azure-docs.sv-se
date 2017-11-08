@@ -1,6 +1,6 @@
 ---
-title: "Lägga till nya användare i Azure Active Directory | Microsoft Docs"
-description: "Beskriver hur du lägger till nya användare i Azure Active Directory."
+title: "Lägg till eller ta bort användare i Azure Active Directory | Microsoft Docs"
+description: "Beskriver hur du lägger till nya användare eller ta bort befintliga användare i Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3df0324cae65418f35743b6543753c405dee01d0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Snabbstart: Lägga till nya användare i Azure Active Directory
 Den här artikeln förklarar hur du lägger till nya användare i din organisation i Azure Active Directory (AD Azure) en i taget med Azure-portalen eller genom att synkronisera dina lokala Windows Server AD-kontot användardata. 
@@ -47,7 +47,7 @@ Den här artikeln förklarar hur du lägger till nya användare i din organisati
 
 
 ### <a name="learn-more"></a>Läs mer 
-* [Lägg till en extern användare](active-directory-users-create-external-azure-portal.md)
+* [Lägg till gästanvändare från en annan katalog](active-directory-b2b-what-is-azure-ad-b2b.md) 
 
 * [Tilldela en användare till en roll i din Azure AD](active-directory-users-assign-role-azure-portal.md)
 

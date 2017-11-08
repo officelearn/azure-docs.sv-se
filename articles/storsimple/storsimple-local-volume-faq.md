@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/11/2017
+ms.date: 11/03/2017
 ms.author: manuaery
-ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c892cbc4acd5531100f45c26a1b81cd5468d255
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple lokalt fästa volymer: vanliga frågor (FAQ)
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [StorSimple lokalt fästa volymer: vanliga frågor (FAQ)](storsimple-8000-local-volume-faq.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Följande är frågor och svar som kan uppstå när du skapar en StorSimple lokalt Fäst volym, konvertera en nivåindelad volym till en lokalt Fäst volym (och vice versa), eller säkerhetskopiera och återställa en lokalt Fäst volym.
 

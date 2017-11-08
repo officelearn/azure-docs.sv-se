@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsgranskning) i logganalys
 
@@ -102,7 +102,16 @@ Att välja någon av panelerna, öppnas en detaljerad rapport i specifika perspe
 
 Varje perspektiv innehåller sammanfattningar för prenumerationen, server, elastisk pool och databasnivå. Dessutom visar varje perspektiv perspektiv rapport till höger. Att välja prenumeration, server, pool eller databasen i listan, fortsätter detaljerade ned.
 
-| Perspektiv | Beskrivning. Resurs av typen | Perspektiv som räknar alla resurser som övervakas. Nedåt innehåller en sammanfattning av DTU och GB mått. | | Insikter | Ger hierarkiska nedåt till Intelligent insikter. Läs mer om intelligent insikter. | | Fel | Erbjuder hierarkiska nedåt i SQL-fel som inträffat på databaserna. | | Tidsgränser | Erbjuder hierarkiska nedåt i SQL-tidsgränser som inträffat på databaserna. | | Blockings | Erbjuder hierarkiska nedåt i SQL-blockings som inträffat på databaserna. | | Databasen väntar | Erbjuder hierarkiska nedåt i SQL vänta statistik på databasnivå. Innehåller sammanfattningar av totala väntetiden och väntetiden per typ vänta. | | Fråga varaktighet | Erbjuder hierarkiska nedåt i frågan körning av statistik, till exempel fråga varaktighet, CPU-användning, Data-i/o-användning, logg-i/o-användning. | | Fråga väntar | Ger hierarkiska nedåt i frågan vänta statistik genom att vänta kategori. |
+| Perspektiv | Beskrivning |
+| --- | --- |
+| Resurs av typen | Perspektiv som räknar alla resurser som övervakas. Nedåt innehåller en sammanfattning av DTU och GB mått. |
+| Insikter | Ger hierarkiska nedåt till Intelligent insikter. Läs mer om intelligent insikter. |
+| Fel | Erbjuder hierarkiska nedåt i SQL-fel som inträffat på databaserna. |
+| Tidsgränser | Erbjuder hierarkiska nedåt i SQL-tidsgränser som inträffat på databaserna. |
+| Blockings | Erbjuder hierarkiska nedåt i SQL-blockings som inträffat på databaserna. |
+| Databasen väntar | Erbjuder hierarkiska nedåt i SQL vänta statistik på databasnivå. Innehåller sammanfattningar av totala väntetiden och väntetiden per typ vänta. |
+| frågan varaktighet | Erbjuder hierarkiska nedåt i frågan körning av statistik, till exempel fråga varaktighet, CPU-användning, Data-i/o-användning, logg-i/o-användning. |
+| Timeout | Ger hierarkiska nedåt i frågan vänta statistik genom att vänta kategori. |
 
 ### <a name="intelligent-insights-report"></a>Intelligent insikter rapport
 

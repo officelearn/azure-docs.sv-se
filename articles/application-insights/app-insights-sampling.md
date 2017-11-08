@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -57,7 +57,7 @@ Precis som andra typer av provtagning behåller algoritmen relaterad telemetri o
 
 Datapunkter som ignoreras av provtagning är inte tillgängliga i alla Application Insights-funktioner som [löpande Export](app-insights-export-telemetry.md).
 
-Införandet provtagning fungerar inte när SDK-baserade anpassningsbara eller fasta hastighet provtagning är i drift. Om samplingsfrekvensen på SDK är mindre än 100%, ignoreras införandet samplingsfrekvensen som du anger.
+Införandet provtagning fungerar inte när SDK-baserade anpassningsbara eller fasta hastighet provtagning är i drift. Observera att anpassningsbar provtagning är aktiverad som standard när ASP.NET SDK är aktiverad i Visual Studio eller med hjälp av Status Monitor och införandet provtagning är inaktiverad. Om samplingsfrekvensen på SDK är mindre än 100%, ignoreras införandet samplingsfrekvensen som du anger.
 
 > [!WARNING]
 > Värdet som visas på panelen anger det värde som du anger för införandet provtagning. Den representera inte faktiska samplingsfrekvensen om SDK provtagning är i drift.

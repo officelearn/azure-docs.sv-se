@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: d8e2f8fc19ff879e6a7b632f033fd0ed9d77392a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca5105ff8ec45e703a3fb8e0cbb8666eb0b2c38e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Hur du hämtar AppSource certifierade för Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) är mål för användare i verksamheten att upptäcka, försök och hantera line-of-business SaaS-program (fristående SaaS och tillägg till befintliga Microsoft SaaS-produkter).
@@ -108,9 +108,9 @@ Läs mer om AppSource utvärderingsversionen [den här videon](https://aka.ms/tr
 
 
 ## <a name="get-support"></a>Support
-Vi använder för Azure Active Directory-integrering [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) med gemenskapen att tillhandahålla stöd för. 
+Vi använder för Azure Active Directory-integrering [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) med gemenskapen att tillhandahålla stöd för. 
 
-Vi rekommenderar starkt att du be dina frågor på Stack Overflow först och bläddra befintliga problem för att se om någon har frågat din fråga innan. Kontrollera att dina frågor eller kommentarer är märkta med `[azure-active-directory]`.
+Vi rekommenderar starkt att du be dina frågor på Stack Overflow först och bläddra befintliga problem för att se om någon har frågat din fråga innan. Kontrollera att dina frågor eller kommentarer är märkta med [ `[azure-active-directory]` och `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Använd följande avsnitt för kommentarer för att ge feedback och hjälp oss att förfina och utforma innehållet.
 

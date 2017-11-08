@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Övervaka och felsöka skydd för virtuella datorer och fysiska servrar
 Den här övervakning och felsökning hjälper dig att lära dig hur du spårar replikeringshälsa och felsöker tekniker för Azure Site Recovery.
 
 ## <a name="understand-the-components"></a>Förstå komponenterna
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>Virtuell VMware-dator eller fysisk server webbplatsdistribution för replikering mellan lokala och Azure
-Om du vill konfigurera databasåterställning mellan en lokal virtuell VMware-dator eller fysisk server och Azure måste du konfigurera konfigurationsservern, huvudmålservern och processen server-komponenter på den virtuella datorn eller servern. När du aktiverar skyddet för källservern installerar Azure Site Recovery funktionen Mobilappar i Microsoft Azure App Service. Efter ett avbrott för lokala och käll-växlar servern över till Azure, kunder behöver du ställer in en processerver i Azure och en huvudmålserver lokalt att återskapa källservern lokalt.
+Om du vill konfigurera databasåterställning mellan en lokal virtuell VMware-dator eller fysisk server och Azure måste du konfigurera konfigurationsservern, huvudmålservern och processen server-komponenter på den virtuella datorn eller servern. När du aktiverar skyddet för källservern installerar Azure Site Recovery Mobilitetstjänsten från valda processervern om en uppdaterad version inte redan har distribuerats. Efter ett avbrott för lokala och käll-växlar servern över till Azure, kunder behöver du ställer in en processerver i Azure och en huvudmålserver lokalt att återskapa källservern lokalt.
 
 ![VMware/fysisk plats distributionen för replikering mellan lokala och Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 

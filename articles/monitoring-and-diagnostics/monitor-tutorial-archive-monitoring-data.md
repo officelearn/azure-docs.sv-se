@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Arkivera Azure övervakningsdata
 
 Flera lager i Azure-miljön ge logg- och mått som kan arkiveras till ett Azure Storage-konto. Du kanske vill göra detta för att bevara en historik över övervakningsdata med tiden i en kostnadseffektiv och icke-sökbart store efter att data har gått dess Bevarandeperiod i Log Analytics eller Azure-Monitor. Den här självstudiekursen steg genom processen att konfigurera Azure-miljön för att arkivera data till ett lagringskonto.
+
+> [!div class="checklist"]
+> * Skapa ett lagringskonto för att lagra övervakningsdata
+> * Väg prenumerationen loggar till den 
+> * Väg resursdata till den 
+> * Väg virtuella datorn (gäst-OS) data till den 
+> * Visa övervakningsdata i den 
+> * Rensa dina resurser 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -158,7 +166,18 @@ Du har nu konfigurerat övervakningsdata arkiveras till ett lagringskonto.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I kursen får du har lärt dig hur du ställer in övervakningsdata från Azure-miljön (prenumeration resurs och Gäst-OS) arkiveras till ett lagringskonto. Om du vill se mer betydelse utanför dina data och härleda insikter försök att skicka data till logganalys samt.
+I kursen får du har lärt dig hur du ställer in övervakningsdata från Azure-miljön (prenumeration resurs och Gäst-OS) arkiveras till ett lagringskonto. 
+
+
+> [!div class="checklist"]
+> * Skapa ett lagringskonto för att lagra övervakningsdata
+> * Väg prenumerationen loggar till den 
+> * Väg resursdata till den 
+> * Väg virtuella datorn (gäst-OS) data till den 
+> * Visa övervakningsdata i den 
+> * Rensa dina resurser 
+
+Om du vill få ut mer av dina data och härleda insikter som ytterligare, även skicka data till logganalys.
 
 > [!div class="nextstepaction"]
 > [Kom igång med logganalys](../log-analytics/log-analytics-get-started.md)

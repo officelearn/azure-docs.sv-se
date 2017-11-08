@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Självbetjäning för återställning av lösenord i Azure AD ingående
 
@@ -88,6 +88,23 @@ Det här alternativet anger det minsta antalet tillgängliga autentiseringsmetod
 Användare kan välja att ange flera autentiseringsmetoder om de har aktiverats av administratören.
 
 Om en användare inte har minsta nödvändiga metoder som registrerats, visas en felsida som hänvisar dem att begära en administratör att återställa sina lösenord.
+
+#### <a name="changing-authentication-methods"></a>Ändra autentiseringsmetoder
+
+Om du börjar med en princip som har endast en autentiseringsmetod som krävs för återställning eller låsa upp registrerade och du ändrar att med två händer?
+
+| Antal metoder som har registrerats | Antal metoder som krävs | Resultat |
+| :---: | :---: | :---: |
+| 1 eller fler | 1 | **Kan** att återställa eller låsa upp |
+| 1 | 2 | **Det går inte** att återställa eller låsa upp |
+| 2 eller högre | 2 | **Kan** att återställa eller låsa upp |
+
+Om du ändrar kan typer av autentiseringsmetoder som en användare kan använda du oavsiktligt hindra användare från att kunna använda SSPR om de inte har den minsta mängden data som är tillgängliga.
+
+Exempel: 
+1. Ursprungliga principen har konfigurerats med 2 autentiseringsmetoder som krävs med hjälp av endast office telefon- och frågor. 
+2. Administratören ändrar princip för att inte längre använda säkerhetsfrågor men Tillåt användning av mobiltelefon och alternativa e-post.
+3. Användare utan mobiltelefon och alternativa e-fält kan inte återställa sina lösenord.
 
 ### <a name="how-secure-are-my-security-questions"></a>Hur säker är min säkerhetsfrågor
 
@@ -169,6 +186,7 @@ När alternativet är inaktiverat användare manuellt registrera kontaktuppgifte
 > [!NOTE]
 > Användare kan stänga registreringsportalen för lösenordsåterställning genom att klicka på Avbryt eller stänger fönstret men uppmanas varje gång de loggar in förrän de har slutfört registreringen.
 >
+> Detta påverkar användarens anslutning om de är alreay loggat in.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation
 
@@ -190,7 +208,7 @@ Exempel: Det finns fyra administratörer i en miljö. Administratören ”A” �
 
 ## <a name="on-premises-integration"></a>Lokal integrering
 
-Om du har installerat, konfigurerats och aktiverats Azure AD Connect, har du följande ytterligare alternativ för lokal integreringar.
+Om du har installerat, konfigurerats och aktiverats Azure AD Connect, har du följande ytterligare alternativ för lokal integreringar. Om dessa alternativ är avmarkerad ut och sedan tillbakaskrivning inte har konfigurerats korrekt [konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback) för mer information.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Skriv tillbaka lösenord till din lokala katalog
 
@@ -215,21 +233,24 @@ Anger huruvida användare som besöker portalen för återställning av lösenor
 
 Om du vill testa det här scenariot, går du till http://passwordreset.microsoftonline.com med något av dessa partner-användare. Så länge som de har en alternativ e-postadress eller autentisering e-definitionen för lösenordsåterställning fungerar som förväntat.
 
+> [!NOTE]
+> Microsoft-konton som har beviljats åtkomst till din Azure AD-klient, till exempel nätverksresurser från Outlook.com, Hotmail.com eller andra personliga e-postadresser kan inte använda Azure AD SSPR och behöver återställa sina lösenord med hjälp av informationen i den artikel [när du inte logga in till ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Följande länkar ger ytterligare information om lösenordsåterställning med Azure AD
 
-* [Hur jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
-* [Återställa eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
-* [Registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla för dina användare?](active-directory-passwords-data.md)
-* [Vilka autentiseringsmetoder som är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Vad är policyalternativen med SSPR?](active-directory-passwords-policy.md)
-* [Vad är tillbakaskrivning av lösenord och varför jag är intresserad av den?](active-directory-passwords-writeback.md)
-* [Hur rapporterar på aktivitet i SSPR?](active-directory-passwords-reporting.md)
-* [Vad är alla alternativ i SSPR och vad de betyder?](active-directory-passwords-how-it-works.md)
-* [Jag tror att något har brutits. Hur felsöker SSPR?](active-directory-passwords-troubleshoot.md)
-* [Jag har en fråga som inte var motsvarar någon annan](active-directory-passwords-faq.md)
+* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
+* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
+* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md).
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](active-directory-passwords-writeback.md)
+* [Hur gör jag för att rapportera på aktivitet i SSPR?](active-directory-passwords-reporting.md)
+* [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
+* [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure AD-autentiseringsmetoder som är tillgängliga och kvantitet som krävs"

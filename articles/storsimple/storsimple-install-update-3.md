@@ -12,29 +12,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b99b9cd52dd28f7f62b5d8d5ffe32339a67f82a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>Installera uppdatering 3 på enheten StorSimple 8000-serien
+
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Översikt
 
 Den här självstudiekursen beskriver hur du installerar uppdatering 3 på en StorSimple-enhet som kör en tidigare programvaruversion via den klassiska Azure-portalen och använder metoden snabbkorrigering. Metoden snabbkorrigeringen används när en gateway har konfigurerats på ett nätverksgränssnitt än DATA 0 av StorSimple-enhet och du försöker uppdatera från före uppdateringen 1 programvaruversionen.
 
-Uppdatering 3 innehåller enhetsprogrammet, LSI drivrutiner och inbyggd programvara, Storport och Spaceport uppdateras. Om uppdatering från uppdatering 2 eller en tidigare version kan vara du också krävs för att använda iSCSI, WMI, och i vissa fall disk uppdateringar av inbyggd programvara. Den enhetsprogrammet, WMI, iSCSI, LSI drivrutin, Spaceport och Storport korrigeringar uppdateras utan avbrott och kan tillämpas via den klassiska Azure-portalen. Programvara disk störande uppdateringar och kan endast användas via Windows PowerShell-gränssnittet för enheten. 
+Uppdatering 3 innehåller enhetsprogrammet, LSI drivrutiner och inbyggd programvara, Storport och Spaceport uppdateras. Du måste också använda iSCSI, WMI, och i vissa fall disk uppdateringar av inbyggd om uppdaterar från uppdatering 2 eller en tidigare version. Den enhetsprogrammet, WMI, iSCSI, LSI drivrutin, Spaceport och Storport korrigeringar uppdateras utan avbrott. Dessa uppdateringar kan tillämpas via den klassiska Azure-portalen. Programvara disk störande uppdateringar och kan endast användas via Windows PowerShell-gränssnittet för enheten.
 
 > [!IMPORTANT]
 > * En uppsättning manuella och automatiska före kontroller är klar innan du installera fastställa hälsotillståndet för enheten vad gäller maskinvara tillstånd och nätverksanslutningen. Kontrollerna före utförs endast om du installerar uppdateringarna från den klassiska Azure-portalen.
-> * Vi rekommenderar att du installerar uppdateringar för programvara eller drivrutiner via den klassiska Azure-portalen. Du bör bara gå till Windows PowerShell-gränssnittet för enheten (för att installera uppdateringar) om den före uppdateringen gateway inte i portalen. Beroende på vilken version som du uppdaterar från kan uppdateringarna ta 1.5 2,5 timmar att installera. Underhåll läge uppdateringar måste installeras via Windows PowerShell-gränssnittet för enheten. Eftersom Underhåll läge uppdateringar är störande uppdateringar, kommer dessa nertid för din enhet.
+> * Vi rekommenderar att du installerar uppdateringar för programvara eller drivrutiner via den klassiska Azure-portalen. Gå till Windows PowerShell-gränssnittet för enheten (för att installera uppdateringar) endast om den före uppdateringen gateway inte i portalen. Beroende på vilken version som du uppdaterar från kan uppdateringarna ta 1.5 2,5 timmar att installera. Underhåll läge uppdateringar måste installeras via Windows PowerShell-gränssnittet för enheten. Eftersom Underhåll läge uppdateringar är störande uppdateringar, upplevelser enheten driftstopp.
 > * Se till att du har uppgraderat din Snapshot Manager version till uppdatering 2 innan du uppdaterar enheten om kör valfria StorSimple Snapshot Manager.
-> 
-> 
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -42,15 +44,14 @@ Uppdatering 3 innehåller enhetsprogrammet, LSI drivrutiner och inbyggd programv
 Utför följande steg om du vill uppdatera enheten till [Update 3](storsimple-update3-release-notes.md).
 
 > [!NOTE]
-> Om du kopplar uppdatering 2 eller senare (inklusive uppdatering 2.1), kommer Microsoft att kunna dra ytterligare diagnostikinformation från enheten. Därför när våra driftteamet identifierar enheter som har problem, är vi bättre utrustad för att samla in information från enheten och diagnostisera problem. Genom att acceptera uppdatering 2 eller senare, kan vi har stöd för detta proaktiv.
-> 
-> 
+> Om du kopplar uppdatering 2 eller senare (inklusive uppdatering 2.1), kommer Microsoft att kunna dra ytterligare diagnostikinformation från enheten. Den här informationen hjälper till att identifiera StorSimple-enheter som har problem och aids diagnostisera problem. Genom att acceptera uppdatering 2 eller senare, kan vi har stöd för detta proaktiv.
+
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-Kontrollera att enheten kör **StorSimple 8000 Series uppdatering 3 (6.3.9600.17759)**. Den **senast uppdaterad datum** bör också ändras. 
-   - Om du uppdaterar från en tidigare version än uppdatering 2, du kan även se att Underhåll läge uppdateringar är tillgängliga (det här meddelandet kan fortsätta att visas för upp till 24 timmar efter installation av uppdateringar).
-     Underhåll läge uppdateringar är störande uppdateringar som leda till enheten driftstopp och kan endast användas via Windows PowerShell-gränssnittet på enheten. I vissa fall när du kör uppdatering 1.2, kan den inbyggda programvaran disk redan vara uppdaterad i vilket fall du inte behöver installera de uppdateringar som Underhåll läge.
+Kontrollera att enheten kör **StorSimple 8000 Series uppdatering 3 (6.3.9600.17759)**. Den **senast uppdaterad datum** ändras. 
+   - Om du uppdaterar från en tidigare version än uppdatering 2, ser du att Underhåll läge uppdateringar är tillgängliga. Det här meddelandet kan fortsätta att visas för upp till 24 timmar efter installation av uppdateringar.
+     Underhåll läge uppdateringar är störande uppdateringar som leda till enheten driftstopp. Dessa uppdateringar kan endast användas via Windows PowerShell-gränssnittet på enheten. I vissa fall när du kör Update 1.2, disk-firmware kanske redan är uppdaterad och du behöver inte installera de uppdateringar som Underhåll läge.
    - Om du uppdaterar från uppdatering 2 eller senare, bör enheten nu uppdaterade. Du kan hoppa över nästa steg.
 
 Hämta uppdateringar för underhåll-läge med hjälp av stegen i [att hämta snabbkorrigeringar](#to-download-hotfixes) att söka efter och hämta KB3121899, vilka installerar disk firmware-uppdateringar (andra uppdateringar ska vara installerad nu). Följ stegen i [installera och underhåll läge snabbkorrigeringar](#to-install-and-verify-maintenance-mode-hotfixes) för att installera underhållsläge uppdateringar. 

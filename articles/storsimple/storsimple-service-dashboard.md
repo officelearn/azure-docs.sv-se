@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 596431b7279b753ca4da838eb028cdde2022ce02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 62273c0093876f136d97eedf5a509f0b306a1379
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-dashboard"></a>Använd instrumentpanelen för StorSimple Manager-tjänsten
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [instrumentpanel för StorSimple Manager-tjänsten](storsimple-8000-service-dashboard.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Instrumentpanelssidan för StorSimple Manager-tjänsten innehåller en sammanfattning av alla enheter som är anslutna till StorSimple Manager-tjänsten, markera dem som behöver åtgärdas av en systemadministratör. Den här kursen introducerar instrumentpanelens sida, förklarar instrumentpanelinnehåll och funktionen och beskrivs vilka aktiviteter som du kan utföra från den här sidan.
 

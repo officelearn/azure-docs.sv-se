@@ -8,7 +8,6 @@
 ## [Funktioner och verktyg i Bash](features.md)
 ## [Funktioner och verktyg i PowerShell](features-powershell.md)
 ## [Begränsningar](limitations.md)
-## [Felsökning](troubleshooting.md)
 
 # Så här gör du
 ## [Bestående lagring i Bash](persisting-shell-storage.md)
@@ -16,6 +15,8 @@
 ## [Använda fönstret](using-the-shell-window.md)
 
 # [Prissättning](pricing.md)
+
+# [Felsökning](troubleshooting.md)
 
 # Referens
 ## [Azure CLI](/cli/azure)

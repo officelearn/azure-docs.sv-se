@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: 92c8e4c205043f6c5c2925d9197270fb720969a3
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 66f07481d6e62b4375dd2752c5e7d6f8e02d4a3c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar i Azure-molnet Shell
 
@@ -75,6 +75,9 @@ PowerShell Azure Cloud Shell kan ta upp till 60 sekunder att initiera under för
 ### <a name="no-home-directory-persistence"></a>No $Home directory beständiga
 
 Data som skrivs till `$Home` av alla program (exempel: git vim och andra) inte har behållits över PowerShell-sessioner. En lösning [visas här](troubleshooting.md#powershell-resolutions).
+
+### <a name="default-file-location-when-created-from-azure-drive"></a>Standardplatsen för när de skapas från Azure enhet:
+Med PowerShell-cmdlets, kan användare inte skapa filer under Azure enhet. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna i mappen C:\Users som standard. 
 
 ## <a name="next-steps"></a>Nästa steg
 

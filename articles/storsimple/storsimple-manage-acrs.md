@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: a87624b5706c1d9b8c2b9926e5580996a89ce984
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 320569e302d145d695f3be9684e97786fa82e80b
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Använda StorSimple Manager-tjänsten för att hantera access control-poster
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [använda StorSimple Manager-tjänsten för att hantera kontrollen åtkomstregister](storsimple-8000-manage-acrs.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Access control-poster (ACRs) kan du ange vilka värdar som kan ansluta till en volym på StorSimple-enheten. ACRs är inställd på en viss volym och innehålla iSCSI-kvalificerade namn (kvalificerade) på värdarna. När en värd försöker ansluta till en volym kontrollerar enheten ACR som är kopplad till volymen för IQN namn och om det finns en matchning, upprättas anslutningen. Åtkomstkontrollen registrerar avsnitt på den **konfigurera** sida visar alla access control poster med motsvarande kvalificerade värdar.
 

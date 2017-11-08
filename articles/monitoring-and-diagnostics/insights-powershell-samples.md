@@ -1,8 +1,8 @@
 ---
 title: "Azure PowerShell övervakaren Snabbstart-exempel. | Microsoft Docs"
 description: "Använda PowerShell för att få åtkomst till Azure-Monitor-funktioner, till exempel Autoskala, aviseringar, webhooks och söka aktivitetsloggar."
-author: kamathashwin
-manager: orenr
+author: rboucher
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: ashwink
-ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: robb
+ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure-Monitor PowerShell Snabbstart-exempel
-Den här artikeln innehåller exempel av PowerShell-kommandon som hjälper dig att komma åt Azure-Monitor funktioner. Azure-Monitor kan du Autoskala molntjänster, virtuella datorer och Web Apps att skicka aviseringar eller anropa webbadresser som baseras på värden för konfigurerade telemetridata.
+Den här artikeln innehåller exempel av PowerShell-kommandon som hjälper dig att komma åt Azure-Monitor funktioner. Azure-Monitor kan du Autoskala molntjänster, virtuella datorer och Web Apps. Du kan också skicka aviseringar eller anropa webbadresser som baseras på värden för konfigurerade telemetridata.
 
 > [!NOTE]
-> Azure övervakaren är det nya namnet för vad anropades ”Azure Insights” förrän den 25 september 2016. Namnområden och därmed följande kommandon fortfarande innehåller dock ”insikter”.
+> Azure övervakaren är det nya namnet för vad anropades ”Azure Insights” förrän den 25 september 2016. Dock namnområden och därmed följande kommandon fortfarande innehåller den ordet ”insikter”.
 > 
 > 
 
@@ -41,13 +41,13 @@ Först logga in på Azure-prenumerationen.
 Login-AzureRmAccount
 ```
 
-Detta kräver att du loggar in. När du gör ditt konto, visas TenantID och standard prenumerations-ID. Alla Azure cmdlets fungerar i samband med standard-prenumeration. Använd följande kommando om du vill visa listan över prenumerationer som du har åtkomst till.
+Du ser ett tecken på skärmen. När du loggar in ditt konto, TenantID, och standard prenumerations-ID visas. Alla Azure cmdlets fungerar i samband med standard-prenumeration. Om du vill visa listan över prenumerationer som du har åtkomst till, använder du följande kommando:
 
 ```PowerShell
 Get-AzureRmSubscription
 ```
 
-Använd följande kommando om du vill ändra fungerande kontexten till en annan prenumeration.
+Om du vill ändra den fungerande kontexten till en annan prenumeration, använder du följande kommando:
 
 ```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -141,7 +141,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 ## <a name="create-metric-alerts"></a>Skapa mått aviseringar
 Du kan använda den `Add-AlertRule` för att skapa, uppdatera eller inaktivera en aviseringsregel.
 
-Du kan skapa e-post och webhook-egenskaper med `New-AzureRmAlertRuleEmail` och `New-AzureRmAlertRuleWebhook`respektive. I cmdleten varningsregeln tilldela dem som åtgärder för att den **åtgärder** -egenskapen för regeln.
+Du kan skapa e-post och webhook-egenskaper med `New-AzureRmAlertRuleEmail` och `New-AzureRmAlertRuleWebhook`respektive. Tilldela dessa egenskaper i varningsregeln-cmdlet som åtgärder för att den **åtgärder** -egenskapen för regeln.
 
 I följande tabell beskrivs de parametrar och värden som används för att skapa en avisering med ett mått.
 
@@ -201,10 +201,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 En fullständig lista över tillgängliga alternativ för `Get-AzureRmMetricDefinition` finns på [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-autoscale-settings"></a>Skapa och hantera Autoskala inställningar
-En resurs, till exempel en webbapp VM, molntjänst eller Skaluppsättning för virtuell dator kan ha endast en autoskalningsinställning som konfigurerats för den.
+En resurs (en webbapp, VM, molntjänst eller Skaluppsättning för virtuell dator) kan ha endast en autoskalningsinställning som konfigurerats för den.
 Varje autoskalningsinställning kan dock ha flera profiler. Till exempel en för en prestandabaserad skala profil och en andra princip för en schemabaserade profil. Varje profil kan ha flera regler som konfigurerats på den. Läs mer om Autoskala [hur Autoskala ett program](../cloud-services/cloud-services-how-to-scale.md).
 
-Här följer de steg som vi använder:
+Här följer stegen för att använda:
 
 1. Skapa regler.
 2. Skapa eller profilerna mappa de regler som du skapade tidigare till profilerna.
@@ -213,13 +213,13 @@ Här följer de steg som vi använder:
 
 I följande exempel visas hur du kan skapa en autoskalningsinställning för en Virtual Machine Scale Set för ett Windows-operativsystem baserade genom att använda mått för CPU-användning.
 
-Först skapar du en regel för skalbar, med en instans antal ökning.
+Först skapa en regel för att skala ut, med en instans antal ökning.
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
-Sedan skapar en regel för att skala in, med en instans antal minska.
+Sedan skapa en regel för att skala, med en instans antal minska.
 
 ```PowerShell
 $rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
@@ -243,7 +243,7 @@ Skapa meddelande-egenskapen för autoskalningsinställning, inklusive e-post och
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
-Skapa slutligen autoskalningsinställningen som du lägger till den profil som du skapade ovan.
+Skapa slutligen autoskalningsinställningen som du lägger till den profil som du skapade tidigare. 
 
 ```PowerShell
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
@@ -289,7 +289,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>Hantera loggen profiler för aktivitetsloggen
-Du kan skapa en *logga profil* och exportera data från din aktivitetsloggen till ett lagringskonto och du kan konfigurera datalagring för den. Du kan också kan du också strömma data till din Event Hub. Observera att den här funktionen är för närvarande i förhandsvisning och du kan bara skapa en logg profil per prenumeration. Du kan använda följande cmdlets med din aktuella prenumeration för att skapa och hantera profiler för loggen. Du kan också välja en viss prenumeration. Även om PowerShell som standard den aktuella prenumerationen, du kan ändra den med hjälp av `Set-AzureRmContext`. Du kan konfigurera aktivitetsloggen att vidarebefordra data till storage-konto eller Händelsehubb i den prenumerationen. Data skrivs som blob-filer i JSON-format.
+Du kan skapa en *logga profil* och exportera data från din aktivitetsloggen till ett lagringskonto och du kan konfigurera datalagring för den. Du kan också kan du också strömma data till din Event Hub. Den här funktionen är för närvarande under förhandsgranskning och du kan bara skapa en logg profil per prenumeration. Du kan använda följande cmdlets med din aktuella prenumeration för att skapa och hantera profiler för loggen. Du kan också välja en viss prenumeration. Även om PowerShell som standard den aktuella prenumerationen, du kan ändra den med hjälp av `Set-AzureRmContext`. Du kan konfigurera aktivitetsloggen att vidarebefordra data till storage-konto eller Händelsehubb i den prenumerationen. Data skrivs som blob-filer i JSON-format.
 
 ### <a name="get-a-log-profile"></a>Hämta en logg-profil
 För att hämta din befintliga log-profiler använder det `Get-AzureRmLogProfile` cmdlet.
@@ -312,14 +312,19 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>Lägg till loggen profil med kvarhållning och EventHub
-Förutom routning dina data till storage-konto strömma du den till en Händelsehubb. Observera att i den här förhandsversionen och lagringen kontokonfiguration är obligatorisk men Event Hub-konfigurationen är valfria.
+Förutom routning dina data till storage-konto strömma du den till en Händelsehubb. I den här förhandsversionen kontokonfigurationen lagring är obligatorisk men Event Hub-konfigurationen är valfria.
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Konfigurera diagnostik-loggar
-Många Azure-tjänster ger ytterligare loggar och telemetri som kan vara konfigurerad för att spara data i Azure Storage-konto, skickar till Händelsehubbar och/eller skickas till en OMS logganalys-arbetsytan. Åtgärden kan endast utföras på en resurs-nivå och storage-konto eller händelse hubben ska finnas i samma region som målresursen där inställningen diagnostik konfigureras.
+Många Azure-tjänster ger ytterligare loggar och telemetri som kan utföra en eller flera av följande: 
+ - konfigureras för att spara data i Azure Storage-konto
+ - skickas till Händelsehubbar
+ - skickas till en OMS logganalys-arbetsytan. 
+
+Åtgärden kan bara utföras på en resurs-nivå. Storage-konto eller händelse hubben ska finnas i samma region som målresursen där inställningen diagnostik konfigureras.
 
 ### <a name="get-diagnostic-setting"></a>Hämta diagnostikinställningen
 ```PowerShell

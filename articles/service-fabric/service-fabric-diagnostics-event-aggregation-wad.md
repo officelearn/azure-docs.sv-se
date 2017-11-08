@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregering av händelse och med Windows Azure-diagnostik
 > [!div class="op_single_selector"]
@@ -254,27 +254,9 @@ Om du vill samla in prestandaräknare eller händelseloggar, ändra Resource Man
 
 ## <a name="collect-performance-counters"></a>Samla in prestandaräknare
 
-Lägg till prestandaräknare till din ”WadCfg > DiagnosticMonitorConfiguration” i Resource Manager-mall för klustret om du vill samla in prestandavärden från klustret. Se [prestandaräknare för Service Fabric](service-fabric-diagnostics-event-generation-perf.md) för prestandaräknare som rekommenderar vi att samla in.
-
-Exempelvis här vi ställer in en prestandaräknare Sampla var 15: e sekund (Detta kan ändras och följer formatet ”PT\<tid >\<enhet >”, till exempel PT3M skulle prov på tre minuters mellanrum), och överförs till lagringstabellen lämplig var en minut.
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+Lägg till prestandaräknare till din ”WadCfg > DiagnosticMonitorConfiguration” i Resource Manager-mall för klustret om du vill samla in prestandavärden från klustret. Se [övervakning av programprestanda med BOMULLSTUSS](service-fabric-diagnostics-perf-wad.md) anvisningar om hur du ändrar dina `WadCfg` att samla in specifika prestandaräknare. Referens [prestandaräknare för Service Fabric](service-fabric-diagnostics-event-generation-perf.md) för en lista över prestanda prestandaräknare som rekommenderar vi att samla in.
   
-Om du använder en Application Insights-sink enligt beskrivningen i avsnittet nedan och vill använda de här måtten ska visas i Application Insights, se till att lägga till mottagare namn i avsnittet ”sänkor” som ovan. Dessutom kan du skapa en separat tabell om du vill skicka dina prestandaräknare till, så att de inte tillräckligt med utrymme ut data från de andra loggning kanaler som du har aktiverat.
+Om du använder en Application Insights-sink enligt beskrivningen i avsnittet nedan och vill använda de här måtten ska visas i Application Insights, se till att lägga till mottagare namn i avsnittet ”sänkor” som ovan. Detta skickar automatiskt de prestandaräknare som konfigureras individuellt till Application Insights-resurs.
 
 
 ## <a name="send-logs-to-application-insights"></a>Skicka loggar till Application Insights

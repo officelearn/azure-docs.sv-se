@@ -9,11 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: 1d92ffc03b60695c5ff7b6c3d2ac54808c527efd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: a87877f4b213365442400d113a67964ef942341f
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault Lagringskontonycklar
 
@@ -134,15 +134,15 @@ Utdata från kommandot ovan innehåller din ServicePrincipal som vi ringer upp d
 
 ### <a name="set-permissions"></a>Ange behörigheter
 
-Kontrollera att din lagring behörighetsinställningen *alla*. Du kan hämta yourKeyVaultServicePrincipalId och ange behörigheter för valvet med följande kommandon.
+Kontrollera att din lagring behörighetsinställningen *alla*. Du kan hämta youruserPrincipalId och ange behörigheter för valvet med följande kommandon.
 
 ```powershell
-Get-AzureRmADUser -SearchString "your name"
+$youruserPrincipalId = (Get-AzureRmADUser -SearchString "your user principal name").Id
 ```
 Nu söka efter ditt namn och hämta de relaterade objekt-ID som du ska använda i Ange behörigheter för valvet.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Tillåt åtkomst

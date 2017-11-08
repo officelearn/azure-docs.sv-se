@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e444c4505d4744c95e08c4ef0d33566356785c81
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa ett namnområde för Händelsehubbar
-1. Logga in på [Azure Portal][Azure portal] och klicka på **Ny** högst upp till vänster på skärmen.
+1. Logga in på den [Azure-portalen][Azure portal], och klicka på **skapar du en resurs** på upp till vänster på skärmen.
 1. Klicka på **Sakernas Internet**, och klicka sedan på **Händelsehubbar**.
    
     ![](./media/event-hubs-create/create-event-hub9.png)
-1. I bladet **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
+1. I **skapa namnområdet**, ange ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Basic eller Standard). Välj även en Azure-prenumeration, resursgrupp och plats där du vill skapa resursen. 

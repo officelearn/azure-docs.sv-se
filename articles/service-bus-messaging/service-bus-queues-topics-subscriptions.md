@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 00f9f38fbae028486270053dedb4df580a3f1a44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bea3b56cea81362b25e696a672bf2a00e26d3ef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus-köer, -ämnen och -prenumerationer
 
-Microsoft Azure Service Bus stöder en uppsättning molnbaserade, meddelande indatavärdena mellanprogram teknologier, inklusive tillförlitliga message Queuing- och varaktig Publicera/prenumerera på meddelanden. Dessa ”asynkrona” meddelandefunktioner kan betraktas som frikopplad meddelandefunktioner som har stöd för att publicera och prenumerera temporal Frikoppling och scenarier med hjälp av Service Bus-meddelanden fabric för belastningsutjämning. Frikopplad kommunikation har många fördelar: klienter och servrar kan till exempel ansluta efter behov och utföra åtgärder på ett asynkront sätt.
+Microsoft Azure Service Bus stöder en uppsättning molnbaserade, meddelande indatavärdena mellanprogram teknologier, inklusive tillförlitliga message Queuing- och varaktig Publicera/prenumerera på meddelanden. Dessa ”asynkrona” meddelandefunktioner kan betraktas som frikopplad meddelandefunktioner som har stöd för att publicera och prenumerera temporal Frikoppling och scenarier med hjälp av arbetsbelastningen för Service Bus-meddelanden för belastningsutjämning. Frikopplad kommunikation har många fördelar: klienter och servrar kan till exempel ansluta efter behov och utföra åtgärder på ett asynkront sätt.
 
 Meddelandeentiteter som utgör kärnan i meddelandefunktioner i Service Bus är köer, ämnen och prenumerationer och regler/en åtgärd.
 
@@ -52,7 +52,7 @@ MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateS
 QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 ```
 
-Du kan skicka meddelanden till kön. Om du har en lista över asynkrona meddelanden som kallas exempelvis `MessageList`, visas den liknar följande:
+Du kan skicka meddelanden till kön. Om du har en lista över asynkrona meddelanden som kallas exempelvis `MessageList`, koden ser ut ungefär så här:
 
 ```csharp
 for (int count = 0; count < 6; count++)
@@ -82,7 +82,7 @@ I [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) läge recei
 
 Om programmet inte kan bearbeta meddelandet av någon anledning, kan det anropa den [Avbryt](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) metod för det mottagna meddelandet (i stället för [Slutför](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Detta gör att Service Bus låser upp meddelandet och gör det tillgängligt att tas emot igen, antingen genom samma konsumenten eller av en annan konkurrerande konsument. Det finns en tidsgräns som är kopplade till låset för det andra och om programmet misslyckas med att bearbeta meddelandet innan timeout för lås upphör att gälla (till exempel om programmet kraschar), kommer Service Bus låser upp meddelandet och gör det tillgängligt och kan tas emot igen ( i praktiken utför en [Avbryt](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) åtgärden som standard).
 
-Observera att i händelse av att programmet kraschar efter att meddelandet har bearbetats men innan det **Slutför** begäran har utfärdats, meddelandet är levereras på nytt till programmet när den startas om. Det här kallas ofta *minst när* bearbetning, det vill säga varje meddelande bearbetas minst en gång. I vissa situationer kan dock samma meddelande levereras. Om scenariot inte tolererar duplicerad bearbetning och sedan ytterligare logik som krävs i programmet för att identifiera dubbletter som kan ske, baserat på de **MessageId** för meddelandet, som förblir konstant över leveransförsök. Detta kallas *exakt en gång* bearbetning.
+Observera att i händelse av att programmet kraschar efter att meddelandet har bearbetats men innan det **Slutför** begäran har utfärdats, meddelandet är levereras på nytt till programmet när den startas om. Det här kallas ofta *minst när* bearbetning, det vill säga varje meddelande bearbetas minst en gång. I vissa situationer kan dock samma meddelande levereras. Om scenariot inte tolererar duplicerad bearbetning, och sedan ytterligare logik som krävs i programmet för att identifiera dubbletter, vilket kan ske utifrån den **MessageId** för meddelandet, som förblir konstant över leveransförsök. Detta kallas *exakt en gång* bearbetning.
 
 ## <a name="topics-and-subscriptions"></a>Ämnen och prenumerationer
 Till skillnad från köer, där varje meddelande bearbetas av en enskild konsument *avsnitt* och *prenumerationer* tillhandahålla en en-till-många-kommunikation i en *förPublicera/prenumerera* mönster. Användbar för att skala till ett stort antal mottagare, varje publicerat meddelande görs tillgänglig för varje prenumeration som har registrerats med ämnet. Meddelanden skickas till ett ämne och levereras till en eller flera associerade prenumerationer, beroende på filterregler som kan ställas in på grundval av per prenumeration. Prenumerationerna kan använda ytterligare filter för att begränsa de meddelanden som de vill ha. Meddelanden skickas till ett ämne på samma sätt som de skickas till en kö, men meddelanden tas inte emot i artikeln direkt. I stället tas de emot från prenumerationer. En prenumeration på artikeln liknar en virtuell kö som tar emot kopior av meddelanden som skickas till ämnet. Meddelanden tas emot från en prenumeration identiskt sätt som de tas emot från en kö.
@@ -155,7 +155,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Med den här prenumerationsfiltret på plats, endast meddelanden som har den `StoreName` egenskapen `Store1` kopieras till en virtuell kö för den `Dashboard` prenumeration.
 
-Mer information om möjliga filtret värden finns i dokumentationen för den [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) och [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) klasser. Se även den [asynkrona meddelanden: avancerade filter](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) och [avsnittet filter](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) prover.
+Mer information om möjliga filtret värden finns i dokumentationen för den [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) och [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) klasser. Se även den [asynkrona meddelanden: avancerade filter](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) och [avsnittet filter](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters) prover.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande avancerade avsnitt för mer information och exempel på hur du använder Service Bus-meddelanden.
@@ -163,6 +163,5 @@ Se följande avancerade avsnitt för mer information och exempel på hur du anv�
 * [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
 * [Service Bus brokered messaging .NET tutorial](service-bus-brokered-tutorial-dotnet.md)
 * [Service Bus självstudiekurs om asynkrona meddelanden REST](service-bus-brokered-tutorial-rest.md)
-* [Ämnesfilter](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters)
 * [Asynkrona meddelanden: Avancerade filter-exempel](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 

@@ -12,19 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 7d9377bb8f3cb8c587823c2d71d61dfb9b50f52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 426fd3ec76157670c9d192f007adacc4284abb42
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-jobs"></a>Använda StorSimple Manager-tjänsten för att visa och hantera jobb för StorSimple
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## <a name="overview"></a>Översikt
-Den **jobb** innehåller en enda central portal för visning och hantera jobb som har startats på enheter anslutna till din StorSimple Manager-tjänsten. Du kan visa schemalagda, körs, slutförda och misslyckade jobb för flera enheter. Resultat visas i tabellformat. 
+Den **jobb** innehåller en enda central portal för visning och hantera jobb som har startats på enheter anslutna till din StorSimple Manager-tjänsten. Du kan visa schemalagda, körs, slutförda och misslyckade jobb för flera enheter. Resultat visas i tabellformat.
 
 ![Sidan jobb](./media/storsimple-manage-jobs/HCS_JobsPage.png)
 

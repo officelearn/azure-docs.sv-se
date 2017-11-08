@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d8035b9608ca3bac3d4822c7c755b81c96d481e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2209790b54f5dd18a413f2e08ddc6ffd6aef662
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>Använd instrumentpanelen enhet i StorSimple Manager-tjänsten  
+> [!NOTE]
+> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Om du vill visa versionen av den här artikeln för den nya Azure portalen, gå till [använda instrumentpanelen enhet i StorSimple Manager-tjänsten ](storsimple-8000-device-dashboard.md). Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Översikt
 Instrumentpanelen för StorSimple Manager-enhet ger dig en översikt över information för en specifik StorSimple-enhet, till skillnad från instrumentpanelen för tjänsten, som ger information om alla enheter som ingår i Microsoft Azure StorSimple-lösningen.

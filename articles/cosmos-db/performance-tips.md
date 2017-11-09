@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Prestandatips för Azure Cosmos DB
 Azure Cosmos-DB är en snabb och flexibel distribuerad databas som kan skalas sömlöst med garanterad svarstid och genomströmning. Du behöver inte göra ändringar av större arkitektur eller skriva komplex kod för att skala databasen med Cosmos DB. Skala upp och ner är lika enkelt som att göra en enda API-anrop eller [SDK-anrop](set-throughput.md#set-throughput-sdk). Men eftersom Cosmos DB går att nå via nätverket anrop finns på klientsidan optimeringar du uppnår topprestanda.
@@ -165,7 +165,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     Cosmos DB erbjuder en omfattande uppsättning databasåtgärder inklusive relationella och hierarkiska frågor med UDF: er, lagrade procedurer och utlösare – alla operativsystem i dokumenten inom en samling i databasen. Kostnaden för att var och en av dessa åtgärder varierar beroende på CPU, IO och minne som krävs för att slutföra åtgärden. I stället för att tänka på och hantera maskinvaruresurser, Tänk på begäran-enhet (RU) som en enda åtgärd för de resurser som krävs för att utföra olika databasåtgärder och ett program begärde-tjänsten.
 
-    [Enheter för programbegäran](request-units.md) etableras för varje konto baserat på antalet kapacitetsenheter som du köper. Konsumtion av begäran enheten utvärderas som en sats per sekund. Program som överskrider den etablerade begärandehastighet enhet för sitt konto begränsas förrän frekvensen sjunker under nivån reserverade för kontot. Om programmet kräver en högre säkerhetsnivå för genomflöde, kan du köpa ytterligare kapacitetsenheter.
+    Genomströmning etableras baserat på mängden [programbegäran](request-units.md) för varje behållare. Konsumtion av begäran enheten utvärderas som en sats per sekund. Program som överskrider den etablerade begärandehastighet enhet för sitt konto begränsas förrän frekvensen sjunker under nivån reserverade för kontot. Om programmet kräver en högre säkerhetsnivå för genomflöde, kan du öka dina genomflödet genom att etablera ytterligare frågeenheter. 
 
     Komplexiteten i en fråga påverkar hur många enheter som begär förbrukas för en åtgärd. Antalet predikat, predikat, antalet UDF: er och storleken på alla källa datauppsättningen påverkar kostnaden för frågor.
 

@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: bc75c8cdd98b0ea0fbff6483c0e3c9d4468d3941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2540120bcb1eca9f4ba62c7dbc0675343bf4f99
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Skapa och ladda upp en Windows Server VHD till Azure
 Den här artikeln visar hur du överför en egen generaliserad VM-avbildning som en virtuell hårddisk (VHD), så du kan använda för att skapa virtuella datorer. Mer information om diskar och virtuella hårddiskar i Microsoft Azure finns [om diskar och virtuella hårddiskar för virtuella datorer](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Du kan också [överför](../upload-generalized-managed.md) en virtuell dator med Resource Manager-modellen.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du har:

@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.openlocfilehash: 7847a2485cd57d895c022afb12ef08f37fe5775d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 0440cd2fadffd945c75d1b94df67e0c8b8bf7c1e
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Koppla en datadisk till en virtuell Windows-dator skapad med den klassiska distributionsmodellen
-<!--
-Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](../../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
--->
 
 Den här artikeln visar hur du ansluter nya och befintliga diskar som skapats med den klassiska distributionsmodellen till en Windows-dator med hjälp av Azure portal.
+
+
 
 Du kan också [ansluta en datadisk till en Linux-VM i Azure portal](../../linux/attach-disk-portal.md).
 
@@ -43,6 +41,7 @@ Du kan också [ansluta en datadisk med hjälp av Powershell](../../virtual-machi
 
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="find-the-virtual-machine"></a>Hitta den virtuella datorn
 1. Logga in på [Azure Portal](https://portal.azure.com/).

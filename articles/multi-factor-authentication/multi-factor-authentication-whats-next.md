@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurera inställningar för Azure Multi-Factor Authentication - Public preview
 
@@ -29,6 +29,7 @@ Den här artikeln hjälper dig att hantera Azure Multi-Factor Authentication nu 
 
 | Funktion | Beskrivning | 
 |:--- |:--- |
+| [Blockera/avblockera användare](#block/unblock-users) |Blockera/avblockera användare kan hindra användare från att ta emot begäranden om autentisering. |
 | [Bedrägerivarning](#fraud-alert) |Bedrägerivarning kan konfigureras och ställa in så att användarna kan rapportera bedrägliga försöker få åtkomst till sina resurser. |
 | [Engångsförbikoppling](#one-time-bypass) |En engångsförbikoppling kan en användare autentiseras en gång genom att ”kringgå” multifaktorautentisering. |
 | [Anpassade röstmeddelanden](#custom-voice-messages) |Anpassade röstmeddelanden kan du använda dina egna inspelningar eller helg med multifaktorautentisering. |
@@ -37,6 +38,23 @@ Den här artikeln hjälper dig att hantera Azure Multi-Factor Authentication nu 
 | [Applösenord](#app-passwords) |Ett applösenord kan ett program som inte är MFA-medveten hoppa över multifaktorautentisering och fortsätta arbeta. |
 | [Kom ihåg Multi-Factor Authentication för sparade enheter och webbläsare](#remember-multi-factor-authentication-for-devices-that-users-trust) |Kan du komma ihåg enheter för ett visst antal dagar efter att en användare har loggat in med MFA. |
 | [Valbar verifieringsmetoderna](#selectable-verification-methods) |Kan du välja de autentiseringsmetoder som är tillgängliga för användare att använda. |
+
+## <a name="blockunblock-users"></a>Blockera/avblockera användare
+Blockera/avblockera användare kan användas för att förhindra att användare tar emot begäranden om autentisering. Alla autentiseringsförsök för blockerade användare att nekas automatiskt. Blockerade användare förblir blockerade för 90 dagar från att de blockeras.
+
+### <a name="block-a-user"></a>Blockera en användare
+1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
+2. Gå till **Azure Active Directory** > **MFA-Server** > **blockera/avblockera användare**.
+3. Klicka på **Lägg till** blockerar en användare.
+4. Välj den **replikeringsgruppen**, ange blockerade användarnamnet som  **username@domain.com** , och ange en kommentar i den **orsak** fältet.
+5. Klicka på **Lägg till** till slut att användaren blockeras.
+
+### <a name="unblock-a-user"></a>Avblockera en användare
+1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
+2. Gå till **Azure Active Directory** > **MFA-Server** > **blockera/avblockera användare**.
+3. Klicka på **avblockera** i den **åtgärd** kolumnen bredvid den användare du vill avblockera.
+4. Ange en kommentar i den **skäl till avblockering** fältet.
+5. Klicka på **avblockera** till slut att användaren avblockeras.
 
 ## <a name="fraud-alert"></a>Bedrägerivarning
 Bedrägerivarning kan konfigureras och ställa in så att användarna kan rapportera bedrägliga försöker få åtkomst till sina resurser.  Användare kan rapportera bedrägeri med mobilappen eller via telefonen.

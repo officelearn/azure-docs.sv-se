@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: shlo
-ms.openlocfilehash: 0eb4f03a5d53da771a550bd5d79607ff7f0f52d3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om aktiviteten i Azure Data Factory-villkor
 Om villkoret aktiviteten fungerar på samma sätt som en om instruktionen innehåller programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
@@ -76,10 +76,13 @@ uttryck | Uttryck som måste utvärderas till true eller false | Ja
 ifTrueActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `true`. | Ja
 ifFalseActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `false`. | Ja
 
-## <a name="sample"></a>Exempel
+## <a name="example"></a>Exempel
 Pipeline i det här exemplet kopierar data från en inkommande mapp till en utdatamapp. Den utgående mappen bestäms av värdet för parametern pipeline: routeSelection. Om värdet för routeSelection är true, kopieras data till outputPath1. Och om värdet för routeSelection är FALSKT data kopieras till outputPath2. 
 
-### <a name="pipeline-with-if-condition-activity"></a>Pipeline med om villkoret aktivitet
+> [!NOTE]
+> Det här avsnittet innehåller definitioner av JSON och exempel PowerShell-kommandon för att köra pipelinen. En genomgång med stegvisa anvisningar för att skapa Data Factory-pipelinen med hjälp av Azure PowerShell-och JSON finns [Självstudier: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
+
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline med om villkoret aktivitet (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -190,7 +193,7 @@ Ett annat exempel för uttrycket är:
 ```
 
 
-### <a name="azure-storage-linked-service"></a>Länkad Azure-lagringstjänst
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure länkade lagringstjänsten (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -207,7 +210,7 @@ Ett annat exempel för uttrycket är:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset"></a>Parametriserade Azure-blobbdatauppsättning
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserade Azure-blobbdatauppsättning (BlobDataset.json)
 Pipeline-anger den **folderPath** till värdet för antingen **outputPath1** eller **outputPath2** parametern av pipeline. 
 
 ```json
@@ -234,7 +237,7 @@ Pipeline-anger den **folderPath** till värdet för antingen **outputPath1** ell
 }
 ```
 
-### <a name="pipeline-parameter-json"></a>Pipeline-parametern JSON
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parametern JSON (PipelineParameters.json)
 
 ```json
 {
@@ -246,10 +249,11 @@ Pipeline-anger den **folderPath** till värdet för antingen **outputPath1** ell
 ```
 
 ### <a name="powershell-commands"></a>PowerShell-kommandon
+Kommandona förutsätter att du har sparat JSON-filer i mappen: C:\ADF. 
 
 ```powershell
-# Login-AzureRmAccount
-# Select-AzureRmSubscription "<Your subscription name>"
+Login-AzureRmAccount
+Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"
 $dataFactoryName = "<Data Factory Name. Must be globally unique>";

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 0c8c2ab8c7daceb13fd39d2a109148a40430d59a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor
 Det här dokumentet beskrivs hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop-kluster med hjälp av Hive-frågor. Dessa Hive-frågor använda inbäddade Hive användardefinierade funktioner (UDF), skript som tillhandahålls.
@@ -37,18 +37,18 @@ Den här artikeln förutsätter att du har:
 * Skapa ett Azure storage-konto. Om du behöver mer information, se [skapa ett Azure Storage-konto](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Etablera ett anpassat Hadoop-kluster med HDInsight-tjänst.  Om du behöver mer information, se [anpassa Azure HDInsight Hadoop-kluster för Advanced Analytics](customize-hadoop-cluster.md).
 * Data har överförts till Hive-tabeller i Azure HDInsight Hadoop-kluster. Om den inte har följer [skapa och läsa in data till Hive-tabeller](move-hive-tables.md) först överföra data till Hive-tabeller.
-* Aktivera fjärråtkomst till klustret. Om du behöver mer information, se [komma åt det Head nod för Hadoop-kluster](customize-hadoop-cluster.md#headnode).
+* Aktivera fjärråtkomst till klustret. Om du behöver mer information, se [komma åt det Head nod för Hadoop-kluster](customize-hadoop-cluster.md).
 
 ## <a name="hive-featureengineering"></a>Funktionen Generation
 I det här avsnittet beskrivs flera exempel på sätt som funktioner kan genereras med hjälp av Hive-frågor. När du har genererat ytterligare funktioner, kan du lägga till dem som kolumner i den befintliga tabellen eller skapa en ny tabell med ytterligare funktioner och primär nyckel, vilket kan sedan kopplas till den ursprungliga tabellen. Här följer exempel visas:
 
-1. [Frekvens baserat funktionen Generation](#hive-frequencyfeature)
+1. [Frekvens-baserad funktion Generation](#hive-frequencyfeature)
 2. [Riskerna med Kategoriska variabler i binär klassificering](#hive-riskfeature)
 3. [Extrahera funktioner från Datetime Field](#hive-datefeatures)
 4. [Extrahera funktioner från textfält](#hive-textfeatures)
 5. [Beräkna avståndet mellan GPS koordinater](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>Frekvens baserat funktionen Generation
+### <a name="hive-frequencyfeature"></a>Frekvens-baserad funktion Generation
 Det är ofta användbar för att beräkna frekvenserna av en kategoriska variabel eller frekvenser för vissa kombinationer av nivåerna från flera kategoriska variabler. Användare kan använda följande skript för att beräkna dessa frekvenser:
 
         select
@@ -63,7 +63,7 @@ Det är ofta användbar för att beräkna frekvenserna av en kategoriska variabe
 
 
 ### <a name="hive-riskfeature"></a>Riskerna med Kategoriska variabler i binär klassificering
-Vi behöver konvertera icke-numeriska kategoriska variabler till numeriska funktioner när modeller används bara ta numeriska funktioner i binär klassificering. Detta görs genom att ersätta alla icke-numeriska nivå med numeriska risk. I det här avsnittet visar vi några allmänna Hive-frågor som beräknar riskvärden (loggen oddsen) för en kategoriska variabel.
+Vi behöver konvertera icke-numeriska kategoriska variabler till numeriska funktioner när modeller används bara ta numeriska funktioner i binär klassificering. Detta görs genom att ersätta alla icke-numeriska nivå med numeriska risk. Det här avsnittet beskrivs vissa allmänna Hive-frågor som beräknar riskvärden (loggen oddsen) för en kategoriska variabel.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -83,12 +83,12 @@ Vi behöver konvertera icke-numeriska kategoriska variabler till numeriska funkt
             group by <column_name1>, <column_name2>
             )b
 
-I det här exemplet variabler `smooth_param1` och `smooth_param2` är inställda på att utjämna riskvärden som beräknats med data. Intervallet mellan -Inf och Inf är risker. Risker > 0 anger att sannolikheten att målet är lika med 1 är större än 0,5.
+I det här exemplet variabler `smooth_param1` och `smooth_param2` är inställda på att utjämna riskvärden som beräknats med data. Intervallet mellan -Inf och Inf är risker. En risk > 0 anger att sannolikheten att målet är lika med 1 är större än 0,5.
 
 Efter risken beräknade tabell, användare kan tilldela riskvärden till en tabell genom att anslutas med tabellen risk. Anslutande Hive-frågan har angetts i föregående avsnitt.
 
 ### <a name="hive-datefeatures"></a>Extrahera funktioner från Datetime-Fields
-Hive levereras med en uppsättning UDF: er för bearbetning av datetime-fält. I Hive, standardformatet för datum/tid är ”åååå-MM-dd 00:00:00 ' ('1970-01-01 12:21:32, till exempel). I det här avsnittet visar vi exempel som extraherar dagen i månaden, månaden från ett datetime-fält och andra exempel som konverteras en datetime-sträng i formatet än standardformatet till ett datetime-sträng i formatet.
+Hive levereras med en uppsättning UDF: er för bearbetning av datetime-fält. I Hive, standardformatet för datum/tid är ”åååå-MM-dd 00:00:00 ' ('1970-01-01 12:21:32, till exempel). Det här avsnittet visas exempel som extraherar dagen i månaden, månaden från ett datetime-fält och andra exempel som konverteras en datetime-sträng i formatet än standardformatet till ett datetime-sträng i formatet.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
@@ -114,7 +114,7 @@ När Hive-tabellen har ett textfält som innehåller en sträng med ord som är 
         from <databasename>.<tablename>;
 
 ### <a name="hive-gpsdistance"></a>Beräkna avstånd mellan GPS-koordinatuppsättningar
-Frågan i det här avsnittet kan tillämpas direkt på NYC Taxi resa Data. Syftet med den här frågan är att visa hur du använder ett inbäddat matematiska funktioner i Hive för att generera funktioner.
+Frågan i det här avsnittet kan tillämpas direkt på NYC Taxi resa Data. Syftet med den här frågan är att visa hur du använder ett inbäddat matematisk funktion i Hive för att generera funktioner.
 
 De fält som används i den här frågan är GPS-koordinaterna för hämtning och dropoff platser, med namnet *hämtning\_longitud*, *hämtning\_latitud*,  *dropoff\_longitud*, och *dropoff\_latitud*. Frågorna som beräknar direkt avståndet mellan koordinaterna hämtning och dropoff är:
 
@@ -143,20 +143,20 @@ En fullständig lista över Hive inbäddade UDF: er finns i den **inbyggda funkt
 ## <a name="tuning"></a>Avancerade alternativ: finjustera Hive parametrar för att förbättra hastighet för frågan
 Parametern standardinställningarna för Hive-kluster är kanske inte lämplig för Hive-frågor och de data som bearbetar frågorna. I det här avsnittet diskuterar vi vissa parametrar som användare kan justera som förbättrar prestandan för Hive-frågor. Användare måste lägga till parametern justera frågor innan frågor för bearbetning av data.
 
-1. **Java heap utrymme**: för frågor som rör koppla stora datauppsättningar eller bearbetning långa poster **heap utrymmet börjar ta slut** är ett vanligt fel. Detta kan anpassas genom att ange parametrar *mapreduce.map.java.opts* och *mapreduce.task.io.sort.mb* till önskade värden. Här är ett exempel:
+1. **Java heap utrymme**: för frågor som rör koppla stora datauppsättningar eller bearbetning långa poster **heap utrymmet börjar ta slut** är en av vanliga fel. Detta kan anpassas genom att ange parametrar *mapreduce.map.java.opts* och *mapreduce.task.io.sort.mb* till önskade värden. Här är ett exempel:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Den här parametern allokerar 4GB minne till Java heap utrymmet och även gör sortering effektivare genom att allokera mer minne för den. Det är en bra idé att spela med dessa allokeringar om det finns jobb felen som rör heap utrymme.
 
-1. **DFS-blockstorlek** : den här parametern anger den minsta enheten av data som lagras i filsystemet. Exempelvis om DFS-blockstorlek är 128MB, sedan några data av storlek mindre än och upp till lagras 128MB i ett enda block när data som är större än 128MB tilldelas extra block. Om du väljer en liten blockstorlek medför stora kostnaderna i Hadoop eftersom noden namn har att bearbeta många fler begäranden för att hitta relevanta block som hör till filen. En rekommenderad inställning när behandlar gigabyte (eller större) data är:
+1. **DFS-blockstorlek**: den här parametern anger den minsta enheten av data som lagras i filsystemet. Exempelvis om DFS-blockstorlek är 128MB, sedan några data av storlek mindre än och upp till lagras 128MB i ett enda block när data som är större än 128MB tilldelas extra block. Om du väljer en liten blockstorlek medför stora kostnaderna i Hadoop eftersom noden namn har att bearbeta många fler begäranden för att hitta relevanta block som hör till filen. En rekommenderad inställning när behandlar gigabyte (eller större) data är:
    
         set dfs.block.size=128m;
-2. **Optimera join-uttrycket i Hive** : vid anslutning till åtgärder i kartan/minska framework vanligtvis sker minska fas, ibland enorma vinster kan uppnås genom att schemalägga kopplingar i fasen mappning (även kallat ”mapjoins”). Om du vill dirigera Hive för att göra det när det är möjligt, kan vi ange:
+2. **Optimera join-uttrycket i Hive**: vid anslutning till åtgärder i kartan/minska framework vanligtvis sker minska fas, ibland enorma vinster kan uppnås genom att schemalägga kopplingar i fasen mappning (även kallat ”mapjoins”). Ange om du vill dirigera Hive för att göra det när det är möjligt:
    
         set hive.auto.convert.join=true;
-3. **Anger antalet mappers till Hive** : medan Hadoop tillåter användaren att ange antalet förminskningsapparater, antal mappers är vanligtvis inte anges av användaren. Ett tips som gör att viss mån av kontrollen i det här antalet är att välja variablerna Hadoop *mapred.min.split.size* och *mapred.max.split.size* som storleken på varje mappning uppgiften avgörs av:
+3. **Anger antalet mappers till Hive**: medan Hadoop tillåter användaren att ange antalet förminskningsapparater, antal mappers är vanligtvis inte anges av användaren. Ett tips som gör att viss mån av kontrollen i det här antalet är att välja variablerna Hadoop *mapred.min.split.size* och *mapred.max.split.size* som storleken på varje mappning uppgiften avgörs av:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

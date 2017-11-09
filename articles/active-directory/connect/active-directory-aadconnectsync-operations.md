@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synkronisering: driftåtgärder och beräkningen
 Syftet med det här avsnittet är att beskriva operativa uppgifter för Azure AD Connect-synkronisering.
@@ -68,11 +68,18 @@ Du har nu mellanlagrade export ändringar till Azure AD och lokala AD (om du anv
 #### <a name="verify"></a>Verifiera
 1. Starta en kommandotolk och gå till`%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Kör: `csexport "Name of Connector" %temp%\export.xml /f:x` namnet på anslutningen finns i synkroniseringstjänsten. Den har ett namn som liknar ”contoso.com – AAD” för Azure AD.
-3. Kopiera PowerShell-skriptet från avsnittet [CSAnalyzer](#appendix-csanalyzer) till en fil med namnet `csanalyzer.ps1`.
-4. Öppna ett PowerShell-fönster och bläddra till mappen där du skapade PowerShell-skript.
-5. Kör: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. Nu har du en fil med namnet **processedusers1.csv** som kan granskas i Microsoft Excel. Alla ändringar som mellanlagras för att exporteras till Azure AD finns i den här filen.
-7. Gör nödvändiga ändringar i informationen eller konfigurationen och köra de här stegen igen (importera och synkronisera och kontrollera) tills de ändringar som är på väg att exporteras förväntas.
+3. Kör: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` du har en fil i % temp % med namnet export.csv som kan granskas i Microsoft Excel. Den här filen innehåller alla ändringar som ska exporteras.
+4. Gör nödvändiga ändringar i informationen eller konfigurationen och köra de här stegen igen (importera och synkronisera och kontrollera) tills de ändringar som är på väg att exporteras förväntas.
+
+**Förstå filen export.csv** de flesta av filen är självförklarande. Vissa förkortningar att förstå innehållet:
+* OMODT – objekttypen ändras. Anger om åtgärden på objektnivå har en Add-, Update- eller Delete.
+* AMODT – attributtypen ändras. Anger om åtgärden på en attributnivå har en Add-, Update- eller delete.
+
+**Hämta vanliga identifierare** export.csv-filen innehåller alla ändringar som ska exporteras. Varje rad motsvarar en ändring för ett objekt i anslutningsplatsen och objektet identifieras av DN-attributet. DN-attributet är en unik identifierare för ett objekt i anslutningsplatsen. När du har många rader/ändringar i export.csv att analysera vara det svårt att ta reda på vilka objekt ändras baserat på enbart DN-attribut. Använd csanalyzer.ps1 PowerShell-skript för att förenkla processen för att analysera ändringarna. Skriptet hämtar vanliga identifierare (till exempel displayName, userPrincipalName) för objekt. Du använder skriptet:
+1. Kopiera PowerShell-skriptet från avsnittet [CSAnalyzer](#appendix-csanalyzer) till en fil med namnet `csanalyzer.ps1`.
+2. Öppna ett PowerShell-fönster och bläddra till mappen där du skapade PowerShell-skript.
+3. Kör: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+4. Nu har du en fil med namnet **processedusers1.csv** som kan granskas i Microsoft Excel. Observera att filen innehåller mappning från DN-attribut till vanliga identifierare (till exempel displayName och userPrincipalName). För närvarande innehåller inte de faktiska attributändringar som ska exporteras.
 
 #### <a name="switch-active-server"></a>Växeln active server
 1. Inaktivera server (DirSync/FIM/Azure AD Sync) så att den inte exporterar till Azure AD eller Ställ in den i mellanlagringsläge (Azure AD Connect) på servern för närvarande är aktiva.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8b90885583c411e5b1e513188a636fe54ec74b7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numeriska funktioner för Azure Resource Manager-mallar
 
@@ -122,11 +122,13 @@ Returnerar index för en upprepning loop.
 
 ### <a name="remarks"></a>Kommentarer
 
-Den här funktionen används alltid med en **kopiera** objekt. Om inget värde har angetts för **offset**, det aktuella värdet för upprepning returneras. Värdet för upprepning börjar på noll.
+Den här funktionen används alltid med en **kopiera** objekt. Om inget värde har angetts för **offset**, det aktuella värdet för upprepning returneras. Värdet för upprepning börjar på noll. Du kan använda iteration slingor när du definierar resurser eller variabler.
 
 Den **loopName** egenskapen kan du ange om copyIndex hänvisar till en resurs iteration eller egenskapen iteration. Om inget värde har angetts för **loopName**, den aktuella resursen typen iterationen används. Ange ett värde för **loopName** när iteration av en egenskap. 
  
 En fullständig beskrivning av hur du använder **copyIndex**, se [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md).
+
+Ett exempel på hur du använder **copyIndex** när du definierar en variabel, se [variabler](resource-group-authoring-templates.md#variables).
 
 ### <a name="example"></a>Exempel
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Distribuera ett program till ett kluster som part i Azure
 Den här kursen ingår två av en serie och visar hur du distribuerar ett Azure Service Fabric-program till ett kluster som part i Azure.
@@ -58,24 +58,6 @@ Du kan använda ditt eget kluster i stället för part klustret, om du vill.  AS
 
 > [!NOTE]
 > Part kluster skyddas inte så att dina program och alla data som du lägger till i dem vara synliga för andra. Distribuera inte vad du inte vill att andra ska se. Glöm inte att läsa över våra användningsvillkor detaljerad information.
-
-## <a name="configure-the-listening-port"></a>Konfigurera lyssningsporten
-När VotingWeb frontend-tjänst skapas väljer slumpmässigt en port för tjänsten för att lyssna på i Visual Studio.  Tjänsten VotingWeb fungerar som klientdel för det här programmet och godkänner externa trafiken, så vi binda tjänsten till ett fast och vet port korrekt. I Solution Explorer öppnar *VotingWeb/PackageRoot/ServiceManifest.xml*.  Hitta de **Endpoint** resurs i den **resurser** avsnittet och ändra den **Port** värdet till mellan 80.
-
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
-    </Endpoints>
-  </Resources>
-```
-
-Uppdatera också egenskapsvärdet programmets URL i röst-projektet så att en webbläsare öppnas till rätt port när du felsöker med 'F5'.  I Solution Explorer, väljer du den **Röstningsdatabasen** projekt och uppdatera den **programmets URL** egenskapen.
-
-![Programmets URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>Distribuera appen till Azure
 Nu när programmet är klart, kan du distribuera den till part klustret direkt från Visual Studio.

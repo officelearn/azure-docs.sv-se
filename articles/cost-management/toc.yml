@@ -21,6 +21,8 @@
       href: tutorial-user-access.md
     - name: 3 – Prognostisera utgifter
       href: tutorial-forecast-spending.md
+    - name: 4 – Hantera kostnader
+      href: tutorial-manage-costs.md
 - name: Resurser
   items:
     - name: Kostnadshanteringsvideor

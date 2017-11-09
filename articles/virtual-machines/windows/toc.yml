@@ -380,6 +380,8 @@
           href: how-to-use-perfInsights.md
         - name: VM-tillägg för prestandadiagnostik
           href: performance-diagnostics-vm-extension.md
+        - name: Använd kapslad virtualisering
+          href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Referens
   items:
     - name: Azure CLI

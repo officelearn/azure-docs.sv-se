@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Så kör du ett Java-program på en virtuell dator skapad med den klassiska distributionsmodellen
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. En Resource Manager-mall att distribuera en webapp med Java 8 och Tomcat finns [här](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Du kan använda en virtuell dator med Azure, för att tillhandahålla serverfunktioner. Exempelvis kan en virtuell dator som körs på Azure konfigureras som värd för Java-programservern, till exempel Apache Tomcat.
 

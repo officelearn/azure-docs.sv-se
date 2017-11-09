@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Skapa en serverlösa API med hjälp av Azure-funktioner
 
@@ -61,7 +61,8 @@ Sedan testa funktionen om du vill se den arbetar med nya API-ytan.
 1. Gå tillbaka till sidan utveckling genom att klicka på funktionsnamnet i det vänstra navigeringsfönstret.
 1. Klicka på **få funktionen URL** och kopiera Webbadressen. Du bör se till att den använder den `/api/hello` vidarebefordra nu.
 1. Kopiera URL till en ny webbläsarflik eller önskade REST-klient. Webbläsare använder GET som standard.
-1. Kör funktionen och bekräfta att den fungerar. Du kan behöva ange parametern ”namn” som en frågesträng för att uppfylla quickstart-koden.
+1. Lägg till parametrar i frågesträngen i URL: en t.ex.`/api/hello/?name=John`
+1. Klicka på Ange för att bekräfta att den fungerar. Du bör se svaret ”*Hello John*”
 1. Du kan också försöka anropar slutpunkten med ett annat HTTP-metoden för att bekräfta att funktionen inte körs. För att göra detta behöver du använda en REST-klient, till exempel cURL, Postman eller Fiddler.
 
 ## <a name="proxies-overview"></a>Översikt över proxyservrar
@@ -85,9 +86,8 @@ I det här avsnittet skapar du en ny proxy som fungerar som en klientdel till di
 Upprepa stegen för att [skapa en funktionsapp](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) att skapa en ny funktionsapp där du skapar din proxyserver. URL för den här nya appen fungerar som klientdelen för vårt API och funktionsapp du redigerade tidigare fungerar som en serverdel.
 
 1. Gå till din nya klientdel funktionsapp i portalen.
-1. Välj **inställningar**. Sedan växla **aktivera Azure Functions proxyservrar (förhandsgranskning)** till ”på”.
-1. Välj **plattform inställningar** och välj **programinställningar**.
-1. Rulla ned till **appinställningar** och skapa en ny inställning med nyckeln ”HELLO_HOST”. Ange värdet till värden för appen backend-funktion som `<YourBackendApp>.azurewebsites.net`. Detta är en del av den URL som du kopierade tidigare när du testar din HTTP-funktion. Du måste referera till den här inställningen i konfigurationen senare.
+1. Välj **plattformsfunktioner** och välj **programinställningar**.
+1. Rulla ned till **programinställningar** där nyckel/värde-par lagras och skapa en ny inställning med nyckeln ”HELLO_HOST”. Ange värdet till värden för appen backend-funktion som `<YourBackendApp>.azurewebsites.net`. Detta är en del av den URL som du kopierade tidigare när du testar din HTTP-funktion. Du måste referera till den här inställningen i konfigurationen senare.
 
     > [!NOTE] 
     > App-inställningar rekommenderas för Värdkonfiguration att förhindra att ett hårdkodat miljö beroende för proxy. Med hjälp av appinställningar innebär att du kan flytta proxykonfigurationen mellan miljöer och miljö-specifik app-inställningar tillämpas.
@@ -120,7 +120,7 @@ Upprepa stegen för att [skapa en funktionsapp](https://docs.microsoft.com/azure
 
 Sedan kommer du använder en proxyserver för att skapa en fingerad API för din lösning. På så sätt kan klienten utvecklingsmiljö till pågår, utan att behöva serverdelen fullt ut. Senare i utveckling, kan du skapa en ny funktionsapp som stöder denna logik och omdirigera proxyservern till den.
 
-Om du vill skapa den här fingerad API vi skapar en ny proxy tid med den [App Service Editor](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Kom igång genom att navigera till appen funktionen i portalen. Välj **plattformsfunktioner** och hitta **App Service Editor**. Klicka på det här öppnas redigeraren App Service i en ny flik.
+Om du vill skapa den här fingerad API vi skapar en ny proxy tid med den [App Service Editor](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Kom igång genom att navigera till appen funktionen i portalen. Välj **plattformsfunktioner** och under **utvecklingsverktyg** hitta **App Service Editor**. Klicka på det här öppnas redigeraren App Service i en ny flik.
 
 Välj `proxies.json` i det vänstra navigeringsfönstret. Detta är den fil som lagrar konfigurationen för alla dina proxyservrar. Om du använder en av de [fungerar distributionsmetoder](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), detta är den fil som du ska behålla i källkontroll. Mer information om den här filen finns [proxyservrar avancerad konfiguration](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
@@ -178,7 +178,7 @@ Härnäst ska du lägga till din fingerad API. Ersätt filen proxies.json med f�
 
 Detta lägger till en ny proxy, ”GetUserByName” utan backendUri-egenskap. I stället för att anropa en annan resurs, ändrar den Standardsvar från proxyservrar med en åsidosättning för svar. Förfrågan och svar åsidosättningar kan också användas tillsammans med en backend-URL. Detta är särskilt användbart när via proxy till ett äldre system där du kan behöva ändra sidhuvud, frågar parametrar, osv. Läs mer om begäran och svar åsidosättningar i [ändra begäranden och -svar i proxyservrar](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
 
-Testa din fingerad API genom att anropa den `/api/users/{username}` slutpunkten med hjälp av en webbläsare eller ditt favoritprogram REST-klient. Se till att ersätta _{username}_ med ett strängvärde som representerar ett användarnamn.
+Testa din fingerad API genom att anropa den `<YourProxyApp>.azurewebsites.net/api/users/{username}` slutpunkten med hjälp av en webbläsare eller ditt favoritprogram REST-klient. Se till att ersätta _{username}_ med ett strängvärde som representerar ett användarnamn.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,15 +8,17 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 6101dfa4bc74acf5045975f6513886fa135fe833
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7492fffd1c18a149ef12174c79d64b47afbaa3e4
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="best-practices-for-sql-data-sync"></a>Metodtips för SQL-datasynkronisering 
+# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Metodtips för datasynkronisering för Azure SQL (förhandsgranskning) 
 
 Den här artikeln beskrivs bästa praxis för SQL-datasynkronisering (förhandsversion).
+
+En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a>Säkerhet och tillförlitlighet
 
@@ -221,3 +223,21 @@ Försök inte att ta bort en databas från en grupp för synkronisering och seda
 Först, ta bort en databas från en grupp för synkronisering. Sedan distribuerar ändringen och vänta på att ta bort etableringen har slutförts. När den här åtgärden är klar, kan du redigera gruppen synkronisera och distribuera ändringarna.
 
 Om du försöker ta bort en databas och sedan redigera en sync-grupp utan att först distribuera ändringarna, en eller den andra åtgärden misslyckas och gränssnittet portal kan hamna i ett inkonsekvent tillstånd. I det här fallet kan du uppdatera sidan om du vill återställa rätt tillstånd.
+
+## <a name="next-steps"></a>Nästa steg
+För mer information om SQL-datasynkronisering, se:
+
+-   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md)
+-   [Kom igång med Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
+-   [Felsökning av problem med Azure SQL-datasynkronisering](sql-database-troubleshoot-data-sync.md)
+
+-   Slutför PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering:
+    -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [Hämta SQL Data Sync REST API-dokumentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+För mer information om SQL-databasen, se:
+
+-   [Översikt över SQL-databas](sql-database-technical-overview.md)
+-   [Livscykelhantering för databasen](https://msdn.microsoft.com/library/jj907294.aspx)

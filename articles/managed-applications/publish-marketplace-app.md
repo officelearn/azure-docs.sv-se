@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 11/08/2017
 ms.author: gauravbh
-ms.openlocfilehash: b4fda06f85c7dab52ff38558b0d928193e0694f6
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 41eaff13cf55d58f58b33bc05d39a6665d51ea29
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure hanterade program i Marketplace
 
@@ -122,7 +122,7 @@ En SKU visas under överordnade erbjudandet på marketplace. Det verkar som sin 
    Fylla i följande fält:
 
    * **Aktuell Version**: Ange en version för det paket som du överför. Det bör vara i formatet `{number}.{number}.{number}{number}`.
-   * **Välj en paketfil**: det här paketet innehåller den nödvändiga filen komprimerade till en ZIP-paketet. Mer information finns i [skapa katalogen tjänstprogram](publish-service-catalog-app.md).
+   * **Välj en paketfil**: det här paketet innehåller två nödvändiga filer komprimeras till en ZIP-paketet. En fil är en Resource Manager-mall som definierar resurserna som ska distribueras för det hanterade programmet. Den andra filen definierar den [användargränssnittet](create-uidefinition-overview.md) för konsumenter distribution av hanterade program via portalen. I användargränssnittet anger du element som möjlighet att ange parametervärden.
    * **PrincipalId**: den här egenskapen är Azure Active Directory (Azure AD)-ID för en användare, grupp eller ett program som beviljas åtkomst till resurser i kundens prenumeration. Rolldefinitionen beskriver behörigheten.
    * **Rolldefinitionen**: den här egenskapen är en lista med alla inbyggda rollbaserad åtkomstkontroll (RBAC) roller tillhandahålls av Azure AD. Du kan välja den roll som är mest lämpligt att använda för att hantera resurserna för kundens räkning.
 
@@ -197,5 +197,5 @@ När du fyller i alla avsnitt markerar **publicera** att starta processen som g�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hanterade program, se [hanteras Programöversikt](overview.md).
+* En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
 * Information om hur du publicerar ett program för Tjänstkatalog hanteras finns [skapa och publicera en applikation för Tjänstkatalog hanteras](publish-service-catalog-app.md).

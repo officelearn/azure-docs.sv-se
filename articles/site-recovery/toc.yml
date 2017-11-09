@@ -59,18 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Haveriberedskap för arbetsbelastningar
       href: site-recovery-workload.md
-    - name: Migrering med Azure Site Recovery
+    - name: Migrering till Azure
       href: site-recovery-migrate-to-azure.md
-    - name: Azure till Azure-nätverk (förhandsgranskning)
-      href: site-recovery-azure-to-azure-networking-guidance.md
-    - name: VM-anslutning efter redundansväxling till Azure
-      href: concepts-on-premises-to-azure-networking.md
-    - name: VM-anslutning efter redundansväxling till en sekundär plats
-      href: concepts-on-premises-to-on-premises-networking.md
-    - name: Nätverksmappning för replikering av virtuella Azure-datorer
-      href: site-recovery-network-mapping-azure-to-azure.md
-    - name: Nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
-      href: site-recovery-network-mapping.md
     - name: Rollbaserade åtkomstbehörigheter
       href: site-recovery-role-based-linked-access-control.md
     - name: VANLIGA FRÅGOR OCH SVAR
@@ -115,6 +105,16 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Konfigurera
       items:
+        - name: Konfigurera nätverk för haveriberedskap för virtuella Azure-datorer (förhandsversion)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Konfigurera IP-adresser för åtkomst efter redundansväxling till Azure
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Konfigurera IP-adresser för åtkomst efter redundansväxling till en sekundär webbplats
+          href: concepts-on-premises-to-on-premises-networking.md
+        - name: Konfigurera nätverksmappning för haveriberedskap för virtuella Azure-datorer (förhandsversion)
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Förbereda nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
+          href: site-recovery-network-mapping.md
         - name: Konfigurera källmiljön
           items:
             - name: Källmiljö för VMware till Azure

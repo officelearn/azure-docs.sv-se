@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="about-site-recovery"></a>Om Site Recovery
 
@@ -67,7 +67,6 @@ Site Recovery kan hantera replikering för:
 **Vilka regioner har stöd för Site Recovery?** | [Regioner som stöds](https://azure.microsoft.com/regions/services/) |
 **Vilka operativsystem behöver replikerade datorer?** | [Virtuella Azure VMware-datorer](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Krav för virtuella VMware-datorer](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> För virtuella Hyper-V-datorer stöds samtliga [gästoperativsystem](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) som kan användas i Azure samt Hyper-V.<br/><br/> [Krav för fysisk server](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **Vilka servrar/värdar för VMware behöver jag?** | Virtuella VMware-datorer kan finnas på [vSphere värdar/vCenter-servrar som stöds](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-
 **Vilka arbetsbelastningar kan jag replikera?** | Du kan replikera alla arbetsbelastningar som körs på en dator det finns replikeringsstöd för. Dessutom har Site Recovery-teamet utfört appspecifika tester för ett [antal appar](site-recovery-workload.md#workload-summary).
 
 

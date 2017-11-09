@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Säkerhetskopiera Windows Server till Azure
 
@@ -116,23 +116,19 @@ Du kan använda Microsoft Azure Recovery Services-agenten för att schemalägga 
 
 3. Klicka på **nästa** att navigera till den **markerar objekt att tillbaka in** sidan.
 
-4. Klicka på **Lägg till objekt** och från dialogrutan som öppnas väljer **systemtillstånd** och filer eller mappar som du vill säkerhetskopiera. Klicka sedan på **OK**.
+4. Klicka på **Lägg till objekt** och i dialogrutan som öppnas väljer du **systemtillstånd** och filer eller mappar som du vill säkerhetskopiera. Klicka sedan på **OK**.
 
 5. Klicka på **Nästa**.
 
-6. På den **Ange schema för säkerhetskopiering** anger vilka tider på dagen eller veckan när säkerhetskopieringar behöver aktiveras för filer och mappar. Schemat för säkerhetskopiering av systemtillstånd konfigureras automatiskt. 
+6. På den **Ange schema för säkerhetskopiering (systemtillstånd)** anger tid på dagen eller veckan när säkerhetskopieringar måste aktiveras för systemtillstånd och klicka på **nästa** 
 
-    ![förbereda infrastrukturen](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.  På den **Välj bevarandeprincip** väljer bevarandeprincipen för säkerhetskopia för filer och mappar. Kvarhållningsperioden för systemtillståndet anges automatiskt till 60 dagar.
+7.  På den **Välj bevarandeprincip (systemtillstånd)** väljer bevarandeprincipen för säkerhetskopia för systemtillstånd och klicka på **nästa**
+8. På liknande sätt, Välj säkerhetskopieringsprincip för schema och lagring för valda filer och mappar. 
 8.  På den **väljer första säkerhetskopiering typen** lämnar alternativet **automatiskt via nätverket** markerad och klicka sedan på **nästa**.
 9.  På den **bekräftelse** sidan Granska informationen och klicka sedan på **Slutför**.
 10. När guiden har skapat säkerhetskopieringsschemat klickar du på **Stäng**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Utföra en ad hoc-säkerhetskopiering
-
 
 Du har skapat schemat när säkerhetskopieringsjobb kör. Dock har du inte säkerhetskopiera servern. Det är disaster recovery bäst att köra en säkerhetskopiering på begäran för att säkerställa dataåterhämtning för servern.
 
@@ -140,8 +136,9 @@ Du har skapat schemat när säkerhetskopieringsjobb kör. Dock har du inte säke
 
     ![förbereda infrastrukturen](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.  På den **bekräftelse** granskar du inställningarna som den **Säkerhetskopiera nu** guiden använder för att säkerhetskopiera servern. Klicka på **Säkerhetskopiera**.
-3.  Stäng guiden genom att klicka på **Stäng**. Om du stänger guiden innan säkerhetskopierade processen är klar, fortsätter guiden i bakgrunden.
+2.  På den **Säkerhetskopiera nu** guiden Markera en från **filer och mappar** eller **systemtillstånd** som du vill säkerhetskopiera och klicka på **nästa** 
+3. På den **bekräftelse** granskar du inställningarna som den **Säkerhetskopiera nu** guiden använder för att säkerhetskopiera servern. Klicka på **Säkerhetskopiera**.
+4.  Stäng guiden genom att klicka på **Stäng**. Om du stänger guiden innan säkerhetskopierade processen är klar, fortsätter guiden i bakgrunden.
 4.  När den första säkerhetskopieringen har slutförts **jobbet slutfört** status visas i **jobb** rutan i konsolen för MARS-agenten.
 
 

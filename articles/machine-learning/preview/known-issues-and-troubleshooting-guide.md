@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -43,7 +43,7 @@ Om du stöter på problem under installationen finns installer loggfilerna här:
 Du kan zip-innehållet i de här katalogerna och skicka det till oss för diagnostik.
 
 ### <a name="workbench-desktop-app"></a>Arbetsstationen skrivbordsapp
-Om arbetsstationen skrivbordet krascher, hittar du här loggfiler:
+Om du har problem med att logga in, eller om arbetsstationen skrivbordet krascher, hittar du här loggfiler:
 ```
 # Windows
 %APPDATA%\AmlWorkbench
@@ -83,6 +83,23 @@ När du arbetar i Azure ML-arbetsstationen, kan du också skicka en bister (elle
 - Text klustring transformeringar stöds inte för Mac.
 
 - RevoScalePy bibliotek stöds bara på Windows och Linux (i behållare med Docker). Det finns inte stöd för macOS.
+
+## <a name="delete-experimentation-account"></a>Ta bort experiment konto
+Du kan använda CLI för att ta bort ett experiment konto, men du måste först ta bort underordnade arbetsytorna och underordnade projekt i dessa underordnade arbetsytor.
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+Du kan också ta bort projekt och arbetsytor från i appen arbetsstationen.
+
 
 ## <a name="file-name-too-long-on-windows"></a>Filnamnet för långt i Windows
 Om du använder arbetsstationen på Windows kan stöta du på maximalt 260 tecken-filen namnet längd Standardgränsen, som kan ansluta som en något vilseledande fel ”går inte att hitta den angivna sökvägen”. Du kan ändra en registernyckel för att tillåta mycket längre filsökvägen. Granska [i den här artikeln](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) för mer information om hur du ställer in den _MAX_PATH_ registernyckeln.

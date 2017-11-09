@@ -1,6 +1,6 @@
 ---
-title: "Synkronisera data (förhandsgranskning) | Microsoft Docs"
-description: "Den här översikten introducerar Azure SQL Data Sync (förhandsversion)."
+title: "Azure SQL-datasynkronisering (förhandsversion) | Microsoft Docs"
+description: "Den här översikten beskriver datasynkronisering för Azure SQL (förhandsgranskning)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL datasynkronisering
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)
 
 SQL-datasynkronisering är en tjänst som bygger på Azure SQL Database som gör att du kan synkronisera data som du väljer i båda riktningarna över flera SQL-databaser och SQL Server-instanser.
 
@@ -44,7 +44,7 @@ Datasynkronisering använder en nav och eker-topologi för att synkronisera data
 -   Den **Sync-databasen** innehåller metadata och loggfiler för datasynkronisering. Sync-databasen måste vara en Azure SQL-databas finns i samma region som NAV-databasen. Sync-databasen är kund har skapats och ägs av kunden.
 
 > [!NOTE]
-> Om du använder en på lokal databas måste du [konfigurera en lokal agent.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Om du använder en på lokal databas måste du [konfigurera en lokal agent.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
 
 ![Synkronisera data mellan databaser](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -58,7 +58,7 @@ Datasynkronisering är användbart i fall där data måste hållas uppdaterade �
 
 -   **Globalt distribuerade program:** många företag sträcker sig över flera regioner och även flera länder. För att minimera Nätverksfördröjningen, är det bäst att ha dina data i en region nära dig. Du kan enkelt behålla databaser i regioner runtom i världen som synkroniseras med synkronisering av Data.
 
-Vi rekommenderar inte datasynkronisering för följande scenarier:
+Datasynkronisering är inte lämplig för följande scenarier:
 
 -   Haveriberedskap
 
@@ -77,48 +77,6 @@ Vi rekommenderar inte datasynkronisering för följande scenarier:
 -   **Lösa konflikter:** datasynkronisering innehåller två alternativ för konfliktlösning, *hubb wins* eller *medlem wins*.
     -   Om du väljer *hubb wins*, ändringar i hubben alltid över ändringar i medlemmen.
     -   Om du väljer *medlem wins*, ändringar i medlemmen Skriv över ändringar i hubben. Om det finns mer än en medlem, beror det sista värdet på vilken medlem synkroniseras först.
-
-## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
-
-### <a name="performance-impact"></a>Inverkan på prestanda
-Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra ändringar. Den skapar tabeller sida i databasen för ändringsspårning. Dessa aktiviteter för spårning av ändring kan påverka din arbetsbelastning i databasen. Utvärdera din tjänstnivå och uppgradera om det behövs.
-
-### <a name="eventual-consistency"></a>Slutliga konsekvensen
-Eftersom datasynkronisering utlösaren-baserade, garanteras inte transaktionskonsekvens. Microsoft garanterar att alla ändringar som görs till slut och att datasynkronisering inte leder till dataförlust.
-
-### <a name="unsupported-data-types"></a>Datatyper
-
--   FileStream
-
--   SQL/CLR-UDT
-
--   XMLSchemaCollection (XML stöds)
-
--   Pekaren och tidsstämpel Hierarchyid
-
-### <a name="requirements"></a>Krav
-
--   Varje tabell måste ha en primärnyckel. Ändra inte värdet för den primära nyckeln i en rad. Om du behöver göra detta kan ta bort raden och återskapa den med nya primärnyckelvärdet. 
-
--   En tabell kan inte ha en identitetskolumn som inte är den primära nyckeln.
-
--   Namnen på objekten (databaser, tabeller och kolumner) kan inte innehålla utskrivbara tecken punkt (.), vänster hakparentes ([) eller fyrkantiga höger hakparentes (]).
-
--   Ögonblicksbildisolering måste aktiveras. Mer information finns i [ögonblicksbildisolering i SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
-### <a name="limitations-on-service-and-database-dimensions"></a>Begränsningar för tjänsten och databasen dimensioner
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **Dimensioner**                                                      | **Gränsen**              | **Lösning**              |
-| Maximalt antal synkroniseringsgrupper alla databaser kan tillhöra.       | 5                      |                             |
-| Maximalt antal slutpunkter i en enda sync-grupp              | 30                     | Skapa flera synkroniseringsgrupper |
-| Maximalt antal lokala slutpunkter i en enda sync-grupp. | 5                      | Skapa flera synkroniseringsgrupper |
-| Namn på databasen, tabell, schemat och kolumn                       | 50 tecken per namn |                             |
-| Tabeller i en grupp för synkronisering                                          | 500                    | Skapa flera synkroniseringsgrupper |
-| Kolumner i en tabell i en grupp för synkronisering                              | 1000                   |                             |
-| Datastorlek för rad i en tabell                                        | 24 mb                  |                             |
-| Minsta synkroniseringsintervall                                           | 5 minuter              |                             |
 
 ## <a name="common-questions"></a>Vanliga frågor
 
@@ -143,15 +101,63 @@ Det här felmeddelandet innebär att ett av de två följande problem:
 Datasynkronisering kan inte hantera cirkelreferenser. Se till att undvikas. 
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Hur kan exportera och importera en databas med datasynkronisering?
-När du exporterar en databas som en .bacpac-filen och importera det för att skapa en ny databas, måste du göra följande två saker du kan använda datasynkronisering i den nya databasen:
+När du exporterar en databas som en `.bacpac` filen och importera filen om du vill skapa en ny databas måste du göra följande två saker du kan använda datasynkronisering i den nya databasen:
 1.  Rensa datasynkronisering objekt och tabeller sida på den **ny databas** med hjälp av [skriptet](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Det här skriptet tar bort alla nödvändiga datasynkronisering objekt från databasen.
 2.  Återskapa gruppen synkronisering med den nya databasen. Ta bort om du inte längre behöver den gamla sync-gruppen.
+
+## <a name="sync-req-lim"></a>Krav och begränsningar
+
+### <a name="general-requirements"></a>Allmänna krav
+
+-   Varje tabell måste ha en primärnyckel. Ändra inte värdet för den primära nyckeln i en rad. Om du behöver göra detta kan ta bort raden och återskapa den med nya primärnyckelvärdet. 
+
+-   En tabell kan inte ha en identitetskolumn som inte är den primära nyckeln.
+
+-   Namnen på objekten (databaser, tabeller och kolumner) kan inte innehålla utskrivbara tecken punkt (.), vänster hakparentes ([) eller fyrkantiga höger hakparentes (]).
+
+-   Ögonblicksbildisolering måste aktiveras. Mer information finns i [ögonblicksbildisolering i SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
+### <a name="general-considerations"></a>Allmänna överväganden
+
+#### <a name="eventual-consistency"></a>Slutliga konsekvensen
+Eftersom datasynkronisering utlösaren-baserade, garanteras inte transaktionskonsekvens. Microsoft garanterar att alla ändringar som görs till slut och att datasynkronisering inte leder till dataförlust.
+
+#### <a name="performance-impact"></a>Inverkan på prestanda
+Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra ändringar. Den skapar tabeller sida i databasen för ändringsspårning. Dessa aktiviteter för spårning av ändring kan påverka din arbetsbelastning i databasen. Utvärdera din tjänstnivå och uppgradera om det behövs.
+
+### <a name="general-limitations"></a>Allmänna begränsningar
+
+#### <a name="unsupported-data-types"></a>Datatyper
+
+-   FileStream
+
+-   SQL/CLR-UDT
+
+-   XMLSchemaCollection (XML stöds)
+
+-   Pekaren och tidsstämpel Hierarchyid
+
+#### <a name="limitations-on-service-and-database-dimensions"></a>Begränsningar för tjänsten och databasen dimensioner
+
+| **Dimensioner**                                                      | **Gränsen**              | **Lösning**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| Maximalt antal synkroniseringsgrupper alla databaser kan tillhöra.       | 5                      |                             |
+| Maximalt antal slutpunkter i en enda sync-grupp              | 30                     | Skapa flera synkroniseringsgrupper |
+| Maximalt antal lokala slutpunkter i en enda sync-grupp. | 5                      | Skapa flera synkroniseringsgrupper |
+| Namn på databasen, tabell, schemat och kolumn                       | 50 tecken per namn |                             |
+| Tabeller i en grupp för synkronisering                                          | 500                    | Skapa flera synkroniseringsgrupper |
+| Kolumner i en tabell i en grupp för synkronisering                              | 1000                   |                             |
+| Datastorlek för rad i en tabell                                        | 24 mb                  |                             |
+| Minsta synkroniseringsintervall                                           | 5 minuter              |                             |
+|||
 
 ## <a name="next-steps"></a>Nästa steg
 
 För mer information om SQL-datasynkronisering, se:
 
--   [Komma igång med datasynkronisering SQL](sql-database-get-started-sql-data-sync.md)
+-   [Kom igång med Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
+-   [Metodtips för Azure SQL-datasynkronisering](sql-database-best-practices-data-sync.md)
+-   [Felsökning av problem med Azure SQL-datasynkronisering](sql-database-troubleshoot-data-sync.md)
 
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering:
     -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -162,5 +168,4 @@ För mer information om SQL-datasynkronisering, se:
 För mer information om SQL-databasen, se:
 
 -   [Översikt över SQL-databas](sql-database-technical-overview.md)
-
 -   [Livscykelhantering för databasen](https://msdn.microsoft.com/library/jj907294.aspx)

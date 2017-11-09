@@ -15,25 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Använd tillägget för virtuella datorer med Docker med den klassiska Azure Portal
 > [!IMPORTANT] 
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [Docker](https://www.docker.com/) är en av de mest populära virtualisering metoder som använder [Linux behållare](http://en.wikipedia.org/wiki/LXC) i stället för virtuella datorer som ett sätt att isolera data och databehandling i delade resurser. Du kan använda Docker VM-tillägget som hanteras av [Azure Linux-agenten] att skapa en Docker virtuell dator som är värd för valfritt antal behållare för dina program på Azure.
 
 > [!NOTE]
-> Det här avsnittet beskriver hur du skapar en Docker-VM från den klassiska Azure-portalen. Information om hur du skapar en virtuell dator Docker på kommandoraden finns [använda Docker VM-tillägget från Azure-kommandoradsgränssnittet (Azure CLI)]. En utförlig beskrivning av behållare och deras fördelar finns på [Docker hög nivå Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> Det här avsnittet beskriver hur du skapar en Docker-VM från Azure-portalen. Information om hur du skapar en virtuell dator Docker på kommandoraden finns [använda Docker VM-tillägget från Azure-kommandoradsgränssnittet (Azure CLI)]. En utförlig beskrivning av behållare och deras fördelar finns på [Docker hög nivå Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
 ## <a name="create-a-new-vm-from-the-image-gallery"></a>Skapa en ny virtuell dator från galleriet bild
-Det första steget kräver en Azure-dator från en Linux-avbildning som har stöd för Docker VM-tillägget, som använder en Ubuntu 14.04 LTS bild från galleriet avbildningen som ett exempel serveravbildning och Ubuntu 14.04 skrivbordet som en klient. I portalen klickar du på **+ ny** i det nedre vänstra hörnet att skapa en ny VM-instans och välja en Ubuntu 14.04 LTS bild på tillgängliga alternativ eller från galleriet klar bild som visas nedan.
+Det första steget kräver en Azure-dator från en Linux-avbildning som har stöd för Docker VM-tillägget, som använder en Ubuntu 14.04 LTS bild från galleriet avbildningen som ett exempel serveravbildning och Ubuntu 14.04 skrivbordet som en klient. I portalen klickar du på **+ ny** att skapa en ny VM-instans och välja en Ubuntu 14.04 LTS bild på tillgängliga alternativ eller från galleriet klar bild som visas nedan.
 
 > [!NOTE]
 > För närvarande stöder endast Ubuntu 14.04 LTS bilder nyare än juli 2014 Docker VM-tillägget.
@@ -67,11 +68,6 @@ På kommandoraden, Använd  **`base64`**  eller något annat favorit kodning ver
 
 ## <a name="add-the-docker-vm-extension"></a>Lägg till Docker VM-tillägget
 Om du vill lägga till Docker VM-tillägget, hitta VM-instans som du skapade och rulla ned till **tillägg** och klicka på den så att VM-tillägg som visas nedan.
-
-> [!NOTE]
-> Den här funktionen stöds i preview-portalen: https://portal.azure.com/
-> 
-> 
 
 ![](media/portal-use-docker/ClickExtensions.png)
 

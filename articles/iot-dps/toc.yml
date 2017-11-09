@@ -29,12 +29,15 @@
       href: concepts-service.md
     - name: Säkerhetskoncept
       href: concepts-security.md
+    - name: Säkerhet
 - name: Instruktionsguider
   items:
     - name: Hantera enhetsregistreringar
       href: how-to-manage-enrollments.md
     - name: Använda HSM med SDK
       href: use-hsm-with-sdk.md
+    - name: Styra åtkomsten till etableringstjänsten
+      href: how-to-control-access.md
 - name: Referens
   items:
     - name: REST

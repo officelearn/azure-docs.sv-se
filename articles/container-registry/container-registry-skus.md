@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>Azure-behållaren registret SKU: er
 
@@ -43,21 +43,7 @@ Klassisk registret SKU aktiverat den första versionen av Azure-behållare Regis
 
 I följande tabell beskrivs funktioner och begränsningar för tjänstnivåer Basic, Standard och Premium.
 
-| Funktion | Basic | Standard | Premium |
-|---|---|---|---|---|
-| Lagring | 10 giB | 100 giB| 500 giB |
-| ReadOps per minut<sup>1, 2</sup> | 1 kB | 300 kB | 10 000 k |
-| WriteOps per minut<sup>1, 3</sup> | 100 | 500 | 2k |
-| Hämta bandbredd Mbit/s<sup>1</sup> | 30 | 60 | 100 |
-| Överför bandbredd Mbit/s<sup>1</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
-| Geo-replikering | Saknas | Saknas | [Stöd för *(förhandsgranskning)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> *ReadOps*, *WriteOps*, och *bandbredd* är minsta uppskattningar. ACR strävar efter att förbättra prestanda som kräver användning.
-
-<sup>2</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) innebär att flera läsåtgärder baserat på antalet lager i bilden plus hämtning av manifestet.
-
-<sup>3</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) innebär att flera skrivåtgärder, baserat på antalet lager som måste skickas. En `docker push` innehåller *ReadOps* att hämta ett manifest för en befintlig avbildning.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>Hantera registret storlek
 Begränsningar för lagring på varje SKU är avsedda att justera ett typiskt scenario: grundläggande för att komma igång, Standard för flesta appar produktions- och Premium för storskaliga prestanda och [georeplikering](container-registry-geo-replication.md). Du bör hantera dess storlek genom att regelbundet ta bort oanvända innehåll under hela livslängd i registret.

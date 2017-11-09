@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5a095663b7e716fd63322c9f89f67a1f3187638b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Skapa och distribuera ett program med en webb-API för ASP.NET Core frontend-tjänst och en tillståndskänslig backend-tjänst
 Den här kursen ingår i en serie.  Du får lära dig att skapa ett Azure Service Fabric-program med en ASP.NET Core Web API-klient och en tillståndskänslig backend-tjänst för att lagra data. När du är klar har du röstningsapp med en ASP.NET Core webbklientdelen som sparar röstning resultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstning programmet manuellt, kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [igenom röstning exempelprogrammet](#walkthrough_anchor).
@@ -228,7 +228,11 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>Uppdatera VotingWeb.cs-filen
-Öppna den *VotingWeb.cs* filen, vilket skapar ASP.NET Core Webbvärden inuti tillståndslösa tjänsten WebListener webbservern.  Lägg till den `using System.Net.Http;` direktivet överst i filen.  Ersätt den `CreateServiceInstanceListeners()` fungerar med följande och sedan spara ändringarna.
+Öppna den *VotingWeb.cs* filen, vilket skapar ASP.NET Core Webbvärden inuti tillståndslösa tjänsten WebListener webbservern.  
+
+Lägg till den `using System.Net.Http;` direktivet överst i filen.  
+
+Ersätt den `CreateServiceInstanceListeners()` fungerar med följande och sedan spara ändringarna.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -257,7 +261,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>Lägga till filen VotesController.cs
-Lägg till en domänkontrollant som definierar röstning åtgärder. Högerklickar du på den **domänkontrollanter** mapp, välj sedan **Lägg till -> Ny-objekt > klassen**.  Namn på filen ”VotesController.cs” och klicka på **Lägg till**.  Ersätt filens innehåll med följande och sedan spara ändringarna.  Senare i [uppdateringsfil VotesController.cs](#updatevotecontroller_anchor), den här filen kommer att ändras för att läsa och skriva röstning data från backend-tjänst.  För tillfället returnerar styrenheten statiska strängdata till vyn.
+Lägg till en domänkontrollant som definierar röstning åtgärder. Högerklickar du på den **domänkontrollanter** mapp, välj sedan **Lägg till -> Ny-objekt > klassen**.  Namn på filen ”VotesController.cs” och klicka på **Lägg till**.  
+
+Ersätt filens innehåll med följande och sedan spara ändringarna.  Senare i [uppdateringsfil VotesController.cs](#updatevotecontroller_anchor), den här filen kommer att ändras för att läsa och skriva röstning data från backend-tjänst.  För tillfället returnerar styrenheten statiska strängdata till vyn.
 
 ```csharp
 using System;
@@ -296,7 +302,23 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### <a name="configure-the-listening-port"></a>Konfigurera lyssningsporten
+När VotingWeb frontend-tjänst skapas väljer slumpmässigt en port för tjänsten för att lyssna på i Visual Studio.  Tjänsten VotingWeb fungerar som klientdel för det här programmet och godkänner externa trafiken, så vi binda tjänsten till ett fast och vet port korrekt. I Solution Explorer öppnar *VotingWeb/PackageRoot/ServiceManifest.xml*.  Hitta de **Endpoint** resurs i den **resurser** avsnittet och ändra den **Port** värde till mellan 80, eller till en annan port. För att distribuera och köra programmet lokalt, måste programmet lyssningsporten vara öppen och tillgänglig på datorn.
 
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+Uppdatera också egenskapsvärdet programmets URL i röst-projektet så att en webbläsare öppnas till rätt port när du felsöker med 'F5'.  I Solution Explorer, väljer du den **Röstningsdatabasen** projekt och uppdatera den **programmets URL** egenskapen.
+
+![Programmets URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-application-locally"></a>Distribuera och köra programmet lokalt
 Du kan nu gå vidare och köra programmet. Tryck på `F5` i Visual Studio för att distribuera programmet för felsökning. `F5`misslyckas om du inte tidigare öppna Visual Studio som **administratör**.

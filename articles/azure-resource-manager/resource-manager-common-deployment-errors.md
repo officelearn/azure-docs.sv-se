@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: d6dc0ffac1a3e688f93af903f51f798270b63711
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distribution med Azure Resource Manager
 
-Det här avsnittet beskrivs några vanliga Azure distributionsfel du kan stöta på och ger information om du vill åtgärda felen. Om du inte hittar felkoden för din distribution felet, se [hittar felkod](#find-error-code).
+Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta på och ger information om du vill åtgärda felen. Om du inte hittar felkoden för din distribution felet, se [hittar felkod](#find-error-code).
 
 ## <a name="error-codes"></a>Felkoder
 
@@ -61,6 +61,7 @@ Det här avsnittet beskrivs några vanliga Azure distributionsfel du kan stöta 
 | PrivateIPAddressNotInSubnet | Den angivna IP-adressen ligger utanför intervallet för undernätet. Ändra IP-adressen ligger inom intervallet för undernätet. | [IP-adresser](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Vissa egenskaper kan inte ändras för en distribuerad resurs. När du uppdaterar en resurs, begränsa ändringarna till tillåtna egenskaper. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Prenumerationen innehåller en resursprincip som förhindrar att en åtgärd som du försöker utföra under distributionen. Hitta den princip som blockerar åtgärden. Om möjligt ändra distributionen för att uppfylla begränsningarna från principen. | [Lös principer](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| ReservedResourceName | Ange en resurs som inte innehåller ett reserverat namn. | [Reserverade resursnamn](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Vänta tills borttagningen ska slutföras. | |
 | ResourceGroupNotFound | Kontrollera namnet på målresursgruppen för distributionen. Det måste finnas i din prenumeration. Kontrollera din prenumerationskontext. | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | Distributionen refererar till en resurs som inte kan matchas. Kontrollera att din användning av den **referens** funktion innehåller de parametrar som krävs för ditt scenario. | [Lösa referenser](resource-manager-not-found-errors.md) |

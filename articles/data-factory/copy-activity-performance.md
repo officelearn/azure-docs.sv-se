@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera prestandajustering guide och prestanda för aktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Azure tillhandahåller en uppsättning företagsklass lösningar för lagring oc
 Den här artikeln beskrivs:
 
 * [Prestanda referensnummer](#performance-reference) stöd för källa och mottagare datalager för att planera projektet.
-* Funktioner som kan öka kopiera genomflöde i olika scenarier, inklusive [molnet data movement enheter](#cloud-data-movement-units), [parallell kopiera](#parallel-copy), och [mellanlagrad kopiera](#staged-copy);
+* Funktioner som kan öka kopiera genomflöde i olika scenarier, inklusive [molnet Data Movement enheter](#cloud-data-movement-units), [parallell kopiera](#parallel-copy), och [mellanlagrad kopiera](#staged-copy);
 * [Riktlinjer för prestandajustering](#performance-tuning-steps) på hur du ställer in prestanda- och de viktigaste faktorerna som kan påverka prestanda för kopia.
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Som en referens, tabellen nedan visar hur kopiera genomströmning många **i MBp
 ![Matris för prestanda](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->I Azure Data Factory version 2 när kopieringsaktiviteten körs på en Azure Integration körning är minimal molnet Data Movement enheter två.
+>I Azure Data Factory version 2 när kopieringsaktiviteten körs på en Azure Integration körning minsta tillåtna molntjänster data movement enheter är två. Om inget anges finns data movement standardenheter som används i [molnet data movement enheter](#cloud-data-movement-units).
 
 Pekar på Observera:
 
@@ -84,13 +84,12 @@ Pekar på Observera:
 
 En **moln data movement enhet (dmu här)** är ett mått som representerar en enhet i Data Factory styrka (en kombination av CPU, minne och nätverksresursallokering). **Dmu här gäller bara för [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, men inte [Self-hosted integrering Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**Minimal molnet dataflytt enheter för att möta Kopieringsaktiviteten kör är två.** I följande tabell visas standard-DMUs som används i olika kopiera scenarier.
+**Minimal molnet dataflytt enheter för att möta Kopieringsaktiviteten kör är två.** Om den inte anges visas i följande tabell standard-DMUs som används i olika kopiera scenarier:
 
 | Kopiera scenario | Standard DMUs bestäms av tjänsten |
 |:--- |:--- |
-| Kopiera data mellan filbaserade lagrar | Mellan 2 och 16 beroende på antalet och storleken på filerna. |
-| Kopiera data från Salesforce/Dynamics | 4 |
-| Alla andra copy-scenarier | 2 |
+| Kopiera data mellan filbaserade lagrar | Mellan 4 och 16 beroende på antalet och storleken på filerna. |
+| Alla andra copy-scenarier | 4 |
 
 Om du vill åsidosätta denna standardinställning måste du ange ett värde för den **cloudDataMovementUnits** egenskapen på följande sätt. Den **tillåtna värden** för den **cloudDataMovementUnits** egenskapen är 2, 4, 8, 16, 32. Den **faktiska antalet molnet DMUs** att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om andelen prestandafördelar som du kan få när du konfigurerar flera enheter för en specifik kopieringskälla och mottagare finns i [Prestandareferens](#performance-reference).
 

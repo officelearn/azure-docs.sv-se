@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Komma igång med SQL Data Warehouse
 
@@ -198,7 +198,7 @@ Du är nu redo att läsa in data till datalagret. Det här steget visar hur du h
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ Du är nu redo att läsa in data till datalagret. Det här steget visar hur du h
     ```
 5. Skapa de externa tabellerna. Dessa tabeller refererar till data som lagras i Azure Blob Storage. Kör följande T-SQL-kommandon för att skapa flera externa tabeller som alla pekar mot den Azure-blob vi definierade tidigare i vår externa datakälla.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ Du är nu redo att läsa in data till datalagret. Det här steget visar hur du h
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Importera data från Azure Blob Storage.
 
@@ -430,7 +430,7 @@ SQL Data Warehouse har stöd för en nyckelinstruktion som kallas CREATE TABLE A
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ SQL Data Warehouse har stöd för en nyckelinstruktion som kallas CREATE TABLE A
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ SQL Data Warehouse har stöd för en nyckelinstruktion som kallas CREATE TABLE A
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ SQL Data Warehouse har stöd för en nyckelinstruktion som kallas CREATE TABLE A
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ SQL Data Warehouse har stöd för en nyckelinstruktion som kallas CREATE TABLE A
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ SQL Data Warehouse har stöd för en nyckelinstruktion som kallas CREATE TABLE A
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ SQL Data Warehouse har stöd för en nyckelinstruktion som kallas CREATE TABLE A
 
 2. Visa data som laddas.
 
-   Du läser in flera GB data och komprimerar dem till högpresterande klustrade Columnstore-index. Kör följande fråga som använder en dynamisk hanteringsvy (DMV) för att visa status för belastningen. När du har startat frågan kan du hämta lite kaffe och något att äta medan SQL Data Warehouse sköter grovjobbet.
-    
-    ```sql
+  Du läser in flera GB data och komprimerar dem till högpresterande klustrade Columnstore-index. Kör följande fråga som använder en dynamisk hanteringsvy (DMV) för att visa status för belastningen. När du har startat frågan kan du hämta lite kaffe och något att äta medan SQL Data Warehouse sköter grovjobbet.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ SQL Data Warehouse har stöd för en nyckelinstruktion som kallas CREATE TABLE A
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. Visa alla systemfrågor.
 
@@ -563,7 +564,7 @@ Vi ska först skala ned till 100 DWU:er för att få en uppfattning av hur en be
     > [!NOTE]
     > Frågor kan inte köras medan du ändrar skalan. Skalning **stoppar** dina frågor som körs för närvarande. Du kan starta om dem när åtgärden är klar.
     >
-    
+
 5. Kör en genomsökningsåtgärd mot reseinformationen och välj den översta miljonen poster för alla kolumner. Om du är otålig och vill gå vidare snabbt kan du välja färre rader. Notera hur lång tid det tar att utföra den här åtgärden.
 
     ```sql
@@ -626,11 +627,11 @@ Vi ska först skala ned till 100 DWU:er för att få en uppfattning av hur en be
 
     > [!NOTE]
     > SQL DW hanterar inte statistik automatiskt åt dig. Statistik är viktigt för frågeprestanda och vi rekommenderar att du skapar och uppdaterar statistik.
-    > 
+    >
     > **Du får ut mest genom att använda statistik med kolumner som ingår i kopplingar, kolumner som används i WHERE-satsen och kolumner som finns i GROUP BY.**
     >
 
-3. Kör frågan från Krav igen och notera eventuella skillnader i prestanda. Även om skillnaderna i frågeprestanda inte är lika drastiska som när du skalar upp, bör du märka att det går snabbare. 
+4. Kör frågan från Krav igen och notera eventuella skillnader i prestanda. Även om skillnaderna i frågeprestanda inte är lika drastiska som när du skalar upp, bör du märka att det går snabbare. 
 
 ## <a name="next-steps"></a>Nästa steg
 

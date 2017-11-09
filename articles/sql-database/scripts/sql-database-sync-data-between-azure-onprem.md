@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 0c4efa0b0a25a61bec37a5176195b4cd237cb90e
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f0729286afdf01ea0ce0e0060f4d7415fa122014
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas
 
@@ -29,7 +29,9 @@ Det här exemplet PowerShell konfigurerar datasynkronisering ska synkroniseras m
 
 Det här exemplet kräver Azure PowerShell Modulversion 4.2 eller senare. Kör `Get-Module -ListAvailable AzureRM` att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
  
-Kör `Login-AzureRmAccount` att skapa en anslutning med Azure. 
+Kör `Login-AzureRmAccount` att skapa en anslutning med Azure.
+
+En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](../sql-database-sync-data.md).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -387,3 +389,20 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 Läs mer om Azure PowerShell [Azure PowerShell dokumentationen](/powershell/azure/overview).
 
 Ytterligare exempel för SQL Database PowerShell-skript finns i [Azure SQL Database PowerShell-skript](../sql-database-powershell-samples.md).
+
+För mer information om SQL-datasynkronisering, se:
+
+-   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](../sql-database-sync-data.md)
+-   [Kom igång med Azure SQL datasynkronisering](../sql-database-get-started-sql-data-sync.md)
+-   [Metodtips för Azure SQL-datasynkronisering](../sql-database-best-practices-data-sync.md)
+-   [Felsökning av problem med Azure SQL-datasynkronisering](../sql-database-troubleshoot-data-sync.md)
+
+-   Slutför PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering:
+    -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](sql-database-sync-data-between-sql-databases.md)
+
+-   [Hämta SQL Data Sync REST API-dokumentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+För mer information om SQL-databasen, se:
+
+-   [Översikt över SQL-databas](../sql-database-technical-overview.md)
+-   [Livscykelhantering för databasen](https://msdn.microsoft.com/library/jj907294.aspx)

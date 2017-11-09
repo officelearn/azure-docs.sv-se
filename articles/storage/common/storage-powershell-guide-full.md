@@ -11,13 +11,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Använda Azure PowerShell med Azure Storage
 
@@ -165,7 +165,7 @@ Om du vill återskapa den andra nyckeln använda `key2` nyckelnamn i stället f�
 Återskapa en av dina nycklar och hämta det igen för att se det nya värdet.
 
 > [!NOTE] 
-> Du bör utföra noggrann planering innan du återskapar nyckeln för ett lagringskonto för produktion. Återskapande av en eller båda nycklarna kommer att upphäva åtkomst för alla program som använder den nyckel som har skapats. Mer information finns [åtkomstnycklar för lagring av Regenate](storage-create-storage-account.md#regenerate-storage-access-keys).
+> Du bör utföra noggrann planering innan du återskapar nyckeln för ett lagringskonto för produktion. Återskapande av en eller båda nycklarna kommer att upphäva åtkomst för alla program som använder den nyckel som har skapats. Mer information finns [återskapa åtkomstnycklar för lagring](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Ta bort ett lagringskonto 
@@ -216,6 +216,12 @@ Du kan använda följande artiklar för att lära dig att få åtkomst till data
 * [Så här hanterar du blobbar med PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Hantera filer med PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Så här hanterar du köer med PowerShell](../queues/storage-powershell-how-to-use-queues.md)
+* [Utföra åtgärder för Azure Table storage med PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+Azure Cosmos DB tabell API innehåller premium-funktioner för tabellagring, till exempel NYCKELFÄRDIGT global distributionsplatsen, låg latens läsningar och skrivningar, automatisk sekundära indexering och dedikerad genomströmning. 
+
+* Mer information finns i [Azure Cosmos DB tabell API](../../cosmos-db/table-introduction.md). 
+* Information om hur du använder PowerShell för att utföra åtgärder på Azure Cosmos DB tabell API finns [utföra Azure Cosmos DB tabell-API: et med PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="azures-independently-deployed-clouds"></a>Azures oberoende distribueras moln
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Installera MySQL på en virtuell dator som skapats med den klassiska distributionsmodellen som kör Windows Server 2016
 [MySQL](https://www.mysql.com) är en populär öppen källkod, SQL-databas. Den här kursen visar hur du installerar och kör den **av MySQL 5.7.18** som en MySQL-Server på en virtuell dator som kör **Windows Server 2016**. Din upplevelse kan skilja sig något för andra versioner av MySQL eller Windows Server.
@@ -28,6 +28,7 @@ Anvisningar om hur du installerar MySQL Linux avser: [installera MySQL på Azure
 
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="create-a-virtual-machine-running-windows-server-2016"></a>Skapa en virtuell dator som kör Windows Server 2016
 Om du inte redan har en virtuell dator som kör Windows Server 2016, du kan använda detta [kursen](./tutorial.md) att skapa den virtuella datorn.

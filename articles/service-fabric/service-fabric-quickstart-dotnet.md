@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Skapa ett .NET Service Fabric-program i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
@@ -64,7 +64,7 @@ Programmet Röstningsdatabasen är som standard lyssnar på port 8080.  Program-
 Distribuera programmet genom att trycka på **F5**.
 
 > [!NOTE]
-> Första gången du kör och distribuera programmet, skapar Visual Studio ett kluster som är lokala för felsökning. Den här åtgärden kan ta lite tid. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.  I utdata visas meddelandet ”programmets URL inte har angetts eller är inte en HTTP/HTTPS-URL så inte kommer att öppna webbläsaren till programmet”.  Det här meddelandet anger inte ett fel men som en webbläsare inte kommer automatisk start.
+> Första gången du kör och distribuera programmet, skapar Visual Studio ett kluster som är lokala för felsökning. Den här åtgärden kan ta lite tid. Statusen för klustergenereringen visas i utdatafönstret i Visual Studio.  Utdata och meddelandet ”programmets URL inte har angetts eller är inte en HTTP/HTTPS-URL så inte kommer att öppna webbläsaren till programmet”.  Det här meddelandet anger inte ett fel men som en webbläsare inte kommer automatisk start.
 
 När installationen är klar, öppnar en webbläsare och öppna den här sidan: `http://localhost:8080` -webbklientdelen av programmet.
 
@@ -87,30 +87,30 @@ När du rösta i programmet händer följande:
 3. Backend-tjänst tar den inkommande begäranden och lagrar det uppdaterade resultat i en tillförlitlig ordlista som hämtar replikeras till flera noder i klustret och kvar på disken. Alla programdata lagras i klustret, så det behövs ingen databas.
 
 ## <a name="debug-in-visual-studio"></a>Felsökning i Visual Studio
-När du felsöker programmet i Visual Studio använder du en lokal utveckling Service Fabric-klustret. Du har möjlighet att anpassa upplevelsen felsökning för ditt scenario. I det här programmet lagrar vi data i vår backend-tjänst med hjälp av en tillförlitlig ordlista. Visual Studio tar bort programmet per standard när du stoppar felsökningsprogrammet. Ta bort programmet gör att data i backend-tjänsten också att tas bort. För att bevara data mellan felsökning sessioner, du kan ändra den **programmet felsökningsläge** som en egenskap på den **Röstningsdatabasen** projekt i Visual Studio.
+När du felsöker programmet i Visual Studio använder du en lokal utveckling Service Fabric-klustret. Du har möjlighet att anpassa upplevelsen felsökning för ditt scenario. Data lagras i det här programmet i backend-tjänst med hjälp av en tillförlitlig ordlista. Visual Studio tar bort programmet per standard när du stoppar felsökningsprogrammet. Ta bort programmet gör att data i backend-tjänsten också att tas bort. För att bevara data mellan felsökning sessioner, du kan ändra den **programmet felsökningsläge** som en egenskap på den **Röstningsdatabasen** projekt i Visual Studio.
 
 Om du vill titta på vad som händer i koden, gör du följande:
-1. Öppna den **VotesController.cs** fil och anger en brytpunkt i webb-API: er **placera** metod (rad 47) – du kan söka efter filen i Solution Explorer i Visual Studio.
+1. Öppna den **/VotingWeb/Controllers/VotesController.cs** fil och anger en brytpunkt i webb-API: er **placera** metod (rad 47) – du kan söka efter filen i Solution Explorer i Visual Studio.
 
-2. Öppna den **VoteDataController.cs** fil och anger en brytpunkt i den här web API **placera** metod (rad 50).
+2. Öppna den **/VotingData/ControllersVoteDataController.cs** fil och anger en brytpunkt i den här web API **placera** metod (rad 50).
 
 3. Gå tillbaka till webbläsaren och klicka på röstning alternativet eller lägga till ett nytt alternativ för röstning. Du har nått den första brytpunkten i web front-slutets api-kontrollanten.
     - Detta är där JavaScript i webbläsaren skickar en begäran till web API-kontrollanten i frontend-tjänsten.
     
     ![Lägg till röst frontend-tjänst](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - Först skapar vi URL till ReverseProxy för vår backend-tjänst **(1)**.
-    - Skickar vi den HTTP PUT-begäran till ReverseProxy **(2)**.
-    - Slutligen den returnerar vi svaret från backend-tjänst till klienten **(3)**.
+    - Först skapar Webbadressen till ReverseProxy för vår backend-tjänst **(1)**.
+    - Sedan skicka den HTTP PUT-begäran till ReverseProxy **(2)**.
+    - Slutligen returnerar svaret från backend-tjänst till klienten **(3)**.
 
 4. Tryck på **F5** fortsätta
     - Du är nu på break punkt i backend-tjänst.
     
     ![Lägga till röst backend-tjänst](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - I den första raden i metoden **(1)** vi använder den `StateManager` att hämta eller lägga till en tillförlitlig ordlista som heter `counts`.
+    - I den första raden i metoden **(1)** den `StateManager` hämtar eller lägger till en tillförlitlig ordlista som heter `counts`.
     - All interaktion med värden i en tillförlitlig ordlista kräver en transaktion detta med hjälp av instruktionen **(2)** skapar den aktuella transaktionen.
-    - I transaktionen, vi sedan uppdatera värdet för den aktuella nyckeln för alternativet röstning och genomför åtgärden **(3)**. När commit-metoden returnerar data uppdateras i ordlistan och replikeras till andra noder i klustret. Data lagras nu på ett säkert sätt i klustret och backend-tjänst kan växla över till andra noder som fortfarande har data som är tillgängliga.
+    - Uppdatera värdet för den aktuella nyckeln för alternativet röstning i transaktionen, och genomför åtgärden **(3)**. När commit-metoden returnerar data uppdateras i ordlistan och replikeras till andra noder i klustret. Data lagras nu på ett säkert sätt i klustret och backend-tjänst kan växla över till andra noder som fortfarande har data som är tillgängliga.
 5. Tryck på **F5** fortsätta
 
 Om du vill stoppa felsökningssessionen trycker du på **SKIFT + F5**.
@@ -138,12 +138,12 @@ Nu när programmet är redo kan du distribuera det till ett kluster direkt från
 
     Varje program i klustret måste ha ett unikt namn.  Part kluster är en offentlig, delad miljö men det kan finnas en konflikt med ett befintligt program.  Om det finns en namnkonflikt, byta namn på Visual Studio-projektet och distribuera igen.
 
-3. Öppna en webbläsare och Skriv i klustret adress foolowed av ': 8080' till program i klustret – till exempel `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Du bör nu se det program som körs i klustret i Azure.
+3. Öppna en webbläsare och ange klusteradress följt av ': 8080' till program i klustret – till exempel `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Du bör nu se det program som körs i klustret i Azure.
 
 ![Programmet frontend](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
-Service Fabric-tjänster kan enkelt skalas över ett kluster kan utföra en ändring i belastningen på tjänsterna. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Du har flera olika sätt att skala dina tjänster kan du använda skript eller kommandon från PowerShell eller CLI för Service Fabric (sfctl). I det här exemplet använder vi Service Fabric Explorer.
+Service Fabric-tjänster kan enkelt skalas över ett kluster kan utföra en ändring i belastningen på tjänsterna. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Du har flera olika sätt att skala dina tjänster kan du använda skript eller kommandon från PowerShell eller CLI för Service Fabric (sfctl). I det här exemplet använder du Service Fabric Explorer.
 
 Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till kluster HTTP Hanteringsport (19080), till exempel `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 
@@ -161,22 +161,17 @@ Gör så här om du vill skala frontwebbtjänsten:
 
     ![Service Fabric Explorer skala Service](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
 
-    Du kan nu se att tjänsten har två instanser och i trädvyn du se vilka noder instanserna körs på.
+    Du kan se att tjänsten har två instanser efter en stund.  I trädvyn ser du vilka noder instanserna körs på.
 
-Med den här enkla hanteringsåtgärden har vi dubblerat resurserna för bearbetning av användarbelastning för frontwebbtjänsten. Det är viktigt att veta att du inte behöver flera instanser av en tjänst för att den ska köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
+Enkel hantering uppgiften dubblerad tillgängliga resurser för frontend-tjänsten att bearbeta användarbelastningen. Det är viktigt att veta att du inte behöver flera instanser av en tjänst för att den ska köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
 
 ## <a name="perform-a-rolling-application-upgrade"></a>Utföra en uppgradering av programmet
 När du distribuerar nya uppdateringar till tillämpningsprogrammet, samlar Service Fabric ut uppdateringen på ett säkert sätt. Rullande uppgraderingar får du inget driftstopp medan uppgraderas samt automatisk återställning fel uppstår.
 
 Om du vill uppgradera programmet gör du följande:
 
-1. Öppna den **Index.cshtml** filen i Visual Studio – du kan söka efter filen i Solution Explorer i Visual Studio.
-2. Ändra rubriken på sidan genom att lägga till text - till exempel.
-    ```html
-        <div class="col-xs-8 col-xs-offset-2 text-center">
-            <h2>Service Fabric Voting Sample v2</h2>
-        </div>
-    ```
+1. Öppna den **/VotingWeb/Views/Home/Index.cshtml** filen i Visual Studio.
+2. Ändra den <h2> Rubrik på sidan genom att lägga till eller uppdatera texten. Till exempel ändra rubriken till ”Service Fabric röst exempel v2”.
 3. Spara filen.
 4. Högerklicka på **Röstningsdatabasen** i Solution Explorer och välj **publicera**. Dialogrutan Publicera visas.
 5. Klicka på den **Manifest Version** om du vill ändra versionen av tjänst och program.
@@ -187,7 +182,7 @@ Om du vill uppgradera programmet gör du följande:
 
     ![Dialogrutan Publicera uppgradera inställningen](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 8. Öppna webbläsaren och bläddra till klusteradress på port 19080 - exempelvis `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-9. Klicka på den **program** nod i trädvyn och sedan **uppgraderingar pågår** i den högra rutan. Du ser hur uppgraderingen samlas via uppgraderingsdomäner i klustret, kontrollera att varje domän är felfri innan du fortsätter till nästa.
+9. Klicka på den **program** nod i trädvyn och sedan **uppgraderingar pågår** i den högra rutan. Du ser hur uppgraderingen samlas via uppgraderingsdomäner i klustret, kontrollera att varje domän är felfri innan du fortsätter till nästa. En uppgraderingsdomän i förloppsindikatorn visas grönt när hälsotillståndet för domänen har verifierats.
     ![Uppgradera vyn i Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric är uppgraderingar säker väntar på två minuter efter en uppgradering till tjänsten på varje nod i klustret. Förvänta dig hela uppdateringen tar ungefär åtta minuter.

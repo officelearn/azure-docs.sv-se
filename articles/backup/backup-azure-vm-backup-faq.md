@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: d3178413e894c095235dde067b369e3554375aa6
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Frågor om tjänsten för säkerhetskopiering av virtuella datorer i Azure
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå de komponenter som används i Azure-säkerhetskopieringen av virtuella datorer. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,6 +48,9 @@ Ja, säkerhetskopieringen fungerar smidigt och du behöver inte konfigurera om s
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Den virtuella datorn är avstängd. Kommer en på-begäran eller en schemalagd säkerhetskopiering arbete?
 Ja. Även om en dator är avstängd säkerhetskopieringen fungerar och återställningspunkten har markerats som krascher konsekvent. Mer information finns i avsnittet för konsekvenskontroll av data i [i den här artikeln](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+
+### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan jag avbryta en pågående säkerhetskopiering?
+Ja. Du kan avbryta jobbet om den finns i ”ta ögonblicksbilder” fas. **Du kan inte avbryta ett jobb om dataöverföring från en ögonblicksbild pågår**. 
 
 ## <a name="restore"></a>Återställ
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Hur gör jag för att välja mellan diskåterställning och fullständig återställning av en virtuell dator?

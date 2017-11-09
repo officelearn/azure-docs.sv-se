@@ -8,15 +8,17 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: d0cbe02e5a99fc62869256ed86e774aa2729f7e6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bbfcac5a54f04f20dbdeeecef7c06b91128b8c6a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="troubleshoot-issues-with-azure-sql-data-sync"></a>Felsökning av problem med Azure SQL-datasynkronisering
+# <a name="troubleshoot-issues-with-azure-sql-data-sync-preview"></a>Felsökning av problem med Azure SQL-datasynkronisering (förhandsgranskning)
 
 Den här artikeln beskriver hur du felsöker aktuella problem som är begränsade till teamet SQL datasynkronisering (förhandsversion). Om det finns en lösning på ett problem, som den här.
+
+En översikt över SQL datasynkronisering finns [synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)](sql-database-sync-data.md).
                                                            
 ## <a name="my-client-agent-doesnt-work"></a>Min klientagenten fungerar inte
 
@@ -487,3 +489,20 @@ Något av följande villkor kan resultera i en grupp för synkronisering har fas
 
 Om det inte går att lösa problemet, status för synkronisering-grupp kan återställas av Microsoft-supporten. För att få din status, återställa, skapa ett foruminlägg på den [Azure SQL Database-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), och inkluderar ditt prenumerations-ID och synkronisera grupp-ID för gruppen som ska återställas. Supportteknikern ska svara på ditt inlägg och att du vet när status har återställts.
 
+## <a name="next-steps"></a>Nästa steg
+För mer information om SQL-datasynkronisering, se:
+
+-   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md)
+-   [Kom igång med Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
+-   [Metodtips för Azure SQL-datasynkronisering](sql-database-best-practices-data-sync.md)
+
+-   Slutför PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering:
+    -   [Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [Hämta SQL Data Sync REST API-dokumentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+För mer information om SQL-databasen, se:
+
+-   [Översikt över SQL-databas](sql-database-technical-overview.md)
+-   [Livscykelhantering för databasen](https://msdn.microsoft.com/library/jj907294.aspx)

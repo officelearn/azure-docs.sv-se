@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera flera instanser av en resurs eller en egenskap i Azure Resource Manager-mallar
 Det här avsnittet visar hur du iterera i Azure Resource Manager-mall för att skapa flera instanser av en resurs, eller flera instanser av en egenskap för en resurs.
 
 Om du behöver lägga till logik i mallen som du kan ange om en resurs har distribuerats, se [villkorligt distribuera resurs](#conditionally-deploy-resource).
+
+Ett exempel på hur du skapar flera element i en array-variabel, se [variabler](resource-group-authoring-templates.md#variables).
 
 ## <a name="resource-iteration"></a>Resursen upprepning
 När du skapar flera instanser av en resurstyp, till en `copy` elementet för resurstypen. I elementet kopia anger du antalet upprepningar och ett namn för den här loop. Värdet för antal måste vara ett positivt heltal och får inte överskrida 800. Hanteraren för filserverresurser skapar resurserna parallellt. Den ordning som de har skapats kan därför inte garanteras. För att skapa hävdade resurser i följd, se [seriella kopiera](#serial-copy). 

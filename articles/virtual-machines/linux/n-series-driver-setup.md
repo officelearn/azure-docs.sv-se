@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96e429ae0e9462e6046a4aaabc5ab9281f2e67ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera drivrutiner för NVIDIA GPU på N-serien virtuella datorer som kör Linux
 
@@ -350,8 +350,9 @@ Distribuera NC24r virtuella datorer från en av följande avbildningar i Azure M
 
 ## <a name="troubleshooting"></a>Felsökning
 
-* Det finns ett känt problem med CUDA drivrutiner på Azure N-serien virtuella datorer som kör Linux-kärnan 4.4.0-75 på Ubuntu 16.04 LTS. Om du uppgraderar från en tidigare version av kernel kan uppgradera till minst 4.4.0-77 för kernel-version. 
+* Det finns ett känt problem med CUDA drivrutiner på Azure N-serien virtuella datorer som kör Linux-kärnan 4.4.0-75 på Ubuntu 16.04 LTS. Om du uppgraderar från en tidigare version av kernel kan uppgradera till minst 4.4.0-77 för kernel-version.
 
+* Du kan ange beständiga läge med nvidia smi så att utdata från kommandot är snabbare när du behöver fråga kort. Om du vill ange beständiga läge kan köra `nvidia-smi -pm 1`. Observera att om den virtuella datorn har startats om inställningen för läge försvinner. Du kan alltid skript inställningen för läge för att köra vid start.
 
 
 ## <a name="next-steps"></a>Nästa steg

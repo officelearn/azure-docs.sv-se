@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser, som ibland kallas kvoter. Det här dokumentet omfattar inte för närvarande alla Azure-tjänster. Över tiden, kommer i listan att expanderas och uppdateras så att den täcker flera av plattformen.
@@ -27,10 +27,10 @@ Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser
 Besök [översikt över priser för Azure](https://azure.microsoft.com/pricing/) för mer information om priser för Azure. Det, kan du uppskatta dina kostnader med hjälp av den [Priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) eller genom att besöka sidan prisnivå information för en tjänst (till exempel [virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Tips för att hantera dina kostnader finns [förhindrar oväntade kostnader med Azure fakturerings- och kostnaden management](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Om du vill höja gränsen eller kvoten ovan den **standard gränsen**, [öppna en supportbegäran för online customer utan kostnad](azure-supportability/resource-manager-core-quotas-request.md). Ramen kan inte ökas ovanför den **maxgränsen** värdet som visas i följande tabeller. Om det finns inga **maxgränsen** kolumn, och sedan resursen saknar justerbara gränser. 
-> 
+> Om du vill höja gränsen eller kvoten ovan den **standard gränsen**, [öppna en supportbegäran för online customer utan kostnad](azure-supportability/resource-manager-core-quotas-request.md). Ramen kan inte ökas ovanför den **maxgränsen** värdet som visas i följande tabeller. Om det finns inga **maxgränsen** kolumn, och sedan resursen saknar justerbara gränser.
+>
 > Kostnadsfri utvärderingsversion prenumerationer är inte berättigad till gränsen eller kvoten ökar. Om du har en kostnadsfri utvärderingsversion, du kan uppgradera till en [betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera kostnadsfri utvärderingsversion av Azure till betala per användning](billing/billing-upgrade-azure-subscription.md).
-> 
+>
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Gränser och Azure Resource Manager
 Nu är det möjligt att kombinera flera Azure-resurser i en enda Azure-resursgrupp. När du använder resursgrupper hanteras gränser som en gång var globala på regional nivå med Azure Resource Manager. Läs mer om Azure-resursgrupper [översikt över Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
@@ -41,8 +41,8 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 > Det är viktigt att betona att kvoter för Azure-resursgrupper är per region få åtkomst till din prenumeration och är inte per prenumeration som service management kvoter. Nu ska vi använda core kvoter som exempel. Om du måste begära en ökad kvot med stöd för kärnor, måste du bestämma hur många kärnor som du vill använda i vilka regioner och sedan göra en specifik begäran för Azure-resursgrupp core kvoter för belopp och regioner som du vill. Därför, om du behöver använda 30 kärnor i västra Europa för att köra programmet. Du bör begär 30 kärnor i västra Europa. Men du har inte en kärnkvot som ökar med en annan region – endast Västeuropa har 30 kärnor kvoten.
 > <!-- -->
 > Du kan därför vara bra att tänka på bestämmer vad din Azure-resursgrupp kvoter måste vara för din arbetsbelastning i en en region och begära beloppet i varje region som du planerar distributionen. Se [felsöka distributionsproblem](resource-manager-common-deployment-errors.md) för mer hjälp för att identifiera din aktuella kvoter för vissa regioner.
-> 
-> 
+>
+>
 
 ## <a name="service-specific-limits"></a>Tjänstspecifika gränser
 * [Active Directory](#active-directory-limits)
@@ -60,6 +60,7 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
+* [Container Registry](#container-registry-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -120,6 +121,11 @@ Följande begränsningar gäller när du använder Azure Resource Manager och Az
 ### <a name="container-instances-limits"></a>Behållaren instanser gränser
 [!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
+### <a name="container-registry-limits"></a>Behållaren registret gränser
+I följande tabell beskrivs funktioner och begränsningar för Basic, Standard och Premium [tjänstnivåer](./container-registry/container-registry-skus.md).
+
+[!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
 ### <a name="networking-limits"></a>Begränsningar för nätverk
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -141,7 +147,7 @@ Följande begränsningar gäller när du använder Azure Resource Manager och Az
 ### <a name="storage-limits"></a>Lagringsgränser
 Ytterligare information om lagringskontogränser finns [Azure Storage skalbarhets- och prestandamål](storage/common/storage-scalability-targets.md).
 
-<!--like # storage accts --> 
+<!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
@@ -164,7 +170,7 @@ Ytterligare information om begränsningar för Azure-filer finns [skalbarhets- o
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### <a name="virtual-machine-disk-limits"></a>Virtuell disk gränser 
+#### <a name="virtual-machine-disk-limits"></a>Virtuell disk gränser
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Se [storlekar för virtuella datorer](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för ytterligare information.

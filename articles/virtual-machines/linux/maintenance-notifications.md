@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Hantering av planerat underhåll meddelanden för Linux virtuella datorer
 
@@ -65,6 +65,8 @@ Följande värden returneras under MaintenanceRedeployStatus:
 | LastOperationResultCode               | Resultatet av det senaste försöket att starta Underhåll på den virtuella datorn ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>Starta Underhåll på den virtuella datorn med hjälp av CLI
 
 Följande anrop initierar Underhåll på en virtuell dator om `IsCustomerInitiatedMaintenanceAllowed` har angetts till true.
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>Klassiska distributioner
+
+Om du fortfarande har äldre virtuella datorer som har kan distribuerats med den klassiska distributionsmodellen du använda CLI 1.0 frågan för virtuella datorer och initiera underhåll.
+
+Kontrollera att du är i rätt läge för att arbeta med klassiska Virtuella genom att skriva:
+
+```
+azure config mode asm
+```
+
+Att hämta status för underhåll av en virtuell dator med namnet *myVM*, typ:
+
+```
+azure vm show myVM 
+``` 
+
+Om du vill starta Underhåll på du klassiska virtuella datorn med namnet *myVM* i den *myService* service och *myDeployment* distribution, typ:
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR

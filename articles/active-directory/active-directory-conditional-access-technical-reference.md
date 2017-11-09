@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 8cde8e10b6789e930ea1deda2f4aa0d4a5e7ea97
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory villkorlig åtkomst Teknisk referens
 
@@ -82,11 +82,7 @@ Du kan tilldela en princip för villkorlig åtkomst till följande typer av moln
 
 ## <a name="device-platform-condition"></a>Enhet plattform villkor
 
-Du kan konfigurera villkoret enhet plattform för att koppla principen till operativsystemet på en klient i en princip för villkorlig åtkomst.
-
-![Koppla åtkomstprincipen till klientens operativsystem](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Azure AD villkorlig åtkomst har stöd för följande enhetsplattformar:
+Du kan konfigurera villkoret enhet plattform för att koppla principen till operativsystemet på en klient i en princip för villkorlig åtkomst. Azure AD villkorlig åtkomst har stöd för följande enhetsplattformar:
 
 - Android
 
@@ -96,7 +92,12 @@ Azure AD villkorlig åtkomst har stöd för följande enhetsplattformar:
 
 - Windows
 
-- macOS (förhandsgranskning)
+- macOS
+
+
+![Koppla åtkomstprincipen till klientens operativsystem](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -131,8 +132,8 @@ Följande webbläsare stöds i principen för villkorlig åtkomst:
 | Windows Server 2016    | Chrome                      | Kommer snart |
 | Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Markera][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Markera][1] |
-| macOS                  | Safari                      | ![Markera][1] |
-| macOS                  | Chrome                      | Kommer snart |
+| macOS                  | Chrome Safari              | ![Markera][1] |
+
 
 > [!NOTE]
 > För Chrome-stöd, måste du använda Windows 10 skapare Update (version 1703) eller senare.<br>
@@ -153,7 +154,7 @@ Följande mobila appar och skrivbord klienter stöder villkorlig åtkomst för O
 | Dynamics CRM-app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS och Android|
 | Användare-e-post/kalender appen, Outlook 2016 Outlook 2013 (med modern autentisering)| Office 365 Exchange Online| Windows 10|
 | Principen för MFA och plats för appar. Principer för enheter som är baserade stöds inte.| Alla Mina appar apptjänst| Android och iOS|
-| Microsoft Team Services - detta styr alla tjänster som stöder Microsoft Teams och alla dess Klientappar - Windows-skrivbordet, iOS, Android, WP och Webbklient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS och Android|
+| Microsoft Team Services - detta styr alla tjänster som stöder Microsoft Teams och alla dess Klientappar - Windows-skrivbordet, iOS, Android, WP och Webbklient| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android och macOS|
 | Appar för Office 2016, Office 2013 (med modern autentisering), OneDrive synkronisera klienten (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
 | Appar för Office 2016, Universal Office-appar, Office 2013 (med modern autentisering), OneDrive synkroniseringsklient (se [anteckningar](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), stöd för Office-grupper är planerad för framtiden, stöd för SharePoint-appen är planerad i framtiden| Office 365 SharePoint Online| Windows 10|
 | Office 2016 för macOS (Word, Excel, PowerPoint, OneNote endast). OneDrive för Business support planerad i framtiden| Office 365 SharePoint Online| Mac OS X|
@@ -165,6 +166,7 @@ Följande mobila appar och skrivbord klienter stöder villkorlig åtkomst för O
 | PowerBI-appen. Power BI-appen för Android stöder för närvarande inte enhetsbaserad villkorlig åtkomst.| PowerBI service| Windows 10, Windows 8.1, Windows 7 och iOS|
 | Skype för företag| Office 365 Exchange Online| Android IOS|
 | Visual Studio Team Services app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS och Android|
+
 
 
 

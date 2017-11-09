@@ -8,6 +8,41 @@
 ### [Distribuera den förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md)
 ### [Hantera den förkonfigurerade lösningen](iot-suite-remote-monitoring-explore.md)
 
+## Fjärrövervakning (tidigare version)
+### [Vilka är de förkonfigurerade lösningarna?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [Vanliga frågor och svar](iot-suite-v1-faq.md)
+
+### Kom igång
+#### [Kom igång med förkonfigurerade lösningar](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Behörigheter på azureiotsuite.com](iot-suite-v1-permissions.md)
+#### [Genomgång av lösning för fjärrövervakning](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Anslut Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### Använd C
+###### [Simulerade data](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Använd verkliga sensorer](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Implementera uppdatering för inbyggd programvara](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Använd Node.js
+###### [Simulerade data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Använd verkliga sensorer](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Implementera uppdatering för inbyggd programvara](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Anslut Intel NUC-gateway
+##### [Simulerade data](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [Använd verklig sensor](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### Gör så här för att
+#### Anslut en simulerad enhet
+##### [C i Windows](iot-suite-v1-connecting-devices.md)
+##### [C i Linux](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [Anslut en logikapp till fjärrövervakningslösningen](iot-suite-v1-logic-apps-tutorial.md)
+#### [Anpassa en förkonfigurerad lösning](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Använd dynamisk telemetri med fjärrövervakningslösningen](iot-suite-v1-dynamic-telemetry.md)
+#### [Skapa en anpassad regel i fjärrövervakningslösningen](iot-suite-v1-custom-rule.md)
+#### [Enhetsinformation i fjärrövervakningslösningen](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## Förebyggande underhåll
 ### [Översikt över förebyggande underhållslösning](iot-suite-predictive-overview.md)
 ### [Genomgång av lösning för förebyggande underhåll](iot-suite-predictive-walkthrough.md)

@@ -3,7 +3,7 @@ title: "OMS Azure tillägg för virtuell dator för Windows | Microsoft Docs"
 description: "Distribuera OMS-agent på Windows virtuell dator med ett tillägg för virtuell dator."
 services: virtual-machines-windows
 documentationcenter: 
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
-ms.author: nepeters
-ms.openlocfilehash: d933f488fdda0c1d37892be65f2712cf0eb5694e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danis
+ms.openlocfilehash: b4cd56606d0f84653f3e50634fc5e4d1318c0f94
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>OMS tillägg för virtuell dator för Windows
 

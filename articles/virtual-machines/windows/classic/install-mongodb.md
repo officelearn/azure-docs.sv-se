@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: iainfou
-ms.openlocfilehash: 6b5af18d02fd508a21cdc21b38b1c16e79f07ecb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d70194f30b7866cab38cfbbe1ea06664b0ddc1f5
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-mongodb-on-a-windows-vm-in-azure"></a>Installera MongoDB på en Windows-dator i Azure
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md).  Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du vill installera och konfigurera MongoDB med hjälp av Resource Manager-distributionsmodellen, se [i den här artikeln](../install-mongodb.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [MongoDB] [ MongoDB] är en populär öppen källkod, högpresterande NoSQL-databas. Den här artikeln hjälper dig att skapa en Windows Server virtuell dator (VM) med hjälp av den [Azure-portalen][AzurePortal]. Du skapar och bifogar en datadisk till den virtuella datorn innan du installerar och konfigurerar MongoDB. Om du har en befintlig virtuell dator i Azure som du vill använda kan du hoppa direkt till [installera och konfigurera MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
 

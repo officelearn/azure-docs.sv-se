@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Ställa in Tomcat7 på en Linux-dator med Azure
 Apache Tomcat (eller bara Tomcat kan också kallades Djakarta Tomcat) är en öppen källkod webbservern och servlet-behållare som utvecklats av Apache Software Foundation (ASF). Tomcat implementerar Java-Servlet och specifikationer för JavaServer sidor (JSP) från Sun Microsystems. Tomcat ger en ren Java HTTP web server-miljö där du kan köra Java-kod. I den enklaste konfigurationen körs Tomcat i en enda process. Den här processen körs en Java virtual machine (JVM). Alla HTTP-begäran från en webbläsare till Tomcat behandlas som en separat tråd i Tomcat-processen.  
 
 > [!IMPORTANT]
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Azure Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributionsmodellen. Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du vill använda en Resource Manager-mall för att distribuera en VM Ubuntu med öppna JDK och Tomcat, se [i den här artikeln](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 I den här artikeln får du installerar Tomcat7 på en Linux-avbildning och distribuera den i Azure.  
 

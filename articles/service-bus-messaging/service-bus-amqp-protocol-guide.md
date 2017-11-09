@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # AMQP 1.0 i Azure Service Bus och Händelsehubbar protocol-guiden
 
@@ -32,7 +32,7 @@ Den här artikeln sammanfattar grundläggande begrepp som den AMQP 1.0 messaging
 
 Målet är att alla utvecklare som med alla befintliga AMQP 1.0-klienten stack på alla plattformar för att kunna interagera med Azure Service Bus via AMQP 1.0.
 
-Vanliga allmänna AMQP 1.0-stackar, till exempel Apache Proton eller AMQP.NET Lite implementera redan alla kärnor AMQP 1.0-gester. De grundläggande gester är ibland omslutna av en högre nivå API; Apache Proton erbjuder även två tvingande Messenger-API och reaktiv reaktor API.
+Vanliga allmänna AMQP 1.0-stackar, till exempel Apache Proton eller AMQP.NET Lite implementera redan alla kärnprotokoll AMQP 1.0. De grundläggande gester är ibland omslutna av en högre nivå API; Apache Proton erbjuder även två tvingande Messenger-API och reaktiv reaktor API.
 
 I följande diskussionen förutsätter vi att hanteringen av AMQP anslutningar, sessioner, och länkar och hantering av ram överföringar och flödeskontroll hanteras av respektive stacken (till exempel Apache Proton-C) och inte kräver mycket eventuella specifika uppmärksamhet från programutvecklare. Vi förutsätter elementattributet finnas några API-primitiver som möjligheten att ansluta och för att skapa någon form av *avsändaren* och *mottagare* abstraction objekt, som sedan har vissa form av `send()` och `receive()` åtgärder, respektive.
 
@@ -238,13 +238,13 @@ I följande avsnitt beskrivs vilka egenskaper från standard AMQP meddelande avs
 Det här avsnittet beskriver de avancerade funktionerna i Azure Service Bus som baseras på ett utkast till tillägg till AMQP, för närvarande under utveckling i den tekniska kommittén OASIS för AMQP. Service Bus implementerar de senaste versionerna av dessa utkast och tillämpar ändringar som dessa utkast nå standard status.
 
 > [!NOTE]
-> Service Bus-meddelanden avancerade åtgärder stöds via ett mönster i begäran och svar. Information om de här åtgärderna beskrivs i dokumentet [AMQP 1.0 i Service Bus: begäran-svar-baserade operations](service-bus-amqp-request-response.md).
+> Service Bus-meddelanden avancerade åtgärder stöds via ett mönster i begäran och svar. Information om de här åtgärderna beskrivs i artikeln [AMQP 1.0 i Service Bus: begäran-svar-baserade operations](service-bus-amqp-request-response.md).
 > 
 > 
 
 ### AMQP management
 
-AMQP management specifikation är först av utkast-tillägg som beskrivs här. Den här specifikationen definierar en uppsättning av protokollet gester lager ovanpå AMQP-protokollet som tillåter hanteringsinteraktioner med meddelandeinfrastrukturen via AMQP. Specifikationen definierar allmänna åtgärder som *skapa*, *läsa*, *uppdatera*, och *ta bort* för att hantera enheter i en infrastruktur för meddelanden och en uppsättning frågor.
+AMQP management specifikation är först av utkast-tillägg som beskrivs i den här artikeln. Den här specifikationen definierar en uppsättning lager ovanpå AMQP-protokollet som tillåter hanteringsinteraktioner med meddelandeinfrastrukturen via AMQP. Specifikationen definierar allmänna åtgärder som *skapa*, *läsa*, *uppdatera*, och *ta bort* för att hantera enheter i en infrastruktur för meddelanden och en uppsättning frågor.
 
 Dessa gester kräver en begäran och svar interaktion mellan klienten och meddelandeinfrastrukturen och därför specifikationen definierar hur modellera interaktion mönstret ovanpå AMQP: klienten ansluter till meddelandeinfrastrukturen initierar en session och skapar sedan ett par med länkar. Klienten fungerar som avsändaren på en länk och det andra den fungerar som mottagare, vilket skapar ett par med länkar som kan fungera som en dubbelriktad kanal.
 

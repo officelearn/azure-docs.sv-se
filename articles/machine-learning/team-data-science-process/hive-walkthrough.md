@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team vetenskap av data i praktiken: Använd Azure HDInsight Hadoop-kluster
 I den här genomgången ska vi använda den [Team Data vetenskap processen (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt med hjälp av en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska och funktion tekniker data från den offentligt tillgängliga [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset, och exempeldata nedåt. Modeller av data skapas med Azure Machine Learning att hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter.
@@ -59,15 +59,15 @@ Här följer tre exempel på förutsägelse problem som vi adressen i den här g
 
 1. **Binär klassificering**: förutsäga oavsett betalats ett tips för en resa i d.v.s. en *tips\_belopp* som är större än 0 är ett positivt exempel, när en *tips\_belopp* $0 är ett exempel på negativt.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Multiklass-baserad klassificering**: att förutsäga intervallet av tips för resan. Vi dela den *tips\_belopp* i fem lagerplatser eller klasser:
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Regression uppgiften**: att förutsäga mängden tips för en resa.  
 
 ## <a name="setup"></a>Konfigurera en HDInsight Hadoop-kluster för avancerade analyser
@@ -132,7 +132,7 @@ Data bör nu i Azure Blob Storage och redo att användas i HDInsight-klustret.
 > 
 > 
 
-För att komma åt huvudnod i klustret för undersökande dataanalys och ned sampling av data, följer du proceduren som beskrivs i [komma åt det Head nod för Hadoop-kluster](customize-hadoop-cluster.md#headnode).
+För att komma åt huvudnod i klustret för undersökande dataanalys och ned sampling av data, följer du proceduren som beskrivs i [komma åt det Head nod för Hadoop-kluster](customize-hadoop-cluster.md).
 
 I den här genomgången ska vi i första hand använder frågor som skrivits i [Hive](https://hive.apache.org/), en SQL-liknande query language att utföra preliminära data explorations. Hive-frågor som lagras i .hql filer. Vi sedan exempel ned på dessa data som ska användas i Azure Machine Learning för att skapa modeller.
 
@@ -723,17 +723,17 @@ Som krav för utfärdande av Hive frågor i den [importera Data] [ import-data] 
 
 Vissa detaljer på den [importera Data] [ import-data] modulen och parametrar för att ange:
 
-**HCatalog server URI**: Om klusternamnet är abc123, så det är bara: https://abc123.azurehdinsight.net
+**HCatalog server URI**: Om klusternamnet är abc123, är det bara: https://abc123.azurehdinsight.net
 
-**Hadoop användarkontonamnet** : användarnamnet som valts för klustret (**inte** användarnamnet fjärråtkomst)
+**Hadoop användarkontonamnet**: användarnamnet som valts för klustret (**inte** användarnamnet fjärråtkomst)
 
-**Kontolösenord för Hadoop ser** : lösenordet som valts för klustret (**inte** remote access-lösenordet)
+**Kontolösenord för Hadoop ser**: lösenordet som valts för klustret (**inte** remote access-lösenordet)
 
-**Platsen för utdata** : detta väljs ska Azure.
+**Platsen för utdata**: detta väljs ska Azure.
 
-**Azure lagringskontonamnet** : namnet på standardkontot för lagring som är associerade med klustret.
+**Azure lagringskontonamnet**: namnet på standardkontot för lagring som är associerade med klustret.
 
-**Azure behållarnamn** : Detta är behållare för standardnamnet för klustret och är vanligtvis samma som klusternamnet. Detta är bara abc123 för ett kluster som heter ”abc123”.
+**Azure behållarnamn**: Detta är behållare för standardnamnet för klustret och är vanligtvis samma som klusternamnet. Detta är bara abc123 för ett kluster som heter ”abc123”.
 
 > [!IMPORTANT]
 > **Alla tabeller som vi vill fråga med hjälp av den [importera Data] [ import-data] modul i Azure Machine Learning måste vara en intern tabell.** Ett tips för att avgöra om en tabell T i en databas D.db är en intern tabell är som följer.
@@ -814,7 +814,7 @@ b. Vi mäter noggrannhet med vår prognoser för genom att titta på kvadratfel 
 Vi se att om bestämningskoefficienten är 0.709 förklaras innebär ungefär 71% varians med vår modell koefficienter.
 
 > [!IMPORTANT]
-> Om du vill veta mer om Azure Machine Learning och hur du använder den, se [vad är Machine Learning?](../studio/what-is-machine-learning.md). En resurs som är användbar för att spela upp med en massa Machine Learning-experiment i Azure Machine Learning är den [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galleriet omfattar en alla experiment och ger en omfattande introduktion till nya funktioner i Azure Machine Learning.
+> Om du vill veta mer om Azure Machine Learning och hur du använder den, se [vad är Machine Learning](../studio/what-is-machine-learning.md). En resurs som är användbar för att spela upp med en massa Machine Learning-experiment i Azure Machine Learning är den [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galleriet omfattar en alla experiment och ger en omfattande introduktion till nya funktioner i Azure Machine Learning.
 > 
 > 
 

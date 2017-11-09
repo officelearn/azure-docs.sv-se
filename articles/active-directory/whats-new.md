@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93b80744f68546e37934c987f45d7e2747d64f83
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -40,6 +40,18 @@ Vi förbättrar Azure Active Directory med jämna mellanrum. Om du vill aktivera
 -   Planer för ändringar 
 
 Du besöker sidan regelbundet vi uppdateras varje månad.
+
+## <a name="november-2017"></a>November 2017
+
+**Typ:** föråldrade funktioner  
+**Tjänstekategori:** ACS  
+**Produkten kapaciteten:** åtkomst till tjänsten 
+
+<a name="acs-retirement"></a>
+
+Microsoft Azure Active Directory-åtkomstkontroll (även kallat åtkomstkontrolltjänsten eller ACS) dras i sen 2018.  Ytterligare information, inklusive en detaljerad schema & hög nivå migrering vägledning ska anges i nästa några veckor. Under tiden kan lämna kommentarer på denna sida med frågor om ACS och medlem i vårt team att nå ut till hjälpa att besvara.
+
+---
 
 
 ## <a name="october-2017"></a>Oktober 2017

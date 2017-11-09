@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 3030336f5efca5029e0e790372495df11cdc8aeb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: fa25f0435df79a78d39e8f89d702d3b64db79d65
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Förstå Azure Active Directory-arkitekturen
-Med Azure AD (Active Directory Azure) kan du på ett säkert sätt hantera åtkomsten till Azure-tjänster och -resurser för dina användare. En komplett uppsättning identitetshanteringsfunktioner ingår i Azure AD. Information om funktionerna i Azure AD finns i [Vad är Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
+Med Azure AD (Active Directory Azure) kan du på ett säkert sätt hantera åtkomsten till Azure-tjänster och -resurser för dina användare. En komplett uppsättning identitetshanteringsfunktioner ingår i Azure AD. Information om funktionerna i Azure AD finns i [Vad är Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
-Med Azure AD kan du skapa och hantera användare och grupper och aktivera behörigheter för att tillåta och neka åtkomst till företagsresurser. Information om identitetshantering finns i [The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity) (Grunderna om Azure-identitetshantering).
+Med Azure AD kan du skapa och hantera användare och grupper och aktivera behörigheter för att tillåta och neka åtkomst till företagsresurser. Information om identitetshantering finns i [The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity) (Grunderna om Azure-identitetshantering).
 
 ## <a name="azure-ad-architecture"></a>Azure AD-arkitekturen
 Azure Active Directorys geografiskt distribuerade arkitektur kombinerar omfattande funktioner för övervakning, automatisk omdirigering, redundans och återställning som hjälper oss att leverera tillgänglighet och prestanda på företagsnivå till våra kunder.
@@ -79,7 +79,7 @@ Azure Active Directorys [mål för återställningstid (RTO)](https://en.wikiped
 
 ### <a name="data-centers"></a>Datacenter
 
-Azure Active Directorys repliker lagras i datacenter runtom i världen. Mer information finns i avsnittet om [Azure-datacenter](https://azure.microsoft.com/en-us/overview/datacenters).
+Azure Active Directorys repliker lagras i datacenter runtom i världen. Mer information finns i avsnittet om [Azure-datacenter](https://azure.microsoft.com/overview/datacenters).
 
 Azure AD körs i datacenter med följande funktioner:
 
@@ -113,8 +113,8 @@ Om en Azure AD-tjänst inte fungerar som förväntat vidtar vi omedelbart åtgä
 
 **Säkra åtgärder**
 
-Vi använder operativa kontroller, till exempel multifaktorautentisering (MFA) för alla åtgärder, samt granskning av alla åtgärder. Dessutom använder vi ett JIT-utvärderingssystem (Just-In-Time) för att löpande bevilja nödvändig tillfällig åtkomst för operativa uppgifter på begäran. Mer information finns i [The Trusted Cloud](https://azure.microsoft.com/en-us/support/trust-center) (Det säkra molnet).
+Vi använder operativa kontroller, till exempel multifaktorautentisering (MFA) för alla åtgärder, samt granskning av alla åtgärder. Dessutom använder vi ett JIT-utvärderingssystem (Just-In-Time) för att löpande bevilja nödvändig tillfällig åtkomst för operativa uppgifter på begäran. Mer information finns i [The Trusted Cloud](https://azure.microsoft.com/support/trust-center) (Det säkra molnet).
 
 ## <a name="next-steps"></a>Nästa steg
-[Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+[Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 

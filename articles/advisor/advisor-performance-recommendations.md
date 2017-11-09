@@ -14,17 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 995a1f37a3fd68b39c14a95d46109c0f7814018d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e32723cd3ef13829890a630f4bff308164e17674
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor-rekommendationer
 
 Azure Advisor-rekommendationer att förbättra hastighet och tillgänglighet för verksamhetskritiska program. Du kan få rekommendationer från Advisor på den **prestanda** på Advisor-instrumentpanelen.
-
-![Fliken för Advisor-prestanda](./media/advisor-performance-recommendations/advisor-performance-tab.png)
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Förbättra prestanda för databasen med SQL DB Advisor
 
@@ -34,8 +32,6 @@ Advisor ger en konsekvent konsoliderad vy över rekommendationer för alla dina 
 > För att få rekommendationer, en databas måste ha om en vecka för användning och som veckan måste det finnas vissa konsekvent aktivitet. SQL Database Advisor kan optimera enklare för konsekvent frågemönster än för slumpmässiga belastning för aktiviteten.
 
 Mer information om SQL Database Advisor finns [SQL Database Advisor](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
-
-![Rekommendationer för SQL-databas](./media/advisor-performance-recommendations/advisor-performance-sql.png)
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>Förbättra Redis-Cache-prestanda och tillförlitlighet
 
@@ -49,23 +45,12 @@ Azure Advisor integrerar rekommendationer om bästa praxis för att förbättra 
 * Identifiera instanser där collocating resurser som webbappar och databaser kan förbättra prestanda och den lägre kostnaden. 
 
 Mer information om Apptjänster rekommendationer finns [bästa praxis för Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
-![Rekommendationer för App-tjänster](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Hur du kommer åt rekommendationer i Advisor
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och sedan öppna [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. I den vänstra rutan klickar du på **fler tjänster**.
-
-3. I fönstret service menyn under **övervakning och hantering av**, klickar du på **Azure Advisor**.  
- Advisor-instrumentpanelen visas.
-
-4. Advisor-instrumentpanelen, klicka på den **prestanda** fliken.
-
-5. Välj den prenumeration som du vill få rekommendationer och klicka sedan på **få rekommendationer**.
-
-> [!NOTE]
-> Om du vill komma åt Advisor-rekommendationer, måste du först *registrera prenumerationen* med Advisor. En prenumeration registreras när en *prenumeration ägare* startar Advisor instrumentpanelen och klickar på den **få rekommendationer** knappen. Det här är en *engångsåtgärd*. När prenumerationen har registrerats kan du komma åt Advisor-rekommendationer som *ägare*, *deltagare*, eller *Reader* för en prenumeration, resursgrupp eller en viss resurs.
+2.  Advisor-instrumentpanelen, klicka på den **prestanda** fliken.
 
 ## <a name="next-steps"></a>Nästa steg
 

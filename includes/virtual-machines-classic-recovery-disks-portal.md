@@ -1,5 +1,6 @@
 Om din virtuella Azure-dator (VM) får start- eller diskproblem kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är en misslyckad programuppdatering som förhindrar att den virtuella datorn startar korrekt. Den här artikeln beskriver hur du använder Azure Portal för att ansluta den virtuella hårddisken till en annan virtuell dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
 
+
 ## <a name="recovery-process-overview"></a>Översikt över återställningsprocessen
 Så här ser felsökningsprocessen ut:
 

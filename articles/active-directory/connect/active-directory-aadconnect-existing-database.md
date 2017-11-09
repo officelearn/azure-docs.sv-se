@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
 Azure AD Connect kräver en SQL Server-databas för att lagra data. Du kan använda standardvärdet SQL Server 2012 Express LocalDB installerad med Azure AD Connect, eller så kan du använda din egen fullständig version av SQL Server. Tidigare skapades alltid en ny databas med namnet ADSync när du har installerat Azure AD Connect. Med Azure AD Connect version 1.1.613.0 (eller efter) har du möjlighet att installera Azure AD Connect genom att peka till en befintlig ADSync-databas.
@@ -35,7 +35,7 @@ Dessa fördelar är användbart i följande scenarier:
 
 
 - Du har en befintlig Azure AD Connect-distribution. Den befintliga Azure AD Connect-servern fungerar inte längre men SQLServer som innehåller ADSync databasen fortfarande fungerar. Du kan installera en ny Azure AD Connect-server och peka på den befintliga ADSync-databasen. 
-- Du har en befintlig Azure AD Connect-distribution. SQLServer som innehåller ADSync databasen fungerar inte längre. Men har du en aktuell säkerhetskopia av databasen. Du kan återställa ADSync databasen till en ny SQLServer först. Efter som du kan installera en ny Azure AD Connect-server och peka på den återställda databasen ADSync.
+- Du har en befintlig Azure AD Connect-distribution. SQLServer som innehåller ADSync databasen fungerar inte längre. Du har dock en senaste säkerhetskopiering av databasen. Du kan återställa ADSync databasen till en ny SQLServer först. Efter som du kan installera en ny Azure AD Connect-server och peka på den återställda databasen ADSync.
 - Du har en befintlig Azure AD Connect-distribution som använder LocalDB. På grund av 10 GB-gräns som angetts av LocalDB, vill du migrera till en fullständig SQL. Du kan säkerhetskopiera databasen ADSync från LocalDB och återställa den till en SQLServer. Efter som du kan installera en ny Azure AD Connect-server och peka på den återställda databasen ADSync.
 - Du försöker installera en fristående server och vill kontrollera att konfigurationen matchar den aktuella aktiva servern. Du kan säkerhetskopiera databasen ADSync och återställa den till en annan SQLServer. Efter som du kan installera en ny Azure AD Connect-server och peka på den återställda databasen ADSync.
 
@@ -43,11 +43,11 @@ Dessa fördelar är användbart i följande scenarier:
 
 Viktigt att vidta tänka på innan du fortsätter:
 
-
 - Se till att granska kraven för att installera Azure AD Connect på maskinvara och krav, och kontot och behörigheter som krävs för att installera Azure AD Connect. De behörigheter som krävs för att installera Azure AD Connect med ”Använd befintlig databas” läge är detsamma som ”anpassad” installation.
+- Distribuera Azure AD Connect mot en befintlig ADSync kan databas bara användas med fullständig SQL. Den stöds inte med SQL Express LocalDB. Om du har en befintlig databas ADSync i LocalDB som du vill använda måste du först ADSync-databasen (LocalDB) och återställa den till fullständig SQL. Efter som du kan distribuera Azure AD Connect mot den återställda databasen med den här metoden.
 - Versionen av Azure AD Connect som används för installation måste uppfylla följande kriterier:
     - 1.1.613.0 eller senare, och
-    - Samma eller högre än versionen av Azure AD Connect som senast användes med ADSync-databasen. Om Azure AD Connect-version som används för installation är högre än den version som senast användes med ADSync databasen kan sedan en fullständig synkronisering krävas.  Detta krävs om schemat eller synkronisering regeln har ändrats mellan de två versionerna. 
+    - Samma eller högre än versionen av Azure AD Connect som senast användes med ADSync-databasen. Om Azure AD Connect-version som används för installation är högre än den version som senast användes med ADSync databasen kan sedan en fullständig synkronisering krävas.  Fullständig synkronisering krävs om schemat eller synkronisering regeln har ändrats mellan de två versionerna. 
 - ADSync databasen som används ska innehålla en synkroniseringstillstånd är relativt nya. Senaste synkronisering aktiviteten med den befintliga databasen ADSync ska inom de senaste tre veckorna.
 - När du installerar Azure AD Connect med ”Använd befintlig databas” metod, bevaras inte inloggningsmetod konfigurerats på den föregående Azure AD Connect-servern. Du kan dessutom konfigurera inloggningsmetod under installationen. Du kan bara konfigurera inloggningsmetod när installationen är klar.
 - Du kan inte ha flera Azure AD Connect-servrar som delar samma ADSync databas. Metoden ”Använd befintlig databas” kan du använda en befintlig ADSync databas med en ny Azure AD Connect-server. Det har inte stöd för delning.

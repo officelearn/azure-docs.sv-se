@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Använd Tjänstkarta lösningen i Operations Management Suite
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkartan, kan du visa dina servrar på samma sätt som du betrakta dem: som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar över en TCP-ansluten arkitektur med ingen konfiguration krävs för andra än installation av en agent.
@@ -224,11 +224,26 @@ Följande bild är en detaljerad vy av en ConfigurationChange händelse som kan 
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Operations Management Suite prestanda integrering
-Den **prestanda på en dator** fönstret standard prestandastatistik för den valda servern. Mätvärdena inkludera CPU-användning, minnesanvändning, nätverks-byte skickas och tas emot och en lista över de översta processerna med nätverks-byte skickas och tas emot. För att få prestandadata som nätverk, måste du också aktiverat överföring Data 2.0 lösningen i Operations Management Suite.
+Den **prestanda på en dator** fönstret standard prestandastatistik för den valda servern. Mätvärdena inkludera CPU-användning, minnesanvändning, nätverks-byte skickas och tas emot och en lista över de översta processerna med nätverks-byte skickas och tas emot.
 
 ![Datorn prestanda fönstret](media/oms-service-map/machine-performance.png)
 
+Om du vill visa prestandadata, du kan behöva [aktivera lämplig logganalys prestandaräknarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  De räknare du vill aktivera:
 
+Windows:
+- Processor(*)\% processortid
+- Minne\% använda dedikerade byte
+- Nätverket nätverkskort (*) \Bytes skickade per sekund
+- Nätverket nätverkskort (*) \Bytes mottagna per sekund
+
+Linux:
+- Processor(*)\% processortid
+- Memory(*)\% använt minne
+- Nätverket nätverkskort (*) \Bytes skickade per sekund
+- Nätverket nätverkskort (*) \Bytes mottagna per sekund
+
+För att få prestandadata som nätverk, måste du också aktiverat överföring Data 2.0 lösningen i Operations Management Suite.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Integrering av Operations Management Suite-säkerhet
 Tjänstkarta integrering med säkerhet och granska sker automatiskt när båda lösningarna är aktiverad och konfigurerad i Operations Management Suite-arbetsyta.
 

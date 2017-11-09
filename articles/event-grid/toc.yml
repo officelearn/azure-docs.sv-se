@@ -4,6 +4,8 @@
   items:
     - name: Om Event Grid
       href: overview.md
+    - name: Jämföra meddelandetjänster
+      href: compare-messaging-services.md
 - name: Snabbstarter
   items:
     - name: Dirigera Blob Storage-händelser – Azure CLI

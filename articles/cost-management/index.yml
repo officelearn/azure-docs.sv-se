@@ -37,3 +37,4 @@ sections:
           - html: <a href="tutorial-review-usage">Granska användning och kostnader för att identifiera avvikelser och effektivitet</a>
           - html: <a href="tutorial-user-access">Tilldela åtkomst till Cost Management-data</a>
           - html: <a href="tutorial-forecast-spending">Prognostisera framtida utgifter</a>
+          - html: <a href="tutorial-manage-costs">Hantera kostnader med kostnadsfördelning och detaljerad kostnadsrapportering</a>

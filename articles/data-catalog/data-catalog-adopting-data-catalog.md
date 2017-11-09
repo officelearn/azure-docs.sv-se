@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 06/15/2017
+ms.date: 10/15/2017
 ms.author: maroche
-ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5349b0a72dd2bad348ab301745e00065bac310e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metod och process för att börja använda Azure Data Catalog
 Den här artikeln hjälper dig att komma igång med **Azure Data Catalog** i din organisation. Fokusera på följande tre huvudpunkter för att komma igång med **Azure Data Catalog** på ett smidigt sätt: fastställ din vision, identifiera viktiga användningsområden inom organisationen och välj ett pilotprojekt.

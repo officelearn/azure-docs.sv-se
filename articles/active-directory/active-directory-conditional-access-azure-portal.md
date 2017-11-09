@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Villkorlig åtkomst i Azure Active Directory
 
@@ -131,18 +131,13 @@ Du kan använda den beräknade inloggning risknivån som villkor i en princip f�
 
 ### <a name="device-platforms"></a>Enhetsplattformar
 
-Enhetsplattformen kännetecknas av operativsystemet som körs på din enhet:
+Enhetsplattformen kännetecknas av operativsystemet som körs på din enhet: du kan definiera vilka plattformar som ingår samt plattformar för enheter som är undantagna från en princip.  
+Om du vill använda enhetsplattformar i principen först ändra du knapparna för att konfigurera **Ja**, och markera alla eller enskilda enhetsplattformar som principen gäller för. Om du väljer enskilda enhetsplattformar påverkar principen endast på dessa plattformar. I det här fallet påverkas inloggningar till andra plattformar som stöds inte av principen.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- macOS (förhandsversion). 
 
 ![Villkor](./media/active-directory-conditional-access-azure-portal/02.png)
 
-Du kan definiera de enhetsplattformar som ingår samt plattformar för enheter som är undantagna från en princip.  
-Om du vill använda enhetsplattformar i principen först ändra du knapparna för att konfigurera **Ja**, och markera alla eller enskilda enhetsplattformar som principen gäller för. Om du väljer enskilda enhetsplattformar påverkar principen endast på dessa plattformar. I det här fallet påverkas inloggningar till andra plattformar som stöds inte av principen.
+En fullständig lista över enhetsplattformar som stöds finns i [enhet plattform villkoret](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### <a name="locations"></a>Platser

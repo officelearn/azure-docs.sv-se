@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Säkerhetskopiera systemtillståndet för Windows i Resource Manager-distribution
 Den här artikeln förklarar hur du säkerhetskopierar systemtillståndet Windows Server till Azure. I den här självstudiekursen går vi igenom grunderna.
@@ -29,7 +29,7 @@ Om du vill veta mer om Azure Backup läser du den här [översikten](backup-intr
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) som ger dig åtkomst till Azure-tjänsten.
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
-Innan du kan säkerhetskopiera filer och mappar måste du skapa ett Recovery Services-valv i den region som du vill lagra informationen i. Du måste också bestämma hur du vill att lagringen ska replikeras.
+Om du vill säkerhetskopiera systemtillståndet Windows Server, måste du skapa ett Recovery Services-valv i den region där du vill lagra data. Du måste också bestämma hur du vill att lagringen ska replikeras.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Så här skapar du ett Recovery Services-valv
 1. Om du inte redan gjort det loggar du in på [Azure-portalen](https://portal.azure.com/) med din Azure-prenumeration.
@@ -135,6 +135,9 @@ Nu när du har skapat ett valv, kan du konfigurera den för att säkerhetskopier
     Autentiseringsuppgifterna för valvet hämtas till mappen Hämtningsbara filer. När autentiseringsuppgifterna för valvet har hämtats visas ett popup-fönster och du tillfrågas om du vill öppna eller spara autentiseringsuppgifterna. Klicka på **Save** (Spara). Om du råkar klicka på **Öppna** av misstag väntar du tills dialogrutan som försöker öppna autentiseringsuppgifterna för valvet misslyckas. Du kan inte öppna valvautentiseringsuppgifterna. Gå vidare till nästa steg. Valvautentiseringsuppgifterna finns i mappen Hämtade filer.   
 
     ![valvautentiseringsuppgifterna har hämtats](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+> [!NOTE]
+> Autentiseringsuppgifter för valv måste sparas endast till en plats som är lokala för Windows-Server som du tänker använda agenten. 
+>
 
 ## <a name="install-and-register-the-agent"></a>Installera och registrera agenten
 
@@ -163,40 +166,13 @@ Nu när du har skapat ett valv, kan du konfigurera den för att säkerhetskopier
 
 Nu installeras agenten och datorn registreras i valvet. Nu kan du konfigurera och schemalägga säkerhetskopieringen.
 
-## <a name="back-up-windows-server-system-state-preview"></a>Säkerhetskopiera systemtillståndet för Windows Server (förhandsgranskning)
-Den första säkerhetskopian innehåller tre uppgifter:
+## <a name="back-up-windows-server-system-state"></a>Säkerhetskopiera Windows Server System-tillstånd 
+Den första säkerhetskopian innehåller två aktiviteter:
 
-* Aktivera säkerhetskopiering av systemtillstånd med Azure Backup-agenten
 * Schemalägg säkerhetskopieringen
-* Säkerhetskopiera filer och mappar för första gången
+* Säkerhetskopiera systemtillståndet för första gången
 
 För att slutföra den första säkerhetskopieringen använder du Microsoft Azure Recovery Services-agenten.
-
-### <a name="to-enable-system-state-backup-using-the-azure-backup-agent"></a>Så här aktiverar du säkerhetskopian av systemtillstånd med Azure Backup-agenten
-
-1. Kör följande kommando för att stoppa Azure Backup-motorn i en PowerShell-session.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Öppna Windows-registret.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Lägg till följande registernyckel med det angivna DWord-värdet.
-
-  | Sökväg i registret | Registernyckel | DWord-värde |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Starta om motorn för säkerhetskopiering genom att köra följande kommando i en kommandotolk med förhöjd behörighet.
-
-  ```
-  PS C:\> Net start obengine
-  ```
 
 ### <a name="to-schedule-the-backup-job"></a>Så här schemalägger du säkerhetskopieringsjobbet
 
@@ -216,11 +192,7 @@ För att slutföra den första säkerhetskopieringen använder du Microsoft Azur
 
 6. Klicka på **Nästa**.
 
-7. Schemat för säkerhetskopiering av systemtillstånd och kvarhållning anges automatiskt att säkerhetskopiera varje söndag vid 21:00:00 lokal tid och kvarhållningsperioden anges till 60 dagar.
-
-   > [!NOTE]
-   > Princip för säkerhetskopiering och kvarhållning av systemtillståndet konfigureras automatiskt. Ange endast säkerhetskopiering och kvarhållning principen för säkerhetskopior av filer från guiden om du säkerhetskopierar filer och mappar samt status för Windows Server-System. 
-   >
+7. Välj den obligatoriska säkerhetskopieringsfrekvens och bevarandeprincipen för säkerhetskopior av systemtillståndet på de efterföljande sidorna. 
 
 8. Läs informationen på sidan Bekräftelse och klicka sedan på **Slutför**.
 
@@ -234,88 +206,21 @@ För att slutföra den första säkerhetskopieringen använder du Microsoft Azur
 
     ![Säkerhetskopiera Windows Server nu](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Gå igenom inställningarna på sidan Bekräftelse som guiden Säkerhetskopiera nu ska använda för att säkerhetskopiera datorn. Klicka på **Säkerhetskopiera**.
+3. Välj **systemtillstånd** på den **Välj säkerhetskopieringsobjektet** skärm som visas och klicka på **nästa**.
+
+4. Gå igenom inställningarna på sidan Bekräftelse som guiden Säkerhetskopiera nu ska använda för att säkerhetskopiera datorn. Klicka på **Säkerhetskopiera**.
 
 4. Stäng guiden genom att klicka på **Stäng**. Om du stänger guiden innan säkerhetskopieringen är klar fortsätter guiden att köras i bakgrunden.
 
-5. Om du säkerhetskopierar filer och mappar på din server, förutom systemtillstånd för Windows Server, kommer guiden Säkerhetskopiering nu bara säkerhetskopiera filer. Använd följande PowerShell-kommando för att utföra en ad hoc-systemtillstånd säkerhetskopiera:
 
-    ```
-    PS C:\> Start-OBSystemStateBackup
-    ```
-
-  När den första säkerhetskopieringen har slutförts visas statusen **Jobbet har slutförts** i säkerhetskopieringskonsolen.
+När den första säkerhetskopieringen har slutförts visas statusen **Jobbet har slutförts** i säkerhetskopieringskonsolen.
 
   ![IR slutfört](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-Följande frågor och svar kan du ange ytterligare information.
-
-### <a name="what-is-the-staging-volume"></a>Vad är mellanlagring volymen?
-
-Mellanlagring volymen representerar den mellanliggande platsen där den inbyggt, Windows Server Backup skapar säkerhetskopian av systemtillståndet. Azure Backup-agenten och sedan komprimeras och krypterar mellanliggande säkerhetskopian och skickar den via säker HTTPS-protokoll till konfigurerade Recovery Services-valvet. **Vi rekommenderar starkt att du etablerar mellanlagring volymen i en Windows OS-volym. Om du upptäcker problem med säkerhetskopiering av systemtillståndet, Kontrollera platsen för mellanlagring volymen är det första steget för felsökning.** 
-
-### <a name="how-can-i-change-the-staging-volume-path-specified-in-the-azure-backup-agent"></a>Hur kan jag ändra mellanlagring volym sökvägen som anges i Azure Backup-agenten?
-
-Mellanlagring volymen finns som standard i cachemappen. 
-
-1. Om du vill ändra den här platsen, använder du följande kommando (i en upphöjd kommandotolk):
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Uppdatera följande registerposter med sökvägen till mappen mellanlagring volym.
-
-  |Sökväg i registret|Registernyckel|Värde|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | nya mellanlagringsplatsen volym |
-
-Sökvägen till mellanlagring är skiftlägeskänsligt och måste vara exakt samma skiftläge som det som finns på servern. 
-
-3. Starta om motorn för säkerhetskopiering när du har ändrat volymsökväg mellanlagring:
-  ```
-  PS C:\> Net start obengine
-  ```
-4. Öppna Microsoft Azure Recovery Services-agenten för att hämta upp den ändrade sökvägen och Utlös en ad hoc-säkerhetskopiering av systemtillstånd.
-
-### <a name="why-is-the-system-state-default-retention-set-to-60-days"></a>Varför anges systemtillstånd Standardkvarhållning till 60 dagar?
-
-En säkerhetskopia av systemtillståndet livslängd är samma som ”tombstone-livslängden” för rollen Windows Server Active Directory. Standardvärdet för posten tombstone-livslängden är 60 dagar. Det här värdet kan ställas in på konfigurationsobjekt för Directory Service (NTDS).
-
-### <a name="how-do-i-change-the-default-backup-and-retention-policy-for-system-state"></a>Hur kan jag ändra standard säkerhetskopiering och bevarandeprincip för systemtillstånd?
-
-Ändra standard säkerhetskopiering och bevarandeprincip för systemtillstånd:
-1. Stäng av motorn för säkerhetskopiering. Kör följande kommando från en upphöjd kommandotolk.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Lägg till eller uppdatera följande viktiga registerposter i HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
-
-  |Namn i registret|Beskrivning|Värde|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Används för att konfigurera tidpunkten för säkerhetskopiering. Standardvärdet är 21: 00 lokaltid.|DWord: Formatet HHMM (decimalt) till exempel 2130 för 9:30:00 lokal tid|
-  |SSBScheduleDays|Används för att konfigurera de dagar då systemtillstånd måste utföras på den angivna tiden. Enskilda siffror Ange dagar i veckan. 0 representerar söndag, 1 är måndag och så vidare. Standard dag för säkerhetskopiering är söndag.|DWord: dagar i veckan för att köra säkerhetskopiering (decimalt), till exempel 1230 schemalägger säkerhetskopieringar på måndag, tisdag, onsdag och söndag.|
-  |SSBRetentionDays|Används för att konfigurera dagar för att bevara säkerhetskopior. Standardvärdet är 60. Högsta tillåtna värdet är 180.|DWord: Dagar att behålla säkerhetskopiering (decimalt).|
-
-3. Använd följande kommando för att starta om säkerhetskopieringen motorn.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Öppna Microsoft Recovery Services-agenten.
-
-5. Klicka på **schemalägga säkerhetskopiering** och klicka sedan på **nästa** tills du ser ändringarna återges.
-
-6. Klicka på **Slutför** att tillämpa ändringarna.
-
-
-## <a name="questions"></a>Frågor?
+## <a name="questions"></a>Har du några frågor?
 Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Nästa steg
 * Få mer information om hur du [säkerhetskopierar Windows-datorer](backup-configure-vault.md).
-* Nu när du har säkerhetskopierat dina filer och mappar kan du [hantera dina valv och servrar](backup-azure-manage-windows-server.md).
+* Nu när du säkerhetskopierade systemtillståndet Windows Server, kan du [hantera ditt valv och servrar](backup-azure-manage-windows-server.md).
 * Om du behöver återställa en säkerhetskopia använder du den här artikeln för att [återställa filer till en Windows-dator](backup-azure-restore-windows-server.md).

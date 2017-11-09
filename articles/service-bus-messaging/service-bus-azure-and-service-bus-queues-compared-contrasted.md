@@ -1,24 +1,24 @@
 ---
-title: "Azure Storage-köer och Service Bus-köer - jämfört med och skillnad från | Microsoft Docs"
+title: "Azure Storage-köer och Service Bus-köer jämfört med och skillnad från | Microsoft Docs"
 description: "Analyserar likheter mellan två typer av köer som erbjuds av Azure och."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: 555759073507219188b59af76a82be74b112c57c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer - skillnad från och med
 Den här artikeln analyserar skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: lagringsköer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -33,7 +33,7 @@ Azure stöder två typer av kön mekanismer: **lagringsköer** och **Service Bus
 Medan båda queuing teknikerna samtidigt kan introducerades lagringsköer först som en mekanism för lagring av dedikerade kön byggda på Azure Storage-tjänster. Service Bus-köer är byggda på bredare ”” meddelandeinfrastrukturen integreras program eller programkomponenter som kan sträcka sig över flera kommunikationsprotokoll, datakontrakt, betrodda domäner och nätverksmiljöer.
 
 ## <a name="technology-selection-considerations"></a>Överväganden för val av teknik
-Både lagringsköer och Service Bus-köer är implementeringar av message queuing-tjänsten som för närvarande erbjuds via Microsoft Azure. Varje har ett något annorlunda funktionsuppsättningen, vilket innebär att du kan välja en av eller båda, beroende på din lösning eller business-tekniska problem du lösa behov.
+Både lagringsköer och Service Bus-köer är implementeringar av message queuing-tjänsten som erbjuds av Microsoft Azure. Varje har ett något annorlunda funktionsuppsättningen, vilket innebär att du kan välja en av eller båda, beroende på din lösning eller business-tekniska problem du lösa behov.
 
 När du fastställer vilka queuing teknik passar syftet med en viss lösning bör lösningsarkitekter och utvecklare rekommendationerna nedan. Mer information finns i nästa avsnitt.
 
@@ -49,7 +49,7 @@ Som lösning systemarkitekt/utvecklare, **bör du använda Service Bus-köer** n
 * Lösningen kräver kön att tillhandahålla en garanterad första-i-first out (FIFO) sorterade leverans.
 * Vill du en symmetrisk upplevelse i Azure och Windows Server (privat moln). Mer information finns i [Service Bus för Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
 * Din lösning kunna stödja automatisk identifiering av dubbletter.
-* Du vill att programmet för att bearbeta meddelanden som parallella tidskrävande dataströmmar (meddelanden som är kopplad till en dataström med hjälp av den [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) -egenskap). Varje nod i den konsumerande appen konkurrerar om strömmar, till skillnad från meddelanden i den här modellen. När en ström som har tilldelats en lång nod, kan noden Kontrollera status för dataströmmen programtillståndet använder transaktioner.
+* Du vill att programmet för att bearbeta meddelanden som parallella tidskrävande dataströmmar (meddelanden som är kopplad till en dataström med hjälp av den [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) -egenskap). Varje nod i den konsumerande appen konkurrerar om strömmar, till skillnad från meddelanden i den här modellen. När en ström som har tilldelats en lång nod, kan noden Kontrollera status för dataströmmen programtillståndet använder transaktioner.
 * Lösningen kräver transaktionella beteende och gör att skicka eller ta emot flera meddelanden från en kö.
 * Time to live (TTL) egenskap för programspecifika arbetsbelastningen kan överskrida den 7 dagar.
 * Programmet hanterar meddelanden som kan överskrida 64 KB men begränsas inte troligt metoden 256 KB.
@@ -61,7 +61,7 @@ Som lösning systemarkitekt/utvecklare, **bör du använda Service Bus-köer** n
 * Du vill kunna publicera och använda batchar av meddelanden.
 
 ## <a name="comparing-storage-queues-and-service-bus-queues"></a>Jämföra lagringsköer och Service Bus-köer
-Tabellerna i följande avsnitt innehåller en logisk gruppering av funktioner i kön och gör att du snabbt kan jämföra funktionerna som är tillgängliga i både lagringsköer och Service Bus-köer.
+Tabellerna i följande avsnitt innehåller en logisk gruppering av funktioner i kön och gör att du snabbt kan jämföra funktionerna som är tillgängliga i både Azure Storage-köer och Service Bus-köer.
 
 ## <a name="foundational-capabilities"></a>Grundläggande funktioner
 Det här avsnittet jämför några av de grundläggande queuing funktioner som tillhandahålls av lagringsköer och Service Bus-köer.
@@ -121,7 +121,7 @@ Det här avsnittet jämför avancerade funktioner som tillhandahålls av lagring
 * Kön automatisk vidarebefordring kan tusentals köer om du vill skicka meddelanden till en enskild kö som det mottagande programmet förbrukar meddelandet automatisk vidarebefordring. Du kan använda denna mekanism för att uppnå säkerhet, styr flödet och isolera lagring mellan varje meddelande utgivare.
 * Lagringsköer ger stöd för att uppdatera innehållet. Du kan använda den här funktionen för bestående statusinformation och inkrementell statusuppdateringar i meddelandet, så att den kan bearbetas från den senaste kända kontrollpunkten från grunden. Du kan aktivera samma scenario genom att använda meddelandet sessioner med Service Bus-köer. Sessioner kan du spara och hämta bearbetning programtillståndet (med hjälp av [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) och [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
 * [Döda oljekategori](service-bus-dead-letter-queues.md), vilket är endast stöds av Service Bus-köer kan vara användbart för att isolera meddelanden som kan inte bearbetas av det mottagande programmet eller när meddelanden som inte går att nå sina mål på grund av ett har upphört att gälla (time to live Egenskapen TTL). TTL-värdet anger hur länge ett meddelande som finns kvar i kön. Med Service Bus flyttas meddelandet till en särskild kö anropas $DeadLetterQueue när TTL-period har löpt ut.
-* Att hitta ”förgiftade” meddelanden i lagringsköer, när mellan köer programmet undersöker den  **[DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx)**  för meddelandet. Om **DequeueCount** är större än ett visst tröskelvärde programmet flyttas meddelandet till en kö programdefinierade ”obeställbara”.
+* Att hitta ”förgiftade” meddelanden i lagringsköer, när mellan köer programmet undersöker den [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) för meddelandet. Om **DequeueCount** är större än ett visst tröskelvärde programmet flyttas meddelandet till en kö programdefinierade ”obeställbara”.
 * Lagringsköer kan du få en detaljerad logg över alla transaktioner körs mot kön, som också som aggregerade mått. Båda dessa alternativ är användbara för felsökning och förstå hur programmet använder lagringsköer. De är också användbara för prestandajustering ditt program och minska kostnaderna för med hjälp av köer.
 * Begreppet ”delta” stöds av Service Bus gör att meddelanden som tillhör en viss logisk grupp som ska associeras med en viss mottagare, vilket i sin tur skapar en session-liknande mappning mellan meddelanden och deras respektive mottagare. Du kan aktivera det avancerade funktioner i Service Bus genom att ange den [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) egenskapen på ett meddelande. Mottagare kan lyssna på en specifik sessions-ID och ta emot meddelanden som delar angivna sessions-ID.
 * Duplicering identifiering funktioner som stöds av Service Bus-köer automatiskt tar du bort dubbla meddelanden som skickas till en kö eller ett ämne, baserat på värdet för den [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) egenskapen.
@@ -133,7 +133,7 @@ Det här avsnittet jämför lagringsköer och Service Bus-köer ur [kapacitet oc
 | --- | --- | --- |
 | Största köstorlek |**500 TB**<br/><br/>(begränsat till en [enkel kapacitet för lagringskonton](../storage/common/storage-introduction.md#queue-storage)) |**1 GB till 80 GB**<br/><br/>(definieras när du skapar en kö och [aktiverar partitionering](service-bus-partitioning.md) – finns i avsnittet ”Mer Information”) |
 | Maximal meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – nu kan du sätta upp till 200GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, högsta huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivån](service-bus-premium-messaging.md). |
-| Maximal meddelande-TTL |**7 dagar** |**`TimeSpan.Max`** |
+| Maximal meddelande-TTL |**7 dagar** |**TimeSpan.Max** |
 | Maximalt antal köer |**Obegränsat** |**10,000**<br/><br/>(per namnområde för tjänsten, kan du öka) |
 | Maximalt antal samtidiga klienter |**Obegränsat** |**Obegränsat**<br/><br/>(100 samtidiga anslutningsgränsen gäller endast för TCP-protokoll-baserad kommunikation) |
 

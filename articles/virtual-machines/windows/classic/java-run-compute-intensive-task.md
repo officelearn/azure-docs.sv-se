@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Så kör du en beräkningsintensiv uppgift i Java på en virtuell dator
 > [!IMPORTANT] 
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Med Azure, kan du använda en virtuell dator för att hantera beräkningsintensiva aktiviteter. En virtuell dator kan hantera aktiviteter och leverera resultat till klientdatorer och mobila program. När du har läst den här artikeln kommer du ha en förståelse för hur du skapar en virtuell dator som kör ett beräkningsintensiva Java-program som kan övervakas av ett annat Java-program.
 

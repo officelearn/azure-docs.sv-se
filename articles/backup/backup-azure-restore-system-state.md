@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 320c85f8045d9b72cf7f430d2e2736ba8e5ec269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa systemtillståndet till Windows Server
 
-Den här artikeln förklarar hur du återställer systemtillståndet i Windows Server från en Azure Recovery Services-valvet. Om du vill återställa Systemtillstånd måste du ha en säkerhetskopia av systemtillståndet (skapat med hjälp av anvisningarna i [säkerhetskopiera systemtillståndet](backup-azure-system-state.md#back-up-windows-server-system-state-preview)), och kontrollera att du har installerat den [senaste versionen av Microsoft Azure Recovery Services (MARS) agenten](http://aka.ms/azurebackup_agent). Återställa Systemtillstånd för Windows Server-data från ett Azure Recovery Services-valv är en tvåstegsprocess:
+Den här artikeln förklarar hur du återställer systemtillståndet i Windows Server från en Azure Recovery Services-valvet. Om du vill återställa Systemtillstånd måste du ha en säkerhetskopia av systemtillståndet (skapat med hjälp av anvisningarna i [säkerhetskopiera systemtillståndet](backup-azure-system-state.md#back-up-windows-server-system-state), och kontrollera att du har installerat den [senaste versionen av Microsoft Azure Recovery Services (MARS) agenten](http://aka.ms/azurebackup_agent). Återställa Systemtillstånd för Windows Server-data från ett Azure Recovery Services-valv är en tvåstegsprocess:
 
 1. Återställa Systemtillstånd som filer från Azure Backup. När du återställer systemtillståndet som filer från Azure Backup kan du antingen:
   * Återställa systemtillståndet till samma server där säkerhetskopiorna togs, eller

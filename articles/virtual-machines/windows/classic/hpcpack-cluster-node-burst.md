@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 8031c9bae923e19574b7189a97cb71a148b63d77
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Lägg till på begäran ”burst” noder i ett HPC Pack kluster i Azure
 Om du ställer in en [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) kluster i Azure, kan du ett sätt att snabbt skala klustret kapacitet upp eller ned, utan att behålla en uppsättning förinställda beräkningsnod virtuella datorer. Den här artikeln visar hur du lägger till noder på begäran ”burst” (worker-rollinstanser som körs i en tjänst i molnet) som beräkningsresurser till huvudnod i Azure. 
 
 > [!IMPORTANT] 
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Burst-noder][burst]
 

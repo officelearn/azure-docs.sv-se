@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln handlar om åtgärder för att konfigurera rapporter för Azure Backup med Recovery Services-valvet och att få åtkomst till dessa rapporter med hjälp av Power BI. När du utför dessa steg måste gå du till Power BI att visa alla rapporter, anpassa och skapa rapporter direkt. 
@@ -29,6 +29,7 @@ Den här artikeln handlar om åtgärder för att konfigurera rapporter för Azur
 2. Azure SQL, DPM och Azure Backup Server stöds inte just nu.
 3. Du kan visa rapporter över valv och över prenumerationer, om samma lagringskonto har konfigurerats för var och en av valv. Lagringskonto har valts måste vara i samma region som recovery services-valvet.
 4. Frekvensen för schemalagd uppdatering för rapporterna är 24 timmar i Power BI. Du kan också utföra en ad hoc-uppdatering av rapporterna i Power BI, där case senaste data i kundlagringskontot används för att återge rapporter. 
+5. Azure Backup-rapporter stöds för närvarande inte i nationella moln.
 
 ## <a name="prerequisites"></a>Krav
 1. Skapa en [Azure storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account) konfigureras för rapporter. Det här lagringskontot används för att lagra rapporter relaterade data.
@@ -50,19 +51,26 @@ Använd följande steg för att konfigurera lagringskonto för recovery services
 2. Från listan över objekt som visas under valv, klickar du på **säkerhetskopiering rapporter** under avsnittet för övervakning och rapporter att konfigurera lagringskonto för rapporter.
 
       ![Välj säkerhetskopiering rapporter menyn objektet steg 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. Klicka på bladet säkerhetskopiering rapporter **konfigurera** knappen. Då öppnas bladet Azure Application Insights som används för att skicka data till customer storage-konto.
+3. Klicka på bladet säkerhetskopiering rapporter **diagnostikinställningar** länk. Diagnostikinställningar användargränssnitt som används för att skicka data till kundlagringskontot öppnas.
 
-      ![Konfigurera lagring konto steg 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. Ange växlingsknappen Status till **på** och välj **arkivet till ett Lagringskonto** kryssrutan så att reporting data kan börjar flöda i till lagringskontot.
+      ![Aktivera diagnostik steg 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. Klicka på länken **aktivera diagnostiken**. Detta öppnar gränssnitt för att konfigurera storage-konto. 
 
-      ![Aktivera diagnostik steg 4](./media/backup-azure-configure-reports/set-status-on.png)
-5. Klicka på väljaren för Storage-konto och välj lagringskonto från listan för att lagra data och klicka på **OK**.
+      ![Aktivera diagnostik steg 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. Ange namnet på inställningen i fältet **namn** och välj **arkivet till ett Lagringskonto** kryssrutan så att reporting data kan börjar flöda i till lagringskontot.
 
-      ![Välj kontot steg 5](./media/backup-azure-configure-reports/select-storage-account.png)
-6. Välj **AzureBackupReport** kryssrutan och även flytta skjutreglaget till väljer kvarhållningsperiod för detta rapportdata. Rapporterar data i lagringskontot sparas under den period som valts med hjälp av skjutreglaget.
+      ![Aktivera diagnostik steg 5](./media/backup-azure-configure-reports/select-setting-name.png)
+6. Klicka på väljaren för Storage-konto och välj relevant prenumeration och storage-konto i listan för att lagra data och klicka på **OK**.
 
-      ![Välj kontot steg 6](./media/backup-azure-configure-reports/save-configuration.png)
-7. Granska alla ändringar och klicka på **spara** knappen överst, som visas i bilden ovan. Den här åtgärden säkerställer att alla dina ändringar sparas och storage-konto har nu konfigurerats för att lagra rapportinformationen.
+      ![Välj kontot steg 6](./media/backup-azure-configure-reports/select-subscription-sa.png)
+7. Välj **AzureBackupReport** kryssrutan under avsnittet loggen och flytta skjutreglaget till väljer kvarhållningsperiod för detta rapportdata. Rapporterar data i lagringskontot sparas under den period som valts med hjälp av skjutreglaget.
+
+      ![Spara storage-konto steg 7](./media/backup-azure-configure-reports/save-diagnostic-settings.png)
+8. Granska alla ändringar och klicka på **spara** knappen överst, som visas i bilden ovan. Den här åtgärden säkerställer att alla dina ändringar sparas och storage-konto har nu konfigurerats för att lagra rapportinformationen.
+
+9. Diagnostikinställningar för tabellen bör nu visas den nya inställningen aktiverad för valvet. Om det inte visas, uppdatera tabellen om du vill visa den uppdaterade inställningen.
+
+      ![Visa diagnostikinställningen steg 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
 > När du konfigurerar rapporter genom att spara storage-konto, bör du **vänta 24 timmar** för inledande data-push att slutföra. Efter denna tid bör du importera Azure Backup-Innehållspaketet i Power BI. Se [frågor och svar](#frequently-asked-questions) för mer information. 

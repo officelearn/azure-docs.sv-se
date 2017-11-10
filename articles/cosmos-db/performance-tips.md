@@ -15,9 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: 64c01c1256e4bcb472ceea874ab3f3b17c0467d7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/09/2017
 ---
@@ -165,7 +165,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     Cosmos DB erbjuder en omfattande uppsättning databasåtgärder inklusive relationella och hierarkiska frågor med UDF: er, lagrade procedurer och utlösare – alla operativsystem i dokumenten inom en samling i databasen. Kostnaden för att var och en av dessa åtgärder varierar beroende på CPU, IO och minne som krävs för att slutföra åtgärden. I stället för att tänka på och hantera maskinvaruresurser, Tänk på begäran-enhet (RU) som en enda åtgärd för de resurser som krävs för att utföra olika databasåtgärder och ett program begärde-tjänsten.
 
-    Genomströmning etableras baserat på mängden [programbegäran](request-units.md) för varje behållare. Konsumtion av begäran enheten utvärderas som en sats per sekund. Program som överskrider den etablerade begärandehastighet enhet för sitt konto begränsas förrän frekvensen sjunker under nivån reserverade för kontot. Om programmet kräver en högre säkerhetsnivå för genomflöde, kan du öka dina genomflödet genom att etablera ytterligare frågeenheter. 
+    Genomströmning etableras baserat på mängden [programbegäran](request-units.md) för varje behållare. Konsumtion av begäran enheten utvärderas som en sats per sekund. Program som överskrider etablerade begärandehastighet enhet för deras behållare är begränsade förrän frekvensen sjunker under nivån etablerade för behållaren. Om programmet kräver en högre säkerhetsnivå för genomflöde, kan du öka dina genomflödet genom att etablera ytterligare frågeenheter. 
 
     Komplexiteten i en fråga påverkar hur många enheter som begär förbrukas för en åtgärd. Antalet predikat, predikat, antalet UDF: er och storleken på alla källa datauppsättningen påverkar kostnaden för frågor.
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 Det här avsnittet visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure Database via Azure Blob Storage med hjälp av Azure Data Factory (ADM).
@@ -80,32 +80,14 @@ Data Management Gateway Serialiserar och deserializes källa och mottagare data 
 Ställa in instruktioner och information om Data Management Gateway finns [flytta data mellan lokala källor och moln med Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>Skapa länkade tjänster att ansluta till dataresurser
-En länkad tjänst definierar den information som behövs för Azure Data Factory för att ansluta till en Dataresurs. Stegvisa anvisningar för att skapa länkade tjänster finns i [Skapa länkade tjänster](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+En länkad tjänst definierar den information som behövs för Azure Data Factory för att ansluta till en Dataresurs. Vi har tre resurser i det här scenariot som krävs för länkade tjänster:
 
-Vi har tre resurser i det här scenariot som krävs för länkade tjänster.
+1. Lokal SQLServer
+2. Azure Blob Storage
+3. Azure SQL-databas
 
-1. [Länkad tjänst för lokala SQL Server](#adf-linked-service-onprem-sql)
-2. [Länkad tjänst för Azure Blob Storage](#adf-linked-service-blob-store)
-3. [Länkad tjänst för Azure SQL-databas](#adf-linked-service-azure-sql)
+Stegvisa anvisningar för att skapa länkade tjänster finns i [Skapa länkade tjänster](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
-### <a name="adf-linked-service-onprem-sql"></a>Länkad tjänst för lokala SQL Server-databas
-För att skapa den länkade tjänsten för lokala SQL Server:
-
-* Klicka på den **datalagret** i ADF landningssida på den klassiska Azure-portalen
-* Välj **SQL** och ange den *användarnamn* och *lösenord* autentiseringsuppgifter för lokal SQL Server. Du måste ange servernamn som en **instansnamn för fullständigt kvalificerade servername omvänt snedstreck (ServerNamn\InstansNamn)**. Namnge den länkade tjänsten *adfonpremsql*.
-
-### <a name="adf-linked-service-blob-store"></a>Länkad tjänst för Blob
-För att skapa den länkade tjänsten för Azure Blob Storage-konto:
-
-* Klicka på den **datalagret** i ADF landningssida på den klassiska Azure-portalen
-* Välj **Azure Storage-konto**
-* Ange Azure Blob Storage-nyckel och en behållare kontonamnet. Namnge den länkade tjänsten *adfds*.
-
-### <a name="adf-linked-service-azure-sql"></a>Länkad tjänst för Azure SQL-databas
-För att skapa den länkade tjänsten för Azure SQL Database:
-
-* Klicka på den **datalagret** i ADF landningssida på den klassiska Azure-portalen
-* Välj **Azure SQL** och ange den *användarnamn* och *lösenord* autentiseringsuppgifter för Azure SQL-databasen. Den *användarnamn* måste anges som  *user@servername* .   
 
 ## <a name="adf-tables"></a>Definiera och skapa tabeller för att ange hur du kommer åt datauppsättningar
 Skapa tabeller som anger strukturen, plats och tillgängligheten för datauppsättningar med följande skript-baserad. JSON-filer används för att definiera tabellerna. Mer information om strukturen för de här filerna finns [datauppsättningar](../../data-factory/v1/data-factory-create-datasets.md).
@@ -311,9 +293,6 @@ Kopiera den här JSON-definitionen i pipeline till en fil kallad *pipelinedef.js
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Bekräfta att du kan se pipelinen på ADF i den klassiska Azure-portalen visas som följande (när du klickar på diagrammet)
-
-![ADF pipeline](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Starta Pipeline
 Nu kan köra pipelinen med följande kommando:

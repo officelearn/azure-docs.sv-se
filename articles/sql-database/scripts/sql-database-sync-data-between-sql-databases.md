@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: b96fc9525110729c618469665a697a4a2887f0bc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 531379bf9836825ca75f4901b07685f21f7b5309
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Använd PowerShell för att synkronisera mellan flera Azure SQL-databaser
  
@@ -369,6 +369,7 @@ För mer information om SQL-datasynkronisering, se:
 -   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](../sql-database-sync-data.md)
 -   [Kom igång med Azure SQL datasynkronisering](../sql-database-get-started-sql-data-sync.md)
 -   [Metodtips för Azure SQL-datasynkronisering](../sql-database-best-practices-data-sync.md)
+-   [Övervaka Azure SQL-datasynkronisering med OMS logganalys](../sql-database-sync-monitor-oms.md)
 -   [Felsökning av problem med Azure SQL-datasynkronisering](../sql-database-troubleshoot-data-sync.md)
 
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering:

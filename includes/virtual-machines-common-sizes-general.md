@@ -1,4 +1,4 @@
-
+Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt genomflöde och nätverket lagringsprestanda för varje storlek i den här grupperingen. 
 
 - Virtuella datorer i A-serien och Av2-serien kan distribueras på en rad olika maskinvarutyper och processorer. Storleken begränsas, baserat på maskinvaran, för att erbjuda enhetliga processorprestanda på instansen som körs, oavsett vilken maskinvara instansen har distribuerats på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn.
 
@@ -73,11 +73,11 @@ ACU: 210–250
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1_v2 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 48 |2/750 |
-| Standard_DS2_v2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 96 |2/1 500 |
-| Standard_DS3_v2 |4 |14 |28 |8 |16,000 / 128 (172) |12,800 / 192 |4/3 000 |
-| Standard_DS4_v2 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 384 |8/6 000 |
-| Standard_DS5_v2 |16 |56 |112 |32 |64,000 / 512 (688) |51,200 / 768 |8/6 000–12 000 &#8224;|
+| Standard_DS1_v2 |1 |3.5 |7 |4 |4,000 / 32 (43) |3,200 / 48 |2/750 |
+| Standard_DS2_v2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 96 |2/1 500 |
+| Standard_DS3_v2 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 192 |4/3 000 |
+| Standard_DS4_v2 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 384 |8/6 000 |
+| Standard_DS5_v2 |16 |56 |112 |64 |64,000 / 512 (688) |51,200 / 768 |8/6 000–12 000 &#8224;|
 
 
 
@@ -87,11 +87,11 @@ ACU: 210–250
 
 | Storlek              | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 2 / 2 x 500                         | 2/750                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 4 / 4 x 500                         | 2/1 500                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 8 / 8 x 500                         | 4/3 000                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 16 / 16 x 500                       | 8/6 000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48 000 / 750 / 375                                        | 32 / 32 x 500                       | 8/6 000–12 000 &#8224;          |
+| Standard_D1_v2    | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 4 / 4 x 500                         | 2/750                 |
+| Standard_D2_v2    | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 500                     |
+| Standard_D3_v2    | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/3 000                     |
+| Standard_D4_v2    | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/6 000                     |
+| Standard_D5_v2    | 16        | 56          | 800            | 48 000 / 750 / 375                                        | 64 / 64 x 500                       | 8/6 000–12 000 &#8224;          |
 
 
 <br>
@@ -102,10 +102,10 @@ ACU: 160
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3.5 |7 |2 |4,000 / 32 (43) |3,200 / 32 |2/500 |
-| Standard_DS2 |2 |7 |14 |4 |8,000 / 64 (86) |6,400 / 64 |2/1 000 |
-| Standard_DS3 |4 |14 |28 |8 |16,000 / 128 (172) |12,800 / 128 |4/2 000 |
-| Standard_DS4 |8 |28 |56 |16 |32,000 / 256 (344) |25,600 / 256 |8/4 000 |
+| Standard_DS1 |1 |3.5 |7 |4 |4,000 / 32 (43) |3,200 / 32 |2/500 |
+| Standard_DS2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 64 |2/1 000 |
+| Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4/2 000 |
+| Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8/4 000 |
 
 <br>
 
@@ -115,10 +115,10 @@ ACU: 160
 
 | Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 2 / 2 x 500                         | 2/500                 |
-| Standard_D2  | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 4 / 4 x 500                         | 2/1 000                     |
-| Standard_D3  | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 8 / 8 x 500                         | 4/2 000                     |
-| Standard_D4  | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 16 / 16 x 500                       | 8/4 000                     |
+| Standard_D1  | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 4 / 4 x 500                         | 2/500                 |
+| Standard_D2  | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 000                     |
+| Standard_D3  | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/2 000                     |
+| Standard_D4  | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/4 000                     |
 
 <br>
 

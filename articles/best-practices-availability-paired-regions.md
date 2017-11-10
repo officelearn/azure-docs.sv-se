@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: raynew
-ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap återställning (BCDR): parad Azure-regioner
 
@@ -48,7 +48,8 @@ Bild 1 – Azure regionala par diagram
 | Europa |Nordeuropa |Västra Europa |
 | Japan |Östra Japan |Västra Japan |
 | Brasilien |Södra (1) |Södra centrala USA |
-| Amerikanska myndigheter |Iowa (USA-förvaltad region) |Virginia (USA-förvaltad region) |
+| Amerikanska myndigheter |USA Gov Iowa (2) |Virginia (USA-förvaltad region) |
+| Amerikanska myndigheter |USA Gov Virginia (3) |Texas (USA-förvaltad region) |
 | Amerikanska myndigheter |Arizona (USA-förvaltad region) |Texas (USA-förvaltad region) |
 | USA |US DoD, östra |US DoD, centrala |
 | STORBRITANNIEN |Storbritannien, västra |Storbritannien, södra |
@@ -57,6 +58,10 @@ Bild 1 – Azure regionala par diagram
 Tabell 1 - mappning av Azure regionala par
 
 > (1) södra är unikt eftersom den är länkad till en region utanför sin egen geografisk plats. Brasilien söder sekundär region är södra centrala USA men södra centrala USA sekundära regionen är inte södra.
+>
+> (2) USA Gov Iowa sekundär region är oss Gov Virginia men oss Gov Virginia sekundära regionen är inte oss Gov Iowa.
+> 
+> (3) USA Gov Virginia sekundär region är oss Gov Texas men oss Gov Texas sekundära regionen är inte oss Gov Virginia.
 
 
 Vi rekommenderar att du replikera arbetsbelastningar över regionala par att dra fördel av Azures principer för isolering och tillgänglighet. Till exempel planerad Azure systemuppdateringar distribueras sekventiellt (inte på samma gång) över parad regioner. Det innebär att även i sällsynt händelse av en felaktig uppdatering båda regioner inte påverkas samtidigt. Osannolika för en bred strömavbrott dessutom prioriteras återställning av minst en region utanför varje par.

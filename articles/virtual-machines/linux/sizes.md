@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: e351f62df9ecabb5c4cc0e70f4315f265e820b7d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7c6f2e83e5763f3cf8f305c73c0ad74fa8b37c00
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Storlekar för virtuella Linux-datorer i Azure
 Den här artikeln beskriver tillgängliga storlekar och alternativ för Azure virtuella datorer som du kan använda för att köra dina Linux appar och arbetsbelastningar. Det ger också överväganden vid distribution för att vara medveten om när du planerar att använda dessa resurser. Den här artikeln är också tillgängligt för [virtuella Windows-datorer](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

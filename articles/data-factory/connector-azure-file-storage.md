@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiera data från eller till Azure File Storage med hjälp av Azure Data Factory
 
@@ -48,11 +48,11 @@ Följande egenskaper stöds för länkad Azure File Storage-tjänst:
 | värden | Anger Azure File Storage-slutpunkt som `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ja |
 | användar-ID | Ange vilken användare för att komma åt Azure File Storage som `"userid": "AZURE\\<storage name>"`. | Ja |
 | lösenord | Ange lagringsåtkomstnyckel. Markera det här fältet som SecureString.<br/> | Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Ingen datakälla Ja för sink |
 
->[!TIP]
-> - Kopiera till Azure File Storage med hjälp av Azure Integration Runtime explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med plats för lagring av filer, och koppla i den länkade tjänsten som i följande exempel.
-> - Kom ihåg att öppna utgående TCP-port 445 i ditt lokala nätverk för att kopiera från/till Azure File Storage med hjälp av Self-hosted integrering körning utanför Azure.
+>[!IMPORTANT]
+> - Kopiera data till Azure File Storage med hjälp av Azure Integration Runtime explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med plats för lagring av filer, och koppla i den länkade tjänsten som i följande exempel.
+> - Kom ihåg att öppna utgående TCP-port 445 i ditt lokala nätverk för att kopiera data från/till Azure File Storage med hjälp av Self-hosted integrering körning utanför Azure.
 
 **Exempel:**
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 7772381e9796ddc2e0db215bab4f230473eaa462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efd0b60079017e476b54acfc65ffe8f35ffe4933
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Använda Docker-datorn för att skapa värdar i Azure
 Den här artikeln beskriver hur du använder [Docker datorn](https://docs.docker.com/machine/) att skapa värdar i Azure. Den `docker-machine` kommando skapar en Linux-dator (VM) i Azure och sedan installerar Docker. Du kan sedan hantera Docker-värdar i Azure med hjälp av samma lokala verktyg och arbetsflöden. Om du vill använda docker-dator i Windows 10, måste du använda Linux bash.
@@ -39,7 +39,7 @@ docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
-    --azure-size "Standard_D2_v2 \
+    --azure-size "Standard_D2_v2" \
     myvm
 ```
 

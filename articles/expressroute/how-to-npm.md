@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: aff54b86da6a8a062a3f1c76aa69e32c60008274
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 35dd3c6be2fb2fa5ec4d14eefce1c16005210364
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute (förhandsgranskning)
 
@@ -88,14 +88,14 @@ Om du redan använder Network Performance Monitor för att övervaka andra objek
   >Linux-agenten stöds inte för närvarande för ExpressRoute övervakning.
   >
   >
-2. Kopiera och klistra in den **arbetsyte-ID** och **primärnyckel** till anteckningar.
+2. Kopiera den **arbetsyte-ID** och **primärnyckel** till anteckningar.
 3. I den **konfigurera agenter** avsnittet måste du ladda ned Powershell-skript. PowerShell-skriptet kan du öppna den relevanta brandväggsporten för TCP-transaktioner.
 
   ![PowerShell-skript](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: Installera en övervakningsagent på varje server som övervakning
 
-1. Kör **installationsprogrammet** att installera agenten på varje server som du vill använda för att övervaka ExpressRoute. Den server du använder för att övervaka kan antingen vara en virtuell dator eller lokalt och måste ha tillgång till Internet. Du måste installera minst en agent lokalt och en på varje nätverkssegment som du vill övervaka i Azure.
+1. Kör **installationsprogrammet** att installera agenten på varje server som du vill använda för att övervaka ExpressRoute. Den server du använder för att övervaka kan antingen vara en virtuell dator eller lokalt och måste ha tillgång till Internet. Du måste installera minst en agent lokalt och en agent på varje nätverkssegment som du vill övervaka i Azure.
 2. På den **Välkommen** klickar du på **nästa**.
 3. På den **licensvillkoren** sidan, Läs licensvillkoren och klicka sedan på **jag accepterar**.
 4. På den **målmappen** , ändra eller behålla standardinstallationsmappen, och klickar sedan på **nästa**.
@@ -116,7 +116,7 @@ Om du redan använder Network Performance Monitor för att övervaka andra objek
 
 ### <a name="proxy"></a>2.3: konfigurera proxyinställningar (valfritt)
 
-Om du använder en webbproxy för att få åtkomst till Internet, kan du använda följande steg för att konfigurera proxyinställningar för Microsoft Monitoring Agent. Du måste utföra dessa steg för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så fall, se [konfigurera proxyinställningar för Microsoft Monitoring Agent använder ett skript för](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Om du använder en webbproxy för att få åtkomst till Internet, kan du använda följande steg för att konfigurera proxyinställningar för Microsoft Monitoring Agent. Utför de här stegen för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så fall, se [konfigurera proxyinställningar för Microsoft Monitoring Agent använder ett skript för](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
 Konfigurera proxyinställningar för Microsoft Monitoring Agent via Kontrollpanelen:
 
@@ -168,8 +168,7 @@ Mer information om NSG finns [Nätverkssäkerhetsgrupper](../virtual-network/vir
 >
 >
 
-Innan du kan börja använda funktionen ExpressRoute övervakning av NPM, måste du ansöka om för att få din arbetsyta i listan över godkända. [Klicka här för att gå till sidan och fylla i formuläret](https://go.microsoft.com/fwlink/?linkid=862263). (Tips: du kanske vill öppna den här länken i ett nytt fönster eller flik). Vitlistning av processen kan ta minst en arbetsdag. Vi skicka ett e-postmeddelande när vitlistning är klar.
-
+Innan du kan börja använda funktionen ExpressRoute övervakning av NPM, måste du ansöka om för att få din arbetsyta i listan över godkända. [Klicka här för att gå till sidan och fylla i formuläret](https://go.microsoft.com/fwlink/?linkid=862263). (Tips: du kanske vill öppna den här länken i ett nytt fönster eller flik). Vitlistning av processen kan ta minst en arbetsdag. När vitlistning har slutförts får du ett e-postmeddelande.
 
 ## <a name="setupmonitor"></a>Steg 5: Konfigurera NPM för ExpressRoute-övervakning
 
@@ -189,7 +188,7 @@ När du har fyllt i föregående avsnitt och kontrollera att du blivit godkända
 3. Gå till fliken 'ExpressRoute Peerings' på panelen vänster på konfigurationssidan. Klicka på **identifiera nu**.
 
   ![Identifiera](.\media\how-to-npm\13.png)
-4. När identifieringen har slutförts kan du se regler för unik krets och VNet namn. Inledningsvis har reglerna inaktiverats. Du måste aktivera regler och sedan välja övervakningsagenter och tröskelvärden.
+4. När identifieringen har slutförts kan du se regler för unik krets och VNet namn. Inledningsvis har reglerna inaktiverats. Aktivera regler, och välj sedan övervakningsagenter och tröskelvärden.
 
   ![regler](.\media\how-to-npm\14.png)
 5. När du aktiverar regler och välja värden och agenter som du vill övervaka, är en Vänta ungefär 30 till 60 minuter för värden att börja fylla och **ExpressRoute övervakning** paneler ska bli tillgänglig. När du ser övervakning paneler övervakas dina ExpressRoute-kretsar och anslutningen resurser av NPM.
@@ -229,6 +228,7 @@ Du kan öka synlighet att inkludera lokalt hopp genom att flytta skjutreglaget n
 
 ![filter](.\media\how-to-npm\topology.png)
 
-#### <a name="detailed-topology-view-of-a-particular-expressroute-circuit---with-vnet-connections"></a>Detaljerad topologi vy av en viss ExpressRoute-krets - VNet-anslutningar
+#### <a name="detailed-topology-view-of-a-circuit"></a>Detaljerad topologi vy av en krets
 
+Den här vyn visar VNet-anslutningar.
 ![Detaljerad topologi](.\media\how-to-npm\17.png)

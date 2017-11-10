@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Säkerhetskopiering och återställning
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk-tjänster inkluderar funktioner för säkerhetskopiering och återställning. Det här avsnittet beskriver hur du säkerhetskopierar och återställer BizTalk-tjänster med hjälp av den klassiska Azure-portalen.
+Azure BizTalk-tjänster inkluderar funktioner för säkerhetskopiering och återställning. 
 
-Du kan också säkerhetskopiera BizTalk-tjänst med hjälp av den [BizTalk Services REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!NOTE]
 > Hybridanslutningar säkerhetskopieras inte, oavsett vilken version. Du måste återskapa din hybridanslutningar.
@@ -34,7 +34,6 @@ Du kan också säkerhetskopiera BizTalk-tjänst med hjälp av den [BizTalk Servi
 
 ## <a name="before-you-begin"></a>Innan du börjar
 * Säkerhetskopiering och återställning kanske inte tillgänglig för alla versioner. Se [BizTalk-tjänst: utgåvor diagram](biztalk-editions-feature-chart.md).
-* Med den klassiska Azure-portalen kan du skapa en säkerhetskopiering på begäran eller skapa en schemalagd säkerhetskopiering. 
 * Säkerhetskopiering innehåll kan återställas till samma BizTalk Service eller till en ny BizTalk Service. Om du vill återställa den BizTalk Service med samma namn, befintlig BizTalk Service måste tas bort och namnet måste vara tillgänglig. Det kan ta längre tid än vill om samma namn ska vara tillgängliga när du har tagit bort en BizTalk Service. Om du inte kan vänta på samma namn ska vara tillgängliga, återställer du sedan till ett nytt BizTalk-Service.
 * BizTalk-tjänst kan återställas till samma version eller en senare version. Återställa BizTalk-tjänst till en lägre version stöds från när säkerhetskopian skapades, inte.
   
@@ -46,70 +45,10 @@ Du kan också säkerhetskopiera BizTalk-tjänst med hjälp av den [BizTalk Servi
 * Valfritt: I BizTalk-Services-portalen stoppa några hanteringsåtgärder.
 
 ## <a name="create-a-backup"></a>Skapa en säkerhetskopia
-En säkerhetskopia kan vidtas när som helst och är helt styrs av du. Det här avsnittet innehåller anvisningar för att skapa säkerhetskopior med den klassiska Azure-portalen, inklusive:
-
-[På begäran-säkerhetskopia](#backupnow)
-
-[Schemalägga en säkerhetskopia](#backupschedule)
-
-#### <a name="backupnow"></a>På begäran-säkerhetskopia
-1. I den klassiska Azure-portalen väljer **BizTalk-tjänst**, och välj sedan den BizTalk Service du vill säkerhetskopiera.
-2. I den **instrumentpanelen** väljer **säkerhetskopiera** längst ned på sidan.
-3. Ange ett namn på säkerhetskopia. Ange till exempel *myBizTalkService*för*datum*.
-4. Väljer ett blob storage-konto och sedan på kryssmarkeringen för att starta säkerhetskopieringen.
-
-När säkerhetskopieringen är klar skapas en behållare med det namn du anger i lagringskontot. Den här behållaren innehåller BizTalk Service konfigurationen för säkerhetskopieringen.
-
-#### <a name="backupschedule"></a>Schemalägga en säkerhetskopia
-1. I den klassiska Azure-portalen väljer **BizTalk-tjänst**, Välj BizTalk Service-namnet som du vill schemalägga säkerhetskopieringen och välj sedan den **konfigurera** fliken.
-2. Ange den **säkerhetskopiera Status** till **automatisk**. 
-3. Välj den **Lagringskonto** för att lagra säkerhetskopian, ange den **frekvens** skapa säkerhetskopior, och hur lång tid att behålla säkerhetskopieringar (**kvarhållning dagar**):
-   
-    ![][AutomaticBU]
-   
-    **Anteckningar**     
-   
-   * I **kvarhållning dagar**, kvarhållningsperioden måste vara större än säkerhetskopieringsfrekvensen.
-   * Välj **alltid ha minst en säkerhetskopia**, även om den tidigare kvarhållningsperioden.
-4. Välj **Spara**.
-
-När en schemalagd säkerhetskopiering körs skapas en behållare (för att lagra säkerhetskopierade data) i storage-konto som du har angett. Namnet på behållaren heter *BizTalk Service Name-tid*. 
-
-Om BizTalk Service instrumentpanelen visar en **misslyckades** status:
-
-![Senaste status för schemalagd säkerhetskopiering][BackupStatus] 
-
-Länken öppnar Management Services Åtgärdsloggar för felsökning. Se [BizTalk-tjänst: felsökning med åtgärdsloggar](http://go.microsoft.com/fwlink/p/?LinkId=391211).
+En säkerhetskopia kan vidtas när som helst och är helt styrs av du. Så här skapar du en säkerhetskopia av [REST API för hantering av BizTalk-tjänst på Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ## <a name="restore"></a>Återställ
-Du kan återställa säkerhetskopior från den klassiska Azure-portalen eller från den [återställa BizTalk Service REST API](http://go.microsoft.com/fwlink/p/?LinkID=325582). Det här avsnittet innehåller instruktioner om hur du återställer med den klassiska portalen.
-
-#### <a name="before-restoring-a-backup"></a>Innan du återställer en säkerhetskopia
-* Ny spårning, arkivering och övervakning lagrar kan anges när en BizTalk Service.
-* Samma EDI-Körningsdata har återställts. EDI-Runtime-säkerhetskopian lagras kontrollen tal. Talen återställda kontrollen är i ordning från tidpunkten för säkerhetskopiering. Meddelanden som bearbetas efter den senaste säkerhetskopieringen, kan återställa säkerhetskopiering innehållet orsaka dubbla kontrollen siffror.
-
-#### <a name="restore-a-backup"></a>Återställ en säkerhetskopia
-1. I den klassiska Azure-portalen väljer **ny** > **Apptjänster** > **BizTalk Service** > **återställa**:
-   
-    ![Återställ en säkerhetskopia][Restore]
-2. I **säkerhetskopiering URL**väljer du mappikonen och expandera Azure storage-konto som lagrar konfigurationssäkerhetskopia BizTalk Service. Expandera behållaren och välj den motsvarande säkerhetskopierade txt-fil i den högra rutan. 
-   <br/><br/>
-   Välj **öppna**.
-3. På den **återställa BizTalk-tjänst** anger en **BizTalk tjänstnamnet** och kontrollera den **domän-URL**, **Edition**, och **Region** för återställda BizTalk Service. **Skapa en ny SQL-databasinstans** för spårning av databasen:
-   
-    ![][RestoreBizTalkService]
-   
-    Välj nästa-pilen.
-4. Kontrollera namnet på SQL-databasen, ange den fysiska servern där SQL-databasen skapas och ett användarnamn/lösenord för servern.
-
-    Om du vill konfigurera SQL database edition, storlek och andra egenskaper väljer **konfigurera avancerade databasinställningar**. 
-
-    Välj nästa-pilen.
-
-1. Skapa ett nytt lagringskonto eller ange ett befintligt lagringskonto för BizTalk Service.
-2. Välj på bockmarkeringen för att starta återställningen.
-
-När återställningen är klar, visas en ny BizTalk Service i ett pausat tillstånd på sidan BizTalk-tjänst i den klassiska Azure-portalen.
+Använd för att återställa en säkerhetskopia av [REST API för hantering av BizTalk-tjänst på Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ### <a name="postrestore"></a>När du återställer en säkerhetskopia
 BizTalk Service återställs alltid i en **pausad** tillstånd. I det här tillståndet kan du göra några konfigurationsändringar innan den nya miljön är fungerar, inklusive:
@@ -118,8 +57,6 @@ BizTalk Service återställs alltid i en **pausad** tillstånd. I det här tills
 * Du kan återställa en BizTalk Service för att replikera en befintlig BizTalk Service-miljö. I det här fallet om det finns avtal som konfigurerats i den ursprungliga BizTalk-Services-portalen och som använder en källmapp av FTP-kan du behöva uppdatera avtalen i den nyligen återställda miljön att använda en annan källa FTP-mapp. Annars kan finnas det två olika avtal som försöker hämta samma meddelande.
 * Om du har återställt för miljöer med flera BizTalk Service, kontrollera att du inrikta dig på rätt miljön i Visual Studio-program, PowerShell-cmdlets, REST API: er eller handel Partner hantering OM API: er.
 * Det är en bra idé att konfigurera automatisk säkerhetskopiering på den nyligen återställda BizTalk Service-miljön.
-
-Om du vill starta BizTalk Service i den klassiska Azure-portalen, Välj den återställda BizTalk Service och välj **återuppta** i Aktivitetsfältet. 
 
 ## <a name="what-gets-backed-up"></a>Vad säkerhetskopieras
 När en säkerhetskopia skapas följande objekt som ska säkerhetskopieras:
@@ -194,13 +131,13 @@ Om spårning av databasen tas bort och databas måste återställas, måste det 
 </table>
 
 ## <a name="next"></a>Nästa
-Om du vill skapa Azure BizTalk-tjänst i den klassiska Azure-portalen, går du till [BizTalk-tjänst: etablering med hjälp av Azure klassiska portal](http://go.microsoft.com/fwlink/p/?LinkID=302280). Om du vill börja skapa program går du till [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Om du vill skapa Azure BizTalk-tjänst, gå till [BizTalk-tjänst: etablering](http://go.microsoft.com/fwlink/p/?LinkID=302280). Om du vill börja skapa program går du till [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Se även
 * [Säkerhetskopiera BizTalk-tjänst](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Återställa BizTalk-tjänst från en säkerhetskopia](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk-tjänst: Utvecklare, Basic, Standard och Premium-utgåvor diagram](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk-tjänst: Etablering med hjälp av Azure klassiska portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk-tjänst: etablering](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: Etablering av statusdiagram](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Begränsning](http://go.microsoft.com/fwlink/p/?LinkID=302282)

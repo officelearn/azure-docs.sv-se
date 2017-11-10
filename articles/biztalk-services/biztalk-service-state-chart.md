@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Vad du kan och inte kan göra med BizTalk Service-tillstånd
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Beroende på aktuell status för BizTalk-tjänst finns som du kan eller inte kan utföra på BizTalk-tjänst.
 
-Exempelvis kan du etablera en ny BizTalk-tjänst i den klassiska Azure-portalen. När den har slutförts, BizTalk-tjänst finns i `active` tillstånd. I aktivt läge kan du stoppa, pausa och ta bort BizTalk-tjänst. Om du stoppar tjänsten BizTalk och stoppa misslyckas och BizTalk-tjänst går sedan till en `StopFailed` tillstånd. I den `StopFailed` tillståndet kan du starta om BizTalk-tjänst. Om du försöker en åtgärd som inte tillåts, t.ex. återuppta, inträffar följande fel:
+Exempelvis kan du etablera en ny BizTalk-tjänst. När den har slutförts, BizTalk-tjänst finns i `active` tillstånd. I aktivt läge kan du stoppa, pausa och ta bort BizTalk-tjänst. Om du stoppar tjänsten BizTalk och stoppa misslyckas och BizTalk-tjänst går sedan till en `StopFailed` tillstånd. I den `StopFailed` tillståndet kan du starta om BizTalk-tjänst. Om du försöker en åtgärd som inte tillåts, t.ex. återuppta, inträffar följande fel:
 
 `Operation not allowed`
 
@@ -52,7 +52,6 @@ I följande tabeller beskrivs åtgärder eller de åtgärder som kan göras när
 
 
 ## <a name="see-also"></a>Se även
-* [Skapa en BizTalk Service med hjälp av den klassiska Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Vad du kan göra på instrumentpanelen, övervaka och skala flikar i BizTalk-tjänst](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Vad du får med utvecklare, Basic, Standard och Premium-versioner i BizTalk-tjänst](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [Säkerhetskopiera och återställa en BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

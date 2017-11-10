@@ -1,6 +1,6 @@
 ---
-title: "Kopiera data från Dynamics CRM och 365 med Azure Data Factory | Microsoft Docs"
-description: "Lär dig hur du kopierar data från Dynamics CRM och 365 till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
+title: "Kopiera data från/till Dynamics CRM och 365 med Azure Data Factory | Microsoft Docs"
+description: "Lär dig hur du kopierar data från Dynamics CRM och 365 till stöds sink datalager (eller) från datalager stöds källan till Dynamics CRM och 365 genom att använda en kopia aktivitet i ett Azure Data Factory-pipelinen."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,24 +11,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 1af330596052a92237469aba4729474e7fe417aa
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="copy-data-from-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiera data från Dynamics 365 / Dynamics CRM med hjälp av Azure Data Factory
+# <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiera data från/till Dynamics 365 / Dynamics CRM med hjälp av Azure Data Factory
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Dynamics 365 / Dynamics CRM. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från och till Dynamics 365 / Dynamics CRM. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från Dynamics 365 / Dynamics CRM till alla stöds sink-datalagret. En lista över datakällor som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Dynamics 365 / Dynamics CRM till alla stöds sink-datalagret eller kopiera data från alla datalager stöds källa till Dynamics 365 / Dynamics CRM. En lista över datakällor som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Mer specifikt stöder den här anslutningen Dynamics nedan Dynamics versioner och typer av autentisering:
 
@@ -61,7 +61,11 @@ Följande egenskaper stöds för Dynamics länkade tjänsten:
 | Organisationsnamn | Organisationsnamn Dynamics-instans. | Nej, ska anges om det finns fler än en Dynamics instanser som är associerade med användaren. |
 | AuthenticationType | Autentiseringstypen att ansluta till Dynamics-servern. Ange **”Office365”** för Dynamics Online. | Ja |
 | användarnamn | Ange användarnamn för att ansluta till dynamiska. | Ja |
-| lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Du måste placera lösenordet i Azure Key Vault och konfigurera lösenord som ”AzureKeyVaultSecret”. Mer information finns i [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md) artikel. | Ja |
+| lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Du måste placera lösenordet i Azure Key Vault och konfigurera lösenord som ”AzureKeyVaultSecret”. Mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Ingen datakälla Ja för sink |
+
+>[!IMPORTANT]
+>Kopiera data till Dynamics, uttryckligen [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Dynamics och koppla i den länkade tjänsten som i följande exempel.
 
 **Exempel: Dynamics online med Office 365-autentisering**
 
@@ -78,12 +82,16 @@ Följande egenskaper stöds för Dynamics länkade tjänsten:
             "username": "test@contoso.onmicrosoft.com",
             "password": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "mySecret",
+                "secretName": "<secret name in AKV>",
                 "store":{
-                    "linkedServiceName": "<Azure Key Vault linked service>",
+                    "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
                 }
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -102,7 +110,11 @@ Följande egenskaper stöds för Dynamics länkade tjänsten:
 | Organisationsnamn | Organisationsnamn Dynamics-instans. | Ja |
 | AuthenticationType | Autentiseringstypen att ansluta till Dynamics-servern. Ange **”Ifd”** för Dynamics lokalt med IFD. | Ja |
 | användarnamn | Ange användarnamn för att ansluta till dynamiska. | Ja |
-| lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Observera att du måste placera lösenordet i Azure Key Vault och konfigurera lösenord som ”AzureKeyVaultSecret”. Mer information finns i [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md) artikel. | Ja |
+| lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Observera att du måste placera lösenordet i Azure Key Vault och konfigurera lösenord som ”AzureKeyVaultSecret”. Mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Ingen datakälla Ja för sink |
+
+>[!IMPORTANT]
+>Kopiera data till Dynamics, uttryckligen [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med plats nära din Dynamics och koppla i den länkade tjänsten som i följande exempel.
 
 **Exempel: Dynamics lokalt med IFD med IFD autentisering**
 
@@ -121,12 +133,16 @@ Följande egenskaper stöds för Dynamics länkade tjänsten:
             "username": "test@contoso.onmicrosoft.com",
             "password": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "mySecret",
+                "secretName": "<secret name in AKV>",
                 "store":{
-                    "linkedServiceName": "<Azure Key Vault linked service>",
+                    "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
                 }
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -136,15 +152,16 @@ Följande egenskaper stöds för Dynamics länkade tjänsten:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns på [datauppsättningar](concepts-datasets-linked-services.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Dynamics dataset.
 
-Ange egenskapen type för datauppsättningen till för att kopiera data från Dynamics **DynamicsEntity**. Följande egenskaper stöds:
+Ange typegenskapen för dataset för att kopiera data från/till Dynamics, **DynamicsEntity**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **DynamicsEntity** |Ja |
-| EntityName | Det logiska namnet för att hämta entiteten. | Nej (om ”fråga” i aktivitetskälla har angetts) |
+| EntityName | Det logiska namnet för att hämta entiteten. | Nej för källa (om ”fråga” i aktivitetskälla har angetts), Ja till mottagare |
 
 > [!IMPORTANT]
-> **Avsnittet ”struktur” i dataset krävs för Dynamics**, som definierar kolumnen namn och datatyp för uppgifter som du vill kopiera över. Mer information från [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) och [datatypsmappningen för Dynamics](#data-type-mapping-for-dynamics).
+>- **När du kopierar data från Dynamics avsnittet ”struktur” krävs** i Dynamics dataset som definierar kolumnen namn och datatyp för uppgifter som du vill kopiera över. Mer information från [datauppsättningsstrukturen](concepts-datasets-linked-services.md#dataset-structure) och [datatypsmappningen för Dynamics](#data-type-mapping-for-dynamics).
+>- **När du kopierar data till Dynamics ”struktur”-avsnittet är valfritt** i Dynamics dataset. Vilka kolumner som ska kopieras till bestäms av dataschemat källa. Om datakällan är CSV-filen utan huvud, i datamängden inkommande ange ”strukturen” med kolumnen namn och datatyp som mappar till fält i CSV-fil i taget i ordning.
 
 **Exempel:**
 
@@ -184,7 +201,7 @@ Ange egenskapen type för datauppsättningen till för att kopiera data från Dy
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Dynamics källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Dynamics källa och mottagare.
 
 ### <a name="dynamics-as-source"></a>Dynamics som källa
 
@@ -192,7 +209,7 @@ Om du vill kopiera data från Dynamics anger källa i kopieringsaktiviteten till
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till: **DynamicsSource**  | Ja |
+| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **DynamicsSource**  | Ja |
 | DocumentDB  | FetchXML är en upphovsrättsskyddad frågespråk som används i Microsoft Dynamics (online & lokalt). Se exemplet nedan och Läs mer från [bygga frågor med FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | Nej (om ”entityName” i datamängden har angetts)  |
 
 **Exempel:**
@@ -247,36 +264,84 @@ Om du vill kopiera data från Dynamics anger källa i kopieringsaktiviteten till
 </fetch>
 ```
 
+### <a name="dynamics-as-sink"></a>Dynamics som mottagare
+
+Om du vill kopiera data till Dynamics anger sink i kopieringsaktiviteten till **DynamicsSink**. Följande egenskaper stöds i kopieringsaktiviteten **sink** avsnitt:
+
+| Egenskap | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Egenskapen type för kopiera aktivitet sink måste anges till: **DynamicsSink**  | Ja |
+| WriteBehavior | Åtgärden Skriv beteende.<br/>Tillåtna värde är: **”Upsert”**. | Ja |
+| writeBatchSize | Antalet rader med data som skrivs till Dynamics i varje batch. | Nej (standardvärdet är 10) |
+| ignoreNullValues | Anger om du vill ignorera null-värden från indata (utom nyckelfält) under skrivning.<br/>Tillåtna värden är: **SANT**, och **FALSKT**.<br>-värdet är sant: lämna data i målet objekt ändras när du gör upsert/uppdateringsåtgärden och infoga definierat standardvärde när gör insert-åtgärden.<br/>-FALSKT: uppdatera data i målobjektet till NULL när du gör upsert/uppdateringsåtgärden och infoga NULL-värde när du gör insert-åtgärden.  | Nej (standard är FALSKT) |
+
+>[!NOTE]
+>Standardvärdet för sink writeBatchSize och kopiera aktiviteten [parallelCopies](copy-activity-performance.md#parallel-copy) Dynamics sink är båda 10, vilket betyder 100 poster som skickas till Dynamics samtidigt.
+
+**Exempel:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToDynamics",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Dynamics output dataset>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "DynamicsSink",
+                "writeBehavior": "Upsert",
+                "writeBatchSize": 10,
+                "ignoreNullValues": true
+            }
+        }
+    }
+]
+```
+
 ## <a name="data-type-mapping-for-dynamics"></a>Datatypen mappning för Dynamics
 
 När du kopierar data från Dynamics, används följande mappningar från Dynamics datatyper till Azure Data Factory tillfälliga datatyper. Se [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur kopieringsaktiviteten mappar källtypen schema och data till sink.
 
 Konfigurera motsvarande ADF-datatypen i datauppsättningsstrukturen baserat på käll-Dynamics data skriva med mappningstabellen nedan:
 
-| Dynamics-datatyp | Data factory tillfälliga datatyp |
-|:--- |:--- |
-| AttributeTypeCode.BigInt | Lång |
-| AttributeTypeCode.Boolean | Booleskt värde |
-| AttributeType.Customer | GUID |
-| AttributeType.DateTime | Datum och tid |
-| AttributeType.Decimal | Decimal |
-| AttributeType.Double | dubbla |
-| AttributeType.EntityName | Sträng |
-| AttributeType.Integer | Int32 |
-| AttributeType.Lookup | GUID |
-| AttributeType.ManagedProperty | Booleskt värde |
-| AttributeType.Memo | Sträng |
-| AttributeType.Money | Decimal |
-| AttributeType.Owner | GUID |
-| AttributeType.Picklist | Int32 |
-| AttributeType.Uniqueidentifier | GUID |
-| AttributeType.String | Sträng |
-| AttributeType.State | Int32 |
-| AttributeType.Status | Int32 |
+| Dynamics-datatyp | Data factory tillfälliga datatyp | Stöds som källa | Stöds som mottagare |
+|:--- |:--- |:--- |:--- |
+| AttributeTypeCode.BigInt | Lång | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Booleskt värde | ✓ | ✓ |
+| AttributeType.Customer | GUID | ✓ |  |
+| AttributeType.DateTime | Datum och tid | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
+| AttributeType.Double | dubbla | ✓ | ✓ |
+| AttributeType.EntityName | Sträng | ✓ | ✓ |
+| AttributeType.Integer | Int32 | ✓ | ✓ |
+| AttributeType.Lookup | GUID | ✓ |  |
+| AttributeType.ManagedProperty | Booleskt värde | ✓ |  |
+| AttributeType.Memo | Sträng | ✓ | ✓ |
+| AttributeType.Money | Decimal | ✓ |  |
+| AttributeType.Owner | GUID | ✓ | |
+| AttributeType.Picklist | Int32 | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
+| AttributeType.String | Sträng | ✓ | ✓ |
+| AttributeType.State | Int32 | ✓ |  |
+| AttributeType.Status | Int32 | ✓ |  |
+
 
 > [!NOTE]
 > Datatypen för Dynamics AttributeType.CalendarRules och AttributeType.PartyList stöds inte.
 
-
 ## <a name="next-steps"></a>Nästa steg
-En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats).

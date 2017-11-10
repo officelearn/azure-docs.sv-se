@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Hantera priser och data volym i Application Insights
 
@@ -39,7 +39,7 @@ Finns det [Application Insights sida med priser] [ pricing] för aktuella priser
 Den grundläggande planen är standardinställningen när en ny Application Insights-resurs skapas och räcker för de flesta kunder.
 
 * I den grundläggande planen du debiteras av datavolym: antal byte av telemetri som tagits emot av Application Insights. Datavolymen mäts som storleken på okomprimerade JSON-datapaketet som tagits emot av Application Insights från ditt program.
-För [tabelldata importeras till Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), datavolym mäts som den okomprimerade storleken för filer som skickats till Application Insights.  
+För [tabelldata importeras till Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), datavolym mäts som den okomprimerade storleken för filer som skickats till Application Insights.  
 * Din första 1 GB för varje app är ledigt, så om du bara experimentera eller utveckla kan du inte antagligen kan få betala.
 * [Live mått dataströmmen](app-insights-live-stream.md) data inte räknas för prissättning.
 * [Löpande Export](app-insights-export-telemetry.md) är tillgänglig för en extra per GB-tillägget i den grundläggande planen.

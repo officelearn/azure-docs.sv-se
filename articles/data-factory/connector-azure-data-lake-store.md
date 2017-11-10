@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 6ef76763859482d24c088f58fe361882cc4a619b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daba616debcf445e092697575465311f39e9466f
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Store med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Du kan kopiera data från alla datalager stöds källa till Azure Data Lake Stor
 
 Mer specifikt stöder den här Azure Data Lake Store-anslutningen:
 
-- Kopiera filer med **tjänstens huvudnamn** autentisering.
+- Kopiera filer med **tjänstens huvudnamn** eller **hanterade tjänstidentiteten (MSI)** autentisering.
 - Filer som kopieras-är eller parsning/genererar filer med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>Kom igång
@@ -44,7 +44,23 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 
-Du kan skapa en länkad Azure Data Lake Store-tjänsten med hjälp av service principal autentisering.
+Följande egenskaper stöds för Azure Data Lake Store länkade tjänsten:
+
+| Egenskap | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Egenskapen type måste anges till **AzureDataLakeStore**. | Ja |
+| dataLakeStoreUri | Information om Azure Data Lake Store-konto. Den här informationen har någon av följande format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` eller `adl://[accountname].azuredatalakestore.net/`. | Ja |
+| Klient | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja |
+| subscriptionId | ID för Azure-prenumeration som Data Lake Store-kontot tillhör. | Krävs för sink |
+| resourceGroupName | Azure resursgruppens namn som Data Lake Store-kontot tillhör. | Krävs för sink |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
+
+Respektive finns i avsnitten nedan på fler egenskaper och JSON-exempel för olika typer av autentisering:
+
+- [Med hjälp av service principal autentisering](#using-service-principal-authentication)
+- [Med hanteringstjänster identitiy autentisering](#using-managed-service-identitiy-authentication)
+
+### <a name="using-service-principal-authentication"></a>Med hjälp av service principal autentisering
 
 Om du vill använda huvudnamn autentiseringen av tjänsten registrera en entitet för program i Azure Active Directory (AD Azure) och bevilja åtkomst till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst autentisering](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
@@ -54,21 +70,15 @@ Om du vill använda huvudnamn autentiseringen av tjänsten registrera en entitet
 
 >[!TIP]
 > Kontrollera att du ger service principal rätt behörighet i Azure Data Lake Store:
->- Ge minst som källa, **Läs + Execute** data behörighet att visa och kopiera innehållet i en mapp eller **Läs** tillstånd att kopiera en fil. Inga krav på administratörsnivå kontroll.
->- Ge minst som mottagare, **skriva + köra** data behörighet att skapa underordnade objekt i mappen. Och om du använder Azure IR för att ge kopia (både källa och mottagare är i molnet), för att låta Data Factory identifiera Data Lake Store region, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Om du vill undvika den här IAM-rollen [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för ditt Data Lake Store och koppla i Data Lake Store länkade tjänsten som i följande exempel.
+>- Ge minst som källa, **Läs + Execute** data behörighet att visa och kopiera innehållet i en mapp eller **Läs** tillstånd att kopiera en fil. Inga krav på administratörsnivå kontroll (IAM).
+>- Ge minst som mottagare, **skriva + köra** data behörighet att skapa underordnade objekt i mappen. Och om du använder Azure IR för att ge kopia (både källa och mottagare är i molnet), för att låta Data Factory identifiera Data Lake Store region, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Om du vill undvika den här IAM-rollen explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för ditt Data Lake Store och koppla i Data Lake Store länkade tjänsten som i följande exempel.
 
 Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till **AzureDataLakeStore**. | Ja |
-| dataLakeStoreUri | Information om Azure Data Lake Store-konto. Den här informationen har någon av följande format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` eller `adl://[accountname].azuredatalakestore.net/`. | Ja |
 | servicePrincipalId | Ange programmets klient-ID. | Ja |
 | servicePrincipalKey | Ange programmets nyckeln. Markera det här fältet som en SecureString. | Ja |
-| Klient | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den hovrar muspekaren i det övre högra hörnet i Azure-portalen. | Ja |
-| subscriptionId | ID för Azure-prenumeration som Data Lake Store-kontot tillhör. | Krävs för sink |
-| resourceGroupName | Azure resursgruppens namn som Data Lake Store-kontot tillhör. | Krävs för sink |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -84,6 +94,43 @@ Följande egenskaper stöds:
                 "type": "SecureString",
                 "value": "<service principal key>"
             },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identitiy-authentication"></a>Med hanteringstjänster identitiy autentisering
+
+En datafabrik kan associeras med en [hanterade tjänstidentiteten](data-factory-service-identity.md), som motsvarar denna specifika data factory. Du kan använda den här tjänstidentiteten direkt för Data Lake Store autentisering ungefär som att använda din egen princial tjänst. Det gör denna avsedda factory åtkomst till och kopiera data från/till din Data Lake Store.
+
+Att använda autentisering för hanteringstjänster identitiy (MSI):
+
+1. [Hämta data factory-tjänsten](data-factory-service-identity.md#retrieve-service-identity) genom att kopiera värdet för ”IDENTITY-ID för programmet” skapas tillsammans med din factory.
+2. Ge service identitet åtkomst till Data Lake Store på samma sätt som du gör för tjänstens huvudnamn. Detaljerade anvisningar finns i [tjänst-till-tjänst autentisering - tilldela Azure AD-program till Azure Data Lake Store-konto filen eller mappen](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+
+>[!TIP]
+> Kontrollera att du ger data factory-tjänsten identitiy rätt behörighet i Azure Data Lake Store:
+>- Ge minst som källa, **Läs + Execute** data behörighet att visa och kopiera innehållet i en mapp eller **Läs** tillstånd att kopiera en fil. Inga krav på administratörsnivå kontroll (IAM).
+>- Ge minst som mottagare, **skriva + köra** data behörighet att skapa underordnade objekt i mappen. Och om du använder Azure IR för att ge kopia (både källa och mottagare är i molnet), för att låta Data Factory identifiera Data Lake Store region, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Om du vill undvika den här IAM-rollen explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med platsen för ditt Data Lake Store och koppla i Data Lake Store länkade tjänsten som i följande exempel.
+
+I Azure Data Factory behöver du inte ange några egenskaper förutom den allmänna Data Lake Store-informationen i den länkade tjänsten.
+
+**Exempel:**
+
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<subscription of ADLS>",
             "resourceGroupName": "<resource group of ADLS>"

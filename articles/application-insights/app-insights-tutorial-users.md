@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: c0175d4fb98614d41423b7204fe7eb2aa50d23dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Använd Azure Application Insights för att förstå hur kunder använder ditt program
 
@@ -40,7 +40,7 @@ För att slutföra den här självstudien behöver du:
 - Hämta och installera den [Visual Studio ögonblicksbild Debugger](http://aka.ms/snapshotdebugger).
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](app-insights-asp-net.md). 
 - [Skicka telemetri från ditt program](app-insights-usage-overview.md#send-telemetry-from-your-app) för att lägga till anpassade händelser/sidvisningar
-- Skicka [användarkontext](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-send-user-context) att spåra en användare gör över tid och fullständigt utnyttja funktionerna för användning.
+- Skicka [användarkontext](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) att spåra en användare gör över tid och fullständigt utnyttja funktionerna för användning.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).

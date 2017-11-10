@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 0623847ea1e79c3a45a8fbdcc1d3a551864aefd6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da7ac8f323f9b2ec6303fbc85aa570373a538bcf
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Hur du visar relaterade datatillgångar i Azure Data Catalog?
 Azure Data Catalog kan du visa datatillgångar som rör en valda data tillgången och visa relationer mellan dem. 
@@ -30,6 +30,9 @@ När du registrerar datatillgångar från följande datakällor registrerar Azur
 - Azure SQL Database
 - MySQL
 - Oracle
+
+> [!NOTE]
+> Du måste registrera båda resurserna för Data Catalog import av relationen mellan två datatillgångar på samma gång. Om du har lagt till en av dem separat, lägger du till den igen och andra datatillgång import av relationen mellan dem.
 
 ## <a name="view-related-data-assets"></a>Visa relaterade datatillgångar
 Du kan visa datatillgångar som är relaterade till en vald datamängd den **relationer** fliken som visas i följande bild: 

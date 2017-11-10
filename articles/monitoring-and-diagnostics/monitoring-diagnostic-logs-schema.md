@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för diagnostikloggar i Azure
 
@@ -56,20 +56,36 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 ## <a name="supported-log-categories-per-resource-type"></a>Stöd för kategorier i loggen resurstyp
 |Resurstyp|Kategori|Kategori visningsnamn|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Motorn|Motorn|
+|Microsoft.AnalysisServices/servers|Tjänst|Tjänst|
 |Microsoft.ApiManagement/service|GatewayLogs|Relaterade till ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Jobbloggar|
 |Microsoft.Automation/automationAccounts|JobStreams|Dataströmmar för jobbet|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|DSC-noden Status|
 |Microsoft.Batch/batchAccounts|ServiceLog|Tjänsten loggar|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hämtar mätvärden för slutpunkten, t.ex. bandbredd, utgång osv.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|Aktivitetskörningen|Pipelinen körs aktivitetsloggen|
+|Microsoft.DataFactory/factories|PipelineRuns|Pipeline körs logg|
+|Microsoft.DataFactory/factories|TriggerRuns|Trigger kör logg|
 |Microsoft.DataLakeAnalytics/accounts|Granska|Granskningsloggar|
 |Microsoft.DataLakeAnalytics/accounts|Begäranden|Begäran loggar|
 |Microsoft.DataLakeStore/accounts|Granska|Granskningsloggar|
 |Microsoft.DataLakeStore/accounts|Begäranden|Begäran loggar|
+|Microsoft.Devices/IotHubs|Anslutningar|Anslutningar|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Enhetstelemetrin|
+|Microsoft.Devices/IotHubs|C2DCommands|C2D kommandon|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Enhetens identitet åtgärder|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Överför filåtgärder|
+|Microsoft.Devices/IotHubs|Vägar|Vägar|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|C2D dubbla åtgärder|
+|Microsoft.Devices/IotHubs|TwinQueries|Dubbla frågor|
+|Microsoft.Devices/IotHubs|JobsOperations|Åtgärder för jobb|
+|Microsoft.Devices/IotHubs|DirectMethods|Direkt-metoder|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Åtgärder för enhet|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Tjänståtgärder|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Arkivera loggar|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operativa loggar|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Automatisk skalning loggar|
@@ -78,6 +94,7 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration konto spåra händelser|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Nätverkssäkerhetsgrupphändelse|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Regelräknare för Nätverkssäkerhetsgrupp|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Regeln flödet Nätverkssäkerhetsgrupphändelse|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Läsa in belastningsutjämning avisering händelser|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Läsa in hälsostatus för belastningsutjämnaren avsökning|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS-skydd-meddelanden|
@@ -85,6 +102,11 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Gateway tillgång för programloggen|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Programloggen Gateway prestanda|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Programloggen Gateway-brandväggen|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Gateway diagnostikloggar|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tunnel diagnostikloggar|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Vidarebefordra diagnostikloggar|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager avsökningen Hälsohändelse resultat|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabell med GWM räknare|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure-säkerhetskopiering rapportdata|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery-jobb|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery-händelser|
@@ -93,7 +115,6 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Återställningspunkter för Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Åtgärdsloggar|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operativa loggar|
-|Microsoft.Sql/servers/databases|QueryStore|Query Store|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Körningsstatistik|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store vänta statistik|
 |Microsoft.Sql/servers/databases|Fel|Fel|

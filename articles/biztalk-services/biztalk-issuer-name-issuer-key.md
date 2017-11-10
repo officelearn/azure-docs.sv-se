@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Utfärdarens namn och nyckel
 
@@ -76,13 +76,9 @@ Mer på den [ny AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.as
 Service Bus Utfärdarens namn och nyckeln för utfärdaren som används av BizTalk-tjänst för nätverkskortet. I projektet BizTalk-tjänst i Visual Studio använder du BizTalk Adapter-tjänster för att ansluta till ett lokalt branschspecifika (LOB)-system. För att ansluta, skapa LOB-relä och ange din information för LOB-system. När du gör detta måste ange du också Service Bus Utfärdarens namn och nyckeln för utfärdaren.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Hämta Service Bus Utfärdarens namn och utfärdaren nyckel
-1. Logga in på den [klassiska Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. I det vänstra navigeringsfönstret väljer **Service Bus**.
-3. Välj namnområdet. I Aktivitetsfältet och välj **anslutningsinformationen**. Visar den **standard utfärdaren** (Utfärdarens namn) och **standard nyckeln** (utfärdaren nyckel). Deras värden kan kopieras.  
-
-Sammanfattningsvis:  
-Utfärdarens namn = standard utfärdare  
-Utfärdaren nyckel = Standardnyckeln
+1. Logga in på [Azure Portal](http://portal.azure.com).
+2. Sök efter **Service Bus**, och välj namnområdet. 
+3. Öppna den **principer för delad åtkomst** egenskaper, Välj din princip och visa den **anslutningssträngen** namn och värden.  
 
 ## <a name="next"></a>Nästa
 Avsnitt om ytterligare Azure BizTalk-tjänst:
@@ -95,7 +91,7 @@ Avsnitt om ytterligare Azure BizTalk-tjänst:
 ## <a name="see-also"></a>Se även
 * [Så här: använda ACS Management-tjänsten för att konfigurera tjänstidentiteter](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [BizTalk-tjänst: Utvecklare, Basic, Standard och Premium-utgåvor diagram](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk-tjänst: Etablering med hjälp av Azure klassiska portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk-tjänst: etablering](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk Services: Etablering av statusdiagram](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk Services: Säkerhetskopiering och återställning](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

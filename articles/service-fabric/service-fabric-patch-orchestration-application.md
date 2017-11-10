@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigering av Windows-operativsystemet i Service Fabric-kluster
 
@@ -51,14 +51,6 @@ Korrigering orchestration appen består av följande delkomponenter:
 > Korrigering orchestration appen använder tjänsten Service Fabric reparera manager system för att inaktivera eller aktivera noden och utföra hälsokontroller. Reparationsuppgiften som skapats av korrigering orchestration appen spårar förloppet för Windows Update för varje nod.
 
 ## <a name="prerequisites"></a>Krav
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Minimal stödd version av Service Fabric runtime
-
-#### <a name="azure-clusters"></a>Azure-kluster
-Korrigering orchestration-app måste köras på Azure kluster som har Service Fabric runtime version version 5.5 eller senare.
-
-#### <a name="standalone-on-premises-clusters"></a>Fristående lokala kluster
-Korrigering av orchestration-app måste köras på fristående kluster som har Service Fabric runtime version v5.6 eller senare.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Aktivera tjänsten reparera manager (om det inte redan körs)
 
@@ -135,59 +127,6 @@ Aktivera tjänsten reparera manager:
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Inaktivera automatisk uppdatering för Windows på alla noder
 
 Automatiska uppdateringar kan det leda till förlust av tillgänglighet eftersom flera klusternoder kan starta om på samma gång. Appen korrigering orchestration försöker som standard inaktivera automatisk uppdatering för Windows på varje nod i klustret. Om inställningarna hanteras av en administratör eller en Grupprincip, rekommenderar vi dock ställa in Windows Update-princip att ”Avisera innan hämta” explicit.
-
-### <a name="optional-enable-azure-diagnostics"></a>Valfritt: Aktivera Azure-diagnostik
-
-Kluster som kör Service Fabric runtime version `5.6.220.9494` och ovan samla in korrigering orchestration app loggarna som en del av Service Fabric-loggarna.
-Du kan hoppa över det här steget om klustret körs i Service Fabric runtime version `5.6.220.9494` och högre.
-
-För kluster som kör Service Fabric runtime version mindre än `5.6.220.9494`, loggar för korrigering orchestration appen samlas lokalt på alla klusternoder.
-Vi rekommenderar att du konfigurerar Azure-diagnostik för att ladda upp loggar från alla noder till en central plats.
-
-Information om hur du aktiverar Azure-diagnostik finns [samla in loggar med hjälp av Azure-diagnostik](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Loggfiler för appen korrigering orchestration genereras på följande fasta provider ID: N:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-I Resource Manager mallen goto `EtwEventSourceProviderConfiguration` avsnittet `WadCfg` och Lägg till följande uppgifter:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Om din Service Fabric-klustret har flera nodtyper och sedan det föregående avsnittet måste läggas till för alla de `WadCfg` avsnitt.
 
 ## <a name="download-the-app-package"></a>Hämta app-paket
 
@@ -303,20 +242,16 @@ För att aktivera omvänd proxy i klustret, följer du stegen i [omvänd proxy i
 
 ## <a name="diagnosticshealth-events"></a>Diagnostik/hälsotillstånd händelser
 
-### <a name="collect-patch-orchestration-app-logs"></a>Samla in korrigering orchestration app loggar
+### <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Korrigering orchestration app loggarna har samlats in som en del av Service Fabric-loggar från körningsversion `5.6.220.9494` och högre.
-För kluster som kör Service Fabric runtime version mindre än `5.6.220.9494`, loggar samlas in genom att använda någon av följande metoder.
+Korrigering av orchestration app loggarna har samlats in som en del av Service Fabric runtime loggar.
 
-#### <a name="locally-on-each-node"></a>Lokalt på varje nod
+Om du vill samla in loggar via diagnostiska verktyg/pipeline önskat. Korrigering orchestration programmet använder nedan fast providern ID för att logga händelser via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Loggarna samlas lokalt på varje klusternod för Service Fabric Service Fabric runtime-versionen om är mindre än `5.6.220.9494`. Platsen för att komma åt loggarna är \[Service Fabric\_Installation\_enhet\]:\\PatchOrchestrationApplication\\loggar.
-
-Till exempel om Service Fabric är installerat på enhet D, är sökvägen D:\\PatchOrchestrationApplication\\loggar.
-
-#### <a name="central-location"></a>Central plats
-
-Om Azure-diagnostik är konfigurerad som en del av nödvändiga steg, är loggar för korrigering orchestration appen tillgängliga i Azure Storage.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Hälsorapporter
 

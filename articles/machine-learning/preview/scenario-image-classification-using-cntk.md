@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 336d3ffaee21040a95366e0317cecdb83977ce97
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Bild klassificering med Azure Machine Learning arbetsstationen
 
@@ -91,12 +91,10 @@ Den här kursen används som kör exempel en övre brödtext kläder struktur da
 
 Skriptet `0_downloadData.py` hämtar alla avbildningar till de *fashionTexture-DATA_DIR/bilder/* directory. Vissa av 428 URL: er är sannolikt brutna. Detta är inte ett problem och betyder bara att vi har något lägre avbildningar för träning och testning.
 
-Följande bild visar exempel på de attribut prickad (vänstra två kolumnerna), stripe (mellersta två kolumner) och leopard (höger två kolumner). Anteckningar har utfärdat enligt det övre brödtext kläder objektet.
+Följande bild visar exempel på de attribut (till vänster), prickad stripe (mellannivå) och leopard (höger). Anteckningar har utfärdat enligt det övre brödtext kläder objektet.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 

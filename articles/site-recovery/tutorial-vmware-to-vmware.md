@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 503d7060437d08ed35681fca7f1b9306746b7f44
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Ställ in återställning av lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
 
@@ -45,7 +45,7 @@ Välj vad som ska replikera och var du vill replikera den till.
 2. Välj **till återställningsplatsen** > **Ja, med VMware vSphere-Hypervisor**. Klicka sedan på **OK**.
 3. I **Scout installationsprogrammet**, ladda ned InMage Scout 8.0.1 GA programvara och Registreringsnyckeln. Installationsfilerna för alla komponenter ingår i den hämta ZIP-filen.
 
-## <a name="install-component-updates"></a>Installera Komponentuppdateringar
+## <a name="download-and-install-component-updates"></a>Hämta och installera Komponentuppdateringar
 
  Granska och installera senaste [uppdateringar](#updates). Uppdateringar ska installeras på servrar i följande ordning:
 
@@ -83,7 +83,7 @@ Hämta den [uppdatera](https://aka.ms/asr-scout-update6) ZIP-filen. Filen inneh�
 ## <a name="enable-replication"></a>Aktivera replikering
 
 1. Konfigurera replikering mellan käll- och mål-VMware-platser.
-2. Använd InMage Scout dokumentationen som hämtas med produkten vägledning. Du kan också du kan komma åt dokumentationen på följande sätt:
+2. Se följande dokument för mer information om installation, skydd och återställning:
 
    * [Viktig information](https://aka.ms/asr-scout-release-notes)
    * [Kompatibilitetsmatrix](https://aka.ms/asr-scout-cm)
@@ -95,6 +95,8 @@ Hämta den [uppdatera](https://aka.ms/asr-scout-update6) ZIP-filen. Filen inneh�
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 uppdatering 6 
 Uppdaterad: Oktober 12 2017
+
+Hämta [Scout uppdatering 6](https://aka.ms/asr-scout-update6).
 
 Scout uppdatering 6 är en kumulativ uppdatering. Den innehåller alla korrigeringar från uppdatering 1 för uppdatering 5 samt nya korrigeringar och förbättringar som beskrivs nedan. 
 

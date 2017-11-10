@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: e1099d2cd7eeccbe76d762028a0c5d5f95f53026
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 5a0d25d698ddb15b4ba88d322c07a28b329c4add
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>Övervaka Azure SQL-datasynkronisering (förhandsversion) med OMS logganalys 
 
@@ -24,19 +24,19 @@ En översikt över SQL datasynkronisering finns [synkronisera data över flera d
 
 Du behöver inte längre att söka igenom loggarna för varje synkronisering grupp individuellt för att leta efter problem. Du kan övervaka alla synkroniseringsgrupper från någon av dina prenumerationer på en plats med hjälp av en anpassad vy i OMS (Operations Management Suite). Den här vyn hämtar information som är viktiga för datasynkronisering för SQL-kunder.
 
-![Data instrumentpanelen för övervakning av synkronisering](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.jpg)
+![Data instrumentpanelen för övervakning av synkronisering](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Automatisk e-postaviseringar
 
-Du behöver inte längre att kontrollera loggen manuellt i Azure-portalen eller via PowerShell eller REST API. Genom att utnyttja [OMS logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), du kan skapa varningar som gå direkt till de e-postadresserna för de som måste finns i händelse av ett fel.
+Du behöver inte längre att kontrollera loggen manuellt i Azure-portalen eller via PowerShell eller REST API. Med [OMS logganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), du kan skapa varningar som gå direkt till e-postadresser för de personer som behöver se dem när ett fel uppstår.
 
-![Data synkronisera e-postaviseringar](media/sql-database-sync-monitor-oms/sync-email-notifications.jpg)
+![Data synkronisera e-postaviseringar](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
-## <a name="how-do-you-set-this-up"></a>Hur du konfigurerar detta? 
+## <a name="how-do-you-set-up-these-monitoring-features"></a>Hur ställer du in dessa övervakningsfunktioner? 
 
-Implementera en anpassad OMS övervakningslösning för synkronisering för SQL-Data på mindre än en timme genom att göra följande saker.
+Implementera en anpassad OMS övervakningslösning för synkronisering för SQL-Data på mindre än en timme genom att göra följande:
 
-Du behöver konfigurera 3 komponenter:
+Du måste konfigurera tre komponenter:
 
 -   En PowerShell-runbook att mata in SQL datasynkronisering loggdata till OMS.
 
@@ -70,7 +70,7 @@ Mer information om hur du skapar en runbook finns [min första PowerShell-runboo
 
 1.  Under Azure Automation-konto markerar du den **Runbooks** Processautomatisering på fliken.
 
-2.  Välj **lägga till en Runbooks** i det övre vänstra hörnet på sidan Runbooks.
+2.  Välj **lägga till en Runbook** i det övre vänstra hörnet på sidan Runbooks.
 
 3.  Välj **importera en befintlig Runbook**.
 
@@ -80,13 +80,13 @@ Mer information om hur du skapar en runbook finns [min första PowerShell-runboo
 
 6.  Under Azure Automation-kontot väljer du den **variabler** fliken under delade resurser.
 
-7.  Välj **lägga till en variabel** på sidan variabler. Vi behöver skapa en variabel för att lagra den senaste körningstiden för runbook. Om du har flera runbooks, behöver du en variabel för varje runbook.
+7.  Välj **lägga till en variabel** på sidan variabler. Skapa en variabel för att lagra den senaste körningstiden för runbook. Om du har flera runbooks, behöver du en variabel för varje runbook.
 
 8.  Ange variabelnamnet som `DataSyncLogLastUpdatedTime` och ange typen DateTime.
 
 9.  Välj runbook och klicka på redigeringsknappen överst på sidan.
 
-10. Gör de ändringar som krävs för ditt konto och konfigurationen av SQL-datasynkronisering. (Se exempelskript mer detaljerad information.)
+10. Gör de ändringar som krävs för ditt konto och konfigurationen av SQL-datasynkronisering. (Mer information finns i exempelskript.)
 
     1.  Azure information.
 
@@ -96,7 +96,7 @@ Mer information om hur du skapar en runbook finns [min första PowerShell-runboo
 
 11. Köra runbook i rutan. Kontrollera att det lyckades.
 
-    Om du har fel, kontrollera att du har den senaste PowerShell module installerad. Du kan göra detta den **moduler galleriet** i Automation-kontot.
+    Om du har fel, kontrollera att du har den senaste PowerShell module installerad. Du kan installera den senaste PowerShell-modulen i den **moduler galleriet** i Automation-kontot.
 
 12. Klicka på **publicera**
 
@@ -118,7 +118,7 @@ Så här schemalägger runbook:
 
 ### <a name="check-the-automation"></a>Kontrollera automatisering
 
-Övervaka om ditt automation körs som förväntat, under **översikt** ditt automation-konto kan hitta den **jobbet statistik** visa under **övervakning**. Fäst det på instrumentpanelen för enkel visning. Lyckad körningar av runbook visas som ”slutförd” och misslyckades körs visas som ”misslyckades”.
+Övervaka om ditt automation körs som förväntat, under **översikt** ditt automation-konto kan hitta den **jobbet statistik** visa under **övervakning**. Fäst den här vyn i instrumentpanelen för enkel visning. Lyckad körningar av runbook visas som ”slutförd” och misslyckades körs visas som ”misslyckades”.
 
 ## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>Skapa en OMS Log Reader avisering för e-postaviseringar
 
@@ -136,7 +136,7 @@ Om du vill skapa en avisering som använder OMS logganalys, göra följande. En 
 
     1.  Anger det sammanlagda värdet **större än**.
 
-    2.  Efter **större än**, ange tröskelvärdet för att vara inaktiv innan du får meddelanden. Tillfälliga fel förväntas i datasynkronisering. Vi rekommenderar att du anger tröskelvärdet till 5 för att minska bruset.
+    2.  Efter **större än**, ange tröskelvärdet för att vara inaktiv innan du får meddelanden. Tillfälliga fel förväntas i datasynkronisering. Ange tröskelvärdet för att minska bruset till 5.
 
 5.  Under **åtgärder**, ange **e-postavisering** ”yes”. Ange de önskade e-postmottagare.
 
@@ -168,7 +168,7 @@ Om du vill konfigurera OMS-vy, kan du göra följande:
 
         2.  Uppdatera Sync gruppnamn på panelerna för varje grupp med synkronisering.
 
-    3.  Onn varje panelen, uppdatera titeln efter behov.
+    3.  Uppdatera titeln på varje bricka.
 
 4.  Klicka på **spara** och vyn är klar.
 
@@ -189,10 +189,11 @@ Hämta kodexempel som beskrivs i den här artikeln från följande platser:
 -   [Synkronisera loggen OMS datavy](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Nästa steg
-eller mer information om SQL datasynkronisering finns:
+För mer information om SQL-datasynkronisering, se:
 
 -   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md)
 -   [Kom igång med Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
+-   [Metodtips för Azure SQL-datasynkronisering](sql-database-best-practices-data-sync.md)
 -   [Felsökning av problem med Azure SQL-datasynkronisering](sql-database-troubleshoot-data-sync.md)
 
 -   Slutför PowerShell-exempel som visar hur du konfigurerar SQL datasynkronisering:

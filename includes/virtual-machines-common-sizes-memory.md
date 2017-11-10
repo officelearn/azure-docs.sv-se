@@ -1,4 +1,6 @@
 
+Minnesoptimerade VM-storlekar erbjudande högt minne att CPU-förhållande som är bra för relationsdatabas servrar, medelstora till stora cacheminnen och analyser i minnet. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt genomflöde och nätverket lagringsprestanda för varje storlek i den här grupperingen. 
+
 * M-serien erbjuder högst antal virtuella processorer (upp till 128 virtuella processorer) och störst minne (upp till 2,0 TiB) för virtuella datorer i molnet.  Serien är det perfekta valet för mycket stora databaser eller andra program som har nytta av många virtuella processorer och stora mängder minne.
 
 * Dv2-serien, D-serien, G-serien och DS/GS-motsvarigheterna är idealiska för program som kräver snabbare virtuella processorer, bättre prestanda för temporär lagring eller som har högre minneskrav.  De utgör en kraftfull kombination för många program i företagsklass.

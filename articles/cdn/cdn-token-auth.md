@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Att säkra Azure Content Delivery Network tillgångar med tokenautentisering
 
@@ -30,7 +30,7 @@ Token-autentisering är en mekanism som gör det möjligt att förhindra att Azu
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Tokenautentisering verifierar begäranden som genereras av en tillförlitlig plats genom att kräva att begäranden som innehåller en token-värde som innehåller kodad information om beställaren. Innehållet skickades till en beställare bara om kodad information uppfyller kraven. annars nekas begäranden. Du kan ställa in kraven med hjälp av en eller flera av följande parametrar:
+Tokenautentisering verifierar att begäranden som genereras av en betrodd plats genom att kräva att begäranden som innehåller en token-värde som innehåller kodad information om beställaren. Innehållet skickades till en beställare bara om kodad information uppfyller kraven. annars nekas begäranden. Du kan ställa in kraven med hjälp av en eller flera av följande parametrar:
 
 - Land: Tillåt eller neka förfrågningar som kommer från länder som anges av deras [landskod](https://msdn.microsoft.com/library/mt761717.aspx).
 - URL: Tillåt endast förfrågningar som matchar den angivna resursen eller sökväg.
@@ -41,8 +41,6 @@ Tokenautentisering verifierar begäranden som genereras av en tillförlitlig pla
 - Förfallotid: tilldela viss datum och tid för att säkerställa att en länk förblir giltig endast för en begränsad tidsperiod.
 
 Mer information finns i de detaljerade konfigurationen för varje parameter i [konfigurerar tokenautentisering](#setting-up-token-authentication).
-
-När du skapar en krypterad token kan du lägga till den som en frågesträng till slutet av URL-sökvägen till filen. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
 ## <a name="reference-architecture"></a>Referensarkitektur
 
@@ -64,15 +62,21 @@ I följande flödesschema beskrivs hur Azure CDN verifierar klientens begäran o
 
 2. Hovra över **HTTP stora**, och klicka sedan på **Token Auth** i utfällda. Du kan ställa in krypteringsnyckeln och kryptering parametrar på följande sätt:
 
-    1. Ange en unik krypteringsnyckel i den **primärnyckel** rutan och även ange en reservnyckel i den **Reservnyckel** rutan.
-
-        ![Konfigurationsnyckel för CDN-token auth](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    1. Skapa en eller flera krypteringsnycklar. En krypteringsnyckel är skiftlägeskänsligt och kan innehålla vilken kombination av alfanumeriska tecken. Andra typer av tecken, inklusive blanksteg tillåts inte. Den maximala längden är 250 tecken. För att säkerställa att krypteringsnycklarna är slumpmässig, rekommenderas det att du skapar dem med hjälp av verktyget OpenSSL. Verktyget OpenSSL har följande syntax: `rand -hex <key length>`. Till exempel `OpenSSL> rand -hex 32`. Skapa både en primär och en reservnyckel för att undvika driftsavbrott. En reservnyckel ger oavbruten tillgång till ditt innehåll när primärnyckel uppdateras.
     
-    2. Ställ in kryptering parametrar med verktyget kryptera. Du kan tillåta eller neka förfrågningar baserat på förfallotid, land, referent, protokoll och klientens IP-Adressen (i valfri kombination) med verktyget kryptera. 
+    2. Ange en unik krypteringsnyckel i den **primärnyckel** rutan och även ange en reservnyckel i den **Reservnyckel** rutan.
 
-        ![CDN kryptera verktyget](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+    3. Välja den minsta kryptering versionen för varje nyckel från dess **minimiversionen kryptering** nedrullningsbara listan och klicka sedan på **uppdatering**:
+       - **V2**: Anger att nyckeln kan användas för att generera version 2.0 och 3.0-token. Använd det här alternativet om du övergång från en äldre version 2.0 krypteringsnyckeln till en nyckel för version 3.0.
+       - **V3**: (rekommenderas) anger att nyckeln endast kan användas för att generera token för version 3.0.
 
-       Ange värden för en eller flera av följande parametrar för kryptering i den **kryptera verktyget** område:  
+    ![Konfigurationsnyckel för CDN-token auth](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    
+    4. Verktyget kryptera används för att ställa in parametrar för kryptering och generera en token. Du kan tillåta eller neka förfrågningar baserat på förfallotid, land, referent, protokoll och klientens IP-Adressen (i valfri kombination) med verktyget kryptera. Även om det finns ingen gräns för antalet och kombination av parametrar som kan kombineras för att skapa en token, är den totala längden för en token högst 512 tecken. 
+
+       ![CDN kryptera verktyget](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+
+       Ange värden för en eller flera av följande parametrar för kryptering i den **kryptera verktyget** avsnitt:  
 
        - **ec_expire**: tilldelar en förfallotid till en token efter vilken token upphör att gälla. Begäranden skickas efter förfallotiden nekas. Den här parametern används en Unix-tidsstämpel som baseras på antalet sekunder sedan standard epok av `1/1/1970 00:00:00 GMT`. (Du kan använda online verktyg för att konvertera mellan standard och Unix tid.) Om du vill att token ut vid exempelvis `12/31/2016 12:00:00 GMT`, använda tidsstämpelvärde Unix `1483185600`, enligt följande. 
     
@@ -98,7 +102,7 @@ I följande flödesschema beskrivs hur Azure CDN verifierar klientens begäran o
     
        - **ec_ref_allow**: endast tillåta begäranden från den angivna referent. En referent identifierar URL-Adressen till den webbsida som är länkad till den begärda resursen. Inkludera inte protokollet i referent parametervärdet. Följande typer av indata är tillåtna för parametervärde:
            - Ett värdnamn eller ett värdnamn och en sökväg.
-           - Flera referenter. Om du vill lägga till flera referenter, Avgränsa varje referent med kommatecken. Om du anger ett värde för referent, men referent information skickas inte i begäran på grund av konfiguration av webbläsaren, nekas de begäranden som standard. 
+           - Flera referenter. Om du vill lägga till flera referenter, Avgränsa varje referent med kommatecken. Om du anger ett värde för referent, men referent information skickas inte i begäran på grund av konfiguration av webbläsaren, nekas begäran som standard. 
            - Begäranden med referent information saknas. Ange den text som ”saknas” eller ett tomt värde för att tillåta dessa typer av begäranden. 
            - Underdomäner. Om du vill tillåta underdomäner, anger du en asterisk (\*). Till exempel för att tillåta alla underdomäner i `consoto.com`, ange `*.consoto.com`. 
            
@@ -116,13 +120,17 @@ I följande flödesschema beskrivs hur Azure CDN verifierar klientens begäran o
             
          ![CDN ec_clientip exempel](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 
-    3. När du är klar med att ange parametervärden för kryptering, Välj typ av nyckel för kryptering (om du har skapat både en primär och en reservnyckel) från den **nyckel för att kryptera** lista, en version av kryptering från den  **Kryptering** listan och klicka sedan på **kryptera**.
+    5. När du är klar med att ange parametervärden för kryptering markerar du en nyckel för att kryptera (om du har skapat både en primär och en reservnyckel) från den **nyckel för att kryptera** lista.
+    
+    6. Välj en kryptering version från den **kryptering** lista: **V2** för version 2 eller **V3** för version 3 (rekommenderas). Klicka på **kryptera** att generera token.
+
+    När token som har genererats visas den i den **genereras Token** rutan. Om du vill använda token, lägger du till dem som en frågesträng till slutet av filen i URL-sökväg. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    4. Du kan testa din token med verktyget dekryptering. Klistra in token-värde i den **Token för att dekryptera** rutan. Välj den typ av krypteringsnyckeln för avkryptering från den **nyckel att dekryptera** nedrullningsbara listan och klicka sedan på **dekryptera**.
+    7. Du kan testa din token med verktyget dekryptering. Klistra in token-värde i den **Token för att dekryptera** rutan. Välj kryptering nyckelanvändning från den **nyckel att dekryptera** nedrullningsbara listan och klicka sedan på **dekryptera**.
 
-    5. Du kan också anpassa typ av svarskod som returneras när en begäran nekas. Välj koden från den **svarskoden** listrutan och klicka på **spara**. Den **403** svarskoden (förbjuden) väljs som standard. För vissa svarskoder, du kan också ange Webbadressen till felsidan i den **huvudvärde** rutan. 
+    När token dekrypteras dess parametrar visas i den **ursprungliga parametrarna** rutan.
 
-    6. När du har genererat en krypterad token kan du lägga till den som en frågesträng till slutet av filen i URL-sökväg. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    8. Du kan också anpassa typ av svarskod som returneras när en begäran nekas. Välj koden från den **svarskoden** listrutan och klicka på **spara**. Den **403** svarskoden (förbjuden) väljs som standard. För vissa svarskoder, du kan också ange Webbadressen till felsidan i den **huvudvärde** rutan. 
 
 3. Under **HTTP stora**, klickar du på **regelmotor**. Du kan använda regelmotor för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen tokenautentisering och aktivera ytterligare token autentisering-relaterade funktioner. Mer information finns i [regler motorn referens](cdn-rules-engine-reference.md).
 
@@ -151,4 +159,4 @@ Tillgängliga språk är:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN funktioner och providern priser
 
-Mer information finns i [CDN-översikt](cdn-overview.md).
+Mer information om funktionerna finns [CDN-översikt](cdn-overview.md). Information om priser finns i [innehållsleveransnätverk priser](https://azure.microsoft.com/pricing/details/cdn/).

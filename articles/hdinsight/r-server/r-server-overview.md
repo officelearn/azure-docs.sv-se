@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 47896493fdaf651b8cf74a1ddf4fcffdd51d2972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till R Server och öppen källkod R-funktioner på HDInsight
 
@@ -44,7 +44,9 @@ Du har möjlighet att lägga till åtkomst till ytterligare Blob och Data lake l
 Du kan också använda [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) som ett lagringsalternativ för användning på kantnoden. Azure Files kan du montera en filresurs som skapats i Azure Storage till Linux-filsystem. Mer information om de här alternativen för datalagring för R Server på HDInsight-kluster finns [Azure Storage-alternativen för R Server på HDInsight-kluster](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Åtkomst R Server i klustret
-Du kan ansluta till R Server på kantnod med en webbläsare, under förutsättning att du har valt att ta RStudio servern under etableringen. Om du inte har installerat den vid etablering av klustret, kan du lägga till den senare. Information om hur du installerar RStudio Server när du har skapat ett kluster finns i [RStudio installera Server på HDInsight-kluster](r-server-install-r-studio.md). Du kan också ansluta till R-Server med SSH/PuTTY för att få åtkomst till R-konsolen. 
+Du kan ansluta till R Server på kantnod med en webbläsare. Den installeras som standard när klustret skapas. Mer information finns i [hämta stared med R Server på HDInsight](r-server-get-started.md).
+
+Du kan också ansluta till R-Server från kommandoraden med hjälp av SSH/PuTTY åtkomst till R-konsolen. 
 
 ## <a name="develop-and-run-r-scripts"></a>Utveckla och köra R-skript
 R-skript som du skapar och kör kan använda 8000 + öppen källkod R-paket förutom paralleliserad och distribuerade-rutiner finns i ScaleR-biblioteket. I allmänhet körs ett skript som körs med R Server på noden edge inom R-tolken på noden. Undantagen är de steg som måste anropa en ScaleR funktion med en kontext för beräkning som har angetts till Hadoop kartan minska (RxHadoopMR) eller Spark (RxSpark). I det här fallet körs funktionen i ett distribuerat sätt över dessa (aktivitet) datanoder i klustret som är associerade med de data som refererar till. Mer information om alternativ för olika beräkning kontexten finns [Compute-kontexten alternativ för R Server på HDInsight](r-server-compute-contexts.md).
@@ -87,7 +89,7 @@ Underhåll tillämpa operativsystemskorrigeringar och andra uppdateringar utför
 Eftersom huvudnoderna är redundant och påverkas inte alla datanoder, kan alla jobb som körs under den här tiden långsammare. De bör fortfarande köra att slutföras, men. Anpassade programvara eller lokala data som du har bevaras över händelserna underhåll om ett oåterkalleligt fel inträffar som kräver att klustret.
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>Lär dig mer om IDE-alternativ för R Server på ett HDInsight-kluster
-Linux-kantnod för ett HDInsight-kluster är stannplan för R-baserade analys. Nya versioner av HDInsight tillhandahåller en standardalternativet för installation av [RStudio Server](https://www.rstudio.com/products/rstudio-server/) på kantnod som en webbläsarbaserad IDE. Användning av RStudio Server som IDE-miljö för utveckling och körning av R-skript kan vara betydligt mer produktiv än att bara använda R-konsolen. Om du inte valde att lägga till RStudio Server när du skapar klustret men vill lägga till den senare och sedan se [installera R Studio Server på HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio). +
+Linux-kantnod för ett HDInsight-kluster är stannplan för R-baserade analys. Nya versioner av HDInsight ger en standardinstallation av RStudio Server på kantnoden som en webbläsarbaserad IDE. Användning av RStudio Server som IDE-miljö för utveckling och körning av R-skript kan vara betydligt mer produktiv än att bara använda R-konsolen.
 
 Ett annat alternativ för fullständig IDE är att installera en stationär IDE och använda den för att få åtkomst till klustret med hjälp av en remote kartan minska eller Spark beräknings-kontext. Alternativen är Microsofts [R Tools för Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS) RStudio och Walware datorns Eclipse-baserade [StatET](http://www.walware.de/goto/statet).
 
@@ -100,6 +102,5 @@ Avgifter som är associerade med ett HDInsight-kluster med R Server är struktur
 Mer information om hur du använder R Server med HDInsight-kluster finns i följande avsnitt:
 
 * [Komma igång med R Server på HDInsight](r-server-get-started.md)
-* [Lägga till RStudio Server till HDInsight (om det inte installerades när klustret skapades)](r-server-install-r-studio.md)
 * [Alternativ för beräkningskontexter för R Server på HDInsight](r-server-compute-contexts.md)
 * [Alternativ för Azure Storage för R Server på HDInsight](r-server-storage.md)

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2810d13d40272269341751b19b3010a8b135139
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installera och konfigurera Terraform för att etablera virtuella datorer och annan infrastruktur till Azure
  
 Terraform ger ett enkelt sätt att definiera, förhandsgranska och distribuera moln-infrastruktur med hjälp av en [enkel templating språk](https://www.terraform.io/docs/configuration/syntax.html). Den här artikeln beskriver de nödvändiga stegen för att använda Terraform att etablera resurser i Azure. 
 
 > [!TIP]
-> Terraform installeras som standard i den [Bash i Azure Cloud Shell upplevelsen](/azure/cloud-shell/quickstart). Förkonfigureras också med autentiseringsuppgifter och [Azure Terraform moduler](https://registry.terraform.io/modules/Azure). Genom att använda molnet Shell kan du hoppa över installationen/delar av det här dokumentet.
+Mer information om hur du använder Terraform med Azure finns i [Terraform hubb](/azure/terraform). Terraform installeras som standard i den [moln Shell](/terraform/terraform-cloud-shell). Genom att använda molnet Shell kan du hoppa över installationen/delar av det här dokumentet.
 
 ## <a name="install-terraform"></a>Installera Terraform
 

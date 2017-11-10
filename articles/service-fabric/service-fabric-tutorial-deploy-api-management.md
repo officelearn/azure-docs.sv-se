@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8ff8c425189efdd7ea21984528bf7ea765e17955
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e28ea6df24b9df144552739427427ee14e998584
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuera API Management med Service Fabric
-Den här kursen ingår två i en serie. Den här kursen visar hur du ställer in [Azure API Management](../api-management/api-management-key-concepts.md) med Service Fabric att dirigera trafik till en backend-tjänst i Service Fabric.  När du är klar kan har du distribuerat API-hantering till ett virtuellt nätverk, konfigurerat en API-åtgärd för att skicka trafik till backend-tillståndslösa tjänster. Mer information om Azure API Management scenarier med Service Fabric finns i [översikt](service-fabric-api-management-overview.md) artikel.
+Den här kursen ingår tre i en serie.  Distribuera Azure API Management med Service Fabric är ett avancerat scenario användbart när du vill publicera API: er med en omfattande uppsättning regler för routning till backend-Service Fabric-tjänster. Den här kursen visar hur du ställer in [Azure API Management](../api-management/api-management-key-concepts.md) med Service Fabric att dirigera trafik till en backend-tjänst i Service Fabric.  När du är klar kan har du distribuerat API-hantering till ett virtuellt nätverk, konfigurerat en API-åtgärd för att skicka trafik till backend-tillståndslösa tjänster. Mer information om Azure API Management scenarier med Service Fabric finns i [översikt](service-fabric-api-management-overview.md) artikel.
 
 I den här guiden får du lära dig hur man:
 
@@ -63,6 +63,10 @@ az account set --subscription <guid>
 Molnprogram måste vanligtvis en frontend-gateway att tillhandahålla en enda åtkomstpunkt för inkommande trafik för användare, enheter eller andra program. I Service Fabric kan en gateway vara alla tillståndslösa tjänster, till exempel ett ASP.NET Core-program eller en annan tjänst för meddelanden om ingångs trafik, till exempel Händelsehubbar, IoT-hubb eller Azure API Management. Den här kursen är en introduktion till Azure API Management som en gateway till Service Fabric-program. API Management integreras direkt med Service Fabric, så att du kan publicera API: er med en omfattande uppsättning regler för routning till backend-Service Fabric-tjänster. 
 
 Nu när du har en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure, distribuera API-hantering för virtuella nätverk (VNET) i undernätet och NSG för API-hantering. I den här självstudien API Management Resource Manager-mall som är förkonfigurerad att använda namnen på virtuella nätverk, undernät och NSG: N som du skapade i föregående [Windows kluster kursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-vägledningen för klustret](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
+
+Den här kursen distribuerar följande topologin till Azure som API-hantering och Service Fabric finns i undernät i samma virtuella nätverk:
+
+ ![Bildrubrik][sf-apim-topology-overview]
 
 Hämta följande Resource Manager-mall och parametrar filen:
  
@@ -404,3 +408,6 @@ I den här självstudiekursen lärde du dig att:
 
 [cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

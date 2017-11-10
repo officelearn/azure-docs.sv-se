@@ -1,5 +1,6 @@
+Lagring optimerade VM-storlekar erbjuder ett högt genomflöde och -i/o och lämpar sig för Stordata, SQL och NoSQL-databaser. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt genomflöde och nätverket lagringsprestanda för varje storlek i den här grupperingen. 
 
-Ls-serien är optimerad för arbetsbelastningar som kräver temporär lagring med korta svarstider, som NoSQL-databaser (t.ex. Cassandra, MongoDB, Cloudera och Redis). Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel® Xeon®-processorn](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Ls-serien uppnår samma processorprestanda som G/GS-serien och levereras med 8 GiB minne per virtuell processor.  
+Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel® Xeon®-processorn](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Ls-serien uppnår samma processorprestanda som G/GS-serien och levereras med 8 GiB minne per virtuell processor.  
 
 ## <a name="ls-series"></a>Ls-serien
 

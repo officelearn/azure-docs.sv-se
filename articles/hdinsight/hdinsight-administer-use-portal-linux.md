@@ -3,7 +3,7 @@ title: "Hantera Hadoop-kluster i HDInsight med hjälp av Azure-portalen | Micros
 description: "Lär dig mer om att skapa och hantera HDInsight-kluster med Azure-portalen."
 services: hdinsight
 documentationcenter: 
-author: ashishthaps
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: ashishtha
-ms.openlocfilehash: 704d76808fbc5f7bde98d2fca291ac7c2796db88
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: jgao
+ms.openlocfilehash: 7d5534649595a3109442619e0adf13c0b354cc0f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal
 

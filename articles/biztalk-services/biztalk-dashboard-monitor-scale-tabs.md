@@ -1,6 +1,6 @@
 ---
 title: "Instrumentpanelen, övervaka, skala, konfigurera och Hybridanslutningar i BizTalk-tjänst | Microsoft Docs"
-description: "Läs mer om kontroller och övervaka prestanda på flikarna klassiska portalen för BizTalk-tjänst: instrumentpanelen, övervaka, skala, konfigurera och Hybridanslutningar. MABS WABS"
+description: "Läs mer om kontroller och övervaka prestanda för BizTalk-tjänst"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Granska flikarna instrumentpanel, övervaka, skala, konfigurera och hybridanslutning
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 När du skapar BizTalk Service och distribuera ditt program kan du ändra vissa inställningar BizTalk Service och övervaka programprestanda. 
 
-När du öppnar den klassiska Azure-portalen kan du placeras automatiskt på den **alla objekt** fliken. Om du vill visa BizTalk Service, Välj din BizTalk Service i den **alla objekt** fliken eller Välj den **BIZTALK-tjänst** fliken; och välj sedan namnet på din BizTalk Service.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Detta öppnar ett nytt fönster med följande flikar. Det här avsnittet beskrivs de här flikarna.
 
@@ -84,9 +84,9 @@ Till exempel du BizTalk Service att använda en ny primärnyckel för Lagringsko
 <br/><br/>
 <ol>
 <li>Välj BizTalk Service och välj <strong>synkronisera nycklar</strong>. Välj den sekundära nyckeln. När du gör detta startar BizTalk Service med hjälp av den sekundärnyckeln.</li>
-<li>Välj ditt lagringskonto och återskapa den primärnyckeln i den klassiska Azure-portalen. Kom ihåg att BizTalk Service med hjälp av den sekundärnyckeln.</li>
+<li>Välj ditt lagringskonto och återskapa den primärnyckeln. Kom ihåg att BizTalk Service med hjälp av den sekundärnyckeln.</li>
 <li>Välj BizTalk Service och välj <strong>synkronisera nycklar</strong>. Nu väljer du den primärnyckeln. Det här är den nya primärnyckeln du återskapas.</li>
-<li>Välj ditt lagringskonto i den klassiska Azure-portalen och återskapa den sekundärnyckeln.</li>
+<li>Välj ditt lagringskonto och återskapa den sekundärnyckeln.</li>
 </ol>
 <br/>
 Den här processen kallas ”förnyelse nycklar”. Syftet är att användarna ska växla mellan primärnyckeln och sekundärnyckeln utan att störa BizTalk Service.</td>
@@ -169,7 +169,7 @@ En beskrivning av dessa prestandamått, gå till [tillgängliga mått](#Metrics)
 </tr>
 <tr>
 <td><strong>Prenumerationsnamn</strong></td>
-<td>Visar den prenumeration som är värd för BizTalk Service. Prenumerationen styr åtkomsten till den klassiska Azure-portalen.</td>
+<td>Visar den prenumeration som är värd för BizTalk Service. Prenumerationen reglerar åtkomsten.</td>
 </tr>
 <tr>
 <td><strong>Prenumerations-ID</strong></td>
@@ -177,7 +177,7 @@ En beskrivning av dessa prestandamått, gå till [tillgängliga mått](#Metrics)
 </tr>
 </table>
 
-[BizTalk-tjänst: Etablering med hjälp av Azure klassiska portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) visar hur du skapar en BizTalk Service.
+[BizTalk-tjänst: Etablering](http://go.microsoft.com/fwlink/p/?LinkID=302280) visar hur du skapar en BizTalk Service.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>Hantera anslutningsinformationen, synkronisera nycklar, och ta bort i Aktivitetsfältet:
 <table border="1">
@@ -206,9 +206,9 @@ Till exempel du BizTalk Service att använda en ny primärnyckel för Lagringsko
 <br/><br/>
 <ol>
 <li>Välj BizTalk Service och välj <strong>synkronisera nycklar</strong>. Välj den sekundära nyckeln. När du gör detta startar BizTalk Service med hjälp av den sekundärnyckeln.</li>
-<li>Välj ditt lagringskonto och återskapa den primärnyckeln i den klassiska Azure-portalen. Kom ihåg att BizTalk Service med hjälp av den sekundärnyckeln.</li>
+<li>Välj ditt lagringskonto och återskapa den primärnyckeln. Kom ihåg att BizTalk Service med hjälp av den sekundärnyckeln.</li>
 <li>Välj BizTalk Service och välj <strong>synkronisera nycklar</strong>. Nu väljer du den primärnyckeln. Det här är den nya primärnyckeln du återskapas.</li>
-<li>Välj ditt lagringskonto i den klassiska Azure-portalen och återskapa den sekundärnyckeln.</li>
+<li>Välj ditt lagringskonto och återskapa den sekundärnyckeln.</li>
 </ol>
 <br/>
 Den här processen kallas ”förnyelse nycklar”. Syftet är att användarna ska växla mellan primärnyckeln och sekundärnyckeln utan att störa BizTalk Service.</td>
@@ -329,7 +329,7 @@ Anger Status för säkerhetskopiering till None eller automatisk. När inställd
 [BizTalk-tjänst: Säkerhetskopiera och återställa](biztalk-backup-restore.md) visar information. 
 
 ## <a name="HybridConnections"></a>Hybridanslutningar
-Hybridanslutningar ansluter ett Azure-program, t.ex. Webbappar eller Mobilappar i Azure App Service till en lokal resurs som använder en statisk TCP-port, till exempel SQL Server, MySQL, http-webb-API: er och de flesta anpassade webbtjänster. Hybridanslutningar hanteras i BizTalk-tjänst i den klassiska Azure-portalen.
+Hybridanslutningar ansluter ett Azure-program, t.ex. Webbappar eller Mobilappar i Azure App Service till en lokal resurs som använder en statisk TCP-port, till exempel SQL Server, MySQL, http-webb-API: er och de flesta anpassade webbtjänster. Hybridanslutningar hanteras i BizTalk-tjänst.
 
 Om du vill skapa eller hantera Hybridanslutningar i Azure BizTalk Services, se [Hybridanslutningar](integration-hybrid-connection-overview.md).
 
@@ -343,7 +343,7 @@ Nu när du är bekant med de olika flikarna kan du lära dig mer om Azure BizTal
 ## <a name="see-also"></a>Se även
 * [Hybridanslutningar](integration-hybrid-connection-overview.md)  
 * [BizTalk-tjänst: Utvecklare, Basic, Standard och Premium-utgåvor diagram](biztalk-editions-feature-chart.md)  
-* [BizTalk-tjänst: Etablering med hjälp av Azure klassiska portal](biztalk-provision-services.md)  
+* [BizTalk-tjänst: etablering](biztalk-provision-services.md)  
 * [BizTalk-tjänst: BizTalk-tjänstens tillstånd-diagram](biztalk-service-state-chart.md)  
 * [Hur gör jag för att börja använda Azure BizTalk Services SDK?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

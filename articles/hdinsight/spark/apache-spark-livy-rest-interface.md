@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.openlocfilehash: 7b6b551fa1009da744598715b09f13355ded2884
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f6c27fb651fc13877a889c26aa47903985625a0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använd Apache Spark REST API för att skicka remote jobb till ett HDInsight Spark-kluster
 
-Lär dig hur du använder Livius Apache Spark REST API, som används för att skicka remote jobb till ett Azure HDInsight Spark-kluster. Mer detaljerad dokumentation finns [Livius](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Lär dig hur du använder Livius Apache Spark REST API, som används för att skicka remote jobb till ett Azure HDInsight Spark-kluster. Mer detaljerad dokumentation finns [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
 
 Du kan använda Livius för att köra interaktiva Spark tankar eller skicka batchjobb körs på Spark. Den här artikeln handlar om med Livy för att skicka batchjobb. Kodavsnitt i den här artikeln använder cURL till REST API-anrop till Livius Spark-slutpunkten.
 
@@ -189,6 +189,7 @@ Här följer några problem som kan uppstå när du använder Livius för fjärr
 
 ## <a name="next-step"></a>Nästa steg
 
+* [Livius REST API-dokumentation](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](apache-spark-job-debugging.md)
 

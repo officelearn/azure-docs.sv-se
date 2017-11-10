@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Åtkomst till diagnostikloggarna för Azure Data Lake Analytics
 
@@ -36,11 +36,9 @@ Diagnostikloggning kan du samla in data granskningsspår från filåtkomstförs�
 
     ![Aktivera diagnostik för att samla in granskning och begära loggar](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Från __diagnostikinställningarna__, ange status till __på__ och välj alternativ för loggning.
+3. Från __diagnostikinställningarna__, ange en __namn__ för loggningskonfiguration och välj sedan alternativ.
 
     ![Aktivera diagnostik för att samla in granskning och begära loggar](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "aktivera diagnostikloggar")
-
-   * Ange **Status** till **på** diagnostikloggning ska aktiveras.
 
    * Du kan välja att lagra/bearbeta data i tre olika sätt.
 
@@ -58,34 +56,14 @@ Diagnostikloggning kan du samla in data granskningsspår från filåtkomstförs�
         > [!NOTE]
         > Du måste välja antingen __arkivet till ett lagringskonto__, __dataströmmen till en Händelsehubb__ eller __skicka till logganalys__ innan du klickar på den __spara__ knappen.
 
-När du har aktiverat diagnostikinställningar, du kan återgå till den __diagnostik loggar__ bladet för att visa loggfilerna.
-
-## <a name="view-logs"></a>Visa loggfiler
-
-### <a name="use-the-data-lake-analytics-view"></a>Använd vyn Data Lake Analytics
-
-1. Från Data Lake Analytics-kontot bladet under **övervakning**väljer **diagnostikloggar** och välj sedan en post som visar loggar för.
-
-    ![Visa diagnostikloggning](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Visa diagnostikloggar")
-
-2. Loggarna kategoriseras efter **granskningsloggar** och **begära loggar**.
-
-    ![loggposter](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * Begäran loggar avbilda alla API-begäranden som görs på Data Lake Analytics-kontot.
-   * Granskningsloggar liknar begära loggar, men ger en mycket mer detaljerad analys av åtgärder. En enskild överföring API-anrop i loggen för begäran kan medföra flera ”tilläggsåtgärder” i dess granskningslogg.
-
-3. Klicka på den **hämta** länk för en loggpost att hämta loggen.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Använd Azure Storage-konto som innehåller loggdata
 
-1. Öppna bladet Azure Storage-konto som är associerade med Data Lake Analytics loggning och klicka sedan på __Blobbar__. Den **Blob-tjänst** bladet visar två behållare.
-
-    ![Visa diagnostikloggning](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visa diagnostikloggar")
+1. Öppna Azure Storage-kontot som används för Data Lake Analytics för loggning för att visa blobbbehållare som innehåller loggningsdata, och klicka sedan på __Blobbar__.
 
    * Behållaren **insikter loggar granskning** innehåller granskningsloggarna.
    * Behållaren **insikter loggar begäran** innehåller loggarna begäran.
-2. Loggfilerna lagras i dessa behållare under följande struktur:
+
+2. Loggfilerna lagras i behållare, under följande filstruktur:
 
         resourceId=/
           SUBSCRIPTIONS/

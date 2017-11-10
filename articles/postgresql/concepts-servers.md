@@ -1,6 +1,6 @@
 ---
 title: "Server begrepp i Azure-databas för PostgreSQL | Microsoft Docs"
-description: "Det här avsnittet innehåller information och riktlinjer för att arbeta med Azure-databas för PostgreSQL-servrar."
+description: "Det här avsnittet innehåller information och riktlinjer för att konfigurera och hantera Azure-databas för PostgreSQL-servrar."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/08/2017
+ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure-databas för PostgreSQL-servrar
 Den här artikeln innehåller information och riktlinjer för att arbeta med Azure-databas för PostgreSQL-servrar.
@@ -30,7 +30,7 @@ En Azure-databas för PostgreSQL-server:
 - Collocates resurser i en region.
 - Ger en Anslutningens slutpunkt för server och databas åtkomst (. postgresql.database.azure.com).
 - Scope för av hanteringsprinciper som gäller för dess databaser: inloggning, brandvägg, användare, roller, konfigurationer och så vidare.
-- Är tillgänglig i flera versioner. Mer information finns i [stöds PostgreSQL databasversioner](concepts-supported-versions.md).
+- Är tillgänglig i flera versioner. Mer information finns i [PostgreSQL-databas-versioner som stöds](concepts-supported-versions.md).
 - Kan utökas av användare. Mer information finns i [PostgreSQL tillägg](concepts-extensions.md).
 
 Du kan skapa en eller flera databaser i en Azure-databas för PostgreSQL-servern. Du kan välja att skapa en databas per server om du vill använda dig av samtliga resurser, eller skapa flera databaser som får dela på resurserna. Prissättning är strukturerade per server, baserat på konfigurationen av prisnivå, compute-enheter, och lagringsutrymme (GB). Mer information finns i [prisnivåer](./concepts-service-tiers.md).
@@ -47,9 +47,16 @@ Följande element att säkerställa säker åtkomst till databasen.
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Hur hanterar ett server?
-Du kan hantera Azure-databas för PostgreSQL-servrar med hjälp av Azure portal eller [Azure CLI](/cli/azure/postgres).
+Du kan hantera Azure-databas för PostgreSQL-servrar med hjälp av den [Azure-portalen](https://portal.azure.com) eller [Azure CLI](/cli/azure/postgres).
+
+## <a name="server-parameters"></a>Parametrar för Server
+Serverparametrar PostgreSQL Kontrollera konfigurationen av servern. Listan över parametrar kan visas och redigeras via Azure-portalen eller Azure CLI i Azure-databas för PostgreSQL. 
+
+Som en hanterad tjänst för Postgres konfigurerbara parametrarna i Azure-databas för PostgreSQL är en delmängd av parametrarna i en lokal instans av Postgres (Mer information om Postgres parametrar finns i [PostgreSQL dokumentationen](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Din Azure-databas för PostgreSQL server aktiveras med standardvärden för varje parameter skapas. Starta om parametrar som kräver en server eller superanvändare åtkomst för att ändringarna ska börja gälla kan inte konfigureras av användaren.
+
 
 ## <a name="next-steps"></a>Nästa steg
 - En översikt över tjänsten finns [Azure Database PostgreSQL översikt](overview.md).
 - Information om specifik resurs kvoter och begränsningar baserat på din **tjänstnivån**, se [tjänstnivåer](concepts-service-tiers.md).
 - Information om hur du ansluter till tjänsten finns [anslutningsbibliotek för Azure-databas för PostgreSQL](concepts-connection-libraries.md).
+- Visa och redigera serverparametrar via [Azure-portalen](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).

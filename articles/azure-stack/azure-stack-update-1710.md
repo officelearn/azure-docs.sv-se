@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: twooley
-ms.openlocfilehash: a66c7dddab1a2246dd0a9fa3c7533063140d2f01
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 32ca25998046caa6cf29410644f3cd86868b679d
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure Stack 1710-uppdatering (Build 20171020.1)
 
@@ -60,12 +60,12 @@ Det här avsnittet innehåller kända problem som kan uppstå under installation
 
 | Symtom  | Orsak  | Lösning |
 |---------|---------|---------|
-|När du utför en uppdatering, kan ett fel som liknar följande fel uppstå under ”värdar starta om lagring lagringsnod” steg av åtgärdsplanen uppdateringen.<br><br>**{”name”: ”starta om lagring värdar”, ”beskrivning”: ”starta om lagring värdar”., ”errorMessage”: ”typ” Restart' av rollen 'BareMetal' genereras ett undantag: \n\nThe datorn HostName-05 hoppas över. Det gick inte att hämta dess LastBootUpTime via WMI-tjänsten med följande felmeddelande: RPC-servern är inte tillgänglig. (Undantag från HRESULT: 0x800706BA). \nat omstart-värd** | Det här problemet orsakas av en möjlig felaktig drivrutin som finns i vissa konfigurationer. | 1. Logga in på webbgränssnittet baseboard management controller (BMC) och starta om värden som anges i felmeddelandet.<br><br>2. Återuppta uppdateringen med hjälp av Privilegierade slutpunkten. |
-| När du utför en uppdatering kan uppdateringen verkar stopp och inte se förloppet efter steget ”steg: kör steg 2.4 - installera uppdateringen” för handlingsplan uppdateringen.<br><br>Det här steget följs sedan av en serie kopieringsstegen .nupkg filer till filresurser interna infrastrukturen. Exempel:<br><br>**Kopiera 1 filer från content\PerfCollector\VirtualMachines till \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\PerfCounterConfiguration**  | Problemet orsakas av loggfiler fyller upp diskarna på en infrastruktur för virtuell dator och ett problem i Windows Server skalbar filserver (SOFS) som distribueras i en kommande uppdatering. | Kontakta Microsofts kundservice och Support (CSS) för att få hjälp. | 
-| När du utför en uppdatering av följande fel inträffa under steget ”steg: kör steg 2.13.2 - uppdatering *VM_Name*” för handlingsplan uppdateringen. (Namnet på virtuella datorn kan variera.)<br><br>**ActionPlanInstanceWarning FN/MachineName: WarningMessage:Task: gränssnittet LiveUpdate om du av rollen 'Cloud\Fabric\WAS' kunde inte anropa:<br>typ 'LiveUpdate' av rollen 'WAS' utlöste ett undantagsfel:<br>fel vid lagring initieringen: ett fel uppstod vid försök att göra ett API-anrop till tjänsten Microsoft Storage: {”meddelandet”: ”en timeout uppstod vid kommunikation med Service Fabric. Undantagstyp: TimeoutException. Undantagsmeddelande: Tidsgränsen uppnåddes ”.}**  | Problemet orsakas av ett i/o-tidsgräns i Windows Server som kommer att åtgärdas i en kommande uppdatering. | Kontakta Microsoft CSS om du behöver hjälp.
-| När du utför en uppdatering inträffa liknar följande fel under steget ”steg i 21 starta om SQL server-datorer”.<br><br>**Typen 'LiveUpdateRestart' av rollen 'VirtualMachines' utlöste ett undantagsfel:<br>VerboseMessage: [VirtualMachines:LiveUpdateRestart] frågor för VM MachineName-Sql01. - 10/13/2017 17:11:50: 00 VerboseMessage: [virtuella datorer: LiveUpdateRestart] VM har markerats som HighlyAvailable. -10/13/2017 17:11:50: 00 VerboseMessage: [VirtualMachines:LiveUpdateRestart] vid MS. Internal.ServerClusters.ExceptionHelp.Build vid MS. Internal.ServerClusters.ClusterResource.BeginTakeOffline (booleskt force) på Microsoft.FailoverClusters.PowerShell.StopClusterResourceCommand.BeginTimedOperation() på Microsoft.FailoverClusters.PowerShell.TimedCmdlet.WrappedProcessRecord() på Microsoft.FailoverClusters.PowerShell.FCCmdlet.ProcessRecord() - 10/13/2017 17:11:50: 00 WarningMessage:Task: anrop av gränssnittet LiveUpdateRestart om du av rollen ' Det gick inte att Cloud\Fabric\VirtualMachines':** | Det här problemet kan inträffa om den virtuella datorn kunde inte startas om. | Kontakta Microsoft CSS om du behöver hjälp.
-| När du utför en uppdatering, kan det uppstå ett fel som liknar följande:<br><br>**2017-10-22T01:37:37.5369944Z typ 'Avstängning' av rollen 'SQL' utlöste ett undantagsfel: ett fel uppstod pausa noden 's45r1004 Sql01'.at stoppa SQL C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\Applications\EnterpriseCloudEngineApplicationType_ App1\EnterpriseCloudEngineServicePkg.Code.1.0.597.18\CloudDeployment\Roles\SQL\SQL.psm1: rad 542at avslutning, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\Applications\EnterpriseCloudEngineApplicationType_App1\ EnterpriseCloudEngineServicePkg.Code.1.0.597.18\CloudDeployment\Classes\SQL\SQL.psm1: rad 50at <ScriptBlock>, <No file>: rad 18at <ScriptBlock>, <No file>: rad 16** | Det här problemet kan inträffa om den virtuella datorn inte kan placeras i ett pausat tillstånd att tömma rollerna. | Kontakta Microsoft CSS om du behöver hjälp.
-| När du utför en uppdatering kan något av följande fel uppstå:<br><br>**Typen 'Verifiera' av rollen 'ADFS' utlöste ett undantagsfel: verifiering för AD FS/diagram rollen misslyckades med felet: Kontrollera ADFS avsökningen endpoint *endpoint_URI*: undantag som anropar ”GetResponse” med ”0” argument: ”fjärrservern returnerade ett fel: (503) Server inte tillgänglig ”. på Invoke-ADFSGraphValidation**<br><br>**Typen 'Verifiera' av rollen 'ADFS' utlöste ett undantagsfel: verifiering för AD FS/diagram rollen misslyckades med felet: gick inte att hämta egenskaper för AD FS: kunde inte ansluta till NET.TCP://localhost: 1 500-princip. Anslutningsförsöket varade under en tidsperiod på 00:00:02.0498923. TCP-felkod 10061: ingen anslutning kan göras eftersom måldatorn aktivt nekade det. 127.0.0.1:1500. vid anropa ADFSGraphValidation** | Plan för update-åtgärder kan inte verifiera hälsotillstånd för Active Directory Federation Services (AD FS). | Kontakta Microsoft CSS.
+|När du utför en uppdatering, ett fel som liknar följande<br>kan uppstå under steget ”värdar starta om lagring lagringsnod”<br> för handlingsplan uppdateringen.<br><br>**{”name”: ”starta om lagring värdar”, ”beskrivning” ”: starta om<br> lagring värdar.” ”, errorMessage” ”: Skriv 'Restart' rollen<br> 'BareMetal” utlöses ett undantag: \n\n datorn<br> HostName-05 hoppas över. Det gick inte att hämta dess LastBootUpTime<br> via WMI-tjänsten med följande felmeddelande:<br> RPC-servern är inte tillgänglig.<br> (Undantag från HRESULT: 0x800706BA). \nat omstart-värd** | Det här problemet orsakas av en möjlig felaktig drivrutin som finns i vissa konfigurationer. | 1. Logga in på webbgränssnittet baseboard management controller (BMC) och starta om värden som anges i felmeddelandet.<br><br>2. Återuppta uppdateringen med hjälp av Privilegierade slutpunkten. |
+| När du utför en uppdatering kan verkar uppdateringen stopp<br> och inte se förloppet efter steget ”steg: kör steg 2.4 - installation<br> Uppdatera ”för handlingsplan uppdateringen.<br><br>Det här steget sedan följt av en serie kopieringsstegen av .nupkg<br> filer till den interna infrastrukturen filresurser. Exempel:<br><br>**Kopiera 1 filer från content\PerfCollector\VirtualMachines till <br> \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\ <br>PerfCounterConfiguration**  | Problemet orsakas av loggfiler fyller upp diskarna på en infrastruktur för virtuell dator och ett problem i Windows Server skalbar filserver (SOFS) som distribueras i en kommande uppdatering. | Kontakta Microsofts kundservice och Support (CSS) för att få hjälp. | 
+| När du utför en uppdatering, ett fel som liknar följande<br> kan uppstå under steget ”steg: kör steg 2.13.2 - uppdatering<br> *VM_Name*”av åtgärdsplan för uppdateringen. (Den virtuella datorn<br> namnet kan variera.)<br><br>**ActionPlanInstanceWarning FN/MachineName:<br> WarningMessage:Task: anrop av gränssnitt 'LiveUpdate' av<br> rollen 'Cloud\Fabric\WAS' misslyckades: typen 'LiveUpdate' för rollen<br> '' uppstod ett undantag: ett fel UPPSTOD vid lagring<br> initieringen: ett fel uppstod vid försök att göra en API<br> anrop till tjänsten Microsoft Storage: {”meddelandet” ”: tidsgränsen<br> uppstod vid kommunikation med Service Fabric.<br> Undantagstyp: TimeoutException.<br> Undantagsmeddelande: Tidsgränsen uppnåddes ”.}**  | Problemet orsakas av ett i/o-tidsgräns i Windows Server som kommer att åtgärdas i en kommande uppdatering. | Kontakta Microsoft CSS om du behöver hjälp.
+| När du utför en uppdatering, ett fel som liknar följande<br> kan uppstå under steget ”steg i 21 starta om SQL server-datorer”.<br><br>**Typen 'LiveUpdateRestart' för rollen ”VirtualMachines” utlöses ett<br> undantag: VerboseMessage: [VirtualMachines:LiveUpdateRestart]<br> frågar efter VM MachineName-Sql01. - 10/13/2017 17:11:50: 00 VerboseMessage: [virtuella datorer: LiveUpdateRestart]<br> VM har markerats som HighlyAvailable. – 10/13/2017 17:11:50: 00<br> VerboseMessage: [VirtualMachines:LiveUpdateRestart] vid<br>MS. Internal.ServerClusters.ExceptionHelp.Build på<br>MS. Internal.ServerClusters.ClusterResource.BeginTakeOffline<br>(booleskt force) på Microsoft.FailoverClusters.PowerShell.<br> StopClusterResourceCommand.BeginTimedOperation() på <br>Microsoft.FailoverClusters.PowerShell.TimedCmdlet.Wrapped<br>ProcessRecord() på Microsoft.FailoverClusters.PowerShell.<br> FCCmdlet.ProcessRecord() - 10/13/2017 5:11:50 PM varning<br>meddelande: uppgiften: anrop av gränssnitt 'LiveUpdateRestart' för<br> rollen 'Cloud\Fabric\VirtualMachines' misslyckades:** | Det här problemet kan inträffa om den virtuella datorn kunde inte startas om. | Kontakta Microsoft CSS om du behöver hjälp.
+| När du utför en uppdatering, kan det uppstå ett fel som liknar följande:<br><br>**2017-10-22T01:37:37.5369944Z typ 'Avstängning' av rollen 'SQL'<br> utlöste ett undantagsfel: ett fel uppstod noden<br> 's45r1004 Sql01'.at Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\ Applications\ EnterpriseCloud <br>EngineApplicationType & #95. App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> CloudDeployment\Roles\SQL\SQL.psm1:line 542 på<br> avstängning, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br> Program \EnterpriseCloudEngineApplicationType & #95. App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br>Deployment\Classes\SQL\SQL.psm1: rad 50 på &#60; ScriptBlock &#62;<br> &#60; Ingen fil >: rad 18 på &#60; ScriptBlock &#62; &#60; Ingen fil &#62;: rad 16** | Det här problemet kan inträffa om den virtuella datorn inte kan placeras i ett pausat tillstånd att tömma rollerna. | Kontakta Microsoft CSS om du behöver hjälp.
+| När du utför en uppdatering kan något av följande fel uppstå:<br><br>**Typen 'Verifiera' av rollen 'ADFS' utlöste ett undantagsfel: verifiering<br> för AD FS/diagram misslyckades med felet: Kontrollera ADFS<br> avsökning endpoint *endpoint_URI*: undantag anropar<br> ” GetResponse ”med” 0 ”argument”: fjärrservern<br> returnerade ett fel: (503) Server inte tillgänglig ”. vid Invoke -<br>ADFSGraphValidation**<br><br>**Typen 'Verifiera' av rollen 'ADFS' utlöste ett undantagsfel: verifiering<br> för AD FS/diagram misslyckades med felet: gick inte att hämta<br> ADFS egenskaper: kunde inte ansluta till <br>NET.TCP://localhost: 1 500-princip. Anslutningsförsöket varade<br> för en tidsrymd för 00:00:02.0498923. TCP-felkod<br> 10061: ingen anslutning kan göras eftersom målet<br> datorn aktivt nekade det. 127.0.0.1:1500.<br> på Invoke-ADFSGraphValidation** | Plan för update-åtgärder kan inte verifiera hälsotillstånd för Active Directory Federation Services (AD FS). | Kontakta Microsoft CSS om du behöver hjälp.
 
 ## <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 
@@ -75,16 +75,16 @@ Det här avsnittet innehåller efter installationen kända problem med att skapa
 
 - Det kanske inte går att visa beräkning eller lagring resurser i administratörsportalen. Detta anger att ett fel inträffade under installationen av uppdateringen och att uppdateringen felaktigt rapporterades som slutförd. Om det här problemet inträffar kan du kontakta Microsoft CSS om hjälp.
 - Du kan se en tom instrumentpanel i portalen. Om du vill återställa instrumentpanelen, väljer du växeln-ikonen i det övre högra hörnet av portalen och välj sedan **återställa standardinställningarna**.
-- Användare kan bläddra till den fullständiga marknadsplatsen utan en prenumeration och kan se administrativa element som planer och erbjudanden. Objekten är icke-fungerande till användare.
-- Den **flytta** är inaktiverat när du visar egenskaperna för en resursgrupp. Det är förväntat. Flytta resursgrupper mellan prenumerationer stöds inte för närvarande.
-- Det går inte att visa behörighet till din prenumeration med hjälp av Azure Stack-portaler. Som en tillfällig lösning kan kontrollera du behörigheterna med hjälp av PowerShell.
--  För alla arbetsflöden där du väljer en prenumeration, resursgrupp eller plats i en listrutan, kan en eller flera av följande problem uppstå:
+- När du visar egenskaperna för en resursgrupp i **flytta** är inaktiverat. Det är förväntat. Flytta resursgrupper mellan prenumerationer stöds inte för närvarande.
+- För alla arbetsflöden där du väljer en prenumeration, resursgrupp eller plats i en listrutan, kan en eller flera av följande problem uppstå:
 
    - Du kan se en tom rad längst upp i listan. Du måste fortfarande kunna markera ett objekt som förväntat.
    - Om listan över objekt i den nedrullningsbara listrutan är kort kan kanske du inte visa något av objektnamn.
    - Om du har flera prenumerationer för användaren, får den nedrullningsbara resurslistan vara tom. 
 
    Du kan skriva namnet på den prenumeration eller resursgrupp (om du vet att den) Undvik de två sista problem, eller kan du använda PowerShell i stället.
+- Ta bort användaren prenumerationer resulterar i frånkopplade resurser. Först ta bort resurser för användare eller hela resursgruppen som en lösning och sedan ta bort prenumerationer för användaren.
+- Det går inte att visa behörighet till din prenumeration med hjälp av Azure Stack-portaler. Som en tillfällig lösning kan kontrollera du behörigheterna med hjälp av PowerShell.
   
 ### <a name="backup"></a>Säkerhetskopiering
 
@@ -94,26 +94,27 @@ Det här avsnittet innehåller efter installationen kända problem med att skapa
 
 - Om du startar om en infrastruktur för rollinstansen får ett meddelande som anger att omstarten misslyckades. Men omstarten faktiskt lyckades.
 
-### <a name="services"></a>Tjänster
-
-**Marketplace**
+### <a name="marketplace"></a>Marketplace
 - När du försöker lägga till objekt i stacken för Azure marketplace med hjälp av den **Lägg till från Azure** alternativet inte alla objekt kan vara synlig för hämtning.
-- Det finns inga marketplace-upplevelse för att skapa virtuella datorer. Du kan skapa en skala som anges med hjälp av en mall.
-- En klient måste registrera lagringsresursprovidern innan de skapar sin första Azure-funktion i prenumerationen.
-- Ta bort användaren prenumerationer resulterar i frånkopplade resurser. Först ta bort resurser för användare eller hela resursgruppen som en lösning och sedan ta bort prenumerationer för användaren. 
+- Användare kan bläddra till den fullständiga marknadsplatsen utan en prenumeration och kan se administrativa element som planer och erbjudanden. Objekten är icke-fungerande till användare.
 
-**SQL/MySQL**
-- Det kan ta upp till en timme innan klienter kan skapa databaser i en ny SQL eller MySQL SKU. 
-- Skapande av objekt direkt på SQL- och MySQL som värd för servrar som inte utförs av resursprovidern stöds inte och kan resultera i ett felaktigt tillstånd.
-
-**Compute**
+### <a name="compute"></a>Compute
 - Användare möjlighet att skapa en virtuell dator med geo-redundant lagring. Den här konfigurationen gör att skapa en virtuell dator misslyckas.
 - Du kan konfigurera en virtuell dator tillgänglighetsuppsättning endast med en feldomän på en och en uppdateringsdomän i en.
+- Det finns inga marketplace-upplevelse för att skapa virtuella datorer. Du kan skapa en skala som anges med hjälp av en mall.
+- Inställningarna för skalning för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader mellan versioner PowerShell måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
  
-**Nätverk**
+### <a name="networking"></a>Nätverk
 - Du kan inte skapa en belastningsutjämnare med en offentlig IP-adress med hjälp av portalen. Som en tillfällig lösning kan använda du PowerShell för att skapa belastningsutjämnaren.
 - När du skapar en Utjämning av nätverksbelastning måste du skapa en regel för network adress translation (NAT). Om du inte får ett fel när du försöker lägga till en NAT-regel när belastningsutjämnaren har skapats.
 - Du kan koppla en offentlig IP-adress från en virtuell dator (VM) när den virtuella datorn har skapats och associerats med den IP-adressen. Disassociation visas ska fungera, men tidigare tilldelade offentliga IP-adressen är kopplad till den ursprungliga virtuella datorn. Detta inträffar även om du omtilldelar IP-adress till en ny virtuell dator (som vanligtvis kallas ett *VIP-växling*). Alla framtida försöker att ansluta till IP-adress resultatet i en anslutning till den ursprungligen associerade virtuella datorn och inte till en ny. För närvarande måste du bara använda nya offentliga IP-adresser för att skapa en ny virtuell dator.
+ 
+### <a name="sqlmysql"></a>SQL/MySQL
+- Det kan ta upp till en timme innan klienter kan skapa databaser i en ny SQL eller MySQL SKU. 
+- Skapande av objekt direkt på SQL- och MySQL som värd för servrar som inte utförs av resursprovidern stöds inte och kan resultera i ett felaktigt tillstånd.
+ 
+### <a name="app-service"></a>App Service
+- Användaren måste registrera lagringsresursprovidern innan de skapar sin första Azure-funktion i prenumerationen.
  
 ### <a name="field-replaceable-unit-fru-procedures"></a>Fältet utbytbara enhet (FRU) procedurer
 

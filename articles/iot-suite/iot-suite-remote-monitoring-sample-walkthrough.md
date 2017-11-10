@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a90eb0eae6855cd0fbede65a024b5ff6490cce0
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>Fjärrövervaknings förkonfigurerade lösningsarkitektur
 
@@ -42,7 +42,7 @@ Diagrammet nedan visar logiska komponenterna i den fjärranslutna förkonfigurer
 Molnarkitektur har utvecklats eftersom Microsoft har publicerat de första förkonfigurerade lösningarna. [Mikrotjänster](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) har vuxit fram som en beprövad idé att uppnå skalbarhet och flexibilitet utan att kompromissa development hastighet. Flera Microsoft-tjänster använder den här arkitekturen mönster internt med bra tillförlitlighet och skalbarhet resultat. Uppdaterade förkonfigurerade lösningar placera dessa learnings i praktiken så att du kan också dra nytta av dem.
 
 > [!TIP]
-> Läs mer om mikrotjänster arkitekturer i [.NET programarkitektur](https://www.microsoft.com/net/learn/architecture) och [Mikrotjänster: ett program revolution drivs av molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+> Läs mer om arkitekturer för mikrotjänster i [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-programarkitektur) och [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Mikrotjänster: En programrevolution som drivs av molnet).
 
 ## <a name="device-connectivity"></a>Enhetsanslutning
 
@@ -141,5 +141,6 @@ Om du vill utforska källa kod och utvecklare dokumentationen börjar du med en 
 
 * [Förkonfigurerade lösning för fjärråtkomst övervakning med Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Förkonfigurerade lösning för fjärråtkomst övervakning med Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Förkonfigurerade lösning för fjärråtkomst övervakning arkitektur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Mer information om fjärråtkomst övervakning förkonfigurerade lösningen finns [anpassa förkonfigurerade lösningen](iot-suite-remote-monitoring-customize.md).

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39b5c70c8740bc06beded42e9066e3be196741a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer planering och implementering för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -341,7 +341,7 @@ Vi använder följande termer för hela dokumentet:
 * SAP komponent: ett enskilt SAP program, till exempel ECC BW, lösning Manager eller EP.  SAP-komponenter kan baseras på traditionell ABAP eller Java-teknik eller icke-NetWeaver baserat program, till exempel Business-objekt.
 * SAP-miljö: en eller flera komponenter för SAP logiskt grupperade för att utföra en business-funktion, till exempel utveckling, QAS, träning, DR eller produktion.
 * SAP liggande: Avser hela SAP tillgångarna i kundens IT-miljön. SAP-liggande innehåller alla produktions- och icke-produktionsmiljöer.
-* SAP System: Kombinationen av DBMS lager- och programnivå av, till exempel en SAP ERP-utvecklingssystemet, SAP BW testsystemet, SAP CRM produktionssystem osv... I Azure-distributioner går det inte för att dela dessa två lager mellan lokala och Azure. Detta innebär en SAP-systemet är antingen distribueras lokalt eller den har distribuerats i Azure. Du kan dock distribuera olika system för en SAP liggande i Azure eller lokalt. Du kan till exempel distribuera SAP CRM-utveckling och testsystem i Azure, men den SAP CRM produktion system lokalt.
+* SAP System: Kombinationen av DBMS lager- och programnivå av, till exempel en SAP ERP-utvecklingssystemet, SAP BW testsystemet, SAP CRM produktionssystem osv.. I Azure-distributioner går det inte för att dela dessa två lager mellan lokala och Azure. Detta innebär en SAP-systemet är antingen distribueras lokalt eller den har distribuerats i Azure. Du kan dock distribuera olika system för en SAP liggande i Azure eller lokalt. Du kan till exempel distribuera SAP CRM-utveckling och testsystem i Azure, men den SAP CRM produktion system lokalt.
 * Endast molnbaserad distribution: en distribution där Azure-prenumerationen inte är ansluten via ett plats-till-plats eller en ExpressRoute-anslutning till lokala nätverkets infrastruktur. Gemensam dokumentation för Azure dessa typer av distributioner beskrivs också som ”endast molnbaserad” distributioner. Virtuella datorer distribueras med den här metoden kan nås via internet och en offentlig IP-adress och/eller en offentlig DNS-namn som tilldelats virtuella datorer i Azure. För Microsoft Windows lokala Active Directory (AD) och DNS inte har utökats till Azure i dessa typer av distributioner. De virtuella datorerna är därför inte en del av Active Directory lokalt. Detsamma gäller för Linux-implementeringar med till exempel OpenLDAP + Kerberos.
 
 > [!NOTE]
@@ -522,7 +522,7 @@ Med Azure Resource Manager kan du etablera dina program med hjälp av en deklara
 
 Mer information om hur du använder Resource Manager-mallar finns här:
 
-* [Distribuera och hantera virtuella datorer med hjälp av Azure Resource Manager-mallar och Azure CLI] [.. /.. / linux/create-ssh-secured-vm-from-template.md]
+* [Distribuera och hantera virtuella datorer med hjälp av Azure Resource Manager-mallar och Azure CLI] [../../linux/create-ssh-secured-vm-from-template.md]
 * [Hantera virtuella datorer med Azure Resource Manager och PowerShell][virtual-machines-deploy-rmtemplates-powershell]
 * <https://Azure.microsoft.com/Documentation/Templates/>
 
@@ -839,7 +839,7 @@ Azure CLI tillhandahåller en uppsättning med öppen källkod, plattformsoberoe
 Information om installation, konfiguration och hur du använder CLI finns-kommandon för att utföra uppgifter för Azure
 
 * [Installera Azure CLI][xplat-cli]
-* [Distribuera och hantera virtuella datorer med hjälp av Azure Resource Manager-mallar och Azure CLI] [.. /.. / linux/create-ssh-secured-vm-from-template.md]
+* [Distribuera och hantera virtuella datorer med hjälp av Azure Resource Manager-mallar och Azure CLI] [../../linux/create-ssh-secured-vm-from-template.md]
 * [Använda Azure CLI för Mac, Linux och Windows med Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Också läsa kapitel [Azure CLI för virtuella Linux-datorer] [ deployment-guide-4.5.2] i den [Deployment Guide] [ planning-guide] om hur du använder Azure CLI för att distribuera Azure övervakning tillägget för SAP.
@@ -942,7 +942,7 @@ Om den virtuella datorn är tillräckligt beredd att vara generisk och kan slutl
 >
 > Det sista steget är att logga in på en virtuell dator med ett administratörskonto. Öppna Kommandotolken för Windows som *administratör*. Gå till %windir%\windows\system32\sysprep och köra sysprep.exe.
 > Ett litet fönster visas. Det är viktigt att kontrollera den **Generalize** alternativet (standard är inte markerad) och ändra alternativet avstängning från standard 'Omstart' 'avstängning'. Den här proceduren förutsätter att sysprep-processen körs lokalt i Gästoperativsystem på en virtuell dator.
-> Om du vill utföra proceduren med en virtuell dator som redan körs i Azure, följer du stegen som beskrivs i [i den här artikeln](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
+> Om du vill utföra proceduren med en virtuell dator som redan körs i Azure, följer du stegen som beskrivs i [i den här artikeln](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
 >

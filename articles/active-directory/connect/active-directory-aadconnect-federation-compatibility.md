@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Kompatibilitetslista för Azure AD-federation
 Azure Active Directory tillhandahåller enkel inloggning på och förbättrad säkerhet för åtkomst för Office 365 och andra Microsoft Online-tjänster för hybrid och endast molnbaserad implementeringar utan några icke-Microsoft-lösning. Office 365, som de flesta av Microsofts onlinetjänster, är integrerad med Azure Active Directory för katalogtjänster, autentisering och auktorisering. Azure Active Directory ger även enkel inloggning till tusentals SaaS-program och lokala webbprogram. Se Azure Active Directory-programgalleriet för SaaS-program som stöds.
@@ -46,6 +46,7 @@ Information om hur du kan få tredjeparts identitetsprovider som anges här kont
 * [Centrify](#centrify) 
 * [Dell en identitet molnet hanteraren v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [DigitalPersona sammansatt autentisering](#digitalpersona-composite-authentication)
+* [ForgeRock identitet plattform Access Management V5.x](#forgerock-identity-platform-access-management-v5x)
 * [IBM Tivoli federerad identitet Manager 6.2.2](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federation Version 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -186,6 +187,17 @@ Följande är ett scenario stöd matrix för den här enkel inloggning:
 
 Mer information finns i [DigitalPersona sammansatt autentisering](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
 
+## <a name="forgerock-identity-platform-access-management-v5x"></a>ForgeRock identitet plattform Access Management V5.x
+
+Följande är ett scenario stöd matrix för den här enkel inloggning:
+
+| Client | Support | Undantag |
+| --- | --- | --- |
+| Webbaserade klienter, till exempel Exchange Web Access och SharePoint Online |Stöds |Ingen|
+| Rich-klientprogram, till exempel Lync, Office-prenumeration, CRM |Stöds |Ingen|
+| E-post-RTF-klienter, till exempel Outlook och ActiveSync |Stöds |Ingen |
+
+Mer information finns i [ForgeRock identitet plattform Access Management V5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517).
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli federerad identitet Manager 6.2.2
 

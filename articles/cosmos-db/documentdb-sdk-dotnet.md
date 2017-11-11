@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fcd3b9647833d15d0fd7913f3be55f18f665d094
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 2f32f16ae9559a057f9b39658e437aeedfd575c7
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure DB .NET SDK för Cosmos: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -51,6 +51,14 @@ ms.lasthandoff: 10/26/2017
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+### <a name="a-name11901190"></a><a name="1.19.0"/>1.19.0
+
+* Anpassning ändring från Azure DocumentDB Azure Cosmos-DB i API-referens dokumentation, metadatainformation i sammansättningar och NuGet-paketet. 
+* Visa diagnostikinformation och fördröjning från svar på förfrågningar som skickas med direkt anslutning läge. Egenskapsnamnen är RequestDiagnosticsString och RequestLatency på ResourceResponse klass.
+
+### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
+
+* Internt ändringar för Microsoft vänner sammansättningarna.
 
 ### <a name="a-name11801180"></a><a name="1.18.0"/>1.18.0 
 
@@ -261,6 +269,8 @@ Alla begäranden till Azure Cosmos-databasen med en pensionerad SDK avvisas av t
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.19.0](#1.19.0) |10 november 2017 |--- |
+| [1.18.1](#1.18.1) |07 november 2017 |--- |
 | [1.18.0](#1.18.0) |17 oktober 2017 |--- |
 | [1.17.0](#1.17.0) |10 augusti 2017 |--- |
 | [1.16.1](#1.16.1) |07 augusti 2017 |--- |

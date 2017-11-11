@@ -1,5 +1,5 @@
 ---
-title: "Montera en volym för Azure-filer i Azure Container instanser"
+title: Montera en Azure-filer i Azure Container instanser
 description: "Lär dig hur du monterar en volym för Azure-filer för att bevara tillstånd med Azure Container instanser"
 services: container-instances
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montera en filresurs som Azure med Azure Container instanser
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Montera en filresurs som Azure med Azure Container instanser
 
 Som standard är Azure Behållarinstanser tillståndslösa. Om behållaren kraschar eller stoppar, förloras alla dess tillstånd. För att bevara tillståndet utöver livslängd för behållaren måste du ansluta en volym från en extern butik. Den här artikeln visar hur du monterar en Azure-filresursen för användning med Azure Container instanser.
 
@@ -66,7 +66,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Lagra information om lagringskonto åtkomst med Azure key vault
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Lagra information om lagringskonto åtkomst med Azure Key Vault
 
 Lagringskontonycklar skydda åtkomst till dina data, så vi rekommenderar att du lagrar dem i en Azure key vault.
 
@@ -185,16 +185,16 @@ Infoga värden i parameterfilen:
 Du kan skapa behållaren och montera dess volymen med hjälp av Azure CLI med hjälp av mallen som definierats. Förutsatt att mallfilen heter *azuredeploy.json* och som heter parameterfilen *azuredeploy.parameters.json*, och sedan kommandoraden är:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-När behållaren startar, kan du använda en enkel webbapp som distribueras den **aci/seanmckenna-hellofiles** svår att hantera filerna i Azure-filresursen på monteringssökväg som du angav. Hämta IP-adressen för webbappen via följande:
+När behållaren startar, kan du använda en enkel webbapp som distribueras den **aci/seanmckenna-hellofiles** bilden för att hantera filerna i Azure-filresursen på monteringssökväg som du angav. Skaffa IP-adressen för webbprogrammet med den [az behållaren visa](/cli/azure/container#az_container_show) kommando:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-Du kan använda ett verktyg som den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com) att hämta och granska filen skrivs till filresursen.
+Du kan använda ett verktyg som den [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com) att hämta och granska filen skrivs till filresursen.
 
 >[!NOTE]
 > Mer information om hur du använder Azure Resource Manager-mallar parametern filer och distribuera med Azure CLI, se [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).

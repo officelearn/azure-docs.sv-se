@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 4520b9ea730d2be7d30d946a8cbc7437c5be7899
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -57,6 +57,11 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK är inte kompatibel med den universella Windowsplattformen (UWP) appar ännu. Om du är intresserad av att .NET Core SDK som stöder UWP-appar kan skicka e-post till [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+ 
+ * Anpassning ändring från Azure DocumentDB Azure Cosmos-DB i API-referens dokumentation, metadatainformation i sammansättningar och NuGet-paketet. 
+ * Visa diagnostikinformation och fördröjning från svar på förfrågningar som skickas med direkt anslutning läge. Egenskapsnamnen är RequestDiagnosticsString och RequestLatency på ResourceResponse klass.
+ 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
 * Lägga till flera tillförlitlighet korrigeringar och förbättringar.
@@ -144,6 +149,7 @@ Om du har frågor som rör detta SDK, efter att [StackOverflow](http://stackover
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.7.0](#1.7.0) |10 november 2017 |--- |
 | [1.6.0](#1.6.0) |17 oktober 2017 |--- |
 | [1.5.1](#1.5.1) |02 oktober 2017 |--- |
 | [1.5.0](#1.5.0) |10 augusti 2017 |--- | 

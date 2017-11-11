@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8050e116a48c69b2fccd6bdc1cf029dfdd6e6f28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarhandbok för Azure Functions JavaScript
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -317,9 +317,9 @@ function GetEnvironmentVariable(name)
 
 När du arbetar med JavaScript-funktioner måste du vara medveten om överväganden i följande två avsnitt.
 
-### <a name="choose-single-core-app-service-plans"></a>Välj enkel kärna App Service-planer
+### <a name="choose-single-vcpu-app-service-plans"></a>Välj en vCPU App Service-planer
 
-När du skapar en funktionsapp som använder App Service-plan, rekommenderar vi att du väljer en plan för enkel kärna i stället för en plan med flera kärnor. Idag funktioner körs effektivare JavaScript-funktioner på enkel kärna virtuella datorer och med större virtuella datorer inte ger förväntade prestandaförbättringarna. Vid behov, du kan skala ut genom att lägga till flera enkel kärna VM-instanser manuellt eller kan du aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+När du skapar en funktionsapp som använder App Service-plan, rekommenderar vi att du väljer en enskild vCPU plan i stället för en plan med flera vCPUs. Idag funktioner körs effektivare JavaScript-funktioner på enskild vCPU virtuella datorer och med större virtuella datorer inte ger förväntade prestandaförbättringarna. Vid behov, du kan skala ut genom att lägga till flera enskild vCPU VM-instanser manuellt eller kan du aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>Stöd för maskin- och CoffeeScript
 Eftersom direktstöd ännu inte finns för kompilering av automatisk maskin- eller CoffeeScript via körningen, behöver stödet hanteras utanför körning, vid tidpunkten för distribution. 

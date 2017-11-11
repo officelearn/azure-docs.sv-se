@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>En introduktion till Azure händelse rutnätet
 
@@ -25,6 +25,30 @@ I förhandsversionen har Event Grid stöd för platserna **westus2** och **westc
 Den här artikeln innehåller en översikt över Azure händelse rutnätet. Om du vill komma igång med händelsen rutnätet finns [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md).
 
 ![Händelsen rutnätet funktionella modellen](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>Händelseutfärdare
+
+För närvarande har följande Azure-tjänster inbyggda utgivarens support för händelsen rutnät:
+
+* Resursgrupper (hanteringsåtgärder)
+* Azure-prenumerationer (hanteringsåtgärder)
+* Händelsehubbar
+* Lagringsblob
+* Anpassade avsnitt
+
+Andra Azure-tjänster kommer att adderas i år.
+
+## <a name="event-handlers"></a>Händelsehanterare
+
+Följande Azure-tjänster har för närvarande stöd för inbyggda hanterare för händelsen rutnätet: 
+
+* Azure Functions
+* Logic Apps
+* Azure Automation
+* WebHooks
+* Microsoft-flöde
+
+Andra Azure-tjänster kommer att adderas i år.
 
 ## <a name="concepts"></a>Koncept
 
@@ -52,34 +76,6 @@ Här följer några viktiga funktioner i Azure händelse rutnätet:
 * **Anpassade händelser** -Använd händelse rutnätet flödet, filter och tillförlitligt leverera anpassade händelser i din app.
 
 En jämförelse av händelse rutnät, Händelsehubbar och Service Bus finns [Välj mellan Azure-tjänster som levererar meddelanden](compare-messaging-services.md).
-
-## <a name="built-in-publisher-and-handler-integration"></a>Inbyggd integrering av utgivare och hanterare
-
-Azure erbjuder inbyggda händelsestöd med ett stort antal tjänster, inklusive både utgivare och hanterare.
-
-### <a name="publishers"></a>Utgivare
-
-För närvarande har följande Azure-tjänster inbyggda utgivarens support för händelsen rutnät:
-
-* Resursgrupper (hanteringsåtgärder)
-* Azure-prenumerationer (hanteringsåtgärder)
-* Händelsehubbar
-* Lagringsblob
-* Anpassade avsnitt
-
-Andra Azure-tjänster kommer att adderas i år.
-
-### <a name="handlers"></a>Hanterare
-
-Följande Azure-tjänster har för närvarande stöd för inbyggda hanterare för händelsen rutnätet: 
-
-* Azure Functions
-* Logic Apps
-* Azure Automation
-* WebHooks
-* Microsoft-flöde
-
-Andra Azure-tjänster kommer att adderas i år.
 
 ## <a name="what-can-i-do-with-event-grid"></a>Vad kan jag göra med händelsen rutnät?
 

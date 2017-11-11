@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Övervaka hälsotillstånd och aviseringar i Azure-stacken
 
@@ -36,7 +36,7 @@ Azure-stacken innehåller funktioner som gör att du kan visa hälso- och aviser
  
  Som operatör Azure Stack kan visa du hälsotillståndet för komponenter i administratörsportalen och via REST-API och PowerShell.
  
-Om du vill visa hälsotillståndet i portalen klickar du på den region som du vill visa i den **Region management** panelen. Du kan visa hälsotillståndet för infrastrukturroller och resursproviders. Compute-resursprovidern rapporterar inte hälsotillståndet i den här versionen.
+Om du vill visa hälsotillståndet i portalen klickar du på den region som du vill visa i den **Region management** panelen. Du kan visa hälsotillståndet för infrastrukturroller och resursproviders.
 
 ![Lista över infrastrukturroller](media/azure-stack-monitor-health/image2.png)
 

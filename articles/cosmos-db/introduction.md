@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: d5ae2a68f749310d4d6a2514055fb258978eec9c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 804b20111ea99892201079657d6d3602ececdd28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Som en globalt distribuerad databastjänst erbjuder Azure Cosmos DB följande fu
     * API:er för följande datamodeller stöds med SDK:er som är tillgängliga på flera språk:
         * [DocumentDB API](documentdb-introduction.md): schemat mindre JSON databasmotor med SQL frågefunktioner.
         * [MongoDB API](mongodb-introduction.md): A MongoDB-databas ovanpå Cosmos DB. Kompatibel med befintliga MongoDB bibliotek, drivrutiner, verktyg och program.
-        * [Tabell API](table-introduction.md): en nyckel / värde-storage-databas för att ge premium-funktioner för Azure Table storage-program.
+        * [Tabell API](table-introduction.md): en nyckel / värde-databastjänst för att ange premium-funktioner för Azure Table storage-program.
         * [Diagram (Gremlin) API](graph-introduction.md): ett diagram databasen service inbyggda följande den [specifikation för Apache TinkerPop](http://tinkerpop.apache.org/).
         * Ytterligare datamodeller kommer snart!
 

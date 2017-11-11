@@ -14,17 +14,17 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Skapa ett namnområde för Service Bus med en Azure Resource Manager-mall
 
 Den här artikeln beskriver hur du använder en Azure Resource Manager-mall som skapar en Service Bus-namnrymd av typen **Messaging** med en Standard-SKU. Artikeln också definierar de parametrar som angetts för körning av distributionen. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
-Mer information om hur du skapar mallar finns [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
+Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
 
 Den fullständiga mallen finns i [mall för Service Bus-namnområde] [ Service Bus namespace template] på GitHub.
 
@@ -48,9 +48,9 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 [![Distribuera till Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametrar
-Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parametervärdena. Du bör definiera en parameter för de värden som varierar baserat på projektet som du distribuerar eller baserat på miljön som du distribuerar till. Definiera inte parametrar för värden som alltid inte ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
+Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parametervärdena. Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
-Den här mallen definierar följande parametrar.
+Den här mallen definierar följande parametrar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Namnet på namnområdet för Service Bus för att skapa.
@@ -81,7 +81,7 @@ Namnet på Service Bus [SKU](https://azure.microsoft.com/pricing/details/service
 
 ```
 
-Mallen definierar de värden som tillåts för den här parametern (Standard eller Premium) och tilldelar ett standardvärde (Standard) om inget värde anges.
+Mallen definierar de värden som tillåts för den här parametern (Standard eller Premium). Om inget värde anges tilldelas resurshanteraren standardvärdet (Standard).
 
 Läs mer om prissättningen för Service Bus [Service Bus priser och fakturering][Service Bus pricing and billing].
 
@@ -91,7 +91,7 @@ Service Bus-API-versionen av mallen.
 ```json
 "serviceBusApiVersion": { 
        "type": "string", 
-       "defaultValue": "2015-08-01", 
+       "defaultValue": "2017-04-01", 
        "metadata": { 
            "description": "Service Bus ApiVersion used by the template" 
        } 

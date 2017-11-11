@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: c69fab3f711e2a650d088ccec1c05ec29e0e567b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: fe11926cb7f6b2a80913895b685acfcc433e9805
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering (förhandsgranskning)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL-datasynkronisering (förhandsgranskning)
 
 SQL-datasynkronisering är en tjänst som bygger på Azure SQL Database som gör att du kan synkronisera data som du väljer i båda riktningarna över flera SQL-databaser och SQL Server-instanser.
 
@@ -44,7 +44,7 @@ Datasynkronisering använder en nav och eker-topologi för att synkronisera data
 -   Den **Sync-databasen** innehåller metadata och loggfiler för datasynkronisering. Sync-databasen måste vara en Azure SQL-databas finns i samma region som NAV-databasen. Sync-databasen är kund har skapats och ägs av kunden.
 
 > [!NOTE]
-> Om du använder en på lokal databas måste du [konfigurera en lokal agent.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Om du använder en på lokal databas måste du [konfigurera en lokal agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Synkronisera data mellan databaser](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -155,7 +155,7 @@ Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra änd
 
 För mer information om SQL-datasynkronisering, se:
 
--   [Kom igång med Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
+-   [Konfigurera Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
 -   [Metodtips för Azure SQL-datasynkronisering](sql-database-best-practices-data-sync.md)
 -   [Övervaka Azure SQL-datasynkronisering med OMS logganalys](sql-database-sync-monitor-oms.md)
 -   [Felsökning av problem med Azure SQL-datasynkronisering](sql-database-troubleshoot-data-sync.md)

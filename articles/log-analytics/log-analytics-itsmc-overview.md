@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f60586dcd09148d916bafdde21cc038f57ed9287
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centralt hantera ITSM arbetsobjekt med hjälp av IT Service Management-anslutningstjänsten (förhandsgranskning)
 
@@ -30,13 +30,13 @@ Med IT Service Management-anslutningstjänsten kan du:
 
   - Integrera operativa aviseringar med din praxis för incidenthantering i ITSM verktyg som helst.
     - Skapa arbetsobjekt (till exempel avisering, händelse, incident) i ITSM från OMS-varningar och via loggen sökning.
-    - Skapa arbetsobjekt baserat på ditt Azure-aktivitetsloggen aviseringar via ITSM åtgärd i åtgärdsgrupper. 
-  
+    - Skapa arbetsobjekt baserat på ditt Azure-aktivitetsloggen aviseringar via ITSM åtgärd i åtgärdsgrupper.
+
   - Förena övervakning, loggen och tjänsten hantering av data som används inom organisationen.
     - Korrelera incident och ändra data för begäran från din ITSM tooling med relevanta loggdata i logganalys-arbetsytan.   
     - Visa översta instrumentpaneler för en översikt på incidenter, ändringsbegäranden och berörda system.
     - Skriva Log Analytics-frågor för att få insyn i Service Management-data.
-      
+
 ## <a name="adding-the-it-service-management-connector-solution"></a>Lägga till IT-tjänst lösning för hantering av koppling
 
 Lägga till IT Service Management-anslutningstjänsten lösningen till arbetsplatsen Log Analytics med hjälp av den process som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
@@ -70,14 +70,15 @@ IT Service Connector hanteringslösning stöder anslutningar till **System Cente
 
 ## <a name="using-the-solution"></a>Använda lösningen
 
-När du har konfigurerat IT Service Management-anslutningstjänsten med din ITSM programvara information, startar kopplingen samla in data från den anslutna ITSM produkter eller tjänsten. Inledande synkronisering ska utföras på några minuter beroende på antalet incidenter och ändringsförfrågningar i ITSM produkter eller tjänster. 
+När du har konfigurerat IT Service Management-anslutningstjänsten med din ITSM programvara information, startar kopplingen samla in data från den anslutna ITSM produkter eller tjänsten. Inledande synkronisering ska utföras på några minuter beroende på antalet incidenter och ändringsförfrågningar i ITSM produkter eller tjänster.
 
 > [!NOTE]
 > - Data som importeras från ITSM produkten av IT Service Management-anslutningstjänsten lösning visas i logganalys som poster av typen **ServiceDesk_CL**.
 > - Loggposten innehåller ett fält med namnet **ServiceDeskWorkItemType_s**, vilket är incident eller ändringsbegäran begäran, två typer av data som importeras från produkt-ITSM
 
 ## <a name="data-synced-from-itsm-product"></a>Data som synkroniseras från ITSM produkten
-Incidenter och ändringsförfrågningar synkroniseras från din ITSM produkt till logganalys-arbetsytan. Följande information visas exempel på data som samlas in av IT Service Management-kopplingen:
+Incidenter och ändringsförfrågningar synkroniseras från din ITSM produkt till logganalys-arbetsytan.
+Följande information visas exempel på data som samlas in av IT Service Management-kopplingen:
 
 > [!NOTE]
 > Beroende på typ av arbetsobjekt som har importerats till Log Analytics **ServiceDesk_CL** innehåller följande fält:
@@ -252,29 +253,29 @@ Du kan också skapa arbetsobjekt i de anslutna ITSM källorna direkt från en lo
 4. Ange lämpliga värden i den **kontakta typen**, **inverkan**, **angelägenhetsgrad**, **kategori**, och **underkategorin** textrutor och klicka sedan på **skapa**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Skapa ITSM arbetsobjekt från Azure-varningar
-ITSM koppling är nu integrerat med åtgärdsgrupper. [Åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md) är ett modulära och återanvändbara sätt utlöser åtgärder för din Azure-aviseringar. Åtgärden ITSM i åtgärdsgrupper skapar arbetsuppgifter i ITSM produkten med en befintlig ITSM Connector-lösning.
+ITSM koppling är nu integrerat med åtgärdsgrupper.
 
-1. I Azure-portalen klickar du på **Övervakare**
-2. I den vänstra rutan klickar du på **åtgärdsgrupper**
+[Åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md) är ett modulära och återanvändbara sätt utlöser åtgärder för din Azure-aviseringar. Åtgärden ITSM i åtgärdsgrupper skapar arbetsuppgifter i ITSM produkten med en befintlig ITSM Connector-lösning.
+
+1. I Azure-portalen klickar du på **övervakaren**.
+2. I den vänstra rutan klickar du på **åtgärdsgrupper**.
 
     ![Åtgärdsgrupper](media/log-analytics-itsmc/ActionGroups.png)
 
-3. Ange **namn** och **kort filnamn** för din grupp. Välj den **resursgruppen** och **prenumeration** där du vill att din grupp att skapas.
+3. Ange **namn** och **kort filnamn** för din grupp. Välj den **resursgruppen** och **prenumeration** där du vill skapa din grupp.
 
     ![Åtgärden grupper detaljer](media/log-analytics-itsmc/ActionGroupsDetail.png)
 
-4. Välj i listan åtgärder **ITSM** listrutan för **åtgärdstyp**. Ange en **namn** för åtgärden och klicka på **redigera detaljer**.
-
-
+4. Välj i listan åtgärder **ITSM** från den nedrullningsbara menyn för **åtgärdstyp**. Ange en **namn** för åtgärd och klickar på **redigera detaljer**.
 5. Välj den **prenumeration** där logganalys-arbetsytan finns. Välj den **anslutning** engångsfaktorautentisering namnet för anslutningstjänsten ITSM följt av namnet på din arbetsyta. Till exempel ”MyITSMMConnector(MyWorkspace)”.
 
     ![ITSM åtgärdsinformation](./media/log-analytics-itsmc/ITSMActionDetails.png)
 
-6. Välj **arbetsobjekt** typen från listrutan.
+6. Välj **arbetsobjekt** typen från den nedrullningsbara menyn.
 7. Välja att använda en befintlig mall eller Fyll i fälten som krävs av ITSM produkten.
 8. Klicka på **OK**
 
-När du skapar/redigerar en Azure aviseringsregel, använda en grupp, som har en ITSM-åtgärd. När aviseringen utlöser skapa arbetsobjekt i verktyget ITSM. 
+När du skapar/redigerar en Azure aviseringsregel, använda en grupp, som har en ITSM-åtgärd. När aviseringen utlöser skapa arbetsobjekt i verktyget ITSM.
 
 >[!NOTE]
 >För närvarande endast aktiviteten loggen aviseringar stöder ITSM-åtgärd. Den här åtgärden är en no-op för andra Azure-aviseringar.
@@ -288,10 +289,10 @@ När du skapar/redigerar en Azure aviseringsregel, använda en grupp, som har en
     - Kontrollera att du har tillräckliga privilegier i motsvarande ITSM produkten för att ansluta.
  - För Service Manager-anslutningar
      - Kontrollera att webbappen har distribuerats och hybridanslutningen har skapats. För att verifiera anslutningen upprättas har med Service Manager-datorn lokalt, gå Webbappens URL som anges i dokumentationen för att göra den [hybridanslutning](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-     
+
 2.  Om du inte komma har synkroniserats data från ServiceNow till Log Analytics, se till att ServiceNow instansen inte är i viloläge. ServiceNow Dev instanser försättas ibland i viloläge vid inaktivitet under lång tid. Annars rapportera problemet.
 3.  Om OMS aviseringar eller men fungerar objekt skapas inte i ITSM produkten eller konfigurationsobjekt inte skapats/kopplad till arbetsobjekt eller allmän information, se på följande platser:
- -  **IT Service Management-anslutningstjänsten lösning**: lösningen innehåller en översikt över anslutningar/artiklar/arbetsdatorer osv. Klicka på panelen visar **Connector-Status**, vilket leder till **loggen Sök** med relevanta frågan. Titta på loggposter med LogType_S som fel för mer information.
+ -  **IT Service Management-anslutningstjänsten lösning**: lösningen innehåller en översikt över anslutningar/artiklar/arbetsdatorer osv. Klicka på panelen visar **Connector-Status**, som tar du **loggen Sök** med relevanta frågan. Titta på loggposter med LogType_S som fel för mer information.
  - Eller visa fel/relaterade direkt i den **loggen Sök** sidan med frågan *typ = ServiceDeskLog_CL*.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution

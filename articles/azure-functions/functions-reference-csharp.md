@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: glenga
-ms.openlocfilehash: 18d3a87da8c240a3153dfa68f9b1d8bd17bbe693
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 10943769e46adf05642e19d6be297820171bb9f6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Azure Functions C# skript för utvecklare
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -375,7 +375,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 
 `BindingTypeAttribute`är .NET-attribut som definierar en bindning och `T` är den inkommande eller utgående typ som stöds av denna bindning. `T`kan inte heller ett `out` parametertypen (exempelvis `out JObject`). Till exempel tabellen Mobile Apps spara bindningen stöder [sex utdata typer](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) för `T`.
 
-Följande exempelkod skapar en [lagringsblob utdatabindning](functions-bindings-storage-blob.md#using-a-blob-output-binding) med blob sökväg som har definierats vid körning, sedan skriver en sträng till blob.
+Följande exempelkod skapar en [lagringsblob utdatabindning](functions-bindings-storage-blob.md#blob-storage-input--output-bindings) med blob sökväg som har definierats vid körning, sedan skriver en sträng till blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;

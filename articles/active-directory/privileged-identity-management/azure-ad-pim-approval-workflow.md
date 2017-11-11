@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>Godkännanden (förhandsgranskning)
+# <a name="approvals"></a>Godkännanden
 
 ## <a name="overview"></a>Översikt
 
 Med godkännanden för Privileged Identity Management kan du konfigurera roller för att kräva godkännande för aktivering och välja en eller flera användare eller grupper som delegerad godkännare. Vill du fortsätta läsa information om hur du konfigurerar roller och välj godkännare.
 
->[!NOTE]
-Kom ihåg den här funktionen är fortfarande under utveckling och du kan stöta på buggar. Funktioner, inklusive text namngivningskonventioner komma att ändras och ska inte betraktas som sista.
 
-
-## <a name="key-terminology"></a>Viktiga termer
+## <a name="new-terminology"></a>Nya terminologi
 
 *Behörig användare i rollen* – en användare med berättigade roll är en användare inom din organisation som har tilldelats till en Azure AD-roll som kvalificerade (rollen kräver aktivering).
 
-*Delegerad godkännare* – en delegerad godkännare är en eller flera personer eller grupper i din Azure AD som ansvarar för att godkänna begäranden om rollaktivering.
+*Delegerad godkännare* – en delegerad godkännare är en eller flera personer eller grupper i din Azure AD som ansvarar för att godkänna begäranden till Aktivera roller.
 
 ## <a name="scenarios"></a>Scenarier
 

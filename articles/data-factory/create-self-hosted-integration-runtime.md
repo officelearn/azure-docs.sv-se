@@ -3,7 +3,7 @@ title: "Skapa automatisk värdbaserade integration körning i Azure Data Factory
 description: "Lär dig hur du skapar själv värdbaserade integration körning i Azure Data Factory, vilket gör att datafabriker att komma åt data lagras i ett privat nätverk."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.author: abnarain
+ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Hur du skapar och konfigurerar Self-hosted integrering Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla data integrationsmöjligheter mellan olika nätverksmiljöer. Mer information om IR finns [integrering Runtime översikt](concepts-integration-runtime.md).
@@ -103,11 +103,11 @@ Automatisk värdbaserade integration körning kan installeras genom att hämta e
 
 
 ## <a name="high-availability-and-scalability"></a>Hög tillgänglighet och skalbarhet
-En Self-hosted integrering Runtime kan vara associateed till flera lokala datorer. Dessa datorer kallas noder. Du kan ha upp till fyra noder som är associerade med en Self-hosted integrering Runtime. Fördelarna med flera noder (lokala datorer med installerade-gateway) för en logisk gateway är:
+En Self-hosted integrering Runtime kan vara kopplad till flera lokala datorer. Dessa datorer kallas noder. Du kan ha upp till fyra noder som är associerade med en Self-hosted integrering Runtime. Fördelarna med flera noder (lokala datorer med installerade-gateway) för en logisk gateway är:
 1. Högre tillgänglighet för Self-hosted integrering körningen så att den inte längre felpunkt i din Stordata lösning eller molnet dataintegrering med Azure Data Factory säkerställt kontinuitet med upp till 4 noder.
 2. Förbättrad prestanda och dataflöde vid flytt av data mellan lokala och moln datalager. Få mer information om [prestandajämförelser](copy-activity-performance.md).
 
-Du kan associera flera noder genom att bara installera Self-hosted integrering Runtime-programvara från den [hämtningssidan](https://www.microsoft.com/download/details.aspx?id=39717) och genom att registrera den genom att antingen autentiseringsnycklar obtainined från Nya AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet som beskrivs i den [självstudiekursen](tutorial-hybrid-copy-powershell.md)
+Du kan associera flera noder genom att bara installera Self-hosted integrering Runtime-programvara från den [hämtningssidan](https://www.microsoft.com/download/details.aspx?id=39717) och genom att registrera den genom att antingen autentiseringsnycklar som hämtats från Nya AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet som beskrivs i den [självstudiekursen](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
 > Du behöver inte skapa en ny Self-hosted integrering Runtime för att associera varje nod.

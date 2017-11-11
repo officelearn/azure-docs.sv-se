@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 63e2256ca6d392a0cd284269e8c2d059f94e9139
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>Introduktion till apptjänstmiljöer #
  
@@ -48,13 +48,13 @@ En ASE består av frontwebbservrarna och personer. Frontwebbservrarna ansvarar f
 
 Anställda är roller som värd för kund-appar. Anställda finns i tre fast storlek:
 
-* En core/3.5 GB RAM-minne
-* Två kärnor/7 GB RAM-minne
-* Fyra kärnor/14 GB RAM-minne
+* En vCPU/3.5 GB RAM-minne
+* Två vCPU/7 GB RAM-minne
+* Fyra vCPU/14 GB RAM-minne
 
 Kunder behöver inte hantera frontwebbservrarna och personer. Alla infrastruktur läggs automatiskt till som kunder skala ut sin App Service-planer. Eftersom programtjänstplaner skapas eller skalas i en ASE, den nödvändiga infrastrukturen läggs till eller tas bort efter behov.
 
-Det finns en platt månatliga för en ASE som betalar för infrastrukturen och ändras inte med storleken på ASE. Dessutom finns en kostnad per App Service-plan kärna. Alla appar som finns i en ASE finns i isolerad priser SKU. Mer information om priser för en ASE finns i [priser för Apptjänst] [ Pricing] sidan och granska de tillgängliga alternativen för ASEs.
+Det finns en platt månatliga för en ASE som betalar för infrastrukturen och ändras inte med storleken på ASE. Dessutom finns en kostnad per App Service-plan vCPU. Alla appar som finns i en ASE finns i isolerad priser SKU. Mer information om priser för en ASE finns i [priser för Apptjänst] [ Pricing] sidan och granska de tillgängliga alternativen för ASEs.
 
 ## <a name="virtual-network-support"></a>Stöd för virtuella nätverk ##
 
@@ -76,7 +76,7 @@ Apptjänst-miljö har två versioner: ASEv1 och ASEv2. Informationen ovan har ba
 
 ASEv1 behöver du hantera alla resurser manuellt. Som innehåller frontwebbservrarna, personal och IP-adresser som används för IP-baserade SSL. Innan du kan skala ut din programtjänstplan måste du första skala ut arbetspool där du vill ha den.
 
-ASEv1 använder en annan prisnivå modell från ASEv2. ASEv1 betalar du för varje kärna allokerade. Som innehåller kärnor som används för frontwebbservrarna eller personer som inte är värd för alla arbetsbelastningar. I ASEv1 är maximal skala standardstorleken för en ASE 55 Totalt antal värdar. Som innehåller arbetare och frontwebbservrarna. En fördel med att ASEv1 är kan distribueras i ett klassiskt virtuellt nätverk och ett virtuellt nätverk för hanteraren för filserverresurser. Läs mer om ASEv1 i [Apptjänstmiljö v1 introduktion][ASEv1Intro].
+ASEv1 använder en annan prisnivå modell från ASEv2. ASEv1 betalar du för varje vCPU allokerade. Som innehåller vCPUs som används för frontwebbservrarna eller personer som inte är värd för alla arbetsbelastningar. I ASEv1 är maximal skala standardstorleken för en ASE 55 Totalt antal värdar. Som innehåller arbetare och frontwebbservrarna. En fördel med att ASEv1 är kan distribueras i ett klassiskt virtuellt nätverk och ett virtuellt nätverk för hanteraren för filserverresurser. Läs mer om ASEv1 i [Apptjänstmiljö v1 introduktion][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

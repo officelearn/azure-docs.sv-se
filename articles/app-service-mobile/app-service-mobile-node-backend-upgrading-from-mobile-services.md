@@ -14,16 +14,16 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Uppgradera din befintliga Mobiltjänst för Node.js-Azure till App Service
 Apptjänst Mobile är ett nytt sätt att skapa mobila program med Microsoft Azure. Läs mer i [vad är Mobilappar?].
 
-Det här avsnittet beskriver hur du uppgraderar ett befintligt Node.js-serverdel program från Azure Mobile Services till en ny Apptjänst Mobilappar. Medan du utför uppgraderingen fortsätter befintliga mobiltjänster programmet att fungera.  Om du behöver uppgradera ett Node.js-program för serverdelen finns [uppgradera din Mobile Services .NET](app-service-mobile-net-upgrading-from-mobile-services.md).
+Den här artikeln beskriver hur du uppgraderar ett befintligt Node.js-serverdel program från Azure Mobile Services till en ny Apptjänst Mobilappar. Medan du utför uppgraderingen fortsätter befintliga mobiltjänster programmet att fungera.  Om du behöver uppgradera ett Node.js-program för serverdelen finns [uppgradera din Mobile Services .NET](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 När en mobilserverdel uppgraderas till Azure App Service, den har åtkomst till alla funktioner i Apptjänst och debiteras enligt [priser för Apptjänst], inte Mobile Services priser.
 
@@ -44,7 +44,7 @@ Uppgradera till den nya [Mobile Apps-SDK](https://www.npmjs.com/package/azure-mo
 * Bygger för flera plattformar och lokala utveckling kan Mobile Apps-SDK vara utvecklade och köras lokalt på Windows, Linux och OS x-plattformar. Nu är det enkelt att använda vanliga nod utvecklingstekniker som körs [Mocha](https://mochajs.org/) tester före distributionen.
 
 ## <a name="overview"></a>Uppgradera översikt
-För att underlätta vid uppgradering av en Node.js-serverdel tillhandahåller Azure App Service ett paket för kompatibilitet.  Efter uppgraderingen måste en niew plats som kan distribueras till en ny plats i Apptjänst.
+För att underlätta vid uppgradering av en Node.js-serverdel tillhandahåller Azure App Service ett paket för kompatibilitet.  Efter uppgraderingen måste en ny plats som kan distribueras till en ny plats i Apptjänst.
 
 Klienten för Mobile Services SDK: er **inte** kompatibel med den nya servern för Mobile Apps SDK. Du bör inte publicera ändringar till en plats som betjänar publicerade klienter för att kunna erbjuda kontinuitet i tjänsten för din app. I stället bör du skapa en ny mobil app som fungerar som en dubblett. Du kan publicera det här programmet på samma App Service-plan för att undvika ytterligare kostnader.
 
@@ -98,12 +98,12 @@ Under distributionen behöver du göra följande:
 3. För **Resursgrupp** väljer du en befintlig resursgrupp, eller skapar en ny (med samma namn som din app).
 
     Du kan antingen välja en annan App Service-plan eller skapa en ny. Mer information om Apptjänster planer och hur du skapar en ny plan i en annan prisnivå på datanivå och på din önskade plats finns [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. För **App Service-plan** är standardplanen (i [standardnivån](https://azure.microsoft.com/pricing/details/app-service/)) vald. Du kan också välja en annan plan eller [skapa en ny](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). App Service-planens inställningar avgör [plats, funktioner, kostnad och beräkningsresurser](https://azure.microsoft.com/pricing/details/app-service/) som associeras med din app.
+4. För **App Service-plan** är standardplanen (i [standardnivån](https://azure.microsoft.com/pricing/details/app-service/)) vald. Du kan också välja en annan plan eller [skapa en ny](../app-service/app-service-plan-manage.md#create-an-app-service-plan). App Service-planens inställningar avgör den [plats, funktioner, kostnad och beräkningsresurser](https://azure.microsoft.com/pricing/details/app-service/) som är associerade med din app.
 
     Efter att du har valt planen klickar du på **Skapa**. Serverdelen för mobilappen skapas.
 
 ### <a name="run-createviewssql"></a>Kör CreateViews.SQL
-Autogenererade appen innehåller en fil med namnet `createViews.sql`.  Det här skriptet måste köras mot måldatabasen.  Anslutningssträngen för måldatabasen kan hämtas från mobiltjänsten migrerade från den **inställningar** bladet under **anslutningssträngar**.  Det heter `MS_TableConnectionString`.
+Autogenererade appen innehåller en fil med namnet `createViews.sql`.  Det här skriptet måste köras mot måldatabasen.  Anslutningssträngen för måldatabasen kan hämtas från mobiltjänsten migrerade från den **inställningar** sidan **anslutningssträngar**.  Det heter `MS_TableConnectionString`.
 
 Du kan köra skriptet i SQL Server Management Studio eller Visual Studio.
 
@@ -116,7 +116,7 @@ Länka den befintliga databasen till din Apptjänst:
 * Välj i listrutan, **SQL-databas**
 * Under **SQL-databas**, Välj den befintliga databasen, och klicka sedan på **Välj**.
 * Under **anslutningssträngen**, ange användarnamn och lösenord för databasen, och klicka sedan på **OK**.
-* I den **lägga till dataanslutningar** bladet, klickar du på **OK**.
+* I den **lägga till dataanslutningar** klickar du på **OK**.
 
 Användarnamn och lösenord finns genom att visa anslutningssträngen för måldatabasen i din migrerade mobiltjänst.
 

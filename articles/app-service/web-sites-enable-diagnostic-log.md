@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för web apps i Azure App Service
 ## <a name="overview"></a>Översikt
-Azure tillhandahåller inbyggda diagnostik för att underlätta felsökning en [Apptjänst webbapp](http://go.microsoft.com/fwlink/?LinkId=529714). I den här artikeln lär du dig hur du aktiverar du diagnostikloggning och lägga till instrumentation i ditt program, samt hur du kommer åt information som loggas av Azure.
+Azure tillhandahåller inbyggda diagnostik för att underlätta felsökning en [Apptjänst webbapp](http://go.microsoft.com/fwlink/?LinkId=529714). I den här artikeln lär du dig aktivera diagnostikloggning och lägga till instrumentation i ditt program, samt hur du kommer åt information som loggas av Azure.
 
-Den här artikeln används den [Azure Portal](https://portal.azure.com), Azure PowerShell och Azure-kommandoradsgränssnittet (Azure CLI) för att fungera med diagnostikloggar. Information om hur du arbetar med diagnostikloggar med Visual Studio finns i [felsöka Azure i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Den här artikeln används den [Azure-portalen](https://portal.azure.com), Azure PowerShell och Azure-kommandoradsgränssnittet (Azure CLI) för att fungera med diagnostikloggar. Information om hur du arbetar med diagnostikloggar med Visual Studio finns i [felsöka Azure i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -43,24 +43,24 @@ Programdiagnostik kan du samla in information som produceras av ett webbprogram.
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-Du kan hämta dessa loggar för felsökning vid körning. Mer information finns i [felsöka Azure web apps i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Vid körning kan hämta du dessa loggar för felsökning. Mer information finns i [felsöka Azure web apps i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 App Service web apps även logga information om distribution när du publicerar innehåll till en webbapp. Detta sker automatiskt och det finns inga konfigurationsinställningar för loggning för distribution. Loggning för distribution kan du avgöra varför en distribution misslyckades. Till exempel om du använder ett anpassat distributionsskriptet, kan du använda deployment loggning för att avgöra varför skriptet inte.
 
 ## <a name="enablediag"></a>Så här aktiverar du diagnostik
-Aktivera diagnostik i den [Azure Portal](https://portal.azure.com), gå till bladet för din webbapp och klickar på **Inställningar > diagnostik loggar**.
+Aktivera diagnostik i den [Azure-portalen](https://portal.azure.com), gå till sidan för webbappen och klickar på **Inställningar > diagnostik loggar**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![En del loggar](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-När du aktiverar **programdiagnostik** du också välja den **nivå**. Den här inställningen kan du filtrera den information som har hämtats till **informationsmeddelande**, **varning** eller **fel** information. Att **utförlig** loggar alla information som genereras av programmet.
+När du aktiverar **programdiagnostik**, du också välja den **nivå**. Den här inställningen kan du filtrera den information som har hämtats till **informationsmeddelande**, **varning**, eller **fel** information. Att **utförlig** loggar all information som genereras av programmet.
 
 > [!NOTE]
 > Till skillnad från ändrar web.config-filen, återanvändning aktiverar programdiagnostik eller ändrar diagnostiska loggningsnivåer tillämpningsdomän som programmet körs inom.
 >
 >
 
-I den [klassiska portalen](https://manage.windowsazure.com) webbapp **konfigurera** fliken kan du välja **lagring** eller **filsystem** för **web server-loggning**. Att välja **lagring** kan du välja ett lagringskonto och en blobbbehållare som skrivs till loggarna. Alla loggar för **plats diagnostik** skrivs till endast filsystemet.
+I den [klassiska portalen](https://manage.windowsazure.com) webbapp **konfigurera** fliken kan du välja **lagring** eller **filsystem** för **web server-loggning**. Att välja **lagring** kan du välja ett lagringskonto och en blob-behållare som loggarna skrivs till. Alla loggar för **plats diagnostik** skrivs till endast filsystemet.
 
 Den [klassiska portalen](https://manage.windowsazure.com) webbapp **konfigurera** fliken finns också ytterligare inställningar för application diagnostics:
 
@@ -113,7 +113,7 @@ Starta en ny instans av Azure PowerShell för att hämta filerna, och använder 
 
     Save-AzureWebSiteLog -Name webappname
 
-Detta sparar loggar för webbprogram som anges av den **-namnet** parameter till en fil med namnet **logs.zip** i den aktuella katalogen.
+Detta kommando sparar loggar för webbprogram som anges av den **-namnet** parameter till en fil med namnet **logs.zip** i den aktuella katalogen.
 
 > [!NOTE]
 > Om du inte har installerat Azure PowerShell eller inte har konfigurerat den att använda Azure-prenumeration, se [hur du använder Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
@@ -125,7 +125,7 @@ För att hämta filerna med hjälp av Azure-kommandoradsgränssnittet, öppna en
 
     azure site log download webappname
 
-Detta sparar loggar för webbprogrammet med namnet 'webappname' till en fil med namnet **diagnostics.zip** i den aktuella katalogen.
+Detta kommando sparar loggar för webbprogrammet med namnet 'webappname' till en fil med namnet **diagnostics.zip** i den aktuella katalogen.
 
 > [!NOTE]
 > Om du inte har installerat Azure-kommandoradsgränssnittet (Azure CLI) eller inte har konfigurerat den att använda Azure-prenumeration, se [hur du använder Azure CLI](../cli-install-nodejs.md).
@@ -136,11 +136,11 @@ Detta sparar loggar för webbprogrammet med namnet 'webappname' till en fil med 
 Programinsikter för Visual Studio innehåller verktyg för att filtrera och söka i loggar och för korrelation mellan loggarna med begäranden och andra händelser.
 
 1. Lägg till Application Insights SDK i ditt projekt i Visual Studio.
-   * Högerklicka på projektet i Solution Explorer och välja Lägg till Application Insights. Du kommer att få vägledning genom steg som omfattar att skapa en Application Insights-resurs. [Läs mer](../application-insights/app-insights-asp-net.md)
+   * Högerklicka på projektet i Solution Explorer och välj Lägg till Application Insights. Gränssnittet vägleder dig genom stegen som omfattar att skapa en Application Insights-resurs. [Läs mer](../application-insights/app-insights-asp-net.md)
 2. Lägga till spårningsavlyssningen paket i projektet.
    * Högerklicka på projektet och välj Hantera NuGet-paket. Välj `Microsoft.ApplicationInsights.TraceListener` [Läs mer](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Överför ditt projekt och kör det att generera loggdata.
-4. I den [Azure Portal](https://portal.azure.com/), bläddra till din nya Application Insights-resurs och öppna **Sök**. Du ser ditt loggdata tillsammans med begäran, användning och andra telemetri. Vissa telemetri kan ta några minuter innan den tas emot: Klicka på Uppdatera. [Läs mer](../application-insights/app-insights-diagnostic-search.md)
+4. I den [Azure-portalen](https://portal.azure.com/), bläddra till din nya Application Insights-resurs och öppna **Sök**. Du bör se din loggdata tillsammans med begäran, användning och andra telemetri. Vissa telemetri kan ta några minuter innan den tas emot: Klicka på Uppdatera. [Läs mer](../application-insights/app-insights-diagnostic-search.md)
 
 [Mer information om prestanda spårning med Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
@@ -151,7 +151,7 @@ När du utvecklar ett program, är det ofta praktiskt att visa loggningsinformat
 > Vissa typer av loggning buffert skriva till loggfilen, vilket kan leda till oordnade händelser i dataströmmen. Exempelvis kan en loggpost för program som uppstår när en användare besöker en sida visas i dataströmmen innan motsvarande HTTP-loggpost för begäran.
 >
 > [!NOTE]
-> Loggen strömning direktuppspelas också information som skrivs till en textfil som lagras i den **D:\\hem\\loggfiler\\**  mapp.
+> Loggen strömning också strömmar information skrivs till en textfil som lagras i den **D:\\hem\\loggfiler\\**  mapp.
 >
 >
 
@@ -160,7 +160,7 @@ Att strömma loggningsinformation och starta om en ny instans av Azure PowerShel
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-Ansluts till det webbprogram som anges av den **-namnet** parameter och börja strömning information till PowerShell-fönstret när händelser inträffar kontinuerligt i webbprogrammet. All information som skrivs till filer som slutar på .txt, .log eller .htm som lagras i katalogen /LogFiles (d:/home/loggfilerna) kommer att strömmas till den lokala konsolen.
+Det här kommandot ansluter till det webbprogram som anges av den **-namnet** parameter och börja strömning information till PowerShell-fönstret när händelser inträffar kontinuerligt i webbprogrammet. All information som skrivs till filer som slutar på .txt, .log eller .htm som lagras i katalogen /LogFiles (d:/home/loggfilerna) strömmas till den lokala konsolen.
 
 För att filtrera specifika händelser, till exempel fel, använder den **-meddelandet** parameter. Exempel:
 
@@ -182,7 +182,7 @@ Strömma loggningsinformation, öppna en ny kommandotolk, PowerShell, Bash eller
 
     az webapp log tail --name webappname --resource-group myResourceGroup
 
-Detta ska ansluta till webbprogrammet med namnet 'webappname' och börja strömning information till fönstret när händelser inträffar kontinuerligt i webbprogrammet. All information som skrivs till filer som slutar på .txt, .log eller .htm som lagras i katalogen /LogFiles (d:/home/loggfilerna) kommer att strömmas till den lokala konsolen.
+Det här kommandot ansluter till webbprogrammet med namnet 'webappname' och påbörja strömning information till fönstret när händelser inträffar kontinuerligt i webbprogrammet. All information som skrivs till filer som slutar på .txt, .log eller .htm som lagras i katalogen /LogFiles (d:/home/loggfilerna) strömmas till den lokala konsolen.
 
 För att filtrera specifika händelser, till exempel fel, använder den **--Filter** parameter. Exempel:
 
@@ -203,15 +203,15 @@ Programdiagnostik lagrar information i ett specifikt format för .NET-program, b
 
 **Filsystem**
 
-Varje rad inloggade filsystemet eller tas emot med streaming blir i följande format:
+Varje rad inloggade filsystemet eller tas emot med streaming är i följande format:
 
-    {Date}  PID[{process id}] {event type/level} {message}
+    {Date}  PID[{process ID}] {event type/level} {message}
 
 Till exempel visas en felhändelse liknar följande:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
-Loggning till filsystemet ger den mest grundläggande informationen av tre tillgängliga metoder ger endast tid, process-id, Händelsenivå och meddelandet.
+Loggning till filsystemet ger den mest grundläggande informationen av tre tillgängliga metoder ger endast tid, process-ID, Händelsenivå och meddelandet.
 
 **Table Storage**
 
@@ -258,7 +258,7 @@ Data som lagras i en blob skulle se ut ungefär så här:
 >
 
 ### <a name="failed-request-traces"></a>Det gick inte begäranden
-Misslyckade begäranden lagras i XML-filer med namnet **fr ### .xml**. För att göra det enklare att visa information om loggade XSL-formatmallar med namnet **freb.xsl** finns i samma katalog som XML-filerna. Öppna en XML-filerna i Internet Explorer använder XSL-formatmallar för att tillhandahålla en formaterad visningen av spårningsinformationen. Detta liknar följande:
+Misslyckade begäranden lagras i XML-filer med namnet **fr ### .xml**. För att göra det enklare att visa information om loggade XSL-formatmallar med namnet **freb.xsl** finns i samma katalog som XML-filerna. Om du öppnar en XML-filerna i Internet Explorer använder Internet Explorer XSL-formatmallar för att ge en formaterad visningen av spårningsinformationen. Det ser ut som följande:
 
 ![misslyckade begäranden som visas i webbläsaren](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -282,7 +282,3 @@ Web server-loggar har formaterats med den [W3C utökat loggfilsformat](http://ms
 > Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
 >
 >
-
-## <a name="whats-changed"></a>Nyheter
-* En guide till övergången från Webbplatser till App Service finns i: [Azure App Service och dess påverkan på befintliga Azure-tjänster](http://go.microsoft.com/fwlink/?LinkId=529714)
-* En guide till ändring av den gamla portalen till den nya portalen finns: [referens för navigering Azure-portalen](http://go.microsoft.com/fwlink/?LinkId=529715)

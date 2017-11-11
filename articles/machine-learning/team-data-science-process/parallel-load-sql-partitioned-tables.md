@@ -4,7 +4,7 @@ description: "Parallell massimport av data med SQL-tabeller för partition"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
@@ -12,24 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Parallell massimport av data med SQL-tabeller för partition
 Det här dokumentet beskrivs hur du skapar partitionerade tabeller för snabb parallella massimport av data till en SQL Server-databas. För stora inläsning/överföring av data till en SQL-databas, importera data till SQL-databas och efterföljande frågor kan förbättras genom att använda *partitionerade tabeller och vyer*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Skapa en ny databas och en uppsättning filgrupper
 * [Skapa en ny databas](https://technet.microsoft.com/library/ms176061.aspx), om den inte redan finns.
-* Lägga till databasen filgrupper i databasen som innehåller de partitionerade fysiska filerna. Detta kan göras med [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) om nya eller [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) om databasen finns redan.
+* Lägga till databasen filgrupper i databasen, som innehåller de partitionerade fysiska filerna. 
+* Detta kan göras med [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) om nya eller [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) om databasen finns redan.
 * Lägga till en eller flera filer (om det behövs) i varje filgrupp för databasen.
   
   > [!NOTE]
-  > Ange mål-filgrupp som innehåller data för den här partitionen och den fysiska databasen filnamn där filgruppsdata i kommer att sparas.
+  > Ange mål-filgruppen, där data för den här partitionen och den fysiska databasen filnamn där filgruppsdata lagras.
   > 
   > 
 
@@ -55,18 +56,19 @@ I följande exempel skapas en ny databas med tre filgrupper än primärt och log
     ')
 
 ## <a name="create-a-partitioned-table"></a>Skapa en partitionerad tabell
-Skapa partitionerade tabeller enligt dataschemat mappas till databasen filgrupperna skapade i föregående steg. När data samtidigt som importeras i en partitionerad tabell fördelas posterna mellan filgrupper enligt ett partitionsschema som beskrivs nedan.
+Om du vill skapa partitionerade tabeller enligt dataschemat mappas till databasen filgrupperna skapade i föregående steg, måste du först skapa en partitionsfunktion och schema. När data samtidigt som importeras i en partitionerad tabell fördelas posterna mellan filgrupper enligt ett partitionsschema som beskrivs nedan.
 
-**Om du vill skapa en partitionstabell, måste du:**
-
-* [Skapa en partitionsfunktion](https://msdn.microsoft.com/library/ms187802.aspx) som definierar en uppsättning värden/gränser som ska ingå i varje enskild partitionstabell, t.ex., för att begränsa partitioner per månad (vissa\_datetime\_fältet) år 2013:
+### <a name="1-create-a-partition-function"></a>1. Skapa en partitionsfunktion
+[Skapa en partitionsfunktion](https://msdn.microsoft.com/library/ms187802.aspx) funktionen definierar en uppsättning värden/gränser som ska ingå i varje enskild partitionstabell, till exempel, för att begränsa partitioner per månad (vissa\_datetime\_fältet) år 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
             '20130201', '20130301', '20130401',
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
-* [Skapa ett partitionsschema](https://msdn.microsoft.com/library/ms179854.aspx) som mappar varje partition intervallet i partitionsfunktionen till en fysisk filgrupp, t.ex.:
+
+### <a name="2-create-a-partition-scheme"></a>2. Skapa ett partitionsschema
+[Skapa ett partitionsschema](https://msdn.microsoft.com/library/ms179854.aspx). Det här schemat mappningar varje partition intervallet i partitionsfunktionen fysiska filgruppen, till exempel:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -83,7 +85,9 @@ Skapa partitionerade tabeller enligt dataschemat mappas till databasen filgruppe
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* [Skapa en partitionerad tabell](https://msdn.microsoft.com/library/ms174979.aspx)(s) enligt dataschemat och ange partition schema och begränsning fält som används för att partitionera tabellen, t.ex.:
+
+### <a name="3-create-a-partition-table"></a>3. Skapa en partitionstabell
+[Skapa en partitionerad tabell](https://msdn.microsoft.com/library/ms174979.aspx)(s) enligt dataschemat och ange partition schema och begränsning fält som används för att partitionera tabellen, till exempel:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -91,8 +95,9 @@ Skapa partitionerade tabeller enligt dataschemat mappas till databasen filgruppe
 Mer information finns i [skapa partitionerade tabeller och index](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Massimportera data för varje enskild partitionstabellen
+
 * Du kan använda BCP BULK INSERT eller andra metoder som [Migreringsguiden för SQL Server](http://sqlazuremw.codeplex.com/). Följande exempel används metoden BCP.
-* [Ändra databasen](https://msdn.microsoft.com/library/bb522682.aspx) ändra schemat för transaktionsloggning till bulkloggad att minimera arbetet med att logga, t.ex.:
+* [Ändra databasen](https://msdn.microsoft.com/library/bb522682.aspx) ändra schemat för loggning av transaktionen till bulkloggad att minimera arbetet med att logga, till exempel:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 * Starta import massåtgärder parallellt för att påskynda inläsning av data. Tips om snabbare bulk importerar av stordata i SQL Server-databaser finns [läsa in 1TB på mindre än 1 timme](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
@@ -162,8 +167,8 @@ Följande PowerShell-skript är ett exempel på parallella datainläsning med hj
 
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Skapa index för att optimera kopplingar och prestanda för frågor
-* Om du ska hämta data för modellering från flera tabeller, skapa index för koppling för att förbättra prestanda för kopplingen.
-* [Skapa index](https://technet.microsoft.com/library/ms188783.aspx) (klustrade eller icke-grupperade) mål samma filgruppen för varje partition, t.ex.:
+* Om du extraherar data för modellering från flera tabeller, skapa index för koppling för att förbättra prestanda för kopplingen.
+* [Skapa index](https://technet.microsoft.com/library/ms188783.aspx) (klustrade eller icke-grupperade) mål samma filgruppen för varje partition för till exempel:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
@@ -173,10 +178,10 @@ Följande PowerShell-skript är ett exempel på parallella datainläsning med hj
         ON <TablePScheme>(<partition)field>)
   
   > [!NOTE]
-  > Du kan välja att skapa index innan du importerar data samtidigt. Skapandet av index innan massimport tar lång tid för datainläsning.
+  > Du kan välja att skapa index innan du importerar data samtidigt. Skapandet av index innan massimport långsammare datainläsning.
   > 
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Processen för avancerade analyser och teknik i åtgärden exempel
-En slutpunkt till slutpunkt genomgången exempel med hjälp av Cortana Analytics Process med en offentlig dataset finns [Cortana Analytics processen i praktiken: använder SQL Server](sql-walkthrough.md).
+En slutpunkt till slutpunkt genomgången exempel med en offentlig dataset Team av vetenskapliga data finns [Team vetenskap av data i praktiken: använder SQL Server](sql-walkthrough.md).
 

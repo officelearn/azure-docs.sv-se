@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Förrän aktivitet i Azure Data Factory
 Aktiviteten till fungerar på samma sätt som ett-tills slingor strukturen innehåller programmeringsspråk. En uppsättning aktiviteter körs i en slinga tills det villkor som är associerad med aktiviteten utvärderas till SANT. Du kan ange ett timeout-värde för den förrän aktivitet i Data Factory. 
@@ -60,7 +60,7 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 namn | Namnet på den `Until` aktivitet. | Sträng | Ja
 typ | Måste anges till **tills**. | Sträng | Ja
 uttryck | Uttryck som måste utvärderas till true eller false | Uttryck.  | Ja
-timeout | Do-tills loop gånger ut efter den angivna tiden. | Sträng. `d.hh:mm:ss`(eller) `hh:mm:ss`. Standardvärdet är 7 dagar. | Nej
+timeout | Do-tills loop gånger ut efter den angivna tiden. | Sträng. `d.hh:mm:ss`(eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta tillåtna värde är: 90 dagar. | Nej
 Aktiviteter | Uppsättning aktiviteter körs tills uttrycket utvärderas till `true`. | Matris med aktiviteter. |  Ja
 
 ## <a name="example-1"></a>Exempel 1

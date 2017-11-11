@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/10/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b07b9e01a5a8d8a5189b130fb5a9baeef7a43f4f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 Azure Backup-tjänsten har två typer av valv – Backup-valvet och Recovery Services-valvet. Först kom Backup-valvet. Recovery Services-valvet tillkom senare som stöd för utökade Resource Manager-distributioner. På grund av utökade funktioner och information beroenden som måste vara lagrad i valvet, kan det vara förvirrande att ta bort en säkerhetskopiering eller Recovery Services-valvet. Den här artikeln förklarar hur du tar bort valv i den klassiska portalen och Azure portal.  
@@ -33,7 +33,7 @@ Azure Backup-tjänsten har två typer av valv – Backup-valvet och Recovery Ser
 >
 
 > [!IMPORTANT]
-> Nu kan du uppgradera dina säkerhetskopieringsvalv till Recovery Services-valv. Mer information finns i artikeln [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Uppgradera ett säkerhetskopieringsvalv till ett Recovery Services-valv). Microsoft rekommenderar att du uppgraderar dina säkerhetskopieringsvalv till Recovery Services-valv.<br/> **Den 15 oktober 2017** kan du inte längre använda PowerShell för att skapa säkerhetskopieringsvalv. <br/> **Från den 1 november 2017**:
+> Nu kan du uppgradera dina säkerhetskopieringsvalv till Recovery Services-valv. Mer information finns i artikeln [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md) (Uppgradera ett säkerhetskopieringsvalv till ett Recovery Services-valv). Microsoft rekommenderar att du uppgraderar dina säkerhetskopieringsvalv till Recovery Services-valv.<br/> Efter **30 November 2017**, kommer du inte kunna använda PowerShell för att skapa säkerhetskopieringsvalv. <br/> **Med 30 November 2017**:
 >- Alla återstående säkerhetskopieringsvalv uppgraderas automatiskt till Recovery Services-valv.
 >- Du kan inte längre komma åt dina säkerhetskopierade data i den klassiska portalen. Använd i stället Azure Portal till att få åtkomst till dina säkerhetskopierade data i Recovery Services-valv.
 >

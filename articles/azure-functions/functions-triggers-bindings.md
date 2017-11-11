@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 Azure Functions kan du skriva kod som svar på händelser i Azure och andra tjänster via *utlösare* och *bindningar*. Den här artikeln innehåller en översikt av utlösare och bindningar för alla programmeringsspråk som stöds. Här beskrivs funktioner som är gemensamma för alla bindningar.
@@ -243,7 +243,7 @@ Till exempel stöder en kö för Azure Storage-utlösare följande egenskaper:
 
 Information om metadataegenskaper för varje utlösare beskrivs i motsvarande referensavsnittet. Dokumentation är också tillgänglig i den **integrera** för portalen, i den **dokumentationen** avsnittet nedan konfigurationsområde bindning.  
 
-Eftersom blob-utlösare har vissa fördröjningar kan du använda en utlösare för kön för att köra funktionen (se [Blob Storage utlösaren](functions-bindings-storage-blob.md#storage-blob-trigger)). Kön meddelandet innehåller blobfilnamn som utlöser på. Med hjälp av den `queueTrigger` metadataegenskapen, du kan ange det här beteendet i konfigurationen, i stället för din kod.
+Eftersom blob-utlösare har vissa fördröjningar kan du använda en utlösare för kön för att köra funktionen (se [Blob Storage utlösaren](functions-bindings-storage-blob.md#blob-storage-trigger)). Kön meddelandet innehåller blobfilnamn som utlöser på. Med hjälp av den `queueTrigger` metadataegenskapen, du kan ange det här beteendet i konfigurationen, i stället för din kod.
 
 ```json
   "bindings": [

@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 2eeab48a580bb8127a2c16ea61e419cbfd92ce3c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas
+# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Använd PowerShell för att synkronisera mellan en SQL-databas och en lokal SQL Server-databas
 
 Det här exemplet PowerShell konfigurerar datasynkronisering ska synkroniseras mellan en Azure SQL Database och en lokal SQL Server-databas. 
 
@@ -393,7 +393,7 @@ Ytterligare exempel för SQL Database PowerShell-skript finns i [Azure SQL Datab
 För mer information om SQL-datasynkronisering, se:
 
 -   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](../sql-database-sync-data.md)
--   [Kom igång med Azure SQL datasynkronisering](../sql-database-get-started-sql-data-sync.md)
+-   [Konfigurera Azure SQL datasynkronisering](../sql-database-get-started-sql-data-sync.md)
 -   [Metodtips för Azure SQL-datasynkronisering](../sql-database-best-practices-data-sync.md)
 -   [Övervaka Azure SQL-datasynkronisering med OMS logganalys](../sql-database-sync-monitor-oms.md)
 -   [Felsökning av problem med Azure SQL-datasynkronisering](../sql-database-troubleshoot-data-sync.md)

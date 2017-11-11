@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 99989d57a0a9b9cc50d0fd9067e6cb9622764965
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera drivrutiner för NVIDIA GPU på N-serien virtuella datorer som kör Linux
 
@@ -70,11 +70,11 @@ Att installera drivrutiner för NVIDIA RUTNÄTET på NV VMs, göra en SSH-anslut
 5. Hämta och installera drivrutinen RUTNÄTET:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 
 6. När du tillfrågas om du vill köra verktyget nvidia xconfig Välj om du vill uppdatera konfigurationsfilen X **Ja**.
@@ -139,11 +139,11 @@ Att installera drivrutiner för NVIDIA RUTNÄTET på NV VMs, göra en SSH-anslut
 5. Hämta och installera drivrutinen RUTNÄTET:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 6. När du tillfrågas om du vill köra verktyget nvidia xconfig Välj om du vill uppdatera konfigurationsfilen X **Ja**.
 
@@ -165,7 +165,7 @@ Att installera drivrutiner för NVIDIA RUTNÄTET på NV VMs, göra en SSH-anslut
 
 Fråga Enhetsstatus GPU SSH till den virtuella datorn och kör den [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) kommandoradsverktyg som installeras med drivrutinen. 
 
-Det visas utdata som liknar följande:
+Visas utdata som liknar följande. Din version av drivrutinen och information GPU kan skilja sig från de som visas.
 
 ![NVIDIA Enhetsstatus](./media/n-series-driver-setup/smi-nv.png)
  
@@ -352,7 +352,7 @@ Distribuera NC24r virtuella datorer från en av följande avbildningar i Azure M
 
 * Det finns ett känt problem med CUDA drivrutiner på Azure N-serien virtuella datorer som kör Linux-kärnan 4.4.0-75 på Ubuntu 16.04 LTS. Om du uppgraderar från en tidigare version av kernel kan uppgradera till minst 4.4.0-77 för kernel-version.
 
-* Du kan ange beständiga läge med nvidia smi så att utdata från kommandot är snabbare när du behöver fråga kort. Om du vill ange beständiga läge kan köra `nvidia-smi -pm 1`. Observera att om den virtuella datorn har startats om inställningen för läge försvinner. Du kan alltid skript inställningen för läge för att köra vid start.
+* Du kan ange beständiga med hjälp av `nvidia-smi` så resultatet av kommandot är snabbare när du behöver fråga kort. Om du vill ange beständiga läge kan köra `nvidia-smi -pm 1`. Observera att om den virtuella datorn har startats om inställningen för läge försvinner. Du kan alltid skript inställningen för läge för att köra vid start.
 
 
 ## <a name="next-steps"></a>Nästa steg

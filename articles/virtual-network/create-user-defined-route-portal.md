@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 736e48f9651d89a1f4e8e0ae72cdffebb8e9c6e0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Skapa en användardefinierad väg - Azure-portalen
 
@@ -268,6 +268,12 @@ Den här artikeln innehåller steg för att skapa en användardefinierad väg ge
         - **Ubuntu**: kör den `tracepath myvm-private` kommando.
       Trafik som passerar genom 10.0.2.4 (NVA) innan det nådde 10.0.1.4 (virtuell dator i privata undernät). 
     - Slutföra de föregående stegen genom att ansluta till den *myVm privata* virtuella datorn och pinga den *myVm offentliga* virtuella datorn. Spåra väg visar kommunikation reser via 10.0.2.4 innan det nådde 10.0.0.4 (virtuell dator i offentliga undernät).
+
+      > [!NOTE]
+      > De här stegen kan du bekräfta routning mellan Azure privata IP-adresser. Om du vill vidarebefordra eller proxy trafik till offentliga IP-adresser via en virtuell nätverksenhet:
+      > - Anordningen måste ange nätverksadresser eller proxy-funktioner. Om nätverksadresser, anordningen måste översätta källan IP-adress till sin egen och vidarebefordrar begäran till den offentliga IP-adressen. Om anordningen har nätverksadress översättas källadress eller är proxy, Azure översätter det virtuell nätverksenhets privata IP-adressen till en offentlig IP-adress. Mer information om de olika metoderna Azure använder för att översätta privata IP-adresser till offentliga IP-adresser finns [förstå utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - En extra väg i routningstabellen som prefix: 0.0.0.0/0, nästa hopptyp VirtualAppliance och nästa hopp-IP-adress 10.0.2.4 (i föregående exempelskriptet).
+      >
     - **Du kan också**: Använd för att validera nästa hopp mellan två virtuella datorer i Azure, Azure Nätverksbevakaren nästa hopp-kapacitet. Innan du använder Nätverksbevakaren, måste du först [skapa en instans av Azure Nätverksbevakaren](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för den region som du vill använda den i. I den här kursen används region oss Öst. När du har aktiverat en Nätverksbevakaren-instans för regionen, ange följande kommando för att se nästa hopp-information mellan de virtuella datorerna i de offentliga och privata undernät:
      
         ```azurecli-interactive

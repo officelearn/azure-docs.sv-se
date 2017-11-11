@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Säkerhetskopiera Windows Server till Azure
 
@@ -42,9 +42,9 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 Innan du kan säkerhetskopiera Windows Server, måste du skapa en plats för säkerhetskopiorna eller återställningspunkter som ska lagras. En [Recovery Services-valvet](backup-azure-recovery-services-vault-overview.md) är en behållare i Azure som lagrar säkerhetskopior från Windows Server. Följ stegen nedan för att skapa ett Recovery Services-valv i Azure-portalen. 
 
-1. På den vänstra menyn väljer **fler tjänster** och Skriv i listan över tjänster **återställningstjänster**. Klicka på **Recovery Services-valv**.
+1. På den vänstra menyn väljer **alla tjänster** och Skriv i listan över tjänster **återställningstjänster**. Klicka på **Recovery Services-valv**.
 
-   ![Öppna Recovery Services-valvet](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![Öppna Recovery Services-valvet](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  På menyn **Recovery Services-valv** klickar du på **Lägg till**.
 
@@ -134,7 +134,7 @@ Du har skapat schemat när säkerhetskopieringsjobb kör. Dock har du inte säke
 
 1.  Microsoft Azure Recovery Services agent-konsolen, klicka på **Säkerhetskopiera nu**.
 
-    ![förbereda infrastrukturen](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![förbereda infrastrukturen](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  På den **Säkerhetskopiera nu** guiden Markera en från **filer och mappar** eller **systemtillstånd** som du vill säkerhetskopiera och klicka på **nästa** 
 3. På den **bekräftelse** granskar du inställningarna som den **Säkerhetskopiera nu** guiden använder för att säkerhetskopiera servern. Klicka på **Säkerhetskopiera**.

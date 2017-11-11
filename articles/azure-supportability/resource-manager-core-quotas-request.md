@@ -1,25 +1,25 @@
 ---
-title: "Azure Resource Manager kärnkvot öka begäranden | Microsoft Docs"
-description: "Azure Resource Manager kärnkvot öka begäranden"
+title: "Azure Resource Manager vCPU kvot öka begäranden | Microsoft Docs"
+description: "Azure Resource Manager vCPU kvot öka begäranden"
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="resource-manager-core-quota-increase-requests"></a>Kärnkvot för hanteraren för filserverresurser öka begäranden
+# <a name="resource-manager-vcpu-quota-increase-requests"></a>Hanteraren för filserverresurser vCPU kvot öka begäranden
 
-Hanteraren för filserverresurser core kvoter tillämpas på den regionsnivån och SKU-familjen nivå.
+Kvoter för hanteraren för filserverresurser vCPU tillämpas på den regionsnivån och SKU-familjen nivå.
 Mer information om hur kvoter tillämpas på den [Azure-prenumeration och tjänstbegränsningarna](http://aka.ms/quotalimits) sidan.
 Om du vill veta mer om SKU familjer, du kan jämföra kostnader och prestanda på den [prissättning för Virtual Machines](http://aka.ms/pricingcompute) sidan.
 
-Skapa ett supportärende för kvot för kärnor i Azure-portalen om du vill begära en [https://portal.azure.com](https://portal.azure.com).
+Skapa ett supportärende för kvot för vCPUs i Azure-portalen om du vill begära en [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
 > Lär dig hur du [skapa en supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) i Azure-portalen

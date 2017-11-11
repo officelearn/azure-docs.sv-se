@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 11/10/2017
 ms.author: jingwang
-ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans kopiera aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/18/2017
 Kopieringsaktiviteten i Azure Data Factory finns två sätt att hantera inkompatibla rader vid kopiering av data mellan käll- och mottagarnoderna datalager:
 
 - Du kan avbryta och misslyckas kopieringen aktivitet när inkompatibla data påträffades (standardinställning).
-- Du kan fortsätta att kopiera alla data genom att lägga till feltolerans och hoppar över inkompatibla datarader. Dessutom kan du logga inkompatibla raderna i Azure Blob storage. Du kan sedan Kontrollera loggen om du vill veta orsaken till felet, rätta data på datakällan och försök kopieringsaktiviteten.
+- Du kan fortsätta att kopiera alla data genom att lägga till feltolerans och hoppar över inkompatibla datarader. Dessutom kan du logga inkompatibla raderna i Azure Blob storage eller Azure Data Lake Store. Du kan sedan Kontrollera loggen om du vill veta orsaken till felet, rätta data på datakällan och försök kopieringsaktiviteten.
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [kopiera feltolerans för aktiviteten i V1](v1/data-factory-copy-activity-fault-tolerance.md).
@@ -50,23 +50,24 @@ I följande exempel innehåller en JSON-definitionen om du vill konfigurera hopp
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
          "linkedServiceName": {
-              "referenceName": "AzureBlobLinkedService",
+              "referenceName": "<Azure Storage or Data Lake Store linked service>",
               "type": "LinkedServiceReference"
             },
             "path": "redirectcontainer/erroroutput"
      }
 }
 ```
+
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Anger om du vill hoppa över inkompatibla raderna vid kopiering eller inte. | True<br/>FALSKT (standard) | Nej
 redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga inkompatibla rader. | &nbsp; | Nej
-linkedServiceName | Den länkade tjänsten av Azure Storage för att lagra loggen som innehåller raderna hoppades över. | Namnet på en AzureStorage eller AzureStorageSas länkade tjänst som refererar till den instans av lagring som du vill använda för att lagra loggfilen. | Nej
-Sökväg | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange sökvägen för Blob-lagring som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapas en behållare av tjänsten. | Nej
+linkedServiceName | Den länkade tjänsten av [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) att lagra loggen som innehåller raderna hoppades över. | Namnet på en `AzureStorage` eller `AzureDataLakeStore` skriver länkade tjänst som refererar till den instans som du vill använda för att lagra loggfilen. | Nej
+Sökväg | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapas en behållare av tjänsten. | Nej
 
 ## <a name="monitor-skipped-rows"></a>Övervaka överhoppade rader
 När kopieringsaktiviteten kör har slutförts kan se du antalet överhoppade rader i utdata för kopieringsaktiviteten:

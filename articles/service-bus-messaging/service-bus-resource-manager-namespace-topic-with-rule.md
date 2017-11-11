@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 35e67d86b42358c4ce28b41beae1ee8e1896e939
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976c7b425dd17f8ed38f18b6ffa50b4368ab44b3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Skapa ett namnområde för Service Bus med ämne, prenumeration och regel med en Azure Resource Manager-mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar en Service Bus-namnrymd med ett ämne, prenumeration och regeln (filter). Du lär dig hur du definierar vilka resurser har distribuerats och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar en Service Bus-namnrymd med ett ämne, prenumeration och regeln (filter). Artikeln beskriver hur för att ange vilka resurser har distribuerats och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav
 
 Mer information om att skapa mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
 
@@ -50,7 +50,7 @@ Med den här mallen kan du distribuera en Service Bus-namnrymd med ämne, prenum
 
 ## <a name="what-are-rules-filters"></a>Vad är regler (filter)?
 
-I många fall är måste meddelanden som har specifika egenskaper bearbetas på olika sätt. För att möjliggöra detta, kan du konfigurera prenumerationer för att söka efter meddelanden som har specifika egenskaper och sedan utföra ändringar i dessa egenskaper. Du kan bara kopiera en delmängd av dessa meddelanden till prenumerationskön virtuella även om Service Bus prenumerationer visas alla meddelanden som skickas till ämnet. Detta åstadkoms med hjälp av prenumerationsfilter. Mer information om regler (filter) finns [regler och åtgärder](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+I många fall är måste meddelanden som har specifika egenskaper bearbetas på olika sätt. Om du vill aktivera den här anpassade bearbetning, kan du konfigurera prenumerationer för att söka efter meddelanden som har specifika egenskaper och sedan utföra ändringar i dessa egenskaper. Du kan bara kopiera en delmängd av dessa meddelanden till prenumerationskön virtuella även om Service Bus prenumerationer visas alla meddelanden som skickas till ämnet. Detta åstadkoms med hjälp av prenumerationsfilter. Mer information om regler (filter) finns [regler och åtgärder](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
@@ -100,9 +100,12 @@ Namnet på rule(filter) som skapats i Service Bus-namnrymd.
 Service Bus-API-versionen av mallen.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 ## <a name="resources-to-deploy"></a>Resurser som ska distribueras
 Skapar en standard Service Bus-namnrymd av typen **Messaging**, med ämnet och prenumerationen och regler.

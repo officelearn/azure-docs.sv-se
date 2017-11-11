@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/07/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningarna i Azure Search
 Gränsvärdet på lagring, arbetsbelastningar och mängder index, dokument och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på en **lediga**, **grundläggande**, eller **Standard** prisnivån.
 
-* **Ledigt** är en delad tjänst för flera innehavare som medföljer din Azure-prenumeration. Det är ett alternativ för befintliga prenumeranter utan ytterligare kostnad som hjälper dig att experimentera med tjänsten innan du registrerar dig för dedicerade resurser.
+* **Ledigt** är en delad tjänst för flera innehavare som medföljer din Azure-prenumeration. 
 * **Grundläggande** ger dedikerade datorresurser för produktionsarbetsbelastningar i mindre skala.
-* **Standard** körs på dedikerade datorer med mer bearbetning och lagring kapacitet på varje nivå. Standard kommer i fyra nivåer: S1, S2, S3 och S3 hög densitet (S3 HD).
+* **Standard** körs på dedikerade datorer med mer kapacitet för lagring och bearbetning på varje nivå. Standard kommer i fyra nivåer: S1, S2, S3 och S3 hög densitet (S3 HD).
 
 > [!NOTE]
-> En tjänst har etablerats på en specifik nivå. Om du behöver gå nivåer för att få mer kapacitet måste du etablera en ny tjänst (det finns ingen uppgradering på plats). Mer information finns i [Välj en SKU- eller nivå](search-sku-tier.md). Mer information om hur du justerar inom en tjänst som du redan har etablerat finns [skala resursen nivåer för fråga och indexering arbetsbelastningar](search-capacity-planning.md).
+> En tjänst har etablerats på en specifik nivå. Hoppa över nivåer för att få kapacitet innebär att etablera en ny tjänst (det finns ingen uppgradering på plats). Mer information finns i [Välj en SKU- eller nivå](search-sku-tier.md). Mer information om hur du justerar inom en tjänst som du redan har etablerat finns [skala resursen nivåer för fråga och indexering arbetsbelastningar](search-capacity-planning.md).
 >
 
 ## <a name="per-subscription-limits"></a>Per prenumerationsbegränsningar
@@ -66,16 +66,11 @@ Avser den maximala storleken när du anropar en API-Index. Dokumentet är faktis
 
 Kom ihåg att utesluta icke-frågbar data från begäran om du vill behålla storlek. Bilder och andra binära data är inte direkt frågbar och får inte lagras i indexet. Om du vill integrera icke frågbar data i sökresultat, definiera ett icke-sökbart fält som innehåller en URL: en referens till resursen.
 
-## <a name="workload-limits-queries-per-second"></a>Arbetsbelastningen begränsar (frågor per sekund)
-| Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| QPS |Saknas |~ 3 per replik |~ 15 per replik |~ 60 per replik |>60 per replik |>60 per replik |
+## <a name="queries-per-second-qps"></a>Frågor per sekund (QPS)
 
-Frågor per sekund (QPS) är en uppskattning baserat på heuristik, med simulerade och faktiska kundens arbetsbelastningar till att härleda uppskattade värden. Den exakta QPS genomströmning varierar beroende på dina data och arten av frågan.
+QPS beräknar måste ha utvecklats oberoende av varje kund. Indexstorlek och komplexitet, fråga storleken och komplexiteten och mängden trafik är primär faktorerna för QPS. Det finns inget sätt att erbjuda meningsfulla beräknar när sådana faktorer är okänd.
 
-Även om grov uppskattning tillhandahålls ovan är en verklig frekvens svårt att avgöra, särskilt i tjänsten ledigt delade där genomströmning baserat på tillgänglig bandbredd och konkurrens om systemresurser. I den kostnadsfria nivån som beräknings-och lagringsresurser delas av flera prenumeranter så QPS för lösningen alltid kan variera beroende på hur många andra arbetsbelastningar som körs på samma gång.
-
-På nivån standard kan du uppskatta QPS närmare eftersom du har kontroll över flera parametrar. Se avsnittet om bästa metoder i [hantera din sökning lösning](search-manage.md) vägledning om hur du beräknar QPS för din arbetsbelastning.
+Uppskattningar är mer förutsägbar i tjänster som körs på dedicerade resurser (nivåerna Basic och Standard). Du kan beräkna QPS mer noggrant eftersom du har kontroll över flera parametrar. Anvisningar om hur du metoden uppskattning finns [Azure Search-prestanda och optimering](search-performance-optimization.md).
 
 ## <a name="api-request-limits"></a>API-begärandebegränsningar
 * Högst 16 MB per begäran <sup>1</sup>

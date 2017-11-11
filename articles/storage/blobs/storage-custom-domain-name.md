@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: cbc8654bf1755826afa2cf83e5476e88903e0854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Konfigurera ett eget domännamn för din Blob Storage-slutpunkt
 
@@ -55,7 +55,7 @@ Processen för att matcha den anpassade domänen till en blob-slutpunkten kan re
 Metoden mellanliggande beskrivs i [registrera en anpassad domän med hjälp av den *asverify* underdomän](#register-a-custom-domain-using-the-asverify-subdomain).
 
 ## <a name="register-a-custom-domain"></a>Registrera en anpassad domän
-Använd den här proceduren för att registrera den anpassade domänen om du har några frågor om domänen är en kort tillgängligt för att användarna, eller om den anpassade domänen inte är för närvarande är värd för ett program.
+Använd den här proceduren för att registrera den anpassade domänen om du har några frågor om domänen är en kort tillgängligt för att användarna, eller om den anpassade domänen inte är för närvarande är värd för ett program. Du kan använda Azure DNS för att konfigurera en anpassad DNS-namn för din Azure Blob store. Mer information finns i [Använd Azure DNS för att ange inställningar för anpassad domän för en Azure-tjänst](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
 Om den anpassade domänen för närvarande stöder ett program som inte kan ha någon avbrottstid, följer du proceduren som beskrivs i [registrera en anpassad domän med hjälp av den *asverify* underdomän](#register-a-custom-domain-using-the-asverify-subdomain).
 

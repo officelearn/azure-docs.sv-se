@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser, som ibland kallas kvoter. Det här dokumentet omfattar inte för närvarande alla Azure-tjänster. Över tiden, kommer i listan att expanderas och uppdateras så att den täcker flera av plattformen.
@@ -38,7 +38,7 @@ Nu är det möjligt att kombinera flera Azure-resurser i en enda Azure-resursgru
 I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skillnader i begränsningar när du använder Azure Resource Manager. Det finns till exempel en **prenumerationsbegränsningar** tabell och en **prenumerationsbegränsningar - Azure Resource Manager** tabell. När det gäller en gräns för båda scenarierna, visas den bara i den första tabellen. Om inget annat anges är gränserna globala för alla regioner.
 
 > [!NOTE]
-> Det är viktigt att betona att kvoter för Azure-resursgrupper är per region få åtkomst till din prenumeration och är inte per prenumeration som service management kvoter. Nu ska vi använda core kvoter som exempel. Om du måste begära en ökad kvot med stöd för kärnor, måste du bestämma hur många kärnor som du vill använda i vilka regioner och sedan göra en specifik begäran för Azure-resursgrupp core kvoter för belopp och regioner som du vill. Därför, om du behöver använda 30 kärnor i västra Europa för att köra programmet. Du bör begär 30 kärnor i västra Europa. Men du har inte en kärnkvot som ökar med en annan region – endast Västeuropa har 30 kärnor kvoten.
+> Det är viktigt att betona att kvoter för Azure-resursgrupper är per region få åtkomst till din prenumeration och är inte per prenumeration som service management kvoter. Nu ska vi använda vCPU kvoter som exempel. Om du behöver begära en ökad kvot med stöd för vCPUs måste du bestämma hur många vCPUs som du vill använda i vilka regioner och sedan göra en specifik begäran för Azure-resursgrupp vCPU kvoter för belopp och regioner som du vill. Om du behöver för att köra programmet det med 30 vCPUs i västra Europa bör du därför uttryckligen begära 30 vCPUs i västra Europa. Men du har inte en vCPU kvot som ökar med en annan region – endast Västeuropa har 30 vCPU kvoten.
 > <!-- -->
 > Du kan därför vara bra att tänka på bestämmer vad din Azure-resursgrupp kvoter måste vara för din arbetsbelastning i en en region och begära beloppet i varje region som du planerar distributionen. Se [felsöka distributionsproblem](resource-manager-common-deployment-errors.md) för mer hjälp för att identifiera din aktuella kvoter för vissa regioner.
 >

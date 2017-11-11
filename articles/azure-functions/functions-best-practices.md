@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d59ef16de433ac9691f6996eab2bf56f056feb88
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet i Azure Functions
 
@@ -66,8 +66,7 @@ Hur koden reagera om ett fel uppstår när du har infogat 5 000 av dessa objekt 
 
 Tillåt att funktionen ska vara en no-op om ett köobjekt redan hade bearbetats.
 
-Dra nytta av försvarsåtgärder som redan ges för komponenter som du använder i Azure Functions-plattformen. Se exempelvis **hantering av skadligt Kömeddelanden** i dokumentationen för [Azure Storage-kö utlöser](functions-bindings-storage-queue.md#trigger).
- 
+Dra nytta av försvarsåtgärder som redan ges för komponenter som du använder i Azure Functions-plattformen. Se exempelvis **hantering av skadligt Kömeddelanden** i dokumentationen för [Azure Storage-utlösare och bindningar](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Blanda inte test- och koden i appen med samma funktion
 
@@ -97,4 +96,3 @@ Mer information finns i följande resurser:
 
 Eftersom Azure Functions använder Azure App Service, bör du också vara medveten om Apptjänst riktlinjer.
 * [Patterns and Practices HTTP prestandaoptimering](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-

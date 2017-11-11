@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Använda SSH-tunnlar för att komma åt Ambari-webbgränssnittet, jobbhistorik, NameNode, Oozie och andra webb-användargränssnitt
 
@@ -48,7 +48,7 @@ Om du kan använda Script Actions för att anpassa ditt kluster, kräver alla tj
 
 ## <a name="prerequisites"></a>Krav
 
-* En SSH-klient. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+* En SSH-klient. De flesta operativsystem ge en SSH-klienten via den `ssh` kommando. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 * En webbläsare som kan konfigureras för att använda en proxyserver för SOCKS5.
 
@@ -74,9 +74,9 @@ Detta kommando skapar en anslutning som dirigerar trafik till lokal port 9876 ti
 * **C** -Komprimera alla data eftersom webbtrafik är främst text.
 * **2** -force SSH försöka protocol version 2.
 * **q** -tyst läge.
-* **T** -inaktivera pseudokolumner tty-allokering, eftersom vi bara vidarebefordrar en port.
-* **n**-Förhindra läsningen av STDIN, eftersom vi bara vidarebefordrar en port.
-* **N** -inte köra fjärrkommandon, eftersom vi bara vidarebefordrar en port.
+* **T** -inaktivera pseudokolumner tty-allokering, eftersom du bara vidarebefordrar en port.
+* **n**-Förhindra läsningen av STDIN, eftersom du bara vidarebefordrar en port.
+* **N** -inte köra fjärrkommandon, eftersom du bara vidarebefordrar en port.
 * **f** -köras i bakgrunden.
 
 När kommandot har slutförts dirigeras trafik som skickas till port 9876 på den lokala datorn till klustrets huvudnod.

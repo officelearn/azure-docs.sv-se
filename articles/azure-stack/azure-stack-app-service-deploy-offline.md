@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 8ee171708364c3e29476302bef04a715df650b9b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Lägg till en Apptjänst-resursprovidern i en frånkopplad miljö för Azure-stacken skyddas av AD FS
 
@@ -110,7 +110,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 
     ![Installationsprogrammet för App Service](media/azure-stack-app-service-deploy/image07.png)    
 
-12. Granska rollinstansen och SKU-alternativ. Standardvärdena är fyllda med det minsta antalet instansen och minsta SKU: N för varje roll i en ASDK-distribution. En sammanfattning av kärnor och minneskrav tillhandahålls för att planera distributionen. När du har gjort dina val klickar du på **nästa**.
+12. Granska rollinstansen och SKU-alternativ. Standardvärdena är fyllda med det minsta antalet instansen och minsta SKU: N för varje roll i en ASDK-distribution. En sammanfattning av vCPU och minneskrav tillhandahålls för att planera distributionen. När du har gjort dina val klickar du på **nästa**.
 
      > [!NOTE]
      > För Produktionsdistribution följa riktlinjerna i [kapacitetsplanering för Azure App Service-serverroller i Azure-stacken](azure-stack-app-service-capacity-planning.md).
@@ -119,11 +119,11 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 
     | Roll | Minsta instanser | Minsta SKU | Anteckningar |
     | --- | --- | --- | --- |
-    | Domänkontrollant | 1 | Standard_A1 - (1 kärna, 1792 MB) | Hanterar och underhåller hälsotillståndet för App Service-molnet. |
-    | Hantering | 1 | Standard_A2 - (2 kärnor, 3584 MB) | Hanterar App Service Azure Resource Manager och API-slutpunkter, portal tillägg (admin, klient, Functions-portalen) och datatjänsten. Som stöd för växling vid fel, ökade rekommenderade instanser till 2. |
-    | Utgivare | 1 | Standard_A1 - (1 kärna, 1792 MB) | Publicerar innehåll via FTP- och webb-distribution. |
-    | FrontEnd | 1 | Standard_A1 - (1 kärna, 1792 MB) | Skickar begäranden till App-tjänstprogram. |
-    | Delade Worker | 1 | Standard_A1 - (1 kärna, 1792 MB) | Värdar web eller API-program och Azure Functions-appar. Du kanske vill lägga till flera instanser. Som operatör kan du definiera dina erbjudanden och väljer en SKU-nivå. Nivåerna måste ha minst en kärna. |
+    | Domänkontrollant | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hanterar och underhåller hälsotillståndet för App Service-molnet. |
+    | Hantering | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Hanterar App Service Azure Resource Manager och API-slutpunkter, portal tillägg (admin, klient, Functions-portalen) och datatjänsten. Som stöd för växling vid fel, ökade rekommenderade instanser till 2. |
+    | Utgivare | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publicerar innehåll via FTP- och webb-distribution. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Skickar begäranden till App-tjänstprogram. |
+    | Delade Worker | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Värdar web eller API-program och Azure Functions-appar. Du kanske vill lägga till flera instanser. Som operatör kan du definiera dina erbjudanden och väljer en SKU-nivå. Nivåerna måste ha minst en vCPU. |
 
     ![Installationsprogrammet för App Service](media/azure-stack-app-service-deploy/image08.png)    
 

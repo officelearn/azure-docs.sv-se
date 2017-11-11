@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: f48e270054ba45211c2a1517593d5d7b22925d0a
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Flytta en offentlig peering till Microsoft-peering
 
@@ -34,7 +34,7 @@ Den här artikeln hjälper dig att flytta en offentlig peering konfiguration til
 
 * För att ansluta till Microsoft-peering, måste du konfigurera och hantera NAT. Anslutningsleverantören kan konfigurera och hantera NAT som en hanterad tjänst. Om du planerar att komma åt Azure PaaS och Azure SaaS-tjänster på Microsoft-peering är det viktigt att storleken NAT IP-adresspool på rätt sätt. Mer information om NAT för ExpressRoute finns i [NAT krav för Microsoft-peering](expressroute-nat.md#nat-requirements-for-microsoft-peering).
 
-* Om du har för närvarande en nätverket åtkomstkontrollistan (ACL) för Azure PaaS-tjänstresurs som finns i offentlig Azure-peering, måste du kontrollera att NAT IP-poolen **adressintervallet** ingår i brandväggen ACL för Microsoft peering.
+* Om du använder offentlig peering och för närvarande har IP-nätverk regler för offentliga IP-adresser som används för att få åtkomst till [Azure Storage](../storage/common/storage-network-security.md) eller [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), måste du kontrollera att NAT-IP-adresspoolen konfigurerats med Microsoft ingår peering i listan över offentliga IP-adresser för Azure storage-konto eller Azure SQL-konto.
 
 * Om du vill flytta till Microsoft peering utan avbrott, använda stegen i den här artikeln i den ordning som de visas.
 

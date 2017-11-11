@@ -1,5 +1,5 @@
 ---
-title: "Skapa regel för auktorisering av Service Bus med hjälp av Azure Resource Manager-mall | Microsoft Docs"
+title: "Skapa en regel för auktorisering av Service Bus med hjälp av Azure Resource Manager-mall | Microsoft Docs"
 description: "Skapa en regel för auktorisering av Service Bus för namnområdet och kön med Azure Resource Manager-mall"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: fbd2372829a1aefa2c080c0a8a72b9ff4375b16f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 384a2fce4bf338ffc4ab6690980c12ad7ff34a6e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Skapa en regel för auktorisering av Service Bus för namnområdet och kö med en Azure Resource Manager-mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar en [auktoriseringsregeln](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) för en Service Bus-namnrymd och kön. Du kommer lära dig hur du definierar vilka resurser har distribuerats och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar en [auktoriseringsregeln](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) för en Service Bus-namnrymd och kön. Artikeln beskriver hur för att ange vilka resurser har distribuerats och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
 Mer information om hur du skapar mallar finns [redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
 
@@ -36,12 +36,13 @@ Den fullständiga mallen finns i [regelmall för Service Bus-auktorisering] [ Se
 > * [Skapa ett namnområde för Service Bus med ämnet och prenumerationen](service-bus-resource-manager-namespace-topic.md)
 > * [Skapa ett namnområde för Service Bus med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Om du vill söka efter de senaste mallarna finns i [Azure-Snabbstartsmallar] [ Azure Quickstart Templates] galleriet och Sök efter ”Service Bus”.
+> Om du vill söka efter de senaste mallarna finns i [Azure-Snabbstartsmallar] [ Azure Quickstart Templates] galleriet och Sök efter **Service Bus**.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
-Med den här mallen distribuerar du en regel för auktorisering av Service Bus för ett namnområde och meddelandeentitet (i det här fallet en kö).
+
+Med den här mallen kan du distribuera en Service Bus auktoriseringsregel för ett namnområde och meddelandeentitet (i det här fallet en kö).
 
 Den här mallen använder [delade signatur åtkomst (SAS)](service-bus-sas.md) för autentisering. SAS gör det möjligt för program att autentisera till Service Bus med hjälp av en åtkomstnyckel som konfigurerats på namnområdet eller meddelandeentitet (kö eller ett ämne) som specifika rättigheter associeras. Du kan sedan använda denna nyckel för att generera en SAS-token som klienter i sin tur kan använda för att autentisera till Service Bus.
 
@@ -86,9 +87,12 @@ Namnet på kön i Service Bus-namnrymd.
 Service Bus-API-versionen av mallen.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## <a name="resources-to-deploy"></a>Resurser som ska distribueras

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 423eee65040a11695d9f6c18d64948e4c3d3aafe
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions värd planer jämförelse
 
@@ -68,7 +68,7 @@ En virtuell dator frikopplar kostnaden från antal körningar, körningstid och 
 
 Du kan skala ut manuellt genom att lägga till flera VM-instanser med en App Service-plan eller du kan aktivera Autoskala. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Du kan även skala upp genom att välja en annan programtjänstplan. Mer information finns i [skala upp en app i Azure](../app-service/web-sites-scale.md). 
 
-Om du planerar att köra JavaScript-funktioner på en apptjänstplan, bör du välja en plan som har färre kärnor. Mer information finns i [JavaScript-referens för funktioner](functions-reference-node.md#choose-single-core-app-service-plans).  
+Om du planerar att köra JavaScript-funktioner på en apptjänstplan, bör du välja en plan som har färre vCPUs. Mer information finns i [Välj enkel kärna programtjänstplaner](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +93,7 @@ När du använder förbrukningen värd plan som funktionen kodfiler lagras på A
 > [!NOTE]
 > När du använder en blob-utlösare på en plan för förbrukning, kan det finnas upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar om en funktionsapp är inaktiv. När funktionen appen körs bearbetas blobbar omedelbart. Överväg att något av följande alternativ för att undvika den här första fördröjningen:
 > - Värd för appen funktionen på en apptjänstplan med alltid på aktiverad.
-> - Använd en annan funktion för att utlösa blob bearbetning, till exempel ett kömeddelande som innehåller blobbnamnet på. Ett exempel finns [kön utlösare med blob inkommande bindningen](functions-bindings-storage-blob.md#input-sample).
+> - Använd en annan funktion för att utlösa blob bearbetning, till exempel ett kömeddelande som innehåller blobbnamnet på. Ett exempel finns i [C#-skript och JavaScript-exempel för blobben indata och utdata bindningar](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Runtime skalning
 

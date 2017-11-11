@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 903fbe376cb3d75eb5ddc1eed4838cd10f3c6a28
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Hantera webbprogram för behållare med Azure CLI
 
 Kommandona i den här artikeln ska du kunna skapa och hantera en Webbapp för behållare som använder Azure CLI 2.0.
 Du kan börja använda den nya versionen av CLI på två sätt:
 
-* [Installera Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) på din dator.
+* [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) på din dator.
 * Med hjälp av [Azure-molnet Shell (förhandsgranskning)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Skapa en Linux-Programtjänstplan
@@ -104,7 +104,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Azure App Service på Linux?](app-service-linux-intro.md)
-* [Installera Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure-molnet Shell (förhandsgranskning)](../../cloud-shell/overview.md)
 * [Skapa mellanlagringsmiljöer i Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Kontinuerlig distribution med webbprogrammet för behållare](app-service-linux-ci-cd.md)

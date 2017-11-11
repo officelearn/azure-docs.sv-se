@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cdaf09d5558e0453b826b9a3e52500379ced5422
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Skapa en ASE med hjälp av en Azure Resource Manager-mall
 
@@ -150,7 +150,7 @@ Apptjänst-miljö har två versioner: ASEv1 och ASEv2. Informationen ovan har ba
 
 I ASEv1 hanterar alla resurser manuellt. Som innehåller frontwebbservrarna, personal och IP-adresser som används för IP-baserade SSL. Innan du kan skala ut din programtjänstplan, måste du skalar upp arbetspool som du vill ha den.
 
-ASEv1 använder en annan prisnivå modell från ASEv2. ASEv1 betalar du för varje kärna allokerade. Som innehåller kärnor som används för frontwebbservrarna eller personer som inte är värd för alla arbetsbelastningar. I ASEv1 är maximal skala standardstorleken för en ASE 55 Totalt antal värdar. Som innehåller arbetare och frontwebbservrarna. En fördel med att ASEv1 är kan distribueras i ett klassiskt virtuellt nätverk och ett virtuellt nätverk för hanteraren för filserverresurser. Läs mer om ASEv1 i [Apptjänstmiljö v1 introduktion][ASEv1Intro].
+ASEv1 använder en annan prisnivå modell från ASEv2. ASEv1 betalar du för varje vCPU allokerade. Som innehåller vCPUs som används för frontwebbservrarna eller personer som inte är värd för alla arbetsbelastningar. I ASEv1 är maximal skala standardstorleken för en ASE 55 Totalt antal värdar. Som innehåller arbetare och frontwebbservrarna. En fördel med att ASEv1 är kan distribueras i ett klassiskt virtuellt nätverk och ett virtuellt nätverk för hanteraren för filserverresurser. Läs mer om ASEv1 i [Apptjänstmiljö v1 introduktion][ASEv1Intro].
 
 Om du vill skapa en ASEv1 med hjälp av en Resource Manager-mall finns [skapar en ILB ASE v1 med Resource Manager-mall][ILBASEv1Template].
 

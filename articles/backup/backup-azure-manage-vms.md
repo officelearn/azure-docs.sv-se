@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Hantera säkerhetskopiering av virtuella Azure-datorer
 > [!div class="op_single_selector"]
@@ -32,10 +32,10 @@ Den här artikeln innehåller information om hur du hanterar Virtuella säkerhet
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Hantera valv och skyddade virtuella datorer
 I Azure-portalen ger Recovery Services-valvet instrumentpanelen tillgång till information om valvet, inklusive:
 
-* den senaste ögonblicksbild, som också är den senaste återställningspunkten < br\>
-* säkerhetskopieringsprincipen < br\>
-* Total storlek på alla ögonblicksbilder av säkerhetskopior < br\>
-* antal virtuella datorer som är skyddade med valvet < br\>
+* den senaste ögonblicksbild, som också är den senaste återställningspunkten
+* principen för säkerhetskopiering
+* Total storlek för alla ögonblicksbilder av säkerhetskopior
+* antalet virtuella datorer som skyddas med valvet
 
 Många hanteringsuppgifter med en säkerhetskopiering av virtuella datorer som börjar med öppna valvet i instrumentpanelen. Men eftersom valv kan användas för att skydda flera objekt (eller flera virtuella datorer), om du vill visa information om en viss virtuell dator, öppna instrumentpanelen valvet objektet. Följande procedur visar hur du öppnar den *valvet instrumentpanelen* och fortsätt sedan till den *valvet objektet instrumentpanelen*. Det finns ”tips” i båda procedurerna som pekar reda på hur du lägger till valvet och valvet objektet i Azure instrumentpanel med hjälp av PIN-kod för instrumentpanelen kommando. Fäst på instrumentpanelen är ett sätt att skapa en genväg till valvet eller objekt. Du kan också köra vanliga kommandon från genvägen.
 
@@ -50,11 +50,11 @@ Många hanteringsuppgifter med en säkerhetskopiering av virtuella datorer som b
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. På navmenyn klickar du på **Bläddra** och i listan över resurser skriver du **Recovery Services**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv**.
 
-    ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
     Listan över Recovery Services-valv visas.
 
-    ![Lista över Recovery Services-valv ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![Lista över Recovery Services-valv ](./media/backup-azure-manage-vms/list-o-vaults.png)
 
    > [!TIP]
    > Om du fäster ett valv på instrumentpanelen i Azure är som valvet omedelbart tillgängligt när du öppnar den Azure-portalen. Högerklicka på valvet för att fästa ett valv på instrumentpanelen i listan med valvet, och välj **fäst på instrumentpanelen**.
@@ -89,13 +89,13 @@ Du har öppnat valvet instrumentpanelen i föregående procedur. Öppna instrume
 
     Från instrumentpanelen valvet objekt, kan du utföra många viktiga hanteringsaktiviteter som:
 
-   * Ändra principer eller skapa en ny säkerhetskopieringsprincip < br\>
-   * Visa återställningspunkter och se deras konsekvent tillstånd < br\>
-   * säkerhetskopiering på begäran för en virtuell dator < br\>
-   * sluta skydda virtuella datorer < br\>
-   * återuppta skyddet av en virtuell dator < br\>
-   * ta bort säkerhetskopierade data (eller återställningspunkt) < br\>
-   * [återställa säkerhetskopior](backup-azure-arm-restore-vms.md#restore-backed-up-disks) < br\>
+   * Ändra principer eller skapa en ny princip för säkerhetskopiering
+   * Visa återställningspunkter och se deras konsekvent tillstånd
+   * Säkerhetskopiering på begäran för en virtuell dator
+   * Sluta skydda virtuella datorer
+   * Återuppta skyddet av en virtuell dator
+   * ta bort säkerhetskopierade data (eller återställningspunkt)
+   * [återställa säkerhetskopior](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
 Följande procedurer är startpunkten valvet objektet instrumentpanelen.
 
@@ -110,7 +110,7 @@ Följande procedurer är startpunkten valvet objektet instrumentpanelen.
     ![Princip för säkerhetskopiering bladet](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. Från den **Välj säkerhetskopieringsprincip** menyn:
 
-   * Om du vill ändra principer, Välj en annan princip och klicka på **spara**. Den nya principen tillämpas omedelbart på valvet. < br\>
+   * Om du vill ändra principer, Välj en annan princip och klicka på **spara**. Den nya principen tillämpas omedelbart på valvet.
    * Om du vill skapa en princip, Välj **Skapa nytt**.
 
      ![Säkerhetskopiering av virtuell dator](./media/backup-azure-manage-vms/backup-policy-create-new.png)
@@ -148,7 +148,7 @@ Starta en säkerhetskopiering på begäran för en virtuell dator:
 Om du vill sluta skydda en virtuell dator, tillfrågas du om du vill behålla återställningspunkterna. Det finns två sätt att sluta skydda virtuella datorer:
 
 * Stoppa alla framtida säkerhetskopieringsjobb och ta bort alla återställningspunkter, eller
-* Stoppa alla framtida säkerhetskopieringsjobb men lämna kvar återställningspunkter <br/>
+* Stoppa alla framtida säkerhetskopieringsjobb men lämna kvar återställningspunkter
 
 Det finns en kostnad som är associerade med lämnar återställningspunkter i lagringen. Fördelen med att lämna återställningspunkterna är dock kan du återställa den virtuella datorn senare, om så önskas. Information om kostnaden för att lämna återställningspunkterna finns på [prisinformationen](https://azure.microsoft.com/pricing/details/backup/). Om du vill ta bort alla återställningspunkter kan återställa du inte den virtuella datorn.
 

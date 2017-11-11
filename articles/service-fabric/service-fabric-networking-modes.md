@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric-behållaren nätverk lägen
 
-Nätverk läge erbjuds i Service Fabric-klustret för behållartjänster som standard används den `nat` nätverk läge. Med den `nat` nätverk läge, med mer än en behållare tjänsten lyssnar på samma port resultat i distributionsfel. För att lyssna på samma port med flera tjänster, Service Fabric stöder den `open` nätverk läge (version 5.7 eller högre). Med den `open` nätverk läge varje behållartjänst hämtar en dynamiskt tilldelad IP-adress som internt så att flera tjänster att lyssna på samma port.   
+Nätverk läge erbjuds i Service Fabric-klustret för behållartjänster som standard används den `nat` nätverk läge. Med den `nat` nätverk läge, med mer än en behållare tjänsten lyssnar på samma port resultat i distributionsfel. För att lyssna på samma port med flera tjänster, Service Fabric stöder den `Open` nätverk läge (version 5.7 eller högre). Med den `Open` nätverk läge varje behållartjänst hämtar en dynamiskt tilldelad IP-adress som internt så att flera tjänster att lyssna på samma port.   
 
-Därför med en enda typ med en statisk slutpunkt som definierats i service manifest nya tjänster kan skapas och tas bort utan distributionsfel med hjälp av den `open` nätverk läge. På liknande sätt kan använda samma `docker-compose.yml` fil med statisk portmappningar för att skapa flera tjänster.
+Därför med en enda typ med en statisk slutpunkt som definierats i service manifest nya tjänster kan skapas och tas bort utan distributionsfel med hjälp av den `Open` nätverk läge. På liknande sätt kan använda samma `docker-compose.yml` fil med statisk portmappningar för att skapa flera tjänster.
 
 Med dynamiskt tilldelade IP-Adressen för att identifiera tjänster inte rekommenderas eftersom IP-adress ändras när tjänsten startas om eller flyttas till en annan nod. Använd bara den **namngivningstjänst för Service Fabric** eller **DNS-tjänsten** för identifiering av tjänst. 
 
 
 > [!WARNING]
-> Endast totalt 4096 IP-adresser tillåts per virtuellt nätverk i Azure. Därför summan av antalet noder och antalet behållare tjänstinstanser (med `open` nätverk) får inte överstiga 4096 inom ett vNET. Dessa scenarier med hög densitet i `nat` nätverk läge rekommenderas.
+> Endast totalt 4096 IP-adresser tillåts per virtuellt nätverk i Azure. Därför summan av antalet noder och antalet behållare tjänstinstanser (med `Open` nätverk) får inte överstiga 4096 inom ett vNET. Dessa scenarier med hög densitet i `nat` nätverk läge rekommenderas.
 >
 
 ## <a name="setting-up-open-networking-mode"></a>Konfigurera nätverk öppningsläge
@@ -183,7 +183,7 @@ Med dynamiskt tilldelade IP-Adressen för att identifiera tjänster inte rekomme
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Tillåt  |
 
 
-4. Ange det nätverk läget i appmanifestet för varje tjänst `<NetworkConfig NetworkType="open">`.  Läget `open` resulterar i tjänsten hämtar en dedicerad IP-adress. Om ett läge inte anges används som standard grundläggande `nat` läge. Därför i manifestet exemplet `NodeContainerServicePackage1` och `NodeContainerServicePackage2` kan varje lyssna på samma port (båda tjänsterna lyssnar på `Endpoint1`).
+4. Ange det nätverk läget i appmanifestet för varje tjänst `<NetworkConfig NetworkType="Open">`.  Läget `Open` resulterar i tjänsten hämtar en dedicerad IP-adress. Om ett läge inte anges används som standard grundläggande `nat` läge. Därför i manifestet exemplet `NodeContainerServicePackage1` och `NodeContainerServicePackage2` kan varje lyssna på samma port (båda tjänsterna lyssnar på `Endpoint1`). När den `Open` nätverk läge är Serienummergruppen, `PortBinding` konfigurationerna kan inte anges.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -197,8 +197,7 @@ Med dynamiskt tilldelade IP-Adressen för att identifiera tjänster inte rekomme
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -206,14 +205,13 @@ Med dynamiskt tilldelade IP-Adressen för att identifiera tjänster inte rekomme
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Du kan blanda och matcha olika lägen för nätverk för tjänster i ett program för Windows-kluster. Du kan därför ha vissa tjänster på `open` läge och vissa på `nat` nätverk läge. När en tjänst har konfigurerats med `nat`, den lyssnar på porten måste vara unika. Blanda nätverk lägen för olika tjänster stöds inte på Linux-kluster. 
+Du kan blanda och matcha olika lägen för nätverk för tjänster i ett program för Windows-kluster. Du kan därför ha vissa tjänster på `Open` läge och vissa på `nat` nätverk läge. När en tjänst har konfigurerats med `nat`, den lyssnar på porten måste vara unika. Blanda nätverk lägen för olika tjänster stöds inte på Linux-kluster. 
 
 
 ## <a name="next-steps"></a>Nästa steg

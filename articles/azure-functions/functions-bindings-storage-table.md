@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Lagringstabellen bindningar | Microsoft Docs
-description: "Förstå hur du använder Azure Storage-bindningar i Azure Functions."
+title: Azure storage-bindningar tabellen funktioner
+description: "Förstå hur du använder Azure Table storage bindningar i Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -8,85 +8,105 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "Azure functions, funktioner, händelsebearbetning, dynamiska beräkning serverlösa arkitektur"
-ms.assetid: 65b3437e-2571-4d3f-a996-61a74b50a1c2
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 11/08/2017
 ms.author: chrande
-ms.openlocfilehash: 486b7c31c914ba7bb2d75e3f83ccf346a09104e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="azure-functions-storage-table-bindings"></a>Azure Functions lagring tabell bindningar
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="azure-functions-table-storage-bindings"></a>Azure storage-bindningar tabellen funktioner
 
-Den här artikeln förklarar hur du konfigurerar och koden Azure Storage tabell bindningar i Azure Functions. Azure Functions stöder indata och utdata bindningar för Azure Storage-tabeller.
-
-Tabellbindning Storage stöder följande scenarion:
-
-* **Läs en enskild rad i en C# eller Node.js-funktion** – du kan ställa `partitionKey` och `rowKey`. Den `filter` och `take` egenskaper inte används i det här scenariot.
-* **Läsa flera rader i en C#-funktion** -Functions-runtime ger en `IQueryable<T>` objektet som är bundet till tabellen. Typen `T` måste vara härledd från `TableEntity` eller implementerar `ITableEntity`. Den `partitionKey`, `rowKey`, `filter`, och `take` egenskaper inte används i det här scenariot; du kan använda den `IQueryable` objekt om du vill filtrera krävs. 
-* **Läsa flera rader i en nod funktion** – ange den `filter` och `take` egenskaper. Konfigurerar inte `partitionKey` eller `rowKey`.
-* **Skriv en eller flera rader i en C#-funktion** -Functions-runtime ger en `ICollector<T>` eller `IAsyncCollector<T>` bunden till tabellen där `T` anger schemat för de enheter som du vill lägga till. Normalt anger `T` härleds från `TableEntity` eller implementerar `ITableEntity`, men det behöver inte. Den `partitionKey`, `rowKey`, `filter`, och `take` egenskaper inte används i det här scenariot.
+Den här artikeln förklarar hur du arbetar med Azure Table storage bindningar i Azure Functions. Azure Functions stöder indata och utdata bindningar för Azure Table storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="input"></a>
+## <a name="table-storage-input-binding"></a>Table storage indatabindning
 
-## <a name="storage-table-input-binding"></a>Lagring tabell indatabindning
-Azure Storage-tabellen indatabindning kan du använda en tabell för lagring i din funktion. 
+Använda Azure Table storage indatabindning för att läsa en tabell i ett Azure Storage-konto.
 
-Lagring tabell indata för en funktion använder följande JSON-objekt i den `bindings` matris med function.json:
+## <a name="input---example"></a>Indata - exempel
 
-```json
+Finns i det språkspecifika:
+
+* [Förkompilerade C# läsa en entitet](#input---c-example-1)
+* [Förkompilerade C# läsa flera entiteter](#input---c-example-2)
+* [C# skript - läsa en entitet](#input---c-script-example-1)
+* [C# skript - läsa flera entiteter](#input---c-script-example-2)
+* [F#](#input---f-example-2)
+* [JavaScript](#input---javascript-example)
+
+### <a name="input---c-example-1"></a>Indata - C#-exempel 1
+
+Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som läser en tabellrad. 
+
+Raden värdet för nyckeln ”{queueTrigger}” visar att Radnyckeln kommer från kön Meddelandesträngen.
+
+```csharp
+public class TableStorage
 {
-    "name": "<Name of input parameter in function signature>",
-    "type": "table",
-    "direction": "in",
-    "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to read - see below>",
-    "rowKey": "<RowKey of table entity to read - see below>",
-    "take": "<Maximum number of entities to read in Node.js - optional>",
-    "filter": "<OData filter expression for table input in Node.js - optional>",
-    "connection": "<Name of app setting - see below>",
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
+        TraceWriter log)
+    {
+        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+    }
 }
 ```
 
-Observera följande: 
+### <a name="input---c-example-2"></a>Indata - C#-exempel 2
 
-* Använd `partitionKey` och `rowKey` tillsammans för att läsa en enda entitet. De här egenskaperna är valfria. 
-* `connection`måste innehålla namnet på en appinställning som innehåller en anslutningssträng för lagring. I Azure-portalen standardredigeraren i den **integrera** konfigurerar appinställningen för dig när du skapar en lagringsplats för kontot eller väljer en befintlig. Du kan också [konfigurera den här appen inställningen manuellt](functions-how-to-use-azure-function-app-settings.md#settings).  
+Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som läser flera rader. Observera att den `MyPoco` klassen härleds från `TableEntity`.
 
-<a name="inputusage"></a>
+```csharp
+public class TableStorage
+{
+    public class MyPoco : TableEntity
+    {
+        public string Text { get; set; }
+    }
 
-## <a name="input-usage"></a>Inkommande användning
-I C#-funktioner, du binder till indatatabellen entitet (eller entiteter) med hjälp av en namngiven parameter i en funktionssignaturen som `<T> <name>`.
-Där `T` är datatypen som du vill att deserialisera data till och `paramName` är det namn du angav i den [inkommande bindningen](#input). I Node.js-funktion, åtkomst till indatatabellen entitet (eller entiteter) med hjälp av `context.bindings.<name>`.
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
+        TraceWriter log)
+    {
+        foreach (MyPoco poco in pocos)
+        {
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+        }
+    }
+}
+```
 
-Indata kan avserialiseras i Node.js- eller C#-funktioner. Avserialiserat objekt har `RowKey` och `PartitionKey` egenskaper.
+### <a name="input---c-script-example-1"></a>Indata - C# skript exempel 1
 
-Du kan också binda till någon av följande typer i C#-funktioner, och Functions-runtime görs ett försök att deserialisera den informationen med hjälp av den typen:
+I följande exempel visas en tabell indatabindning i en *function.json* fil och [C# skript för](functions-reference-csharp.md) kod som använder bindningen. Funktionen använder en utlösare för kön för att läsa en tabellrad. 
 
-* Typer som implementerar`ITableEntity`
-* `IQueryable<T>`
-
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>Indata-exempel
-Anta att du har följande function.json, som använder en utlösare för kön för att läsa en tabellrad. JSON anger `PartitionKey`  
- `RowKey`. `"rowKey": "{queueTrigger}"`Anger att Radnyckeln kommer från kön Meddelandesträngen.
+Den *function.json* filen anger en `partitionKey` och en `rowKey`. Den `rowKey` värdet ”{queueTrigger}” anger att Radnyckeln kommer från kön Meddelandesträngen.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -97,7 +117,7 @@ Anta att du har följande function.json, som använder en utlösare för kön f�
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     }
   ],
@@ -105,15 +125,10 @@ Anta att du har följande function.json, som använder en utlösare för kön f�
 }
 ```
 
-Se exemplet språkspecifika som läser en enskild tabell entitet.
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
-* [C#](#inputcsharp)
-* [F#](#inputfsharp)
-* [Node.js](#inputnodejs)
+Här är skriptkod C#:
 
-<a name="inputcsharp"></a>
-
-### <a name="input-sample-in-c"></a>Inkommande exemplet i C# #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -129,9 +144,91 @@ public class Person
 }
 ```
 
-<a name="inputfsharp"></a>
+### <a name="input---c-script-example-2"></a>Indata - C# skript exempel 2
 
-### <a name="input-sample-in-f"></a>Inkommande exemplet i F # #
+I följande exempel visas en tabell indatabindning i en *function.json* fil och [C# skript för](functions-reference-csharp.md) kod som använder bindningen. Funktionen läser entiteter för en partitionsnyckel som anges i ett kömeddelande.
+
+Här är den *function.json* fil:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "tableBinding",
+      "type": "table",
+      "connection": "MyStorageConnectionAppSetting",
+      "tableName": "Person",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
+
+C#-skriptkod läggs en referens till Azure Storage SDK: N så att entitetstypen kan härledas från `TableEntity`:
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
+    {
+        log.Info($"Name: {person.Name}");
+    }
+}
+
+public class Person : TableEntity
+{
+    public string Name { get; set; }
+}
+```
+
+### <a name="input---f-example"></a>Indata - F #-exempel
+
+I följande exempel visas en tabell indatabindning i en *function.json* fil och [F # skript för](functions-reference-fsharp.md) kod som använder bindningen. Funktionen använder en utlösare för kön för att läsa en tabellrad. 
+
+Den *function.json* filen anger en `partitionKey` och en `rowKey`. Den `rowKey` värdet ”{queueTrigger}” anger att Radnyckeln kommer från kön Meddelandesträngen.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
+
+Här är F #-kod:
+
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -145,9 +242,40 @@ let Run(myQueueItem: string, personEntity: Person) =
     log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
-<a name="inputnodejs"></a>
+### <a name="input---javascript-example"></a>Indata - JavaScript-exempel
 
-### <a name="input-sample-in-nodejs"></a>Inkommande exemplet i Node.js
+I följande exempel visas en tabell indatabindning i en *function.json* fil- och [JavaScript-kod] (funktioner-referens-node.md) som använder bindningen. Funktionen använder en utlösare för kön för att läsa en tabellrad. 
+
+Den *function.json* filen anger en `partitionKey` och en `rowKey`. Den `rowKey` värdet ”{queueTrigger}” anger att Radnyckeln kommer från kön Meddelandesträngen.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
+
+Här är JavaScript-kod:
+
 ```javascript
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
@@ -156,46 +284,132 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## <a name="input---attributes-for-precompiled-c"></a>Indata - attribut för förkompilerade C#
+ 
+För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd följande attribut för att konfigurera en tabell indatabindning:
 
-## <a name="storage-table-output-binding"></a>Lagringstabellen utdatabindning
-Azure Storage tabellutdata bindning aktiverar tabell du skriver enheter till en i din funktion. 
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
-Tabellen lagring utdata för en funktion använder följande JSON-objekt i den `bindings` matris med function.json:
+  Attributets konstruktorn har tabellnamn, partitionsnyckel och radnyckel. Den kan användas på en out-parameter eller returvärdet för funktionen, som visas i följande exempel:
 
-```json
+  ```csharp
+  [FunctionName("TableInput")]
+  public static void Run(
+      [QueueTrigger("table-items")] string input, 
+      [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
+      TraceWriter log)
+  ```
+
+  Du kan ange den `Connection` att ange storage-konto du använder, enligt följande exempel:
+
+  ```csharp
+  [FunctionName("TableInput")]
+  public static void Run(
+      [QueueTrigger("table-items")] string input, 
+      [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
+      TraceWriter log)
+  ```
+
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+
+  Ger ett annat sätt att ange storage-konto som ska användas. Konstruktorn får samma namn som en appinställning som innehåller en anslutningssträng för lagring. Attributet kan användas i parametern, metoden eller klassnivå. I följande exempel visas klassnivå och metoden:
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("TableInput")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  ```
+
+Storage-konto du använder bestäms i följande ordning:
+
+* Den `Table` attributets `Connection` egenskapen.
+* Den `StorageAccount` attribut som används i samma parameter som den `Table` attribut.
+* Den `StorageAccount` attribut som används i funktionen.
+* Den `StorageAccount` attribut som används i klassen.
+* Standardkontot för lagring för funktionsapp (”AzureWebJobsStorage” appinställning).
+
+## <a name="input---configuration"></a>Indata - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Table` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
+|**riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
+|**Namn** | Saknas | Namnet på variabeln som representerar den tabell eller en entitet i funktionskoden. | 
+|**tableName** | **TableName** | Namnet på tabellen.| 
+|**partitionKey** | **PartitionKey** |Valfri. Partitionsnyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**rowKey** |**RowKey** | Valfri. Raden nyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**ta** |**Ta** | Valfri. Det maximala antalet enheter att läsa i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**filter** |**Filter** | Valfri. En OData-filteruttrycket för tabellen indata i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
+|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br/>När du utvecklar lokalt appinställningar går du till värdena för den [local.settings.json filen](functions-run-local.md#local-settings-file).|
+
+## <a name="input---usage"></a>Indata - användning
+
+Table storage inkommande bindningen stöder följande scenarion:
+
+* **Läs en rad i C# eller C#-skript**
+
+  Ange `partitionKey` och `rowKey`. Komma åt informationen med hjälp av en metodparameter `T <paramName>`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T`Vanligtvis är en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Den `filter` och `take` egenskaper inte används i det här scenariot. 
+
+* **Läs en eller flera rader i C# eller C#-skript**
+
+  Komma åt informationen med hjälp av en metodparameter `IQueryable<T> <paramName>`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T`måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity`. Du kan använda `IQueryable` metoder för att utföra filtrering krävs. Den `partitionKey`, `rowKey`, `filter`, och `take` egenskaper inte används i det här scenariot.  
+
+> [!NOTE]
+> `IQueryable`fungerar inte i .NET Core, så att den inte fungerar i den [Functions-runtime v2](functions-versions.md).
+
+  Ett alternativ är att använda en `CloudTable paramName` Metodparametern att läsa tabellen med hjälp av Azure Storage SDK: N.
+
+* **Läs en eller flera rader i JavaScript**
+
+  Ange den `filter` och `take` egenskaper. Konfigurerar inte `partitionKey` eller `rowKey`. Åtkomst till den inkommande tabell entitet (eller entiteter) med hjälp av `context.bindings.<name>`. Avserialiserat objekt har `RowKey` och `PartitionKey` egenskaper.
+
+## <a name="table-storage-output-binding"></a>Tabellagring utdatabindning
+
+Använd Azure Table storage utdata bindning skriva entiteter till en tabell i ett Azure Storage-konto.
+
+## <a name="output---example"></a>Output - exempel
+
+Finns i det språkspecifika:
+
+* [Förkompilerade C#](#output---c-example)
+* [C#-skript](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Utdata - C#-exempel
+
+Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som använder en HTTP-utlösare för att skriva en tabellrad. 
+
+```csharp
+public class TableStorage
 {
-    "name": "<Name of input parameter in function signature>",
-    "type": "table",
-    "direction": "out",
-    "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to write - see below>",
-    "rowKey": "<RowKey of table entity to write - see below>",
-    "connection": "<Name of app setting - see below>",
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableOutput")]
+    [return: Table("MyTable")]
+    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
+    {
+        log.Info($"C# http trigger function processed: {input.Text}");
+        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
+    }
 }
 ```
 
-Observera följande: 
+### <a name="output---c-script-example"></a>Utdata - exempel på C#-skript
 
-* Använd `partitionKey` och `rowKey` tillsammans för att skriva en enda entitet. De här egenskaperna är valfria. Du kan också ange `PartitionKey` och `RowKey` när du skapar entitetsobjekt i funktionskoden.
-* `connection`måste innehålla namnet på en appinställning som innehåller en anslutningssträng för lagring. I Azure-portalen standardredigeraren i den **integrera** konfigurerar appinställningen för dig när du skapar en lagringsplats för kontot eller väljer en befintlig. Du kan också [konfigurera den här appen inställningen manuellt](functions-how-to-use-azure-function-app-settings.md#settings). 
+I följande exempel visas en tabell bindning i en *function.json* fil och [C# skript för](functions-reference-csharp.md) kod som använder bindningen. Funktionen skriver flera tabellentiteter.
 
-<a name="outputusage"></a>
-
-## <a name="output-usage"></a>Användning av utdata
-I C#-funktioner, du binder till tabellutdata med hjälp av den namngivna `out` parameter i en funktionssignaturen som `out <T> <name>`, där `T` är datatypen som du vill serialisera data till och `paramName` är det namn du angav i den [utdatabindning](#output). I Node.js-funktion, du åtkomst till tabellen utdata med `context.bindings.<name>`.
-
-Du kan serialisera objekt i Node.js- eller C#-funktioner. I C#-funktioner, kan du också binda till följande typer:
-
-* Typer som implementerar`ITableEntity`
-* `ICollector<T>`(för att skapa flera entiteter. Se [exempel](#outcsharp).)
-* `IAsyncCollector<T>`(asynkrona versionen av `ICollector<T>`)
-* `CloudTable`(med hjälp av Azure Storage SDK: N. Se [exempel](#readmulti).)
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Exempel på utdata
-Följande *function.json* och *run.csx* exempel visar hur du skriver flera tabellentiteter.
+Här är den *function.json* fil:
 
 ```json
 {
@@ -207,7 +421,7 @@ Följande *function.json* och *run.csx* exempel visar hur du skriver flera tabel
     },
     {
       "tableName": "Person",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -217,15 +431,10 @@ Följande *function.json* och *run.csx* exempel visar hur du skriver flera tabel
 }
 ```
 
-Se exemplet språkspecifika som skapar flera tabellentiteter.
+Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.js](#outnodejs)
+Här är skriptkod C#:
 
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Utdata exemplet i C# #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -250,9 +459,37 @@ public class Person
 }
 
 ```
-<a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>Utdata exemplet i F # #
+### <a name="output---f-example"></a>Utdata - F #-exempel
+
+I följande exempel visas en tabell bindning i en *function.json* fil och [F # skript för](functions-reference-fsharp.md) kod som använder bindningen. Funktionen skriver flera tabellentiteter.
+
+Här är den *function.json* fil:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Den [configuration](#output---configuration) förklaras de här egenskaperna.
+
+Här är F #-kod:
+
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -270,9 +507,36 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
               Name = "Name" + i.ToString() })
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>Utdata - JavaScript-exempel
 
-### <a name="output-sample-in-nodejs"></a>Utdata exemplet i Node.js
+I följande exempel visas en tabell bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen skriver flera tabellentiteter.
+
+Här är den *function.json* fil:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Den [configuration](#output---configuration) förklaras de här egenskaperna.
+
+Här är JavaScript-kod:
+
 ```javascript
 module.exports = function (context) {
 
@@ -290,54 +554,65 @@ module.exports = function (context) {
 };
 ```
 
-<a name="readmulti"></a>
+## <a name="output---attributes-for-precompiled-c"></a>Utdata - attribut för förkompilerade C#
 
-## <a name="sample-read-multiple-table-entities-in-c"></a>Exempel: Läsa flera tabellentiteter i C#  #
-Följande *function.json* och C#-kodexempel läser entiteter för en partitionsnyckel som anges i kön meddelandet.
+ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "tableBinding",
-      "type": "table",
-      "connection": "MyStorageConnection",
-      "tableName": "Person",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-C#-kod lägger till en referens till Azure Storage SDK: N så att entitetstypen kan härledas från `TableEntity`.
+Attributets konstruktorn har tabellens namn. Den kan användas på ett `out` parametern eller returvärdet för funktionen som visas i följande exempel:
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-using Microsoft.WindowsAzure.Storage.Table;
-
-public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
-    {
-        log.Info($"Name: {person.Name}");
-    }
-}
-
-public class Person : TableEntity
-{
-    public string Name { get; set; }
-}
+[FunctionName("TableOutput")]
+[return: Table("MyTable")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
 ```
 
-## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+Du kan ange den `Connection` att ange storage-konto du använder, enligt följande exempel:
 
+```csharp
+[FunctionName("TableOutput")]
+[return: Table("MyTable", Connection = "StorageConnectionAppSetting")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
+```
+
+Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [indata - attribut för förkompilerat C#](#input---attributes-for-precompiled-c).
+
+## <a name="output---configuration"></a>Output - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Table` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**typ** | Saknas | måste anges till `table`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen.|
+|**riktning** | Saknas | måste anges till `out`. Den här egenskapen anges automatiskt när du skapar bindningen i Azure-portalen. |
+|**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar den tabell eller enhet. Ange till `$return` att referera till returvärde för funktion.| 
+|**tableName** |**TableName** | Namnet på tabellen.| 
+|**partitionKey** |**PartitionKey** | Partitionsnyckeln för tabellentiteten för att skriva. Finns det [användning](#output---usage) vägledning om hur du använder den här egenskapen.| 
+|**rowKey** |**RowKey** | Raden nyckeln för tabellentiteten för att skriva. Finns det [användning](#output---usage) vägledning om hur du använder den här egenskapen.| 
+|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br/>När du utvecklar lokalt appinställningar går du till värdena för den [local.settings.json filen](functions-run-local.md#local-settings-file).|
+
+## <a name="output---usage"></a>Utdata - användning
+
+Table storage utdata bindningen stöder följande scenarier:
+
+* **Skriv en rad med valfritt språk**
+
+  Få åtkomst till utdata tabellentiteten i C# och C# skript, med hjälp av en metodparameter som `out T paramName` eller funktionen returvärde. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T`kan vara en serialiserbar typ. Om partitionsnyckel och radnyckel som tillhandahålls av den *function.json* filen eller `Table` attribut. Annars `T` måste vara en typ som innehåller `PartitionKey` och `RowKey` egenskaper. I det här scenariot `T` vanligtvis implementerar `ITableEntity` eller härleds från `TableEntity`, men det behöver inte.
+
+* **Skriv en eller flera rader i C# eller C#**
+
+  Få åtkomst till utdata tabellentiteten i C# och C# skript, med hjälp av en metodparameter `ICollector<T> paramName` eller `ICollectorAsync<T> paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. `T`Anger schemat för de enheter som du vill lägga till. Normalt `T` härleds från `TableEntity` eller implementerar `ITableEntity`, men det behöver inte. Partitionsnyckeln och rad nyckeln värden i *function.json* eller `Table` Attributkonstruktorn används inte i det här scenariot.
+
+  Ett alternativ är att använda en `CloudTable paramName` Metodparametern att skriva till tabellen med hjälp av Azure Storage SDK: N.
+
+* **Skriv en eller flera rader i JavaScript**
+
+  I JavaScript-funktioner, komma åt tabellen utdata med `context.bindings.<name>`.
+
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

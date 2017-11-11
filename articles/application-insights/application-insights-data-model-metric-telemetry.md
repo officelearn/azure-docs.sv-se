@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cfdf3b70f6fdb2ddd5f89a72c931d3b6be54132
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Mått telemetri: Application Insights-datamodell
 
@@ -24,7 +24,7 @@ Det finns två typer av mått telemetri som stöds av [Programinsikter](app-insi
 
 Före aggregerade mått telemetri förutsätter aggregering perioden har en minut.
 
-Det finns flera välkända mått namn som stöds av Application Insights. 
+Det finns flera välkända mått namn som stöds av Application Insights. De här måtten placeras i prestandaräknarna tabell.
 
 Måttet som representerar system och processen räknare:
 
@@ -65,6 +65,8 @@ Maximalt värde av sammanställda mått. Ska inte anges för ett mått.
 Standardavvikelsen för aggregerade mått. Ska inte anges för ett mått.
 
 ## <a name="custom-properties"></a>Anpassade egenskaper
+
+Måttet med den anpassade egenskapen `CustomPerfCounter` inställd på `true` indikerar att måttet representerar windows-prestandaräknare. De här måtten placeras i prestandaräknarna tabell. Inte i customMetrics. Namnet på det här måttet är också parsa extrahera kategori, prestandaräknare och instansnamn.
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Skala resursen nivåer för fråga och indexering arbetsbelastningar i Azure Search
 När du [Välj prisnivå](search-sku-tier.md) och [etablera en söktjänst](search-create-service-portal.md), nästa steg är att om du vill öka antalet repliker eller partitioner som används av din tjänst. Varje nivå erbjuder ett fast antal fakturering enheter. Den här artikeln beskriver hur du tilldela dessa enheter för att uppnå en optimal konfiguration som balanserar dina krav för körning av fråga, indexering och lagring.
 
-Resurskonfigurationen är tillgänglig när du skapar en tjänst på den [grundläggande nivån](http://aka.ms/azuresearchbasic) eller en av de [Standard nivåer](search-limits-quotas-capacity.md). För fakturerbar services på dessa nivåer kapacitet köps i steg om *sökenheter* (SUs) där varje partition och repliken räknas som en SU. 
+Resurskonfigurationen är tillgänglig när du skapar en tjänst på den [grundläggande nivån](http://aka.ms/azuresearchbasic) eller en av de [Standard nivåer](search-limits-quotas-capacity.md). För tjänster på dessa nivåer kapacitet köps i steg om *sökenheter* (SUs) där varje partition och repliken räknas som en SU. 
 
 Använder färre SUs-resultat i en proportionerligt lägre faktura. Fakturering används för så länge som tjänsten har ställts in. Om du tillfälligt inte använder en tjänst, är det enda sättet att undvika fakturering genom att ta bort tjänsten och sedan återskapa den när du behöver den.
 
@@ -51,21 +51,19 @@ Om du vill öka eller ändra fördelningen av repliker och partitioner, bör du 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) och välj search-tjänsten.
 2. I **inställningar**öppnar den **skala** bladet och Använd skjutreglagen för att öka eller minska antalet partitioner och repliker.
 
-Om du behöver ett skript eller kod etablering metoden den [Management REST API](https://msdn.microsoft.com/library/azure/dn832687.aspx) är ett alternativ till portalen.
+Om du behöver ett skript eller kod etablering metoden den [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) är ett alternativ till portalen.
 
 I allmänhet behöver sökprogram mer repliker än partitioner, särskilt när tjänståtgärderna är prioriterar frågan arbetsbelastningar. Avsnittet [hög tillgänglighet](#HA) förklarar varför.
 
 > [!NOTE]
-> När en tjänst har etablerats kan inte uppgraderas till en högre SKU. Du behöver skapa en söktjänst på ny nivå och Läs in ditt index. Se [skapa en Azure Search-tjänst i portalen](search-create-service-portal.md) hjälp med service etablering.
+> När en tjänst har etablerats kan inte uppgraderas till en högre SKU. Du måste skapa en söktjänst på ny nivå och Läs in ditt index. Se [skapa en Azure Search-tjänst i portalen](search-create-service-portal.md) hjälp med service etablering.
 >
 >
 
 <a id="HA"></a>
 
 ## <a name="high-availability"></a>Hög tillgänglighet
-Eftersom det är enkelt och relativt snabbt att skala upp, vanligtvis rekommenderas att du börjar med en partition och en eller två repliker och sedan skalas upp som frågan volymer skapa. En partition innehåller för många services på nivåerna Basic eller S1 tillräcklig lagring och i/o (på 15 miljoner dokument per partition).
-
-Frågan arbetsbelastningar som körs i första hand på repliker. Om du behöver mer genomflöde och hög tillgänglighet kan kräver du förmodligen ytterligare repliker.
+Eftersom det är enkelt och relativt snabbt att skala upp, vanligtvis rekommenderas att du börjar med en partition och en eller två repliker och sedan skalas upp som frågan volymer skapa. Frågan arbetsbelastningar som körs i första hand på repliker. Om du behöver mer genomflöde och hög tillgänglighet kan kräver du förmodligen ytterligare repliker.
 
 Allmänna rekommendationer för hög tillgänglighet är:
 
@@ -73,6 +71,8 @@ Allmänna rekommendationer för hög tillgänglighet är:
 * Tre eller flera repliker för hög tillgänglighet för läsning och skrivning arbetsbelastningar (frågor plus indexering när enskilda dokument läggs till, uppdatera eller ta bort)
 
 Servicenivåavtal (SLA) för Azure Search är inriktade på frågor och uppdateringar av index som består av att lägga till, uppdatera eller ta bort dokument.
+
+Grundnivån överkant på en partition och tre repliker. Om du vill att flexibiliteten att omedelbart svara på förändringar i efterfrågan för indexering och fråga genomströmning betrakta ett av nivåerna som Standard.
 
 ### <a name="index-availability-during-a-rebuild"></a>Index tillgänglighet under en återskapning
 
@@ -89,9 +89,9 @@ Det finns för närvarande ingen inbyggd mekanism för katastrofåterställning.
 ## <a name="increase-query-performance-with-replicas"></a>Öka prestanda för frågor med repliker
 Svarstid är en indikator att ytterligare repliker behövs. I allmänhet är ett första steg mot att förbättra frågeprestanda att lägga till mer av den här resursen. När du lägger till repliker fler kopior av indexet åter är online för att stödja större belastningar i fråga och läsa in Utjämna begäranden över flera repliker.
 
-Vi kan inte tillhandahålla hårda beräknar på frågor per sekund (QPS): frågan prestanda beror på komplexiteten i frågan och konkurrerande arbetsbelastningar. I genomsnitt en replik på grundläggande eller S1 SKU: er kan betjäna ungefär 15 QPS, men din genomströmning ska vara högre eller lägre beroende på komplexiteten i frågan (fasetterad frågor är mer komplexa) och nätverkssvarstid. Det är också viktigt att känna igen att även om repliker definitivt lägger läggs skalning och prestanda, resultatet inte är absolut linjär: lägga till tre repliker garanterar inte tre genomflöde.
+Vi kan inte tillhandahålla hårda beräknar på frågor per sekund (QPS): frågan prestanda beror på komplexiteten i frågan och konkurrerande arbetsbelastningar. Även om att lägga till repliker tydligt resulterar i bättre prestanda, resultatet är inte absolut linjär: lägga till tre repliker garanterar inte tre genomflöde.
 
-Läs mer om QPS, inklusive metoder för att bedöma QPS för din arbetsbelastning i [hantera din söktjänst](search-manage.md).
+Anvisningar för att uppskatta QPS för din arbetsbelastning finns [överväganden för Azure Search-prestanda och optimering](search-performance-optimization.md).
 
 ## <a name="increase-indexing-performance-with-partitions"></a>Öka indexering prestanda med partitioner
 Sökprogram som kräver nära realtid datauppdatering behöver proportionerligt fler partitioner än repliker. Lägga till partitioner sprids läs-/ skrivåtgärder över fler beräkningsresurser. Det ger dig också mer diskutrymme för att lagra ytterligare index och dokument.

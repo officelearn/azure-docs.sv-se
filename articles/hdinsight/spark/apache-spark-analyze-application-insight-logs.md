@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 6ea3114a30b0ae313efb14495f5556e5484bef06
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analysera Application Insights telemetri loggar med Spark i HDInsight
 
@@ -61,7 +61,7 @@ Application Insights kan konfigureras för att exportera kontinuerligt telemetri
 
 * **BLOB-typen**: HDInsight stöder endast blockblobar. Programmet insikter som standard använder blockblobar, ska så fungera som standard med HDInsight.
 
-Mer information om att lägga till ytterligare lagringsutrymme i ett befintligt HDInsight-kluster finns i [lägga till ytterligare lagringskonton](../hdinsight-hadoop-add-storage.md) dokumentet.
+Mer information om att lägga till lagring till ett befintligt kluster, finns det [lägga till ytterligare lagringskonton](../hdinsight-hadoop-add-storage.md) dokumentet.
 
 ### <a name="data-schema"></a>Dataschemat
 
@@ -79,7 +79,7 @@ Lägg till Azure Storage-konto i ett befintligt kluster genom att använda infor
 
 ## <a name="analyze-the-data-pyspark"></a>Analysera data: PySpark
 
-1. Från den [Azure-portalen](https://portal.azure.com), Välj ditt Spark på HDInsight-kluster. Från den **snabblänkar** väljer **Klusterinstrumentpaneler**, och välj sedan **Jupyter-anteckningsbok** från klustret Dashboard__-bladet.
+1. Från den [Azure-portalen](https://portal.azure.com), Välj ditt Spark på HDInsight-kluster. Från den **snabblänkar** väljer **Klusterinstrumentpaneler**, och välj sedan **Jupyter-anteckningsbok** från avsnittet Dashboard__ för klustret.
 
     ![Klusterinstrumentpaneler](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 
@@ -222,7 +222,7 @@ Lägg till Azure Storage-konto i ett befintligt kluster genom att använda infor
 
 ## <a name="analyze-the-data-scala"></a>Analysera data: Scala
 
-1. Från den [Azure-portalen](https://portal.azure.com), Välj ditt Spark på HDInsight-kluster. Från den **snabblänkar** väljer **Klusterinstrumentpaneler**, och välj sedan **Jupyter-anteckningsbok** från klustret Dashboard__-bladet.
+1. Från den [Azure-portalen](https://portal.azure.com), Välj ditt Spark på HDInsight-kluster. Från den **snabblänkar** väljer **Klusterinstrumentpaneler**, och välj sedan **Jupyter-anteckningsbok** från avsnittet Dashboard__ för klustret.
 
     ![Klusterinstrumentpaneler](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 2. Välj i det övre högra hörnet på sidan Jupyter **ny**, och sedan **Scala**. En ny webbläsarflik som innehåller en Scala-baserade Jupyter-anteckningsbok visas.

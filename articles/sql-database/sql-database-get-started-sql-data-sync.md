@@ -1,6 +1,6 @@
 ---
-title: "Kom igång med datasynkronisering för Azure SQL (förhandsversion) | Microsoft Docs"
-description: "Den här kursen hjälper dig att komma igång med datasynkronisering för Azure SQL (förhandsgranskning)"
+title: "Konfigurera Azure SQL datasynkronisering (förhandsversion) | Microsoft Docs"
+description: "Den här kursen visar hur du ställer in datasynkronisering för Azure SQL (förhandsgranskning)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 0dc34a8e08ea75a84d1553963bdb892c84dacdb7
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: d0b3f3b188bc5da91414efb763b5165377009191
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>Kom igång med datasynkronisering för Azure SQL (förhandsgranskning)
+# <a name="set-up-sql-data-sync-preview"></a>Konfigurera synkronisering för SQL-Data (förhandsgranskning)
 Lär dig hur du ställer in Azure SQL Data Sync genom att skapa en hybrid sync-grupp som innehåller både Azure SQL Database och SQL Server-instanser i den här självstudiekursen. Den nya gruppen sync helt har konfigurerats och synkroniserar enligt det schema du anger.
 
 Den här kursen förutsätter att du har minst tidigare erfarenhet med SQL Database och SQL Server. 
@@ -110,7 +110,7 @@ På den **konfigurera Azure Database** gör följande:
 
     ![Ny SQL-databas sync medlem har lagts till](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>Lägg till en lokal SQL Server-databas
+### <a name="add-on-prem"></a>Lägg till en lokal SQL Server-databas
 
 I den **medlem databasen** avsnittet om du vill lägga till en lokal SQL Server i gruppen synkronisering genom att välja **lägga till en lokal databas**. Den **konfigurera lokalt** öppnas.
 

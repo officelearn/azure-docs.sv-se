@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Skapa en Node.js-app med Graph API
 
@@ -75,9 +75,23 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna den `app.js` fil 
         });
     ```
 
-  Konfigurationerna finns i `config.js`, som vi redigerar i följande avsnitt.
+  Konfigurationerna som finns i `config.js`, som vi redigera i den [efter avsnittet](#update-your-connection-string).
 
-* En mängd Gremlin-steg utförs med metoden `client.execute`.
+* En serie funktioner har definierats för att köra olika Gremlin åtgärder. Detta är en av dem:
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* Varje funktion kör en `client.execute` metod med en Gremlin frågesträngparametern. Här är ett exempel på hur `g.V().count()` körs:
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,11 +102,28 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna den `app.js` fil 
     });
     ```
 
+* I slutet av filen, alla metoder sedan anropas med hjälp av den `async.waterfall()` metoden. Detta ska köra dem efter varandra:
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
 1. Uppdatera filen config.js. 
 
-2. I config.js, fyller du i config.endpoint-nyckeln med **Gremlin URI**-värdet från sidan **Översikt** i Azure-portalen. 
+2. I config.js, fyller du i den `config.endpoint` nyckeln med den **Gremlin URI** värdet från den **översikt** sidan i Azure-portalen. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 

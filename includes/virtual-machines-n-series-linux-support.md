@@ -6,7 +6,11 @@
 
 | Distribution | Drivrutin |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS-baserad 7.3 | NVIDIA GRID 4.3, drivrutinslinje R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS-baserad 7.3 | Drivrutinen gren R384 NVIDIA RUTNÄTET 5.0|
+
+> [!NOTE]
+> Microsoft distribuerar NVIDIA RUTNÄTET drivrutinen installationsprogram för NV virtuella datorer. Installera endast drivrutinerna RUTNÄTET på NV virtuella Azure-datorer. De här drivrutinerna inkluderar licensiering för RUTNÄTET virtuella GPU-programvara i Azure.
+>
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>NC-instanser – NVIDIA Tesla-drivrutiner
 | Distribution | Drivrutin |

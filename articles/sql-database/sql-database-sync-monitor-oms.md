@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 5a0d25d698ddb15b4ba88d322c07a28b329c4add
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>Övervaka Azure SQL-datasynkronisering (förhandsversion) med OMS logganalys 
+# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Övervaka SQL datasynkronisering (förhandsversion) med OMS logganalys 
 
 I aktivitetsloggen SQL datasynkronisering och identifiera fel och varningar genom tvungen du tidigare att kontrollera SQL datasynkronisering manuellt i Azure-portalen eller Använd PowerShell eller REST API. Följ stegen i den här artikeln för att konfigurera en anpassad lösning som förbättrar datasynkronisering övervakning upplevelse. Du kan anpassa den här lösningen så att den passar din situation.
 
@@ -92,7 +92,7 @@ Mer information om hur du skapar en runbook finns [min första PowerShell-runboo
 
     2.  Information om synkronisering av grupp.
 
-    3.  OMS-information. Hitta den här informationen på OMS-portalen | Inställningar | Anslutna källor. Mer information om hur du skickar data till logganalys finns [skicka data till logganalys med HTTP-Data Collector API (förhandsversion)](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
+    3.  OMS-information. Hitta den här informationen på OMS-portalen | Inställningar | Anslutna källor. Mer information om hur du skickar data till logganalys finns [skicka data till logganalys med HTTP-Data Collector API (förhandsversion)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Köra runbook i rutan. Kontrollera att det lyckades.
 
@@ -192,7 +192,7 @@ Hämta kodexempel som beskrivs i den här artikeln från följande platser:
 För mer information om SQL-datasynkronisering, se:
 
 -   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md)
--   [Kom igång med Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
+-   [Konfigurera Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
 -   [Metodtips för Azure SQL-datasynkronisering](sql-database-best-practices-data-sync.md)
 -   [Felsökning av problem med Azure SQL-datasynkronisering](sql-database-troubleshoot-data-sync.md)
 

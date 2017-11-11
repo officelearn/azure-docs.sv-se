@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 329970d8717053ab7126fb8fb6a4a119ccbff6b7
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -74,7 +74,7 @@ Skriptet utför de här stegen:
 - Registrera din resursprovidern med lokala Azure Resource Manager (användar- och admin).
 
 > [!NOTE]
-> Om installationen tar mer än 90 minuter, kanske den inte och du ser ett felmeddelande på skärmen och loggfilen, men distributionen försöks från steg som misslyckades. Datorer som inte uppfyller de rekommenderade specifikationerna för minne och core kan inte distribuera SQL RP.
+> Om installationen tar mer än 90 minuter, kanske den inte och du ser ett felmeddelande på skärmen och loggfilen, men distributionen försöks från steg som misslyckades. Datorer som inte uppfyller de rekommenderade specifikationerna för minne och vCPU kan inte distribuera SQL RP.
 >
 
 Här är ett exempel som du kan köra från PowerShell fråga (men ändra kontoinformation och lösenord om det behövs):

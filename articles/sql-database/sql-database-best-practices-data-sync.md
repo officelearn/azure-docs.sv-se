@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data synkroniseras Metodtips | Microsoft Docs
+title: "Metodtips för Azure SQL datasynkronisering | Microsoft Docs"
 description: "Metodtips för hur du konfigurerar och kör Azure SQL-datasynkronisering"
 services: sql-database
 ms.date: 11/2/2017
@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 51ef421e0761be81681728daba9c2b6300e702c4
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: d23bd186300d451186dd4f3644290cb4178417a2
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Metodtips för datasynkronisering för Azure SQL (förhandsgranskning) 
+# <a name="best-practices-for-sql-data-sync-preview"></a>Metodtips för SQL-datasynkronisering (förhandsgranskning) 
 
 Den här artikeln beskrivs bästa praxis för SQL-datasynkronisering (förhandsversion).
 
@@ -228,7 +228,7 @@ Om du försöker ta bort en databas och sedan redigera en sync-grupp utan att f�
 För mer information om SQL-datasynkronisering, se:
 
 -   [Synkronisera data över flera databaser i molnet och lokalt med Azure SQL-datasynkronisering](sql-database-sync-data.md)
--   [Kom igång med Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
+-   [Konfigurera Azure SQL datasynkronisering](sql-database-get-started-sql-data-sync.md)
 -   [Övervaka Azure SQL-datasynkronisering med OMS logganalys](sql-database-sync-monitor-oms.md)
 -   [Felsökning av problem med Azure SQL-datasynkronisering](sql-database-troubleshoot-data-sync.md)
 

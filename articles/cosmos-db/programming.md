@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: andrl
-ms.openlocfilehash: 8cddc7a8c9aa677b9c93bee3a7e05c226cc1f655
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 Lär dig hur Azure Cosmos DB språk integreras, transaktionell körning av JavaScript kan utvecklare skriva **lagrade procedurer**, **utlösare** och **användardefinierade funktioner (UDF)** internt i en [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. På så sätt kan du skriva programlogiken för databasen program kan levereras och köras direkt på partitioner för lagring av databasen. 
@@ -681,7 +681,7 @@ Förutom DocumentDB-API: et för [Node.js](documentdb-sdk-node.md) Azure DB som 
     document.Year = 1949;
 
     // execute stored procedure
-    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
+    Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
 Det här exemplet visas hur du använder den [DocumentDB .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) att skapa en före utlösare och skapa ett dokument med utlösaren aktiveras. 

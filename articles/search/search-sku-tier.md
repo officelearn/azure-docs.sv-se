@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Välj en SKU eller prisnivå för Azure Search
 I Azure Search en [service etableras](search-create-service-portal.md) på en specifik prisnivån eller SKU: N. Alternativen är **lediga**, **grundläggande**, eller **Standard**, där **Standard** är tillgänglig i flera konfigurationer och kapacitet.
@@ -43,9 +43,9 @@ Gå hand i hand kapacitet och kostnader för att köra tjänsten. Informationen 
 
 * Antalet och storleken på index som du planerar att skapa
 * Antalet och storleken på dokument för att ladda upp
-* Vissa uppfattning om frågan volym, vad gäller frågor Per andra (QPS)
+* Vissa uppfattning om frågan volym, vad gäller frågor Per andra (QPS). Anvisningar finns [Azure Search-prestanda och optimering](search-performance-optimization.md).
 
-Antal och storlek är viktiga eftersom den maximala gränsen nås via en hård gräns på antalet index eller dokument i en tjänst eller på resurser (lagring eller repliker) som används av tjänsten. Den faktiska gränsen för tjänsten är beroende på vilket som hämtar används först: resurser eller objekt.
+Antal och storlek är viktiga eftersom den maximala gränsen nås via en hård gräns på antalet index per tjänst eller på resurser (lagring eller repliker) som används av tjänsten. Den faktiska gränsen för tjänsten är beroende på vilket som hämtar används först: resurser eller objekt.
 
 Följande steg ska förenkla processen för beräkningar i manuellt:
 
@@ -60,10 +60,10 @@ Följande tabell innehåller beskrivningar av varje nivå.
 | --- | --- |
 | **Ledigt** |En delad tjänst utan kostnad, används för utvärdering, undersökningen eller små arbetsbelastningar. Frågan genomflöde och indexering varierar beroende på vem mer använder tjänsten eftersom den delas med andra prenumeranter. Kapacitet är liten (50 MB eller 3 index med upp 10 000 dokument varje). |
 | **Basic** |Liten produktionsarbetsbelastningar på dedikerad maskinvara. Hög tillgänglighet. Kapaciteten är upp till 3 repliker och 1 partition (2 GB). |
-| **S1** |Standard 1 stöder flexibel kombinationer av partitioner (12) och repliker (12) som används för medelstora produktionsarbetsbelastningar på dedikerad maskinvara. Du kan allokera partitioner och repliker i kombinationer som stöds av ett maximalt antal 36 fakturerbar search-enheter. Partitioner är 25 GB och QPS är ungefär 15 frågor per sekund på den här nivån. |
-| **S2** |Standard 2 kör större produktionsarbetsbelastningar som använder samma 36 search-enheter som S1 men med större storlek partitioner och repliker. Partitioner är 100 GB och QPS är ungefär 60 frågor per sekund på den här nivån. |
-| **S3** |Standard 3 körs proportionellt större produktionsarbetsbelastningar på högre kompletta system i konfigurationer av upp till 12 partitioner eller 12 repliker under 36 search-enheter. Partitioner är 200 GB och QPS är mer än 60 frågor per sekund på den här nivån. |
-| **S3 HD** |Standard 3 hög densitet är avsedd för ett stort antal mindre index. Du kan ha upp till 3 partitioner på 200 GB. QPS är mer än 60 frågor per sekund. |
+| **S1** |Standard 1 stöder flexibel kombinationer av partitioner (12) och repliker (12) som används för medelstora produktionsarbetsbelastningar på dedikerad maskinvara. Du kan allokera partitioner och repliker i kombinationer som stöds av ett maximalt antal 36 fakturerbar search-enheter. Partitioner är 25 GB på den här nivån. |
+| **S2** |Standard 2 kör större produktionsarbetsbelastningar som använder samma 36 search-enheter som S1 men med större storlek partitioner och repliker. Partitioner är 100 GB vardera på den här nivån. |
+| **S3** |Standard 3 körs proportionellt större produktionsarbetsbelastningar på högre kompletta system i konfigurationer av upp till 12 partitioner eller 12 repliker under 36 search-enheter. Partitioner är 200 GB på den här nivån. |
+| **S3 HD** |Standard 3 hög densitet är avsedd för ett stort antal mindre index. Du kan ha upp till 3 partitioner på 200 GB.|
 
 > [!NOTE]
 > Replik och partitionen maxkapacitet debiteras ut som search-enheter (36 unit maximala per tjänst), vilket medför en effektiv nedre gräns än maximalt innebär på framsidan värde. Om du vill använda maximalt 12 repliker, kan du till exempel ha högst 3 partitioner (12 * 3 = 36 enheter). På samma sätt för att använda maximalt partitioner, minska repliker till 3. Se [skala resursen nivåer för fråga och indexering arbetsbelastningar i Azure Search](search-capacity-planning.md) för diagram på tillåtna kombinationer.
@@ -81,7 +81,6 @@ Följande diagram är en delmängd av gränser från [Tjänstbegränsningarna i 
 | Maximal partitioner |Saknas |1 |12 |12 |12 |3 <sup>2</sup> |
 | Partitionsstorlek |Totalt antal 50 MB |2 GB per tjänst |25 GB per partition |100 GB per partition (upp till högst 1,2 TB per tjänst) |200 GB per partition (upp till högst 2,4 TB per tjänst) |200 GB (upp till 600 GB per tjänst) |
 | Maximal repliker |Saknas |3 |12 |12 |12 |12 |
-| Frågor per sekund |Saknas |~ 3 per replik |~ 15 per replik |~ 60 per replik |>60 per replik |>60 per replik |
 
 <sup>1</sup> ledigt nivå och förhandsgranska funktioner inte kommer med servicenivåavtal (SLA). För alla fakturerbar nivåer börjar SLA gälla när du etablerar tillräcklig redundans för din tjänst. Två eller flera repliker krävs för SERVICENIVÅAVTAL för frågan (läsa). Tre eller flera repliker krävs för fråga och indexering SLA (skrivskyddad). Antalet partitioner är inte ett SLA-faktor. 
 

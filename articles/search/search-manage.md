@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration av tjänsten för Azure Search i Azure-portalen
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ Azure Search är en helt hanterad, molnbaserad search-tjänst som används för 
 * Justera kapacitet tjänster genom att ändra fördelningen av partitioner och repliker.
 * Övervaka Resursanvändning, i förhållande till din tjänstnivån begränsningarna.
 
-**Inte i omfånget** 
+Observera att *uppgradera* inte anges som administrativa åtgärder. Eftersom resurser tilldelas när tjänsten etableras, kräver flytt till ett annat skikt en ny tjänst. Mer information finns i [skapa en Azure Search-tjänst](search-create-service-portal.md).
 
-*Innehållshantering* (eller index management) refererar till åtgärder som till exempel analysera Sök-trafik för att förstå frågan volymen, identifiera vilka villkor som personer söka för och hur lyckade sökresultat i hjälper kunder på specifika dokument i ditt index. Hjälp i det här området finns [Sök trafik Analytics för Azure Search](search-traffic-analytics.md).
-
-*Fråga prestanda* är också utanför omfattningen för den här artikeln. Mer information finns i [övervaka användnings- och](search-monitor-usage.md) och [prestanda och optimering](search-performance-optimization.md).
-
-*Uppgradera* är inte en administrativ aktivitet. Eftersom resurser tilldelas när tjänsten etableras, kräver flytt till ett annat skikt en ny tjänst. Mer information finns i [skapa en Azure Search-tjänst](search-create-service-portal.md).
+> [!Tip]
+> Letar du efter information om hur du analyserar Sök trafik eller fråga prestanda? Få insikter om frågan volym, vilket villkor personer söka efter, och hur lyckade sökresultat finns i steg kunder på specifika dokument i ditt index. Anvisningar finns [Sök trafik Analytics för Azure Search](search-traffic-analytics.md), [övervaka användnings- och](search-monitor-usage.md), och [prestanda och optimering](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -113,15 +110,10 @@ Ett annat sätt att visa behörigheter för åtkomst är att klicka på **roller
 ## <a name="monitor-resource-usage"></a>Övervaka Resursanvändning
 I instrumentpanelen för är Resursövervakning begränsad till den information som visas i instrumentpanelen för tjänsten och några mått som du kan hämta genom att fråga tjänsten. På instrumentpanelen i tjänsten i avsnittet användning Se du snabbt om partitionen resurs nivåer är lämpliga för ditt program.
 
-Du kan hämta ett antal på dokument och index med API för Search-tjänsten. Det finns gränser som är associerade med detta antal baserat på prisnivån. Mer information finns i [söka tjänstbegränsningarna](search-limits-quotas-capacity.md). 
+Med den Söktjänsts-REST API kan du räkna med dokument och index programmässigt: 
 
 * [Få indexstatistik](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Antal dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Cachelagring beteenden kan tillfälligt overstate en gräns. Till exempel när du använder tjänsten delade, du kan se ett dokument antal över hårddisken högst 10 000 dokument. Överskattningen upptäcks till nästa gränsen tvingande kontrollerar är tillfällig. 
-> 
-> 
 
 ## <a name="disaster-recovery-and-service-outages"></a>Disaster recovery och tjänsten avbrott
 

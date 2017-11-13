@@ -13,11 +13,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: bc1c1fdc4d7482b0a92b14ac90b8162367946636
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 20130d6d4f331ec0a2435c9eea800ee6f62beaba
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Skapa en datafabrik och pipeline med Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du ka
 Den här snabbstarten beskriver hur du använder Python till att skapa en Azure-datafabrik. Pipeline i den här datafabriken kopierar data från en mapp till en annan i Azure Blob Storage.
 
 > [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Kom igång med Data Factory version 1).
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Läs [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (kom igång med Data Factory version 1) om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -108,7 +108,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Lägg till följande kod till **Main**-metoden som skapar en instans av klassen DataFactoryManagementClient. Du använde det är objektet till att skapa datafabriken, länkade tjänster, datauppsättningar och en pipeline. Du kan också använda det här objektet för att övervaka information om pipelinekörning. Ställ in variabeln **subscription_id** för ID:t för din Azure-prenumeration.
+3. Lägg till följande kod till **Main**-metoden som skapar en instans av klassen DataFactoryManagementClient. Du använde det är objektet till att skapa datafabriken, länkade tjänster, datauppsättningar och en pipeline. Du kan också använda det här objektet för att övervaka information om pipelinekörning. Ställ in variabeln **subscription_id** för ID:t för din Azure-prenumeration. För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA; östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
     ```python   
     def main():
@@ -424,7 +424,7 @@ Copy duration: 4
 För att ta bort datafabriken lägger du till följande kod till programmet:
 
 ```python
-adf_client.data_factories.delete(rg_name, df_name)
+adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>Nästa steg

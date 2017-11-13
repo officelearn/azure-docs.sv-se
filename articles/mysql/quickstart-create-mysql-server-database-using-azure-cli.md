@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: hero-article
-ms.date: 06/13/2017
+ms.date: 11/02/2017
 ms.custom: mvc
-ms.openlocfilehash: 0da8e52ae568e1e471cb5556cfde063bdd94911c
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 80e995d19fa7d2def95a78d8e89fbac78643c013
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Skapa en Azure Database för MySQL-server med Azure CLI
 I den här snabbstarten beskrivs hur du använder Azure CLI till att skapa en Azure Database för MySQL-server i en Azure-resursgrupp på ungefär fem minuter. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript.
@@ -58,7 +58,7 @@ I följande exempel skapas en brandväggsregel för ett fördefinierat adressint
 az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 ## <a name="configure-ssl-settings"></a>Konfigurera SSL-inställningar
-Som standard verkställs SSL-anslutningar mellan servern och dina klientprogram.  Detta garanterar säkerheten för data ”i rörelse” genom att dataströmmen över internet krypteras.  För att förenkla snabbstarten avaktiverar vi SSL-anslutningar för din server.  Detta rekommenderas inte för produktionsservrar.  Se [Konfigurera SSL-anslutning i din app för säker anslutning till Azure Database för MySQL](./howto-configure-ssl.md) för mer information.
+Som standard verkställs SSL-anslutningar mellan servern och dina klientprogram. Denna standardinställning garanterar säkerheten för data ”i rörelse” genom att dataströmmen över internet krypteras. Avaktivera SSL-anslutningar för din server för att förenkla den här snabbstarten. Avaktivering av SSL rekommenderas inte för produktionsservrar. Se [Konfigurera SSL-anslutning i din app för säker anslutning till Azure Database för MySQL](./howto-configure-ssl.md) för mer information.
 
 I följande exempel inaktiveras SSL på MySQL-servern.
  

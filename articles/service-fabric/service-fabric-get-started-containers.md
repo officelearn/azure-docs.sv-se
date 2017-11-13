@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/18/2017
+ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 025bde02b3f342ec3399d51819d1fa8a91f11374
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d58ba0985d7a5bb302028254be0951859b79dbb
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-behållarapp i Windows
 > [!div class="op_single_selector"]
@@ -169,7 +169,7 @@ SDK:en och verktygen för Service Fabric innehåller en tjänstmall som hjälper
 
 1. Starta Visual Studio.  Välj **Arkiv** > **Nytt** > **Projekt**.
 2. Välj **Service Fabric-programmet**, ge det namnet "MyFirstContainer" och klicka på **OK**.
-3. Välj **Guest Container** (Gästbehållare) i listan med **tjänstmallar**.
+3. Välj **Behållare** i listan med **tjänstmallar**.
 4. I **Avbildningsnamn** skriver du "myregistry.azurecr.io/samples/helloworldapp" (den avbildning som du skickade till lagringsplatsen för behållaren).
 5. Namnge tjänsten och klicka på **OK**.
 
@@ -293,6 +293,10 @@ Windows stöder två isoleringslägen för behållare: process och Hyper-V. Om p
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
+   > [!NOTE]
+   > Hyper-V-isoleringsläget är tillgängligt på Ev3 och Dv3 Azure SKU:er som har stöd för kapslad virtualisering. 
+   >
+   >
 
 ## <a name="configure-resource-governance"></a>Konfigurera resursstyrning
 Med [resursstyrning](service-fabric-resource-governance.md) begränsas resurserna som behållaren kan använda på värddatorn. `ResourceGovernancePolicy`-elementet som anges i applikationsmanifestet, används för att deklarera resursgränser för ett tjänstkodpaket. Resursgränser kan anges för följande resurser: Memory, MemorySwap, CpuShares (relativ processorvikt), MemoryReservationInMB, BlkioWeight (relativ BlockIO-vikt).  I det här exemplet hämtar tjänstpaketet Guest1Pkg en kärna på klusternoderna där det är placerat.  Minnesgränser är absoluta, så kodpaketet är begränsat till 1024 MB minne (med samma reservation). Kodpaket (behållare eller processer) kan inte tilldela mer minne än den här gränsen, och försök att göra detta leder till undantag utanför minnet. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
@@ -469,7 +473,7 @@ Avbildningar som inte ska raderas kan du ange under parametern `ContainerImagesT
 * Mer information om hur du kör [behållare i Service Fabric](service-fabric-containers-overview.md).
 * Läs kursen [Distribuera ett .NET-program i en behållare](service-fabric-host-app-in-a-container.md).
 * Läs om Service Fabric-[applivscykeln](service-fabric-application-lifecycle.md).
-* Se [kodexempel för Service Fabric-behållare](https://github.com/Azure-Samples/service-fabric-dotnet-containers) på GitHub.
+* Se [kodexempel för Service Fabric-behållare](https://github.com/Azure-Samples/service-fabric-containers) på GitHub.
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png

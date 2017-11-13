@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 6cd6c822eb255893feac2536d7bae034380094b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95af26a655e72a9cc370f339da5ecedbed441997
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Använda Azure Security Center vid incidenthantering
 Många organisationer lär sig att reagera på säkerhetsincidenter först när de har drabbats av en attack. För att minska kostnaderna och skadorna är det viktigt att ha en incidenthanteringsplan på plats innan en attack äger rum. Azure Security Center kan användas i olika faser av en incidenthantering.
@@ -96,7 +96,7 @@ Sam får ärendet från Johanna och börjar gå igenom de åtgärdssteg som för
 ![Livscykel för incidenthantering](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### <a name="additional-resources"></a>Ytterligare resurser
-Incidentteamet kan också använda funktionen [Security Center Power BI](security-center-powerbi.md) att se olika typer av rapporter. Dessa rapporter kan hjälpa dem under vidare undersökningar, eftersom de ger möjlighet att visualisera, analysera och filtrera rekommendationer och säkerhetsaviseringar. Företag som använder en SIEM-lösning (Security Information and Event Management) vid undersökningen kan även [integrera Security Center tillsammans med lösningen](security-center-integrating-alerts-with-log-integration.md). Azures granskningsloggar och virtuella datorsäkerhetshändelser kan dessutom integreras med [loggintegrationsverktyget i Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). Den här informationen kan användas tillsammans med den information som tillhandahålls av Security Center när man undersöker ett angrepp.
+Företag som använder en SIEM-lösning (Security Information and Event Management) vid undersökningen kan även [integrera Security Center tillsammans med lösningen](security-center-integrating-alerts-with-log-integration.md). Azures granskningsloggar och virtuella datorsäkerhetshändelser kan dessutom integreras med [loggintegrationsverktyget i Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). Den här informationen kan användas tillsammans med den information som tillhandahålls av Security Center när man undersöker ett angrepp. Du kan även använda funktionen [undersökning](https://docs.microsoft.com/azure/security-center/security-center-investigation) i Security Center. Den hjälper dig att fastställa orsaken till en incident.
 
 ## <a name="conclusion"></a>Slutsats
 Att sätta samman ett team innan en incident inträffar är mycket viktigt för organisationen och kommer att påverka hanteringen av incidenter på ett positivt sätt. Om teamet har rätt verktyg för att övervaka resurserna kan de vidta rätt steg för att åtgärda en säkerhetsincident. [Identifieringsfunktioner](security-center-detection-capabilities.md) i Security Center hjälper IT-avdelningen att snabbt agera på säkerhetsincidenter samt åtgärda säkerhetsproblem.

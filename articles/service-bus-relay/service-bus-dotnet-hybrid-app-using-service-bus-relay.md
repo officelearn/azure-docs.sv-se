@@ -12,16 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/14/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77bb769a094c2a619c0c75363e23ae3ee561c1e4
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Lokalt eller molnbaserat .NET-hybridprogram med hjälp av Azure WCF Relay
-## <a name="introduction"></a>Introduktion
 
 Den här artikeln visar hur du skapar ett hybridprogram i molnet med Microsoft Azure och Visual Studio. Den här självstudiekursen förutsätter att du inte har några tidigare erfarenheter av att använda Azure. På mindre än 30 minuter kommer du att ha ett program färdigt i molnet som använder en rad Azure-resurser.
 
@@ -52,7 +51,7 @@ I självstudiekursen förutsätter vi att du har produktinformation i ett befint
 Innan du kan börja utveckla Azure-program måste du hämta de verktyg som krävs och ställa in din utvecklingsmiljö:
 
 1. Installera Azure SDK för .NET från [hämtningssidan](https://azure.microsoft.com/downloads/) för SDK.
-2. Klicka på den version av [Visual Studio](http://www.visualstudio.com) du använder i kolumnen **.NET**. Stegen i den här handledningen använder Visual Studio 2015, men det går lika bra med Visual Studio 2017.
+2. Klicka på den version av [Visual Studio](http://www.visualstudio.com) du använder i kolumnen **.NET**. Stegen i den här självstudiekursen använder Visual Studio 2017.
 3. När du uppmanas att köra eller spara installationsprogrammet, klickar du på **Kör**.
 4. I **Installationsprogram för webbplattform** klickar du på **Installera** och fortsätter med installationen.
 5. När installationen är klar har du allt som behövs för att börja utveckla appen. SDK inkluderar verktyg som låter dig utveckla Azure-program i Visual Studio på ett enkelt sätt.
@@ -77,7 +76,7 @@ Det här projektet är ett konsolprogram för Visual Studio som använder [Azure
 4. Klicka på **OK** för att skapa **ProductsServer**-projektet.
 5. Om du redan har installerat NuGet Package Manager för Visual Studio kan du hoppa över nästa steg. Annars går du till [NuGet][NuGet] och klickar på [Installera NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Följ anvisningarna för att installera NuGet Package Manager och starta sedan om Visual Studio.
 6. Högerklicka på projektet **ProductsServer** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
-7. Klicka på **Bläddra**-fliken och sök sedan efter `Microsoft Azure Service Bus`. Välj paketet **WindowsAzure.ServiceBus**.
+7. Klicka på fliken **Bläddra** och sök sedan efter **WindowsAzure.ServiceBus**. Välj paketet **WindowsAzure.ServiceBus**.
 8. Klicka på **Installera** och godkänn användningsvillkoren.
 
    ![][13]
@@ -198,6 +197,8 @@ Det här projektet är ett konsolprogram för Visual Studio som använder [Azure
       </behaviors>
     </system.serviceModel>
     ```
+    Felet som orsakas av ”transportClientEndpointBehavior” är bara en varning, inte ett blockeringsfel för det här exemplet.
+    
 13. Medan du fortfarande är kvar i App.config, i elementet `<appSettings>`, byter du ut värdet för anslutningssträngen mot den sträng som du tidigare fick från portalen.
 
     ```xml
@@ -230,7 +231,7 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
     ![][18]
 
 7. I dialogrutan **Ny ASP.NET Web Application** klickar du på **OK** för att skapa MVC-app.
-8. Nu måste du konfigurera Azure-resurserna för en ny webbapp. Följ stegen i avsnittet [Publicera till Azure i den här artikeln](../app-service/app-service-web-get-started-dotnet.md). Gå sedan tillbaka till den här självstudien och gå vidare till nästa steg.
+8. Nu måste du konfigurera Azure-resurserna för en ny webbapp. Följ stegen i avsnittet [Publicera till Azure i den här artikeln](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure). Gå sedan tillbaka till den här självstudien och gå vidare till nästa steg.
 10. I Solution Explorer högerklickar du på **Modeller**. Klicka sedan på **Lägg till** och på **Klass**. Ange namnet **Product.cs** i rutan **Namn**. Klicka sedan på **Lägg till**.
 
     ![][17]
@@ -274,7 +275,7 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
     }
     ```
 4. Expandera mappen Views\Shared i Solution Explorer och dubbelklicka sedan på **_Layout.cshtml** så att den öppnas i Visual Studio-redigeraren.
-5. Ändra alla förekomster av **My ASP.NET Application** till **LITWARE's Products**.
+5. Byt ut alla förekomster av **My ASP.NET Application** till **Northwind Traders Products**.
 6. Ta bort länkarna för **Start**, **Om** och **Kontakt**. Ta bort den markerade koden i följande exempel.
 
     ![][41]
@@ -332,7 +333,7 @@ Nästa steg är att koppla samman den lokala produktservern med ASP.NET-programm
 
 1. Om programmet inte redan är öppet öppnar du det **ProductsPortal**-projekt som du skapade i avsnittet [Skapa ett ASP.NET-program](#create-an-aspnet-application) igen i Visual Studio.
 2. Lägg till NuGet-paketet i projektreferenserna på ett liknande sätt som i steget i avsnittet ”Skapa en lokal server”. Högerklicka på projektet **ProductsPortal** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
-3. Sök efter "Service Bus" och markera posten **WindowsAzure Service Bus**. Slutför sedan installationen och stäng den här dialogrutan.
+3. Sök efter **WindowsAzure.ServiceBus** och markera posten **WindowsAzure.ServiceBus**. Slutför sedan installationen och stäng den här dialogrutan.
 4. Högerklicka på projektet **ProductsPortal** i Solution Explorer och klicka sedan på **Lägg till** och **Befintligt objekt**.
 5. Navigera till filen **ProductsContract.cs** från konsolprojektet **ProductsServer**. Klicka för att markera ProductsContract.cs. Klicka på nedåtpilen bredvid **Lägg till** och sedan på **Lägg till som länk**.
 
@@ -455,7 +456,7 @@ Innan du kör programmet i molnet måste du se till att **ProductsPortal** start
 Mer information om Azure Relay finns i följande resurser:  
 
 * [Vad är Azure Relay?](relay-what-is-it.md)  
-* [Använda vidarebefordran](service-bus-dotnet-how-to-use-relay.md)  
+* [Så här använder du Azure Relay](relay-wcf-dotnet-get-started.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

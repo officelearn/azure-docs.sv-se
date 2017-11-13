@@ -1,6 +1,6 @@
 ---
 title: Konfigurera ett Azure Service Fabric-kluster | Microsoft Docs
-description: "Snabbstart – skapa ett Service Fabric-kluster i Azure för Windows eller Linux."
+description: "Den här snabbstarten hjälper dig att skapa ett Service Fabric-kluster i Azure för Windows eller Linux."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: facb9643e0bb848f0ea9aadf447f05af218fdd0f
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: caf76bb739fa92982c511c8e3e6c6aaf2bf9d6c1
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>Skapa ditt första Service Fabric-kluster i Azure
-Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. I den här snabbstarten får du hjälp att skapa ett kluster med fem noder som körs i antingen Windows eller Linux på bara några minuter via [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) eller [Azure Portal](http://portal.azure.com).  
+Ett [Azure Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. I den här snabbstarten får du hjälp att skapa ett kluster med fem noder som körs i antingen Windows eller Linux på bara några minuter via [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) eller [Azure Portal](http://portal.azure.com). Du kan även använda Azure CLI för den här uppgiften.  
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -32,44 +32,44 @@ Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com)
 
 ### <a name="create-the-cluster"></a>Skapa klustret
 
-1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
-2. Sök efter **Service Fabric** och välj **Service Fabric-kluster** från **Service Fabric-kluster** från de returnerade resultaten.  Klicka på **Skapa**.
-3. Fyll i Service Fabric-formuläret **Grundläggande inställningar**. För **Operativsystem** väljer du den version av Windows eller Linux som du vill köra klusternoderna i. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. Skapa en ny för **Resursgrupp**. En resursgrupp är en logisk behållare där Azure-resurser skapas och hanteras gemensamt. När du är klar klickar du på **OK**.
+1. Välj **Nytt** i det övre vänstra hörnet i Azure Portal.
+2. Sök efter **Service Fabric** och välj **Service Fabric-kluster** från de returnerade resultaten. Välj sedan **Skapa**.
+3. Fyll i Service Fabric-formuläret **Grundläggande inställningar**. För **Operativsystem** väljer du den version av Windows eller Linux som du vill köra klusternoderna i. Användarnamnet och lösenordet som anges här används för att logga in på den virtuella datorn. Skapa en ny för **Resursgrupp**. En resursgrupp är en logisk behållare där Azure-resurser skapas och hanteras gemensamt. Välj **OK** när du är klar.
 
-    ![Utdata efter klusterinstallationen][cluster-setup-basics]
+    ![Skärmbild av utdata efter klusterinstallationen][cluster-setup-basics]
 
-4. Fyll i formuläret **Klusterkonfiguration**.  För **Antal nodtyper** anger du "1".
+4. Fyll i formuläret **Klusterkonfiguration**. För **Antal nodtyper** anger du **1**.
 
-5. Välj **Node type 1 (Primary)** (Nodtyp 1 (Primär)) och fyll i formuläret **Konfiguration av nodtyp**.  Ange ett nodtypnamn och ställ in [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) på "Brons."  Välj en VM-storlek.
+5. Välj **Node type 1 (Primary)** (Nodtyp 1 (Primär)) och fyll i formuläret **Konfiguration av nodtyp**. Ange ett nodtypnamn och ställ in [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) på **Brons**. Välj sedan en VM-storlek.
 
-    Nodtypen definierar antalet virtuella datorer och deras storlek, anpassade slutpunkter och andra inställningar för virtuella datorer av samma typ. Varje definierad nodtyp konfigureras som en separat VM-skalningsuppsättning som används till att distribuera och hantera virtuella datorer som en uppsättning. Varje nodtyp kan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet.  Den första, eller primära, nodtypen används för systemtjänsterna för Service Fabric, och den måste ha fem eller fler virtuella datorer.
+    Nodtypen definierar antalet virtuella datorer och deras storlek, anpassade slutpunkter och andra inställningar för virtuella datorer av samma typ. Varje definierad nodtyp konfigureras som en separat VM-skalningsuppsättning som används till att distribuera och hantera virtuella datorer som en uppsättning. Varje nodtyp kan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. Den första, eller primära nodtypen används för systemtjänsterna för Service Fabric. Den här nodtypen måste ha fem eller fler virtuella datorer.
 
-    Vid distribution till en produktionsmiljö är det viktigt med [kapacitetsplanering](service-fabric-cluster-capacity.md).  I den här snabbstarten kör du däremot inga program, så välj VM-storleken *DS1_v2 Standard*.  Välj ”Silver” som [tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) och en inledande kapacitet på 5 för VM-skalningsuppsättningar.  
+    Vid distribution till en produktionsmiljö är det viktigt med [kapacitetsplanering](service-fabric-cluster-capacity.md). I den här snabbstarten kör du däremot inga program. Välj därför VM-storleken *DS1_v2 Standard*. Välj **Silver** som [tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) och ange en inledande kapacitet på 5 för VM-skalningsuppsättningar.  
 
-    Anpassade slutpunkter används till att öppna portar i Azure Load Balancer så att du kan ansluta med program som körs i klustret.  Ange ”80, 8172” så att du öppnar portarna 80 och 8172.
+    Anpassade slutpunkter används för att öppna portar i Azure Load Balancer så att du kan ansluta med program som körs i klustret.  Ange **80, 8172** så att du öppnar portarna 80 och 8172.
 
     Markera inte kryssrutan **Konfigurera avancerade inställningar**, som används till att anpassa slutpunkter för TCP/HTTP-hantering, portintervall för program, [placeringsbegränsningar](service-fabric-cluster-resource-manager-configure-services.md#placement-constraints) och [kapacitetsegenskaper](service-fabric-cluster-resource-manager-metrics.md).    
+    
+    ![Skärmbild av konfiguration av nodtyp][node-type-config]
 
     Välj **OK**.
 
-6. I formuläret **Klusterkonfiguration** ställer du in **Diagnostik** på **På**.  I den här snabbstarten behöver du inte ange några anpassade [infrastrukturinställningar](service-fabric-cluster-fabric-settings.md).  Under **Fabric-version** väljer du uppgraderingsläget **Automatiskt** så att Microsoft automatiskt uppdaterar den Fabric-kod som kör klustret.  Ställ in läget som **Manuellt** om du vill [välja en version som stöds](service-fabric-cluster-upgrade.md) och uppgradera till den. 
-
-    ![Konfiguration av nodtyp][node-type-config]
+6. I formuläret **Klusterkonfiguration** ställer du in **Diagnostik** på **På**. I den här snabbstarten behöver du inte ange några anpassade [infrastrukturinställningar](service-fabric-cluster-fabric-settings.md).  Under **Fabric-version** väljer du uppgraderingsläget **Automatiskt** så att Microsoft automatiskt uppdaterar den Fabric-kod som kör klustret.  Ställ in läget som **Manuellt** om du vill [välja en version som stöds](service-fabric-cluster-upgrade.md) och uppgradera till den.     
 
     Välj **OK**.
 
-7. Fyll i formuläret **Säkerhet**.  I den här snabbstarten kan du välja **Ta bort skydd**.  I produktionsmiljöer bör du endast skapa skyddade kluster eftersom alla kan ansluta anonymt till oskyddade kluster och utföra hanteringsåtgärder.  
+7. Fyll i formuläret **Säkerhet**. För den här snabbstarten väljer du **Ta bort skydd**. Observera att du i allmänhet bör skapa ett säkert kluster för produktionsarbetsbelastningar. Vem som helst kan anonymt ansluta till ett oskyddat kluster och utföra hanteringsåtgärder.  
 
-    Certifikat används i Service Fabric till att autentisera och kryptera olika delar av ett kluster och de program som körs där. Mer information om hur du använder certifikat i Service Fabric finns i [Service Fabric cluster security scenarios](service-fabric-cluster-security.md) (Säkerhet för Service Fabric-kluster).  Om du vill aktivera autentisering av användare via Azure Active Directory eller ställa in certifikat för programsäkerhet kan du [skapa ett kluster från en Resource Manager-mall](service-fabric-cluster-creation-via-arm.md).
+   Service Fabric använder certifikat för att autentisera och kryptera olika delar av ett kluster och de program som körs där. Mer information finns i [Service Fabric cluster security scenarios](service-fabric-cluster-security.md) (Säkerhetsscenarier för Service Fabric-kluster). Läs om hur du [skapar ett kluster från en Resource Manager-mall](service-fabric-cluster-creation-via-arm.md) om du vill aktivera autentisering av användare via Azure Active Directory eller ställa in certifikat för programsäkerhet.
 
     Välj **OK**.
 
-8. Granska sammanfattningen.  Om du vill ladda ned en Resource Manager-mall som bygger på de inställningar du har angett väljer du **Ladda ned mall och parametrar**.  Välj **Skapa** så att klustret skapas.
+8. Granska sammanfattningen. Om du vill ladda ned en Azure Resource Manager-mall som bygger på de inställningar du har angett väljer du **Ladda ned mall och parametrar**. Välj **Skapa** så att klustret skapas.
 
-    Du kan se förloppet bland aviseringarna. (Klicka på klockikonen nära statusfältet uppe till höger på skärmen.) Om du klickade på **Fäst på startsidan** när du skapade klustret ser du **Deploying Service Fabric Cluster** (Distribuerar Service Fabric-kluster) fäst på **startsidan**.
+    Du kan se förloppet bland aviseringarna. (Välj klockikonen nära statusfältet uppe till höger på skärmen.) Om du valde **Fäst på startsidan** när du skapade klustret ser du **Deploying Service Fabric Cluster** (Distribuerar Service Fabric-kluster) fäst på **startsidan**.
 
-### <a name="connect-to-the-cluster-using-powershell"></a>Ansluta till klustret med PowerShell
-Kontrollera att klustret körs genom att ansluta med PowerShell.  Service Fabric PowerShell-modulen installeras med [Service Fabric SDK](service-fabric-get-started.md).  Cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) upprättar en anslutning till klustret.   
+### <a name="connect-to-the-cluster-by-using-powershell"></a>Anslut till klustret med PowerShell
+Kontrollera att klustret körs genom att ansluta till PowerShell. Service Fabric PowerShell-modulen installeras med [Service Fabric SDK](service-fabric-get-started.md). Cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) upprättar en anslutning till klustret.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
@@ -89,17 +89,19 @@ NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigV
 ```
 
 ### <a name="remove-the-cluster"></a>Ta bort klustret
-Ett Service Fabric-kluster består av andra Azure-resurser förutom själva klusterresursen. Så om du vill ta bort ett Service Fabric-kluster helt måste du också ta bort alla resurser det består av. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen. Andra sätt att ta bort ett kluster eller borttagning av vissa (men inte alla) resurser i en resursgrupp beskrivs i [Ta bort ett kluster](service-fabric-cluster-delete.md)
+Ett Service Fabric-kluster består av andra Azure-resurser förutom själva klusterresursen. Så om du vill ta bort ett Service Fabric-kluster helt måste du också ta bort alla resurser det består av. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen. Andra sätt att ta bort ett kluster eller borttagning av vissa (men inte alla) resurser i en resursgrupp beskrivs i [Ta bort ett kluster](service-fabric-cluster-delete.md).
 
 Ta bort en resursgrupp på Azure Portal:
-1. Navigera till det Service Fabric-kluster du vill ta bort.
-2. Klicka på **Resursgrupp** på sidan med klusterinformation.
-3. På sidan **Resource Group Essentials** (Information om resursgrupp) klickar du på **Ta bort resursgrupp** och följer sedan anvisningarna för borttagning av resursgruppen.
-    ![Ta bort resursgruppen][cluster-delete]
+1. Bläddra till det Service Fabric-kluster du vill ta bort.
+2. Välj namnet på **Resursgruppen** på sidan med klusterinformation.
+3. Välj **Ta bort resursgrupp** på sidan **Resource Group Essentials** (Information om resursgrupp). Följ sedan anvisningarna på sidan för att ta bort resursgruppen.
+    ![Skärmbild av sidan Information om resursgrupp med Ta bort resursgrupp markerat][cluster-delete]
 
 
-## <a name="use-azure-powershell"></a>Använd Azure Powershell
-1. Ladda ned [Azure Powershell-modul version 4.0 eller senare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) på datorn.
+## <a name="use-azure-powershell"></a>Använda Azure PowerShell
+Ett annat sätt att skapa klustret är att använda PowerShell. Så här gör du:
+
+1. Ladda ned [version 4.0 eller senare av Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) till datorn.
 
 2. Kör cmdleten [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster) för att skapa ett Service Fabric-kluster med fem noder som är skyddat med ett X.509-certifikat. Kommandot skapar ett självsignerat certifikat och laddar upp det till ett nytt nyckelvalv. Certifikatet kopieras även till en lokal katalog. Ange parametern *-OS* för att välja den version av Windows eller Linux som körs på klusternoderna. Anpassa parametrarna efter behov. 
 
@@ -138,9 +140,9 @@ Ta bort en resursgrupp på Azure Portal:
     -OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname
     ```
 
-    Det kan ta mellan 10 och 30 minuter att slutföra kommandot. När det har slutförts bör utdata se ut ungefär som nedan. Utdata innehåller information om certifikatet, nyckelvalvet som certifikatet överfördes till och den lokala mapp som certifikatet kopieras till.     
+    Kommandot kan ta allt från 10 till 30 minuter att slutföra. Utdata innehåller information om certifikatet, nyckelvalvet som certifikatet laddades upp till och den lokala mapp som certifikatet kopierades till.     
 
-3. Kopiera alla utdata och spara dem i en textfil eftersom vi behöver hänvisa till dem. Anteckna följande information från utdata. 
+3. Kopiera alla utdata och spara dem i en textfil (vi kommer att hänvisa till dem senare). Anteckna följande information från utdata: 
 
     - CertificateSavedLocalPath
     - CertificateThumbprint
@@ -149,7 +151,7 @@ Ta bort en resursgrupp på Azure Portal:
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Installera certifikatet på din lokala dator
   
-För att kunna ansluta till klustret måste du installera certifikatet i det personliga arkivet för den aktuella användaren. 
+För att kunna ansluta till klustret installerar du certifikatet i det personliga arkivet för den aktuella användaren. 
 
 Kör följande:
 
@@ -199,6 +201,7 @@ $groupname="mysfclustergroup"
 Remove-AzureRmResourceGroup -Name $groupname -Force
 ```
 ## <a name="use-azure-cli"></a>Använda Azure CLI
+Ett annat sätt att skapa klustret är att använda CLI. Så här gör du:
 
 1. Installera [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) på datorn.
 2. Logga in på Azure och välj den prenumeration som du vill skapa klustret i.
@@ -228,7 +231,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
     # Create secure five node Linux cluster. Creates a key vault in a resource group
     # and creates a certficate in the key vault. The certificate's subject name must match 
-    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    # the domain that you use to access the Service Fabric cluster. The certificate is downloaded locally.
     az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
         --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
         --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
@@ -236,7 +239,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
     ```
     
 ### <a name="connect-to-the-cluster"></a>Anslut till klustret
-Kör följande CLI-kommando för att ansluta till klustret med certifikatet.  När du använder ett klientcertifikat för autentisering måste certifikatinformationen matcha ett certifikat som distribuerats till klusternoderna.  Använd alternativet `--no-verify` för ett självsignerat certifikat.
+Kör följande CLI-kommando för att ansluta till klustret med certifikatet.  Se till att certifikatinformationen matchar ett certifikat som distribuerats till klusternoderna när du använder ett klientcertifikat för autentisering. Använd alternativet `--no-verify` för ett självsignerat certifikat.
 
 ```azurecli
 az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
@@ -250,7 +253,7 @@ az sf cluster health
 
 ### <a name="connect-to-the-nodes-directly"></a>Anslut direkt till noderna 
 
-Om du vill ansluta till noderna i ett Linux-kluster kan du använda SSH för att ansluta till noderna genom att ange ett portnummer från och med 3389. För de fem nodkluster som skapades tidigare skulle exempelvis kommandona vara följande:
+Du kan använda SSH-kommandot för att ansluta till noderna i ett Linux-kluster. Ange ett portnummer från 3389 och uppåt. För de fem nodkluster som skapades tidigare skulle exempelvis kommandona vara följande:
 ```bash
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
 ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390

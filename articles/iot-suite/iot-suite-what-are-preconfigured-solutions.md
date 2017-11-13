@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>Vad är Azure IoT Suite?
 
@@ -85,6 +85,9 @@ När du distribuerar en förkonfigurerad lösning konfigurerar etableringsproces
 | Cosmos DB            | Ja                | Ja                    | Ja               |
 | Azure-tabeller         |                    | Ja                    | Ja               |
 
+> [!NOTE]
+> Mer information om resurser som har distribuerats i den förkonfigurerade lösningen för fjärrövervakning finns i den här [artikeln](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) på GitHub.
+
 * [Azure IoT Hub](../iot-hub/index.md). Den här tjänsten tillhandahåller funktioner för meddelandehantering från ”enhet till moln” och från ”moln till enhet” och fungerar som en gateway till molnet och andra viktiga IoT Suite-tjänster. Tjänsten gör att du kan ta emot meddelanden från dina enheter i hög skala och skicka kommandon till dina enheter. Med tjänsten kan du även [hantera dina enheter](../iot-hub/iot-hub-device-management-overview.md). Du kan till exempel konfigurera, starta om eller utföra en fabriksåterställning på en eller flera enheter som är anslutna till hubben.
 * [Azure Event Hubs](../event-hubs/index.md). Den här tjänsten ger omfattande händelsepåfyllning till molnet. Se [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md) (Jämförelse mellan Azure IoT Hub och Azure Event Hubs).
 * [Azure Time Series Insights](../time-series-insights/index.md). De förkonfigurerade lösningarna använder den här tjänsten för att analysera och visa telemetridata från dina enheter.
@@ -124,7 +127,7 @@ Den här arkitekturen för mikrotjänster är ett beprövat mönster för molnl�
 När du distribuerar den nya versionen av fjärrövervakningen så måste du välja något av följande distributionsalternativ:
 
 * **Basic:** Version till reducerad kostnad för en demonstration eller för att testa en distribution. Alla mikrotjänster distribueras till en enda virtuell Azure-dator.
-* **Enterprise:** Expanderad distribution av infrastruktur för att utveckla en produktionsdistribution. Azure Container Service distribuerar mikrotjänsterna till flera virtuella Azure-datorer. Kubernetes samordnar Docker-behållare som värd för enskilda mikrotjänster.
+* **Standard:** Expanderad distribution av infrastruktur för att utveckla en produktionsdistribution. Azure Container Service distribuerar mikrotjänsterna till flera virtuella Azure-datorer. Kubernetes samordnar Docker-behållare som värd för enskilda mikrotjänster.
 
 ### <a name="language-choices-java-and-net"></a>Språkval: Java och .NET
 

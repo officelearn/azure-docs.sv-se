@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-successfully-rollout-self-service-password-reset"></a>Så här distribuerar du självbetjäning för återställning av lösenord
 
@@ -38,8 +38,8 @@ Merparten av kunderna följer stegen nedan för att säkerställa en smidig dist
 10. Om du vill granska användarnas registreringar och användning kan du gå igenom [rapporterna från Azure AD](active-directory-passwords-reporting.md).
 11. När du är redo kan du aktivera återställning av lösenord för alla användare genom att ställa in **Återställning av lösenord via självbetjäning har aktiverats** på **Alla**. 
 
-    > [!IMPORTANT]
-    > Testa SSPR med en användare och inte en administratör eftersom Microsoft tillämpar starka autentiseringskrav för Azure-konton av administratörstyp. Mer information om lösenordsprinciper för administratörer finns i vår [djupgående artikel](active-directory-passwords-how-it-works.md).
+   > [!IMPORTANT]
+   > Testa SSPR med en användare och inte en administratör eftersom Microsoft tillämpar starka autentiseringskrav för Azure-konton av administratörstyp. Mer information om lösenordsprinciper för administratörer finns i vår [artikel om lösenordsprinciper](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="email-based-rollout"></a>E-postbaserad distribution
 

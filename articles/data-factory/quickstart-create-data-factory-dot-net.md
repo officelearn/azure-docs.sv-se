@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
-ms.openlocfilehash: 579311b28abb650c6527fe1160ebf875ce7e8c82
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: e27c1a8e130d20eb0ba0e5c001fc9a435e07c1cd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Skapa en datafabrik och pipeline med .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du ka
 Den här snabbstarten beskriver hur du använder .NET SDK till att skapa en Azure-datafabrik. Pipeline i den här datafabriken kopierar data från en mapp till en annan i Azure Blob Storage.
 
 > [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Kom igång med Data Factory version 1).
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Läs [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (kom igång med Data Factory version 1) om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -78,7 +78,7 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2013/2015/2017.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Lägg till följande kod till **Main**-metoden som anger variablerna. Ersätt platshållarna med dina egna värden.
+2. Lägg till följande kod till **Main**-metoden som anger variablerna. Ersätt platshållarna med dina egna värden. För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA, östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
     ```csharp
     // Set variables
@@ -87,8 +87,6 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2013/2015/2017.
     string authenticationKey = "<your authentication key for the application>";
     string subscriptionId = "<your subscription ID where the data factory resides>";
     string resourceGroup = "<your resource group where the data factory resides>";
-    // Currently, Data Factory V2 allows you to create data factories only in the East US and East US2 regions. 
-    // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions
     string region = "East US 2";
     string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
     string storageAccount = "<your storage account name to copy data>";

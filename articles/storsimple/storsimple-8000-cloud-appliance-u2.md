@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
 
@@ -183,6 +183,18 @@ Du skapar en offentlig slutpunkt för molninstallationen genom att följa stegen
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 Vi rekommenderar att du ansluter från en annan virtuell dator i samma virtuella nätverk eftersom den här metoden minimerar antalet offentliga slutpunkter i ditt virtuella nätverk. I detta fall ansluter du den virtuella datorn via en fjärrskrivbordssession och konfigurerar sedan den virtuella datorn på samma sätt som andra Windows-klienter i ett lokalt nätverk. Du behöver inte lägga till det offentliga portnumret eftersom porten redan är känd.
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>Få en privat IP-adress för molninstallationen
+
+Du behöver en intern eller privat IP-adress för molninstallationen för att den ska kunna ansluta till värdservern i samma virtuella nätverk. Du får en privat IP-adress för molninstallationen genom att följa stegen nedan
+
+1. Gå till den underliggande virtuella datorn för din molninstallation. Den virtuella datorn har samma namn som din molninstallation. Gå till **Alla resurser**, ange namnet på molninstallationen och prenumerationen och ange sedan typen som ”virtuell dator”. Markera och klicka på den virtuella dator som motsvarar molninstallationen i listan över virtuella datorer som visas.
+
+     ![Välj virtuell dator för din molninstallation](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. Gå till **Inställningar > Nätverk**. Du ser den privata IP-adressen för molninstallationen i det högra fönstret. Anteckna den.
+
+    ![Få en privat IP-adress för din molninstallation](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>Arbeta med StorSimple-molninstallationen
 

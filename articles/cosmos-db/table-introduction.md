@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Azure Cosmos DB | Tabell-API
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/02/2017
 * Garanterat hög tillgänglighet.
 * [Automatisk sekundär indexering](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Dessa program kan migrera till Azure Cosmos DB med hjälp av tabell-API:t, och på så sätt dra nytta av premiumfunktioner, utan kodändringar. Tabell-API är tillgängligt för .NET och Python.
+Program som är skrivna för Azure Table Storage kan migrera till Azure Cosmos DB med hjälp av ett tabell-API och på så sätt dra nytta av premiumfunktioner, utan kodändringar. Tabell-API har en klient-SDK tillgänglig för .NET.
 
-Vi rekommenderar att du tittar på nedanstående video, där Aravind Ramachandran förklarar hur du kommer igång med tabell-API:t för Azure Cosmos DB:
+Vi rekommenderar att du tittar på nedanstående video, där Aravind Ramachandran förklarar hur du kommer igång med Azure Cosmos DB tabell-API:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 
@@ -64,5 +64,5 @@ Här följer några tips för att komma igång:
 * [Fråga tabelldata med tabell-API](tutorial-query-table.md)
 * [Lär dig konfigurera global distribution i Azure Cosmos DB med tabell-API:t](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB-tabell .NET API](table-sdk-dotnet.md)
-* [Azure Cosmos DB-tabell SDK för Python](table-sdk-python.md)
+
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2017
 ms.author: kaanan
-ms.openlocfilehash: 0ef91f6f952b901bcda981e5375be0b84e1ca0a3
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: fef70ca56761565d7b2fa329a17929b978d54cb8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -55,7 +55,7 @@ Tabellen nedan innehåller information om regioner och geopolitiska gränser fö
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
-| **Moln för amerikanska myndigheter** |Iowa (USA-förvaltad region), Virginia (USA-förvaltad region), US DoD centrala, US DoD, östra  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
+| **Moln för amerikanska myndigheter** |Arizona (USA-förvaltad region), Iowa (USA-förvaltad region), Texas (USA-förvaltad region), Virginia (USA-förvaltad region), US DoD centrala, US DoD, östra  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **Kina** |Norra Kina, östra Kina |Beijing, Shanghai |
 | **Tyskland** |Centrala Tyskland, östra Tyskland |Berlin, Frankfurt |
 

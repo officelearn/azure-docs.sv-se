@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 10/16/2017
-ms.openlocfilehash: 73785cf8c4f1539cb52254ba316ed7d888b683aa
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.date: 11/01/2017
+ms.openlocfilehash: a8cea099103bd6a306e41770e47b1279f5dbcdea
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Skapa en Azure Database för MySQL-server med Azure Portal
 Azure Database för MySQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure Database för MySQL-server på ungefär fem minuter med Azure Portal.  
@@ -70,19 +70,21 @@ Azure Database för MySQL-tjänsten skapar en brandvägg på servernivå. Den f�
 
 3.  Under **Brandväggsregler** väljer du den tomma textrutan i kolumnen **Regelnamn** och börjar skapa brandväggsregeln. 
 
-    I den här snabbstartsguiden ska vi tillåta alla IP-adresser till servern genom att fylla i rutorna i varje kolumn med följande värden:
+   ![Anslutningssäkerhet – Brandväggsregler](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-    Regelnamn | Start-ip | Slut-ip 
-    ---|---|---
-    AllowAllIps |  0.0.0.0 | 255.255.255.255
-    
-    Det är inte säkert att tillåta alla IP-adresser. Det här exemplet tillhandahålls för enkelhetens skull, men du behöver känna till de exakta IP-adressintervallen om du vill lägga till program och användare i ett verkligt scenario. 
+   I den här snabbstartsguiden ska vi tillåta alla IP-adresser till servern genom att fylla i rutorna i varje kolumn med följande värden:
+
+   Regelnamn | Start-ip | Slut-ip 
+   ---|---|---
+   AllowAllIps |  0.0.0.0 | 255.255.255.255
+   
+   Det är inte säkert att tillåta alla IP-adresser. Det här exemplet tillhandahålls för enkelhetens skull, men du behöver känna till de exakta IP-adressintervallen om du vill lägga till program och användare i ett verkligt scenario. 
 
 4. Välj **Spara** i det övre verktygsfältet på sidan **Anslutningssäkerhet**. Vänta tills meddelandet visas som talar om att uppdateringen har slutförts innan du fortsätter. 
 
-    > [!NOTE]
-    > Anslutningar till Azure Database för MySQL kommunicerar via port 3306. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 3306 inte tillåts. I så fall kan du inte ansluta till servern om inte IT-avdelningen öppnar port 3306.
-    > 
+   > [!NOTE]
+   > Anslutningar till Azure Database för MySQL kommunicerar via port 3306. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 3306 inte tillåts. I så fall kan du inte ansluta till servern om inte IT-avdelningen öppnar port 3306.
+   > 
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 Du behöver det fullständiga servernamnet och inloggningsuppgifterna för administratör för att ansluta till databasservern. Du kan ha antecknat de här värdena tidigare i snabbstartsartikeln. I annat fall hittar du enkelt servernamnet och inloggningsuppgifterna på sidan **Översikt** eller **Egenskaper** för servern på Azure Portal.

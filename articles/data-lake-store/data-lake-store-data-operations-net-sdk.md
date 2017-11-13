@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: nitinme
-ms.openlocfilehash: 7f6319dcf1ae66a686dd1c2ea2810b3041183098
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: a5d446986f810993d65c7e73eb95eeb2283c39a3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Filsystemsåtgärder på Azure Data Lake Store med hjälp av .NET SDK
 > [!div class="op_single_selector"]
@@ -40,6 +40,8 @@ Instruktioner för hur du utför kontohanteringsåtgärder på Data Lake Store m
 * **Azure Data Lake Store-konto**. Mer information om hur du skapar ett konto finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="create-a-net-application"></a>Skapa ett .NET-program
+Kodavsnittet som finns tillgängligt [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) ger dig en genomgång av processen att skapa filer i arkivet, sammanfoga filer, hämta en fil och ta bort några filer i arkivet. Det här avsnittet av artikeln går igenom de viktigaste delarna av koden.
+
 1. Öppna Visual Studio och skapa ett konsolprogram.
 2. Klicka på **Nytt** i **Arkiv**-menyn och klicka sedan på **Projekt**.
 3. Från **Nytt projekt** anger eller väljer du följande värden:
@@ -49,32 +51,32 @@ Instruktioner för hur du utför kontohanteringsåtgärder på Data Lake Store m
    | Kategori |Mallar/Visual C#/Windows |
    | Mall |Konsolprogram |
    | Namn |CreateADLApplication |
+
 4. Klicka på **OK** för att skapa projektet.
+
 5. Lägg till NuGet-paketen i projektet.
 
    1. Högerklicka på projektnamnet i Solution Explorer och klicka på **Hantera NuGet-paket**.
    2. På fliken **NuGet Package Manager** ser du till att **Paketkälla** har angetts som **nuget.org** och att kryssrutan **Inkludera förhandsversion** är markerad.
    3. Sök efter och installera följande NuGet-paket:
 
-      * `Microsoft.Azure.Management.DataLake.Store` – I den här självstudiekursen används v2.1.3-förhandsversionen.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` –I den här självstudiekursen används v2.2.12.
+      * `Microsoft.Azure.DataLake.Store` – I den här självstudien används v1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – I den här självstudien används v2.3.1.
+    
+    Stäng **NuGet Package Manager**.
 
-        ![Lägg till en NuGet-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake-konto")
-   4. Stäng **NuGet Package Manager**.
 6. Öppna **Program.cs**, ta bort den befintliga koden och lägg sedan till följande instruktioner för att lägga till referenser till namnområden.
 
         using System;
-        using System.IO;
+        using System.IO;using System.Threading;
         using System.Linq;
         using System.Text;
-        using System.Threading;
         using System.Collections.Generic;
         using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
                 
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.Azure.DataLake.Store;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 7. Deklarera variablerna enligt nedan och ange värden för platshållarna. Kontrollera också att den lokala sökvägen och filnamnet som du anger här finns på datorn.
@@ -83,23 +85,7 @@ Instruktioner för hur du utför kontohanteringsåtgärder på Data Lake Store m
         {
             class Program
             {
-                private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-
-                private static string _adlsAccountName;
-                private static string _resourceGroupName;
-                private static string _location;
-
-                private static async void Main(string[] args)
-                {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
-                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
-                    _location = "East US 2";
-
-                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = Path.Combine(localFolderPath, "file.txt"); // TODO: Make sure this exists and can be overwritten.
-                    string remoteFolderPath = "/data_lake_path/";
-                    string remoteFilePath = Path.Combine(remoteFolderPath, "file.txt");
-                }
+                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; //Replace this value with the name of your existing Data Lake Store account.        
             }
         }
 
@@ -111,125 +97,83 @@ I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga
 * Information om tjänst-till-tjänst-autentisering för programmet finns i [Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 
-## <a name="create-client-objects"></a>Skapa klientobjekt
-Följande fragment skapar Data Lake Store-kontot och filsystemklientobjekten, som används för att skicka begäranden till tjänsten.
+## <a name="create-client-object"></a>Skapa klientobjekt
+Följande fragment skapar filsystemklientobjekten för Data Lake Store som används för att skicka begäranden till tjänsten.
 
     // Create client objects
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(adlCreds);
+    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, adlCreds);
 
-## <a name="create-a-directory"></a>Skapa en katalog
-Lägg till följande metod i klassen. I fragmentet visas en `CreateDirectory()`-metod som du kan använda för att skapa en katalog i ett Data Lake Store-konto.
+## <a name="create-a-file-and-directory"></a>Skapa en fil och mapp
+Lägg till följande kodfragment i ditt program. Det här kodfragmentet lägger till en fil och en överordnad katalog om det inte redan finns.
 
-    // Create a directory
-    public static void CreateDirectory(string path)
-    {
-            _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
-    }
-
-Lägg till följande fragment i `Main()`-metoden för att anropa `CreateDirectory()`-metoden.
-
-    CreateDirectory(remoteFolderPath);
-    Console.WriteLine("Created a directory in the Data Lake Store account. Press any key to continue ...");
-    Console.ReadLine();
-
-## <a name="upload-a-file"></a>Överför en fil
-Lägg till följande metod i klassen. I fragmentet visas en `UploadFile()`-metod som du kan använda för att ladda upp filer till ett Data Lake Store-konto. SDK har stöd för rekursiv överföring och hämtning mellan en lokal filsökväg och en Data Lake Store-sökväg.
-
-    // Upload a file
-    public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
-    {
-        _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:force);
-    }
-
-Lägg till följande fragment i `Main()`-metoden för att anropa `UploadFile()`-metoden.
-
-    UploadFile(localFilePath, remoteFilePath, true);
-    Console.WriteLine("Uploaded file in the directory. Press any key to continue...");
-    Console.ReadLine();
+    // Create a file - automatically creates any parent directories that don't exist
     
-
-## <a name="get-file-or-directory-info"></a>Hämta fil- eller kataloginformation
-I följande fragment visas en `GetItemInfo()`-metod som du kan använda för att hämta information om en fil eller katalog som är tillgänglig i Data Lake Store.
-
-    public static FileStatusProperties GetItemInfo(string path)
+    string fileName = "/Test/testFilename1.txt";
+    using (var streamWriter = new StreamWriter(client.CreateFile(fileName, IfExists.Overwrite)))
     {
-        return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
+        streamWriter.WriteLine("This is test data to write");
+        streamWriter.WriteLine("This is line 2");
     }
-
-Lägg till följande fragment i `Main()`-metoden för att anropa `GetItemInfo()`-metoden.
-
-    
-    var fileProperties = GetItemInfo(remoteFilePath);
-    Console.WriteLine("The owner of the file at the path is:", fileProperties.Owner);
-    Console.WriteLine("Press any key to continue...");
-    Console.ReadLine();
-
-## <a name="list-file-or-directories"></a>Lista över fil eller kataloger
-I följande fragment visas en `ListItems()`-metod som du kan använda för att sammanställa en lista över filen och katalogerna i ett Data Lake Store-konto.
-
-    // List files and directories
-    public static List<FileStatusProperties> ListItems(string directoryPath)
-    {
-        return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
-    }
-
-Lägg till följande fragment i `Main()`-metoden för att anropa `ListItems()`-metoden.
-
-    var itemList = ListItems(remoteFolderPath);
-    var fileMenuItems = itemList.Select(a => String.Format("{0,15} {1}", a.Type, a.PathSuffix));
-    Console.WriteLine(String.Join("\r\n", fileMenuItems));
-    Console.WriteLine("Files and directories listed. Press any key to continue ...");
-    Console.ReadLine();
-
-## <a name="concatenate-files"></a>Sammanfoga filer
-I följande fragment visas en `ConcatenateFiles()`-metod som du kan använda för att sammanfoga filer.
-
-    // Concatenate files
-    public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
-    {
-        _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
-    }
-
-Lägg till följande fragment i `Main()`-metoden för att anropa `ConcatenateFiles()`-metoden. Det här fragmentet förutsätter att du har laddat upp ytterligare en fil till Data Lake Store-kontot och att filens sökväg anges i strängen *anotherRemoteFilePath*.
-
-    string[] stringOfFiles = new String[] {remoteFilePath, anotherRemoteFilePath};
-    string destFilePath = Path.Combine(remoteFolderPath, "Concatfile.txt");
-    ConcatenateFiles(stringOfFiles, destFilePath);
-    Console.WriteLine("Files concatinated. Press any key to continue ...");
-    Console.ReadLine();
 
 ## <a name="append-to-a-file"></a>Lägg till till en fil
-I följande fragment visas en `AppendToFile()`-metod som du kan använda för att lägga till data till en fil som redan finns i ett Data Lake Store-konto.
+Följande kodfragment lägger till data till en befintlig fil i Data Lake Store-kontot.
 
-    // Append to file
-    public static void AppendToFile(string path, string content)
+    // Append to existing file
+    using (var streamWriter = new StreamWriter(client.GetAppendStream(fileName)))
     {
-        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
+        streamWriter.WriteLine("This is the added line");
+    }
+
+## <a name="read-a-file"></a>Läs en fil
+Följande kodfragment läser innehåll från en fil i Data Lake Store.
+
+    //Read file contents
+    using (var readStream = new StreamReader(client.GetReadStream(fileName)))
+    {
+        string line;
+        while ((line = readStream.ReadLine()) != null)
         {
-            _adlsFileSystemClient.FileSystem.AppendAsync(_adlsAccountName, path, stream);
+            Console.WriteLine(line);
         }
     }
 
-Lägg till följande fragment i `Main()`-metoden för att anropa `AppendToFile()`-metoden.
+## <a name="get-file-properties"></a>Hämta filegenskaper
+Följande kodavsnitt returnerar egenskaperna som är associerade med en fil eller katalog.
 
-    AppendToFile(remoteFilePath, "123");
-    Console.WriteLine("Content appended. Press any key to continue ...");
-    Console.ReadLine();
+    // Get file properties
+    var directoryEntry = client.GetDirectoryEntry(fileName);
+    PrintDirectoryEntry(directoryEntry);
 
-## <a name="download-a-file"></a>Hämta en fil
-I följande fragment visas en `DownloadFile()`-metod som du kan använda för att hämta en fil från ett Data Lake Store-konto.
+Definitionen av metoden `PrintDirectoryEntry` är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
-    // Download file
-    public static void DownloadFile(string srcFilePath, string destFilePath)
+## <a name="rename-a-file"></a>Byt namn på en fil
+Följande fragment byter namn på en befintlig fil i ett Data Lake Store-konto.
+
+    // Rename a file
+    string destFilePath = "/Test/testRenameDest3.txt";
+    client.Rename(fileName, destFilePath, true);
+
+## <a name="enumerate-a-directory"></a>Räkna upp en katalog
+Följande kodfragment räknar upp kataloger i ett Data Lake Store-konto
+
+    // Enumerate directory
+    foreach (var entry in client.EnumerateDirectory("/Test"))
     {
-        _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:true);
+        PrintDirectoryEntry(entry);
     }
 
-Lägg till följande fragment i `Main()`-metoden för att anropa `DownloadFile()`-metoden.
+Definitionen av metoden `PrintDirectoryEntry` är tillgänglig som en del av exemplet [på GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
-    DownloadFile(destFilePath, localFilePath);
-    Console.WriteLine("File downloaded. Press any key to continue ...");
-    Console.ReadLine();
+## <a name="delete-directories-recursively"></a>Ta bort kataloger rekursivt
+Följande kodfragment tar bort en katalog och alla dess underkataloger rekursivt.
+
+    // Delete a directory and all it's subdirectories and files
+    client.DeleteRecursive("/Test");
+
+## <a name="samples"></a>Exempel
+Här följer några exempel på hur du använder Data Lake Store Filesystem SDK.
+* [Grundläggande exempel på Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Avancerade exempel på Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Se även
 * [Kontohanteringsåtgärder på Azure Data Lake Store med hjälp av .NET SDK](data-lake-store-get-started-net-sdk.md)

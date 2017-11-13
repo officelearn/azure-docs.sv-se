@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Virtual Network-tjänstslutpunkter (förhandsversion)
 
@@ -27,7 +27,7 @@ Med tjänstslutpunkter för Virtual Network (VNet) får du ett utökat privat ad
 
 Den här funktionen är tillgänglig som förhandsversion för följande Azure-tjänster och regioner:
 
-- **Azure Storage**: västra centrala USA, västra USA 2, östra USA, västra USA, östra Australien och sydöstra Australien.
+- **Azure Storage**: Alla regioner i det offentliga Azure-molnet.
 - **Azure SQL Database**: västra centrala USA, västra USA 2 och östra USA.
 
 De mest uppdaterade meddelandena om förhandsversionen finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: bcf42ebb081517d247690ee57c2be274784ef29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuera en lokal StorSimple-enhet (Update 3 och senare)
 
@@ -49,7 +49,7 @@ Utför dessa obligatoriska steg för att konfigurera StorSimple-enheten och ansl
 | [Steg 1: Skapa en ny tjänst](#step-1-create-a-new-service) |Konfigurera hantering och lagring i molnet för StorSimple-enheten. *Hoppa över det här steget om du har en befintlig tjänst för andra StorSimple-enheter*. |
 | [Steg 2: Hämta tjänstregistreringsnyckeln](#step-2-get-the-service-registration-key) |Använd nyckeln för att registrera och ansluta din StorSimple-enhet till hanteringstjänsten. |
 | [Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Anslut enheten till nätverket och registrera den med Azure för att slutföra installationen med hjälp av hanteringstjänsten. |
-| [Steg 4: Slutför de minsta enhetsinställningarna](#step-4-complete-minimum-device-setup)</br>[Valfritt: Uppdatera din StorSimple-enhet](#scan-for-and-apply-updates) |Använd hanteringstjänsten för att slutföra installationen av enheten och aktivera den för att tillhandahålla lagring. |
+| [Steg 4: Slutför de minsta enhetsinställningarna](#step-4-complete-minimum-device-setup)</br>[Bäst praxis: Uppdatera din StorSimple-enhet](#scan-for-and-apply-updates) |Använd hanteringstjänsten för att slutföra installationen av enheten och aktivera den för att tillhandahålla lagring. |
 | [Steg 5: Skapa en volymbehållare](#step-5-create-a-volume-container) |Skapa en behållare för att etablera volymer. En volymbehållare har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. |
 | [Steg 6: Skapa en volym](#step-6-create-a-volume) |Etablera lagringsvolymer på StorSimple-enheten för dina servrar. |
 | [Steg 7: Montera, initiera och formatera en volym](#step-7-mount-initialize-and-format-a-volume)</br>[Valfritt: Konfigurera MPIO](storsimple-8000-configure-mpio-windows-server.md) |Anslut dina servrar till den iSCSI-lagring som ingår i enheten. Du kan även välja att konfigurera MPIO för att säkerställa att dina servrar kan tolerera fel på länkar, nätverk och gränssnitt. |
@@ -127,6 +127,8 @@ Konfigurera de minsta enhetsinställningar som krävs genom att följa stegen ne
 
 [!INCLUDE [storsimple-8000-complete-minimum-device-setup-u2](../../includes/storsimple-8000-complete-minimum-device-setup-u2.md)]
 
+När du slutför den minimala enhetsinstallationen är det en bra idé att [söka efter och installera de senaste uppdateringarna](#scan-for-and-apply-updates).
+
 ## <a name="step-5-create-a-volume-container"></a>Steg 5: Skapa en volymbehållare
 En volymbehållare har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. Du måste skapa en volymbehållare innan du kan börja etablera volymer på StorSimple-enheten.
 
@@ -181,7 +183,7 @@ För att ansluta till Windows PowerShell för StorSimple behövs en programvara 
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>Söka efter och installera uppdateringar
-Det kan ta flera timmar att uppdatera din enhet. Detaljerade anvisningar om hur du installerar den senaste uppdateringen finns i [Installera Uppdatering 4](storsimple-8000-install-update-4.md).
+Det kan ta flera timmar att uppdatera din enhet. Detaljerade anvisningar om hur du installerar den senaste uppdateringen finns i [Installera Uppdatering 5](storsimple-8000-install-update-5.md).
 
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>Hämta IQN för en Windows Server-värd

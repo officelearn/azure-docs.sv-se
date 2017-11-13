@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: f6f90f35fc4d26c0cdb021e85a159d4984d48399
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: f352f46f2d4c23124f4ee7e886cae9bdd8d5d2c9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage
 
@@ -184,7 +184,7 @@ END
         ```
 
     * Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
-    * För närvarande kan du endast skapa en datafabrik i Data Factory V2 i USA, östra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+    * För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA, östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster

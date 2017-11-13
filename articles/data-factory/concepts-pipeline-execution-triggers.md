@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ Om du vill att Scheduler-utlösaren startar en pipelinekörning tar du med en pi
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ Om du vill att Scheduler-utlösaren startar en pipelinekörning tar du med en pi
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ Om du vill att Scheduler-utlösaren startar en pipelinekörning tar du med en pi
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ Om du vill att Scheduler-utlösaren startar en pipelinekörning tar du med en pi
 }
 ```
 
+> [!IMPORTANT]
+>  Egenskapen **parametrar** är en obligatorisk egenskap i **pipeliner**. Inkludera en tom json för parametrar eftersom egenskapen måste finnas, även om din pipeline inte tar några parametrar.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Översikt: Scheduler-utlösarschema
 Följande tabell innehåller en översikt över huvudelementen relaterade till upprepning och schemaläggning i en utlösare:
 
 JSON-egenskap |     Beskrivning
 ------------- | -------------
 startTime | startTime är datum och tid. StartTime är den första förekomsten för enkla scheman. För komplexa scheman startar utlösaren tidigast startTime.
+endTime | Anger slutvärdet för datum/tid för utlösaren. Utlösaren körs inte efter den tidpunkten. Det går inte att ha en endTime (sluttid) i dåtid.
+Tidszon | För närvarande stöds endast UTC. 
 recurrence | Objektet recurrence anger upprepningsregler för utlösaren. Upprepningsobjektet stöder följande element: frequency (frekvens), interval (intervall), endTime (sluttid), count (antal) och schedule (schema). Om recurrence (upprepning) definieras krävs frequency (frekvens). De andra recurrence-elementen är valfria.
 frequency | Representerar frekvensen med vilken utlösaren upprepas. Värden som stöds är: `minute`, `hour`, `day`, `week` eller `month`.
 interval | Elementet interval är ett positivt heltal. Den anger intervallet för den frekvens som avgör hur ofta utlösaren körs. Om intervallet till exempel är 3 och frekvensen är week (vecka) upprepas utlösaren var tredje vecka.
-endTime | Anger slutvärdet för datum/tid för utlösaren. Utlösaren körs inte efter den tidpunkten. Det går inte att ha en endTime (sluttid) i dåtid.
 schedule | En utlösare med en angiven frekvens ändrar sin upprepning baserat på ett recurrence schedule (upprepningsschema). Ett schema innehåller ändringar som baseras på minuter, timmar, veckodagar, dagar i månaden och veckonummer.
+
+
+### <a name="schedule-trigger-example"></a>Exempel på schemaläggning av utlösare
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Översikt: Scheduler-utlösaren – schemastandardvärden, begränsningar och exempel
 
@@ -251,7 +292,7 @@ Till sist: när en utlösare har ett schema, om timmar och/eller minuter inte an
 ### <a name="deep-dive-schedule"></a>Djupdykning: schema
 Å ena sidan kan ett schema begränsa antalet utlösarkörningar. Om en utlösare med frekvensen month (månad) har ett schema som bara körs på dag 31 körs utlösaren bara på de månader som har en 31:a dag.
 
-Å andra sidan kan ett schema också utöka antalet utlösarkörningar. Om en utlösare med frekvensen month (månad) har ett schema som körs på dag 1 och 2 i månaden körs utlösaren på den första och andra dagen i månaden istället för en gång i månaden.
+Ett schema kan å andra sidan även utöka antalet utlösarkörningar. Om en utlösare med frekvensen month (månad) har ett schema som körs på dag 1 och 2 i månaden körs utlösaren på den första och andra dagen i månaden istället för en gång i månaden.
 
 Om flera schemaelement anges är utvärderingsordningen från största till minsta – veckonummer, dag i månaden, veckodag, timme och minut.
 
@@ -262,9 +303,9 @@ JSON-namn | Beskrivning | Giltiga värden
 --------- | ----------- | ------------
 minutes | Minuter för den timme då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul>
 hours | Timmar på dagen då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul>
-weekDays | Veckodagar då utlösaren körs. Kan bara anges med veckofrekvens. | <ul><li>Måndag, tisdag, onsdag, torsdag, fredag, lördag och söndag</li><li>Matris med någon av ovanstående värden (max. matrisstorlek 7)</li></p>Inte skiftlägeskänslig</p>
+weekDays | Veckodagar då utlösaren körs. Kan bara anges med veckofrekvens. | <ul><li>Måndag, tisdag, onsdag, torsdag, fredag, lördag och söndag</li><li>Matris med något av värdena (max. matrisstorlek 7)</li></p>Inte skiftlägeskänslig</p>
 monthlyOccurrences | Anger vilka dagar i månaden som utlösaren körs. Kan bara anges med månadsfrekvens. | Matris med monthlyOccurence-objekt: `{ "day": day,  "occurrence": occurence }`. <p> Dagen är den veckodag då utlösaren körs, till exempel är `{Sunday}` varje söndag i månaden. Krävs.<p>Förekomst är förekomsten av dag under månaden, till exempel är `{Sunday, -1}` den sista söndagen i månaden. Valfri.
-monthDays | Dagen i månaden då utlösaren körs. Kan bara anges med månadsfrekvens. | <ul><li>Ett värde < = -1 och > =-31</li><li>Ett värde > = 1 och < = 31</li><li>En matris med ovanstående värden</li>
+monthDays | Dagen i månaden då utlösaren körs. Kan bara anges med månadsfrekvens. | <ul><li>Ett värde < = -1 och > =-31</li><li>Ett värde > = 1 och < = 31</li><li>En matris med värden</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Exempel: upprepningsscheman

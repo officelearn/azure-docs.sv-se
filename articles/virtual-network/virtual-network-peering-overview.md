@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -35,7 +35,7 @@ Fördelarna med att använda VNET-peering är:
 
 ## <a name="requirements-constraints"></a>Det finns vissa krav och begränsningar
 
-* VNET-peering i samma region är allmänt sett tillgängligt. VNET-peering i olika regioner finns som förhandsversion i västra centrala USA, centrala Kanada och västra USA 2. Du kan [registrera din prenumeration](virtual-network-create-peering.md) för förhandsversionen.
+* VNET-peering i samma region är allmänt sett tillgängligt. VNET-peering i olika regioner finns som förhandsversion i västra centrala USA, centrala Kanada och västra USA 2. Innan du peer-kopplar virtuella nätverk i olika regioner måste du först [registrera prenumerationen](virtual-network-create-peering.md#register) för förhandsgranskningen. Dina försök att skapa en peer-koppling mellan virtuella nätverk i olika regioner misslyckas om du inte har slutfört registreringen för förhandsgranskningen.
     > [!WARNING]
     > VNET-peering som skapats över flera regioner kanske inte har samma tillgänglighet och pålitlighet som peer-kopplingar i en allmänt tillgänglig version. VNET-peering kan ha begränsad kapacitet och kanske inte är tillgänglig i alla Azure-regioner. Du hittar aktuell information om tillgänglighet och status för den här funktionen på [sidan med Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 

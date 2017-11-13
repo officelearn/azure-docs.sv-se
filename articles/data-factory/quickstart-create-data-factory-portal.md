@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 9f49fbff9f66dc081e94b35e1318a2c9aee60dc0
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 851477331c5990f2e950b2aa83ef1d61e6174326
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-using-the-azure-portal"></a>Skapa en datafabrik med hjälp av Azure-portalen
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Här är de steg du utför som en del av den här snabbstarten:
          
       Vissa av stegen i den här snabbstarten förutsätter att du använder namnet: **ADFTutorialResourceGroup** på resursgruppen. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
 4. Välj **V2 (förhandsgranskning)** för **versionen**.
-5. Välj **plats** för datafabriken. För närvarande kan du endast skapa V2-datafabriker i regionen **USA, östra**. Men beräkningen och datalagren som används i datafabriker kan vara i andra regioner. 
+5. Välj **plats** för datafabriken. För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA, östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
       

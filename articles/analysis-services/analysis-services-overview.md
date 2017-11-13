@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ På Azure Portal kan du [skapa en server](analysis-services-create-server.md) p�
 När du har skapat en server kan skapa du en tabellmodell direkt i Azure Portal. Med den nya [webbdesignerfunktionen](analysis-services-create-model-portal.md) (förhandsversion) kan du ansluta till en Azure SQL Database, Azure SQL Data Warehouse-datakälla eller importera en Power BI Desktop PBIX-fil. Relationer mellan tabeller skapas automatiskt, och du kan skapa mått eller redigera filen model.bim i json-format direkt från webbläsaren.
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov
+
+### <a name="the-right-tier-when-you-need-it"></a>Rätt nivå när du behöver den
+
 Azure Analysis Services är tillgängligt på nivåerna Developer, Basic och Standard. Inom varje nivå varierar kostnaderna för prenumerationsavtalen utifrån bearbetningskraft, QPU:er och minnesstorlek. När du skapar en server kan välja du en plan inom en nivå. Du kan ändra planer uppåt eller nedåt i samma nivå eller uppgradera till en högre nivå, men det går inte att nedgradera från en högre nivå till en lägre nivå.
 
-Skala upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Betala endast för det du använder. Mer information om de olika planerna och nivåerna och en prisnivåkalkylator som kan användas för att välja rätt plan, finns i [prisinformationen för Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Betala endast för det du använder. Mer information om de olika planerna och nivåerna och en prisnivåkalkylator som kan användas för att välja rätt plan, finns i [prisinformationen för Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>Skala ut resurser för snabba frågesvar
+
+Med skalning av Azure Analysis Services distribueras klientfrågor över flera *frågerepliker* i en frågepool. Frågerepliker har synkroniserade kopior av dina tabellmodeller. Genom att sprida frågearbetsbelastningen kan svarstiderna minskas under stora frågearbetsbelastningar. Modellbearbetning kan separeras från frågepoolen. Det här säkerställer att klientfrågor inte påverkas negativt av bearbetningsåtgärder. Du kan skapa en frågepool med upp till sju ytterligare frågerepliker (åtta totalt, inklusive din server). 
+
+Du kan skala ut frågerepliker efter dina behov, precis som du kan ändra din nivå. Konfigurera skalning i portalen eller med hjälp av REST API: er. Läs mer i [Azure Analysis Services scale-out](analysis-services-scale-out.md) (Skalning av Azure Analysis Services).
 
 ## <a name="keep-your-data-close"></a>Förvara dina data nära
 Azure Analysis Services-servrar kan skapas i följande [Azure-regioner](https://azure.microsoft.com/regions/):
@@ -92,11 +101,17 @@ Användarautentisering för Azure Analysis Services hanteras av [Azure Active Di
 #### <a name="data-security"></a>Datasäkerhet
 Azure Analysis Services använder Azure Blob Storage för lagring och metadata för Analysis Services-databaser. Datafiler i Blob krypteras med Azure Blob Server Side Encryption (SSE). När du använder läget Direct Query lagras endast metadata. Faktiska data hämtas från datakällan när frågan körs.
 
+#### <a name="firewall"></a>Brandvägg
+
+Azure Analysis Services-brandväggen blockerar alla klientanslutningar förutom de som anges i regler. Konfigurera regler för tillåtna IP-adresser av enskilda klient-IP-adresser eller av intervaller. Power BI (service)-anslutningar kan också tillåtas eller blockeras. 
+
 #### <a name="on-premises-data-sources"></a>Lokala datakällor
 Du kan skydda åtkomsten till data som förvaras lokalt inom din organisation genom att installera och konfigurera en [Lokal datagateway](analysis-services-gateway.md). Gateways ger åtkomst till data för både Direct Query- och InMemory-läget. När en Azure Analysis Services-modell ansluter till en lokal datakälla skapas en fråga tillsammans med de krypterade autentiseringsuppgifterna för den lokala datakällan. Gateway-molntjänsten analyserar frågan och skickar begäran till en Azure Service Bus. Den lokala gatewayen avsöker Azure Service Bus för väntande begäranden. Gatewayen hämtar sedan frågan, dekrypterar autentiseringsuppgifterna och ansluter till datakällan för körning. Resultatet skickas sedan från datakällan, tillbaka till gatewayen och sedan vidare till Azure Analysis Services-databasen.
 
 Azure Analysis Services lyder under [villkoren för Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) och [sekretesspolicyn för Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>Stöder de senaste klientverktygen
 ![Datavisualiseringar](./media/analysis-services-overview/aas-overview-clients.png)

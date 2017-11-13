@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: cf69d30f36178db9cad18e18f370645cd84de558
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: f7683bc203c93993c0eb5aaed6ca788458546019
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 
@@ -99,7 +99,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Kör cmdleten **Set-AzureRmDataFactoryV2** för att skapa en datafabrik. Ersätt platshållarna med egna värden innan du kör kommandot.
+2. Kör cmdleten **Set-AzureRmDataFactoryV2** för att skapa en datafabrik. Ersätt platshållarna med egna värden innan du kör kommandot. 
 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>"
@@ -116,7 +116,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
         ```
 
     * När du ska skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
-    * För närvarande kan du endast skapa en datafabrik i Data Factory i regionen USA, östra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+    * För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA; östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 

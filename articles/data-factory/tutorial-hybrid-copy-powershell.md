@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: 95d1dce536f8f8f0fc8d93f201520fd84f0f7629
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 12ead91f6729aa3eb631cc453180ddea9bafe3df
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Kopiera data mellan lokalt system och molnet
 
@@ -84,8 +84,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
         Data factory name "<data factory name>" is not available.
         ```
 
-    * Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
-    * För närvarande kan du endast skapa en datafabrik i Data Factory i USA, östra och USA, östra 2. Datalagren (Azure Storage, Azure SQL Database etc.) och beräkningarna (HDInsight etc.) som används av datafabriker kan finnas i andra regioner.
+    * När du ska skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
+    * För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA; östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 ## <a name="create-a-self-hosted-ir"></a>Skapa IR med egen värd
 

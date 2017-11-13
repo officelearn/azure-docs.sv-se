@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 98892a0919b1ba49308fd3bc51c735977bbff437
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Distribuera och hantera en virtuell StorSimple-enhet i Azure
+> [!NOTE]
+> Den klassiska portalen för StorSimple är inaktuell. Dina StorSimple-enhetshanterare flyttas automatiskt till nya Azure Portal enligt utfasningsschemat. Du kommer att få ett e-postmeddelande och ett portalmeddelande om flytten. Det här dokumentet kommer också att dras tillbaka snart. Om du vill läsa versionen av den här artikeln som är för nya Azure Portal så går du till [Distribuera och hantera en virtuell StorSimple-enhet i Azure](storsimple-8000-cloud-appliance-u2.md). Om du har frågor om flytten kan du läsa [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Översikt
 Den virtuella StorSimple-enheten i 8000-serien är en ytterligare funktion som ingår i din Microsoft Azure StorSimple-lösning. Den virtuella enheten StorSimple körs på en virtuell dator i ett virtuellt Microsoft Azure-nätverk och du kan använda den för att säkerhetskopiera och klona data från värdar. Den här självstudien beskriver hur du distribuerar och hanterar virtuella enheter i Azure och är tillämplig på alla virtuella enheter som kör programvaruversion Uppdatering 2 och lägre.
 
@@ -33,7 +36,7 @@ Den virtuella enheten StorSimple finns i två modeller, en Standardmodell, 8010 
 | **Virtuell Azure-dator** |Standard_A3 (4 kärnor, 7 GB minne) |Standard_DS3 (4 kärnor, 14 GB minne) |
 | **Versionskompatibilitet** |Versioner som körs före Uppdatering 2 eller senare |Versioner som körs med Uppdatering 2 eller senare |
 | **Regional tillgänglighet** |Alla Azure-regioner |Alla Azure-regioner som har stöd för Premium Storage och DS3 Azure VM<br></br> Använd [listan](https://azure.microsoft.com/en-us/regions/services) för att se om både *virtuella datorer > DS-serien* och *lagring > disklagring* är tillgängligt i din region. |
-| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/common/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../virtual-machines/windows/premium-storage.md) |
+| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/common/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../storage/common/storage-premium-storage.md) |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Scenarier för utveckling och test av molnet, låg latens, arbetsbelastningar med hög prestanda <br></br>Sekundär enhet för katastrofåterställning |
 
 <sup>1</sup> *Kallades tidigare 1100*.
@@ -63,7 +66,7 @@ I följande tabell visas några huvudsakliga skillnader mellan den virtuella Sto
 | **Krypteringsnyckel för tjänstdata** |Återskapas på den fysiska enheten och sedan uppdateras den virtuella enheten med den nya nyckeln. |Kan inte att återskapas från den virtuella enheten. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Krav för den virtuella enheten
-I följande avsnitt beskrivs konfigurationskraven för din virtuella StorSimple-enhet. Innan du distribuerar en virtuell enhet, ska du granska [säkerhetsöverväganden för att använda en virtuell enhet](storsimple-security.md).
+I följande avsnitt beskrivs konfigurationskraven för din virtuella StorSimple-enhet. Innan du distribuerar en virtuell enhet, ska du granska [säkerhetsöverväganden för att använda en virtuell enhet](storsimple-8000-security.md#storsimple-cloud-appliance-security).
 
 #### <a name="azure-requirements"></a>Krav för Azure
 Innan du etablerar den virtuella enheten måste du göra följande förberedelser i Azure-miljön:
@@ -82,7 +85,7 @@ Innan du etablerar den virtuella enheten måste du göra följande förberedelse
 Gör följande uppdateringar i din Azure StorSimple-tjänst innan du skapar en virtuell enhet:
 
 * Lägg till [åtkomstkontrollposter](storsimple-manage-acrs.md) för de virtuella datorer som ska vara värdservrar för den virtuella enheten.
-* Använd ett [lagringskonto](storsimple-manage-storage-accounts.md#add-a-storage-account) i samma region som den virtuella enheten. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premiumlagringskonto med den virtuella enheten. Mer information om hur du skapar ett [Standardlagringskonto](../storage/common/storage-create-storage-account.md) eller ett [Premiumlagringskonto](../virtual-machines/windows/premium-storage.md)
+* Använd ett [lagringskonto](storsimple-manage-storage-accounts.md#add-a-storage-account) i samma region som den virtuella enheten. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premiumlagringskonto med den virtuella enheten. Mer information om hur du skapar ett [Standardlagringskonto](../storage/common/storage-create-storage-account.md) eller ett [Premiumlagringskonto](../storage/common/storage-premium-storage.md)
 * Använd ett annat lagringskonto för att skapa en virtuell enhet än det som används för dina data. Om samma lagringskonto används kan det resultera i sämre prestanda.
 
 Kontrollera att du har följande information innan du börjar:

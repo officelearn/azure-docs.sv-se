@@ -152,10 +152,10 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Felsökning
           href: azure-diagnostics-troubleshooting.md
-    - name: Använda Azure Monitor Metrics Explorer
-      items:
-        - name: Skapa måttdiagram
-          href: monitoring-metric-charts.md
+    - name: Skapa måttdiagram i Metrics Explorer
+      href: monitoring-metric-charts.md
+    - name: Skicka mått till Grafana
+      href: monitor-send-to-grafana.md
 - name: Referens
   items:
     - name: Azure CLI

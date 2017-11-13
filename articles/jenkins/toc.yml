@@ -1,0 +1,65 @@
+- name: Jenkins på Azure
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Jenkins på Azure
+      href: overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa en Jenkins-server
+      href: /azure/jenkins/install-jenkins-solution-template
+- name: Självstudier
+  items:
+    - name: CI/CD till App Service
+      href: /azure/jenkins/java-deploy-webapp-tutorial
+      maintainContext: true
+    - name: CI/CD till Kubernetes
+      href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
+      maintainContext: true
+    - name: CI/CD till virtuella Linux-datorer
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+      maintainContext: true
+    - name: Skapa Azure-resurser i ett pipeline-jobb
+      href: /azure/jenkins/execute-cli-jenkins-pipeline
+      maintainContext: true
+    - name: Skala med Azure VM-agenter
+      href: /azure/jenkins/jenkins-azure-vm-agents
+      maintainContext: true
+- name: Så här gör du
+  items:
+    - name: Säker Jenkins på Azure
+      href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
+    - name: Använda App Service-pluginprogrammet
+      href: deploy-jenkins-app-service-plugin.md
+    - name: Publicera till Azure Storage
+      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+      maintainContext: true
+    - name: Använda Jenkins med VSTS
+      href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+- name: Exempel
+  items:
+    - name: Exempeljobb och skript
+      href: 'https://github.com/Azure/azure-devops-utils/tree/master/jenkins'
+- name: Resurser
+  items:
+    - name: Plugin-program
+      items:
+        - name: Azure App Service-pluginprogram
+          href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Azure Container Agents-pluginprogram
+          href: 'https://plugins.jenkins.io/azure-container-agents'
+        - name: Azure Container Service-pluginprogram
+          href: 'https://plugins.jenkins.io/azure-acs'
+        - name: Azure Credential-pluginprogram
+          href: 'https://plugins.jenkins.io/azure-credentials'
+        - name: Azure Function-pluginprogram
+          href: 'https://plugins.jenkins.io/azure-function'
+        - name: Azure Storage-pluginprogram
+          href: 'https://plugins.jenkins.io/windows-azure-storage'
+        - name: Pluginprogram för Azure VM-agenter
+          href: 'https://plugins.jenkins.io/azure-vm-agents'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Jenkins-startsida
+      href: 'https://jenkins.io/'

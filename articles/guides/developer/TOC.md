@@ -1,7 +1,7 @@
 # Översikt
 ## [Utvecklarguide](azure-developer-guide.md) 
-## [Översikt över Azure-tjänster](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Portalöversikt](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Översikt över Azure-tjänster](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [Portalöversikt](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK:er och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Snabbstart
@@ -107,6 +107,7 @@
 ## [Billing](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resurser
+## [Begränsningar och kvoter för Azure](../../azure-subscription-service-limits.md)
 ## [Azure-regioner](https://azure.microsoft.com/regions/)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

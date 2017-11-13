@@ -246,6 +246,8 @@
           items:
             - name: Tabellutveckling
               href: table-support.md
+            - name: API-tabellåtgärder med PowerShell
+              href: table-powershell.md
             - name: Azure Table Storage
               items:
                 - name: Översikt över tabellagring
@@ -254,7 +256,7 @@
                   href: table-storage-design-guide.md
                 - name: 'REST-API:er för tabellagring'
                   href: /rest/api/storageservices/Table-Service-Concepts
-                - name: Gör så här för att
+                - name: Utveckla
                   items:
                     - name: .NET
                       href: table-storage-how-to-use-dotnet.md
@@ -274,6 +276,8 @@
                       href: table-storage-how-to-use-python.md
                     - name: Ruby
                       href: table-storage-how-to-use-ruby.md
+                    - name: PowerShell
+                      href: table-storage-how-to-use-powershell.md
         - name: Ändringsfeed
           href: change-feed.md
         - name: Geospatial

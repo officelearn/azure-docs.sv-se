@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Instruktionsguider
   items:
-    - name: Flytta data
+    - name: Kopiera data
       items:
-        - name: Översikt över kopieringsaktivitet
+        - name: Kopiera data från källor som stöds till mål
           href: copy-activity-overview.md
+        - name: Läsa eller skriva partitionerade data
+          href: how-to-read-write-partitioned-data.md
         - name: Anslutningar
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+            - name: Azure Database for MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Azure File Storage
               href: connector-azure-file-storage.md
             - name: Azure Search
@@ -168,6 +172,8 @@
       items:
         - name: If-villkorsaktivitet
           href: control-flow-if-condition-activity.md
+        - name: Tills-aktivitet
+          href: control-flow-until-activity.md
         - name: Webbaktivitet
           href: control-flow-web-activity.md
         - name: Sökningsaktivitet
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: För varje aktivitet
           href: control-flow-for-each-activity.md
+        - name: Vänteaktivitet
+          href: control-flow-wait-activity.md
         - name: Uttrycksspråk
           href: control-flow-expression-language-functions.md
         - name: Systemvariabler
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Kryptera autentiseringsuppgifter för lokal Integration Runtime
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Tjänstidentitet för datafabrik
+          href: data-factory-service-identity.md
     - name: Övervaka och hantera
       items:
         - name: 'Använda SDK:er'

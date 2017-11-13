@@ -38,6 +38,8 @@
       href: integrate-with-application-gateway.md
     - name: Skapa ASE från en mall
       href: create-from-template.md
+    - name: Konfiguration av framtvingad tunnel
+      href: forced-tunnel-support.md
 - name: Referens
   items:
     - name: Hanteringsadresser

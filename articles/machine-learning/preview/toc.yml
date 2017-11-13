@@ -118,6 +118,8 @@
           href: scenario-tdsp-biomedical-recognition.md
         - name: Klassificera inkomster från USA – TDSP-projekt
           href: scenario-tdsp-classifying-us-incomes.md
+        - name: Klassificering av avbildning med hjälp av CNTK
+          href: scenario-image-classification-using-cntk.md
 - name: Referens
   items:
     - name: Förberedelse av data
@@ -162,6 +164,8 @@
       items:
         - name: Sprint 0 – Oktober 2017
           href: release-notes-sprint-0.md
+        - name: Sprint 1 – november 2017
+          href: release-notes-sprint-1.md
 - name: Resurser
   items:
     - name: Vanliga frågor och svar

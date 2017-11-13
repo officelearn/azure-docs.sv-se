@@ -51,12 +51,14 @@
       href: /rest/api/aks
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Ge produktfeedback
+      href: 'https://github.com/Azure/AKS/issues'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Videoklipp

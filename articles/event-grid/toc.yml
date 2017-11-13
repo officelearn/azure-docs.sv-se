@@ -46,6 +46,15 @@
       href: subscription-creation-schema.md
     - name: Händelseschema
       href: event-schema.md
+      items:
+        - name: Azure-prenumerationer
+          href: event-schema-subscriptions.md
+        - name: Blob Storage
+          href: event-schema-blob-storage.md
+        - name: Händelsehubbar
+          href: event-schema-event-hubs.md
+        - name: Resursgrupper
+          href: event-schema-resource-groups.md
 - name: Resurser
   items:
     - name: Azure-översikt

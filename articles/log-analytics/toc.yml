@@ -28,7 +28,13 @@
 - name: Koncept
   items:
     - name: Uppgradering av arbetsyta
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: Översikt över uppgradering
+          href: log-analytics-log-search-upgrade.md
+        - name: Sammanfattning av ändringar
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: Vanliga frågor och svar om uppgraderingar
+          href: log-analytics-log-search-faq.md
     - name: Vanliga frågor och svar om Log Analytics
       href: log-analytics-faq.md
     - name: Dataförbrukning
@@ -41,8 +47,6 @@
       items:
         - name: Översikt över loggsökningar
           href: log-analytics-log-search-new.md
-        - name: Vanliga frågor och svar om loggsökning
-          href: log-analytics-log-search-faq.md
         - name: Loggsökningsportaler
           href: log-analytics-log-search-portals.md
 - name: Instruktionsguider

@@ -143,6 +143,8 @@
           href: web-sites-enable-diagnostic-log.md
     - name: Hantera app
       items:
+        - name: Hantera värdplanen
+          href: app-service-plan-manage.md
         - name: Säkerhetskopiera en app
           href: web-sites-backup.md
         - name: Återställ en säkerhetskopia

@@ -309,6 +309,8 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
+        - name: Övervaka SQL Data Sync med OMS Log Analytics
+          href: sql-database-sync-monitor-oms.md
         - name: Regelverk för SQL Data Sync
           href: sql-database-best-practices-data-sync.md
         - name: Felsöka SQL Data Sync

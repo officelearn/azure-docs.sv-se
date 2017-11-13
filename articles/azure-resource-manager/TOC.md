@@ -71,9 +71,7 @@
 
 ## Ange resursprinciper
 ### [Vad är resursprinciper?](resource-manager-policy.md)
-### Exempel
-#### [Taggar](resource-manager-policy-tags.md)
-#### [Namngivningskonventioner](resource-manager-policy-naming-convention.md)
+### [Namngivningskonventioner](resource-manager-policy-naming-convention.md)
 
 ## Granska
 ### [Visa aktivitetsloggar](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Distributionsfel för virtuell dator

@@ -36,12 +36,19 @@
 ### [Azure Portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Azure CLI](how-to-routefilter-cli.md)
+## [Flytta från offentlig peering till Microsoft-peering](how-to-move-peering.md)
 ## [Flytta en krets från klassisk till Resource Manager](expressroute-howto-move-arm.md)
 ## [Migrera associerade virtuella nätverk från klassisk till Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Konfigurera en router för ExpressRoute
 ### [Konfigurera en router](expressroute-config-samples-routing.md)
 ### [Exempel på routerkonfigurationer för NAT](expressroute-config-samples-nat.md)
 ## [Konfigurera övervakare av nätverksprestanda för ExpressRoute](how-to-npm.md)
+## Artiklar om den klassiska distributionsmodellen
+### [Ändra en krets](expressroute-howto-circuit-classic.md)
+### [Skapa och ändra peering-konfigurationen](expressroute-howto-routing-classic.md)
+### [Länka ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-classic.md)
+### [Konfigurera ExpressRoute-anslutningar och S2S-anslutningar som kan användas samtidigt](expressroute-howto-coexist-classic.md)
+### [Lägg till en gateway till ett virtuellt nätverk](expressroute-howto-add-gateway-classic.md)
 
 ## Metodtips
 ### [Bästa metoder för nätverkssäkerhet och molntjänster](../best-practices-network-security.md)

@@ -20,8 +20,6 @@
       items:
         - name: Lagringsalternativ
           href: r-server-storage.md
-        - name: Installera R Studio
-          href: r-server-install-r-studio.md
         - name: Beräkningskontext
           href: r-server-compute-contexts.md
         - name: ScaleR och SparkR

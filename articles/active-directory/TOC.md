@@ -87,7 +87,6 @@
 #### [Referens för produkter och tjänstplaner i Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Konfigurera förfallodatum för Office 365-grupper](active-directory-groups-lifecycle-azure-portal.md)
 ### [Visa alla grupper](active-directory-groups-view-azure-portal.md)
-### [Aktivera dedikerade grupper](active-directory-accessmanagement-dedicated-groups.md)
 ### [Hantera gruppåtkomst till SaaS-appar](active-directory-accessmanagement-group-saasapps.md)
 ### [Återställa en borttagen Office 365-grupp](active-directory-groups-restore-azure-portal.md)
 ### Hantera gruppinställningar
@@ -254,7 +253,6 @@
 ##### [Klassisk portal](active-directory-add-manage-domain-names.md)
 ### [Administrera din katalog](active-directory-administer.md)
 ### [Flera kataloger](active-directory-licensing-directory-independence.md)
-### [O365-kataloger](active-directory-manage-o365-subscription.md)
 ### [Registrering av självbetjäning](active-directory-self-service-signup.md)
 #### [Ta över en ohanterad katalog](domains-admin-takeover.md)
 ### [Företagsroaming](active-directory-windows-enterprise-state-roaming-overview.md)

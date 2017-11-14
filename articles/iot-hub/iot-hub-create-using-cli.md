@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 11/13/2017
 ms.author: dobett
-ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 951cd64f475363aaceac75ba96176a9b423ac5c1
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Skapa en IoT-hubb som använder Azure CLI 2.0
 
@@ -31,7 +31,7 @@ Du kan använda Azure CLI 2.0 (az.py) för att skapa och hantera Azure IoT-hubba
 Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
 * [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) – CLI för distributionsmodeller för hantering av klassisk och resurs.
-* Azure CLI 2.0 (az.py) - nästa generations CLI för hantering av resursdistributionsmodell som beskrivs i den här artikeln.
+* Azure CLI 2.0 (az.py) - nästa generations CLI för resursdistributionsmodell för hantering. Beskrivs i den här artikeln.
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -43,17 +43,17 @@ För att kunna genomföra den här kursen behöver du följande:
 Logga in på ditt Azure-konto och välja din prenumeration.
 
 1. Vid Kommandotolken kör du den [inloggningen kommandot][lnk-login-command]:
-    
+
     ```azurecli
     az login
     ```
 
     Följ instruktionerna för att autentisera med hjälp av koden och logga in på ditt Azure-konto via en webbläsare.
 
-2. Om du har flera Azure-prenumerationer, ger logga in på Azure åtkomst till alla Azure konton som är associerade med dina autentiseringsuppgifter. Använd följande [kommando för att visa en lista med Azure-konton] [ lnk-az-account-command] som du kan använda:
-    
+1. Om du har flera Azure-prenumerationer, ger logga in på Azure åtkomst till alla Azure konton som är associerade med dina autentiseringsuppgifter. Använd följande [kommando för att visa en lista med Azure-konton] [ lnk-az-account-command] som du kan använda:
+
     ```azurecli
-    az account list 
+    az account list
     ```
 
     Använd följande kommando för att välja prenumeration som du vill använda för att köra kommandona för att skapa din IoT-hubb. Du kan använda prenumerationsnamn eller ID från utdata från det föregående kommandot:
@@ -67,29 +67,24 @@ Logga in på ditt Azure-konto och välja din prenumeration.
 Använda Azure CLI för att skapa en resursgrupp och Lägg sedan till en IoT-hubb.
 
 1. När du skapar en IoT-hubb skapar du den i en resursgrupp. Använd en befintlig resursgrupp eller kör följande [kommando för att skapa en resursgrupp][lnk-az-resource-command]:
-    
+
     ```azurecli
      az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
     > Exemplet ovan skapar resursgruppen västra USA-plats. Du kan visa en lista över tillgängliga platser genom att köra kommandot `az account list-locations -o table`.
-    >
-    >
 
-2. Kör följande [kommando för att skapa en IoT-hubb] [ lnk-az-iot-command] med hjälp av ett globalt unikt namn för din IoT-hubb i din resursgrupp:
-    
+1. Kör följande [kommando för att skapa en IoT-hubb] [ lnk-az-iot-command] med hjälp av ett globalt unikt namn för din IoT-hubb i din resursgrupp:
+
     ```azurecli
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
     ```
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-
 > [!NOTE]
 > Föregående kommando skapar en IoT-hubb i S1 prisnivå du debiteras. Mer information finns i [Azure IoT Hub-priser][lnk-iot-pricing].
->
->
 
 ## <a name="remove-an-iot-hub"></a>Ta bort en IoT-hubb
 
@@ -108,6 +103,7 @@ az group delete --name {your resource group name}
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information om hur du utvecklar för IoT-hubb finns i följande artiklar:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6e88c590e11aa8d2f4ae17e8b5e164483f0a6820
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Använda Azure-filer i Kubernetes
 
@@ -35,7 +35,7 @@ En befintlig Azure-resurs kan användas med Azure Container Service. Om du behö
 Skapa en resursgrupp för Azure File resursen med det [az gruppen skapa] [ az-group-create] kommando. Resursgruppen för lagringskontot och Kubernetes klustret måste finnas i samma region.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Använd den [az storage-konto skapar] [ az-storage-create] kommando för att skapa ett Azure Storage-konto. Lagringskontonamnet måste vara unikt. Uppdatera värdet för den `--name` argumentet med ett unikt värde.

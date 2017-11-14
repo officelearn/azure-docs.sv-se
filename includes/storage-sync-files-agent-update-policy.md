@@ -1,8 +1,10 @@
-Uppdateringar av Azure File Sync-agenten släpps regelbundet för att lägga till nya funktioner och för att åtgärda eventuella problem som hittas. Vi rekommenderar att du aktiverar Microsoft Update för att hämta alla uppdateringar för Azure File Sync-agenten allteftersom vi släpper dem. Vi förstår dock att vissa organisationer vill ha en strikt kontroll och testning av uppdateringar. För distributioner med äldre versioner av Azure File Sync-agenten:
+Uppdateringar av Azure filsynkronisering agenten släpps regelbundet att lägga till nya funktioner och åtgärda eventuella problem som har identifierats. Vi rekommenderar att du konfigurerar Microsoft Update för att få alla uppdateringar till Azure filsynkronisering agenten som vi frigörs. Vi förstår att vissa organisationer vilja kontrollera noggrant och testa uppdateringar. 
 
-- Storage Sync-tjänsten följer den tidigare huvudversionen i tre månader efter den första versionen av en ny huvudversion. Version 1. \* till exempel, skulle stödjas av Storage Sync-tjänsten tills tre månader efter att version 2.\* har släppts.
-- Efter att tre månader har gått, börjar Storage Sync-tjänsten att blockera registrerade servrar som använder den utgångna versionen från att synkronisera med deras synkroniseringsgrupper.
-- Inom tre månader från en tidigare huvudversion, kommer alla snabbkorrigeringar att enbart gå till den aktuella huvudversionen.
+För distributioner som använder tidigare versioner av Azure filsynkronisering agenten:
+
+- Synkronisera lagringstjänsten godkänner den föregående huvudversionen för tre månader efter den första versionen av en ny högre version. Synkroniseringstjänsten lagring stöder till exempel version 1. \* tre månader efter lanseringen av version 2. \*.
+- När tre månader har gått börjar synkronisera lagringstjänsten att blockera registrerade servrar som använder den har upphört att gälla versionen från att synkronisera med deras synkroniseringsgrupper.
+- Inom tre månader för föregående huvudversion gå alla felkorrigeringar bara till den aktuella huvudversionen.
 
 > [!Note]  
 > Vi meddelar dig via popup-meddelande i Azure Portal om du använder en version av Azure File Sync som upphör att gälla inom de kommande tre månaderna.

@@ -1,6 +1,6 @@
 ---
 title: "Hur att läsa eller skriva partitionerad data i Azure Data Factory | Microsoft Docs"
-description: "Lär dig mer om att läsa eller skriva partitionerade data Azure Data Factory version 2."
+description: "Lär dig mer om att läsa eller skriva partitionerade data i Azure Data Factory version 2."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: ee83fce3eeef4bde6dc8e0ea6f17b40396619412
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2066847feb3dcdf36ead8901a679d8cae7a6acde
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Hur att läsa eller skriva partitionerad data i Azure Data Factory version 2
 Azure Data Factory stöds läsning eller skrivning partitionerade data med hjälp av SliceStart/SliceEnd/WindowStart/WindowEnd systemvariabler i version 1. Du kan åstadkomma detta genom att använda en pipeline-parameter och utlösarens schemalagd tid/starttid som ett värde för parametern i version 2. 
@@ -38,19 +38,19 @@ Läs mer om egenskapen partitonedBy [version 1 Azure Blob-koppling](v1/data-fact
 
 I version 2 är ett sätt att uppnå det här beteendet att göra följande: 
 
-1. Definiera en **pipeline parametern** av typen string. I följande exempel pipeline-parameternamnet är **ScheduledRunTime**. 
-2. Ange **folderPath** i datauppsättningsdefinitionen till värdet för pipeline-parametern för som visas i exemplet. 
+1. Definiera en **pipeline parametern** av typen string. I följande exempel pipeline-parameternamnet är **scheduledRunTime**. 
+2. Ange **folderPath** i datauppsättningsdefinitionen till värdet för pipeline-parametern. 
 3. Skicka en hårdkodad värde för parametern innan du kör pipeline. Eller skicka en utlösare start tid eller schemalagd tid dynamiskt vid körning. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.ScheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
 },
 ```
 
 ## <a name="pass-in-value-from-a-trigger"></a>Ange värdet från en utlösare
-I följande utlösardefinition skickas schemalagda tiden för utlösaren som ett värde för parametern ScheduledRunTime pipeline: 
+I följande utlösardefinition schemalagda tiden för utlösaren skickas som ett värde för den **scheduledRunTime** pipeline-parameter: 
 
 ```json
 {
@@ -64,7 +64,7 @@ I följande utlösardefinition skickas schemalagda tiden för utlösaren som ett
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "ScheduledRunTime": "@trigger().scheduledTime"
+                "scheduledRunTime": "@trigger().scheduledTime"
             }
         }
     }
@@ -80,7 +80,7 @@ Här är ett exempel datauppsättningsdefinitionen (som använder en parameter m
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.date, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.date, '%M'), '/dayno=', formatDateTime(pipeline().parameters.date, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
     },
     "format": {
@@ -134,15 +134,15 @@ Pipeline-definition:
                         "type": "Expression"
                     },
                     "Year": {
-                        "value": "@formatDateTime(pipeline().parameters.date, 'yyyy')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
                         "type": "Expression"
                     },
                     "Month": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%M')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
                         "type": "Expression"
                     },
                     "Day": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%d')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
                         "type": "Expression"
                     }
                 }
@@ -154,7 +154,7 @@ Pipeline-definition:
             "name": "HivePartitionGameLogs"
         }],
         "parameters": {
-            "date": {
+            "scheduledRunTime": {
                 "type": "String"
             },
             "blobStorageAccount": {

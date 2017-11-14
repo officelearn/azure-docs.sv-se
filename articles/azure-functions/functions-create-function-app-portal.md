@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3e4eef12c1d19be6e0f1051caaa5cf2e98626aef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Skapa en funktionsapp från Azure-portalen
 
@@ -40,7 +40,7 @@ När funktionen appen har skapats kan skapa du enskilda funktioner i en eller fl
 
 Azure Functions har två olika serviceplaner: förbrukning planerings- och App Service-plan. Plan för förbrukning tilldelar automatiskt datorkraft när koden körs, att skala ut som behövs för att hantera belastningen och sedan skalor in när koden inte körs. Programtjänstplanen ger din funktion appåtkomst till alla funktioner i Apptjänst. Du måste välja serviceplanen när funktionen appen skapas och den för närvarande inte kan ändras. Mer information finns i [väljer du ett Azure-funktioner som värd för planen](functions-scale.md).
 
-Om du planerar att köra JavaScript-funktioner på en apptjänstplan, bör du välja en plan med färre kärnor. Mer information finns i [JavaScript-referens för funktioner](functions-reference-node.md#choose-single-core-app-service-plans).
+Om du planerar att köra JavaScript-funktioner på en apptjänstplan, bör du välja en plan med färre kärnor. Mer information finns i [JavaScript-referens för funktioner](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 

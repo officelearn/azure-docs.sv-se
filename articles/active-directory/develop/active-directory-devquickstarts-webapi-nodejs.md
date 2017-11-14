@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: a0b8ff6894a1f30fd8d18beef234737573691af9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Skydda Node.js-webb-API med Azure Active Directory
 
@@ -53,7 +53,7 @@ En gång `package.json` skapas, kör `npm install` i din Kommandotolken för att
 
 ### <a name="configure-the-project-to-use-active-directory"></a>Konfigurera projektet för att använda Active Directory
 
-För att komma igång med att konfigurera programmet, finns det några konto-specifika värden som du kan hämta Azure CLI. Det enklaste sättet att komma igång med CLI är att använda Azure Cloud-gränssnittet.
+För att komma igång med att konfigurera programmet, finns det några konto-specifika värden som du kan hämta från Azure CLI. Det enklaste sättet att komma igång med CLI är att använda Azure Cloud-gränssnittet.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

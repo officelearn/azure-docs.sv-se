@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bed51dc1216b40f6602fae6d32bc8bd7aa517605
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
 Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
@@ -66,11 +66,11 @@ Du kan använda den [funktionen för företagsanpassning](../active-directory/ac
 
 E-signaturen innehåller B2C-klientens namn som du angav när du först skapade B2C-klient. Du kan ändra namnet använder dessa instruktioner:
 
-1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com/) som administratör för prenumerationen.
-1. Gå till B2C-klient.
-1. Klicka på fliken **Konfigurera**.
-1. Ändra den **namn** fältet under den **katalogegenskaper** avsnitt.
-1. Klicka på **Spara** längst ned på sidan.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) som administratör för prenumerationen.
+1. Öppna den **Azure Active Directory** bladet.
+1. Klicka på den **egenskaper** fliken.
+1. Ändra den **namn** fältet.
+1. Klicka på **spara** överst på sidan.
 
 Det finns för närvarande inget sätt att ändra den ”från”: i e-postmeddelandet. Rösta på [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) du är intresserad av att anpassa brödtexten i e-postmeddelandet.
 

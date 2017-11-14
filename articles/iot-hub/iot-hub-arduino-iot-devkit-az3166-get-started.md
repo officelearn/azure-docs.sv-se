@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: xshi
-ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: da757085e55fa0d8ca883f8ed64f30ea81e973f7
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Ansluta IoT DevKit AZ3166 till Azure IoT-hubb i molnet
 
@@ -29,7 +29,7 @@ Du kan använda den [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-de
 ## <a name="what-you-do"></a>Vad du gör
 Anslut den [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) till en Azure IoT-hubb som du skapar, samla in data för temperatur- och fuktighetskonsekvens från sensorer och skicka data till IoT-hubben.
 
-Har du en DevKit ännu? [Skaffa en](https://aka.ms/iot-devkit-purchase).
+Har du en DevKit ännu? [Försök simulatorn](https://aka.ms/iot-devkit-simulator) eller [skaffa en](https://aka.ms/iot-devkit-purchase).
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 

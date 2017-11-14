@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Stöd matrix för replikering till en sekundär plats med Azure Site Recovery
 
@@ -28,7 +28,7 @@ Den här artikeln sammanfattar vad stöds när du använder den [Azure Site Reco
 
 **Distribution** | **Detaljer** 
 --- | ---
-**VMware till VMware** | Haveriberedskap för lokala virtuella VMware-datorer till sekundär VMware-plats.<br/><br/> Hämta den [InMage Scout användarhandboken](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**VMware till VMware** | Haveriberedskap för lokala virtuella VMware-datorer till sekundär VMware-plats.<br/><br/> Hämta den [InMage Scout användarhandboken](https://aka.ms/asr-scout-user-guide)
 **Hyper-V till Hyper-V** | Haveriberedskap för lokala Hyper-V virtuella datorer i VMM-moln till en sekundär VMM-moln.<br></br> Stöder inte utan VMM.
 
 
@@ -39,7 +39,7 @@ Den här artikeln sammanfattar vad stöds när du använder den [Azure Site Reco
 
 **Distribution** | **Support**
 --- | ---
-**VMware-dator/fysisk server** | vCenter 5.5 eller 6.0 (stöd för 5.5 funktioner)
+**VMware-dator/fysisk server** | vCenter 5.5, 6.0 och 6.5 (stöd för 5.5 funktioner)
 **Hyper-V med VMM** | Windows Server 2016 och Windows Server 2012 R2 med de senaste uppdateringarna.<br/><br/> Windows Server 2016 värdar ska hanteras av VMM 2016.<br/><br/> VMM 2016 moln med en blandning av Windows Server 2016 och 2012 R2-värdar stöds inte för närvarande.<br/><br/> Distribution som innehåller en uppgradering av en befintlig VMM 2012 R2 till System Center 2016 stöds inte för närvarande.
 
 
@@ -49,7 +49,7 @@ I följande tabell sammanfattas operativsystem för datorer som replikeras med S
 
 **VMware/fysisk server** | **Hyper-V (med VMM)**
 --- | ---
-64-bitars Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 eller 6.5 kör Red Hat kompatibel kerneln eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Någon gästen operativsystemet [stöds av Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64-bitars Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6,9, 7.1, 7.2 <br/><br/> Centos 6.5 6.6, 6.7, 6.8, 6,9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 med Red Hat kompatibel kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Någon gästen operativsystemet [stöds av Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Lagring av Linux-dator
 
@@ -104,15 +104,15 @@ VHD-ELLER VHDX | Saknas | Ja (upp till 16 diskar)
 Generation 2 VM | Saknas | Ja
 Delad klusterdisk | Ja  | Nej
 Krypterade disk | Nej | Nej
-UEFI| Nej | Saknas
+UEFI| Ja | Saknas
 NFS | Nej | Nej
 SMB 3.0 | Nej | Nej
 RDM | Ja | Saknas
-Disk > 1 TB | Nej | Ja
+Disk > 1 TB | Ja | Ja
 Volymen med stripe disk > 1 TB<br/><br/> LVM | Ja | Ja
 Lagringsutrymmen | Nej | Ja
-Varm Lägg till/ta bort disken | Nej | Nej
-Uteslut disk | Nej | Ja
+Varm Lägg till/ta bort disken | Ja | Nej
+Uteslut disk | Ja | Ja
 Multipath (MPIO) | Saknas | Ja
 
 ## <a name="vaults"></a>Valv

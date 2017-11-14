@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -141,6 +141,9 @@ För Azure SQL Database har funktionen virtuellt nätverk regler följande begr�
 - Varje Azure SQL Database-server kan ha upp till 128 ACL-posterna för alla angivna virtuella nätverket.
 
 - Virtuellt Nätverksregler gäller bara för Azure Resource Manager virtuella nätverk. och inte [klassiska distributionsmodellen] [ arm-deployment-model-568f] nätverk.
+
+- Aktivering av virtuella nätverksslutpunkter till Azure SQL Database kan också slutpunkter för MySQL och PostGres Azure-tjänster. Men med slutpunkter på misslyckas försöker att ansluta från slutpunkterna till din MySQL eller Postgres instanser.
+    - Den underliggande orsaken är att MySQL och PostGres stöder för närvarande inte ACLing.
 
 - IP-adressintervall gäller följande nätverk i brandväggen, men gör inte det virtuella Nätverksregler:
     - [Plats-till-plats (S2S) virtuellt privat nätverk (VPN)][vpn-gateway-indexmd-608y]

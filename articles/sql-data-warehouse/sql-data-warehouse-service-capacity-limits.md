@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 11/10/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Följande tabeller innehåller de högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
@@ -27,12 +27,12 @@ Följande tabeller innehåller de högsta värden som tillåts för olika kompon
 ## <a name="workload-management"></a>Arbetsbelastningshantering
 | Kategori | Beskrivning | Maximalt |
 |:--- |:--- |:--- |
-| [Informationslagerenheter (DWU)][Data Warehouse Units (DWU)] |Max DWU för en enskild SQL Data Warehouse |6000 |
-| [Informationslagerenheter (DWU)][Data Warehouse Units (DWU)] |Max DWU för en SQL-server |6000 som standard<br/><br/> Som standard har varje SQLServer (t.ex. myserver.database.windows.net) en DTU-kvot på 45,000 som tillåter upp till 6000 DWU. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom [skapat ett supportärende] [ creating a support ticket] och välja *kvot* som den Begärandetypen.  Att beräkna dina DTU behöver, genom att multiplicera 7.5 med det totala antalet DWU behövs. Du kan visa din aktuella DTU-förbrukning från SQL Server-bladet i portalen. Både pausade och inte pausade databaser räknas i förhållande till DTU-kvoten. |
-| Databasanslutning |Öppna samtidiga sessioner |1024<br/><br/>Vi stöder högst 1024 aktiva anslutningar som kan skicka begäranden till en SQL Data Warehouse-databas på samma gång. Observera att det finns begränsningar för antalet frågor som faktiskt kan köras samtidigt. När samtidighet gränsen överskrids, förfrågan som skickas till en intern kö där det väntar på att bearbetas. |
+| [Informationslagerenheter (DWU)][Data Warehouse Units (DWU)] |Max DWU för en enskild SQL Data Warehouse | Optimerad för elasticitet [prestandanivån](performance-tiers.md): DW6000<br></br>Optimerad för beräkning [prestandanivån](performance-tiers.md): DW30000c |
+| [Informationslagerenheter (DWU)][Data Warehouse Units (DWU)] |Standard DTU per server |54,000<br></br>Varje SQLServer (till exempel myserver.database.windows.net) har en DTU-kvot för 54 000, vilket gör att upp till DW6000c som standard. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom [skapat ett supportärende] [ creating a support ticket] och välja *kvot* som den Begärandetypen.  Att beräkna dina DTU behöver, multiplicerar 7.5 med det totala antalet DWU behövs eller 9.0 att multiplicera den totala cDWU som behövs. Exempel:<br></br>DW6000 x 7.5 = 45,000 dtu: er<br></br>DW600c x 9.0 = 54 000 dtu: er.<br></br>Du kan visa din aktuella DTU-förbrukning från SQL server-alternativ i portalen. Både pausas och hävs räknas in i DTU-kvot. |
+| Databasanslutning |Öppna samtidiga sessioner |1024<br/><br/>Var och en av 1024 aktiva sessioner kan skicka begäranden till en SQL Data Warehouse-databas på samma gång. Observera att det finns begränsningar för antalet frågor som kan köras samtidigt. När samtidighet gränsen överskrids, förfrågan som skickas till en intern kö där det väntar på att bearbetas. |
 | Databasanslutning |Största minnesstorlek för förberedda instruktioner |20 MB |
-| [Hantering av arbetsbelastning][Workload management] |Maximalt antal samtidiga frågor |32<br/><br/> Som standard kan SQL Data Warehouse köra maximalt 32 samtidiga frågor och köer återstående frågor.<br/><br/>Concurrency-nivå kan minska när användare som är kopplade till en högre resursklassen eller när SQL Data Warehouse är konfigurerad med låg DWU. Några frågor som DMV frågor är alltid att kunna köras. |
-| [TempDB][Tempdb] |Maxstorlek på Tempdb |399 GB per DW100. Därför är vid DWU1000 Tempdb storlek till 3,99 TB |
+| [Hantering av arbetsbelastning][Workload management] |Maximalt antal samtidiga frågor |32<br/><br/> Som standard kan SQL Data Warehouse köra maximalt 32 samtidiga frågor och köer återstående frågor.<br/><br/>Antalet samtidiga frågor kan descrease när användare tilldelas högre resursklasser eller när SQL Data Warehouse har en lägre [service level](performance-tiers.md#service-levels). Några frågor som DMV frågor är alltid att kunna köras. |
+| [TempDB][Tempdb] |Maximal GB |399 GB per DW100. Därför vid DWU1000, även tempdb storlek till 3,99 TB |
 
 ## <a name="database-objects"></a>objekt i databasen
 | Kategori | Beskrivning | Maximalt |
@@ -42,7 +42,7 @@ Följande tabeller innehåller de högsta värden som tillåts för olika kompon
 | Tabell |Tabeller per databas |2 miljarder |
 | Tabell |Kolumner per tabell |1 024 kolumner |
 | Tabell |Byte per kolumn |Beroende på kolumnen [datatyp][data type].  Gränsen är 8000 för datatyperna char, 4000 för nvarchar eller 2 GB för MAX-datatyper. |
-| Tabell |Byte per rad, definierad storlek |8 060 byte<br/><br/>Antalet byte per rad beräknas på samma sätt som för SQL Server med sidan komprimering. T.ex. SQL Server SQL Data Warehouse stöder raden spill lagring som gör att **kolumner med variabel längd** ska kunna skickas utanför raden. När variabel längd rader skickas utanför raden, lagras endast 24 byte roten i den huvudsakliga posten. Mer information finns i [raden spill Data mer än 8 KB] [ Row-Overflow Data Exceeding 8 KB] MSDN-artikel. |
+| Tabell |Byte per rad, definierad storlek |8 060 byte<br/><br/>Antalet byte per rad beräknas på samma sätt som för SQL Server med sidan komprimering. T.ex. SQL Server SQL Data Warehouse stöder raden spill lagringen, vilket gör att **kolumner med variabel längd** ska kunna skickas utanför raden. När variabel längd rader skickas utanför raden, lagras endast 24 byte roten i den huvudsakliga posten. Mer information finns i [raden spill Data mer än 8 KB][Row-Overflow Data Exceeding 8 KB]. |
 | Tabell |Partitioner per tabell |15,000<br/><br/>För hög prestanda, rekommenderar vi att minimera antalet partitioner måste du medan fortfarande stöd för dina affärsbehov. När antalet partitioner växer växer CPU-användningen för Data Definition Language (DDL) och Data Manipulation Language (DML) och orsakar långsammare. |
 | Tabell |Tecken per partition gränsvärdet. |4000 |
 | Index |Icke-grupperade index per tabell. |999<br/><br/>Gäller endast rowstore-tabeller. |
@@ -58,7 +58,7 @@ Följande tabeller innehåller de högsta värden som tillåts för olika kompon
 ## <a name="loads"></a>Belastningar
 | Kategori | Beskrivning | Maximalt |
 |:--- |:--- |:--- |
-| Polybase belastningar |MB per rad |1<br/><br/>Polybase belastningar är begränsade till inläsning rader båda mindre än 1MB och det går inte att läsa in VARCHR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX).<br/><br/> |
+| Polybase belastningar |MB per rad |1<br/><br/>Polybase läser in endast för rader som är mindre än 1 MB och det går inte att läsa in VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Frågor
 | Kategori | Beskrivning | Maximalt |

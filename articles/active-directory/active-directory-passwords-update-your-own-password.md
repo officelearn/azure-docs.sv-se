@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Hjälp, jag har glömt mitt Azure AD-lösenord
+# <a name="reset-your-work-or-school-password"></a>Återställa ditt lösenord för arbetet eller skolan
 
-Vi kan hjälp dig om du har glömt ditt lösenord, om du aldrig fått något lösenord från IT-avdelningen, om du har blivit utelåst från kontot eller om du vill ändra lösenordet. Om du känner till ditt lösenord och bara behöver ändra den fortsätta till avsnittet [ändra lösenordet](#change-my-password) nedan.
+Om du har glömt ditt lösenord aldrig något från ditt företags-stöd, låsts utanför ditt konto, eller om du vill ändra det, kan vi hjälpa. Om du känner till ditt lösenord och bara behöver ändra den fortsätta till avsnittet [ändra lösenordet](#change-my-password) nedan.
 
    > [!NOTE]
    > Om du försöker komma åt din personliga konto som outlook.com, Xbox eller hotmail.com försök den [förslag hittades i den här artikeln](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -64,7 +64,7 @@ Följ instruktionerna som följer för att få åtkomst till Azure AD lösenords
    ![Kontrollera dina autentiseringsdata][Verification]
 
 4. Din IT-personal kanske kräver ytterligare verifiering och du kanske måste upprepa steg 3 igen med ett annat alternativ.
-5. På sidan **Välj ett nytt lösenord** anger du ett nytt lösenord, bekräftar ditt lösenord och klickar sedan på **Slutför**. Vi rekommenderar att lösenordet är mellan 8 och 16 tecken med versaler och gemener, siffror och specialtecken.
+5. På sidan **Välj ett nytt lösenord** anger du ett nytt lösenord, bekräftar ditt lösenord och klickar sedan på **Slutför**. Ditt lösenord för arbetet eller skolan kanske vissa krav. Vi rekommenderar att ditt lösenord vara 8-16 tecken med versaler och gemener, siffror och specialtecken.
 6. När du ser **Ditt lösenord har återställts** kan du logga in med ditt nya lösenord.
 
     ![Ditt lösenord har återställts][Complete]
@@ -102,8 +102,8 @@ Använd den här metoden om du normalt kommer åt dina program från Azure Acces
 | Fel-fall| Vilka fel ser du?| Lösning |
 | --- | --- | --- |
 | En ”Kontakta din administratör” sida kommer när du har angett mitt användar-ID | Kontakta administratören <br> <br> Vi har upptäckt att lösenordet till ditt användarkonto inte hanteras av Microsoft. Vi kan därför inte att återställa lösenordet automatiskt. <br> <br> Du måste kontakta din IT-personal för ytterligare hjälp. | Du ser det här meddelandet eftersom din IT-personal hanterar lösenordet i din lokala miljö och tillåter inte att återställa ditt lösenord från den kan inte komma åt ditt kontolänk. <br> <br> Kontakta din IT-personal direkt för att få hjälp om du vill återställa ditt lösenord och meddela dem om du vill återställa ditt lösenord så att de kan du aktivera funktionen för dig.|
-| Jag felmeddelandet ”ditt konto har inte aktiverats för lösenordsåterställning” när du har angett mitt användar-ID | Kontot är inte aktiverat för återställning av lösenord <br> <br> Vi beklagar, men din IT-personal inte har lagt upp ditt konto för användning med den här tjänsten. <br> <br> Om du vill att kan vi kontakta en administratör i din organisation som återställer lösenordet åt dig. | Du ser det här meddelandet eftersom din IT-personal inte har aktiverats för återställning av lösenord för din organisation från den kan inte komma åt ditt kontolänk eller har inte licensierats du om du vill använda funktionen. <br> <br> Om du vill återställa ditt lösenord, klickar du på kontakten en administratör länk för att skicka ett e-postmeddelande till ditt företag har IT-personal och meddela dem om du vill återställa ditt lösenord så att de kan du aktivera funktionen för dig. |
-| Jag felmeddelandet ”Det gick inte att verifiera ditt konto” när du har angett mitt användar-ID | Vi kunde inte verifiera ditt konto <br> <br> Om du vill att kan vi kontakta en administratör i din organisation som återställer lösenordet åt dig. | Du ser det här meddelandet eftersom du är aktiverade för återställning av lösenord, men du har inte registrerats för att använda tjänsten. Registrera för återställning av lösenord genom att gå till http://aka.ms/ssprsetup när du har återupprättats åtkomst till ditt konto. <br> <br> Om du vill återställa ditt lösenord, klickar du på kontakten en administratör länk för att skicka ett e-postmeddelande till ditt företags IT-personal. |
+| Jag felmeddelandet ”ditt konto har inte aktiverats för lösenordsåterställning” när du har angett mitt användar-ID | Ditt konto har inte aktiverats för lösenordsåterställning <br> <br> Vi beklagar, men din IT-personal inte har lagt upp ditt konto för användning med den här tjänsten. <br> <br> Om du vill att kan vi kontakta en administratör i din organisation som återställer lösenordet åt dig. | Du ser det här meddelandet eftersom din IT-personal inte har aktiverats för återställning av lösenord för din organisation från den kan inte komma åt ditt kontolänk eller har inte licensierats du om du vill använda funktionen. <br> <br> Om du vill återställa ditt lösenord, klickar du på kontakten en administratör länk för att skicka ett e-postmeddelande till ditt företag har IT-personal och meddela dem om du vill återställa ditt lösenord så att de kan du aktivera funktionen för dig. |
+| Jag felmeddelandet ”Det gick inte att verifiera ditt konto” när du har angett mitt användar-ID | Det gick inte att verifiera ditt konto <br> <br> Om du vill att kan vi kontakta en administratör i din organisation som återställer lösenordet åt dig. | Du ser det här meddelandet eftersom du är aktiverade för återställning av lösenord, men du har inte registrerats för att använda tjänsten. Registrera för återställning av lösenord genom att gå till http://aka.ms/ssprsetup när du har återupprättats åtkomst till ditt konto. <br> <br> Om du vill återställa ditt lösenord, klickar du på kontakten en administratör länk för att skicka ett e-postmeddelande till ditt företags IT-personal. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>En genomgång av Analytics i Application Insights
 [Analytics](app-insights-analytics.md) är kraftfull sökfunktionen i [Programinsikter](app-insights-overview.md). Dessa sidor beskrivs Log Analytics-frågespråket.
@@ -54,7 +54,7 @@ Expandera alla objekt om du vill se detaljerad information:
 ![Välj tabellen och konfigurera kolumner](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Klicka på huvudet för en kolumn för att ordna om resultat som är tillgängliga i webbläsaren. Men tänk på att antalet rader som hämtas till webbläsaren för en stor resultatmängd är begränsad. Sortering därmed visar inte alltid de faktiska högsta eller lägsta artiklarna. Om du vill sortera objekt på ett tillförlitligt sätt att använda den `top` eller `sort` operator.
+> Klicka på rubriken för en kolumn för att ordna om resultat som är tillgängliga i webbläsaren. Men tänk på att antalet rader som hämtas till webbläsaren för en stor resultatmängd är begränsad. Sortering sätt bara sorterar den returnerade resultatuppsättningen och alltid visar inte de faktiska högsta eller lägsta artiklarna. Om du vill sortera objekt på ett tillförlitligt sätt att använda den `top` eller `sort` operator.
 >
 >
 
@@ -92,7 +92,7 @@ Visa de första n raderna, sorterade efter en viss kolumn:
 
 Resultatet blir detsamma, men körs det lite långsammare. (Du kan också skriva `order`, vilket är ett alias för `sort`.)
 
-Kolumnrubrikerna i tabellvyn kan också användas för att sortera resultaten på skärmen. Men av kursen, om du har använt `take` eller `top` för att hämta bara en del av en tabell, du får endast ordna poster som du har hämtat.
+Kolumnrubrikerna i tabellvyn kan också användas för att sortera resultaten på skärmen. Men av kursen, om du har använt `take` eller `top` för att hämta bara en del av en tabell, klicka på kolumnrubriken kommer endast ordna poster som du har hämtat.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Där](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtrering på ett villkor
 
@@ -115,8 +115,9 @@ Den `where` operator tar ett booleskt uttryck. Här följer några huvudpunkter 
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Hämtning av rätt typ
-Sök efter misslyckade begäranden:
+### <a name="find-unsuccessful-requests"></a>Sök efter misslyckade begäranden
+
+Konvertera ett strängvärde till ett heltal och använda större-än jämförelse:
 
 ```AIQL
 
@@ -240,7 +241,7 @@ Eller kan vi dela resultatet i förfrågningar av olika namn:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`samlar in datapunkter i dataströmmen i grupper som den `by` satsen utvärderar lika. Varje värde i den `by` uttryck - varje åtgärdsnamn i exemplet ovan - resulterar i en rad i resultattabellen.
+`Summarize`samlar in datapunkter i dataströmmen i grupper som den `by` satsen utvärderar lika. Varje värde i den `by` uttryck - varje unik åtgärdsnamn i exemplet ovan - resulterar i en rad i resultattabellen.
 
 Eller vi gick grupperar resultaten efter tid på dagen:
 

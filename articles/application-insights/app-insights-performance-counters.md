@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 26837a72dd4539cd5b32e5b49a127a714f3a1426
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 40821d32c5bdfe51bb3cb205660d6f25b2c3fadc
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Prestandaräknare för system i Application Insights
 Windows tillhandahåller flera olika [prestandaräknare](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , till exempel CPU användandet, minne, disk och användningen av nätverket. Du kan också definiera egna. [Application Insights](app-insights-overview.md) kan du visa de här prestandaräknarna om programmet körs under IIS på en lokal värd eller virtuell dator som du har administratörsbehörighet. Diagrammen övriga resurser som är tillgängliga för ditt liveprogram och hjälper dig för att identifiera Obalanserat belastningen mellan server-instanser.
@@ -83,7 +83,6 @@ Om du vill samla in prestandaräknare för system och skicka dem till Applicatio
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
-
 Eller så kan du göra samma sak med anpassade mått som du skapade:
 
 ``` C#
@@ -115,6 +114,9 @@ Som andra telemetri **performanceCounters** också har en kolumn `cloud_RoleInst
 
 * *Undantag hastighet* är en system-prestandaräknare. CLR räknar alla hanterade och ohanterade undantag som utlöses och delar av totalen i ett exempelintervall med längden på intervallet. Application Insights SDK samlar in det här resultatet och skickar det till portalen.
 * *Undantag* antal TrackException-rapporter som tagits emot av portalen insamlingsintervall i diagrammet. Den innehåller bara de hanterade undantag där du har skrivit TrackException anropar i koden, och inte innehåller alla [ohanterade undantag](app-insights-asp-net-exceptions.md). 
+
+## <a name="performance-counters-in-aspnet-core-applications"></a>Prestandaräknare i Asp.Net Core program
+Prestandaräknare stöds bara om programmet är på fullständig .NET Framework. Det finns ingen möjlighet att samla in prestandaräknare för .net Core program.
 
 ## <a name="alerts"></a>Aviseringar
 Precis som andra mått kan du [anger att en varning](app-insights-alerts.md) som varnar om en prestandaräknare går utanför en gräns som du anger. Öppna bladet aviseringar och klicka på Lägg till avisering.

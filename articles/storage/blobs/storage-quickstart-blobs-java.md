@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: b096b9d79c049d8659a4171a0cbb42a99e245776
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2a825e59093b64ab56110f9a045b0325728b39b2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Överför objekt till/från Azure Blob storage med hjälp av Java
 
@@ -85,19 +85,23 @@ När du har kontrollerat filerna, tryck på RETUR för att slutföra demonstrati
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
 
+Därefter går vi igenom exempelkoden så att du förstår hur det fungerar.
+
+### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekt
+
 Det första du gör är att skapa referenser till objekt som används för att komma åt och hantera Blob storage. De här objekten som bygger på varandra – varje används av den nästa i listan.
 
 * Skapa en instans av den **CloudStorageAccount** objekt som pekar på den [lagringskonto](/java/api/com.microsoft.azure.management.storage._storage_account).
 
-Den **CloudStorageAccount** objektet är en representation av ditt lagringskonto och du kan ange och komma åt lagringskontoegenskaperna programmässigt. Med hjälp av den **CloudStorageAccount** objekt som du kan skapa en instans av den **CloudBlobClient**, vilket är nödvändigt för att få åtkomst till blob-tjänsten.
+    Den **CloudStorageAccount** objektet är en representation av ditt lagringskonto och du kan ange och komma åt lagringskontoegenskaperna programmässigt. Med hjälp av den **CloudStorageAccount** objekt som du kan skapa en instans av den **CloudBlobClient**, vilket är nödvändigt för att få åtkomst till blob-tjänsten.
 
 * Skapa en instans av den **CloudBlobClient** -objekt som pekar på den [Blob-tjänst](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client) i ditt lagringskonto.
 
-Den **CloudBlobClient** ger dig en åtkomstpunkt för blob-tjänsten så att du kan ange och komma åt egenskaper för blob storage via programmering. Med hjälp av den **CloudBlobClient** du kan skapa en instans av den **CloudBlobContainer** -objektet, vilket krävs för att skapa behållare.
+    Den **CloudBlobClient** ger dig en åtkomstpunkt för blob-tjänsten så att du kan ange och komma åt egenskaper för blob storage via programmering. Med hjälp av den **CloudBlobClient** du kan skapa en instans av den **CloudBlobContainer** -objektet, vilket krävs för att skapa behållare.
 
 * Skapa en instans av den **CloudBlobContainer** objekt som representerar den [behållare](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) du ansluter till. Behållare för att organisera dina blobbar som du använder mappar på din dator för att ordna dina filer.    
 
-När du har den **CloudBlobContainer**, du kan skapa en instans av den **CloudBlockBlob** objekt som hänvisar till specifikt [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) i som du är intresserad av, och utföra en överföring, hämta, kopiera, etc. igen.
+    När du har den **CloudBlobContainer**, du kan skapa en instans av den **CloudBlockBlob** objekt som hänvisar till specifikt [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) i som du är intresserad av, och utföra en överföring, hämta, kopiera, etc. igen.
 
 > [!IMPORTANT]
 > Behållarnamn måste vara gemener. Se [namnge och referera till behållare, Blobbar och Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) för mer information om behållaren och blob-namn.

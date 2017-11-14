@@ -4,7 +4,7 @@ description: "Beskriver nya funktioner, problem och lösningar för StorSimple 8
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 Series uppdatering 5 viktig information
 
@@ -31,6 +31,7 @@ Uppdatering 5 kan tillämpas på alla StorSimple-enhet som kör uppdatering 0.1 
 Granska informationen som finns i viktig information innan du distribuerar uppdateringen i din StorSimple-lösning.
 
 > [!IMPORTANT]
+> * Uppdatering 5 är en obligatorisk uppdatering och måste installeras omedelbart. Mer information finns i så här [gäller uppdatering 5](storsimple-8000-install-update-5.md).
 > * Uppdatering 5 har enhetsprogrammet, disk inbyggd programvara, OS-säkerhet och andra uppdateringar av OS. Det tar cirka 4 timmar att installera uppdateringen. Disk firmware-uppdatering är en störande uppdatering och resulterar i ett driftstopp för din enhet. Vi rekommenderar att du installerar uppdatering 5 om du vill att enheten alltid är uppdaterade.
 > * För nya versioner, kan du inte se uppdateringar omedelbart eftersom vi gör en stegvis distribution av uppdateringar. Vänta några dagar och sedan söka efter uppdateringar som de här uppdateringarna igen är snart tillgängligt.
 

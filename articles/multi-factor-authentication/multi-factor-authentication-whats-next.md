@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 5da47bf2f48b0f5df5f7fa19f1f626fbdca2b8db
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurera inställningar för Azure Multi-Factor Authentication - Public preview
 
@@ -29,7 +29,7 @@ Den här artikeln hjälper dig att hantera Azure Multi-Factor Authentication nu 
 
 | Funktion | Beskrivning | 
 |:--- |:--- |
-| [Blockera/avblockera användare](#block/unblock-users) |Blockera/avblockera användare kan hindra användare från att ta emot begäranden om autentisering. |
+| [Blockera och avblockera användare](#block-and-unblock) |Blockera/avblockera användare kan hindra användare från att ta emot begäranden om autentisering. |
 | [Bedrägerivarning](#fraud-alert) |Bedrägerivarning kan konfigureras och ställa in så att användarna kan rapportera bedrägliga försöker få åtkomst till sina resurser. |
 | [Engångsförbikoppling](#one-time-bypass) |En engångsförbikoppling kan en användare autentiseras en gång genom att ”kringgå” multifaktorautentisering. |
 | [Anpassade röstmeddelanden](#custom-voice-messages) |Anpassade röstmeddelanden kan du använda dina egna inspelningar eller helg med multifaktorautentisering. |
@@ -39,7 +39,7 @@ Den här artikeln hjälper dig att hantera Azure Multi-Factor Authentication nu 
 | [Kom ihåg Multi-Factor Authentication för sparade enheter och webbläsare](#remember-multi-factor-authentication-for-devices-that-users-trust) |Kan du komma ihåg enheter för ett visst antal dagar efter att en användare har loggat in med MFA. |
 | [Valbar verifieringsmetoderna](#selectable-verification-methods) |Kan du välja de autentiseringsmetoder som är tillgängliga för användare att använda. |
 
-## <a name="blockunblock-users"></a>Blockera/avblockera användare
+## <a name="block-and-unblock"></a>Blockera och avblockera
 Blockera/avblockera användare kan användas för att förhindra att användare tar emot begäranden om autentisering. Alla autentiseringsförsök för blockerade användare att nekas automatiskt. Blockerade användare förblir blockerade för 90 dagar från att de blockeras.
 
 ### <a name="block-a-user"></a>Blockera en användare
@@ -70,7 +70,7 @@ Bedrägerivarning kan konfigureras och ställa in så att användarna kan rappor
 
 ### <a name="configuration-options"></a>Konfigurationsalternativ
 
-- **Blockera användare när bedrägeri rapporteras** – om en användare rapporter bedrägeri, sitt konto blockeras.
+- **Blockera användare när bedrägeri rapporteras** – om en användare rapporter bedrägeri, sitt konto har blockerats i 90 dagar eller tills en administratör avblockeras sitt konto. En administratör kan granska inloggningar med hjälp av rapporten inloggning och vidta lämpliga åtgärder för att förhindra framtida bedrägeri. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
 - **Kod för att rapportera bedrägeri under inledande hälsning** – när användarna får ett telefonsamtal för att utföra tvåstegsverifiering, de normalt tryck på # för att bekräfta sina inloggning. Om de vill rapportera bedrägeri ange de en kod innan du trycker på #. Den här koden är **0** som standard, men du kan anpassa den.
 
 > [!NOTE]
@@ -296,7 +296,7 @@ När användarna registrerar sina konton för MFA, kan de välja sin önskade ve
 |:--- |:--- |
 | Samtal till telefon |Placerar en automatiserad röstsamtal. Användaren svara och trycka på #-tangenten för att autentisera. Det här telefonnumret har inte synkroniserats till lokala Active Directory. |
 | Textmeddelande till telefon |Skickar ett SMS med verifieringskoden. Användaren uppmanas att antingen svara på textmeddelandet med verifieringskoden eller ange verifieringskoden i inloggning-gränssnittet. |
-| Avisering via mobilapp |Skickar ett push-meddelande till din telefon eller en registrerad enhet. Användaren ser meddelandet och väljer **Kontrollera** att slutföra verifieringen. <br>Microsoft Authenticator-appen är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Meddelande via mobilapp |Skickar ett push-meddelande till din telefon eller en registrerad enhet. Användaren ser meddelandet och väljer **Kontrollera** att slutföra verifieringen. <br>Microsoft Authenticator-appen är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Verifieringskod från mobilapp |Microsoft Authenticator-appen genererar en ny OATH-Verifieringskod var 30: e sekund. Användaren anger den här koden i gränssnittet för inloggning.<br>Microsoft Authenticator-appen är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Hur du aktiverar/inaktiverar autentiseringsmetoder

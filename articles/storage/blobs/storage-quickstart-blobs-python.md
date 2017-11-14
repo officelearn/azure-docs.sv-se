@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Överför objekt till/från Azure Blob storage med hjälp av Python
 I den här snabbstarten att lära dig hur du använder Python att överföra, hämta och visa en lista med blockblobbar i en behållare i Azure Blob storage. 
@@ -73,7 +73,11 @@ Du kan också använda ett verktyg som den [Azure Lagringsutforskaren](http://st
 
 När du har kontrollerat filerna, trycka på valfri tangent för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör du öppna filen example.py titta på koden. 
 
-## <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekt
+## <a name="understand-the-sample-code"></a>Förstå exempelkoden
+
+Därefter går vi igenom exempelkoden så att du förstår hur det fungerar.
+
+### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekt
 Det första du gör är att skapa referenser till objekt som används för att komma åt och hantera Blob storage. De här objekten som bygger på varandra och varje används av den nästa i listan.
 
 * Skapa en instans av den **BlockBlobService** -objektet, vilket leder till Blob-tjänsten på ditt lagringskonto. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>Ladda upp blobbar i behållaren
+### <a name="upload-blobs-to-the-container"></a>Ladda upp blobbar i behållaren
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobbar är den vanligaste och som används i denna Snabbstart.  
 
@@ -128,7 +132,7 @@ Det finns flera överför metoder som du kan använda med Blob storage. Till exe
 
 Blockblobbar kan vara så stor som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobbar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Lägg till blobbar som används för inloggning, till exempel när du vill skriva till en fil och sedan hålla att lägga till mer information. De flesta objekt som lagras i Blob storage är blockblobbar.
 
-## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
+### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
 
 Hämta en lista över filer i en behållare med hjälp av den **list_blobs** metod. Den här metoden returnerar en generator. Följande kod hämtar listan över blobbar och loop genom dem, visar namnen på de blobbar som påträffats i en behållare.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Hämta blobbarna
+### <a name="download-the-blobs"></a>Hämta blobbarna
 
 Ladda ned blobbar till din lokala disk med hjälp av den **hämta\_blob\_till\_sökväg** metod. Följande kod hämtar blob som överförts i föregående avsnitt. ”_DOWNLOADED” läggs till som ett suffix till blob-namn så att du kan se båda filerna på lokal disk. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>Rensa resurser
+### <a name="clean-up-resources"></a>Rensa resurser
 Om du behöver inte längre blobbar på den här snabbstarten, kan du ta bort hela behållaren med hjälp av den **ta bort\_behållare**. Om de filer som skapas inte längre behövs, använder du den **ta bort\_blob** metod för att ta bort filer.
 
 ```python

@@ -3,7 +3,7 @@ title: "Vad är Azure Search | Microsoft Docs"
 description: "Azure Search är en fullständigt hanterad värdbaserade moln söktjänst. Läs mer i översikt över den här funktionen."
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
@@ -11,18 +11,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
-ms.openlocfilehash: 9893be47ec0c2f58ca206ec7c1bce13734513390
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: heidist
+ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
-Azure Search är en molnlösning för sökning som en tjänst som ger utvecklare API: er och verktyg för att lägga till en omfattande sökinställningar över dina data i webb-, mobil- och enterprise-program.
+Azure Search är en molnlösning för sökning som en tjänst som ger utvecklare API: er och verktyg för att lägga till en omfattande sökinställningar över innehåll på webb-, mobil- och enterprise-program.
 
-Funktioner som exponeras via en enkel [REST API](/rest/api/searchservice/) eller [.NET SDK](search-howto-dotnet-sdk.md) som döljer inbyggd komplexiteten i sökteknik. Förutom API: er tillhandahåller Azure-portalen administrations- och prototyper. Tillgänglighet för infrastruktur och hanteras av Microsoft.
+Funktioner som exponeras via en enkel [REST API](/rest/api/searchservice/) eller [.NET SDK](search-howto-dotnet-sdk.md) som döljer inbyggd komplexiteten i hämtning av information. Förutom API: er tillhandahåller Azure-portalen administration och innehållshantering stöder med verktyg för prototyper och fråga ditt index. Eftersom tjänsten körs i molnet, hanteras infrastruktur och tillgänglighet av Microsoft.
 
 <a name="feature-drilldown"></a>
 
@@ -70,7 +70,7 @@ Kunder be ofta hur Azure Search Jämför med andra sökrelaterade lösningar. I 
 
 | Jämfört med | Viktiga skillnader |
 |--|--|
-|Bing | [Bing Web Sök API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) index i Bing.com en sökning efter matchande villkor som du skickar. Index skapas från HTML-, XML och andra webbinnehåll på offentliga platser. [Bing anpassad sökning](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) erbjuder samma crawler teknik för webb-innehållstyper, begränsade till enskilda webbplatser.<br/><br/>Azure Search söker ett index som du definierar fylls med data och dokument som du äger, ofta från olika källor. Azure Search har crawler capabilies för vissa datakällor via [indexerare](search-indexer-overview.md), men du kan pressa JSON-dokumentet som överensstämmer med index-schema i en enda sökbara resurs. |
+|Bing | [Bing Web Sök API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) index i Bing.com en sökning efter matchande villkor som du skickar. Index skapas från HTML-, XML och andra webbinnehåll på offentliga platser. [Bing anpassad sökning](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) erbjuder samma crawler teknik för webb-innehållstyper, begränsade till enskilda webbplatser.<br/><br/>Azure Search söker ett index som du definierar fylls med data och dokument som du äger, ofta från olika källor. Azure Search har crawler funktioner för vissa datakällor via [indexerare](search-indexer-overview.md), men du kan pressa JSON-dokumentet som överensstämmer med index-schema i en enda sökbara resurs. |
 |Sök i databasen | [SQL Server-fulltextsökning](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) är för innehåll som är interna för DBMS i SQL-tabeller. <br/><br/>Azure Search lagrar innehåll från heterogena källor och har särskilda text bearbetning funktioner, till exempel språkliga och anpassade analys. Den [fulltext sökmotor](search-lucene-query-architecture.md) i Azure Search bygger på Apache Lucene, branschstandard i hämtning av information. <br/><br/>Resursutnyttjandet är på en annan angripits punkt. Sökning med naturligt språk är ofta beräkningsmässigt intensiv. Avlasta sökningen till en särskild lösning bevarar resurser för transaktionsbearbetning. Du kan enkelt ändra skala för att matcha frågan volym filernas sökningen.|
 |Lösningen dedikerade sökningen | På lokala eller molnet är tjänstelösningar dedikerade söklösningar med fullständig spektrumet funktionalitet. Sök tekniker ger kontroll över indexering och fråga pipelines, åtkomst till rikare frågan normalt och filtrering syntax, kontroll över Rang och relevans och funktioner för automatisk dirigerad och intelligent sökning. <br/><br/>Du kan hitta söklösningar för dedikerad erbjuds som ett moln tjänst eller som en fristående server finns lokalt eller på en virtuell dator. En molnbaserad tjänst är det bästa valet om du vill att en [nyckelfärdig lösning med minimal belastning och underhåll och justerbara skala](#cloud-service-advantage). <br/><br/>Inom paradigmet molnet erbjuder flera providers jämförbara grundläggande funktioner, med fulltextsökning, geo-sökning och förmåga att hantera en viss nivå av tvetydighet i Sök-indata. Normalt den har en [specialiserade funktionen](#feature-drilldown), eller enkel och övergripande enkelhet av API: er, verktyg och hantering som avgör den bästa passning. |
 

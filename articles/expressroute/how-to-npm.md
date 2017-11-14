@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 35dd3c6be2fb2fa5ec4d14eefce1c16005210364
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: b041244b28d76de4bac2822c115482e31d073a22
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute (förhandsgranskning)
 
@@ -39,21 +39,27 @@ Du kan:
 
 * Se ExpressRoute systemtillståndet från en tidigare punkt i tiden
 
-**Hur fungerar det?**
+## <a name="regions"></a>Regioner som stöds
+
+Du kan övervaka ExpressRoute-kretsar i alla delar av världen med hjälp av en arbetsyta som ligger på något av följande områden:
+
+* Västra Europa 
+* Östra USA 
+* Sydostasien 
+
+## <a name="workflow"></a>Arbetsflöde
 
 Övervakning agenter är installerade på flera servrar, både lokalt och i Azure. Agenterna kommunicera med varandra, men inte skickar data, de skicka paket för TCP-handskakningen. Kommunikation mellan agenterna kan Azure för att mappa nätverkstopologi och sökvägen trafiken kan ta.
 
-**Arbetsflöde**
-
-1. Skapa en arbetsyta för NPM i region Väst centrala USA. Detta är för närvarande den enda region där den här förhandsgranskningen stöds.
+1. Skapa en arbetsyta för NPM i något av de [regioner som stöds](#regions).
 2. Installera och konfigurera programvaruagenter: 
     * Installera övervakning agenter på lokala servrar och virtuella Azure-datorer.
     * Konfigurera inställningarna för övervakning agenten servrarna så att övervakningsagenter kommunicera. (Öppna portar i brandväggen, osv.)
 3. Konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta övervakning agenten installeras på virtuella Azure-datorer kan kommunicera med lokal övervakning agenter.
-4. Begäran om att godkända NPM-arbetsytan
+4. Begäran om att godkända NPM-arbetsytan.
 5. Konfigurera övervakning: automatiskt identifiera och hantera vilka nätverk som visas i NPM.
 
-Om du redan använder Network Performance Monitor för att övervaka andra objekt eller tjänster och du redan har arbetsytan i West centrala USA kan du hoppa över steg 1 och 2 och börjar din konfiguration med steg3.
+Om du redan använder Network Performance Monitor för att övervaka andra objekt eller tjänster och du redan har arbetsytan i något av regionerna som stöds, kan du hoppa över steg 1 och 2 och börjar din konfiguration med steg3.
 
 ## <a name="configure"></a>Steg 1: Skapa en arbetsyta
 
@@ -66,14 +72,14 @@ Om du redan använder Network Performance Monitor för att övervaka andra objek
   * OMS-arbetsyta - ange ett namn för din arbetsyta.
   * Prenumeration – om du har flera prenumerationer, Välj den du vill koppla till det nya arbetsområdet.
   * Resursgrupp – skapa en resursgrupp eller Använd en befintlig.
-  * Plats – du måste välja Väst centrala USA för den här förhandsversionen
+  * Plats – du måste välja en [stöds region](#regions).
   * Prisnivån - väljer lediga
 
   ![Arbetsytan](.\media\how-to-npm\4.png)<br><br>
 4. Klicka på **OK** att spara och distribuera inställningar för mallen. När mallen validerar klickar du på **skapa** att distribuera på arbetsytan.
 5. Efter att arbetsytan har distribuerats, navigera till den **NetworkMonitoring(name)** resurs som du skapade. Verifiera inställningarna och klicka sedan på **lösningen kräver ytterligare konfiguration**.
 
-  ![ytterligare konfiguration](.\media\how-to-npm\5.png)
+  ![ytterligare konfigurering](.\media\how-to-npm\5.png)
 6. På den **Välkommen till Network Performance Monitor** väljer **används TCP för syntetiska transaktioner**, klicka på **skicka**. TCP-transaktioner används bara för att se och bryta anslutningen. Inga data skickas över dessa TCP-anslutningar.
 
   ![TCP för syntetiska transaktioner](.\media\how-to-npm\6.png)

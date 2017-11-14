@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Installera och konfigurera CLI för användning med Azure-stacken
 
@@ -204,6 +204,15 @@ az group create \
 Om resursgruppen har skapats, utdata följande egenskaper för den nyligen skapade resursen i det föregående kommandot:
 
 ![Resursgruppen skapa utdata](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>Kända problem
+Det finns några kända problem som du måste vara medveten om när du använder CLI i Azure Stack:
+
+* CLI interaktivt läge engångsfaktorautentisering den `az interactive` kommandot stöds inte ännu i Azure-stacken.
+* Om du vill hämta listan över tillgängliga i Azure-stacken avbildningar av virtuella datorer använder den `az vm images list --all` kommandot i stället för den `az vm image list` kommando. Ange den `--all` alternativet ser till att svaret returnerar bara de avbildningar som är tillgängliga i Azure Stack-miljö. 
+* Virtuella avbildningen alias som är tillgängliga i Azure kan inte tillämpas på Azure-stacken. När du använder avbildningar av virtuella datorer, måste du använda parametern hela URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) i stället för det bild aliaset. Den här URN måste matcha avbildningen specifikationer som härletts från den `az vm images list` kommando.
+* Som standard använder CLI 2.0 ”Standard_DS1_v2” som standardstorlek för avbildning av virtuell dator. Men den här storleken inte är tillgängligt i Azure-stacken, så du måste ange den `--size` explicit när du skapar en virtuell dator. Du kan hämta listan över storlekar för virtuella datorer som är tillgängliga i Azure-stacken genom att använda den `az vm list-sizes --location <locationName>` kommando.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

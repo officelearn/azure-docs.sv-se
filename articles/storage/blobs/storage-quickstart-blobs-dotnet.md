@@ -3,33 +3,30 @@ title: "Azure Quickstart - objekt för överföring till/från Azure Blob storag
 description: "Lär dig snabbt att överföra objekt till och från Azure Blob storage med hjälp av .NET"
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
-ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: tamram
+ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Överför objekt till/från Azure Blob storage med hjälp av .NET
 
-I den här snabbstarten att lära dig använda C# .NET du överföra, hämta och listan blockblobbar i en behållare i Azure Blob storage i Windows.
+Lär dig hur du använder .NET-klientbiblioteket för Azure Storage att överföra, hämta och visa en lista med blockblobbar i en behållare i den här snabbstarten.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabbstarten behöver du:
-
-* Installera [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) med följande arbetsbelastning:
+För att slutföra den här snabbstarten, installera [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) med följande arbetsbelastning:
+    
     - **Azure Development**
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -86,7 +83,11 @@ Du kan också använda ett verktyg som den [Azure Lagringsutforskaren](http://st
 
 När du har kontrollerat filerna, trycka på valfri tangent för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör du öppna filen Program.cs titta på koden. 
 
-## <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekt
+## <a name="understand-the-sample-code"></a>Förstå exempelkoden
+
+Därefter går vi igenom exempelkoden så att du förstår hur det fungerar.
+
+### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekt
 
 Det första du gör är att skapa referenser till objekt som används för att komma åt och hantera Blob storage. De här objekten som bygger på varandra – varje används av den nästa i listan.
 
@@ -124,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Ladda upp blobbar i behållaren
+### <a name="upload-blobs-to-the-container"></a>Ladda upp blobbar i behållaren
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobbar är de vanligaste och som används i denna Snabbstart. 
 
@@ -148,7 +149,7 @@ Det finns flera överför metoder som du kan använda med Blob storage. Till exe
 
 Blockblobbar kan vara alla slags textdata eller binära filen. Sidblobbar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Lägg till blobbar som används för inloggning, till exempel när du vill skriva till en fil och sedan hålla att lägga till mer information. De flesta objekt som lagras i Blob storage är blockblobbar.
 
-## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
+### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
 
 Du kan hämta en lista över filer i en behållare med hjälp av [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Följande kod hämtar listan över blobbar och loop genom dem, visar URI: er för de blobbar som påträffats. Du kan kopiera URI kommandofönstret och klistra in den i en webbläsare för att visa filen.
 
@@ -168,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>Ladda ned blobbar
+### <a name="download-blobs"></a>Ladda ned blobbar
 
 Ladda ned blobbar till din lokala disk med hjälp av [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
@@ -184,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>Rensa resurser
+### <a name="clean-up-resources"></a>Rensa resurser
 
 Om du behöver inte längre blobbar på den här snabbstarten, kan du ta bort hela behållaren med hjälp av [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Också ta bort de filer som skapas om de inte längre behövs.
 
@@ -200,5 +201,7 @@ I Snabbstart, du har lärt dig hur du överför filer mellan en lokal disk och A
 
 > [!div class="nextstepaction"]
 > [Anvisningar för Blob Storage-åtgärder](storage-dotnet-how-to-use-blobs.md)
+
+För ytterligare Azure Storage-kodexempel som du kan hämta och köra, se en lista över [Azure Storage-exempel som använder .NET](../common/storage-samples-dotnet.md).
 
 Mer information om Lagringsutforskaren och Blobbar finns [hantera Azure-blobblagringsresurser med Lagringsutforskaren](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

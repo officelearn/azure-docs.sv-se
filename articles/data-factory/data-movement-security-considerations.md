@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 61ccae3c77533037de1d8d8e3963d7beb3e07a65
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: bba2781d43aff9e462246cfe21961695e48196d8
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - säkerhetsaspekter för dataflyttning
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ Den här artikeln beskriver grundläggande säkerhetsinfrastruktur flytt datatj�
 
 I en Data Factory-lösning skapar du en eller flera data[pipelines](concepts-pipelines-activities.md). En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Dessa pipelines finns i den region där datafabriken har skapats. 
 
-Även om Data Factory finns bara på **östra USA** och **östra USA 2** region (version 2 preview) av data movement service är tillgänglig [globalt i flera regioner](concepts-integration-runtime.md#azure-ir). Om en av data movement service inte har distribuerats till den regionen som Data Factory-tjänsten säkerställer att data inte lämna ett geografiskt område / region om du uttryckligen instruera tjänsten för att använda en annan region. 
+Även om Data Factory finns bara på **östra USA**, **östra USA 2**, och **Västeuropa** regioner (version 2 preview) av data movement service är tillgänglig [globalt i flera regioner](concepts-integration-runtime.md#azure-ir). Om en av data movement service inte har distribuerats till den regionen som Data Factory-tjänsten säkerställer att data inte lämna ett geografiskt område / region om du uttryckligen instruera tjänsten för att använda en annan region. 
 
 Azure Data Factory själva lagrar inte alla data utom länkade tjänsten autentiseringsuppgifter för molnet datalager som krypteras med certifikat. Du kan använda den för att skapa datadrivna arbetsflöden som samordnar flödet av data mellan [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) och bearbetning av data med hjälp av [beräkningstjänster](compute-linked-services.md) i andra regioner eller i en lokal miljö. Du kan också övervaka och hantera arbetsflöden med hjälp av SDK: er och Azure-Monitor.
 

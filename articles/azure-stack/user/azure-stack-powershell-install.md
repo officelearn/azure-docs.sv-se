@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: ae489cfab1effca8fa33c4e2693b8b5229eda9c5
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure-stacken  
 
@@ -82,7 +82,7 @@ Om du vill bekräfta installationen genom att köra följande kommando:
 
 ## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>Installera PowerShell på en frånkopplad eller i ett scenario med delvis ansluten
 
-I ett frånkopplat scenario måste du först ladda ned PowerShell-moduler för en dator som är ansluten till internet och överför dem till Azure-stacken Development Kit för installation.
+I ett scenario med frånkopplade eller anslutna delvis måste du först hämta PowerShell-moduler för en dator som är ansluten till internet och överför dem till Azure-stacken Development Kit för installation.
 
 > [!IMPORTANT]
 > Version av PowerShell-modulen AzureRM 1.2.11 levereras med en lista över bryta ändringar. Uppgradera från 1.2.10 versionen finns i Migreringsguide på [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).

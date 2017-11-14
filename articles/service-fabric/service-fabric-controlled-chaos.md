@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: motanv
-ms.openlocfilehash: dad286aaf93dae49ef07a358c03b4bb13a3326ef
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c78d9e77d807f3ccf8c1f56d856abad8135989c2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Framkalla kontrollerade Chaos i Service Fabric-kluster
 Stora distribuerade system som molninfrastrukturer är natur instabilt. Azure Service Fabric kan utvecklare skriva tillförlitliga distribuerade tjänster på ett instabilt infrastruktur. Om du vill skriva robust distribuerade tjänster på en infrastruktur med instabilt behöver utvecklare för att kunna testa stabiliteten i sina tjänster medan den underliggande instabilt infrastrukturen gå igenom komplicerade tillståndsövergångar på grund av fel.
@@ -71,8 +71,8 @@ Du kan använda GetChaosReport API (powershell, C# eller REST) för att få vilk
 * **ClusterHealthPolicy**: klustret hälsoprincip används för att kontrollera hälsotillståndet för klustret between Chaos iterationer. Om klustret hälsa är felaktigt eller om ett oväntat undantag inträffar under körning av fel Chaos ska vänta i 30 minuter innan nästa-hälsotillståndskontroll - att ge lite tid att recuperate klustret.
 * **Kontexten**: en samling (sträng, sträng) anger nyckel-värdepar. Kartan kan användas för att registrera information om Chaos kör. Det får inte finnas fler än 100 par och varje sträng (nyckel eller ett värde) får innehålla högst 4095 tecken. Den här kartan anges av starter kaotisk kör för att lagra kontexten om specifika kör.
 * **ChaosTargetFilter**: det här filtret kan användas för att målet Chaos fel endast vissa nodtyper eller bara vissa programinstanser. Om inte ChaosTargetFilter används hos Chaos alla entiteter i klustret. Om ChaosTargetFilter används hos Chaos de enheter som uppfyller ChaosTargetFilter-specifikationen. NodeTypeInclusionList och ApplicationInclusionList kan union semantik. Med andra ord, går det inte att ange en skärningspunkt för NodeTypeInclusionList och ApplicationInclusionList. T.ex, går det inte att ange ”fault det här programmet endast när det är för att nodtypen”. När en entitet ingår i NodeTypeInclusionList eller ApplicationInclusionList kan entiteten inte uteslutas med ChaosTargetFilter. Även om applicationX inte visas i ApplicationInclusionList, i vissa Chaos iteration kan applicationX vara fel eftersom det sker på en nod i nodeTypeY som ingår i NodeTypeInclusionList. Om både NodeTypeInclusionList och ApplicationInclusionList är null eller tomt, genereras ett ArgumentException.
-    * **NodeTypeInclusionList**: en lista över nodtyper som ska ingå i Chaos fel. Alla typer av fel (starta om nod, starta om codepackage, ta bort replik, starta om repliken, flytta primära och sekundära) har aktiverats för noder av nodtyperna. Om en nodetype (säga NodeTypeX) visas inte i NodeTypeInclusionList, och sedan noden nivån fel (till exempel NodeRestart) aldrig ska aktiveras för noderna i NodeTypeX, men koden paketet och repliken fel kan fortfarande aktiveras för NodeTypeX om ett program i den ApplicationInclusionList råkar finnas på en nod i NodeTypeX. Högst 100 typen nodnamn kan ingå i den här listan för att öka antalet, en config-uppgradering krävs för MaxNumberOfNodeTypesInChaosEntityFilter konfiguration.
-    * **ApplicationInclusionList**: en lista över program URI: er ska ingå i Chaos fel. Alla repliker som hör till av dessa program lämpar sig för att repliken fel (starta om repliken, ta bort replik, flytta primära och flytta sekundära) genom Chaos. Chaos kan starta om en kodpaketet endast om kodpaketet värd replikerna för dessa program bara. Om ett program inte visas i listan, kan det fortfarande vara fel i vissa Chaos iteration om programmet som hamnar på en nod av typen som är incuded i NodeTypeInclusionList. Men om applicationX är knutna till nodeTypeY via placeringen och applicationX saknas från ApplicationInclusionList och nodeTypeY saknas från NodeTypeInclusionList, sedan applicationX aldrig blir felaktig. Högst 1000 programnamn kan ingå i den här listan för att öka antalet, en config-uppgradering krävs för MaxNumberOfApplicationsInChaosEntityFilter konfiguration.
+    * **NodeTypeInclusionList**: en lista över nodtyper som ska ingå i Chaos fel. Alla typer av fel (starta om nod, starta om codepackage, ta bort replik, starta om repliken, flytta primära och sekundära) har aktiverats för noder av nodtyperna. Om en nodetype (säga NodeTypeX) visas inte i NodeTypeInclusionList, och sedan noden nivån fel (till exempel NodeRestart) aldrig ska aktiveras för noderna i NodeTypeX, men koden paketet och repliken fel kan fortfarande aktiveras för NodeTypeX om ett program i den ApplicationInclusionList råkar finnas på en nod i NodeTypeX. Högst 100 typen nodnamn kan ingå i den här listan för att öka antalet, en config-uppgradering krävs för MaxNumberOfNodeTypesInChaosTargetFilter konfiguration.
+    * **ApplicationInclusionList**: en lista över program URI: er ska ingå i Chaos fel. Alla repliker som hör till av dessa program lämpar sig för att repliken fel (starta om repliken, ta bort replik, flytta primära och flytta sekundära) genom Chaos. Chaos kan starta om en kodpaketet endast om kodpaketet värd replikerna för dessa program bara. Om ett program inte visas i listan, kan det fortfarande vara fel i vissa Chaos iteration om programmet som hamnar på en nod av typen som är incuded i NodeTypeInclusionList. Men om applicationX är knutna till nodeTypeY via placeringen och applicationX saknas från ApplicationInclusionList och nodeTypeY saknas från NodeTypeInclusionList, sedan applicationX aldrig blir felaktig. Högst 1000 programnamn kan ingå i den här listan för att öka antalet, en config-uppgradering krävs för MaxNumberOfApplicationsInChaosTargetFilter konfiguration.
 
 ## <a name="how-to-run-chaos"></a>Hur du kör Chaos
 
@@ -141,7 +141,7 @@ class Program
             };
 
             // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-            // for nodes of types 'N0040Ref' and 'N0010Ref'
+            // for nodes of type 'FrontEndType'
             var nodetypeInclusionList = new List<string> { "FrontEndType"};
 
             // In addition to the faults included by nodetypeInclusionList, 
@@ -274,7 +274,7 @@ $chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.Cha
 $chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
 
 # All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-# for nodes of types 'N0040Ref' and 'N0010Ref'
+# for nodes of type 'FrontEndType'
 $chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
 $chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
 
@@ -320,3 +320,4 @@ while($true)
     Start-Sleep -Seconds 1
 }
 ```
+Git 

@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: bb0d996b950a31e3eaaaa9d90a6b96617b58192f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="templates-for-azure-policy"></a>Mallar för Azure-princip
 
-Följande tabell innehåller länkar till json-mallar för Azure-principen.
+Följande tabell innehåller länkar till json-mallar för Azure-principen. De här exemplen finns i den [Azure princip prover databasen](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**Compute**||
 | [Godkända VM-avbildningar](scripts/allowed-custom-images.md) | Kräver att enbart godkänd anpassade avbildningar distribuerats i din miljö. Du anger en matris med godkända avbildningen ID: N. |
-| [Skapa virtuell dator med hanterad Disk](scripts/create-vm-managed-disk.md) | Granskningar när en virtuell dator skapas som inte använder hanterade diskar.|
+| [Granska när VM inte använder hanteras Disk](scripts/create-vm-managed-disk.md) | Granskningar när en virtuell dator skapas som inte använder hanterade diskar.|
 | [Granska om tillägg inte finns](scripts/audit-ext-not-exist.md) | Granskningar om filnamnstillägget inte har distribuerats till en virtuell dator. Anger du tillägg utgivaren och typ för att kontrollera om den har distribuerats. |
 | [Tillåt anpassade VM-avbildning från en resursgrupp](scripts/allow-custom-vm-image.md) |  Kräver att anpassade avbildningar kommer från en godkänd resursgrupp. Du kan ange namnet på resursgruppen godkända. |
 | [Neka hybrid Använd förmån](scripts/deny-hybrid-use.md) | Tillåter inte användning av Azure (AHUB Hybrid använda förmånen). Använd när du inte vill tillåta att den lokala licenser. |
@@ -39,6 +39,11 @@ Följande tabell innehåller länkar till json-mallar för Azure-principen.
 | [Skapa virtuell dator med hanterad Disk](scripts/use-managed-disk-vm.md) | Kräver att virtuella datorer använder hanterade diskar.|
 |**Övervakning**||
 | [Granska diagnostikinställningen](scripts/audit-diag-setting.md) | Granskningar om diagnostikinställningar har inte aktiverats för anges resurstyper. Du anger en matris med resurstyper för att kontrollera om diagnostikinställningar är aktiverade. |
+|**Namn och text**||
+| [Tillåt flera namn mönster](scripts/allow-multiple-name-patterns.md) | Tillåt en av många namn mönster som ska användas för resurser. |
+| [Kräv som mönster](scripts/enforce-like-pattern.md) | Kontrollera resursnamn uppfyller villkoret like för ett mönster. |
+| [Kräv matchningsmönster](scripts/enforce-match-pattern.md) | Se till att resursnamnen matchar namngivningsmönstret. |
+| [Kräv taggen matchningsmönster](scripts/enforce-tag-match-pattern.md) | Se till att ett Taggvärde matchar ett textmönster. |
 |**Nätverk**||
 | [Tillåtna program Gateway-SKU: er](scripts/allowed-app-gate-sku.md) | Kräver att programgatewayer använder en godkänd SKU. Du anger en matris med godkända SKU: er. |
 | [Granska om Nätverksbevakaren inte har aktiverats för region](scripts/net-watch-not-enabled.md) | Granskningar om nätverksbevakaren inte har aktiverats för ett visst område. Du kan ange namnet på regionen som ska kontrollera om nätverksbevakaren har aktiverats. |

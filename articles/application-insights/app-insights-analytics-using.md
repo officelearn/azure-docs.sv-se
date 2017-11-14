@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 50161c71443a3cc0192ab2db771bb258058e233c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Med hjälp av Analytics i Application Insights
 [Analytics](app-insights-analytics.md) är kraftfull sökfunktionen i [Programinsikter](app-insights-overview.md). Dessa sidor beskrivs Log Analytics-frågespråket.
@@ -38,7 +38,7 @@ Det finns en [mer omfattande rundtur här](app-insights-analytics-tour.md).
 ### <a name="write-a-query"></a>Skriva en fråga
 ![Visa schema](./media/app-insights-analytics-using/150.png)
 
-Börja med namnen på någon av de tabeller som visas till vänster (eller [intervallet](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) eller [union](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html) operatörer). Använd `|` du skapar en pipeline för [operatörer](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
+Börja med namnen på någon av de tabeller som visas till vänster (eller [intervallet](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/range-operator) eller [union](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/union-operator) operatörer). Använd `|` du skapar en pipeline för [operatörer](https://docs.loganalytics.io/docs/Learn/References/Useful-operators). 
 
 IntelliSense får operatörerna och Uttryckselement som du kan använda. Klicka på informationsikonen (eller trycker på CTRL + blanksteg) att hämta en utförligare beskrivning och exempel på hur du använder varje element.
 
@@ -49,7 +49,7 @@ Finns det [Analytics språk rundtur](app-insights-analytics-tour.md) och [Språk
 
 1. Du kan använda enkel radbrytningar i en fråga.
 2. Placera markören i eller i slutet av du vill köra frågan.
-3. Kontrollera tidsintervallet på din fråga. (Du kan ändra det eller åsidosätta den genom att lägga till egna [ `where...timestamp...` ](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html) -sats i frågan.)
+3. Kontrollera tidsintervallet på din fråga. (Du kan ändra det eller åsidosätta den genom att lägga till egna [ `where...timestamp...` ](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations) -sats i frågan.)
 3. Klicka på OK om du vill köra frågan.
 4. Placera inte tomma rader i frågan. Du kan behålla flera separata frågor i en fråga flik genom att avgränsa dem med tomma rader. Den fråga som har markören körs.
 
@@ -71,7 +71,7 @@ Du kan sortera, filtrera, sidbryta och grupperar resultaten från frågan.
 > [!NOTE]
 > Sortering, gruppering och filtrering i webbläsaren om du kör inte frågan igen. De endast ordna om resultaten som returnerades av din senaste fråga. 
 > 
-> Om du vill utföra åtgärderna i servern innan resultaten returneras, skriva en fråga med den [sortera](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [sammanfatta](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) och [där](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) operatörer.
+> Om du vill utföra åtgärderna i servern innan resultaten returneras, skriva en fråga med den [sortera](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator), [sammanfatta](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) och [där](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) operatörer.
 > 
 > 
 
@@ -99,7 +99,7 @@ Om du tror att du inte kan se alla resultat som du förväntade dig, finns det n
 
     Du kan dock ändra tidsintervallet filtret med hjälp av den nedrullningsbara menyn.
 
-    Eller du kan åsidosätta det automatiska intervallet genom att inkludera egna [ `where  ... timestamp ...` satsen](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) i frågan. Exempel:
+    Eller du kan åsidosätta det automatiska intervallet genom att inkludera egna [ `where  ... timestamp ...` satsen](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) i frågan. Exempel:
 
     `requests | where timestamp > ago('2d')`
 
@@ -107,10 +107,10 @@ Om du tror att du inte kan se alla resultat som du förväntade dig, finns det n
 
     Det är bästa praxis bör du undvika att träffa gränsen. Ange intervallet tidsfiltret eller operatorer som:
 
-  * [de 100 främsta av tidsstämpel](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
-  * [ta 100](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
-  * [Sammanfatta](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
-  * [där tidsstämpel > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
+  * [de 100 främsta av tidsstämpel](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
+  * [ta 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
+  * [Sammanfatta](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [där tidsstämpel > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (Vill ha mer än 10 k raderna? Överväg att använda [löpande Export](app-insights-export-telemetry.md) i stället. Analytics är utformad för analys, i stället för hämtning rådata.)
 
@@ -121,7 +121,7 @@ Välj typ av diagram som du vill:
 
 Om du har flera kolumner med rätt typer kan välja du x och y-axlarna och av dimensioner som du vill dela resultatet av en kolumn.
 
-Som standard visas först som en tabell och du väljer diagrammet manuellt. Men du kan använda den [återge direktiv](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) i slutet av en fråga för att välja ett diagram.
+Som standard visas först som en tabell och du väljer diagrammet manuellt. Men du kan använda den [återge direktiv](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) i slutet av en fråga för att välja ett diagram.
 
 ### <a name="analytics-diagnostics"></a>Analytics-diagnostik
 

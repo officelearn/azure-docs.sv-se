@@ -7,13 +7,13 @@ manager: routlaw
 ms.service: virtual-machines-linux
 ms.custom: devops
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/13/2017
 ms.author: tarcher
-ms.openlocfilehash: 859c0a2f2cf315e9168ed9828061c03da6b8e0a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Skapa ett VM-kluster med Terraform och LISTAN
 
@@ -35,7 +35,7 @@ I den här kursen har du:
 
 I det här avsnittet Skapa en Azure tjänstens huvudnamn, och två Terraform configuration-filer som innehåller autentiseringsuppgifter från säkerhetsobjektet.
 
-1. [Konfigurera en Azure AD-tjänstens huvudnamn](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) att aktivera Terraform etablera resurser i Azure. När du skapar objektet anteckna värdena för prenumerations-ID, klient-ID, namn och lösenord.
+1. [Konfigurera en Azure AD-tjänstens huvudnamn](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) att aktivera Terraform etablera resurser i Azure. När du skapar objektet anteckna värdena för prenumerations-ID, klient, appId och lösenord.
 
 2. Öppna en kommandotolk.
 
@@ -236,7 +236,7 @@ Om du vill initiera Terraform, kör du följande kommando:
 
 Den [terraform plan kommandot](https://www.terraform.io/docs/commands/plan.html) används för att skapa en Körningsplan. Om du vill generera en åtgärdsplan Terraform aggregerar alla de `.tf` filer i den aktuella katalogen. 
 
-Om du arbetar samarbeta där konfigurationen kan ändra mellan när du skapar körningsplanen och tidpunkten du tillämpa körningsplanen bör du använda den [terraform plan kommando-out-parameter](https://www.terraform.io/docs/commands/plan.html#out-path)och utdata körningsplanen i en fil. Annars, om du arbetar i en enda person miljö kan du utelämna den `-out` parameter.
+Om du arbetar samarbeta där konfigurationen kan ändra mellan när du skapar körningsplanen och tidpunkten du tillämpa körningsplanen bör du använda den [terraform plan kommando-out-parameter](https://www.terraform.io/docs/commands/plan.html#out-path)spara körningsplanen i en fil. Annars, om du arbetar i en enda person miljö kan du utelämna den `-out` parameter.
 
 Om namnet på filen Terraform variabler inte är `terraform.tfvars` och inte följer den `*.auto.tfvars` mönster, måste du ange namn på filen med den [terraform plan kommando - var filen parametern](https://www.terraform.io/docs/commands/plan.html#var-file-foo) när du kör `terraform plan`kommando.
 

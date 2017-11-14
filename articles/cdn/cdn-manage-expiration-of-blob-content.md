@@ -1,5 +1,5 @@
 ---
-title: "Hantera förfallodatum för Azure Storage-blobbar i Azure CDN | Microsoft Docs"
+title: "Hantera förfallodatum för Azure Blob-lagring i Azure Content Delivery Network | Microsoft Docs"
 description: "Läs mer om alternativen för att styra time to live för BLOB i Azure CDN cachelagring."
 services: cdn
 documentationcenter: 
@@ -12,31 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b8f9d439184b91f8105e6bd136e48525632a85
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Hantera förfallodatum för Azure Storage-blobbar i Azure CDN
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Hantera förfallodatum för Azure Blob-lagring i Azure Content Delivery Network
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/molntjänster, ASP.NET och IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Storage blob-tjänst](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-Den [blob-tjänst](../storage/common/storage-introduction.md#blob-storage) i [Azure Storage](../storage/common/storage-introduction.md) är en av flera Azure-baserade ursprung integrerat med Azure CDN.  Alla offentliga blob-innehåll cachelagras i Azure CDN tills dess time to live (TTL) går ut.  TTL-värdet bestäms av den [ *Cache-Control* huvud](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) i HTTP-svaret från Azure Storage.
+Den [blob-tjänst](../storage/common/storage-introduction.md#blob-storage) i [Azure Storage](../storage/common/storage-introduction.md) är en av flera Azure-baserade ursprung integrerat med Azure Content Delivery Network (CDN). Alla offentliga blob-innehåll cachelagras i Azure CDN tills dess time to live (TTL) går ut. TTL-värdet bestäms av den [ `Cache-Control` huvud](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) i HTTP-svaret från Azure Storage.
 
 > [!TIP]
-> Du kan välja att ange inga TTL-värde för en blob.  I det här fallet gäller Azure CDN automatiskt en standard-TTL sju dagar.
+> Du kan välja att ange inga TTL-värde för en blob. I det här fallet gäller Azure CDN automatiskt en standard-TTL sju dagar.
 > 
-> Mer information om hur Azure CDN fungerar för att påskynda åtkomst till blobbar och andra filer finns i [översikt över Azure CDN](cdn-overview.md).
+> Mer information om hur Azure CDN fungerar för att påskynda åtkomst till blobbar och andra filer finns [översikt över Azure innehållsleveransnätverk](cdn-overview.md).
 > 
-> Mer information om Azure Storage blob-tjänsten finns [Blob-Tjänstkoncept](https://msdn.microsoft.com/library/dd179376.aspx). 
-> 
-> 
+> Mer information om Azure Blob storage finns [introduktion till Blob storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+ 
 
 Den här kursen visar flera olika sätt som du kan ange TTL-värdet för en blobb i Azure Storage.  
 
@@ -93,14 +92,14 @@ class Program
 ```
 
 > [!TIP]
-> Det finns många fler .NET-kodexempel i den [Azure Blob Storage-exempel för .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
+> Det finns många fler .NET-kodexempel i [Azure Blob Storage-exempel för .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 > 
 > 
 
 ## <a name="other-methods"></a>Andra metoder
 * [Azure kommandoradsgränssnittet](../cli-install-nodejs.md)
   
-    När du hämtar blob, ange den *cacheControl* egenskapen med det `-p` växla.  Det här exemplet anger TTL-värdet till en timme (3600 sekunder).
+    När du hämtar blob, ange den *cacheControl* egenskapen med hjälp av den `-p` växla. Det här exemplet anger TTL-värdet till en timme (3600 sekunder).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -112,10 +111,10 @@ class Program
   
     Vissa tredjeparts-hanteringsverktyg för Azure Storage kan du ange den *CacheControl* egenskapen för BLOB. 
 
-## <a name="testing-the-cache-control-header"></a>Testa den *Cache-Control* sidhuvud
-Du kan enkelt kontrollera TTL-värde på dina blobbar.  Använda din webbläsare [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test som din blob inklusive den *Cache-Control* Svarsrubrik.  Du kan också använda ett verktyg som **wget**, [Postman](https://www.getpostman.com/), eller [Fiddler](http://www.telerik.com/fiddler) att undersöka svarshuvuden.
+## <a name="testing-the-cache-control-header"></a>Testa Cache-Control-huvudet
+Du kan enkelt kontrollera TTL-värde på dina blobbar.  Använda din webbläsare [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test som din blob innehåller den `Cache-Control` Svarsrubrik. Du kan också använda ett verktyg som **wget**, [Postman](https://www.getpostman.com/), eller [Fiddler](http://www.telerik.com/fiddler) att undersöka svarshuvuden.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om den *Cache-Control* sidhuvud](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Läs mer om den `Cache-Control` sidhuvud](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Lär dig hur du hanterar du förfallodatum för Molntjänsten innehåll i Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

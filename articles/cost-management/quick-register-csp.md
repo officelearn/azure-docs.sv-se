@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrera med CSP-Partner-program och visa data
 
@@ -22,7 +22,13 @@ Du kan registrera med Azure kostnaden Management med Cloudyn som CSP-partner. Re
 
 
 >[!NOTE]
->Du måste vara en partner program administratör med åtkomst till Partner Center API för att slutföra registreringen. Konfiguration av Partner Center API krävs för autentisering och åtkomst till data. Mer information finns i [Anslut till Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Dessutom kan indirekt CSP-användare endast använda Cloudyn när deras direkt CSP återförsäljare registrerar med Cloudyn att ge åtkomst till sina kunder och prenumerationer.
+
+>Endast Kryptografiprovider direkt partners och leverantörer av CSP indirekt kan slutföra Cloudyn registreringen.
+>
+>Konfigurera Partner Center API krävs för autentisering och åtkomst till data. Ett konto som Global administratör för Partner Center behövs för att etablera API-åtkomst.
+Mer information finns i [Anslut till Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>Åtkomst till Cloudyn kan göras tillgänglig för CSP indirekt återförsäljare när deras indirekt kryptografiprovidern registreras i Cloudyn. CSP indirekt återförsäljare kan sedan ge Cloudyn åtkomst till Azure-kunder och prenumerationer.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 

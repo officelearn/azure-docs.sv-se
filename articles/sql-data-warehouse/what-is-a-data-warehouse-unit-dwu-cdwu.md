@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 93f0d21c7214487ffa0c2c5e27bd6e468920418c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informationslagerenheter (dwu: er) och beräkning Informationslagerenheter (cDWUs)
 Beskriver Informationslagerenheter (dwu: er) och beräkna Informationslagerenheter (cDWUS) för Azure SQL Data Warehouse. Innehåller rekommendationer för att välja bästa antalet informationslagerenheter och hur du ändrar antalet. 
@@ -52,16 +52,8 @@ Både dwu: er och cDWUs stöd för skalning beräkning uppåt eller nedåt och p
 Om du ökar informationslagerenheter ökar linjärt du datorresurser. Den optimerade för beräkning prestandanivån ger bästa frågeprestanda och högsta skala men har en högre pris. Det är utformat för företag som har ett konstant krav på prestanda. Dessa system se de flesta användning av cachen. 
 
 ### <a name="capacity-limits"></a>Kapacitetsbegränsningar
-Som standard har varje Server (till exempel myserver.database.windows.net) en kvot som begränsar storlek och skala databaser på instansen. En server kan vara värd för SQL DW- och SQL DB-databaser som måste rymmas inom kvoten. Den här kvoten mäts i databasen transaktion enheter (DTU) och är som standard till 54 000 att upp till 6000 cDWU. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom att skapa ett supportärende och välja ”kvoten” som den Begärandetypen. 
+Varje SQLServer (till exempel myserver.database.windows.net) har en [Database Transaction Units (DTU)](../sql-database/sql-database-what-is-a-dtu.md) kvot som gör att ett visst antal informationslagerenheter. Mer information finns i [arbetsbelastning management kapacitetsbegränsningar](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-Om du vill beräkna DTU-krav, gäller följande multiplikatorer DTU-beräkning:
-
-| Prestandanivå | Måttenhet | DTU multiplikator | Exempel                   |
-|:----------------:|----------------:|---------------:|--------------------------:|
-| Elasticitet       |  DWU            | 7.5            | DW6000 x 7.5 = 45,000 DTU |
-| Compute          | cDWU            | 9              | DW6000 x 7.5 = 54 000 DTU |
-
-Du kan visa din aktuella DTU-förbrukning se egenskaper för SQL server i portalen.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Hur många informationslagerenheter behöver jag?
 Idealiskt antalet informationslagerenheter beror mycket på din arbetsbelastning och mängden data som du har läst in i systemet.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln gäller för version 2 av Azure Data Factory-tjänsten. Den innehåller svar på vanliga frågor om Data Factory.  
@@ -152,7 +152,7 @@ Mer information om Data Factory-begrepp finns i följande artiklar:
 Azure Data Factory prisinformation finns [Data Factory prisinformation](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>Vilka regioner stöd för Azure Data Factory version 2?
-För närvarande kan du skapa datafabriker för version 2 i östra USA och östra USA 2 regioner. En datafabrik kan dock använda integration körning i en annan region för att flytta data mellan datalager, dispatch aktiviteter mot beräkning tjänster eller dispatch SSIS-paket. Mer information finns i [Data Factory platser](concepts-integration-runtime.md#integration-runtime-location).
+För närvarande kan du skapa datafabriker för version 2 i östra USA, östra USA 2 och Västeuropa regioner. En datafabrik kan dock använda integration körning i en annan region för att flytta data mellan datalager, dispatch aktiviteter mot beräkning tjänster eller dispatch SSIS-paket. Mer information finns i [Data Factory platser](concepts-integration-runtime.md#integration-runtime-location).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Hur kan jag hålla dig uppdaterad med information om Data Factory?
 Den senaste informationen om Azure Data Factory finns på följande webbplatser:

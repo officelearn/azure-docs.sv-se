@@ -3,7 +3,7 @@ title: Node.js-program med Socket.io | Microsoft Docs
 description: "Lär dig hur du använder socket.io i ett node.js-program i Azure."
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: a85d4348a13b79b5b7542362de9956aa3398375a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Skapa en Node.js-chattprogram med Socket.IO i en Azure-molntjänst
 Socket.IO ger realtid kommunikation mellan mellan din node.js-server och klienter. Den här kursen får du via värdskap en socket. I/o baserat på Azure-chattprogram. Mer information om Socket.IO finns <http://socket.io/>.

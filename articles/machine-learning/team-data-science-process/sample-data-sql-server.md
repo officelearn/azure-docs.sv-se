@@ -4,7 +4,7 @@ description: "Exempeldata i SQLServer på Azure"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>Exempeldata i SQL Server på Azure
-Det här dokumentet visar hur du samla in data som lagras i SQL Server på Azure med hjälp av SQL- eller Python-programmeringsspråket. Den visar även hur du flyttar samplade data till Azure Machine Learning genom att spara den till en fil, överföra den till en Azure blob och läsa den i Azure Machine Learning Studio.
+Den här artikeln visar hur du samla in data som lagras i SQL Server på Azure med hjälp av SQL- eller Python-programmeringsspråket. Den visar även hur du flyttar samplade data till Azure Machine Learning genom att spara den till en fil, överföra den till en Azure blob och läsa den i Azure Machine Learning Studio.
 
 Python provtagning använder den [pyodbc](https://code.google.com/p/pyodbc/) ODBC-biblioteket för att ansluta till SQL Server på Azure och [Pandas](http://pandas.pydata.org/) biblioteket för att göra beräkningarna.
 
 > [!NOTE]
-> Exempelkoden SQL i det här dokumentet förutsätter att data i en SQL Server på Azure. Om det inte finns [flytta data till SQL Server på Azure](move-sql-server-virtual-machine.md) avsnittet för instruktioner om hur du flyttar dina data till SQL Server på Azure.
+> Exempelkoden SQL i det här dokumentet förutsätter att data i en SQL Server på Azure. Om det inte finns [flytta data till SQL Server på Azure](move-sql-server-virtual-machine.md) artikel instruktioner om hur du flyttar dina data till SQL Server på Azure.
 > 
 > 
 
-Följande **menyn** länkar till avsnitt som beskriver hur du exempeldata från olika miljöer för lagring. 
+Följande **menyn** länkar till artiklar som beskriver hur du exempeldata från olika miljöer för lagring. 
 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
@@ -42,7 +42,7 @@ Sampling uppgiften är ett steg i den [Team Data vetenskap processen (TDSP)](htt
 ## <a name="SQL"></a>Med SQL
 Det här avsnittet beskrivs flera metoder som använder SQL för att utföra enkla slumpmässig provtagning mot data i databasen. Välj en metod baserat på datastorleken på din och dess distributionsplatser.
 
-De två objekten nedan visar hur du använder newid i SQL Server för att utföra beräkningarna. Vilken metod du väljer beror på hur slumpmässiga du vill att samplet som ska vara (pk_id i koden nedan antas vara en automatiskt genererad primärnyckel).
+Följande två objekt visar hur du använder `newid` i SQL Server för att utföra beräkningarna. Vilken metod du väljer beror på hur slumpmässiga du vill att samplet som ska vara (pk_id i följande exempelkod antas vara en automatiskt genererad primärnyckel).
 
 1. Mindre strikta slumpmässigt prov
    
@@ -53,7 +53,7 @@ De två objekten nedan visar hur du använder newid i SQL Server för att utför
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample kan vara används för provtagning som visas nedan. Detta kan vara en bättre metod om dina data är stor (förutsatt att data på olika sidor inte korreleras) och för frågan ska slutföras inom en rimlig tid.
+Tablesample kan användas för datasampling samt. Detta kan vara en bättre metod om dina data är stor (förutsatt att data på olika sidor inte korreleras) och för frågan ska slutföras inom en rimlig tid.
 
     SELECT *
     FROM <table_name> 
@@ -65,7 +65,7 @@ Tablesample kan vara används för provtagning som visas nedan. Detta kan vara e
 > 
 
 ### <a name="sql-aml"></a>Ansluta till Azure Machine Learning
-Du kan använda exempelfrågor ovan direkt i Azure Machine Learning [importera Data] [ import-data] modulen ned-sample data direkt och sätta den i ett Azure Machine Learning-experiment. En skärmbild av med hjälp av modulen läsare för att läsa samplade data visas nedan:
+Du kan använda exempelfrågor ovan direkt i Azure Machine Learning [importera Data] [ import-data] modulen ned-sample data direkt och sätta den i ett Azure Machine Learning-experiment. Här visas en skärmbild av med hjälp av modulen läsare för att läsa samplade data:
 
 ![läsaren sql][1]
 
@@ -76,7 +76,7 @@ Det här avsnittet visas hur du använder den [pyodbc biblioteket](https://code.
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Den [Pandas](http://pandas.pydata.org/) i Python-bibliotek innehåller ett stort utbud av datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering. Koden nedan läser en 0,1% exempeldata från en tabell i Azure SQL-databas i en Pandas data:
+Den [Pandas](http://pandas.pydata.org/) i Python-bibliotek innehåller ett stort utbud av datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering. Följande kod läser en 0,1% exempeldata från en tabell i Azure SQL-databas i en Pandas data:
 
     import pandas as pd
 
@@ -112,12 +112,12 @@ Du kan använda följande exempelkod för att spara provtagning ned data till en
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Läsa data från Azure blob med hjälp av Azure Machine Learning [importera Data] [ import-data] modulen som visas i den skärmen grab nedan:
+3. Läsa data från Azure blob med hjälp av Azure Machine Learning [importera Data] [ import-data] modulen som visas i följande skärmbild grab:
 
 ![läsaren blob][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Team vetenskap av data i åtgärden exempel
-En slutpunkt till slutpunkt genomgången exempel på Team av vetenskapliga data med en offentlig dataset finns [Team vetenskap av data i praktiken: med hjälp av SQL Server](sql-walkthrough.md).
+Till genomgången ett exempel på Team av vetenskapliga data med en offentlig dataset finns [Team vetenskap av data i praktiken: använder SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

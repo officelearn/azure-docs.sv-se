@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 925bada91216b98175fb725e7aba6a31f305839d
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="internet-of-things-security-architecture"></a>Sakernas Internet-säkerhetsarkitekturen
 När ett system utformas, är det viktigt att förstå potentiella hot på systemet och lägga till lämpliga försvar därför eftersom systemet är utformad och konstruerad. Det är särskilt viktigt att utforma produkten från början med säkerhet i åtanke eftersom förstå hur en angripare kan vara att en dator gör att lämpliga åtgärder finns på plats från början. 
@@ -88,7 +88,7 @@ För att optimera säkerhetsmetoder, rekommenderas det att en typisk IoT-arkitek
 * Molnet gateways, och
 * Tjänster.
 
-Zoner är breda sätt att segmentera en lösning. varje zon har ofta krav data och autentisering och auktorisering. Zoner kan också användas för att skada isolering och begränsa effekten av låg förtroende zoner på högre förtroende zoner.
+Zoner är breda sätt att segmentera en lösning. varje zon har ofta krav data och autentisering och auktorisering. Zoner kan också användas för att isolera skador och begränsa effekten av låg förtroende zoner på högre förtroende zoner.
 
 Varje zon skiljs åt av en förtroende gräns som anges som prickad röd linje i diagrammet nedan. Representerar en övergång av data/information från en källa till en annan. Under den här övergången kan informationen vara föremål Spoofing, Tampering, Repudiation, avslöjande av Information, Denial of Service och höjning av privilegier (STRIDE).
 

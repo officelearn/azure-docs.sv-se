@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Metodtips för Azure App Service
 Den här artikeln sammanfattar Metodtips för [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -40,7 +40,26 @@ När du upptäcker att en app förbrukar mer CPU än förväntat eller inträffa
 Mer information om ”statefull” eller ”tillståndslösa” program kan du titta på den här videon: [planera en skalbar slutpunkt till slutpunkt Flernivåapp på Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för skalning och autoskalning i Apptjänst: [skala en Webbapp i Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>När socketen resurserna är uttömda
-En vanlig orsak till lång körningstid förbrukar utgående TCP-anslutningar är användningen av klientbibliotek som inte implementeras återanvända TCP-anslutningar eller om ett högre nivå protokoll, till exempel HTTP - Keep-Alive inte utnyttjas. Granska dokumentationen för varje bibliotek som refereras av appar i din App Service-Plan så konfigureras eller komma åt i koden för effektiv användning av utgående anslutningar. Du kan även följa biblioteket dokumentationen vägledning för rätt skapas och versionen eller rensning för att undvika läcka anslutningar. När sådana klientbibliotek de pågår påverkas kan undvikas genom att skala ut till flera instanser.  
+En vanlig orsak till lång körningstid förbrukar utgående TCP-anslutningar är användningen av klientbibliotek som inte implementeras återanvända TCP-anslutningar eller om ett högre nivå protokoll, till exempel HTTP - Keep-Alive inte utnyttjas. Granska dokumentationen för varje bibliotek som refereras av appar i din App Service-Plan så konfigureras eller komma åt i koden för effektiv användning av utgående anslutningar. Du kan även följa biblioteket dokumentationen vägledning för rätt skapas och versionen eller rensning för att undvika läcka anslutningar. När sådana klientbibliotek de pågår påverkas kan undvikas genom att skala ut till flera instanser.
+
+### <a name="nodejs-and-outgoing-http-requests"></a>Node.js och utgående http-begäranden
+När du arbetar med Node.js och många utgående http-begäranden är med HTTP - Keep-Alive mycket viktiga. Du kan använda den [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` så att det blir enklare i koden.
+
+Du bör alltid hantera den `http` svar, även om du inte gör någonting i hanteraren. Om du inte hantera svaret korrekt, kommer så småningom tillämpningsprogrammet fastna eftersom ingen mer sockets är tillgängliga.
+
+Till exempel när du arbetar med den `http` eller `https` paketet:
+
+```
+var request = https.request(options, function(response) {
+    response.on('data', function() { /* do nothing */ });
+});
+```
+
+Om du kör på Apptjänst i Linux på en dator med flera kärnor, är en annan bästa praxis att använda PM2 för att starta flera Node.js-processer för att köra programmet. Du kan göra detta genom att ange ett startkommando för att din behållare.
+
+Till exempel för att starta fyra instanser:
+
+`pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
 ## <a name="appbackup"></a>När en app Säkerhetskopiera startar misslyckas
 De två vanligaste orsakerna varför app säkerhetskopieringen misslyckas är: Ogiltig lagringsinställningarna och konfiguration av ogiltig databas. Dessa fel inträffa vanligtvis när det finns ändringar till lagring eller databasen resurser eller ändringar att få åtkomst till dessa resurser (t.ex. autentiseringsuppgifter som uppdateras med den valda i inställningarna för säkerhetskopiering databasen). Säkerhetskopieringar normalt körs enligt ett schema och kräver åtkomst till lagring (för att mata ut de säkerhetskopierade filer) och databaser (för kopiera och läsning av innehållet som ska ingå i säkerhetskopian). Resultat för att komma åt någon av dessa resurser inte är konsekvent säkerhetskopieringen har misslyckats. 

@@ -3,7 +3,7 @@ title: "Kör Cassandra med Linux i Azure | Microsoft Docs"
 description: "Hur du kör ett Cassandra kluster på Linux i Azure Virtual Machines från en Node.js-app"
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: tomarcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Kör Cassandra med Linux på Azure och få åtkomst till det från Node.js
 > [!IMPORTANT] 
@@ -327,7 +327,7 @@ Data och Web undernät kan skyddas via nätverkssäkerhetsgrupper täckning som 
 **Steg 2: Etablera virtuella datorer** med den avbildning som har skapats tidigare vi skapar följande virtuella datorer i molnet server ”hk-c-svc-Väst” och binda dem till respektive undernät som visas nedan:
 
 <table>
-<tr><th>Namnet på datorn    </th><th>Undernät    </th><th>IP-adress    </th><th>Tillgänglighetsuppsättning</th><th>DC/Rack</th><th>Startvärde för?</th></tr>
+<tr><th>Datornamn    </th><th>Undernät    </th><th>IP-adress    </th><th>Tillgänglighetsuppsättning</th><th>DC/Rack</th><th>Startvärde för?</th></tr>
 <tr><td>HK-c1-Väst-oss    </td><td>Data    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack1 </td><td>Ja</td></tr>
 <tr><td>HK-c2-Väst-oss    </td><td>Data    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack1    </td><td>Nej </td></tr>
 <tr><td>HK-c3-Väst-oss    </td><td>Data    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Ja</td></tr>
@@ -451,8 +451,8 @@ Du bör se en skärm som liknar den nedan:
 
 <table>
   <tr><th> customer_id </th><th> Förnamn </th><th> Efternamn </th></tr>
-  <tr><td> 1 </td><td> John </td><td> Berg </td></tr>
-  <tr><td> 2 </td><td> Jane </td><td> Berg </td></tr>
+  <tr><td> 1 </td><td> John </td><td> Doe </td></tr>
+  <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
 Observera att keyspace skapade i steg 4 använder SimpleStrategy med en replication_factor 3. SimpleStrategy rekommenderas för enda data center distributioner medan NetworkTopologyStrategy för flera data center distributioner. En replication_factor 3 ger tolerans för nodfel.
@@ -464,7 +464,7 @@ Utnyttja den enda region distributionen har slutförts och upprepa samma steg f�
 Logga in på den klassiska Azure-portalen och skapa ett virtuellt nätverk med attribut visas i tabellen. Se [konfigurera ett virtuellt nätverk Cloud-Only i den klassiska Azure-portalen](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) för detaljerade steg i processen.      
 
 <table>
-<tr><th>Attributets namn    </th><th>Värde    </th><th>Kommentarer</th></tr>
+<tr><th>Attributnamn    </th><th>Värde    </th><th>Kommentarer</th></tr>
 <tr><td>Namn    </td><td>vnet-fråga-Öst-oss</td><td></td></tr>
 <tr><td>Region    </td><td>Östra USA</td><td></td></tr>
 <tr><td>DNS-servrar        </td><td></td><td>Ignorera detta eftersom vi inte använder en DNS-Server</td></tr>
@@ -523,7 +523,7 @@ Använd menyn ”INSTRUMENTPANELEN” virtuella nätverk från den klassiska Azu
 ### <a name="step-8-create-the-virtual-machines-in-region-2"></a>Steg 8: Skapa de virtuella datorerna i området #2
 Skapa avbildningen Ubuntu enligt beskrivningen i region #1 distribution genom att följa samma steg eller kopiera avbildningen VHD-filen till Azure storage-konto finns i området #2 och skapa avbildningen. Använd den här avbildningen och skapa följande lista över virtuella datorer till en ny molntjänst hk-c-svc-Öst-oss:
 
-| Namnet på datorn | Undernät | IP-adress | Tillgänglighetsuppsättning | DC/Rack | Startvärde för? |
+| Datornamn | Undernät | IP-adress | Tillgänglighetsuppsättning | DC/Rack | Startvärde för? |
 | --- | --- | --- | --- | --- | --- |
 | HK-c1-Öst-oss |Data |10.2.2.4 |HK-c-aset-1 |DC = EASTUS rack = rack1 |Ja |
 | HK-c2-Öst-oss |Data |10.2.2.5 |HK-c-aset-1 |DC = EASTUS rack = rack1 |Nej |
@@ -565,8 +565,8 @@ Du bör se en skärm som liknar den nedan:
 
 | customer_id | Förnamn | Efternamn |
 | --- | --- | --- |
-| 1 |John |Berg |
-| 2 |Jane |Berg |
+| 1 |John |Doe |
+| 2 |Jane |Doe |
 
 ### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>Steg 3: Kör du följande i region Öst när du har loggat in hk-w1-Öst-oss:
 1. Köra $CASS_HOME/bin/cqlsh 10.2.2.101 9160
@@ -578,8 +578,8 @@ Du bör se samma skärm som visas för regionen Väst:
 
 | customer_id | Förnamn | Efternamn |
 | --- | --- | --- |
-| 1 |John |Berg |
-| 2 |Jane |Berg |
+| 1 |John |Doe |
+| 2 |Jane |Doe |
 
 Köra några fler infogningar och se att de replikeras till Väst-oss ingår i klustret.
 

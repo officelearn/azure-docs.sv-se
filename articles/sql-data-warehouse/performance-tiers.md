@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: ffeaec73a38939783174c71641c3618f4f8a3c1b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL Data Warehouse prestandanivåer (förhandsgranskning)
 SQL Data Warehouse erbjuder två prestandanivåer som är optimerade för analytiska arbetsbelastningar. Den här artikeln förklarar begreppet prestandanivåer för att välja den lämpligaste prestandanivån för din arbetsbelastning. 
@@ -55,7 +55,7 @@ WITH
 ## <a name="memory-maximums"></a>Minne maxkapacitet
 Prestandanivåer har olika minne profiler som översätter till en annan mängd minne per fråga. Optimerad för beräkning prestandanivån innehåller 2,5 x mer minne per fråga än optimerad för elasticitet prestandanivå. Den här extra minne hjälper optimerad för beräkning prestandanivån dess blixtsnabb snabb prestanda. Ytterligare minne per fråga kan du köra flera frågor samtidigt eftersom frågor kan använda lägre [resursklasser](resource-classes-for-workload-management.md). 
 
-### <a name="optimized-for-elasticity"></a>Optimerad för elasticitet
+### <a name="optimized-for-elasticity"></a>Optimerat för elasticitet
 
 Servicenivåer för optimerad för elasticitet prestanda nivå mellan DW100 och DW6000. 
 
@@ -148,7 +148,7 @@ I följande tabell visas de maximalt antal samtidiga frågor och samtidighet fac
 | DW15000c      | 32                         |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 32                         | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-### <a name="optimized-for-elasticity"></a>Optimerad för elasticitet
+### <a name="optimized-for-elasticity"></a>Optimerat för elasticitet
 I följande tabell visas de maximalt antal samtidiga frågor och samtidighet fack för varje [dynamiska resursklassen](resource-classes-for-workload-management.md).  Dessa gäller för optimerad för elasticitet prestandanivå.
 
 **Dynamisk resursklasser**

@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Överväganden för Azure Resource Manager
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
 När du utvecklar programmet är det viktigt att se till att mallen rörlighet mellan Azure och Azure-stacken.  Det här avsnittet innehåller överväganden för att utveckla Azure Resource Manager [mallar](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), så att du kan prototyp programmet och testa distributionen i Azure utan åtkomst till en Azure-Stack-miljö.
+
+## <a name="resource-provider-availability"></a>Providern resurstillgänglighet
+Den mall som du planerar att distribuera måste använda en Microsoft Azure-tjänst som redan är tillgänglig eller i Förhandsgranska i Azure-stacken.
 
 ## <a name="public-namespaces"></a>Offentliga namnområden
 Eftersom Azure Stack finns i ditt datacenter, har olika service endpoint namnområden än det offentliga Azure-molnet. Därför misslyckas hårdkodad offentliga slutpunkter i Resource Manager-mallar när du försöker distribuera dem till Azure-stacken. Använd i stället de *referens* och *sammanfoga* funktion för att dynamiskt skapa tjänstslutpunkten baserat på värden som hämtats från resursprovidern under distributionen. Till exempel i stället för att ange *blob.core.windows.net* i mallen, hämta den [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) med den *osDisk.URI* slutpunkt:
@@ -36,7 +39,7 @@ Eftersom Azure Stack finns i ditt datacenter, har olika service endpoint namnomr
 ## <a name="api-versioning"></a>API-version
 Azure service-versioner kan variera mellan Azure och Azure-stacken. Varje resurs kräver attributet apiVersion, som definierar de funktioner som erbjuds. För att säkerställa kompatibilitet för API-version i Azure-stacken, följer giltiga API-versioner för varje Resursprovider:
 
-| Resursprovidern | apiVersion |
+| Resursprovider | apiVersion |
 | --- | --- |
 | Compute |`'2015-06-15'` |
 | Nätverk |`'2015-06-15'`, `'2015-05-01-preview'` |
@@ -73,7 +76,6 @@ Resource Manager-mallar kan du använda ett platsattribut för att placera resur
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)

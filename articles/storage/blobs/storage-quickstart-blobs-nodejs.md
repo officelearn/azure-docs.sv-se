@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Överför objekt till/från Azure Blob storage med hjälp av Node.js
 
@@ -103,7 +103,11 @@ Du kan också använda ett verktyg som den [Azure Lagringsutforskaren](http://st
 
 När du har kontrollerat filerna, trycka på valfri tangent för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör du öppna filen index.js titta på koden. 
 
-## <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekt
+## <a name="understand-the-sample-code"></a>Förstå exempelkoden
+
+Därefter går vi igenom exempelkoden så att du förstår hur det fungerar.
+
+### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekt
 
 Det första du gör är att skapa en referens till den `BlobService` används för att komma åt och hantera Blob storage. De här objekten som bygger på varandra – varje används av den nästa i listan.
 
@@ -120,7 +124,7 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
     if (error) return callback(error);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Ladda upp blobbar i behållaren
+### <a name="upload-blobs-to-the-container"></a>Ladda upp blobbar i behållaren
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobbar är de vanligaste. De är perfekt för lagring av text och binära data, vilket är anledningen till att de används i denna Snabbstart.
 
@@ -141,7 +145,7 @@ console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BL
 
 Det finns flera överför metoder som du kan använda med Blob storage. Till exempel om du har en dataström med minne, du kan använda den [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) metod i stället [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
-## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
+### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
 
 Därefter programmet hämtar en lista över filer i behållare med [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Följande kod hämtar listan över blobbar och loop genom dem, visar URI: er för de blobbar som påträffats. Du kan kopiera URI kommandofönstret och klistra in den i en webbläsare för att visa filen.
 
@@ -158,7 +162,7 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     console.log('\n');
 ```
 
-## <a name="download-blobs"></a>Ladda ned blobbar
+### <a name="download-blobs"></a>Ladda ned blobbar
 
 Ladda ned blobbar till din lokala disk med hjälp av [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
@@ -171,7 +175,7 @@ handleError(error);
 console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 ```
 
-## <a name="clean-up-resources"></a>Rensa resurser
+### <a name="clean-up-resources"></a>Rensa resurser
 
 Om du behöver inte längre blobbar på den här snabbstarten, kan du ta bort hela behållaren med hjälp av [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) och [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Också ta bort de filer som skapas om de inte längre behövs. Detta har åtgärdat i programmet när du trycker på RETUR för att avsluta programmet.
 

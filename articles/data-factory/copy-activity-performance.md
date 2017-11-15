@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/13/2017
 ms.author: jingwang
-ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera prestandajustering guide och prestanda för aktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -88,7 +88,7 @@ En **moln data movement enhet (dmu här)** är ett mått som representerar en en
 
 | Kopiera scenario | Standard DMUs bestäms av tjänsten |
 |:--- |:--- |
-| Kopiera data mellan filbaserade lagrar | Mellan 4 och 16 beroende på antalet och storleken på filerna. |
+| Kopiera data mellan filbaserade lagrar | Mellan 4 och 32 beroende på antalet och storleken på filerna. |
 | Alla andra copy-scenarier | 4 |
 
 Om du vill åsidosätta denna standardinställning måste du ange ett värde för den **cloudDataMovementUnits** egenskapen på följande sätt. Den **tillåtna värden** för den **cloudDataMovementUnits** egenskapen är 2, 4, 8, 16, 32. Den **faktiska antalet molnet DMUs** att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om andelen prestandafördelar som du kan få när du konfigurerar flera enheter för en specifik kopieringskälla och mottagare finns i [Prestandareferens](#performance-reference).
@@ -96,7 +96,7 @@ Om du vill åsidosätta denna standardinställning måste du ange ett värde fö
 Du kan se faktiskt används molnet data movement enheter för varje kopia som körs i en Kopieringsaktivitet utdata när övervakning av en aktivitet som kör. Mer information från [kopiera aktivitetsövervakning](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Om du behöver mer molnet DMUs för en högre genomströmning Kontakta [Azure-supporten](https://azure.microsoft.com/support/). Inställning av 8 och senare fungerar aktuellt endast när du **kopiera flera filer från Blob storage/Datasjölager/Amazon S3 eller ett moln FTP-eller ett moln SFTP till alla andra dataarkiv för molnet.**.
+> Om du behöver mer molnet DMUs för en högre genomströmning Kontakta [Azure-supporten](https://azure.microsoft.com/support/). Inställning av 8 och senare fungerar aktuellt endast när du **kopiera flera filer från Blob storage/Datasjölager/Amazon S3 eller ett moln FTP-eller ett moln SFTP till alla andra dataarkiv för molnet**.
 >
 
 **Exempel:**
@@ -133,7 +133,7 @@ För varje kopia aktivitet som kör avgör Data Factory hur många parallella ko
 
 | Kopiera scenario | Standardvärdet för parallell Kopiera antal bestäms av tjänsten |
 | --- | --- |
-| Kopiera data mellan filbaserade lagrar |Mellan 1 och 32. Beror på storleken på filerna och antalet molnet data movement enheter (DMUs) används för att kopiera data mellan två molnet datalager eller den fysiska konfigurationen av den Self-hosted integrering Runtime-datorn. |
+| Kopiera data mellan filbaserade lagrar |Mellan 1 och 64. Beror på storleken på filerna och antalet molnet data movement enheter (DMUs) används för att kopiera data mellan två molnet datalager eller den fysiska konfigurationen av den Self-hosted integrering Runtime-datorn. |
 | Kopiera data från datalagret någon källa till Azure Table storage |4 |
 | Alla andra copy-scenarier |1 |
 

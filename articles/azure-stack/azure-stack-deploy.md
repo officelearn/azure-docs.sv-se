@@ -3,8 +3,8 @@ title: "Kraven för distribution av Azure-stacken Development Kit | Microsoft Do
 description: "Visa kraven på miljö och maskinvara för Azure-stacken Development Kit (moln operator)."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Distributionskrav för Azure Stack
 
@@ -40,7 +40,7 @@ Innan du distribuerar [Azure Stack Development Kit](azure-stack-poc.md), kontrol
 
 \*Du behöver fler än det rekommenderade kapacitet om du planerar att lägga till många av de [marketplace-objekt](azure-stack-download-azure-marketplace-item.md) från Azure.
 
-**Konfiguration av datadiskenhet:** Alla dataenheter måste vara av samma typ (alla ska vara SAS eller SATA) och ha samma kapacitet. Om SAS-hårddiskar används måste diskenheter kopplas via en enskild sökväg (inga MPIO, stöd för flera sökvägar, tillhandahålls).
+**Konfiguration av enhet:** alla dataenheter måste vara av samma typ (alla SAS, alla SATA eller alla NVMe) och kapacitet. Om SAS-hårddiskar används måste diskenheter kopplas via en enskild sökväg (inga MPIO, stöd för flera sökvägar, tillhandahålls).
 
 **HBA-konfigurationsalternativ**
 
@@ -56,6 +56,7 @@ Innan du distribuerar [Azure Stack Development Kit](azure-stack-poc.md), kontrol
 * RAID-SSD (om medietypen är ospecificerad/okänd\*)
 * SATA SSD + SATA-hårddisk
 * SAS SSD + SAS-hårddisk
+* NVMe
 
 \*RAID-styrenheter utan direkt funktionen kan inte identifiera medietyp. Sådana styrenheter markerar både HDD och SSD som ospecificerade. I så fall ska SSD användas som permanent lagring i stället för cachelagringsenheter. Därför kan du distribuera development kit på dessa SSD.
 

@@ -4,7 +4,7 @@ description: "Läs mer om skillnader och överväganden när du arbetar med virt
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
-manager: byronr
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 11/14/2017
 ms.author: sngun
-ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Överväganden för virtuella datorer i Azure-stacken
 
@@ -46,12 +46,14 @@ Azure-stacken Development Kit stöder följande storlekar:
 
 | Typ | Storlek | Rad storlekar som stöds |
 | --- | --- | --- |
-|Generellt syfte |Basic A|A0 A4|
-|Generellt syfte |Standard A|A0 A7|
-|Generellt syfte |Standard D|D1 D4|
-|Generellt syfte |Standard Dv2|D1v2 D5v2|
-|Minnesoptimerad|D-serien|D11 D14|
-|Minnesoptimerad |Dv2-serien|D11v2 D14v2|
+|Generellt syfte |Basic A|A0 - A4|
+|Generellt syfte |Standard A|A0–A7|
+|Generellt syfte |D-serien|D1 - D4|
+|Generellt syfte |Dv2-serien|D1_v2 - D5_v2|
+|Generellt syfte |DS-serien|DS1 - DS4|
+|Generellt syfte |DSv2-serien|DS1_v2 - DS5_v2|
+|Minnesoptimerad|DS-serien|DS11 - DS14|
+|Minnesoptimerad |DSv2-serien|DS11_v2 - DS14_v2|
 
 Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämmer överens mellan Azure-stacken och Azure. Detta inkluderar till exempel hur mycket minne, antal kärnor och nummer eller storlek för datadiskar som kan skapas. Prestanda i samma VM-storlek i Azure-stacken beror dock på underliggande egenskaperna för en viss Azure Stack-miljö.
 

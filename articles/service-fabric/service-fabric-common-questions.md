@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor för Service Fabric
 
@@ -79,7 +79,7 @@ Klusterkonfigurationen tre noder stöds för utveckling och testning eftersom du
 
 I allmänhet inte. Service Fabric lagrar tillstånd på lokala tillfälliga diskar, vilket innebär att om den virtuella datorn flyttas till en annan värd, inte flyttar data med den. Under normal drift som är inte ett problem som den nya noden tas uppdaterade av andra noder. Om du stoppar alla noder och starta om dem senare, finns det dock en betydande risk som de flesta av noderna som börjar på nya värdar och gör det går inte att återställa systemet.
 
-Om du vill skapa kluster för att testa programmet innan det distribueras rekommenderar vi att du skapar dessa kluster dynamiskt som en del av din [kontinuerlig integration/kontinuerlig distribution pipeline](service-fabric-set-up-continuous-integration.md).
+Om du vill skapa kluster för att testa programmet innan det distribueras rekommenderar vi att du skapar dessa kluster dynamiskt som en del av din [kontinuerlig integration/kontinuerlig distribution pipeline](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Hur uppgraderar jag mitt operativsystem (till exempel från Windows Server 2012 till Windows Server 2016)?

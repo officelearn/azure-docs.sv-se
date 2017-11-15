@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 7aa0f9b292a98c6137ecf4ae957b3cb86062f250
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1fd6b0bd47188570553e0e3ad1de527a35e98f6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Data Catalog
 Den här artikeln innehåller svar på vanliga frågor som rör tjänsten Azure Data Catalog.
@@ -53,11 +53,13 @@ Den kostnadsfria Edition av Data Catalog är begränsad till 5 000 registrerade 
 
 I Standard Edition av Data Catalog har stöd för upp till 100 000 registrerade datatillgångar.
 
+Alla objekt som registrerats i Data Catalog, till exempel tabeller, vyer, filer och rapporter, räknas som en datatillgång.
+
 ## <a name="what-are-its-supported-data-source-and-asset-types"></a>Vad är dess stöds käll- och tillgångsinformation datatyper?
 En lista över datakällor som för närvarande stöds, se [Data Catalog DSR](data-catalog-dsr.md).
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Hur jag för att begära stöd för en annan datakälla?
-För att skicka funktionsbegäranden om och andra feedback, gå till den [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+För att skicka funktionsbegäranden om och andra feedback, gå till den [Data Catalog på Azure Feedback forum](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Hur kommer jag igång med Data Catalog?
 Det bästa sättet att komma igång är genom att gå till [komma igång med Data Catalog](data-catalog-get-started.md). Den här artikeln är en översikt över funktionerna i tjänsten.
@@ -65,7 +67,7 @@ Det bästa sättet att komma igång är genom att gå till [komma igång med Dat
 ## <a name="how-do-i-register-my-data"></a>Hur registrerar jag mina data?
 Att registrera dina data i Data Catalog:
 1. I Azure Data Catalog-portalen i den **publicera** område, starta verktyget Azure Data Catalog registrering. 
-2. Logga in med samma autentiseringsuppgifter att du använder för att få åtkomst till Data Catalog-portalen i Data Catalog-publicera programmet.
+2. I Data Catalog registreringsverktyget för datakällor, logga in med samma autentiseringsuppgifter att du använder för att få åtkomst till Data Catalog-portalen.
 3. Markera datakällan och särskilda tillgångar som du vill registrera.
 
 ## <a name="what-properties-does-it-extract-for-data-assets-that-are-registered"></a>Vilka egenskaper den extrahera för datatillgångar som har registrerats?
@@ -84,7 +86,7 @@ Specifika egenskaper som skiljer sig från datakällan till datakällan, men i a
 >
 
 > [!NOTE]
-> För datakällor, till exempel SQL Server Analysis Services som har en förstklassig **beskrivning** egenskapen datakatalogen publicera program extraherar det egenskapsvärdet. För relationsdatabaser i SQL Server, som saknar en förstklassig **beskrivning** egenskapen datakatalogen publicera programmet hämtar värdet från den **ms_description** utökad egenskap för objekt och kolumner. Mer information finns i [med utökade egenskaper på databasobjekt](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> För datakällor, till exempel SQL Server Analysis Services som har en förstklassig **beskrivning** egenskapen registreringsverktyget för datakällor i Data Catalog extraherar det egenskapsvärdet. För relationsdatabaser i SQL Server, som saknar en förstklassig **beskrivning** egenskapen registreringsverktyget för datakällor i Data Catalog extraherar värdet från den **ms_description** utökad egenskap för objekt och kolumner. Mer information finns i [med utökade egenskaper på databasobjekt](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
@@ -94,7 +96,7 @@ När du har registrerat tillgångar med Data Catalog kan finnas det en period p�
 ## <a name="how-do-i-annotate-and-enrich-the-metadata-for-my-registered-data-assets"></a>Hur gör kommentera och utöka metadata för min registrerade datatillgångar?
 Det enklaste sättet att tillhandahålla metadata för registrerade tillgångar är att markerar du objektet i Data Catalog-portalen och ange sedan värden i egenskapsrutan eller schema-fönstret för det valda objektet.
 
-Du kan också ange vissa metadata, till exempel experter och taggar, under registreringen. De värden som du anger i Data Catalog publiceringstjänsten gäller för alla tillgångar som registreras som för närvarande. Om du vill visa objekt som nyligen registrerade för ytterligare anmärkningar i portalen, Välj den **visa Portal** knappen sista sidan i datakatalogen publicera program.
+Du kan också ange vissa metadata, till exempel experter och taggar, under registreringen. De värden som du anger i Data Catalog publiceringstjänsten gäller för alla tillgångar som registreras som för närvarande. Om du vill visa objekt som nyligen registrerade för ytterligare anmärkningar i portalen, Välj den **visa Portal** knappen sista sidan i registreringsverktyget för datakällor i Data Catalog.
 
 ## <a name="how-do-i-delete-my-registered-data-objects"></a>Hur tar jag bort min registrerade dataobjekt?
 Du kan ta bort ett objekt från Data Catalog genom att markera objektet i portalen och klicka på den **ta bort** knappen. Tar bort objektet tas dess metadata från Data Catalog men påverkar inte den underliggande datakällan.
@@ -106,7 +108,7 @@ En expert är en person som har ett välgrundat perspektiv om ett dataobjekt. Et
 Att rapportera problem, dela information och ställa frågor, gå till den [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Katalogen fungerar tillsammans med en annan datakälla som jag?
-Vi arbetar aktivt för att lägga till fler datakällor till datakatalogen. Om du vill se en särskild datakälla som stöds, föreslår det (eller röst din support om det redan har förslag) genom att gå till den [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Vi arbetar aktivt för att lägga till fler datakällor till datakatalogen. Om du vill se en särskild datakälla som stöds, föreslår det (eller röst din support om det redan har förslag) genom att gå till den [Data Catalog på Azure Feedback forum](https://feedback.azure.com/forums/906052-data-catalog).
 
 ## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Hur är Azure Data Catalog relaterad till datakatalogen i Power BI för Office 365?
 Du kan se Azure Data Catalog som en utvecklingen av datakatalogen i Power BI. Från och med vår 2017 används Azure Data Catalog för att aktivera delning och identifiering av frågorna i Excel 2016 och Power Query för Excel. Funktioner i data Catalog i Excel är tillgängliga för användare med Power BI Pro licenser.
@@ -114,14 +116,18 @@ Du kan se Azure Data Catalog som en utvecklingen av datakatalogen i Power BI. Fr
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Vilka behörigheter som behöver att registrera tillgångar med Data Catalog?
 Om du vill köra verktyget för Data Catalog-registrering, behöver du behörigheter på datakällan som gör att du kan läsa metadata från källan. Du måste ha behörighet att läsa data från de objekt som registreras för att också inkludera en förhandsgranskning.
 
+Data Catalog kan också katalogadministratörer att begränsa vilka användare och grupper som kan lägga till metadata i katalogen. För ytterligare information, se [så säker åtkomst till data catalog och datatillgångar](data-catalog-how-to-secure-catalog.md).
+
 ## <a name="will-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Data Catalog görs tillgänglig för lokala-distributionen?
 Data Catalog är en molnbaserad tjänst som fungerar med både till molnet och lokala datakällor för att leverera en hybridlösning datakälla identifiering. Det finns för närvarande inga planer för en version av Data Catalog-tjänst som körs lokalt.
 
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Extraherar jag mer eller bättre metadata från de datakällor som jag registrera?
-Vi arbetar aktivt för att utöka funktionerna i Data Catalog. Om du vill ha ytterligare metadata som extraherats från datakällan under registreringen, föreslår det (eller rösta på det, om det redan har förslag) i den [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). I framtiden kommer tillåter vi tredje parter kan lägga till nya typer av datakällor genom en utökningsbarhet API.
+Vi arbetar aktivt för att utöka funktionerna i Data Catalog. Om du vill ha ytterligare metadata som extraherats från datakällan under registreringen, föreslår det (eller rösta på det, om det redan har förslag) i den [Data Catalog på Azure Feedback forum](https://feedback.azure.com/forums/906052-data-catalog). 
+
+Du kan använda Data Catalog-API: et för att lägga till dessa metadata om du vill inkludera kolumnen/schema metadata, förhandsversioner eller data profiler för datakällor där dessa metadata inte ska extraheras av registreringsverktyget för datakällor. För ytterligare information, se [Azure Data Catalog REST API: et](https://docs.microsoft.com/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Hur begränsar jag synligheten för registrerade datatillgångar så att bara vissa personer kan identifiera dem?
-Välj datatillgångarna i Data Catalog och klicka sedan på den **bli ägare** knappen. Ägarna av datatillgångar i Data Catalog kan ändra inställningarna för kolumnsynlighet för att antingen tillåta alla användare att identifiera företagsägda tillgångar eller begränsa synligheten för specifika användare.
+Välj datatillgångarna i Data Catalog och klicka sedan på den **bli ägare** knappen. Ägarna av datatillgångar i Data Catalog kan ändra inställningarna för kolumnsynlighet för att antingen tillåta alla användare att identifiera företagsägda tillgångar eller begränsa synligheten för specifika användare. För ytterligare information, se [hanterar du datatillgångar i Azure Data Catalog](data-catalog-how-to-manage.md).
 
 ## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Hur kan jag uppdatera registreringen för en datatillgång så att ändringar i datakällan visas i katalogen?
 För att uppdatera metadata för datatillgångar som redan har registrerats i katalogen, helt enkelt registrera datakälla som innehåller tillgångarna. Alla ändringar i datakällan, t.ex. kolumner läggs till eller tas bort från tabeller eller vyer, uppdateras i katalogen, men alla kommentarer som användare bevaras.

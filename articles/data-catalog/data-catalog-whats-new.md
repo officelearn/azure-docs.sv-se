@@ -13,16 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Vad är nytt i Azure Data Catalog
 Uppdateringar för **Azure Data Catalog** släpps regelbundet. Inte alla viktig innehåller nya funktioner för användarinriktad, vissa versioner fokuserar på funktioner för backend-tjänst. Den här sidan visar nya funktioner som användarinriktad har lagts till tjänsten Azure Data Catalog.
+
+## <a name="whats-new-for-november-2017"></a>Vad är nytt för November 2017 
+Från och med November 2017 har följande funktioner lagts till Azure Data Catalog:
+
+* Stöd för att länka direkt till specifika ordlista i Data Catalog-portalen. Användare kan kopiera länkar från en företagsordlista och bädda in dem i dokument, e-postmeddelanden, rapporter eller andra platser för att länka direkt till definitionen av termer ordlista.
+* Stöd för Azure Active Directory-tjänstens huvudnamn. Data Catalog administratörer kan tillåta klientprogram som använder tjänstens huvudnamn för att få åtkomst till katalogen och kan ge programmen specifika behörigheter på samma sätt som de kan ge behörigheter till användare och säkerhetsgrupper. Mer information finns i [program och tjänstens huvudnamn objekt i Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Stöd för Azure Active Directory-autentisering när du ansluter till Azure SQL Database och Azure SQL Data Warehouse datakällorna med registreringsverktyget för datakällor i Data Catalog. Mer information finns i [Använd Azure Active Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
+
 
 ## <a name="whats-new-for-september-2017"></a>Vad är nytt för September 2017 
 Från och med September 2017 har följande funktioner lagts till Azure Data Catalog:

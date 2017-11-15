@@ -15,11 +15,11 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 239f3830a5e50f80ace15ff3f080653a5f402136
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhetsaspekter för att komma åt appar med Azure AD Application Proxy
 
@@ -45,7 +45,7 @@ Om du väljer genomströmning som metod för förautentisering kan få du inte f
 
 Använd rikare kontrollerna för principer innan anslutningar till nätverket upprättas.
 
-Med [villkorlig åtkomst](active-directory-conditional-access-azuread-connected-apps.md), kan du ange begränsningar på vilken trafik tillåts åtkomst till backend-program. Du kan skapa principer som begränsar inloggningar baserat på plats, stark autentisering och risken för användarprofil.
+Med [villkorlig åtkomst](active-directory-conditional-access-azure-portal-get-started.md), kan du ange begränsningar på vilken trafik tillåts åtkomst till backend-program. Du kan skapa principer som begränsar inloggningar baserat på plats, stark autentisering och risken för användarprofil.
 
 Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer, att lägga till ytterligare en säkerhetsnivå till din användarautentisering. 
 

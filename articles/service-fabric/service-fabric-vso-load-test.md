@@ -3,7 +3,7 @@ title: "Läs in testa ditt program med hjälp av Visual Studio Team Services | M
 description: "Lär dig hur belastningstest Azure Service Fabric-program med hjälp av Visual Studio Team Services."
 services: service-fabric
 documentationcenter: na
-author: cawams
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: fc743585-0d1b-483f-981d-493f4552ac07
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
-ms.author: cawa
-ms.openlocfilehash: e8e270ce865d4da3ee219958b308db2c1c89b11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ryanwi
+ms.openlocfilehash: 42cd4fc0f7a8d1efdc4afff9c51693e756a1d1e3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Läs in testa ditt program med hjälp av Visual Studio Team Services
 Den här artikeln visar hur du använder Microsoft Visual Studio belastningen test funktioner belastningstest ett program. Den använder en serverdel för Azure Service Fabric-tillståndskänslig service och en frontwebb för tillståndslösa tjänsten. Exempelprogram som används här är ett flygplan plats simulatorn. Du kan ange ett flygplan ID, avvikelse tid och mål. Programmets serverdel bearbetar begäranden och klientdelen som visas på en karta flygplan som matchar villkoren.
@@ -32,7 +32,7 @@ Innan du börjar måste du göra följande:
 
 * Skaffa ett Visual Studio Team Services-konto. Du kan få ett kostnadsfritt [Visual Studio Team Services](https://www.visualstudio.com).
 * Hämta och installera Visual Studio 2013 eller Visual Studio 2015. Den här artikeln används Visual Studio 2015 Enterprise edition, men Visual Studio 2013 och andra utgåvor ska fungera på samma sätt.
-* Distribuera programmet till en fristående miljö. Se [hur du distribuerar program till ett kluster med hjälp av Visual Studio](service-fabric-publish-app-remote-cluster.md) information om detta.
+* Distribuera programmet till en fristående miljö. Se [hur du distribuerar program till ett kluster med hjälp av Visual Studio](service-fabric-manage-application-in-visual-studio.md) information om detta.
 * Förstå användningsmönster för ditt program. Den här informationen används för att simulera belastningen mönstret.
 * Förstå mål för att testa din belastningen. Detta hjälper dig att tolka och analys av testresultatet belastningen.
 

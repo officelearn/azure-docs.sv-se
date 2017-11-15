@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 28d97d65d2671f7af2cd3b29ea65ae053d5e8122
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -84,8 +84,21 @@ När du arbetar i Azure ML-arbetsstationen, kan du också skicka en bister (elle
 
 - RevoScalePy bibliotek stöds bara på Windows och Linux (i behållare med Docker). Det finns inte stöd för macOS.
 
-## <a name="delete-experimentation-account"></a>Ta bort experiment konto
-Du kan använda CLI för att ta bort ett experiment konto, men du måste först ta bort underordnade arbetsytorna och underordnade projekt i dessa underordnade arbetsytor.
+## <a name="cant-update-workbench"></a>Det går inte att uppdatera arbetsstationen
+När en ny uppdatering är tillgänglig, visas arbetsstationen app webbsida ett meddelande som talar om den nya uppdateringen. Du bör se en uppdatering Aktivitetsikon som visas i det nedre vänstra hörnet på appen på på klockikonen. Klicka på skylt och Följ guiden installationsprogrammet för att installera uppdateringen. Om du inte ser meddelandet, försök att starta om appen. Om du fortfarande inte ser uppdateringsmeddelande efter omstart uppstå några orsaker.
+
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Arbetsstationen lanseras från en fästa genväg i Aktivitetsfältet
+Du kanske redan har installerat uppdateringen. Men dina fästa genväg fortfarande pekar på den gamla bits på disken. Du kan kontrollera detta genom att bläddra till den `%localappdata%/AmlWorkbench` mappen och se om du har installerat det senaste version och undersöka egenskapen Fäst genvägen till finns där pekar på. Om verifieras bara ta bort den gamla genvägen, starta arbetsstationen från Start-menyn och du kan också skapa en ny genväg för Fäst i Aktivitetsfältet.
+
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Du har installerat arbetsstationen med hjälp av länken ”installera Azure ML-arbetsstationen” på en Windows-DSVM
+Det finns ingen enkel korrigering på denna. Du måste utföra följande steg för att ta bort den installera bits och hämta senaste installationsprogrammet för att installera arbetsstationen färsk: 
+   - ta bort mappen`C:\Users\<Username>\AppData\Local\amlworkbench`
+   - ta bort skriptet`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - ta bort genväg på skrivbordet som startar skriptet ovan
+   - Hämta installer https://aka.ms/azureml-wb-msi och installera om.
+
+## <a name="cant-delete-experimentation-account"></a>Det går inte att ta bort experiment konto
+Du kan använda CLI för att ta bort ett experiment konto, men du måste först ta bort underordnade arbetsytorna och underordnade projekt i dessa underordnade arbetsytor. I annat fall visas ett fel.
 
 ```azure-cli
 # delete a project
@@ -100,9 +113,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 Du kan också ta bort projekt och arbetsytor från i appen arbetsstationen.
 
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>Det går inte att öppna filen om projektet i OneDrive
+Om du har Windows 10 faller skapare Update och projektet har skapats i en lokal mapp som mappats till OneDrive, kanske du upptäcker att du inte kan öppna en fil i arbetsstationen. Detta beror på ett programfel som introducerades av faller skapare uppdateringen som orsakar node.js-kod att fungera i en mapp i OneDrive. Programfelet korrigeras snart av Windows update, men fram till dess kan inte skapar du projekt i en mapp i OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>Filnamnet för långt i Windows
-Om du använder arbetsstationen på Windows kan stöta du på maximalt 260 tecken-filen namnet längd Standardgränsen, som kan ansluta som en något vilseledande fel ”går inte att hitta den angivna sökvägen”. Du kan ändra en registernyckel för att tillåta mycket längre filsökvägen. Granska [i den här artikeln](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) för mer information om hur du ställer in den _MAX_PATH_ registernyckeln.
+Om du använder arbetsstationen i Windows kan stöta du på maximalt 260 tecken-filen namnet längd Standardgränsen, som kan ansluta till en ”går inte att hitta den angivna sökvägen” fel. Du kan ändra en registernyckel för att tillåta mycket längre filsökvägen. Granska [i den här artikeln](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) för mer information om hur du ställer in den _MAX_PATH_ registernyckeln.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker fel ”läsa: anslutningen avslogs”
 När körs mot en lokal dockerbehållare kan ibland du se följande fel: 

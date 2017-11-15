@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f2b172208185e343c9c10d55036c20d60346778c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionerna för självbetjäning av återställning av lösenord
 
@@ -40,7 +40,7 @@ Den här e-postmeddelande skickas till följande mottagare i följande ordning:
 
 I samtliga fall meddelas högst 100 mottagare.
 
-Ta reda på mer om olika administratören roller och tilldela dem finns i dokumentet [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles.md)
+Ta reda på mer om olika administratören roller och tilldela dem finns i dokumentet [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 ### <a name="disable-contact-your-administrator-emails"></a>Inaktivera Kontakta din administratör e-post
 
@@ -85,7 +85,7 @@ Följande inställningar kan du lägga till text på inloggningssidan relevanta 
 * **Användaren namnet tipset** ersätter exempeltexten av someone@example.com med något mer lämpliga för dina användare, bör lämnas standard när stöder interna och externa användare
 * **Inloggningssidan text** är högst 256 tecken. Den här texten visas var som helst inloggning för användare online och i Azure AD Join-upplevelsen i Windows 10. Använd den här texten för villkor för användning, instruktioner och tips för dina användare. **Alla kan se din inloggningssidan så ger inte någon känslig information.**
 
-### <a name="keep-me-signed-in-disabled"></a>Håll mig inloggad inaktiverat
+### <a name="keep-me-signed-in-disabled"></a>Håll mig inloggad har inaktiverats
 
 Alternativet tillåter ”Håll mig inloggad inaktiverad” användare att förbli inloggad i när de Stäng och öppna sina webbläsarfönster. Det här alternativet påverkar inte session livslängd. Den här inställningen finns under **Azure Active Directory > företagets anpassning > Redigera företagsinformation**.
 
@@ -100,17 +100,17 @@ Du kan ändra namnattributet under **Azure Active Directory > Egenskaper** att v
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
-* [Återställa eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
-* [Registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla för dina användare?](active-directory-passwords-data.md)
-* [Vilka autentiseringsmetoder som är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Vad är policyalternativen med SSPR?](active-directory-passwords-policy.md)
-* [Vad är tillbakaskrivning av lösenord och varför jag är intresserad av den?](active-directory-passwords-writeback.md)
-* [Hur rapporterar på aktivitet i SSPR?](active-directory-passwords-reporting.md)
-* [Vad är alla alternativ i SSPR och vad de betyder?](active-directory-passwords-how-it-works.md)
-* [Jag tror att något har brutits. Hur felsöker SSPR?](active-directory-passwords-troubleshoot.md)
-* [Jag har en fråga som inte var motsvarar någon annan](active-directory-passwords-faq.md)
+* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
+* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
+* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md).
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](active-directory-passwords-writeback.md)
+* [Hur gör jag för att rapportera på aktivitet i SSPR?](active-directory-passwords-reporting.md)
+* [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
+* [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
+* [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
 [Contact]: ./media/active-directory-passwords-customize/sspr-contact-admin.png "Kontakta administratören för hjälp om du återställer ditt lösenord e-exempel"

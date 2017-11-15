@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 0cab39bb3ce5c42fac543171baea498eb894c502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9ff22c7b4793112da5211162ed9cd58ac86d238
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services med hjälp av Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassa Active Directory Federation Services (AD FS) med hjälp av Azure Active Directory (AD Azure) Anslut. Den omfattar också andra vanliga AD FS-uppgifter som du kan behöva göra för att slutföra konfigurationen av en AD FS-servergrupp.
@@ -102,7 +102,7 @@ Konfigurera alternativt inloggnings-ID för AD FS består av två Huvudsteg:
 
 4. Azure AD Connect begär lösenordet för PFX-filen som du angav när du konfigurerar din nya AD FS-grupp med Azure AD Connect. Klicka på **ange lösenord för** att ange lösenord för PFX-fil.
 
-   ![Lösenord för certifikatet](media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
+   ![Certifikatlösenord](media/active-directory-aadconnect-federation-management/AddNewADFSServer4.PNG)
 
     ![Ange SSL-certifikat](media/active-directory-aadconnect-federation-management/AddNewADFSServer5.PNG)
 
@@ -140,7 +140,7 @@ Konfigurera alternativt inloggnings-ID för AD FS består av två Huvudsteg:
 
 5. På den **autentiseringsuppgifter för Proxy förtroende** ange administrativa autentiseringsuppgifter för att konfigurera proxyn förtroende och åtkomst till den primära servern i AD FS-servergruppen.
 
-   ![Autentiseringsuppgifter för proxy-förtroende](media/active-directory-aadconnect-federation-management/WapServer6.PNG)
+   ![Autentiseringsuppgifter för proxyförtroende](media/active-directory-aadconnect-federation-management/WapServer6.PNG)
 
 6. På den **redo att konfigurera** sidan guiden visar en lista med åtgärder som kommer att utföras.
 
@@ -170,7 +170,7 @@ Det är lätt att lägga till en domän att bli federerad med Azure AD med hjäl
 
    ![Azure AD-domän](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    När du väljer domänen, ger guiden lämplig information om ytterligare åtgärder som kommer att utföras i guiden och effekten av konfigurationen. I vissa fall, om du väljer en domän som inte har verifierats i Azure AD finns guiden information som hjälper dig att verifiera domänen. Se [lägga till ett eget domännamn i Azure Active Directory](../active-directory-add-domain.md) för mer information.
+    När du väljer domänen, ger guiden lämplig information om ytterligare åtgärder som kommer att utföras i guiden och effekten av konfigurationen. I vissa fall, om du väljer en domän som inte har verifierats i Azure AD finns guiden information som hjälper dig att verifiera domänen. Se [lägga till ett eget domännamn i Azure Active Directory](../active-directory-domains-add-azure-portal.md) för mer information.
 
 5. Klicka på **Nästa**. Den **redo att konfigurera** sidan innehåller en lista med åtgärder som kommer att utföras i Azure AD Connect. Klicka på **installera** att slutföra konfigurationen.
 

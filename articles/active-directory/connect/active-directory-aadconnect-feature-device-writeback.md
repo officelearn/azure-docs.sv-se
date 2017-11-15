@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac5c39eac34221992803f3b27db241263f828b36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Aktivera tillbakaskrivning av enheter
 > [!NOTE]
@@ -30,7 +30,7 @@ Följande dokumentation innehåller information om hur du aktiverar funktionen f
 
 * Aktivera villkorlig åtkomst baserad på AD FS-enheter (2012 R2 eller högre) skyddade applikationer (förtroenden för beroende part).
 
-Det ger ökad säkerhet och garanterar att beviljas åtkomst till program bara till betrodda enheter. Mer information om villkorlig åtkomst finns [hantera risker med villkorlig åtkomst](../active-directory-conditional-access.md) och [konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Det ger ökad säkerhet och garanterar att beviljas åtkomst till program bara till betrodda enheter. Mer information om villkorlig åtkomst finns [hantera risker med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) och [konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
 > <li>Enheter måste finnas i samma skog som användarna. Eftersom enheter måste skrivas tillbaka till en enda skog, stöder funktionen för närvarande inte en distribution med flera skogar för användaren.</li>
@@ -140,8 +140,8 @@ Kontrollera konfigurationen i Active Directory:
 
 ![Felsöka, kontrollera behörigheter på konfigurationen för Enhetsregistrering](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Ytterligare Information
-* [Hantera risker med villkorlig åtkomst](../active-directory-conditional-access.md)
+## <a name="additional-information"></a>Ytterligare information
+* [Hantera risker med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)
 * [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Nästa steg

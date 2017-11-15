@@ -16,14 +16,14 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: aba231a91efafa48837e45435efd51769b12374b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6f43b722b0c9a31c8c7da4361e415673f3721b31
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Hantera åtkomst till resurser med Azure Active Directory-grupper
-Azure Active Directory (AD Azure) är en omfattande identitets- och hanteringslösning som tillhandahåller kraftfulla och stabila funktioner för att hantera åtkomst till lokala och molnprogram och resurser inklusive Microsofts onlinetjänster som Office 365 och en värld av icke - Microsoft SaaS-program. Den här artikeln innehåller en översikt, men om du vill börja använda Azure AD grupper just nu, följ instruktionerna i [hantera säkerhetsgrupper i Azure AD](active-directory-accessmanagement-manage-groups.md). Om du vill se hur du kan använda PowerShell för att hantera grupper i Azure Active directory kan du läsa mer i [Azure Active Directory-cmdlets för grupphantering](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Azure Active Directory (AD Azure) är en omfattande identitets- och hanteringslösning som tillhandahåller kraftfulla och stabila funktioner för att hantera åtkomst till lokala och molnprogram och resurser inklusive Microsofts onlinetjänster som Office 365 och en värld av icke - Microsoft SaaS-program. Den här artikeln innehåller en översikt, men om du vill börja använda Azure AD grupper just nu, följ instruktionerna i [hantera säkerhetsgrupper i Azure AD](active-directory-groups-create-azure-portal.md). Om du vill se hur du kan använda PowerShell för att hantera grupper i Azure Active directory kan du läsa mer i [Azure Active Directory-cmdlets för grupphantering](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
 > Du behöver ett Azure-konto om du vill använda Azure Active Directory. Om du inte har ett konto kan du [registrera dig för ett kostnadsfritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/).
@@ -66,7 +66,7 @@ Lösning för hantering av åtkomst är säkerhetsgruppen i mitten av Azure AD. 
 ## <a name="getting-started-with-access-management"></a>Komma igång med åtkomsthantering
 Redo att sätta igång? Du bör testa några av de grundläggande åtgärderna som du kan göra med Azure AD-grupper. Använd dessa funktioner för att ge särskilda åtkomst till olika grupper av personer för olika resurser i din organisation. Nedan visas en lista över grundläggande första steg.
 
-* [Skapa en enkel regel om du vill konfigurera dynamiskt medlemskap för en grupp](active-directory-accessmanagement-manage-groups.md)
+* [Skapa en enkel regel om du vill konfigurera dynamiskt medlemskap för en grupp](active-directory-groups-create-azure-portal.md)
 * [Hantera åtkomst till SaaS-program med hjälp av en grupp](active-directory-accessmanagement-group-saasapps.md)
 * [Göra en grupp tillgänglig för slutanvändaren självbetjäning](active-directory-accessmanagement-self-service-group-management.md)
 * [Synkroniserar en lokal grupp till Azure med Azure AD Connect](active-directory-aadconnect.md)
@@ -75,8 +75,8 @@ Redo att sätta igång? Du bör testa några av de grundläggande åtgärderna s
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har förstått grunderna i åtkomsthantering finns här några ytterligare avancerade funktioner i Azure Active Directory för att hantera åtkomst till dina program och resurser.
 
-* [Använda attribut för att skapa avancerade regler](active-directory-accessmanagement-groups-with-advanced-rules.md)
-* [Hantera säkerhetsgrupper i Azure AD](active-directory-accessmanagement-manage-groups.md)
+* [Använda attribut för att skapa avancerade regler](active-directory-groups-dynamic-membership-azure-portal.md)
+* [Hantera säkerhetsgrupper i Azure AD](active-directory-groups-create-azure-portal.md)
 * [Ställa in dedikerade grupper i Azure AD](active-directory-accessmanagement-dedicated-groups.md)
 * [Referens för Graph API för grupper](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](active-directory-accessmanagement-groups-settings-cmdlets.md)

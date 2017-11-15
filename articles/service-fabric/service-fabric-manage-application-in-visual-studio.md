@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Använd Visual Studio för att förenkla skriva och hantera dina Service Fabric-program
 Du kan hantera dina Azure Service Fabric-program och tjänster via Visual Studio. När du har [ställa in din utvecklingsmiljö](service-fabric-get-started.md), du kan använda Visual Studio skapar Service Fabric-program, lägga till tjänster eller paket, registrera och distribuera program i klustret för lokal utveckling.
@@ -32,7 +32,7 @@ Som standard kombinerar följande steg i en enkel åtgärd när du distribuerar 
 4. Att ta bort alla instanser av programmet körs
 5. Skapa en instans av programmet
 
-I Visual Studio, trycka på **F5** distribuerar ditt program och koppla felsökaren till alla instanser av programmet. Du kan använda **Ctrl + F5** du distribuerar ett program utan felsökning eller du kan publicera till en lokal eller fjärransluten kluster med hjälp av profilen. Mer information finns i [publicera ett program till ett kluster med hjälp av Visual Studio](service-fabric-publish-app-remote-cluster.md).
+I Visual Studio, trycka på **F5** distribuerar ditt program och koppla felsökaren till alla instanser av programmet. Du kan använda **Ctrl + F5** du distribuerar ett program utan felsökning eller du kan publicera till en lokal eller fjärransluten kluster med hjälp av profilen. 
 
 ### <a name="application-debug-mode"></a>Programmet felsökningsläge
 Visual Studio tillhandahåller en egenskap som kallas **programmet felsökningsläge**, som styr hur du vill att Visual Studios att hantera programdistribution som en del av felsökning.

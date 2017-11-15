@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: bed51dc1216b40f6602fae6d32bc8bd7aa517605
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
 Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
@@ -57,7 +57,7 @@ Nej, kan du värd för ditt program var som helst (i molnet eller lokalt). Allt 
 Innan du öppnar 'Azure AD B2C ”i vänster-menyn i Azure portal, måste du växla till den katalog som du vill hantera.  Växla kataloger genom att klicka på din identitet i övre högra hörnet i Azure-portalen och sedan välja en katalog i listrutan som visas.  En stegvis med bilder, finns i [navigera till Azure AD B2C inställningar](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hur anpassa bekräftelsemeddelanden (innehållet och ”från”: fältet) skickas av Azure AD B2C?
-Du kan använda den [funktionen för företagsanpassning](../active-directory/active-directory-add-company-branding.md) att anpassa innehållet i e-post för verifiering. Mer specifikt kan du anpassa dessa två element för e-postmeddelandet:
+Du kan använda den [funktionen för företagsanpassning](../active-directory/customize-branding.md) att anpassa innehållet i e-post för verifiering. Mer specifikt kan du anpassa dessa två element för e-postmeddelandet:
 
 * **Banderoll logotypen**: visas längst ned till höger.
 * **Bakgrundsfärg**: visas högst upp.
@@ -98,9 +98,9 @@ Den här artikeln om [externa identiteter](../active-directory/active-directory-
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Vilka rapportering och granskning funktioner Azure AD B2C ger? Är de samma som i Azure AD Premium?
 Nej, stöder inte Azure AD B2C samma uppsättning rapporter som Azure AD Premium. Det finns emellertid många gemensamma utformning gör:
 
-* Logga in-rapporter tillhandahåller en post för varje inloggning med nedsatt information.
-* Granskningsrapporter är tillgängliga i Azure-portalen, Azure Active Directory > aktivitet granskningsloggar > Välj B2C och tillämpa filter som du vill. Både administratörsaktivitet samt programaktivitet omfattas. 
-* En användningsrapport som omfattar antalet användare, antal inloggningar och volymen av MFA är tillgänglig på [användning Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
+* **Logga in rapporter** är bara tillgängliga i Azure-portalen (Azure Active Directory > aktivitet > inloggningar) och är inte tillgängliga via Graph API. De ger en post för varje inloggning med nedsatt information.
+* **Granska rapporter** är bara tillgängliga i Azure-portalen (Azure Active Directory > aktivitet > granskningsloggar) och är inte tillgängliga via Graph API. De omfattar både administratörsaktivitet samt programaktivitet. 
+* **Användningsrapporter** är bara tillgängliga via den [användning Reporting API](active-directory-b2c-reference-usage-reporting-api.md) och är inte tillgängliga via Azure portal. De är antalet användare, antal inloggningar och volym för Multifaktorautentisering. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Kan jag lokalisera Användargränssnittet för sidor som hanteras av Azure AD B2C? Vilka språk som stöds?
 Visst!  Läs mer om [språk anpassning](active-directory-b2c-reference-language-customization.md), som är tillgänglig som förhandsversion.  Vi ger översättningar för 36 språk och du kan åsidosätta valfri sträng så att de passar dina behov.

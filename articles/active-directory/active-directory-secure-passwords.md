@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>En metod med flera nivåer för säkerhet för Azure AD-lösenord
 
@@ -37,7 +37,7 @@ Azure AD använder följande vanliga metoder för att skydda lösenord:
 * Kraven på lösenordskomplexitet
 * Regelbundet och periodiskt upphörande av lösenord
 
-Information om lösenordsåterställning i Azure Active Directory finns i avsnittet [Azure AD lösenordsåterställning via Självbetjäning för IT-proffs](active-directory-passwords.md).
+Information om lösenordsåterställning i Azure Active Directory finns i avsnittet [Azure AD lösenordsåterställning via Självbetjäning för IT-proffs](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="azure-ad-password-protections"></a>Skydd med Azure AD-lösenord
 
@@ -74,7 +74,7 @@ För andra Microsoft-konton liknar skärmen det som följer:
 
   ![Utelåst från ett Microsoft-konto](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Information om lösenordsåterställning i Azure Active Directory finns i avsnittet [Azure AD lösenordsåterställning via Självbetjäning för IT-proffs](active-directory-passwords.md).
+Information om lösenordsåterställning i Azure Active Directory finns i avsnittet [Azure AD lösenordsåterställning via Självbetjäning för IT-proffs](active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Om du är en Azure AD-administratör kan du använda [Windows Hello](https://www.microsoft.com/windows/windows-hello) för att helt och hållet förhindra att användare skapar traditionella lösenord.

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6ac076917092caa8b3c14ab179515c0693fc89bf
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Hantera enheter med hjälp av Azure portal
 
@@ -36,7 +36,7 @@ Det här avsnittet:
 
 ## <a name="configure-device-settings"></a>Konfigurera inställningar för enheter
 
-För att hantera dina enheter med hjälp av Azure portal, din enheter måste vara antingen registrerade eller anslutna till Azure AD. Du kan finjustera registrera och ansluta enheter genom att konfigurera inställningar för enheter som en administratör. 
+Om du vill hantera enheter med Azure-portalen kan dina enheter måste vara antingen [registrerad eller anslutna](device-management-introduction.md#getting-devices-under-the-control-of-azure-ad) till Azure AD. Du kan finjustera registrera och ansluta enheter genom att konfigurera inställningar för enheter som en administratör. 
 
 ![Konfigurera inställningar för enheter](./media/device-management-azure-portal/22.png)
 
@@ -45,13 +45,13 @@ Inställningssidan kan du konfigurera:
 ![Hantera en enhet i Intune](./media/device-management-azure-portal/21.png)
 
 
-- **Användare kan ansluta enheter till Azure AD** – denna inställningar kan du välja vilka användare som kan ansluta enheter till Azure AD. Standardvärdet är **alla**.
+- **Användare kan ansluta enheter till Azure AD** -den här inställningen kan du välja vilka användare som kan [ansluta enheter](device-management-introduction.md#azure-ad-joined-devices) till Azure AD. Standardvärdet är **alla**.
 
 - **Ytterligare lokala administratörer på Azure AD-anslutna enheter** -du kan välja de användare som beviljas lokal administratörsbehörighet på en enhet. Användare som läggs till här läggs till i *Enhetsadministratörer* roll i Azure AD. Globala administratörer i Azure AD och enhetsägare beviljas lokal administratörsbehörighet som standard. Det här alternativet är en premium edition funktioner som är tillgängliga via produkter, till exempel Azure AD Premium eller Enterprise Mobility Suite (EMS). 
 
-- **Användarna kan registrera sina enheter med Azure AD** -måste du konfigurera den här inställningen om du vill att enheter ska registreras med Azure AD. Om du väljer **ingen**, enheter tillåts inte att registrera om de inte Azure AD ansluten eller hybrid anslutna Azure AD. Registrering med Microsoft Intune eller hantering av mobilenheter (MDM) för Office 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster **alla** är markerad och **NONE** är inte tillgänglig...
+- **Användarna kan registrera sina enheter med Azure AD** -måste du konfigurera den här inställningen om du vill tillåta att enheterna ska [registrerade](device-management-introduction.md#azure-ad-registered-devices) med Azure AD. Om du väljer **ingen**, enheter tillåts inte att registrera om de inte Azure AD ansluten eller hybrid anslutna Azure AD. Registrering med Microsoft Intune eller hantering av mobilenheter (MDM) för Office 365 kräver registrering. Om du har konfigurerat någon av dessa tjänster **alla** är markerad och **NONE** är inte tillgänglig...
 
-- **Kräva Multifaktorautentisering ansluta enheter** -du kan välja om användare måste ange en andra autentiseringsfaktor för att ansluta sina enheter till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering vid registrering av en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du kontrollera att multifaktorautentisering har konfigurerats för de användare som registrerar sina enheter. Mer information om olika Azure Multi-Factor authentication-tjänster finns [komma igång med Azure Multi-Factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Kräva Multifaktorautentisering ansluta enheter** -du kan välja om användare måste ange en andra autentiseringsfaktor till [koppling](device-management-introduction.md#azure-ad-joined-devices) sin enhet till Azure AD. Standardvärdet är **nr**. Vi rekommenderar att kräva multifaktorautentisering vid registrering av en enhet. Innan du aktiverar multifaktorautentisering för den här tjänsten måste du kontrollera att multifaktorautentisering har konfigurerats för de användare som registrerar sina enheter. Mer information om olika Azure Multi-Factor authentication-tjänster finns [komma igång med Azure Multi-Factor authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
 
 - **Högsta antal enheter** -den här inställningen kan du välja det högsta antalet enheter som en användare kan ha i Azure AD. Om användarna når den här kvoten, de är inte lägga till fler enheter förrän ett eller flera av de befintliga enheterna har tagits bort. Enheten citattecken räknas för alla enheter som är Azure AD ansluten eller Azure AD som registrerade idag. Standardvärdet är **20**.
 
@@ -66,12 +66,12 @@ Det här alternativet är en premium-funktioner som är tillgängliga via produk
 
 Du har två alternativ för att hitta registrerade och domänanslutna enheter:
 
-- **Alla enheter** i den **hantera** avsnitt i den **enheter** bladet  
+- **Alla enheter** i den **hantera** avsnitt i den **enheter** sidan  
 
     ![Alla enheter](./media/device-management-azure-portal/41.png)
 
 
-- **Enheter** i den **hantera** avsnitt i en **användaren** bladet
+- **Enheter** i den **hantera** avsnitt i en **användaren** sidan
  
     ![Alla enheter](./media/device-management-azure-portal/43.png)
 
@@ -170,15 +170,15 @@ Om du är administratör kan du visa och kopiera BitLocker-nycklar för att hjä
 ## <a name="audit-logs"></a>Granskningsloggar
 
 
-Enheten aktiviteter är tillgängliga via aktivitetsloggarna. Detta omfattar aktiviteter som utlöses av registreringstjänsten för enheten eller användaren:
+Enheten aktiviteter är tillgängliga via aktivitetsloggarna. Detta omfattar aktiviteter som utlöses av registreringstjänsten för enheter och användare:
 
-- Skapa en enhet och lägga till ägare/användare på enheten
+- Skapa en enhet och lägga till ägare / användare på enheten
 
 - Ändringar av inställningar för enheter
 
 - Enheten åtgärder, till exempel ta bort eller uppdatera en enhet
  
-Är din inkörsport till att granska data **granskningsloggar** i den **aktiviteten** avsnitt i den **enheter* bladet.
+Är din inkörsport till att granska data **granskningsloggar** i den **aktiviteten** avsnitt i den **enheter** sidan.
 
 ![Granskningsloggar](./media/device-management-azure-portal/61.png)
 
@@ -202,7 +202,7 @@ Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
 Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du filtrera granskningsdata med hjälp av följande fält:
 
-- Catergory
+- Kategori
 - Resurstyp för aktivitet
 - Aktivitet
 - Datumintervall

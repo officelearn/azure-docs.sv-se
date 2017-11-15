@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 480f574640d4a9ccd4da97a98adc8b284d373855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d737e354f5e7ee57c2e2c3d9b5599d4ba2b09af
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuera och ta bort program med hjälp av FabricClient
 > [!div class="op_single_selector"]
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient-API:er](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
@@ -42,7 +43,7 @@ När ett program distribueras och en instans som körs i klustret kan du ta bort
 1. Ta bort (eller ta bort) för att köra programinstansen
 2. Avregistrera programtypen om du inte längre behöver
 
-Om du använder [Visual Studio för att distribuera och felsöka program](service-fabric-publish-app-remote-cluster.md) på klustret för lokal utveckling ovanstående steg hanteras automatiskt via ett PowerShell-skript.  Det här skriptet finns i den *skript* mappen i projektet för konsolprogrammet. Den här artikeln innehåller bakgrundsinformation om vad skriptet gör så att du kan utföra samma åtgärder utanför Visual Studio. 
+Om du använder Visual Studio för att distribuera och felsöka program i klustret lokal utveckling, hanteras de föregående stegen automatiskt via ett PowerShell-skript.  Det här skriptet finns i den *skript* mappen i projektet för konsolprogrammet. Den här artikeln innehåller bakgrundsinformation om vad skriptet gör så att du kan utföra samma åtgärder utanför Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 Anslut till klustret genom att skapa en [FabricClient](/dotnet/api/system.fabric.fabricclient) instansen innan du kör något av kodexemplen i den här artikeln. Exempel på att ansluta till ett kluster för lokal utveckling eller en fjärrklusterkontext eller ett kluster som skyddas med Azure Active Directory, X509 certifikat eller Windows Active Directory finns [Anslut till en säker kluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). För att ansluta till lokal utveckling klustret, kör du följande:

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: a8ac18464d0efcc0db96e1667f18f2f853208573
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9fba9fdda3503ec80fede845466858825e3677a5
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="introduction-to-azure-container-service-aks"></a>Introduktion till Azure Container Service (AKS)
 
@@ -29,8 +29,20 @@ Azure Container Service (AKS) gör det enkelt att skapa, konfigurera och hantera
 
 Genom att använda AKS kan dra du nytta av företagsklass funktioner i Azure, men har ändå programmet överföring via Kubernetes och Docker-bildformat.
 
+## <a name="managed-kubernetes-in-azure"></a>Hanterade Kubernetes i Azure
+
+AKS minskar komplexiteten och operativa arbetet med att hantera ett Kubernetes kluster genom att avlasta mycket detta ansvar till Azure. Som en värdtjänst Kubernetes, Azure hanterar viktiga uppgifter som hälsa övervakning och underhåll för dig. Dessutom kan betalar du bara för agent-noder i ditt kluster, inte för huvudservrarna. Som en hanterad tjänst i Kubernetes AKS innehåller:
+
+> [!div class="checklist"]
+> * Automatisk Kubernetes versionsuppgraderingar och korrigering
+> * Skalning av enkelt klustret
+> * Självåterställning finns kontrollplan (Original)
+> * Besparingar – betala endast för att köra agent poolen noder
+
+Med Azure hantering hanteringen av noderna i klustret AKS, behöver du inte längre manuellt utföra många aktiviteter som klusteruppgradering. Eftersom Azure hanterar dessa underhållsaktiviteter som är viktiga för dig, AKS inte ge direktåtkomst (exempelvis med SSH) i klustret.
+
 ## <a name="using-azure-container-service-aks"></a>Med Azure Container Service (AKS)
-Vårt mål med AKS är att tillhandahålla en behållare värdmiljön med öppen källkod verktyg och tekniker som är populärt bland våra kunder idag. Därför tillgängliggör vi Kubernetes API-standardslutpunkter. Genom att använda dessa standardslutpunkter kan du använda all programvara som kan kommunicera till ett Kubernetes-kluster. Du kan till exempel välja [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) eller [draft](https://github.com/Azure/draft).
+Syftet med AKS är att tillhandahålla en behållare värdmiljön med öppen källkod verktyg och tekniker som är populärt bland kunder idag. Därför tillgängliggör vi Kubernetes API-standardslutpunkter. Genom att använda dessa standardslutpunkter kan du använda all programvara som kan kommunicera till ett Kubernetes-kluster. Du kan till exempel välja [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/) eller [draft](https://github.com/Azure/draft).
 
 ## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Skapar ett Kubernetes-kluster med Azure Container Service (AKS)
 Om du vill börja använda AKS måste du distribuera ett AKS-kluster med den [Azure CLI](./kubernetes-walkthrough.md) eller via portalen (Sök Marketplace för **Azure Container Service**). Om du är en avancerad användare som behöver mer kontroll över Azure Resource Manager-mallarna kan du öppna projektet [acs-engine](https://github.com/Azure/acs-engine) med öppen källkod för att bygga ett eget anpassat Kubernetes-kluster och distribuera det via `az` CLI.

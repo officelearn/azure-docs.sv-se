@@ -13,14 +13,14 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: fe11926cb7f6b2a80913895b685acfcc433e9805
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL-datasynkronisering (förhandsgranskning)
 
@@ -78,38 +78,11 @@ Datasynkronisering är inte lämplig för följande scenarier:
     -   Om du väljer *hubb wins*, ändringar i hubben alltid över ändringar i medlemmen.
     -   Om du väljer *medlem wins*, ändringar i medlemmen Skriv över ändringar i hubben. Om det finns mer än en medlem, beror det sista värdet på vilken medlem synkroniseras först.
 
-## <a name="common-questions"></a>Vanliga frågor
-
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Hur ofta kan datasynkronisering synkroniserar Mina data? 
-Minsta frekvens är var femte minut.
-
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Kan jag använda datasynkronisering ska synkroniseras mellan SQL Server lokala databaser? 
-Inte direkt. Du kan synkronisera mellan lokala SQL Server-databaser indirekt, men genom att skapa en Hub-databas i Azure och sedan lägga till de lokala databaserna i gruppen synkronisering.
-   
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Kan jag använda datasynkronisering att fördefiniera data från min produktionsdatabasen i en tom databas och hålla dem synkroniserade? 
-Ja. Skapa schemat manuellt i den nya databasen med hjälp av skript från ursprungligt. När du skapar schemat, lägga till tabeller i en synkronisering att kopiera data och hålla den synkroniserad.
-
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Varför ser tabeller som jag inte kan skapa?  
-Datasynkronisering skapar tabeller sida i databasen för ändringsspårning. Ta bort inte eller datasynkronisering slutar fungera.
-   
-### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>Jag har fått ett felmeddelande som säger ”det går inte att infoga värdet NULL i kolumnen \<kolumnen\>. Kolumnen tillåter inte null-värden ”. Vad innebär det och hur kan jag åtgärda felet? 
-Det här felmeddelandet innebär att ett av de två följande problem:
-1.  Det kan finnas en tabell utan en primärnyckel. Åtgärda problemet genom att lägga till en primär nyckel till alla tabeller som du synkronisera.
-2.  Det kan finnas en WHERE-sats i CREATE INDEX-instruktionen. Synkronisera hanterar inte det här villkoret. Åtgärda problemet genom att ta bort WHERE-satsen eller göra ändringarna manuellt för alla databaser. 
- 
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Hur hanterar datasynkronisering cirkelreferenser? Det vill säga när samma data synkroniseras i flera synkroniseringsgrupper och ändras som ett resultat?
-Datasynkronisering kan inte hantera cirkelreferenser. Se till att undvikas. 
-
-### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Hur kan exportera och importera en databas med datasynkronisering?
-När du exporterar en databas som en `.bacpac` filen och importera filen om du vill skapa en ny databas måste du göra följande två saker du kan använda datasynkronisering i den nya databasen:
-1.  Rensa datasynkronisering objekt och tabeller sida på den **ny databas** med hjälp av [skriptet](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Det här skriptet tar bort alla nödvändiga datasynkronisering objekt från databasen.
-2.  Återskapa gruppen synkronisering med den nya databasen. Ta bort om du inte längre behöver den gamla sync-gruppen.
-
 ## <a name="sync-req-lim"></a>Krav och begränsningar
 
 ### <a name="general-requirements"></a>Allmänna krav
 
--   Varje tabell måste ha en primärnyckel. Ändra inte värdet för den primära nyckeln i en rad. Om du behöver göra detta kan ta bort raden och återskapa den med nya primärnyckelvärdet. 
+-   Varje tabell måste ha en primärnyckel. Ändra inte värdet för den primära nyckeln i en rad. Om du behöver ändra värdet för en primärnyckel, ta bort raden och återskapa den med nya primärnyckelvärdet. 
 
 -   En tabell kan inte ha en identitetskolumn som inte är den primära nyckeln.
 
@@ -150,6 +123,44 @@ Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra änd
 | Datastorlek för rad i en tabell                                        | 24 mb                  |                             |
 | Minsta synkroniseringsintervall                                           | 5 minuter              |                             |
 |||
+
+## <a name="faq-about-sql-data-sync"></a>Vanliga frågor om SQL-datasynkronisering
+
+### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Hur mycket kostar tjänsten SQL-datasynkronisering (förhandsgranskning)
+
+I förhandsversionen är gratis för tjänsten SQL-datasynkronisering (förhandsversion).  Men påförs du fortfarande data transfer kostnader för dataflytt till och från din SQL Database-instans. Mer information finns i [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+
+### <a name="what-regions-support-data-sync"></a>Vilka regioner stöd för datasynkronisering?
+
+SQL-datasynkronisering (förhandsversion) är tillgänglig i alla regioner för offentliga moln.
+
+### <a name="is-a-sql-database-account-required"></a>Är ett konto för SQL-databas som krävs? 
+
+Ja. Du måste ha ett konto för SQL-databas som värd för NAV-databasen.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Kan jag använda datasynkronisering ska synkroniseras mellan SQL Server lokala databaser? 
+Inte direkt. Du kan synkronisera mellan lokala SQL Server-databaser indirekt, men genom att skapa en Hub-databas i Azure och sedan lägga till de lokala databaserna i gruppen synkronisering.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Kan jag använda datasynkronisering att fördefiniera data från min produktionsdatabasen i en tom databas och hålla dem synkroniserade? 
+Ja. Skapa schemat manuellt i den nya databasen med hjälp av skript från ursprungligt. När du skapar schemat, lägga till tabeller i en synkronisering att kopiera data och hålla den synkroniserad.
+
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Bör jag använda SQL datasynkronisering du säkerhetskopierar och återställer min databaser?
+
+Du bör inte använda SQL-datasynkronisering (förhandsgranskning) för att skapa en säkerhetskopia av dina data. Du kan inte säkerhetskopiera och återställa till en specifik tidpunkt eftersom SQL-datasynkronisering (förhandsgranskning) synkroniseringar inte är en ny version. Dessutom SQL datasynkronisering (förhandsgranskning) säkerhetskopieras inte andra SQL-objekt, till exempel lagrade procedurer och utför inte motsvarigheten till en återställningsåtgärd snabbt.
+
+En rekommenderad säkerhetskopiering tekniken finns [kopiera en Azure SQL database](sql-database-copy.md).
+
+### <a name="is-collation-supported-in-sql-data-sync"></a>Har stöd för sorteringen i SQL-datasynkronisering?
+
+Ja. SQL-datasynkronisering stöder sortering i följande scenarier:
+
+-   Om tabellerna valda sync-schemat inte är redan i din hubb eller medlem databaser och när du distribuerar gruppen synkronisering, skapar tjänsten automatiskt motsvarande tabeller och kolumner med sorteringsinställningar som valts i tomt mål-databaser.
+
+-   Om tabellerna som synkroniseras redan finns i både din hubb och medlem, kräver SQL datasynkronisering att primärnyckelkolumnerna har samma sortering mellan NAV- och databaser för att distribuera sync-gruppen. Det finns ingen sortering begränsningar för kolumner utom primärnyckelkolumnerna.
+
+### <a name="is-federation-supported-in-sql-data-sync"></a>Stöds federation i SQL-datasynkronisering
+
+Federationsrotdatabas kan användas i tjänsten SQL-datasynkronisering (förhandsgranskning) utan någon begränsning. Du kan inte lägga till slutpunkten federerad databasen till den aktuella versionen av SQL-datasynkronisering (förhandsversion).
 
 ## <a name="next-steps"></a>Nästa steg
 

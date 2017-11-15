@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Skapa attributbaserade regler för dynamiska gruppmedlemskap i Azure Active Directory
 Du kan skapa avancerade regler för att aktivera avancerade attributbaserad dynamiskt medlemskap för grupper i Azure Active Directory (AD Azure). Den här artikeln beskrivs de attribut och syntax för att skapa regler för dynamiskt medlemskap för användare eller enheter.
@@ -78,10 +78,10 @@ Den totala längden på innehållet i avancerade regeln får inte överskrida 20
 ## <a name="supported-expression-rule-operators"></a>Stöds uttryck regeln operatorer
 I följande tabell visas alla operatorer för stöds uttryck-regeln och deras syntax som ska användas i brödtexten för avancerad regel:
 
-| Operatorn | Syntax |
+| Operator | Syntax |
 | --- | --- |
 | Är inte lika med |-ne |
-| är lika med |-eq |
+| Lika med |-eq |
 | Börjar inte med |-notStartsWith |
 | Börjar med |startsWith- |
 | Innehåller inte |-notContains |
@@ -296,7 +296,7 @@ Du kan också skapa en regel som väljer enhetsobjekten för medlemskap i en gru
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Ändra dynamiskt medlemskap till statisk, och vice versa
 Det är möjligt att ändra hur hanteras medlemskap i en grupp. Detta är användbart när du vill behålla samma namn och ID i systemet, så att alla befintliga referenser i gruppen är fortfarande giltiga. Skapa en ny grupp krävs uppdaterar du dessa referenser.
 
-Vi håller på att uppdatera Azure-portalen för att stödja den här funktionen. Under tiden kan du använda den [klassiska Azure-portalen](https://manage.windowsazure.com) (Följ instruktionerna [här](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)) eller använda PowerShell-cmdlets som visas nedan.
+Vi håller på att uppdatera Azure-portalen för att stödja den här funktionen. Under tiden kan du använda den [klassiska Azure-portalen](https://manage.windowsazure.com) (Följ instruktionerna [här](active-directory-groups-dynamic-membership-azure-portal.md)) eller använda PowerShell-cmdlets som visas nedan.
 
 > [!WARNING]
 > När du ändrar en befintlig statisk grupp till en dynamisk grupp alla befintliga medlemmar tas bort från gruppen och sedan bearbetas medlemskapsregeln för att lägga till nya medlemmar. Om gruppen används för att styra åtkomsten till appar eller resurser, kan de ursprungliga medlemmarna förlora åtkomsten tills medlemskapsregeln bearbetats helt.

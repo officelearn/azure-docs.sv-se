@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 23a2996a5eaa41af5dc66558d2a70dd3e4a4fe3f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Anpassa Azure AD B2C-användargränssnittet (UI)
 
 Användarupplevelsen är ytterst viktigt i en kundinriktade program.  Utöka kunden grundläggande genom att utforma användarupplevelser med utseendet och känslan av ditt varumärke. Azure Active Directory B2C (Azure AD B2C) kan du anpassa profil för registrering, inloggning, redigering och sidor med pixel perfekt kontroll för återställning av lösenord.
 
 > [!NOTE]
-> Sidan anpassning gränssnittsfunktionen beskrivs i den här artikeln gäller inte för inloggning endast principen, dess tillhörande sidan för återställning av lösenord och verifiering e-postmeddelanden.  Använda funktionerna i [funktionen för företagsanpassning](../active-directory/active-directory-add-company-branding.md) i stället.
+> Sidan anpassning gränssnittsfunktionen beskrivs i den här artikeln gäller inte för inloggning endast principen, dess tillhörande sidan för återställning av lösenord och verifiering e-postmeddelanden.  Använda funktionerna i [funktionen för företagsanpassning](../active-directory/customize-branding.md) i stället.
 >
-> På liknande sätt, om en användare intiates en redigera profilprincip *innan* logga in användaren omdirigeras till en sida som kan anpassas med hjälp av den [funktionen för företagsanpassning](../active-directory/active-directory-add-company-branding.md).
+> På liknande sätt, om en användare intiates en redigera profilprincip *innan* logga in användaren omdirigeras till en sida som kan anpassas med hjälp av den [funktionen för företagsanpassning](../active-directory/customize-branding.md).
 
 Den här artikeln innehåller följande avsnitt:
 

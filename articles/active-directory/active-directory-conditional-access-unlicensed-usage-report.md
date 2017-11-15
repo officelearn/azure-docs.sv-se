@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0f5f0eb79d8924ebe7e5848e1d8b761ea2e4983d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 91b48098cc8ba2bb230b0536a9bcd121db79c533
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="unlicensed-usage-report"></a>Olicensierad användningsrapporten
 Olicensierad användning rapporten kan du identifiera ej licensierade användare som använder betald Azure AD-funktioner. Detta gör att du kan göra bättre användning av licenser som du har köpt och för att identifiera du vet när du eventuellt ytterligare licenser. 
@@ -27,7 +27,7 @@ Rapporten visar aktiva användning av funktionerna för betalda under de senaste
 ## <a name="report-structure"></a>Rapporten struktur
 | Kolumnnamn | Beskrivning |
 |:--- |:--- |
-| Olicensierad användare |Användarens namn |
+| Olicensierad användare |Namnet på användaren |
 | Funktion |Funktionsnamnet. Till exempel: villkorlig åtkomst |
 | Program som nås |Namnet på det program som nås med funktionen. Till exempel: Office 365 SharePoint Online |
 
@@ -42,6 +42,6 @@ Ej licensierade användare flaggas när de har åtkomst till en tjänst som har 
 Detta gäller för MFA / plats principer samt enheten principer som använder Intune.
 
 ## <a name="see-also"></a>Se även
-* [Använda villkorlig åtkomst med Office 365 och andra Azure Active Directory anslutna appar](active-directory-conditional-access.md)
-* [Komma igång med villkorlig åtkomst till Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
+* [Använda villkorlig åtkomst med Office 365 och andra Azure Active Directory anslutna appar](active-directory-conditional-access-azure-portal.md)
+* [Komma igång med villkorlig åtkomst till Azure AD](active-directory-conditional-access-azure-portal-get-started.md) 
 

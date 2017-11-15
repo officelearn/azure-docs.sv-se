@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e99a7bc34ac5ed060100e5f5032513bf4b18b2eb
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: f6a69ecbeb09dc042eff7c1f95ee518e701b0507
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Distribuera en gateway på Windows- eller Linux för anslutna factory förkonfigurerade lösningen
 
@@ -44,7 +44,7 @@ Stegen i den här artikeln visar hur du distribuerar en gateway med Docker på a
 ## <a name="windows-deployment"></a>Windows-distribution
 
 > [!NOTE]
-> Om du ännu inte har en gateway-enhet, rekommenderar Microsoft att du köper en kommersiell gateway från någon av våra partners. Finns det [Azure IoT-enhet katalogen] för en lista med gatewayenheter som är kompatibla med anslutna factory-lösning. Följ instruktionerna som medföljer enheten för att konfigurera gatewayen. Du kan också Använd följande instruktioner för att manuellt konfigurera en av dina befintliga gatewayer.
+> Om du ännu inte har en gateway-enhet, rekommenderar Microsoft att du köper en kommersiell gateway från en av sina partner. Finns det [Azure IoT-enhet katalogen] för en lista med gatewayenheter som är kompatibla med anslutna factory-lösning. Följ instruktionerna som medföljer enheten för att konfigurera gatewayen. Du kan också Använd följande instruktioner för att manuellt konfigurera en av dina befintliga gatewayer.
 
 ### <a name="install-docker"></a>Installera Docker
 
@@ -103,7 +103,7 @@ Du kan också utföra det här steget när du har installerat docker från den *
 ## <a name="linux-deployment"></a>Linux-distribution
 
 > [!NOTE]
-> Om du ännu inte har en gateway-enhet, rekommenderar Microsoft att du köper en kommersiell gateway från någon av våra partners. Finns det [Azure IoT-enhet katalogen] för en lista med gatewayenheter som är kompatibla med anslutna factory-lösning. Följ instruktionerna som medföljer enheten för att konfigurera gatewayen. Du kan också Använd följande instruktioner för att manuellt konfigurera en av dina befintliga gatewayer.
+> Om du ännu inte har en gateway-enhet, rekommenderar Microsoft att du köper en kommersiell gateway från en av sina partner. Finns det [Azure IoT-enhet katalogen] för en lista med gatewayenheter som är kompatibla med anslutna factory-lösning. Följ instruktionerna som medföljer enheten för att konfigurera gatewayen. Du kan också Använd följande instruktioner för att manuellt konfigurera en av dina befintliga gatewayer.
 
 [Installera Docker] på Linux-gateway-enheten.
 

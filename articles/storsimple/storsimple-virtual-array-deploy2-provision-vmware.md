@@ -4,7 +4,7 @@ description: "Den här andra kursen i virtuella StorSimple-matris deployment ser
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuera StorSimple virtuell matris - etablera i VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Översikt
-Den här självstudiekursen beskrivs hur du etablera och ansluta till en StorSimple virtuell matrisen på ett värdsystem som kör VMware ESXi 5.5 och senare. Den här artikeln gäller för distribution av virtuella StorSimple-matriser i Azure-portalen och Microsoft Azure Government-molnet.
+Den här självstudiekursen beskrivs hur du etablera och ansluta till en virtuell StorSimple-matris på ett värdsystem med VMware ESXi 5.0, 5.5 eller 6.0. Den här artikeln gäller för distribution av virtuella StorSimple-matriser i Azure-portalen och Microsoft Azure Government-molnet.
 
 Du måste ha administratörsbehörighet för att etablera och ansluta till en virtuell enhet. Etablering och inledande installationen kan ta cirka 10 minuter för att slutföra.
 
 ## <a name="provisioning-prerequisites"></a>Etablering av förutsättningar
-Förutsättningar för att kunna etablera en virtuell enhet på en värdsystem som kör VMware ESXi 5.5 och senare, är som följer.
+Förutsättningar för att kunna etablera en virtuell enhet på ett värdsystem med VMware ESXi 5.0, 5.5 eller 6.0 är som följer.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten
 Innan du börjar bör du kontrollera att:
@@ -64,7 +64,7 @@ För att etablera och ansluta till en virtuell enhet, måste du utföra följand
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Steg 1: Kontrollera värdsystem uppfyller minsta virtuell enhet
 Om du vill skapa en virtuell enhet behöver du:
 
-* Åtkomst till ett värdsystem med VMware ESXi Server 5.5 och högre.
+* Åtkomst till ett värdsystem med VMware ESXi Server 5.0, 5.5 eller 6.0.
 * VMware vSphere-klient på datorn att hantera ESXi-värd.
 
   * Minst 4 kärnor.
@@ -183,6 +183,9 @@ Utför följande steg för att etablera en virtuell enhet i din hypervisor-progr
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 Den virtuella datorn har nu etablerats. Nästa steg är att slå på den här datorn och hämta IP-adress.
+
+> [!NOTE]
+> Vi rekommenderar att du inte installerar VMware-verktyg på din virtuella matrisen (som etablerats ovan). Installationen av VMware-verktyg resulterar i en konfiguration som inte stöds.
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Steg 3: Starta den virtuella enheten och hämta IP-Adressen
 Utför följande steg för att starta den virtuella enheten och ansluta till den.

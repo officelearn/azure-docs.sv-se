@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Topologiöverväganden nätverk när du använder Azure Active Directory Application Proxy
 
@@ -102,7 +102,7 @@ Den här artikeln fokuserar på placering av koppling, men du kan också ändra 
 
 Mer och mer flyttar organisationer sina nätverk i värdbaserade miljöer. Detta gör det enkelt att placera sina appar i en värdmiljö som ingår också i företagsnätverket, och fortfarande i domänen. I det här fallet kan de mönster som beskrivs i föregående avsnitt tillämpas på den nya platsen för programmet. Om du funderar på det här alternativet, se [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Dessutom kan du överväga att ordna dina kopplingar med [connector grupper](active-directory-application-proxy-connectors.md) till mål-appar som finns i olika platser och nätverk. 
+Dessutom kan du överväga att ordna dina kopplingar med [connector grupper](active-directory-application-proxy-connectors-azure-portal.md) till mål-appar som finns i olika platser och nätverk. 
 
 ## <a name="common-use-cases"></a>Vanliga användarsituationer
 
@@ -174,5 +174,5 @@ Du kan också använda en variant i den här situationen. Om de flesta användar
 
 - [Aktivera Application Proxy](active-directory-application-proxy-enable.md)
 - [Aktivera enkel inloggning](active-directory-application-proxy-sso-using-kcd.md)
-- [Aktivera villkorlig åtkomst](active-directory-application-proxy-conditional-access.md)
+- [Aktivera villkorlig åtkomst](application-proxy-enable-remote-access-sharepoint.md)
 - [Felsökning av problem med Application Proxy](active-directory-application-proxy-troubleshoot.md)

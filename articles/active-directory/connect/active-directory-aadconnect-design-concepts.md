@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp
 Syftet med det här avsnittet är att beskriva områden som måste betraktas under genomförandet designen av Azure AD Connect. Det här avsnittet är en djupdykning i vissa områden och dessa koncept beskrivs kortfattat i andra avsnitt samt.
@@ -191,7 +191,7 @@ John är en användare i contoso.com. Du vill Johan använda lokala UPN john@con
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Icke-dirigerbara lokala domäner och UPN för Azure AD
 Vissa organisationer har icke-dirigerbara domäner, t.ex. contoso.local eller enkel etikett domäner som contoso. Det går inte att verifiera en icke-dirigerbara domän i Azure AD. Azure AD Connect kan synkronisera med endast en verifierad domän i Azure AD. När du skapar en Azure AD-katalog skapar en dirigerbara domän som blir standarddomän för din Azure AD, till exempel contoso.onmicrosoft.com. Därför blir det nödvändigt att kontrollera andra dirigerbara domänen i ett sådant scenario om du inte vill synkronisera till för standarddomänen onmicrosoft.com.
 
-Läs [lägga till ett eget domännamn i Azure Active Directory](../active-directory-add-domain.md) för mer information om att lägga till och verifiera domäner.
+Läs [lägga till ett eget domännamn i Azure Active Directory](../active-directory-domains-add-azure-portal.md) för mer information om att lägga till och verifiera domäner.
 
 Azure AD Connect identifierar om du kör i en icke-dirigerbara domänmiljö och korrekt skulle varnar dig från att gå vidare med standardinställningar. Om du arbetar i en icke-dirigerbara domän, är det troligt att UPN för användarna har icke-dirigerbara suffix för. Till exempel föreslår, om du kör under contoso.local, Azure AD Connect du om du vill använda anpassade inställningar i stället för med standardinställningar. Med anpassade inställningar kan du ange attributet som ska användas som UPN för att logga in på Azure när användarna har synkroniserats till Azure AD.
 

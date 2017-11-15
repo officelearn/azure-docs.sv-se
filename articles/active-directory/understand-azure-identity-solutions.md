@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Förstå identitetslösningar i Azure
 Microsoft Azure Active Directory (AD Azure) är ett identitets- och molnet hanteringslösning som tillhandahåller katalogtjänster, identitet styrning och hantering av åtkomst. Azure AD snabbt [aktiverar enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till 1 000 är förintegrerade kommersiella och anpassade appar i den [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Många av de här apparna som du förmodligen redan använder till exempel Office 365, Salesforce.com, rutan, ServiceNow och Workday.
@@ -110,12 +110,12 @@ Vi har massor av bra resurser online för att du lär dig allt om Azure AD. Här
 * [Ytterligare säkerhet för ett någonsin anslutna world](../multi-factor-authentication/multi-factor-authentication.md)
 * [Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Komma igång med Azure AD Reporting](active-directory-reporting-getting-started.md)
-* [Hantera lösenord från valfri plats](active-directory-passwords.md)
+* [Hantera lösenord från valfri plats](active-directory-passwords-update-your-own-password.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Hur du ger säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md)
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](active-directory-manage-groups.md)
-* [Vad är Microsoft Azure Active Directory-licensiering?](active-directory-licensing-what-is.md)
+* [Vad är Microsoft Azure Active Directory-licensiering?](active-directory-licensing-whatis-azure-portal.md)
 * [Hur kan identifiera ej sanktionerade molnappar som används inom organisationen](active-directory-cloudappdiscovery-whatis.md)
 
 ## <a name="next-steps"></a>Nästa steg

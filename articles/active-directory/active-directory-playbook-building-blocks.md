@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory som bevis på koncept playbook: byggblock
 
@@ -99,10 +99,10 @@ Ungefärlig tid till slutförd: 15 minuter
 | Steg | Resurser |
 | --- | --- |
 | Gå till Azure AD Management-portalen | [Hanteringsportalen för Azure AD - företagsanpassning](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Överför tillgångar för inloggningssidan (hjälte logotyp, liten logotyp, etiketter, etc.). Du kan också om du har AD FS kan justera samma tillgångar med AD FS-inloggningssidor | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor: anpassningsbara element](active-directory-add-company-branding.md) |
+| Överför tillgångar för inloggningssidan (hjälte logotyp, liten logotyp, etiketter, etc.). Du kan också om du har AD FS kan justera samma tillgångar med AD FS-inloggningssidor | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor: anpassningsbara element](customize-branding.md) |
 | Vänta några minuter för att ändringarna ska börja gälla helt |  |
 | Logga in med POC användarens autentiseringsuppgifter till https://myapps.microsoft.com |  |
-| Bekräfta utseendet och känslan i webbläsare | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor](active-directory-add-company-branding.md) |
+| Bekräfta utseendet och känslan i webbläsare | [Lägga till företagsanpassning till inloggnings-- och åtkomstpanel sidor](customize-branding.md) |
 | Du kan också bekräfta utseendet och känslan i andra enheter |  |
 
 ### <a name="considerations"></a>Överväganden
@@ -379,7 +379,7 @@ Ungefärlig tid till slutförd: 15 minuter
 
 | Förhandskrav | Resurser |
 | --- | --- |
-| Aktivera lösenordshantering av självbetjäning i din klient. | [Azure Active Directory återställning av lösenord för IT-administratörer](active-directory-passwords.md) |
+| Aktivera lösenordshantering av självbetjäning i din klient. | [Azure Active Directory återställning av lösenord för IT-administratörer](active-directory-passwords-update-your-own-password.md) |
 | Aktivera tillbakaskrivning av lösenord hantera lösenord från lokala. Obs detta kräver vissa Azure AD Connect versioner | [Krav för tillbakaskrivning av lösenord](active-directory-passwords-writeback.md) |
 | Identifiera PoC-användare som kommer att använda den här funktionen och kontrollera att de är medlemmar i en säkerhetsgrupp. Användarna måste vara icke-administratörer att fullständigt demonstrerar kapacitet | [Anpassa: Azure AD-lösenordshantering: begränsa åtkomst till återställning av lösenord](active-directory-passwords-writeback.md) |
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 3910c62e61d77f479da9fae2e1a8c0575c543281
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: d8ed395abb31a1cb41e35456ab5892a2e7c3a750
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -32,7 +32,7 @@ Artiklarna nedan är bra startpunkter för dem som för en kort beskrivning av A
 |:---:| --- |
 | En introduktion till management programproblem som löser Azure AD |[Hantera program med Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
 | En översikt över de olika funktionerna i Azure AD som härrör aktivering av enkel inloggning, definiera vem som har åtkomst till appar och hur användare starta appar |[Programåtkomst och enkel inloggning i Azure Active Directory](active-directory-appssoaccess-whatis.md) |
-| En titt på de olika stegen när integrera appar i din Azure AD |[Integrera Azure Active Directory med program](active-directory-integrating-applications-getting-started.md)<br /><br />[Aktivera enkel inloggning till SaaS-appar](active-directory-sso-integrate-saas-apps.md)<br /><br />[Hantera åtkomst till appar](active-directory-managing-access-to-apps.md) |
+| En titt på de olika stegen när integrera appar i din Azure AD |[Integrera Azure Active Directory med program](active-directory-integrating-applications-getting-started.md)<br /><br />[Aktivera enkel inloggning till SaaS-appar](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Hantera åtkomst till appar](active-directory-managing-access-to-apps.md) |
 | En förklaring av hur appar representeras i Azure AD |[Hur och varför program läggs till Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Felsökning av artiklar
@@ -80,8 +80,8 @@ Om du har program i ditt privata nätverk som ska användas av användare och en
 |:---:| --- |
 | Översikt över Azure AD Application Proxy och hur det fungerar |[Att tillhandahålla säker fjärråtkomst till lokala program](active-directory-application-proxy-get-started.md) |
 | Självstudier om hur du konfigurerar Application Proxy och hur du publicerar din första app |[Hur du konfigurerar Azure AD App-Proxy](active-directory-application-proxy-enable.md)<br /><br />[Tyst installation App Proxy Connector](active-directory-application-proxy-silent-installation.md)<br /><br />[Hur du publicerar program med App-Proxy](active-directory-application-proxy-publish.md)<br /><br />[Hur du använder ett eget domännamn](active-directory-application-proxy-custom-domains.md) |
-| Aktivera enkel inloggning och villkorlig åtkomst för appar som publiceras med App-Proxy |[Single-sign-on med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Villkorlig åtkomst och Application Proxy](active-directory-application-proxy-conditional-access.md) |
-| Information om hur du använder Application Proxy för följande scenarier |[Ge stöd för Native Client-program](active-directory-application-proxy-native-client.md)<br /><br />[Ge stöd för anspråksmedvetna program](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ge stöd för program som publicerats i separata nätverk och platser](active-directory-application-proxy-connectors.md) |
+| Aktivera enkel inloggning och villkorlig åtkomst för appar som publiceras med App-Proxy |[Single-sign-on med Application Proxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Villkorlig åtkomst och Application Proxy](application-proxy-enable-remote-access-sharepoint.md) |
+| Information om hur du använder Application Proxy för följande scenarier |[Ge stöd för Native Client-program](active-directory-application-proxy-native-client.md)<br /><br />[Ge stöd för anspråksmedvetna program](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ge stöd för program som publicerats i separata nätverk och platser](active-directory-application-proxy-connectors-azure-portal.md) |
 | Felsökningsguide för Application Proxy |[Felsökningsguide för App-Proxy](active-directory-application-proxy-troubleshoot.md) |
 
 Application Proxy är tillgänglig för alla utgåvor av Azure AD för upp till tio appar per användare. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) har stöd för obegränsade program. Om din organisation har [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) eller [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), sedan kan du [använda grupper för att bevilja åtkomst till program](#managing-access-to-applications).
@@ -107,10 +107,9 @@ När du ställer in enkel inloggning till dina appar och resurser som kan du sed
 
 | Artikel Guide |  |
 |:---:| --- |
-| En introduktion till funktionerna som villkorlig åtkomst som erbjuds i Azure AD och Office 365 och Intune |[Hantera risker med villkorlig åtkomst](active-directory-conditional-access.md) |
-| Hur du aktiverar villkorlig åtkomst för följande typer av resurser |[Villkorlig åtkomst för SaaS-appar](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md)<br /><br />[Villkorlig åtkomst för lokala program](active-directory-conditional-access.md)<br /><br />[Villkorlig åtkomst för lokala program som publicerats via Azure AD App-Proxy](active-directory-application-proxy-conditional-access.md) |
-
-| Hur du registrerar enheter med Azure Active Directory för att aktivera principer för enhetsbaserad villkorlig åtkomst | [Översikt över Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Så här aktiverar du automatisk Enhetsregistrering för domänanslutna Windowsenheter](active-directory-conditional-access-automatic-device-registration.md)<br />– [Steg för Windows 8.1-enheter](active-directory-conditional-access-automatic-device-registration-setup.md)<br />– [Steg för Windows 7-enheter](active-directory-conditional-access-automatic-device-registration-setup.md) |
+| En introduktion till funktionerna som villkorlig åtkomst som erbjuds i Azure AD och Office 365 och Intune |[Hantera risker med villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) |
+| Hur du aktiverar villkorlig åtkomst för följande typer av resurser |[Villkorlig åtkomst för SaaS-appar](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Villkorlig åtkomst för Office 365-tjänster](active-directory-conditional-access-device-policies.md)<br /><br />[Villkorlig åtkomst för lokala program](active-directory-conditional-access-azure-portal.md)<br /><br />[Villkorlig åtkomst för lokala program som publicerats via Azure AD App-Proxy](application-proxy-enable-remote-access-sharepoint.md) |
+| Hur du registrerar enheter med Azure Active Directory för att aktivera principer för enhetsbaserad villkorlig åtkomst |[Översikt över Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Så här aktiverar du automatisk Enhetsregistrering för domänanslutna Windowsenheter](active-directory-conditional-access-automatic-device-registration.md)<br />– [Steg för Windows 8.1-enheter](active-directory-conditional-access-automatic-device-registration-setup.md)<br />– [Steg för Windows 7-enheter](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Hur du använder Microsoft Authenticator-appen för tvåstegsverifiering | [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
@@ -162,8 +161,8 @@ För att hjälpa dig att hantera som ska ha åtkomst till vilka resurser, kan du
 |:---:| --- |
 | En översikt över Azure AD access management-funktioner |[Introduktion till att hantera åtkomst till appar](active-directory-managing-access-to-apps.md)<br /><br />[Hur Access Management arbetar i Azure AD](active-directory-manage-groups.md)<br /><br />[Använda grupper för att hantera åtkomst till SaaS-program](active-directory-accessmanagement-group-saasapps.md) |
 | Aktivera tjänsten hantering av appar och grupper |[Självbetjäning programhantering](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
-| Instruktioner för att konfigurera dina grupper i Azure AD |[Så här skapar du säkerhetsgrupper](active-directory-accessmanagement-manage-groups.md)<br /><br />[Hur du kan ange ägare för en grupp](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Hur du använder gruppen ”Alla användare”](active-directory-accessmanagement-dedicated-groups.md) |
-| Använda dynamiska grupper för att automatiskt fylla i gruppmedlemskap med attributbaserad medlemskapsregler |[Dynamiska gruppmedlemskap: Avancerade regler](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Felsökning av dynamiska gruppmedlemskap](active-directory-accessmanagement-troubleshooting.md) |
+| Instruktioner för att konfigurera dina grupper i Azure AD |[Så här skapar du säkerhetsgrupper](active-directory-groups-create-azure-portal.md)<br /><br />[Hur du kan ange ägare för en grupp](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Hur du använder gruppen ”Alla användare”](active-directory-accessmanagement-dedicated-groups.md) |
+| Använda dynamiska grupper för att automatiskt fylla i gruppmedlemskap med attributbaserad medlemskapsregler |[Dynamiska gruppmedlemskap: Avancerade regler](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Felsökning av dynamiska gruppmedlemskap](active-directory-accessmanagement-troubleshooting.md) |
 
 Hantering av grupp-baserade program är tillgängligt för [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) och [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Grupphantering via självbetjäning, självbetjäning programhantering och dynamiska grupper är [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) funktioner.
 

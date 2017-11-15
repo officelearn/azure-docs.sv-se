@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: b2305782fa4d8ca1bc90f239bc1f6ade0ff8fdc3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera en apptjänstplan i Azure
 
@@ -56,7 +56,16 @@ I den **menyn**, leta efter den **Apptjänstplan** avsnitt.
 
 Välj **ändra programtjänstplanen** att starta processen.
 
-**Ändra programtjänstplanen** öppnar den **programtjänstplanen** väljare. Välj en befintlig plan för att flytta den här appen till. Endast planer i samma resursgrupp och region visas. Om du just har skapat en apptjänstplan i samma resursgrupp och region, men visas inte i listan, försök att uppdatera webbläsaren.
+**Ändra programtjänstplanen** öppnar den **programtjänstplanen** väljare. Välj en befintlig plan för att flytta den här appen till. 
+
+> [!IMPORTANT] 
+> Den **Välj apptjänstplan** sidan filtreras efter följande kriterier: 
+> - Det finns i samma resursgrupp 
+> - Det finns i samma geografiska region 
+> - Det finns i samma webbutrymmet  
+> 
+> En _webbutrymmet_ är en logisk konstruktion i App Service som definierar en gruppering av serverresurser. En geografisk region (till exempel USA, västra) innehåller många webspaces för att allokera kunder som använder App Service. Apptjänst resurser är för närvarande inte kan flyttas mellan webspaces. 
+> 
 
 ![App Service-plan väljare.][change]
 

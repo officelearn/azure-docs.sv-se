@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: bb739d19be7aedf73f422faaa0f5f63a81633d07
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 36443ec86c15edce27bdc4f50cabcaf2e14936bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopieringsaktiviteten i Azure Data Factory
 
@@ -65,6 +65,10 @@ Du kan till exempel göra kopiera följande aktiviteter:
 * Kopiera filerna i textformat (CSV) från lokala filsystemet och skriva till Azure Blob i Avro-formatet.
 * Kopiera komprimerade filer från lokala filsystemet och expandera sedan mark till Azure Data Lake Store.
 * Kopiera data i GZip komprimerade (CSV)-format från Azure Blob och skriva till Azure SQL Database.
+
+## <a name="supported-regions"></a>Regioner som stöds
+
+Den tjänst som används för Kopieringsaktiviteten är tillgängligt globalt i regioner och geografiska områden som anges i [Azure Integration Runtime platser](concepts-integration-runtime.md#integration-runtime-location). Globalt tillgänglig topologin garanterar effektiv dataflyttning som vanligtvis undviker mellan region hopp. Se [tjänster efter region](https://azure.microsoft.com/regions/#services) tillgänglighet för Data Factory och flytt av Data i en region.
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -132,7 +136,7 @@ Följande mall för en kopia aktivitet innehåller en fullständig lista över e
 | Indata | Ange den dataset som du skapade som pekar till källdata. Kopieringsaktiviteten stöder bara en enda inmatning. | Ja |
 | utdata | Ange datamängden som du skapade som pekar på sink-data. Kopieringsaktiviteten stöder bara ett enda utflöde. | Ja |
 | typeProperties | En grupp egenskaper att konfigurera kopieringsaktiviteten. | Ja |
-| Källa | Ange källtypen kopia och motsvarande egenskaper på hur du hämtar data.<br/><br/>Mer information i avsnittet ”Kopiera Aktivitetsegenskaper” i kopplingen artikeln i [datalager och format stöds](#supported-data-stores-and-formats). | Ja |
+| källa | Ange källtypen kopia och motsvarande egenskaper på hur du hämtar data.<br/><br/>Mer information i avsnittet ”Kopiera Aktivitetsegenskaper” i kopplingen artikeln i [datalager och format stöds](#supported-data-stores-and-formats). | Ja |
 | sink | Ange Mottagartypen kopia och motsvarande egenskaper på hur du skriver data.<br/><br/>Mer information i avsnittet ”Kopiera Aktivitetsegenskaper” i kopplingen artikeln i [datalager och format stöds](#supported-data-stores-and-formats). | Ja |
 | Översättare | Ange explicita kolumnmappningar från källan till mottagare. Används när kopiera standardbeteendet inte kan uppfylla dina behov.<br/><br/>Mer information från [Schema och data mappning](copy-activity-schema-and-type-mapping.md). | Nej |
 | cloudDataMovementUnits | Ange powerfulness av [Azure Integration Runtime](concepts-integration-runtime.md) att möta kopiering av data.<br/><br/>Mer information från [molnet data movement enheter](copy-activity-performance.md). | Nej |
@@ -152,9 +156,9 @@ Kopiera aktivitetsinformation körning och prestandaegenskaper returneras i en K
 | rowsSkipped | Antal inkompatibla rader hoppas över. Du kan aktivera funktionen genom att ange ”enableSkipIncompatibleRow” till true. | Int64-intervall (ingen enhet) |
 | Dataflöde | Förhållandet mellan där data överförs | Flyttal i KB/sek |
 | copyDuration | Varaktighet för kopian | Int32-värde i sekunder |
-| sqlDwPolyBase | Om PolyBase används vid kopiering av data till SQL Data Warehouse. | Booleskt värde |
-| redshiftUnload | Om UNLOAD används när du kopierar data från Redshift. | Booleskt värde |
-| hdfsDistcp | Om DistCp används när du kopierar data från HDFS. | Booleskt värde |
+| sqlDwPolyBase | Om PolyBase används vid kopiering av data till SQL Data Warehouse. | Boolesk |
+| redshiftUnload | Om UNLOAD används när du kopierar data från Redshift. | Boolesk |
+| hdfsDistcp | Om DistCp används när du kopierar data från HDFS. | Boolesk |
 | effectiveIntegrationRuntime | Visa som Integration Runtime(s) används för att ge aktiviteten kör i formatet `<IR name> (<region if it's Azure IR>)`. | Text (sträng) |
 | usedCloudDataMovementUnits | Effektiv moln data movement enheterna vid kopiering. | Int32-värde |
 | redirectRowPath | Sökvägen till en logg för överhoppade inkompatibla rader i blob storage som du konfigurerar under ”redirectIncompatibleRowSettings”. Se exemplet nedan. | Text (sträng) |

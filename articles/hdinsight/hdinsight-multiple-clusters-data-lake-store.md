@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 08f860dcf0f1d6c69cee02261b2a4989fc5c694a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92339548768878d03b864853172f3e94ad899693
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Använda flera HDInsight-kluster med ett Azure Data Lake Store-konto
 
@@ -52,7 +52,7 @@ I tabellen
 - **Tjänstens huvudnamn** är associerat med kontot Azure Active Directory (AAD) tjänstens huvudnamn.
 - **FINGRP** är en användargrupp som skapats i AAD som innehåller användare från ekonomi-organisation.
 
-Anvisningar om hur du skapar ett AAD-program (som skapar också ett huvudnamn för tjänsten) finns [skapa ett AAD-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Anvisningar om hur du skapar en användargrupp i AAD finns [hantera grupper i Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Anvisningar om hur du skapar ett AAD-program (som skapar också ett huvudnamn för tjänsten) finns [skapa ett AAD-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Anvisningar om hur du skapar en användargrupp i AAD finns [hantera grupper i Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 Några viktiga saker att tänka på.
 

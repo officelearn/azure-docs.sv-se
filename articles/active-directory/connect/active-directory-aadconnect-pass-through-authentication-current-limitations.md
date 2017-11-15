@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4a33df43ca218545d6c684103a64f2cd1460913b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory direkt-autentisering: Aktuella begränsningar
 
@@ -38,7 +38,7 @@ Följande scenarier stöds fullt ut:
 
 Följande scenarier är _inte_ stöds:
 
-- Användarinloggningar till äldre Office-klientprogram - Office 2010 och Office 2013 _utan_ modern autentisering). Organisationer uppmuntras att växla till modern autentisering, om möjligt. Modern autentisering tillåter stöd för direkt-autentisering, men också kan du skydda din användare användarkonton med [villkorlig åtkomst](../active-directory-conditional-access.md) funktioner, till exempel Multi-Factor Authentication (MFA).
+- Användarinloggningar till äldre Office-klientprogram - Office 2010 och Office 2013 _utan_ modern autentisering). Organisationer uppmuntras att växla till modern autentisering, om möjligt. Modern autentisering tillåter stöd för direkt-autentisering, men också kan du skydda din användare användarkonton med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) funktioner, till exempel Multi-Factor Authentication (MFA).
 - Användarinloggningar till Skype för företag-klientprogram, inklusive Skype för företag 2016.
 - Användarinloggningar i PowerShell v1.0. Det rekommenderas att du använder PowerShell version 2.0 i stället.
 - Azure AD Domain Services.

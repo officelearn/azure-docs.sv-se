@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Snabbstart: Lägga till ett anpassat domännamn i Azure Active Directory
 
@@ -78,7 +78,7 @@ Om du inte kan verifiera ett eget domännamn kan du prova följande felsöknings
 Om din organisation använder flera anpassade domännamn, till exempel ”contoso.com” och ”contosobank.com”, kan du lägga till dem, upp till 900 domännamn. Stegen i den här artikeln kan hjälpa dig att lägga till var och en av dina domännamn.
 
 ### <a name="learn-more"></a>Läs mer
-[Översikt över anpassade domännamn i Azure AD](active-directory-add-domain-concepts.md)
+[Översikt över anpassade domännamn i Azure AD](active-directory-domains-manage-azure-portal.md)
 
 [Hantera egna domännamn](active-directory-domains-manage-azure-portal.md)
 

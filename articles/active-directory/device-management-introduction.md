@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1288fe2eeb9b31b912cd918be624e7a4703f0709
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introduktion till hantering av enheter i Azure Active Directory
 
@@ -135,12 +135,31 @@ Med hantering av enheter i Azure AD kan du:
 
 Som regel i en USB bör du använda:
 
-- Azure AD som registrerade enheter för personliga enheter
+- Azure AD som registrerade enheter:
 
-- Azure AD-anslutna enheter för enheter som inte är anslutna till en lokal AD 
+    - För personliga enheter 
+
+    - Registrera enheter manuellt med Azure AD
+
+- Azure AD-anslutna enheter: 
+
+    - För enheter som ägs av din organisation
+
+    - För enheter som är **inte** ansluten till en lokal AD
+
+    - Registrera enheter manuellt med Azure AD
+
+    - Att ändra lokala tillståndet för en enhet
 
 - Hybrid Azure AD-anslutna enheter för enheter som är anslutna till en lokal AD     
 
+    - För enheter som ägs av din organisation
+
+    - För enheter som är anslutna till en lokal AD
+
+    - Att automatiskt registrera enheter med Azure AD
+
+    - Att ändra lokala tillståndet för en enhet
 
 
 

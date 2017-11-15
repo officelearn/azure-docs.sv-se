@@ -13,14 +13,14 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: d0b3f3b188bc5da91414efb763b5165377009191
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Konfigurera synkronisering för SQL-Data (förhandsgranskning)
 Lär dig hur du ställer in Azure SQL Data Sync genom att skapa en hybrid sync-grupp som innehåller både Azure SQL Database och SQL Server-instanser i den här självstudiekursen. Den nya gruppen sync helt har konfigurerats och synkroniserar enligt det schema du anger.
@@ -192,6 +192,83 @@ När de nya sync gruppmedlemmarna skapas och distribueras, steg3 **Konfigurera s
     ![Välj fält som ska synkroniseras](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Välj slutligen **spara**.
+
+## <a name="faq-about-setup-and-configuration"></a>Vanliga frågor om installation och konfiguration
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Hur ofta kan datasynkronisering synkroniserar Mina data? 
+Minsta frekvens är var femte minut.
+
+### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL-datasynkronisering fullständigt skapa och etablera tabeller?
+
+Om synkronisering schemat tabeller inte är redan har skapats i måldatabasen skapar SQL datasynkronisering (förhandsgranskning) dem med de kolumner som du har valt. Men resulterar det här beteendet inte i ett schema för fullständig återgivning, av följande skäl:
+
+-   Endast de kolumner som du har valt skapas i måltabellen. Om vissa kolumner i källtabellerna inte är en del av gruppen sync tillhandahålls inte kolumnerna i mål-tabeller.
+
+-   Index skapas endast för de markerade kolumnerna. Om käll-Tabellindex har kolumner som inte ingår i gruppen synkronisering, dessa index inte har etablerats i mål-tabeller.
+
+-   Index för kolumner av typen XML etableras inte.
+
+-   Kontrollbegränsningar etableras inte.
+
+-   Befintliga utlösare på källtabellerna etableras inte.
+
+-   Vyer och lagrade procedurer skapas inte till måldatabasen.
+
+På grund av dessa begränsningar rekommenderar vi följande:
+-   För produktionsmiljöer, etablera fullständig återgivning schemat själv.
+-   För att testa tjänsten funktionen Automatisk etablering i SQL-datasynkronisering (förhandsgranskning) fungerar bra.
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Varför ser tabeller som jag inte kan skapa?  
+Datasynkronisering skapar tabeller sida i databasen för ändringsspårning. Ta bort inte eller datasynkronisering slutar fungera.
+
+### <a name="is-my-data-convergent-after-a-sync"></a>Är Mina data tillämpas enhetligt efter en synkronisering?
+
+Inte nödvändigtvis. I en grupp för synkronisering med ett nav och tre ekrar (A, B och C) är synkroniseringar hubben till en, nav och B och hubb till C. Om en ändring görs till databasen A *när* hubben till en synkronisering som ändra inte skrivs till B-databas eller databas C tills aktiviteten nästa synkronisering.
+
+### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Hur skaffar jag schemaändringar i en grupp för synkronisering
+
+Du måste utföra schemaändringar manuellt.
+
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Hur kan exportera och importera en databas med datasynkronisering?
+När du exporterar en databas som en `.bacpac` filen och importera filen om du vill skapa en ny databas måste du göra följande två saker du kan använda datasynkronisering i den nya databasen:
+1.  Rensa datasynkronisering objekt och tabeller sida på den **ny databas** med hjälp av [skriptet](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Det här skriptet tar bort alla nödvändiga datasynkronisering objekt från databasen.
+2.  Återskapa gruppen synkronisering med den nya databasen. Ta bort om du inte längre behöver den gamla sync-gruppen.
+
+## <a name="faq-about-the-client-agent"></a>Vanliga frågor om klientagenten
+
+### <a name="why-do-i-need-a-client-agent"></a>Varför behöver jag en klientagent
+
+Tjänsten SQL-datasynkronisering (förhandsgranskning) kommunicerar med SQL Server-databaser via klientagenten. Den här säkerhetsfunktionen förhindrar direktkommunikation med databaser bakom en brandvägg. När tjänsten SQL-datasynkronisering (förhandsgranskning) kommunicerar med agenten den gör det genom att använda krypterade anslutningar och en unik token eller *agentnyckeln*. SQL Server-databaserna autentisera agenten med anslutningsnyckel sträng och agent. Den här designen ger en hög nivå av säkerhet för dina data.
+
+### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Hur många instanser av den lokala agenten UI kan köras?
+
+Endast en instans för gränssnitt kan köras.
+
+### <a name="how-can-i-change-my-service-account"></a>Hur kan jag ändra Mina tjänstkontot?
+
+När du har installerat en klientagent är det enda sättet att ändra tjänstkontot för att avinstallera den och installera en ny klientagent med det nya tjänstkontot.
+
+### <a name="how-do-i-change-my-agent-key"></a>Hur kan jag ändra Mina agent-nyckeln?
+
+En agent-nyckel kan bara användas en gång av en agent. Det går inte att återanvändas när du tar bort och sedan installera om en ny agent, och kan inte användas av flera agenter. Om du behöver skapa en ny nyckel för en befintlig agent måste du vara säker på att samma nyckel registreras med klientagenten och tjänsten SQL-datasynkronisering (förhandsversion).
+
+### <a name="how-do-i-retire-a-client-agent"></a>Hur jag dra tillbaka en klientagent
+
+Återskapa dess nyckel i portalen för att omedelbart ogiltigförklara eller dra tillbaka en agent, men inte skickar den i Användargränssnittet för agenten. Återskapande av en nyckel upphäver den tidigare nyckeln oavsett om motsvarande agenten är online eller offline.
+
+### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Hur flytta en klientagent till en annan dator?
+
+Om du vill köra lokal agent från en annan dator än den som för tillfället är gör du följande:
+
+1. Installera agenten på önskad dator.
+
+2. Logga in på portalen SQL datasynkronisering (förhandsversion) och återskapa en agentnyckeln för den nya agenten.
+
+3. Använda den nya agenten Gränssnittet för att skicka den nya agentnyckeln.
+
+4. Vänta medan klientagenten hämtar listan över lokala databaser som har registrerats tidigare.
+
+5. Ange autentiseringsuppgifter på databasen för alla databaser som visas som kan nås. Dessa databaser måste kunna nås från den nya datorn där agenten är installerad.
 
 ## <a name="next-steps"></a>Nästa steg
 Grattis! Du har skapat en sync-grupp som innehåller både en instans av SQL Database och SQL Server-databasen.

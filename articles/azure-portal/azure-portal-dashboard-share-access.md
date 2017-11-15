@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a965f9773524a36bedc3d040bf1a1ca391507f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Dela Azure instrumentpaneler med hjälp av rollbaserad åtkomstkontroll
 När du har konfigurerat en instrumentpanel kan du publicera den och dela den med andra användare i din organisation. Du att andra ska kunna visa instrumentpanelen med hjälp av Azure [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md). Du tilldelar en användare eller grupp av användare till en roll och rollen definierar om dessa användare kan visa eller ändra publicerade instrumentpanelen. 
@@ -35,7 +35,7 @@ Med rollbaserad åtkomstkontroll (RBAC), kan du tilldela användare till roller 
 
 * prenumeration
 * Resursgrupp
-* Resursen
+* resurs
 
 De behörigheter du tilldelar ärvs från prenumerationen till resursen. Publicerade instrumentpanelen är en resurs. Därför kanske redan användare som tilldelats roller för prenumerationen som fungerar även för publicerade instrumentpanelen. 
 
@@ -44,7 +44,7 @@ Här är ett exempel.  Anta att du har en Azure-prenumeration och olika medlemma
 Du kan dock också tilldela behörigheter till den resursgrupp som innehåller flera instrumentpaneler eller till en enskild instrumentpanel. Du kan till exempel bestämma att en grupp användare bör ha begränsad behörighet över prenumerationen men större åtkomst till en viss instrumentpanel. Du tilldelar dessa användare till en roll för instrumentpanelen. 
 
 ## <a name="publish-dashboard"></a>publicera instrumentpanelen
-Anta att du har konfigurerat en instrumentpanel som du vill dela med en grupp användare i din prenumeration. Stegen nedan beskriver en anpassad grupp som heter Storage Manager, men du kan också namnge din grupp vad du vill. Information om hur du skapar en Active Directory-grupp och lägga till användare i gruppen finns [hantera grupper i Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Anta att du har konfigurerat en instrumentpanel som du vill dela med en grupp användare i din prenumeration. Stegen nedan beskriver en anpassad grupp som heter Storage Manager, men du kan också namnge din grupp vad du vill. Information om hur du skapar en Active Directory-grupp och lägga till användare i gruppen finns [hantera grupper i Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 1. I instrumentpanelen, väljer **resursen**.
    

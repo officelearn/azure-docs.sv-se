@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6987ad8f36de55ac49785b41bb193721aa78321b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Användaren logga in med Azure Active Directory direkt-autentisering
 
@@ -55,7 +55,7 @@ Du kan kombinera direkt-autentisering med den [sömlös enkel inloggning](active
 
 - Har stöd för användarinloggning i alla webbläsarbaserad webbprogram och i Microsoft Office-program som använder [modern autentisering](https://aka.ms/modernauthga).
 - Logga in användarnamn kan vara antingen lokalt Standardanvändarnamnet (`userPrincipalName`) eller ett annat attribut som konfigurerats i Azure AD Connect (kallas även `Alternate ID`).
-- Funktionen fungerar sömlöst med [villkorlig åtkomst](../active-directory-conditional-access.md) funktioner, till exempel Multi-Factor Authentication (MFA) för att skydda dina användare.
+- Funktionen fungerar sömlöst med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) funktioner, till exempel Multi-Factor Authentication (MFA) för att skydda dina användare.
 - Integrerad med molnbaserad [självbetjäning lösenordshantering](../active-directory-passwords-overview.md), inklusive tillbakaskrivning av lösenord till lokala Active Directory och lösenordsskydd av förbjuda vanliga lösenord.
 - Miljöer med flera skogar stöds om det finns skogsförtroenden mellan AD-skogar och om routning är korrekt konfigurerad.
 - Det är en kostnadsfri funktion och du behöver inte några betald utgåvor av Azure AD för att använda den.

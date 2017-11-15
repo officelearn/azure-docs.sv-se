@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Vanliga frågor och svar (FAQ)
 Den här artikeln innehåller vanliga frågor och svar om Azure Site Recovery. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -75,22 +75,7 @@ För att skydda virtuella VMware-datorer behöver du en vSphere-hypervisor och v
 Ja. När du använder Site Recovery för att samordna replikering och redundans på avdelningskontor, får du en enhetlig orchestration och visning av alla arbetsbelastningar på en central plats. Du kan enkelt köra redundansväxlingar och administrera haveriberedskap för alla avdelningskontor från huvudkontoret, utan att besöka avdelningskontoren.
 
 ## <a name="pricing"></a>Prissättning
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Vilka avgifter utsätts för när du använder Azure Site Recovery?
-När du använder Site Recovery kan betalar du avgifter för Site Recovery-licens, Azure storage, lagringstransaktioner och utgående dataöverföring. [Läs mer](https://azure.microsoft.com/pricing/details/site-recovery).
-
-Site Recovery-licensen är per skyddade instansen, där en instans är en virtuell dator eller en fysisk server.
-
-- Om en virtuell disk replikeras till ett standardlagringskonto, är Azure storage-tillägget för användningen av lagringsutrymme. Till exempel källan diskens storlek är 1 TB och 400 GB används i Azure Site Recovery skapas en 1 TB VHD, men lagringen debiteras är 400 GB (plus mängden lagringsutrymme som används för replikeringsloggar).
-- Om en virtuell disk replikeras till premium-lagringskonto, är Azure storage-tillägget för den etablerade lagringsstorleken avrundat för det närmaste premium disk lagringsalternativet. Till exempel om källa diskens storlek är 50 GB, skapar Site Recovery en disk på 50 GB i Azure och Azure mappar detta till närmaste premium storage disken (P10).  Kostnader beräknas på P10 och inte på 50 GB diskens storlek.  [Läs mer](https://aka.ms/premium-storage-pricing).  Om du använder premiumlagring krävs också ett standardlagringskonto för replikering loggning och mängden standard lagringsutrymme som används för dessa loggar också debiteras.
-- Inga diskar skapas till ett redundanstest eller en växling vid fel. I replikeringstillståndet lagring avgifter under kategorin ”sidblob och disk” enligt den [prisnivå lagringsberäknaren](https://azure.microsoft.com/en-in/pricing/calculator/) uppkommer. Dessa debiteringar baseras på lagringsutrymmet som typ av premium/standard och dataredundans Skriv - LRS, GRS RA-GRS osv.
-- Om alternativet att använda hanterade diskar på en växling vid fel är markerad [avgifter för hanterade diskar](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) användas efter en växling vid fel för växling vid fel och testning. Hanterade diskar avgifter inte gäller vid replikering.
-- Om inte alternativet att använda hanterade diskar på en växling vid fel väljs lagring avgifter under kategorin ”sidblob och disk” enligt den [prisnivå lagringsberäknaren](https://azure.microsoft.com/en-in/pricing/calculator/) uppkommit efter växling vid fel. Dessa debiteringar baseras på lagringsutrymmet som typ av premium/standard och dataredundans Skriv - LRS, GRS RA-GRS osv.
-- Lagringstransaktioner debiteras under stabilitet och för normal drift för VM efter en växling vid fel eller testa redundans. Men dessa tillägg är försumbar.
-
-Också är kostnader under testning av redundans, där VM, lagring, utgång och lagring transaktioner kostnaderna tillämpas.
-
-
+Priser frågor finns i frågor och svar på [priser för Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Säkerhet
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Skickas replikeringsdata till Site Recovery-tjänsten?

@@ -1,5 +1,5 @@
 ---
-title: "Beständiga funktioner översikt – Azure"
+title: "Beständiga funktioner översikt – Azure (förhandsversion)"
 description: "Introduktion till tillägget varaktiga funktioner för Azure Functions."
 services: functions
 author: cgillum
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>Beständiga översikt över Functions (Azure-funktioner)
+# <a name="durable-functions-overview-preview"></a>Beständiga översikt över Functions (förhandsgranskning)
 
 *Beständiga funktioner* är en utökning av [Azure Functions](functions-overview.md) och [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) som låter dig skriva tillståndskänslig funktioner i en miljö med serverlösa. Tillägget hanterar tillstånd, kontrollpunkter och startas om för dig.
 
@@ -31,7 +31,7 @@ Tillägget kan du definiera tillståndskänslig arbetsflöden i en ny typ av fun
 * De automatiskt kontrollpunkt framstegen när funktionen väntar. Lokala tillstånd går aldrig förlorad om processen återanvänds eller den virtuella datorn startas om.
 
 > [!NOTE]
-> Beständiga funktioner är ett avancerat tillägg för Azure Functions och är inte lämplig för alla program. Resten av den här artikeln förutsätter att du har en stark förtrogenhet med [Azure Functions](functions-overview.md) begrepp och utmaningarna som deltar i serverlösa programutveckling.
+> Beständiga funktioner är en förhandsversion och är en avancerad tillägg för Azure-funktioner som inte är lämplig för alla program. Resten av den här artikeln förutsätter att du har en stark förtrogenhet med [Azure Functions](functions-overview.md) begrepp och utmaningarna som deltar i serverlösa programutveckling.
 
 Det primära användningsfallet för beständig funktioner är förenkla komplexa, tillståndskänslig samordning problem i serverlösa program. I följande avsnitt beskrivs några vanliga program mönster som kan dra nytta av beständiga funktioner.
 

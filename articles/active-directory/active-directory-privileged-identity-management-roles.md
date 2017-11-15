@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c20aca4202319154b01d6398570f745636120f49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Olika administrativa roll i Azure Active Directory-PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -29,7 +29,7 @@ Du kan tilldela användare i din organisation för olika administrativa roller i
 > [!IMPORTANT]
 > Microsoft rekommenderar att du hanterar Azure AD via [Azure AD administratörscenter](https://aad.portal.azure.com) på Azure Portal istället för via den klassiska Azure-portalen som nämns i den här artikeln.
 
-En global administratör kan uppdatera som användare kan **permanent** tilldelade roller i Azure AD, med hjälp av PowerShell-cmdlets som `Add-MsolRoleMember` och `Remove-MsolRoleMember`, eller via den klassiska portalen som beskrivs i [ Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles.md).
+En global administratör kan uppdatera som användare kan **permanent** tilldelade roller i Azure AD, med hjälp av PowerShell-cmdlets som `Add-MsolRoleMember` och `Remove-MsolRoleMember`, eller via den klassiska portalen som beskrivs i [ Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) hanterar principer för privilegierad åtkomst för användare i Azure AD. PIM tilldelar användare till en eller flera roller i Azure AD och du kan tilldela någon till permanent i rollen, eller är tillämpliga för rollen. När en användare är permanent tilldelade till en roll eller aktiverar berättigade rolltilldelning och de kan hantera Azure Active Directory Office 365 och andra program med behörigheter som tilldelats deras roller.
 
@@ -53,7 +53,7 @@ Privileged Identity Management kan du tilldela användare till vanliga administr
 * **SharePoint-administratör** har administrativ åtkomst till SharePoint Online via administrationscentret för SharePoint Online och kan utföra nästan alla uppgifter i SharePoint Online.
 * **Skype för företag administratör** har administrativ åtkomst till Skype för företag genom Skype för företag administrationscentret och kan utföra nästan alla uppgifter i Skype för företag – Online.
 
-Läs följande artiklar innehåller mer information om [Tilldela administratörsroller i Azure AD](active-directory-assign-admin-roles.md) och [Tilldela administratörsroller i Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Läs följande artiklar innehåller mer information om [Tilldela administratörsroller i Azure AD](active-directory-assign-admin-roles-azure-portal.md) och [Tilldela administratörsroller i Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

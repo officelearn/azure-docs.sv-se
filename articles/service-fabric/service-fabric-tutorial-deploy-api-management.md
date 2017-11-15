@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: e28ea6df24b9df144552739427427ee14e998584
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1238863265a227c18ebef8ac2aaeabd802f877d4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuera API Management med Service Fabric
 Den här kursen ingår tre i en serie.  Distribuera Azure API Management med Service Fabric är ett avancerat scenario användbart när du vill publicera API: er med en omfattande uppsättning regler för routning till backend-Service Fabric-tjänster. Den här kursen visar hur du ställer in [Azure API Management](../api-management/api-management-key-concepts.md) med Service Fabric att dirigera trafik till en backend-tjänst i Service Fabric.  När du är klar kan har du distribuerat API-hantering till ett virtuellt nätverk, konfigurerat en API-åtgärd för att skicka trafik till backend-tillståndslösa tjänster. Mer information om Azure API Management scenarier med Service Fabric finns i [översikt](service-fabric-api-management-overview.md) artikel.
@@ -235,7 +235,7 @@ Starta Visual Studio som administratör och skapa en ASP.NET Core-tjänst:
 
     Det här är den slutpunkt som du exponera via API-hantering i Azure.
 
- 7. Slutligen kan du distribuera programmet till klustret i Azure. [Med Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), högerklicka på projektet och välj **publicera**. Ange din klusterslutpunkten (till exempel `mycluster.southcentralus.cloudapp.azure.com:19000`) att distribuera programmet till Service Fabric-kluster i Azure.
+ 7. Slutligen kan du distribuera programmet till klustret i Azure. Högerklicka på det program-projektet i Visual Studio och välj **publicera**. Ange din klusterslutpunkten (till exempel `mycluster.southcentralus.cloudapp.azure.com:19000`) att distribuera programmet till Service Fabric-kluster i Azure.
 
 En ASP.NET Core tillståndslösa tjänsten med namnet `fabric:/ApiApplication/WebApiService` bör körs i Service Fabric-kluster i Azure.
 

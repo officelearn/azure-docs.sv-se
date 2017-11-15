@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7cadb45202c7221876d377546e7c17199ec15809
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Att säkra data som lagras i Azure Data Lake Store
 Skydda data i Azure Data Lake Store är en metod för tre steg.
@@ -37,7 +37,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 * **Ett Azure Data Lake Store-konto**. Anvisningar om hur du skapar en finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Skapa säkerhetsgrupper i Azure Active Directory
-Instruktioner om hur du skapar AAD-säkerhetsgrupper och lägga till användare i gruppen finns [hantera säkerhetsgrupper i Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Instruktioner om hur du skapar AAD-säkerhetsgrupper och lägga till användare i gruppen finns [hantera säkerhetsgrupper i Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
 > Du kan lägga till både användare och andra grupper i en grupp i Azure AD med Azure-portalen. Men för att lägga till ett huvudnamn för tjänsten i en grupp, använda [Azure AD PowerShell-modulen](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).

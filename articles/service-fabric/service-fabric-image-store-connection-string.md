@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: alexwun
-ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 723cf7d98022e8bbb4f1e3c8c0836a4c53c6a078
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Förstå inställningen ImageStoreConnectionString
 
@@ -44,7 +44,7 @@ Värd för Image Store i en systemtjänst i själva klustret eliminerar externa 
 
 Filsystem-providern används i stället för Image Store-tjänsten för den lokala en ruta kluster under utvecklingen för att starta klustret något snabbare. Skillnaden är vanligtvis liten, men det är en användbar optimering för de flesta avdelningen under utvecklingen. Det är möjligt att distribuera ett kluster med lokala en ruta med de andra provider lagringstyper samt, men det finns vanligtvis ingen anledning att göra det eftersom utveckla och testning arbetsflödet fortsätter att vara detsamma oavsett providern. Än denna användning finns filsystemet och Azure Storage-providers endast för bakåtkompatibilitet.
 
-Så medan ImageStoreConnectionString konfigureras använda du vanligtvis bara standardinställningen. När du publicerar till Azure via [Visual Studio][12], parametern anges automatiskt i enlighet med detta åt dig. Anslutningssträngen är alltid ”fabric: Avbildningsarkiv” för programdistribution till kluster finns i Azure. Även om när osäkra, värdet alltid kan verifieras genom att hämta klustermanifestet av [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), eller [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Testa både lokalt och driftskluster alltid ska konfigureras för att du använder Image Store Service-providern.
+Så medan ImageStoreConnectionString konfigureras använda du vanligtvis bara standardinställningen. När du publicerar till Azure via Visual Studio anges parametern automatiskt åt dig därför. Anslutningssträngen är alltid ”fabric: Avbildningsarkiv” för programdistribution till kluster finns i Azure. Även om när osäkra, värdet alltid kan verifieras genom att hämta klustermanifestet av [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), eller [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Testa både lokalt och driftskluster alltid ska konfigureras för att du använder Image Store Service-providern.
 
 ### <a name="next-steps"></a>Nästa steg
 [Distribuera och ta bort program med hjälp av PowerShell][10]
@@ -55,4 +55,4 @@ Så medan ImageStoreConnectionString konfigureras använda du vanligtvis bara st
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-[12]: service-fabric-publish-app-remote-cluster.md
+

@@ -15,11 +15,11 @@ ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3df0324cae65418f35743b6543753c405dee01d0
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 0e46ff82c4177de6b33e5df8714318bff83fbb34
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Snabbstart: Lägga till nya användare i Azure Active Directory
 Den här artikeln förklarar hur du lägger till nya användare i din organisation i Azure Active Directory (AD Azure) en i taget med Azure-portalen eller genom att synkronisera dina lokala Windows Server AD-kontot användardata. 
@@ -31,7 +31,7 @@ Den här artikeln förklarar hur du lägger till nya användare i din organisati
    ![Att välja kommandot Lägg till](./media/add-users-azure-active-directory/add-user.png)
 4. Ange information för användaren, till exempel **namn** och **användarnamn**. Domännamndelen för användarnamn måste antingen vara den första standard domänen namnet ”[namn].onmicrosoft.com” eller en verifierad ofedererad [domännamn](add-custom-domain.md) , till exempel ”contoso.com”.
 5. Kopiera eller annars Observera genererade användarens lösenord så att du kan ange den till användaren när processen har slutförts.
-6. Du kan också öppna och fylla i informationen i **profil**, **grupper**, eller **Directory rollen** för användaren. Mer information om användar- och administratörsroller finns i [Tilldela administratörsroller i Azure AD](active-directory-assign-admin-roles.md).
+6. Du kan också öppna och fylla i informationen i **profil**, **grupper**, eller **Directory rollen** för användaren. Mer information om användar- och administratörsroller finns i [Tilldela administratörsroller i Azure AD](active-directory-assign-admin-roles-azure-portal.md).
 7. På **användare**väljer **skapa**.
 8. På ett säkert sätt distribuera genererade lösenordet till den nya användaren så att användaren kan logga in.
 

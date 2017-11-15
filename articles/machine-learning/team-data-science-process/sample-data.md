@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: e56c9e74c3413f8780295678273ea2ba06caad77
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 97d344fd31d711454f3e4aa251361b86351cc283
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="heading"></a>Exempeldata i Azure blob-behållare, SQL Server och Hive tabeller
-Det här dokumentlänkar till avsnitt som beskriver hur du samla in data som lagras i något av tre olika Azure platser:
+Det här innehåller dokumentlänkar till artiklar som beskriver hur du samla in data som lagras i något av tre olika Azure platser:
 
 * **Azure blob-behållardata** samplas genom att hämta den programmässigt och provtagning den med Python exempelkod.
 * **SQL Server-data** samplas med både SQL och Python Programming språk. 

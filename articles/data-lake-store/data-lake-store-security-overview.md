@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: e72dd7e84ce3961274cf312649cc679abc576aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b71c7e7f1ea58a273beb58717102522ad0f8c4a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Säkerhet i Azure Data Lake Store
 Många företag att utnyttja analyser av stordata för affärsinsikter hjälper dem att fatta smarta beslut. En organisation kan ha en komplex och reglerade miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att affärskritiska data lagras säkrare, med rätt nivå av åtkomst till enskilda användare. Azure Data Lake Store är utformat för att uppfylla dessa säkerhetskrav. I den här artikeln lär dig mer om säkerhetsfunktioner för Data Lake Store, inklusive:
@@ -65,7 +65,7 @@ Instruktioner finns i [tilldela användare eller säkerhetsgrupper datasjölager
 ### <a name="using-acls-for-operations-on-file-systems"></a>Med ACL: er för åtgärder på filsystem
 Data Lake Store är ett hierarkiskt filsystem som Hadoop Distributed File System (HDFS) och stöder [POSIX ACL: er](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Den styr läsa (r), skriva (b) och köra (behörigheter till resurser för rollen som ägare, för gruppen ägare och för andra användare och grupper x). I Data Lake Store Public Preview (den aktuella versionen), kan ACL:er aktiveras i rotmappen, undermappar och enskilda filer. Mer information om hur åtkomstkontrollposter fungerar i kontexten för Data Lake Store finns [Åtkomstkontroll i Data Lake Store](data-lake-store-access-control.md).
 
-Vi rekommenderar att du definierar ACL: er för flera användare med hjälp av [säkerhetsgrupper](../active-directory/active-directory-accessmanagement-manage-groups.md). Lägga till användare i en säkerhetsgrupp och tilldela sedan ACL: er för en fil eller mapp till säkerhetsgruppen. Detta är användbart när du vill ange anpassade åtkomst eftersom du är begränsad till att lägga till upp till nio poster för anpassade åtkomst. Mer information om hur du skyddar data som lagras i Data Lake Store med hjälp av Azure Active Directory-säkerhetsgrupper bättre finns [tilldela användare eller säkerhetsgrupp som ACL: er till Azure Data Lake Store-filsystem](data-lake-store-secure-data.md#filepermissions).
+Vi rekommenderar att du definierar ACL: er för flera användare med hjälp av [säkerhetsgrupper](../active-directory/active-directory-groups-create-azure-portal.md). Lägga till användare i en säkerhetsgrupp och tilldela sedan ACL: er för en fil eller mapp till säkerhetsgruppen. Detta är användbart när du vill ange anpassade åtkomst eftersom du är begränsad till att lägga till upp till nio poster för anpassade åtkomst. Mer information om hur du skyddar data som lagras i Data Lake Store med hjälp av Azure Active Directory-säkerhetsgrupper bättre finns [tilldela användare eller säkerhetsgrupp som ACL: er till Azure Data Lake Store-filsystem](data-lake-store-secure-data.md#filepermissions).
 
 ![Visa en lista över standard och anpassad åtkomst](./media/data-lake-store-security-overview/adl.acl.2.png "listan standard och anpassad åtkomst")
 

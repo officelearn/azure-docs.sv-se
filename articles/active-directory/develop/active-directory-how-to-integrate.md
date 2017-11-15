@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrera med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -67,7 +67,7 @@ Integrering med Azure AD ingår fördelar som inte kräver att skriva ytterligar
 
 **Avvikande inloggning identifiering.**  Azure AD bearbetar fler än en miljard inloggningar per dag när maskininlärningsalgoritmer för att identifiera misstänkt aktivitet och meddela IT-administratörer för möjliga problem.  Programmet hämtar fördelen med det här skyddet genom att stödja Azure AD-inloggning. Lär dig mer om [Visa rapport för Azure Active Directory-åtkomst](../active-directory-view-access-usage-reports.md).
 
-**Villkorlig åtkomst.**  Förutom multifaktorautentisering, Administratörer kan kräva att vissa villkor vara uppfyllda innan användarna kan logga in på ditt program.  Villkoren som du kan ange omfattar IP-adressintervall klientenheter, medlemskap i angivna grupperna och tillståndet för den enhet som används för åtkomst.  Lär dig mer om [villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access.md).
+**Villkorlig åtkomst.**  Förutom multifaktorautentisering, Administratörer kan kräva att vissa villkor vara uppfyllda innan användarna kan logga in på ditt program.  Villkoren som du kan ange omfattar IP-adressintervall klientenheter, medlemskap i angivna grupperna och tillståndet för den enhet som används för åtkomst.  Lär dig mer om [villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Enkel utveckling
 **Standardprotokollen.**  Microsoft strävar efter att stödja branschstandarder.  Azure AD stöder SAML 2.0, OpenID Connect 1.0, OAuth 2.0 och WS-Federation 1.2-autentiseringsprotokoll.  Graph API är OData 4.0-kompatibel.  Om programmet redan har stöd för SAML 2.0- eller OpenID Connect 1.0-protokoll för federerad inloggning, kan det vara enkelt att lägga till stöd för Azure AD.  Lär dig mer om [autentiseringsprotokoll som stöds av Azure AD](active-directory-authentication-protocols.md).

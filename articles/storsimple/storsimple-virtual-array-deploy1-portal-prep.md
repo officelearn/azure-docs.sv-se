@@ -4,7 +4,7 @@ description: "Första självstudierna för att distribuera StorSimple virtuell m
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuera StorSimple virtuell matris – förbereda den Azure-portalen
 
@@ -42,7 +42,7 @@ För att distribuera din virtuella StorSimple-matris, finns i följande artiklar
 | **#** | **I det här steget** | **Det gör du...** | **Och använda dessa dokument.** |
 | --- | --- | --- | --- |
 | 1. |**Konfigurera Azure-portalen** |Skapa och konfigurera din StorSimple Device Manager-tjänsten innan du etablerar en virtuell StorSimple-matris. |[Förbereda portalen](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Etablera virtuella matrisen** |Etablera för Hyper-V och ansluta till en virtuell StorSimple-matris på ett värdsystem som kör Hyper-V på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2. <br></br> <br></br> För VMware kan etablera och ansluta till en StorSimple virtuell matrisen på ett värdsystem som kör VMware ESXi 5.5 och senare.<br></br> |[Etablera en virtuell matris i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Etablera en virtuell VMware-matris](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Etablera virtuella matrisen** |Etablera för Hyper-V och ansluta till en virtuell StorSimple-matris på ett värdsystem som kör Hyper-V på Windows Server 2012 R2, Windows Server 2012 eller Windows Server 2008 R2. <br></br> <br></br> För VMware kan etablera och ansluta till en virtuell StorSimple-matris på ett värdsystem med VMware ESXi 5.0, 5.5 eller 6.0.<br></br> |[Etablera en virtuell matris i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Etablera en virtuell VMware-matris](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Konfigurera virtuella matrisen** |Utföra installationen för din filserver, registrera din StorSimple-filserver och slutför installationen av enheten. Du kan sedan etablera SMB-resurser. <br></br> <br></br> Utföra installationen för iSCSI-server, registrera StorSimple iSCSI-servern och slutför installationen av enheten. Du kan sedan etablera iSCSI-volymer. |[Konfigurera virtuella matris som filserver](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Konfigurera virtuella matris som iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Du kan nu börja ställa in Azure-portalen.
@@ -70,7 +70,7 @@ Innan du börjar bör du kontrollera att:
 
 Innan du distribuerar en virtuell matris, kontrollerar du att:
 
-* Du har åtkomst till en värdsystem som kör Hyper-V på Windows Server 2008 R2 eller senare eller VMware (ESXi 5.5 eller senare) som kan användas för att en etablera en enhet.
+* Du har åtkomst till en värdsystem som kör Hyper-V på Windows Server 2008 R2 eller senare eller VMware (ESXi 5.0, 5.5 eller 6.0) som kan användas för att en etablera en enhet.
 * Värddatorn är att dedikera följande resurser för att etablera virtuella matrisen:
   
   * Minst 4 kärnor.
@@ -136,7 +136,7 @@ Utför följande steg i den [Azure-portalen](https://portal.azure.com/).
    
    * VHDX för Hyper-V på Windows Server 2012 och senare
    * VHD för Hyper-V på Windows Server 2008 R2 och senare
-   * VMDK för VMWare ESXi 5.5 och senare
+   * VMDK för VMWare ESXi 5.0, 5.5 eller 6.0
 5. Hämta och packa upp filen till en lokal enhet, och ett meddelande om där den uppackade filen finns.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Valfritt steg: konfigurera ett nytt lagringskonto för tjänsten

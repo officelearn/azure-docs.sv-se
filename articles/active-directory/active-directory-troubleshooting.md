@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Felsöka: ”Active Directory-objekt är saknas eller är inte tillgänglig
 Många av anvisningar för användning av Azure Active Directory-funktioner och tjänster som börjar med ”gå till Azure-hanteringsportalen och klicka på **Active Directory**”. Men vad gör du om Active Directory-tillägget eller menyobjektet inte visas eller om den är markerad **saknas**? Det här avsnittet är avsedda att hjälpa. Beskriver villkor under vilka **Active Directory** visas inte eller är inte tillgängligt och förklarar hur du fortsätter.
@@ -43,7 +43,7 @@ Active Directory-objektet visas i den vänstra navigeringsmenyn när något av f
 
 Klicka för att skapa ett namnområde för åtkomstkontroll eller en flerfunktionsautentiseringsleverantör **+ ny** > **Apptjänster** > **Active Directory**.
 
-Om du vill ha administrativ behörighet till en katalog har en administratör tilldela en administratörsroll till ditt konto. Mer information finns i [Tilldela administratörsroller](active-directory-assign-admin-roles.md).
+Om du vill ha administrativ behörighet till en katalog har en administratör tilldela en administratörsroll till ditt konto. Mer information finns i [Tilldela administratörsroller](active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="active-directory-is-not-available"></a>Active Directory är inte tillgängligt
 När du klickar på **+ ny** > **Apptjänster**, en **Active Directory** objektet visas. Mer specifikt visas Active Directory-objekt när någon av Active Directory-funktioner, till exempel katalog, Access Control eller leverantör av Multifaktorautent, är tillgängliga för den aktuella användaren.

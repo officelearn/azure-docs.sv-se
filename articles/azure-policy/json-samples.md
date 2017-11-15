@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 4042c3606155d1d37947afccafd64652c9659894
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="templates-for-azure-policy"></a>Mallar för Azure-princip
 
@@ -67,6 +67,7 @@ Följande tabell innehåller länkar till json-mallar för Azure-principen. De h
 | [Granska DB nivån threat detection inställningen](scripts/audit-db-threat-det-setting.md) | Granskningar avisering principer SQL-databasen om dessa principer inte har angetts till angivet tillstånd. Du kan ange ett värde som anger om hotidentifiering är aktiverat eller inaktiverat.  |
 | [Gransknings-och SQL Server-nivån granskning](scripts/audit-sql-ser-leve-audit-setting.md) | Granskningar SQL server audit-inställningar om dessa inställningar inte matchar en angiven nivå. Du kan ange ett värde som anger om granskningsinställningarna ska aktiveras eller inaktiveras. |
 | [Granska Serverinställningen nivån hot identifiering](scripts/audit-sql-ser-threat-det-setting.md) | Granskningar avisering principer SQL-databasen om dessa principer inte har angetts till angivet tillstånd. Du kan ange ett värde som anger om hotidentifiering är aktiverat eller inaktiverat.  |
+| [Granska ingen Azure Active Directory-administratör](scripts/audit-no-aad-admin.md) | Granska när det finns inga Azure Active Directory-administratören som tilldelats till SQLServer. |
 | [Tillåtna SQL DB SKU: er](scripts/allowed-sql-db-skus.md) | Kräver SQL-databaser använder en godkänd SKU. Du anger en matris med tillåtna SKU-ID: N eller en matris med tillåtna SKU namn. |
 |**Storage**||
 | [Tillåtna SKU: er för Storage-konton och virtuella datorer](scripts/allowed-skus-storage.md) | Kräver att storage-konton och virtuella datorer använder godkända SKU: er. Använder inbyggda principer för att säkerställa godkända SKU: er. Anger en matris med godkända virtuella datorer SKU: er och en matris med godkända lagringskonto SKU: er. |

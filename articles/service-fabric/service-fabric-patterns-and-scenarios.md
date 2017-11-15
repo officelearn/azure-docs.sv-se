@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8ac4a10b9030a4d56824d1a42ed2729ebb2d208e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7808493ca984277a939f04098799dbbd8287cc0c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric-mönster och scenarier
 Om du tittar på bygga storskaliga mikrotjänster med hjälp av Azure Service Fabric, lär du dig av experter som designas och skapas den här plattformen som en tjänst (PaaS). Kom igång med rätt arkitektur och lär dig hur du optimerar resurserna för ditt program. Den [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) kursen svarar på frågor som ofta och av verkliga kunder svar om Service Fabric-scenarier och moduler.
@@ -98,4 +98,4 @@ Få svar på frågan ”varför behållare”? Lär dig mer om förhandsversione
 </table>
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig om Service Fabric-mönster och scenarier, Läs mer om hur du [skapa och hantera kluster](service-fabric-deploy-anywhere.md), [migrera molntjänster appar till Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [ställa in kontinuerlig leverans](service-fabric-set-up-continuous-integration.md), och [distribuera behållare](service-fabric-containers-overview.md).
+Nu när du har lärt dig om Service Fabric-mönster och scenarier, Läs mer om hur du [skapa och hantera kluster](service-fabric-deploy-anywhere.md), [migrera molntjänster appar till Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [ställa in kontinuerlig leverans](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), och [distribuera behållare](service-fabric-containers-overview.md).

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Skydda privilegierad åtkomst i Azure AD
 Skydda privilegierad åtkomst är ett viktigt första steg för att skydda företagets tillgångar i en modern organisation. Privilegierade konton är konton som administrera och hantera IT-system. Cyber angripare mål dessa konton för att få åtkomst till företagets data och system. Om du vill skydda privilegierad åtkomst bör du isolera konton och system från risk att utsättas för en obehörig användare.
@@ -66,7 +66,7 @@ Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du välje
 * Aktivera [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Aktivera [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Aktivera [Azure AD Identity Protection](../active-directory-identityprotection.md)
-* Aktivera [villkorlig åtkomstkontroll](../active-directory-conditional-access.md)
+* Aktivera [villkorlig åtkomstkontroll](../active-directory-conditional-access-azure-portal.md)
 
 Mer information om hur du skapar en plan för fullständig säkerhet finns i avsnittet ”kundens ansvarsområden och översikt över” för den [Microsoft Cloud Security för Enterprise-arkitekter](http://aka.ms/securecustomer) dokumentet. Mer information om att Microsoft-tjänster för att hjälpa till med någon av dessa avsnitt, kontakta din Microsoft-representant eller besök vår [Cybersecurity lösningar sidan](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 

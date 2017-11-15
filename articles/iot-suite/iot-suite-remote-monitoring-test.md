@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 426b7ff6114fd0b79a6af71a78705f11b80862bf
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testa din lösning med simulerade enheter
 
@@ -39,6 +39,10 @@ Följande tabell visar data i ligthbulb rapporterar till molnet som en dataströ
 | Namn   | Värden      |
 | ------ | ----------- |
 | Status | ”på”, ”av” |
+| online | SANT, FALSKT |
+
+> [!NOTE]
+> Den **online** telemetri värdet är obligatoriskt för alla simulerade typer.
 
 *Metoder*
 
@@ -267,7 +271,11 @@ Att testa den **av glödlampa** typ av enhet måste du först testa din enhetsty
 
 Om du vill testa och felsöka dina ändringar lokalt, se [enheten simuleringen översikt](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Konfigurera projektet för att kopiera den nya **av glödlampa** enhetsfiler till den angivna katalogen.
+Konfigurera projektet för att kopiera den nya **av glödlampa** enhetsfiler till den angivna katalogen:
+
+* Om du använder Visual Studio, kontrollerar du att du lägger till tre nya av glödlampa filer du skapade i föregående avsnitt för att den **Services** projekt i lösningen. Använd sedan **Solution explorer** markera dem som ska kopieras till utdatakatalogen.
+
+* Om du använder Visual Studio Code, öppna den **Services.csproj** och Lägg till de tre nya av glödlampa filerna du skapade i föregående avsnitt. Finns de befintliga modellen filen enhetsposter i den **Services.csproj** filen som exempel.
 
 Om du vill testa den nya enheten i en distribuerad lösning finns i något av:
 

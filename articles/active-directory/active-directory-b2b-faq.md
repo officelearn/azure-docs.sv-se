@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: bfedbbf8b26e1b129584a6a644e64a15635f5723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -29,7 +29,7 @@ Dessa vanliga frågor och svar om Azure Active Directory (AD Azure) business-to-
 Nej. Azure AD B2B-samarbetsfunktioner är endast tillgängliga i den [Azure-portalen](https://portal.azure.com) och i den [åtkomstpanelen](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Kan vi anpassa vår inloggningssida så att det är mer intuitiv för gästanvändare våra B2B-samarbete?
-Absolut! Se vår [blogginlägget om den här funktionen](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Mer information om hur du anpassar din organisations inloggningssida finns [lägga till företagsanpassning för att logga in och åtkomstpanelsidan](active-directory-add-company-branding.md).
+Absolut! Se vår [blogginlägget om den här funktionen](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Mer information om hur du anpassar din organisations inloggningssida finns [lägga till företagsanpassning för att logga in och åtkomstpanelsidan](customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>Har B2B-samarbete användare åtkomst till SharePoint Online och OneDrive?
 Ja. Möjligheten att söka efter befintliga gästanvändare i SharePoint Online med hjälp av Personväljaren är dock **av** som standard. Om du vill aktivera alternativet för att söka efter befintliga gästanvändare ange **ShowPeoplePickerSuggestionsForGuestUsers** till **på**. Du kan aktivera den här inställningen antingen på klienten eller på webbplatssamlingsnivå. Du kan ändra den här inställningen med hjälp av Set-SPOTenant och Set-SPOSite cmdlets. Med dessa cmdlets söka medlemmar alla befintliga gästanvändare i katalogen. Ändringar i klientorganisationsområdet påverkar inte SharePoint Online-platserna som redan har etablerats.

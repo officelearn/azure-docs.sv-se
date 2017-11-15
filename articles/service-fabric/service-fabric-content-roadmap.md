@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3b20583d04a820d925260b4da574a4cb304efbe2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52cd6de5b6caa215ff1726d3099cb7c49576774f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Därför vill du lär dig mer om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har en stor ytan emellertid och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp programmeringsmodeller, program livscykel, testa, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande lista för innehåll, men länkar till översikt och komma igång artiklar för varje del av Service Fabric. 
@@ -103,7 +103,7 @@ En [gäst körbara](service-fabric-deploy-existing-app.md) är en befintlig, val
 ## <a name="application-lifecycle"></a>Programlivscykel
 Som med andra plattformar, ett program på Service Fabric vanligtvis går igenom följande faser: design, utveckling, testning, distribution, uppgradering, underhåll och borttagning. Service Fabric har förstklassigt stöd för fullständiga programmet livscykeln för molnprogram, från utveckling till distribution, dagliga hantering och underhåll för inaktivering av eventuell. Tjänstmodellen gör det möjligt för flera olika roller separat delta i programmet livscykel. [Service Fabric application livscykel](service-fabric-application-lifecycle.md) ger en översikt över de API: er och hur de används av olika roller i faserna i livscykeln för Service Fabric-programmet. 
 
-Hela applivscykeln kan hanteras med [PowerShell-cmdlets](/powershell/module/ServiceFabric/), [C#-API: er](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API: er](/java/api/system.fabric._application_management_client), och [REST API: er](/rest/api/servicefabric/). Du kan också ställa in kontinuerlig integration/kontinuerlig distribution pipelines med hjälp av verktyg som [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) eller [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
+Hela applivscykeln kan hanteras med [PowerShell-cmdlets](/powershell/module/ServiceFabric/), [C#-API: er](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API: er](/java/api/system.fabric._application_management_client), och [REST API: er](/rest/api/servicefabric/). Du kan också ställa in kontinuerlig integration/kontinuerlig distribution pipelines med hjälp av verktyg som [Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) eller [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
 
 Följande Microsoft Virtual Academy videon beskriver hur du hanterar livscykeln för programmet:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

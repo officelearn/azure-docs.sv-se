@@ -13,18 +13,18 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Skapa skalbara molndatabaser
 Skala ut databaser kan enkelt utföras med hjälp av skalbara verktyg och funktioner för Azure SQL Database. I synnerhet kan du använda den **klientbibliotek för elastisk databas** att skapa och hantera databaser som skalats ut. Den här funktionen kan du enkelt utvecklar delat program med hundratals, eller till och med tusentals – för Azure SQL-databaser. [Elastiska jobb](sql-database-elastic-jobs-powershell.md) kan sedan användas för att underlätta hanteringen av dessa databaser.
 
-Om du vill installera biblioteket, gå till [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Om du vill installera biblioteket, gå till NuGet på [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="documentation"></a>Dokumentation
 1. [Kom igång med elastiska databasverktyg](sql-database-elastic-scale-get-started.md)
@@ -54,22 +54,32 @@ Skala ut program med hjälp av *horisontell partitionering* visar utmaningar fö
 
 I allmänhet kunder som använder elastisk Databasverktyg kan förvänta sig att hämta alla T-SQL-funktioner när du skickar in Fragmentera lokala åtgärder och mellan Fragmentera åtgärder som har sina egna semantik.
 
+
+
 ## <a name="next-steps"></a>Nästa steg
-Försök i [exempelapp](sql-database-elastic-scale-get-started.md) som visar funktionerna som klienten. 
 
-Om du vill installera biblioteket, gå till [klientbibliotek för elastisk databas](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- [Klientbibliotek för elastisk databas](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) – för att **installera** biblioteket med hjälp av NuGet.
 
-Anvisningar om hur du använder verktyget delade dokument finns det [översikt över dela merge tool](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md) – du kan prova den **exempelapp** som visar klientfunktioner.
 
-[Klientbibliotek för elastisk databas är nu öppna ursprung!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- [Github, Azure/elastisk-db-tools](https://github.com/Azure/elastic-db-tools) -biblioteket är programvara med öppen källkod.
+    - Klientbibliotek för elastisk databas verktyg kan ADO.NET-utvecklare kan skapa program som implementerar och använda mönstret kända som databasen delning i Azure SQL Database.
 
-Använd [elastisk frågor](sql-database-elastic-query-overview.md).
+- [Klientbibliotek för elastisk databas är nu öppna ursprung!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) -en **blogginlägget** om klientbibliotek för elastisk databas, funktionsdokumentationen 09/09/2015.
 
-Biblioteket är tillgängliga som programvara med öppen källkod på [GitHub](https://github.com/Azure/elastic-db-tools). 
+- [Översikt av Azure SQL Database-elastisk frågan](sql-database-elastic-query-overview.md) - om du vill använda elastisk frågor.
+
+- [Flytta data mellan databaser som skalats ut molnet](sql-database-elastic-scale-overview-split-and-merge.md) - instruktioner om hur du använder den **för delade sökvägssammanslagning**.
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 

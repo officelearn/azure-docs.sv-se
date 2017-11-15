@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Rapportaviseringar i Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Vilka rapporter Generera e-postaviseringar
@@ -47,5 +47,5 @@ Ja, om du vill inaktivera aviseringar som rör avvikande inloggningar i den klas
 ## <a name="whats-next"></a>Nästa steg
 * Är du nyfiken på vilka säkerhets-, gransknings- och aktivitet rapporter är tillgängliga? Checka ut [Azure AD-säkerhetsgrupp, granskning och aktivitetsrapporter](active-directory-view-access-usage-reports.md)
 * [Komma igång med Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag](active-directory-add-company-branding.md)
+* [Anpassa inloggnings- och åtkomstpanelsidorna till ditt företag](customize-branding.md)
 

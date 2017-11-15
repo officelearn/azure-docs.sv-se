@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: e0b58142a2ed17d2cd4749b33e9e80ff1a01662a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory direkt-autentisering: Snabbstart
 
@@ -38,7 +38,7 @@ Se till att följande krav är uppfyllda:
 ### <a name="on-the-azure-active-directory-admin-center"></a>På Azure Active Directory Administrationscenter
 
 1. Skapa ett globalt administratörskonto endast molnbaserad på Azure AD-klienten. På så sätt kan du hantera konfigurationen för din klient bör lokala tjänster misslyckas eller vara tillgänglig. Lär dig mer om [att lägga till ett globalt administratörskonto endast molnbaserad](../active-directory-users-create-azure-portal.md). Gör det här steget är viktigt att se till att du inte blir utelåst från din klient.
-2. Lägg till en eller flera [anpassade domäner eller](../active-directory-add-domain.md) till Azure AD-klienten. Dina användare logga in med ett av dessa domännamn.
+2. Lägg till en eller flera [anpassade domäner eller](../active-directory-domains-add-azure-portal.md) till Azure AD-klienten. Dina användare logga in med ett av dessa domännamn.
 
 ### <a name="in-your-on-premises-environment"></a>I din lokala miljö
 

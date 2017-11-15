@@ -1,5 +1,5 @@
 ---
-title: "Aktivera eller inaktivera HTTPS på en anpassad domän i Azure Content Delivery Network | Microsoft Docs"
+title: "Konfigurera HTTPS på en anpassad domän i Azure Content Delivery Network | Microsoft Docs"
 description: "Lär dig hur du aktiverar eller inaktiverar HTTPS för Azure CDN-slutpunkten med en anpassad domän."
 services: cdn
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Aktivera eller inaktivera HTTPS på en anpassad domän i Azure Content Delivery Network
+# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Konfigurera HTTPS på en anpassad domän för innehållsleveransnätverk i Azure
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-HTTPS-stöd för anpassade domäner för Microsoft Azure innehåll innehållsleveransnätverk (CDN) kan du leverera skyddat innehåll via SSL genom att använda ditt eget domännamn för att förbättra säkerheten för data under överföringen. Slutpunkt till slutpunkt-arbetsflöde för att aktivera HTTPS för den anpassade domänen är förenklad via en enda klickning aktivering, fullständig certifikathantering och alla med utan extra kostnad.
+Microsoft stöder HTTPS-protokollet för anpassade domäner på Azure Content Delivery Network (CDN). Med stöd för HTTPS-domänen, kan du leverera skyddat innehåll via SSL genom att använda ditt eget domännamn för att förbättra säkerheten för data under överföringen. Arbetsflöde för att aktivera HTTPS för den anpassade domänen är förenklad via en enda klickning aktivering och fullständig certifikathantering alla med utan extra kostnad.
 
-Det är viktigt att säkerställa sekretess och dataintegriteten för alla program web känsliga data under överföringen. Med hjälp av HTTPS-protokollet garanterar att dina känsliga data krypteras när de skickas över internet. Det ger litar på autentisering och skyddar ditt webbprogram från attacker. Azure CDN stöder HTTPS på en CDN-slutpunkt som standard. Till exempel om du skapar en CDN-slutpunkt från Azure CDN (exempelvis `https://contoso.azureedge.net`), aktiveras automatiskt för HTTPS. Med stöd för anpassade domäner HTTPS, kan du aktivera säker leverans för en anpassad domän (till exempel `https://www.contoso.com`) samt. 
+Det är viktigt att säkerställa sekretess och dataintegriteten för ditt webbprogram känsliga data när den är i överföringen. Genom att använda HTTPS-protokollet kan du se till att dina känsliga data krypteras när de skickas över internet. Det ger litar på autentisering och skyddar ditt webbprogram från attacker. Som standard stöder Azure CDN HTTPS på en CDN-slutpunkt. Till exempel om du skapar en CDN-slutpunkt från Azure CDN (exempelvis `https://contoso.azureedge.net`), aktiveras automatiskt för HTTPS. Dessutom med stöd för anpassade domäner HTTPS, du kan också aktivera säker leverans för en anpassad domän (till exempel `https://www.contoso.com`). 
 
 Några viktiga attribut för HTTPS-funktionen är:
 
@@ -41,7 +41,7 @@ Några viktiga attribut för HTTPS-funktionen är:
 
 ## <a name="enabling-https"></a>Aktivera HTTPS
 
-Följ dessa steg om du vill aktivera HTTPS:
+Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
 ### <a name="step-1-enable-the-feature"></a>Steg 1: Aktivera funktionen 
 
@@ -66,7 +66,7 @@ Följ dessa steg om du vill aktivera HTTPS:
 När du aktiverar HTTPS på en anpassad domän, DigiCert-certifikatutfärdare (CA) verifierar ägarskap för domänen genom att kontakta dess registrant enligt domänens [WHOIS](http://whois.domaintools.com/) registrant information. Kontakta görs via den e-postadressen (som standard) eller telefonnummer som anges i WHOIS-registrering. 
 
 >[!NOTE]
->Om du har en certifikatet myndigheten auktorisering (CAA)-post hos din DNS-leverantör, måste den innehålla DigiCert som en giltig Certifikatutfärdare. En post för CAA kan domän ägare att ange med respektive DNS-leverantör som certifikatutfärdare har behörighet att utfärda certifikat för sin domän. Om en Certifikatutfärdare tar emot en order för ett certifikat för en domän som har en CAA-post och Certifikatutfärdaren har inte listats som en auktoriserad utfärdare, är det förbjudet från utfärda certifikatet till domänen eller underdomänen.
+>Om du har en certifikatet myndigheten auktorisering (CAA)-post hos din DNS-leverantör, måste den innehålla DigiCert som en giltig Certifikatutfärdare. En post för CAA kan domän ägare att ange med respektive DNS-leverantör som certifikatutfärdare har behörighet att utfärda certifikat för sin domän. Om en Certifikatutfärdare tar emot en order för ett certifikat för en domän som har en CAA-post och Certifikatutfärdaren har inte listats som en auktoriserad utfärdare, är det förbjudet från utfärda certifikatet till domänen eller underdomänen. Information om hur du hanterar CAA poster finns [hantera CAA poster](https://support.dnsimple.com/articles/manage-caa-record/). En post verktyget CAA finns [CAA post Helper](https://sslmate.com/caa/).
 
 ![WHOIS-post](./media/cdn-custom-ssl/whois-record.png)
 
@@ -82,7 +82,7 @@ Du bör få ett e-postmeddelande om några minuter som liknar följande exempel 
     
 ![E-post för domänen-validering](./media/cdn-custom-ssl/domain-validation-email.png)
 
-När du klickar på länken godkännande, omdirigeras du till följande godkännande online-formuläret: 
+När du klickar på länken godkännande, dirigeras till formatet online godkännande: 
     
 ![Domän valideringsformulär](./media/cdn-custom-ssl/domain-validation-form.png)
 
@@ -128,7 +128,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="disabling-https"></a>Inaktivera HTTPS
 
-När du har aktiverat HTTPS, kan du inaktivera det senare. Följ dessa steg om du vill inaktivera HTTPS:
+När du har aktiverat HTTPS på en anpassad domän, kan du inaktivera det senare. Följ dessa steg om du vill inaktivera HTTPS:
 
 ### <a name="step-1-disable-the-feature"></a>Steg 1: Inaktivera funktionen 
 

@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/12/2017
 ---
-# v2.0 protokoll - OAuth 2.0-Auktoriseringskodflödet
+# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokoll - OAuth 2.0-Auktoriseringskodflödet
 OAuth 2.0 auktorisering kod bevilja kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel web API: er.  App model v2.0 implementering av OAuth 2.0 kan, du använda API tillgång till dina appar och program och logga in.  Den här guiden är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ OAuth 2.0 auktorisering kod bevilja kan användas i appar som är installerade p
 
 OAuth 2.0-auktoriseringskodflödet som anges i i [avsnittet 4.1 i OAuth 2.0-specifikationen](http://tools.ietf.org/html/rfc6749).  Används för att utföra autentisering och auktorisering i flesta apptyper, inklusive [webbappar](active-directory-v2-flows.md#web-apps) och [internt installerade appar](active-directory-v2-flows.md#mobile-and-native-apps).  Det gör det möjligt för appar att på ett säkert sätt hämta access_tokens som kan användas för att komma åt resurser som skyddas med v2.0-slutpunkten.  
 
-## Protokollet diagram
+## <a name="protocol-diagram"></a>Protokollet diagram
 På en hög nivå hela autentiseringsflödet för en intern/mobile-programmet ser ut så här:
 
 ![Flödet för OAuth-Auth-kod](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-## Begära ett auktoriseringskod
+## <a name="request-an-authorization-code"></a>Begära ett auktoriseringskod
 Auktoriseringskodflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt.  I den här förfrågan anger klienten de behörigheter som behövs för att hämta från användaren:
 
 ```
@@ -74,7 +74,7 @@ Nu ombeds användaren att ange sina autentiseringsuppgifter och slutföra autent
 
 När användaren autentiserar och ger ditt medgivande, v2.0-slutpunkten returnerar ett svar på din app på den angivna `redirect_uri`, med hjälp av den metod som anges i den `response_mode` parameter.
 
-#### Lyckat svar
+#### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar med `response_mode=query` ser ut som:
 
 ```
@@ -88,7 +88,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | Koden |Authorization_code som begärts av appen. Appen kan använda Auktoriseringskoden för att begära en åtkomst-token för målresursen.  Authorization_codes är mycket kort livslängd, vanligtvis de går ut efter 10 minuter. |
 | state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i förfrågan och svar är identiska. |
 
-#### Felsvar
+#### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till den `redirect_uri` så att appen kan hantera dem på rätt sätt:
 
 ```
@@ -102,7 +102,7 @@ error=access_denied
 | fel |Ett felkod sträng som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
 | error_description |Ett felmeddelande som kan hjälpa utvecklare identifiera orsaken till ett autentiseringsfel. |
 
-#### Felkoder för auktorisering endpoint fel
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Felkoder för auktorisering endpoint fel
 I följande tabell beskrivs de olika felkoder som kan returneras i den `error` parameter för felsvar.
 
 | Felkod | Beskrivning | Klientåtgärd |
@@ -115,7 +115,7 @@ I följande tabell beskrivs de olika felkoder som kan returneras i den `error` p
 | temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
 | invalid_resource |Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det är inte korrekt konfigurerad. |Detta anger resursen, om det finns inte har konfigurerats i klienten. Programmet kan be användare med instruktioner för att installera programmet och lägga till den i Azure AD. |
 
-## Begär en åtkomst-token
+## <a name="request-an-access-token"></a>Begär en åtkomst-token
 Nu när du har skaffat ett authorization_code och har beviljats behörighet av användaren, kan du lösa in den `code` för en `access_token` till en resurs, genom att skicka en `POST` begäran om att den `/token` slutpunkt:
 
 ```
@@ -148,7 +148,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Krävs |Samma redirect_uri värde som används för att hämta authorization_code. |
 | client_secret |krävs för webbprogram |Den hemlighet som programmet som du skapade i portalen för registrering av app för din app.  Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter.  Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan. |
 
-#### Lyckat svar
+#### <a name="successful-response"></a>Lyckat svar
 Ett lyckat token svar ser ut:
 
 ```
@@ -169,7 +169,7 @@ Ett lyckat token svar ser ut:
 | Omfång |Scope som gäller för access_token. |
 | refresh_token |En token för uppdatering av OAuth 2.0. Appen kan använda denna token få ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla.  Refresh_tokens är långlivade och kan användas för att få åtkomst till resurser för längre tid.  Mer information finns i den [v2.0 tokenreferens](active-directory-v2-tokens.md). <br> **Obs:** endast angivna om `offline_access` omfång begärdes. |
 | id_token |En osignerad JSON-Webbtoken (JWT). Appen kan base64Url avkoda segmenten i den här variabeln för att begäraninformation om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser.  Mer information om id_tokens finns i [v2.0-slutpunkten tokenreferens](active-directory-v2-tokens.md). <br> **Obs:** endast angivna om `openid` omfång begärdes. |
-#### Felsvar
+#### <a name="error-response"></a>Felsvar
 Felsvar ser ut:
 
 ```
@@ -194,7 +194,7 @@ Felsvar ser ut:
 | trace_id |En unik identifierare för den begäran som hjälper dig diagnostik. |
 | correlation_id |En unik identifierare för den begäran som kan hjälpa i diagnostik för komponenter. |
 
-#### Felkoder för token för slutpunkt-fel
+#### <a name="error-codes-for-token-endpoint-errors"></a>Felkoder för token för slutpunkt-fel
 | Felkod | Beskrivning | Klientåtgärd |
 | --- | --- | --- |
 | invalid_request |Protokollfel, till exempel en obligatorisk parameter saknas. |Åtgärda och skicka begäran på nytt |
@@ -206,7 +206,7 @@ Felsvar ser ut:
 | interaction_required |Begäran kräver interaktion från användaren. Till exempel krävs ett steg i ytterligare autentisering. |Försök igen med samma resurs. |
 | temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
 
-## Använd den åtkomst-token
+## <a name="use-the-access-token"></a>Använd den åtkomst-token
 Nu när du har skaffat har en `access_token`, du kan använda token i begäranden till webb-API: er genom att inkludera den i den `Authorization` huvud:
 
 > [!TIP]
@@ -220,7 +220,7 @@ Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## Uppdatera den åtkomst-token
+## <a name="refresh-the-access-token"></a>Uppdatera den åtkomst-token
 Access_tokens är kort livslängd och du måste uppdatera dem när de går ut om du vill fortsätta få åtkomst till resurser.  Du kan göra det genom att skicka in en annan `POST` begäran om att den `/token` slutpunkt, men den här gången ger den `refresh_token` i stället för den `code`:
 
 ```
@@ -253,7 +253,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Krävs |Samma redirect_uri värde som används för att hämta authorization_code. |
 | client_secret |krävs för webbprogram |Den hemlighet som programmet som du skapade i portalen för registrering av app för din app.  Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter.  Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan. |
 
-#### Lyckat svar
+#### <a name="successful-response"></a>Lyckat svar
 Ett lyckat token svar ser ut:
 
 ```
@@ -275,7 +275,7 @@ Ett lyckat token svar ser ut:
 | refresh_token |En ny OAuth 2.0-uppdateringstoken. Med den här nya anskaffats uppdateringstoken så uppdaterings-tokens vara giltigt så länge som möjligt bör du ersätta den gamla uppdateringstoken. <br> **Obs:** endast angivna om `offline_access` omfång begärdes. |
 | id_token |En osignerad JSON-Webbtoken (JWT). Appen kan base64Url avkoda segmenten i den här variabeln för att begäraninformation om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser.  Mer information om id_tokens finns i [v2.0-slutpunkten tokenreferens](active-directory-v2-tokens.md). <br> **Obs:** endast angivna om `openid` omfång begärdes. |
 
-#### Felsvar
+#### <a name="error-response"></a>Felsvar
 ```
 {
   "error": "invalid_scope",

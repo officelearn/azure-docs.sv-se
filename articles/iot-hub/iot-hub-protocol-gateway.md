@@ -20,10 +20,10 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2017
 ---
-# Stöd för fler protokoll för IoT-hubb
+# <a name="support-additional-protocols-for-iot-hub"></a>Stöd för fler protokoll för IoT-hubb
 Azure IoT-hubb har inbyggt stöd för kommunikation över MQTT, AMQP och HTTPS-protokoll. I vissa fall kan kanske enheter eller gateways för fältet inte kan använda någon av dessa standardprotokoll och kräver protokollet anpassning. I sådana fall måste använda du en anpassad gateway. En anpassad gateway aktiverar protokollet anpassning för IoT-hubb slutpunkter genom bryggning trafik till och från IoT-hubb. Du kan använda den [Azure IoT-protokollet gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) som en anpassad gateway för att aktivera protokollet anpassning för IoT-hubb.
 
-## Azure IoT protocol-gateway
+## <a name="azure-iot-protocol-gateway"></a>Azure IoT protocol-gateway
 Azure IoT protocol-gateway är ett ramverk för protokollet anpassning som är avsedd för hög skalning, enheten dubbelriktad kommunikation med IoT-hubben. Protocol-gateway är en direkt komponent som accepterar enhetsanslutningar över ett visst protokoll. Det få trafiken till IoT-hubb via AMQP 1.0. 
 
 Du kan distribuera protocol-gateway i Azure på ett mycket skalbart sätt med hjälp av Azure Service Fabric, arbetsroller i Azure Cloud Services och Windows-datorer. Dessutom kan protocol-gateway distribueras i lokala miljöer, t.ex fältet gateways.
@@ -34,7 +34,7 @@ MQTT kortet visas också programmeringsmodell för att skapa protokollet nätver
 
 För flexibilitet finns Azure IoT-protokollet gateway och MQTT implementering i ett projekt med öppen källkod. Du kan använda projektet öppen källkod för att lägga till stöd för olika protokoll och protokoll version eller anpassa implementeringen för ditt scenario. 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Mer information om Azure IoT protocol-gateway och hur du använder och distribuera den som en del av IoT-lösningen finns:
 
 * [Azure IoT-protokollet gateway-databasen på GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)

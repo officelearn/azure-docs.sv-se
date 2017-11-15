@@ -20,13 +20,13 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/09/2017
 ---
-# AMQP 1.0 i Azure Service Bus och Händelsehubbar protocol-guiden
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Händelsehubbar protocol-guiden
 
 Avancerade Message Queueing-protokollet 1.0 är en standardiserad synkroniseringstecken och överför protokoll för asynkront säkert och tillförlitligt meddelanden överförs mellan två parter. Det är primärt protokoll av Azure Service Bus-meddelanden och Händelsehubbar i Azure. Båda tjänsterna har också stöd för HTTPS. Den SBMP protokoll som stöds också kommer att överges för AMQP.
 
 AMQP 1.0 är resultatet av bred branschen samarbete som mellanprogramvaruleverantörer, till exempel Microsoft och Red Hat med många meddelanden mellanprogram användare, till exempel JP Morgan Chase som representerar industrin för finansiella tjänster, samverkar. Det har uppnått formella godkännande som en internationell standard som ISO/IEC 19494 teknisk standardisering-forum för AMQP protokoll och tillägget specifikationer är OASIS.
 
-## Mål
+## <a name="goals"></a>Mål
 
 Den här artikeln sammanfattar grundläggande begrepp som den AMQP 1.0 messaging specifikation tillsammans med en liten uppsättning utkast tillägget specifikationer som för närvarande är att färdigställas i den tekniska kommittén OASIS AMQP kort och förklarar hur Azure Service Bus implementerar och bygger på dessa specifikationer.
 
@@ -38,7 +38,7 @@ I följande diskussionen förutsätter vi att hanteringen av AMQP anslutningar, 
 
 När du ska diskutera avancerade funktioner för Azure Service Bus, till exempel meddelande Bläddra eller hantering av sessioner, beskrivs funktionerna i AMQP villkor, men även som en skiktad genererat implementering ovanpå antagen API abstraktionen.
 
-## Vad är AMQP?
+## <a name="what-is-amqp"></a>Vad är AMQP?
 
 AMQP är ett synkroniseringstecken och överför protokoll. Synkroniseringstecken innebär att det finns struktur för binära dataströmmar som flöda i båda riktningarna för en nätverksanslutning. Strukturen innehåller en avbildning för distinkta datablock, kallas *ramar*att utväxlas mellan de anslutna parterna. Överföring funktioner Se till att båda kommunicerande parterna kan upprätta en delad förståelse om när ramar överföras och när överföringar anses slutförd.
 
@@ -48,13 +48,13 @@ Protokollet kan användas för symmetrisk peer-to-peer-kommunikation för intera
 
 AMQP 1.0-protokollet är utformat för att kunna förlängas att aktivera ytterligare specifikationer att förbättra dess funktioner. De tre tillägg specifikationer som beskrivs i det här dokumentet illustrerar detta. En bindning-specifikation definierar så layer AMQP över WebSockets för kommunikation över den befintliga HTTPS/WebSockets infrastruktur där konfigurera inbyggda AMQP TCP-portarna kan vara svårt. För att interagera med meddelandeinfrastrukturen på ett sätt för frågor och svar för hanteringsändamål eller för att tillhandahålla avancerade funktioner, definierar AMQP management specifikation krävs grundläggande interaktion primitiver. För federerade auktorisering model-integration definierar specifikationen AMQP anspråk baserade säkerhet så att koppla och förnya auktorisering token som är associerade med länkar.
 
-## Grundläggande AMQP-scenarier
+## <a name="basic-amqp-scenarios"></a>Grundläggande AMQP-scenarier
 
 Det här avsnittet beskrivs de grundläggande användningen av AMQP 1.0 med Azure Service Bus, vilket innefattar att skapa anslutningar, sessioner och länkar och överföring av meddelanden till och från Service Bus-entiteter, till exempel köer, ämnen och prenumerationer.
 
 Mest auktoritativ datakälla att lära dig hur AMQP fungerar är AMQP 1.0-specifikation, men specifikationen har skrivits till exakt hur implementeringen och inte för att utbilda protokollet. Det här avsnittet fokuserar på introduktion till så mycket terminologi som behövs för att beskriva hur Service Bus använder AMQP 1.0. För en mer omfattande introduktion till AMQP, samt en bredare beskrivning av AMQP 1.0, kan du granska [kursen video][this video course].
 
-### Anslutningar och sessioner
+### <a name="connections-and-sessions"></a>Anslutningar och sessioner
 
 AMQP anropar kommunicerande program *behållare*; dessa innehåller *noder*, vilka är de kommunicerande enheterna i dessa behållare. En kö kan vara felaktiga noden. AMQP tillåter för multiplexering, så att en anslutning kan användas för många Kommunikationssökvägar mellan noder. en program-klient kan till exempel samtidigt ta emot från en kö och skicka till en annan kö via samma nätverksanslutning.
 
@@ -81,7 +81,7 @@ Azure Service Bus använder för närvarande exakt en session för varje anslutn
 
 Anslutningar, kanaler och sessioner är tillfälliga. Om den underliggande anslutningen döljs, anslutningar, måste TLS-tunnelns, SASL autentiseringskontexten och sessionerna återställas.
 
-### Länkar
+### <a name="links"></a>Länkar
 
 AMQP överför meddelanden över länkar. En länk är en sökväg för kommunikation som skapats under en session som gör att överföra meddelanden i en riktning; status-förhandlingen överföring är över länken och dubbelriktad kommunikation mellan de anslutna parterna.
 
@@ -97,7 +97,7 @@ I Service Bus är en nod direkt motsvarar en kö, ett ämne, en prenumeration el
 
 Den anslutande klienten även krävs för att använda en lokal nod för att skapa länkar. Service Bus tolka inte dem är inte normativ om dessa nodnamn. AMQP 1.0-klientstackar vanligtvis använder du ett schema för att garantera dessa tillfälliga noden namn är unikt i omfånget för klienten.
 
-### Överföringar
+### <a name="transfers"></a>Överföringar
 
 När en länk har upprättats kan meddelanden överföras via den länken. AMQP, en överföring körs med en explicit protokollet gest (den *överföring* performative) som flyttas ett meddelande från sändare till mottagare via en länk. En överföringen har slutförts när den är ””, vilket innebär att båda parterna har etablerat en delad förståelse om resultatet av överföringen.
 
@@ -117,7 +117,7 @@ Därför Service Bus och Händelsehubbar stöder ”minst en gång” överföri
 
 För att kompensera för möjlig dubblett skickar Service Bus stöder dubblettidentifiering som en valfri funktion i köer och ämnen. Identifiering av dubbletter registrerar meddelande-ID för inkommande meddelanden under en användardefinierad tidsperioden och sedan släpper tyst alla meddelanden som skickas med samma meddelande-ID: N under samma fönstret.
 
-### Flödeskontroll
+### <a name="flow-control"></a>Flödeskontroll
 
 Förutom den session nivå flödet modellen för åtkomstkontroll som diskuterats tidigare, har varje länk sin egen Dataflödesmodell för kontrollen. Sessionen nivå flödeskontroll skyddar behållaren slipper hantera för många bildrutor i när Koppla nivån flödeskontroll placerar programmet ansvarig för hur många meddelanden som ska hanteras från en länk och när.
 
@@ -141,49 +141,49 @@ Följande avsnitt innehåller en schema översikt över performative flödet und
 
 Pilarna i följande tabell visar performative flödesriktning.
 
-#### Skapa meddelande mottagare
+#### <a name="create-message-receiver"></a>Skapa meddelande mottagare
 
 | Client | Service Bus |
 | --- | --- |
 | --> Bifoga ()<br/>Name = {namn},<br/>Hantera = {numeriskt referensen}<br/>rollen =**mottagare**,<br/>källa = {entitetsnamnet}<br/>Target = {klienten länken id}<br/>) |Klienten ansluter till enheten som mottagare |
 | Service Bus-svar som kopplar slutet av länken |<--bifoga ()<br/>Name = {namn},<br/>Hantera = {numeriskt referensen}<br/>rollen =**avsändaren**,<br/>källa = {entitetsnamnet}<br/>Target = {klienten länken id}<br/>) |
 
-#### Skapa avsändaren
+#### <a name="create-message-sender"></a>Skapa avsändaren
 
 | Client | Service Bus |
 | --- | --- |
 | --> Bifoga ()<br/>Name = {namn},<br/>Hantera = {numeriskt referensen}<br/>rollen =**avsändaren**,<br/>källa = {klienten länken id}<br/>Target = {entitetsnamnet}<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--bifoga ()<br/>Name = {namn},<br/>Hantera = {numeriskt referensen}<br/>rollen =**mottagare**,<br/>källa = {klienten länken id}<br/>Target = {entitetsnamnet}<br/>) |
 
-#### Skapa avsändaren (fel)
+#### <a name="create-message-sender-error"></a>Skapa avsändaren (fel)
 
 | Client | Service Bus |
 | --- | --- |
 | --> Bifoga ()<br/>Name = {namn},<br/>Hantera = {numeriskt referensen}<br/>rollen =**avsändaren**,<br/>källa = {klienten länken id}<br/>Target = {entitetsnamnet}<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--bifoga ()<br/>Name = {namn},<br/>Hantera = {numeriskt referensen}<br/>rollen =**mottagare**,<br/>källa = null<br/>Target = null<br/>)<br/><br/><--frånkoppling ()<br/>Hantera = {numeriskt referensen}<br/>stängd =**SANT**,<br/>fel = {felinformationen}<br/>) |
 
-#### Stäng mottagare/avsändaren
+#### <a name="close-message-receiversender"></a>Stäng mottagare/avsändaren
 
 | Client | Service Bus |
 | --- | --- |
 | --> frånkoppling ()<br/>Hantera = {numeriskt referensen}<br/>stängd =**SANT**<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--frånkoppling ()<br/>Hantera = {numeriskt referensen}<br/>stängd =**SANT**<br/>) |
 
-#### Skicka (klart)
+#### <a name="send-success"></a>Skicka (klart)
 
 | Client | Service Bus |
 | --- | --- |
 | --> överföring (<br/>leverans-id = {numeriskt referensen}<br/>leverans-tagg = {binära referensen}<br/>regleras =**FALSKT**, mer =**FALSKT**,<br/>tillstånd =**null**,<br/>återuppta =**FALSKT**<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--disposition (<br/>rollen = mottagaren.<br/>först = {leverans id}<br/>senaste = {leverans id}<br/>regleras =**SANT**,<br/>tillstånd =**accepteras**<br/>) |
 
-#### Skicka (fel)
+#### <a name="send-error"></a>Skicka (fel)
 
 | Client | Service Bus |
 | --- | --- |
 | --> överföring (<br/>leverans-id = {numeriskt referensen}<br/>leverans-tagg = {binära referensen}<br/>regleras =**FALSKT**, mer =**FALSKT**,<br/>tillstånd =**null**,<br/>återuppta =**FALSKT**<br/>) |Ingen åtgärd |
 | Ingen åtgärd |<--disposition (<br/>rollen = mottagaren.<br/>först = {leverans id}<br/>senaste = {leverans id}<br/>regleras =**SANT**,<br/>tillstånd =**avvisade**()<br/>fel = {felinformationen}<br/>)<br/>) |
 
-#### Ta emot
+#### <a name="receive"></a>Ta emot
 
 | Client | Service Bus |
 | --- | --- |
@@ -191,7 +191,7 @@ Pilarna i följande tabell visar performative flödesriktning.
 | Ingen åtgärd |< transfer ()<br/>leverans-id = {numeriskt referensen}<br/>leverans-tagg = {binära referensen}<br/>regleras =**FALSKT**,<br/>fler =**FALSKT**,<br/>tillstånd =**null**,<br/>återuppta =**FALSKT**<br/>) |
 | --> disposition (<br/>rollen =**mottagare**,<br/>först = {leverans id}<br/>senaste = {leverans id}<br/>regleras =**SANT**,<br/>tillstånd =**accepteras**<br/>) |Ingen åtgärd |
 
-#### Flera meddelandemottagning
+#### <a name="multi-message-receive"></a>Flera meddelandemottagning
 
 | Client | Service Bus |
 | --- | --- |
@@ -201,11 +201,11 @@ Pilarna i följande tabell visar performative flödesriktning.
 | Ingen åtgärd |< transfer ()<br/>leverans-id = {numeriskt referensen + 2}<br/>leverans-tagg = {binära referensen}<br/>regleras =**FALSKT**,<br/>fler =**FALSKT**,<br/>tillstånd =**null**,<br/>återuppta =**FALSKT**<br/>) |
 | --> disposition (<br/>rollen = mottagaren.<br/>först = {leverans id}<br/>senaste = {leverans id + 2}<br/>regleras =**SANT**,<br/>tillstånd =**accepteras**<br/>) |Ingen åtgärd |
 
-### Meddelanden
+### <a name="messages"></a>Meddelanden
 
 I följande avsnitt beskrivs vilka egenskaper från standard AMQP meddelande avsnitt används av Service Bus och hur de mappas till Service Bus-API-uppsättningen.
 
-#### sidhuvud
+#### <a name="header"></a>sidhuvud
 
 | Fältnamn | Användning | API-namn |
 | --- | --- | --- |
@@ -215,7 +215,7 @@ I följande avsnitt beskrivs vilka egenskaper från standard AMQP meddelande avs
 | första förvärvaren |- |- |
 | Antal leverans |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
-#### properties
+#### <a name="properties"></a>properties
 
 | Fältnamn | Användning | API-namn |
 | --- | --- | --- |
@@ -233,7 +233,7 @@ I följande avsnitt beskrivs vilka egenskaper från standard AMQP meddelande avs
 | grupp-sekvens |Räknaren identifierar relativa sekvensnumret för meddelandet i en session. Ignoreras av Service Bus. |Inte tillgängligt via Service Bus-API. |
 | Svara till grupp-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
-## Avancerade funktioner för Service Bus
+## <a name="advanced-service-bus-capabilities"></a>Avancerade funktioner för Service Bus
 
 Det här avsnittet beskriver de avancerade funktionerna i Azure Service Bus som baseras på ett utkast till tillägg till AMQP, för närvarande under utveckling i den tekniska kommittén OASIS för AMQP. Service Bus implementerar de senaste versionerna av dessa utkast och tillämpar ändringar som dessa utkast nå standard status.
 
@@ -242,7 +242,7 @@ Det här avsnittet beskriver de avancerade funktionerna i Azure Service Bus som 
 > 
 > 
 
-### AMQP management
+### <a name="amqp-management"></a>AMQP management
 
 AMQP management specifikation är först av utkast-tillägg som beskrivs i den här artikeln. Den här specifikationen definierar en uppsättning lager ovanpå AMQP-protokollet som tillåter hanteringsinteraktioner med meddelandeinfrastrukturen via AMQP. Specifikationen definierar allmänna åtgärder som *skapa*, *läsa*, *uppdatera*, och *ta bort* för att hantera enheter i en infrastruktur för meddelanden och en uppsättning frågor.
 
@@ -263,7 +263,7 @@ Meddelandeutbyten som används för management-protokollet och för alla andra p
 
 Service Bus för närvarande implementerar inte någon av kärnfunktioner specifikationen management, men begäran och svar mönstret som definieras i management-specifikationen är grundläggande för funktionen anspråk baserade säkerhet och för nästan alla de avancerade funktioner som beskrivs i följande avsnitt.
 
-### Anspråksbaserad auktorisering
+### <a name="claims-based-authorization"></a>Anspråksbaserad auktorisering
 
 AMQP anspråk baserad auktorisering (CBS) specifikation utkastet bygger på management specifikation begäran och svar mönstret och beskriver en generaliserad modell för hur du använder externa säkerhetstoken med AMQP.
 
@@ -316,7 +316,7 @@ När anslutningen och sessionen har upprättats kan du bifoga länkar till den *
 
 Klienten ansvarar senare för att hålla reda på token upphör att gälla. När en token upphör att gälla utelämnar Service Bus omedelbart alla länkar i anslutning till respektive entiteten. Om du vill förhindra detta klienten Ersätt token för noden med en ny när som helst via den virtuella *$cbs* hanteringsnod med samma *put-token* rörelser och utan hämtar form nyttolast-trafik som flödar på olika länkar.
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om AMQP finns i följande länkar:
 

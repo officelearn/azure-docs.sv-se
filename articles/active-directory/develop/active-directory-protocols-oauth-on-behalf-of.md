@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# Tjänsten tjänstanrop med delegerad användaridentitet i On-Behalf-Of-flöde
+# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänsten tjänstanrop med delegerad användaridentitet i On-Behalf-Of-flöde
 OAuth 2.0-On-Behalf-Of flöde fungerar användningsfall där ett program anropar ett service/webb-API, som i sin tur behöver anropa en annan tjänst/webb-API. Tanken är att sprida delegerad användarens identitet och behörigheter via alla begäranden har gjorts. För tjänsten mellannivå så att autentiserade begäranden till den underordnade tjänsten behöver skydda en åtkomst-token från Azure Active Directory (Azure AD) för användarens räkning.
 
-## On-Behalf-Of flödesdiagram
+## <a name="on-behalf-of-flow-diagram"></a>On-Behalf-Of flödesdiagram
 Anta att användaren har autentiserats på ett program som använder den [OAuth 2.0 flöde beviljat med auktoriseringskod](active-directory-protocols-oauth-code.md). Programmet har nu en åtkomst-token (token A) med användarens anspråk och medgivande till mellannivå webb-API (API-A). Nu måste API A att begära en autentiserad underordnat webb-API (API-B).
 
 De steg som följer utgöra On-Behalf-Of-flöde och förklaras med hjälp av följande diagram.
@@ -38,9 +38,9 @@ De steg som följer utgöra On-Behalf-Of-flöde och förklaras med hjälp av fö
 4. Token B har angetts i auktoriseringshuvudet för en begäran om att API B.
 5. Data från den skyddade resursen returneras av API B.
 
-## Registrera programmet och service i Azure AD
+## <a name="register-the-application-and-service-in-azure-ad"></a>Registrera programmet och service i Azure AD
 Registrera både klientprogrammet och mellannivå-tjänsten i Azure AD.
-### Registrera service mellannivå
+### <a name="register-the-middle-tier-service"></a>Registrera service mellannivå
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på den översta raden på ditt konto och under den **Directory** Välj Active Directory-klient som du vill registrera ditt program.
 3. Klicka på **fler tjänster** i den vänstra nav och välj **Azure Active Directory**.
@@ -48,7 +48,7 @@ Registrera både klientprogrammet och mellannivå-tjänsten i Azure AD.
 5. Ange ett eget namn för programmet och välj programtyp. Baserat på uppsättningen programmet typen inloggning URL eller omdirigera URL: en till en bas-URL. Klicka på **skapa** att skapa programmet.
 6. Välj programmet när fortfarande i Azure-portalen och klicka på **inställningar**. Välj på menyn inställningar **nycklar** och lägga till en nyckel - markerar du en nyckel varaktighet för antingen 1 eller 2 år. När du sparar den här sidan kan värdet för nyckeln ska visas, kopiera och spara värdet i en säker plats – du behöver den här nyckeln senare för att konfigurera inställningar för program i din implementering - värdet för nyckeln ska inte visas igen, och inte heller strängfält av något annat sätt, så du posten så snart den är synliga från Azure Portal.
 
-### Registrera klientprogrammet
+### <a name="register-the-client-application"></a>Registrera klientprogrammet
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på den översta raden på ditt konto och under den **Directory** Välj Active Directory-klient som du vill registrera ditt program.
 3. Klicka på **fler tjänster** i den vänstra nav och välj **Azure Active Directory**.
@@ -56,14 +56,14 @@ Registrera både klientprogrammet och mellannivå-tjänsten i Azure AD.
 5. Ange ett eget namn för programmet och välj programtyp. Baserat på uppsättningen programmet typen inloggning URL eller omdirigera URL: en till en bas-URL. Klicka på **skapa** att skapa programmet.
 6. Konfigurera behörigheter för ditt program - på menyn Inställningar, väljer den **nödvändiga behörigheter** klickar du på **Lägg till**, sedan **väljer en API**, och Skriv namnet på mellannivå-tjänst i textrutan. Klicka på **Välj behörigheter** och välj ' åtkomst *tjänstnamnet*'.
 
-### Konfigurera kända klientprogram
+### <a name="configure-known-client-applications"></a>Konfigurera kända klientprogram
 I det här scenariot har mellannivå-tjänsten inga användaråtgärder för att hämta användarens medgivande åtkomst till underordnade API. Därför måste alternativet för att bevilja åtkomst till underordnade API: N vara angiven gång som en del av samtycke steg under autentiseringen.
 Följ stegen nedan ska bindas explicit klienten appens registrering i Azure AD med registreringen av tjänsten mellannivå som sammanfogas medgivande som krävs för både klient- och mellannivå i en enda dialogruta för att uppnå.
 1. Navigera till registrering av mellannivå tjänst och klicka på **Manifest** att öppna Redigeraren för manifestet.
 2. I manifestet, leta upp den `knownClientApplications` matrisen egenskapen och Lägg till klient-ID för klientprogrammet som ett element.
 3. Spara manifestet genom att klicka på Spara knappen.
 
-## Tjänsten token tjänstbegäran för åtkomst
+## <a name="service-to-service-access-token-request"></a>Tjänsten token tjänstbegäran för åtkomst
 Om du vill begära en åtkomst-token kan du göra en HTTP POST för klient-specifika Azure AD-slutpunkten med följande parametrar.
 
 ```
@@ -71,7 +71,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
 Det finns två fall beroende på om klientprogrammet väljer att skyddas av en delad hemlighet, eller ett certifikat.
 
-### Först fall: token åtkomst-begäran med en delad hemlighet
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Först fall: token åtkomst-begäran med en delad hemlighet
 När du använder en delad hemlighet, innehåller en tjänst-till-tjänst åtkomst tokenbegäran följande parametrar:
 
 | Parameter |  | Beskrivning |
@@ -84,7 +84,7 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst åtkom
 | requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
 | Omfång |Krävs | Ett utrymme avgränsade lista över scope för tokenbegäran. För OpenID Connect omfånget **openid** måste anges.|
 
-#### Exempel
+#### <a name="example"></a>Exempel
 Följande HTTP POST-begäranden en åtkomsttoken för https://graph.windows.net webb-API. Den `client_id` identifierar den tjänst som begär åtkomst-token.
 
 ```
@@ -103,7 +103,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### Andra fall: token åtkomst-begäran med ett certifikat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: token åtkomst-begäran med ett certifikat
 En token-tjänster åtkomst-begäran med ett certifikat innehåller följande parametrar:
 
 | Parameter |  | Beskrivning |
@@ -119,7 +119,7 @@ En token-tjänster åtkomst-begäran med ett certifikat innehåller följande pa
 
 Observera att parametrarna är nästan desamma som i fallet med begäran från delad hemlighet förutom att client_secret-parameter har ersatts av två parametrar: en client_assertion_type och client_assertion.
 
-#### Exempel
+#### <a name="example"></a>Exempel
 Följande HTTP POST-begäranden en åtkomsttoken för https://graph.windows.net webb-API med ett certifikat. Den `client_id` identifierar den tjänst som begär åtkomst-token.
 
 ```
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## Tjänsten för att tjänsten åtkomst-token svar
+## <a name="service-to-service-access-token-response"></a>Tjänsten för att tjänsten åtkomst-token svar
 Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar.
 
 | Parameter | Beskrivning |
@@ -153,7 +153,7 @@ Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar.
 | id_token |Det begärda id-token. Anropa tjänsten kan använda den för att verifiera användarens identitet och starta en session med användaren. |
 | refresh_token |Uppdateringstoken för den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella åtkomst-token upphör att gälla. |
 
-### Lyckade svar-exempel
+### <a name="success-response-example"></a>Lyckade svar-exempel
 I följande exempel visas ett lyckat svar på en begäran om en åtkomsttoken för https://graph.windows.net webb-API.
 
 ```
@@ -171,7 +171,7 @@ I följande exempel visas ett lyckat svar på en begäran om en åtkomsttoken f�
 }
 ```
 
-### Fel svar-exempel
+### <a name="error-response-example"></a>Fel svar-exempel
 Ett felsvar som returneras av Azure AD-token för slutpunkt när du försöker hämta en åtkomst-token för den underordnade API om underordnade API: et har en princip för villkorlig åtkomst, till exempel multifaktorautentisering som angetts för den. Tjänsten mellannivå bör ansluta det här felet till klientprogrammet så att klientprogrammet kan användaren för att uppfylla principen för villkorlig åtkomst.
 
 ```
@@ -186,17 +186,17 @@ Ett felsvar som returneras av Azure AD-token för slutpunkt när du försöker h
 }
 ```
 
-## Använd åtkomst-token för att komma åt den skyddade resursen
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Använd åtkomst-token för att komma åt den skyddade resursen
 Tjänsten mellannivå kan nu använda token förvärvade ovan för att göra autentiserade begäranden för den underordnade webben-API, genom att ange token i den `Authorization` rubrik.
 
-### Exempel
+### <a name="example"></a>Exempel
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Läs mer om OAuth 2.0-protokollet och ett annat sätt att utföra tjänster auth med klientens autentiseringsuppgifter.
 * [Tjänsten för att tjänsten autentisering med OAuth 2.0 klientens autentiseringsuppgifter grant i Azure AD](active-directory-protocols-oauth-service-to-service.md)
 * [OAuth 2.0 i Azure AD](active-directory-protocols-oauth-code.md)

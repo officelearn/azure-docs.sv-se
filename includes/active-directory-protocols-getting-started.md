@@ -19,7 +19,7 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-## Registrera ditt program med din AD-klient
+## <a name="register-your-application-with-your-ad-tenant"></a>Registrera ditt program med din AD-klient
 Först måste du registrera ditt program med din Azure Active Directory (Azure AD)-klient. Det ger dig en program-ID för ditt program och låter det ta emot tokens.
 
 * Logga in på [Azure Portal](https://portal.azure.com).

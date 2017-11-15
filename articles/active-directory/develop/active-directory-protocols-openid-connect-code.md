@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# Bevilja åtkomst till webbprogram med hjälp av OpenID Connect och Azure Active Directory
+# <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Bevilja åtkomst till webbprogram med hjälp av OpenID Connect och Azure Active Directory
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) är en enkel Identitetslagret som bygger på OAuth 2.0-protokollet. OAuth 2.0 definierar metoder för att hämta och använda **åtkomst till token** att komma åt skyddade resurser, men inte definierar standardmetoder för att ge ID-information. OpenID Connect implementerar autentisering som ett tillägg till auktoriseringen OAuth 2.0. Den ger information om användaren i form av en `id_token` som verifierar användarens identitet och ger grundläggande profilinformation om användaren.
 
 OpenID Connect är vår rekommendation om du skapar ett program som finns på en server och som nås via en webbläsare.
@@ -29,12 +29,12 @@ OpenID Connect är vår rekommendation om du skapar ett program som finns på en
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
-## Autentiseringsflödet med OpenID Connect
+## <a name="authentication-flow-using-openid-connect"></a>Autentiseringsflödet med OpenID Connect
 Det mest grundläggande flödet inloggning innehåller följande steg - dem beskrivs i detalj nedan.
 
 ![OpenId Connect Autentiseringsflödet](media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
 
-## OpenID Connect Metadatadokumentet
+## <a name="openid-connect-metadata-document"></a>OpenID Connect Metadatadokumentet
 
 OpenID Connect beskriver ett metadata-dokument som innehåller de flesta av information som krävs för att utföra inloggning. Detta omfattar information som de URL: er för att använda och platsen för tjänstens offentliga Signeringsnycklar. Metadatadokumentet OpenID Connect finns på:
 
@@ -58,7 +58,7 @@ Metadata är ett enkelt JavaScript Object Notation (JSON)-dokument. Se följande
 }
 ```
 
-## Skicka begäran om inloggning
+## <a name="send-the-sign-in-request"></a>Skicka begäran om inloggning
 När ditt webbprogram måste autentisera användaren, måste den dirigera användare till den `/authorize` slutpunkt. Den här begäran som liknar den första del av den [OAuth 2.0 auktorisering kod flöda](active-directory-protocols-oauth-code.md), med några viktiga skillnader:
 
 * Begäran måste innehålla omfånget `openid` i den `scope` parameter.
@@ -95,7 +95,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 Nu uppmanas användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen.
 
-### Exempelsvar
+### <a name="sample-response"></a>Exempelsvar
 Ett exempelsvar, när användaren har autentiserats kan se ut så här:
 
 ```
@@ -111,7 +111,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | id_token |Den `id_token` som appen har begärt. Du kan använda den `id_token` att verifiera användarens identitet och starta en session med användaren. |
 | state |Ett värde som ingår i denna begäran returneras också token svar. Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12).  Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
 
-### Felsvar
+### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till den `redirect_uri` så att appen kan hantera dem på rätt sätt:
 
 ```
@@ -127,7 +127,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | fel |Ett felkod sträng som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
 | error_description |Ett felmeddelande som kan hjälpa utvecklare identifiera orsaken till ett autentiseringsfel. |
 
-#### Felkoder för auktorisering endpoint fel
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Felkoder för auktorisering endpoint fel
 I följande tabell beskrivs de olika felkoder som kan returneras i den `error` parameter för felsvar.
 
 | Felkod | Beskrivning | Klientåtgärd |
@@ -140,7 +140,7 @@ I följande tabell beskrivs de olika felkoder som kan returneras i den `error` p
 | temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
 | invalid_resource |Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det är inte korrekt konfigurerad. |Detta anger resursen, om det finns inte har konfigurerats i klienten. Programmet kan be användare med instruktioner för att installera programmet och lägga till den i Azure AD. |
 
-## Verifiera id_token
+## <a name="validate-the-idtoken"></a>Verifiera id_token
 Bara tar emot en `id_token` räcker inte att autentisera användaren; du måste verifiera signaturen och kontrollera anspråk i den `id_token` per krav som din app. Azure AD-slutpunkten använder JSON Web token (JWTs) och kryptering med offentlig nyckel för att signera token och kontrollera att de är giltiga.
 
 Du kan välja att validera den `id_token` i klienten koden, men en vanlig metod är att skicka den `id_token` till backend-servern och utföra valideringen det. När du har verifiera signaturen för den `id_token`, det finns några anspråk som krävs för att verifiera.
@@ -153,7 +153,7 @@ Du kan också kontrollera ytterligare anspråk beroende på ditt scenario. Någr
 
 När du har validerat den `id_token`, du kan starta en session med användaren och använda anspråk i den `id_token` att hämta information om användare i din app. Den här informationen kan användas för att visa, poster, tillstånd och så vidare. Mer information om typer av token och anspråk [stöds Token och anspråkstyper](active-directory-token-and-claims.md).
 
-## Skicka en begäran om utloggning
+## <a name="send-a-sign-out-request"></a>Skicka en begäran om utloggning
 När du vill logga ut från appen användaren räcker det inte att rensa din app cookies eller på annat sätt slutet sessionen med användaren.  Du måste också omdirigera användare till den `end_session_endpoint` för utloggning.  Om du inte göra det, kommer användaren att kunna autentiseras i appen utan att ange sina autentiseringsuppgifter igen, eftersom de har en giltig inloggning session med Azure AD-slutpunkten.
 
 Du kan bara dirigera användare till den `end_session_endpoint` som anges i Metadatadokumentet OpenID Connect:
@@ -168,7 +168,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | --- | --- | --- |
 | post_logout_redirect_uri |Rekommenderas |Den URL som användaren ska omdirigeras till när du har lyckats logga ut.  Om inte ingår, visas användaren ett allmänt meddelande. |
 
-## Enkel utloggning
+## <a name="single-sign-out"></a>Enkel utloggning
 När du dirigerar användaren till den `end_session_endpoint`, Azure AD tar bort användarens session från webbläsaren. Men kan användaren fortfarande vara inloggad till andra program som använder Azure AD för autentisering. Om du vill aktivera programmen för att logga ut användaren samtidigt, Azure AD skickar en HTTP GET-begäran till det registrerade `LogoutUrl` för alla program som användaren är inloggad på. Program måste svara på begäran genom att avmarkera alla sessioner som identifierar användaren och returnera ett `200` svar.  Om du vill stödja enkel inloggning ut i ditt program måste du implementera exempelvis en `LogoutUrl` i din programkod.  Du kan ange den `LogoutUrl` från Azure portal:
 
 1. Navigera till den [Azure-portalen](https://portal.azure.com).
@@ -176,10 +176,10 @@ När du dirigerar användaren till den `end_session_endpoint`, Azure AD tar bort
 3. Vänstra navigeringsfönstret, Välj **Azure Active Directory**, Välj **App registreringar** och välj ditt program.
 4. Klicka på **egenskaper** och Sök efter den **logga ut URL** textruta. 
 
-## Token förvärv
+## <a name="token-acquisition"></a>Token förvärv
 Många webbprogram måste inte bara logga in användaren i, utan också komma åt en webbtjänst som användaren använder sig av OAuth. Det här scenariot kombinerar OpenID Connect för autentisering av användare vid hämtning av samtidigt en `authorization_code` som kan användas för att hämta `access_tokens` med hjälp av OAuth Authorization kod flöda.
 
-## Få åtkomst-token
+## <a name="get-access-tokens"></a>Få åtkomst-token
 Om du vill hämta åtkomsttoken som du behöver ändra begäranden från ovan:
 
 ```
@@ -198,7 +198,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 Genom att inkludera behörighetsomfattningen i begäran och `response_type=code+id_token`, `authorize` endpoint garanterar att användaren har godkänt för de behörigheter som anges i den `scope` Frågeparametern och returkod appen ett tillstånd till exchange en åtkomst-token.
 
-### Lyckat svar
+### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar med `response_mode=form_post` ser ut som:
 
 ```
@@ -215,7 +215,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | Koden |Authorization_code som begärts av appen. Appen kan använda Auktoriseringskoden för att begära en åtkomst-token för målresursen. Authorization_codes är kort livslängd och vanligtvis ut efter 10 minuter. |
 | state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i förfrågan och svar är identiska. |
 
-### Felsvar
+### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till den `redirect_uri` så att appen kan hantera dem på rätt sätt:
 
 ```

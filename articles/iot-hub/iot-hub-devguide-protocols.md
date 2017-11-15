@@ -20,7 +20,7 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# Referera - Välj ett kommunikationsprotokoll
+# <a name="reference---choose-a-communication-protocol"></a>Referera - Välj ett kommunikationsprotokoll
 
 IoT-hubb kan enheter som ska användas i följande protokoll för enheten på klientsidan kommunikation:
 
@@ -51,7 +51,7 @@ Tänk på följande när du väljer att protokollet för enheten på klientsidan
 > [!WARNING]
 > När du använder HTTPS måste ska varje enhet avsökas moln till enhet meddelanden var 25: e minut eller flera. Dock under utveckling är det acceptabelt att avsöka oftare än var 25: e minut.
 
-## Portnummer
+## <a name="port-numbers"></a>Portnummer
 
 Enheter kan kommunicera med IoT-hubben i Azure med olika protokoll. Val av protokoll är normalt styrs av de särskilda kraven i lösningen. I följande tabell visas de utgående portar som måste vara öppna för en enhet för att kunna använda ett visst protokoll:
 
@@ -66,7 +66,7 @@ Enheter kan kommunicera med IoT-hubben i Azure med olika protokoll. Val av proto
 När du har skapat en IoT-hubb i en Azure-region, har IoT-hubben samma IP-adress för livslängden för den IoT-hubben. Men om Microsoft flyttar IoT-hubben till en annan skalningsenhet att underhålla tjänstkvalitet, tilldelas den en ny IP-adress.
 
 
-## Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur IoT-hubb implementerar protokollet MQTT finns [kommunicera med din IoT-hubb med protokollet MQTT][lnk-mqtt-support].
 

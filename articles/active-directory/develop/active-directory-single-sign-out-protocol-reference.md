@@ -21,14 +21,14 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# Enkel utloggning SAML-protokoll
+# <a name="single-sign-out-saml-protocol"></a>Enkel utloggning SAML-protokoll
 Azure Active Directory (AD Azure) stöder SAML 2.0 web webbläsare enskild utloggning profil. För enstaka utloggning ska fungera korrekt, den **LogoutURL** för programmet explicit måste registreras med Azure AD under registreringen av program. Azure AD används LogoutURL för att omdirigera användare när de har loggat.
 
 Det här diagrammet visar arbetsflödet för en enskild utloggning process som Azure AD.
 
 ![Enkel inloggning i arbetsflödet](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
-## LogoutRequest
+## <a name="logoutrequest"></a>LogoutRequest
 Cloud service skickar en `LogoutRequest` meddelande till Azure AD för att ange att en session har avslutats. Följande utdrag visar ett exempel på en `LogoutRequest` element.
 
 ```
@@ -38,20 +38,20 @@ Cloud service skickar en `LogoutRequest` meddelande till Azure AD för att ange 
 </samlp:LogoutRequest>
 ```
 
-### LogoutRequest
+### <a name="logoutrequest"></a>LogoutRequest
 Den `LogoutRequest` element som skickas till Azure AD kräver följande attribut:
 
 * `ID`: Det identifierar utloggning begäran. Värdet för `ID` får inte inledas med en siffra. Det vanliga sättet är att lägga till **id** till strängrepresentation av en GUID.
 * `Version`: Ange värdet för elementet för **2.0**. Det här värdet är obligatoriskt.
 * `IssueInstant`: Det här är en `DateTime` sträng med ett värde för samordna Universal Time (UTC) och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntas ett värde av den här typen, men använda inte den.
 
-### Utfärdaren
+### <a name="issuer"></a>Utfärdaren
 Den `Issuer` element i en `LogoutRequest` måste exakt matcha en av de **ServicePrincipalNames** i Molntjänsten i Azure AD. Normalt är inställningen i **App-ID URI** som anges under programmet registreringen.
 
-### NameID
+### <a name="nameid"></a>NameID
 Värdet för den `NameID` elementet måste matcha den `NameID` för användaren loggas ut.
 
-## LogoutResponse
+## <a name="logoutresponse"></a>LogoutResponse
 Azure AD skickar en `LogoutResponse` som svar på en `LogoutRequest` element. Följande utdrag visar ett exempel på en `LogoutResponse`.
 
 ```
@@ -63,13 +63,13 @@ Azure AD skickar en `LogoutResponse` som svar på en `LogoutRequest` element. F�
 </samlp:LogoutResponse>
 ```
 
-### LogoutResponse
+### <a name="logoutresponse"></a>LogoutResponse
 Azure AD anger den `ID`, `Version` och `IssueInstant` värdena i den `LogoutResponse` element. Den anger också den `InResponseTo` element med värdet för den `ID` attribut för den `LogoutRequest` som förvärvas svaret.
 
-### Utfärdaren
+### <a name="issuer"></a>Utfärdaren
 Azure AD anger det här värdet till `https://login.microsoftonline.com/<TenantIdGUID>/` där <TenantIdGUID> är klient-ID för Azure AD-klient.
 
 Utvärdera värdet för den `Issuer` element, Använd värdet för den **App-ID URI** angav under registreringen av program.
 
-### Status
+### <a name="status"></a>Status
 Azure AD-använder den `StatusCode` element i den `Status` element att ange lyckad eller misslyckad utloggning. När det utloggning försöket misslyckas den `StatusCode` element kan också innehålla anpassade felmeddelanden.

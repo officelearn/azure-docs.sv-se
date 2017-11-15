@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory-autentiseringsprotokoll
+# <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory-autentiseringsprotokoll
 Azure Active Directory (AD Azure) stöder flera av de vanligaste protokollen för autentisering och auktorisering. I det här avsnittet beskrivs protokoll som stöds och deras implementering i Azure AD. Avsnitten ingår en granskning av anspråkstyper med stöd, en introduktion till användning av federationsmetadata, detaljerad OAuth 2.0. och referensdokumentationen för SAML 2.0-protokollet och instruktioner för felsökning.
 
-## Autentiseringsprotokoll artiklar och referens
+## <a name="authentication-protocols-articles-and-reference"></a>Autentiseringsprotokoll artiklar och referens
 * [Viktig Information om signering nyckeln förnyelse i Azure AD](active-directory-signing-key-rollover.md) – Lär dig mer om Azure AD-signering nyckelförnyelse takt ändringar du kan göra att uppdatera nyckeln automatiskt och beskrivning för hur du uppdaterar de vanligaste scenarierna för programmet.
 * [Token och anspråkstyper stöds](active-directory-token-and-claims.md) – Lär dig mer om anspråk i de token som Azure AD utfärdar.
 * [Federationsmetadata](active-directory-federation-metadata.md) – Lär dig hur du hittar och tolka metadata dokument som genererar Azure AD.
@@ -34,7 +34,7 @@ Azure Active Directory (AD Azure) stöder flera av de vanligaste protokollen fö
 * [Tjänst-till-anrop med On-Behalf-Of flöde](active-directory-protocols-oauth-on-behalf-of.md) – Lär dig att använda OAuth 2.0 On-Behalf-Of flödet för tjänst-till-anrop.
 * [Referens för SAML-protokollet](active-directory-saml-protocol-reference.md) – Lär dig mer om profiler för enkel inloggning och enkel Sign-out SAML Azure AD.
 
-## Se även
+## <a name="see-also"></a>Se även
 [Azure Active Directory-Guide för utvecklare](active-directory-developers-guide.md)
 
 [Active Directory-kodexempel](active-directory-code-samples.md)

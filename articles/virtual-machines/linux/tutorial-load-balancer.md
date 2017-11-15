@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Hur du läser in balansera Linux-datorer i Azure för att skapa ett program med hög tillgänglighet
 Belastningsutjämning ger högre tillgänglighet genom att sprida inkommande begäranden över flera virtuella datorer. I kursen får du lära dig om de olika komponenterna i Azure belastningsutjämnare som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+När alla tre virtuella nätverkskort skapas, Fortsätt till nästa steg
+
+
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
 ### <a name="create-cloud-init-config"></a>Skapa moln init config
-I en tidigare självstudiekurs om [hur du anpassar en Linux-dator vid den första starten](tutorial-automate-vm-deployment.md), du lärt dig hur du automatiserar VM anpassning med molnet initiering. Du kan använda samma molnet init-konfigurationsfilen för att installera NGINX och köra en enkel ”Hello World” Node.js-app.
+I en tidigare självstudiekurs om [hur du anpassar en Linux-dator vid den första starten](tutorial-automate-vm-deployment.md), du lärt dig hur du automatiserar VM anpassning med molnet initiering. Du kan använda samma molnet init-konfigurationsfilen för att installera NGINX och köra en enkel ”Hello World” Node.js-app i nästa steg. Åtkomst till den här enkla appen i en webbläsare om du vill se belastningsutjämnaren i åtgärden, i slutet av kursen.
 
 Skapa en fil med namnet i din aktuella shell *moln init.txt* och klistra in följande konfiguration. Till exempel skapa filen i molnet Shell inte på den lokala datorn. Ange `sensible-editor cloud-init.txt` att skapa filen och se en lista över tillgängliga redigerare. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden:
 
@@ -253,7 +256,7 @@ az network public-ip show \
     --output tsv
 ```
 
-Du kan sedan ange den offentliga IP-adressen i en webbläsare. Kom ihåg - det tar några minuter på de virtuella datorerna ska bli klar innan belastningsutjämnaren börjar distribuera trafiken till dem. Appen visas, inklusive värdnamnet för den virtuella datorn som belastningsutjämnaren distribuerade trafik till som i följande exempel:
+Du kan sedan ange den offentliga IP-adressen i en webbläsare. Kom ihåg - det tar några minuter för de virtuella datorerna ska bli klar innan belastningsutjämnaren börjar distribuera trafiken till dem. Appen visas, inklusive värdnamnet för den virtuella datorn som belastningsutjämnaren distribuerade trafik till som i följande exempel:
 
 ![Node.js-app som körs](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 Om du vill se belastningsutjämnaren distribuerar trafik över de återstående två virtuella datorerna kör appen du kan framtvinga-uppdatera webbläsaren. Du kan nu utföra underhåll på den virtuella datorn, till exempel installera uppdateringar av operativsystem eller utföra en VM-omstart.
 
+Du kan visa en lista över virtuella datorer med virtuella nätverkskort som är anslutna till belastningsutjämnaren [az nätverket lb adresspool visa](/cli/azure/network/lb/address-pool#show). Fråga efter och filtrera efter ID för det virtuella nätverkskortet på följande sätt:
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+Utdata liknar följande exempel som visar att det virtuella nätverkskortet för VM 2 inte längre är en del av backend-adresspool:
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>Lägga till en virtuell dator till belastningsutjämnaren
 När du utför underhåll på VM, eller om du behöver Utöka kapaciteten kan du lägga till en virtuell dator till backend-adresspool med [az nic ip-config-nätverksadresspool lägga till](/cli/azure/network/nic/ip-config/address-pool#add). I följande exempel läggs det virtuella nätverkskortet för **myVM2** till *myLoadBalancer*:
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+Använd för att kontrollera att det virtuella nätverkskortet är anslutet till backend-adresspool [az nätverket lb adresspool visa](/cli/azure/network/lb/address-pool#show) igen från föregående steg.
 
 
 ## <a name="next-steps"></a>Nästa steg

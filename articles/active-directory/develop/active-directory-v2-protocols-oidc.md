@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory v2.0 och OpenID Connect-protokoll
+# <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 och OpenID Connect-protokoll
 OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0 som du kan använda för inloggning på ett säkert sätt en användare till ett webbprogram. När du använder v2.0-slutpunkten implementering av OpenID Connect kan du lägga till inloggnings- och API-åtkomst till webbaserade appar. I den här artikeln hur vi du gör detta oberoende av språk. Vi beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek för Microsoft öppen källkod.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0 som du k
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) utökar OAuth 2.0 *auktorisering* protokoll som ska användas som en *autentisering* protokoll, så att du kan använda enkel inloggning med hjälp av OAuth. OpenID Connect introducerar konceptet för en *ID token*, vilket är en säkerhetstoken som gör att klienten att verifiera användarens identitet. ID-token hämtar också grundläggande profilinformation om användaren. Eftersom OpenID Connect utökar OAuth 2.0, appar på ett säkert sätt hämta *åtkomst till token*, som kan användas för att komma åt resurser som skyddas av en [auktorisering server](active-directory-v2-protocols.md#the-basics). Vi rekommenderar att du använder att OpenID Connect om du skapar en [webbprogrammet](active-directory-v2-flows.md#web-apps) som finns på en server och nås via en webbläsare.
 
-## Protokollet diagram: Logga in
+## <a name="protocol-diagram-sign-in"></a>Protokollet diagram: Logga in
 Det mest grundläggande flödet inloggning har de steg som visas i nästa diagram. Varje steg i detalj i den här artikeln beskrivs.
 
 ![OpenID Connect protocol: Logga in](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
-## Hämta Metadatadokumentet OpenID Connect
+## <a name="fetch-the-openid-connect-metadata-document"></a>Hämta Metadatadokumentet OpenID Connect
 OpenID Connect beskriver ett metadata-dokument som innehåller de flesta av information som krävs för att utföra inloggning. Detta omfattar information som de URL: er för att använda och platsen för tjänstens offentliga Signeringsnycklar. För v2.0-slutpunkten är Metadatadokumentet OpenID Connect bör du använda:
 
 ```
@@ -71,7 +71,7 @@ Metadata är ett enkelt JavaScript Object Notation (JSON)-dokument. Se följande
 
 Använder vanligtvis, Metadatadokumentet för att konfigurera en OpenID Connect biblioteket eller SDK; biblioteket använder metadata med sitt arbete. Om du inte använder ett före build OpenID Connect bibliotek, kan du följa stegen i resten av den här artikeln kan utföra inloggning i en webbapp med v2.0-slutpunkten.
 
-## Skicka begäran om inloggning
+## <a name="send-the-sign-in-request"></a>Skicka begäran om inloggning
 När ditt webbprogram måste autentisera användaren, den kan dirigera användare till den `/authorize` slutpunkt. Den här begäran som liknar den första del av den [OAuth 2.0-auktoriseringskodflödet](active-directory-v2-protocols-oauth-code.md), med dessa viktiga skillnader:
 
 * Begäran måste innehålla den `openid` scope i den `scope` parameter.
@@ -117,7 +117,7 @@ Nu uppmanas användaren att ange sina autentiseringsuppgifter och slutföra aute
 
 När användaren autentiserar och ger samtycke, v2.0-slutpunkten returnerar ett svar till din app på den angivna omdirigerings-URI med hjälp av metoden som anges i den `response_mode` parameter.
 
-### Lyckat svar
+### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar när du använder `response_mode=form_post` ser ut så här:
 
 ```
@@ -133,7 +133,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | id_token |ID-token som appen har begärt. Du kan använda den `id_token` parametern för att verifiera användarens identitet och starta en session med användaren. Mer information om ID-token och deras innehåll finns i [v2.0-slutpunkten tokens referens](active-directory-v2-tokens.md). |
 | state |Om en `state` parametern ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i förfrågan och svar är identiska. |
 
-### Felsvar
+### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till omdirigerings-URI så att appen kan hanteras. Ett felsvar ser ut så här:
 
 ```
@@ -149,7 +149,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | fel |Ett felkod sträng som du kan använda för att klassificera typer av fel som inträffar och att ta hänsyn till fel. |
 | error_description |Ett felmeddelande som kan hjälpa dig att identifiera orsaken till ett autentiseringsfel. |
 
-### Felkoder för auktorisering endpoint fel
+### <a name="error-codes-for-authorization-endpoint-errors"></a>Felkoder för auktorisering endpoint fel
 I följande tabell beskrivs felkoder som kan returneras i den `error` -parametern för felsvaret:
 
 | Felkod | Beskrivning | Klientåtgärd |
@@ -162,7 +162,7 @@ I följande tabell beskrivs felkoder som kan returneras i den `error` -parameter
 | temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
 | invalid_resource |Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det är inte korrekt konfigurerad. |Detta anger att resursen, om den finns inte har konfigurerats i klienten. Programmet kan fråga användaren med instruktioner för att installera programmet och lägga till den i Azure AD. |
 
-## Verifiera ID-token
+## <a name="validate-the-id-token"></a>Verifiera ID-token
 Ta emot en token med ID: T är inte tillräckliga för att autentisera användaren. Du måste också verifiera signaturen för ID-token och kontrollera anspråk i token per krav som din app. V2.0-slutpunkten använder [JSON Web token (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
 
 Du kan välja att validera ID-token i klientkod, men en vanlig metod är att skicka ID-token till en backend server och utföra valideringen det. När du har verifierats signaturen för token ID, behöver du verifiera några anspråk. Mer information, inklusive information om [verifiera token](active-directory-v2-tokens.md#validating-tokens) och [viktig information om att signera nyckelförnyelse](active-directory-v2-tokens.md#validating-tokens), finns det [v2.0 tokens referens](active-directory-v2-tokens.md). Vi rekommenderar att du använder ett bibliotek att tolka och validera token. Det finns minst en av dessa bibliotek för de flesta språk och plattformar.
@@ -178,7 +178,7 @@ Mer information om anspråk i en token med ID: T finns på [v2.0-slutpunkten tok
 
 När du har fullständigt validerat ID-token, kan du börja en session med användaren. Använda anspråk i ID-token för att få information om användaren i din app. Du kan använda den här informationen för att visa, poster, tillstånd och så vidare.
 
-## Skicka en begäran om utloggning
+## <a name="send-a-sign-out-request"></a>Skicka en begäran om utloggning
 När du vill logga ut användaren från din app, det är inte tillräckliga för att rensa cookies för din app eller på annat sätt avsluta användarens session. Du måste också omdirigera användaren till v2.0-slutpunkten logga ut. Om du inte gör det autentiserar igen användaren i appen utan att ange sina autentiseringsuppgifter igen, eftersom de har en giltig inloggning session med v2.0-slutpunkten.
 
 Du kan dirigera användare till den `end_session_endpoint` som anges i Metadatadokumentet OpenID Connect:
@@ -192,17 +192,17 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | ----------------------- | ------------------------------- | ------------ |
 | post_logout_redirect_uri | Rekommenderas | Den URL som användaren omdirigeras till efter att logga ut. Om parametern inte är inkluderad visas användaren ett allmänt meddelande som genereras av v2.0-slutpunkten. URL: en måste matcha en omdirigerings-URI: er som registrerats för ditt program i portalen för registrering av app.  |
 
-## Enkel utloggning
+## <a name="single-sign-out"></a>Enkel utloggning
 När du dirigerar användaren till den `end_session_endpoint`, v2.0-slutpunkten rensar användarens session från webbläsaren. Men kan användaren fortfarande vara inloggad till andra program som använder Microsoft-konton för autentisering. Aktivera programmen att logga ut samtidigt, v2.0 användaren endpoint skickar en HTTP GET-begäran till det registrerade `LogoutUrl` för alla program som användaren är inloggad på. Program måste svara på begäran genom att avmarkera alla sessioner som identifierar användaren och returnera ett `200` svar.  Om du vill stödja enkel inloggning ut i ditt program måste du implementera exempelvis en `LogoutUrl` i din programkod.  Du kan ange den `LogoutUrl` från portalen för registrering av app.
 
-## Protokollet diagram: Token förvärv
+## <a name="protocol-diagram-token-acquisition"></a>Protokollet diagram: Token förvärv
 Många webbprogram måste inte bara logga användaren i, men också att få åtkomst till en webbtjänst för användarens räkning genom att använda OAuth. Det här scenariot kombinerar OpenID Connect för autentisering av användare vid hämtning av en auktoriseringskod som du kan använda för att få åtkomst-token om du använder OAuth-auktoriseringskodflödet samtidigt.
 
 Fullständig OpenID Connect-inloggning och token förvärv flödet ser ut ungefär så nästa diagrammet. Vi beskriver varje steg i detalj i följande avsnitt i artikeln.
 
 ![OpenID Connect protocol: Token förvärv](../../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-## Få åtkomst-token
+## <a name="get-access-tokens"></a>Få åtkomst-token
 Ändra begäran logga in för att få åtkomst-token:
 
 ```
@@ -228,7 +228,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 
 Genom att inkludera behörighetsomfattningen i begäran och genom att använda `response_type=id_token code`, v2.0-slutpunkten garanterar att användaren har godkänt för de behörigheter som anges i den `scope` Frågeparametern. Den returnerar ett Auktoriseringskoden till din app till exchange-åtkomst-token.
 
-### Lyckat svar
+### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar från att använda `response_mode=form_post` ser ut så här:
 
 ```
@@ -245,7 +245,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | Koden |Auktoriseringskoden som begärts av appen. Appen kan använda Auktoriseringskoden för att begära en åtkomst-token för målresursen. En Auktoriseringskoden är mycket tillfällig. Normalt en auktoriseringskod upphör att gälla inom ca 10 minuter. |
 | state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i förfrågan och svar är identiska. |
 
-### Felsvar
+### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till omdirigerings-URI så att appen kan hantera dem på lämpligt sätt. Ett felsvar ser ut så här:
 
 ```

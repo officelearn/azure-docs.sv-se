@@ -21,14 +21,14 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# Enkel inloggning SAML-protokoll
+# <a name="single-sign-on-saml-protocol"></a>Enkel inloggning SAML-protokoll
 Den här artikeln beskriver SAML 2.0 autentiseringsbegäranden och svar som har stöd för Azure Active Directory (Azure AD) för enkel inloggning.
 
 Protokollet diagrammet nedan beskriver ordningsföljden för enkel inloggning. Molntjänsten (service provider) använder en omdirigering för HTTP-bindning för att skicka en `AuthnRequest` element (autentiseringsbegäran) till Azure AD (identitetsleverantör). Azure AD sedan använder en HTTP post bindning till efter en `Response` element till Molntjänsten.
 
 ![Arbetsflöde för enkel inloggning](media/active-directory-single-sign-on-protocol-reference/active-directory-saml-single-sign-on-workflow.png)
 
-## AuthnRequest
+## <a name="authnrequest"></a>AuthnRequest
 Om du vill begära en användarautentisering cloud services skicka en `AuthnRequest` element till Azure AD. Ett exempel på SAML 2.0 `AuthnRequest` kan se ut så här:
 
 ```
@@ -55,7 +55,7 @@ Alla andra `AuthnRequest` attribut, t.ex. ditt medgivande, mål, AssertionConsum
 
 Azure AD dessutom ignoreras den `Conditions` element i `AuthnRequest`.
 
-### Utfärdaren
+### <a name="issuer"></a>Utfärdaren
 Den `Issuer` element i en `AuthnRequest` måste exakt matcha en av de **ServicePrincipalNames** i Molntjänsten i Azure AD. Normalt är inställningen i **App-ID URI** som anges under programmet registreringen.
 
 Ett exempel SAML utdrag som innehåller den `Issuer` element ser ut så här:
@@ -64,7 +64,7 @@ Ett exempel SAML utdrag som innehåller den `Issuer` element ser ut så här:
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
 ```
 
-### NameIDPolicy
+### <a name="nameidpolicy"></a>NameIDPolicy
 Det här elementet begär ett visst namn-ID-format i svaret och är valfritt i `AuthnRequest` element som skickas till Azure AD.
 
 Ett exempel på en `NameIdPolicy` element ser ut så här:
@@ -82,21 +82,21 @@ Om `NameIDPolicy` har angetts kan du inkludera den valfria `Format` attribut. De
 
 Azure AD ignorerar den `AllowCreate` attribut.
 
-### RequestAuthnContext
+### <a name="requestauthncontext"></a>RequestAuthnContext
 Den `RequestedAuthnContext` element anger önskad autentiseringsmetoder. Det är valfritt i `AuthnRequest` element som skickas till Azure AD. Azure AD stöder endast en `AuthnContextClassRef` värde: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
-### Ange omfång
+### <a name="scoping"></a>Ange omfång
 Den `Scoping` element som innehåller en lista över identitetsleverantörer är valfritt i `AuthnRequest` element som skickas till Azure AD.
 
 Om adressen ingår inte i `ProxyCount` attributet `IDPListOption` eller `RequesterID` element, eftersom de inte stöds.
 
-### Signatur
+### <a name="signature"></a>Signatur
 Inkludera inte en `Signature` element i `AuthnRequest` element, som Azure AD inte stöder signerats autentiseringsbegäranden.
 
-### Ämne
+### <a name="subject"></a>Ämne
 Azure AD ignorerar den `Subject` element av `AuthnRequest` element.
 
-## Svar
+## <a name="response"></a>Svar
 När en begärda inloggning är klar skickar ett svar till Molntjänsten Azure AD. Ett som exempelsvar på lyckade försök inloggning ser ut så här:
 
 ```
@@ -142,13 +142,13 @@ När en begärda inloggning är klar skickar ett svar till Molntjänsten Azure A
 </samlp:Response>
 ```
 
-### Svar
+### <a name="response"></a>Svar
 Den `Response` elementet innehåller resultatet av begäran om godkännande. Azure AD anger den `ID`, `Version` och `IssueInstant` värdena i den `Response` element. Den anger också följande attribut:
 
 * `Destination`: När inloggning har slutförts, detta är inställt på den `RedirectUri` service provider (Molntjänsten).
 * `InResponseTo`: Detta är inställt på den `ID` attribut för den `AuthnRequest` element som initierade svaret.
 
-### Utfärdaren
+### <a name="issuer"></a>Utfärdaren
 Azure AD anger den `Issuer` elementet så att `https://login.microsoftonline.com/<TenantIDGUID>/` där <TenantIDGUID> är klient-ID för Azure AD-klient.
 
 Ett exempelsvar med utfärdaren element kan se ut så här:
@@ -157,7 +157,7 @@ Ett exempelsvar med utfärdaren element kan se ut så här:
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### Status
+### <a name="status"></a>Status
 Den `Status` förmedlas elementet har lyckats eller misslyckats för inloggning. Den omfattar den `StatusCode` element som innehåller en kod eller en uppsättning kapslade koder som representerar status för begäran. Även den `StatusMessage` element som innehåller anpassade felmeddelanden som genereras under inloggning.
 
 <!-- TODO: Add a authentication protocol error reference -->
@@ -177,17 +177,17 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
   </samlp:Status>
 ```
 
-### kontrollen
+### <a name="assertion"></a>kontrollen
 Förutom den `ID`, `IssueInstant` och `Version`, Azure AD anger följande element i den `Assertion` element i svaret.
 
-#### Utfärdaren
+#### <a name="issuer"></a>Utfärdaren
 Detta är inställt på `https://sts.windows.net/<TenantIDGUID>/`där <TenantIDGUID> är klient-ID för Azure AD-klient.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### Signatur
+#### <a name="signature"></a>Signatur
 Azure AD loggar kontrollen som svar på en lyckad inloggning. Den `Signature` elementet innehåller en digital signatur som Molntjänsten kan använda för att autentisera källan för att kontrollera integriteten för kontrollen.
 
 Om du vill skapa den digitala signaturen, använder Azure AD signeringsnyckeln i den `IDPSSODescriptor` element i Metadatadokumentet dess.
@@ -198,7 +198,7 @@ Om du vill skapa den digitala signaturen, använder Azure AD signeringsnyckeln i
     </ds:Signature>
 ```
 
-#### Ämne
+#### <a name="subject"></a>Ämne
 Anger det säkerhetsobjekt som omfattas av uttrycken i kontrollen. Den innehåller en `NameID` element som motsvarar den autentiserade användaren. Den `NameID` värde är en riktad identifierare som är bara till tjänsteleverantör som är målgruppen för token. Det är beständiga – den kan återkallas, men aldrig omtilldelas. Det är också täckande, eftersom den inte avslöjar något om användaren kan inte användas som en identifierare för attributet frågor.
 
 Den `Method` attribut för den `SubjectConfirmation` elementet alltid inställt på `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
@@ -212,7 +212,7 @@ Den `Method` attribut för den `SubjectConfirmation` elementet alltid inställt 
 </Subject>
 ```
 
-#### Villkor
+#### <a name="conditions"></a>Villkor
 Det här elementet anger villkoren som definierar godkänd användning av SAML intyg.
 
 ```
@@ -228,7 +228,7 @@ Den `NotBefore` och `NotOnOrAfter` attribut ange intervallet då kontrollen är 
 * Värdet för den `NotBefore` attribut är lika till eller något (mindre än en sekund) senare än värdet för `IssueInstant` attribut för den `Assertion` element. Azure AD tar inte hänsyn till eventuella tidsskillnaden mellan sig själv och Molntjänsten (service provider) och lägger inte till någon buffert nu.
 * Värdet för den `NotOnOrAfter` attributet är 70 minuter senare än värdet för den `NotBefore` attribut.
 
-#### Målgrupp
+#### <a name="audience"></a>Målgrupp
 Innehåller en URI som identifierar en målgrupp. Azure AD anger värdet för det här elementet till värdet för `Issuer` element i den `AuthnRequest` som initieras av inloggning. Utvärdera den `Audience` värde, Använd värdet för den `App ID URI` som angavs under registreringen av program.
 
 ```
@@ -239,7 +239,7 @@ Innehåller en URI som identifierar en målgrupp. Azure AD anger värdet för de
 
 Som det `Issuer` värde, den `Audience` värdet måste matcha exakt ett av tjänstens huvudnamn som representerar Molntjänsten i Azure AD. Men om värdet för den `Issuer` elementet är inte ett URI-värde i `Audience` värdet i svaret är den `Issuer` värdet med prefixet `spn:`.
 
-#### AttributeStatement
+#### <a name="attributestatement"></a>AttributeStatement
 Innehåller anspråk om ämnet eller användare. Följande utdrag innehåller ett exempel på `AttributeStatement` element. De tre punkterna anger att elementet kan innehålla flera attribut och attributvärden.
 
 ```
@@ -257,7 +257,7 @@ Innehåller anspråk om ämnet eller användare. Följande utdrag innehåller et
 * **Namnge anspråk** : värdet för den `Name` attribut (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) är den autentiserade användaren, användarens huvudnamn som `testuser@managedtenant.com`.
 * **ObjectIdentifier anspråk** : värdet för den `ObjectIdentifier` attribut (`http://schemas.microsoft.com/identity/claims/objectidentifier`) är den `ObjectId` för objekt som representerar den autentiserade användaren i Azure AD. `ObjectId`är en oföränderlig globalt unik och återanvända säker identifierare för den autentiserade användaren.
 
-#### AuthnStatement
+#### <a name="authnstatement"></a>AuthnStatement
 Det här elementet Assert att assertion ämnet autentiserades på ett visst sätt vid en viss tidpunkt.
 
 * Den `AuthnInstant` attribut anger den tidpunkt då användaren autentiseras med Azure AD.

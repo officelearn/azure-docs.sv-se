@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# v2.0 protokoll - SPA med det implicita flödet
+# <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll - SPA med det implicita flödet
 Med v2.0-slutpunkten du loggar in användare i din ensidesappar med både personliga och arbete/skola konton från Microsoft.  Sida och andra JavaScript-appar som körs i första hand i en webbläsare yta några intressanta utmaningar när det gäller att autentisering:
 
 * Säkerhetsegenskaper för dessa appar är skiljer sig från traditionella serverbaserad webbprogram.
@@ -39,12 +39,12 @@ Om du inte vill använda ett bibliotek i appens sida och skicka protokollmeddela
 > 
 > 
 
-## Protokollet diagram
+## <a name="protocol-diagram"></a>Protokollet diagram
 Hela implicit inloggning flödet ser ut ungefär så här: varje steg beskrivs i detalj nedan.
 
 ![OpenId Connect spaltformat som illustrerar](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
-## Skicka begäran om inloggning
+## <a name="send-the-sign-in-request"></a>Skicka begäran om inloggning
 Om du vill logga in användaren ursprungligen på din app, kan du skicka en [OpenID Connect](active-directory-v2-protocols-oidc.md) auktoriseringsbegäran och få en `id_token` från v2.0-slutpunkten:
 
 ```
@@ -84,7 +84,7 @@ Nu ombeds användaren att ange sina autentiseringsuppgifter och slutföra autent
 
 När användaren autentiserar och ger ditt medgivande, v2.0-slutpunkten returnerar ett svar på din app på den angivna `redirect_uri`, med hjälp av den metod som anges i den `response_mode` parameter.
 
-#### Lyckat svar
+#### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar med `response_mode=fragment` och `response_type=id_token+token` ser ut som följande, med radbrytningar för läsbarhet:
 
 ```
@@ -106,7 +106,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | id_token |Id_token som begärts av appen. Du kan använda id_token för att verifiera användarens identitet och starta en session med användaren.  Mer information om id_tokens och deras innehåll ingår i den [v2.0-slutpunkten tokenreferens](active-directory-v2-tokens.md). |
 | state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i förfrågan och svar är identiska. |
 
-#### Felsvar
+#### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till den `redirect_uri` så att appen kan hantera dem på rätt sätt:
 
 ```
@@ -120,7 +120,7 @@ error=access_denied
 | fel |Ett felkod sträng som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
 | error_description |Ett felmeddelande som kan hjälpa utvecklare identifiera orsaken till ett autentiseringsfel. |
 
-## Verifiera id_token
+## <a name="validate-the-idtoken"></a>Verifiera id_token
 Ta bara emot en id_token räcker inte att autentisera användaren. Du måste verifiera signaturen för den id_token och kontrollera anspråk i token per krav som din app.  V2.0-slutpunkten använder [JSON Web token (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
 
 Du kan välja att validera den `id_token` i klienten koden, men en vanlig metod är att skicka den `id_token` till backend-servern och utföra valideringen det.  När du har validerat signaturen för id_token, finns det några anspråk uppmanas du att verifiera.  Finns det [v2.0 tokenreferens](active-directory-v2-tokens.md) mer information inklusive [verifierar token](active-directory-v2-tokens.md#validating-tokens) och [viktig Information om signering nyckeln förnyelse](active-directory-v2-tokens.md#validating-tokens).  Vi rekommenderar utnyttjar ett bibliotek av parsning och validera token - det finns minst en tillgänglig för de flesta språk och plattformar.
@@ -136,7 +136,7 @@ Mer information om anspråk i en id_token finns i [v2.0-slutpunkten tokenreferen
 
 När du har fullständigt validerat id_token, kan du starta en session med användaren och använda anspråk i id_token för att hämta information om användare i din app.  Den här informationen kan användas för att visa, poster, tillstånd och så vidare.
 
-## Få åtkomst-token
+## <a name="get-access-tokens"></a>Få åtkomst-token
 Nu när du har registrerat användaren i din app för enstaka sida, du kan hämta åtkomsttoken för anropande webb-API: er som skyddas av Azure AD, som den [Microsoft Graph](https://graph.microsoft.io).  Även om du redan fått en token med hjälp av den `token` response_type, du kan använda den här metoden för att hämta token till ytterligare resurser utan att omdirigera användaren att logga in igen.
 
 I det normala flödet för OpenID Connect/OAuth, ska du göra detta genom att göra en begäran till v2.0 `/token` slutpunkt.  V2.0-slutpunkten stöder dock inte CORS begäranden så AJAX-anrop för att hämta och uppdatera token är utanför frågan.  Du kan i stället använda implicita flödet i en dold iframe för att hämta ny token för andra webb-API: er: 
@@ -180,7 +180,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 Tack till den `prompt=none` parameter för denna begäran antingen lyckas eller misslyckas omedelbart och återgå till ditt program.  Ett lyckat svar skickas till din app på den angivna `redirect_uri`, med hjälp av den metod som anges i den `response_mode` parameter.
 
-#### Lyckat svar
+#### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar med `response_mode=fragment` ser ut som:
 
 ```
@@ -200,7 +200,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 | Omfång |Scope som gäller för åtkomst-token. |
 
-#### Felsvar
+#### <a name="error-response"></a>Felsvar
 Felsvar kan också skickas till den `redirect_uri` så att appen kan hantera dem på lämpligt sätt.  I fall av `prompt=none`, är ett förväntat fel:
 
 ```
@@ -216,10 +216,10 @@ error=user_authentication_required
 
 Om du får detta felmeddelande i iframe begäran måste användaren interaktivt logga in igen att hämta en ny token.  Du kan välja att hantera den här situationen i sättet som passar bäst för ditt program.
 
-## Uppdatera token
+## <a name="refreshing-tokens"></a>Uppdatera token
 Båda `id_token`s och `access_token`s upphör att gälla efter en kort tidsperiod, så måste du förbereda din app att uppdatera dessa säkerhetstoken med jämna mellanrum.  Om du vill uppdatera båda typerna av token kan du utföra samma dolda iframe begäran ovan med hjälp av den `prompt=none` parametern för att styra beteendet för Azure AD.  Om du vill få en ny `id_token`, måste du använda `response_type=id_token` och `scope=openid`, samt en `nonce` parameter.
 
-## Skicka en logga ut begäran
+## <a name="send-a-sign-out-request"></a>Skicka en logga ut begäran
 OpenIdConnect `end_session_endpoint` kan din app att skicka en begäran till v2.0-slutpunkten för att avsluta en användarsession och rensar cookies som angetts av v2.0-slutpunkten.  Om du vill registrera en användare utanför ett webbprogram fullständigt, ska din app avslutar sin egen session med användaren (vanligtvis genom att avmarkera en token-cache eller släppa cookies) och sedan dirigera webbläsaren om du vill:
 
 ```

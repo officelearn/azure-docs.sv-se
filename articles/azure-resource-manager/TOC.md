@@ -9,14 +9,6 @@
 ## [VS Code-tillägg för mallar](resource-manager-vscode-extension.md)
 ## [Visual Studio med Resurshanteraren](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Exempel
-## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Distribuera mall](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [Distribuera mall](resource-manager-samples-cli-deploy.md)
-
 # Gör så här för att
 ## Skapa mallar
 ### [Mall-avsnitt](resource-group-authoring-templates.md)
@@ -45,7 +37,7 @@
 ### Azure Portal
 #### [Distribuera resurser](resource-group-template-deploy-portal.md)
 #### [Exportera mall](resource-manager-export-template.md)
-### [REST-API](resource-group-template-deploy-rest.md)
+### [REST API](resource-group-template-deploy-rest.md)
 ### [Distribution mellan resursgrupper](resource-manager-cross-resource-group-deployment.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)
@@ -54,7 +46,7 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure Portal](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
+### [REST-API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
 ### [Ordna prenumerationer med hanteringsgrupper](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

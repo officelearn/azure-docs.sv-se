@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 4c8a3885f34942bbd85d34f26e26ff5d7a432189
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 241ad78abfa964c9f64e97cc8201933913f88e1e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -56,7 +56,7 @@ Azure AD-betaltjänsterna som Enterprise Mobility + Security kompletterar andra 
 Om andra behöver logga in och komma åt tjänster med samma prenumeration kan du lägga till dem som medadministratörer. Den här rollen har samma åtkomstbehörigheter som tjänstadministratören, men kan inte ändra associationen mellan prenumerationer och Azure-kataloger.  Ytterligare information om prenumerationsadministratörer finns i [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) (Så här lägger du till eller ändrar Azure-administratörsroller) och [Hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD har en annan uppsättning administratörsroller för att hantera katalog- och identitetsrelaterade funktioner.  De här administratörerna har åtkomst till olika funktioner i Azure Portal eller den klassiska Azure-portalen. Administratörens roll avgör vad de kan göra, som att skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser eller hantera domäner.  Mer information om Azure AD-katalogadministratörer och deras roller finns i [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles.md).
+Azure AD har en annan uppsättning administratörsroller för att hantera katalog- och identitetsrelaterade funktioner.  De här administratörerna har åtkomst till olika funktioner i Azure Portal eller den klassiska Azure-portalen. Administratörens roll avgör vad de kan göra, som att skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser eller hantera domäner.  Mer information om Azure AD-katalogadministratörer och deras roller finns i [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Dessutom kompletterar Azure AD-betaltjänster som Enterprise Mobility + Security andra webbtjänster, som Office 365 och Microsoft Azure, med heltäckande hanterings- och säkerhetslösningar i företagsklass.
 
@@ -132,7 +132,6 @@ För Office 365-användare kan administratören återställa lösenordet med hj�
 För Azure AD-konton kan administratörer återställa lösenord med någon av följande metoder:
 
 - [Återställa konton på Azure-portalen](active-directory-users-reset-password-azure-portal.md)
-- [Återställa konton på den klassiska portalen](active-directory-create-users-reset-password.md)
 - [Använda PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
@@ -199,7 +198,7 @@ Mer information finns i [Ge säker fjärråtkomst till lokala program](active-di
 
 **S:** Med villkorlig åtkomst i Azure AD kan du tilldela en unik åtkomstprincip för varje program. Du kan välja att alltid kräva Multi-Factor Authentication eller bara kräva det när användarna inte är anslutna till det lokala nätverket.  
 
-Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som är anslutna till Azure Active Directory](active-directory-conditional-access.md).
+Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som är anslutna till Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - - -
 **F: Vad är automatisk användaretablering för SaaS-appar?**

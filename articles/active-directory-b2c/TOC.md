@@ -60,7 +60,7 @@
 # Identity Experience Framework
 ## [Anpassade principer](active-directory-b2c-overview-custom.md)
 ## Guider
-### [Kom igång](active-directory-b2c-get-started-custom.md)
+### [Komma igång](active-directory-b2c-get-started-custom.md)
 ### Konfigurera OIDC/OAUTH2-providrar
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft-konto](active-directory-b2c-custom-setup-msa-idp.md)
@@ -90,6 +90,7 @@
 ## Referens
 ### [Viktig information](active-directory-b2c-developer-notes-custom.md)
 ### [Providrar för SSO-session](active-directory-b2c-reference-sso-custom.md)
+### [Språkanpassning](active-directory-b2c-language-customization-custom.md)
 ### [Definition av betrott ramverk](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Referens

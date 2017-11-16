@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure-molntjänster
 Certifikat används i Azure för molntjänster ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med management API ([hanteringscertifikat](#what-are-management-certificates) när du använder den klassiska Azure-portalen och inte den icke-klassisk Azure-portalen). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och [distribuera](#deploy) dem till Azure.
 
 Certifikat som används i Azure är x.509 v3-certifikat och kan vara signerat av en annan betrodda certifikat eller så kan de vara självsignerade. Ett självsignerat certifikat som är signerat av en egen skapare, därför inte är betrodd som standard. De flesta webbläsare kan ignorera det här problemet. Du bör endast använda självsignerade certifikat när du utvecklar och testar dina molntjänster. 
 
-Certifikat som används av Azure kan innehålla en privat eller offentlig nyckel. Certifikatet har ett tumavtryck som ett sätt att identifiera dem på ett entydigt sätt. Det här tumavtrycket används i Azure [konfigurationsfilen](cloud-services-configure-ssl-certificate.md) för att identifiera vilket certifikat som en tjänst i molnet ska använda. 
+Certifikat som används av Azure kan innehålla en privat eller offentlig nyckel. Certifikatet har ett tumavtryck som ett sätt att identifiera dem på ett entydigt sätt. Det här tumavtrycket används i Azure [konfigurationsfilen](cloud-services-configure-ssl-certificate-portal.md) för att identifiera vilket certifikat som en tjänst i molnet ska använda. 
 
 ## <a name="what-are-service-certificates"></a>Vad är service-certifikat?
 Tjänstcertifikat som är kopplade till molntjänster och aktivera säker kommunikation till och från tjänsten. Om du har distribuerat en webbroll skulle du till exempel vill ange ett certifikat som kan autentisera en exponerade HTTPS-slutpunkt. Tjänstcertifikat som definierats i din tjänstdefinitionen distribueras automatiskt till den virtuella datorn som kör en instans av din roll. 
@@ -93,7 +93,7 @@ Det finns många sidor på internet som beskriver hur du gör detta med IIS. [H�
 [Detta](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artikeln beskriver hur du skapar certifikat med SSH.
 
 ## <a name="next-steps"></a>Nästa steg
-[Överför din tjänstcertifikat till den klassiska Azure-portalen](cloud-services-configure-ssl-certificate.md) (eller [Azure-portalen](cloud-services-configure-ssl-certificate-portal.md)).
+[Överför din tjänstcertifikat till Azure portal](cloud-services-configure-ssl-certificate-portal.md).
 
 Överför en [hanteringscertifikat API](../azure-api-management-certs.md) till den klassiska Azure-portalen. Azure-portalen använder inte certifikat för autentisering.
 

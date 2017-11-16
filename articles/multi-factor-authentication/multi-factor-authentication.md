@@ -6,7 +6,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 89c395d50d87db51cb2c502fe83490d104cd1c79
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a928344dfc41687c92e7845bc304a05122ab8a92
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Vad är Azure Multi-Factor Authentication?
 Tvåstegsverifiering är en autentiseringsmetod som kräver mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhetslager till användarinloggningar och transaktioner. Det fungerar genom att två eller flera av följande verifieringsmetoder för:
@@ -33,9 +33,9 @@ Tvåstegsverifiering är en autentiseringsmetod som kräver mer än en verifieri
 Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Azures MFA bidrar till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål om en enkel inloggningsprocess. Den ger stark autentisering via en mängd verifieringsmetoder, inklusive telefonsamtal, textmeddelande eller verifiering av mobilappar.
 
 ## <a name="why-use-azure-multi-factor-authentication"></a>Varför använda Azure Multi-Factor Authentication?
-I större utsträckning än någonsin, ansluts allt personer. Med smarta telefoner, surfplattor, bärbara datorer och datorer kan ha personer flera olika alternativ för hur de ska kunna ansluta och upprätthålla anslutningen när som helst. Användare kan komma åt sina konton och program från valfri plats, vilket innebär att de kan få mer arbete gjort och hantera sina kunder bättre.
+I större utsträckning än någonsin, ansluts allt personer. Med smarta telefoner, surfplattor, bärbara datorer och datorer som har personer flera alternativ för att komma åt sina konton och program från var som helst och upprätthålla anslutningen när som helst.
 
-Azure Multi-Factor Authentication är en lättanvänd, skalbara och tillförlitliga lösning som innehåller en annan metod för autentisering så att användarna alltid är skyddad.
+Azure Multi-Factor Authentication är en lättanvänd, skalbara och tillförlitliga lösning som innehåller en annan metod för autentisering för att skydda dina användare.
 
 | ![Lätt att använda](./media/multi-factor-authentication/simple.png) | ![Skalbar](./media/multi-factor-authentication/scalable.png) | ![Alltid skyddad](./media/multi-factor-authentication/protected.png) | ![Tillförlitlig](./media/multi-factor-authentication/reliable.png) |
 |:---:|:---:|:---:|:---:|
@@ -44,7 +44,7 @@ Azure Multi-Factor Authentication är en lättanvänd, skalbara och tillförlitl
 * **Lättanvända** -Azure Multi-Factor Authentication är enkel att konfigurera och använda. Det extra skydd som medföljer Azure Multi-Factor Authentication tillåter användare att hantera sina egna enheter. Bästa av alla i många fall det kan ställas in med ett par enkla klick.
 * **Skalbar** -Azure Multi-Factor Authentication använder kraften i molnet och kan integreras med din lokala AD och anpassade appar. Det här skyddet utökas även stora volymer, verksamhetskritiska scenariot.
 * **Alltid skyddad** -Azure Multi-Factor Authentication ger stark autentisering med högsta branschstandarder.
-* **Tillförlitliga** -vi garanterar 99,9% tillgänglighet för Azure Multi-Factor Authentication. Tjänsten anses inte tillgängligt när det inte går att ta emot eller bearbetar begäranden för verifiering för tvåstegsverifiering.
+* **Tillförlitliga** -Microsoft garanterar 99,9% tillgänglighet för Azure Multi-Factor Authentication. Tjänsten anses inte tillgängligt när det inte går att ta emot eller bearbetar begäranden för verifiering för tvåstegsverifiering.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 

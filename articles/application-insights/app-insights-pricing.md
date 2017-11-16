@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Hantera priser och data volym i Application Insights
 
@@ -110,7 +110,7 @@ Application Insights avgifter läggs till fakturan Azure. Du kan se information 
 Det finns tre sätt som den volym som du skickar data begränsas:
 
 * **Provtagning:** kan användas för den här mekanismen minska mängden telemetri som skickas från din server och klient appar, med minimal förvrängning av mått. Detta är det viktigaste verktyget måste du justera mängden data. Lär dig mer om [provtagning funktioner](app-insights-sampling.md). 
-* **Dagliga cap:** när skapar en Application Insights-resurs i Azure Portal denna har angetts till 500 GB/dag. Standard när du skapar en resurs för Application Insights från Visual Studio är liten (endast 32,3 MB/dag) som används för att underlätta testningen. I det här fallet är avsedda att användaren höjer dagliga fästpunkten innan du distribuerar appen till produktionen. Högsta kapacitet är 500 GB/dag om du har begärt en högre maximal för ett program med hög trafik. Försiktig när du ställer in dagliga fästpunkten som du vill ska vara **aldrig att träffa dagliga fästpunkten**, eftersom du kommer att förlora data för resten av dagen och går inte att övervaka programmet. Använd daglig volym cap bladet länkas från bladet hantering av volymen (se nedan) för att ändra den. Observera att vissa prenumerationstyper av kredit som inte kan användas för Application Insights. Om prenumerationen har en utgiftsgräns, har bladet dagliga cap instruktioner ta bort den och aktivera dagliga fästpunkten höjas utöver 32,3 MB per dag.  
+* **Dagliga cap:** när skapar en Application Insights-resurs i Azure Portal denna är inställd på 100 GB/dag. Standard när du skapar en resurs för Application Insights från Visual Studio är liten (endast 32,3 MB/dag) som används för att underlätta testningen. I det här fallet är avsedda att användaren höjer dagliga fästpunkten innan du distribuerar appen till produktionen. Högsta kapacitet är 1 000 GB/dag om du har begärt en högre maximal för ett program med hög trafik. Försiktig när du ställer in dagliga fästpunkten som du vill ska vara **aldrig att träffa dagliga fästpunkten**, eftersom du kommer att förlora data för resten av dagen och går inte att övervaka programmet. Använd daglig volym cap bladet länkas från bladet hantering av volymen (se nedan) för att ändra den. Observera att vissa prenumerationstyper av kredit som inte kan användas för Application Insights. Om prenumerationen har en utgiftsgräns, har bladet dagliga cap instruktioner ta bort den och aktivera dagliga fästpunkten höjas utöver 32,3 MB per dag.  
 * **Begränsning:** detta begränsar datahastighet till 32 kB händelser per sekund, ett genomsnitt över 1 minut. 
 
 

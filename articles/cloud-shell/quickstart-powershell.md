@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: fd1d340bc0408eaeb0b7b18235df109224eae5f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Snabbstart för PowerShell i Azure-molnet Shell
+# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snabbstart för PowerShell i Azure-molnet Shell (förhandsgranskning)
 
 Det här dokumentet beskriver hur du använder PowerShell i molnet Shell i den [Azure-portalen](https://aka.ms/PSCloudPreview).
 
@@ -227,7 +227,7 @@ Du kan också navigera till den `virtualMachines` directory första och kör `En
 
 ### <a name="discover-webapps"></a>Identifiera Webbappar
 
-Genom att ange i den `WebApps` mappen som du kan enkelt navigera dina lagringsresurser
+Genom att ange i den `WebApps` mappen som du kan enkelt navigera resurserna web apps
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -243,15 +243,15 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 
 
-# You can use Azure cmdlets to Start/Stop your web apps for example,
+# You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
 mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
 
-# Refresh the current state with -force
-PS Azure:\MySubscriptionName\WebApps> dir -force
+# Refresh the current state with -Force
+PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
@@ -266,7 +266,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="list-available-commands"></a>Lista över tillgängliga kommandon
 
-Under `Azure` enhet, Skriv `Get-AzureRmCommand` att hämta kontext specifika Azure-kommandon.
+Under `Azure` enhet, Skriv `Get-AzureRmCommand` få sammanhangsberoende Azure kommandon.
 
 Du kan alltid använda `Get-Command *azurerm* -Module AzureRM.*` ta reda på de tillgängliga Azure kommandona.
 
@@ -282,7 +282,7 @@ Typen `Get-Help` att hämta information om PowerShell i Azure Cloud-gränssnitte
 PS Azure:\> Get-Help
 ```
 
-För ett specifikt kommando kan du fortfarande göra Get-Help följt av en cmdlet, t.ex.
+Du kan fortfarande göra följt av en cmdlet Get-Help för ett specifikt kommando.
 
 ``` Powershell
 PS Azure:\> Get-Help Get-AzureRmVM
@@ -290,7 +290,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-file-storage-to-store-your-data"></a>Använda Azure File Storage för att lagra dina data
 
-Du kan skapa ett skript, säg `helloworld.ps1`, och spara den på din clouddrive att använda över shell-sessioner.
+Du kan skapa ett skript, säg `helloworld.ps1`, och spara den till din `CloudDrive` att använda över shell-sessioner.
 
 ``` Powershell
 cd C:\users\ContainerAdministrator\CloudDrive
@@ -310,13 +310,13 @@ Hur du skapar en profil avser [om profiler][profile].
 
 ## <a name="use-git"></a>Använda Git
 
-Om du vill klona en git-lagringsplatsen i CloudShell, måste du skapa en [personlig åtkomsttoken] [ githubtoken] och använda den som användarnamnet. När du har skapat din token, klona databasen på följande sätt:
+Om du vill klona en git-lagringsplatsen i molnet-gränssnittet, måste du skapa en [personlig åtkomsttoken] [ githubtoken] och använda den som användarnamnet. När du har skapat din token, klona databasen på följande sätt:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-Eftersom sessioner i CloudShell inte sparas när du loggar ut eller sessionen gör timeout, finns inte i konfigurationsfilen Git vid nästa inloggning. Om du vill bevara Git config, måste du spara dina .gitconfig till din `CloudDrive` och kopiera den eller skapa en symlink när den `CloudShell` hämtar startas. Använd följande kodavsnitt i din profile.ps1 för att skapa en symlink till `CloudDrive`.
+Eftersom sessioner i molnet Shell inte sparas när du loggar ut eller sessionen gör timeout, finns inte i konfigurationsfilen Git vid nästa inloggning. Om du vill bevara Git config, måste du spara dina .gitconfig till din `CloudDrive` och kopiera den eller skapa en symlink molnet Shell hämtar startades. Använd följande kodavsnitt i din profile.ps1 för att skapa en symlink till `CloudDrive`.
 
  ``` PowerShell
  

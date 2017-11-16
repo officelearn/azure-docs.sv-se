@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: joflore
-ms.openlocfilehash: 527bdd492561ab11784a0b23384d17e055cb3f5c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 31b32079de19c6c9822c388f60269b07a8c70198
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 Den här artikeln hjälper dig att hantera Azure Multi-Factor Authentication nu när du är igång.  Den omfattar olika avsnitt som hjälper dig att få ut mesta möjliga av Azure Multi-Factor Authentication.  Inte alla dessa funktioner är tillgängliga i alla versioner av Azure Multi-Factor Authentication.
@@ -308,7 +308,7 @@ När användarna registrerar sina konton för MFA, kan de välja sin önskade ve
 |:--- |:--- |
 | Samtal till telefon |Placerar en automatiserad röstsamtal. Användaren svara och trycka på #-tangenten för att autentisera. Det här telefonnumret har inte synkroniserats till lokala Active Directory. |
 | Textmeddelande till telefon |Skickar ett SMS med verifieringskoden. Användaren uppmanas att antingen svara på SMS meddelande med verifieringskoden eller ange verifieringskoden i inloggning-gränssnittet. |
-| Avisering via mobilapp |Skickar ett push-meddelande till din telefon eller en registrerad enhet. Användaren ser meddelandet och väljer **Kontrollera** att slutföra verifieringen. <br>Microsoft Authenticator-appen är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Meddelande via mobilapp |Skickar ett push-meddelande till din telefon eller en registrerad enhet. Användaren ser meddelandet och väljer **Kontrollera** att slutföra verifieringen. <br>Microsoft Authenticator-appen är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Verifieringskod från mobilapp |Microsoft Authenticator-appen genererar en ny OATH-Verifieringskod var 30: e sekund. Användaren anger den här koden i gränssnittet för inloggning.<br>Microsoft Authenticator-appen är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Hur du aktiverar/inaktiverar autentiseringsmetoder

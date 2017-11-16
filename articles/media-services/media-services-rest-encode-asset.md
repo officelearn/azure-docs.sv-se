@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 796f3b5a4dd56a0160986600cbbcf38faf8add56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1622149009a37b864e84caa158da960ccc03ca65
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Koda en tillgång med Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -265,6 +265,12 @@ Om det lyckas, returneras följande svar:
     . . .
 
 
+## <a name="advanced-encoding-features-to-explore"></a>Avancerade kodning funktioner att utforska
+* [Hur du skapar miniatyrer](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Genererar miniatyrer vid kodning](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Beskär videor vid kodning](media-services-crop-video.md)
+* [Anpassa kodning förinställningar](media-services-custom-mes-presets-with-dotnet.md)
+* [Överlägg eller en vattenstämpel en video med en avbildning](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

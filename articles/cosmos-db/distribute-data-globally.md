@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Hur du distribuerar data globalt med Azure Cosmos DB
 Azure är allt vanligare - den har en global storleken över 30 + geografiska regioner och kontinuerligt växer. Med dess världen är en av de olika funktionerna som Azure erbjuder sina utvecklare möjlighet att skapa, distribuera och hantera enkelt globalt distribuerade program. 
@@ -40,10 +40,6 @@ Azure Cosmos-DB tillhandahåller följande funktioner som gör det möjligt att 
 
 ### <a id="RegionalPresence"></a>Allt vanligare regionala förekomst 
 Azure ständigt växande geografiska sig genom att ta [nya områden](https://azure.microsoft.com/regions/) online. Azure Cosmos-databasen är tillgänglig i alla nya Azure-regioner som standard. På så sätt kan du associera en geografisk region med din Azure Cosmos DB databaskonto som Azure öppnar den nya regionen för företag.
-
-**Azure Cosmos-databasen är tillgänglig i alla Azure-regioner som standard**
-
-![Azure Cosmos DB tillgängliga på alla Azure-regioner](./media/distribute-data-globally/azure-regions.png)
 
 ### <a id="UnlimitedRegionsPerAccount"></a>Associera ett obegränsat antal regioner med din Azure DB som Cosmos-databaskonto
 Azure Cosmos-DB kan du associera valfritt antal Azure-regioner med ditt konto för Azure DB som Cosmos-databasen. Utanför geobegränsning begränsningar (till exempel Kina, Tyskland) finns det inga begränsningar för antalet regioner som kan vara kopplad till ditt konto för Azure DB som Cosmos-databasen. Följande bild visar ett databaskonto som konfigurerats för över 25 Azure-regioner.  
@@ -104,7 +100,7 @@ Som ett globalt distribuerad databas-tjänsten erbjuder Azure Cosmos DB väldefi
 Den viktigaste fördelen med en tjänst för globalt distribuerad databas som Azure Cosmos DB är att erbjuda låg latens tillgång till dina data var som helst i världen. Azure Cosmos-DB tillhandahåller garanterad låg svarstid P99 för olika databasåtgärder. Protokollet replikering som använder Azure Cosmos DB säkerställer att databasåtgärderna (helst både läsning och skrivning) alltid utförs i regionen som är lokala för som klienten. Svarstiden SLA för Azure Cosmos DB innehåller P99 för både läsningar (synkront) indexerade skrivningar och frågor för olika storlekar på förfrågan och svar. Latens garantier för skrivningar innehålla beständiga majoritet kvorum incheckningar inom det lokala datacentret.
 
 ### <a id="LatencyAndConsistency"></a>Latenss relationen med konsekvenskontroll 
-För en global tjänst att erbjuda stark konsekvens i en global inställning behöver synkront replikera skrivningar eller synkron utföra mellan region läsningar – enstaka snabbare och tillförlitlighet för WAN-nätverket kräver att stark konsekvens resulterar det i hög fördröjning och låg tillgängligheten för databasåtgärder. För att kunna erbjuda garanterad låg latens på P99 och 99.99 tillgänglighet, därför måste skyddas tjänsten asynkron replikering. Den här i sin tur kräver att tjänsten måste också erbjuda [väldefinierade, Avslappnad konsekvenskontroll choice(s)](consistency-levels.md) – svagare än stark (för att ge garantier för låg latens och tillgänglighet) och helst starkare än ”slutliga” konsekvensen (för att erbjuda en intuitiv programmeringsmodell).
+För en global tjänst att erbjuda stark konsekvens i en global inställning behöver synkront replikera skrivningar eller synkron utföra mellan region läsningar – enstaka snabbare och tillförlitlighet för WAN-nätverk kräver att strong konsekvenskontroll resulterar i ökad latens och minskad tillgänglighet för databasåtgärder. Därför för att kunna erbjuda garanterad låg latens på P99 och 99,99% tillgänglighet för alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen, skyddas med tjänsten asynkron replikering. Den här i sin tur kräver att tjänsten måste också erbjuda [väldefinierade, Avslappnad konsekvenskontroll choice(s)](consistency-levels.md) – svagare än stark (för att ge garantier för låg latens och tillgänglighet) och helst starkare än ”slutliga” konsekvensen (för att erbjuda en intuitiv programmeringsmodell).
 
 Azure Cosmos-DB säkerställer att en Läsåtgärd inte krävs för att kontakta repliker över flera regioner att leverera specifika konsekvenskontroll nivån garanti. På samma sätt ser till att en skrivning inte hämta blockeras medan data replikeras mellan alla regioner (d.v.s. skrivningar asynkront replikeras över regioner). För flera regioner databasen konton är flera Avslappnad konsekvensnivåer tillgängliga. 
 
@@ -117,7 +113,7 @@ Skilj fördröjningar från att ger Azure Cosmos DB en absolut övre gräns på 
 Azure Cosmos-DB göra inte dig att välja mellan svarstid och genomströmning. Den godkänner SLA för båda svarstid P99 och leverera som du har etablerat dataflöde. 
 
 ## <a id="ConsistencyGuarantees"></a>Konsekvens garanterar
-När den [stark konsekvens modellen](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) är guld standard för programmering, som det gäller vid brant priset för hög latens (i stabilt tillstånd) och förlust av tillgänglighet (i händelse av fel). 
+När den [stark konsekvens modellen](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) är guld standard för programmering, levereras brant priset för högre latens (i stabilt tillstånd) och minskad tillgänglighet (i händelse av fel). 
 
 Azure Cosmos-DB erbjuder en väldefinierad programmeringsmodell för dig att orsak om replikerade datakonsekvens. För att aktivera du bygga multi-homed program är konsekvenskontroll modeller som exponeras av Azure Cosmos DB avsedda att vara region-oberoende och inte är beroende av regionen från där läsningar och skrivningar hanteras. 
 
@@ -170,13 +166,13 @@ SERVICENIVÅAVTAL för Azure Cosmos DB konsekvens garanterar att 100% för läsb
 </table>
 
 ### <a id="ConsistencyAndAvailability"></a>Konsekvenskontrolls relationen med tillgänglighet
-Den [är omöjligt resultatet](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) av den [CAP-sats](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) bevisar att den är faktiskt omöjligt för att systemet ska vara tillgängliga och erbjuda linearizable konsekvens i händelse av fel. Database-tjänsten måste du vara CP eller AP - CP system över tillgänglighet för linearizable konsekvenskontroll medan AP system över [linearizable konsekvenskontroll](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) för tillgänglighet. Azure Cosmos-DB överskrider aldrig begärda konsekvensnivå, vilket gör det formellt en CP-system. Men i praktiken konsekvenskontroll är inte en allt eller inget lösning – det finns flera väldefinierade konsekvenskontroll modeller längs spektrumet konsekvens mellan linearizable och eventuell konsekvenskontroll. Vi har försökt att identifiera flera Avslappnad konsekvenskontroll modeller med verkligheten tillämplighet och en intuitiv programmeringsmodell i Azure Cosmos-databasen. Azure Cosmos-DB navigerar konsekvenskontroll tillgänglighet kompromisser genom att erbjuda 99.99 tillgänglighet SLA tillsammans med [flera mjukas upp ännu väldefinierade konsekvensnivåer](consistency-levels.md). 
+Den [är omöjligt resultatet](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) av den [CAP-sats](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) bevisar att den är faktiskt omöjligt för att systemet ska vara tillgängliga och erbjuda linearizable konsekvens i händelse av fel. Database-tjänsten måste du vara CP eller AP - CP system över tillgänglighet för linearizable konsekvenskontroll medan AP system över [linearizable konsekvenskontroll](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) för tillgänglighet. Azure Cosmos-DB överskrider aldrig begärda konsekvensnivå, vilket gör det formellt en CP-system. Men i praktiken konsekvenskontroll är inte en allt eller inget lösning – det finns flera väldefinierade konsekvenskontroll modeller längs spektrumet konsekvens mellan linearizable och eventuell konsekvenskontroll. Vi har försökt att identifiera flera Avslappnad konsekvenskontroll modeller med verkligheten tillämplighet och en intuitiv programmeringsmodell i Azure Cosmos-databasen. Azure Cosmos-DB navigerar konsekvenskontroll tillgänglighet kompromisser genom att erbjuda en [flera mjukas upp ännu väldefinierade konsekvensnivåer](consistency-levels.md) och en 99,99% tillgänglighet för alla enskild region och konton för alla flera regioner med mjukas upp konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen. 
 
 ### <a id="ConsistencyAndAvailability"></a>Konsekvenskontrolls relation med en fördröjning
 En mer omfattande variation av CAP föreslogs av Prof. Daniel Abadi och kallas [PACELC](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), vilket även konton för fördröjning och konsekvens kompromisser i stabilt tillstånd. Det anger att databassystemet måste välja i stabilt tillstånd mellan konsekvens och svarstid. Med flera Avslappnad konsekvenskontroll modeller (understöds av asynkron replikering och lokal läsning, skrivning beslutsförhet) säkerställer Azure Cosmos DB att alla läsningar och skrivningar är lokala för läsa och skriva regioner respektive.  Detta gör att Azure Cosmos DB att erbjuda låg latens garanterar för regionen för konsekvensnivåer.  
 
 ### <a id="ConsistencyAndThroughput"></a>Konsekvenskontrolls relation med genomströmning
-Eftersom implementeringen av en specifik konsekvent modell beror på valet av en [kvorum](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), genomflödet också varierar beroende på valet av konsekvenskontroll. Till exempel i Azure Cosmos DB är dataflöde med starkt konsekvent läsningar ungefär hälften som överensstämmelse läsningar. 
+Eftersom implementeringen av en specifik konsekvent modell beror på valet av en [kvorum](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), genomflödet också varierar beroende på valet av konsekvenskontroll. Till exempel i Azure Cosmos DB RU tillägget för starkt konsekvent läsningar är ungefär dubbla som läser av överensstämmelse. I det här fallet behöver du etablera dubbla RUs på din samling för att uppnå samma genomflöde.
  
 **Förhållandet mellan Läs kapacitet för en specifik konsekvensnivå i Azure Cosmos DB**
 
@@ -207,7 +203,7 @@ Samma som [Konsekvenskontrolls relation med genomströmning](#ConsistencyAndThro
 Azure Cosmos-DB fortsätter att upprätthålla sin tillgänglighet när ändringarna sparas till genomflödet. Azure Cosmos-DB transparent hanterar partitioner (exempelvis dela dokument, klona operations) och säkerställer att åtgärderna inte försämra prestanda eller tillgänglighet, medan programmet Elastiskt ökar eller minskar genomflöde. 
 
 ## <a id="AvailabilityGuarantees"></a>Garantier för tillgänglighet
-Azure Cosmos-DB erbjuder en 99,99% drifttid tillgänglighets-SLA för var och en av åtgärderna data och kontroll plan. Som beskrivits tidigare kan inkludera en absolut övre gräns för svarstid för alla data och kontroll plan som Azure Cosmos DB garantier för tillgänglighet. Garantier för tillgänglighet är steadfast och ändras inte med antalet regioner eller geografiska avståndet mellan regioner. Garantier för tillgänglighet tillämpas med både manuell samt automatisk redundans. Azure Cosmos-DB erbjuder transparent flera API: er som se till att programmet kan köras mot logiska slutpunkter och transparent kan vidarebefordra begäranden till den nya regionen vid redundans. Placera olika ditt program behöver inte distribueras på regional växling vid fel och tillgänglighet SLA bevaras.
+Azure Cosmos-DB erbjuder en 99,99% tillgänglighet SLA för alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen. Som beskrivits tidigare kan inkludera en absolut övre gräns för svarstid för alla data och kontroll plan som Azure Cosmos DB garantier för tillgänglighet. Garantier för tillgänglighet är steadfast och ändras inte med antalet regioner eller geografiska avståndet mellan regioner. Garantier för tillgänglighet tillämpas med både manuell samt automatisk redundans. Azure Cosmos-DB erbjuder transparent flera API: er som se till att programmet kan köras mot logiska slutpunkter och transparent kan vidarebefordra begäranden till den nya regionen vid redundans. Placera olika ditt program behöver inte distribueras på regional växling vid fel och tillgänglighet SLA bevaras.
 
 ### <a id="AvailabilityAndConsistency"></a>Tillgänglighetsrelationen med konsekvenskontroll, svarstid och genomströmning
 Tillgänglighetsrelationen med konsekvenskontroll, svarstid och genomströmning beskrivs i [Konsekvenskontrolls relationen med tillgänglighet](#ConsistencyAndAvailability), [Svarstids relationen med tillgänglighet](#LatencyAndAvailability) och [genomströmnings relationen med tillgänglighet](#ThroughputAndAvailability). 

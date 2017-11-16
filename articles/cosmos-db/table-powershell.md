@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 35d05b7003d731610df816c8470acc9133a4a6de
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Utföra åtgärder i Azure Cosmos DB tabell API med Azure PowerShell 
 
@@ -47,7 +47,7 @@ När Azure PowerShell installerades eller uppdaterades, måste du installera mod
 Install-Module AzureRmStorageTable
 ```
 
-När Azure Cosmos DB tabell API är i förhandsversionen kan behöva du också installera dess sammansättningar lokalt för att kunna använda dessa PowerShell-cmdlets. Instruktioner om hur du gör finns [Azure RM lagring tabeller PowerShell-modulen för Cosmos DB tabeller](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+Installera Azure DB som Cosmos-sammansättningar lokalt för att kunna använda dessa PowerShell-cmdlets. Instruktioner om hur du gör finns [Azure RM lagring tabeller PowerShell-modulen för Cosmos DB tabeller](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
 Om du vill prova följande övningar behöver du ett konto för Azure DB som Cosmos-databasen. Om du inte redan har en, skapa en ny Azure Cosmos DB-konto med hjälp av den [Azure-portalen](https://portal.azure.com). Hur du skapar ett nytt databaskonto finns [Azure Cosmos DB: skapa ett databaskonto](create-table-dotnet.md#create-a-database-account).
 

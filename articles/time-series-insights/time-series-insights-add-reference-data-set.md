@@ -1,50 +1,50 @@
 ---
-title: "Lägga till en referensdatauppsättning i miljön för Azure Time Series Insights | Microsoft Docs"
-description: "I den här självstudien ansluter du en referensdatauppsättning till Time Series Insights-miljön"
-keywords: 
+title: "Hur du lägger till en referens datauppsättning Azure tid serien Insights miljön | Microsoft Docs"
+description: "Den här artikeln beskriver hur du lägger till en referens datauppsättning Azure tid serien Insights-miljö. Referensdata är användbar för att ansluta till datakällan till utöka värdena."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: venkatgct
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: b94ca172dba71b407ee5e9a40c283a97602efd17
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7cdcefbd0daec3b7bab59680afa1470624583c74
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Skapa en referensdatauppsättning för miljön för Time Series Insights med Ibiza Portal
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens för datauppsättning för tid serien insikter miljön med hjälp av Azure portal
+
+Den här artikeln beskriver hur du lägger till en referens datauppsättning Azure tid serien Insights-miljö. Referensdata är användbar för att ansluta till datakällan till utöka värdena.
 
 En referensdatauppsättning är en samling objekt som är förstärkta med händelser från din händelsekälla. Bearbetningsmotorn för tidsserieinsikter kopplar en händelse från din händelsekälla till ett objekt i referensdatauppsättningen. Den här förhöjda händelsen är sedan tillgängliga för frågor. Den här kopplingen baseras på de nycklar som definierats i referensdatauppsättningen.
 
-## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Steg för att lägga till en referensdatauppsättning i din miljö
+## <a name="add-a-reference-data-set"></a>Lägg till en referens för datauppsättning
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Klicka på ”Alla resurser” på menyn på vänster sida av Azure Portal.
-3. Välj Time Series Insights-miljö.
+
+2. Leta upp din befintliga miljö tid serien insikter. Klicka på **alla resurser** på menyn till vänster i Azure-portalen. Välj Time Series Insights-miljö.
+
+3. Under den **miljö topologi** rubrik, Välj **Referensdatamängder**.
 
     ![Skapa Time Series Insights-referensdatauppsättningen](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
 
-4. Välj ”referensdatauppsättningar”, klicka på ”+ Lägg till”.
+4. Välj **+ Lägg till** att lägga till en ny referens datauppsättning.
+
+5. Ange ett unikt **referens datauppsättningsnamnet**.
 
     ![Skapa Time Series Insights-referensdatauppsättningen - information](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
-5. Ange namnet på referensdatauppsättningen.
-6. Ange namnet och dess typ. Namnet och typen används för att välja rätt egenskap från händelsen i din händelsekälla. Till exempel, om du tillhandahåller nyckelnamn som ”DeviceId” och typ som ”String” söker motorn för tidserieinsikter sedan en egenskap med namnet ”DeviceId” av typen ”String” i den inkommande händelsen. Du kan ange mer än en nyckel att ansluta till händelsen. Matchningen av nyckelnamnet är skiftlägeskänsligt.
+6. Ange den **nyckelnamn** i fältet tomt och välj dess **typen**. Detta namn och typ används för att välja rätt egenskap från händelser i dina händelsekällan för att ansluta till referensdata. 
 
-     ![Skapa Time Series Insights-referensdatauppsättningen - information](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
+   Om du anger nyckelnamn som till exempel **DeviceId** och som **sträng**, och sedan tiden serien insikter ingång hitta en egenskap med namnet **DeviceId** av typen **Sträng** i varje inkommande händelse att leta upp och ansluta med. Du kan ange mer än en nyckel att ansluta till händelsen. Matchningen av nyckelnamnet är skiftlägeskänsligt.
 
-7. Klicka på ”Skapa”.
+7. Välj **Skapa**.
 
 ## <a name="next-steps"></a>Nästa steg
-
 * [Hantera referensdata](time-series-insights-manage-reference-data-csharp.md) programmässigt.
 * En fullständig API-referens, se dokumentet [Referensdata-API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) .

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Metodtips för Virtuella Azure-säkerhet
 
@@ -47,7 +47,7 @@ Artikeln går igenom de följande VM säkerhetsmetoderna:
 
 ## <a name="vm-authentication-and-access-control"></a>VM-autentisering och åtkomstkontroll
 
-Det första steget för att skydda den virtuella datorn är att se till att endast auktoriserade användare kan konfigurera nya virtuella datorer. Du kan använda [Azure Resource Manager principer](../azure-resource-manager/resource-manager-policy.md) skapa anpassade principer för att upprätta konventioner för resurser i din organisation, och använda dessa principer till resurser, exempelvis [resursgrupper](../azure-resource-manager/resource-group-overview.md).
+Det första steget för att skydda den virtuella datorn är att se till att endast auktoriserade användare kan konfigurera nya virtuella datorer. Du kan använda [Azure principer](../azure-policy/azure-policy-introduction.md) skapa anpassade principer för att upprätta konventioner för resurser i din organisation, och använda dessa principer till resurser, exempelvis [resursgrupper](../azure-resource-manager/resource-group-overview.md).
 
 Virtuella datorer som tillhör en resursgrupp naturligt ärver dess principer. Även om vi rekommenderar den här metoden för att hantera virtuella datorer, kan du också styra åtkomsten till enskilda VM-principer med hjälp av [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md).
 

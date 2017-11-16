@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Översikt över DNS-zoner och poster
 
@@ -54,6 +54,16 @@ I Azure DNS har TTL-värdet angetts för postuppsättningen, inte för varje pos
 Azure DNS stöder [poster med jokertecken](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Jokertecken poster returneras som svar på alla frågor med ett matchande namn (om det finns en bättre matchning från en icke-jokertecken postuppsättning). Azure DNS stöder postuppsättningar med jokertecken för alla postuppsättningar utom NS och SOA.
 
 Om du vill skapa en postuppsättning med jokertecken, använder du postuppsättningsnamnet ”\*'. Alternativt kan du också använda ett namn med ”\*'som dess vänstra etiketten, till exempel'\*.foo'.
+
+### <a name="caa-records"></a>CAA poster
+
+CAA poster kan domän ägare att ange vilken certifikatutfärdare (CA) har behörighet att utfärda certifikat för sin domän. Detta gör att certifikatutfärdare för att förhindra att fel certifikat i vissa fall. CAA poster har tre egenskaper:
+* **Flaggorna**: Detta är ett heltal mellan 0 och 255 som används för att representera kritisk flagga som har en särskild innebörd per den [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Taggen**: en ASCII-sträng som kan vara något av följande:
+    * **problemet**: Använd det här om du vill ange CA: er som tillåts att utfärda certifikat (alla typer)
+    * **issuewild**: Använd det här om du vill ange CA: er som tillåts att utfärda certifikat (endast certifikat med jokertecken)
+    * **iodef**: Ange en e-postadress eller ett värdnamn som CA: er kan meddela för obehörig cert problemet begäranden
+* **Värdet**: värdet för den specifika taggen valt
 
 ### <a name="cname-records"></a>CNAME-poster
 

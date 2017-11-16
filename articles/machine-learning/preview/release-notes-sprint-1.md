@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sprint-1---november-2017"></a>Skriv ut 1 - November 2017 
+# <a name="sprint-1---november-2017"></a>Sprint 1 – november 2017 
 
 **Versionsnummer: 0.1.1710.31013**
 
@@ -122,7 +122,7 @@ Nedan visas en lista över detaljerade uppdateringar under varje komponent i Azu
 
 ### <a name="operationalization"></a>Operationalization
 - Webbtjänsten med ”resultat” i namnet inte längre.
-- Användare kan nu skapa en distributionsmiljö med bara ägaråtkomst till en Azure-resursgrupp. Ägaråtkomst till hela prenumerationen behövs inte längre.
+- Användare kan nu skapa en distributionsmiljö med bara deltagare åtkomst till en Azure-resursgrupp eller prenumerationen. Ägaråtkomst till hela prenumerationen behövs inte längre.
 - Operationalization CLI nu gillar fliken automatisk komplettering på Linux.
 - Konstruktionen bildhanteringstjänst stöder nu skapa avbildningar för Azure IoT-tjänster/enheter.
 

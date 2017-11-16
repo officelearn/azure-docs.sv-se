@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 28d97d65d2671f7af2cd3b29ea65ae053d5e8122
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -85,7 +85,11 @@ När du arbetar i Azure ML-arbetsstationen, kan du också skicka en bister (elle
 - RevoScalePy bibliotek stöds bara på Windows och Linux (i behållare med Docker). Det finns inte stöd för macOS.
 
 ## <a name="cant-update-workbench"></a>Det går inte att uppdatera arbetsstationen
-När en ny uppdatering är tillgänglig, visas arbetsstationen app webbsida ett meddelande som talar om den nya uppdateringen. Du bör se en uppdatering Aktivitetsikon som visas i det nedre vänstra hörnet på appen på på klockikonen. Klicka på skylt och Följ guiden installationsprogrammet för att installera uppdateringen. Om du inte ser meddelandet, försök att starta om appen. Om du fortfarande inte ser uppdateringsmeddelande efter omstart uppstå några orsaker.
+När en ny uppdatering är tillgänglig, visas arbetsstationen app webbsida ett meddelande som talar om den nya uppdateringen. Du bör se en uppdatering Aktivitetsikon som visas i det nedre vänstra hörnet på appen på på klockikonen. Klicka på skylt och Följ guiden installationsprogrammet för att installera uppdateringen. 
+
+![Uppdatera avbildning](./media/known-issues-and-troubleshooting-guide/update.png)
+
+Om du inte ser meddelandet, försök att starta om appen. Om du fortfarande inte ser uppdateringsmeddelande efter omstart uppstå några orsaker.
 
 ### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Arbetsstationen lanseras från en fästa genväg i Aktivitetsfältet
 Du kanske redan har installerat uppdateringen. Men dina fästa genväg fortfarande pekar på den gamla bits på disken. Du kan kontrollera detta genom att bläddra till den `%localappdata%/AmlWorkbench` mappen och se om du har installerat det senaste version och undersöka egenskapen Fäst genvägen till finns där pekar på. Om verifieras bara ta bort den gamla genvägen, starta arbetsstationen från Start-menyn och du kan också skapa en ny genväg för Fäst i Aktivitetsfältet.

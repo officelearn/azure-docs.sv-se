@@ -1,55 +1,63 @@
 ---
-title: "Skicka händelser till miljön för Azure Time Series Insights | Microsoft Docs"
-description: "Den här självstudiekursen beskriver de steg du följer för att skicka händelser till en Time Series Insights-miljö"
-keywords: 
-services: tsi
-documentationcenter: 
+title: "Hur du skickar händelser till en Azure tid serien Insights miljö | Microsoft Docs"
+description: "Den här självstudiekursen beskrivs hur du skapa och konfigurera händelsehubb och köra exempelprogrammet push-händelser som ska visas i Azure tid serien insikter."
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av Event Hub
-
-I den här självstudien förklaras hur du skapar och konfigurerar Event Hub och kör ett exempelprogram för att push-överföra händelser. Om du har en befintlig händelsehubb som innehåller händelser i JSON-format kan du hoppa över den här självstudien och visa din miljö i [time series insights](https://insights.timeseries.azure.com).
+Den här artikeln beskriver hur du skapar och konfigurerar händelsehubb och kör ett exempelprogram push-händelser. Om du har en befintlig händelsehubb med händelser i JSON-format, hoppa över den här kursen och visa din miljö i [tid serien insikter](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Skapa en Event Hub
-1. Om du vill skapa en Event Hub följer du instruktionerna från Event Hub[-dokumentationen](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+1. Om du vill skapa en Event Hub följer du instruktionerna från Event Hub[-dokumentationen](../event-hubs/event-hubs-create.md).
 
-2. Se till att skapa en konsumentgrupp som enbart används av din Time Series Insights-händelsekälla.
+2. Sök efter **händelsehubb** i sökfältet. Klicka på **Händelsehubbar** i listan returneras.
 
-  > [!IMPORTANT]
-  > Kontrollera att den här konsumentgruppen inte används av andra tjänster (t.ex Stream Analytics-jobb eller en annan Time Series Insights-miljö). Om en konsumentgrupp används av en annan tjänst påverkas läsåtgärden negativt för den här miljön och de andra tjänsterna. Om du använder ”$Default” som konsumentgrupp kan det leda till eventuell återanvändning av andra läsare.
+3. Välj din händelsehubb genom att klicka på dess namn.
+
+4. Under **entiteter** i mitten configuration-fönstret klickar du på **Händelsehubbar** igen.
+
+5. Välj namnet på händelsehubben för att konfigurera den.
 
   ![Välja konsumentgrupp för Event Hub](media/send-events/consumer-group.png)
 
-3. I Event Hub skapar du ”MySendPolicy” som används för att skicka händelser i c#-exemplet.
+6. Under **entiteter**väljer **konsumentgrupper**.
+ 
+7. Se till att skapa en konsumentgrupp som enbart används av din Time Series Insights-händelsekälla.
+
+   > [!IMPORTANT]
+   > Kontrollera att den här konsumentgruppen inte används av andra tjänster (t.ex Stream Analytics-jobb eller en annan Time Series Insights-miljö). Om konsumentgruppen används av andra påverkas negativt tjänster, Läsåtgärd för den här miljön och andra tjänster. Om du använder ”$Default” som konsumentgrupp kan det leda till eventuell återanvändning av andra läsare.
+
+8. Under den **inställningar** rubrik, Välj **resursen åtkomstprinciper**.
+
+9. Skapa på händelsehubb, **MySendPolicy** som används för att skicka händelser i csharp-exemplet.
 
   ![Välj Policyer för delad åtkomst och klicka på knappen Lägg till](media/send-events/shared-access-policy.png)  
 
   ![Lägg till ny policy för delad åtkomst](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Skapa händelsekälla för Time Series Insights
-1. Om du inte har skapat en händelsekälla följer du [dessa instruktioner](time-series-insights-add-event-source.md) för att skapa en händelsekälla.
+1. Om du inte har skapat en händelsekälla följer du [dessa instruktioner](time-series-insights-how-to-add-an-event-source-eventhub.md) för att skapa en händelsekälla.
 
-2. Ange "deviceTimestamp" som egenskapsnamn för tidsstämpeln – den här egenskapen används som den faktiska tidsstämpeln i c#-exemplet. Egenskapsnamnet för tidsstämpeln är skiftlägeskänsligt och värdena måste ha formatet __åååå-MM-ddTHH:mm:ss.FFFFFFFK__ när de skickas som JSON till Event Hub. Om egenskapen inte finns i händelsen används den tid då händelsen stod i Event Hub-kön.
+2. Ange **deviceTimestamp** som egenskapsnamn tidsstämpel – den här egenskapen används som den faktiska tidsstämpeln i C#-exempel. Egenskapsnamnet för tidsstämpeln är skiftlägeskänsligt och värdena måste ha formatet __åååå-MM-ddTHH:mm:ss.FFFFFFFK__ när de skickas som JSON till Event Hub. Om egenskapen inte finns i händelsen används den tid då händelsen stod i Event Hub-kön.
 
   ![Skapa händelsekälla](media/send-events/event-source-1.png)
 
 ## <a name="sample-code-to-push-events"></a>Exempelkod för push-händelser
-1. Gå till Event Hub-principen ”MySendPolicy” och kopiera anslutningssträngen med principnyckeln.
+1. Gå till event hub-princip med namnet **MySendPolicy**. Kopiera den **anslutningssträngen** med nyckeln för principen.
 
   ![Kopiera anslutningssträngen MySendPolicy](media/send-events/sample-code-connection-string.png)
 
@@ -163,6 +171,7 @@ En JSON-matris med två JSON-objekt. Varje JSON-objekt konverteras till en händ
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+
 ### <a name="sample-3"></a>Exempel 3
 
 #### <a name="input"></a>Indata
@@ -235,5 +244,5 @@ Ett JSON-objekt med en kapslad JSON-matris som innehåller två JSON-objekt. Den
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Nästa steg
-
-* Visa din miljö i [Time Series Insights-portalen](https://insights.timeseries.azure.com)
+> [!div class="nextstepaction"]
+> [Visa din miljö i tid serien insikter explorer](https://insights.timeseries.azure.com).

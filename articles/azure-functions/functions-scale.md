@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 423eee65040a11695d9f6c18d64948e4c3d3aafe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions värd planer jämförelse
 
-## <a name="introduction"></a>Introduktion
-
 Du kan köra Azure Functions i två olika lägen: förbrukning planerings- och Azure App Service-plan. Förbrukning planen tilldelar automatiskt datorkraft när koden körs skalas ut som behövs för att hantera belastningen och skalas när koden inte körs. Så du behöver inte betala för inaktiv virtuella datorer och behöver inte reserverad kapacitet i förväg. Den här artikeln fokuserar på förbrukning-plan en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) appmodell. Mer information om hur programtjänstplanen fungerar finns i [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+>[!NOTE]  
+> Linux-värd finns för närvarande endast i en apptjänstplan.
 
 Om du inte är bekant med Azure Functions finns i [översikt över Azure Functions](functions-overview.md).
 
@@ -55,7 +56,7 @@ Förbrukning planen är standard värd plan och har följande fördelar:
 
 ## <a name="app-service-plan"></a>App Service-plan
 
-I App Service-plan körs funktionen apparna på dedikerade virtuella datorer på Basic, Standard, Premium och isolerade SKU: er, liknande Web Apps, API Apps och Mobilappar. Dedikerade virtuella datorer är allokerade till din Apptjänst-appar, vilket innebär att funktioner värden körs alltid.
+I App Service-plan körs funktionen apparna på dedikerade virtuella datorer på Basic, Standard, Premium och isolerade SKU: er, liknande Web Apps, API Apps och Mobilappar. Dedikerade virtuella datorer är allokerade till din Apptjänst-appar, vilket innebär att funktioner värden körs alltid. Programtjänstplaner stöd för Linux.
 
 Överväg att en apptjänstplan i följande fall:
 - Du har befintliga, underutnyttjade virtuella datorer som redan kör andra Apptjänst-instanser.
@@ -63,6 +64,7 @@ I App Service-plan körs funktionen apparna på dedikerade virtuella datorer på
 - Du behöver fler alternativ för CPU eller minne än vad som tillhandahålls av förbrukning planen.
 - Du behöver köra längre än den maximala körningstiden tillåtna förbrukning planen (i 10 minuter).
 - Du behöver funktioner som bara är tillgängligt på en apptjänstplan, till exempel stöd för Apptjänst-miljön, VNET/VPN-anslutning och större VM-storlekar. 
+- Du vill köra appen funktionen i Linux eller vill du ange en anpassad avbildning som ska köra dina funktioner.
 
 En virtuell dator frikopplar kostnaden från antal körningar, körningstid och minne som används. Därför kan betalar du inte mer än kostnaden för VM-instans som du allokera. Mer information om hur programtjänstplanen fungerar finns i [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 

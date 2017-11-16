@@ -13,22 +13,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: a60c47814da2660f17456f5e662f420adbb9158e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-import-data-into-azure-cosmos-db-with-the-documentdb-api"></a>Importera data till Azure Cosmos DB med DocumentDB-API
+# <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
-Den här självstudiekursen innehåller instruktioner om hur du använder Azure Cosmos DB: DocumentDB API datamigrering verktyg som kan importera data från olika källor, inklusive JSON-filer, CSV-filer, SQL, MongoDB, Azure Table storage, Amazon DynamoDB och Azure Cosmos DB DocumentDB API samlingar i samlingar för användning med Azure Cosmos DB och DocumentDB-API. Verktyget migrering av Data kan också användas när du migrerar från en enda partition samling till en samling med flera partition för DocumentDB-API.
+Den här kursen innehåller instruktioner om hur du använder verktyget Azure Cosmos DB datamigrering som kan importera data från olika källor till Azure Cosmos DB samlingar och tabeller. Du kan importera från JSON-filer, CSV-filer, SQL, MongoDB, Azure Table storage, Amazon DynamoDB och även Azure Cosmos DB DocumentDB API samlingar och du migrerar data till samlingar och tabeller för med Azure Cosmos DB. Verktyget migrering av Data kan också användas när du migrerar från en enda partition samling till en samling med flera partition för DocumentDB-API.
 
-Verktyget datamigrering fungerar endast när importera data till Azure Cosmos DB för använder med DocumentDB-API. Importerar data för tabell API eller Graph API stöds inte just nu. 
-
-När du importerar data för användning med MongoDB-API finns [Azure Cosmos DB: hur du migrerar data MongoDB-API: t?](mongodb-migrate.md).
+Vilka API ska du använda med Azure Cosmos DB? 
+* **[DocumentDB API](documentdb-introduction.md)**  -du kan använda något av alternativen för datakällan i verktyget datamigrering för att importera data.
+* **[Tabell API](table-introduction.md)**  -du kan använda datamigreringsverktyget eller AzCopy för att importera data. Se [importerar data för användning med Azure Cosmos DB tabell API](table-import.md) för mer information.
+* **[MongoDB API](mongodb-introduction.md)**  -Migreringsverktyget för det Data exportera data MongoDB-databaser till Azure Cosmos DB för användning med DocumentDB-API. Men om du vill fortsätta att använda MongoDB APIs du vill använda Azure Cosmos DB MongoDB-API och ska använda mongoimport.exe eller mongorestore.exe för att importera data. Se [Azure Cosmos DB: hur du migrerar data MongoDB-API: t?](mongodb-migrate.md), mer information.
+* **[Diagram över API](graph-introduction.md)**  -verktyget för migrering av Data är inte ett stöds Importverktyg för Graph API konton just nu. 
 
 Den här kursen ingår följande uppgifter:
 
@@ -42,7 +44,7 @@ Innan du följer anvisningarna i den här artikeln bör du kontrollera att du ha
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) eller högre.
 
-## <a id="Overviewl"></a>Översikt över verktyget datamigrering
+## <a id="Overviewl"></a>Översikt över
 Verktyget datamigrering är en öppen källkod som importerar data till Azure Cosmos DB från olika källor, inklusive:
 
 * JSON-filer
@@ -56,13 +58,13 @@ Verktyget datamigrering är en öppen källkod som importerar data till Azure Co
 
 Medan Importverktyget innehåller ett grafiskt användargränssnitt (dtui.exe), kan den också drivas från kommandoraden (dt.exe). Faktum är är ett alternativ till utdata associerat kommando när du har installerat en import via Användargränssnittet. Tabell källdata (t.ex. SQL Server- eller CSV-filer) kan omvandlas så att hierarkiska relationer (underdokument) kan skapas under importen. Vill du fortsätta läsa vill lära dig mer om alternativ för exempel på kommandorader för att importera från varje källa och mål alternativ visning importera resultat.
 
-## <a id="Install"></a>Installera verktyget för migrering av Data
+## <a id="Install"></a>Installation
 Källkoden för migrering verktyget finns på GitHub i [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool) och en kompilerad version är tillgänglig från [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Du kan sammanställa lösningen eller bara ladda ned och extrahera den kompilerade versionen till en katalog som du väljer. Kör sedan antingen:
 
 * **Dtui.exe**: grafiskt gränssnittsversionen av verktyget
 * **DT.exe**: kommandoraden versionen av verktyget
 
-## <a name="import-data"></a>Importera data
+## <a name="select-data-source"></a>Välj datakälla
 
 När du har installerat verktyget är det dags att importera dina data. Vilken typ av data du vill importera?
 
@@ -80,7 +82,7 @@ När du har installerat verktyget är det dags att importera dina data. Vilken t
 * [Azure DB Cosmos sekventiella post import](#DocumentDSeqTarget)
 
 
-## <a id="JSON"></a>Så här importerar du JSON-filer
+## <a id="JSON"></a>Importera JSON-filer
 JSON-filen källa Importverktyget alternativet kan du importera en eller flera dokument JSON-filer eller JSON-filer att var och en innehåller en matris av JSON-dokument. När du lägger till mapparna som innehåller JSON-filer som ska importeras, har du möjlighet att rekursivt söker efter filer i undermappar.
 
 ![Skärmbild av JSON-Filalternativ - Databasverktyg för migrering](./media/import-data/jsonsource.png)
@@ -132,7 +134,7 @@ Här följer några exempel som kommandoraden ska importera från MongoDB:
     #Import documents from a MongoDB collection which match the query and exclude the loc field
     dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionThroughput:2500
 
-## <a id="MongoDBExport"></a>Så här importerar du MongoDB exportfilerna
+## <a id="MongoDBExport"></a>Importera MongoDB exportfilerna
 
 > [!IMPORTANT]
 > Om du importerar till ett Azure DB som Cosmos-konto med stöd för MongoDB, följer du dessa [instruktioner](mongodb-migrate.md).
@@ -149,7 +151,7 @@ Här följer ett exempel på kommandoraden att importera från MongoDB export JS
 
     dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionThroughput:2500
 
-## <a id="SQL"></a>Importera från SQL Server
+## <a id="SQL"></a>Importera från SQLServer
 SQL-Importverktyget källalternativet kan du importera från en enskild SQL Server-databas och du kan också filtrera poster som ska importeras med hjälp av en fråga. Du kan dessutom ändra dokumentets struktur genom att ange kapslade avgränsare (Mer information om det finns en liten stund).  
 
 ![Skärmbild av SQL - alternativ för databas Migreringsverktyg](./media/import-data/sqlexportsource.png)
@@ -198,15 +200,17 @@ Importverktyget försöker att härleda typinformation för ociterade värden i 
 
 Det finns två saker att Observera om CSV-import:
 
-1. Som standard ociterade värden alltid bort för flikar och blanksteg, medan inom citattecken värden sparas som-är. Det här beteendet kan åsidosättas med kryssrutan Rensa inom citattecken värden eller /s.TrimQuoted kommandoradsalternativet.
-2. Som standard behandlas en ociterade null som ett null-värde. Det här beteendet kan åsidosättas (d.v.s. behandla en ociterade null som en ”null-sträng) med behandla onoterade NULL som sträng kryssrutan eller /s.NoUnquotedNulls kommandoradsalternativet.
+1. Som standard ociterade värden alltid bort för flikar och blanksteg, medan inom citattecken värden sparas som-är. Det här beteendet kan åsidosättas med kryssrutan Rensa inom citattecken värden eller kommandoradsalternativet /s.TrimQuoted.
+2. Som standard behandlas en ociterade null som ett null-värde. Det här beteendet kan åsidosättas (det vill säga behandla en ociterade null som en ”null-sträng) med behandla onoterade NULL som sträng kryssrutan eller kommandoradsalternativet /s.NoUnquotedNulls.
 
 Här följer ett exempel på kommandoraden för CSV-import:
 
     dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 
 ## <a id="AzureTableSource"></a>Importera från Azure Table storage
-Azure Table storage källa Importverktyget alternativet kan du importera från en enskild Azure Table storage tabell och du kan också filtrera tabellentiteter som ska importeras. Observera att du inte kan använda verktyget datamigrering importera Azure Table storage data till Azure Cosmos DB för användning med tabell-API. Endast import till Azure Cosmos DB för användning med DocumentDB-API: et stöds just nu.
+Azure Table storage källalternativet Importverktyget kan du importera från en enskild Azure Table storage tabell. Du kan också kan du filtrera tabellentiteter som ska importeras. 
+
+Data som importeras från Azure Table Storage kan vara utdata till Azure Cosmos DB tabeller och entiteter för användning med tabell-API eller samlingar och dokument för användning med DocumentDB-API. . Tabell-API är endast tillgänglig som ett mål i kommandoradsverktyget, du kan inte exportera tabell-API: et med hjälp av användargränssnittet för migrering av Data-verktyget. Mer information finns i [importerar data för användning med Azure Cosmos DB tabell API](table-import.md). 
 
 ![Skärmbild av Azure Table storage alternativ](./media/import-data/azuretablesource.png)
 
@@ -219,7 +223,7 @@ Formatet för anslutningssträngen för Azure Table storage är:
 > 
 > 
 
-Ange namnet på tabellen Azure från vilken data ska importeras. Du kan du ange en [filter](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Ange namnet på tabellen Azure från att importera från. Du kan du ange en [filter](https://msdn.microsoft.com/library/azure/ff683669.aspx).
 
 Azure Table storage källalternativet Importverktyget har följande alternativ:
 
@@ -228,7 +232,7 @@ Azure Table storage källalternativet Importverktyget har följande alternativ:
    2. Ingen - undanta alla interna fält
    3. RowKey - bara innehålla fältet RowKey
 2. Välj kolumner
-   1. Azure Table storage filter stöder inte projektioner. Om du vill importera bara specifika Azure Table-Entitetsegenskaper lägger du till dem i listan Välj kolumner. Alla andra Entitetsegenskaper kommer att ignoreras.
+   1. Azure Table storage filter stöder inte projektioner. Om du vill importera bara specifika Azure Table-Entitetsegenskaper lägger du till dem i listan Välj kolumner. Alla andra Entitetsegenskaper ignoreras.
 
 Här följer ett exempel på kommandoraden att importera från Azure Table storage:
 
@@ -254,16 +258,16 @@ Här följer ett exempel på kommandoraden att importera från Amazon DynamoDB:
 
     dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<Azure Cosmos DB Endpoint>;AccountKey=<Azure Cosmos DB Key>;Database=<Azure Cosmos DB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 
-## <a id="BlobImport"></a>Importera filer från Azure Blob storage
-JSON-fil, MongoDB exportfilen och CSV-filen Importverktyget alternativ kan du importera en eller flera filer från Azure Blob storage. När du har angett en URL för Blob-behållaren och Kontonyckel, anger du bara ett reguljärt uttryck för att välja filen eller filerna ska importeras.
+## <a id="BlobImport"></a>Importera från Azure Blob storage
+JSON-fil, MongoDB exportfilen och CSV-filen Importverktyget alternativ kan du importera en eller flera filer från Azure Blob storage. Ange ett reguljärt uttryck för att välja filer att importera när du har angett en URL för Blob-behållaren och Kontonyckel.
 
 ![Skärmbild av Blob alternativ för källa](./media/import-data/blobsource.png)
 
-Här följer exempel på kommandoraden att importera JSON-filer från Azure Blob storage:
+Här är kommandoradsverktyget exempel för att importera JSON-filer från Azure Blob storage:
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
-## <a id="DocumentDBSource"></a>Importera från en samling Azure Cosmos DB DocumentDB API
+## <a id="DocumentDBSource"></a>Importera från en DocumentDB-API-samling
 Azure Cosmos DB källa Importverktyget alternativet kan du importera data från en eller flera Azure Cosmos DB samlingar och du kan också filtrera dokument med hjälp av en fråga.  
 
 ![Skärmbild av Azure Cosmos DB alternativ](./media/import-data/documentdbsource.png)
@@ -272,7 +276,7 @@ Formatet för anslutningssträngen för Azure Cosmos DB är:
 
     AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;
 
-Anslutningssträngen för Azure DB som Cosmos-konto kan hämtas från bladet nycklar i Azure-portalen, enligt beskrivningen i [så här hanterar du ett konto i Azure Cosmos DB](manage-account.md), men namnet på databasen måste läggas till anslutning sträng i följande format:
+Anslutningssträngen för Azure DB som Cosmos-konto kan hämtas från sidan nycklar i Azure-portalen, enligt beskrivningen i [så här hanterar du ett konto i Azure Cosmos DB](manage-account.md), men namnet på databasen måste läggas till i anslutningssträngen i följande format:
 
     Database=<CosmosDB Database>;
 
@@ -281,7 +285,7 @@ Anslutningssträngen för Azure DB som Cosmos-konto kan hämtas från bladet nyc
 > 
 > 
 
-Ange namnet på samlingen som data ska importeras för att importera från en enda Azure DB som Cosmos-samling. Om du vill importera från flera Azure Cosmos DB samlingar, ange ett reguljärt uttryck för att matcha samlingsnamn för en eller flera (t.ex. collection01 | collection02 | collection03). Alternativt kan du ange eller ange en fil för en fråga till både filter och form data som ska importeras.
+Ange namnet på samlingen för att importera data från för att importera från en enda Azure DB som Cosmos-samling. Ange ett reguljärt uttryck för att matcha samlingsnamn för en eller flera för att importera från flera Azure Cosmos DB samlingar (till exempel collection01 | collection02 | collection03). Alternativt kan du ange eller ange en fil för en fråga till både filter och form data som ska importeras.
 
 > [!NOTE]
 > Eftersom fältet samling accepterar reguljära uttryck om du importerar från en enda samling vars namn innehåller specialtecken i reguljära uttryck, måste dessa tecken hoppas därför.
@@ -290,9 +294,9 @@ Ange namnet på samlingen som data ska importeras för att importera från en en
 
 Importverktyget för Azure Cosmos DB källalternativet har avancerade alternativ:
 
-1. Ta med intern fält: Anger om du vill inkludera Azure Cosmos DB dokumentegenskaper system i exporten (t.ex. _rid, _ts) eller inte.
-2. Antalet återförsök vid fel: Anger antalet gånger för att försöka anslutningen till Azure Cosmos DB vid tillfälligt fel (t.ex. anslutningen avbrott i nätverket).
-3. Återförsöksintervall: Anger hur länge väntetiden mellan anslutningsförsök görs till Azure Cosmos DB vid tillfälligt fel (t.ex. anslutningen avbrott i nätverket).
+1. Ta med intern fält: Anger om du vill inkludera Azure Cosmos DB dokumentegenskaper system i exporten (till exempel _rid, _ts) eller inte.
+2. Antalet återförsök vid fel: Anger antalet gånger för att försöka anslutningen till Azure Cosmos DB vid tillfälligt fel (till exempel anslutning avbrott i nätverket).
+3. Återförsöksintervall: Anger hur länge väntetiden mellan anslutningsförsök görs till Azure Cosmos DB vid tillfälligt fel (till exempel anslutning avbrott i nätverket).
 4. Anslutningsläge: Anger Anslutningsläge ska användas med Azure Cosmos DB. Tillgängliga alternativ är DirectTcp, DirectHttps och Gateway. Direktanslutning lägena är snabbare, medan gateway-läge är mer brandvägg eget eftersom den endast använder port 443.
 
 ![Skärmbild av Azure Cosmos DB-datakälla avancerade alternativ](./media/import-data/documentdbsourceoptions.png)
@@ -302,7 +306,7 @@ Importverktyget för Azure Cosmos DB källalternativet har avancerade alternativ
 > 
 > 
 
-Här följer några kommandoraden-exempel för att importera från Azure Cosmos DB:
+Här följer några kommandoradsverktyget exempel för att importera från Azure Cosmos DB:
 
     #Migrate data from one Azure Cosmos DB collection to another Azure Cosmos DB collections
     dt.exe /s:CosmosDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:TEColl /t:CosmosDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:TESessions /t.CollectionThroughput:2500
@@ -338,8 +342,8 @@ Här följer ett exempel på kommandoraden att importera från HBase:
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
-## <a id="DocumentDBBulkTarget"></a>Importera till DocumentDB-API (massimport)
-Importverktyget för Azure Cosmos DB samtidigt kan du importera från något av alternativen tillgänglig källa med en Azure Cosmos DB lagrade proceduren för effektivitet. Verktyget stöder import till en enda partitionerad Azure Cosmos DB samling samt delat import genom vilken data är partitionerad över flera samlingar för en partitionerad Azure Cosmos DB. Mer information om partitionering data finns [partitionering och skalning i Azure Cosmos DB](partition-data.md). Verktyget skapar, köra och ta sedan bort den lagrade proceduren från samling(ar) för målet.  
+## <a id="DocumentDBBulkTarget"></a>Importera till DocumentDB API (massimport)
+Importverktyget för Azure Cosmos DB samtidigt kan du importera från något av alternativen tillgänglig källa med en Azure Cosmos DB lagrade proceduren för effektivitet. Verktyget stöder import till en enda partitionerad Azure Cosmos DB samling samt delat import genom vilken data är partitionerad över flera samlingar för en partitionerad Azure Cosmos DB. Mer information om partitionering data finns [partitionering och skalning i Azure Cosmos DB](partition-data.md). Verktyget skapar, kör och sedan tar bort den lagrade proceduren från samling(ar) för målet.  
 
 ![Skärmbild av Azure Cosmos DB bulk-alternativ](./media/import-data/documentdbbulk.png)
 
@@ -347,7 +351,7 @@ Formatet för anslutningssträngen för Azure Cosmos DB är:
 
     AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;
 
-Anslutningssträngen för Azure DB som Cosmos-konto kan hämtas från bladet nycklar i Azure-portalen, enligt beskrivningen i [så här hanterar du ett konto i Azure Cosmos DB](manage-account.md), men namnet på databasen måste läggas till anslutning sträng i följande format:
+Anslutningssträngen för Azure DB som Cosmos-konto kan hämtas från sidan nycklar i Azure-portalen, enligt beskrivningen i [så här hanterar du ett konto i Azure Cosmos DB](manage-account.md), men namnet på databasen måste läggas till i anslutningssträngen i följande format:
 
     Database=<CosmosDB Database>;
 
@@ -356,10 +360,10 @@ Anslutningssträngen för Azure DB som Cosmos-konto kan hämtas från bladet nyc
 > 
 > 
 
-Ange namnet på den samling som data ska importeras och klicka på Lägg till om du vill importera till en enda samling. Om du vill importera till flera samlingar, ange varje samlingsnamn individuellt eller Använd följande syntax för att ange flera samlingar: *collection_prefix*[startIndex - end index]. Tänk på följande när du anger flera samlingar via ovannämnda syntax:
+Ange namnet på samlingen för att importera data från och klicka på knappen Lägg till om du vill importera till en enda samling. Om du vill importera till flera samlingar, ange varje samlingsnamn individuellt eller Använd följande syntax för att ange flera samlingar: *collection_prefix*[startIndex - end index]. Tänk på följande riktlinjer när du anger flera samlingar via ovannämnda syntax:
 
-1. Endast heltal intervallet namnet mönster stöds. Till exempel ange samlingen [0-3] genererar följande samlingar: collection0, collection1, collection2 collection3.
-2. Du kan använda en förkortad syntax: samlingen [3] genererar samma uppsättning samlingar som nämns i steg 1.
+1. Endast heltal intervallet namnet mönster stöds. Till exempel ange samlingen [0-3] skapas följande samlingar: collection0, collection1, collection2 collection3.
+2. Du kan använda en förkortad syntax: samlingen [3] skapar samma uppsättning samlingar som nämns i steg 1.
 3. Mer än en ersättning kan anges. Till exempel samlingen [0-1] [0-9] genererar 20 samlingsnamn med nollor (collection01... 02... 03).
 
 När samlingen namn har angetts, väljer du önskad genomflödet av samling(ar) (400 RUs till 10 000 RUs). Välj en högre genomströmning för bästa prestanda för import. Läs mer om prestandanivåer [prestandanivåer i Azure Cosmos DB](performance-levels.md).
@@ -369,15 +373,15 @@ När samlingen namn har angetts, väljer du önskad genomflödet av samling(ar) 
 > 
 > 
 
-När du importerar till flera samlingar baserat import verktyget stöder hash horisontell partitionering. I det här scenariot, ange egenskapen document som du vill använda som partitionsnyckel (om Partitionsnyckeln är tomt dokument är delat slumpmässigt över mål samlingarna).
+När du importerar till flera samlingar, stöder importera verktyget hash-baserad horisontell partitionering. I det här scenariot, ange egenskapen document som du vill använda som partitionsnyckel (om Partitionsnyckeln är tomt dokument är delat slumpmässigt över mål samlingarna).
 
-Du kan ange vilket fält i import-källa som ska användas som egenskapen Azure Cosmos DB dokument-id vid import (Observera att om dokument inte innehåller den här egenskapen, sedan importera verktyget att generera ett GUID som egenskapsvärdet id).
+Du kan ange vilket fält i import-källa som ska användas som egenskapen Azure Cosmos DB dokument-id vid import (Observera att om dokument inte innehåller den här egenskapen, sedan importera verktyget genererar ett GUID som egenskapsvärdet id).
 
 Det finns ett antal avancerade alternativ under importen. Först, medan verktyget innehåller en standard massimport lagrad procedur (BulkInsert.js), kan du ange egna importera lagrade proceduren:
 
  ![Skärmbild av Azure Cosmos DB bulk insert sproc alternativet](./media/import-data/bulkinsertsp.png)
 
-När du importerar datum typer (t.ex. från SQL Server eller MongoDB) kan välja du dessutom mellan tre importalternativ:
+När du importerar datum typer (till exempel från SQL Server eller MongoDB) kan välja du dessutom mellan tre importalternativ:
 
  ![Skärmbild av Azure Cosmos DB datum tid importalternativ](./media/import-data/datetimeoptions.png)
 
@@ -388,11 +392,11 @@ När du importerar datum typer (t.ex. från SQL Server eller MongoDB) kan välja
 Importverktyget för Azure Cosmos DB Bulk har följande ytterligare avancerade alternativ:
 
 1. Batchstorlek: Verktyget som standard en batchstorlek 50.  Om de dokument som ska importeras är stor kan du sänka batchstorleken. Om de dokument som ska importeras är liten kan du däremot du höja batchstorleken.
-2. Maxstorlek för skript (byte): verktyget som standard max skript storleken 512KB
-3. Inaktivera automatisk generering: Om alla dokument som ska importeras innehåller ett ID-fält kan det här alternativet kan öka prestanda. Kommer inte att importera dokument som har ett unikt id-fält saknas.
-4. Uppdatera befintliga dokument: Verktyget som standard inte ersätta befintliga dokument med id-konflikter. Det här alternativet kan skriva över befintliga dokument med matchande ID: n. Den här funktionen är användbart för schemalagd datauppsättning migreringar som uppdaterar befintliga dokument.
-5. Antalet återförsök vid fel: Anger antalet gånger för att försöka anslutningen till Azure Cosmos DB vid tillfälligt fel (t.ex. anslutningen avbrott i nätverket).
-6. Återförsöksintervall: Anger hur länge väntetiden mellan anslutningsförsök görs till Azure Cosmos DB vid tillfälligt fel (t.ex. anslutningen avbrott i nätverket).
+2. Maxstorlek för skript (byte): verktyget som standard max skript storleken 512 KB.
+3. Inaktivera automatisk generering: Om alla dokument som ska importeras innehåller ett ID-fält kan det här alternativet kan öka prestanda. Ett unikt id-fält saknas dokument har inte importerats.
+4. Uppdatera befintliga dokument: Verktyget som standard inte ersätta befintliga dokument med id-konflikter. Det här alternativet kan du skriva över befintliga dokument med matchande ID: n. Den här funktionen är användbart för schemalagd datauppsättning migreringar som uppdaterar befintliga dokument.
+5. Antalet återförsök vid fel: Anger antalet gånger för att försöka anslutningen till Azure Cosmos DB vid tillfälligt fel (till exempel anslutning avbrott i nätverket).
+6. Återförsöksintervall: Anger hur länge väntetiden mellan anslutningsförsök görs till Azure Cosmos DB vid tillfälligt fel (till exempel anslutning avbrott i nätverket).
 7. Anslutningsläge: Anger Anslutningsläge ska användas med Azure Cosmos DB. Tillgängliga alternativ är DirectTcp, DirectHttps och Gateway. Direktanslutning lägena är snabbare, medan gateway-läge är mer brandvägg eget eftersom den endast använder port 443.
 
 ![Skärmbild av Azure Cosmos DB massimport avancerade alternativ](./media/import-data/docdbbulkoptions.png)
@@ -402,7 +406,7 @@ Importverktyget för Azure Cosmos DB Bulk har följande ytterligare avancerade a
 > 
 > 
 
-## <a id="DocumentDBSeqTarget"></a>Importera till DocumentDB-API (sekventiella post importera)
+## <a id="DocumentDBSeqTarget"></a>Importera till DocumentDB API (sekventiella post Import)
 Importverktyget för Azure Cosmos DB sekventiella post kan du importera från något av alternativen på grundval av post med tillgängliga källservrar. Du kan välja det här alternativet om du importerar till en befintlig samling som har uppnått sin kvot av lagrade procedurer. Verktyget stöder import till en enda (enskild partition och flera partition) Azure Cosmos DB-samling som delat import genom vilken data är partitionerad över flera enskild partition och/eller flera partition Azure DB som Cosmos-samlingar. Mer information om partitionering data finns [partitionering och skalning i Azure Cosmos DB](partition-data.md).
 
 ![Skärmbild av Azure Cosmos DB importalternativ för sekventiella poster](./media/import-data/documentdbsequential.png)
@@ -411,7 +415,7 @@ Formatet för anslutningssträngen för Azure Cosmos DB är:
 
     AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;
 
-Anslutningssträngen för Azure DB som Cosmos-konto kan hämtas från bladet nycklar i Azure-portalen, enligt beskrivningen i [så här hanterar du ett konto i Azure Cosmos DB](manage-account.md), men namnet på databasen måste läggas till anslutning sträng i följande format:
+Anslutningssträngen för Azure DB som Cosmos-konto kan hämtas från sidan nycklar i Azure-portalen, enligt beskrivningen i [så här hanterar du ett konto i Azure Cosmos DB](manage-account.md), men namnet på databasen måste läggas till i anslutningssträngen i följande format:
 
     Database=<Azure Cosmos DB Database>;
 
@@ -420,24 +424,24 @@ Anslutningssträngen för Azure DB som Cosmos-konto kan hämtas från bladet nyc
 > 
 > 
 
-Ange namnet på den samling som data ska importeras och klicka på Lägg till om du vill importera till en enda samling. Om du vill importera till flera samlingar, ange varje samlingsnamn individuellt eller Använd följande syntax för att ange flera samlingar: *collection_prefix*[startIndex - end index]. Tänk på följande när du anger flera samlingar via ovannämnda syntax:
+Ange namnet på den samling som data ska importeras och klicka på Lägg till om du vill importera till en enda samling. Om du vill importera till flera samlingar, ange varje samlingsnamn individuellt eller Använd följande syntax för att ange flera samlingar: *collection_prefix*[startIndex - end index]. Tänk på följande riktlinjer när du anger flera samlingar via ovannämnda syntax:
 
-1. Endast heltal intervallet namnet mönster stöds. Till exempel ange samlingen [0-3] genererar följande samlingar: collection0, collection1, collection2 collection3.
-2. Du kan använda en förkortad syntax: samlingen [3] genererar samma uppsättning samlingar som nämns i steg 1.
-3. Mer än en ersättning kan anges. Till exempel samlingen [0-1] [0-9] genererar 20 samlingsnamn med nollor (collection01... 02... 03).
+1. Endast heltal intervallet namnet mönster stöds. Till exempel ange samlingen [0-3] skapas följande samlingar: collection0, collection1, collection2 collection3.
+2. Du kan använda en förkortad syntax: samlingen [3] skapar samma uppsättning samlingar som nämns i steg 1.
+3. Mer än en ersättning kan anges. Till exempel samlingen [0-1] [0-9] skapar 20 samlingsnamn med nollor (collection01... 02... 03).
 
-När samlingen namn har angetts, väljer du önskad genomflödet av samling(ar) (400 RUs till 250 000 RUs). Välj en högre genomströmning för bästa prestanda för import. Läs mer om prestandanivåer [prestandanivåer i Azure Cosmos DB](performance-levels.md). Import till samlingar med genomströmning > 10 000 RUs kräver en partitionsnyckel. Om du vill ha mer än 250 000 RUs måste till filen en förfrågan till ditt konto ökade Portal.
+När samlingen namn har angetts, väljer du önskad genomflödet av samling(ar) (400 RUs till 250 000 RUs). Välj en högre genomströmning för bästa prestanda för import. Läs mer om prestandanivåer [prestandanivåer i Azure Cosmos DB](performance-levels.md). Import till samlingar med genomströmning > 10 000 RUs kräver en partitionsnyckel. Om du vill ha mer än 250 000 RUs, måste du in en begäran till ditt konto ökade Portal.
 
 > [!NOTE]
 > Genomströmning inställningen gäller bara skapa en samling. Om den angivna samlingen finns redan, ändras inte dess genomflöde.
 > 
 > 
 
-När du importerar till flera samlingar baserat import verktyget stöder hash horisontell partitionering. I det här scenariot, ange egenskapen document som du vill använda som partitionsnyckel (om Partitionsnyckeln är tomt dokument är delat slumpmässigt över mål samlingarna).
+När du importerar till flera samlingar, stöder importera verktyget hash-baserad horisontell partitionering. I det här scenariot, ange egenskapen document som du vill använda som partitionsnyckel (om Partitionsnyckeln är tomt dokument är delat slumpmässigt över mål samlingarna).
 
-Du kan ange vilket fält i import-källa som ska användas som egenskapen Azure Cosmos DB dokument-id vid import (Observera att om dokument inte innehåller den här egenskapen, sedan importera verktyget att generera ett GUID som egenskapsvärdet id).
+Du kan ange vilket fält i import-källa som ska användas som egenskapen Azure Cosmos DB dokument-id vid import (Observera att om dokument inte innehåller den här egenskapen, sedan importera verktyget genererar ett GUID som egenskapsvärdet id).
 
-Det finns ett antal avancerade alternativ under importen. När du importerar datum typer (t.ex. från SQL Server eller MongoDB) måste välja du först mellan tre importalternativ:
+Det finns ett antal avancerade alternativ under importen. När du importerar datum typer (till exempel från SQL Server eller MongoDB) måste välja du först mellan tre importalternativ:
 
  ![Skärmbild av Azure Cosmos DB datum tid importalternativ](./media/import-data/datetimeoptions.png)
 
@@ -447,11 +451,11 @@ Det finns ett antal avancerade alternativ under importen. När du importerar dat
 
 Azure Cosmos DB - sekventiella post Importverktyget har följande ytterligare avancerade alternativ:
 
-1. Antalet parallella begäranden: verktyget standardvärdet 2 parallella begäranden. Överväg att öka antalet parallella begäranden om dokument som ska importeras är små. Observera att det här antalet utlöses för mycket importen kan uppstå om begränsning.
-2. Inaktivera automatisk generering: Om alla dokument som ska importeras innehåller ett ID-fält kan det här alternativet kan öka prestanda. Kommer inte att importera dokument som har ett unikt id-fält saknas.
-3. Uppdatera befintliga dokument: Verktyget som standard inte ersätta befintliga dokument med id-konflikter. Det här alternativet kan skriva över befintliga dokument med matchande ID: n. Den här funktionen är användbart för schemalagd datauppsättning migreringar som uppdaterar befintliga dokument.
-4. Antalet återförsök vid fel: Anger antalet gånger för att försöka anslutningen till Azure Cosmos DB vid tillfälligt fel (t.ex. anslutningen avbrott i nätverket).
-5. Återförsöksintervall: Anger hur länge väntetiden mellan anslutningsförsök görs till Azure Cosmos DB vid tillfälligt fel (t.ex. anslutningen avbrott i nätverket).
+1. Antalet parallella begäranden: verktyget som standard två parallella begäranden. Överväg att öka antalet parallella begäranden om dokument som ska importeras är små. Observera att det här antalet utlöses för mycket importen kan uppstå om begränsning.
+2. Inaktivera automatisk generering: Om alla dokument som ska importeras innehåller ett ID-fält kan det här alternativet kan öka prestanda. Ett unikt id-fält saknas dokument har inte importerats.
+3. Uppdatera befintliga dokument: Verktyget som standard inte ersätta befintliga dokument med id-konflikter. Det här alternativet kan du skriva över befintliga dokument med matchande ID: n. Den här funktionen är användbart för schemalagd datauppsättning migreringar som uppdaterar befintliga dokument.
+4. Antalet återförsök vid fel: Anger antalet gånger för att försöka anslutningen till Azure Cosmos DB vid tillfälligt fel (till exempel anslutning avbrott i nätverket).
+5. Återförsöksintervall: Anger hur länge väntetiden mellan anslutningsförsök görs till Azure Cosmos DB vid tillfälligt fel (till exempel anslutning avbrott i nätverket).
 6. Anslutningsläge: Anger Anslutningsläge ska användas med Azure Cosmos DB. Tillgängliga alternativ är DirectTcp, DirectHttps och Gateway. Direktanslutning lägena är snabbare, medan gateway-läge är mer brandvägg eget eftersom den endast använder port 443.
 
 ![Skärmbild av Azure Cosmos DB sekventiella post importera avancerade alternativ](./media/import-data/documentdbsequentialoptions.png)
@@ -461,8 +465,8 @@ Azure Cosmos DB - sekventiella post Importverktyget har följande ytterligare av
 > 
 > 
 
-## <a id="IndexingPolicy"></a>Ange ett indexprincip när du skapar Azure Cosmos DB samlingar
-När du tillåter Migreringsverktyget att skapa samlingar under importen kan du ange indexprincip samlingarna. Gå till avsnittet indexering princip i avsnittet avancerade alternativ i Azure Cosmos DB massimport och alternativ för Azure Cosmos DB sekventiella poster.
+## <a id="IndexingPolicy"></a>Ange en indexprincip
+När du tillåter Migreringsverktyget att skapa Azure Cosmos DB DocumentDB API samlingar under importen kan du ange indexprincip samlingarna. Gå till avsnittet indexering princip i avsnittet avancerade alternativ i Azure Cosmos DB massimport och alternativ för Azure Cosmos DB sekventiella poster.
 
 ![Skärmbild av Azure Cosmos DB indexering princip avancerade alternativ](./media/import-data/indexingpolicy1.png)
 
@@ -476,7 +480,7 @@ Verktyget ger principmallarna är:
 ![Skärmbild av Azure Cosmos DB indexering princip avancerade alternativ](./media/import-data/indexingpolicy2.png)
 
 > [!NOTE]
-> Om du inte anger en indexprincip tillämpas standardprincipen. Mer information om principer för fulltextindexering finns [Azure Cosmos DB indexering principer](indexing-policies.md).
+> Om du inte anger en indexprincip används standardprincipen. Mer information om principer för fulltextindexering finns [Azure Cosmos DB indexering principer](indexing-policies.md).
 > 
 > 
 
@@ -523,10 +527,10 @@ Du kan välja att prettify resulterande JSON som ökar storleken på resulterand
 Ange platsen för filen som du vill att eventuella fel som skrivs på skärmen avancerad konfiguration. Följande regler gäller för den här sidan:
 
 1. Om ett filnamn inte anges returneras alla fel på resultatsidan.
-2. Om ett filnamn anges utan en katalog, ska sedan filen skapas (eller skrivs över) i den aktuella katalogen i miljön.
-3. Om du väljer en befintlig fil och sedan filen kommer att skrivas över finns det inget alternativ för Lägg till.
+2. Om ett filnamn anges utan en katalog, sedan filen skapas (eller skrivs över) i den aktuella katalogen i miljön.
+3. Om du väljer en befintlig fil och sedan filen skrivs över finns det inget alternativ för append.
 
-Välj om du vill logga alla, kritisk, eller inga felmeddelanden. Slutligen besluta hur ofta på skärmen överföring meddelandet kommer att uppdateras med dess förlopp.
+Välj om du vill logga alla, kritisk, eller inga felmeddelanden. Slutligen besluta hur ofta den på skärmen överföring meddelandet uppdateras med dess förlopp.
 
     ![Screenshot of Advanced configuration screen](./media/import-data/AdvancedConfiguration.png)
 
@@ -536,16 +540,16 @@ Välj om du vill logga alla, kritisk, eller inga felmeddelanden. Slutligen beslu
     ![Skärmbild av översiktsskärm](./media/import-data/summary.png)
    
     ![Skärmbild av översiktsskärm](./media/import-data/summarycommand.png)
-2. När du är nöjd med din käll- och alternativ klickar du på **importera**. Förfluten tid, antal överförda och felinformation (om du inte anger ett filnamn i avancerad konfiguration) uppdateras när importen pågår. När installationen är klar kan du exportera resultaten (t.ex. att åtgärda eventuella importfel).
+2. När du är nöjd med din käll- och alternativ klickar du på **importera**. Förfluten tid, antal överförda och felinformation (om du inte anger ett filnamn i avancerad konfiguration) uppdatera importen pågår. När installationen är klar kan du exportera resultaten (till exempel för att åtgärda eventuella importfel).
    
     ![Skärmbild av Azure Cosmos DB JSON exportalternativ](./media/import-data/viewresults.png)
-3. Du kan också starta en ny import antingen behålla de befintliga inställningarna (t.ex. anslutning sträng information, källa och mål för val osv.) eller återställa alla värden.
+3. Du kan också starta en ny import antingen behålla de befintliga inställningarna (till exempel sträng information, käll- och alternativ för anslutning osv.) eller återställa alla värden.
    
     ![Skärmbild av Azure Cosmos DB JSON exportalternativ](./media/import-data/newimport.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen kommer du har gjort följande:
+I kursen får har du gjort följande uppgifter:
 
 > [!div class="checklist"]
 > * Installerat verktyget för migrering av Data

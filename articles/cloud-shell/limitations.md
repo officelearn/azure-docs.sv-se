@@ -1,5 +1,5 @@
 ---
-title: "Begränsningar för Azure Cloud Shell (förhandsversion) | Microsoft Docs"
+title: "Azure Cloud Shell-begränsningar | Microsoft Docs"
 description: "Översikt över begränsningar i Azure Cloud Shell"
 services: azure
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: 66f07481d6e62b4375dd2752c5e7d6f8e02d4a3c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar i Azure-molnet Shell
 
@@ -70,7 +70,7 @@ Historik för bash kommandon kan vara inkonsekvent på grund av avbrott i molnet
 
 ### <a name="slow-startup-time"></a>Långsam starten
 
-PowerShell Azure Cloud Shell kan ta upp till 60 sekunder att initiera under förhandsgranskningen.
+PowerShell Azure Cloud Shell (förhandsversion) kan ta upp till 60 sekunder att initiera under förhandsgranskningen.
 
 ### <a name="no-home-directory-persistence"></a>No $Home directory beständiga
 

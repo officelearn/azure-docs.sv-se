@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ta bort prestandanivåer S1, S2 och S3
 
@@ -44,7 +44,7 @@ Den här artikeln innehåller en översikt över S1, S2 och S3 prestandanivåer 
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Varför är S1, S2 och S3 prestanda nivåer som har återkallats?
 
-S1, S2 och S3 prestandanivåer erbjuder inte den flexibilitet som erbjuder DocumentDB API samlingar. S1, S2 S3 prestandanivåer genomströmning-och lagringskapacitet har redan angetts och erbjöd inte elasticitet. Azure Cosmos-DB erbjuder nu möjlighet att anpassa din dataflöden och lagringsutrymmen, ger mycket större flexibilitet i möjligheten att skala efter dina behov förändras.
+S1, S2 och S3 prestandanivåer erbjuder inte flexibiliteten att DocumentDB API samlingar erbjudandet. S1, S2 S3 prestandanivåer genomströmning-och lagringskapacitet har redan angetts och erbjöd inte elasticitet. Azure Cosmos-DB erbjuder nu möjlighet att anpassa din dataflöden och lagringsutrymmen, ger mycket större flexibilitet i möjligheten att skala efter dina behov förändras.
 
 <a name="compare"></a>
 
@@ -71,7 +71,7 @@ Något, Cosmos DB hanterar du migreringen. Om du har en S1, S2 och S3 samling ko
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>Hur ändrar jag samlingen efter migreringen?
 
-Om du har en S1 samling migreras till en enda partition samling med 400 RU/s genomströmning. 400 RU/s är den lägsta genomflödet som är tillgängliga med enskilda partitionssamlingar. Dock kostnaden för 400 RU/s i på en enda partition samling är ungefär detsamma som betalar med S1 samlingen och 250 RU/s – så att du inte betalar för extra 150 RU/s tillgängliga för dig.
+Om du har en S1 samling migreras till en enda partition samling med 400 RU/s genomströmning. 400 RU/s är den lägsta genomflödet som är tillgängliga med enskilda partitionssamlingar. Dock kostnaden för 400 RU/s i en enda partition samling är ungefär densamma som du betalar med S1 samlingen och 250 RU/s – så att du inte betalar för extra 150 RU/s tillgängliga.
 
 Om du har en S2 samling migreras till en enda partition samling med 1 K RU/s. Ingen ändring ser du till genomflödet-nivå.
 
@@ -119,29 +119,29 @@ Du kan migrera från prestandanivåer S1, S2 och S3 till enskilda partitionssaml
 
 1. I den [ **Azure-portalen**](https://portal.azure.com), klickar du på **Azure Cosmos DB**, Välj Cosmos-DB-konto för att ändra. 
  
-    Om **Azure Cosmos DB** är inte i Jumpbar klickar du på >, bläddra till **databaser**väljer **Azure Cosmos DB**, och välj sedan DocumentDB-kontot.  
+    Om **Azure Cosmos DB** är inte i Jumpbar klickar du på >, bläddra till **databaser**väljer **Azure Cosmos DB**, och välj sedan kontot.  
 
-2. På menyn resurs under **behållare**, klickar du på **skala**, markera samlingen för att ändra listrutan och klicka sedan på **prisnivån**. Konton med hjälp av fördefinierade genomströmning har en prisnivå för S1, S2 och S3.  I den **Välj din prisnivå** bladet, klickar du på **Standard** ändra till användardefinierade genomflöde och klicka sedan på **Välj** att spara ändringen.
+2. På menyn resurs under **behållare**, klickar du på **skala**, markera samlingen för att ändra listrutan och klicka sedan på **prisnivån**. Konton med hjälp av fördefinierade genomströmning har en prisnivå för S1, S2 och S3.  I den **Välj din prisnivå** klickar du på **Standard** ändra till användardefinierade genomflöde och klicka sedan på **Välj** att spara ändringen.
 
-    ![Skärmbild av inställningsbladet visar var du kan ändra värdet för dataflöde](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Skärmbild av sidan visar var du kan ändra värdet för dataflöde](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. I den **skala** bladet den **prisnivån** ändras till **Standard** och **genomströmning (RU/s)** visas med ett standardvärde 400. Ange dataflöde mellan 400 och 10 000 [programbegäran](request-units.md)/second (RU/s). Den **uppskattad Månadsfaktura** längst ned på sidan uppdateringar automatiskt för att ge en uppskattning av månadskostnaden. 
+3. I den **skala** sidan den **prisnivån** ändras till **Standard** och **genomströmning (RU/s)** visas med en standard värdet för 400. Ange dataflöde mellan 400 och 10 000 [programbegäran](request-units.md)/second (RU/s). Den **uppskattad Månadsfaktura** längst ned på sidan uppdateringar automatiskt för att ge en uppskattning av månadskostnaden. 
 
     >[!IMPORTANT] 
     > När du sparar ändringarna och gå till den Standardprisnivån kan inte du återställa prestandanivåer S1, S2 och S3.
 
 4. Klicka på **spara** att spara ändringarna.
 
-    Om du anser att du behöver mer genomströmning (större än 10 000 RU/s) eller mer lagringsutrymme (större än 10GB) kan du skapa en partitionerad samling. Om du vill migrera en enskild partition samling till en partitionerad samling finns [migrera från en enskild partition till partitionerade samlingar](documentdb-partition-data.md#migrating-from-single-partition).
+    Om du anser att du behöver mer genomströmning (större än 10 000 RU/s) eller mer lagringsutrymme (större än 10 GB) kan du skapa en partitionerad samling. Om du vill migrera en enskild partition samling till en partitionerad samling finns [migrera från en enskild partition till partitionerade samlingar](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
-    > Ändra från S1, S2 och S3 till Standard kan det ta upp till 2 minuter.
+    > Ändra från S1, S2 och S3 till Standard kan det ta upp till två minuter.
     > 
     > 
 
 **Att migrera till enskilda partitionssamlingar med .NET SDK**
 
-Ett annat alternativ för att ändra din samlingar prestandanivåer är via vårt SDK: er. Det här avsnittet beskriver bara ändra prestanda för en samling nivå med hjälp av vår [DocumentDB .NET API](documentdb-sdk-dotnet.md), men processen är liknande för våra andra SDK: er.
+Ett annat alternativ för att ändra din samlingar prestandanivåer är via Azure Cosmos DB SDK. Det här avsnittet beskriver bara ändra prestanda för en samling nivå med hjälp av den [DocumentDB .NET API](documentdb-sdk-dotnet.md), men processen är liknande för våra andra SDK: er.
 
 Här är ett kodfragment för att ändra samlingen genomströmning till 5 000 frågeenheter per sekund:
     

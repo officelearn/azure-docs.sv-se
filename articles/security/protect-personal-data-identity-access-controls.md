@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory och Multi-Factor Authentication: skydda personuppgifter med identitets- och kontroller
 
@@ -121,23 +121,23 @@ Om du vill distribuera MFA i Azure-molnet, måste du först aktivera den och sed
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Hur aktiverar Azure för att använda MFA?
 
-Om användarna har licenser som innehåller Azure Multi-Factor Authentication, är det något som du behöver göra om du vill aktivera Azure MFA. Om inte, måste du skapa en Multi-Factor Authentication-leverantör i din katalog. Det gör du genom att följa dessa steg:
+Om användarna har licenser som innehåller Azure Multi-Factor Authentication, du behöver bara konfigurera Azure MFA på en per användare eller gruppbasis. 
 
-1. Välj **Active Directory** i den klassiska Azure-portalen (logga in som administratör).
+![MFA är aktiverat användare](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Välj **Multi-Factor Authentication-Providers.**
+Om du för närvarande inte har licenser som du behöver gå igenom processen att avgöra den lämpligaste distributionstypen för ditt scenario. Du kan börja genom att titta i artikeln [välja Azure Multi-Factor Autehntication-lösning för dig](../multi-factor-authentication/multi-factor-authentication-get-started.md). Om du bestämmer dig för att du behöver skapa en Multi-Factor Authentication-server. Du kan starta genom att följa dessa steg:
 
-3. Välj **ny** och sedan under **Apptjänster,** Välj **leverantör av Multifaktorautent.**
+1. Välj **Active Directory** i Azure-portalen (logga in som administratör).
 
-4. Välj **Snabbregistrering.**
+2. Välj **MFA-Server**
 
-5. Fyll i namnfältet på och välj en modell för förbrukning (per autentisering eller per aktiverad användare).
+3. Ange ett timeout-värde. 
 
-6. Ange en katalog som är kopplad till MFA-leverantören.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. Klicka på knappen **Skapa**.
+4. Klicka på **spara**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+I det här fönstret har också möjlighet att hämta MFA-Server. Du kan få ytterligare information om hur du planerar distributionen genom att granska artikeln och storlek [komma igång med Azure Multi-Factor Authentication-server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
 Mer information om hur du hanterar din leverantör av Multifaktorautent finns [komma igång med en Azure leverantör av Multifaktorautent.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 
@@ -158,7 +158,7 @@ Om du vill aktivera MFA genom att ändra användarens tillstånd, gör du följa
 5. Markera rutan bredvid användarens namn.
 6. Välj på höger under snabba steg **aktivera**.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Bekräfta dina val i popup-fönstret som öppnas.  Användare för vilka MFA är aktiverat uppmanas att registrera sig nästa gång de loggar in.
 

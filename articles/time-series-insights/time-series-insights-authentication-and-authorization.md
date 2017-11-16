@@ -1,29 +1,26 @@
 ---
-title: "Konfigurera autentisering och auktorisering för ett anpassat program som anropar Azure tid serien Insights API | Microsoft Docs"
-description: "Den här självstudiekursen beskrivs hur du konfigurerar autentisering och auktorisering för ett anpassat program som anropar Azure tid serien Insights API"
-keywords: 
+title: "Så här konfigurerar du autentisering och auktorisering för ett anpassat program att anropa Azure tid serien Insights API | Microsoft Docs"
+description: "Den här artikeln beskriver hur du konfigurerar autentisering och auktorisering för ett anpassat program som anropar Azure tid serien Insights API."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure tid serien Insights API
 
-Den här artikeln förklarar hur du konfigurerar ett anpassat program som anropar Azure tid serien Insights API.
+Den här artikeln förklarar hur du konfigurerar autentisering och auktorisering som används i ett anpassat program som anropar Azure tid serien Insights API.
 
 ## <a name="service-principal"></a>Tjänstens huvudnamn
 
@@ -102,11 +99,9 @@ Här följer detaljerade anvisningar:
     string accessToken = token.AccessToken;
     ```
 
+Använda program-ID och nyckel i ditt program för att autentisera med Azure tid serien insikter. 
+
 ## <a name="next-steps"></a>Nästa steg
-
-Använda program-ID och nyckel i ditt program. Exempelkod som anropar tid serien Insights API finns [fråga data med hjälp av C#](time-series-insights-query-data-csharp.md).
-
-## <a name="see-also"></a>Se även
-
-* [Frågor API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) fullständig fråge-API-referens
-* [Skapa ett huvudnamn för tjänsten i Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Exempelkod som anropar tid serien Insights API finns [fråga data med hjälp av C#](time-series-insights-query-data-csharp.md).
+- API-Referensinformation finns i [frågan API-referens](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+- [Skapa ett huvudnamn för tjänsten i Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md)

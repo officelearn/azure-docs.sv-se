@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 11/09/2017
 ms.author: genli
-ms.openlocfilehash: 2ce497146abf664b0084cd96963523812f166e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a20ee1df23df683c49444e8fb3ffdb2085b174f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och hantering av problem för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -181,6 +181,19 @@ Med hjälp av någon av ovanstående metoder måste respektive certifikat (*.pfx
 ## <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>Hur kan jag lägga till taggar min Azure Cloud Service? 
 
 Molntjänst är en klassisk resurs. Endast resurser som skapats via Azure Resource Manager support taggar. Du kan inte använda taggar klassiska resurser, till exempel tjänst i molnet. 
+
+## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Vad är kommande Cloud Service-funktionerna i Azure Portal som hjälper dig att hantera och övervaka program?
+
+* Möjligheten att generera ett nytt certifikat för Remote Desktop Protocol (RDP) kommer snart. Du kan också köra det här skriptet:
+
+```powershell
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+* Möjlighet att välja blob- eller lokal för csdef- och cscfg överför plats kommer snart. Med hjälp av [ny AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), du kan ange ett värde för varje plats.
+* Möjlighet att övervaka på instansnivå. Ytterligare övervakningsfunktioner som är tillgängliga i [så övervakaren molntjänster](cloud-services-how-to-monitor.md).
+
 
 ## <a name="how-to-enable-http2-on-cloud-services-vm"></a>Så här aktiverar du HTTP-2 på Cloud Services VM?
 

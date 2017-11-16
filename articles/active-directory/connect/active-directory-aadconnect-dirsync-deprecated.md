@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3674670e10500d2992539ab60fbdb31b666fcf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 104c2f087a38b3fe006ede4c4d6d283336c3511c
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Uppgradera Windows Azure Active Directory-synkronisering och Azure Active Directory Sync
-Azure AD Connect är det bästa sättet att ansluta din lokala katalog till Azure AD och Office 365. Det är en bra tidpunkt för att uppgradera till Azure AD Connect från Windows Azure Active Directory Sync (DirSync) eller Azure AD Sync eftersom dessa verktyg nu är föråldrade och supporten för dem upphör den 13 april 2017.
+Azure AD Connect är det bästa sättet att ansluta din lokala katalog till Azure AD och Office 365. Det här är en bra tidpunkt för att uppgradera till Azure AD Connect från Windows Azure Active Directory Sync (DirSync) eller Azure AD Sync eftersom dessa verktyg nu är föråldrade och stöds inte längre från och med 13 April 2017.
 
-Synkroniseringsverktyg för två identitet är föråldrade har erbjuds för en enkel skog kunder (DirSync) och för flera skogar och andra avancerade kunder (Azure AD Sync). Dessa äldre verktyg har ersatts av en enda lösning som är tillgänglig för alla scenarier: Azure AD Connect. Det finns nya funktioner, funktionsförbättringar och stöd för nya scenarier. För att kunna fortsätta att synkronisera dina lokala identitetsdata till Azure AD och Office 365, rekommenderar vi starkt att du uppgraderar till Azure AD Connect.
+Synkroniseringsverktyg för två identitet är föråldrade har erbjuds för en enkel skog kunder (DirSync) och för flera skogar och andra avancerade kunder (Azure AD Sync). Dessa äldre verktyg har ersatts av en enda lösning som är tillgänglig för alla scenarier: Azure AD Connect. Det finns nya funktioner, funktionsförbättringar och stöd för nya scenarier. För att kunna fortsätta att synkronisera dina lokala identitetsdata till Azure AD och Office 365, rekommenderar vi starkt att du uppgraderar till Azure AD Connect. Microsoft garanterar inte dessa äldre versioner att fungera efter den 31 December 2017.
 
 Den senaste versionen av DirSync gavs ut i juli 2014 och den senaste versionen av Azure AD Sync gavs ut i maj 2015.
 
@@ -32,7 +32,7 @@ Den senaste versionen av DirSync gavs ut i juli 2014 och den senaste versionen a
 Azure AD Connect är efterföljaren till DirSync och Azure AD Sync. Alla scenarier kombinerar dessa två stöds. Du kan läsa mer om den i [integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="deprecation-schedule"></a>Utfasningen schema
-| Date | Kommentar |
+| Date | Kommentera |
 | --- | --- |
 | Den 13 april 2016 |Windows Azure Active Directory Sync (”DirSync”) och Microsoft Azure Active Directory Sync (”Azure AD Sync”) tillkännages som föråldrade. |
 | 13 april 2017 |Stöd för parterna. Kunder kommer inte längre att kunna öppna ett supportärende utan att först uppgradera till Azure AD Connect. |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7471a6999ac4dcd15f5162e69cb0100cc1e3b14f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Självstudier: Azure Active Directory-integrering med Salesforce
 
@@ -121,9 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. Klicka på **spara** knappen.
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+5. Klicka på **spara** knappen ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
 
 6. På den **Salesforce Configuration** klickar du på **konfigurera Salesforce** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.** 
 
@@ -154,7 +152,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. För den **namnet** skriver du ett eget namn för den här konfigurationen. Att tillhandahålla ett värde för **namn** automatiskt fylla i **API-namnet** textruta.
 
-    b. Klistra in **SMAL enhets-ID** värde i den **utfärdaren** i Salesforce.
+    b. Klistra in **SAML enhets-ID** värde i den **utfärdaren** i Salesforce.
 
     c. I den **enhets-Id textruta**, ange ditt Salesforce-domännamn med hjälp av följande mönster:
       

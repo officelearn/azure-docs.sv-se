@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 804b20111ea99892201079657d6d3602ececdd28
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
@@ -44,6 +44,7 @@ Som en globalt distribuerad databastjänst erbjuder Azure Cosmos DB följande fu
         * [MongoDB API](mongodb-introduction.md): A MongoDB-databas ovanpå Cosmos DB. Kompatibel med befintliga MongoDB bibliotek, drivrutiner, verktyg och program.
         * [Tabell API](table-introduction.md): en nyckel / värde-databastjänst för att ange premium-funktioner för Azure Table storage-program.
         * [Diagram (Gremlin) API](graph-introduction.md): ett diagram databasen service inbyggda följande den [specifikation för Apache TinkerPop](http://tinkerpop.apache.org/).
+        * [Cassandra API](cassandra-introduction.md): ett nyckel/värde-Arkiv som bygger på den [Apache Cassandra](https://cassandra.apache.org/) implementering. 
         * Ytterligare datamodeller kommer snart!
 
 * **Skala elastiskt dataflöde och lagring på begäran, globalt**
@@ -55,7 +56,7 @@ Som en globalt distribuerad databastjänst erbjuder Azure Cosmos DB följande fu
     * För ett typiskt 1 KB-objekt, garanterar Cosmos DB en svarstid på läsningar från slutpunkt till slutpunkt på under 10 ms och indexerade skrivningar under 15 ms i den 99:e percentilen, inom samma Azure-region. Median-svarstiderna är betydligt lägre (under 5 ms).
 
 * **Se till att tillgängligheten alltid är så hög som möjligt**
-    * 99.99 % tillgänglighet inom en region.
+    * 99,99% tillgänglighet SLA för alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen.
     * Distribuera till valfritt antal [Azure-regioner](https://azure.microsoft.com/regions) för högre tillgänglighet.
     * [Simulera ett fel](regional-failover.md) i en eller flera regioner med garantier om noll dataförlust. 
 

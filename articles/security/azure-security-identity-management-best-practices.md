@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identitetshantering och åtkomst kontroll säkerhetsmetoder
 Många Överväg identitet till att det nya lagret gräns för säkerhet kan ta över rollen ur ett traditionellt nätverk till Central. Den här utvecklingen av primära pivot för säkerhet kontrolleras och investeringar kommer från det faktum att nätverket ytgränser har blivit allt porös och den perimeterskydd får inte vara så effektiv som de en gång var före expanderingen av [BYOD ](http://aka.ms/byodcg) enheter och molnprogram.
@@ -115,7 +115,7 @@ Utnyttjar [Azure Resource Manager](../azure-resource-manager/resource-group-over
 
 Organisationer som inte styr hur du skapar resurser som är svårare att användare som kan missbruka tjänsten genom att skapa fler resurser än de behöver. Härdning av resurs-processen är ett viktigt steg i att skydda ett scenario med flera innehavare.
 
-Du kan lära dig mer om hur du skapar principer med Azure Resource Manager genom att läsa artikeln [använda princip för att hantera resurser och åtkomstkontroll](../azure-resource-manager/resource-manager-policy.md).
+Du kan lära dig mer om hur du skapar principer med Azure Resource Manager genom att läsa artikeln [vad är Azure principen?](../azure-policy/azure-policy-introduction.md).
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>Guide för utvecklare kan utnyttja identitetsfunktioner för SaaS-appar
 Användaridentitet ska utnyttjas i många situationer när användare har åtkomst till [SaaS-appar](https://azure.microsoft.com/marketplace/active-directory/all/) som kan integreras med lokala eller molnbaserade directory. Först och främst måste vi rekommenderar att utvecklare använda en säker metod för att utveckla apparna, t.ex [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD förenklar autentisering för utvecklare genom att tillhandahålla identitet som en tjänst med stöd för standardiserade protokoll som [OAuth 2.0](http://oauth.net/2/) och [OpenID Connect](http://openid.net/connect/), samt öppen källkod bibliotek för olika plattformar.

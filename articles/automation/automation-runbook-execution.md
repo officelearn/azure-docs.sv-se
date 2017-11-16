@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/17/2017
-ms.author: bwren
-ms.openlocfilehash: 6f627140e6c5583636f7979889f74e489fe66496
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/15/2017
+ms.author: magoedte;bwren
+ms.openlocfilehash: 22852fed184022b4eae298d6cc531fd383eff552
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körningen i Azure Automation
-När du startar en runbook i Azure Automation skapas ett jobb. Ett jobb är en enskild körningsinstans av en runbook. En Azure Automation arbetare ska köras varje jobb. När anställda delas av flera Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du kan inte har styra vilken Worker services-begäran för jobbet.  En enstaka runbook kan ha flera jobb körs samtidigt. När du visar listan över runbooks i Azure-portalen visar status för alla jobb som har startats för varje runbook. Du kan visa listan över jobb för varje runbook för att kunna spåra statusen för var och en. En beskrivning av olika jobbstatus finns [jobbstatus](#job-statuses).
+När du startar en runbook i Azure Automation skapas ett jobb. Ett jobb är en enskild körningsinstans av en runbook. En Azure Automation arbetare ska köras varje jobb. När anställda delas av flera Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du kan inte har styra vilken Worker services-begäran för jobbet. En enstaka runbook kan ha flera jobb körs samtidigt.  Körningsmiljön för jobb från samma Automation-kontot kan återanvändas. När du visar listan över runbooks i Azure-portalen visar status för alla jobb som har startats för varje runbook. Du kan visa listan över jobb för varje runbook för att kunna spåra statusen för var och en. En beskrivning av olika jobbstatus [jobbstatus](#job-statuses).
 
 Följande diagram visar livscykeln för ett runbook-jobb för [grafiska runbook-flöden](automation-runbook-types.md#graphical-runbooks) och [PowerShell-arbetsflöde runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -39,16 +39,16 @@ I följande tabell beskrivs de olika statuslägen som är möjliga för ett jobb
 | Status | Beskrivning |
 |:--- |:--- |
 | Slutfört |Jobbet har slutförts. |
-| Det gick inte |För [grafisk och PowerShell-arbetsflöde runbooks](automation-runbook-types.md), det gick inte att kompilera runbook.  För [PowerShell-skript runbooks](automation-runbook-types.md), det gick inte att starta runbook eller jobbet påträffade ett undantag. |
+| Misslyckades |För [grafisk och PowerShell-arbetsflöde runbooks](automation-runbook-types.md), det gick inte att kompilera runbook.  För [PowerShell-skript runbooks](automation-runbook-types.md), det gick inte att starta runbook eller jobbet påträffade ett undantag. |
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom den nått den [fördelning](#fairshare) begränsa tre gånger och startas från samma kontrollpunkten eller från början av runbooken varje gång. |
 | I kö |Jobbet väntar på resurser på en Automation arbetare blir tillgängliga så att den kan startas. |
 | Startar |Jobbet har tilldelats en arbetare och systemet håller starta den. |
-| Återuppta |Systemet håller på att återuppta jobbet efter det pausades. |
+| Fortsätter |Systemet håller på att återuppta jobbet efter det pausades. |
 | Körs |Jobbet körs. |
 | Kör, väntar på resurser |Jobbet har inaktiverats eftersom den nådde den [fördelning](#fairshare) gränsen. Återupptas från den senaste kontrollpunkten inom kort. |
 | Stoppad |Jobbet stoppades av användaren innan den slutfördes. |
 | Stoppas |Systemet håller på att stoppa jobbet. |
-| avbruten |Jobbet pausades av användaren, datorn eller ett kommando i runbook. Ett jobb som pausats kan startas igen och återuppta från den senaste kontrollpunkten eller från början av runbooken om det inte har kontrollpunkter. Runbooken pausas bara av systemet när ett undantag inträffar. ErrorActionPreference är som standard **Fortsätt**, vilket innebär att jobbet körs på ett fel. Om inställningsvariabeln är **stoppa**, och sedan jobbet pausar på ett fel.  Gäller för [grafisk och PowerShell-arbetsflöde runbooks](automation-runbook-types.md) endast. |
+| Tillfälligt avbruten |Jobbet pausades av användaren, datorn eller ett kommando i runbook. Ett jobb som pausats kan startas igen och återuppta från den senaste kontrollpunkten eller från början av runbooken om det inte har kontrollpunkter. Runbooken pausas bara av systemet när ett undantag inträffar. ErrorActionPreference är som standard **Fortsätt**, vilket innebär att jobbet körs på ett fel. Om inställningsvariabeln är **stoppa**, och sedan jobbet pausar på ett fel.  Gäller för [grafisk och PowerShell-arbetsflöde runbooks](automation-runbook-types.md) endast. |
 | Pausa |Systemet försöker att pausa arbetet på begäran av användaren. Runbooken måste nå nästa kontrollpunkt innan den kan pausas. Om den redan passerat den sista kontrollpunkten sedan är klar innan den kan pausas.  Gäller för [grafisk och PowerShell-arbetsflöde runbooks](automation-runbook-types.md) endast. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visa jobbstatus från Azure-portalen

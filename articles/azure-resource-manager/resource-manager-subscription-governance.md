@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise kodskelett - normativ prenumeration styrning
 Företag vidtar allt det offentliga molnet dess rörlighet och flexibilitet. De använder Molnets styrkor för att generera intäkter eller optimera resurser för företaget. Microsoft Azure tillhandahåller många olika tjänster att företag kan sätta ihop som byggstenar för att adressera en mängd olika arbetsbelastningar och program. 
@@ -89,7 +89,7 @@ Den första hörnsten i kodskelett är naming standarder. Väl utformad namngivn
 > Med hjälp av föregående tips när du implementerar en konsekvent namngivningskonvention.
 
 ## <a name="policies-and-auditing"></a>Principer och granskning
-Andra hörnsten i kodskelett innebär att du skapar [Azure Resource Manager principer](resource-manager-policy.md) och [granskning aktivitetsloggen](resource-group-audit.md). Principer för Resource Manager ger dig möjlighet att hantera risker i Azure. Du kan definiera principer som kontrollera data suveränitet genom att begränsa, framtvinga eller granskning av vissa åtgärder. 
+Andra hörnsten i kodskelett innebär att du skapar [Azure principer](../azure-policy/azure-policy-introduction.md) och [granskning aktivitetsloggen](resource-group-audit.md). Principer för Resource Manager ger dig möjlighet att hantera risker i Azure. Du kan definiera principer som kontrollera data suveränitet genom att begränsa, framtvinga eller granskning av vissa åtgärder. 
 
 * Principen är en standard **Tillåt** system. Du styr åtgärder genom att definiera och tilldelning av principer till resurser som neka eller granska åtgärder på resurser.
 * Principer beskrivs av principdefinitioner i en princip definition language (if-then villkor).

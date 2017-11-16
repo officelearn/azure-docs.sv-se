@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: cfffe5145f8762558e6ee573f6f2bb69d32424ad
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="aerial-image-classification"></a>Flygfoto avbildningen klassificering
 
@@ -133,6 +133,11 @@ Nu kan vi skapa storage-konto att värdar projektfiler som måste kunna nås av 
     Registrera värdet för `key1` som lagringsnyckel i kommandot Kör kommando för att lagra värdet.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
+    ```
+1. Skapa en filresurs med namnet `baitshare` i ditt lagringskonto med följande kommando:
+
+    ```
+    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. I valfri textredigerare, läsa in den `settings.cfg` från projektet Azure Machine Learning arbetsstationen ”Code” underkatalog och infoga lagringskontonamn och nyckel som anges. Spara och Stäng den `settings.cfg` filen.
 1. Om du inte redan har gjort det hämtar och installerar den [AzCopy](http://aka.ms/downloadazcopy) verktyget. Kontrollera att den körbara filen AzCopy finns på systemsökvägen genom att skriva ”AzCopy” och trycka på RETUR för att visa dess dokumentation.

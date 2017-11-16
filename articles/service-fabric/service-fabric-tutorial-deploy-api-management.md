@@ -12,16 +12,18 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1238863265a227c18ebef8ac2aaeabd802f877d4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 97bcf312621ec0fed28e26179d4c4aa101a8a92d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuera API Management med Service Fabric
-Den här kursen ingår tre i en serie.  Distribuera Azure API Management med Service Fabric är ett avancerat scenario användbart när du vill publicera API: er med en omfattande uppsättning regler för routning till backend-Service Fabric-tjänster. Den här kursen visar hur du ställer in [Azure API Management](../api-management/api-management-key-concepts.md) med Service Fabric att dirigera trafik till en backend-tjänst i Service Fabric.  När du är klar kan har du distribuerat API-hantering till ett virtuellt nätverk, konfigurerat en API-åtgärd för att skicka trafik till backend-tillståndslösa tjänster. Mer information om Azure API Management scenarier med Service Fabric finns i [översikt](service-fabric-api-management-overview.md) artikel.
+Den här kursen ingår tre i en serie.  Distribuera Azure API Management med Service Fabric är ett avancerat scenario.  API-hantering är användbart när du vill publicera API: er med en omfattande uppsättning regler för vidarebefordran för backend-Service Fabric-tjänster. Molnprogram måste vanligtvis en frontend-gateway att tillhandahålla en enda åtkomstpunkt för inkommande trafik för användare, enheter eller andra program. En gateway kan vara alla tillståndslösa tjänster som utformats för trafik ingång, till exempel en APP.NET Core programmet Event Hubs, IoT-hubb eller Azure API Management i Service Fabric. 
+
+Den här kursen visar hur du ställer in [Azure API Management](../api-management/api-management-key-concepts.md) med Service Fabric att dirigera trafik till en backend-tjänst i Service Fabric.  När du är klar kan har du distribuerat API-hantering till ett virtuellt nätverk, konfigurerat en API-åtgärd för att skicka trafik till backend-tillståndslösa tjänster. Mer information om Azure API Management scenarier med Service Fabric finns i [översikt](service-fabric-api-management-overview.md) artikel.
 
 I den här guiden får du lära dig hur man:
 
@@ -35,6 +37,7 @@ I den här guiden får du lära dig hur man:
 I den här självstudiekursen serien lär du dig hur du:
 > [!div class="checklist"]
 > * Skapa en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure med hjälp av en mall
+> * [Skala ett kluster in eller ut](/service-fabric-tutorial-scale-cluster.md)
 > * Distribuera API Management med Service Fabric
 
 ## <a name="prerequisites"></a>Krav
@@ -44,6 +47,11 @@ Innan du börjar den här kursen:
 - Skapa en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure
 - Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](http://www.visualstudio.com) och **Azure-utveckling**, **ASP.NET och web development**, och **.NET Core plattformsoberoende development**arbetsbelastningar.  Ställa in en [.NET utvecklingsmiljö](service-fabric-get-started.md).
 - Om du distribuerar en Linux-kluster måste du ställa in en Java-utvecklingsmiljö på [Linux](service-fabric-get-started-linux.md) eller [MacOS](service-fabric-get-started-mac.md).  Installera den [Service Fabric CLI](service-fabric-cli.md). 
+
+## <a name="network-topology"></a>Nätverkstopologi
+Nu när du har en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure, distribuera API-hantering för virtuella nätverk (VNET) i undernätet och NSG för API-hantering. I den här självstudien API Management Resource Manager-mall som är förkonfigurerad att använda namnen på virtuella nätverk, undernät och NSG: N som du skapade i föregående [Windows kluster kursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-vägledningen för klustret](service-fabric-tutorial-create-vnet-and-linux-cluster.md). Den här kursen distribuerar följande topologin till Azure som API-hantering och Service Fabric finns i undernät i samma virtuella nätverk:
+
+ ![Bildrubrik][sf-apim-topology-overview]
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Logga in på Azure och välja din prenumeration
 Logga in på ditt Azure-konto väljer din prenumeration innan du kan köra kommandon för Azure.
@@ -59,153 +67,13 @@ az login
 az account set --subscription <guid>
 ```
 
-## <a name="deploy-api-management"></a>Distribuera API Management
-Molnprogram måste vanligtvis en frontend-gateway att tillhandahålla en enda åtkomstpunkt för inkommande trafik för användare, enheter eller andra program. I Service Fabric kan en gateway vara alla tillståndslösa tjänster, till exempel ett ASP.NET Core-program eller en annan tjänst för meddelanden om ingångs trafik, till exempel Händelsehubbar, IoT-hubb eller Azure API Management. Den här kursen är en introduktion till Azure API Management som en gateway till Service Fabric-program. API Management integreras direkt med Service Fabric, så att du kan publicera API: er med en omfattande uppsättning regler för routning till backend-Service Fabric-tjänster. 
-
-Nu när du har en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure, distribuera API-hantering för virtuella nätverk (VNET) i undernätet och NSG för API-hantering. I den här självstudien API Management Resource Manager-mall som är förkonfigurerad att använda namnen på virtuella nätverk, undernät och NSG: N som du skapade i föregående [Windows kluster kursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-vägledningen för klustret](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
-
-Den här kursen distribuerar följande topologin till Azure som API-hantering och Service Fabric finns i undernät i samma virtuella nätverk:
-
- ![Bildrubrik][sf-apim-topology-overview]
-
-Hämta följande Resource Manager-mall och parametrar filen:
- 
-- [APIM.JSON][apim-arm]
-- [APIM.parameters.JSON][apim-parameters-arm]
-
-Fyll i de tomma parametrarna i den `apim.parameters.json` för din distribution.
-
-Använd följande skript för att distribuera Resource Manager-mall och parametern filer för API-hantering:
-
-```powershell
-$ResourceGroupName = "tutorialgroup"
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
-```
-
-```azurecli
-ResourceGroupName="tutorialgroup"
-az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
-```
-
-## <a name="configure-api-management"></a>Konfigurera API-hantering
-
-När din API-hantering och Service Fabric-klustret har distribuerats, kan du konfigurera säkerhetsinställningar och en Service Fabric-serverdel i API-hantering. På så sätt kan du skapa en princip för backend-tjänsten som skickar trafik till Service Fabric-klustret.
-
-### <a name="configure-api-management-security"></a>Konfigurera säkerhet för API Management
-
-Om du vill konfigurera Service Fabric-serverdelen måste du först konfigurera säkerhetsinställningar för API-hantering. Gå till din API Management-tjänst i Azure-portalen för att konfigurera säkerhetsinställningar.
-
-#### <a name="enable-the-api-management-rest-api"></a>Aktivera API Management REST API
-
-API Management REST API är för närvarande det enda sättet att konfigurera en backend-tjänst. Det första steget är att aktivera API Management REST API och skydda den.
-
- 1. Välj i API Management-tjänsten **Management API** under **säkerhet**.
- 2. Kontrollera den **aktivera API Management REST API** kryssrutan.
- 3. Observera den **URL för API Management**, där vi senare konfigurera Service Fabric-serverdelen.
- 4. Generera en **åtkomst-Token** genom att välja ett förfallodatum och en nyckel, klicka på den **generera** knappen längst ned på sidan.
- 5. Kopiera den **åtkomsttoken** och spara den.  Vi använder den åtkomst-token i följande steg. Observera att detta skiljer sig från den primära och sekundära nyckeln.
-
-#### <a name="upload-a-service-fabric-client-certificate"></a>Överföra ett certifikat för Service Fabric
-
-API Management måste autentisera med Service Fabric-klustret för identifiering av tjänst använder ett klientcertifikat som har åtkomst till klustret. För enkelhetens skull den här kursen använder samma certifikat som anges tidigare när du skapar den [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor), vilket som standard kan användas för åtkomst till klustret.
-
- 1. Välj i API Management-tjänsten **klientcertifikat** under **säkerhet**.
- 2. Klicka på den **+ Lägg till** knappen.
- 2. Välj privat nyckel fil (.pfx) för kluster-certifikatet som du angav när du skapar Service Fabric-kluster, ger det ett namn och ange lösenordet för privata nyckeln.
-
-> [!NOTE]
-> Den här kursen använder samma certifikat för klientautentisering och kluster nod till noden säkerhet. Du kan använda ett separat klientcertifikat om du har en konfigurerad för att komma åt Service Fabric-klustret.
-
-### <a name="configure-the-backend"></a>Konfigurera backend
-
-Nu när API Management-säkerheten är konfigurerad, kan du konfigurera Service Fabric-serverdelen. För Service Fabric serverdelar är Service Fabric-klustret serverdelen i stället för en specifik tjänst för Service Fabric. På så sätt kan en enda princip att dirigera till mer än en tjänst i klustret.
-
-Det här steget kräver åtkomst-token som du tidigare genererade och tumavtrycket för certifikatet klustret som du tidigare har överförts till API-hantering.
-
-> [!NOTE]
-> Om du använder ett separat klientcertifikat i föregående steg för API-hantering, behöver du tumavtrycket för klientcertifikatet förutom klustret certifikat-tumavtrycket i det här steget.
-
-Skicka följande HTTP PUT begäran till URL: en för API Management API du antecknade tidigare när du aktiverar API Management REST API för att konfigurera tjänsten Service Fabric-serverdel. Du bör se en `HTTP 201 Created` svar när kommandot slutförs. Mer information om varje fält finns i API Management [backend API-referensdokumentation](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend).
-
-HTTP-kommando och URL:
-```http
-PUT https://your-apim.management.azure-api.net/backends/servicefabric?api-version=2016-10-10
-```
-
-Huvuden för begäran:
-```http
-Authorization: SharedAccessSignature <your access token>
-Content-Type: application/json
-```
-
-Begärandetexten:
-```http
-{
-    "description": "<description>",
-    "url": "<fallback service name>",
-    "protocol": "http",
-    "resourceId": "<cluster HTTP management endpoint>",
-    "properties": {
-        "serviceFabricCluster": {
-            "managementEndpoints": [ "<cluster HTTP management endpoint>" ],
-            "clientCertificateThumbprint": "<client cert thumbprint>",
-            "serverCertificateThumbprints": [ "<cluster cert thumbprint>" ],
-            "maxPartitionResolutionRetries" : 5
-        }
-    }
-}
-```
-
-Den **url** här parametern är en fullständigt kvalificerade namn för en tjänst i klustret som alla begäranden som dirigeras till som standard om inget namn anges i en backend-princip. Du kan använda falska tjänstnamn, till exempel ”fabric: / falska/service” om du inte vill ha en återställningsplats tjänst.
-
-Referera till API-hantering [backend API-referensdokumentation](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend) för mer information om varje fält.
-
-```python
-#import requests library for making REST calls
-import requests
-import json
-
-#specify url
-url = 'https://your-apim.management.azure-api.net/backends/servicefabric?api-version=2016-10-10'
-
-token = "SharedAccessSignature integration&201710140514&Lqnbei7n2Sot6doiNtxMFPUi/m9LsNa+1ZK/PdxqFl49JFWjXh1wW5Gd99r/tIOeHp6dU8UV5iZUdOPfcrm5hg=="
-
-payload = {
-    "description": "My Service Fabric backend",
-    "url": "fabric:/ApiApplication/ApiWebService",
-    "protocol": "http",
-    "resourceId": "https://tutorialcluster.eastus.cloudapp.azure.com:19080",
-    "properties": {
-        "serviceFabricCluster": {
-            "managementEndpoints": [ "https://tutorialcluster.eastus.cloudapp.azure.com:19080" ],
-            "clientCertificateThumbprint": "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80",
-            "serverCertificateThumbprints": [ "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80" ],
-            "maxPartitionResolutionRetries" : 5
-        }
-    }
-}
-
-headers = {'Authorization': token, "Content-Type": "application/json"}
-
-#Call REST API
-response = requests.put(url, data=json.dumps(payload), headers=headers)
-
-#Print Response
-print(response.status_code)
-print(response.text)
-```
-
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Distribuera en backend-tjänst för Service Fabric
 
-Nu när du har den Service Fabric som konfigurerats som en serverdel för API Management skapar du principer för serverdelen för dina API: er som skickar trafik till Service Fabric-tjänster. Men du måste först en tjänst som körs i Service Fabric att acceptera begäranden.  Om du tidigare har skapat en [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md), distribuerar du en .NET Service Fabric-tjänst.  Om du tidigare har skapat en [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md), distribuera en Java Service Fabric-tjänst.
+Innan du konfigurerar API-hantering för att dirigera trafik till en backend-tjänst för Service Fabric, måste du först en tjänst som körs för att acceptera begäranden.  Om du tidigare har skapat en [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md), distribuerar du en .NET Service Fabric-tjänst.  Om du tidigare har skapat en [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md), distribuera en Java Service Fabric-tjänst.
 
 ### <a name="deploy-a-net-service-fabric-service"></a>Distribuera en .NET Service Fabric-tjänst
 
-Den här självstudiekursen skapar vi en grundläggande tillståndslös ASP.NET Core tillförlitlig tjänst med standardmallen för Web API-projekt. Detta skapar en HTTP-slutpunkt för din tjänst som du exponera via Azure API Management:
-
-```
-/api/values
-```
+Skapa en grundläggande tillståndslös ASP.NET Core tillförlitlig tjänst med standardmallen för Web API-projekt för den här självstudiekursen. Detta skapar en HTTP-slutpunkt för din tjänst som du exponera via Azure API Management.
 
 Starta Visual Studio som administratör och skapa en ASP.NET Core-tjänst:
 
@@ -223,11 +91,11 @@ Starta Visual Studio som administratör och skapa en ASP.NET Core-tjänst:
     </Resources>
     ```
 
-    Detta gör att Service Fabric anger vilken port dynamiskt från programmet portintervall, som vi öppnas via Nätverkssäkerhetsgruppen i klustret Resource Manager-mall så att trafik till den från API-hantering.
+    Om du tar bort porten kan Service Fabric anger vilken port dynamiskt från portintervallet programmet öppnas via Nätverkssäkerhetsgruppen i klustret Resource Manager-mall så att trafik till den från API-hantering.
  
  6. Tryck på F5 i Visual Studio för att verifiera ditt webb-API finns lokalt. 
 
-    Öppna Service Fabric Explorer och detaljnivån ned till en specifik instans av ASP.NET Core-tjänsten för att se basadressen tjänsten lyssnar på. Lägg till `/api/values` för basen som adressen och öppna den i en webbläsare. Detta anropar hämta-metoden på ValuesController i Web API-mallen. Standardsvar som tillhandahålls av mallen, en JSON-matris som innehåller två strängar returnerar:
+    Öppna Service Fabric Explorer och detaljnivån ned till en specifik instans av ASP.NET Core-tjänsten för att se basadressen tjänsten lyssnar på. Lägg till `/api/values` för basen som adressen och öppna den i en webbläsare, som anropar hämta-metoden på ValuesController i Web API-mallen. Standardsvar som tillhandahålls av mallen, en JSON-matris som innehåller två strängar returnerar:
 
     ```json
     ["value1", "value2"]`
@@ -240,7 +108,7 @@ Starta Visual Studio som administratör och skapa en ASP.NET Core-tjänst:
 En ASP.NET Core tillståndslösa tjänsten med namnet `fabric:/ApiApplication/WebApiService` bör körs i Service Fabric-kluster i Azure.
 
 ### <a name="create-a-java-service-fabric-service"></a>Skapa en Java Service Fabric-tjänst
-Vi distribuera en enkel webbserver som ekon meddelanden tillbaka till användaren för den här kursen. Exempelprogrammet echo-servern innehåller ett HTTP-slutpunkten för din tjänst som du exponera via Azure API Management.
+För den här självstudiekursen distribuerar en enkel webbserver som ekon tillbaka till användaren. Exempelprogrammet echo-servern innehåller ett HTTP-slutpunkten för din tjänst som du exponera via Azure API Management.
 
 1. Klona Java komma igång prover.
 
@@ -274,73 +142,143 @@ Vi distribuera en enkel webbserver som ekon meddelanden tillbaka till användare
 
 5. Öppna en webbläsare och Skriv i http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, bör du se ”[version 1.0] Hello World”! visas.
 
-
-## <a name="create-an-api-operation"></a>Skapa en API-åtgärd
-
-Vi är nu redo att skapa en åtgärd i API-hantering med externa klienter som kommunicerar med ASP.NET Core tillståndslösa tjänsten som körs i Service Fabric-klustret.
-
-1. Logga in på Azure-portalen och navigera till din API Management service-distributionen.
-2. I bladet API Management-tjänsten väljer **API: er**
-3. Lägg till ett nytt API genom att klicka på **+ API**, sedan **tomt API** rutan och fylla i dialogrutan:
-
-    - **Webbtjänstens URL**: för Service Fabric serverdelar används inte den här URL-värdet. Du kan ange ett värde här. Den här kursen använder: ”http://servicefabric”.
-    - **Visningsnamn**: Ange ett namn för din API. Använd ”Service Fabric-App” för den här kursen.
-    - **Namnet**: Ange ”service fabric-app”.
-    - **URL-schema**: väljer du antingen **HTTP**, **HTTPS**, eller **båda**. Den här kursen använder **båda**.
-    - **API-URL-Suffix**: Ange ett suffix för vårt API. Använd ”myapp” för den här kursen.
+## <a name="download-and-understand-the-resource-manager-template"></a>Hämta och förstå Resource Manager-mall
+Hämta och spara följande Resource Manager-mall och parametrar:
  
-4. Välj **Service Fabric-appen** från listan över API: er och klicka på **+ Lägg till åtgärden** att lägga till en frontend API-åtgärd. Fyll i värden:
-    
-    - **URL: en**: Välj **hämta** och ange en URL-sökväg för API: et. Använd ”/ api/värdena” för den här självstudiekursen.  URL-sökväg anges här skickas URL-sökvägen till serverdelen Service Fabric-tjänsten. Om du använder samma URL-sökvägen här som tjänsten använder fungerar i det här fallet ”/ api/värden” och sedan åtgärden utan ytterligare ändringar. Du kan också ange en URL-sökväg här som skiljer sig från URL-sökvägen som används av din serverdel Service Fabric-tjänsten, i vilket fall du måste också ange en sökväg omarbetning i principen för åtgärden senare.
-    - **Visningsnamn**: Ange ett namn för API: et. Använd ”värdena” för den här självstudiekursen.
+- [APIM.JSON][apim-arm]
+- [APIM.parameters.JSON][apim-parameters-arm]
 
-5. Klicka på **Spara**.
+I följande avsnitt beskrivs de resurser som definieras av den *apim.json* mall. Följ länkarna till referensdokumentationen mall i varje avsnitt för mer information. De konfigurerbara parametrar som definierats i den *apim.parameters.json* parameterfilen ställs senare i den här artikeln.
 
-## <a name="configure-a-backend-policy"></a>Konfigurera en backend-princip
+### <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
+[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service) beskriver API Management service-instans: namn, SKU eller nivå, resursgruppens plats, utgivarinformation och virtuella nätverk.
 
-Backend-principen kopplar samman allt tillsammans. Det är där du konfigurerar Service Fabric serverdelstjänsten begäranden dirigeras. Du kan använda den här principen för alla API-åtgärder. Den [backend-konfiguration för Service Fabric](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService) innehåller följande begär routning kontroller: 
+### <a name="microsoftapimanagementservicecertificates"></a>Microsoft.ApiManagement/service/certificates
+[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) konfigureras API-hantering. API Management måste autentisera med Service Fabric-klustret för identifiering av tjänst använder ett klientcertifikat som har åtkomst till klustret. Den här kursen använder samma certifikat som anges tidigare när du skapar den [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor), vilket som standard kan användas för åtkomst till klustret. 
+
+Den här kursen använder samma certifikat för klientautentisering och kluster nod till noden säkerhet. Du kan använda ett separat klientcertifikat om du har en konfigurerad för att komma åt Service Fabric-klustret. Ange den **namn**, **lösenord**, och **data** (base64-kodad sträng) för privat nyckel fil (.pfx) för kluster-certifikatet som du angav när du skapar din Service Fabric-klustret.
+
+### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
+[Microsoft.ApiManagement/service/backends](/azure/templates/microsoft.apimanagement/service/backends) beskriver serverdelstjänsten trafik vidarebefordras till. 
+
+Service Fabric-klustret är serverdelen i stället för en specifik Service Fabric-tjänst för Service Fabric serverdelar. På så sätt kan en enda princip att dirigera till mer än en tjänst i klustret. Den **url** fältet här är ett fullständigt kvalificerade namn för en tjänst i klustret som alla begäranden som dirigeras till som standard om inget namn anges i en backend-princip. Du kan använda falska tjänstnamn, till exempel ”fabric: / falska/service” om du inte vill ha en återställningsplats tjänst. **resourceId** anger klusterslutpunkten för hantering.  **clientCertificateThumbprint** och **serverCertificateThumbprints** identifiera certifikat som används för att autentisera med klustret.
+
+### <a name="microsoftapimanagementserviceproducts"></a>Microsoft.ApiManagement/service/products
+[Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products) skapar en produkt. En produkt innehåller en eller flera API: er som en kvot för användning och villkor för användning i Azure API Management. När en produkt har publicerats kan utvecklare prenumererar på produkten och börjar använda produktens API: er. 
+
+Ange ett beskrivande **displayName** och **beskrivning** för produkten. En prenumeration krävs men prenumeration godkännande av en administratör är inte i den här självstudien.  Den här produkten **tillstånd** ”publiceras” och är synligt för prenumeranter. 
+
+### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
+[Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis) skapar en API. En API i API Management representerar en uppsättning åtgärder som kan anropas av klientprogram. När åtgärderna har lagts till API: et har lagts till i en produkt och kan publiceras. När en API som har publicerats kan den prenumererar på och användas av utvecklare.
+
+- **displayName** kan vara vilket namn för din API. Använd ”Service Fabric-App” för den här kursen.
+- **namnet** ger ett unikt och beskrivande namn för API: et, till exempel ”service fabric-app”. Den visas i portaler utvecklare och utgivare. 
+- **serviceUrl** refererar till HTTP-tjänsten implementerar API: et. API-hantering vidarebefordrar begäranden till den här adressen. Den här URL-värdet används inte för Service Fabric serverdelar. Du kan ange ett värde här. Den här självstudiekursen, till exempel ”http://servicefabric”. 
+- **sökvägen** läggs till en bas-URL för API management-tjänsten. Bas som URL: en är gemensamma för alla API: er som en instans för API Management-tjänsten är värd för. API Management särskiljer API: er av deras suffix och därmed suffixet måste vara unikt för alla API: et för en viss utgivare. 
+- **protokoll** bestämma vilket protokoll som kan användas för åtkomst till API. Den här självstudiekursen listan **http** och **https**.
+- **sökvägen** är ett suffix för API: et. Använd ”myapp” för den här kursen.
+
+### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
+[Microsoft.ApiManagement/service/apis/operations](/azure/templates/microsoft.apimanagement/service/apis/operations) innan en API i API Management kan användas, åtgärder måste läggas till API: et.  Externa klienter använder en åtgärd för att kommunicera med ASP.NET Core tillståndslösa tjänsten som körs i Service Fabric-klustret.
+
+Fyll i värden för att lägga till en frontend API-åtgärd:
+
+- **displayName** och **beskrivning** beskrivs åtgärden. Använd ”värdena” för den här självstudiekursen.
+- **metoden** anger HTTP-verbet.  Den här självstudiekursen, ange **hämta**.
+- **urlTemplate** läggs till i den grundläggande Webbadressen för API: et och identifierar en enskild HTTP-åtgärd.  Den här kursen använder `/api/values` om du har lagt till serverdelstjänsten .NET eller `getMessage` om du har lagt till serverdelstjänsten Java.  URL-sökväg anges här skickas URL-sökvägen till serverdelen Service Fabric-tjänsten. Om du använder samma URL-sökvägen här som tjänsten använder, till exempel ”/ api/värden”, fungerar igen utan ytterligare ändringar. Du kan också ange en URL-sökväg här som skiljer sig från URL-sökvägen som används av din serverdel Service Fabric-tjänsten, i vilket fall du måste också ange en sökväg omarbetning i principen för åtgärden senare.
+
+### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
+[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) skapar en princip för serverdelen som kopplar samman allt tillsammans. Det är där du konfigurerar Service Fabric serverdelstjänsten begäranden dirigeras. Du kan använda den här principen för alla API-åtgärder.  Mer information finns i [översikt över principer](/azure/api-management/api-management-howto-policies). 
+
+Den [backend-konfiguration för Service Fabric](/azure/api-management/api-management-transformation-policies#SetBackendService) innehåller följande begär routning kontroller: 
  - Instansurval av-tjänsten genom att ange ett Service Fabric-tjänstnamn, antingen hårdkodad (till exempel `"fabric:/myapp/myservice"`) eller genereras från HTTP-begäran (till exempel `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
  - Partitionen lösning genom att generera en partitionsnyckel med alla Service Fabric-partitioneringsschema.
  - Val av replik för tillståndskänsliga tjänster.
  - Lösning försök villkor som gör att du kan ange villkor för återlösa på en plats och skicka en begäran.
 
-För den här självstudiekursen skapar du en backend-princip som omdirigerar begäranden direkt till ASP.NET Core tillståndslösa tjänsten har distribuerats tidigare:
-
- 1. Markera och redigera den **inkommande principer** för värden igen genom att klicka på redigeringsikonen och sedan välja **kodvy**.
- 2. I Redigeraren för grupprincipobjekt kod, lägger du till en `set-backend-service` princip under inkommande principer som visas här och klicka på den **spara** knappen:
+**policyContent** är Json föregås av XML-innehållet i principen.  För den här självstudiekursen skapar du en backend-princip på vägen begäranden direkt till .NET eller Java tillståndslösa tjänsten har distribuerats tidigare. Lägg till en `set-backend-service` princip under inkommande principer.  Ersätt ”tjänstnamn” med `fabric:/ApiApplication/WebApiService` om du tidigare har distribuerat serverdelstjänst .NET eller `fabric:/EchoServerApplication/EchoServerService` om du har distribuerat Java-tjänsten.
     
-    ```xml
-    <policies>
-      <inbound>
-        <base/>
-        <set-backend-service 
-           backend-id="servicefabric"
-           sf-service-instance-name="fabric:/ApiApplication/WebApiService"
-           sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
-      </inbound>
-      <backend>
-        <base/>
-      </backend>
-      <outbound>
-        <base/>
-      </outbound>
-    </policies>
-    ```
+```xml
+<policies>
+  <inbound>
+    <base/>
+    <set-backend-service 
+        backend-id="servicefabric"
+        sf-service-instance-name="service-name"
+        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+  </inbound>
+  <backend>
+    <base/>
+  </backend>
+  <outbound>
+    <base/>
+  </outbound>
+</policies>
+```
 
 För en fullständig uppsättning attribut för Service Fabric-backend-principen, referera till den [API Management backend-dokumentation](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
 
-### <a name="add-the-api-to-a-product"></a>Lägg till API: et för en produkt 
+## <a name="set-parameters-and-deploy-api-management"></a>Ange parametrar och distribuera API Management
+Fyll i följande tomma parametrar i den *apim.parameters.json* för din distribution. 
 
-Innan du kan anropa API: et, måste den läggas till en produkt där du kan ge åtkomst till användare. 
+|Parameter|Värde|
+|---|---|
+|apimInstanceName|SA-apim|
+|apimPublisherEmail|myemail@contosos.com|
+|apimSku|Developer|
+|serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
+|CertificatePassword|q6D7nN %6ck@6| 
+|serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
+|serviceFabricCertificate|&lt;Base64-kodad sträng&gt;|
+|URL-sökväg|/ api/värden|
+|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.Azure.com:19080|
+|inbound_policy|&lt;XML-strängen&gt;|
 
- 1. Välj i API Management-tjänsten **produkter**.
- 2. Som standard API Management providers två produkter: Start och obegränsad. Välj obegränsade produkten.
- 3. Välj **+ Lägg till API: er**.
- 4. Välj den `Service Fabric App` API som du skapade i föregående steg och klicka på den **Välj** knappen.
+*certificatePassword* och *serviceFabricCertificateThumbprint* måste matcha klustret certifikatet som används för att skapa klustret.  
 
-### <a name="test-it"></a>testa den
+*serviceFabricCertificate* är certifikatet som en Base64-kodad sträng, vilken kan genereras med hjälp av följande skript:
 
-Nu kan du försöka skicka en begäran till backend-tjänsten i Service Fabric via API Management direkt från Azure-portalen.
+```powershell
+$bytes = [System.IO.File]::ReadAllBytes("C:\mycertificates\sfclustertutorialgroup220171109113527.pfx");
+$b64 = [System.Convert]::ToBase64String($bytes);
+[System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
+```
+
+I *inbound_policy*, Ersätt ”tjänstnamn” med `fabric:/ApiApplication/WebApiService` om du tidigare har distribuerat serverdelstjänst .NET eller `fabric:/EchoServerApplication/EchoServerService` om du har distribuerat Java-tjänsten.
+
+```xml
+<policies>
+  <inbound>
+    <base/>
+    <set-backend-service 
+        backend-id="servicefabric"
+        sf-service-instance-name="service-name"
+        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+  </inbound>
+  <backend>
+    <base/>
+  </backend>
+  <outbound>
+    <base/>
+  </outbound>
+</policies>
+```
+
+Använd följande skript för att distribuera Resource Manager-mall och parametern filer för API-hantering:
+
+```powershell
+$ResourceGroupName = "sfclustertutorialgroup"
+New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+```
+
+```azurecli
+ResourceGroupName="sfclustertutorialgroup"
+az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
+```
+
+## <a name="test-it"></a>testa den
+
+Du kan prova att skicka en begäran till backend-tjänsten i Service Fabric via API Management direkt från den [Azure-portalen](https://portal.azure.com).
 
  1. Välj i API Management-tjänsten **API**.
  2. I den **Service Fabric-appen** API som du skapade i föregående steg, Välj den **Test** fliken och sedan den **värden** igen.
@@ -379,12 +317,12 @@ Ett kluster består av andra Azure-resurser förutom själva klusterresursen. De
 Logga in på Azure och välj prenumerations-ID som du vill ta bort klustret.  Du hittar prenumerations-ID genom att logga in på [Azure-portalen](http://portal.azure.com). Ta bort resursgruppen och alla klusterresurser med hjälp av den [cmdlet Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
-$ResourceGroupName = "tutorialgroup"
+$ResourceGroupName = "sfclustertutorialgroup"
 Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ```azurecli
-ResourceGroupName="tutorialgroup"
+ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 

@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: e4848eb366faea134a484c8a494fed6a83203116
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 329003c7c4abe89f4af04473ee3664605b2ea81f
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="design-your-first-azure-sql-database"></a>Utforma din första Azure SQL-databas
 
-Azure SQL Database är en relationell databas-som-en tjänst (DBaaS) i Microsoft Cloud (”Azure”). I kursen får du lära dig hur du använder Azure-portalen och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) till: 
+Azure SQL Database är en relationell databas-som-en tjänst (DBaaS) i Microsoft Cloud (Azure). I kursen får du lära dig hur du använder Azure-portalen och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) till: 
 
 > [!div class="checklist"]
 > * Skapa en databas på Azure-portalen
@@ -177,8 +177,8 @@ Använd [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 Skapa ett databasschema med fyra tabeller som modellen är ett system för hantering av student för universitet med [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
 - Person
-- Kursen
-- För studenter
+- Kurs
+- Student
 - Kredit att modellen ett student hanteringssystem för universitet
 
 Följande diagram visar hur dessa tabeller är relaterade till varandra. Vissa av dessa tabeller referera till kolumner i andra tabeller. Till exempel studenttabell refererar till den **PersonId** kolumnen i den **Person** tabell. Studera diagram för att förstå hur tabellerna i den här kursen är relaterade till varandra. En titt på hur du skapar effektiva databastabeller finns [skapa effektiva databastabeller](https://msdn.microsoft.com/library/cc505842.aspx). Information om hur du väljer datatyper finns i [datatyper](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql).

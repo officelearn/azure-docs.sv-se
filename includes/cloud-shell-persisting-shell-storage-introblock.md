@@ -29,7 +29,7 @@ Befintliga filresurser i Bash, ta emot en 5 GB-avbildning som skapats att spara 
 ![Inställningen för grupp](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Begränsa att skapa en resurs med en princip för Azure-resurs
-Storage-konton som du skapar i molnet Shell märks med `ms-resource-usage:azure-cloud-shell`. Om du vill neka användare att skapa storage-konton i molnet Shell, skapa en [Azure resursprincip för taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) som utlöses av den här specifika taggen.
+Storage-konton som du skapar i molnet Shell märks med `ms-resource-usage:azure-cloud-shell`. Om du vill neka användare att skapa storage-konton i molnet Shell, skapa en [Azure resursprincip för taggar](../articles/azure-policy/json-samples.md) som utlöses av den här specifika taggen.
 
 ## <a name="supported-storage-regions"></a>Regioner som stöds
 Associerade konton måste finnas i samma region som molntjänster Shell-dator som du montera dem till Azure-lagring.

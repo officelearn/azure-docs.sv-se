@@ -1,5 +1,5 @@
 ---
-title: "Kubernertes på Azure tutorial – förbereda ACR | Microsoft Docs"
+title: "Kubernetes på Azure tutorial – förbereda ACR | Microsoft Docs"
 description: "AKS tutorial – förbereda ACR"
 services: container-service
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fabfbe51f9486c69d795b04bd668b50971157820
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container registret
 
@@ -32,13 +32,13 @@ Azure Container registret (ACR) är en Azure-baserade, privat registret för Doc
 > * En avbildning av behållare för ACR-märkning
 > * Överför avbildningen till ACR
 
-Den här ACR-instansen är integrerad med ett Kubernetes kluster i AKS i efterföljande självstudiekurser. 
+Den här ACR-instansen är integrerad med ett Kubernetes kluster i AKS i efterföljande självstudiekurser.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 I den [tidigare kursen](./tutorial-kubernetes-prepare-app.md), en behållare avbildning har skapats för ett enkelt Azure röstning program. Om du inte har skapat appavbildning Azure röstning återgå till [kursen 1 – skapa behållaren bilder](./tutorial-kubernetes-prepare-app.md).
 
-Den här kursen kräver att du använder Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+Den här kursen kräver att du använder Azure CLI version 2.0.21 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Distribuera Azure-behållaren registret
 
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Push-avbildningar till registret
 
-Tryck på `azure-vote-front` avbildningen till registret. 
+Tryck på `azure-vote-front` avbildningen till registret.
 
 Med följande exempel ersätta ACR loginServer namn med loginServer från din miljö.
 

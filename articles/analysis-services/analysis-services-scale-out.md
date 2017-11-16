@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services skalbar
 
@@ -32,7 +32,7 @@ Med skalbar, kan du skapa en fråga pool med upp till sju ytterligare fråga rep
 
 Oavsett vilket antal av frågan repliker i en pool med frågan fördelas bearbetningsbelastningar inte mellan frågan repliker. En enda server som fungerar som server för bearbetning. Frågan repliker fungerar endast frågor modeller synkroniseras mellan varje replik i poolen för frågan. 
 
-När bearbetningen är klar måste du utföra en synkronisering mellan bearbetning-servern och replikservern frågan. När automatisera bearbetning, är det viktigt att konfigurera synkroniseringen vid slutförande av bearbetningsåtgärder.
+När bearbetningen är klar måste du utföra en synkronisering mellan bearbetning-servern och replikservern frågan. När automatisera bearbetning, är det viktigt att konfigurera synkroniseringen vid slutförande av bearbetningsåtgärder. Synkroniseringen kan utföras manuellt i portalen eller med hjälp av PowerShell eller REST API.
 
 > [!NOTE]
 > Skalbar är tillgänglig för servrar i den Standardprisnivån. Varje fråga replik debiteras med samma hastighet som din server.
@@ -58,12 +58,10 @@ När bearbetningen är klar måste du utföra en synkronisering mellan bearbetni
 
 Tabellmodeller på den primära servern synkroniseras med replikservrarna. När synkroniseringen är klar börjar poolen frågan distribuerar inkommande frågor mellan replikservrarna. 
 
-### <a name="powershell"></a>PowerShell
-Använd [Set AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet. Ange den `-Capacity` parameter value > 1.
 
 ## <a name="synchronization"></a>Synkronisering 
 
-När du etablerar den nya frågan repliker replikerar automatiskt modeller över alla repliker Azure Analysis Services. Du kan också utföra en manuell synkronisering. När du bearbetar modeller bör du utföra en synkronisering så att programuppdateringarna är synkroniserade av frågan repliker.
+När du etablerar den nya frågan repliker replikerar automatiskt modeller över alla repliker Azure Analysis Services. Du kan också utföra en manuell synkronisering med hjälp av portalen eller REST API. När du bearbetar modeller bör du utföra en synkronisering så att uppdateringar synkroniseras mellan din fråga repliker.
 
 ### <a name="in-azure-portal"></a>I Azure-portalen
 
@@ -72,18 +70,22 @@ I **översikt** > modellen > **synkronisera modellen**.
 ![Skalbar skjutreglaget](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST API
+Använd den **sync** igen.
 
-Synkronisera en modell   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>Synkronisera en modell   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-Hämta status för en modellsynkronisering  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>Hämta synkroniseringsstatus  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+För att kunna köra synkronisering från PowerShell [uppdatera till senast](https://github.com/Azure/azure-powershell/releases) 5.01 eller högre AzureRM-modulen. Använd [Sync AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Anslutningar
 
 Det finns två servernamn på översiktssidan för din server. Om du ännu inte har konfigurerat skalbar för en server fungerar på samma sätt både servernamn. När du har konfigurerat skalbar för en server behöver du att ange namnet på lämplig server beroende på vilken typ av anslutning. 
 
-Slutanvändarens klientanslutningar som Power BI Desktop, Excel och anpassade appar använder **servernamn**. 
+För slutanvändaren klientanslutningar som används för Power BI Desktop-, Excel- och anpassade appar **servernamn**. 
 
 SSMS SSDT och anslutningssträngar i PowerShell, Azure-funktion appar och AMO, använder du **hanteringsservernamnet**. Hanteringsserverns namn innehåller ett särskilt `:rw` kvalificerare (skrivskyddad). Alla bearbetning åtgärder vidtas på hanteringsservern.
 

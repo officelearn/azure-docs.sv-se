@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: e35bbd31f39722c2e95ce58772dc6bd5eaf839a0
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 307741d0792b34332d98bfa4f2d62c9fd1cf07a1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Mellanlagring av ett program i Azure
 En paketerad App kan distribueras till mellanlagringsmiljön i Azure som ska testas innan du flyttar den till produktionsmiljön som programmet är tillgängligt på Internet. Mellanlagringsmiljön är exakt samma sätt som produktionsmiljön, förutom att du kan bara komma åt mellanlagrade programmet med en fördunklade URL som genereras av Azure. När du har kontrollerat att programmet fungerar korrekt, kan det distribueras till produktionsmiljön genom att utföra en växling för virtuella IP-adresser (VIP).
@@ -72,4 +72,4 @@ Du har mellanlagrad en distribution och uppgraderas en Produktionsdistribution a
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Distribuera en Serviceuppgradering av till produktion av växla VIP: er i Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+[Distribuera en Serviceuppgradering av till produktion av växla VIP: er i Azure]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production

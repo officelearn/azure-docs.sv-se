@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 1f94a214-d6f6-48a8-8a12-006b5896ae45
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 9daad3fab3990297cea6651c474e29e5c4002364
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0e7406e00aea59f14a986bd1dd091d0968cc4579
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Avancerade scenarier med Azure Multi-Factor Authentication och VPN-lösningar
 Azure Multi-Factor Authentication kan användas för att ansluta sömlöst med olika VPN-lösningar från tredje part. Den här artikeln fokuserar på Cisco® ASA VPN-enhet, Citrix NetScaler SSL VPN-enhet och Juniper nätverk säker åtkomst/Pulse Secure ansluta säkra SSL VPN-enhet. Vi har skapat configuration guider för att åtgärda dessa tre vanliga installationer. Multi-Factor Authentication-servern kan även integreras med de flesta andra system som använder RADIUS, LDAP, IIS eller Anspråksbaserad autentisering med AD FS. Du hittar mer information finns i [MFA serverkonfigurationer](multi-factor-authentication-get-started-server.md#next-steps).

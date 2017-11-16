@@ -13,22 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Data justerbara konsekvensnivåer i Azure Cosmos DB
-Azure Cosmos-DB är utformad från grunden upp med global distributionsplatsen i åtanke för varje datamodell. Den är utformad att erbjuda förutsägbar låg latens garantier, en 99,99% tillgänglighet SLA och flera väldefinierade Avslappnad konsekvenskontroll modeller. För närvarande Azure Cosmos DB innehåller fem konsekvensnivåer: stark, begränsat föråldrad, session, konsekvent prefix och eventuell. 
+Azure Cosmos-DB är utformad från grunden upp med global distributionsplatsen i åtanke för varje datamodell. Den är utformad att erbjuda förutsägbar låg latens garantier och flera väldefinierade Avslappnad konsekvenskontroll modeller. För närvarande Azure Cosmos DB innehåller fem konsekvensnivåer: stark, begränsat föråldrad, session, konsekvent prefix och eventuell. Begränsat föråldrad, session, konsekvent prefix och eventuell är kallas ”Avslappnad konsekvenskontroll modeller” eftersom de ger mindre konsekvent än starkt, vilket är de flesta hög konsekvent modell tillgänglig. 
 
-Förutom **starkt** och **slutliga konsekvensen** modeller ofta erbjuds av distribuerade databaser Azure Cosmos DB erbjuder tre mer noggrant kodade och operationalized konsekvenskontroll modeller och har verifierat sina användbarhet mot verkligheten användningsfall. Det här är den **avgränsas föråldrad**, **session**, och **konsekvent prefixet** konsekvensnivåer. Gemensamt att dessa fem konsekvensnivåer du kan göra välmotiverat avvägningarna mellan konsekvens, tillgänglighet och svarstid. 
+Förutom den **starkt** och **slutliga konsekvensen** modeller ofta erbjuds av distribuerade databaser Azure Cosmos DB erbjuder tre mer noggrant kodade och operationalized konsekvenskontroll modeller:  **begränsat föråldrad**, **session**, och **konsekvent prefixet**. Användbarhet var och en av dessa konsekvensnivåer har verifierats mot verkligheten användningsfall. Gemensamt att dessa fem konsekvensnivåer du kan göra välmotiverat avvägningarna mellan konsekvens, tillgänglighet och svarstid. 
 
 ## <a name="distributed-databases-and-consistency"></a>Distribuerade databaser och konsekvenskontroll
-Kommersiellt distribuerade databaser är indelade i två kategorier: databaser som inte alls erbjuder väldefinierade, beprövade konsekvensval och databaser som erbjuder två extremt programmerbara val (stark kontra eventuell konsekvens). 
+Kommersiella distribuerade databaser är indelade i två kategorier: databaser som erbjuder väldefinierade provable konsekvenskontroll val alls och databaser som erbjuder två extrema programmering alternativ (stark kontra slutliga konsekvensen). 
 
 Den tidigare tynger programmerare med detaljerna i sina replikeringsprotokoll och förväntar sig att de ska göra svåra avvägningar mellan konsekvens, tillgänglighet, svarstid och dataflöde. Den senare tvingar en att välja ett av två extremval. Trots mängden forskning och förslag på över 50 konsekvensmodeller, har den distribuerade databascommunityn inte kunna kommersialisera konsekvensnivåer utöver stark och eventuell konsekvens. Cosmos DB gör att utvecklare kan välja mellan fem väldefinierade konsekvenskontroll längs konsekvenskontroll spektrumet – starkt, avgränsas föråldrad, [session](http://dl.acm.org/citation.cfm?id=383631), konsekvent prefix och eventuell. 
 
@@ -40,15 +40,19 @@ Följande tabell visar de specifika garantier som varje konsekvensnivå erbjuder
 
 | Konsekvensnivå | Garantier |
 | --- | --- |
-| Stark | Lineariserbarhet |
+| Stark | Linearizability. Läser garanteras att returnera den senaste versionen av ett objekt.|
 | Begränsad föråldring | Konsekvent Prefix. Läsningar släpar efter skrivningar med k-prefix eller t-intervall |
 | Session   | Konsekvent Prefix. Monotoniska läsningar, monotoniska skrivningar, läs-dina-skrivningar, skrivning-följer-läsning |
 | Konsekvent prefix | De uppdateringar som returneras är något prefix av alla uppdateringar, utan några mellanrum |
 | Eventuell  | Oordnade läsningar |
 
-Du kan konfigurera standard-konsekvensnivå på ditt Cosmos DB-konto (och senare åsidosätta konsekvens för en specifik läsbegäran). Internt, gäller konsekvens standardnivå för data i partitionsuppsättningar som kan sträcka sig över regioner. Om 73% av våra klientorganisationer använder sessionskonsekvens 20% föredrar avgränsas föråldrad. Vi se att cirka 3 procent av våra kunder experimentera med olika konsekvensnivåer ursprungligen innan reglera på en specifik konsekvenskontroll val för sina program. Vi kan också se att endast 2% av våra klientorganisationer åsidosätter konsekvensnivåer på grundval av per begäran. 
+Du kan konfigurera standard-konsekvensnivå på ditt Cosmos DB-konto (och senare åsidosätta konsekvens för en specifik läsbegäran). Internt, gäller konsekvens standardnivå för data i partitionsuppsättningar, vilka kan sträcka sig över regioner. Om 73% Azure Cosmos DB klienter Använd sessionskonsekvens och 20% föredrar avgränsas föråldrad. Cirka 3% av Azure Cosmos DB kunder experimentera med olika konsekvensnivåer ursprungligen innan reglera på en specifik konsekvenskontroll val för sina program. Endast 2% av Azure Cosmos DB hyresgäster åsidosätta konsekvensnivåer på grundval av per begäran. 
 
-Läser hanteras i sessionen, konsekvent prefix i Cosmos-DB och slutliga konsekvensen är två gånger så låg som läser med starka eller begränsad föråldringskonsekvens. Cosmos DB har branschledande serviceavtal för omfattande 99,99% inklusive konsekvens garanterar tillsammans med tillgänglighet, genomflöde och svarstid. Vi använder en [linearizability layout](http://dl.acm.org/citation.cfm?id=1806634), som körs kontinuerligt i vår tjänst telemetri och öppet rapporterar eventuella överträdelser för konsekvens för dig. För begränsad föråldrad, vi övervaka och rapportera eventuella överträdelser till k och t gränser. För alla fem Avslappnad konsekvensnivåer, vi även rapportera den [probabilistic avgränsas föråldrad mått](http://dl.acm.org/citation.cfm?id=2212359) direkt till dig.  
+Läser hanteras i sessionen, konsekvent prefix i Cosmos-DB och slutliga konsekvensen är två gånger så låg som läser med starka eller begränsad föråldringskonsekvens. Cosmos DB har branschledande omfattande SLA inklusive konsekvens garanterar tillsammans med tillgänglighet, genomflöde och svarstid. Azure Cosmos-DB använder en [linearizability layout](http://dl.acm.org/citation.cfm?id=1806634), som körs kontinuerligt i tjänsten telemetri och öppet rapporter eventuella överträdelser för konsekvens för dig. För begränsad föråldrad, Azure Cosmos DB övervakar och rapporterar eventuella överträdelser till k och t gränser. För alla fem Avslappnad konsekvensnivåer, Azure Cosmos DB även rapporterar den [probabilistically avgränsas föråldrad mått](http://dl.acm.org/citation.cfm?id=2212359) direkt till dig.  
+
+## <a name="service-level-agreements"></a>Servicenivåavtal
+
+Azure Cosmos-DB erbjuder omfattande 99,99% [SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) vilka garanti dataflöde, konsekvens, tillgänglighet och svarstid för Azure Cosmos DB databasen konton som är begränsade till en enda Azure-region som konfigurerats med någon av fem konsekvenskontrollen nivåer eller databasen konton som sträcker sig över flera Azure-regioner, konfigurerad med någon av fyra Avslappnad konsekvensnivåer. Dessutom oberoende av val av en konsekvensnivå, Azure Cosmos DB erbjuder en 99,999% SLA för skrivskyddade tillgänglighet för databasen konton utsträckning två eller flera Azure-regioner.
 
 ## <a name="scope-of-consistency"></a>Omfånget för konsekvenskontroll
 Granulariteten för konsekvenskontroll är begränsad till en enskild begäran. Write-förfrågan kan motsvarar en infoga, Ersätt, upsert eller ta bort transaktionen. Precis som med skrivningar, begränsas också en Läs/fråga-transaktion till en enskild begäran. Användaren kan behöva sidbryta via en stor resultatmängd, sträcker sig över flera partitioner, men varje läsa transaktion är begränsade till en enda sida och hanteras från inom en partition.
@@ -60,7 +64,7 @@ Du kan konfigurera en konsekvenskontroll Standardnivå på ditt konto som gälle
 
 * Stark konsekvens erbjuder en [linearizability](https://aphyr.com/posts/313-strong-consistency-models) garantera med läsningar garanteras att returnera den senaste versionen av ett objekt. 
 * Stark konsekvens garanterar att en skrivning enbart är synliga när den har bevarats varaktigt av kvorum majoritet av replikerna. Skrivning har antingen synkront bevarats varaktigt av både primär och kvorum av sekundärservrar eller den avbröts. Läs bekräftas mottagandet alltid av en majoritet läsa kvorum, en klient inte kan se en ogenomförda eller partiell skrivning och alltid garanteras att läsa den senaste godkända skrivningen. 
-* Azure DB Cosmos-konton som är konfigurerade för att använda stark konsekvens kan inte associera mer än en Azure-region med ett konto i Azure Cosmos DB. 
+* Azure DB Cosmos-konton som är konfigurerade för att använda stark konsekvens kan inte associera mer än en Azure-region med ett konto i Azure Cosmos DB.  
 * Kostnaden för en läsning (i [programbegäran](request-units.md) förbrukas) med stark konsekvens är högre än session och slutlig, men samma som avgränsas föråldrad.
 
 **Begränsat föråldrad**: 
@@ -68,7 +72,7 @@ Du kan konfigurera en konsekvenskontroll Standardnivå på ditt konto som gälle
 * Begränsat föråldrad konsekvens garanterar att läsningar kan ligga efter skrivning av högst *K* versioner eller prefix för ett objekt eller *t* tidsintervallet. 
 * Därför när du väljer begränsat föråldrad, ”föråldrad” kan konfigureras på två sätt: antal versioner *K* för objektet som läsningar lag bakom skrivningar och tidsintervallet *t* 
 * Begränsat föråldrad erbjudanden totala globala ordning förutom i ”föråldrad fönstret”. Monotonisk skrivskyddade garantier finns inom en region både inom och utanför ”föråldrad fönstret”. 
-* Begränsad föråldrad ger konsekvens bättre säkerhet än session eller slutliga konsekvensen. För globalt distribuerade program rekommenderar vi att du använder avgränsas föråldrad för scenarier där du vill ha stark konsekvens, utan också 99,99% tillgänglighet och låg latens. 
+* Begränsad föråldrad ger konsekvens bättre säkerhet än session, konsekvent-prefix eller slutliga konsekvensen. För globalt distribuerade program rekommenderar vi att du använder avgränsas föråldrad för scenarier där du vill ha stark konsekvens, utan också 99,99% tillgänglighet och låg latens.   
 * Azure DB Cosmos-konton som har konfigurerats med begränsad föråldringskonsekvens kan associera valfritt antal Azure-regioner med sina Azure DB som Cosmos-konto. 
 * Kostnaden för en läsning (vad gäller RUs förbrukas) är högre än sessionen och slutliga konsekvensen, men samma som stark konsekvens med begränsad föråldrad.
 
@@ -78,7 +82,7 @@ Du kan konfigurera en konsekvenskontroll Standardnivå på ditt konto som gälle
 * Sessionskonsekvens är idealiskt för alla scenarier där en enhet eller användare sessionen ingår eftersom det garanterar monotonisk läsningar, monotonisk skrivningar och läsa garanterar att din egen skrivningar (RYW). 
 * Sessionskonsekvens tillhandahåller förutsägbar konsekvenskontroll för en session och maximalt läsa genomströmning samtidigt som den erbjuder de lägsta fördröjningsskrivningarna och läsningar. 
 * Azure DB Cosmos-konton som har konfigurerats med sessionskonsekvens kan associera valfritt antal Azure-regioner med sina Azure DB som Cosmos-konto. 
-* Kostnaden för en läsning (vad gäller RUs förbrukas) med session konsekvensnivå är mindre än starkt som avgränsas föråldrad, men mer än slutliga konsekvensen
+* Kostnaden för en läsning (vad gäller RUs förbrukas) med session konsekvensnivå är mindre än starkt som avgränsas föråldrad, men mer än slutliga konsekvensen.
 
 <a id="consistent-prefix"></a>
 **Konsekvent prefixet**: 
@@ -97,9 +101,9 @@ Du kan konfigurera en konsekvenskontroll Standardnivå på ditt konto som gälle
 
 ## <a name="configuring-the-default-consistency-level"></a>Konfigurera standardnivå för konsekvenskontroll
 1. I den [Azure-portalen](https://portal.azure.com/), i Jumpbar klickar du på **Azure Cosmos DB**.
-2. I den **Azure Cosmos DB** bladet väljer databasen konto för att ändra.
-3. I bladet konto klickar du på **standard konsekvenskontroll**.
-4. I den **standard konsekvenskontroll** bladet välj ny konsekvensnivå och klicka på **spara**.
+2. I den **Azure Cosmos DB** väljer du kontot att ändra.
+3. På kontosidan klickar du på **standard konsekvenskontroll**.
+4. I den **standard konsekvenskontroll** väljer du den nya konsekvensnivå och klicka på **spara**.
    
     ![Skärmbild syntaxmarkering inställningsikonen och standard konsekvenskontroll post](./media/consistency-levels/database-consistency-level-1.png)
 

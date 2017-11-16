@@ -1,5 +1,5 @@
 ---
-title: "Spara filer i Azure Cloud Shell (förhandsversion) | Microsoft Docs"
+title: "Spara filer i PowerShell Azure Cloud Shell (förhandsversion) | Microsoft Docs"
 description: "Genomgång av hur Azure Cloud Shell kvarstår filer."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Så här fungerar Cloud Shell
-Molnet Shell kvarstår filer via metoden följande: 
+## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Så här fungerar PowerShell Azure Cloud Shell (förhandsgranskning)
+PowerShell i molnet Shell (förhandsgranskning) kvarstår filer via metoden följande: 
 * Montera filresursen angivna som `clouddrive` i din `$Home` katalogen för filresursen direkt interaktion.
 
 ## <a name="list-cloud-drive-file-shares"></a>Filresurser i listan enhet i molnet

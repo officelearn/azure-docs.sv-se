@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.openlocfilehash: a76bcba5ab4ca8e1a4899e4aa28f734c09af2aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96c4ed88db5e24f439825aee5afe457a1e8c81d7
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Bevara ett konstant virtuella IP-adressen för en Azure-molntjänst
-När du uppdaterar en molnbaserad tjänst som finns i Azure kan du behöva se till att den virtuella IP-adressen (VIP) för tjänsten inte ändras. Många domän hanteringstjänster använda Domain Name System (DNS) för att registrera domännamn. DNS fungerar bara om VIP är densamma. Du kan använda den **Publiceringsguiden** i Azure-verktyg för att se till att VIP för Molntjänsten inte ändras när du uppdaterar den. Mer information om hur du använder DNS-domän management för molntjänster finns [konfigurera ett anpassat domännamn för en Azure-molntjänst](cloud-services/cloud-services-custom-domain-name.md).
+När du uppdaterar en molnbaserad tjänst som finns i Azure kan du behöva se till att den virtuella IP-adressen (VIP) för tjänsten inte ändras. Många domän hanteringstjänster använda Domain Name System (DNS) för att registrera domännamn. DNS fungerar bara om VIP är densamma. Du kan använda den **Publiceringsguiden** i Azure-verktyg för att se till att VIP för Molntjänsten inte ändras när du uppdaterar den. Mer information om hur du använder DNS-domän management för molntjänster finns [konfigurera ett anpassat domännamn för en Azure-molntjänst](cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="publish-a-cloud-service-without-changing-its-vip"></a>Publicera en tjänst i molnet utan att ändra dess VIP
 När du först distribuera den till Azure i en viss miljö, till exempel produktionsmiljön allokeras VIP för en tjänst i molnet. VIP ändras bara om du har tagit bort distributionen explicit eller raderas implicit distributionen av uppdateringen distributionsprocessen. Om du vill behålla VIP måste du inte ta bort distributionen och måste du se till att Visual Studio inte ta bort distributionen automatiskt. 

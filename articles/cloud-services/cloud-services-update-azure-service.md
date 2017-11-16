@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36d4ee9dabd39f4103d17455e47521b378af6ebb
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-update-a-cloud-service"></a>Så här uppdaterar du en tjänst i molnet
 
@@ -186,6 +186,6 @@ Följande diagram illustrerar hur en tjänst än innehåller två roller ska dis
 >
 
 ## <a name="next-steps"></a>Nästa steg
-[Så här hanterar du molntjänster](cloud-services-how-to-manage.md)  
+[Så här hanterar du molntjänster](cloud-services-how-to-manage-portal.md)  
 [Så här övervakar du molntjänster](cloud-services-how-to-monitor.md)  
-[Så här konfigurerar du molntjänster](cloud-services-how-to-configure.md)  
+[Så här konfigurerar du molntjänster](cloud-services-how-to-configure-portal.md)  

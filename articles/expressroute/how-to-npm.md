@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: b041244b28d76de4bac2822c115482e31d073a22
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute (förhandsgranskning)
 
@@ -74,6 +74,11 @@ Om du redan använder Network Performance Monitor för att övervaka andra objek
   * Resursgrupp – skapa en resursgrupp eller Använd en befintlig.
   * Plats – du måste välja en [stöds region](#regions).
   * Prisnivån - väljer lediga
+  
+  >[!NOTE]
+  >ExpressRoute-kretsen kan finnas var som helst i världen och behöver inte finnas i samma region som arbetsytan.
+  >
+
 
   ![Arbetsytan](.\media\how-to-npm\4.png)<br><br>
 4. Klicka på **OK** att spara och distribuera inställningar för mallen. När mallen validerar klickar du på **skapa** att distribuera på arbetsytan.
@@ -174,7 +179,7 @@ Mer information om NSG finns [Nätverkssäkerhetsgrupper](../virtual-network/vir
 >
 >
 
-Innan du kan börja använda funktionen ExpressRoute övervakning av NPM, måste du ansöka om för att få din arbetsyta i listan över godkända. [Klicka här för att gå till sidan och fylla i formuläret](https://go.microsoft.com/fwlink/?linkid=862263). (Tips: du kanske vill öppna den här länken i ett nytt fönster eller flik). Vitlistning av processen kan ta minst en arbetsdag. När vitlistning har slutförts får du ett e-postmeddelande.
+Innan du kan börja använda funktionen ExpressRoute övervakning av NPM, måste du ansöka om för att få din arbetsyta i listan över godkända. [Klicka här för att gå till sidan och fylla i formuläret](https://aka.ms/npmcohort). (Tips: du kanske vill öppna den här länken i ett nytt fönster eller flik). Vitlistning av processen kan ta minst en arbetsdag. När vitlistning har slutförts får du ett e-postmeddelande.
 
 ## <a name="setupmonitor"></a>Steg 5: Konfigurera NPM för ExpressRoute-övervakning
 

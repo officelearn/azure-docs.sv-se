@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Skapa en serverlösa API med hjälp av Azure-funktioner
 
@@ -67,7 +67,7 @@ Sedan testa funktionen om du vill se den arbetar med nya API-ytan.
 
 ## <a name="proxies-overview"></a>Översikt över proxyservrar
 
-I nästa avsnitt ska du ansluta din API via en proxyserver. Azure Functions proxyservrar är en förhandsgranskningsfunktion som gör det möjligt att vidarebefordra begäranden till andra resurser. Du definierar en HTTP-slutpunkt precis som med HTTP-utlösare, men i stället för att skriva kod för att köra när denna slutpunkt anropas kan du ange en Webbadress till en fjärr-implementering. På så sätt kan du skapa flera API källor i en enda API-yta som är enkelt för klienter att använda. Detta är särskilt användbart om du vill skapa din API som mikrotjänster.
+I nästa avsnitt ska du ansluta din API via en proxyserver. Azure Functions proxyservrar kan du vidarebefordrar begäranden till andra resurser. Du definierar en HTTP-slutpunkt precis som med HTTP-utlösare, men i stället för att skriva kod för att köra när denna slutpunkt anropas kan du ange en Webbadress till en fjärr-implementering. På så sätt kan du skapa flera API källor i en enda API-yta som är enkelt för klienter att använda. Detta är särskilt användbart om du vill skapa din API som mikrotjänster.
 
 En proxy kan peka till en HTTP-resurs som:
 - Azure Functions 
@@ -75,7 +75,7 @@ En proxy kan peka till en HTTP-resurs som:
 - Docker-behållare i [Apptjänst på Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Värdbaserade API
 
-Mer information om proxyservrar finns [arbeta med Azure Functions-proxyservrar (förhandsgranskning)].
+Mer information om proxyservrar finns [arbeta med Azure Functions proxyservrar].
 
 ## <a name="create-your-first-proxy"></a>Skapa din första proxy
 
@@ -97,7 +97,7 @@ Upprepa stegen för att [skapa en funktionsapp](https://docs.microsoft.com/azure
 ### <a name="creating-a-proxy-on-the-frontend"></a>Att skapa en proxy på klientdelen
 
 1. Gå tillbaka till din klientdel funktionsapp i portalen.
-1. I det vänstra navigeringsfönstret, klicka på plustecknet '+' bredvid ”proxyservrar (förhandsgranskning)”.
+1. I det vänstra navigeringsfönstret, klicka på plustecknet '+' bredvid ”proxy”.
     ![Att skapa en proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Använda proxy-inställningar som anges i tabellen. 
 
@@ -187,9 +187,9 @@ I kursen får du har lärt dig hur du skapar och anpassar en API på Azure Funct
 I följande referenser kan vara till hjälp när du utvecklar dina API ytterligare:
 
 - [Azure Functions HTTP och webhook bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [arbeta med Azure Functions-proxyservrar (förhandsgranskning)]
+- [arbeta med Azure Functions proxyservrar]
 - [Dokumentera Azure Functions API (förhandsgranskning)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[arbeta med Azure Functions-proxyservrar (förhandsgranskning)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[arbeta med Azure Functions proxyservrar]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure principen?
 
@@ -51,7 +51,7 @@ Vi erbjuder vissa inbyggda principer som är tillgängliga för dig som standard
 
 Du kan tilldela någon av dessa policys via Azure-portalen, PowerShell eller Azure CLI.
 
-Mer information om strukturerna för principdefinitioner titta på den här artikeln - [Definition principstruktur](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+Mer information om strukturerna för principdefinitioner titta på den här artikeln - [Definition principstruktur](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Tilldelning av principer
 
@@ -68,7 +68,7 @@ Parametrar skapas definieras/när du skapar en principdefinition. Det är ett na
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Mer information om principparametrar finns [princip Resursöversikt - parametrar](../azure-resource-manager/resource-manager-policy.md#parameters).
+Mer information om principparametrar finns [princip Resursöversikt - parametrar](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Initiativet definition
 Ett initiativ definition är samling principdefinitioner som är skräddarsydda för att uppnå ett enda övergripande mål. Initiativet definitioner förenkla hantering och tilldela principdefinitioner. De förenkla genom att gruppera en uppsättning principer som ett enda objekt. Du kan till exempel skapa ett initiativ med titeln **aktivera övervakning i Azure Security Center**, med målet att övervaka alla tillgängliga säkerhetsrekommendationer i Azure Security Center.

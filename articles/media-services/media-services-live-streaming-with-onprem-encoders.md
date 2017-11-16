@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Direktsänd strömning med lokala kodare som skapar dataströmmar i multibithastighet
 ## <a name="overview"></a>Översikt
 I Azure Media Services en *kanal* representerar en pipeline för bearbetning av live-streaming innehåll. En kanal som tar emot live indata i ett av två sätt:
 
-* En lokal livekodare skickar en multibithastighet RTMP eller Smooth Streaming (fragmenterad MP4) strömma till den kanal som inte är aktiverad för att utföra live encoding med Media Services. De infogade strömmarna passerar genom kanalerna utan vidare bearbetning. Den här metoden anropas *direkt*. Du kan använda följande livekodare som har flera bithastigheter Smooth Streaming som utdata: Media Excel, Ateme, anta kommunikation, Envivio, Cisco och Elemental. Följande livekodare har RTMP som utdata: Adobe Flash Live mediekodare, Telestream Wirecast, Haivision, Teradek och TriCaster. En livekodare kan även skicka en dataström med enkel bithastighet till en kanal som inte är aktiverad för live encoding, men vi rekommenderar inte som. Media Services ger strömmen till kunder som begär den.
+* En lokal livekodare skickar en multibithastighet RTMP eller Smooth Streaming (fragmenterad MP4) strömma till den kanal som inte är aktiverad för att utföra live encoding med Media Services. De infogade strömmarna passerar genom kanalerna utan vidare bearbetning. Den här metoden anropas *direkt*. En livekodare kan även skicka en dataström med enkel bithastighet till en kanal som inte är aktiverad för live encoding, men vi rekommenderar inte som. Media Services ger strömmen till kunder som begär den.
 
   > [!NOTE]
   > Genomströmningsmetoden är det mest ekonomiska sättet för liveströmning.
@@ -34,13 +34,13 @@ I Azure Media Services en *kanal* representerar en pipeline för bearbetning av 
 
 Från och med Media Services 2.10-versionen när du skapar en kanal kan ange du hur du vill att din kanal tar emot Indataströmmen. Du kan också ange om du vill att utföra live encoding av strömmen kanalen. Du kan välja mellan två alternativ:
 
-* **Gå igenom**: Ange det här värdet om du planerar att använda en lokal livekodare som ska ha en dataström med multibithastighet (en direkt dataström) som utdata. I det här fallet passerar den inkommande dataströmmen genom att utdata utan kodning. Det här är beteendet för en kanal innan 2,10. Det här avsnittet ger information om att arbeta med kanaler av den här typen.
-* **Live kodning**: Välj det här värdet om du planerar att använda Media Services för att koda en direktsänd dataström med enkel bithastighet till en dataström med multibithastighet. Tänk som lämnar en direktsänd kodning kanaler i en **kör** tillstånd kommer avgifter faktureringsinformation. Vi rekommenderar att du stoppar du omedelbart dina kanaler som körs när din live-streaming-händelse är klar att undvika extra timvis avgifter. Media Services ger strömmen till kunder som begär den.
+* **Gå igenom**: Ange det här värdet om du planerar att använda en lokal livekodare som har en dataström med multibithastighet (en direkt dataström) som utdata. I det här fallet passerar den inkommande dataströmmen genom att utdata utan kodning. Det här är beteendet för en kanal innan 2,10. Den här artikeln innehåller information om att arbeta med kanaler av den här typen.
+* **Live kodning**: Välj det här värdet om du planerar att använda Media Services för att koda en direktsänd dataström med enkel bithastighet till en dataström med multibithastighet. Lämna en live encoding kanal i en **kör** tillstånd debiteras faktureringsinformation. Vi rekommenderar att du stoppar du omedelbart dina kanaler som körs när din live-streaming-händelse är klar att undvika extra timvis avgifter. Media Services ger strömmen till kunder som begär den.
 
 > [!NOTE]
-> Det här avsnittet beskrivs attributen för kanaler som inte är aktiverade för att utföra live encoding. Information om att arbeta med kanaler som är aktiverade för att utföra live encoding finns [direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
+> Den här artikeln beskrivs attributen för kanaler som inte är aktiverade för att utföra live encoding. Information om att arbeta med kanaler som är aktiverade för att utföra live encoding finns [direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
 >
->
+>Information om rekommenderade lokala kodare finns [rekommenderas lokala kodare](media-services-recommended-encoders.md).
 
 Följande diagram representerar en live-streaming-arbetsflöde som använder en lokal livekodare för att ha flera bithastigheter RTMP eller fragmenterad MP4 (Smooth Streaming) dataströmmar som utdata.
 
@@ -94,7 +94,7 @@ Använd sekundära URL Om du vill förbättra hållbarhet och feltolerans för d
 
 - Flera kodare med varje encoder push-installation till en särskild plats:
 
-    Det här scenariot ger både kodare och infognings-redundans. I det här scenariot encoder1 push-meddelanden till den primära URL och encoder2 push-meddelanden till den sekundära URL. När en kodare misslyckas, kan andra kodaren hålla skickar data. Dataredundans kan upprätthållas eftersom Media Services inte kopplar primära och sekundära URL: er på samma gång. Det här scenariot förutsätter att kodare gång synkroniseras och ange exakt samma data.  
+    Det här scenariot ger både kodare och en redundans. I det här scenariot encoder1 push-meddelanden till den primära URL och encoder2 push-meddelanden till den sekundära URL. När en kodare misslyckas, kan andra kodaren hålla skickar data. Dataredundans kan upprätthållas eftersom Media Services inte kopplar primära och sekundära URL: er på samma gång. Det här scenariot förutsätter att kodare gång synkroniseras och ange exakt samma data.  
 
 - Flera kodare double-push-installation till både primär och sekundär URL: er:
 
@@ -144,7 +144,7 @@ När du skapar kanalen kan du få förhandsgransknings-URL. Om du vill hämta We
 För närvarande Förhandsgranska dataströmmen levereras endast i fragmenterad MP4 (Smooth Streaming) format, oavsett angivna Indatatyp. Du kan använda den [Smooth Streaming hälsoövervakning](http://smf.cloudapp.net/healthmonitor) player att testa smooth stream. Du kan också använda en spelare som finns i Azure portal för att visa din dataström.
 
 #### <a name="allowed-ip-addresses"></a>Tillåtna IP-adresser
-Du kan ange IP-adresser som tillåts att ansluta till förhandsgranskningsslutpunkten. Om inga IP-adresser anges, får alla IP-adresser. Tillåtna IP-adressen kan anges som något av följande:
+Du kan ange IP-adresser som tillåts att ansluta till förhandsgranskningsslutpunkten. Om inga IP-adresser har angetts tillåts alla IP-adresser. Tillåtna IP-adressen kan anges som något av följande:
 
 * En IP-adress (t.ex, 10.0.0.1)
 * Ett IP-adressintervall som använder en IP-adress och nätmask CIDR (till exempel 10.0.0.1/22)
@@ -156,11 +156,11 @@ Information om kanalen utdata finns i [Keyframe intervall](#keyframe_interval) a
 ### <a name="channel-managed-programs"></a>Kanal-hanterade program
 En kanal är associerad till program som du kan använda för att styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar program. Relationen mellan kanal och program liknar traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till viss tidsinställd händelse på kanalen.
 
-Du kan ange det antal timmar som du vill behålla inspelat innehåll för programmet genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Även arkivfönstrets längd påverkar den maximala tid som klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
+Du kan ange det antal timmar som du vill behålla inspelat innehåll för programmet genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Längd avgör också det maximala antalet klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
 
 Varje program som är associerad med en tillgång som lagrar direktuppspelat innehåll. En tillgång som är mappad till en block-blob-behållare i Azure storage-konto och lagras filerna i tillgången som blobbar i behållaren. Om du vill publicera programmet så att kunderna kan visa dataströmmen, måste du skapa en positionerare för den associerade tillgången. Du kan använda den här lokaliseraren för att skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
 
-En kanal har stöd för upp till tre program som körs samtidigt, så att du kan skapa flera Arkiv för samma inkommande dataström. Du kan publicera och arkivera olika delar av en händelse efter behov. Anta exempelvis att dina affärsbehov är att arkivera 6 timmar av ett program, men att sända endast de senaste 10 minuterna. För att åstadkomma detta måste du skapa två program som körs samtidigt. Ett program ställs in för att arkivera 6 timmar av händelsen, men programmet publiceras inte. Det andra programmet ställs in för att arkivera i 10 minuter och det här programmet har publicerats.
+En kanal har stöd för upp till tre program som körs samtidigt, så att du kan skapa flera Arkiv för samma inkommande dataström. Du kan publicera och arkivera olika delar av en händelse efter behov. Anta exempelvis att dina affärsbehov är att arkivera 6 timmar av ett program, men att sända endast de senaste 10 minuterna. För att åstadkomma detta måste du skapa två program som körs samtidigt. Ett program ställs in för att arkivera sex timmar av händelsen, men programmet publiceras inte. Det andra programmet ställs in för att arkivera i 10 minuter och det här programmet har publicerats.
 
 Du bör inte återanvända befintliga program för nya händelser. I stället skapa ett nytt program för varje händelse. Starta programmet när du är redo att påbörja strömning och arkivering. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen.
 
@@ -210,8 +210,8 @@ Här följer andra överväganden som rör arbeta med kanaler och relaterade kom
 
 * Varje gång du konfigurera om livekodaren anropa den **återställa** metod på kanalen. Du måste stoppa programmet innan du återställer kanalen. Starta om programmet när du har återställt kanalen.
 * En kanal kan stoppas endast när den är i den **kör** tillstånd och alla program i kanalen har stoppats.
-* Som standard kan du lägga till endast 5 kanaler Media Services-kontot. Mer information finns i [kvoter och begränsningar](media-services-quotas-and-limitations.md).
-* Du debiteras endast när din kanal är i den **kör** tillstånd. Mer information finns i den [tillstånd och fakturering kanaler](media-services-live-streaming-with-onprem-encoders.md#states) avsnitt.
+* Som standard kan du lägga till bara fem kanaler Media Services-kontot. Mer information finns i [kvoter och begränsningar](media-services-quotas-and-limitations.md).
+* Du debiteras endast när din kanal är i den **kör** tillstånd. Mer information finns i [tillstånd och fakturering kanaler](media-services-live-streaming-with-onprem-encoders.md#states) avsnitt.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -220,7 +220,9 @@ Här följer andra överväganden som rör arbeta med kanaler och relaterade kom
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Relaterade ämnen
-[Azure Media Services fragmenterad MP4 live infognings-specifikationen](media-services-fmp4-live-ingest-overview.md)
+[Rekommenderade lokala kodare](media-services-recommended-encoders.md)
+
+[Azure Media Services fragmenterad MP4 livet infognings-specifikationen](media-services-fmp4-live-ingest-overview.md)
 
 [Översikt över Azure Media Services och vanliga scenarier](media-services-overview.md)
 

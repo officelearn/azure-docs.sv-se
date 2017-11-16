@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 17f6918371678ac849198bff4e3b3eea8678c660
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Ansluta Azure Cloud Services-roller till en anpassad AD-domänkontrollant finns i Azure
 Vi kommer först ställa in ett virtuellt nätverk (VNet) i Azure. Vi ska lägga till en Active Directory-domänkontrollant (som finns på en virtuell dator i Azure) VNet. Vi kommer därefter lägga till befintliga molntjänstroller i förväg skapade virtuella nätverk och Anslut dem till domänkontrollanten.
@@ -128,7 +128,7 @@ Du måste sedan lägga till distributionen cloud service till det nya VNet. Gör
 </ServiceConfiguration>
 ```
 
-Därefter bygga projektet cloud services och distribuera den till Azure. För att få hjälp med att distribuera paketet cloud services till Azure finns [hur du skapar och distribuerar en tjänst i molnet](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
+Därefter bygga projektet cloud services och distribuera den till Azure. För att få hjälp med att distribuera paketet cloud services till Azure finns [hur du skapar och distribuerar en tjänst i molnet](cloud-services-how-to-create-deploy-portal.md)
 
 ## <a name="connect-your-webworker-roles-to-the-domain"></a>Ansluta web/worker-roller till domänen
 När ditt molntjänstprojekt har distribuerats på Azure, ansluta dina rollinstanser till den anpassa AD-domän med AD-domän. Om du vill lägga till AD-domän-tillägget på den befintliga distributionen i cloud services och ansluta till den anpassa domänen, kör du följande kommandon i PowerShell:

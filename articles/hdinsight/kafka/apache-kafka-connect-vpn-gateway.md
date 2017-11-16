@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Ansluta till Kafka på HDInsight (förhandsgranskning) via ett virtuellt Azure-nätverk
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ansluta till Kafka på HDInsight via Azure-nätverk
 
 Lär dig mer om att ansluta direkt till Kafka på HDInsight via ett Azure Virtual Network. Det här dokumentet innehåller information om hur du ansluter till Kafka med hjälp av följande konfigurationer:
 
@@ -32,7 +32,7 @@ Lär dig mer om att ansluta direkt till Kafka på HDInsight via ett Azure Virtua
 
 HDInsight kan inte direkt anslutning till Kafka via det offentliga internet. Använd i stället Kafka klienter (producenter och konsumenter) måste en av följande anslutningsmetoder för:
 
-* Kör klienten i samma virtuella nätverk som Kafka på HDInsight. Den här konfigurationen används i den [börja med Apache Kafka (förhandsversion) på HDInsight](apache-kafka-get-started.md) dokumentet. Klienten körs direkt på noderna i HDInsight eller på en annan virtuell dator i samma nätverk.
+* Kör klienten i samma virtuella nätverk som Kafka på HDInsight. Den här konfigurationen används i den [börja med Apache Kafka på HDInsight](apache-kafka-get-started.md) dokumentet. Klienten körs direkt på noderna i HDInsight eller på en annan virtuell dator i samma nätverk.
 
 * Ansluta ett privat nätverk, till exempel ditt lokala nätverk till det virtuella nätverket. Den här konfigurationen kan klienter i det lokala nätverket att arbeta direkt med Kafka. Om du vill aktivera den här konfigurationen måste du utföra följande uppgifter:
 

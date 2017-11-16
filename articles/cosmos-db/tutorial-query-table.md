@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB: Hur man frågar tabelldata med tabell-API (förhandsgranskning)?
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: Hur man frågar tabelldata med tabell-API
 
-Azure Cosmos DB [tabell API](table-introduction.md) (förhandsversion) stöder OData och [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) frågor mot nyckel/värde-(tabell) data.  
+Azure Cosmos DB [tabell API](table-introduction.md) stöder OData och [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) frågor mot nyckel/värde-(tabell) data.  
 
 Den här artikeln omfattar följande aktiviteter: 
 
@@ -38,13 +38,13 @@ Frågorna i den här artikeln använder i följande exempel `People` tabell:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Eftersom Azure Cosmos DB är kompatibel med Azure Table storage API: er, se [frågor till tabeller och enheter] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) mer information om hur frågan med tabell-API. 
+Se [frågor till tabeller och enheter] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) mer information om hur frågan med tabell-API. 
 
-Mer information om premium-funktioner som erbjuder Azure Cosmos DB finns [Azure Cosmos DB: tabellen API](table-introduction.md) och [utveckla med tabell-API: et i .NET](tutorial-develop-table-dotnet.md). 
+Mer information om premium-funktioner som erbjuder Azure Cosmos DB finns [Azure Cosmos DB tabell API](table-introduction.md) och [utveckla med tabell-API: et i .NET](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Krav
 
-För de här frågorna ska fungera måste du har ett konto i Azure Cosmos DB och har entitetsdata i behållaren. Har inte något av de? Slutför den [fem minuter långa quickstart](https://aka.ms/acdbtnetqs) eller [developer kursen](https://aka.ms/acdbtabletut) och skapa ett konto som du kan fylla i databasen.
+För de här frågorna ska fungera måste du har ett konto i Azure Cosmos DB och har entitetsdata i behållaren. Har inte något av de? Slutför den [fem minuter långa quickstart](create-table-dotnet.md) eller [developer kursen](tutorial-develop-table-dotnet.md) och skapa ett konto som du kan fylla i databasen.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Fråga om PartitionKey och RowKey
 Du kan använda följande särskild syntax för att identifiera enheten eftersom egenskaperna PartitionKey och RowKey formuläret en entitets primärnyckel: 
@@ -109,9 +109,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 I den här självstudiekursen kommer du har gjort följande:
 
 > [!div class="checklist"]
-> * Lärt dig hur man frågan med tabell-API (förhandsgranskning) 
+> * Lärt dig hur man frågan med tabell-API
 
 Du kan nu fortsätta till nästa kurs att lära dig hur du distribuerar dina data globalt.
 
 > [!div class="nextstepaction"]
-> [Distribuera dina data globalt](tutorial-global-distribution-documentdb.md)
+> [Distribuera dina data globalt](tutorial-global-distribution-table.md)

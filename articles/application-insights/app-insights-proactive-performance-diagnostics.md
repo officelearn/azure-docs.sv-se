@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57f17c201cd50933517ee02b2bbbe7d6aceff9b2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="smart-detection---performance-anomalies"></a>Identifiering - Prestandaavvikelser för smartkort
 
@@ -67,7 +67,7 @@ E-post om identifieringar som Smart prestandaavvikelser är begränsade till en 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-* *Så är fallet bör du guys tittar på Mina data?*
+* *Alltså Se Microsoft-Personal på Mina data?*
   * Nej. Tjänsten är helt automatisk. Bara hämta meddelanden. Dina data är [privata](app-insights-data-retention-privacy.md).
 * *Du analysera alla data som samlas in av Application Insights?*
   * Inte för närvarande. För närvarande kan analyserar vi begäran svarstid, beroende-svarstid och sidan hämtningstid. Analys av ytterligare mått finns på vår eftersläpning väntar.
@@ -103,7 +103,7 @@ Använda instruktionen påverkan (användare som påverkas eller % av trafik) so
 Överväg att parametrarna för problemet. Om det är beroende geografi, ställa in [tillgänglighetstester](app-insights-monitor-web-app-availability.md) inklusive den regionen: det kanske bara nätverksproblem i detta område.
 
 ### <a name="diagnose-slow-page-loads"></a>Diagnostisera långsam sidan läses in
-Var har problemet uppstått? Är servern svarar långsamt, är sidan lång eller webbläsaren behöver göra mycket arbete för att visa den?
+Där är problemet? Är servern svarar långsamt, är sidan lång eller webbläsaren behöver göra mycket arbete för att visa den?
 
 Öppna bladet webbläsare mått. Segmenterade visningen av webbläsaren belastningen tid visas där tiden kommer. 
 

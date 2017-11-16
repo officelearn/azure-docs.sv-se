@@ -13,13 +13,13 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 11/14/2017
 ms.author: billgib;genemi
-ms.openlocfilehash: e10a954ba57782f4f79131ab583b5a73edf4ba02
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Välkommen till Wingtip biljetter SaaS Azure SQL Database innehavare exempelappen
 
@@ -37,9 +37,9 @@ Du kan installera appen Wingtip biljetter i din egen Azure-prenumeration inom fe
 
 Programkod och av hanteringsskript, är alla tillgängliga på GitHub:
 
-- **Fristående app** modell: *(kommer i dagar).*
-- **Databasen per klient** modell: [WingtipSaaS databasen](https://github.com/Microsoft/WingtipSaaS/).
-- **Delat flera innehavare** modellen i *hybrid*: *(kommer i dagar).*
+- **Fristående app** modell: [WingtipTicketsSaaS StandaloneApp databasen](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+- **Databasen per klient** modell: [WingtipTicketsSaaS DbPerTenant databasen](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
+- **Delat flera innehavare** modell: [WingtipTicketsSaaS MultiTenantDB databasen](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
 
 Samma en kodbas för appen Wingtip biljetter återanvänds för alla föregående modellerna visas. Du kan använda koden från Github för att starta SaaS projekt.
 
@@ -79,8 +79,6 @@ Den här modellen används ett enda klient-program. Därför kan den här modell
 
 Du kan använda den här modellen när du säljer instanser av din app på många olika klienter, för varje klient ska köras på egen hand. Klienten är den enda innehavaren. När databasen lagrar data för endast en klient, lagrar data i databasen för många kunder av klienten.
 
-- *(Självstudier för den här modellen kommer att publiceras här inom några dagar. En länk ska vara här.)*
-
 #### <a name="database-per-tenant"></a>Databasen per klient
 
 ![Databas per klient modellen][database-per-tenant-model-35d]
@@ -99,8 +97,7 @@ Den här modellen har flera klienter i instans av programmet. Den här modellen 
 
 Schemat för varje databas innehåller ett klient-ID. Klient-ID måste även i de databaser som lagrar bara en klient.
 
-- *(Självstudier för den här modellen kommer att publiceras här inom några dagar. En länk ska vara här.)*
-
+- [Introduktion till en SQL-databas med flera innehavare SaaS app-exempel][saas-multitenantdb-get-started-deploy-89i]
 
 
 
@@ -149,4 +146,7 @@ I självstudiekursen artiklar för varje modell omfatta i följande scenarier:
 [saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
 
 [multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
+
+[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
+
 

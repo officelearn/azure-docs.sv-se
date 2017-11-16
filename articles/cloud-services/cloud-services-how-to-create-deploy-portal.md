@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Hur du skapar och distribuerar en tjänst i molnet
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-create-deploy-portal.md)
-> * [Klassisk Azure-portal](cloud-services-how-to-create-deploy.md)
->
->
-
 Azure portal tillhandahåller två sätt att skapa och distribuera en tjänst i molnet: *Snabbregistrering* och *skapa anpassade*.
 
 Den här artikeln förklarar hur du använder metoden Snabbregistrering för att skapa en ny molntjänst och sedan använda **överför** så här överför och distribuera ett paket med cloud service i Azure. När du använder den här metoden gör tillgängliga praktiska länkar för att slutföra alla krav när du går i Azure-portalen. Om du är redo att distribuera din molntjänst när du skapar den, kan du göra båda på samma gång med att skapa anpassade.

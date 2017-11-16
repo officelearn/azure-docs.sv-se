@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Ska jag välja molntjänster eller något annat?
 Är Azure Cloud Services valet för dig? Azure tillhandahåller olika modeller som värd för program som körs. Var och en innehåller en annan uppsättning tjänster, så att du väljer en beroende exakt vad du försöker göra.
@@ -43,14 +43,14 @@ Använder inte IIS och kör din app fristående.
 
 Ett enkelt program kan till exempel använda bara en enda webbrollen, betjänar en webbplats. Ett mer komplext program kanske använder en webbroll för att hantera inkommande begäranden från användare och sedan skicka dessa begäranden till en arbetsroll för bearbetning. (Den här kommunikationen kan använda [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) eller [Azure köer](../storage/common/storage-introduction.md).)
 
-Som i föregående bild föreslår köra alla virtuella datorer i ett enda program i samma molntjänst. Den belastningsutjämnade användare åtkomst program via en offentlig IP-adress, med begäranden laddar automatiskt över programmets virtuella datorer. Plattformen [skalas och distribuerar](cloud-services-how-to-scale.md) de virtuella datorerna i ett Cloud Services-program på ett sätt som förhindrar en enskild felpunkt maskinvara.
+Som i föregående bild föreslår köra alla virtuella datorer i ett enda program i samma molntjänst. Den belastningsutjämnade användare åtkomst program via en offentlig IP-adress, med begäranden laddar automatiskt över programmets virtuella datorer. Plattformen [skalas och distribuerar](cloud-services-how-to-scale-portal.md) de virtuella datorerna i ett Cloud Services-program på ett sätt som förhindrar en enskild felpunkt maskinvara.
 
 Trots att program körs i virtuella datorer, är det viktigt att förstå att molntjänster tillhandahåller PaaS, inte IaaS. Här är ett sätt att göra det: med IaaS, till exempel Azure virtuella datorer du först skapa och konfigurera ditt program körs i miljön och sedan distribuera programmet till den här miljön. Du är ansvarig för att hantera mycket världen, gör saker, till exempel distribuera nya korrigeringsfil versioner av operativsystemet på varje virtuell dator. I PaaS är det däremot som om det redan finns i miljön. Allt du behöver göra är att distribuera ditt program. Hantering av den plattform som den körs på, inklusive distribution av nya versioner av operativsystemet, hanteras åt dig.
 
 ## <a name="scaling-and-management"></a>Skalning och hantering
 Med Cloud Services, kan du inte skapa virtuella datorer. I stället kan du ange en konfigurationsfil som talar om Azure hur många av var du vill, t.ex **tre webbrollsinstanser** och **två worker rollinstanser**, och plattformen som skapar dem åt dig.  Du fortfarande välja [hur stor](cloud-services-sizes-specs.md) de säkerhetskopiera virtuella datorer bör vara, men du inte uttryckligen skapa dem själv. Om ditt program behöver hantera ett större belastning kan du be för flera virtuella datorer och Azure skapar dessa instanser. Du kan stänga av dessa instanser och stoppa betalar för dem om belastningen minskar.
 
-Ett program för molntjänster görs vanligtvis tillgängligt för användare via en tvåstegsprocess. En utvecklare första [överför programmet](cloud-services-how-to-create-deploy.md) plattformens mellanlagringsområdet. När utvecklare kan se programmet live använder de Azure-portalen för att växla mellanlagring till produktionen. Detta [växla mellan mellanlagrings- och](cloud-services-nodejs-stage-application.md) kan göras utan avbrott, vilket gör att ett program som körs uppgraderas till en ny version utan att störa sina användare.
+Ett program för molntjänster görs vanligtvis tillgängligt för användare via en tvåstegsprocess. En utvecklare första [överför programmet](cloud-services-how-to-create-deploy-portal.md) plattformens mellanlagringsområdet. När utvecklare kan se programmet live använder de Azure-portalen för att växla mellanlagring till produktionen. Detta [växla mellan mellanlagrings- och](cloud-services-nodejs-stage-application.md) kan göras utan avbrott, vilket gör att ett program som körs uppgraderas till en ny version utan att störa sina användare.
 
 ## <a name="monitoring"></a>Övervakning
 Cloud Services ger också övervakning. Som Azure Virtual Machines, den identifierar en misslyckad fysisk server och startar om de virtuella datorer som kördes på servern på en ny dator. Men molntjänster identifierar också misslyckade virtuella datorer och program, inte bara maskinvarufel. Det har en agent i rollerna webb- och arbetsroller till skillnad från virtuella datorer, och det är därför starta nya virtuella datorer och programinstanser när fel uppstår.

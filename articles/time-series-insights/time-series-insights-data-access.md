@@ -1,25 +1,21 @@
 ---
-title: "Principer för dataåtkomst i Azure Time Series Insights | Microsoft Docs"
-description: "I den här självstudien lär du dig att hantera principer för att hantera dataåtkomst i Time Series Insights"
-keywords: 
+title: "Konfigurera säkerhet för att komma åt och hantera Azure tid serien Insights | Microsoft Docs"
+description: "Den här artikeln beskriver hur du konfigurerar säkerhet och behörigheter som hanteringsåtkomst principer och data åtkomstprinciper för säker Azure tid serien insikter."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: op-ravi
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 22c8e4481f2ba4163a55cc1bbb6b33c10379a605
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Bevilja åtkomst till en Time Series Insights-miljö med Azure Portal
 
@@ -28,7 +24,7 @@ Time Series Insights-miljöer har två oberoende typer av principer för åtkoms
 * Hantera åtkomstprinciper
 * Dataåtkomstprinciper
 
-Båda principerna beviljar Azure Active Directory-huvudkonton (användare och appar) olika behörigheter i en viss miljö. Huvudkontona (användare och appar) måste tillhöra den Active Directory (eller ”Azure-klient”) som är associerad med prenumerationen som innehåller miljön.
+Båda principerna beviljar Azure Active Directory-huvudkonton (användare och appar) olika behörigheter i en viss miljö. Säkerhetsobjekt (användare och appar) måste tillhöra en active directory (kallas även Azure-klient) som är associerade med prenumerationen som innehåller miljön.
 
 Principer för hantering av åtkomst beviljar behörigheter som rör konfigurationen av miljön, som
 *   Skapandet och borttagningen av miljön, händelsekällor, referensdatamängder och
@@ -36,41 +32,41 @@ Principer för hantering av åtkomst beviljar behörigheter som rör konfigurati
 
 Principerna för dataåtkomst beviljar behörigheter för att utfärda datafrågor, manipulera referensdata i miljön och sparade delade frågor och perspektiv som är associerade till miljön.
 
-De två typerna av principer möjliggör en tydlig uppdelning mellan åtkomst till hantering av miljön och till data inuti miljön. Det är till exempel möjligt att konfigurera en miljö så att miljöns ägare/skapare tas bort från dataåtkomsten. Användare och tjänster som tillåts läsa data från miljön kan nekas åtkomst till miljöns konfiguration.
+De två typerna av principer möjliggör en tydlig uppdelning mellan åtkomst till hantering av miljön och till data inuti miljön. Det är exempelvis möjligt att ställa in en miljö så att ägaren/författaren av miljön tas bort från åtkomst till data. Dessutom kan beviljas användare och tjänster som ska kunna läsa data från miljön ingen åtkomst till miljöns konfiguration.
 
 ## <a name="grant-data-access"></a>Bevilja åtkomst till data
-I följande steg visas hur du ger åtkomst till data för en användares huvudnamn:
+Följ dessa steg om du vill bevilja åtkomst till data för en annan användare:
 
-1.  Logga in på [Azure Portal](https://portal.azure.com).
-2.  Ange ”Time Series” i sökrutan.
-3.  Klicka på Time Series Environment
-4.  Välj Time Series Insights-miljön från listan.
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-  ![Hantera Time Series Insights-källan – miljö](media/data-access/getstarted-grant-data-access1.png)
+2. Hitta tid serien insikter miljön. Typen **tidsserier** i den **Sök** rutan. Välj **serie miljön** i sökresultaten. 
 
-4.  Välj ”Dataåtkomstprinciper” och klicka på ”Lägg till”
+3. Välj Time Series Insights-miljön från listan.
+   
+4. Välj **principerna dataåtkomst**och välj **+ Lägg till**.
+  ![Hantera tid serien insikter källan - miljö](media/data-access/getstarted-grant-data-access1.png)
 
-  ![Hantera Time Series Insights-källan – lägg till](media/data-access/getstarted-grant-data-access2.png)
+5. Välj **väljer användaren**.  Sök efter användarnamn eller e-postadress att hitta användaren som du vill lägga till. Klicka på **Välj** att bekräfta valet. 
 
-5.  Klicka på ”Välj användare”.
-6.  Sök och välj användare via e-postmeddelandet.
-7.  Klicka på ”Välj” i bladet ”Välj användare”.
+   ![Hantera Time Series Insights-källan – lägg till](media/data-access/getstarted-grant-data-access2.png)
 
-  ![Hantera Time Series Insights-källan – välj användare](media/data-access/getstarted-grant-data-access3.png)
+6. Välj **Välj rolltjänster**. Välj rollen åtkomstbehörighet för användaren:
+   - Välj **deltagare** om du vill tillåta användare att ändra referensdata och dela sparade frågor och perspektiv med andra användare i miljön. 
+   - Annars väljer **Reader** att tillåta användaren fråga efter data i miljön och spara frågor för personliga (inte delade) i miljön.
 
-8.  Klicka på ”Välj roll”.
-9.  Välj ”Deltagare” om du vill tillåta att användare kan ändra referensdata och dela sparade frågor och perspektiv med andra användare av miljön. Välj annars ”Läsare” för att tillåta att användare söker data i miljön och sparar personliga (inte delade) frågor i miljön.
-10. Klicka på ”OK” på bladet ”Välj roll”.
+   Välj **Ok** bekräfta valet av rollen.
 
-  ![Hantera Time Series Insights-källan – välj roll](media/data-access/getstarted-grant-data-access4.png)
+   ![Hantera Time Series Insights-källan – välj användare](media/data-access/getstarted-grant-data-access3.png)
 
-11. Klicka på ”OK” på bladet ”Välj användarroll”.
-12. Du bör se:
+8. Välj **Ok** i den **Välj användarroll** sidan.
 
-  ![Hantera Time Series Insights-källan – resultat](media/data-access/getstarted-grant-data-access5.png)
+   ![Hantera Time Series Insights-källan – välj roll](media/data-access/getstarted-grant-data-access4.png)
+
+9. Den **principerna dataåtkomst** sidan visas användarna och roller för varje användare.
+
+   ![Hantera Time Series Insights-källan – resultat](media/data-access/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Nästa steg
-
-* [Skapa en händelsekälla](time-series-insights-add-event-source.md)
-* [Skicka händelser](time-series-insights-send-events.md) till händelsekällan
-* Visa din miljö i [Time Series Insights-portalen](https://insights.timeseries.azure.com)
+* Läs [hur du lägger till en Händelsehubb händelsekälla Azure tid serien Insights miljön](time-series-insights-how-to-add-an-event-source-eventhub.md).
+* [Skicka händelser](time-series-insights-send-events.md) käll-händelse.
+* Visa din miljö i [tid serien insikter explorer](https://insights.timeseries.azure.com).

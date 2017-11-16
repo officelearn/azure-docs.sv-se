@@ -1,60 +1,55 @@
 ---
-title: "Diagnostisera och lösa problem | Microsoft Docs"
-description: "Den här kursen visar hur du diagnostisera och lösa problem i miljön tid serien insikter"
-keywords: 
-services: time-series-insights
-documentationcenter: 
+title: "Diagnostisera och lösa problem i Azure tid serien insikter | Microsoft Docs"
+description: "Den här artikeln beskriver hur du diagnostisera, felsöka och lösa vanliga problem som kan uppstå i din Azure tid serien Insights-miljö."
 author: venkatgct
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/24/2017
 ms.author: venkatja
-ms.openlocfilehash: 4e10a009eb67706d927ece5692134d802094cdf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: troubleshooting
+ms.date: 11/15/2017
+ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i miljön tid serien insikter
 
-## <a name="i-dont-see-my-data"></a>Data visas inte
-Här följer några orsaker varför du inte kan se dina data i din miljö i det [Azure tid serien Insights-portalen](https://insights.timeseries.azure.com).
+## <a name="problem-1-no-data-is-shown"></a>Problem 1: Inga data visas
+Det finns flera vanliga orsaker varför du inte kanske se dina data i den [Azure tid serien insikter Explorer](https://insights.timeseries.azure.com):
 
-### <a name="your-event-source-doesnt-have-data-in-json-format"></a>Din händelsekälla saknar data i JSON-format
-Azure tid serien Insights har stöd för JSON-data i dag. JSON-exempel finns [stöds JSON former](time-series-insights-send-events.md#supported-json-shapes).
+### <a name="possible-cause-a-event-source-data-is-not-in-json-format"></a>Möjlig orsak A: händelse källdata är inte i JSON-format
+Azure tid serien insikter stöder JSON-data. JSON-exempel finns [stöds JSON former](time-series-insights-send-events.md#supported-json-shapes).
 
-### <a name="when-you-registered-your-event-source-you-didnt-provide-the-key-that-has-the-required-permission"></a>När du har registrerat din händelsekälla uppgav du nyckeln som har behörigheten som krävs
+### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Möjlig orsak B: händelse källa nyckel saknas en nödvändig behörighet
 * För en IoT-hubb måste du ange den nyckel som har **tjänsten ansluta** behörighet.
 
    ![IoT-hubb tjänsten ansluta behörighet](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    Som visas i föregående bild, antingen principer **iothubowner** och **service** skulle fungera eftersom båda **tjänsten ansluta** behörighet.
+   
 * För en händelsehubb, måste du ange den nyckel som har **lyssna** behörighet.
 
    ![Event hub lyssna behörighet](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
 
    Som visas i föregående bild, antingen principer **läsa** och **hantera** skulle fungera eftersom båda **lyssna** behörighet.
 
-### <a name="the-provided-consumer-group-is-not-exclusive-to-time-series-insights"></a>Den angivna konsumentgruppen är inte bara tiden serien insikter
-För en IoT-hubb eller en händelsehubb, under registreringen måste vi du ange konsumentgrupp som ska användas för att läsa in dina data. Den här konsumentgrupp får inte delas. Om den delas underliggande händelsehubben automatiskt kopplas från en läsare slumpmässigt.
+### <a name="possible-cause-c-the-consumer-group-provided-is-not-exclusive-to-time-series-insights"></a>Möjlig orsak C: konsumentgruppen tillhandahålls inte är bara tiden serien insikter
+Under registreringen av am IoT-hubb eller en händelsehubb kan ange du konsumentgrupp som ska användas för att läsa data. Den här konsumentgrupp måste **inte** delas. Om konsumentgruppen delas underliggande händelsehubben automatiskt kopplas från en läsare slumpmässigt. Ange en unik konsumentgrupp för tid serien insikter att läsa från.
 
-## <a name="i-see-my-data-but-theres-a-lag"></a>Mina data visas, men det finns en fördröjning
-Här finns skäl visas delar av informationen i din miljö i det [tid serien Insights-portalen](https://insights.timeseries.azure.com).
+## <a name="problem-2-some-data-is-shown-but-some-is-missing"></a>Problem 2: Vissa data visas, men vissa saknas
+När du kan se data delvis, men data som släpar efter, finns det flera möjligheter att tänka på:
 
-### <a name="your-environment-is-getting-throttled"></a>Hämta begränsas din miljö
+### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Möjlig orsak A: miljön komma begränsas
 Gränsen tillämpas baserat på SKU miljötyp och kapacitet. Alla händelsekällor i miljön dela den här kapaciteten. Om händelsekällan för din IoT-hubb eller händelsehubb är push-överföring av data utöver de tvingande gränserna, ser du begränsning och en fördröjning.
 
 I följande diagram visas en gång serien insikter miljö som har en SKU S1 och en kapacitet på 3. Det kan 3 miljoner ingångshändelser per dag.
 
 ![Aktuell miljö artikelnummerkapaciteten](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
 
-Anta att den här miljön är vill föra in meddelanden från en händelsehubb med meddelande om ingångs-sats som visas i följande diagram:
+Anta till exempel att den här miljön är vill föra in meddelanden från en händelsehubb. Observera den ingång hastighet som visas i följande diagram:
 
 ![Exempel meddelanden om ingångs-sats för en händelsehubb](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
 
@@ -62,20 +57,24 @@ I diagrammet visas de dagliga ingång frekvensen är ~ 67,000 meddelanden. Denna
 
 En översikt över hur förenkla logik fungerar, se [stöds JSON former](time-series-insights-send-events.md#supported-json-shapes).
 
-#### <a name="recommended-steps"></a>Rekommenderade åtgärder
+### <a name="recommended-resolution-steps-for-excessive-throttling"></a>Rekommenderade Lösningssteg för långa begränsning
 Om du vill åtgärda fördröjningen ökar du kapaciteten SKU för din miljö. Mer information finns i [så här skalar du tid serien insikter miljön](time-series-insights-how-to-scale-your-environment.md).
 
-### <a name="youre-pushing-historical-data-and-causing-slow-ingress"></a>Du sänder historiska data och orsakar långsam ingång
-Om du ansluter en befintlig datakälla för händelsen, är det troligt att din IoT-hubb eller händelsehubb redan har data i den. Miljön startar så att data från början av den händelsekälla kvarhållningsperiod för meddelandet. 
+### <a name="possible-cause-b-initial-ingestion-of-historical-data-is-causing-slow-ingress"></a>Möjlig orsak B: inledande införandet av historiska data som orsakar långsam ingång
+Om du ansluter en befintlig datakälla för händelsen, är det troligt att din IoT-hubb eller händelsehubb redan har data i den. Miljön startar att data från början av den händelsekälla kvarhållningsperiod för meddelandet.
 
 Detta är standardinställningen och inte kan åsidosättas. Du kan engagera begränsning och det kan ta en stund att titta på mata in historiska data.
 
-#### <a name="recommended-steps"></a>Rekommenderade åtgärder
+#### <a name="recommended-resolution-steps-of-large-initial-ingestion"></a>Rekommenderad lösning stegen för stor inledande införandet
 Om du vill åtgärda fördröjningen gör du följande:
-1. Öka artikelnummerkapaciteten till det högsta tillåtna värdet (10 i det här fallet). När kapaciteten ökas startar processen ingång fånga upp mycket snabbare. Kan du visualisera hur snabbt du Ja via Tillgänglighetsdiagrammet i den [tid serien Insights-portalen](https://insights.timeseries.azure.com). Du debiteras för bättre kapacitet.
+1. Öka artikelnummerkapaciteten till det högsta tillåtna värdet (10 i det här fallet). När kapaciteten ökas startar processen ingång fånga upp mycket snabbare. Kan du visualisera hur snabbt du Ja via Tillgänglighetsdiagrammet i den [tid serien insikter explorer](https://insights.timeseries.azure.com). Du debiteras för bättre kapacitet.
 2. När fördröjningen fångats, minska artikelnummerkapaciteten tillbaka till normal ingång-hastighet.
 
-## <a name="my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Min händelsekälla *tidsstämpel egenskapsnamn* inställningen fungerar inte
+## <a name="problem-3-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problem 3: Min händelsekällans *tidsstämpel egenskapsnamn* inställningen fungerar inte
 Kontrollera att namnet och värdet överensstämmer med följande regler:
 * Egenskapsnamnet tidsstämpel är _skiftlägeskänsliga_.
 * Egenskapsvärdet tidsstämpel som kommer från din händelsekälla som JSON-strängen ska ha formatet _åååå-MM-ddTHH. FFFFFFFK_. Ett exempel på sådana sträng är ”2008-04-12T12:53Z”.
+
+## <a name="next-steps"></a>Nästa steg
+- Om du behöver ytterligare hjälp kan du starta ett samtal på den [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
+- Du kan också använda [Azure-supporten](https://azure.microsoft.com/support/options/) för assisterad supportalternativ.

@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 171f27c92ee9de14301ebb664e9ba3bcd98c394d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab99eaa10d232e244b17325188e83128c651caf6
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Aktivera anslutning till fjärrskrivbord för en roll i Azure Cloud Services med hjälp av PowerShell
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Klassisk Azure-portal](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Fjärrskrivbord kan du få åtkomst till skrivbordet på en roll som körs i Azure. Du kan använda anslutning till fjärrskrivbord för att felsöka och diagnostisera problem med programmet när den körs.
 
@@ -108,5 +105,5 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-[Hur du konfigurerar molntjänster](cloud-services-how-to-configure.md)
+[Hur du konfigurerar molntjänster](cloud-services-how-to-configure-portal.md)
 [Cloud services vanliga frågor och svar - fjärrskrivbord](cloud-services-faq.md)

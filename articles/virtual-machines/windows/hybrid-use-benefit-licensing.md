@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: kmouss
-ms.openlocfilehash: d47b8ab2cd6391e937fe7f9ba6eded3b89fe2c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
-För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server du använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer i Azure till en lägre kostnad. Du kan använda Azure Hybrid-förmån för Windows Server för att distribuera nya virtuella datorer från eventuella Azure stöds Windows Server plattformsavbildning eller anpassade Windows-avbildningar. Så länge bilden inte finns i ytterligare programvara, till exempel SQL Server eller tredje parts marketplace-bilder. Den här artikeln går över stegen för hur man distribuerar nya virtuella datorer med Azure Hybrid-förmån för Windows Server. Mer information om Azure Hybrid-förmån för Windows Server finns i licens- och besparingar i [Azure Hybrid-förmån för Windows Server-licensiering sidan](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server du använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer i Azure till en lägre kostnad. Du kan använda Azure Hybrid-förmån för Windows Server för att distribuera nya virtuella datorer från eventuella Azure stöds Windows Server plattformsavbildning eller anpassade Windows-avbildningar. Den här artikeln går över stegen på hur du distribuerar nya virtuella datorer med Azure Hybrid-förmån för Windows Server och hur du kan uppdatera befintliga virtuella datorer som körs. Mer information om Azure Hybrid-förmån för Windows Server finns i licens- och besparingar i [Azure Hybrid-förmån för Windows Server-licensiering sidan](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 > [!IMPORTANT]
 > De äldre [hubb] Windows Server-avbildningar som har publicerats för kunder med Enterprise-avtal på Azure Marketplace har tagits bort från och med 9/11/2017 använder standard Windows Server med alternativet ”Spara pengar” på portalen för Azure Hybrid-förmån för Windows Server. Mer information hittar du detta [artikel.](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
 >
 
 > [!NOTE]
-> Azure Hybrid-förmån för Windows Server kan inte användas med virtuella datorer som debiteras för ytterligare programvara, till exempel SQL Server eller någon tredje parts marketplace-bilder. Du får en 409 fel som: ändra egenskapen 'LicenseType' inte är tillåtet; Om du försöker konvertera en Windows Server-VM som har ytterligare programvara kostnad. 
+> Med hjälp av Azure Hybrid-förmån för Windows Server med virtuella datorer som debiteras för ytterligare programvara, till exempel SQL Server eller någon tredje parts marketplace-bilder som lyfts. Om du får felet 409 exempel: ändra egenskapen 'LicenseType' inte är tillåtet; sedan försöker du konvertera eller distribuera en ny Windows virtuell dator som har ytterligare programvara kostnad, vilket inte stöds i den regionen.
 >
 
 
@@ -42,10 +42,11 @@ Det finns några olika sätt att använda Windows-datorer med förmån för Azur
 
 1. Du kan distribuera virtuella datorer från en av de angivna [Windows Server-avbildningar på Azure Marketplace](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
 2. Du kan [ladda upp en anpassad VM](#upload-a-windows-vhd) och [distribueras med hjälp av en Resource Manager-mall](#deploy-a-vm-via-resource-manager) eller [Azure PowerShell](#detailed-powershell-deployment-walkthrough)
+3. Du kan växla och konvertera befintlig virtuell dator mellan körs med Azure Hybrid förmån eller betala på begäran kostnaden för Windows Server
 4. Du kan också distribuera en ny virtuell dator-skala med Azure Hybrid-förmån för Windows Server
 
 > [!NOTE]
-> Konvertera en befintlig virtuell dator eller virtuell dator skala inställd på att använda Azure Hybrid-förmån för Windows Server stöds inte för närvarande
+> Konvertera en befintlig virtuell dator skala inställd på att använda Azure Hybrid-förmån för Windows Server stöds inte
 >
 
 ## <a name="deploy-a-vm-from-a-windows-server-marketplace-image"></a>Distribuera en virtuell dator från en Windows Server Marketplace-avbildning
@@ -61,6 +62,26 @@ Du kan följa stegen för att [skapar en virtuell Windows-dator med PowerShell](
 
 ### <a name="portal"></a>Portalen
 Du kan följa stegen för att [skapa en Windows-dator med Azure-portalen](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) och väljer alternativet att använda din befintliga Windows Server-licens.
+
+## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Konvertera en befintlig virtuell dator med hjälp av Azure Hybrid-förmån för Windows Server
+Om du har en befintlig virtuell dator som du vill konvertera om du vill dra nytta av Azure Hybrid-förmån för Windows Server kan du uppdatera den Virtuella datorns licenstypen enligt följande:
+
+### <a name="convert-to-using-azure-hybrid-benefit-for-windows-server"></a>Omvandla till med hjälp av Azure Hybrid-förmån för Windows Server
+```powershell
+$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+```
+
+### <a name="convert-back-to-pay-as-you-go"></a>Omvandla tillbaka för att betala allteftersom
+```powershell
+$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+```
+
+### <a name="portal"></a>Portalen
+Från portalen VM-bladet, kan du uppdatera den virtuella datorn om du vill använda Azure Hybrid dra genom att välja alternativet ”Configuration” och växla mellan alternativet ”Azure hybrid dra”
 
 ## <a name="upload-a-windows-server-vhd"></a>Överför en Windows Server VHD
 Om du vill distribuera en Windows Server-VM i Azure måste du först skapa en virtuell Hårddisk som innehåller din grundläggande Windows-version. Den här virtuella Hårddisken måste förberedas på rätt sätt via Sysprep innan du överför den till Azure. Du kan [Läs mer om kraven för virtuell Hårddisk och Sysprep-processen](upload-generalized-managed.md) och [Sysprep-stöd för serverroller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Säkerhetskopiera den virtuella datorn innan du kör Sysprep. 
@@ -78,7 +99,6 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 
 Du kan också läsa mer om [överför den virtuella Hårddisken till Azure-processen](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)
-
 
 ## <a name="deploy-a-vm-via-resource-manager-template"></a>Distribuera en virtuell dator via Resource Manager-mall
 I Resource Manager-mallar, en extra parameter `licenseType` måste anges. Du kan läsa mer om [skapa mallar för Azure Resource Manager](../../resource-group-authoring-templates.md). När du har den virtuella Hårddisken överförs till Azure kan redigera Resource Manager-mall om du vill inkludera licenstypen som en del av compute-providern och distribuera mallen som vanligt:
@@ -100,7 +120,6 @@ New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -
 ```
 
 Du kan läsa en mer beskrivande guide på olika steg för att [skapa en virtuell Windows-dator med Resource Manager och PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 
 ## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Kontrollera den virtuella datorn använder licensiering fördelen
 När du har distribuerat den virtuella datorn med hjälp av antingen PowerShell Resource Manager-mall eller portal, kan du kontrollera licenstypen med `Get-AzureRmVM` på följande sätt:
@@ -161,7 +180,9 @@ I den virtuella datorn skaluppsättning för Resource Manager-mallar, en extra p
 Du kan också [skapa och distribuera en virtuella datorns skaluppsättning](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) och egenskapen LicenseType
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [Azure Hybrid-förmån för Windows Server-licensiering](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Läs mer om [så spara pengar och de fördelar som Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+
+Lär dig mer om [Azure Hybrid-förmån för Windows Server-licensiering detaljerad vägledning](http://go.microsoft.com/fwlink/?LinkId=859786)
 
 Lär dig mer om [med hjälp av Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md).
 

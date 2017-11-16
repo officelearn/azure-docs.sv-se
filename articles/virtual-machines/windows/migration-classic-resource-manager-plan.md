@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: db23eba9ff8debd5268cd02bc4f37c4e6501bfac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b77000c2cf46b59b65c27c78182193624fd62062
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassiska till Azure Resource Manager
 Azure Resource Manager erbjuder många häpnadsväckande funktioner, är det viktigt att du har planerat din migrering resa att göra det för att gå smidigt. Utgifter tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter.
@@ -204,7 +204,7 @@ Vara ändamålsenlig på vilka tjänster som du nu vill aktivera i Azure Resourc
 - [Azure Resource Manager-mallar för distribution av enklare och mer kontrollerad](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Taggar](../../azure-resource-manager/resource-group-using-tags.md).
 - [Kontroll av aktiviteten](../../azure-resource-manager/resource-group-audit.md)
-- [Resursprinciper](../../azure-resource-manager/resource-manager-policy.md)
+- [Principer för Azure](../../azure-policy/azure-policy-introduction.md)
 
 ### <a name="pitfalls-to-avoid"></a>Fallgropar att undvika
 

@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 28965ec8290c8ab22255f9001cc6c3905dda4b8b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten (förhandsversion) i App Service och Azure Functions
 
@@ -103,7 +103,7 @@ Det finns ett enkelt REST-protokoll för att få en token i App Service och Azur
 
 ### <a name="asal"></a>Med Microsoft.Azure.Services.AppAuthentication-biblioteket för .NET
 
-För .NET-program och funktioner är det enklaste sättet att arbeta med en hanterad tjänstidentitet via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket kan du testa din kod lokalt på utvecklingsdatorn med ditt användarkonto från även den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) eller Active Directory-integrerad autentisering. Det här avsnittet visar hur du kommer igång med biblioteket.
+För .NET-program och funktioner är det enklaste sättet att arbeta med en hanterad tjänstidentitet via Microsoft.Azure.Services.AppAuthentication-paketet. Det här biblioteket kan du testa din kod lokalt på utvecklingsdatorn med ditt användarkonto från Visual Studio, även de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), eller Active Directory-integrerad autentisering. Mer information om alternativ för lokal utveckling med det här biblioteket finns det [Microsoft.Azure.Services.AppAuthentication referens]. Det här avsnittet visar hur du kommer igång med bibliotek i koden.
 
 1. Lägg till referenser till den [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-paket till ditt program.
 
@@ -119,7 +119,7 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https:
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-Läs mer om Microsoft.Azure.Services.AppAuthentication och hur det visar i den [App Service och KeyVault med MSI-.NET-exempel](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Läs mer om Microsoft.Azure.Services.AppAuthentication och hur det visar i den [Microsoft.Azure.Services.AppAuthentication referens] och [App Service och KeyVault med MSI .NET exempel](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-rest-protocol"></a>Med hjälp av REST-protokollet
 
@@ -132,7 +132,7 @@ Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. Om du vill 
 > [!div class="mx-tdBreakAll"]
 > |Parameternamn|i|Beskrivning|
 > |-----|-----|-----|
-> |Resursen|Fråga|AAD-resurs-URI för resursen för som en token ska hämtas.|
+> |resurs|Fråga|AAD-resurs-URI för resursen för som en token ska hämtas.|
 > |API-version|Fråga|Versionen av token API som ska användas. ”2017-09-01” är för närvarande den enda version som stöds.|
 > |hemligt|Huvudet|Värdet för miljövariabeln MSI_SECRET.|
 
@@ -144,7 +144,7 @@ Ett lyckat svar för 200 OK innehåller en JSON-meddelandetext med följande ege
 > |-------------|----------|
 > |access_token|Den begärda åtkomst-token. Anropa webbtjänsten kan använda den här variabeln för att autentisera till mottagande webbtjänsten.|
 > |expires_on|Tiden då den åtkomst-token upphör att gälla. Representeras som antalet sekunder från 1970-01-01T0:0:0Z UTC tills förfallotid. Det här värdet används för att fastställa livslängden för cachelagrade token.|
-> |Resursen|App-ID URI för mottagande webbtjänsten.|
+> |resurs|App-ID URI för mottagande webbtjänsten.|
 > |token_type|Anger värdet för token-typer. Den enda typen som har stöd för Azure AD är ägar. Mer information om ägar-token finns [OAuth 2.0 auktorisering ramen: ägar-Token användning (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
@@ -208,3 +208,6 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+
+[Microsoft.Azure.Services.AppAuthentication referens]: https://go.microsoft.com/fwlink/p/?linkid=862452

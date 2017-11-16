@@ -1,6 +1,6 @@
 ---
-title: "Ansluta till virtuella datorer efter en redundansväxling till en sekundär plats med Azure Site Recovery | Microsoft Docs"
-description: "Nätverk riktlinjer för att ansluta till virtuella datorer efter en redundansväxling till en sekundär plats med Azure Site Recovery."
+title: "Konfigurera IP-adresser för att ansluta efter växling till en sekundär plats med Azure Site Recovery | Microsoft Docs"
+description: "Beskriver hur du ställer in IP-adresser för att ansluta till virtuella datorer efter en redundansväxling till en sekundär plats med Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: ce33a90a303a10de8ff198754e8e39c334035537
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 6baeda08b1c41cc024a02f51ca27be2829c46962
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-a-secondary-site"></a>Ansluta till virtuella datorer efter en redundansväxling till en sekundär plats
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-a-secondary-site"></a>Konfigurera IP-adresser för att ansluta efter växling till en sekundär plats
 
 När du har granskat kraven för distribution av den här artikeln för att planera nätverk när replikering av Hyper-V virtuella datorer (VM) hanteras i System Center Virtual Machine Manager (VMM)-moln, till en sekundär plats med hjälp av [Azure Site Recovery](site-recovery-overview.md) i Azure-portalen. 
 

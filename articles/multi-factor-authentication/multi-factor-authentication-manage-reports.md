@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: richagi
+ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
 
@@ -29,8 +29,8 @@ Azure Multi-Factor Authentication innehåller flera rapporter som kan användas 
 |:--- |:--- |
 | Användning |Användningen rapporter visar information om övergripande användning, Användarsammanfattning och användarinformation. |
 | Serverstatus |Den här rapporten visar statusen för multi-Factor Authentication-servrar som är kopplad till ditt konto. |
-| Historik över blockerad användare |Rapporterna Visar historik över förfrågningar om att blockera eller avblockera användare. |
-| Historik över åsidosatt användare |Visar historiken över förfrågningar om att koppla förbi Multi-Factor Authentication för en användares telefonnummer. |
+| Blockeringshistorik för användare |Rapporterna Visar historik över förfrågningar om att blockera eller avblockera användare. |
+| Förbikopplingshistorik för användare |Visar historiken över förfrågningar om att koppla förbi Multi-Factor Authentication för en användares telefonnummer. |
 | Bedrägerivarning |Visar en historik över bedrägerivarningar som skickats inom det angivna datumintervallet. |
 | I kö |Visar rapporter i kö för bearbetning och deras status. En länk för att hämta eller visa rapporten tillhandahålls när rapporten är färdig. |
 

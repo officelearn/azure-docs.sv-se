@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: a925241d10b068e377fa9a11fc854db34c808343
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: bec2b2dc8a29e5c94e3d3c7f2f0333e07bfe3a4f
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Utforska HockeyApp data i Application Insights
 
 > [!NOTE]
-> Visual Studio Mobile Center är nu den rekommenderade tjänsten från Microsoft för att övervaka ny mobila appar. [Lär dig hur du ställer in dina appar via Mobile Center och Application Insights](app-insights-mobile-center-quickstart.md).
+> Visual Studio App Center är nu den rekommenderade tjänsten från Microsoft för att övervaka ny mobila appar. [Lär dig hur du ställer in dina appar med App Center och Application Insights](app-insights-mobile-center-quickstart.md).
 > 
 > 
 

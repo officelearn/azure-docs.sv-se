@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
 ms.author: andredm
-ms.openlocfilehash: cb6e5a398a1d7e20efbcc4a8900f9e8dea43ad2c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c1f49e2c7836a56f37aafcaad0cb74278213a720
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Utöka behörighet som en klientadministratör med rollbaserad åtkomstkontroll
 
@@ -43,6 +43,30 @@ Den här funktionen är viktigt eftersom det tillåter innehavaradministration a
 > Intryck är att det här är en Global egenskap för Azure Active Directory, men den fungerar på grundval av per användare för den inloggade användaren. När du har behörighet som Global administratör i Azure Active Directory, kan du anropa funktionen elevateAccess för användaren som du för närvarande är inloggad i Azure Active Directory Administrationscenter.
 
 ![Azure AD Admin Center - egenskaper – Globaladmin kan hantera Azure-prenumeration – skärmbild](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="view-role-assignments-at-the--scope-using-powershell"></a>Visa rolltilldelningar definitionsområdet ”/” med hjälp av PowerShell
+Visa den **administratör för användaråtkomst** tilldelning vid den  **/**  omfång, använder den `Get-AzureRmRoleAssignment` PowerShell-cmdlet.
+    
+```
+Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+```
+
+**Exempel på utdata**:
+
+RoleAssignmentId: /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+Omfång: /    
+Visningsnamn: användarnamn    
+SignInName:username@somedomain.com    
+RoleDefinitionName: Administratör för användaråtkomst    
+RoleDefinitionId: 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+Objekt-ID: d65fd0e9-c185-472c-8f26-1dafa01f72cc    
+ObjectType: användare    
+
+## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>Ta bort rolltilldelning i ”/” scope med hjälp av Powershell:
+Du kan ta bort tilldelningen med följande PowerShell-cmdlet:
+```
+Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
+```
 
 ## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Använd elevateAccess för att ge innehavare åtkomst med REST API
 

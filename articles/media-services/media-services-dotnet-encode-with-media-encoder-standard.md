@@ -1,6 +1,6 @@
 ---
 title: "Koda en tillgång med Media Encoder Standard med hjälp av .NET | Microsoft Docs"
-description: "Det här avsnittet visar hur du använder .NET för att koda en tillgång med Media Encoder Strandard."
+description: "Den här artikeln visar hur du använder .NET för att koda en tillgång med Media Encoder Strandard."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 929592368501c54277748bf46b2160c9058db3fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cce668007030672aff7af60c70339c1e079c75b1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Koda en tillgång med Media Encoder Standard med hjälp av .NET
 Kodningsjobb är en av de vanligaste bearbetningsuppgifterna i Media Services. Du skapar kodningsjobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda Media Services-inbyggda Media-kodaren. Du kan också använda en kodare som tillhandahålls av Media Services partner; kodare från tredje part är tillgängliga via Azure Marketplace. 
 
-Det här avsnittet visar hur du använder .NET för att koda dina tillgångar med Media Encoder Standard (MES). Media Encoder Standard konfigureras med hjälp av en kodare förinställningar beskrivs [här](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Den här artikeln visar hur du använder .NET för att koda dina tillgångar med Media Encoder Standard (MES). Media Encoder Standard konfigureras med hjälp av en kodare förinställningar beskrivs [här](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Det rekommenderas att du alltid koda källfilerna till en MP4-uppsättningen med anpassad bithastighet och sedan konvertera uppsättningen till önskade format med hjälp av den [dynamisk paketering](media-services-dynamic-packaging-overview.md). 
 
@@ -181,6 +181,14 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
                 }
             }
         }
+
+
+## <a name="advanced-encoding-features-to-explore"></a>Avancerade kodning funktioner att utforska
+* [Hur du skapar miniatyrer](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Genererar miniatyrer vid kodning](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Beskär videor vid kodning](media-services-crop-video.md)
+* [Anpassa kodning förinställningar](media-services-custom-mes-presets-with-dotnet.md)
+* [Överlägg eller en vattenstämpel en video med en avbildning](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

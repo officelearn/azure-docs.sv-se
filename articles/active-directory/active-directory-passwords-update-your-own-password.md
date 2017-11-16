@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>Återställa ditt lösenord för arbetet eller skolan
 
@@ -95,6 +95,27 @@ Använd den här metoden om du normalt kommer åt dina program från Azure Acces
 3. Klicka på **Ändra lösenord**
 4. Ange ditt gamla lösenord, ange och bekräfta det nya lösenordet och klicka sedan på **Skicka**
 
+## <a name="reset-password-at-login"></a>Återställ lösenord vid inloggning
+
+Om administratören har aktiverat funktionen kan du nu visas en länk till **Återställ lösenord** på din Windows 10 faller skapare Update-inloggningssidan.
+
+![LoginScreen][LoginScreen]
+
+Klicka på den **Återställ lösenord** länken öppnas SSPR-upplevelse på inloggningssidan så att du kan återställa ditt lösenord utan att behöva logga in för att komma åt den normala webbaserad upplevelsen.
+
+1. Bekräfta ditt användar-ID och klicka på **nästa**
+2. Välj och bekräfta en kontaktmetod för verifiering. Din IT-personal kan behöva mer kontroll och du kan behöva upprepa det här steget igen med ett annat alternativ.
+
+   ![ContactMethod][ContactMethod]
+
+3. På den **skapa ett nytt lösenord** sidan, ange ett nytt lösenord, bekräfta lösenordet och klicka sedan på **nästa**. Vi rekommenderar att lösenordet är mellan 8 och 16 tecken med versaler och gemener, siffror och specialtecken.
+
+   ![ResetPassword][ResetPassword]
+
+4. När du ser **ditt lösenord har återställts**, klickar du på **Slutför**
+
+Nu kan du normalt komma åt ditt konto. Om du inte kan det ber du IT-personalen i din organisation om hjälp.
+
 ## <a name="common-problems-and-their-solutions"></a>Vanliga problem och lösningar
 
  Här följer tillfällen vanliga fel och lösningar:
@@ -116,3 +137,6 @@ Använd den här metoden om du normalt kommer åt dina program från Azure Acces
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Kontrollera dina autentiseringsdata"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Ändra ditt lösenord"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Ditt lösenord har återställts"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Länken för Windows 10 faller skapare Update inloggningen skärmen återställning av lösenord"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Kontrollera dina autentiseringsdata"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Ändra ditt lösenord"

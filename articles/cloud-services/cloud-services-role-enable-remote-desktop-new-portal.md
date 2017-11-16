@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Aktivera anslutning till fjärrskrivbord för en roll i Azure-molntjänster
 > [!div class="op_single_selector"]
 > * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Klassisk Azure-portal](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Fjärrskrivbord kan du få åtkomst till skrivbordet på en roll som körs i Azure. Du kan använda anslutning till fjärrskrivbord för att felsöka och diagnostisera problem med programmet när den körs.
 
@@ -47,7 +44,7 @@ Azure-portalen använder metoden Remote Desktop-tillägget så att du kan aktive
     ![Cloud services fjärrskrivbord](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > Alla rollinstanser kommer att startas om när du först aktivera Fjärrskrivbord och klicka på OK (markering). Certifikatet som används för att kryptera lösenordet måste installeras på vilken roll för att förhindra att en omstart. För att förhindra en omstart [överföra ett certifikat för Molntjänsten](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) och återgå sedan till den här dialogrutan.
+   > Alla rollinstanser kommer att startas om när du först aktivera Fjärrskrivbord och klicka på OK (markering). Certifikatet som används för att kryptera lösenordet måste installeras på vilken roll för att förhindra att en omstart. För att förhindra en omstart [överföra ett certifikat för Molntjänsten](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) och återgå sedan till den här dialogrutan.
    >
    >
 3. I **roller**, väljer du den roll som du vill uppdatera eller välj **alla** för alla roller.
@@ -70,5 +67,5 @@ När fjärrskrivbord har aktiverats på rollerna, kan du upprätta en anslutning
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-[Hur du konfigurerar molntjänster](cloud-services-how-to-configure.md)
+[Hur du konfigurerar molntjänster](cloud-services-how-to-configure-portal.md)
 [Cloud services vanliga frågor och svar - fjärrskrivbord](cloud-services-faq.md)

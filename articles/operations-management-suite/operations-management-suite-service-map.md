@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Använd Tjänstkarta lösningen i Operations Management Suite
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkartan, kan du visa dina servrar på samma sätt som du betrakta dem: som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar över en TCP-ansluten arkitektur med ingen konfiguration krävs för andra än installation av en agent.
@@ -231,16 +231,16 @@ Den **prestanda på en dator** fönstret standard prestandastatistik för den va
 Om du vill visa prestandadata, du kan behöva [aktivera lämplig logganalys prestandaräknarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  De räknare du vill aktivera:
 
 Windows:
-- Processor(*)\% processortid
-- Minne\% använda dedikerade byte
-- Nätverket nätverkskort (*) \Bytes skickade per sekund
-- Nätverket nätverkskort (*) \Bytes mottagna per sekund
+- Processor(*)\\% processortid
+- Minne\\% använda dedikerade byte
+- Nätverk Adapter(*)\\skickade byte/sek
+- Nätverk Adapter(*)\\mottagna byte/sek
 
 Linux:
-- Processor(*)\% processortid
-- Memory(*)\% använt minne
-- Nätverket nätverkskort (*) \Bytes skickade per sekund
-- Nätverket nätverkskort (*) \Bytes mottagna per sekund
+- Processor(*)\\% processortid
+- Memory(*)\\använt minne i procent
+- Nätverk Adapter(*)\\skickade byte/sek
+- Nätverk Adapter(*)\\mottagna byte/sek
 
 För att få prestandadata som nätverk, måste du också aktiverat överföring Data 2.0 lösningen i Operations Management Suite.
  

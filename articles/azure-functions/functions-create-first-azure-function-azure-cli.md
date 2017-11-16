@@ -6,21 +6,21 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 08/22/2017
+ms.date: 11/08/2017
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: ab35963dc9d10134799270e6ab3e6593be0e601a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4356d00b2694224f52a9359cd4a57d3a70a34d18
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Skapa din första funktion med Azure CLI
 
-I den här snabbstartsguiden får du hjälp att skapa din första funktion i Azure Functions. Du kan använda Azure CLI till att skapa en funktionsapp, som är den serverfria infrastruktur som är värd för funktionen. Själva funktionskoden distribueras från en GitHub-exempellagringsplats.    
+Det här avsnittet för Snabbstart vägleder dig igenom hur du använder Azure Functions för att skapa din första funktion. Du använder Azure CLI för att skapa en funktionsapp, vilket är den [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) infrastruktur som är värd för din funktion. Själva funktionskoden distribueras från en GitHub-exempellagringsplats.    
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. 
 
@@ -38,59 +38,21 @@ Innan du kör exemplet måste du ha följande:
 Om du väljer att installera och använda CLI lokalt kräver Azure CLI version 2.0 eller senare i det här avsnittet. Kör `az --version` att hitta den version du har. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+[!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). En Azure-resursgrupp är en logisk behållare som Azure-resurser (t.ex. funktionsappar, databaser och lagringskonton) distribueras och hanteras i.
-
-I följande exempel skapas en resursgrupp med namnet `myResourceGroup`.  
-Om du inte använder molnet Shell, logga in först använda `az login`.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
-```
-
-
-## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
-
-I funktioner används ett Azure Storage-konto till att lagra status och annan information om dina funktioner. Skapa ett lagringskonto i resursgruppen du skapade med hjälp av kommandot [az storage account create](/cli/azure/storage/account#create).
-
-Ersätta en globalt unik lagringskontonamnet där du ser i följande kommando i `<storage_name>` platshållare. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.
-
-```azurecli-interactive
-az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
-```
-
-När lagringskontot har skapats visas information som liknar följande exempel i Azure CLI:
-
-```json
-{
-  "creationTime": "2017-04-15T17:14:39.320307+00:00",
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myresourcegroup/...",
-  "kind": "Storage",
-  "location": "westeurope",
-  "name": "myfunctionappstorage",
-  "primaryEndpoints": {
-    "blob": "https://myfunctionappstorage.blob.core.windows.net/",
-    "file": "https://myfunctionappstorage.file.core.windows.net/",
-    "queue": "https://myfunctionappstorage.queue.core.windows.net/",
-    "table": "https://myfunctionappstorage.table.core.windows.net/"
-  },
-     ....
-    // Remaining output has been truncated for readability.
-}
-```
+[!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 Du måste ha en funktionsapp som värd för körning av dina funktioner. Funktionsappen är en miljö för serverfri körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#create). 
 
-Ersätt namnet på appen en unik funktion där du ser i följande kommando i `<app_name>` platshållare och lagringskontot namn för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. 
+Ersätt namnet på appen en unik funktion där du ser i följande kommando i `<app_name>` platshållare och lagringskontot namn för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Den _distribution källadress_ parametern är en exempel-lagringsplatsen i GitHub som innehåller ”Hello World” HTTP aktiveras funktionen.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---consumption-plan-location westeurope
+--consumption-plan-location westeurope --deployment-source-url https://github.com/Azure-Samples/functions-quickstart
 ```
-Som standard skapas en funktionsapp med värdplanen Consumption, vilket innebär att resurser läggs till dynamiskt när de behövs i dina funktioner och att du bara betalar när funktionerna körs. Mer information finns i [Välja rätt värdplan](functions-scale.md). 
+Ange den _förbrukning plan plats_ parametern innebär att funktionen är värd för appen i en värd plan förbrukning. Resurser läggs till dynamiskt som krävs av dina funktioner och du betalar endast när funktioner som körs i den här planen. Mer information finns i [Välja rätt värdplan](functions-scale.md). 
 
 När funktionsappen har skapats visas information som liknar följande exempel i Azure CLI:
 
@@ -112,59 +74,8 @@ När funktionsappen har skapats visas information som liknar följande exempel i
 }
 ```
 
-Nu när du har en funktionsapp kan du distribuera den faktiska funktionskoden från GitHub-exempellagringsplatsen.
+[!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
-## <a name="deploy-your-function-code"></a>Distribuera din funktionskod  
+[!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-Det finns flera sätt att skapa funktionskoden i din nya funktionsapp. I det här ämnet ansluter vi till en exempellagringsplats i GitHub. Precis som tidigare ersätter du platshållaren `<app_name>` med namnet på den funktionsapp du skapade. 
-
-```azurecli-interactive
-az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
---repo-url https://github.com/Azure-Samples/functions-quickstart \
---manual-integration 
-```
-När distributionskälla har angetts, visar Azure CLI information liknar följande exempel (null-värden bort för att läsa):
-
-```json
-{
-  "branch": "master",
-  "deploymentRollbackEnabled": false,
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/...",
-  "isManualIntegration": true,
-  "isMercurial": false,
-  "location": "West Europe",
-  "name": "quickstart",
-  "repoUrl": "https://github.com/Azure-Samples/functions-quickstart",
-  "resourceGroup": "myResourceGroup",
-  "type": "Microsoft.Web/sites/sourcecontrols"
-}
-```
-
-## <a name="test-the-function"></a>Testa funktionen
-
-Använd cURL till att testa den distribuerade funktionen på en Mac- eller Linux-dator, eller Bash i Windows. Kör följande cURL-kommando och ersätt platshållaren `<app_name>` med namnet på din funktionsapp. Lägg till frågesträngen `&name=<yourname>` i webbadressen.
-
-```bash
-curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
-```  
-
-![Funktionssvaret visas i en webbläsare.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
-
-Om du inte har cURL tillgängligt på kommandoraden anger du samma webbadress i webbläsarens adressfält. På samma sätt ersätter du platshållaren `<app_name>` med namnet på funktionsappen och lägger till frågesträngen `&name=<yourname>` i webbadressen. 
-
-    http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
-   
-![Funktionssvaret visas i en webbläsare.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)  
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-De andra snabbstarterna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter eller med självstudierna ska du inte rensa resurserna som skapas i denna snabbstart. Om du inte planerar att fortsätta kan du använda kommandona nedan för att ta bort alla resurser som har skapats i den här snabbstarten:
-
-```azurecli-interactive
-az group delete --name myResourceGroup
-```
-Skriv `y` när du uppmanas till detta.
-
-## <a name="next-steps"></a>Nästa steg
-
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]

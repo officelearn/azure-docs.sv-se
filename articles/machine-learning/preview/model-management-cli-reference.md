@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referens för modellen management-kommandoradsgränssnittet
 
@@ -69,6 +69,8 @@ Lokala argument:
                      the active MLC env.
 
 **Konfigurera en miljö för distribution**
+
+Installationskommandot måste du ha deltagare åtkomst till prenumerationen. Om du inte har som behöver du minst deltagare åtkomst till den resursgrupp som du distribuerar till. Om du vill göra det senare, måste du ange resursgruppens namn som en del av installationen kommando med `-g` flaggan. 
 
 Det finns två alternativ för distributionen: *lokala* och *klustret*. Ange den `--cluster` (eller `-c`) flaggan gör Klusterdistribution som etablerar en ACS-kluster. Grundläggande inställningar syntax är följande:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Styrning i Azure
 
@@ -225,14 +225,14 @@ Resurser behöver inte finnas i samma resursgrupp för att dela en tagg. Du kan 
 Principer för företagsresurser kan du skapa standardregler för din organisation. Du kan skapa principer som kontrollera resurser som är märkta med lämpliga värden.
 
 > [!Note]
-> Mer information finns i [gäller resursprinciper för taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> Mer information finns i [fakturering taggar princip initiativ](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Du kan också visa taggade resurser via Azure Portal.
 
 [Användningsrapporten](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) för din prenumeration innehåller taggnamn och -värden, vilket betyder att du kan dela upp kostnader efter taggar.
 
 > [!Note]
-> Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+> Mer information om taggar finns [fakturering taggar princip initiativ](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Följande begränsningar gäller för taggar:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Konfigurera din Azure-projekt med flera tjänstkonfiguration
 Ett Azure cloud service-projekt innehåller två konfigurationsfiler: ServiceDefinition.csdef och ServiceConfiguration.cscfg. De här filerna paketeras med ditt Azure-molnet tjänstprogram och distribueras till Azure.
@@ -30,7 +30,7 @@ Azure-verktyg för Microsoft Visual Studio innehåller egenskapssidor som du kan
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Information om de underliggande scheman för tjänsten definitions- och konfigurationsfiler för tjänsten finns på [Schemareferens](https://msdn.microsoft.com/library/azure/dd179398.aspx). Läs mer om tjänstkonfiguration [hur du konfigurerar molntjänster](cloud-services/cloud-services-how-to-configure.md).
+Information om de underliggande scheman för tjänsten definitions- och konfigurationsfiler för tjänsten finns på [.csdef XML-Schema](cloud-services/schema-csdef-file.md) och [.cscfg XML-Schema](cloud-services/schema-cscfg-file.md) artiklar. Läs mer om tjänstkonfiguration [hur du konfigurerar molntjänster](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## <a name="configuring-role-properties"></a>Konfigurera rollegenskaper för en
 Egenskapssidorna för en webbroll och en arbetsroll liknar varandra, även om det finns några skillnader som framgår i följande avsnitt.
@@ -88,7 +88,7 @@ Du kan använda den **lokal lagring** egenskapssidan för att reservera en eller
 ## <a name="certificates-page"></a>Sidan Certifikat
 På den **certifikat** sidan kan du koppla certifikat till din roll. De certifikat som du lägger till kan användas för att konfigurera HTTPS-slutpunkter på den **slutpunkter** egenskapssida.
 
-Den **certifikat** egenskapssidan lägger till information om dina certifikat i tjänstkonfigurationen av. Observera att certifikaten inte paketeras med din tjänst. Du måste överföra ditt certifikat separat till Azure via den [klassiska Azure-portalen](http://go.microsoft.com/fwlink/?LinkID=213885).
+Den **certifikat** egenskapssidan lägger till information om dina certifikat i tjänstkonfigurationen av. Observera att certifikaten inte paketeras med din tjänst. Du måste överföra ditt certifikat separat till Azure via den [Azure-portalen](http://portal.azure.com).
 
 Om du vill koppla ett certifikat till din roll måste du ange ett namn för certifikatet. Du använder det här namnet för att referera till certifikatet när du konfigurerar en HTTPS-slutpunkt på den **slutpunkter** egenskapssida. Ange sedan om certifikatarkivet är **lokal dator** eller **aktuell användare** och namnet på arkivet. Slutligen ange certifikatets tumavtryck. Om certifikatet finns i den aktuella User\Personal (min) store, kan du ange certifikatets tumavtryck genom att välja certifikatet från en lista. Om det finns någon annanstans, ange tumavtrycket värdet manuellt.
 

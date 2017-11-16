@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Så här hanterar du molntjänster
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-manage-portal.md)
-> * [Klassisk Azure-portal](cloud-services-how-to-manage.md)
->
->
-
 I den **molntjänster (klassisk)** område i Azure portal, du kan uppdatera en rolltjänst eller en distribution, befordra en stegvis distribution till produktion, länka resurser till din molntjänst så att du kan se resursberoenden och skala resurser tillsammans och ta bort en molnbaserad tjänst eller en distribution.
 
 Mer information om hur du skala Molntjänsten [här](cloud-services-how-to-scale-portal.md).

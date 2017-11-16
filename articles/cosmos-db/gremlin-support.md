@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/10/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin diagram
 Har stöd för Azure Cosmos-DB [Apache Tinkerpop](http://tinkerpop.apache.org) kurva traversal språk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Graph API för att skapa diagram entiteter och utför åtgärder i diagrammet frågan. Du kan använda Gremlin språk för att skapa diagram entiteter (formhörnen och kanter), ändra egenskaper i dessa enheter, utföra frågor och traversals och ta bort enheter. 
 
-Azure Cosmos-DB ger funktioner för enterprise-redo för graph-databaser. Detta inkluderar global distributionsplatsen, oberoende skalning av lagring och dataflöde, förutsägbar en siffra millisekunders latens, automatisk indexering och 99,99% SLA: er. Eftersom Azure Cosmos DB stöder TinkerPop/Gremlin kan migrera du enkelt program som skrivits med en annan graph-databas utan att behöva göra kodändringar. Dessutom tack vare stöd för Gremlin Azure Cosmos DB smidigt kan integreras med TinkerPop-aktiverade analytics ramverk som [Apache Spark GraphX](http://spark.apache.org/graphx/). 
+Azure Cosmos-DB ger funktioner för enterprise-redo för graph-databaser. Detta inkluderar global distributionsplatsen, oberoende skalning av lagring och dataflöde, förutsägbar en siffra millisekunders latens automatisk indexering servicenivåavtal, läsa tillgänglighet för databasen konton utsträckning två eller flera Azure-regioner. Eftersom Azure Cosmos DB stöder TinkerPop/Gremlin kan migrera du enkelt program som skrivits med en annan graph-databas utan att behöva göra kodändringar. Dessutom tack vare stöd för Gremlin Azure Cosmos DB smidigt kan integreras med TinkerPop-aktiverade analytics ramverk som [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
 Vi ger en snabb genomgång av Gremlin i den här artikeln och räkna upp Gremlin funktioner och åtgärder som stöds i förhandsversionen av Graph API-stöd.
 

@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: 1403184d96388cb03b2c767c4da342ec1c6fe236
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
-Den här artikeln besvarar några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka den [Azure stöder vanliga frågor och svar](http://go.microsoft.com/fwlink/?LinkID=185083) allmän Azure priser och support information.
+Den här artikeln beskrivs några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka den [Azure stöder vanliga frågor och svar](http://go.microsoft.com/fwlink/?LinkID=185083) allmän Azure priser och support information.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Allmänna frågor om Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>Vad är Azure Service Bus?
 [Azure Service Bus](service-bus-messaging-overview.md) är en asynkron meddelandetjänst molnplattform som gör det möjligt att skicka data mellan frikopplad system. Microsoft erbjuder den här funktionen som en tjänst, vilket innebär att du inte behöver någon egen maskinvara vara värd för att kunna använda den.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Vad är en Service Bus-namnrymd?
-En [namnområde](service-bus-create-namespace-portal.md) innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program. Skapa en krävs för att använda Service Bus och en av de första stegen i komma igång.
+En [namnområde](service-bus-create-namespace-portal.md) innehåller en omfattningsbehållare för adressering av Service Bus-resurser i ditt program. Skapa ett namnområde krävs för att använda Service Bus och är en av de första stegen i komma igång.
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>Vad är en Azure Service Bus-kö?
-En [Service Bus-kö](service-bus-queues-topics-subscriptions.md) är en entitet som meddelanden lagras. Köer är särskilt användbara när du har flera program eller flera delar av ett distribuerat program som behöver kommunicera med varandra. Kön liknar ett distributionscenter i att flera produkter (meddelanden) tas emot och skickas sedan från den platsen.
+En [Service Bus-kö](service-bus-queues-topics-subscriptions.md) är en entitet som meddelanden lagras. Köer är användbara när du har flera program eller flera delar av ett distribuerat program som behöver kommunicera med varandra. Kön liknar ett distributionscenter i att flera produkter (meddelanden) tas emot och skickas sedan från den platsen.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Vad är Azure Service Bus-ämnen och prenumerationer?
 Ett ämne kan vara visualiseras som en kö och när du använder flera prenumerationer, blir den en rikare meddelanden modellen. i grunden en en-till-många-kommunikationsverktyg. Den här modellen för Publicera/prenumerera (eller *pub/sub*) aktiverar ett program som skickar ett meddelande till ett ämne med flera prenumerationer har meddelandet tas emot av flera program.
@@ -39,14 +39,14 @@ Ett ämne kan vara visualiseras som en kö och när du använder flera prenumera
 ### <a name="what-is-a-partitioned-entity"></a>Vad är en partitionerad enhet?
 En vanlig kö eller ett ämne hanteras av en enda meddelande broker och lagras i ett meddelandearkiv. En [partitionerade kö eller ett ämne](service-bus-partitioning.md) hanteras av flera meddelandet mäklare och lagras i flera meddelandearkiv. Det innebär att det totala genomflödet i en partitionerad kö eller ett ämne begränsas inte längre av prestanda i ett enda meddelande broker eller meddelandearkiv. Dessutom kan återges ett tillfälligt avbrott i ett meddelandearkiv inte en partitionerad kö eller ett ämne inte tillgänglig.
 
-Observera att sorteringen inte säkerställs när du använder partitionering entiteter. I händelse av att en partition är tillgänglig, kan du fortfarande skicka och ta emot meddelanden från andra partitioner.
+Observera att beställa inte säkerställs när du använder partitionerade enheter. I händelse av att en partition är tillgänglig, kan du fortfarande skicka och ta emot meddelanden från andra partitioner.
 
 ## <a name="best-practices"></a>Bästa praxis
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Vad är Azure Service Bus Metodtips?
-* [Metodtips för bättre prestanda med hjälp av Service Bus] [ Best practices for performance improvements using Service Bus] – den här artikeln beskriver hur du optimerar prestanda när du skickar meddelanden.
+Se [bästa praxis för bättre prestanda med hjälp av Service Bus] [ Best practices for performance improvements using Service Bus] – den här artikeln beskriver hur du optimerar prestanda när du skickar meddelanden.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>Vad bör jag veta innan du skapar enheter?
-Följande egenskaper för en kö och avsnittet är oföränderliga. Du beakta detta när du etablerar entiteterna som den inte kan ändras, utan att skapa en ny entitet ersättning.
+Följande egenskaper för en kö och avsnittet är oföränderliga. Ta hänsyn till den här begränsningen när du etablerar-enheterna när dessa egenskaper inte kan ändras utan att skapa en ny entitet ersättning.
 
 * Storlek
 * Partitionering
@@ -57,7 +57,7 @@ Följande egenskaper för en kö och avsnittet är oföränderliga. Du beakta de
 ## <a name="pricing"></a>Prissättning
 Det här avsnittet besvarar några vanliga frågor om Service Bus priser struktur.
 
-Den [Service Bus priser och fakturering](service-bus-pricing-billing.md) artikeln förklarar fakturering mätare i Service Bus och information om Service Bus priser alternativ, se [Service Bus prisinformation](https://azure.microsoft.com/pricing/details/service-bus/).
+Den [Service Bus priser och fakturering](service-bus-pricing-billing.md) artikeln förklarar fakturering mätare i Service Bus. Mer information om Service Bus priser alternativ finns [Service Bus prisinformation](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Du kan också besöka den [Azure svar](http://go.microsoft.com/fwlink/?LinkID=185083) för allmän Azure prisinformation. 
 
@@ -65,7 +65,7 @@ Du kan också besöka den [Azure svar](http://go.microsoft.com/fwlink/?LinkID=18
 Fullständig information om priser för Service Bus finns [Service Bus prisinformation][Pricing overview]. Förutom de priser som anges, debiteras du för överföring av associerade data för utgående utanför datacentret där programmet har etablerats.
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Vilka användning av Service Bus regleras dataöverföring? Vad är inte?
-Alla dataöverföring inom en viss Azure-region tillhandahålls utan kostnad, samt eventuella inkommande dataöverföring. Dataöverföring utanför en region omfattas utgång avgifter som kan vara hittas [här](https://azure.microsoft.com/pricing/details/bandwidth/).
+Alla dataöverföring inom en viss Azure-region tillhandahålls utan kostnad, samt eventuella inkommande dataöverföring. Dataöverföring utanför en region regleras utgång avgifter som du hittar [här](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="does-service-bus-charge-for-storage"></a>Debiterar Service Bus för lagring
 Nej, Service Bus inte debitera för lagring. Det finns dock en kvot för att begränsa maximal mängd data som kan vara beständiga per kö/avsnittet. Se nästa vanliga frågor och svar.
@@ -75,9 +75,9 @@ Nej, Service Bus inte debitera för lagring. Det finns dock en kvot för att beg
 En lista över Service Bus gränser och kvoter finns i [översikt över Service Bus-kvoter][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Har Service Bus användning kvoter?
-Som standard för alla moln anger tjänsten Microsoft en sammanställd månatlig kvot som har beräknats för alla prenumerationer för en kund. Eftersom vi förstår att du behöver mer än dessa gränser, kontakta kundservice när som helst så att vi kan förstå dina behov och justera dessa gränser korrekt. För Service Bus är den sammanlagd kvoten 5 miljarder meddelanden per månad.
+Som standard för alla moln anger tjänsten Microsoft en sammanställd månatlig kvot som har beräknats för alla prenumerationer för en kund. Eftersom vi förstår att du behöver mer än dessa gränser, kan du kontakta kundtjänst när som helst så att vi kan förstå dina behov och justera dessa gränser korrekt. För Service Bus är den sammanlagd kvoten 5 miljarder meddelanden per månad.
 
-Medan vi förbehåller sig rätten att inaktivera ett kundkonto som har överskridit sina kvoter för användning i en viss månad, kommer att ange e-postavisering och göra flera försök att kontakta en kund innan du vidtar någon åtgärd. Kunder som överstiger dessa kvoter ansvarar för avgifter som överskrider kvoter
+Medan vi förbehåller sig rätten att inaktivera ett kundkonto som har överskridit sina kvoter för användning i en viss månad, vi ange e-postavisering och göra flera försök att kontakta en kund innan du vidtar någon åtgärd. Kunder som överstiger dessa kvoter är fortfarande ansvarig för avgifter som överskrider kvoter.
 
 Precis som med andra tjänster i Azure tillämpar Service Bus en uppsättning specifika kvoter så att det är verkliga förbrukningen av resurser. Du hittar mer information om dessa kvoter i den [översikt över Service Bus-kvoter][Quotas overview].
 
@@ -113,7 +113,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-I följande avsnitt kan du lära dig mer om Service Bus.
+Mer information om Service Bus finns i följande artiklar:
 
 * [Introduktion till Azure Service Bus Premium (blogginlägg)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introduktion till Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise integration med XML-transformeringar
 ## <a name="overview"></a>Översikt
@@ -50,6 +50,11 @@ Nu när du har åtgärdat förutsättningarna, är det dags att skapa din logika
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Välj den **transformera XML** åtgärd   
 6. Lägga till XML **innehåll** som du omvandla. Du kan använda en XML-data som visas i HTTP-begäran som den **innehåll**. I det här exemplet väljer du innehållet i HTTP-begäran som utlöste logikappen.
+
+   > [!NOTE]
+   > Kontrollera att innehållet för den **transformera XML** är XML. Om innehållet är inte i XML- eller base64-kodade, måste du ange ett uttryck som bearbetar innehållet. Du kan till exempel använda [funktioner](logic-apps-workflow-definition-language.md#functions), till exempel ```@base64ToBinary``` för avkodning av innehållet eller ```@xml``` för bearbetning av innehåll som XML.
+ 
+
 7. Välj namnet på den **KARTAN** som du vill använda för att utföra omvandlingen. Kartan måste redan finnas i ditt konto för integrering. I ett tidigare steg gav du redan din logik appåtkomst till ditt konto för integrering med kartan.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Spara ditt arbete  

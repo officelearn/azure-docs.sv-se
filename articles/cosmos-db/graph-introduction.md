@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduktion till Azure Cosmos DB: Graph API
 
@@ -44,7 +44,7 @@ Azure Cosmos DB Graph API innehåller:
 - Elastisk skalbarhet av lagring och dataflöde med mindre än 10 ms läsa svarstiderna och mindre än 15 ms vid 99th percentilen.
 - Automatisk indexering med snabbmeddelanden frågan tillgänglighet.
 - Justerbara konsekvensnivåer.
-- Omfattande SLA: er, inklusive 99,99% tillgänglighet.
+- Omfattande SLA: er, inklusive 99,99% tillgänglighet SLA för alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen.
 
 Om du vill fråga Azure Cosmos DB, du kan använda den [Apache TinkerPop](http://tinkerpop.apache.org) kurva traversal språk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), eller andra TinkerPop-kompatibel graph-system som [Apache Spark GraphX](spark-connector-graph.md).
 

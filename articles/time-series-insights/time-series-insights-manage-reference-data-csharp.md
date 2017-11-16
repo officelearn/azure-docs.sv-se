@@ -1,36 +1,35 @@
 ---
 title: "Hantera referensdata för en Azure tid serien Insights-miljö med hjälp av C# | Microsoft Docs"
-description: "Den här självstudiekursen beskrivs hur du hanterar referensdata för en Azure tid serien Insights-miljö med hjälp av C#"
-keywords: 
+description: "Den här artikeln beskriver hur du hanterar referensdata för en Azure tid serien Insights-miljö genom att skapa ett anpassat program som skrivits i C# (c-skarpa) .NET språk."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: venkatgct
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 528a33cf01b2a0a07880dad62ba6bbaf4a605153
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera referensdata för en Azure tid serien Insights-miljö med hjälp av C#
 
-Den här C#-exempel visar hur du hanterar referensdata för en Azure tid serien Insights-miljö.
-Kontrollera följande steg har slutförts innan du kör exemplet.
+Den här artikeln beskriver C# exempelkoden du kompilera om du vill hantera referensdata för en Azure tid serien Insights-miljö.
+
+Se till att följande åtgärder har slutförts innan du kompilera och köra exempelkoden:
 1. En referens datauppsättningen har skapats med hjälp av [i den här artikeln](time-series-insights-add-reference-data-set.md).
-2. Åtkomst-token som används när du kör programmet förvärvas via Azure Active Directory-API. Denna token ska skickas i den `Authorization` huvudet i varje fråga API-begäran. För att ställa in icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md) artikel.
-3. Alla konstanter som definierats i början av exemplet är korrekt inställda.
 
-## <a name="c-sample"></a>C#-exempel
+2. Konfigurera åtkomst-token som används för att programmet för att auktorisera med. Var noga med att token förvärvas via Azure Active Directory-API. Denna token ska skickas i den `Authorization` huvudet i varje fråga API-begäran. För att ställa in icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md) artikel.
 
+3. Redigera exempelkoden om du vill ersätta exempel konstanter, anges vid **DUMMY #**, nära i början av koden. 
+
+## <a name="c-sample-code"></a>C#-exempelkod 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -233,5 +232,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-
-En fullständig API-referens, se dokumentet [Referensdata-API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) .
+Den fullständiga REST API-referensen, se [referens Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

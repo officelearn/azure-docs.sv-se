@@ -1,51 +1,68 @@
 ---
-title: "Översikt över Time Series Insights | Microsoft Docs"
-description: "Introduktion till Azure Time Series Insight som är en ny tjänst för dataanalyser av tidsserier och IoT-lösningar"
-keywords: 
-services: tsi
-documentationcenter: 
+title: "Vad är Azure tid serien Insights? | Microsoft Docs"
+description: "Introduktion till Azure tid serien Insights, en ny tjänst för tid serien dataanalys och IoT-lösningar."
+services: time-series-insights
+ms.service: time-series-insights
 author: op-ravi
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/20/2017
 ms.author: omravi
-ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 95cb26ada6f8ea39bc1a437a755f80ee7ddb7698
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="what-is-azure-time-series-insights"></a>Vad är Azure Time Series Insights?
+# <a name="what-is-azure-time-series-insights"></a>Vad är Azure tid serien Insights?
 
-Azure Time Series Insights är en hanterad molntjänst med komponenter för lagring, analys och visualisering som gör det enkelt att mata in, lagra, utforska och analysera miljarder händelser samtidigt. Med Time Series Insights får du en global vy över dina data som hjälper dig att snabbt validera dina IoT-lösningar och undvika kostsamma avbrott. Du får hjälp med att identifiera dolda trender, upptäcka avvikelser och utföra rotorsaksanalyser nästan i realtid. Time Series Insights matar in Time Series-data från händelsekoordinatorer (som IoT Hubs eller Event Hubs), indexerar data och avvecklar data utifrån en konfigurerbar bevarandeprincip. Användarna använder data antingen via en intuitiv UX eller REST Query-API:er.
+Tid serien insikter är utformat för att lagra, visualisera och fråga stora mängder tid serie data, till exempel som genererats av IoT-enheter.  Om du vill lagra, hantera, fråga och visualisera tid series-data i molnet, sannolikt tid serien insikter rätt för dig.  
 
-![Översikt över Time Series Insight](media/overview/time-series-insights-overview-flow.png)
+Om du skapar ett program för internt bruk eller för externa kunder att använda, kan tid serien insikter användas som en serverdel för indexering, lagring och aggregering tid series-data.  Du kan skapa en anpassad visualisering och användarupplevelse längst upp.  Tid serien insikter exponerar REST frågan API: er för att aktivera det här scenariot.  
+
+Om du är osäker på om dina data är tidsserier är här vad du bör känna till.  Serien tidsdata representerar hur en process eller ändras med tiden.  Det är unikt i att den har en tidsstämpel och tid är mest användbar som en axel.  Serien tidsdata normalt anländer i tid ordning och brukar betraktas som en insert i stället för en uppdatering till din databas.  Eftersom tiden serien Insights samlar in och lagrar varje ny händelse som en rad, mäts ändras över tiden, vilket gör det lättare att söka bakåt och för att förutsäga framtida ändring.  I stora volymer, kan det vara svårt att lagra, indexering, frågor, analysera och visualisera tid series-data.  
 
 ## <a name="primary-scenarios"></a>Primära scenarier
 
-* Övervaka och validera IoT-lösningar på några minuter.
-* Visualisera och analysera IoT-data i större skala.
-* Påskynda rotorsaksanalys och avvikelseidentifiering.
-* Skapa en global översikt över flera enheter, anläggningar och data.
+- Spara tid seriedata i ett skalbart sätt.  
+  - Kärnan har tid serien insikter en databas med serien tidsdata i åtanke.  Eftersom det blir skalbar och helt hanterad hanterar tid serien insikter arbetet med att lagra och hantera händelser.
 
-## <a name="capabilities-and-benefits"></a>Funktioner och fördelar
+- Nära realtid datagranskning.  
+  - Tid serien insikter ger en explorer som visualizes alla data som strömmas till en miljö.  Strax efter att ansluta en händelsekälla kan händelsedata visas, utforskade och efterfrågade inom tid serien insikter.  Data är användbart för att verifiera om en enhet avger data som förväntat och övervaka en IoT-tillgång för hälsotillstånd, produktivitet och övergripande effektivitet.  
 
-* **Lätt att komma igång**: Azure Time Series Insights kräver inga direkta dataförberedelser och är otroligt snabbt. Anslut till miljarder händelser i Azure IoT Hub eller din händelsehubb på några minuter. När anslutningen har upprättats kan du visualisera och interagera med dina sensordata på några sekunder och snabbt validera dina IoT-lösningar. Time Series Insights är lätt att använda. Du kan interagera med dina data utan att behöva skriva en enda rad kod.  Du behöver inte heller lära dig något nytt språk. Time Series Insights tillhandahåller en detaljerad frågeyta med fri text för avancerade användare samt ”peka och klicka”-förklaringar för alla.
+- Grundorsaken analys och avvikelseidentifiering identifiering.
+  - Tid serien insikter har verktyg som mönster och Perspektivvyer för att genomföra och spara Rotorsaksanalys för flera steg.  Dessutom tid serien insikter fungerar tillsammans med aviseringar tjänster som Azure Stream Analytics, så du kan visa aviseringar och identifierade avvikelser i nära realtid i Utforskaren tid serien insikter.  
 
-* **Insikter praktiskt taget i realtid**: Time Series Insights kan mata in hundratals miljoner sensorhändelser per dag med en svarstid på en minut, så att du snabbt kan reagera på förändringar. Med Time Series Insights får du djupare insikter om dina sensordata. Det beror på att du får hjälp med att upptäcka trender och avvikelser snabbt, vilket gör det möjligt att utföra komplicerade rotorsaksanalyser och undvika kostsamma avbrott. Om du aktiverar korskorrelation mellan realtidsdata och historiska data gör Time Series Insights det möjligt att upptäcka dolda trender i datauppsättningarna.
+- En global översikt över tid serie data som strömmas från olika platser för flera asset/plats jämförelse.
+  - Du kan ansluta flera händelsekällor till en tid serien insikter.  Det innebär att data som strömmas i från flera olika platser kan visas tillsammans i nära realtid.  Användare kan dra nytta av den här synlighet att dela data med business utfyllnadstecken och möjliggöra bättre samarbete med domän-experter som kan använda sina kunskaper för att lösa problem, tillämpa metodtips och dela learnings.
 
-* **Bygga anpassade lösningar**: Bädda in Azure Time Series Insights-data till dina befintliga program eller skapa nya anpassade lösningar med REST-API:er för Time Series Insights. Skapa och dela anpassade vyer som kan du dela och med dig av, så att andra också kan ta del av dina upptäckter.
+- Skapa en kund program ovanpå tid serien insikter. 
+  - Tid serien insikter exponerar REST frågan API: er så att du kan skapa program som använder tid series-data.
 
-* **Skalbarhet**: Time Series Insights är utformat för att fungera med IoT-skalning. I förhandsversionen kan mellan 1 och 100 miljoner händelser matas in per dag, med ett standardomfång för kvarhållning på 31 dagar. Du kan visualisera och analysera livedataströmmar nästan i realtid tillsammans med stora mängder historiska data. Framöver kommer frekvensen för inmatning och kvarhållning att öka för att hantera allt större företag.
+## <a name="capabilities"></a>Funktioner
 
-## <a name="time-series-insights-glossary"></a>Ordlista för Time Series Insights
+- **Kom igång snabbt:** Azure tid serien Insights kräver inga direkta data förbereds. Ansluta till miljontals händelser i dina Azure IoT-hubb eller Händelsehubb i minuter. När du är ansluten, visualisera och interagera med sensordata för att snabbt verifiera din IoT-lösningar. Du kan interagera med dina data utan att skriva kod.
+Det finns inga nya språket Läs; Tid serien insikter ger en detaljerad, fritext frågan yta för avancerade användare pekar och klickar på undersökning.
+- **Nära realtidsinsikter:** tid serien insikter som kan mata in miljontals sensor händelser per dag, med en minuts fördröjning. Tid serien Insights hjälper dig att få insikter om din sensordata genom att hjälpa dig upptäcka trender och avvikelser, genomföra analys av grundorsaken och undviker dyrbar avbrottstid. Om du aktiverar korskorrelation mellan realtidsdata och historiska data gör Time Series Insights det möjligt att upptäcka dolda trender i datauppsättningarna.
+- **Skapa anpassade lösningar:** bädda in Azure tid serien Insights-data i dina befintliga program eller skapa nya anpassade lösningar med tiden serien insikter REST API: er. Skapa anpassade vyer som du kan dela för andra att utforska dina insikter.
+- **Skalbarhet:** tid serien insikter är utformad för att stödja IoT i större skala. Det kan inkommande trafik från 1 miljon till 100 miljoner händelser per dag, med en Standardkvarhållning span 31 dagar. Du kan visualisera och analysera realtidsdata dataströmmar i nära realtid, tillsammans med historiska data. Går vidare ökar ingång och kvarhållning om du vill hantera företagsnivå.
 
-* **Miljö**: En miljö är en Azure-resurs med ingångs- och lagringskapacitet.  Kunder etablerar miljöer via Azure Portal med den kapacitet som krävs.
-* **Händelsekälla**: En händelsekälla härleds från en asynkron meddelandekö för händelser, som Azure Event Hubs.  Time Series Insights ansluts direkt till händelsekällor och matar in data i dataströmmen utan att man behöver skriva kod. Tidserieinsikter stöder för närvarande, Azure Event Hubs och Azure IoT Hubs.
-* **Referensdata**: Time Series Insights ger användarna möjlighet att ansluta till Time Series-data med referensdata.  Referensdata kan innehålla metadata om enheter eller andra statiska data som ändras relativt sällan. Time Series Insights ansluter till referensdata med dataströmmar så att användarna kan visualisera och analysera sina data nästan i realtid.
+## <a name="getting-started"></a>Komma igång
+Komma igång tar mindre än 5 minuter. 
+
+1.  Få igång etablera en tid serien insikter miljön i Azure-portalen. 
+2.  Ansluta en händelsekälla som en Azure IoT-hubb eller Händelsehubb.  
+3.  Överför referensdata (detta inte är en ytterligare tjänst).
+4.  Visa data i minuter med tiden serien insikter explorer.
+
+## <a name="time-series-insights-explorer"></a>Tid serien insikter explorer
+Det här diagrammet visar ett exempel på tidsserier insights-data visas via Utforskaren:! [Tid serien insikter explorer] (media/time-series-insights-explorer/explorer4.png)
+
+
+## <a name="next-steps"></a>Nästa steg
+ - [Utforska Utforskaren tid serien insikter i en miljö för demonstration](./time-series-quickstart.md)
+ - [Planera tid serien insikter miljön](time-series-insights-environment-planning.md)
+

@@ -1,32 +1,31 @@
 ---
 title: "Så här skalar du Azure tid serien Insights miljön | Microsoft Docs"
-description: "Den här kursen ingår så här skalar du Azure tid serien Insights-miljö"
-keywords: 
+description: "Den här artikeln beskriver hur du skalar Azure tid serien Insights miljön. Använda Azure portal för att lägga till eller ta bort inom en prisnivå SKU."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: ba6bd1ab05bb7e24dd1bc307218e7a772fbde601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Så här skalar du tid serien insikter miljön
 
-Den här kursen ingår så här skalar du tid serien insikter miljön.
+Den här artikeln beskriver hur du ändrar kapaciteten för din miljö tid serien insikter miljön med hjälp av Azure portal. Kapaciteten är multiplikatorn tillämpas på meddelanden om ingångs-hastighet, lagringskapacitet och kostnaden för din valda Sku. 
 
-> [!NOTE]
-> Skala upp över sku-typer tillåts inte. En miljö med en S1 Sku kan inte konverteras till en S2 miljö.
+Du kan använda Azure-portalen för att öka eller minska inom en viss prisnivå Sku. 
+
+Dock är ändra prisnivån SKU inte tillåtet. Till exempel kan inte en miljö med en S1 priser SKU konverteras till en S2 eller vice versa. 
+
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>S1-SKU ingång priser och kapacitet
 
@@ -42,14 +41,23 @@ Den här kursen ingår så här skalar du tid serien insikter miljön.
 | 1 | 10 GB (10 miljoner händelser) | 300 GB (300 miljoner händelser) per månad |
 | 10 | 100 GB (100 miljoner händelser) | 3 TB (3 miljarder händelser) per månad |
 
-Kapaciteter skalas linjärt, så en S1 sku med kapacitet 2 stöder 2 GB (2 miljoner) händelser per dag ingång hastighet och 60 GB (60 miljoner händelser) per månad.
+Kapaciteter skalas linjärt, så en S1 SKU med kapacitet 2 stöder 2 GB (2 miljoner) händelser per dag ingång hastighet och 60 GB (60 miljoner händelser) per månad.
 
-## <a name="changing-the-capacity-of-your-environment"></a>Ändra kapaciteten för din miljö
+## <a name="change-the-capacity-of-your-environment"></a>Ändra kapaciteten för din miljö
+1. Leta upp och markera tid serien insikter miljön i Azure-portalen. 
 
-1. Välj miljön vars kapacitet du vill ändra i Azure-portalen.
-1. Klicka på Konfigurera under inställningar.
-1. Använd skjutreglaget kapacitet för att välja den kapacitet som uppfyller kraven för meddelanden om ingångs-priser och lagringskapacitet.
+2. Under den **inställningar** rubrik, Välj **konfigurera**.
+
+   ![Configure.PNG](media/scale-your-environment/configure.png)
+
+3. Justera det **kapacitet** skjutreglaget för att välja den kapacitet som uppfyller kraven för meddelanden om ingångs-priser och lagringskapacitet. Observera den **ingång hastighet**, **lagringskapacitet**, och **uppskattade kostnaden** uppdateras dynamiskt så att visa effekten av ändringen. 
+
+   ![Skjutreglage](media/scale-your-environment/slider.png)
+
+   Du kan också skriva antalet multiplikatorn kapacitet i rutan till höger om skjutreglaget. 
+
+4. Välj **spara** att skala miljön. Förloppsindikatorn visas tills ändringen har utförts, tillfälligt. 
 
 ## <a name="next-steps"></a>Nästa steg
-
-* Kontrollera att den nya kapaciteten är tillräckliga för att förhindra begränsning. Mer information finns i *din miljö kan att komma begränsas* avsnittet [här](time-series-insights-diagnose-and-solve-problems.md).
+> [!div class="nextstepaction"]
+> [Kontrollera att den nya kapaciteten är tillräckliga för att förhindra begränsning](time-series-insights-diagnose-and-solve-problems.md).

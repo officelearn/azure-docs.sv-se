@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsområden för Azure Cosmos DB
 Den här artikeln innehåller en översikt över flera vanliga användningsområden för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungera som en startpunkt som du utvecklar programmet med Cosmos DB.   
@@ -39,7 +39,7 @@ Azure Cosmos-DB är en global distribuerade och flera olika modeller databas som
 
 Följande är några attribut i Azure Cosmos DB som gör det passar bra för program med höga prestanda med globala ambitionsnivå.
 
-* Azure Cosmos-DB partitionerar internt data för hög tillgänglighet och skalbarhet. Azure Cosmos-DB erbjuder 99,99% garantier för tillgänglighet, dataflöde, låg latens och konsekvenskontroll.
+* Azure Cosmos-DB partitionerar internt data för hög tillgänglighet och skalbarhet. Azure Cosmos-DB erbjuder 99,99% garantier för tillgänglighet, dataflöde, låg latens och konsekvent på alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen.
 * Azure Cosmos-DB har SSD-baserad lagring med låg latens ordning millisekunder svarstider.
 * Azure Cosmos DBS stöd för konsekvensnivåer som eventuell och konsekvent prefix, session och begränsat föråldrad möjliggör fullständig flexibilitet och låg kostnad till prestanda förhållandet. Ingen databas service erbjuder så mycket flexibilitet som Azure Cosmos DB i nivåer konsekvenskontroll. 
 * Azure Cosmos-DB har en flexibel data eget prisnivå modell som mätare lagring och genomströmning oberoende av varandra.

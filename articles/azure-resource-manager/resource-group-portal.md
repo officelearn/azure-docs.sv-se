@@ -12,26 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-resources-through-portal"></a>Hantera Azure-resurser via portalen
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [Portal](resource-group-portal.md) 
-> * [REST API](resource-manager-rest-api.md)
-> 
-> 
 
-Det här avsnittet visar hur du använder den [Azure-portalen](https://portal.azure.com) med [Azure Resource Manager](resource-group-overview.md) hantera Azure-resurser. Läs om hur du distribuerar resurser via portalen i [distribuera resurser med Resource Manager-mallar och Azure-portalen](resource-group-template-deploy-portal.md).
-
-Inte alla tjänsten stöder för närvarande portalen eller Resource Manager. För dessa tjänster måste du använda den [klassiska portalen](https://manage.windowsazure.com). Statusen för varje tjänst, se [Azure portal tillgänglighet diagram](https://azure.microsoft.com/features/azure-portal/availability/).
+Den här artikeln visar hur du använder den [Azure-portalen](https://portal.azure.com) med [Azure Resource Manager](resource-group-overview.md) hantera Azure-resurser. Läs om hur du distribuerar resurser via portalen i [distribuera resurser med Resource Manager-mallar och Azure-portalen](resource-group-template-deploy-portal.md).
 
 ## <a name="manage-resource-groups"></a>Hantera resursgrupper
 
@@ -58,7 +49,7 @@ Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursg
    
     ![lägga till kolumner](./media/resource-group-portal/add-columns.png)
 7. Läs om hur du distribuerar resurser till din nya resursgrupp i [distribuera resurser med Resource Manager-mallar och Azure-portalen](resource-group-template-deploy-portal.md).
-8. Du kan fästa bladet på instrumentpanelen för snabb åtkomst till en resursgrupp.
+8. Du kan fästa resursgruppen på instrumentpanelen för snabb åtkomst till en resursgrupp.
    
     ![resursgruppen för PIN-kod](./media/resource-group-portal/pin-group.png)
 9. Instrumentpanelen visar resursgruppen och dess resurser. Du kan välja antingen resursgrupper eller någon av dess resurser att navigera till objektet.
@@ -71,12 +62,12 @@ Du kan lägga till taggar till resursgrupper och resurser och organisera dem log
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="monitor-resources"></a>Övervaka resurser
-När du väljer en resurs anger resursbladet standard diagram och tabeller för att övervaka den resurstypen.
+När du väljer en resurs anger portalen standard diagram och tabeller för att övervaka den resurstypen.
 
 1. Välj en resurs och ett meddelande i **övervakning** avsnitt. Den omfattar diagram som är relevanta för resurstypen. Följande bild visar standardinställningar för övervakning av data för ett lagringskonto.
    
     ![Visa övervakning](./media/resource-group-portal/show-monitoring.png)
-2. Du kan fästa ett avsnitt på bladet på instrumentpanelen genom att välja ellips (...) ovanför avsnittet. Du kan också anpassa storlek i avsnittet i bladet eller ta bort den helt. Följande bild visar hur fästa, anpassa eller ta bort avsnittet CPU och minne.
+2. Du kan fästa ett avsnitt på instrumentpanelen genom att välja ellips (...) ovanför avsnittet. Du kan också anpassa storleken avsnittet eller ta bort den helt. Följande bild visar hur fästa, anpassa eller ta bort avsnittet CPU och minne.
    
     ![avsnittet för PIN-kod](./media/resource-group-portal/pin-cpu-section.png)
 3. Efter fästning avsnittet till instrumentpanelen visas en sammanfattning på instrumentpanelen. Och välja det tar dig direkt till mer information om data.
@@ -92,7 +83,7 @@ När du väljer en resurs anger resursbladet standard diagram och tabeller för 
      Läs om hur du arbetar med instrumentpaneler i [skapa och dela instrumentpaneler i Azure portal](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="manage-resources"></a>Hantera resurser
-I bladet för en resurs visas alternativ för hantering av resursen. Portalen visar hanteringsalternativ för den specifika resurstypen. Du kan se management-kommandon överst i resursbladet och till vänster.
+När du visar en resurs i portalen visas alternativ för att hantera just den resursen.
 
 ![Hantera resurser](./media/resource-group-portal/manage-resources.png)
 
@@ -111,7 +102,7 @@ Du kan visa information om din prenumeration och upplyfta kostnader för alla re
 
 ![prenumeration](./media/resource-group-portal/select-subscription.png)
 
-I prenumerationsbladet kan du se en bränna hastighet.
+Du kan se bränna hastighet.
 
 ![bränna hastighet](./media/resource-group-portal/burn-rate.png)
 
@@ -128,7 +119,7 @@ När du har installerat din resursgrupp, kanske du vill visa Resource Manager-ma
 Detaljerade anvisningar finns [exportera Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
 
 ## <a name="delete-resource-group-or-resources"></a>Ta bort resursgruppen eller resurser
-Tar bort en resursgrupp alla resurser som ingår i den. Du kan också ta bort enskilda resurser inom en resursgrupp. Vill du vara försiktig när du tar bort en resursgrupp eftersom det kan finnas resurser i andra resursgrupper som är länkade till den. Resource Manager tas inte bort länkade resurser, men de kan inte fungera utan förväntade resurserna.
+Tar bort en resursgrupp alla resurser som ingår i den. Du kan också ta bort enskilda resurser inom en resursgrupp. Var försiktig när du tar bort en resursgrupp. Resursgruppen kan innehålla resurser som är beroende av andra resursgrupper.
 
 ![Ta bort grupp](./media/resource-group-portal/delete-group.png)
 

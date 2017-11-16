@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domännamn för en Azure-molntjänst
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-custom-domain-name-portal.md)
-> * [Klassisk Azure-portal](cloud-services-custom-domain-name.md)
-> 
-> 
-
 När du skapar en molnbaserad tjänst Azure tilldelar den en underdomän till **cloudapp.net**. Till exempel om Molntjänsten har namnet ”contoso”, kommer användarna att kunna komma åt programmet på en URL som http://contoso.cloudapp.net. Azure ger också en virtuell IP-adress.
 
 Men du kan också exponera dina program på ditt eget domännamn som **contoso.com**. Den här artikeln beskriver hur du reservera eller konfigurera ett anpassat domännamn för Molntjänsten web-roller.
@@ -62,7 +56,7 @@ En *A* post som mappar en domän, **contoso.com** eller **www.contoso.com**, *el
 > [!NOTE]
 > Eftersom en A-post är mappad till en statisk IP-adress, kan den automatiskt lösa ändringar till IP-adressen för din tjänst i molnet. IP-adress som används av din molntjänst tilldelas första gången du distribuerar till ett tomt fack (produktion eller mellanlagring.) Om du tar bort distributionen för facket IP-adressen har getts ut av Azure och alla framtida distributioner till facket som får en ny IP-adress.
 > 
-> IP-adressen för en viss distributionsplats (produktion eller mellanlagring) är ett enkelt sätt, beständiga när växling mellan mellanlagring och produktiondistributioner eller utför en uppgradering på plats av en befintlig distribution. Mer information om hur du utför dessa åtgärder finns [så här hanterar du molntjänster](cloud-services-how-to-manage.md).
+> IP-adressen för en viss distributionsplats (produktion eller mellanlagring) är ett enkelt sätt, beständiga när växling mellan mellanlagring och produktiondistributioner eller utför en uppgradering på plats av en befintlig distribution. Mer information om hur du utför dessa åtgärder finns [så här hanterar du molntjänster](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -139,7 +133,7 @@ Det här exemplet visar hur du skapar en A-post för rotdomänen. Om du vill ska
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Så här hanterar du molntjänster](cloud-services-how-to-manage.md)
+* [Så här hanterar du molntjänster](cloud-services-how-to-manage-portal.md)
 * [Mappa CDN-innehåll till en anpassad domän](../cdn/cdn-map-content-to-custom-domain.md)
 * [Allmän konfiguration av Molntjänsten](cloud-services-how-to-configure-portal.md).
 * Lär dig hur du [distribuera en tjänst i molnet](cloud-services-how-to-create-deploy-portal.md).

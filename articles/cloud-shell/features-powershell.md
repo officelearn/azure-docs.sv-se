@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Funktioner och verktyg för PowerShell Azure Cloud Shell
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funktioner och verktyg för PowerShell Azure Cloud Shell (förhandsgranskning)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Funktioner och verktyg för [Bash](features.md) är också tillgänglig.
 
-PowerShell i molnet Shell körs på `Windows Server 2016`.
+PowerShell i molnet Shell (förhandsgranskning) körs på `Windows Server 2016`.
 
 ## <a name="features"></a>Funktioner
 
 ### <a name="secure-automatic-authentication"></a>Säker automatisk autentisering
 
-PowerShell i molnet Shell autentiserar på ett säkert sätt och automatiskt kontoåtkomst för Azure PowerShell.
+PowerShell i molnet Shell (förhandsversion) autentiserar på ett säkert sätt och automatiskt kontoåtkomst för Azure PowerShell.
 
 ### <a name="files-persistence-across-sessions"></a>Filer beständiga mellan sessioner
 
@@ -45,7 +45,7 @@ Eftersom varje begäran för molnet Shell allokerar en temporär dator filer uta
 
 ### <a name="azure-drive-azure"></a>Azure-enhet (Azure:)
 
-PowerShell i molnet Shell startar du i Azure-enhet (`Azure:`).
+PowerShell i molnet Shell (förhandsgranskning) startar du i Azure-enhet (`Azure:`).
 Azure-enhet kan enkelt kan identifieras och navigering i Azure-resurser, till exempel beräkning, nätverk, lagring etc. liknande navigera i filsystemet.
 Du kan fortsätta att använda vanliga [Azure PowerShell-cmdlets](https://docs.microsoft.com/en-us/powershell/azure) att hantera dessa resurser.
 Ändringar som görs till Azure-resurser, antingen direkt i Azure-portalen eller via Azure PowerShell-cmdlets återspeglas direkt i Azure-enheten.
@@ -109,6 +109,6 @@ Dessa kommandon är byggda på PowerShell-fjärrkommunikation och kräver PowerS
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Snabbstart med PowerShell i molnet Shell](quickstart-powershell.md)
+[Snabbstart med PowerShell i molnet Shell (förhandsgranskning)](quickstart-powershell.md)
 
 [Lär dig mer om Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

@@ -14,20 +14,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 323d574cbdeea1a2141d3c10d402e44e8af8ee19
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f47e5dfb174a0c7b99111485cee74eb01df665c7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>Hur du använder Azure Table storage från Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Översikt
 Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Table storage-tjänst. Exemplen är skrivna i Java och Använd den [Azure Storage SDK för Java][Azure Storage SDK for Java]. Scenarier som tas upp inkluderar **skapar**, **lista**, och **ta bort** tabeller, samt **infoga**, **frågar**, **ändra**, och **bort** entiteter i en tabell. Mer information om tabeller finns i [nästa steg](#Next-Steps) avsnitt.
 
-Obs: En SDK är tillgänglig för utvecklare som använder Azure Storage på Android-enheter. Mer information finns i [Azure Storage SDK för Android][Azure Storage SDK for Android].
+> [!NOTE]
+> En SDK är tillgänglig för utvecklare som använder Azure Storage på Android-enheter. Mer information finns i [Azure Storage SDK för Android][Azure Storage SDK for Android].
+>
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -70,7 +72,11 @@ String storageConnectionString =
 Följande exempel förutsätter att du har använt ett av dessa två sätt för att hämta anslutningssträngen för lagring.
 
 ## <a name="how-to-create-a-table"></a>Så här: skapa en tabell
-En **CloudTableClient** objekt kan du få referensobjekt för tabeller och enheter. Följande kod skapar en **CloudTableClient** objekt och används för att skapa en ny **CloudTable** -objektet som representerar en tabell med namnet ”personer”. (Observera: det finns flera sätt att skapa **CloudStorageAccount** objekt; mer information finns **CloudStorageAccount** i den [referens för Azure Storage Client SDK].)
+En **CloudTableClient** objekt kan du få referensobjekt för tabeller och enheter. Följande kod skapar en **CloudTableClient** objekt och används för att skapa en ny **CloudTable** -objektet som representerar en tabell med namnet ”personer”. 
+
+> [!NOTE]
+> Det finns flera sätt att skapa **CloudStorageAccount** objekt; mer information finns i **CloudStorageAccount** i den [referens för Azure Storage Client SDK].)
+>
 
 ```java
 try

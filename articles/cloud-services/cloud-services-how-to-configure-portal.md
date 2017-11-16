@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Så här konfigurerar du molntjänster
-> [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-how-to-configure-portal.md)
-> * [Klassisk Azure-portal](cloud-services-how-to-configure.md)
->
->
-
 Du kan konfigurera de vanligaste inställningarna för en molnbaserad tjänst i Azure-portalen. Du kan också uppdatera konfigurationsfilerna direkt, hämta en tjänstkonfigurationsfil för uppdatering och sedan överföra den uppdaterade filen och uppdatera molntjänsten med konfigurationsändringarna. Vilket sätt du än väljer kommer konfigurationsuppdateringarna att skickas ut till alla rollinstanser.
 
 Du kan också hantera instanser av dina molntjänstroller eller fjärrskrivbord i dem.
@@ -77,9 +71,9 @@ Istället för att använda **inställningar** > **Varningsregler**, kan du klic
 Härifrån kan du anpassa diagrammet används med panelen eller lägga till en varningsregel.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Omstart eller avbildningsåterställning fjärrskrivbord
-Just nu kan du konfigurera remote desktop med hjälp av den **Azure-portalen**. Men du kan konfigurera det via den [klassiska Azure-portalen](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), eller via [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+Du kan ställa in fjärrskrivbord via den [Azure-portalen (inställning fjärrskrivbord)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), eller via [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-Klicka först på cloud service-instans.
+Om du vill starta om, klicka avbildningsåterställning eller fjärråtkomst till en tjänst i molnet, på cloud service-instans.
 
 ![Cloud Service-instans](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

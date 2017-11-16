@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1df7e04fc9cec5722747bafce7e2e5519b76315d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Nätverksmappningen mellan två Azure-regioner
 
@@ -48,7 +48,7 @@ Gör samma sak att skapa en nätverksmappning från Sydostasien till Östasien.
 
 ## <a name="mapping-network-when-enabling-replication"></a>Mappa nätverk när du aktiverar replikering
 
-Om nätverksmappning inte görs när du replikerar en virtuell dator för första gången formuläret en Azure-regionen till en annan kan du välja målnätverket som en del av samma process. Nätverksmappningar skapar site Recovery från käll-region för målregionen och målregionen till källan region baserat på det här valet.   
+Om nätverksmappning inte görs när du replikerar en virtuell dator för första gången från en Azure-region till en annan kan du välja målnätverket som en del av samma process. Nätverksmappningar skapar site Recovery från käll-region för målregionen och målregionen till källan region baserat på det här valet.   
 
 ![Nätverksmappning](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -87,7 +87,7 @@ Om nätverksgränssnittet för den virtuella källdatorn använder statisk IP-ad
 
 #### <a name="same-address-space"></a>Samma-adressutrymme
 
-Om käll-undernät och mål-undernät har samma adressutrymme, är IP-Adressen mål ange samma som IP-Adressen för nätverksgränssnittet för den virtuella källdatorn. Om samma IP inte är tillgänglig, har vissa tillgängliga IP angetts som mål-IP.
+Om käll-undernät och mål-undernät har samma adressutrymme, är mål-IP ange samma som IP-Adressen för nätverksgränssnittet för den virtuella källdatorn. Om samma IP inte är tillgänglig, har vissa tillgängliga IP angetts som mål-IP.
 
 #### <a name="different-address-space"></a>Olika adressutrymmen
 

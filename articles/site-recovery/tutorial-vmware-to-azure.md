@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
@@ -85,20 +85,14 @@ Konfigurationsservern VM ska vara en högtillgänglig VMware VM som uppfyller f�
 Kontrollera att systemklockan är synkroniserad med en på konfigurationsservern VM.
 Tiden måste synkroniseras till inom 15 minuter. Om tidsskillnaden är större än 15 minuter, misslyckas installationen.
 
-Kontrollera att konfigurationsservern VM kan komma åt dessa webbadresser:
+Kontrollera att konfigurationsservern kan komma åt dessa webbadresser:
 
-- *. accesscontrol.windows.net. Används för Access Control och identitetshantering.
-- *. backup.windowsazure.com. Används för överföring av replikeringsdata och koordination.
-- *. blob.core.windows.net. Används för åtkomst till lagringskontot som lagrar replikerade data.
-- *. hypervrecoverymanager.windowsazure.com. Används för åtgärder för replikeringshantering och koordination.
-- Time.nist.gov och time.windows.com. Används för att kontrollera tidssynkronisering mellan system och global tid.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - IP-adressbaserade brandväggsregler ska tillåta kommunikation till Azure.
 
-URL:er för Azure Government-moln:
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- Tillåt [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (IP-intervall för Azures datacenter) och HTTPS-port 443.
+    - Tillåt IP-adressintervall för Azure-regionen för din prenumeration och för USA, västra (används för hantering av kontrollen och identitet).
 
 IP-adressbaserade brandväggsregler bör tillåter kommunikation till [IP-intervall för Azure-Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653), och port 443 (HTTPS) och 9443 (replikering). Se till att tillåta IP-adressintervall för Azure-regionen för din prenumeration och för USA, västra (används för åtkomstkontroll och Identity Management).
 
@@ -187,7 +181,7 @@ Välj och kontrollera target-resurser.
 2. Ange om ditt mål distributionsmodell är Resource Manager-baserade eller klassiska.
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
-   ![mål](./media/tutorial-vmware-to-azure/storage-network.png)
+   ![Mål](./media/tutorial-vmware-to-azure/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 

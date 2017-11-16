@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Anslut ITSM produkter och tjänster med IT Service Management-anslutningstjänsten (förhandsgranskning)
-Den här artikeln innehåller information om hur du ansluter din ITSM produkter eller tjänster till IT Service Management-anslutningstjänsten i OMS och centralt hantera din arbetsobjekt. Mer information om IT Service Management-anslutningstjänsten finns [översikt](log-analytics-itsmc-overview.md).
+Den här artikeln innehåller information om hur du ansluter din ITSM produkter eller tjänster till IT Service Management koppling (ITSMC) i OMS och centralt hantera din arbetsobjekt. Läs mer om ITSMC [ITSMC översikt](log-analytics-itsmc-overview.md).
 
 Följande produkter och tjänster stöds:
 
@@ -31,14 +31,13 @@ Följande produkter och tjänster stöds:
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-oms"></a>Anslut System Center Service Manager till IT-tjänst Management-anslutningstjänsten i OMS
 
-Följande avsnitt innehåller information om hur du ansluter din System Center Service Manager-produkten till IT Service Management-anslutningstjänsten i OMS.
+Följande avsnitt innehåller information om hur du ansluter din System Center Service Manager-produkten till ITSMC i OMS.
 
 ### <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande krav uppfyllas:
+Se till att följande krav är uppfyllda:
 
-- IT Service Management-anslutningstjänsten installerad.
-Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installerad. Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Service Manager-webbprogram (webbprogram) distribuerats och konfigurerats. Information om webbapp är [här](#create-and-deploy-service-manager-web-app-service).
 - Hybridanslutningen skapas och konfigureras. Mer information: [konfigurera hybrid anslutning](#configure-the-hybrid-connection).
 - I Service Manager-versioner som stöds: 2012 R2 eller 2016.
@@ -46,7 +45,7 @@ Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log
 
 ### <a name="connection-procedure"></a>Proceduren för anslutning
 
-Använd följande procedur för att ansluta din System Center Service Manager-instans till IT Service Management-anslutningstjänsten:
+Använd följande procedur för att ansluta din System Center Service Manager-instans till ITSMC:
 
 1. Gå till **OMS** >**inställningar** > **anslutna källor**.
 2. Välj **ITSM Connector** klickar du på **Lägg till ny anslutning**.
@@ -59,26 +58,26 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 
 | **Fält** | **Beskrivning** |
 | --- | --- |
-| **Namn**   | Ange ett namn för den System Center Service Manager-instans som du vill ansluta med IT Service Management-anslutningstjänsten.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här instansen eller visa detaljerad logganalys. |
+| **Namn**   | Ange ett namn för den System Center Service Manager-instans som du vill ansluta med ITSMC.  Du använder det här namnet senare när du konfigurerar arbetsobjekt i den här instansen eller visa detaljerad logganalys. |
 | **Välj typ av anslutning**   | Välj **System Center Service Manager**. |
 | **Server-URL**   | Ange Webbadressen till Service Manager-webbprogrammet. Mer information om Service Manager-webbprogrammet [här](#create-and-deploy-service-manager-web-app-service).
 | **Klient-ID**   | Ange klient-ID som du skapade (med skriptet för automatisk) för att autentisera webbprogrammet. Mer information om skriptet för automatisk [här.](log-analytics-itsmc-service-manager-script.md)|
 | **Klienthemlighet**   | Skriv klienthemligheten genereras för detta ID.   |
-| **Omfång för synkronisering av data**   | Välj Service Manager-arbetsobjekt som du vill synkronisera via IT Service Management-anslutningstjänsten.  Dessa objekt har importerats till logganalys fungerar. **Alternativ:** incidenter, ändringsbegäranden.|
+| **Omfång för synkronisering av data**   | Välj Service Manager-arbetsobjekt som du vill synkronisera via ITSMC.  Dessa objekt har importerats till logganalys fungerar. **Alternativ:** incidenter, ändringsbegäranden.|
 | **Synkronisera Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM produkten. När du väljer skapar OMS berörda konfigurationsobjekt som konfigurationsobjekt (vid CIs) i ITSM-system som stöds. **Som standard**: inaktiverad. |
 
-När du har anslutits och synkroniserats:
+**När du har anslutits och synkroniserats**:
 
 - Valda objekt från Service Manager har importerats till OMS **logganalys.** Du kan visa en sammanfattning av dessa arbetsobjekt på panelen IT Service Management-anslutningstjänsten.
 
-- Du kan skapa incidenter från OMS aviseringar eller loggen Sök från OMS, i den här instansen för Service Manager.
+- Du kan skapa incidenter från OMS-varningar eller loggen Sök eller Azure aviseringar från OMS, i den här instansen för Service Manager.
 
-Mer information: [skapa ITSM arbetsobjekt för aviseringar OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) och [skapa ITSM arbetsobjekt från OMS loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+Mer information: [skapa ITSM arbetsobjekt för aviseringar OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [skapa ITSM arbetsobjekt från OMS loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) och [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Skapa och distribuera tjänsten för Service Manager web app
 
-För att ansluta lokalt Service Manager med IT Service Management-anslutningstjänsten på OMS måste har Microsoft skapat ett webbprogram i Service Manager på GitHub.
+För att ansluta lokalt Service Manager med ITSMC på OMS måste har Microsoft skapat ett webbprogram i Service Manager på GitHub.
 
 Ställ in ITSM webbprogrammet för Service Manager genom att göra följande:
 
@@ -99,7 +98,7 @@ Kör skript genom att tillhandahålla följande obligatoriska uppgifter:
 
 Skriptet skapar webbappen med hjälp av namnet som du angav (tillsammans med några ytterligare strängar som gör det unikt). Den genererar den **Webbappens URL**, **klient-ID** och **klienthemlighet**.
 
-Spara värden använda du dem när du skapar en anslutning med IT Service Management-anslutningstjänsten.
+Spara värden använda du dem när du skapar en anslutning med ITSMC.
 
 **Kontrollera installationen av Web-appen**
 
@@ -109,7 +108,7 @@ Spara värden använda du dem när du skapar en anslutning med IT Service Manage
 
 ### <a name="configure-the-hybrid-connection"></a>Konfigurera hybridanslutning
 
-Använd följande procedur för att konfigurera hybridanslutning som ansluter Service Manager-instans med IT Service Management-anslutningstjänsten i OMS.
+Använd följande procedur för att konfigurera hybridanslutning som ansluter Service Manager-instans med ITSMC i OMS.
 
 1. Hitta Service Manager-webbappen under **Azure-resurser**.
 2. Klicka på **inställningar** > **nätverk**.
@@ -161,7 +160,7 @@ Din hybridanslutning är korrekt ansluten.
 ![lyckad hybridanslutning](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
-> När hybrid anslutningen skapas, kontrollera och testa anslutningen genom att gå till distribuerade webbappen för Service Manager. Se till att anslutningen är klar innan du försöker ansluta till IT Service Management-anslutningstjänsten i OMS.
+> När hybrid anslutningen skapas, kontrollera och testa anslutningen genom att gå till distribuerade webbappen för Service Manager. Se till att anslutningen är klar innan du försöker ansluta till ITSMC i OMS.
 
 Följande bild visar information om anslutningen lyckas:
 
@@ -169,13 +168,13 @@ Följande bild visar information om anslutningen lyckas:
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-oms"></a>Ansluta ServiceNow till IT-tjänst Management-anslutningstjänsten i OMS
 
-Följande avsnitt innehåller information om hur du ansluter ServiceNow-produkten till IT Service Management-anslutningstjänsten i OMS.
+Följande avsnitt innehåller information om hur du ansluter ServiceNow-produkten till ITSMC i OMS.
 
 ### <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande krav uppfyllas:
+Se till att följande krav är uppfyllda:
 
-- IT Service Management-anslutningstjänsten installerad. Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installerad. Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ServiceNow stöds versioner – Fuji, Geneva, Helsingfors.
 
 ServiceNow Admins måste göra följande i sina ServiceNow-instans:
@@ -185,7 +184,6 @@ ServiceNow Admins måste göra följande i sina ServiceNow-instans:
 
 
 ### <a name="connection-procedure"></a>**Proceduren för anslutning**
-
 Använd följande procedur för att skapa en ServiceNow-anslutning:
 
 1. Gå till **OMS** > **inställningar** > **anslutna källor**.
@@ -200,25 +198,25 @@ Använd följande procedur för att skapa en ServiceNow-anslutning:
 
 | **Fält** | **Beskrivning** |
 | --- | --- |
-| **Namn**   | Ange ett namn för ServiceNow-instans som du vill ansluta med IT Service Management-anslutningstjänsten.  Du kan använda det här namnet senare i OMS när du konfigurerar arbetsobjekt i den här ITSM eller visa detaljerad logganalys. |
+| **Namn**   | Ange ett namn för ServiceNow-instans som du vill ansluta med ITSMC.  Du kan använda det här namnet senare i OMS när du konfigurerar arbetsobjekt i den här ITSM eller visa detaljerad logganalys. |
 | **Välj typ av anslutning**   | Välj **ServiceNow**. |
-| **Användarnamn**   | Ange användarnamn integration som du skapade i ServiceNow-app som stöder anslutning till IT Service Management-anslutningstjänsten. Mer information: [skapa ServiceNow app användarrollen](#create-integration-user-role-in-servicenow-app).|
+| **Användarnamn**   | Ange användarnamn integration som du skapade i ServiceNow-app som stöder anslutning till ITSMC. Mer information: [skapa ServiceNow app användarrollen](#create-integration-user-role-in-servicenow-app).|
 | **Lösenord**   | Ange lösenordet associerat med det här användarnamnet. **Obs**: användarnamn och lösenord som används för att generera autentiseringstoken endast och lagras inte någonstans i OMS-tjänsten.  |
-| **Server-URL**   | Ange Webbadressen till den ServiceNow-instans som du vill ansluta till IT Service Management-anslutningstjänsten. |
+| **Server-URL**   | Ange Webbadressen till den ServiceNow-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID som du vill använda för OAuth2-autentisering, som du tidigare genererade.  Mer information om genererar klient-ID och Hemlig: [OAuth-installationen](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **Klienthemlighet**   | Skriv klienthemligheten genereras för detta ID.   |
-| **Omfång för synkronisering av data**   | Välj ServiceNow-arbetsobjekt som du vill synkronisera till OMS via IT Service Management-anslutningstjänsten.  De valda värdena importeras till logganalys.   **Alternativ:** incidenter och ändringsbegäranden.|
+| **Omfång för synkronisering av data**   | Välj ServiceNow-arbetsobjekt som du vill synkronisera till OMS via ITSMC.  De valda värdena importeras till logganalys.   **Alternativ:** incidenter och ändringsbegäranden.|
 | **Synkronisera Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM produkten. När du väljer skapar OMS berörda konfigurationsobjekt som konfigurationsobjekt (vid CIs) i ITSM-system som stöds. **Som standard**: inaktiverad. |
 
 
-När du har anslutits och synkroniserats:
+**När du har anslutits och synkroniserats**:
 
 - Valda objekt från ServiceNow-anslutning har importerats till OMS logganalys arbete.  Du kan visa en sammanfattning av dessa arbetsobjekt på panelen IT Service Management-anslutningstjänsten.
-- Du kan skapa incidenter, aviseringar och händelser från OMS aviseringar eller loggfil sökning i den här instansen av ServiceNow.  
+- Du kan skapa incidenter, aviseringar och händelser från OMS aviseringar eller loggen Sök eller Azure-aviseringar i den här instansen av ServiceNow.  
 
 
-Mer information: [skapa ITSM arbetsobjekt för aviseringar OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) och [skapa ITSM arbetsobjekt från OMS loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+Mer information: [skapa ITSM arbetsobjekt för aviseringar OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [skapa ITSM arbetsobjekt från OMS loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) och [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Skapa en användarroll för integrering i ServiceNow-app
 
@@ -230,7 +228,7 @@ Användare i följande procedur:
 
     Status visas som **inte slutföra** om användarrollen ännu har skapats.
 
-4.  I textrutorna bredvid **skapa Integrationsanvändare**, anger användarnamnet för den användare som kan ansluta till IT Service Management-anslutningstjänsten i OMS.
+4.  I textrutorna bredvid **skapa Integrationsanvändare**, anger användarnamnet för den användare som kan ansluta till ITSMC i OMS.
 5.  Ange lösenordet för den här användaren och klicka på **OK**.  
 
 >[!NOTE]
@@ -239,7 +237,7 @@ Användare i följande procedur:
 
 Den nyligen skapade användaren visas med standardrollerna tilldelad.
 
-Standardroller:
+**Roller som standard**:
 - personalize_choices
 - import_transformer
 -   x_mioms_microsoft.User
@@ -262,14 +260,15 @@ När användaren har skapats, status för **Kontrollera installationschecklista*
 
 ## <a name="connect-provance-to-it-service-management-connector-in-oms"></a>Ansluta Provance till IT-tjänst Management-anslutningstjänsten i OMS
 
-Följande avsnitt innehåller information om hur du ansluter Provance produkten till IT Service Management-anslutningstjänsten i OMS.
+Följande avsnitt innehåller information om hur du ansluter Provance produkten till ITSMC i OMS.
+
 
 ### <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande krav uppfyllas:
+Se till att följande krav är uppfyllda:
 
 
-- IT Service Management-anslutningstjänsten installerad. Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installerad. Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Provance App ska registreras med Azure AD - och klient-ID görs tillgängligt. Detaljerad information finns i [hur du konfigurerar active directory-autentisering](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Användarrollen: administratör.
@@ -289,32 +288,32 @@ Använd följande procedur för att skapa en Provance-anslutning:
 
 | **Fält** | **Beskrivning** |
 | --- | --- |
-| **Namn**   | Ange ett namn för den Provance-instans som du vill ansluta med IT Service Management-anslutningstjänsten.  Du kan använda det här namnet senare i OMS när du konfigurerar arbetsobjekt i den här ITSM eller visa detaljerad logganalys. |
+| **Namn**   | Ange ett namn för den Provance-instans som du vill ansluta med ITSMC.  Du kan använda det här namnet senare i OMS när du konfigurerar arbetsobjekt i den här ITSM eller visa detaljerad logganalys. |
 | **Välj typ av anslutning**   | Välj **Provance**. |
-| **Användarnamn**   | Ange det användarnamn som kan ansluta till IT Service Management-anslutningstjänsten.    |
+| **Användarnamn**   | Ange det användarnamn som kan ansluta till ITSMC.    |
 | **Lösenord**   | Ange lösenordet associerat med det här användarnamnet. **Obs:** användarnamn och lösenord som används för att generera autentiseringstoken endast och lagras inte någonstans i OMS-tjänsten. _|
-| **Server-URL**   | Ange Webbadressen till din Provance-instans som du vill ansluta till IT Service Management-anslutningstjänsten. |
+| **Server-URL**   | Ange Webbadressen till din Provance-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i Provance-instans.  Mer information om klient-ID, se [hur du konfigurerar active directory-autentisering](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
-| **Omfång för synkronisering av data**   | Välj de Provance arbetsobjekt som du vill synkronisera till OMS via IT Service Management-anslutningstjänsten.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:** incidenter, ändringsbegäranden.|
+| **Omfång för synkronisering av data**   | Välj de Provance arbetsobjekt som du vill synkronisera till OMS via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:** incidenter, ändringsbegäranden.|
 | **Synkronisera Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM produkten. När du väljer skapar OMS berörda konfigurationsobjekt som konfigurationsobjekt (vid CIs) i ITSM-system som stöds. **Som standard**: inaktiverad.|
 
-När du har anslutits och synkroniserats:
+**När du har anslutits och synkroniserats**:
 
 - Valda objekt från Provance anslutning har importerats till OMS **logganalys.**  Du kan visa en sammanfattning av dessa arbetsobjekt på panelen IT Service Management-anslutningstjänsten.
-- Du kan skapa incidenter och händelser från OMS aviseringar eller Sök i loggfilen i den här Provance-instansen.
+- Du kan skapa incidenter och händelser från OMS aviseringar eller loggen Sök eller Azure-aviseringar i den här Provance-instansen.
 
-Mer information: [skapa ITSM arbetsobjekt för aviseringar OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) och [skapa ITSM arbetsobjekt från OMS loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+Mer information: [skapa ITSM arbetsobjekt för aviseringar OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [skapa ITSM arbetsobjekt från OMS loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) och [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-oms"></a>Ansluta Cherwell till IT-tjänst Management-anslutningstjänsten i OMS
 
-Följande avsnitt innehåller information om hur du ansluter Cherwell produkten till IT Service Management-anslutningstjänsten i OMS.
+Följande avsnitt innehåller information om hur du ansluter Cherwell produkten till ITSMC i OMS.
 
 ### <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande krav uppfyllas:
+Se till att följande krav är uppfyllda:
 
-- IT Service Management-anslutningstjänsten installerad. Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installerad. Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Klient-ID har genererats. Mer information: [generera klient-ID för Cherwell](#generate-client-id-for-cherwell).
 - Användarrollen: administratör.
 
@@ -334,22 +333,22 @@ Använd följande procedur för att skapa en Cherwell-anslutning:
 
 | **Fält** | **Beskrivning** |
 | --- | --- |
-| **Namn**   | Ange ett namn för den Cherwell-instans som du vill ansluta till IT Service Management-anslutningstjänsten.  Du kan använda det här namnet senare i OMS när du konfigurerar arbetsobjekt i den här ITSM eller visa detaljerad logganalys. |
+| **Namn**   | Ange ett namn för den Cherwell-instans som du vill ansluta till ITSMC.  Du kan använda det här namnet senare i OMS när du konfigurerar arbetsobjekt i den här ITSM eller visa detaljerad logganalys. |
 | **Välj typ av anslutning**   | Välj **Cherwell.** |
-| **Användarnamn**   | Skriv användarnamnet Cherwell som kan ansluta till IT Service Management-anslutningstjänsten. |
+| **Användarnamn**   | Skriv användarnamnet Cherwell som kan ansluta till ITSMC. |
 | **Lösenord**   | Ange lösenordet associerat med det här användarnamnet. **Obs:** användarnamn och lösenord som används för att generera autentiseringstoken endast och lagras inte någonstans i OMS-tjänsten.|
-| **Server-URL**   | Ange Webbadressen till din Cherwell-instans som du vill ansluta till IT Service Management-anslutningstjänsten. |
+| **Server-URL**   | Ange Webbadressen till din Cherwell-instans som du vill ansluta till ITSMC. |
 | **Klient-ID**   | Ange klient-ID för att autentisera den här anslutningen som du genererade i Cherwell-instans.   |
-| **Omfång för synkronisering av data**   | Välj de Cherwell arbetsobjekt som du vill synkronisera via IT Service Management-anslutningstjänsten.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:** incidenter, ändringsbegäranden. |
+| **Omfång för synkronisering av data**   | Välj de Cherwell arbetsobjekt som du vill synkronisera via ITSMC.  Dessa objekt har importerats till logganalys fungerar.   **Alternativ:** incidenter, ändringsbegäranden. |
 | **Synkronisera Data** | Ange antal föregående dagar som du vill att data från. **Maxgränsen**: 120 dagar. |
 | **Skapa nytt konfigurationsobjekt i ITSM lösning** | Välj det här alternativet om du vill skapa konfigurationsobjekt i ITSM produkten. När du väljer skapar OMS berörda konfigurationsobjekt som konfigurationsobjekt (vid CIs) i ITSM-system som stöds. **Som standard**: inaktiverad. |
 
-När du har anslutits och synkroniserats:
+**När du har anslutits och synkroniserats**:
 
 - Valda objekt från den här anslutningen Cherwell importeras till OMS logganalys arbete. Du kan visa en sammanfattning av dessa arbetsobjekt på panelen IT Service Management-anslutningstjänsten.
-- Du kan skapa incidenter och händelser i den här instansen av Cherwell från OMS. Mer information: skapa ITSM arbetsobjekt för OMS aviseringar och skapa ITSM arbetsobjekt från OMS-loggar.
+- Du kan skapa incidenter och händelser från OMS aviseringar eller loggen Sök eller Azure-aviseringar i den här Cherwell-instansen.
 
-Mer information: [skapa ITSM arbetsobjekt för aviseringar OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) och [skapa ITSM arbetsobjekt från OMS loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+Mer information: [skapa ITSM arbetsobjekt för aviseringar OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [skapa ITSM arbetsobjekt från OMS loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) och [skapa ITSM arbetsobjekt från Azure aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Generera klient-ID för Cherwell
 
@@ -364,7 +363,6 @@ Använd följande procedur för att generera klient-ID-nyckel för Cherwell:
 
 ## <a name="next-steps"></a>Nästa steg
  - [Skapa ITSM arbetsobjekt för OMS-aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
-
  - [Skapa ITSM arbetsobjekt från OMS-loggar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
-
-- [Visa logganalys för din anslutning](log-analytics-itsmc-overview.md#using-the-solution)
+ - [Skapa ITSM arbetsobjekt från Azure-aviseringar](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Visa logganalys för din anslutning](log-analytics-itsmc-overview.md#using-the-solution)

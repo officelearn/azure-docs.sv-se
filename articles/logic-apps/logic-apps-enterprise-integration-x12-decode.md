@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Avkoda X12 meddelanden för Azure Logikappar med Enterprise-Integrationspaket
 
@@ -65,6 +65,16 @@ Här är de objekt som du behöver:
     Exempel:
 
     ![Välj X12 flat fil meddelande för avkodning av](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+
+   > [!NOTE]
+   > Den faktiska meddelandeinnehåll eller nyttolasten för meddelande matrisen bra eller felaktig, är base64-kodad. Därför måste du ange ett uttryck som bearbetar det här innehållet.
+   > Här är ett exempel som bearbetar innehållet i XML-format som du kan ange i kodvy eller genom att använda uttrycksbyggare i designern.
+   > ``` json
+   > "content": "@xml(base64ToBinary(item()?['Payload']))"
+   > ```
+   > ![Innehåll exempel](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
+   >
+
 
 ## <a name="x12-decode-details"></a>X12 avkoda information
 

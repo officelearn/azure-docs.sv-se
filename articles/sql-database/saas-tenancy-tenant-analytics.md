@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 442dd02d5a9a005feaafe9e1db1b70e840bc1042
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 54aa3d9982ff5cd99be2eb145e223397ca8d6a3f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Mellan klient analytics med hjälp av data som hämtas
 
@@ -44,7 +44,7 @@ I den här självstudiekursen får du lära du dig att:
 
 SaaS-program som du utvecklar har åtkomst till en mängd klientdata som lagras i molnet. Data innehåller en omfattande källa för insikter om drift och användning av programmet och beteendet för klienterna. Dessa insights hjälper funktionen utveckling, användbarhet förbättringar och andra investeringar i appen och plattform.
 
-Det är enkelt att komma åt data för alla klienter när alla data i en databas för flera innehavare. Men åtkomst är mer komplexa distribuerade i större skala över tusentals databaser. Ett sätt att Undvik komplexitet är att extrahera data till en analytics-databas eller ett datalager. Du kan sedan fråga i datalagret för att samla in information från biljetter data för alla klienter.
+Det är enkelt att komma åt data för alla klienter när alla data i en databas för flera innehavare. Men åtkomst är mer komplexa distribuerade i större skala över tusentals databaser. Ett sätt att Undvik komplexitet är att extrahera data till en analytics-databas eller ett datalager. Du kan sedan fråga arkivet analytics för att samla in information från biljetter data för alla klienter.
 
 Den här kursen behandlas en fullständig analytics scenario för det här exempelprogrammet för SaaS. Första, elastisk jobb används för att schemalägga extrahering av data från databasen för varje klient. Informationen som skickas till en butik analytics. Arkivet analytics kan antingen vara en SQL-databas eller ett SQL Data Warehouse. För stora data extrahering [Azure Data Factory](../data-factory/introduction.md) är commended.
 
@@ -53,7 +53,7 @@ Därefter sammanställda data förstörs till en uppsättning [star-schema](http
 - Central faktatabell i stjärnan-schemat innehåller biljett data.
 - Dimensionstabellerna innehåller data om handelsplatser, händelser, kunder och köpa datum.
 
-Tillsammans central och tabeller aktivera effektivt analytiska dimensionsbearbetning. Star-schema som används i den här självstudiekursen visas i följande bild.
+Tillsammans central och tabeller aktivera effektivt analytiska dimensionsbearbetning. Star-schema som används i den här självstudiekursen visas i följande bild:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
@@ -72,8 +72,8 @@ Förstå hur konsekvent varje klient använder tjänsten ger en möjlighet att s
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
-- Wingtip SaaS-appen har distribuerats. För att distribuera på mindre än fem minuter finns [distribuera och utforska Wingtip SaaS-program](saas-dbpertenant-get-started-deploy.md)
-- Wingtip SaaS-skript och programmet [källkod](https://github.com/Microsoft/WingtipSaaS) laddas ned från GitHub. Se Hämta instruktioner. Se till att *avblockera zip-filen* innan du extraherar innehållet.
+- Wingtip biljetter SaaS databas Per klient programmet distribueras. För att distribuera på mindre än fem minuter finns [distribuera och utforska Wingtip SaaS-program](saas-dbpertenant-get-started-deploy.md)
+- Wingtip biljetter SaaS databas Per klient skript och programmet [källkod](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) laddas ned från GitHub. Se Hämta instruktioner. Se till att *avblockera zip-filen* innan du extraherar innehållet.
 - Power BI Desktop har installerats. [Hämta Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - I gruppen med ytterligare klienter har etablerats, finns det [ **etablera hyresgäster kursen**](saas-dbpertenant-provision-and-catalog.md).
 - Ett jobb konto och databas för jobbet har skapats. Se anvisningarna i den [ **schemat management kursen**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -96,15 +96,15 @@ I följande steg ska du distribuera analytics store, som kallas **tenantanalytic
     - Om du vill använda SQL-databas med kolumnen store **$DemoScenario** = **3**  
 3. Tryck på **F5** att köra skriptet demo (som anropar den *distribuera TenantAnalytics<XX>.ps1* skript) som skapar klient analytics store. 
 
-Nu när du har distribuerat programmet och fylls med intressanta klientdata, använda [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta **tenants1 -&lt;användare&gt;**  och **katalog -&lt;användare&gt;**  servrar med inloggningen = *developer*, lösenord =  *P@ssword1* . Finns det [inledande kursen](saas-dbpertenant-wingtip-app-overview.md) för mer hjälp.
+Nu när du har distribuerat programmet och fylls med intressanta klientdata, använda [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta **tenants1-dpt -&lt;användare&gt;**  och **katalog-dpt -&lt;användare&gt;**  servrar med inloggningen = *developer*, lösenord =  *P@ssword1* . Finns det [inledande kursen](saas-dbpertenant-wingtip-app-overview.md) för mer hjälp.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
 I Object Explorer, utför du följande steg:
 
-1. Expandera den *tenants1 -&lt;användare&gt;*  server.
+1. Expandera den *tenants1-dpt -&lt;användare&gt;*  server.
 2. Expandera noden databaser och se en lista över databaser som klient.
-3. Expandera den *katalog -&lt;användare&gt;*  server.
+3. Expandera den *katalog-dpt -&lt;användare&gt;*  server.
 4. Kontrollera att du ser analytics arkivet och jobaccount-databasen.
 
 Se följande databasen i SSMS Object Explorer genom att expandera noden analytics store:
@@ -121,7 +121,7 @@ Se följande databasen i SSMS Object Explorer genom att expandera noden analytic
 
 Innan du fortsätter bör du kontrollera att du har distribuerat den konto och jobaccount databasen. I nästa uppsättning steg används elastiska jobb att extrahera data från varje klient-databasen och lagra data i arkivet analytics. Sedan det andra jobbet shreds data och lagrar den i tabeller i stjärnan-schemat. Dessa två jobb körs mot två olika målgrupper nämligen **TenantGroup** och **AnalyticsGroup**. Extrahera projektet körs mot TenantGroup som innehåller alla klient-databaser. Förstöring jobbet körs mot AnalyticsGroup som innehåller bara arkivet analytics. Skapa målgrupper med hjälp av följande steg:
 
-1. I SSMS, ansluta till den **jobaccount** databas i katalogen -&lt;användaren&gt;.
+1. I SSMS, ansluta till den **jobaccount** databas i katalogen-dpt -&lt;användaren&gt;.
 2. Öppna i SSMS, *...\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
 3. Ändra den @User variabeln överst i skriptet ersätter <User> med användaren värdet används när du har distribuerat Wingtip SaaS-appen.
 4. Tryck på **F5** att köra skriptet som skapar två målgrupper.
@@ -135,7 +135,7 @@ Omfattande dataändringar uppstå oftare för *biljetter och kunden* data än f�
 
 Varje jobb extraherar data och publicerar till arkivet analytics. Ett separat jobb shreds det extraherade data till analytics star-schemat.
 
-1. I SSMS, ansluta till den **jobaccount** databas i katalogen -<User>server.
+1. I SSMS, ansluta till den **jobaccount** databas i katalogen-dpt -&lt;användaren&gt; server.
 2. Öppna i SSMS, *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
 3. Ändra @User överst i skript och Ersätt <User> med det användarnamn som används när du har distribuerat Wingtip SaaS-appen 
 4. Tryck på F5 för att köra skriptet som skapar och kör jobbet som hämtar biljetter och kunder data från varje klient-databas. Jobbet att spara data i arkivet för analys.
@@ -155,87 +155,72 @@ Nästa steg är att bevisa extraherade rådata till en uppsättning tabeller som
 
 I det här avsnittet av kursen definierar och kör ett jobb som sammanfogas extraherade rådata med data i tabellerna star-schema. När merge-jobbet är klart rådata tas bort, lämnar tabellerna som är redo att fyllas med nästa klientdata extrahera jobb.
 
-1. I SSMS, ansluta till den **jobaccount** databas i katalogen -&lt;användaren&gt;.
+1. I SSMS, ansluta till den **jobaccount** databas i katalogen-dpt -&lt;användaren&gt;.
 2. Öppna i SSMS, *...\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*.
 3. Tryck på **F5** att köra skriptet för att definiera ett jobb som anropar sp_ShredRawExtractedData lagrad procedur i arkivet analytics.
 4. Tillåt tillräckligt med tid för att jobbet ska köras.
     - Kontrollera den **livscykel** kolumn jobs.jobs_execution tabell för status för jobbet. Se till att jobbet **lyckades** innan du fortsätter. En lyckad körning visar data som liknar följande diagram:
 
-![analyticsViews](media/saas-tenancy-tenant-analytics/shreddingJob.png)
-
-### <a name="create-views-that-aggregate-data"></a>Skapa vyer som aggregera data
-
-Data i tabellen star schema innehåller alla biljett säljdata behövs för din analys.  Om du vill göra det lättare att se trender i data, måste du aggregera data. Du kan definiera vyer som gör det lättare att fråga efter data och ger inblick i användbart. Kommande steg skapar följande fyra vyer:
-
-- CumulativeDailySalesByEvent
-- TicketSalesDistribution
-- TicketsSoldVersusSaleDay
-- TotalSalesPerDay
-
-Dessa vyer används i steget data visualiseringen. Att skapa dessa vyer hjälper användarna att mindre skicklig genom att göra det lättare för dem att ihop användbara datavisualiseringar.
-
-1. I SSMS, ansluta till den **tenantanalytics** lagras i katalogen -<User>
-2. I SSMS, *...\Learning Modules\Operational Analytics\Tenant Analytics\DailySales.sql*.
-3. Tryck på **F5** för att köra skriptet lämpliga, vilket skapar de fyra vyer och frågar efter deras innehåll.
-    - CumulativeDailySalesByEvent består av sammanställda försäljning för varje dag under de senaste två månaderna för alla händelser.
-    - TicketSalesDistribution visar genomsnittlig samt total försäljning för alla handelsplatser.
-    - TicketsSoldVersusSaleDay visar totalt antal biljetter säljs varje dag för försäljning i 60 dagar före händelsen.
-    - TotalSalesPerDay Visar total försäljning per dag.
-
-![analyticsViews](media/saas-tenancy-tenant-analytics/analyticsViews.png)
+![fragmentering](media/saas-tenancy-tenant-analytics/shreddingJob.PNG)
 
 ## <a name="data-exploration"></a>Datagranskning
 
 ### <a name="visualize-tenant-data"></a>Visualisera klientdata
 
-Diagram gör det lättare att se trender i stora datamängder. I det här avsnittet får du lära dig hur du använder **Power BI** att ändra och visualisera klientdata du har extraherat och ordnas.
+Data i tabellen star schema innehåller alla biljett säljdata behövs för din analys. Om du vill göra det lättare att se trender i stora datamängder, som du behöver visualisera den grafiskt.  I det här avsnittet får du lära dig hur du använder **Power BI** att ändra och visualisera klientdata du har extraherat och ordnas.
 
 Använd följande steg för att ansluta till Power BI och för att importera de vyer som du skapade tidigare:
 
 1. Starta Power BI desktop.
 2. Välj Home-menyfliksområdet **hämta Data**, och välj **mer...** från menyn.
 3. I den **hämta Data** fönstret Välj Azure SQL Database.
-4. Ange namnet på servern i fönstret databas inloggning (katalog -&lt;användaren&gt;. database.windows.net). Välj **importera** för **Data anslutningsläget**, och klicka sedan på OK. 
+4. Ange namnet på servern i fönstret databas inloggning (katalog-dpt -&lt;användaren&gt;. database.windows.net). Välj **importera** för **Data anslutningsläget**, och klicka sedan på OK. 
 
-![analyticsViews](media/saas-tenancy-tenant-analytics/powerBISignIn.png)
+    ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
 5. Välj **databasen** sedan ange användarnamn i det vänstra fönstret = *developer*, och ange lösenord =  *P@ssword1* . Klicka på **Anslut**.  
 
-![analyticsViews](media/saas-tenancy-tenant-analytics/DatabaseSignIn.png)
+    ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. I den **Navigator** CumulativeDailySalesByEvent, TicketSalesDistribution, TicketsSoldVersusSaleDay, TotalSalesPerDay markerar du rutan under analytics-databas. Välj sedan **belastningen**. 
+6. I den **Navigator** rutan under analytics-databasen, Välj tabellerna som star-schema: fact_Tickets dim_Events, dim_Venues, dim_Customers och dim_Dates. Välj sedan **belastningen**. 
 
 Grattis! Data har lästs in Power BI. Nu kan du börja utforska intressanta visualiseringar för att få insikter om dina klienter. Därefter går igenom hur analytics gör att du kan ge datadrivna rekommendationer för Wingtip biljetter business-teamet. Rekommendationerna som hjälper dig för att optimera business modell och customer experience.
 
 Börja med att analysera biljett försäljningsdata för att se variationen i användning över handelsplatser. Välj följande alternativ i Power BI för att rita ett stapeldiagram av det totala antalet biljetter säljs av varje plats. På grund av slumpmässig variation i biljett generator kan resultaten vara olika.
  
-![analyticsViews](media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.png)
+![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 Föregående ritytans bekräftar att varierar antalet biljetter säljs av varje plats. Handelsplatser som säljer mer biljetter använder tjänsten tyngre än handelsplatser som säljer färre biljetter. Det kan finnas en möjlighet att skräddarsy resursallokering efter behov för olika innehavare.
 
 Du kan ytterligare analysera data för att se hur Biljettförsäljning variera över tid. Välj följande alternativ i Power BI för att rita det totala antalet biljetter säljs varje dag i 60 dagar.
  
-![SaleVersusDate](media/saas-tenancy-tenant-analytics/SaleVersusDate.png)
+![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 Föregående diagram visar att biljetten försäljning topp för vissa handelsplatser. Dessa toppar förstärka idé att vissa handelsplatser kan förbrukar systemresurser oproportionerligt. Hittills är inget uppenbara mönster när toppar inträffar.
 
 Därefter vill undersöka betydelsen av dessa försäljning dagar med hög belastning. När dessa toppar, sker när biljetter går du vidare försäljning? Välj följande alternativ i Power BI om du vill rita biljetter säljs per dag.
 
-![SaleDayDistribution](media/saas-tenancy-tenant-analytics/SaleDistributionPerDay.png)
+![SaleDayDistribution](./media/saas-tenancy-tenant-analytics/SaleDistributionPerDay.PNG)
 
 Föregående ritytans visar att vissa handelsplatser säljer mycket biljetter på den första dagen i försäljning. Så snart biljetter går du vidare försäljning på dessa handelsplatser, verkar vara en får går lite för snabbt. Den här burst av aktivitet efter några handelsplatser kan det påverka tjänst för andra klienter.
 
-Detaljer om data igen för att se om det här får går lite för snabbt gäller för alla händelser som dessa handelsplatser värd. I tidigare områden sett att Contoso samklang Hall säljer mycket biljetter och att Contoso även har en topp i biljett sales på vissa dagar. Välj följande alternativ för Power BI att rita kumulativa Biljettförsäljning för Contoso samklang Hall, fokuserar på försäljning trender för var och en händelse. 
- 
-![ContosoSales](media/saas-tenancy-tenant-analytics/EventSaleTrends.png)
+Detaljer om data igen för att se om det här får går lite för snabbt gäller för alla händelser som dessa handelsplatser värd. I tidigare områden sett att Contoso samklang Hall säljer mycket biljetter och att Contoso även har en topp i biljett sales på vissa dagar. Experimentera med Power BI-alternativ för att rita kumulativa Biljettförsäljning för Contoso samklang Hall, fokuserar på försäljning trender för var och en händelse. Följ samma mönster för försäljning i alla händelser?
+
+![ContosoSales](media/saas-tenancy-tenant-analytics/EventSaleTrends.PNG)
 
 Föregående området för Contoso samklang Hall visar att den får går lite för snabbt inte sker för alla händelser. Experimentera med filteralternativ att se trender försäljning för mera.
 
 Insikter om biljett sälja mönster leda Wingtip biljetter för att optimera sin affärsmodell. I stället för att ladda alla klienter lika bör kanske Wingtip installera tjänstnivåer med olika prestandanivåer. Större handelsplatser som behöver sälja mer biljetter per dag skulle kunna erbjudas en högre nivå med ett högre servicenivåavtal (SLA). De handelsplatser kan ha sina databaser som placerats i pool med högre gränserna för per databas. Varje tjänstnivå kan ha en timvis allokering, med ytterligare avgifter debiteras för tilldelning. Större handelsplatser som har periodiska belastning av försäljningen skulle dra nytta av de högre nivåerna och Wingtip biljetter kan tjäna pengar på sina service mer effektivt.
 
-Vissa kunder Wingtip biljetter klagar under tiden de behöva kämpa sälja tillräckligt med biljetter om du vill justera kostnaden för tjänsten. Kanske i dessa insikter har möjlighet att öka försäljningen biljett för presterar handelsplatser som förväntat. Högre försäljning ökar upplevd värdet för tjänsten. Välj följande alternativ för visualisering att rita procentandel biljetterna säljs av varje plats för att fastställa deras relativa resultat. 
- 
-![analyticsViews](media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.png)
+Vissa kunder Wingtip biljetter klagar under tiden de behöva kämpa sälja tillräckligt med biljetter om du vill justera kostnaden för tjänsten. Kanske i dessa insikter har möjlighet att öka försäljningen biljett för presterar handelsplatser som förväntat. Högre försäljning ökar upplevd värdet för tjänsten. Högerklicka på fact_Tickets och välj **nytt mått**. Ange följande uttryck för det nya måttet som kallas **AverageTicketsSold**:
+
+```
+AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
+```
+
+Välj följande alternativ för visualisering att rita procentandel biljetterna säljs av varje plats för att fastställa deras relativa resultat.
+
+![AvgTicketsByVenues](media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 Föregående ritytans visar att även om de flesta handelsplatser sälja mer än 80% för biljetten, vissa kämpar fylla mer än hälften platser. Experimentera med den värden bra att välja högsta eller lägsta procentandelen biljetter säljs för varje plats.
 

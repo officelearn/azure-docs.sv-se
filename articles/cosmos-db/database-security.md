@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure DB Cosmos database-säkerhet
 
@@ -71,7 +71,7 @@ Nu ska vi prova var och en i detalj.
 |Active directory-integrering (RBAC)| Du kan också ge åtkomst till det konto använder åtkomstkontroll (IAM) i Azure-portalen som visas i skärmbilden som följer den här tabellen. IAM ger rollbaserad åtkomstkontroll och integreras med Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper som visas i följande bild.|
 |Globala replikering|Azure Cosmos-DB erbjuder NYCKELFÄRDIGT global distributionsplatsen som gör det möjligt att replikera data till någon av Azures globalt Datacenter klickar på en knapp. Globala replikering kan du skalanpassa globalt och ange låg latens åtkomst till dina data i världen.<br><br>I samband med säkerhet garanterar globala replikering dataskydd mot regionala fel.<br><br>Läs mer i [distribuera data globalt](distribute-data-globally.md).|
 |Regional växling vid fel|Om du har replikerats dina data i flera datacenter, samlar Azure Cosmos DB automatiskt över dina åtgärder ska regionala datacenter i offlineläge. Du kan skapa en prioriterad lista med redundans regioner med hjälp av de regioner där dina data replikeras. <br><br>Läs mer i [Regional växling vid fel i Azure Cosmos DB](regional-failover.md).|
-|Lokal replikering|Även inom ett datacenter, Azure Cosmos DB automatiskt replikerar data för hög tillgänglighet ger valet av [konsekvensnivåer](consistency-levels.md). Detta garanterar en [99,99% drifttid tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) och levereras med en finansiell säkerhet - något inga andra tjänster i databasen kan ge.|
+|Lokal replikering|Även inom ett datacenter, Azure Cosmos DB automatiskt replikerar data för hög tillgänglighet ger valet av [konsekvensnivåer](consistency-levels.md). Detta garanterar en 99,99% [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) för alla enskild region och konton för alla flera region med en avvikelse konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen.|
 |Automatisk onlinesäkerhetskopieringar|Azure DB Cosmos-databaser säkerhetskopieras regelbundet och lagras i en georedundant store. <br><br>Läs mer i [automatisk online säkerhetskopiering och återställning med Azure Cosmos DB](online-backup-and-restore.md).|
 |Återställa borttagna data|Automatisk onlinesäkerhetskopieringar kan användas för att återställa data som du kan ha bort upp till cirka 30 dagar efter händelsen av misstag. <br><br>Läs mer i [automatisk online säkerhetskopiering och återställning med Azure Cosmos DB](online-backup-and-restore.md)|
 |Skydda och isolera känsliga data|Alla data i de regioner som anges i [vad är nytt?](#whats-new) nu krypterat i vila.<br><br>Personligt identifierbar information och andra känsliga data kan vara isolerad till specifika samlingar och skrivskyddad eller skrivskyddad åtkomst kan begränsas till specifika användare.|

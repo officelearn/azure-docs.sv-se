@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Utveckla med Graph API i .NET
 Azure Cosmos-DB är Microsofts globalt distribuerade flera modellen database-tjänsten. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
@@ -53,7 +53,6 @@ Börja med att skapa ett Azure DB som Cosmos-konto i Azure-portalen.
 
 > [!TIP]
 > * Redan har ett Azure DB som Cosmos-konto? I så fall, gå vidare till [konfigurera Visual Studio-lösning](#SetupVS)
-> * Hade du ett Azure DocumentDB-konto? Om ditt konto är nu ett Azure DB som Cosmos-konto och du kan gå vidare till så [konfigurera Visual Studio-lösning](#SetupVS).  
 > * Om du använder Azure Cosmos DB-emulatorn, följer du stegen i [Azure Cosmos DB emulatorn](local-emulator.md) konfigurera emulatorn och gå vidare till [ställa in din Visual Studio-lösning](#SetupVS). 
 >
 > 
@@ -86,7 +85,7 @@ Navigera till ditt Azure DB som Cosmos-konto i Azure-portalen klickar du på **n
 
 Kopiera URI: N från portalen och via `Endpoint` i slutpunktsegenskapen. Kopiera den PRIMÄRNYCKELN från portalen och klistrar in det i den `AuthKey` egenskapen ovan. 
 
-! [Skärmdump av Azure portal som används av kursen för att skapa ett C#-program. Visar en Cosmos-databas med Azure-konto knappen nycklar markerad i navigeringen till Azure Cosmos DB och värdena URI och PRIMÄRNYCKEL markerade i bladet nycklar] [nycklar] 
+![Skärmbild av Azure portal som används av kursen för att skapa ett C#-program. Visar en Cosmos-databas med Azure-konto knappen nycklar markerad i navigeringen till Azure Cosmos DB och värdena URI och PRIMÄRNYCKEL markerade i bladet nycklar](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>Skapa en instans av DocumentClient 
 Skapa sedan en ny instans av den **DocumentClient**.  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 2023fa7b318f9f76ce1e1ea0a46110297be9a001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd703feb7bf5af765fc3a5448464499aa7b48d6a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Använd en Azure PowerShell-kommando för att skapa en tom cloud service-behållare
 Den här artikeln beskriver hur du snabbt skapa en behållare för molntjänster med hjälp av Azure PowerShell-cmdlets. Följ stegen nedan:
@@ -50,5 +50,5 @@ Get-help New-AzureService
 ```
 
 ### <a name="next-steps"></a>Nästa steg
-* För att hantera molndistribution för tjänsten, referera till den [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx), och [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) kommandon. Du kan också läsa [hur du konfigurerar molntjänster](cloud-services-how-to-configure.md) för ytterligare information.
+* För att hantera molndistribution för tjänsten, referera till den [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx), och [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) kommandon. Du kan också läsa [hur du konfigurerar molntjänster](cloud-services-how-to-configure-portal.md) för ytterligare information.
 * Om du vill publicera ditt molntjänstprojekt till Azure, referera till den **PublishCloudService.ps1** kodexempel från [kontinuerlig leverans för Molntjänsten i Azure](cloud-services-dotnet-continuous-delivery.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exempel på att implementera kodskelett Azure enterprise
 Det här avsnittet innehåller exempel på hur ett företag kan implementera rekommendationer för en [Azure enterprise kodskelett](resource-manager-subscription-governance.md). Fiktiva företaget Contoso används för att illustrera Metodtips för vanliga scenarier.
@@ -68,14 +68,14 @@ Dave har följande krav för att hantera resurser i prenumerationen:
 * Han är berörda med kostnader. Därför kan vill han förhindra att ägare i onödan dyra virtuella datorer skapas.  
 * Eftersom det här programmet har utvecklare på flera enheter, vill han tagga varje resurs med företagsägaren enhet och program. Med hjälp av dessa taggar debiterar ETS rätt team.
 
-Han skapar följande [Resource Manager principer](resource-manager-policy.md):
+Han skapar följande [Azure principer](../azure-policy/azure-policy-introduction.md):
 
 | Fält | Verkan | Beskrivning |
 | --- | --- | --- |
 | location |Granska |Gransknings-och skapa resurser i en region |
-| typ |Neka |Neka G-serien virtuella datorer med skapas |
-| tags |Neka |Kräv program ägare tagg |
-| tags |Neka |Kräv kostnaden center tagg |
+| typ |avvisa |Neka G-serien virtuella datorer med skapas |
+| tags |avvisa |Kräv program ägare tagg |
+| tags |avvisa |Kräv kostnaden center tagg |
 | tags |Lägg till |Lägga till taggnamnet på **affärsenheten** och Taggvärde **ETS** till alla resurser |
 
 ### <a name="resource-tags"></a>Resurstaggar
@@ -105,7 +105,7 @@ Dave identifierar att anslutningen mellan Contosos företagsnätverket och det i
 
 Han skapar följande [resurslås](resource-group-lock-resources.md):
 
-| Låstypen | Resurs | Beskrivning |
+| Låstyp | Resurs | Beskrivning |
 | --- | --- | --- |
 | **CanNotDelete** |interna virtuella nätverk |Förhindrar att användare tar bort virtuellt nätverk eller undernät, men förhindrar inte att lägga till nya undernät |
 
@@ -143,9 +143,9 @@ För den **produktion prenumeration**, de skapar följande principer:
 
 | Fält | Verkan | Beskrivning |
 | --- | --- | --- |
-| location |Neka |Neka skapandet av resurser utanför USA Datacenter |
-| tags |Neka |Kräv program ägare tagg |
-| tags |Neka |Kräv avdelning tagg |
+| location |avvisa |Neka skapandet av resurser utanför USA Datacenter |
+| tags |avvisa |Kräv program ägare tagg |
+| tags |avvisa |Kräv avdelning tagg |
 | tags |Lägg till |Lägg till tagg i varje resursgrupp som anger produktionsmiljö |
 
 De begränsar inte typ av sku som en användare kan skapa i produktion.
@@ -180,7 +180,7 @@ Dave och Alice ger och väljer att lägga till resurslås på vissa viktiga resu
 
 De skapar följande låset:
 
-| Låstypen | Resurs | Beskrivning |
+| Låstyp | Resurs | Beskrivning |
 | --- | --- | --- |
 | **CanNotDelete** |externa-vnet |Förhindra att användare tar bort virtuellt nätverk eller undernät. Låset förhindrar inte att lägga till nya undernät |
 

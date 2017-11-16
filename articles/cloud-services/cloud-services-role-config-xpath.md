@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71adbca34390bda3a7d4067742ffb3a28201449
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Exponera konfigurationsinställningar för rollen som en miljövariabel med XPath
 I cloud service worker eller web rollen tjänstdefinitionsfilen exponera du runtime konfigurationsvärden som miljövariabler. Följande XPath-värden stöds (som motsvarar API värden).
@@ -166,5 +166,5 @@ Lär dig mer om den [ServiceConfiguration.cscfg](cloud-services-model-and-packag
 
 Skapa en [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) paketet.
 
-Aktivera [fjärrskrivbord](cloud-services-role-enable-remote-desktop.md) för en roll.
+Aktivera [fjärrskrivbord](cloud-services-role-enable-remote-desktop-new-portal.md) för en roll.
 

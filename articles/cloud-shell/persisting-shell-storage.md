@@ -1,5 +1,5 @@
 ---
-title: "Spara filer för Bash i Azure Cloud Shell (förhandsversion) | Microsoft Docs"
+title: "Spara filer för Bash i Azure Cloud Shell | Microsoft Docs"
 description: "Genomgång av hur Bash i Azure Cloud Shell kvarstår filer."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8b8a82e1c1328d952a85ea5afd975a95f5a6e740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>Så här fungerar Cloud Shell lagring 
-Molnet Shell kvarstår filerna med båda av följande metoder: 
+## <a name="how-bash-in-cloud-shell-storage-works"></a>Så här fungerar Bash i molnet Shell lagring 
+Bash i molnet Shell kvarstår filerna med båda av följande metoder: 
 * Skapa en avbildning av din `$Home` directory att bevara allt innehåll i katalogen. Disk image sparas i angivna filresursen som `acc_<User>.img` på `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, och den automatiskt synkroniserar ändringar. 
 * Montera filresursen angivna som `clouddrive` i din `$Home` katalogen för filresursen direkt interaktion. `/Home/<User>/clouddrive`mappas till `fileshare.storage.windows.net/fileshare`.
  
@@ -91,6 +91,6 @@ justin@Azure:~$
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-[Molnet Shell Snabbstart](quickstart.md) <br>
-[Lär dig mer om Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Bash i molnet Shell Snabbstart](quickstart.md) <br>
+[Lär dig mer om Microsoft Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Lär dig mer om lagring taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

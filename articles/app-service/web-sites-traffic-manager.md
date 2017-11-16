@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 93645aa5765d533b45fe2266f061ad61c0bf45d7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 5bf687afa8f42292a3b21b19a572c76926fef1cd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Styr Azure-webbapptrafik med Azure Traffic Manager
 > [!NOTE]
@@ -49,7 +49,7 @@ När du använder Azure Traffic Manager med Azure, Tänk på följande saker öv
 * Du kan kombinera båda typer av slutpunkter för att aktivera hybridscenarier med för distributioner i samma region som använder Web Apps tillsammans med en annan Azure-molntjänst.
 * Du kan bara ange en web app slutpunkt per region i en profil. När du väljer en webbapp som en slutpunkt för en region återstående webbprogram i regionen att vara tillgänglig för val för den här profilen.
 * Web app slutpunkter som du anger i en Azure Traffic Manager-profilen visas under den **domännamn** avsnitt på sidan Konfigurera för webbappen i profilen, men inte kan konfigureras det.
-* När du lägger till en webbapp till en profil av **Webbadress** på instrumentpanelen av appens Portalsida visar anpassad domän-URL: en för webbappen om du har skapat en. I annat fall visas Traffic Manager-profilens URL (till exempel `contoso.trafficmgr.com`). Båda direkt domännamnet för webbappen och Traffic Manager-URL är synliga på webbappens Konfigurera sidan under den **domännamn** avsnitt.
+* När du lägger till en webbapp till en profil av **Webbadress** på instrumentpanelen av appens Portalsida visar anpassad domän-URL: en för webbappen om du har skapat en. I annat fall visas Traffic Manager-profilens URL (till exempel `contoso.trafficmanager.net`). Båda direkt domännamnet för webbappen och Traffic Manager-URL är synliga på webbappens Konfigurera sidan under den **domännamn** avsnitt.
 * Dina egna domännamn fungerar som förväntat, men förutom att lägga till dem i ditt webbprogram, måste du också konfigurera DNS-kartan för att peka på Traffic Manager-URL. Mer information om hur du konfigurerar en anpassad domän för ett Azure-webbapp finns [konfigurera ett anpassat domännamn för en Azure-webbplats](app-service-web-tutorial-custom-domain.md).
 * Du kan bara lägga till webbprogram som är standard eller premium läge till en Azure Traffic Manager-profil.
 

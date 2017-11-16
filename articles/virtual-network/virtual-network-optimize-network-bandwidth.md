@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimera dataflödet i nätverket för virtuella Azure-datorer
 
@@ -33,7 +33,7 @@ Om din Windows-VM stöds med [snabbare nätverk](virtual-network-create-vm-accel
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. Ange följande kommando för att aktivera RSS:
 
@@ -44,66 +44,79 @@ Om din Windows-VM stöds med [snabbare nätverk](virtual-network-create-vm-accel
 3. Bekräfta att RSS är aktiverat på den virtuella datorn genom att ange den `Get-NetAdapterRss` kommandot igen. Om det lyckas, returneras i följande exempel på utdata:
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>Linux VM
 
-RSS är alltid aktiverat som standard i en Azure Linux-dator. Linux-kernel som getts ut sedan januari 2017 inkluderar nya optimering Nätverksalternativ som möjliggör en Linux VM att uppnå högre dataflödet i nätverket.
+RSS är alltid aktiverat som standard i en Azure Linux-dator. Linux-kernel som getts ut sedan oktober 2017 inkluderar nya optimeringar Nätverksalternativ som möjliggör en Linux VM att uppnå högre dataflödet i nätverket.
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>Ubuntu för nya distributioner
 
-För att få optimeringen först uppdatera till den senaste versionen, från och med juni 2017, vilket är:
+Kernel Ubuntu Azure ger bästa nätverksprestanda på Azure och är standardkernel sedan 21 September 2017. För att få den här kernel måste först installera senaste version som stöds av 16.04 LTS, som beskrivs nedan:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-När uppdateringen är klar kan du ange följande kommandon för att hämta den senaste kerneln:
+Ange följande kommandon för att hämta de senaste uppdateringarna när de har skapats. De här stegen fungerar även för virtuella datorer körs Ubuntu Azure-kernel.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+Följande valfria kommandouppsättning kan vara användbar för befintliga Ubuntu-distributioner som redan har Azure kerneln, men som inte har ytterligare uppdateringar med fel.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-Valfritt kommando:
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu Azure kernel uppgradering för befintliga virtuella datorer
 
-`apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Ubuntu Azure Preview kernel
-> [!WARNING]
-> Den här förhandsversionen av Azure Linux-kernel kanske inte har samma nivå av tillgänglighet och tillförlitlighet som Marketplace-bilder och kernlar som är i allmänhet tillgänglighet utgåva. Funktionen stöds inte, kan ha begränsad kapacitet och får inte vara lika tillförlitlig som standardkernel. Använd inte den här kernel för produktionsarbetsbelastningar.
-
-Betydande kapaciteten kan uppnås genom att installera den föreslagna Azure Linux-kerneln. Om du vill testa den här kernel, Lägg till följande rad /etc/apt/sources.list
+Betydande kapaciteten kan uppnås genom att uppgradera till Azure Linux-kärnan. Kontrollera om du har den här kernel, kontrollera kernel-version.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
-Kör sedan följande kommandon som rot.
+Om den virtuella datorn inte har Azure kernel versionsnumret vanligtvis att börja med ”4.4”. I sådana fall kan du köra följande kommandon som rot.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-För att få optimeringen först uppdatera till den senaste versionen, från och med juli 2017, vilket är:
+För att få de senaste Optimeringarna, är det bäst att skapa en virtuell dator med den senaste versionen genom att ange följande parametrar:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
-När uppdateringen är klar kan du installera senaste Linux Integration Services (LIS).
-Genomströmning optimering har LIS, från 4.2.2-2. Ange följande kommandon för att installera LIS:
+Nya och befintliga virtuella datorer kan utnyttja installera senaste Linux Integration Services (LIS).
+Genomströmning optimering har LIS, från 4.2.2-2, även om senare versioner innehåller ytterligare förbättringar. Ange följande kommandon för att installera den senaste LIS:
 
 ```bash
 sudo yum update
@@ -113,21 +126,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-För att få optimeringen först uppdatera till den senaste versionen, från och med juli 2017, vilket är:
+För att få Optimeringarna, är det bäst att skapa en virtuell dator med den senaste versionen genom att ange följande parametrar:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
-När uppdateringen är klar kan du installera senaste Linux Integration Services (LIS).
+Nya och befintliga virtuella datorer kan utnyttja installera senaste Linux Integration Services (LIS).
 Genomströmning optimering har LIS, från 4.2. Ange följande kommandon för att hämta och installera LIS:
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

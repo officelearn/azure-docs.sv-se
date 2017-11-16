@@ -1,5 +1,5 @@
 ---
-title: "Bash i Snabbstart i Azure-molnet Shell (förhandsversion) | Microsoft Docs"
+title: Bash i Azure-molnet Shell Quickstart | Microsoft Docs
 description: "Snabbstart för Bash i molnet Shell"
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snabbstart för Bash i Azure-molnet Shell
 
@@ -30,7 +30,7 @@ Det här dokumentet beskriver hur du använder Bash i Azure Cloud-gränssnittet 
 ## <a name="start-cloud-shell"></a>Starta molnet Shell
 1. Starta **moln Shell** från det övre navigeringsfältet i Azure-portalen <br>
 ![](media/quickstart/shell-icon.png)
-2. Välj en prenumeration för att skapa ett lagringskonto och Azure-filresursen
+2. Välj en prenumeration för att skapa ett lagringskonto och dela filer som Microsoft Azure
 3. Välj ”Skapa lagring”
 
 > [!TIP]
@@ -59,7 +59,7 @@ Skapa en Ubuntu VM i din nya resursgrupp. Azure CLI 2.0 skapar SSH-nycklar och k
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Offentliga och privata nycklar som används för att autentisera den virtuella datorn placeras i `/User/.ssh/id_rsa` och `/User/.ssh/id_rsa.pub` av Azure CLI 2.0 som standard. .Ssh-mappen sparas i dina anslutna Azure-filresursen 5 GB avbildningen.
+> Offentliga och privata nycklar som används för att autentisera den virtuella datorn placeras i `/User/.ssh/id_rsa` och `/User/.ssh/id_rsa.pub` av Azure CLI 2.0 som standard. .Ssh-mappen är kvar i din bifogade filer för Azure-resursens 5 GB avbildningen.
 
 Ditt användarnamn på den här virtuella datorn kommer att ditt användarnamn som används i molnet Shell ($User@Azure:).
 

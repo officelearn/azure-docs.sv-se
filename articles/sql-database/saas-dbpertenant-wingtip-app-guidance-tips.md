@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: genemi
-ms.openlocfilehash: fbfaea938676991cf6280e5dd8c1e1190aa268a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4c90d70bb3b043ef81a224f0f69107eaa6eb0547
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="guidance-and-tips-for-azure-sql-database-multi-tenant-saas-app-example"></a>Vägledning och tips för Azure SQL Database med flera innehavare SaaS app exempel
 
 
-## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Hämta och avblockera Wingtip SaaS-skript
+## <a name="download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts"></a>Hämta och avblockera Wingtip biljetter SaaS databas per klient skript
 
 Körbara innehållet (skript, DLL-filer) kan blockeras av Windows när zip-filer laddas ned från en extern källa och extraheras. När skript från en zip-fil, ***Följ stegen nedan för att låsa upp ZIP-filen innan du extraherar***. Detta säkerställer att skript tillåts köra.
 
-1. Bläddra till [github-repo-Wingtip SaaS](https://github.com/Microsoft/WingtipSaaS).
+1. Bläddra till [Wingtip biljetter SaaS databas per klient GitHub-repo-](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
 2. Klicka på **kloning eller hämta**.
 3. Klicka på **hämta ZIP** och spara filen.
-4. Högerklicka på den **WingtipSaaS master.zip** fil och markera **egenskaper**.
+4. Högerklicka på den **WingtipTicketsSaaS-DbPerTenant-master.zip** fil och markera **egenskaper**.
 5. På den **allmänna** väljer **avblockera**.
 6. Klicka på **OK**.
 7. Extrahera filerna.
 
-Skript finns i den *... \\WingtipSaaS master\\Learning moduler* mapp.
+Skript finns i den *... \\Learning moduler* mapp.
 
 
-## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Arbeta med PowerShell-skript Wingtip SaaS
+## <a name="working-with-the-wingtip-tickets-saas-database-per-tenant-powershell-scripts"></a>Arbeta med Wingtip biljetter SaaS databas per klient PowerShell-skript
 
 Om du vill få ut mesta av exemplet behöver du fördjupa dig i de angivna skript. Använd brytpunkter och gå igenom de skript som undersöker information om hur de olika SaaS-mönster implementeras. För att enkelt gå igenom angivna skript och moduler för bästa förstå, bör du använda den [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
@@ -73,10 +73,10 @@ Tips för att utforska och stega igenom PowerShell-skript:
 
 Använd [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta och bläddra programservrar och databaser.
 
-Ursprungligen har två SQL Database-servrar för att ansluta till – den *tenants1 -&lt;användare&gt;*  server, och *katalog -&lt;användaren&gt;*  server. För att säkerställa en lyckad demo-anslutning, båda servrarna har en [brandväggsregel](sql-database-firewall-configure.md) så att alla IP-adresser via.
+Ursprungligen har två SQL Database-servrar för att ansluta till - den *tenants1-dpt -&lt;användare&gt;*  server, och *katalog-dpt -&lt;användare&gt;* server. För att säkerställa en lyckad demo-anslutning, båda servrarna har en [brandväggsregel](sql-database-firewall-configure.md) så att alla IP-adresser via.
 
 
-1. Öppna *SSMS* och anslut till servern *tenants1-&lt;användare&gt;.database.windows.net*.
+1. Öppna *SSMS* och ansluta till den *tenants1-dpt -&lt;användare&gt;. database.windows.net* server.
 2. Klicka på **anslut** > **databasmotor...** :
 
    ![katalogserver](media/saas-dbpertenant-wingtip-app-guidance-tips/connect.png)
@@ -85,7 +85,7 @@ Ursprungligen har två SQL Database-servrar för att ansluta till – den *tenan
 
    ![anslutning](media/saas-dbpertenant-wingtip-app-guidance-tips/tenants1-connect.png)
 
-4. Upprepa stegen 2-3 och anslut till servern *catalog-&lt;användare&gt;.database.windows.net*.
+4. Upprepa steg 2 – 3 och ansluta till den *katalog-dpt -&lt;användare&gt;. database.windows.net* server.
 
 
 När du har anslutit, borde du se bägge servrarna. I listan över databaser kan vara olika beroende på de klienter du har etablerat.
@@ -96,5 +96,5 @@ När du har anslutit, borde du se bägge servrarna. I listan över databaser kan
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera Wingtip SaaS-program](saas-dbpertenant-get-started-deploy.md)
+[Distribuera Wingtip biljetter SaaS databasen per klient program](saas-dbpertenant-get-started-deploy.md)
 

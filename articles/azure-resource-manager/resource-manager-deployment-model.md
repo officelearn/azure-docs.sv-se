@@ -6,29 +6,28 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 7ae0ffa3-c8da-4151-bdcc-8f4f69290fb4
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager och klassisk distribution: Förstå distributionsmodeller och tillståndet för dina resurser
-I det här avsnittet får du lära dig om Azure Resource Manager och klassiska distributionsmodeller tillståndet för dina resurser och varför dina resurser har distribuerats med en eller den andra. Resource Manager och klassiska distributionsmodeller representerar två olika sätt att distribuera och hantera dina Azure-lösningar. Du arbetar med dem via två uppsättningar API och distribuerade resurser kan innehålla viktiga skillnader. De två modellerna är inte helt kompatibla med varandra. Det här avsnittet beskrivs dessa skillnader.
+I den här artikeln får information du om Azure Resource Manager och klassiska distributionsmodeller. Resource Manager och klassiska distributionsmodeller representerar två olika sätt att distribuera och hantera dina Azure-lösningar. Du arbetar med dem via två uppsättningar API och distribuerade resurser kan innehålla viktiga skillnader. De två modellerna är inte kompatibla med varandra. Den här artikeln beskriver dessa skillnader.
 
 Microsoft rekommenderar att du använder Resource Manager för alla nya resurser för att förenkla distribution och hantering av resurser. Om möjligt rekommenderar Microsoft att du distribuerar befintliga resurser via Resource Manager.
 
 Om du är nybörjare till Resource Manager kan du kanske vill läsa de termer som definierats i den [översikt över Azure Resource Manager](resource-group-overview.md).
 
 ## <a name="history-of-the-deployment-models"></a>Historik över distributionsmodellerna
-Azure som ursprungligen den klassiska distributionsmodellen. I den här modellen fanns varje resurs självständigt. Det gick inte att gruppera relaterade resurser. I stället var du tvungen att manuellt spåra vilka resurser som består av din lösning eller ditt program och Kom ihåg att hantera dem på ett samordnat sätt. Om du vill distribuera en lösning var du tvungen att skapa varje resurs individuellt via den klassiska portalen eller skapa ett skript som distribuerats alla resurser i rätt ordning. Om du vill ta bort en lösning var du tvungen att ta bort varje resurs individuellt. Du kan inte enkelt tillämpa och uppdatera principer för åtkomstkontroll för relaterade resurser. Slutligen kan du inte använda taggar till resurser för att märka dem med villkor som hjälper dig övervaka dina resurser och hantera fakturering.
+Azure som ursprungligen den klassiska distributionsmodellen. I den här modellen fanns varje resurs självständigt. Det gick inte att gruppera relaterade resurser. I stället var du tvungen att manuellt spåra vilka resurser som består av din lösning eller ditt program och Kom ihåg att hantera dem på ett samordnat sätt. Om du vill distribuera en lösning var du tvungen att skapa varje resurs individuellt via portalen eller skapa ett skript som distribuerats alla resurser i rätt ordning. Om du vill ta bort en lösning var du tvungen att ta bort varje resurs individuellt. Du kan inte enkelt tillämpa och uppdatera principer för åtkomstkontroll för relaterade resurser. Slutligen kan du inte använda taggar till resurser för att märka dem med villkor som hjälper dig övervaka dina resurser och hantera fakturering.
 
 I 2014 introducerade Azure Resource Manager som läggs till konceptet för en resursgrupp. En resursgrupp är en behållare för resurser som delar en gemensam livscykel. Resource Manager-distributionsmodellen ger många fördelar:
 
@@ -39,20 +38,14 @@ I 2014 introducerade Azure Resource Manager som läggs till konceptet för en re
 * Du kan använda JavaScript Object Notation (JSON) för att definiera infrastrukturen för lösningen. JSON-filen kallas en Resource Manager-mall.
 * Du kan definiera beroenden mellan resurser så att de distribueras i rätt ordning.
 
-När Resource Manager lades till lades retroaktivt alla resurser till standard resursgrupper. Om du skapar en resurs via nu klassisk distribution skapas automatiskt resursen i en standard resursgrupp för tjänsten, även om du inte anger den resursgruppen i distributionen. Dock innebär bara befintliga inom en resursgrupp inte att resursen har konverterats till Resource Manager-modellen. Vi ska titta på hur varje tjänst hanterar två distributionsmodeller i nästa avsnitt. 
+När Resource Manager lades till lades retroaktivt alla resurser till standard resursgrupper. Om du skapar en resurs via nu klassisk distribution skapas automatiskt resursen i en standard resursgrupp för tjänsten, även om du inte anger den resursgruppen i distributionen. Dock innebär bara befintliga inom en resursgrupp inte att resursen har konverterats till Resource Manager-modellen.
 
 ## <a name="understand-support-for-the-models"></a>Förstå stöd för modeller
-När du bestämmer vilken distributionsmodell som ska användas för dina resurser, finns det tre scenarier för att vara medveten om:
+Det finns tre scenarier för att vara medveten om:
 
-1. Tjänsten stöder Resource Manager och innehåller bara en enda typ.
-2. Tjänsten stöder Resource Manager men innehåller två typer - en för hanteraren för filserverresurser och en för klassisk. Det här scenariot gäller bara för virtuella datorer, lagringskonton och virtuella nätverk.
-3. Tjänsten stöder inte Resource Manager.
-
-För att identifiera om en tjänst stöder hanteraren för filserverresurser, se [resursproviders och typer](resource-manager-supported-services.md).
-
-Om du vill använda tjänsten inte stöder Resource Manager, måste du fortsätta använda klassisk distribution.
-
-Om tjänsten stöder Resource Manager och **är inte** en virtuell dator, storage-konto eller virtuella nätverk kan du använda Resource Manager utan några problem.
+1. Cloud Services stöder inte Resource Manager-distributionsmodellen.
+2. Virtuella datorer, lagringskonton och virtuella nätverk stöder både Resource Manager och klassiska distributionsmodeller.
+3. Alla andra Azure-tjänster stöder Resource Manager.
 
 För virtuella datorer, lagringskonton och virtuella nätverk, om resursen har skapats via klassisk distribution fortsätta du att använda via klassiska åtgärder. Om den virtuella datorn, storage-konto eller ett virtuellt nätverk har skapats via Resource Manager-distribution, måste du fortsätta att använda Resource Manager-åtgärder. Denna skillnad kan få förvirrande när prenumerationen innehåller en blandning av resurser som skapats via Resource Manager och klassisk distribution. Den här kombinationen av resurser kan skapa oväntade resultat eftersom resurserna inte har stöd för samma åtgärder.
 
@@ -81,66 +74,6 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 ```
 
 Endast resurser som skapats via Hanteraren för filserverresurser stöd taggar. Du kan inte använda taggar klassiska resurser.
-
-## <a name="resource-manager-characteristics"></a>Resource Manager-egenskaper
-Nu ska vi se egenskaperna för Resource Manager-typer för att hjälpa dig att förstå de två modellerna:
-
-* Skapats via den [Azure-portalen](https://portal.azure.com/).
-  
-     ![Azure Portal](./media/resource-manager-deployment-model/portal.png)
-  
-     Du har möjlighet att använda Resource Manager eller klassisk distribution för bearbetning, lagring och nätverksresurser. Välj **Resource Manager**.
-  
-     ![Resource Manager-distribution](./media/resource-manager-deployment-model/select-resource-manager.png)
-* Skapa med Resource Manager-versionen av Azure PowerShell-cmdlets. Dessa kommandon har formatet *Verb AzureRmNoun*.
-
-  ```powershell
-  New-AzureRmResourceGroupDeployment
-  ```
-
-* Skapats via den [Azure Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) för REST-åtgärder.
-* Skapats via Azure CLI-kommandon som körs i den **arm** läge.
-  
-  ```azurecli
-  azure config mode arm
-  azure group deployment create
-  ```
-
-* Resurstypen omfattar inte **(klassiskt)** i namnet. Följande bild visar typ som **lagringskonto**.
-  
-    ![webbapp](./media/resource-manager-deployment-model/resource-manager-type.png)
-
-## <a name="classic-deployment-characteristics"></a>Klassisk distribution egenskaper
-Du kan också känna den klassiska distributionsmodellen som Service Management-modell.
-
-Resurser som skapats i den klassiska distributionsmodellen har följande egenskaper:
-
-* Skapats via den [klassiska portalen](https://manage.windowsazure.com)
-  
-     ![Klassisk portal](./media/resource-manager-deployment-model/classic-portal.png)
-  
-     Eller Azure-portalen och anger **klassiska** distribution (för bearbetning, lagring och nätverk).
-  
-     ![Klassisk distribution](./media/resource-manager-deployment-model/select-classic.png)
-* Skapats via Service Management-versionen av Azure PowerShell-cmdlets. Dessa kommandonamn har formatet *Verb AzureNoun*.
-
-  ```powershell
-  New-AzureVM
-  ```
-
-* Skapats via den [Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) för REST-åtgärder.
-* Skapats via Azure CLI-kommandon som körs i **asm** läge.
-
-  ```azurecli
-  azure config mode asm
-  azure vm create
-  ```
-   
-* Resurstypen innehåller **(klassiskt)** i namnet. Följande bild visar typ som **Storage-konto (klassisk)**.
-  
-    ![Klassisk typ](./media/resource-manager-deployment-model/classic-type.png)
-
-Du kan använda Azure-portalen för att hantera resurser som har skapats via klassisk distribution.
 
 ## <a name="changes-for-compute-network-and-storage"></a>Ändringar för beräkning, nätverk och lagring
 Följande diagram visar beräkning, nätverk och lagring resurser har distribuerats via Resource Manager.
@@ -176,9 +109,9 @@ I följande tabell beskrivs ändringar i hur beräknings-, nätverks- och Storag
 | Tillgänglighetsuppsättningar |Tillgänglighet till plattformen indikerades genom att konfigurera samma "AvailabilitySetName" på Virtual Machines. Det maximala antalet feldomäner var 2. |Tillgänglighetsuppsättning är en resurs som exponeras av Microsoft.Compute-providern. Virtuella datorer som kräver hög tillgänglighet måste inkluderas i tillgänglighetsuppsättningen. Det maximala antalet feldomäner är nu 3. |
 | Tillhörighetsgrupper |Tillhörighetsgrupper krävdes för virtuella nätverk. Men med introduktionen av regionala virtuella nätverk, krävs det inte längre. |Lite enklare sagt så existerar inte konceptet tillhörighetsgrupper i de API:er som exponeras via Azure Resource Manager. |
 | Belastningsutjämning |Skapandet av en molntjänst ger en implicit belastningsutjämnare för de virtuella datorer som distribueras. |Load Balancer är en resurs som exponeras av Microsoft.Network-providern. Det primära nätverksgränssnittet för Virtual Machines som måste belastningsutjämnas ska referera till belastningsutjämnaren. Belastningsutjämnare kan vara interna eller externa. En belastningen belastningsutjämnaren instans refererar till serverdelspoolen av IP-adresser med nätverkskort för en virtuell dator (valfritt) som refererar till en offentlig eller privat IP-belastningsutjämnaradress (valfritt). [Läs mer.](../virtual-network/resource-groups-networking.md) |
-| Virtuell IP-adress |Cloud Services får en standard-VIP (virtuell IP-adress) när en virtuell dator har lagts till i en tjänst i molnet. Den virtuella IP-adressen är den adress som är associerad med den implicita belastningsutjämnaren. |En offentlig IP-adress är en resurs som exponeras av Microsoft.Network-providern. Den offentliga IP-adressen kan vara statisk (reserverad) eller dynamisk. Dynamiska offentliga IP-adresser kan tilldelas till en belastningsutjämnare. Offentliga IP-adresser kan skyddas med hjälp av säkerhetsgrupper. |
-| Reserverad IP-adress |Du kan reservera en IP-adress i Azure och koppla den till en molntjänst för att kontrollera att IP-adressen är fäst. |En offentlig IP-adress kan skapas i "Statiskt" läge och har då samma funktion som en "reserverad IP-adress". Statiska offentliga IP-adresser kan bara tilldelas en belastningsutjämnare för tillfället. |
-| Offentlig IP-adress (PIP) per VM |Offentliga IP-adresser kan också vara kopplad till en virtuell dator direkt. |En offentlig IP-adress är en resurs som exponeras av Microsoft.Network-providern. Den offentliga IP-adressen kan vara statisk (reserverad) eller dynamisk. Dock kan endast dynamiska offentliga IP-adresser tilldelas ett nätverksgränssnitt för att få en offentlig IP-adress per VM för tillfället. |
+| Virtuell IP-adress |Cloud Services får en standard-VIP (virtuell IP-adress) när en virtuell dator läggs till en tjänst i molnet. Den virtuella IP-adressen är den adress som är associerad med den implicita belastningsutjämnaren. |En offentlig IP-adress är en resurs som exponeras av Microsoft.Network-providern. Offentliga IP-adressen kan vara statisk (reserverad) eller dynamisk. Dynamiska offentliga IP-adresser kan tilldelas till en belastningsutjämnare. Offentliga IP-adresser kan skyddas med hjälp av säkerhetsgrupper. |
+| Reserverad IP-adress |Du kan reservera en IP-adress i Azure och koppla den till en molntjänst för att kontrollera att IP-adressen är fäst. |Offentlig IP-adress kan skapas i statiskt läge och den har samma funktion som en reserverad IP-adress. |
+| Offentlig IP-adress (PIP) per VM |Offentliga IP-adresser kan också vara kopplad till en virtuell dator direkt. |En offentlig IP-adress är en resurs som exponeras av Microsoft.Network-providern. Offentliga IP-adressen kan vara statisk (reserverad) eller dynamisk. |
 | Slutpunkter |Inkommande slutpunkter behöver konfigureras på en virtuell dator för att öppna upp anslutningar på vissa portar. Ett vanligt sätt att ansluta till virtuella datorer är genom att konfigurera inkommande slutpunkter. |Inkommande NAT-regler kan konfigureras på belastningsutjämnare för att uppnå samma funktion som vid aktivering av inkommande slutpunkter på specifika portar för att ansluta till VM:ar. |
 | DNS-namn |En molntjänst får ett implicit, globalt-unikt DNS-namn. Till exempel: `mycoffeeshop.cloudapp.net`. |DNS-namn är valfria parametrar som kan anges för en offentlig IP-adressresurs. FQDN är i följande format: `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Nätverksgränssnitt |Primära och sekundära nätverksgränssnitt och dess egenskaper har definierats som nätverkskonfigurationen för en virtuell dator. |Nätverksgränssnittet är en resurs som exponeras av Microsoft.Network-providern. Livscykeln för nätverksgränssnittet är inte kopplat till en virtuell dator. Den refererar till den virtuella datorn är tilldelad IP-adress (obligatoriskt), undernät för det virtuella nätverket för den virtuella datorn (krävs) och en Nätverkssäkerhetsgrupp (valfritt). |
@@ -194,13 +127,13 @@ Om du är redo att migrera dina resurser från klassiska distributionen till Res
 4. [Migrera IaaS-resurser från klassiska till Azure Resource Manager med hjälp av Azure CLI](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-**Kan jag skapa en virtuell dator med Azure Resource Manager för distribution i ett virtuellt nätverk som skapats med hjälp av klassisk distribution?**
+**Kan jag skapa en virtuell dator med Resource Manager för distribution i ett virtuellt nätverk som skapats med hjälp av klassisk distribution?**
 
-Detta stöds inte. Du kan inte använda Azure Resource Manager för att distribuera en virtuell dator till ett virtuellt nätverk som skapades med klassisk distribution.
+Den här konfigurationen stöds inte. Du kan inte använda Resource Manager för att distribuera en virtuell dator till ett virtuellt nätverk som skapades med klassisk distribution.
 
-**Kan jag skapa en virtuell dator med Azure Resource Manager från en användaravbildning som skapades med Azure Service Management API: er?**
+**Kan jag skapa en virtuell dator med Resource Manager från en användaravbildning som skapades med den klassiska distributionsmodellen?**
 
-Detta stöds inte. Du kan dock kopiera VHD-filer från ett lagringskonto som skapades med Service Management API: er och lägger till dem i ett nytt konto via Azure Resource Manager.
+Den här konfigurationen stöds inte. Du kan dock kopiera VHD-filer från ett lagringskonto som har skapats med den klassiska distributionsmodellen och lägga till dem i ett nytt konto via Resource Manager.
 
 **Hur påverkas kvoten för min prenumeration?**
 

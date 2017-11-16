@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17ff07648b210fe207b514381e98dd372375e092
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Självstudier: Azure Active Directory-integrering med SAML SSO för Jira resolution GmbH
 
@@ -159,27 +159,53 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
 
-14. På **SAML SingleSignOn Plugin Configuration** klickar du på **lägga till ytterligare identitetsleverantör** för att konfigurera inställningarna för identitetsleverantör.
+14. På **SAML SingleSignOn Plugin Configuration** klickar du på **lägga till nya IdP** för att konfigurera inställningarna för identitetsleverantör.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
 
-15. Utför följande steg på den här sidan:
+15. På **Välj SAML-identitetsprovider** utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon5.png)
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon5a.png)
  
-    a. Lägg till **namn** av identitetsleverantören (t.ex Azure AD).
+    a. Ange **Azure AD** som IdP-typen.
     
-    b. Lägg till **beskrivning** av identitetsleverantören (t.ex Azure AD).
+    b. Lägg till **namn** av identitetsleverantören (t.ex Azure AD).
+    
+    c. Lägg till **beskrivning** av identitetsleverantören (t.ex Azure AD).
+    
+    d. Klicka på **Nästa**.
+    
+16. På **identitet providerkonfigurationen** klickar du på **nästa** knappen.
 
-    c. Klicka på **XML** och välj den **Metadata** fil som du har hämtat från Azure-portalen.
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon5b.png)
 
-    d. Klicka på **belastningen** knappen.
+17. På **importera SAML IdP Metadata** utför följande steg:
 
-    e. Den läser IdP-metadata och fylls fälten som är markerade i skärmbilden. 
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon5c.png)
 
-16. Klicka på **Spara inställningar** för att spara inställningarna.
+    a. Klicka på **Läs in fil** knappen och välj Metadata XML-fil som du hämtade i steg 5.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon6.png)
+    b. Klicka på **importera** knappen.
+    
+    c. Vänta en kort stund tills importen lyckas.
+    
+    d. Klicka på **nästa** knappen.
+    
+18. På **användar-ID-attribut- och** klickar du på **nästa** knappen.
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon5d.png)
+    
+19. På **skapa användare och uppdatera** klickar du på **Spara & nästa** att spara inställningar.   
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon6a.png)
+    
+20. På **testa inställningarna** klickar du på **hoppa över test & Konfigurera manuellt** att hoppa över testet användaren just nu. Detta kommer att utföras i nästa avsnitt och kräver vissa inställningar i Azure-portalen. 
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon6b.png)
+    
+21. I dialogrutan-läsning apprearing **hoppar över test innebär...** , klickar du på **OK**.
+    
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-samlssojira-tutorial/addon6c.png)
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

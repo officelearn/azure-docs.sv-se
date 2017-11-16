@@ -4,7 +4,7 @@ description: "Felsökningsguide för Azure AD Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - guide för felsökning
 Den här artikeln innehåller tips för felsökning för problem som kan uppstå när du konfigurerar eller administrera Azure Active Directory (AD) Domain Services.
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Du kan inte aktivera Azure AD Domain Services för din Azure AD-katalog
-Det här avsnittet hjälper dig att felsöka när du försöker aktivera Azure AD Domain Services för din katalog och misslyckas eller växlas tillbaka till ”inaktiverad”.
+Det här avsnittet hjälper dig att felsöka när du försöker aktivera Azure AD Domain Services för din katalog.
 
 Välj felsökningsstegen som motsvarar att du får felmeddelandet.
 
@@ -81,7 +81,7 @@ Använd följande PowerShell-skript för att hitta programmet och ta bort den.
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 
@@ -151,7 +151,7 @@ Om en eller flera användare i Azure AD-klienten inte kan logga in på den nylig
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Användare har tagits bort från Azure AD-klienten tas inte bort från din hanterade domän
 Azure AD skyddar dig mot oavsiktlig borttagning av användarobjekt. När du tar bort ett användarkonto från Azure AD-klienten flyttas motsvarande användarobjekt till papperskorgen. När den här åtgärden synkroniseras till din hanterade domän gör motsvarande användarkonto markeras som inaktiverade. Den här funktionen hjälper dig att återställa eller ångra borttagning användarkontot senare.
 
-Användarkontot förblir inaktiverad i din hanterade domän, även om du återskapa ett användarkonto med samma UPN i Azure AD-katalogen. Om du vill ta bort användarkontot från din hanterade domän måste du tvinga tas bort från Azure AD-klienten.
+Användarkontot förblir inaktiverad i din hanterade domän, även om du återskapa ett användarkonto med samma UPN i Azure AD-katalogen. Om du vill ta bort användarkontot från den Hantera domänen måste framtvingar ta bort det från din Azure AD-klient.
 
 Om du vill ta bort användarkontot helt från din hanterade domän, ta bort användaren permanent från Azure AD-klienten. Använd PowerShell-cmdleten Remove-MsolUser med alternativet ”-RemoveFromRecycleBin” enligt beskrivningen i den här [MSDN-artikeln](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 

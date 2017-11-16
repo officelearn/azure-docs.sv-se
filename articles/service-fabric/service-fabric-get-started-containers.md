@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3d58ba0985d7a5bb302028254be0951859b79dbb
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-behållarapp i Windows
 > [!div class="op_single_selector"]
@@ -325,7 +325,7 @@ Appen är klar när den har ```Ready```status: ![Ready][2] (Klar)
 Öppna en webbläsare och navigera till http://containercluster.westus2.cloudapp.azure.com:8081. Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
-Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party-kluster](http://tryazureservicefabric.westus.cloudapp.azure.com/) tas bort automatiskt efter ett par timmar.
+Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party-kluster](https://try.servicefabric.azure.com/) tas bort automatiskt efter ett par timmar.
 
 När du har överfört avbildningen till behållarregistret kan du ta bort den lokala avbildningen från utvecklingsdatorn:
 

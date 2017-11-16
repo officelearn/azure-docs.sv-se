@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3b634bc36e01f8586b6645515942c049701c30e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Komma igång med Azure AD Connect med standardinställningar
 **Standardinställningar** för Azure AD Connect används om du har en topologi med en enda skog och om du använder [lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) för autentisering. **Standardinställningar** är standardalternativet och används i de vanligaste distributionsscenarierna. Du är bara några få klick bort från att utöka din lokala katalog till molnet.
@@ -39,7 +39,7 @@ Du kan se dessa steg i praktiken i avsnittet med [videoklipp](#videos).
    ![Anslut till Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. På skärmen Anslut till AD DS anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Du kan ange domändelen i NetBios- eller FQDN-format, d.v.s. FABRIKAM\administrator eller fabrikam.com\administrator. Klicka på **Nästa**.  
    ![Anslut till AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. Sidan [**Konfigurera Azure AD-inloggning**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) visas bara om du inte slutförde [domänverifieringen](../active-directory-add-domain.md) under [kravfasen](active-directory-aadconnect-prerequisites.md).
+7. Sidan [**Konfigurera Azure AD-inloggning**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) visas bara om du inte slutförde [domänverifieringen](../active-directory-domains-add-azure-portal.md) under [kravfasen](active-directory-aadconnect-prerequisites.md).
    ![Overifierade domäner](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
    Om den här sidan visas granskar du alla domäner som har markerats med **Inte tillagd** och **Inte verifierad**. Kontrollera att de domäner som du använder har verifierats i Azure AD. Klicka på symbolen Uppdatera när du har verifierat dina domäner.
 8. Klicka på **Installera** på skärmen Klart att konfigurera.

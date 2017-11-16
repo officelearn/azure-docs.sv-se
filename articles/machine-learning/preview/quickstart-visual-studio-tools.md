@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 09/12/2017
-ms.openlocfilehash: 680c1afab1af31cfef51b1c82d2db49f452ba6ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 400fc384519f2ff5c9bb7d83dab6499f5008a833
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>Visual Studio Code Tools för AI
 Visual Studio Code Tools för AI är ett tillägg i Visual Studio Code för att skapa, testa och distribuera djupinlärnings- och AI-lösningar. Tillägget är smidigt integrerat med Azure Machine Learning, till exempel en vy över körningshistorik med information om prestanda för tidigare träningar och anpassade mått. Det har också en utforskarvy med exempel för att söka efter och starta nya projekt med [Microsoft Cognitive Toolkit (kallades tidigare CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) och andra djupinlärningsramverk. Den innehåller även en utforskare för beräkningsmål som gör att du kan skicka jobb för att träna modeller i fjärrmiljöer som Azure Virtual Machines eller Linux-servrar med GPU. 
@@ -70,7 +70,6 @@ När jobben har skickats kan du visa en lista med jobb från körningshistoriken
 1. Öppna kommandopaletten (Visa > **Kommandopalett** eller **Ctrl+Shift+P**).
 2. Ange ”AI List” (AI-lista).
 3. Du får en rekommendation om ”AI: List Jobs” (AI: Lista jobb). Markera det och tryck på Retur.
-4. Välj plattformen ”Azure Machine Learning”.
 
 Jobblistevyn öppnas och alla körningar och relaterad information visas.
 

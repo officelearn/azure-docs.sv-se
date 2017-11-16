@@ -16,6 +16,7 @@
 ### [MPP-arkitektur](massively-parallel-processing-mpp-architecture.md)
 ### [Prestandanivåer](performance-tiers.md)
 ### [Informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Kapacitetsbegränsningar](sql-data-warehouse-service-capacity-limits.md)
 ### [Vanliga frågor och svar](sql-data-warehouse-overview-faq.md)
 
 ## Säkerhetskopiering och återställning
@@ -147,7 +148,7 @@
 
 # Referens
 
-## [Kapacitetsbegränsningar](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [Fullständig referens](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [Språkelement för SQL DW](sql-data-warehouse-reference-tsql-language-elements.md)

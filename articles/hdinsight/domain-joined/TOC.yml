@@ -24,9 +24,6 @@
   items:
     - name: Hantera kluster
       href: apache-domain-joined-manage.md
-    - name: Hantera användarbehörigheter
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
 - name: Referens
   items:
     - name: Kodexempel

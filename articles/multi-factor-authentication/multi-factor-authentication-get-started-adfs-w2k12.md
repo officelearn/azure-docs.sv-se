@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.reviewer: 
+ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98d44fd3d7d3c25d2955cca421dcfea2ca43c53e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a0533d1ee953a8284e76d6edd15333ad844fea9c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS i Windows Server
 Om du använder Active Directory Federation Services (AD FS) och vill skydda molnresurser eller lokala resurser kan du konfigurera Azure Multi-Factor Authentication Server att fungera med AD FS. Den här konfigurationen utlöser tvåstegsverifiering för slutpunkter med högt värde.

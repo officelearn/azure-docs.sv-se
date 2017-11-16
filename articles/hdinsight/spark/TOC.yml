@@ -197,9 +197,6 @@
         - name: Auktorisera användare för Ambari Views
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-        - name: Hantera användarbehörigheter på fil- och mappnivå
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Hantera
       items:
         - name: Kapacitetsplanering för kluster

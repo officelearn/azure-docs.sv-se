@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: 8ddd582ed159e10add896252c40feb19780c42fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
@@ -110,7 +110,7 @@ Du kan associera en offentlig IP-adress med en [Windows](../virtual-machines/win
 
 ### <a name="internet-facing-load-balancers"></a>Internetuppkopplade belastningsutjämnare
 
-Du kan associera en offentlig IP-adress som skapas med en [SKU](#SKU) till en [Azure Load Balancer](../load-balancer/load-balancer-overview.md) genom att tilldela den till belastningsutjämnarens konfiguration på **klientsidan**. Den offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress (VIP). Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till klientsidan för en belastningsutjämnare. Du kan också tilldela flera offentliga IP-adresser till klientsidan för en belastningsutjämnare, t.ex. för scenarier med [flera virtuella IP-adresser](../load-balancer/load-balancer-multivip.md?toc=%2fazure%2fvirtual-network%2ftoc.json), exempelvis i en miljö med flera klientorganisationer med SSL-baserade webbplatser. Mer information om SKU:er för belastningsutjämnare i Azure finns i [Standard-SKU för Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Du kan associera en offentlig IP-adress som skapas med en [SKU](#SKU) till en [Azure Load Balancer](../load-balancer/load-balancer-overview.md) genom att tilldela den till belastningsutjämnarens konfiguration på **klientsidan**. Den offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress (VIP). Du kan tilldela antingen en dynamisk eller en statisk offentlig IP-adress till klientsidan för en belastningsutjämnare. Du kan också tilldela flera offentliga IP-adresser till klientsidan för en belastningsutjämnare, t.ex. för scenarier med [flera virtuella IP-adresser](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), exempelvis i en miljö med flera klientorganisationer med SSL-baserade webbplatser. Mer information om SKU:er för belastningsutjämnare i Azure finns i [Standard-SKU för Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="vpn-gateways"></a>VPN-gateways
 

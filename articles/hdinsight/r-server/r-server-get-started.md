@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e584a9adb75510c92fc2a25b657f55df88372e6b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9a941ce5c6f0989749c5a6db4348757f898a46f1
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Kom igång med R Server på HDInsight
 
@@ -784,6 +784,5 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 
 Nu bör du förstå hur du skapar ett nytt HDInsight-kluster som innehåller R Server och grunderna i hur du använder R-konsolen från en SSH-session. I följande artiklar beskrivs andra sätt att hantera och arbeta med R Server i HDInsight:
 
-* [Lägga till RStudio Server till HDInsight (om det inte installerades när klustret skapades)](r-server-install-r-studio.md)
 * [Alternativ för beräkningskontexter för R Server på HDInsight](r-server-compute-contexts.md)
 * [Alternativ för Azure Storage för R Server på HDInsight](r-server-storage.md)

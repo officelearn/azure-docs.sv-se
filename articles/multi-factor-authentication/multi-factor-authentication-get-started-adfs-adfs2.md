@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/14/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: ec0fada3f8e94d8dda63d00f0ead7fa28535474f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b640b9ff353a9570debb18adfcd0ecefbe342ff0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS 2.0
 Den här artikeln är för organisationer som federerade med Azure Active Directory och som vill skydda resurser som finns lokalt eller i molnet. Skydda dina resurser genom att använda Azure Multi-Factor Authentication-servern och konfigurera den för att fungera med AD FS så att tvåstegsverifiering utlöses för slutpunkter med högt värde.

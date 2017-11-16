@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Komma igång med tjänsten Batch Rendering
 
@@ -91,7 +91,7 @@ De specifika licensversionerna som tillhandahålls är följande:
 
 ### <a name="custom-images"></a>Anpassade avbildningar
 
-Med Azure Batch kan du tillhandahålla en egen anpassad avbildning. Med det här alternativet kan du konfigurera din virtuella dator med de exakta program och specifika versioner du behöver. Mer information finns i [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images) (Använda en anpassad avbildning för att skapa en pool med virtuella datorer). Observera att Autodesk och Chaos Group har ändrat Arnold respektive V-Ray för att verifiera mot vår egen licensieringstjänst. Du måste kontrollera att du har versionerna av dessa program som har det här stödet, annars fungerar inte licensieringen där du betalar utifrån hur mycket du använder. Licensverifieringen krävs inte för Maya eller 3ds Max eftersom de publicerade versionerna inte kräver någon licensserver när de körs med fjärradministrering (i batch/kommandoradsläge). Kontakta Azure-supporten om du inte vet hur du fortsätter med det här alternativet.
+Med Azure Batch kan du tillhandahålla en egen anpassad avbildning. Med det här alternativet kan du konfigurera din virtuella dator med de exakta program och specifika versioner du behöver. Mer information finns i [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images) (Använda en anpassad avbildning för att skapa en pool med virtuella datorer). Observera att Autodesk och Chaos Group har ändrat Arnold respektive V-Ray för att verifiera mot vår egen licensieringstjänst. Du måste kontrollera att du har versionerna av dessa program som har det här stödet, annars fungerar inte licensieringen där du betalar utifrån hur mycket du använder. Licensverifieringen krävs inte för Maya eller 3ds Max eftersom de publicerade versionerna inte kräver någon licensserver när de körs med fjärradministrering (i batch/kommandoradsläge). Kontakta Azure-supporten om du inte vet hur du fortsätter med det här alternativet.
 
 ## <a name="options-for-submitting-a-render-job"></a>Alternativ för att skicka ett renderingsjobb
 
@@ -101,7 +101,7 @@ Beroende på vilket 3D-program du använder finns det olika alternativ för att 
 
 Med Maya kan du använda:
 
-- [Batch-plugin-programmet för Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
+- [Batch-plugin-programmet för Maya](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
 - [BatchLabs](https://azure.github.io/BatchLabs)-datorprogrammet
 - [CLI för Batch-mallar](batch-cli-templates.md)
 
@@ -114,7 +114,7 @@ Med 3ds Max kan du använda:
 
 Med 3ds Max Batch Labs-mallar kan du återge VRay- och Arnold-bakgrunder med tjänsten Azure Batch Rendering. Det finns två varianter av mallen för VRay och Arnold, en för standardbakgrunder och en för mer komplexa bakgrunder som kräver en 3ds Max-sökvägsfil till tillgångar och strukturer (.mxp-fil). Mer information om 3ds Max BatchLabs-mallar finns i lagringsplatsen [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) på GitHub.
 
-Du kan också använda [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial) för att integrera tjänsten med din befintliga pipeline.
+Du kan också använda [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) för att integrera tjänsten med din befintliga pipeline.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Skicka ett renderingsjobb med Batch-plugin-programmet för Maya

@@ -250,8 +250,6 @@
 ### [Felsök en Java-tjänst i Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Övervaka och diagnostisera lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [Distribuera API Management och Service Fabric till Azure](service-fabric-api-management-quick-start.md)
-
 ## Migrera från Cloud Services
 ### [Jämför Cloud Services med Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrera till Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,7 +263,6 @@
 #### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient-API:er](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Uppgradera program
@@ -281,11 +278,8 @@
 ##### [Under arbetsbelastningar](service-fabric-testability-workload-tests.md)
 ##### [Använda testscenarier](service-fabric-testability-scenarios.md)
 ##### [Använda API:er för nodövergång](service-fabric-node-transition-apis.md)
-#### [Belastningstesta ditt program](service-fabric-vso-load-test.md)
 
-### Konfigurera kontinuerlig integrering
-#### [Konfigurera kontinuerlig integrering med VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Distribuera ditt Linux Java-program med Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Distribuera ditt Linux Java-program med Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Skapa och hantera kluster
 ### Kluster i Azure
@@ -319,21 +313,6 @@
 ### [Visualisera ett kluster](service-fabric-visualizing-your-cluster.md)
 ### [Ansluta till ett säkert kluster](service-fabric-connect-to-secure-cluster.md)
 ### [Korrigera klusternoder](service-fabric-patch-orchestration-application.md)
-
-### Hantera och dirigera klusterresurser
-#### [Översikt över Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-#### [Cluster Resource Manager-arkitektur](service-fabric-cluster-resource-manager-architecture.md)
-#### [Beskriv ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Översikt över programgrupper](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Konfigurera inställningar för Cluster Resource Manager](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Statistik över resursförbrukning](service-fabric-cluster-resource-manager-metrics.md)
-#### [Använd tjänsttillhörighet](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Placeringsprinciper av tjänster](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Hantera ett kluster](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Klusterdefragmentering](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Balansera ett kluster](service-fabric-cluster-resource-manager-balancing.md)
-#### [Begränsning](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Tjänstflöde](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Övervaka och diagnostisera
 ### OMS

@@ -53,7 +53,7 @@
 ### [Använda en hanterad tjänstidentitet](api-management-howto-use-managed-service-identity.md)
 ### Integrera med Service Fabric
 #### [Översikt](../service-fabric/service-fabric-api-management-overview.md)
-#### [Snabbstart](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [Självstudie](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 # Referens
 ## [Azure PowerShell](/powershell/azure/overview)

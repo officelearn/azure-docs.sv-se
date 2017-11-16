@@ -45,7 +45,7 @@
 ### Azure Portal
 #### [Distribuera resurser](resource-group-template-deploy-portal.md)
 #### [Exportera mall](resource-manager-export-template.md)
-### [REST API](resource-group-template-deploy-rest.md)
+### [REST-API](resource-group-template-deploy-rest.md)
 ### [Distribution mellan resursgrupper](resource-manager-cross-resource-group-deployment.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)
@@ -68,10 +68,6 @@
 #### [Azure Portal](resource-group-create-service-principal-portal.md)
 ### [Autentiserings-API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md)
 ### [Lås resurser](resource-group-lock-resources.md)
-
-## Ange resursprinciper
-### [Vad är resursprinciper?](resource-manager-policy.md)
-### [Namngivningskonventioner](resource-manager-policy-naming-convention.md)
 
 ## Granska
 ### [Visa aktivitetsloggar](resource-group-audit.md)

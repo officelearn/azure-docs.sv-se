@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>Vad är Azure IoT Suite?
 
@@ -90,7 +90,7 @@ När du distribuerar en förkonfigurerad lösning konfigurerar etableringsproces
 
 * [Azure IoT Hub](../iot-hub/index.md). Den här tjänsten tillhandahåller funktioner för meddelandehantering från ”enhet till moln” och från ”moln till enhet” och fungerar som en gateway till molnet och andra viktiga IoT Suite-tjänster. Tjänsten gör att du kan ta emot meddelanden från dina enheter i hög skala och skicka kommandon till dina enheter. Med tjänsten kan du även [hantera dina enheter](../iot-hub/iot-hub-device-management-overview.md). Du kan till exempel konfigurera, starta om eller utföra en fabriksåterställning på en eller flera enheter som är anslutna till hubben.
 * [Azure Event Hubs](../event-hubs/index.md). Den här tjänsten ger omfattande händelsepåfyllning till molnet. Se [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md) (Jämförelse mellan Azure IoT Hub och Azure Event Hubs).
-* [Azure Time Series Insights](../time-series-insights/index.md). De förkonfigurerade lösningarna använder den här tjänsten för att analysera och visa telemetridata från dina enheter.
+* [Azure Time Series Insights](../time-series-insights/index.yml). De förkonfigurerade lösningarna använder den här tjänsten för att analysera och visa telemetridata från dina enheter.
 * [Azure Container Service](../container-service/index.yml). Den här tjänsten är värd för och hanterar mikrotjänster i förkonfigurerade lösningar.
 * [Azure Cosmos DB](../cosmos-db/index.yml) och [Azure Storage](../storage/index.yml) för datalagring.
 * [Azure Stream Analytics](../stream-analytics/index.md). Den förkonfigurerade lösningen Förutsägande underhåll använder den här tjänsten för att bearbeta inkommande telemetri, utföra aggregeringar och identifiera händelser. De här förkonfigurerade lösningarna använder också Stream Analytics för att bearbeta informationsmeddelanden som innehåller data, till exempel metadata eller kommandosvar från enheter.

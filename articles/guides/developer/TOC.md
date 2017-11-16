@@ -107,7 +107,7 @@
 ## [Billing](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resurser
-## [Begränsningar och kvoter för Azure](../../azure-subscription-service-limits.md)
+## [Begränsningar och kvoter för Azure](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Azure-regioner](https://azure.microsoft.com/regions/)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)

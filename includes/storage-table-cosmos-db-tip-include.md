@@ -1,3 +1,3 @@
 > [!TIP]
-> Innehållet i den här artikeln gäller för Azure Table storage. Men är det nu en premium erbjudande från Azure Cosmos DB som förhandsversion som erbjuder genomströmning optimerade tabeller, globala distribution och automatisk sekundärindex. Om du vill veta mer om och prova den nya premiumtjänsten går du till avsnittet [Table-API:et för Azure Cosmos DB](https://aka.ms/premiumtables).
+> Innehållet i den här artikeln gäller för den ursprungliga Azure Table storage. Men är det nu en premium för tabellagring Azure Cosmos DB tabell API som erbjuder genomströmning optimerade tabeller, globala distribution och automatisk sekundärindex. Mer information och prova att använda den bästa upplevelsen genom checka ut [Azure Cosmos DB tabell API](https://aka.ms/premiumtables).
 >

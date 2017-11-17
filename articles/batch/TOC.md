@@ -17,6 +17,7 @@
 #### [Azure AD med Batch-tjänsten](batch-aad-auth.md)
 #### [Azure AD med Batch Management](batch-aad-auth-management.md)
 ### [Beräkningsintensiva virtuella datorer](batch-pool-compute-intensive-sizes.md)
+### [Behållararbetsbelastningar](batch-docker-container-workloads.md)
 ### [Samtidiga nodaktiviteter](batch-parallel-node-tasks.md)
 ### [Räkna aktiviteter efter tillstånd](batch-get-task-counts.md)
 ### [Skapa en pool med en anpassad bild](batch-custom-images.md)

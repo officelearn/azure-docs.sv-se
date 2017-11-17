@@ -34,32 +34,21 @@
 #### [Använd en åtgärd för att installera .NET på en molntjänstroll](cloud-services-dotnet-install-dotnet.md)
 
 ### Konfigurera Fjärrskrivbord
-#### [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Klassisk portal](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Distribuera
-### Skapa och distribuera en molntjänst i portalen
-#### [Azure Portal](cloud-services-how-to-create-deploy-portal.md)
-#### [Klassisk portal](cloud-services-how-to-create-deploy.md)
+### [Skapa och distribuera en molntjänst i portalen](cloud-services-how-to-create-deploy-portal.md)
 ### [Skapa en tom molntjänstbehållare i PowerShell](cloud-services-powershell-create-cloud-container.md)
-### Konfigurera ett anpassat domännamn
-#### [Portal](cloud-services-custom-domain-name-portal.md)
-#### [Klassisk portal](cloud-services-custom-domain-name.md)
+### [Konfigurera ett anpassat domännamn](cloud-services-custom-domain-name-portal.md)
 ### [Mellanlagra en molntjänstdistribution (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Anslut till en anpassad domänkontrollant](cloud-services-connect-to-custom-domain.md)
 
 ## Hantera tjänst
-### Vanliga administrativa uppgifter
-#### [Azure Portal](cloud-services-how-to-manage-portal.md)
-#### [Klassisk portal](cloud-services-how-to-manage.md)
-### Konfigurera en molntjänst
-#### [Azure Portal](cloud-services-how-to-configure-portal.md)
-#### [Klassisk portal](cloud-services-how-to-configure.md)
+### [Vanliga administrativa uppgifter](cloud-services-how-to-manage-portal.md)
+### [Konfigurera en molntjänst](cloud-services-how-to-configure-portal.md)
 ### [Hantera en molntjänst med Azure Automation](automation-manage-cloud-services.md)
-### Konfigurera automatisk skalning
-#### [Azure Portal](cloud-services-how-to-scale-portal.md)
-#### [Klassisk portal](cloud-services-how-to-scale.md)
+### [Konfigurera automatisk skalning](cloud-services-how-to-scale-portal.md)
 ### [Använd Python för att hantera Azure-resurser](cloud-services-python-how-to-use-service-management.md)
 
 ### [Gästoperativsystemets korrigeringsfiler](cloud-services-guestos-msrc-releases.md)
@@ -71,9 +60,7 @@
 
 ## Hantera certifikat
 ### [Cloud Services och hanteringscertifikat](cloud-services-certs-create.md)
-### Konfigurera SSL 
-#### [Portal](cloud-services-configure-ssl-certificate-portal.md)
-#### [Klassisk portal](cloud-services-configure-ssl-certificate.md)
+### [Konfigurera SSL](cloud-services-configure-ssl-certificate-portal.md)
 
 ## Övervaka
 ### [Övervaka molntjänster](cloud-services-how-to-monitor.md)

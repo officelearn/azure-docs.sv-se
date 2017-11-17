@@ -1,0 +1,76 @@
+- name: Azure Time Series Insights
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Time Series Insights
+      href: time-series-insights-overview.md
+- name: Snabbstarter
+  items:
+    - name: Utforska Time Series Insights
+      href: time-series-quickstart.md
+- name: Koncept
+  items:
+    - name: Planera din miljö
+      href: time-series-insights-environment-planning.md
+    - name: Visualisera data i Utforskaren
+      href: time-series-insights-explorer.md
+    - name: Minimera begränsningar
+      href: time-series-insights-environment-mitigate-latency.md
+    - name: Diagnostisera och felsöka
+      href: time-series-insights-diagnose-and-solve-problems.md
+    - name: Utveckla
+      items:
+        - name: Autentisera och auktorisera
+          href: time-series-insights-authentication-and-authorization.md
+        - name: 'Fråga data med C#'
+          href: time-series-insights-query-data-csharp.md
+        - name: 'Hantera referensdata med C#'
+          href: time-series-insights-manage-reference-data-csharp.md
+        - name: Dela en anpassad vy
+          href: time-series-insights-parameterized-urls.md
+- name: Instruktionsguider
+  items:
+    - name: Skapa en miljö
+      href: time-series-insights-get-started.md
+    - name: Bevilja åtkomst till data
+      href: time-series-insights-data-access.md
+    - name: Ansluta till Event Hub
+      href: time-series-insights-how-to-add-an-event-source-eventhub.md
+    - name: Ansluta till IoT Hub
+      href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Skapa en referensdatauppsättning
+      href: time-series-insights-add-reference-data-set.md
+    - name: Skicka händelser
+      href: time-series-insights-send-events.md
+    - name: Skala din miljö
+      href: time-series-insights-how-to-scale-your-environment.md
+- name: Referens
+  items:
+    - name: Fråge-API
+      href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
+    - name: Frågesyntax
+      href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+- name: Resurser
+  items:
+    - name: Relaterade tjänster
+      items:
+        - name: Azure IoT Suite
+          href: /azure/iot-suite/
+        - name: Azure Event Hubs
+          href: /azure/event-hubs/
+        - name: Azure Stream Analytics
+          href: /azure/stream-analytics/
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
+    - name: Supportalternativ
+      href: 'https://azure.microsoft.com/support/options/'

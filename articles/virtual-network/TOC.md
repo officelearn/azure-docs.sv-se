@@ -63,6 +63,7 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Virtuella datorer
+#### [Nätverksdataflöde för virtuella datorer](virtual-machine-network-throughput.md)
 #### Skapa en virtuell dator med en statisk offentlig IP-adress
 ##### [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)

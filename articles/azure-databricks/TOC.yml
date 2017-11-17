@@ -1,0 +1,25 @@
+- name: Dokumentation för Azure Databricks
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Azure Databricks?
+      href: what-is-azure-databricks.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa en Databricks-arbetsyta
+      href: quickstart-create-databricks-workspace-portal.md
+- name: Resurser
+  items:
+    - name: Dokumentation för Databricks
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Supportalternativ
+      href: 'https://azure.microsoft.com/support/options/'

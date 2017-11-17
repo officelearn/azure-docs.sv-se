@@ -37,6 +37,8 @@
       href: container-instances-mounting-azure-files-volume.md
     - name: Distribuera från Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Köra behållarbaserade uppgifter
+      href: container-instances-restart-policy.md
     - name: Felsöka distributioner
       href: container-instances-troubleshooting.md
 - name: Referens

@@ -14,6 +14,9 @@
 ### [Tjänstbegränsningar](key-vault-service-limits.md)
 ### [HSM-skyddade nycklar](key-vault-hsm-protected-keys.md)
 ### [Migrera till .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Spara hemligheter för webbprogram](vs-secure-secret-appsettings.md)
+### [Tjänstautentisering med hjälp av .NET](service-to-service-authentication.md)
+
 ### Översikter
 #### [Säkerhetsvärldar](key-vault-ovw-security-worlds.md)
 #### [Mjuk borttagning](key-vault-ovw-soft-delete.md)

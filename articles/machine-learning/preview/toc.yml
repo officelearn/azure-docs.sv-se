@@ -41,6 +41,8 @@
           href: roaming-and-collaboration.md
     - name: Använd Visual Studio Code Tools för AI
       href: quickstart-visual-studio-tools.md
+    - name: Använda Azure IoT Edge AI Toolkit
+      href: use-azure-iot-edge-ai-toolkit.md
     - name: Konfigurera beräkningsmiljö
       items:
         - name: Konfigurera experimentering
@@ -88,6 +90,8 @@
           href: how-to-scale-clusters.md
         - name: Distribuera en webbtjänst
           href: model-management-service-deploy.md
+        - name: Distribuera till en IoT Edge-enhet
+          href: deploy-to-iot-edge-device.md
         - name: Använda en webbtjänst
           href: model-management-consumption.md
         - name: Samla in modelldata

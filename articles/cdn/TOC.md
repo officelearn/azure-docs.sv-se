@@ -11,7 +11,7 @@
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing (CORS)](cdn-cors.md)
 ### [Lägga till en anpassad domän i CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
-### [Aktivera HTTPS på en anpassad domän](cdn-custom-ssl.md)
+### [Konfigurera HTTPS på en anpassad domän](cdn-custom-ssl.md)
 ## Optimera innehåll
 ### [Optimeringsöversikt](cdn-optimization-overview.md)
 ####[Optimering av stora filer](cdn-large-file-optimization.md)

@@ -16,6 +16,7 @@
 ## [Uppgift 5: Aktivera lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md)
 
 # Gör så här för att
+## [Aktivera Azure AD Domain Services med PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Anslut till en hanterad domän
 ### [Virtuell Windows Server-dator](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Virtuell Windows Server-dator från mall](active-directory-ds-join-windows-vm-template.md)

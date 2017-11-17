@@ -65,6 +65,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Azure-resurser
               href: log-analytics-azure-storage.md
+            - name: Azure PaaS-resurser
+              href: log-analytics-collect-azurepass-posh.md
             - name: Diagnostik- eller loggdata från Azure Storage
               href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager

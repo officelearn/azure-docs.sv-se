@@ -3,7 +3,6 @@
 
 # Kom igång
 
-## [Välja en SKU](search-sku-tier.md)
 ## [Skapa en tjänst](search-create-service-portal.md)
 ## [Skapa ett index](search-what-is-an-index.md)
 ### [Azure Portal](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # Självstudier
 
-## [NET](search-howto-dotnet-sdk.md)
-## [Förhandsversion av .NET-synonymer](search-synonyms-tutorial-sdk.md)
-## [Portal](search-get-started-portal.md)
+## [Utveckla i .NET](search-howto-dotnet-sdk.md)
+## [Förhandsversion av synonymer i .NET](search-synonyms-tutorial-sdk.md)
+## [Indexerare för SQL-data i .NET](search-indexer-tutorial.md)
+## [Genomgång av portalen](search-get-started-portal.md)
 ## [Söka i halvstrukturerade data](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Utforska REST API](search-fiddler.md)
 
 # Gör så här för att
 
 ## Planera och designa
+### [Välja en SKU](search-sku-tier.md)
 ### [Tjänstbegränsningar](search-limits-quotas-capacity.md)
 ### [Tjänstskalbarhet](search-capacity-planning.md)
 ### [Utforma mönster för flera innehavare](search-modeling-multitenant-saas-applications.md)
 ## Utveckla
 ### [API-versioner](search-api-versions.md)
+### [Utveckla i Node.js](search-get-started-nodejs.md)
+### [Utveckla i Java](search-get-started-java.md)
 ### [Uppgradera SDK](search-dotnet-sdk-migration.md)
 ### [Uppgradera REST API](search-api-migration.md)
 ### [Skapa modeller över komplexa datatyper](search-howto-complex-data-types.md)

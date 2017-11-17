@@ -106,8 +106,9 @@
 
 ## [Strömma live](media-services-manage-channels-overview.md)
 ### [Lokala kodare](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portal](media-services-portal-live-passthrough-get-started.md)
-#### [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [Rekommenderade lokala kodare](media-services-recommended-encoders.md)
+#### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Liveuppspelning med molnkodare](media-services-manage-live-encoder-enabled-channels.md)
 #### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Wirecast-kodare](media-services-configure-wirecast-live-encoder.md)
 ### [Hantera långvariga åtgärder](media-services-dotnet-long-operations.md)
 ### [Specifikation för live-inmatning av fragmenterad MP4](media-services-fmp4-live-ingest-overview.md)
+
+## [Klippinnehåll](media-services-azure-media-clipper-overview.md)
+### [Komma igång med Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [Läsa in tillgångar till Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [Konfigurera anpassade kortkommandon](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Skicka urklippningsjobb](media-services-azure-media-clipper-submit-job.md)
+### [Azure Portal](media-services-azure-media-clipper-portal.md)
 
 ## [Skydda](media-services-content-protection-overview.md)
 ### [Konfigurera innehållsskydd i Azure Portal](media-services-portal-protect-content.md)

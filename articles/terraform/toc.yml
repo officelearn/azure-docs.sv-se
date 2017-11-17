@@ -15,7 +15,7 @@
   items:
     - name: Skapa ett VM-kluster med Terraform-moduler
       href: terraform-create-vm-cluster-module.md
-    - name: Skapa ett VM-kluster med Cloud Shell
+    - name: Skapa ett VM-kluster med Terraform och HCL
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Etablera virtuella skalningsuppsättningar med infrastruktur
       href: terraform-create-vm-scaleset-network-disks-hcl.md

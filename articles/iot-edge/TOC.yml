@@ -1,61 +1,61 @@
-- name: Dokumentation om Azure IoT Hub Device Provisioning-tjänsten
+- name: Dokumentation om Azure IoT Edge
   href: index.yml
 - name: Översikt
   items:
-    - name: Om IoT Device Provisioning
-      href: about-iot-dps.md
+    - name: Om Azure IoT Edge
+      href: how-iot-edge-works.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Konfigurera automatisk etablering
-      href: quick-setup-auto-provision.md
-    - name: Skapa simulerad enhet
-      items:
-        - name: TPM
-          href: quick-create-simulated-device.md
-        - name: X.509
-          href: quick-create-simulated-device-x509.md
+    - name: Distribuera till Edge – Windows
+      href: quickstart.md
+    - name: Distribuera till Edge – Linux
+      href: quickstart-linux.md
 - name: Självstudier
   items:
-    - name: 1 – Konfigurera molnresurser
-      href: tutorial-set-up-cloud.md
-    - name: 2 – Konfigurera enhet
-      href: tutorial-set-up-device.md
-    - name: 3 - Etablera en enhet till en IoT-hubb
-      href: tutorial-provision-device-to-hub.md
-    - name: 4 - Etablera enheter till flera hubbar
-      href: tutorial-provision-multiple-hubs.md
-- name: Koncept
-  items:
-    - name: Enhetskoncept
-      href: concepts-device.md
-    - name: Tjänstkoncept
-      href: concepts-service.md
-    - name: Säkerhetskoncept
-      href: concepts-security.md
+    - name: Simulera en Edge-enhet – Windows
+      href: tutorial-simulate-device-windows.md
+    - name: Simulera en Edge-enhet – Linux
+      href: tutorial-simulate-device-linux.md
+    - name: 'Utveckla en C#-modell'
+      href: tutorial-csharp-module.md
+    - name: Distribuera Azure Stream Analytics
+      href: tutorial-deploy-stream-analytics.md
+    - name: Distribuera Azure Machine Learning
+      href: tutorial-deploy-machine-learning.md
+    - name: Distribuera Azure Functions
+      href: tutorial-deploy-function.md
 - name: Instruktionsguider
   items:
-    - name: Hantera enhetsregistreringar
-      href: how-to-manage-enrollments.md
-    - name: Använda HSM med SDK
-      href: use-hsm-with-sdk.md
-    - name: Styra åtkomsten till etableringstjänsten
-      href: how-to-control-access.md
-- name: Referens
+    - name: Skapa en gateway-enhet
+      href: how-to-create-gateway-device.md
+    - name: Distribuera och övervaka i skala
+      href: how-to-deploy-monitor.md
+    - name: Etablera en IoT Core-enhet
+      href: how-to-install-iot-core.md
+- name: Koncept
   items:
-    - name: REST
-      href: /rest/api/iot-dps
+    - name: IoT Edge-moduler
+      href: iot-edge-modules.md
+      items:
+        - name: Utveckling
+          href: module-development.md
+        - name: Sammansättning
+          href: module-composition.md
+    - name: IoT Edge-körning
+      href: iot-edge-runtime.md
+    - name: Distributioner
+      href: module-deployment-monitoring.md
+    - name: Säkerhet
+      href: security.md
 - name: Resurser
   items:
-    - name: Azure IoT Hub
-      href: 'https://azure.microsoft.com/services/iot-hub/'
     - name: Azure Certified for IoT-enhetskatalog
       href: 'https://catalog.azureiotsuite.com/'
     - name: Azure IoT Developer Center
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
-    - name: Device Explorer-verktyg
+    - name: DeviceExplorer-verktyg
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: iothub-diagnostics tool
       href: 'https://github.com/Azure/iothub-diagnostics'

@@ -91,6 +91,8 @@
       items:
         - name: Azure
           items:
+            - name: Lägga till kontinuerlig övervakning
+              href: app-insights-vsts-continuous-monitoring.md
             - name: Profilerare
               href: app-insights-profiler.md
             - name: Aktivera Profiler

@@ -71,7 +71,7 @@
 ## Lösningar
 ### [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)
 #### [Hantera uppdateringar för fler virtuella datorer](manage-update-multi.md)
-#### [Integrera SCCMr med uppdateringshantering för OMS](oms-solution-updatemgmt-sccmintegration.md)
+#### [Integrera SCCM med uppdateringshantering för OMS](oms-solution-updatemgmt-sccmintegration.md)
 ### [Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md)
 ### [Spåra ändringar i dina virtuella datorer](automation-vm-change-tracking.md)
 ### [Hantera en virtuell dator med inventeringssamlingen](automation-vm-inventory.md)

@@ -65,8 +65,20 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: site-recovery-faq.md
-- name: Guider
+- name: Instruktionsguider
   items:
+    - name: Nätverk
+      items:
+        - name: Konfigurera nätverk för haveriberedskap för virtuella Azure-datorer (förhandsversion)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Konfigurera nätverksmappning för haveriberedskap för virtuella Azure-datorer (förhandsversion)
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Förbereda nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
+          href: site-recovery-network-mapping.md
+        - name: Konfigurera IP-adresser för åtkomst till Azure efter redundansväxling
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Konfigurera IP-adresser för åtkomst till en sekundär webbplats efter redundansväxling
+          href: concepts-on-premises-to-on-premises-networking.md
     - name: Haveriberedskap
       items:
         - name: Virtuella Hyper-V-datorer till Azure
@@ -81,14 +93,43 @@
           href: tutorial-dr-drill-azure.md
         - name: Köra ett programåterställningstest till en sekundär plats
           href: tutorial-dr-drill-secondary.md
+        - name: Virtuella VMware-datorer med stöd för flera klienter till Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+    - name: Redundans och återställning efter fel
+      items:
+        - name: Konfigurera återställningsplaner
+          href: site-recovery-create-recovery-plans.md
+          items:
+            - name: Lägga till Azure-runbookflöden i återställningsplaner
+              href: site-recovery-runbook-automation.md
+        - name: Köra ett redundanstest
+          items:
+            - name: Köra ett redundanstest till Azure
+              href: site-recovery-test-failover-to-azure.md
+            - name: Köra ett redundanstest mellan VMM-moln
+              href: site-recovery-test-failover-vmm-to-vmm.md
+        - name: Redundansväxla skyddade datorer
+          href: site-recovery-failover.md
         - name: Köra redundans och återställning efter fel för fysiska servrar
           href: tutorial-vmware-to-azure-failover-failback.md
         - name: Köra redundans och återställning efter fel för virtuella Hyper-V-datorer
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Köra redundans och återställning efter fel mellan lokala platser
           href: tutorial-vmm-to-vmm-failover-failback.md
-        - name: Virtuella VMware-datorer med stöd för flera klienter till Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+        - name: Skydda datorer igen efter en redundansväxling
+          items:
+            - name: Skydda datorer igen från en sekundär Azure-region till en primär
+              href: site-recovery-how-to-reprotect-azure-to-azure.md
+            - name: Skydda datorer igen från Azure till lokalt
+              href: site-recovery-how-to-reprotect.md
+        - name: Redundansväxla från Azure
+          items:
+            - name: Redundansväxla från Azure till VMware
+              href: site-recovery-how-to-failback-azure-to-vmware.md
+            - name: Redundansväxla från Azure till Hyper-V
+              href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: Konfigurera en Linux-huvudmålserver för återställning efter fel
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: Kapacitet och skalning
       items:
         - name: Planera kapacitet för VMware-replikering till Azure
@@ -105,16 +146,6 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Konfigurera
       items:
-        - name: Konfigurera nätverk för haveriberedskap för virtuella Azure-datorer (förhandsversion)
-          href: site-recovery-azure-to-azure-networking-guidance.md
-        - name: Konfigurera IP-adresser för åtkomst efter redundansväxling till Azure
-          href: concepts-on-premises-to-azure-networking.md
-        - name: Konfigurera IP-adresser för åtkomst efter redundansväxling till en sekundär webbplats
-          href: concepts-on-premises-to-on-premises-networking.md
-        - name: Konfigurera nätverksmappning för haveriberedskap för virtuella Azure-datorer (förhandsversion)
-          href: site-recovery-network-mapping-azure-to-azure.md
-        - name: Förbereda nätverksmappning för replikering av virtuella Hyper-V-datorer till Azure
-          href: site-recovery-network-mapping.md
         - name: Konfigurera källmiljön
           items:
             - name: Källmiljö för VMware till Azure
@@ -127,7 +158,7 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: Målmiljö för fysisk till Azure
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: Konfigurera replikeringsinställningar
+        - name: Konfigurera replikeringsinställningar för VMware till Azure
           href: site-recovery-setup-replication-settings-vmware.md
         - name: Undanta diskar från replikering
           href: site-recovery-exclude-disk.md
@@ -144,35 +175,6 @@
               href: site-recovery-replicate-azure-to-azure.md
             - name: Aktivera VMware till Azure-replikering
               href: site-recovery-replicate-vmware-to-azure.md
-    - name: Redundans och återställning
-      items:
-        - name: Konfigurera återställningsplaner
-          href: site-recovery-create-recovery-plans.md
-          items:
-            - name: Lägga till Azure-runbookflöden i återställningsplaner
-              href: site-recovery-runbook-automation.md
-        - name: Köra ett redundanstest
-          items:
-            - name: Köra ett redundanstest till Azure
-              href: site-recovery-test-failover-to-azure.md
-            - name: Köra ett redundanstest mellan VMM-moln
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Redundansväxla skyddade datorer
-          href: site-recovery-failover.md
-        - name: Skydda datorer igen efter en redundansväxling
-          items:
-            - name: Skydda datorer igen från en sekundär Azure-region till en primär
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
-            - name: Skydda datorer igen från Azure till lokalt
-              href: site-recovery-how-to-reprotect.md
-        - name: Redundansväxla från Azure
-          items:
-            - name: Redundansväxla från Azure till VMware
-              href: site-recovery-how-to-failback-azure-to-vmware.md
-            - name: Redundansväxla från Azure till Hyper-V
-              href: site-recovery-failback-from-azure-to-hyper-v.md
-        - name: Konfigurera en Linux-huvudmålserver för återställning efter fel
-          href: site-recovery-how-to-install-linux-master-target.md
     - name: Automatisera
       items:
         - name: Konfigurera Hyper-V-replikering till Azure (utan VMM) med PowerShell
@@ -213,7 +215,7 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Hantera
       items:
-        - name: Uppgradera ditt Site Recovery-valv till ett Recovery Services-valv
+        - name: Uppgradera till ett Recovery Services-valv
           href: upgrade-site-recovery-vaults.md
         - name: Hantera processervrar i Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
@@ -223,7 +225,7 @@
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Ta bort servrar och inaktivera skydd
           href: site-recovery-manage-registration-and-protection.md
-        - name: Ta bort Recovery Services-valv
+        - name: Ta bort ett valv
           href: delete-vault.md
     - name: Felsöka
       items:
@@ -231,7 +233,7 @@
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
         - name: Replikeringsproblem med lokalt till Azure
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-        - name: Installationsproblem med mobilitetstjänsten
+        - name: Problem med mobilitetstjänsten
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problem med redundans till Azure
           href: site-recovery-failover-to-azure-troubleshoot.md

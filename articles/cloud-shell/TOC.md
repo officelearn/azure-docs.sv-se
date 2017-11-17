@@ -14,6 +14,9 @@
 ## [Bestående lagring i PowerShell](persisting-shell-storage-powershell.md)
 ## [Använda fönstret](using-the-shell-window.md)
 
+# Exempel
+## [Distribuera Azure-resurser med Terraform i Bash](example-terraform-bash.md)
+
 # [Prissättning](pricing.md)
 
 # [Felsökning](troubleshooting.md)

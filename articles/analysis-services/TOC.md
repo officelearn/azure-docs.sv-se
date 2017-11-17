@@ -20,7 +20,7 @@
 ## [Installera och konfigurera lokal datagateway](analysis-services-gateway-install.md)
 ## [Hämta klientbibliotek](analysis-services-data-providers.md)
 ## [Säkerhetskopiering och återställning](analysis-services-backup.md)
-## [Konfigurera skalning för frågereplik](analysis-services-scale-out.md)
+## [Konfigurera utskalning](analysis-services-scale-out.md)
 ## [Anslut till Excel](analysis-services-connect-excel.md)
 ## [Anslut med Power BI](analysis-services-connect-pbi.md)
 ## [Skapa en ODC-fil](analysis-services-odc.md)

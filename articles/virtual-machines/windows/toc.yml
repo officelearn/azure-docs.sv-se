@@ -125,7 +125,7 @@
           href: ps-template.md
         - name: Ansluta till en virtuell dator
           href: connect-logon.md
-        - name: Använda AHUB-licensiering
+        - name: Använda licens för Azure Hybrid-förmånen
           href: hybrid-use-benefit-licensing.md
         - name: Använda värdrättigheter för flera innehavare för Windows 10
           href: windows-desktop-multitenant-hosting-deployment.md
@@ -141,6 +141,17 @@
           href: policy.md
         - name: Skapa en Key Vault-lösning
           href: key-vault-setup.md
+    - name: Skydda virtuella datorer
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Säkerhetskopiera en enskild virtuell dator
+          items:
+            - name: Azure Portal
+              href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Azure PowerShell
+              href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Säkerhetskopiera flera virtuella datorer
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Hantera virtuella datorer
       items:
         - name: Vanliga PowerShell-åtgärder
@@ -167,6 +178,8 @@
           href: scheduled-events.md
         - name: Övervaka metadata
           href: instance-metadata-service.md
+        - name: Aktivera kapslad virtualisering
+          href: nested-virtualization.md
     - name: Använda avbildningar
       items:
         - name: Hitta och använda avbildningar

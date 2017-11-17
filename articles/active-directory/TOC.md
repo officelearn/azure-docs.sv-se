@@ -72,8 +72,7 @@
 
 ## [Hantera grupper och medlemmar](active-directory-manage-groups.md)
 ### Hantera grupper
-#### [Azure-portal](active-directory-groups-create-azure-portal.md)
-#### [Klassisk portal](active-directory-accessmanagement-manage-groups.md)
+#### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](active-directory-accessmanagement-managing-group-owners.md)
@@ -93,8 +92,7 @@
 #### [Azure-portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdletar](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Skapa avancerade regler
-#### [Azure-portal](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Klassisk portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
+#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
 ### [Felsöka](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +133,7 @@
 #### [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
 ### [SSPR – så här fungerar det](active-directory-passwords-how-it-works.md)
 ### [SSPR-distributionsguide](active-directory-passwords-best-practices.md)
+### [SSPR och Windows 10](active-directory-passwords-login.md)
 ### [SSPR-principer ](active-directory-passwords-policy.md)
 ### [SSPR-anpassning](active-directory-passwords-customize.md)
 ### [SSPR-datakrav](active-directory-passwords-data.md)
@@ -209,8 +208,8 @@
 #### Använd den klassiska portalen
 ##### [Ladda ned anslutningsappar](application-proxy-enable-classic-portal.md)
 ##### [Publicera appar](active-directory-application-proxy-publish.md)
-##### [Använd anslutningsappar](active-directory-application-proxy-connectors.md)
-##### [Villkorlig åtkomst](active-directory-application-proxy-conditional-access.md)
+##### [Använd anslutningsappar](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Villkorlig åtkomst](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Hantera företagets appar
 #### [Tilldela användare](active-directory-coreapps-assign-user-azure-portal.md)
@@ -222,6 +221,7 @@
 #### [Hantera enkel inloggning för företagsappar](active-directory-enterprise-apps-manage-sso.md)
 #### [Avancerad certifikatsignering för SAML-appar](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Dölja en tredjepartsapp för en användare](active-directory-coreapps-hide-third-party-app.md)
+### [Konfigurera automatisk acceleration för inloggning med hjälp av HRD-princip](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
 #### [Åtkomst med självbetjäning](active-directory-self-service-application-access.md)
@@ -248,9 +248,8 @@
 ## Hantera din katalog
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Egna domännamn
-#### [Översikt](active-directory-add-domain-concepts.md)
+#### [Översikt](active-directory-domains-manage-azure-portal.md)
 #### [Hantera domännamn](active-directory-domains-manage-azure-portal.md)
-##### [Klassisk portal](active-directory-add-manage-domain-names.md)
 ### [Administrera din katalog](active-directory-administer.md)
 ### [Flera kataloger](active-directory-licensing-directory-independence.md)
 ### [Registrering av självbetjäning](active-directory-self-service-signup.md)

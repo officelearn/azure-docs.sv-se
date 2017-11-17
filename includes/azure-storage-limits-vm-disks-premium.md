@@ -21,8 +21,6 @@
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Högsta IOPS per virtuell dator |80 000 IOPS med virtuell GS5-dator<sup>1</sup> |
-| Högsta dataflöde per virtuell dator |2 000 MB/s med virtuell GS5-dator<sup>1</sup> |
-
-<sup>1</sup>Information om gränser för andra VM-storlekar finns i avsnittet om [storlekar på virtuella datorer](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+| Högsta IOPS per virtuell dator |80 000 IOPS med GS5 VM |
+| Högsta dataflöde per virtuell dator |2 000 MB/s med GS5 VM |
 

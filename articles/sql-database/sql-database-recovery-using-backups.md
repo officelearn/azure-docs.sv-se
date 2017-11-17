@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 10/13/2017
 ms.author: carlrab
-ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL-databas med automatisk databassäkerhetskopieringar
 SQL-databas finns följande alternativ för databas återställning med hjälp av [automatisk säkerhetskopiering av databaser](sql-database-automated-backups.md) och [säkerhetskopieringar i långsiktig kvarhållning](sql-database-long-term-retention.md). Du kan återställa från en säkerhetskopia av databasen till:
@@ -54,7 +54,14 @@ Tiden för återställning för att återställa en databas med hjälp av automa
 * Antalet samtidiga återställning begäranden som bearbetas i mål-region. 
   
   För en stor och/eller mycket aktiv databas kan återställningen ta flera timmar. Om det är långvariga avbrott i en region, är det möjligt att det finns ett stort antal geo-återställning begäranden som bearbetas av andra regioner. När det finns många begäranden, kan öka återställningstiden för databaser i den regionen. De flesta databasen återställs fullständig inom 12 timmar.
-  
+
+För en enda prenumeration, det finns vissa begränsningar för antalet samtidiga återställning förfrågningar (inklusive punkt i tidpunkt för återställning, geo återställning och återställning från en säkerhetskopia för långsiktig kvarhållning) som har skickats och fortsatte:
+|  | **Högsta antal samtidiga begäranden som bearbetas** | **Högsta antal samtidiga förfrågningar som skickas** |
+| :--- | --: | --: |
+|Enskild databas (per prenumeration)|10|60|
+|Elastisk pool (per pool)|4|200|
+||||
+
 Det finns ingen inbyggd funktion för att Massredigera återställning. Den [Azure SQL Database: fullständig serveråterställning](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) skript är ett exempel på ett sätt att utföra den här uppgiften.
 
 > [!IMPORTANT]

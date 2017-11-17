@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 6e94758581bd510e58a709a53e30c11a5c1f1b62
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT kant (förhandsgranskning)
 
 > [!IMPORTANT]
 > Den här funktionen är i förhandsgranskningen. Vi rekommenderar inte används i produktionen.
  
-Azure Stream Analytics (ASA) på IoT kant ger utvecklare möjlighet att distribuera nära realtid analytiska intelligence närmare till IoT-enheter så att de kan låsa upp det fulla värdet av data som genereras av enheten. Utformat för kunder som kräver låg latens, återhämtning, effektiv användning av nätverksbandbredd och efterlevnad, kan företag nu distribuera logik nära industriell verksamhet och kompletterar analyser av Stordata i molnet.  
-Azure Stream Analytics IoT kant som körs inom den [Azure IoT kant](https://azure.microsoft.com/campaigns/iot-edge/) framework, och distribution och hantering av ASA jobb kan göras med hjälp av IoT-hubb när jobbet skapas i ASA.
+Azure Stream Analytics (ASA) på IoT kant ger utvecklare möjlighet att distribuera nära realtid analytiska intelligence närmare till IoT-enheter så att de kan låsa upp det fulla värdet av data som genereras av enheten. Har utformats för låg latens, återhämtning, effektiv användning av nätverksbandbredd och efterlevnad och kan företag nu distribuera logik nära industriell verksamhet och kompletterar analyser av Stordata i molnet.  
+Azure Stream Analytics IoT kant som körs inom den [Azure IoT kant](https://azure.microsoft.com/campaigns/iot-edge/) framework. När jobbet skapas i ASA, deploym och hantera ASA jobb med hjälp av IoT-hubb.
 Den här funktionen är i förhandsvisning, om du har frågor eller feedback kan du använda [undersökningen](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) att kontakta produktteamet. 
 
 ## <a name="scenarios"></a>Scenarier
-![Översiktsdiagram](media/stream-analytics-edge/ASAedge_highlevel.png) här är några vanliga scenarier som körs ASA kant är särskilt intressanta:
-* **Låg latens kommando- och**: till exempel produktion säkerhet system krävs för att åtgärda användningsdata med mycket låg latens. Du kan analysera sensordata i nära realtid och ge kommandon när du identifiera avvikelser att stoppa en dator eller utlösare aviseringar med ASA på IoT kant.
+![Översiktsdiagram](media/stream-analytics-edge/ASAedge_highlevel.png)
+
+* **Låg latens kommando- och**: till exempel produktion säkerhetssystem måste svara på användningsdata med mycket låg latens. Du kan analysera sensor data i nära realtid och utfärda kommandon när du identifiera avvikelser att stoppa en dator eller utlösa aviseringar med ASA på IoT kant.
 *   **Begränsad anslutning till molnet**: Mission kritiska system, till exempel remote utvinningsmodellen utrustning, anslutna fartyg eller offshore borra måste du analysera och ta hänsyn till data, även om molnet anslutningen bryts. Din strömmande logik körs oberoende av nätverksanslutningen med ASA, och du kan välja som du skickar till molnet för vidare bearbetning eller lagring.
 * **Begränsad bandbredd**: mängden data som produceras av jet motorer eller anslutna bilar kan vara så stor data måste vara filtrerade eller bearbetas före innan den skickas till molnet. Använda ASA kan du filtrera eller aggregera data som måste skickas till molnet.
 * **Kompatibilitet**: regelefterlevnad kan kräva att vissa data lokalt anonym eller aggregeras innan den skickas till molnet. Med ASA, du 

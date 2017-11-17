@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använd Linux diagnostiska tillägget för att övervaka mått och loggar
 
@@ -319,7 +319,7 @@ Visningsnamn | Etikett (på det språk som anges av den associerade språkinstä
 
 CounterSpecifier är ett valfritt ID. Konsumenter av statistik, som Azure portal diagram och aviseringar funktion använder counterSpecifier som ”nyckeln” som identifierar ett mått eller en instans av ett mått. För `builtin` statistik, rekommenderar vi du använder counterSpecifier värden som börjar med `/builtin/`. Om du samlar in en specifik instans av ett mått, rekommenderar vi du bifoga identifierare för instansen med värdet counterSpecifier. Några exempel:
 
-* `/builtin/Processor/PercentIdleTime`-Inaktivitetstid var i genomsnitt över alla kärnor
+* `/builtin/Processor/PercentIdleTime`-Inaktivitetstid var i genomsnitt över alla vCPUs
 * `/builtin/Disk/FreeSpace(/mnt)`-Ledigt utrymme för /mnt filsystemet
 * `/builtin/Disk/FreeSpace`-Ledigt utrymme som var i genomsnitt över alla monterade filsystem
 
@@ -424,7 +424,7 @@ Inbyggd mått providern är en källa av mätvärden som är mest intressanta en
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>inbyggd mått för Processor-klass
 
-Processor-klassen för mått innehåller information om processoranvändning i den virtuella datorn. Resultatet är medelvärdet mellan alla processorer vid sammanställning procenttal. I två grundläggande VM om en kärna var 100% upptagen och det andra var 100% inaktiv rapporterade PercentIdleTime skulle värdet vara 50. Om varje kärna var 50% upptagen för samma period, skulle det rapporterade resultat också vara 50. I en fyra kärnor virtuell dator med en kärna med 100% upptagen och de andra inaktiv är rapporterade PercentIdleTime 75.
+Processor-klassen för mått innehåller information om processoranvändning i den virtuella datorn. Resultatet är medelvärdet mellan alla processorer vid sammanställning procenttal. På en virtuell dator i två vCPU, om en vCPU var 100% upptagen och det andra var 100% inaktiv rapporterade PercentIdleTime skulle värdet vara 50. Om varje vCPU var 50% upptagen för samma period, skulle det rapporterade resultat också vara 50. I en VM på fyra vCPU, med en vCPU 100% upptagen och de andra inaktiv är rapporterade PercentIdleTime 75.
 
 Räknaren | Betydelse
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | För icke-ledig tid i procent använt i privilegierad (k
 
 De fyra första räknarna bör sum till 100%. Tre senaste prestandaräknare också summan till 100%. de dela upp summan av PercentProcessorTime, PercentIOWaitTime och PercentInterruptTime.
 
-Om du vill ha ett mått samman mellan alla processorer, ange `"condition": "IsAggregate=TRUE"`. Om du vill ha ett mått för en viss processor, så som den andra logisk processorn för en fyra grundläggande VM, ange `"condition": "Name=\\"1\\""`. Logisk processor tal som ligger inom intervallet `[0..n-1]`.
+Om du vill ha ett mått samman mellan alla processorer, ange `"condition": "IsAggregate=TRUE"`. Om du vill ha ett mått för en viss processor, till exempel andra logisk processor för en virtuell dator i fyra vCPU, ange `"condition": "Name=\\"1\\""`. Logisk processor tal som ligger inom intervallet `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>inbyggd mätvärden för klassen minne
 

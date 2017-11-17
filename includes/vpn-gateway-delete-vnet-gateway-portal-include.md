@@ -1,17 +1,17 @@
-### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Step 1: Navigate to the virtual network gateway
+### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Steg 1: Gå till den virtuella nätverksgatewayen
 
-1. In the [Azure portal](https://portal.azure.com), navigate to **All resources**. 
-2. To open the virtual network gateway blade, navigate to the virtual network gateway that you want to delete and click it.
+1. I den [Azure-portalen](https://portal.azure.com), gå till **alla resurser**. 
+2. Navigera till den virtuella nätverksgatewayen som du vill ta bort och klicka på den för att öppna det virtuella nätverksgateway-bladet.
 
-### <a name="step-2-delete-connections"></a>Step 2: Delete connections
+### <a name="step-2-delete-connections"></a>Steg 2: Ta bort anslutningar
 
-1. On the blade for your virtual network gateway, click **Connections** to view all connections to the gateway.
-2. Click the **'...'** on the row of the name of the connection, then select **Delete** from the dropdown.
-3. Click **Yes** to confirm that you want to delete the connection. If you have multiple connections, delete each connection.
+1. Klicka på bladet för din virtuella nätverksgateway **anslutningar** att visa alla anslutningar till gatewayen.
+2. Klicka på den **”...”** på raden på namnet på anslutningen väljer **ta bort** i listrutan.
+3. Klicka på **Ja** bekräfta att du vill ta bort anslutningen. Om du har flera anslutningar kan du ta bort varje anslutning.
 
-### <a name="step-3-delete-the-virtual-network-gateway"></a>Step 3: Delete the virtual network gateway
+### <a name="step-3-delete-the-virtual-network-gateway"></a>Steg 3: Ta bort den virtuella nätverksgatewayen
 
-Be aware that if you have a P2S configuration to this VNet in addition to your S2S configuration, deleting the virtual network gateway will automatically disconnect all P2S clients without warning.
+Tänk på att om du har en P2S-konfiguration till detta virtuella nätverk utöver konfigurationen S2S tar bort virtuell nätverksgateway automatiskt frånkopplas alla P2S-klienter utan varning.
 
-1. On the virtual network gateway blade, click **Overview**.
-2. On the **Overview** blade, click **Delete** to delete the gateway.
+1. Klicka på det virtuella nätverksgateway-bladet, **översikt**.
+2. På den **översikt** bladet, klickar du på **ta bort** att ta bort denna gateway.

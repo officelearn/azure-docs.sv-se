@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: cef9abddf980c695040e99995eb325eeb182fad4
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-and-linux"></a>Azure och Linux
 Microsoft Azure är en växande samling integrerade offentliga molntjänster, inklusive analytics, virtuella datorer, databaser, mobil-, nätverk, lagring, och web&mdash;perfekt för värd för dina lösningar.  Microsoft Azure tillhandahåller en skalbar plattform som gör att du bara betalar för vad du använder, när du behöver det – utan att behöva investera i lokal maskinvara.  Azure är klar när du är klar att skala upp och ut lösningar oavsett vilken skala du behöver för dina klienter.
@@ -53,7 +53,7 @@ När du distribuerar en virtuell dator i Azure, ska du välja en VM-storlek i en
 Här följer några riktlinjer för att välja en VM-storlek från en av våra (A, D, DS, G och GS).
 * A-serien är vår värdet prissatta enklare virtuella datorer för enstaka arbetsbelastningar och scenarier för utveckling och testning. De kan är allmänt tillgänglig i alla regioner och ansluta och använda alla standard resurser tillgängliga för virtuella datorer.
 * A-series-storlekar (A8 - A11) är särskilda beräkning beräkningsintensiva konfigurationer lämpligt för högpresterande kluster datorprogram.
-* Virtuella datorer i D-serien är utformade för att köra program som kräver högre beräkningskraft och tillfälliga diskprestanda. Virtuella datorer i D-serien erbjuder snabbare processorer, högre ”minne till kärna”-förhållande och en Solid State-hårddisk (SSD) för den tillfälliga disken.
+* Virtuella datorer i D-serien är utformade för att köra program som kräver högre beräkningskraft och tillfälliga diskprestanda. Virtuella datorer i D-serien erbjuder snabbare processorer, högre ”minne till virtuell processor”-förhållande och en Solid State-hårddisk (SSD) för den temporära disken.
 * Dv2-serien, är den senaste versionen av vår D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den är baserad på den senaste generationen 2,4 GHz Intel Xeon® E5-2673 v3 (Haskell) processor, och kan gå upp till 3,2 GHz med Intel Turbo förstärkningen teknik 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 * Virtuella datorer i G-serien erbjuder mest minne och körs på värdar som är utrustade med processorer i Intel Xeon E5 V3-familjen.
 

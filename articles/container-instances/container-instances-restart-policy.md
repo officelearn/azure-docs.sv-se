@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Köra en av aktivitet i Azure Container instanser
 
@@ -147,7 +147,7 @@ Ange en kommandorad när du skapar en behållare instans att åsidosätta komman
 
 Du kan exempelvis ha behållaren exempel analysera text än *samhälle* genom att ange en annan kommandorad. Python-skript som körs av behållare, *wordcount.py*accepterar en URL som ett argument och bearbetar den sidan innehåll i stället för standardvärdet.
 
-Till exempel för att fastställa de tre översta fem bokstäver ord i *Romeo och Juliet*:
+Till exempel för att fastställa upp 3 fem bokstäver ord i *Romeo och Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -172,6 +172,8 @@ Resultat:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
+### <a name="persist-task-output"></a>Spara uppgiftsutdata
 
 Mer information om hur du bevara utdata från de behållare som att slutföras finns [montera en filresurs som Azure med Azure Container instanser](container-instances-mounting-azure-files-volume.md).
 

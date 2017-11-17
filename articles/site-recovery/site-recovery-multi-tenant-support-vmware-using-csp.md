@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Stöd för flera innehavare i Azure Site Recovery för att replikera virtuella VMware-datorer till Azure via CSP
 
@@ -50,7 +50,7 @@ Som visas i föregående diagram har varje kund en separat hanteringsserver. Den
 Krav för isolering av data kräver att alla infrastruktur för känslig information (till exempel autentiseringsuppgifter) hålla hemlig till innehavare. Därför rekommenderar vi att alla komponenter i hanteringsservern förblir under exklusiv kontroll av partnern. Management server-komponenter är:
 * Konfigurationsservern (CS)
 * Processervern (PS)
-* Huvudmålservern (Huvudmålservern) 
+* Huvudmålservern (Huvudmålservern)
 
 En skalbar PS är också under partnerns kontroll.
 
@@ -82,7 +82,7 @@ VCenter-kontoåtkomst procedur är följande:
 
     * **Uppgifter**: skapa uppdatera aktiviteten
 
-    * **Virtuella**: 
+    * **Virtuella**:
         * Configuration > alla
         * Interaktion > besvara frågan, enhetsanslutning, konfigurera CD-skivor, konfigurera diskettenheter media, Stäng av slå på Installera för VMware-verktyg
         * Inventering > från befintliga, skapa nya, registrera, avregistrera
@@ -138,8 +138,8 @@ VM-krav är densamma som beskrivs i den [dokumentation för Azure Site Recovery]
 
 ### <a name="step-1-create-a-tenant-account"></a>Steg 1: Skapa ett klient-konto
 
-1. Via [Microsoft Partner Center](https://partnercenter.microsoft.com/), logga in på CSP-konto. 
- 
+1. Via [Microsoft Partner Center](https://partnercenter.microsoft.com/), logga in på CSP-konto.
+
 2. På den **instrumentpanelen** väljer du **kunder**.
 
     ![Länken Microsoft Partner Center-kunder](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ VM-krav är densamma som beskrivs i den [dokumentation för Azure Site Recovery]
 
     ![Sidan Granska](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    När du har skapat kontot klienten en bekräftelse visas med information om standardkontot och lösenordet för den prenumerationen. 
+    När du har skapat kontot klienten en bekräftelse visas med information om standardkontot och lösenordet för den prenumerationen.
 
 7. Spara informationen och ändra lösenord senare vid behov via Azure portal-inloggningssidan.  
- 
+
     Du kan dela information med innehavaren som är eller du kan skapa och dela ett särskilt konto om det behövs.
 
 ### <a name="step-2-access-the-tenant-account"></a>Steg 2: Komma åt kontot klient
 
-Du kan använda klientens prenumerationen via Microsoft Partner Center Dashboard som beskrivs i ”steg 1: skapa ett klient-konto”. 
+Du kan använda klientens prenumerationen via Microsoft Partner Center Dashboard som beskrivs i ”steg 1: skapa ett klient-konto”.
 
 1. Gå till den **kunder** , och klickar sedan på namnet på klient-konto.
 
 2. På den **prenumerationer** sidan för klient-konto kan du övervaka de befintliga prenumerationerna för kontot och lägga till flera prenumerationer efter behov. Om du hanterar klientens disaster recovery-åtgärder, välja **alla resurser (Azure portal)**.
 
     ![Länken alla resurser](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     Klicka på **alla resurser** ger dig åtkomst till klientens Azure-prenumerationer. Du kan verifiera åtkomst genom att klicka på Azure Active Directory-länken längst upp i Azure-portalen.
 
     ![Azure Active Directory-länk](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ Du kan använda klientens prenumerationen via Microsoft Partner Center Dashboard
 Du kan nu utföra alla site recovery-åtgärder för klient via Azure portal och hantera åtgärder för katastrofåterställning. Följ beskrivits tidigare processen för klient-prenumerationen via CSP för hanterade katastrofåterställning.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Steg 3: Distribuera resurser till klientprenumeration
-1. Skapa en resursgrupp i Azure-portalen och sedan distribuera Recovery Services-valvet vanliga processer. 
- 
+1. Skapa en resursgrupp i Azure-portalen och sedan distribuera Recovery Services-valvet vanliga processer.
+
 2. Ladda ned valvregistreringsnyckeln.
 
 3. Registrera CS för klienten med hjälp av valvregistreringsnyckeln.

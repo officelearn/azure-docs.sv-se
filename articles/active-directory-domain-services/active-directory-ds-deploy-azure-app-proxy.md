@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 157a10277f89643245746223f2cd1d73680ac700
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD Application Proxy på en Azure AD Domain Services-hanterad domän
 Azure Active Directory (AD) Application Proxy hjälper dig att stöd för fjärranvändare genom att publicera lokala program som kan nås via internet. Med Azure AD Domain Services kan du nu lift-och-SKIFT äldre program som körs lokalt Azure Infrastructure Services. Du kan sedan publicera dessa program med Azure AD Application Proxy för att tillhandahålla säker fjärråtkomst till användare i din organisation.
@@ -56,7 +56,7 @@ Utför följande steg om du vill aktivera Azure AD Application Proxy för Azure 
 
 
 ## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>Uppgift 2 – etablera domänanslutna Windows-servrar för att distribuera Azure AD Application Proxy connector
-Du behöver domänanslutna Windows Server virtuella datorer som du installerar Azure AD Application Proxy connector. Beroende på vilka program som publiceras, kan du välja att etablera flera servrar där kopplingen är installerad. Det här distributionsalternativet ger dig större tillgänglighet och hjälper dig att hantera större belastningar för autentisering.
+Du behöver domänanslutna Windows Server virtuella datorer som du installerar Azure AD Application Proxy connector. För vissa program, kan du etablera flera servrar där kopplingen är installerad. Det här distributionsalternativet ger dig större tillgänglighet och hjälper dig att hantera större belastningar för autentisering.
 
 Etablera anslutningstjänstservrarna på samma virtuella nätverk (eller ett virtuellt nätverk anslutet/peerkoppla) som du har aktiverat din Azure AD Domain Services-hanterad domän. På liknande sätt kan måste de servrar som hyser program som du publicerar via Application Proxy installeras på samma virtuella Azure-nätverket.
 
@@ -64,7 +64,7 @@ Följ de uppgifter som beskrivs i artikel med rubriken för att etablera anslutn
 
 
 ## <a name="task-3---install-and-register-the-azure-ad-application-proxy-connector"></a>Uppgift 3 – Installera och registrera Azure AD Application Proxy Connector
-Tidigare etableras en virtuell dator med Windows Server och anslutna till den hanterade domänen. I det här steget ska du installera Azure AD Application Proxy connector på den virtuella datorn.
+Tidigare etableras en virtuell dator med Windows Server och anslutna till den hanterade domänen. I det här steget installera Azure AD Application Proxy connector på den virtuella datorn.
 
 1. Kopiera installationspaketet anslutningen till den virtuella datorn som du installerar Azure AD Web Application Proxy connector.
 
@@ -99,11 +99,11 @@ Du har konfigurerat Azure AD Application Proxy och integreras med din Azure AD D
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Obs distribution – publicera IWA (integrerad Windows-autentisering)-program med hjälp av Azure AD Application Proxy
-Aktivera enkel inloggning till dina program med integrerad autentisering IWA (Windows) genom att ge Application Proxy Connectors behörighet att personifiera användare, och skicka och ta emot token åt. Konfigurera kerberos-begränsad delegering (KCD) att bevilja behörigheterna som krävs för åtkomst till resurser på den hanterade domänen-anslutningen. Använda mekanismen resursbaserade KCD på hanterade domäner för ökad säkerhet.
+Aktivera enkel inloggning till dina program med integrerad autentisering IWA (Windows) genom att ge Application Proxy Connectors behörighet att personifiera användare, och skicka och ta emot token åt. Konfigurera Kerberos-begränsad delegering (KCD) att bevilja behörigheterna som krävs för åtkomst till resurser på den hanterade domänen-anslutningen. Använda mekanismen resursbaserade KCD på hanterade domäner för ökad säkerhet.
 
 
-### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Aktivera resursbaserade kerberos-begränsad delegering för Azure AD Application Proxy connector
-Azure Application Proxy connector ska konfigureras för kerberos-begränsad delegering (KCD), så den kan personifiera användare på den hanterade domänen. På en hanterad domän i Azure AD Domain Services har inte administratörsbehörighet för domänen. Därför **traditionella kontonivå KCD kan inte konfigureras på en hanterad domän**.
+### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Aktivera resursbaserade Kerberos-begränsad delegering för Azure AD Application Proxy connector
+Azure Application Proxy connector ska konfigureras för Kerberos-begränsad delegering (KCD), så den kan personifiera användare på den hanterade domänen. På en hanterad domän i Azure AD Domain Services har inte administratörsbehörighet för domänen. Därför **traditionella kontonivå KCD kan inte konfigureras på en hanterad domän**.
 
 Använda resursbaserade KCD som beskrivs i det här [artikel](active-directory-ds-enable-kcd.md).
 
@@ -113,12 +113,12 @@ Använda resursbaserade KCD som beskrivs i det här [artikel](active-directory-d
 >
 
 Använd Get-ADComputer PowerShell-cmdlet för att hämta inställningarna för den dator där Azure AD Application Proxy connector är installerad.
-```
+```powershell
 $ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
 ```
 
 Därefter, Använd cmdlet Set-ADComputer att ställa in resursbaserade KCD för resursservern.
-```
+```powershell
 Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 

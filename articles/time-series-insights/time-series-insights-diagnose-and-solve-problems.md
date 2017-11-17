@@ -9,11 +9,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47fb6f01eff8827179fbfa9e67ad3b901c8cdf94
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i miljön tid serien insikter
 
@@ -61,7 +61,7 @@ En översikt över hur förenkla logik fungerar, se [stöds JSON former](time-se
 Om du vill åtgärda fördröjningen ökar du kapaciteten SKU för din miljö. Mer information finns i [så här skalar du tid serien insikter miljön](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="possible-cause-b-initial-ingestion-of-historical-data-is-causing-slow-ingress"></a>Möjlig orsak B: inledande införandet av historiska data som orsakar långsam ingång
-Om du ansluter en befintlig datakälla för händelsen, är det troligt att din IoT-hubb eller händelsehubb redan har data i den. Miljön startar att data från början av den händelsekälla kvarhållningsperiod för meddelandet.
+Om du ansluter en befintlig datakälla för händelsen, är det troligt att din IoT-hubb eller event hub redan har data i den. Miljön startar att data från början av den händelsekälla kvarhållningsperiod för meddelandet.
 
 Detta är standardinställningen och inte kan åsidosättas. Du kan engagera begränsning och det kan ta en stund att titta på mata in historiska data.
 

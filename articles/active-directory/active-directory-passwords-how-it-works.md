@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Självbetjäning för återställning av lösenord i Azure AD ingående
 
@@ -183,7 +183,7 @@ Om du vill aktivera det här alternativet måste en användare som har aktiverat
 När kräver registrering är inaktiverat kan användare fortfarande manuellt registrera kontaktuppgifter. De kan antingen besök [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) eller Välj den **registrera dig för lösenordsåterställning** länken under den **profil** fliken på åtkomstpanelen.
 
 > [!NOTE]
-> Användare kan stänga registreringsportalen för lösenordsåterställning genom att välja **Avbryt** eller genom att stänga fönstret. Men de uppmanas att registrera varje gång de loggar in förrän de har slutfört registreringen.
+> Användare kan stänga registreringsportalen för lösenordsåterställning genom att välja **Avbryt** eller genom att stänga fönstret. Men uppmanas de att registrera varje gång de loggar in förrän de har slutfört registreringen.
 >
 > Detta bryta inte anslutningen om de redan har loggat in.
 
@@ -209,6 +209,17 @@ Exempel: Det finns fyra administratörer i en miljö. Administratören A återst
 
 Om du installerar, konfigurerar och aktiverar Azure AD Connect har du följande ytterligare alternativ för lokal integreringar. Om dessa alternativ är nedtonade har sedan tillbakaskrivning inte konfigurerats korrekt. Mer information finns i [konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback).
 
+![Tillbakaskrivning][Writeback]
+
+Den här sidan innehåller en snabb lokal tillbakaskrivning av klientens status något av följande meddelanden visas baserat på den aktuella konfigurationen:
+
+* Lokal tillbakaskrivning-klient är aktiv och körs.
+* Azure AD är online och är ansluten till din lokala tillbakaskrivning av klienten. Det verkar dock som den installerade versionen av Azure AD Connect är inaktuell. Överväg att [uppgraderar Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) så att du har de senaste funktionerna för anslutning och viktiga korrigeringarna.
+* Vi kan inte tyvärr, kontrollera din lokala tillbakaskrivning klientstatus eftersom den installerade versionen av Azure AD Connect är inaktuell. [Uppgradera Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) för att kunna kontrollera anslutningsstatus för.
+* Det verkar tyvärr som vi inte kan ansluta till din lokala tillbakaskrivning klient just nu. [Felsöka Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) att återställa anslutningen.
+* Vi kan tyvärr inte ansluta till lokalt tillbakaskrivning klienten eftersom tillbakaskrivning av lösenord inte har konfigurerats korrekt. [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback) att återställa anslutningen.
+* Det verkar tyvärr som vi inte kan ansluta till din lokala tillbakaskrivning klient just nu. Detta kan bero på tillfälliga problem hos oss. Om problemet kvarstår [felsöka Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) att återställa anslutningen.
+
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Skriv tillbaka lösenord till din lokala katalog
 
 Den här kontrollen bestämmer om tillbakaskrivning av lösenord är aktiverat för den här katalogen. Om tillbakaskrivning finns på, visar status för tjänsten lokalt tillbakaskrivning. Detta är användbart om du tillfälligt vill inaktivera tillbakaskrivning av lösenord utan att behöva konfigurera om Azure AD Connect.
@@ -233,7 +244,7 @@ Den här kontrollen anger om användare som besöker portalen för återställni
 Om du vill testa det här scenariot, går du till http://passwordreset.microsoftonline.com med något av dessa partner-användare. Om de har en alternativ e-postadress eller autentisering e-definierade lösenordsåterställning fungerar som förväntat.
 
 > [!NOTE]
-> Microsoft-konton som har beviljats åtkomst till din Azure AD-klient, till exempel Hotmail.com, Outlook.com eller andra personliga e-postadresser är inte kunna använda Azure AD SSPR. De behöver återställa sina lösenord med hjälp av informationen i den [när du inte logga in till ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikel.
+> Microsoft-konton som har beviljats åtkomst till din Azure AD-klient, till exempel Hotmail.com, Outlook.com eller andra personliga e-postadresser är inte kunna använda Azure AD SSPR. De behöver för att återställa sina lösenord med hjälp av informationen i den [när du inte logga in till ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikel.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -253,3 +264,4 @@ Följande artiklar innehåller ytterligare information om lösenordsåterställn
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure AD-autentiseringsmetoder som är tillgängliga och kvantitet som krävs"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "Lokal integrering lösenord tillbakaskrivning konfiguration och information om felsökning"

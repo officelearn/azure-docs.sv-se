@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synkronisering: Förstå användare, grupper och kontakter
 Det finns flera olika skäl varför har du flera Active Directory-skogar och det finns flera olika distributionstopologier. Vanliga modeller innehåller en konto-resurs-distribution och GAL sync'ed skogar efter en fusion & förvärv. Men även om det finns endast modeller, hybridmodeller är vanliga samt. Standardkonfigurationen i Azure AD Connect-synkronisering förutsätter inte någon särskild modell men beroende på hur användaren matchar valdes i installationsguiden för olika beteenden kan observeras.
@@ -42,15 +42,15 @@ Viktiga saker att vara medveten om när du synkroniserar grupper från Active Di
 
 * Så här synkroniserar du en Active Directory-grupp med Azure AD som en e-postaktiverad grupp:
 
-    * Om gruppens *proxyAddress* attribut är tom, dess *e* attributet måste ha ett värde, eller 
+    * Om gruppens *proxyAddress* attribut är tom, dess *e* attributet måste ha ett värde
 
-    * Om gruppens *proxyAddress* attributet är icke-tom, måste den också innehålla ett primära SMTP-proxy adressvärde (med versaler **SMTP** prefix). Här följer några exempel:
+    * Om gruppens *proxyAddress* attributet är icke-tom, det måste innehålla minst en SMTP-proxy adressvärde. Här följer några exempel:
     
-      * En Active Directory-grupp vars proxyAddress-attributet har värdet *{”X500:/0=contoso.com/ou=users/cn=testgroup”}* inte e-postaktiverade i Azure AD. Det har inte en primär SMTP-adress.
-      
-      * En Active Directory-grupp vars proxyAddress-attributet har värden *{”X500:/0=contoso.com/ou=users/cn=testgroup” ”,smtp:johndoe@contoso.com”}* inte e-postaktiverade i Azure AD. Den har en SMTP-adress, men det är inte primär.
+      * En Active Directory-grupp vars proxyAddress-attributet har värdet *{”X500:/0=contoso.com/ou=users/cn=testgroup”}* inte e-postaktiverade i Azure AD. Det har inte en SMTP-adress.
       
       * En Active Directory-grupp vars proxyAddress-attributet har värden *{”X500:/0=contoso.com/ou=users/cn=testgroup” ”,SMTP:johndoe@contoso.com”}* blir e-postaktiverade i Azure AD.
+      
+      * En Active Directory-grupp vars proxyAddress-attributet har värden *{”X500:/0=contoso.com/ou=users/cn=testgroup” ”,smtp:johndoe@contoso.com”}* kommer också att e-postaktiverade i Azure AD.
 
 ## <a name="contacts"></a>Contacts
 Med kontakter som representerar en användare i en annan skog är vanliga när en fusion & förvärv där en GALSync lösning bryggning två eller flera Exchange-skogar. Kontakta objektet alltid koppla från anslutningsplatsen metaversum med postattributet e. Om det finns redan ett kontakta eller användarobjekt med samma e-postadress, är objekten sammankopplade. Detta är konfigurerat i regeln **i från AD-ansluta Kontakta**. Det finns också en regel med namnet **i från AD – kontakta vanliga** med ett attributflöde till attributet metaversum **sourceObjectType** med konstanten **Kontakta**. Den här regeln har mycket låg prioritet så om alla användarobjekt som är ansluten till samma metaversumobjekt kommer regeln **i från AD-användaren vanliga** bidrar värdet användaren till det här attributet. Med den här regeln har det här attributet det kontakt om ingen användare har anslutit och värdet användaren om minst en användare har hittats.

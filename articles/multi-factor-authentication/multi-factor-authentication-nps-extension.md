@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 5903c8ac7a16a87b93ea6e105d82bbfdfa26bf8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5dae5ef260d975e00d3bdaa9aff73fd5807bb839
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga infrastruktur för NPS med Azure Multi-Factor Authentication
 
@@ -81,7 +81,7 @@ Innan du installerar NPS-tillägget som du vill förbereda miljön för att hant
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>Aktivera NPS-rollen på en domänansluten server
 
-NPS-servern ansluter till Azure Active Directory och autentiseras av MFA-begäranden. Välj en server för den här rollen. Vi rekommenderar att du väljer en server som inte hanterar förfrågningar från andra tjänster, eftersom tillägget NPS genererar fel för alla begäranden som inte är RADIUS.
+NPS-servern ansluter till Azure Active Directory och autentiseras av MFA-begäranden. Välj en server för den här rollen. Vi rekommenderar att du väljer en server som inte hanterar förfrågningar från andra tjänster, eftersom tillägget NPS genererar fel för alla begäranden som inte är RADIUS. NPS-servern måste ställas in som den primära och sekundära autentiseringsservern för din miljö. Det går inte att proxy RADIUS-begäranden till en annan server.
 
 1. Öppna på servern, den **guiden Lägg till roller och funktioner** Serverhanteraren Quickstart-menyn.
 2. Välj **rollbaserad eller funktionsbaserad installation** för din installation.
@@ -193,7 +193,7 @@ Om du har användare som inte är registrerade för MFA, kan du bestämma vad so
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | SANT/FALSKT | Inte har angetts (motsvarar TRUE) |
 
-Syftet med den här inställningen är att avgöra vad du gör om en användare inte har registrerats för MFA. När nyckeln finns inte, har inte angetts eller är inställd på TRUE, och användaren har inte registrerats sedan tillägget misslyckas MFA-kontrollen. När nyckeln är inställd på FALSE och användaren inte är registrerad, fortsätter autentiseringen utan att utföra MFA.
+Syftet med den här inställningen är att avgöra vad du gör om en användare inte har registrerats för MFA. När nyckeln finns inte, har inte angetts eller är inställd på TRUE, och användaren har inte registrerats sedan tillägget misslyckas MFA-kontrollen. När nyckeln är inställd på FALSE och användaren inte är registrerad, fortsätter autentiseringen utan att utföra MFA. Om en användare har registrerats i MFA, måste de autentisera med MFA även om REQUIRE_USER_MATCH är inställd på FALSE.
 
 Du kan välja att skapa den här nyckeln och ange den till FALSE, medan användarna är onboarding och kan inte registreras för Azure MFA ännu. Eftersom inställningen nyckeln tillåter att användare som inte är registrerade för MFA för att logga in, bör du dock ta bort den här nyckeln innan du fortsätter till produktionen.
 

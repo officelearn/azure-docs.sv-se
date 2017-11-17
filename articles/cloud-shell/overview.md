@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure-molnet Shell
 Azure Cloud-gränssnittet är en interaktiv, webbläsare-tillgängliga shell för att hantera Azure-resurser.
@@ -82,12 +82,12 @@ Nedrullningsbara listorna filtreras för molntjänster Shell regionen och lokalt
 [Lär dig om molnet Shell lagring, uppdatera filresurser och ladda upp/hämta filer.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Koncept
-* Molnet Shell körs på en tillfällig virtuell dator på en per session, per användare
+* Molnet Shell körs på en tillfällig värd på en per session, per användare
 * Molnet Shell timeout efter 20 minuter utan interaktiva aktivitet
-* Molnet Shell kan endast användas med en filresurs som ansluten
-* Molnet Shell använder en samma filresurs för både Bash och PowerShell
+* Molnet Shell kräver en filresurs som ska monteras
+* Molnet Shell använder samma filresurs för både Bash och PowerShell
 * Molnet Shell tilldelas en dator per konto
-* Behörigheter har angetts som en vanlig Linux-användare (Bash)
+* Behörigheter har angetts som en vanlig Linux-användare i Bash
 
 Mer information om funktioner i [Bash i molnet Shell](features.md) och [PowerShell i molnet Shell (förhandsgranskning)](features-powershell.md).
 
@@ -102,5 +102,5 @@ Prova att använda de här exemplen i Snabbstart för [Bash i molnet Shell](quic
 Den dator som är värd molnet Shell är ledigt, med ett krav för en monterad resurs i Azure-filer. Vanliga lagringskostnader gäller.
 
 ## <a name="next-steps"></a>Nästa steg
-[Bash i molnet Shell quickstart](quickstart.md)
+[Bash i molnet Shell-Snabbstart](quickstart.md) <br>
 [PowerShell i Snabbstart molnet Shell (förhandsgranskning)](quickstart-powershell.md)

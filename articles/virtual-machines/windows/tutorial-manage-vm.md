@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2237f2e5cb67df019d0975e764602babe7f4c8f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen
 
@@ -293,7 +293,7 @@ I följande tabell kategoriserar storlekar i användningsfall.
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | Generellt syfte         |DSv2, Dv2, DS, D, Av2, A0 7| Belastningsutjämnade CPU-till-minne. Idealiskt för dev / test och små till medelstora lösningar för program och data.  |
 | Beräkningsoptimerad      | FS, F             | Hög CPU-till-minne. Bra för medelhög trafik program, nätverksinstallationer och batchprocesser.        |
-| Minnesoptimerad       | GS, G, DSv2, DS, Dv2, D   | Hög minne-till-core. Perfekt för relationsdatabaser, medelstora till stora cacheminnen och analyser i minnet.                 |
+| Minnesoptimerad       | GS, G, DSv2, DS, Dv2, D   | Hög minne-till-processor. Perfekt för relationsdatabaser, medelstora till stora cacheminnen och analyser i minnet.                 |
 | Lagringsoptimerad       | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
 | GPU           | NV NC            | Särskilda virtuella datorer som mål för tunga grafisk återgivning och redigering av video.       |
 | Hög prestanda | H, A8-11          | Våra mest kraftfulla CPU virtuella datorer med valfritt hög genomströmning nätverksgränssnitt (RDMA). 
@@ -347,8 +347,8 @@ En virtuell Azure-dator kan ha en av många energisparfunktioner. Det här tills
 | Körs | Anger att den virtuella datorn körs. |
 | Stoppas | Anger att den virtuella datorn har stoppats. | 
 | Stoppad | Anger att den virtuella datorn har stoppats. Observera att virtuella datorer i ett stoppat tillstånd fortfarande avgifter beräkning.  |
-| Det har frigjorts | Anger att den virtuella datorn har flyttats. |
-| Frigöra | Anger att den virtuella datorn är helt tas bort från hypervisor-programmet men fortfarande tillgängliga i kontrollplan. Virtuella datorer med tillståndet Deallocated inte avgifter beräkning. |
+| Frigör | Anger att den virtuella datorn har flyttats. |
+| Frigjord | Anger att den virtuella datorn är helt tas bort från hypervisor-programmet men fortfarande tillgängliga i kontrollplan. Virtuella datorer med tillståndet Deallocated inte avgifter beräkning. |
 | - | Anger att energisparläge för den virtuella datorn är okänt. |
 
 ### <a name="find-power-state"></a>Hitta energiläge

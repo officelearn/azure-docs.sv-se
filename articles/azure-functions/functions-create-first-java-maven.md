@@ -14,17 +14,20 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ebe9351641f3c4ddade0ea456e8784d59acf9332
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 3762a6e267540ef79577c3bf94ce27b648bd3534
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Skapa din första funktion med Java och Maven (förhandsgranskning)
 
+> [!NOTE] 
+> Java för Azure Functions är för närvarande under förhandsgranskning.
+
 Den här snabbstarten hjälper att skapa en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) funktionen projekt med Maven lokal testning och distribuera den till Azure-funktioner. När du är klar har du en funktion som utlöses av HTTP-app som körs i Azure.
 
- ![Använda funktionen Hello World från kommandoraden med cURL](media/functions-create-java-maven/hello-azure.png)
+![Använda funktionen Hello World från kommandoraden med cURL](media/functions-create-java-maven/hello-azure.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

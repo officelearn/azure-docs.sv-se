@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee66bf554e8e623ebfaa82bc888fc541da322d2f
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Exemplet Azure-infrastrukturen genomgång för virtuella Windows-datorer
 
@@ -41,7 +41,7 @@ Adventure Works Cycles vill skapa en onlinebutik program i Azure som består av:
 
 ![Diagram över olika nivåer för infrastruktur](./media/infrastructure-example/example-tiers.png)
 
-Inkommande säker webbtrafik måste vara belastningsutjämnad webbservrarna som kunder bläddra online-butik. Ordna bearbetning trafik i form av HTTP-begäranden från webben servrar måste balanseras mellan programservrarna. Dessutom måste infrastrukturen utformas för hög tillgänglighet.
+Inkommande säker webbtrafik måste vara belastningsutjämnad webbservrarna som kunder Bläddra onlinebutiken. Ordna bearbetning trafik i form av HTTP-begäranden från webben servrar måste balanseras mellan programservrarna. Dessutom måste infrastrukturen utformas för hög tillgänglighet.
 
 Den resulterande designen innehålla:
 
@@ -55,7 +55,7 @@ Den resulterande designen innehålla:
 Alla ovanstående följer du dessa namngivningsregler:
 
 * Adventure Works Cycles använder **[IT arbetsbelastning]-[plats]-[Azure resurs]** som ett prefix
-  * I det här exemplet ”**azos**” (Azure online Store) är det arbetsbelastning namnet och ”**använder**” (östra USA 2) är platsen
+  * I det här exemplet ”**azos**” (Azure onlinebutiken) är det arbetsbelastning namnet och ”**använder**” (östra USA 2) är platsen
 * Virtuella nätverk använder AZOS-Använd-VN**[antal]**
 * Tillgänglighetsuppsättningar använder azos-Använd-som-**[roll]**
 * Namn på virtuella datorer använda azos-Använd-vm -**[vmname]**
@@ -112,7 +112,7 @@ Den här konfigurationen omfattar:
 
 * Endast molnbaserad virtuellt nätverk med två undernät (klient- och Servergränssnitten)
 * Azure-hanterade diskar med både Standard- och Premium-diskar
-* Fyra tillgänglighetsuppsättningar, ett för varje nivå av online-butik
+* Fyra tillgänglighetsuppsättningar, ett för varje nivå i onlinebutiken
 * De virtuella datorerna för de fyra nivåerna
 * En extern belastningsutjämnad uppsättning för HTTPS-baserade webbtrafik från Internet till webbservrar
 * Ett internt belastningsutjämnade uppsättningen okrypterad webbtrafik från webbservrarna till programservern

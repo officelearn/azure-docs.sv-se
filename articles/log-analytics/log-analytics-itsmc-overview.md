@@ -1,6 +1,6 @@
 ---
 title: "IT Service Management-anslutningstjänsten i Azure Log Analytics | Microsoft Docs"
-description: "Använd IT Service Management-anslutningstjänsten centralt övervaka och hantera ITSM arbetsobjekt i Azure Log Analytics och att snabbt lösa eventuella problem."
+description: "Den här artikeln innehåller en översikt av IT Service Management koppling (ITSMC) och information om hur du använder den här lösningen centralt övervaka och hantera ITSM arbetsobjekt i OMS logganalys och att snabbt lösa eventuella problem."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centralt hantera ITSM arbetsobjekt med hjälp av IT Service Management-anslutningstjänsten (förhandsgranskning)
 
 ![IT Service Management-anslutningstjänsten symbol](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-IT Service Management koppling (ITSMC) ger en dubbelriktad integrering mellan en IT Service Management (ITSM) produkter eller tjänster och logganalys som stöds.  Via den här anslutningen kan du skapa incidenter, aviseringar och händelser i ITSM produkten baserat på Log Analytics aviseringar eller loggposter. Kopplingen också importerar data som incidenter och tjänstbegäranden från produkt-ITSM i OMS logganalys.
+IT Service Management koppling (ITSMC) ger en dubbelriktad integrering mellan en IT Service Management (ITSM) produkter eller tjänster och logganalys som stöds.  Via den här anslutningen kan du skapa incidenter, aviseringar och händelser i ITSM produkten baserat på Log Analytics aviseringar, loggposter eller Azure-aviseringar. Kopplingen också importerar data som incidenter och tjänstbegäranden från produkt-ITSM i OMS logganalys.
 
 Med ITSMC kan du:
 
@@ -56,11 +56,11 @@ Efter lyckad dessutom visas IT Service Management-anslutningstjänsten under **O
  ![ITSMC uppdatering](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>Konfigurera anslutningen med ITSM programvara
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>Konfigurera anslutningen ITSMC med din ITSM produkter och tjänster
 
 ITSMC stöder anslutningar till **System Center Service Manager**, **ServiceNow**, **Provance**, och **Cherwell**.
 
-Använd följande procedurer som passar dig:
+Använd följande procedurer som gäller för:
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -258,6 +258,7 @@ Du kan också skapa arbetsobjekt i de anslutna ITSM källorna direkt från en lo
 4. Ange lämpliga värden i den **kontakta typen**, **inverkan**, **angelägenhetsgrad**, **kategori**, och **underkategorin** textrutor och klicka sedan på **skapa**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Skapa ITSM arbetsobjekt från Azure-aviseringar
+
 ITSMC är integrerad med åtgärdsgrupper.
 
 [Åtgärdsgrupper](../monitoring-and-diagnostics/monitoring-action-groups.md) är ett modulära och återanvändbara sätt utlöser åtgärder för din Azure-aviseringar. Du kan skapa arbetsobjekt i ITSM produkten som har en befintlig anslutning till ITSM connector lösning med hjälp av instruktionen ITSM i åtgärdsgrupper.
@@ -286,7 +287,7 @@ När du skapar/redigerar en Azure aviseringsregel, använda en grupp, som har en
 
 >[!NOTE]
 
-> För närvarande stöder endast logga Aktivitetsaviseringar ITSM-åtgärd. ITSM åtgärden stöds inte för andra Azure-aviseringar.
+> För närvarande endast aktiviteten loggen aviseringar stöder åtgärden ITSM, stöder aviseringar för andra Azure inte detta.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Felsöka ITSM anslutningar i OMS

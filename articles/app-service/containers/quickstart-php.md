@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 34da73e5feca1782f3e107fd30d268df4f9883d8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Skapa en PHP-webbapp i App Service på Linux
 
@@ -71,14 +71,14 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Skapa en webbapp med inbyggda avbildning
+## <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Bläddra till webbplatsen för att se ditt nyligen skapade webbprogram med inbyggda avbildning. Ersätt  _&lt;appnamn >_ med ett unikt appnamn.
+Bläddra till webbplatsen för att se ditt nyligen skapade webbprogram med inbyggda avbildning. Ersätt  _&lt;appnamn >_ med din webbprogrammets namn.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 ![Sida för tom webbapp](media/quickstart-php/app-service-web-service-created.png)
@@ -126,7 +126,7 @@ PHP-exempelkod körs i en webbapp med inbyggda avbildning.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Uppdatera lokalt och distribuera om koden
 
-Öppna filen `index.php` i PHP-appen med ett lokalt textredigeringsprogram och gör små ändringar i texten i strängen bredvid `echo`:
+I den lokala katalogen öppnar den `index.php` filen i PHP-app och göra en mindre ändring i texten i strängen bredvid `echo`:
 
 ```php
 echo "Hello Azure!";

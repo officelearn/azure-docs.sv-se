@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 2b5431cefd26d27f6c72dbe72c4b90554b2511b6
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery stöd matrix för replikering från Azure till Azure
 
@@ -166,7 +166,7 @@ ZRS | Stöds inte |
 Kall och het lagring | Stöds inte | Virtuella diskar stöds inte på kall och het lagring
 
 >[!IMPORTANT]
-> Se till att du följer den [lagringsanvisningar](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) för källan Azure virtuella datorer för att undvika eventuella prestandaproblem. Om du följer standardinställningarna skapar Site Recovery krävs storage-konton som baseras på källserverns konfiguration. Om du anpassar och välja egna inställningar, se till att du följer den (... / storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) som dina virtuella källdatorer.
+> Se till att du upptäcker att Virtuella disken skalbarhets- och prestandamål för [Linux](../virtual-machines/linux/disk-scalability-targets.md) eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuella datorer för att undvika eventuella prestandaproblem. Om du följer standardinställningarna skapar Site Recovery krävs diskar och storage-konton baserat på käll-konfigurationen. Se till att du följer disk skalbarhets- och prestandamål för dina virtuella källdatorer om du anpassar och välja egna inställningar.
 
 ## <a name="support-for-network-configuration"></a>Stöd för konfigurering av nätverk
 **Konfiguration** | **Stöds/stöds ej** | **Kommentarer**

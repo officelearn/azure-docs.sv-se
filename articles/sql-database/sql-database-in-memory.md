@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda genom att använda InMemory-tekniker i SQL-databas
 
@@ -118,8 +118,6 @@ Men nedgradera prisnivån kan påverka din databas. Påverkan är särskilt tydl
 
 *Nedgradera Basic-standarden*: Minnesintern OLTP stöds inte i databaser i Standard- eller Basic-nivån. Dessutom kan inte flytta en databas som har alla Minnesintern OLTP-objekt till Standard- eller Basic-nivån.
 
-Ta bort alla minnesoptimerade tabeller och tabelltyper samt alla internt kompilerade moduler för T-SQL innan du nedgradera databasen till Standard/enkel.
-
 Det finns en programmässiga sätt att förstå om en viss databas stöder Minnesintern OLTP. Du kan köra följande Transact-SQL-fråga:
 
 ```
@@ -128,6 +126,13 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 Om frågan returnerar **1**, i minnet OLTP stöds i den här databasen.
 
+Ta bort alla minnesoptimerade tabeller och tabelltyper samt alla internt kompilerade moduler för T-SQL innan du nedgradera databasen till Standard/enkel. Följande frågor identifiera alla objekt som måste tas bort innan en databas kan nedgraderas till Standard/enkel:
+
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
 
 *Nedgradera till en lägre nivå Premium*: Data i minnesoptimerade tabeller måste rymmas inom Minnesintern OLTP-lagring som är kopplad till prisnivån för databasen eller som är tillgängliga i den elastiska poolen. Om du försöker lägre prisnivån eller flytta databasen till en pool som inte har tillräckligt med lagringsutrymme för OLTP InMemory-åtgärden misslyckas.
 

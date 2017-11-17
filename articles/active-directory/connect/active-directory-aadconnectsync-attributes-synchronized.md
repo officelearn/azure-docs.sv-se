@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 786cba7402d8a7e7ecf4667d30c4c393c8d6de5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08663916214cf2d34704ef2a355464bc6df9b138
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: attribut synkroniserade till Azure Active Directory
 Det här avsnittet listar de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -36,7 +36,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
-| Attributets namn | Användare | Kommentar |
+| Attributnamn | Användare | Kommentera |
 | --- |:---:| --- |
 | accountEnabled |X |Anger om ett konto har aktiverats. |
 | CN |X | |
@@ -48,7 +48,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | UserPrincipalName |X |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="exchange-online"></a>exchange online
-| Attributets namn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | Installationsassistenten |X |X | | |
@@ -87,7 +87,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | L |X |X | | |
 | LegacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| mangedBy | | |X | |
+| Av | | |X | |
 | Manager |X |X | | |
 | Medlem | | |X | |
 | mobila |X |X | | |
@@ -172,7 +172,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>sharepoint online
-| Attributets namn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | authOrig |X |X |X | |
@@ -254,7 +254,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (nu kallat Skype för företag)
-| Attributets namn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | C |X |X | | |
@@ -303,7 +303,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Attributets namn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | CN |X | |X |Namn eller alias. Oftast prefix för [e] värde. |
@@ -319,7 +319,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | UserPrincipalName |X | | |Den här UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="intune"></a>Intune
-| Attributets namn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | C |X |X | | |
@@ -338,7 +338,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | UserPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Attributets namn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | C |X |X | | |
@@ -378,7 +378,7 @@ Den här gruppen är en uppsättning attribut som används som minimal attribut 
 
 Den här gruppen är en uppsättning attribut som kan användas om Azure AD-katalog inte används som stöd för Office 365, Dynamics eller Intune. Den har en liten uppsättning core attribut.
 
-| Attributets namn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | CN |X | |X | |
@@ -399,7 +399,7 @@ Den här gruppen är en uppsättning attribut som kan användas om Azure AD-kata
 ## <a name="windows-10"></a>Windows 10
 En Windows 10-domänanslutna computer(device) synkroniserar vissa attribut till Azure AD. Mer information om scenarier finns [ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelser](../active-directory-azureadjoin-devices-group-policy.md). Dessa attribut synkronisera alltid och Windows 10 visas inte som en app som du kan avmarkera. En domänansluten dator i Windows 10 identifieras genom att låta den attributet userCertificate fylls i.
 
-| Attributets namn | Enhet | Kommentar |
+| Attributnamn | Enhet | Kommentera |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |Hårdkodad värde för domänanslutna datorer. |
@@ -413,7 +413,7 @@ En Windows 10-domänanslutna computer(device) synkroniserar vissa attribut till 
 
 Dessa attribut för **användaren** är utöver de andra apparna som du har valt.  
 
-| Attributets namn | Användare | Kommentar |
+| Attributnamn | Användare | Kommentera |
 | --- |:---:| --- |
 | domainFQDN |X |Kallas även DNS-domännamn. Till exempel contoso.com. |
 | domainNetBios |X |Kallas även NetBIOS-namn. Till exempel CONTOSO. |
@@ -421,7 +421,7 @@ Dessa attribut för **användaren** är utöver de andra apparna som du har valt
 ## <a name="exchange-hybrid-writeback"></a>Tillbakaskrivning av Exchange-hybrid
 Dessa attribut skrivs tillbaka från Azure AD till lokala Active Directory när du väljer för att aktivera **Exchange hybrid**. Beroende på din Exchange-version kan färre attribut synkroniseras.
 
-| Attributets namn | Användare | Kontakt | Grupp | Kommentar |
+| Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | msDS-ExternalDirectoryObjectID |X | | |Härleds från cloudAnchor i Azure AD. Det här attributet är ny i Exchange 2016 och Windows Server 2016 AD. |
 | msExchArchiveStatus |X | | |Online Arkiv: Gör det möjligt för kunder att arkivera e-post. |
@@ -436,7 +436,7 @@ Dessa attribut skrivs tillbaka från Azure AD till lokala Active Directory när 
 ## <a name="exchange-mail-public-folder"></a>Offentlig mapp för Exchange-e-post
 Dessa attribut synkroniseras från lokala Active Directory till Azure AD när du väljer för att aktivera **offentlig mapp för Exchange-e-post**.
 
-| Attributets namn | PublicFolder | Kommentar |
+| Attributnamn | PublicFolder | Kommentera |
 | --- | :---:| --- |
 | Visningsnamn | X |  |
 | E-post | X |  |
@@ -448,7 +448,7 @@ Dessa attribut synkroniseras från lokala Active Directory till Azure AD när du
 ## <a name="device-writeback"></a>Tillbakaskrivning av enheter
 Enhetsobjekt skapas i Active Directory. De här objekten kan vara enheter som är anslutna till Azure AD eller domänanslutna Windows 10-datorer.
 
-| Attributets namn | Enhet | Kommentar |
+| Attributnamn | Enhet | Kommentera |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | Visningsnamn |X | |

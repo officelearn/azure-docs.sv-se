@@ -1,5 +1,7 @@
 <!-- F-series, Fs-series* -->
 
+Beräkna optimerade VM-storlekar har förhållandet hög CPU-minne och är bra för medelhög trafik webbservrar, nätverksinstallationer, batchprocesser och programservrar. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen.
+
 Fsv2-serien är baserad på Intel® Xeon® Platina 8168-processor med en frekvens som bas core 2.7 GHz och en största enkel kärna turbo frekvens 3.7 GHz. Intel® AVX-512 instruktioner som är nya Intel skalbara processorer, ger upp till en 2 X prestandaökning vector bearbetning arbetsbelastningarna på både enkla och dubbla precision flytande punkt åtgärder. De är med andra ord verkligen snabb för alla beräkningar arbetsbelastning. 
 
 På en lägre per timme pris är Fsv2-serien det bästa värdet i pris prestanda i Azure portfölj baserat på den Azure Compute-enhet (ACU) per vCPU. 
@@ -14,7 +16,7 @@ Fs-serien ger alla fördelar med F-serien, och Premium-lagring.
 
 ACU: 195-210
 
-| Storlek             | Vcpu's | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
+| Storlek             | Vcpu's | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Mellan                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Mellan                                       |
@@ -29,7 +31,7 @@ ACU: 195-210
 
 ACU: 210–250
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4,000 / 32 (12) |3,200 / 48 |2/750 |
 | Standard_F2s |2 |4 |8 |8 |8,000 / 64 (24) |6,400 / 96 |2/1 500 |
@@ -48,7 +50,7 @@ Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 
 ACU: 210–250
 
-| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
+| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3 000 / 46 / 23                                           | 4 / 4 x 500                         | 2/750                 |
 | Standard_F2  | 2         | 4           | 32             | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 500                     |

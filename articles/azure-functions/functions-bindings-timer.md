@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions timer som utlösare | Microsoft Docs"
+title: "Azure Functions timer som utlösare"
 description: "Förstå hur du använder timer-utlösare i Azure Functions."
 services: functions
 documentationcenter: na
@@ -17,42 +17,159 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure Functions timer som utlösare
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
-
-Den här artikeln förklarar hur du konfigurerar och koden timer utlösare i Azure Functions. Azure Functions har en timer utlösaren bindning som låter dig köra din funktionskod baserat på ett definierat schema. 
-
-Timer-utlösare stöder flera instanser skalbar. En instans av en viss timerfunktion körs i alla instanser.
+Den här artikeln förklarar hur du arbetar med timer utlösare i Azure Functions. En timer som utlösare kan du köra en funktion på ett schema. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a id="trigger"></a>
+## <a name="example"></a>Exempel
 
-## <a name="timer-trigger"></a>Timerutlösare
-Timer-utlösaren till en funktion använder följande JSON-objekt i den `bindings` matris med function.json:
+Finns i det språkspecifika:
+
+* [Förkompilerade C#](#trigger---c-example)
+* [C#-skript](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="c-example"></a>C#-exempel
+
+Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som körs var femte minut:
+
+```cs
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+### <a name="c-script-example"></a>Exempel på C#-skript
+
+I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en missade schema förekomst.
+
+Här är de bindande data den *function.json* fil:
 
 ```json
 {
-    "schedule": "<CRON expression - see below>",
-    "name": "<Name of trigger parameter in function signature>",
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
     "type": "timerTrigger",
     "direction": "in"
 }
 ```
 
-Värdet för `schedule` är en [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression) som innehåller dessa sex fält: 
+Här är skriptkod C#:
 
-    {second} {minute} {hour} {day} {month} {day-of-week}
-&nbsp;
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+### <a name="f-example"></a>F #-exempel
+
+I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [F # skriptfunktion](functions-reference-fsharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en missade schema förekomst.
+
+Här är de bindande data den *function.json* fil:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Här är skriptkod F #:
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+### <a name="javascript-example"></a>JavaScript-exempel
+
+I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en missade schema förekomst.
+
+Här är de bindande data den *function.json* fil:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Här är skriptkod F #:
+
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="attributes-for-precompiled-c"></a>Attribut för förkompilerade C#
+
+För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+
+Attributets konstruktorn har ett CRON-uttryck som visas i följande exempel:
+
+```csharp
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+ ```
+
+Du kan ange en `TimeSpan` i stället för ett CRON-uttryck om funktionen appen körs i en apptjänstplan (inte en plan för förbrukning).
+
+## <a name="configuration"></a>Konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `TimerTrigger` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**typ** | Saknas | Måste anges till ”timerTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**riktning** | Saknas | Måste anges till ”i”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
+|**schema**|**ScheduleExpression**|Du kan definiera scheman med ett CRON-uttryck på förbrukning-plan. Om du använder en App Service-Plan kan du också använda en `TimeSpan` sträng. I följande avsnitt beskrivs CRON-uttryck. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till ett värde som kapslas in i  **%**  tecken, som i följande exempel: ”% NameOfAppSettingWithCRONExpression %”. När du utvecklar lokalt appinställningar går du till värdena för den [local.settings.json filen](functions-run-local.md#local-settings-file).|
+
+### <a name="cron-format"></a>CRON-format 
+
+En [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression) för Azure Functions-timer-utlösare innehåller fälten sex: 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
 >[!NOTE]   
->Många av cron-uttryck som du hittar online utelämna den `{second}` fältet. Om du kopierar från en av dem kan du behöva justera extra `{second}` fältet. Specifika exempel finns [schemalägga exempel](#examples) nedan.
+>Många av CRON-uttryck som du hittar online utelämna den `{second}` fältet. Om du kopierar från en av dem, lägger du till den saknade `{second}` fältet.
+
+### <a name="cron-time-zones"></a>CRON tidszoner
 
 Standardtidszon används med CRON-uttryck är Coordinated Universal Time (UTC). Om du vill att din CRON-uttryck baserat på en annan tidszon, skapa en ny appinställning för funktionen appen med namnet `WEBSITE_TIME_ZONE`. Ange värdet till namnet på tidszonen som visas i den [Microsoft tidszon Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
@@ -67,12 +184,9 @@ Alternativt kan du lägga till en ny appinställning för funktionen appen med n
 ```json
 "schedule": "0 0 10 * * *",
 ``` 
+### <a name="cron-examples"></a>CRON-exempel
 
-
-<a name="examples"></a>
-
-## <a name="schedule-examples"></a>Schema-exempel
-Här följer några exempel på CRON-uttryck som du kan använda för den `schedule` egenskapen. 
+Här följer några exempel på CRON-uttryck som du kan använda för utlösaren i Azure Functions timer. 
 
 Att utlösa en gång var femte minut:
 
@@ -110,9 +224,8 @@ Att utlösa på 9:30:00 varje vardag:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-<a name="usage"></a>
+## <a name="usage"></a>Användning
 
-## <a name="trigger-usage"></a>Utlösaren användning
 När en timer utlösaren funktionen anropas på [timer-objekt](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) skickades till funktionen. Följande JSON är ett exempel representation av timer-objektet. 
 
 ```json
@@ -127,68 +240,14 @@ När en timer utlösaren funktionen anropas på [timer-objekt](https://github.co
 }
 ```
 
-<a name="sample"></a>
+## <a name="scale-out"></a>Skalbarhet
 
-## <a name="trigger-sample"></a>Utlösaren exempel
-Anta att du har följande tidsinställda utlösaren den `bindings` matris med function.json:
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-Se exemplet språkspecifika som läser timer-objekt för att se om det är försenat.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Utlösaren exemplet i C# #
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    if(myTimer.IsPastDue)
-    {
-        log.Info("Timer is running late!");
-    }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
-
-<a name="triggerfsharp"></a>
-
-### <a name="trigger-sample-in-f"></a>Utlösaren exemplet i F # #
-```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
-    if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-sample-in-nodejs"></a>Utlösaren exemplet i Node.js
-```JavaScript
-module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
-
-    context.done();
-};
-```
+Timer-utlösare stöder flera instanser skalbar. En instans av en viss timerfunktion körs i alla instanser.
 
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [Gå till en Snabbstart som använder en timer som utlösare](functions-create-scheduled-function.md)
+
+> [!div class="nextstepaction"]
+> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

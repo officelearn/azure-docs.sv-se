@@ -10,19 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
 
-> [!IMPORTANT]
-> Vid kommunikation med supportgruppen är det viktigt att ha build-nummer. Du hittar build-nummer för appen genom att klicka på den **hjälp** menyn. Klicka på versionsnummer kopieras till Urklipp. Du kan klistra in den i e-postmeddelanden eller stöder forum för att rapporten problem.
-
-![Kontrollera versionsnumret](media/known-issues-and-troubleshooting-guide/buildno.png)
+## <a name="find-the-workbench-build-number"></a>Hitta arbetsstationen build-nummer
+Vid kommunikation med supportgruppen är det viktigt att ha appen arbetsstationen build-nummer. I Windows, som du kan ta reda build-nummer genom att klicka på den **hjälp** menyn och välj **om Azure ML arbetsstationen**. I macOS, kan du klicka på den **Azure ML-arbetsstationen** menyn och välj **om Azure ML arbetsstationen**.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN-Forum
 Vi har en MSDN-Forum kan du skriva frågor. Produktteamet övervakar forumet aktivt. Forumet URL: en är [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
@@ -75,10 +73,13 @@ När du arbetar i Azure ML-arbetsstationen, kan du också skicka en bister (elle
     >Den här gränsen gäller inte för `.git`, `docs` och `outputs` mappar. Dessa mappnamn är skiftlägeskänsliga. Om du arbetar med stora filer kan du läsa [spara ändringar och hantera stora filer](how-to-read-write-files.md).
 
 - Högsta tillåtna körningstiden för experimentet: sju dagar
+
 - Maxstorlek på spårade filen i `outputs` efter en körning: 512 MB
   - Det innebär att om skriptet genererar en fil som är större än 512 MB i mappen utdata, den inte har samlats in det. Om du arbetar med stora filer kan du läsa [spara ändringar och hantera stora filer](how-to-read-write-files.md).
 
 - SSH-nycklar stöds inte när du ansluter till en fjärransluten dator eller Spark-klustret via SSH. Läget för endast användarnamn/lösenord stöds för närvarande.
+
+- När du använder HDInsight-kluster som compute mål, måste den använda Azure blob som primär lagring. Med Azure Data Lake lagring stöds inte.
 
 - Text klustring transformeringar stöds inte för Mac.
 

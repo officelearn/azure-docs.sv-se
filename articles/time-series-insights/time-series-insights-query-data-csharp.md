@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: e4f0088a880302fe48933a1b886736a941fe8432
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bc0a5cbc770de571bfc296e35ab028f9802a90a
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Fråga efter data från Azure tid serien Insights-miljön med hjälp av C#
 
@@ -338,5 +338,5 @@ namespace TimeSeriesInsightsQuerySample
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-
-Fullständig fråge-API-referens, finns det [frågan API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) dokumentet.
+> [!div class="nextstepaction"]
+> Fullständig fråge-API-referens, se [frågan API](/rest/api/time-series-insights/time-series-insights-reference-queryapi).

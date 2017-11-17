@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera en apptjänstplan i Azure
 
@@ -58,7 +58,7 @@ Välj **ändra programtjänstplanen** att starta processen.
 
 **Ändra programtjänstplanen** öppnar den **programtjänstplanen** väljare. Välj en befintlig plan för att flytta den här appen till. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Den **Välj apptjänstplan** sidan filtreras efter följande kriterier: 
 > - Det finns i samma resursgrupp 
 > - Det finns i samma geografiska region 
@@ -82,7 +82,7 @@ Du kan hitta **klona App** i den **utvecklingsverktyg** på menyn.
 
 ## <a name="scale-an-app-service-plan"></a>Skala en programtjänstplan
 
-För att skala upp ah App Service-plan prisnivån, se [skala upp en app i Azure](web-sites-scale.md).
+För att skala upp en Apptjänst plan prisnivån, se [skala upp en app i Azure](web-sites-scale.md).
 
 Om du vill skala ut en app-instanser finns [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md).
 

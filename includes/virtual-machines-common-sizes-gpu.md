@@ -1,5 +1,5 @@
 
-GPU optimerade VM storlekar är för särskilda virtuella datorer som mål för tunga grafisk återgivning och redigering av video. Tillgängligt med en eller flera GPU-kort. Den här artikeln innehåller information om antalet vCPUs, datadiskar och nätverkskort samt genomflöde och nätverket lagringsprestanda för varje storlek i den här grupperingen. 
+GPU optimerade VM storlekar är för särskilda virtuella datorer som mål för tunga grafisk återgivning och redigering av video. Tillgängligt med en eller flera GPU-kort. Den här artikeln innehåller information om antalet vCPUs, datadiskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen. 
 
 
 NC- och NV-storlekarna kallas även GPU-aktiverade instanser. De är särskilda virtuella datorstorlekar som innehåller NVIDIA GPU-kort som optimerats för olika scenarier och användningsfall. NV-storlekarna är optimerade och utformade för fjärrvisualiserings-, strömnings-, spel-, kodnings- och VDI-scenarier som använder ramverk som OpenGL och DirectX. NC-storlekarna är mer optimerade för beräkningsintensiva och nätverksintensiva tillämpningar och algoritmer, inklusive CUDA- och OpenCL-baserade program och simuleringar. 

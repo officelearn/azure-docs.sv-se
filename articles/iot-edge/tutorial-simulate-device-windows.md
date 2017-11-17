@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 08c501b9132bb21f47f099725d1fad5556befb4c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: da0446a62c5d254aa92e6673de034852044bc052
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Distribuera Azure IoT kanten på en simulerad enhet i Windows - förhandsgranskning
 
@@ -38,18 +38,18 @@ Den här kursen förutsätter att du använder en dator eller virtuell dator som
 3. Installera [Python 2.7 på Windows] [ lnk-python] och kontrollera att du kan använda kommandot pip.
 4. Kör följande kommando för att hämta skriptet IoT kant kontroll.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Azure IoT-kant kan köra Windows behållare eller Linux-behållare. Du måste köra för att använda Windows-behållare:
->    * Uppdatering för Windows 10 faller skapare, eller
->    * Windows Server 1709 (Build 16299), eller
+> Azure IoT-kant kan köra Windows behållare eller Linux-behållare. Om du kör något av följande Windows-versioner måste använda du Windows-behållare:
+>    * Uppdatering för Windows 10 faller skapare
+>    * Windows Server 1709 (Build 16299)
 >    * Windows IoT Core (skapa 16299) på en enhet med x64
 >
-> För Windows IoT Core, följer du instruktionerna i [installera runtime IoT kanten på Windows IoT Core][lnk-install-iotcore]. Annars bara [konfigurera Docker om du vill använda Windows behållare][lnk-docker-containers], och du kan också kontrollera dina krav med följande powershell-kommando:
->    ```
+> För Windows IoT Core, följer du instruktionerna i [installera runtime IoT kanten på Windows IoT Core][lnk-install-iotcore]. Annars bara [konfigurera Docker om du vill använda Windows behållare][lnk-docker-containers]. Använd följande kommando för att validera dina krav:
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -73,28 +73,28 @@ Registrera en IoT-enhet med din nya IoT-hubb.
 Installera och starta Azure IoT kant-körningsmiljön på enheten. 
 ![Registrera en enhet][5]
 
-IoT kant runtime distribueras på alla kant för IoT-enheter. Det består av två moduler. Först underlättar IoT kant agenten distribution och övervakning av moduler på IoT gränsenheten. Gräns för IoT-hubb hanterar andra, kommunikation mellan moduler på IoT gränsenheten och mellan enheten och IoT-hubb. 
+IoT kant runtime distribueras på alla kant för IoT-enheter. Det består av två moduler. Den **IoT kant agent** underlättar distribution och övervakning av moduler på IoT gränsenheten. Den **kant för IoT-hubb** hanterar kommunikationen mellan moduler på IoT gränsenheten och mellan enheten och IoT-hubb. När du konfigurerar körningsmiljön på den nya enheten startar IoT kant agenten först. Gräns för IoT-hubb kommer senare när du distribuerar en modul. 
 
 
-Använd följande steg för att installera och starta IoT kant-körning:
+Konfigurera körningen med anslutningssträngen IoT kant enheten från föregående avsnitt.
 
-1. Konfigurera körningen med anslutningssträngen IoT kant enheten från föregående avsnitt.
+```cmd
+iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
+Starta körningen.
 
-1. Starta körningen.
+```cmd
+iotedgectl start
+```
 
-   ```
-   iotedgectl start
-   ```
+Kontrollera Docker för att se att IoT kant-agenten körs som en modul.
 
-1. Kontrollera Docker för att se att IoT kant-agenten körs som en modul.
+```cmd
+docker ps
+```
 
-   ```
-   docker ps
-   ```
+![Se edgeAgent i Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Distribuera en modul
 
@@ -108,11 +108,21 @@ Hantera dina Azure IoT insticksenhet från molnet för att distribuera en modul 
 
 I Snabbstart, skapas en ny IoT Edge-enhet och installerat IoT kant-körningsmiljön. Sedan använde du Azure-portalen för att skicka en IoT kant-modul som ska köras på enheten utan att behöva göra ändringar i själva enheten. I det här fallet skapar den modul som du pushas miljödata som du kan använda för självstudierna. 
 
-Visa meddelanden som skickas från modulen tempSensor:
+Öppna Kommandotolken på den dator som kör den simulerade enheten igen. Kontrollera att modulen distribueras från molnet körs på enheten IoT kant. 
 
-```cmd/sh
-sudo docker logs -f tempSensor
+```cmd
+docker ps
 ```
+
+![Visa tre moduler på enheten](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+Visa meddelanden som skickas från modulen tempSensor till molnet. 
+
+```cmd
+docker logs -f tempSensor
+```
+
+![Visa data från en modul](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 Du kan också visa telemetri enheten skickar med hjälp av den [IoT-hubb explorer verktyget][lnk-iothub-explorer]. 
 

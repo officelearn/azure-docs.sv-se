@@ -12,17 +12,17 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Så här skalar du tid serien insikter miljön
 
-Den här artikeln beskriver hur du ändrar kapaciteten för din miljö tid serien insikter miljön med hjälp av Azure portal. Kapaciteten är multiplikatorn tillämpas på meddelanden om ingångs-hastighet, lagringskapacitet och kostnaden för din valda Sku. 
+Den här artikeln beskriver hur du ändrar kapaciteten för din miljö tid serien insikter miljön med hjälp av Azure portal. Kapaciteten är multiplikatorn tillämpas på meddelanden om ingångs-hastighet, lagringskapacitet och kostnaden för din valda SKU. 
 
-Du kan använda Azure-portalen för att öka eller minska inom en viss prisnivå Sku. 
+Du kan använda Azure-portalen för att öka eller minska inom en viss prisnivå SKU. 
 
 Dock är ändra prisnivån SKU inte tillåtet. Till exempel kan inte en miljö med en S1 priser SKU konverteras till en S2 eller vice versa. 
 
@@ -46,7 +46,7 @@ Kapaciteter skalas linjärt, så en S1 SKU med kapacitet 2 stöder 2 GB (2 miljo
 ## <a name="change-the-capacity-of-your-environment"></a>Ändra kapaciteten för din miljö
 1. Leta upp och markera tid serien insikter miljön i Azure-portalen. 
 
-2. Under den **inställningar** rubrik, Välj **konfigurera**.
+2. Välj på menyn för din miljö för tid serien Insighs **konfigurera**.
 
    ![Configure.PNG](media/scale-your-environment/configure.png)
 

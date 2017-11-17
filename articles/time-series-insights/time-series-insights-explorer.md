@@ -3,7 +3,7 @@ title: "Utforska data med hjälp av Azure tid serien Insights explorer | Microso
 description: "Den här artikeln beskriver hur du använder Azure tid serien Insights explorer i webbläsaren för att snabbt visa en global big data och verifiera din IoT-miljö."
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure tid serien insikter explorer
 Den här artikeln innehåller olika funktioner och alternativ som är tillgängliga i tid serien insikter explorer webbapp. Du kan använda tid serien insikter explorer i webbläsaren för att skapa visualiseringar av dina data.
@@ -50,10 +50,10 @@ Du kan utforska och fråga tid seriens data inom minuter ansluta din händelsek�
       - **Delning av**: den här nedrullningsbara visar kategoriska kolumner (strängar)
       - Du kan aktivera steg interpolerade, visa lägsta och högsta och justera y-axeln från Kontrollpanelen nästa för att mäta.  Du kan dessutom justera om data som visas är ett antal, genomsnittlig eller summan av data.
       - Du kan lägga till upp till fem villkor för att visa på samma x-axeln.  Använd den **kopiera ned** för att lägga till ytterligare en term eller klicka på den **Lägg till** för att lägga till en ny term.
+     
+        ![Villkoren Editor panelen](media/time-series-insights-explorer/explorer2.png)
 
-      ![Villkoren Editor panelen](media/time-series-insights-explorer/explorer2.png)
-
-      - **Predikatet**: predikatet kan du snabbt filtrera händelserna med uppsättning operander som anges nedan. Om du utför en sökning genom att välja/att klicka på predikat kommer automatiskt uppdatera baserat på sökningen.  Stöds operanden typer är:
+      - **Predikatet**: predikatet kan du snabbt filtrera händelserna med uppsättning operander som anges nedan. Om du utför en sökning genom att välja/att klicka på predikat kommer automatiskt uppdatera baserat på sökningen.      Stöds operanden typer är:
 
          |Åtgärd  |Typer som stöds  |Anteckningar  |
          |---------|---------|---------|
@@ -100,11 +100,12 @@ Du kan utforska och fråga tid seriens data inom minuter ansluta din händelsek�
 
    - **Mönster**: den här funktionen proaktivt hämtar de mest statistiskt signifikant mönster i en region för valda data. Detta besparar dig från att titta på tusentals händelser att förstå vilka mönster garanterar mest tid och energi. Dessutom kan tid serien insikter du hoppa direkt till dessa statistiskt signifikant mönster fortsätta utföra en analys. Den här funktionen är också användbara för post före utredning historiska data. 
 
-   - **Kolumnen stats**: kolumnen stats ange diagram och tabeller som över det valda tidsintervallet för att dela upp data från varje kolumn i den markerade dataserien.  
+   - **Kolumnen Stats**: kolumnen stats ange diagram och tabeller som över det valda tidsintervallet för att dela upp data från varje kolumn i den markerade dataserien.  
  
       ![STATISTIK](media/time-series-insights-explorer/explorer8.png) 
 
 Nu har du sett olika funktioner och alternativ som är tillgängliga i tid serien insikter explorer webbapp. 
 
 ## <a name="next-steps"></a>Nästa steg
-[Diagnostisera och lösa problem i miljön tid serien insikter](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Diagnostisera och lösa problem i miljön tid serien insikter](time-series-insights-diagnose-and-solve-problems.md)

@@ -1,6 +1,6 @@
 ---
-title: "SAP NetWeaver HA Installation på Windows-redundanskluster och filen dela SAP (A) SCS-instans i Azure | Microsoft Docs"
-description: "SAP NetWeaver hög tillgänglighet Installation på Windows-redundanskluster och filresursen för SAP (A) SCS-instans"
+title: "SAP NetWeaver installation för hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser i Azure | Microsoft Docs"
+description: "SAP NetWeaver installation för hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec7888cfb9b0d288b5b25f580c852ee32306684c
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b7b403518c75c72b68957f94dcac750cd922f6bc
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sap-netweaver-ha-installation-on-windows-failover-cluster-and-file-share-for-sap-ascs-instance-on-azure"></a>SAP NetWeaver HA Installation på Windows-redundanskluster och filresursen för SAP (A) SCS-instansen på Azure
+# <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installera SAP NetWeaver hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser på Azure
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -194,24 +194,23 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-Det här dokumentet är som beskriver hur du installerar och konfigurerar hög tillgänglighet SAP-system på Azure, med **Failover Cluster WSFC (Windows)** och **skala ut filresursen** som ett alternativ för SAP (A) SCS-kluster instans.
+Den här artikeln beskriver hur du installerar och konfigurerar ett system med hög tillgänglighet SAP på Azure med Failover-kluster WSFC (Windows Server) och skalbar filserver som ett alternativ för klustring SAP ASCS/SCS instanser.
 
 ## <a name="prerequisites"></a>Krav
 
-Se till att granska de här dokumenten innan du börjar med installationen:
+Läs följande artiklar innan du startar installationen:
 
-* [Guide för Architecture - Clustering SAP (A) SCS-instans på **Windows Failover Cluster** med **filresurs**][sap-high-availability-guide-wsfc-file-share]
+* [Arkitektur-guide: kluster en SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av filresurs][sap-high-availability-guide-wsfc-file-share]
 
-* [Azure förberedelse av infrastruktur för SAP hög tillgänglighet med hjälp av **Windows Failover Cluster** och **filen delad** för SAP (A) SCS-instans][sap-high-availability-infrastructure-wsfc-file-share]
+* [Förbereda Azure-infrastrukturen SAP hög tillgänglighet med hjälp av en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser][sap-high-availability-infrastructure-wsfc-file-share]
 
+Du behöver följande körbara filer och DLL-filer från SAP:
+* SAP programvara etablering Manager (SWPM) installationen Verktygsversion SPS21 eller senare.
+* Hämta den senaste NTCLUST. SAR Arkiv med ny SAP klusterresurs DLL-filen. De nya klustret DLL-filerna för SAP stöd för SAP ASCS/SCS hög tillgänglighet med filresurs på Windows Server Failover-kluster.
 
-Du måste ha följande körbara filer / DLL-filer från SAP:
-* SAP **programvara etablering Manager** (**SWPM**) version för installation av verktyget **SPS21 (eller högre)**.
-* Hämta den **senaste NTCLUST. SAR** Arkiv med ny SAP klusterresurs DLL-filen. Det nya klustret DLL-filer för SAP stöder SAP (A) SCS hög tillgänglighet med filresurs på Windows Server Failover-kluster.
+  Mer information om nya SAP klusterresurs DLL-filen finns i den här bloggen: [nya SAP klusterresurs DLL-filen är tillgänglig!] [sap-blog-new-sap-cluster-resource-dll].
 
-  Kontrollera den här bloggen för flera bildas på ny SAP klusterresurs DLL: [nya SAP klusterresurs DLL-filen är tillgänglig!][sap-blog-new-sap-cluster-resource-dll]
-
-Vi beskriver inte DBMS-inställningarna eftersom inställningar varierar beroende på DBMS-system som du använder. Men förutsätter vi att få hög tillgänglighet med DBMS behandlas med funktioner som har stöd för olika DBMS-leverantörer för Azure. Till exempel alltid på eller databasspegling för SQL Server och Oracle Data Guard för Oracle-databaser. I scenariot som vi använder i den här artikeln inte vi lägga till mer skydd DBMS.
+Vi beskriver inte System för databasen (DBMS) installationen eftersom inställningar varierar beroende på DBMS du använder. Men förutsätter vi att få hög tillgänglighet med DBMS behandlas med funktioner som har stöd för olika DBMS-leverantörer för Azure. Dessa funktioner inkluderar AlwaysOn eller databasspegling för SQL Server och Oracle Data Guard för Oracle-databaser. I scenariot som vi använder i den här artikeln inte vi lägga till mer skydd DBMS.
 
 Det finns inga särskilda överväganden när olika DBMS tjänster interagera med den här typen av klustrad SAP ASCS/SCS konfiguration i Azure.
 
@@ -220,34 +219,34 @@ Det finns inga särskilda överväganden när olika DBMS tjänster interagera me
 >
 >
 
-## <a name="install-ascs-instance-on-ascs-cluster"></a>Installera (A) SCS-instans på (A) SCS-kluster
+## <a name="install-an-ascsscs-instance-on-an-ascsscs-cluster"></a>Installera en ASCS/SCS-instans på en ASCS/SCS-kluster
 
 > [!IMPORTANT]
 >
->En inställning för hög tillgänglighet med en konfiguration för resursen är för närvarande inte stöds av SAP installationsverktyget programvara etablering Manager (SWPM). Därför är vissa manuell införande krävs för att installera en SAP-systemet, till exempel, för att installera och kluster SAP (A) SCS-instans och konfigurera separata SAP GLOBALHOST.  
+> En inställning för hög tillgänglighet med en konfiguration för resursen är för närvarande inte stöds av installationsverktyget SAP SWPM. Därför är vissa manuell införande krävs för att installera ett SAP-system (t.ex, för att installera och klustret en SAP ASCS/SCS-instans och konfigurera en separat SAP-värd).  
 >
->Det finns ingen ändring i andra installationssteg för att installera (och kluster) DBMS-instans och SAP programservrarna.
+> Ingen ändring i andra installationssteg att installera (och kluster) ett DBMS-instans och SAP-programservrar.
 >
 
-### <a name="install-ascs-instance-on-local-drive"></a>Installera (A) SCS-instans på en lokal enhet
+### <a name="install-an-ascsscs-instance-on-your-local-drive"></a>Installera en ASCS/SCS-instans på en lokal hårddisk
 
-Installera SAP (A) SCS-instans på **både** klusternoder (A) SCS. Installera den på **lokala** enhet. I vårt exempel vi valde lokal enhet är C:\\. Du kan välja en lokal disk.  
+Installera en SAP ASCS/SCS-instans i *både* ASCS/SCS klusternoderna. Installera den på lokal enhet. I vårt exempel är den lokala enheten C:\\, men du kan välja en lokal disk.  
 
-Så här installerar du navigera i SAP-installationen verktyget SWPM till:
+Installera instansen i verktyget SAP SWPM installationen genom att gå till:
 
-&lt;Produkten&gt; -> &lt;DBMS&gt; Installation -> program -> servern ABAP (eller Java) -> distribuerade System -> (A) SCS-instans
+**\<Produkten >** > **\<DBMS >** > **Installation** > **programserver ABAP**(eller **Java**) > **distribuerade System** > **ASCS/SCS-instans**
 
 > [!IMPORTANT]
->För närvarande filen resursen scenariot ännu inte stöds av SAP installationsverktyget SWPM **kan inte använda** installationssökväg:
+> För närvarande stöds filresurs scenariot inte av verktyget SAP SWPM installation. Du *kan inte använda* följande installationssökvägen:
 >
->&lt;Produkten&gt; -> &lt;DBMS&gt; Installation -> program -> servern ABAP (eller Java) hög tillgänglighet-> System ->...
+> **\<Produkten >** > **\<DBMS >** > **Installation** > **programserver ABAP**(eller **Java**) > **System med hög tillgänglighet** >...
 >
 
-### <a name="remove-sapmnt-and-create-saploc-file-share"></a>Ta bort SAPMNT och skapa SAPLOC filresurs
+### <a name="remove-sapmnt-and-create-an-saploc-file-share"></a>Ta bort SAPMNT och skapa en filresurs för SAPLOC
 
-SWMP skapas SAPMNT lokal resurs på C:\\usr\\sap-mappen.
+SWMP skapas en lokal resurs SAPMNT i C:\\usr\\sap-mappen.
 
-Ta bort SAPMNT filer på **både** (A) SCS klusternoder:
+Ta bort filresursen SAPMNT på *både* ASCS/SCS klusternoder.
 
 Kör följande PowerShell-skript:
 
@@ -255,7 +254,7 @@ Kör följande PowerShell-skript:
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
-Om SAPLOC resursen inte finns, skapa en på både ASCS klusternoder.
+Om SAPLOC resursen inte finns skapar du en på *både* ASCS/SCS klusternoder.
 
 Kör följande PowerShell-skript:
 
@@ -272,19 +271,19 @@ $SAPusrSapPath = "$SAPDisk\usr\sap"
 New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName , $SAPLocalAdminGroupName  
  ```
 
-## <a name="prepare-sap-global-host-on-sofs-cluster"></a>Förbereda SAP globala värden på SOFS-kluster
+## <a name="prepare-an-sap-global-host-on-the-sofs-cluster"></a>Förbereda en global SAP-värd på SOFS-kluster
 
-I det här steget skapar du följande volymen och filresursen, på SOFS-kluster:
+Skapa följande volymen och filresursen på SOFS-kluster:
 
-* SAP GLOBALHOST filen C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS\ strukturen på SOFS klustret delad volym (CSV)
+* SAP GLOBALHOST filen C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ strukturen på SOFS klustret delad volym (CSV)
 
-* Skapa SAPMNT filresurs
+* SAPMNT filresurs
 
-* Ange säkerhet för SAPMNT filresursen och mappen med fullständig behörighet för:
-    * **&lt;DOMÄN&gt;\SAP_&lt;SID&gt;_GlobalAdmin** användargrupp
-    * SAP-noder (A) SCS klusterdatorn **objekt &lt;domän&gt;\ClusterNode1$ och &lt;domän&gt;\ClusterNode2$**
+* Ange säkerhet på SAPMNT filresursen och mappen med fullständig behörighet för:
+    * Den \<domän > \SAP_\<SID > _GlobalAdmin användargrupp
+    * SAP ASCS/SCS kluster nod datorobjekt \<domän > \ClusterNode1$ och \<domän > \ClusterNode2$
 
-Att skapa CSV-volym med spegling återhämtning enligt kapitel **SAP krav för SOFS i Azure - Lägg till länk**, köra följande PowerShell-cmdlet på en av noderna i SOFS:
+Om du vill skapa en CSV-volym med spegling återhämtning, kör du följande PowerShell-cmdlet på en av noderna i SOFS:
 
 
 ```PowerShell
@@ -298,11 +297,11 @@ $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# SAP (A)SCS cluster nodes
+# SAP ASCS/SCS cluster nodes
 $ASCSClusterNode1 = "ascs-1"
 $ASCSClusterNode2 = "ascs-2"
 
-# Define SAP (A)SCS cluster node computer objects
+# Define SAP ASCS/SCS cluster node computer objects
 $ASCSClusterObjectNode1 = "$DomainName\$ASCSClusterNode1$"
 $ASCSClusterObjectNode2 = "$DomainName\$ASCSClusterNode2$"
 
@@ -312,83 +311,79 @@ New-Item -Path $SAPGlobalFOlder -ItemType Directory
 
 $UsrSAPFolder = "C:\ClusterStorage\Volume1\usr\sap\"
 
-# Create SAPMNT file share and set share security
+# Create a SAPMNT file share and set share security
 New-SmbShare -Name sapmnt -Path $UsrSAPFolder -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName, $ASCSClusterObjectNode1, $ASCSClusterObjectNode2 -ContinuouslyAvailable $false -CachingMode None -Verbose
 
 # Get SAPMNT file share security settings
 Get-SmbShareAccess sapmnt
 
-# Set files & folder security
+# Set file and folder security
 $Acl = Get-Acl $UsrSAPFolder
 
-# Add file security object of SAP_<sid>_GlobalAdmin group
+# Add a file security object of SAP_<sid>_GlobalAdmin group
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($SAPSIDGlobalAdminGroupName,"FullControl", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode1$ computer object
+# Add  a security object of the clusternode1$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode1,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode2$ computer object
+# Add a security object of the clusternode2$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode2,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
 # Set security
 Set-Acl $UsrSAPFolder $Acl -Verbose
  ```
-## <a name="stop-ascs-instances-and-sap-services"></a>Stoppa (A) SCS instanser och SAP-tjänster
+## <a name="stop-ascsscs-instances-and-sap-services"></a>Stoppa ASCS/SCS instanser och SAP-tjänster
 
 Utför följande steg:
-* Stoppa SAP (A) SCS instanser på båda (A) SCS klusternoderna
-* Stoppa SAP (A) SCS Windows services **SAP&lt;SID&gt;_&lt;InstanceNumber&gt;**  på båda klusternoderna
+1. Stoppa SAP ASCS/SCS instanser på båda ASCS/SCS klusternoderna.
+2. Stoppa SAP ASCS/SCS Windows services **SAP\<SID > _\<InstanceNumber >** på båda klusternoderna.
 
-## <a name="move-sys-folder-to-sofs-cluster"></a>Flytta \SYS\.... Mappen till SOFS-kluster
+## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>Flytta \SYS\... mappen till SOFS-kluster
 
 Utför följande steg:
-* Kopiera SYS mapp (t.ex. C:\usr\sap\\&lt;SID&gt;\SYS) från en av (A)-SCS klusternoder till SOFS klustret t.ex. att C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS
-* Ta bort C:\usr\sap\\&lt;SID&gt;\SYS mapp från båda noderna (A) SCS
+1. Kopiera mappen SYS (till exempel C:\usr\sap\\<SID>\SYS) från en ASCS/SCS klusternoder till SOFS-klustret (till exempel till C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS).
+2. Ta bort C:\usr\sap\\<SID>\SYS mapp från båda ASCS/SCS klusternoderna.
 
-## <a name="update-cluster-security-setting-on-sap-ascs-cluster"></a>Uppdatera klustret säkerhetsinställning för SAP (A) SCS kluster
+## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>Uppdatera klustret säkerhetsinställning för SAP ASCS/SCS-kluster
 
-Kör följande PowerShell-skript på en av noderna i SCS SAP (A):
+Kör följande PowerShell-skript på en av noderna i SAP ASCS/SCS:
 
 ```PowerShell
-# Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to cluster
+# Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# Set full access for <DOMAIn>\SAP_<SID>_GlobalAdmin group
+# Set full access for the <DOMAIN>\SAP_<SID>_GlobalAdmin group
 Grant-ClusterAccess -User $SAPSIDGlobalAdminGroupName -Full
 
 #Check security settings
 Get-ClusterAccess
 ```
 
-## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascs-instance"></a>Skapa ett virtuellt värdnamn för den klustrade SAP (A) SCS-instansen
+## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Skapa ett virtuellt värdnamn för den klustrade instansen SAP ASCS/SCS
 
-Enligt beskrivningen i kapitel [skapa ett virtuellt värdnamn för den klustrade instansen SAP ASCS/SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] , t.ex. Skapa SAP (A) SCS Klusternätverksnamnet **pr1 ascs [10.0.6.7]**
+Skapa en SAP ASCS/SCS klustrets nätverksnamn (till exempel **pr1 ascs [10.0.6.7]**), enligt beskrivningen i [skapa ett virtuellt värdnamn för den klustrade instansen SAP ASCS/SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] . 
 
-## <a name="update-default-and-sap-ascs-instance-profile"></a>Uppdatera standard och SAP-profil (A) SCS-instans
+## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Uppdatera standard och SAP ASCS/SCS instans profil
 
-Du måste uppdatera standard och SAP (A) SCS instansen profil &lt;SID&gt;_(A) SCS<Nr>_  <Host> att använda:
-
-* Nya SAP (A) SCS virtuella värdnamn
-
-* Nya SAP globala värdnamn
+Om du vill använda det nya namnet för SAP ASCS/SCS virtuell värd och SAP globala värdnamn, måste du uppdatera standard och SAP ASCS/SCS instans profil \<SID >_ASCS/SCS\<Nr >_<Host>.
 
 
 | Gamla värden |  |
 | --- | --- |
-| SAP-(A) SCS hostname = globala SAP-värd | ascs-1 |
-| SAP-profil (A) SCS-instansnamn | PR1_ASCS00_ascs 1 |
+| Värdnamn för SAP ASCS/SCS = globala SAP-värd | ascs-1 |
+| Profilnamn för SAP ASCS/SCS-instans | PR1_ASCS00_ascs 1 |
 
 | Nya värden |  |
 | --- | --- |
-| SAP-(A) SCS-värdnamn | **PR1 ascs** |
+| SAP ASCS/SCS värdnamn | **PR1 ascs** |
 | Globala SAP-värden | **sapglobal** |
-| SAP-profil (A) SCS-instansnamn | PR1\_ASCS00\_**pr1 ascs** |
+| Profilnamn för SAP ASCS/SCS-instans | PR1\_ASCS00\_**pr1 ascs** |
 
 ### <a name="update-sap-default-profile"></a>Uppdatera SAP standardprofil
 
@@ -399,12 +394,12 @@ Du måste uppdatera standard och SAP (A) SCS instansen profil &lt;SID&gt;_(A) SC
 | rdisp/mshost | **PR1 ascs** |
 | Placera/serverhost | **PR1 ascs** |
 
-### <a name="update-sap-ascs-instance-profile"></a>Uppdatera SAP (A) SCS instans profil
+### <a name="update-the-sap-ascsscs-instance-profile"></a>Uppdatera SAP ASCS/SCS instans profil
 
 | Parameternamn | Värdet för parametern |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
-| DIR_PROFILE | \\\\**sapglobal**\sapmnt\PR1\SYS\profile |
+| DIR_PROFILE | \\\sapglobal\sapmnt\PR1\SYS\profile |
 | _PF | $(DIR_PROFILE) \PR1\_ASCS00_ pr1-ascs |
 | Restart_Program_02 = local$(_MS) pf=$(_PF) | **Starta**_Program_02 = local$(_MS) pf=$(_PF) |
 | SAPLOCALHOST | **PR1 ascs** |
@@ -414,12 +409,12 @@ Du måste uppdatera standard och SAP (A) SCS instansen profil &lt;SID&gt;_(A) SC
 | tjänsten/ha_check_node | **1** |
 
 > [!IMPORTANT]
->Du kan använda **uppdatering SAPASCSSCSProfile** PowerShell-cmdlet för att automatisera Profiluppdatering
+>Du kan använda den **uppdatering SAPASCSSCSProfile** PowerShell-cmdlet för att automatisera uppdateringen profil.
 >
->PowerShell-cmdlet har stöd för både SAP ABAP ASCS och SAP Java SCS-instans.
+>PowerShell-cmdlet har stöd för både SAP ABAP ASCS och SAP Java SCS instanser.
 >
 
-Kopiera **SAPScripts.ps1** till lokala enheter C:\tmp och kör följande PowerShell-cmdlet:
+Kopiera **SAPScripts.ps1** till din lokala enhet C:\tmp och kör följande PowerShell-cmdlet:
 
 ```PowerShell
 Import-Module C:\tmp\SAPScripts.ps1
@@ -429,13 +424,13 @@ Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SY
 
 ![Bild 1: SAPScripts.ps1 utdata][sap-ha-guide-figure-8012]
 
-_**Bild 1:** SAPScripts.ps1 utdata_
+_**Bild 1**: SAPScripts.ps1 utdata_
 
-## <a name="update-ltsidgtadm-user-environment-variable"></a>Uppdatera &lt;sid&gt;adm användaren miljövariabel
+## <a name="update-the-sidadm-user-environment-variable"></a>Uppdatering av \<sid > adm användarmiljövariabel
 
-Uppdatera &lt;sid&gt;adm användaren miljö nya GLOBALHOST UNC-sökvägen på både (A) SCS klusternoder.
-Logga in som &lt;sid&gt;adm användar- och starta Regedit.exe-verktyget.
-Gå till **HKEY_CURRENT_USER** -> **miljö** och uppdatera variablerna till nytt värde:
+1. Uppdatering av \<sid > adm användaren miljö nya GLOBALHOST UNC-sökvägen på *både* ASCS/SCS klusternoder.
+2. Logga in som \<sid > adm-användare, och sedan starta verktyget Regedit.exe.
+3. Gå till **HKEY_CURRENT_USER** > **miljö**, och sedan uppdatera variablerna till det nya värdet:
 
 | Variabel | Värde |
 | --- | --- |
@@ -445,31 +440,25 @@ Gå till **HKEY_CURRENT_USER** -> **miljö** och uppdatera variablerna till nytt
 | SAPLOCALHOST  | **PR1 ascs** |
 
 
-## <a name="install-new-saprcdll"></a>Installera nya SAPRC. DLL-FILEN
+## <a name="install-a-new-saprcdll-file"></a>Installera en ny saprc.dll-fil
 
-Du måste installera en ny version av SAP-klusterresursen som stöder file share scenario.
+1. Installera en ny version av SAP-klusterresursen som stöder filresursen scenariot.
 
-Hämta senaste **NTCLUST. SAR** paket från SAP Service-marknadsplatsen.
+2. Hämta den senaste NTCLUST. SAR paket från SAP Service Marketplace.
 
-Packa upp NTCLUS. SAR på en av (A)-SCS klusternoder och kör följande kommando från Kommandotolken för att installera nya saprc.dll:
+3. Packa upp NTCLUS. SAR på en av ASCS/SCS klusternoder och kör sedan följande kommando från Kommandotolken för att installera den nya saprc.dll-filen:
 
 ```
 .\NTCLUST\insaprct.exe -yes -install
 ```
 
-Nya saprc.dll kommer att installeras på både (A) SCS klusternoderna.
+Filen saprc.dll installeras på både ASCS/SCS klusternoderna.
 
-Mer information finns i [SAP Obs 1596496 - så här uppdaterar SAP dll typ för klustret Resursövervakaren][1596496].
+Mer information finns i [SAP Obs 1596496 - så här uppdaterar SAP resurstypen DLL-filer för klustret Resursövervakaren][1596496].
 
-## <a name="create-sap-sid-cluster-group-network-name-and-ip"></a>Skapa SAP <SID> klustergrupp, nätverksnamnet och IP
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>Skapa en SAP <SID> grupp, nätverksnamnet och IP-
 
-Du måste skapa:
-
-* SAP &lt;SID&gt; klustergrupp
-* < (a) SCSNetworkName >
-* och motsvarande IP-adress
-
-Kör följande PowerShell-cmdlet:
+Så här skapar du en SAP \<SID > klustergrupp, ett ASCS/SCS nätverksnamn och en tillhörande IP-adress, kör följande PowerShell-cmdlet:
 
 ```PowerShell
 # Create SAP Cluster Group
@@ -480,23 +469,23 @@ $SAPASCSNetworkName = "pr1-ascs"
 $SAPASCSIPAddress = "10.0.6.7"
 $SAPASCSSubnetMask = "255.255.255.0"
 
-# Create SAP ASCS instance Virtual IP cluster resource
+# Create an SAP ASCS instance virtual IP cluster resource
 Add-ClusterGroup -Name $SAPClusterGroupName -Verbose
 
-#Create SAP ASCS Virtual IP Address
+#Create an SAP ASCS virtual IP address
 $SAPIPClusterResource = Add-ClusterResource -Name $SAPIPClusterResourceName -ResourceType "IP Address" -Group $SAPClusterGroupName -Verbose
 
-# Set static IP Address
+# Set a static IP address
 $param1 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,Address,$SAPASCSIPAddress
 $param2 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,SubnetMask,$SAPASCSSubnetMask
 $params = $param1,$param2
 $params | Set-ClusterParameter
 
-# Create corresponding network name
+# Create a corresponding network name
 $SAPNetworkNameClusterResourceName = $SAPASCSNetworkName
 Add-ClusterResource -Name $SAPNetworkNameClusterResourceName -ResourceType "Network Name" -Group $SAPClusterGroupName -Verbose
 
-# Set Network DNS Name
+# Set a network DNS name
 $SAPNetworkNameClusterResource = Get-ClusterResource $SAPNetworkNameClusterResourceName
 $SAPNetworkNameClusterResource | Set-ClusterParameter -Name Name -Value $SAPASCSNetworkName
 
@@ -506,17 +495,17 @@ $SAPNetworkNameClusterResource | Get-ClusterParameter
 #Set resource dependencies
 Set-ClusterResourceDependency -Resource $SAPNetworkNameClusterResourceName -Dependency "[$SAPIPClusterResourceName]" -Verbose
 
-#Start SAP <SID> Cluster Group
+#Start an SAP <SID> cluster group
 Start-ClusterGroup -Name $SAPClusterGroupName -Verbose
 ```
 
-## <a name="register-sap-start-service-on-both-nodes"></a>Registrera SAP START Service på båda noderna
+## <a name="register-the-sap-start-service-on-both-nodes"></a>Registrera tjänsten SAP start på båda noderna
 
-Du måste registrera SAP (A) SCS sapstart tjänsten pint till den nya profilen och profilsökvägen.
+Registrera SAP ASCS/SCS starta tjänsten så att den pekar till den nya profilen och profilsökvägen.
 
-Du måste köra sitt på både (A) SCS klusternoder.
+Du måste köra den här omregistrering i *både* ASCS/SCS klusternoder.
 
-Kör formuläret upphöjd kommandotolk följande kommando:
+Kör följande kommando i en kommandotolk:
 
 ```
 C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_pr1-ascs -s PR1 -n 00 -U SAPCLUSTER\SAPServicePR1 -P mypasswd12 -e SAPCLUSTER\pr1adm
@@ -524,20 +513,20 @@ C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profi
 
 ![Bild 2: Installera om SAP-tjänst][sap-ha-guide-figure-8013]
 
-_**Bild 2:** Reinstall SAP service_
+_**Bild 2**: Installera om SAP-tjänst_
 
-Ser till att parametrar är korrekta och välj **manuell** som startade typen.
+Kontrollera att parametrarna är korrekta och välj sedan **manuell** som den **starttyp**.
 
-## <a name="stop-ascs-service"></a>Stoppa (A) SCS-tjänst
+## <a name="stop-the-ascsscs-service"></a>Stoppa tjänsten ASCS/SCS
 
-Stoppa tjänsten SAP (A) SCS **SAP&lt;SID&gt;_ &lt;InstanceNumber&gt;**  på båda (A) SCS klusternoder.
+Stoppa tjänsten SAP ASCS/SCS SAP\<SID > _\<InstanceNumber > på båda ASCS/SCS klusternoder.
 
-## <a name="create-new-sap-service-and-sap-instance-resources"></a>Skapa ny SAP-tjänst och SAP instans resurser
+## <a name="create-a-new-sap-service-and-sap-instance-resources"></a>Skapa en ny SAP-tjänst och SAP instance-resurser
 
-Nu måste du slutföra skapandet av resurser av SAP SAP&lt;SID&gt; klustergrupp, t.ex. Du måste skapa resurser:
+Att slutföra skapandet av resurser av SAP-SAP\<SID > klustergruppen, skapa följande resurser:
 
-* **SAP &lt;SID&gt; &lt;InstanceNumber&gt; Service** och
-* **SAP &lt;SID&gt; &lt;InstanceNumber&gt; instans**
+* SAP \<SID > \<InstanceNumber > service
+* SAP \<SID > \<InstanceNumber > instans
 
 Kör följande PowerShell-cmdlet:
 
@@ -559,10 +548,10 @@ Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Depende
 
 $SAPInstanceClusterResourceName = "SAP $SAPSID $SAPInstanceNumber Instance"
 
-# Create SAP Instance cluster resource
+# Create SAP instance cluster resource
 $SAPASCSServiceClusterResource = Add-ClusterResource -Name $SAPInstanceClusterResourceName -Group $SAPClusterGroupName -ResourceType "SAP Resource" -SeparateMonitor -Verbose
 
-#Set SAP Instance cluster resource parameters
+#Set SAP instance cluster resource parameters
 $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystemName -Value $SAPSID -Verbose
 $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystem -Value $SAPInstanceNumber -Verbose
 
@@ -570,27 +559,26 @@ $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystem -Value $
 Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Dependency "[$SAPServiceClusterResourceName]" -Verbose
 ```
 
-## <a name="add-a-probe-port"></a>Lägga till en avsökning-Port
+## <a name="add-a-probe-port"></a>Lägga till en avsökningsport
 
-I det här steget konfigurerar du en SAP klusterresurs SAP-SID-IP-avsökningsport med hjälp av PowerShell. Köra den här konfigurationen på en av klusternoderna SAP ASCS/SCS enligt [här][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
+Konfigurera en SAP klusterresurs avsökningsport SAP-SID-IP-med hjälp av PowerShell. Köra den här konfigurationen på en av klusternoderna SAP ASCS/SCS enligt [i den här artikeln][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
 
-## <a name="install-ers-instance-on-both-cluster-nodes"></a>Installera ÄNDARE instans på båda klusternoderna
+## <a name="install-an-ers-instance-on-both-cluster-nodes"></a>Installera en ÄNDARE instans på båda klusternoderna
 
-I nästa steg, måste du installera ÄNDARE (sätta replikering Server)-instans på båda noderna i (A) SCS klustret.
-Installationsalternativet kan hittas i SWPM-menyn:
+Installera en sätta replikering Server (ERS)-instans i *både* ASCS/SCS klusternoderna. Följ den här installationssökvägen på menyn SWPM:
 
-&lt;Produkten&gt; -> &lt;DBMS&gt; -> Installation -> ytterligare SAP System -> instanser **sätta replikering Server-instans**
+**\<Produkten >** > **\<DBMS >** > **Installation** > **instanser av ytterligare SAP-System**  >  **Sätta replikering Server-instans**
 
-## <a name="install-dbms-instance-and-sap-application-servers"></a>Installera DBMS-instans och SAP programservrar
+## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installera en DBMS-instans och SAP programservrar
 
 Slutför installationen av system SAP genom att installera:
-* DBMS-instans
-* Primär SAP-programserver
-* Ytterligare SAP-programserver
+* En DBMS-instans.
+* En primär SAP-programserver.
+* En ytterligare SAP-programserver.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Installation av en (A) SCS instans i ett redundanskluster utan delade diskar - officiella SAP riktlinjer för hög tillgänglighet filresursen][sap-official-ha-file-share-document]:
+* [Installera en ASCS/SCS-instans i ett redundanskluster utan delade diskar - officiella SAP riktlinjer för hög tillgänglighet filresurs][sap-official-ha-file-share-document]
 
 * [Lagringsutrymmen direkt i Windows Server 2016][s2d-in-win-2016]
 

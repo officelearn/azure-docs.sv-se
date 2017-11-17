@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a40dc540884454fed9c374ba1365fdf7b85e4531
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: d797b83e2ab7f1b567588ca8e884aed97b49cf45
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-webbapp i Azure App Service på Linux
 
@@ -78,11 +78,11 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Skapa en webbapp med inbyggda avbildning
+## <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Bläddra till den nya webbappen. Ersätt  _&lt;appnamn >_ med ett unikt appnamn.
+Bläddra till den nya webbappen. Ersätt  _&lt;appnamn >_ med din webbprogrammets namn.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -142,7 +142,7 @@ Node.js-exempelkod körs i en webbapp med inbyggda avbildning.
 
 ## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
 
-Öppna filen `index.js` i Node.js-appen med ett textredigeringsprogram och gör små ändringar i texten i anropet till `response.end`:
+I den lokala katalogen öppnar den `index.js` filen i Node.js-app och göra en mindre ändring i texten i anropet till `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

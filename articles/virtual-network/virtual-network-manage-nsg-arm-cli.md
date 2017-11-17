@@ -1,10 +1,10 @@
 ---
-title: "Hantera nätverkssäkerhetsgrupper - Azure CLI 2.0 | Microsoft Docs"
-description: "Lär dig hur du hanterar nätverkssäkerhetsgrupper med hjälp av Azure-kommandoradsgränssnittet (CLI) 2.0."
+title: "Hantera nätverkssäkerhetsgrupper - Azure CLI | Microsoft Docs"
+description: "Lär dig mer om att hantera nätverkssäkerhetsgrupper med hjälp av kommandoradsgränssnittet i Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Hantera nätverkssäkerhetsgrupper som använder Azure CLI 2.0
+# <a name="manage-network-security-groups-using-the-azure-cli"></a>Hantera säkerhetsgrupper i nätverket med hjälp av Azure CLI
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>CLI-versioner för att slutföra uppgiften 
-
-Du kan slutföra uppgiften med någon av följande CLI-versioner: 
-
-- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md) – vår CLI för distributionsmodellerna klassisk och resurshantering 
-- [Azure CLI 2.0](#View-existing-NSGs) -vår nästa generations CLI för hantering av resursdistributionsmodell (den här artikeln)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -44,7 +36,6 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
 ## <a name="prerequisite"></a>Krav
 Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#login). 
-
 
 ## <a name="view-existing-nsgs"></a>Visa befintliga NSG: er
 Om du vill visa listan över NSG: er i en viss resursgrupp, kör den [az nsg nätverkslistan](/cli/azure/network/nsg#list) med en `-o table` utdataformat:
@@ -89,13 +80,13 @@ Förväntad utdata:
 
 ## <a name="view-nsg-associations"></a>Visa NSG associationer
 
-Visa vilka resurser de **NSG-klientdel** NSG är associerat med kör den `az network nsg show` som visas nedan. 
+Visa vilka resurser de **NSG-klientdel** NSG är associerat med kör den `az network nsg show` kommando: 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-Leta efter den **networkInterfaces** och **undernät** egenskaper som visas nedan:
+Leta efter den **networkInterfaces** och **undernät** egenskaper, som visas i följande exempel utdata:
 
 ```json
 [
@@ -117,7 +108,7 @@ Leta efter den **networkInterfaces** och **undernät** egenskaper som visas neda
 ]
 ```
 
-I exemplet ovan NSG: N är inte kopplad till någon nätverksgränssnitt (NIC) och den är kopplad till ett undernät med namnet **klientdel**.
+I det förra exemplet NSG: N är inte kopplad till någon nätverksgränssnitt (NIC) och den är kopplad till ett undernät med namnet **klientdel**.
 
 ## <a name="add-a-rule"></a>Lägg till en regel
 Att lägga till en regel som tillåter **inkommande** trafik till port **443** från en dator till den **NSG-klientdel** NSG, anger du följande kommando:
@@ -160,7 +151,7 @@ Förväntad utdata:
 ```
 
 ## <a name="change-a-rule"></a>Ändra en regel
-Så här ändrar du regeln som skapade ovan för att tillåta inkommande trafik från den **Internet** endast kör den [az uppdatera regel för nätverket nsg](/cli/azure/network/nsg/rule#update) kommando:
+Ändra den regel som skapade tidigare, för att tillåta inkommande trafik från den **Internet** endast kör den [az uppdatera regel för nätverket nsg](/cli/azure/network/nsg/rule#update) kommando:
 
 ```azurecli
 az network nsg rule update \
@@ -339,7 +330,7 @@ Utdata och den `networkSecurityGroup` nyckel har liknande för värdet:
   ```
 
 ## <a name="delete-an-nsg"></a>Ta bort en NSG
-Du kan bara ta bort en NSG om den inte är kopplad till en resurs. Följ stegen nedan om du vill ta bort en NSG.
+Du kan bara ta bort en NSG om den inte är kopplad till en resurs. Utför följande steg för att ta bort en NSG:
 
 1. Om du vill kontrollera resurser som är associerade med en NSG kör den `azure network nsg show` enligt [visa NSG: er kopplingarna](#View-NSGs-associations).
 2. Om NSG: N är kopplad till varje nätverkskort, kör du den `azure network nic set` enligt [koppla bort en NSG från ett nätverkskort](#Dissociate-an-NSG-from-a-NIC) för varje nätverkskort. 

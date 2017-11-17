@@ -7,6 +7,9 @@ En av de viktigaste funktionerna i Azure IoT kant är att kunna distribuera modu
 1. I den **namn** anger `tempSensor`. 
 1. I den **avbildningen URI** anger `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`. 
 1. Lämna de andra inställningarna oförändrade och välj **spara**.
+
+   ![Spara IoT kant modulen när du har angett namn och bild URI](./media/iot-edge-deploy-module/name-image.png)
+
 1. I den **lägga till moduler** steg, Välj **nästa**.
 1. I den **ange vägar** steg, Välj **nästa**.
 1. I den **granska mallen** steg, Välj **skicka**.

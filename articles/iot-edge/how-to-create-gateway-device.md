@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e1337ddf5ed84a06a62e2faa198f3e8fb49bc3bd
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: c9f71a7e95ea8c1b2cbd9b74ef20f9b0342d00f8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-an-iot-edge-gateway-device-to-process-data-from-other-iot-devices---preview"></a>Skapa en IoT-Edge-gateway för bearbetning av data från andra IoT-enheter – förhandsgranskning
 
@@ -68,7 +68,9 @@ Detta resulterar i en lösning som gör att alla enheter ska använda en IoT-enh
 
 Du kan använda exempel Powershell och Bash-skript som beskrivs i [hantera CA-certifikat exempel] [ lnk-ca-scripts] att generera ett självsignerat **IoT-hubb ägare CA** och enhetscertifikat signeras med den.
 
-1. Följ steg 1 av [hantera CA-certifikat exempel] [ lnk-ca-scripts] installera skripten.
+1. Följ steg 1 av [hantera CA-certifikat exempel] [ lnk-ca-scripts] installera skripten. Se till att klona från den `modules-preview` gren:
+                
+                git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
 2. Följ steg 2 för att generera den **IoT-hubb ägare CA**, den här filen kommer att användas av efterföljande enheter för att verifiera anslutningen.
 
 Använd följande instruktioner för att generera ett certifikat för gateway-enhet.
@@ -77,7 +79,7 @@ Använd följande instruktioner för att generera ett certifikat för gateway-en
 
 * Kör `./certGen.sh create_edge_device_certificate myGateway` att skapa det nya enhetscertifikatet.  
   Detta skapar filer.\certs\new-edge-device.* som innehåller den offentliga nyckeln och PFX och.\private\new-edge-device.key.pem som innehåller enhetens privata nyckeln.  
-* `cat new-edge-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-edge-device-full-chain.cert.pem`att hämta den offentliga nyckeln.
+* I den `certs` directory kör `cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem` få fullständig kedja av den offentliga nyckeln för enheten.
 * `./private/new-edge-device.cert.pem`innehåller enhetens privat nyckel.
 
 #### <a name="powershell"></a>PowerShell
@@ -135,7 +137,7 @@ En underordnad enhet kan vara ett program med hjälp av den [Azure IoT-enhet SDK
 
 Först en underordnad enhetsprogram ha förtroende den **IoT-hubb ägare CA** certifikat för att kunna verifiera TLS-anslutningar till gatewayenheter. Det här steget kan vanligtvis utföras på två sätt: på OS-nivå, eller (för vissa språk) på programnivå.
 
-Till exempel .NET-program kan du lägga till följande fragment för att lita på ett certifikat i PEM-format som lagras i sökvägen `certPath`.
+Till exempel .NET-program kan du lägga till följande fragment för att lita på ett certifikat i PEM-format som lagras i sökvägen `certPath`. Om du använder skriptet ovan sökvägen refererar `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) eller `RootCA.pem` (Powershell).
 
         using System.Security.Cryptography.X509Certificates;
         
@@ -145,8 +147,6 @@ Till exempel .NET-program kan du lägga till följande fragment för att lita p�
         store.Open(OpenFlags.ReadWrite);
         store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
         store.Close();
-
-Observera att exempelskript som anges ovan genererar den offentliga nyckeln i filen `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) eller `RootCA.pem` (Powershell).
 
 Den här åtgärden på nivån OS skiljer sig mellan Windows och Linux-distributioner.
 
@@ -176,6 +176,8 @@ När du implementerar en täckande gateway använder din modulen för översätt
 
 När du implementerar en transparent gateway skapar modulen flera instanser av enhetsklienten IoT-hubb med anslutningssträngar för efterföljande enheter.
 
+Den [Azure IoT kant Modbus modulen] [ lnk-modbus-module] är en öppen implementering av protokollet adapter-modul för en täckande gateway.
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Förstå de krav och verktyg för att utveckla IoT kant moduler][lnk-module-dev].
@@ -191,4 +193,5 @@ När du implementerar en transparent gateway skapar modulen flera instanser av e
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 [lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/CACertToolEdge/tools/CACertificates/CACertificateOverview.md
+[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/modules-preview/tools/CACertificates/CACertificateOverview.md
+[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus

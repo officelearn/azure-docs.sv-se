@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca5a61369c1653d8d3e04d191adfe4b54a11248
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Uppdatera SSL-certifikatet för en grupp i Active Directory Federation Services (AD FS)
 
@@ -36,7 +36,7 @@ Du kan utföra hela åtgärden för att uppdatera SSL-certifikat för AD FS-serv
 ## <a name="prerequisites"></a>Krav
 
 * **AD FS-servergrupp**: Kontrollera att AD FS-gruppen är baserade på Windows Server 2012 R2 eller senare.
-* **Azure AD Connect**: Kontrollera att versionen av Azure AD Connect är 1.1.443.0 eller senare. Du använder aktiviteten **uppdatering AD FS SSL-certifikat**.
+* **Azure AD Connect**: Kontrollera att versionen av Azure AD Connect är 1.1.553.0 eller högre. Du använder aktiviteten **uppdatering AD FS SSL-certifikat**.
 
 ![Uppdatera SSL-aktivitet](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
 

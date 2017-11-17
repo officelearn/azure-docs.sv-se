@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Distribuera SAP S/4HANA eller BW/4HANA på Azure
 Den här artikeln beskriver hur du distribuerar S/4HANA på Azure med hjälp av SAP-installation Molnbibliotek (SAP CAL) 3.0. Följ samma steg för att distribuera andra SAP HANA-baserade lösningar, till exempel BW/4HANA.
@@ -95,7 +95,7 @@ Du har skapat ett SAP CAL-konto som kan:
 Nu kan du börja distribuera S/4HANA i din prenumeration för användare i Azure.
 
 > [!NOTE]
-Innan du fortsätter kan du avgöra om du har Azure core kvoter för virtuella datorer i Azure H-serien. För tillfället använder SAP-CAL H-serien virtuella datorer i Azure för att distribuera vissa SAP HANA-baserade lösningar. Din Azure-prenumeration kanske inte H-serien core kvoter för H-serien. I så fall, kan du behöva kontakta Azure-supporten för att få en kvot på minst 16 H-serien kärnor.
+Innan du fortsätter kan du avgöra om du har Azure vCPU kvoter för virtuella datorer i Azure H-serien. För tillfället använder SAP-CAL H-serien virtuella datorer i Azure för att distribuera vissa SAP HANA-baserade lösningar. Din Azure-prenumeration kanske inte H-serien vCPU kvoter för H-serien. I så fall, kan du behöva kontakta Azure-supporten för att få en kvot på minst 16 H-serien vCPUs.
 
 > [!NOTE]
 När du distribuerar en lösning på Azure i SAP-CAL kanske du upptäcker att du kan välja endast en Azure-region. Om du vill distribuera till Azure-regioner än den föreslagna av SAP-CAL, måste du köpa en prenumeration för Fjärrskrivbordstjänster från SAP. Du kan behöva öppna ett meddelande med SAP till ditt CAL-konto som är aktiverad för att leverera i Azure-regioner än de som ursprungligen förslag.

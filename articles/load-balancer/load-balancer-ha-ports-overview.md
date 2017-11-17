@@ -1,6 +1,6 @@
 ---
-title: "Översikt över portar för hög tillgänglighet i Azure | Microsoft Docs"
-description: "Lär dig mer om hög tillgänglighet portar för belastningsutjämning på en intern belastningsutjämnare"
+title: "Översikt över hög tillgänglighet portar i Azure | Microsoft Docs"
+description: "Läs mer om hög tillgänglighet portar för belastningsutjämning på en intern belastningsutjämnare."
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -15,76 +15,75 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: e72fc0d4323f7a2d203fee66311c3fea10ad7a09
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="high-availability-ports-overview-preview"></a>Översikt över portar för hög tillgänglighet (förhandsgranskning)
+# <a name="high-availability-ports-overview"></a>Översikt över portar för hög tillgänglighet
 
-Azure läsa in belastningsutjämning Standard introducerar en ny möjligheten att läsa in saldo TCP och UDP-flöden på alla portar samtidigt när du använder en intern belastningsutjämnare. 
+Azure läsa in belastningsutjämning Standard hjälper dig att läsa in saldo TCP och UDP-flöden på alla portar samtidigt, när du använder en intern belastningsutjämnare. 
 
 >[!NOTE]
-> Hög tillgänglighet portar funktionen är tillgänglig med Load Balancer Standard och för närvarande under förhandsgranskning. Som förhandsversion kanske funktionen inte har samma tillgänglighet och pålitlighet som funktioner som är allmänt tillgängliga. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det är nödvändigt att registrera dig för belastningsutjämnaren belastningen Standard förhandsversionen ska använda HA portar med Load Balancer Standard resurser. Följ instruktionerna för att registrera förutom belastningsutjämnaren [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) samt.
+> Funktionen för hög tillgänglighet (HA)-portar finns i Load Balancer Standard och är för närvarande under förhandsgranskning. Under förhandsgranskningen gör kanske funktionen inte har samma nivå av tillgänglighet och tillförlitlighet som funktioner som finns i den allmänna tillgänglighet-versionen. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Registrera dig för förhandsversionen av belastningen belastningsutjämnaren Standard att använda portar för hög tillgänglighet med Load Balancer Standard resurser. Följ instruktionerna för att registrera dig för att belastningsutjämnaren [Standard preview](https://aka.ms/lbpreview#preview-sign-up) samt.
 
-En regel för hög tillgänglighet portar är en variant av en regel som konfigurerats på ett internt läsa in belastningsutjämning Standard för belastningsutjämning.  Scenarier förenklas genom att tillhandahålla en regel för att belastningsutjämna alla TCP och UDP-flöden som inkommer på alla portar för ett internt läsa in belastningsutjämning Standard klientdel LB. Läsa in belastningsutjämning beslut görs per flöde baserat på fem-tuppel källans IP-adress, källport, mål-IP-adress, målport och-protokollet.
+En regel för hög tillgänglighet portar är en variant av en regel som konfigurerats på ett internt läsa in belastningsutjämning Standard för belastningsutjämning. Du kan förenkla din användning av belastningsutjämnare genom att tillhandahålla en enkel regel för att belastningsutjämna alla TCP och UDP-flöden som inkommer på alla portar för ett internt läsa in belastningsutjämning Standard. Belastningsutjämning beslut görs per flöde. Detta baseras på följande fem-tuppel-anslutning: källans IP-adress, källport, mål-IP-adress, målport och protokoll.
 
-Hög tillgänglighet portar kan kritiska situationer som hög tillgänglighet och skala för nätverket virtuella installationer (NVA) i virtuella nätverk samt andra scenarier där ett stort antal portar måste vara belastningsutjämnade. 
+Funktionen för hög tillgänglighet portar hjälper dig med viktiga scenarier, till exempel hög tillgänglighet och skala för det virtuella nätverket-installationer (NVA) i virtuella nätverk. Det kan också när ett stort antal portar måste vara belastningsutjämnad. 
 
-Hög tillgänglighet portar har konfigurerats genom att ange frontend och backend-portar till **0** och protokollet till **alla**.  Den interna belastningsutjämnaren resursen balanserar nu alla TCP och UDP flöden oavsett portnummer.
+Hög tillgänglighet portar funktionen konfigureras när du ställer in frontend och backend-portar **0**, och protokoll som **alla**. Den interna belastningsutjämnaren resursen balanserar sedan alla TCP och UDP flöden, oavsett portnummer.
 
-## <a name="why-use-ha-ports"></a>Varför använda portar för hög tillgänglighet
+## <a name="why-use-ha-ports"></a>Varför använda portar för hög tillgänglighet?
 
 ### <a name="nva"></a>Virtuella nätverksenheter
 
-Du kan använda virtuella nätverksinstallationer (NVA) för att skydda din arbetsbelastning i Azure från flera typer av säkerhetshot. När NVA används i dessa scenarier, måste de vara tillförlitliga, hög tillgänglighet och skalbar för begäran.
+Du kan använda NVAs för att skydda din arbetsbelastning i Azure från flera typer av säkerhetshot. När NVAs används i dessa scenarier kan de vara tillförlitliga och hög tillgänglighet och måste skala ut för begäran.
 
-Du kan uppnå dessa mål i ditt scenario genom att lägga till NVA instanser i serverdelspoolen av Azure interna belastningsutjämnare och konfigurera en regel för hög tillgänglighet portar belastningsutjämnaren.
+Du kan åstadkomma detta genom att lägga till NVA instanser till backend-poolen för Azure interna belastningsutjämnare och konfigurera en regel för hög tillgänglighet portar belastningsutjämnaren.
 
 Hög tillgänglighet finns portar många fördelar för NVA HA scenarier:
-- snabb växla över till Felfri instanser med per instans hälsoavsökningar
-- högre prestanda med skalbara till n-aktiva instanser
-- n aktiv och aktivt-passivt scenarier
-- eliminera behovet av komplexa lösningar som Zookeeper-noder för att övervaka installationer
+- Snabb växling till Felfri instanser med per instans hälsoavsökningar
+- Högre prestanda med skalbara till  *n* -aktiva instanser
+- *N*-aktiva och aktivt-passivt scenarier
+- Eliminera behovet av komplexa lösningar som Apache ZooKeeper-noder för att övervaka installationer
 
-I följande exempel visas en distribution med nav och ekrar virtuellt nätverk med ekrar kraft tunneling sin trafik till det virtuella nätverket hubb och via en NVA innan de lämnar det betrodda utrymmet. NVAs finns bakom en intern belastningen belastningsutjämnaren Standard med hög tillgänglighet portkonfiguration.  All trafik kan bearbetas och därefter vidarebefordra. 
+I följande diagram visas en distribution med nav och ekrar virtuellt nätverk. Ekrar force-tunneln sin trafik till det virtuella nätverket hubb och via en NVA innan de lämnar det betrodda utrymmet. NVAs finns bakom en intern belastning belastningsutjämnaren Standard med en konfiguration för hög tillgänglighet portar. All trafik kan bearbetas och därefter vidarebefordras.
 
-![hög tillgänglighet portarna exempel](./media/load-balancer-ha-ports-overview/nvaha.png)
+![Diagram över NAV och eker-nätverk med NVAs som distribuerats i läget för hög tillgänglighet](./media/load-balancer-ha-ports-overview/nvaha.png)
 
-Bild 1 - NAV och eker-nätverk med NVAs som distribuerats i läget för hög tillgänglighet
-
-Om du använder virtuella nätverksinstallationer bekräfta med respektive providern hur du bäst använder HA portar och vilka scenarier som stöds.
+>[!NOTE]
+> Om du använder NVAs bekräfta med respektive providern hur du bäst använder portar för hög tillgänglighet och vilka scenarier som stöds.
 
 ### <a name="load-balancing-large-numbers-of-ports"></a>Belastningsutjämning stort antal portar
 
-Du kan också använda hög tillgänglighet portar för Programscenarier som kräver belastningen balanicng av stora mängder portar. Dessa scenarier kan förenklas med hjälp av en intern [läsa in belastningsutjämning Standard](https://aka.ms/lbpreview) med hög tillgänglighet portar där en enda regel för belastningsutjämning ersätter flera enskilda belastningsutjämningsregler, ett för varje port.
+Du kan också använda portar för hög tillgänglighet för program som kräver belastningsutjämning av stora mängder portar. Du kan förenkla dessa scenarier genom att använda en intern [Load Balancer Standard](https://aka.ms/lbpreview) med hög tillgänglighet portar. En enda regel för belastningsutjämning ersätter flera enskilda belastningsutjämningsregler, ett för varje port.
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Hög tillgänglighet portar finns i den [samma regioner som Load Balancer Standard](https://aka.ms/lbpreview#region-availability).  
+Funktionen för hög tillgänglighet portar finns i den [samma regioner som Load Balancer Standard](https://aka.ms/lbpreview#region-availability).  
 
 ## <a name="preview-sign-up"></a>Förhandsgranska registrering
 
-Registrera prenumerationen för att få åtkomst med hjälp av Azure CLI 2.0 eller PowerShell för att delta i förhandsversionen av funktionen hög tillgänglighet portar i Load Balancer Standard.  Följ dessa tre steg:
+Om du vill delta i förhandsversionen av funktionen hög tillgänglighet portar i Load Balancer Standard registrera prenumerationen för att få åtkomst. Du kan använda Azure CLI 2.0 eller PowerShell.
 
 >[!NOTE]
->Om du vill använda den här funktionen måste du också registrera för belastningsutjämnaren [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) förutom HA portar. Registrering av hög tillgänglighet portar eller läsa in belastningsutjämning Standard förhandsversioner kan ta upp till en timme.
+>Om du vill använda den här funktionen måste du också registrera dig för belastningsutjämnaren [Standard preview](https://aka.ms/lbpreview#preview-sign-up), förutom funktionen portar för hög tillgänglighet. Registrering kan ta upp till en timme.
 
-### <a name="sign-up-using-azure-cli-20"></a>Logga med Azure CLI 2.0
+### <a name="sign-up-by-using-azure-cli-20"></a>Logga med hjälp av Azure CLI 2.0
 
-1. Registrera funktionen med providern
+1. Registrera funktionen med providern:
     ```cli
     az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
     ```
     
-2. Den föregående åtgärden kan ta upp till 10 minuter att slutföra.  Du kan kontrollera status för åtgärden med följande kommando:
+2. Den föregående åtgärden kan ta upp till 10 minuter att slutföra. Du kan kontrollera status för åtgärden med följande kommando:
 
     ```cli
     az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
     ```
     
-    Gå vidare till steg 3 när funktionen registreringstillstånd returnerar 'Registrerade' enligt nedan:
+    Åtgärden har lyckats när funktionen registreringstillstånd returnerar **registrerade**, som visas här:
    
     ```json
     {
@@ -103,19 +102,19 @@ Registrera prenumerationen för att få åtkomst med hjälp av Azure CLI 2.0 ell
     az provider register --namespace Microsoft.Network
     ```
     
-### <a name="sign-up-using-powershell"></a>Logga med hjälp av PowerShell
+### <a name="sign-up-by-using-powershell"></a>Logga med hjälp av PowerShell
 
-1. Registrera funktionen med providern
+1. Registrera funktionen med providern:
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
     ```
     
-2. Den föregående åtgärden kan ta upp till 10 minuter att slutföra.  Du kan kontrollera status för åtgärden med följande kommando:
+2. Den föregående åtgärden kan ta upp till 10 minuter att slutföra. Du kan kontrollera status för åtgärden med följande kommando:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
     ```
-    Gå vidare till steg 3 när funktionen registreringstillstånd returnerar 'Registrerade' enligt nedan:
+    Åtgärden har lyckats när funktionen registreringstillstånd returnerar **registrerade**, som visas här:
    
     ```
     FeatureName          ProviderName      RegistrationState
@@ -132,19 +131,19 @@ Registrera prenumerationen för att få åtkomst med hjälp av Azure CLI 2.0 ell
 
 ## <a name="limitations"></a>Begränsningar
 
-Följande är de konfigurationer som stöds eller undantag för hög tillgänglighet portar:
+Följande är de konfigurationer som stöds eller undantag för funktionen portar för hög tillgänglighet:
 
-- En enda klientdelens IP-konfiguration kan ha en enda regel DSR belastningsutjämnare med hög tillgänglighet portar eller den kan ha en enskild icke-DSR belastningsutjämningsregel med hög tillgänglighet portar. Det går inte att ha både.
-- Konfigurationen för en IP-nätverket gränssnitt kan endast ha en icke-DSR belastningsutjämningsregeln med hög tillgänglighet portar. Inga andra regler kan konfigureras för den här ipconfig.
-- Konfigurationen för en IP-gränssnittet i nätverket kan ha en eller fler DSR belastningen belastningsutjämnaren regler med hög tillgänglighet portar, under förutsättning att alla sina respektive klientdelens IP-konfigurationer är unika.
-- Om alla belastningsutjämning reglerna är hög tillgänglighet portar (DSR), eller alla regler har, icke - hög tillgänglighet portar (DSR & icke DSR) samtidigt två (eller fler) belastningsutjämnare regler som pekar på samma backend-pool kan. Två sådana belastningsutjämningsregler finnas inte samtidigt om det är en kombination av regler för hög tillgänglighet och icke - hög tillgänglighet.
-- Hög tillgänglighet portar är inte tillgänglig för IPv6.
-- Flödet symmetri NVA scenarier stöds med enda nätverkskort. Se beskrivning och diagram för [virtuella nätverksinstallationer](#nva). 
+- En enda frontend IP-konfiguration kan ha en enda DSR belastningsutjämningsregel med hög tillgänglighet portar eller den kan ha en enskild icke-DSR belastningsutjämningsregel med hög tillgänglighet portar. Det går inte att ha både.
+- En enda IP-konfiguration nätverksgränssnitt kan bara ha en icke-DSR belastningsutjämningsregeln med hög tillgänglighet portar. Du kan konfigurera andra regler för den här ipconfig.
+- En enda IP-konfiguration nätverksgränssnitt kan ha en eller flera DSR belastningsutjämningsreglerna med hög tillgänglighet portar, förutsatt att alla sina respektive frontend IP-konfigurationer är unika.
+- Om alla regler för belastningsutjämning har hög tillgänglighet portar (DSR) kan två (eller fler) belastningsutjämnare regler som pekar på samma backend-pool finnas tillsammans. Detsamma gäller om alla regler är icke-hög tillgänglighet portarna (DSR och icke-DSR). Om det finns en kombination av portar för hög tillgänglighet och icke-HA portar regler, men finnas två sådana belastningsutjämningsregler inte samtidigt.
+- Hög tillgänglighet portar funktionen är inte tillgänglig för IPv6.
+- Flödet symmetri NVA scenarier stöds med ett enda nätverkskort. Se beskrivningen och diagram för [nätverks-virtuella installationer](#nva). 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera hög tillgänglighet portar på ett internt belastningen belastningsutjämnaren Standard](load-balancer-configure-ha-ports.md)
+- [Konfigurera portar för hög tillgänglighet på en intern belastning belastningsutjämnaren Standard](load-balancer-configure-ha-ports.md)
 - [Lär dig mer om belastningen belastningsutjämnaren Standard preview](https://aka.ms/lbpreview)
 

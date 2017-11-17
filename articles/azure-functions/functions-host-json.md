@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3e5976a84e0ec91a41d683a426b58635fd5abd6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON referens för Azure Functions
 
@@ -132,28 +132,14 @@ Kontroller av [provtagning funktion i Application Insights](functions-monitoring
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|IsEnabled|FALSKT|Aktiverar eller inaktiverar provtagning.| 
+|IsEnabled|falskt|Aktiverar eller inaktiverar provtagning.| 
 |maxTelemetryItemsPerSecond|5|Tröskelvärdet på vilka provtagning börjar.| 
 
 ## <a name="eventhub"></a>EventHub
 
-Konfigurationsinställning för [Event Hub-utlösare och bindningar](functions-bindings-event-hubs.md).
+Konfigurationsinställningar för [Event Hub-utlösare och bindningar](functions-bindings-event-hubs.md).
 
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|Egenskap  |Standard | Beskrivning |
-|---------|---------|---------| 
-|maxBatchSize|64|Den maximala händelseantal tas emot varje receive-loop.|
-|prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande EventProcessorHost.| 
-|batchCheckpointFrequency|1|Antal händelsebatchar med att bearbeta innan du skapar en kontrollpunkt för EventHub-markör.| 
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="functions"></a>Funktioner
 
@@ -184,7 +170,7 @@ Konfigurationsinställningar för [http-utlösare och bindningar](functions-bind
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 10,
+        "maxConcurrentRequests": 
         "dynamicThrottlesEnabled": false
     }
 }
@@ -195,7 +181,7 @@ Konfigurationsinställningar för [http-utlösare och bindningar](functions-bind
 |routePrefix|api|Prefixet för vägen som gäller för alla vägar. Ta bort prefixet som standard med hjälp av en tom sträng. |
 |maxOutstandingRequests|-1|Maximalt antal väntande förfrågningar som hålls kvar vid en given tidpunkt (-1 innebär unbounded). Gränsen inkluderar begäranden som står i kö men har inte startats, samt alla pågående körningar. Alla inkommande förfrågningar via den här gränsen avvisas med ett 429 ”upptagen” svar. Anropare kan använda det svaret för att använda strategier för tidsbaserade försök igen. Kontrollerar den här inställningen bara queuing som sker inom jobbet värden körning av sökväg. Andra köer, till exempel begärandekön ASP.NET påverkas inte av den här inställningen. |
 |maxConcurrentRequests|-1|Maximalt antal HTTP-funktioner som körs parallellt (-1 innebär unbounded). Du kan till exempel ange en gräns om HTTP-funktioner använder för mycket systemresurser när samtidighet är hög. Eller om dina funktioner gör utgående förfrågningar till en tjänst från tredje part, anropen behöva vara begränsad hastighet.|
-|dynamicThrottlesEnabled|FALSKT|Gör en begäran om bearbetning pipeline att regelbundet kontrollera prestandaräknare för system. Räknare som inkluderar anslutningar, trådar, processer, minne och cpu. Om någon av räknarna som är över en inbyggd tröskelvärdet (80%) avvisas förfrågningar med svaret 429 ”upptagen” förrän counter(s) återgå till normal nivå.|
+|dynamicThrottlesEnabled|falskt|Gör en begäran om bearbetning pipeline att regelbundet kontrollera prestandaräknare för system. Räknare som inkluderar anslutningar, trådar, processer, minne och cpu. Om någon av räknarna som är över en inbyggd tröskelvärdet (80%) avvisas förfrågningar med svaret 429 ”upptagen” förrän counter(s) återgå till normal nivå.|
 
 ## <a name="id"></a>id
 
@@ -260,21 +246,7 @@ Konfigurationsinställningar för [lagring-utlösare och bindningar](functions-b
 
 Konfigurationsinställning för [Service Bus-utlösare och bindningar](functions-bindings-service-bus.md).
 
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    }
-}
-```
-
-|Egenskap  |Standard | Beskrivning |
-|---------|---------|---------| 
-|maxConcurrentCalls|16|Maximalt antal samtidiga anrop till vilket motanrop som meddelandet pump ska starta. | 
-|prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande MessageReceiver.| 
-|autoRenewTimeout|00:05:00|Maximal varaktighet inom vilken meddelandet låset förnyas automatiskt.| 
+[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="singleton"></a>Singleton
 

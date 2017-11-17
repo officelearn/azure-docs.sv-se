@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2eeb49cb6ab39c78612e0f1b3e08130ba88cf356
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5c4942dbeccbd97c6bfc0f2c086e8d6091f6ed64
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Felsökning av lösenordsåterställning via självbetjäning
 
@@ -59,7 +59,7 @@ Om du har problem med lösenordsåterställning via självbetjäning kan objekte
 
 | **Fel** | Lösning |
 | --- | --- |
-| Katalogen är inte aktiverad för återställning av lösenord **administratören inte har aktiverat du kan använda den här funktionen** | Växeln den **Self service lösenordsåterställning aktiverat** flaggan till **en grupp** eller **alla** och på **spara** |
+| Katalogen är inte aktiverad för återställning av lösenord **administratören inte har aktiverat du kan använda den här funktionen** | Växeln den **Self service lösenordsåterställning aktiverat** flaggan till **valda** eller **alla** och på **spara** |
 | Användaren har inte en Azure AD Premium eller Basic licens **administratören inte har aktiverat du kan använda den här funktionen** | Detta kan inträffa om du inte har en Azure AD Premium eller Basic licens till administratören som utför åtgärden. <br> Detta kan lösas genom att tilldela en licens till administratörskontot i fråga med hjälp av artikeln [tilldela kontrollerar och lösa problem med licenser](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Fel vid bearbetning av begäran | Detta kan orsakas av många problem, men vanligtvis felet orsakas av något avbrott eller konfiguration av problem med en tjänst. Om du ser detta fel och den påverkar ditt företag, kan du kontakta Microsoft support för ytterligare hjälp. |
 
@@ -67,7 +67,7 @@ Om du har problem med lösenordsåterställning via självbetjäning kan objekte
 
 | **Fel** | Lösning |
 | --- | --- |
-| Katalogen är inte aktiverat för återställning av lösenord. | Växeln den **Self service lösenordsåterställning aktiverat** flaggan till **en grupp** eller **alla** och på **spara** |
+| Katalogen är inte aktiverat för återställning av lösenord. | Växeln den **Self service lösenordsåterställning aktiverat** flaggan till **valda** eller **alla** och på **spara** |
 | Användaren har inte en Azure AD Premium eller Basic-licens | Detta kan inträffa om du inte har en Azure AD Premium eller Basic licens till administratören som utför åtgärden. <br> Detta kan lösas genom att tilldela en licens till administratörskontot i fråga med hjälp av artikeln [tilldela kontrollerar och lösa problem med licenser](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Katalogen är aktiverad för återställning av lösenord, men användaren har autentiseringsinformation saknas eller är a-format | Se till att användaren har formaterats korrekt kontaktdata på filen i katalogen innan du fortsätter. Mer information om det här avsnittet finns i artikeln [Data som används av Azure AD Självbetjäning för återställning av lösenord](active-directory-passwords-data.md). |
 | Katalogen är aktiverad för återställning av lösenord, men en användare bara har en dataenhet kontakta när policyn är inställd att kräva två verifieringssteg | Kontrollera att användaren har minst två korrekt konfigurerade kontaktmetoder (exempel: mobiltelefon **och** Arbetstelefon) innan du fortsätter. |
@@ -270,14 +270,14 @@ Om du vill kunna bistå be du innehåller så mycket information som möjligt n�
 
 Följande länkar ger ytterligare information om lösenordsåterställning med Azure AD
 
-* [Hur jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
-* [Återställa eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
-* [Registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla för dina användare?](active-directory-passwords-data.md)
-* [Vilka autentiseringsmetoder som är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Vad är policyalternativen med SSPR?](active-directory-passwords-policy.md)
-* [Vad är tillbakaskrivning av lösenord och varför jag är intresserad av den?](active-directory-passwords-writeback.md)
-* [Hur rapporterar på aktivitet i SSPR?](active-directory-passwords-reporting.md)
-* [Vad är alla alternativ i SSPR och vad de betyder?](active-directory-passwords-how-it-works.md)
-* [Jag har en fråga som inte var motsvarar någon annan](active-directory-passwords-faq.md)
+* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
+* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
+* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md).
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
+* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
+* [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](active-directory-passwords-writeback.md)
+* [Hur gör jag för att rapportera på aktivitet i SSPR?](active-directory-passwords-reporting.md)
+* [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
+* [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)

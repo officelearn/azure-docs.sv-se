@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9a9baa457729bdc4d70a8f9f45701dbdb875d3ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Välj mellan Azure-tjänster som levererar meddelanden
 
@@ -32,20 +32,16 @@ Det är en viktig skillnad att notera mellan tjänster som levererar en händels
 
 En händelse är ett enkelt meddelande av en åtgärd eller en ändring. Händelsedata som innehåller information om vad som hänt men har inte de data som utlöste händelsen. Till exempel meddela en händelse prenumeranter att en fil har skapats. Det kan innehålla allmän information om filen, men det innehåller inte själva filen. I allmänhet kan utlösa händelser händelsehanterare att agera i realtid.
 
-Händelsen rutnätet är en eventing-tjänst.
-
 ### <a name="message"></a>Meddelande
 
-Ett meddelande är rådata som genereras av en tjänst som ska förbrukas eller lagrats någon annanstans. Meddelandet innehåller data som utlöste meddelandet pipeline. Det här meddelandet kan vara allt från en e-handel order till användaren telemetri. Till skillnad från en händelseavisering utgivaren av ett meddelande förväntar sig ett svar. Ett meddelande innehåller rådata men förväntar sig nästa del av systemet för att skapa en fil från dessa data. 
-
-Händelsehubbar och Service Bus meddelandetjänster.
+Ett meddelande är rådata som genereras av en tjänst som ska förbrukas eller lagrats någon annanstans. Meddelandet innehåller data som utlöste meddelandet pipeline. Det här meddelandet kan vara allt från en e-handel order till användaren telemetri. Till skillnad från en händelseavisering utgivaren av ett meddelande förväntar sig ett svar. Ett meddelande innehåller rådata men förväntar sig nästa del av systemet för att skapa en fil från dessa data.
 
 ## <a name="comparison-of-services"></a>Jämförelse av tjänster
 
 | Tjänst | Syfte | Typ | När du ska använda detta |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reaktiv programmering | Händelse | Ta hänsyn till status ändras |
-| Händelsehubbar | Stordata pipeline | Meddelande | Telemetri och distribuerade data strömning |
+| Event Grid | Reaktiv programmering | Händelsedistribution | Ta hänsyn till status ändras |
+| Händelsehubbar | Stordata pipeline | Händelse för strömning | Telemetri och distribuerade data strömning |
 | Service Bus | Högt värde enterprise-meddelanden | Meddelande | Bearbetningen och finansiella transaktioner |
 
 ### <a name="event-grid"></a>Event Grid
@@ -62,7 +58,7 @@ Det har följande egenskaper:
 
 ### <a name="event-hubs"></a>Händelsehubbar
 
-Händelsehubbar i Azure är en pipeline för stordata. Det underlättar capture, kvarhållning och omsändning av telemetri och händelse data i dataströmmen. Data kan komma från många samtidiga källor. Händelsehubbar kan telemetri och händelse data kan göras tillgängliga till en mängd olika tjänster för bearbetning av dataströmmen infrastrukturer och analyser. Det är tillgängligt som dataströmmar eller paketerade händelsebatchar. Den här tjänsten tillhandahåller en enkel lösning som möjliggör snabb datahämtning för realtidsbearbetning samt upprepade omsändning av lagrade rådata.
+Händelsehubbar i Azure är en pipeline för stordata. Det underlättar capture, kvarhållning och omsändning av telemetri och händelse data i dataströmmen. Data kan komma från många samtidiga källor. Händelsehubbar kan telemetri och händelse data kan göras tillgängliga till en mängd olika tjänster för bearbetning av dataströmmen infrastrukturer och analyser. Det är tillgängligt som dataströmmar eller paketerade händelsebatchar. Den här tjänsten tillhandahåller en enkel lösning som möjliggör snabb datahämtning för realtidsbearbetning samt upprepade omsändning av lagrade rådata. Det kan samla in strömmande data till en fil för bearbetning och analys.
 
 Det har följande egenskaper:
 
@@ -72,6 +68,8 @@ Det har följande egenskaper:
 ### <a name="service-bus"></a>Service Bus
 
 Service Bus är avsedd för traditionella företagsprogram. Dessa företagsprogram kräver transaktioner, ordning, dubblettidentifiering och omedelbar konsekvenskontroll. Service Bus gör det möjligt för moln-intern program att tillhandahålla tillförlitlig övergången tillståndshantering för affärsprocesser. När du arbetar med högt värde meddelanden som inte kan tappas bort eller dubbletter, Använd Azure Service Bus. Service Bus också underlättar mycket säker kommunikation över hybridlösningar för molnet och befintliga lokala system kan ansluta till molnlösningar.
+
+Service Bus är en asynkrona meddelanden. Den lagrar meddelanden i en ”broker” (till exempel en kö) tills konsumentparten är redo att ta emot meddelanden.
 
 Det har följande egenskaper:
 

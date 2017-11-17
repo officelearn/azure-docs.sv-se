@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 77bdeda57a23d77e7f00cfea1f9b8d362cfa4979
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera referensdata för en Azure tid serien Insights-miljö med hjälp av C#
 
@@ -232,4 +232,5 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Den fullständiga REST API-referensen, se [referens Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+> [!div class="nextstepaction"]
+> Den fullständiga REST API-referensen, se [referens Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

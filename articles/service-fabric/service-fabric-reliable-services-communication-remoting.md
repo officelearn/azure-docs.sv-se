@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Tjänsten fjärrkommunikation med Reliable Services
 För tjänster som inte är knutna till en viss kommunikationsprotokoll eller stacken, till exempel WebAPI, Windows Communication Foundation (WCF) eller andra, gör Reliable Services framework fjärrkommunikation snabbt och enkelt konfigurera fjärrproceduranrop för tjänster.
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 Fjärr-framework sprider undantag på tjänsten till klienten. Så undantagshantering logik på klienten med hjälp av `ServiceProxy` direkt kan hantera undantag som genereras av tjänsten.
 
 ## <a name="service-proxy-lifetime"></a>Tjänsten Proxylivslängden
-ServiceProxy skapas en enkel åtgärd, så att användarna kan skapa så många som de behöver den. Tjänstproxy kan återanvändas som användarna behöver den. Om fjärråtkomst Api utlöser undantag, kan användarna fortfarande återanvända till samma proxy. Varje ServiceProxy innehåller kommunikation klient används för att skicka meddelanden via kabel. När du anropar API: T har vi interna kontrollerar om kommunikation klienten använde är giltig. Baserat på resultatet återskapar vi klienten för kommunikation. Därför om undantag inträffar kan behöver användarna inte återskapa serviceproxy.
+ServiceProxy skapas en enkel åtgärd, så att användarna kan skapa så många som de behöver. Tjänstproxy instanser kan återanvändas som användarna behöver den. Om ett fjärranrop genererar ett undantag, kan användarna fortfarande återanvända samma instans som proxy. Varje ServiceProxy innehåller en klient för kommunikation som används för att skicka meddelanden via kabel. Vid anrop fjärranrop Kontrollera vi internt om kommunikation klienten är giltig. Baserat på resultatet återskapa vi kommunikation klienten om det behövs. Därför om ett undantag inträffar användare behöver inte återskapa serviceproxy men är gjort transparent.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory livslängd
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar proxy för olika fjärrkommunikation gränssnitt. Om du använder API ServiceProxy.Create för att skapa proxy skapar framework singleton ServiceProxyFactory.
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar instanser av proxy för olika fjärrkommunikation gränssnitt. Om du använder API: et `ServiceProxy.Create` för att skapa proxy ramen skapar sedan en singleton ServiceProxy.
 Det är praktiskt att skapa ett manuellt när du måste åsidosätta [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) egenskaper.
-Fabriken är en kostsam åtgärd. ServiceProxyFactory underhåller cacheminnet på klienten för kommunikation.
+Generering av är en kostsam åtgärd. ServiceProxyFactory upprätthåller en interna cachelagringen av klienten för kommunikation.
 Det är bra att cachelagra ServiceProxyFactory så länge som möjligt.
 
 ## <a name="remoting-exception-handling"></a>Fjärrkommunikation undantagshantering

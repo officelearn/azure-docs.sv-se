@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 7068d6e83d196d95b4625d1b1a496be5a22c88a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Ansluta och kommunicera med tjänster i Service Fabric
 I Service Fabric körs en tjänst någonstans i ett Service Fabric-kluster, vanligtvis fördelade på flera virtuella datorer. Den kan flyttas från en plats till en annan, antingen av tjänstens ägare eller automatiskt av Service Fabric. Tjänster är inte statiskt knutna till en viss dator eller en adress.
@@ -63,7 +63,7 @@ I följande diagram visas matchar DNS-namn till tjänstnamn som sedan kan matcha
 För mer information om hur du använder DNS-tjänsten finns [DNS-tjänsten i Azure Service Fabric](service-fabric-dnsservice.md) artikel.
 
 ### <a name="reverse-proxy-service"></a>Tjänsten omvänd proxy
-Omvänd proxy adresser tjänster i klustret som exponerar http-slutpunkter, inklusive HTTPS. Omvänd proxy avsevärt förenklar anropa andra tjänster och deras metoder genom att ha ett specifikt URI-format och hanterar lösas, ansluta, försök steg som krävs för en tjänst att kommunicera med varandra med namngivning av tjänsten. Med andra ord döljer namngivningstjänst från dig vid anrop av andra tjänster genom att göra detta så enkelt som anropar en URL.
+Omvänd proxy adresser tjänster i klustret som exponerar http-slutpunkter, inklusive HTTPS. Omvänd proxy avsevärt förenklar anropa andra tjänster och deras metoder genom att ha ett specifikt URI-format och hanterar lösas, ansluta, försök steg som krävs för en tjänst att kommunicera med en annan med att använda. Med andra ord döljer namngivningstjänst från dig vid anrop av andra tjänster genom att göra detta så enkelt som anropar en URL.
 
 ![slutpunkter][10]
 

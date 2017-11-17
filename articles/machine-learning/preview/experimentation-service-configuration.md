@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurera Azure Machine Learning experiment Service
 
@@ -220,6 +220,8 @@ _**Översikt över fjärråtkomst vm-körning för Python-skriptet:**_
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Köra ett skript på ett HDInsight-kluster
 HDInsight är en populär plattform för stordata stöder Apache Spark. Arbetsstationen kan experiment på stordata med HDInsight Spark-kluster. 
+
+>! [OBS] HDInsight-klustret måste använda Azure Blob som primär lagring. Med Azure Data Lake lagring stöds inte ännu.
 
 Du kan skapa ett beräknings-mål och kör konfigurationen för ett HDInsight Spark-kluster med hjälp av följande kommando:
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Uppfylla förutsättningar för att skapa Always On-Tillgänglighetsgrupper på virtuella Azure-datorer
 
@@ -84,7 +84,7 @@ För att skapa det virtuella nätverket:
    | --- | --- |
    | **Namn** |autoHAVNET |
    | **Adressutrymme** |10.33.0.0/24 |
-   | **Namn på undernät** |Admin |
+   | **Namn på undernät** |Administratör |
    | **Adressintervall för undernätet** |10.33.0.0/29 |
    | **Prenumeration** |Ange den prenumeration som du tänker använda. **Prenumerationen** är tom om du bara har en prenumeration. |
    | **Resursgrupp** |Välj **använda befintliga** och välj namnet på resursgruppen. |
@@ -368,7 +368,7 @@ Skapa därefter tre virtuella datorer – två virtuella SQL Server-datorer och 
 | --- | --- | --- | --- |
 | Välj lämplig galleriobjektet |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise på Windows Server 2016** |**SQL Server 2016 SP1 Enterprise på Windows Server 2016** |
 | Konfiguration av virtuell dator **grunderna** |**Namnet** = klustret fsw<br/>**Användarnamnet** = DomainAdmin<br/>**Lösenordet** = Contoso! 0000<br/>**Prenumerationen** = din prenumeration<br/>**Resursgruppen** = SQL-hög tillgänglighet-RG<br/>**Plats** = azure-plats |**Namnet** = sqlserver-0<br/>**Användarnamnet** = DomainAdmin<br/>**Lösenordet** = Contoso! 0000<br/>**Prenumerationen** = din prenumeration<br/>**Resursgruppen** = SQL-hög tillgänglighet-RG<br/>**Plats** = azure-plats |**Namnet** = sqlserver-1<br/>**Användarnamnet** = DomainAdmin<br/>**Lösenordet** = Contoso! 0000<br/>**Prenumerationen** = din prenumeration<br/>**Resursgruppen** = SQL-hög tillgänglighet-RG<br/>**Plats** = azure-plats |
-| Konfiguration av virtuell dator **storlek** |**STORLEK** = DS1\_V2 (1 kärna, 3.5 GB) |**STORLEK** = DS2\_V2 (2 kärnor, 7 GB)</br>Storleken måste ha stöd för SSD-lagring (stöd för Premium-diskar. )) |**STORLEK** = DS2\_V2 (2 kärnor, 7 GB) |
+| Konfiguration av virtuell dator **storlek** |**STORLEK** = DS1\_V2 (1 vCPU, 3.5 GB) |**STORLEK** = DS2\_V2 (2 vCPUs, 7 GB)</br>Storleken måste ha stöd för SSD-lagring (stöd för Premium-diskar. )) |**STORLEK** = DS2\_V2 (2 vCPUs, 7 GB) |
 | Konfiguration av virtuell dator **inställningar** |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentliga IP-adressen** skapas automatiskt.<br/>**Nätverkssäkerhetsgruppen** = None<br/>**Övervaka diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättningen** = sqlAvailabilitySet<br/> |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentliga IP-adressen** skapas automatiskt.<br/>**Nätverkssäkerhetsgruppen** = None<br/>**Övervaka diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättningen** = sqlAvailabilitySet<br/> |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentliga IP-adressen** skapas automatiskt.<br/>**Nätverkssäkerhetsgruppen** = None<br/>**Övervaka diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättningen** = sqlAvailabilitySet<br/> |
 | Konfiguration av virtuell dator **SQL Server-inställningar** |Inte tillämpligt |**SQL-anslutningen** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagringskonfigurationen** = Allmänt<br/>**Automatisk uppdatering** = söndag 2:00<br/>**Automatisk säkerhetskopiering** = inaktiverad</br>**Azure Key Vault-integrering** = inaktiverad |**SQL-anslutningen** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagringskonfigurationen** = Allmänt<br/>**Automatisk uppdatering** = söndag 2:00<br/>**Automatisk säkerhetskopiering** = inaktiverad</br>**Azure Key Vault-integrering** = inaktiverad |
 

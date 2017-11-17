@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Beräkna benchmark resultat för virtuella Windows-datorer
 Följande SPECInt benchmark poäng visa compute prestanda för Azures högpresterande VM serie kör Windows Server. Beräkning benchmark resultat finns även [virtuella Linux-datorer](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -65,7 +65,7 @@ Följande SPECInt benchmark poäng visa compute prestanda för Azures högpreste
 | Standard_H16mr |16 |2 |Intel Xeon E5 2667 v3 @ 3,2 GHz |7 |569.6 |2.8 |
 
 ## <a name="about-specint"></a>Om SPECint
-Windows-värdena är beräknade genom att köra [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) på Windows Server. SPECint kördes med alternativet grundavgift (resultaten från SPECint_rate2006) med en kopia per kärna. SPECint består av 12 separat tester varje körs tre gånger, tar medianvärdet från varje test och viktning dem för att bilda en sammansatt poäng. Dessa tester körs sedan över flera virtuella datorer för att tillhandahålla de genomsnittliga resultat visas.
+Windows-värdena är beräknade genom att köra [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) på Windows Server. SPECint kördes med alternativet grundavgift (resultaten från SPECint_rate2006) med en kopia per vCPU. SPECint består av 12 separat tester varje körs tre gånger, tar medianvärdet från varje test och viktning dem för att bilda en sammansatt poäng. Dessa tester körs sedan över flera virtuella datorer för att tillhandahålla de genomsnittliga resultat visas.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lagringskapacitet, diskinformation och ytterligare överväganden för att välja bland storlekar på VM finns [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

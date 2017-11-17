@@ -1,6 +1,6 @@
 ---
 title: "Stöd för anslutningar med IT Service Management-anslutningstjänsten i Azure Log Analytics | Microsoft Docs"
-description: "Anslut din ITSM produkter och tjänster med IT Service Management-anslutningstjänsten i Azure Log Analytics centralt övervaka och hantera arbetsuppgifter ITSM."
+description: "Den här artikeln innehåller information om hur du ansluter din ITSM produkter och tjänster med IT Service Management koppling (ITSMC) i OMS logganalys centralt övervaka och hantera arbetsuppgifter ITSM."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Anslut ITSM produkter och tjänster med IT Service Management-anslutningstjänsten (förhandsgranskning)
-Den här artikeln innehåller information om hur du ansluter din ITSM produkter eller tjänster till IT Service Management koppling (ITSMC) i OMS och centralt hantera din arbetsobjekt. Läs mer om ITSMC [ITSMC översikt](log-analytics-itsmc-overview.md).
+Den här artikeln innehåller information om hur du ansluter din ITSM produkter eller tjänster till IT Service Management koppling (ITSMC) i OMS och centralt hantera din arbetsobjekt. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).
 
-Följande produkter och tjänster stöds:
+Följande produkter och tjänster i ITSM stöds. Välj produkt att visa detaljerad information om hur du ansluter produkten till ITSMC.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
@@ -162,7 +162,7 @@ Din hybridanslutning är korrekt ansluten.
 
 > När hybrid anslutningen skapas, kontrollera och testa anslutningen genom att gå till distribuerade webbappen för Service Manager. Se till att anslutningen är klar innan du försöker ansluta till ITSMC i OMS.
 
-Följande bild visar information om anslutningen lyckas:
+Följande exempel bilden visar information om anslutningen lyckas:
 
 ![Hybrid anslutningstestet](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 

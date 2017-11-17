@@ -1,10 +1,10 @@
 ---
-title: Skapa en virtuell dator med en statisk offentlig IP-adress - Azure CLI 2.0 | Microsoft Docs
-description: "Lär dig hur du skapar en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure-kommandoradsgränssnittet (CLI) 2.0."
+title: Skapa en virtuell dator med en statisk offentlig IP-adress - Azure CLI | Microsoft Docs
+description: "Lär dig hur du skapar en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure-kommandoradsgränssnittet (CLI)."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c32694949880037f01bb2b6b9779d2cbb9809c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>Skapa en virtuell dator med en statisk offentlig IP-adress använder Azure CLI 2.0
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Mall](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (klassisk)](virtual-networks-reserved-public-ip.md)
 
@@ -40,7 +39,7 @@ Azure har två olika distributionsmodeller för att skapa och arbeta med resurse
 
 ## <a name = "create"></a>Skapa den virtuella datorn
 
-Du kan göra detta med hjälp av Azure CLI 2.0 (den här artikeln) eller [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). Värdena i ”” för variabler i de steg som följer skapa resurser med inställningar för scenariot. Ändra värdena för din miljö.
+Värdena i ”” för variabler i de steg som följer skapa resurser med inställningar för scenariot. Ändra värdena för din miljö.
 
 1. Installera den [Azure CLI 2.0](/cli/azure/install-az-cli2) om du inte redan har installerats.
 2. Skapa en SSH offentlig och privat nyckel för Linux virtuella datorer genom att slutföra stegen i den [skapa en SSH offentlig och privat nyckel för Linux virtuella datorer](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

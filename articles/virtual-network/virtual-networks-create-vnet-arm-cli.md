@@ -1,10 +1,10 @@
 ---
-title: "Skapa ett virtuellt nätverk - Azure CLI 2.0 | Microsoft Docs"
-description: "Lär dig hur du skapar ett virtuellt nätverk med Azure CLI 2.0."
+title: "Skapa ett virtuellt nätverk - Azure CLI | Microsoft Docs"
+description: "Lär dig hur du skapar ett virtuellt nätverk med Azure CLI."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -16,25 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Skapa ett virtuellt nätverk med Azure CLI 2.0
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>Skapa ett virtuellt nätverk med Azure CLI
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure har två distributionsmodeller: Azure Resource Manager och klassisk. Microsoft rekommenderar att skapa resurser med Resource Manager-distributionsmodellen. Mer information om skillnaderna mellan de två modellerna finns i artikeln [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Förstå Azure-distributionsmodellerna).
 
-## <a name="cli-versions-to-complete-the-task"></a>CLI-versioner för att slutföra uppgiften
-Du kan slutföra uppgiften med någon av följande CLI-versioner:
-
-- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) – vår CLI för distributionsmodellerna klassisk och resurshantering
-- [Azure CLI 2.0](#create-a-virtual-network) -vår nästa generations CLI för hantering av resursdistributionsmodell (den här artikeln) ”
- 
-    Du kan också skapa ett virtuellt nätverk med Resource Manager med hjälp av andra verktyg eller skapa ett virtuellt nätverk med hjälp av den klassiska distributionsmodellen genom att välja ett annat alternativ i följande lista:
+Du kan också skapa ett virtuellt nätverk via Resource Manager med andra verktyg eller skapa ett virtuellt nätverk med den klassiska distributionsmodellen genom att välja ett annat alternativ från listan nedan:
 
 > [!div class="op_single_selector"]
 > * [Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -47,10 +41,9 @@ Du kan slutföra uppgiften med någon av följande CLI-versioner:
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Om du vill skapa ett virtuellt nätverk med Azure CLI 2.0 gör du följande:
+Om du vill skapa ett virtuellt nätverk med Azure CLI, gör du följande:
 
 1. Installera och konfigurera senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till en Azure med hjälp av [az inloggningen](/cli/azure/#login).
 

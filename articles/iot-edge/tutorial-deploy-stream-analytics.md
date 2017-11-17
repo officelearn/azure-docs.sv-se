@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ebda79442b8feb9f052c3ae455fa43aafb7b5a6a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 88dc0860b4455d19b05b4f4f1766210e3f3c704e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Distribuera Azure Stream Analytics som en gräns för IoT-modul - förhandsgranskning
 
@@ -62,13 +62,16 @@ I det här avsnittet skapar du ett Azure Stream Analytics-jobb för att arbeta m
     ![Nytt lagringskonto][1]
 
 3. Navigera till lagringskontot som du skapade i Azure-portalen. Klicka på **Bläddra blobbar** under **Blob-tjänsten**. 
-1. Skapa en ny behållare för ASA-modulen att lagra data. Anger åtkomsten till _behållare_. Klicka på **OK**.
+4. Skapa en ny behållare för ASA-modulen att lagra data. Anger åtkomsten till _behållare_. Klicka på **OK**.
 
     ![inställningar för lagring][10]
 
-1. I Azure-portalen går du till **skapar du en resurs** > **Sakernas Internet** och välj **Stream Analytics-jobbet**.
+5. I Azure-portalen går du till **skapar du en resurs** > **Sakernas Internet** och välj **Stream Analytics-jobbet**.
 
-1. Ange ett namn, **välja ”gräns” som värd miljö** och använder de återstående standardvärdena.  Klicka på **Skapa**.
+6. Ange ett namn, Välj **kant** som värd-miljön och använda de återstående standardvärdena.  Klicka på **Skapa**.
+
+    >[!NOTE]
+    >Det finns för närvarande ett begränsat antal regioner som stöder ASA jobb på IoT kant. Välj något av följande som: centrala USA, västra centrala USA, norra centrala USA, östra USA, Kanada Öst östra Japan, östra Asien, Nordeuropa, Storbritannien Syd, östra, södra. 
 
     ![Skapa ASA][5]
 

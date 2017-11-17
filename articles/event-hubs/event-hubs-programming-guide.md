@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/17/2017
+ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: 405ec2b27b488b570c4a5c86e4950ff98233360e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69c07cb31b1dc3ec3685448d8187ef3a57bd3821
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Programmeringsguide för händelsehubbar
 
@@ -28,7 +28,7 @@ Den här artikeln beskrivs några vanliga scenarier i att skriva kod med Azure E
 
 Du kan skicka händelser till en händelsehubb antingen med hjälp av HTTP POST eller via en AMQP 1.0-anslutning. Valet av som du vill använda och när beror på det specifika scenario du står inför. AMQP 1.0-anslutningar är avgiftsbelagda som asynkrona anslutningar i Service Bus och är mer lämpliga i scenarier med ofta högre meddelandevolymer och lägre svarstidskrav, eftersom de tillhandahåller en permanent meddelandekanal.
 
-Du skapar och hanterar händelsehubbar med hjälp av klassen [NamespaceManager][]. När du använder de .NET-hanterade API:erna är de primära konstruktionerna för att publicera data i händelsehubbar klasserna [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) och [EventData][]. [EventHubClient][] innehåller kommunikationskanalen AMQP som händelser skickas till händelsehubben. Den [EventData][] klass representerar en händelse och används för att publicera meddelanden i en händelsehubb. Den här klassen innehåller brödtexten, vissa metadata och rubrikinformation om händelsen. Andra egenskaper läggs till i [EventData][] när det överförs via en händelsehubb.
+Du kan skapa och hantera Händelsehubbar med den [NamespaceManager][] klass. När du använder de .NET-hanterade API:erna är de primära konstruktionerna för att publicera data i händelsehubbar klasserna [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) och [EventData][]. [EventHubClient][] innehåller kommunikationskanalen AMQP som händelser skickas till händelsehubben. Den [EventData][] klass representerar en händelse och används för att publicera meddelanden i en händelsehubb. Den här klassen innehåller brödtexten, vissa metadata och rubrikinformation om händelsen. Andra egenskaper läggs till i [EventData][] när det överförs via en händelsehubb.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -57,7 +57,7 @@ Alla åtgärder för att skapa händelsehubbar inklusive [CreateEventHubIfNotExi
 Den [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) klassen innehåller information om en händelsehubb, inklusive auktoriseringsreglerna, meddelande Kvarhållningsintervall, partitions-ID: N, status och sökväg. Du kan använda den här klassen för att uppdatera metadata i en händelsehubb.
 
 ## <a name="create-an-event-hubs-client"></a>Skapa en händelsehubbklient
-Den primära klassen för att interagera med Händelsehubbar är [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Den här klassen innehåller både sändar- och mottagarfunktioner. Du kan skapa en instans av den här klassen med hjälp av metoden [Skapa](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) som visas i följande exempel.
+Den primära klassen för att interagera med Händelsehubbar är [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Den här klassen innehåller både sändar- och mottagarfunktioner. Du kan skapa en instans av den här klassen med hjälp av den [skapa](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) -metoden, som visas i följande exempel:
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -77,14 +77,14 @@ Anslutningssträngen blir i samma format som den visas i App.config-filen för f
 Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
 ```
 
-Slutligen är det också möjligt att skapa ett [EventHubClient][]-objekt från en instans av [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory), enligt följande exempel.
+Slutligen är det också möjligt att skapa en [EventHubClient][] objekt från en [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) instansen, som visas i följande exempel:
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
 var client = factory.CreateEventHubClient("MyEventHub");
 ```
 
-Observera att ytterligare [EventHubClient][]-objekt som har skapats från en instans av en meddelandefabrik återanvänder samma underliggande TCP-anslutning. Därför har de här objekten en gräns för genomflöde på klientsidan. Metoden [Skapa](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) återanvänder en enda meddelandefabrik. Om du behöver mycket hög genomströmning från en enda avsändare kan du skapa flera meddelandefabriker och ett [EventHubClient][]-objekt från respektive meddelandefabrik.
+Det är viktigt att Observera att ytterligare [EventHubClient][] objekt som skapas från en instans av en meddelandefabrik återanvänder samma underliggande TCP-anslutningen. Därför har de här objekten en gräns för genomflöde på klientsidan. Metoden [Skapa](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) återanvänder en enda meddelandefabrik. Om du behöver mycket hög genomströmning från en enda avsändare kan du skapa flera meddelandefabriker och ett [EventHubClient][]-objekt från respektive meddelandefabrik.
 
 ## <a name="send-events-to-an-event-hub"></a>Skicka händelser till en händelsehubb
 Du skickar händelser till en händelsehubb genom att skapa en [EventData][] instansen och skicka den via den [skicka](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) metod. Den här metoden tar en enda [EventData][] parameter i instansen och skickar den synkront till en händelsehubb.
@@ -99,7 +99,7 @@ Klassen [EventData][] har en [PartitionKey][]-egenskap som gör att avsändaren 
 
 Med hjälp av en partitionsnyckel är valfri och du bör noggrant om du använder en eller inte. I många fall är med en partitionsnyckel ett bra val om händelsen ordning är viktig. När du använder en partitionsnyckel partitionerna kräver tillgänglighet på en enda nod och driftavbrott med tiden. till exempel när compute-noder omstart och korrigering. Om du ställer in ett partitions-ID och den aktuella partitionen är tillgänglig av någon anledning, misslyckas därför ett försök att komma åt data i den aktuella partitionen. Om hög tillgänglighet är de viktigaste inte ange en partitionsnyckel; i så fall skickas händelser till partitioner enligt en resursallokeringsmodell som beskrivs ovan. I detta scenario upprättar du ett uttryckligt val mellan tillgänglighet (ingen partitions-ID) och konsekvens (fästning händelser till en partitions-ID).
 
-Ett annat övervägande hanterar fördröjningar i bearbetning av händelser. I vissa fall kan det vara bättre att släppa data och försök igen än att försök och håll dig uppdaterad med bearbetning, vilket kan medföra ytterligare nedströms bearbetning fördröjningar. Till exempel med ett lager ticker är det bättre att vänta för fullständig uppdaterade data, men i en levande chatt eller VOIP-scenario i stället har du data snabbt, även om den inte är klar.
+Ett annat övervägande hanterar fördröjningar i bearbetning av händelser. I vissa fall kan det vara bättre att släppa data och försök igen än att försöka Håll dig uppdaterad med bearbetning, vilket kan medföra ytterligare bearbetningen nedströms fördröjningar. Till exempel med ett lager ticker är det bättre att vänta för fullständig uppdaterade data, men i en levande chatt eller VOIP-scenario i stället har du data snabbt, även om den inte är klar.
 
 Tänk också på tillgänglighet, i dessa scenarier kan du välja något av följande fel strategier för hantering:
 
@@ -111,7 +111,7 @@ Tänk också på tillgänglighet, i dessa scenarier kan du välja något av föl
 Mer information och en beskrivning av hur avvägningarna mellan tillgänglighet och konsekvens finns [tillgänglighet och konsekvens i Händelsehubbar](event-hubs-availability-and-consistency.md). 
 
 ## <a name="batch-event-send-operations"></a>Åtgärder för att skicka batchhändelser
-Att skicka händelser i batchar kan öka genomflödet dramatiskt. Den [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) metoden tar en **IEnumerable** parameter av typen [EventData][] och skickar hela batchen som en atomisk åtgärd till händelsehubben.
+Att skicka händelser i batchar hjälper dig att öka genomflödet. Den [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) metoden tar en **IEnumerable** parameter av typen [EventData][] och skickar hela batchen som en atomisk åtgärd till händelsehubben.
 
 ```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
@@ -132,10 +132,10 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 [CreatePartitionedSender](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) returnerar ett [EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) objekt som du kan använda för att publicera händelser i en viss händelse hubb partition.
 
 ## <a name="event-consumers"></a>Händelsekonsumenter
-Händelsehubbar har två primära modeller för händelsekonsumtion: direkta mottagare och abstraktioner på högre nivåer som t.ex. [EventProcessorHost][]. Direkta mottagare är ansvariga för sin egen samordning av åtkomst till partitioner inom en konsumentgrupp.
+Händelsehubbar har två primära modeller för händelsekonsumtion: direkta mottagare och abstraktioner på högre nivåer som t.ex. [EventProcessorHost][]. Direkta mottagare är ansvariga för sin egen samordning av åtkomst till partitioner inom en *konsumentgrupp*. En konsumentgrupp är en vy (tillstånd, position eller offset) i en partitionerad händelsehubb.
 
 ### <a name="direct-consumer"></a>Direktkonsumenten
-Det snabbaste sättet att läsa från en partition inom en konsumentgrupp är att använda klassen [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver). Om du vill skapa en instans av den här klassen måste du använda en instans av klassen [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup). I följande exempel måste partitions-ID:et anges när du skapar mottagaren för konsumentgruppen.
+Det snabbaste sättet att läsa från en partition är att använda den [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) klass. Om du vill skapa en instans av den här klassen måste du använda en instans av klassen [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup). I följande exempel måste partitions-ID anges när du skapar mottagaren för konsumentgruppen:
 
 ```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
@@ -158,7 +158,7 @@ while(receive)
 
 Med avseende på en specifik partition tas emot meddelandena i den ordning som de skickades till händelsehubben. Offseten är en strängtoken som används för att identifiera ett meddelande i en partition.
 
-Observera att en enda partition inom en konsumentgrupp inte samtidigt kan ha fler än fem läsare anslutna vid en viss tidpunkt. När läsare ansluts eller kopplas från, kan sessionerna förbli aktiva i flera minuter innan tjänsten känner av att de har kopplats från. Under den här tiden kan det vara omöjligt att återansluta till en partition. En komplett exempel för att skriva en direkt mottagare för Händelsehubbar finns i [Event Hubs Direct Receivers](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) exempel.
+Observera att en enskild partition inte kan ha mer än 5 läsare anslutna när som helst. När läsare ansluts eller kopplas från, kan sessionerna förbli aktiva i flera minuter innan tjänsten känner av att de har kopplats från. Under den här tiden kan det vara omöjligt att återansluta till en partition. En komplett exempel för att skriva en direkt mottagare för Händelsehubbar finns i [Event Hubs Direct Receivers](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) exempel.
 
 ### <a name="event-processor-host"></a>Värd för händelsebearbetning
 Klassen [EventProcessorHost][] bearbetar data från händelsehubbar. Du bör använda den här implementeringen när du skapar händelseläsare på .NET-plattformen. [EventProcessorHost][] ger en trådsäker, flerprocessig, säker körningsmiljö för implementeringar av händelseprocessorer som också ger hantering av kontrollpunkter och hantering av partitionsleasing.
@@ -169,16 +169,16 @@ Om du vill använda klassen [EventProcessorHost][] kan du implementera [IEventPr
 * [CloseAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_CloseAsync_Microsoft_ServiceBus_Messaging_PartitionContext_Microsoft_ServiceBus_Messaging_CloseReason_)
 * [ProcessEventsAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_ProcessEventsAsync_Microsoft_ServiceBus_Messaging_PartitionContext_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__)
 
-Om du vill starta händelsebearbetning instansiera [EventProcessorHost][], ger lämpliga parametrar för händelsehubben. Anropa sedan [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1) för att registrera din implementering av [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) i körningen. Nu värden kommer att försöka skaffa en leasing för varje partition i händelsehubben med hjälp av en ”girig” algoritm. De här leasingarna varar en viss tid och måste sedan förnyas. Allteftersom nya noder, i det här fallet arbetarinstanser, kommer ut online, placerar den ut leasingreservationer och med tiden skiftar arbetsbelastningen mellan noderna då varje nod försöker skaffa fler leasingar.
+Om du vill starta händelsebearbetning instansiera [EventProcessorHost][], ger lämpliga parametrar för händelsehubben. Anropa sedan [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1) för att registrera din implementering av [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) i körningen. Värden försöker nu att skaffa en leasing för varje partition i händelsehubben med hjälp av en ”girig” algoritm. De här leasingarna varar en viss tid och måste sedan förnyas. Allteftersom nya noder, i det här fallet arbetarinstanser, kommer ut online, placerar den ut leasingreservationer och med tiden skiftar arbetsbelastningen mellan noderna då varje nod försöker skaffa fler leasingar.
 
 ![Värd för händelsebearbetning](./media/event-hubs-programming-guide/IC759863.png)
 
-Med tiden etableras ett jämviktsläge. Den här dynamiska funktionen gör att processorbaserad autoskalning kan tillämpas på konsumenter för både uppskalning och nedskalning. Eftersom händelsehubbar inte har ett direkt begrepp om antalet meddelanden är den genomsnittliga processoranvändningen oftast den bästa metoden för att mäta skalan för serverdelen eller konsumenterna. Om utgivare börjar publicera fler händelser än konsumenterna kan bearbeta kan processorökningen för konsumenterna användas för att autoskala efter antalet arbetsinstanser.
+Med tiden etableras ett jämviktsläge. Den här dynamiska funktionen gör att processorbaserad autoskalning kan tillämpas på konsumenter för både uppskalning och nedskalning. Eftersom Händelsehubbar inte har ett direkt begrepp om antalet meddelanden, Genomsnittlig CPU-användning är ofta den bästa metoden för att mäta tillbaka skalan för serverdelen eller konsumenterna. Om utgivare börjar publicera fler händelser än konsumenterna kan bearbeta kan processorökningen för konsumenterna användas för att autoskala efter antalet arbetsinstanser.
 
 Klassen [EventProcessorHost][] implementerar också en mekanism för Azure storage-baserade kontrollpunkter. Den här mekanismen lagrar offseten på en per partition-basis, så att varje konsument kan fastställa vilken den senaste kontrollpunkten från den föregående konsumenten var. Eftersom partitioner övergår mellan noder via leasingar är det här den synkroniseringsmekanism som gör det lättare att skifta belastningar.
 
 ## <a name="publisher-revocation"></a>Återkallande av utgivare
-Förutom de avancerade funktionerna för körning av [EventProcessorHost][], Event Hubs gör att återkalla utgivare för att hindra specifika utgivare från att skicka händelser till en händelsehubb. De här funktionerna är särskilt användbara om en utgivartoken har komprometterats eller om en programuppdatering får dem att bete sig på ett olämpligt sätt I sådana situationer kan utgivarens identitet, vilken är en del av deras SAS-token, blockeras från att publicera händelser.
+Förutom de avancerade funktionerna för körning av [EventProcessorHost][], Event Hubs gör att återkalla utgivare för att hindra specifika utgivare från att skicka händelser till en händelsehubb. Dessa funktioner är användbart om en utgivartoken har komprometterats eller om en programuppdatering får dem att bete sig felaktigt. I sådana situationer kan utgivarens identitet, vilken är en del av deras SAS-token, blockeras från att publicera händelser.
 
 Mer information om att återkalla utgivare och om hur du skickar till Event Hubs som utgivare finns i exemplet [Service Bus Event Hubs säker publicering i stor skala](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 

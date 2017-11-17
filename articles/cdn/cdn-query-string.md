@@ -1,5 +1,5 @@
 ---
-title: "Kontrollera Azure CDN cachelagring av frågesträngar med frågesträngar | Microsoft Docs"
+title: "Kontrollera Azure Content Delivery Network cachelagring av frågesträngar med frågesträngar | Microsoft Docs"
 description: "Azure CDN cachelagring av frågesträng styr hur filer cachelagras när de innehåller frågesträngar."
 services: cdn
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 28e724f34c32edb0d5641b24f9ffedb7dc5f9680
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Kontrollen Azure Content Delivery Network cachelagring av frågesträngar med frågesträngar
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="overview"></a>Översikt
-Med Azure Content Delivery Network (CDN), kan du styra hur cachelagras filer för en webb-begäran som innehåller en frågesträng. I en webbegäran med en frågesträng frågesträngen är den del av den begäran som inträffar efter den `?` tecken. En frågesträng kan innehålla en eller flera parametrar som avgränsas med en `&` tecken. Till exempel `http://www.domain.com/content.mov?data1=true&data2=false`. Om det finns fler än en frågesträngparametern i en begäran, spelar ordningen på parametrarna ingen roll. 
+Med Azure Content Delivery Network (CDN), kan du styra hur cachelagras filer för en webb-begäran som innehåller en frågesträng. Frågesträngen är den del av den begäran som inträffar efter ett frågetecken (?) i en webbegäran med en frågesträng. En frågesträng kan innehålla en eller flera nyckel / värde-par, där namnet och dess värde är åtskilda av ett likhetstecken (=). Varje nyckel / värde-par avgränsas med ett et-tecken (&). Till exempel `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Om det finns fler än en nyckel / värde-par i en frågesträng för en begäran, roll deras inbördes ordning ingen. 
 
 > [!IMPORTANT]
 > CDN-produkter standard och premium ger samma frågesträngen cachelagring funktioner, men användargränssnittet är olika.  Den här artikeln beskriver gränssnittet för **Azure CDN Standard från Akamai** och **Azure CDN Standard från Verizon**. För att fråga sträng cachelagring med **Azure CDN Premium från Verizon**, se [styr cachelagring beteendet för CDN-begäranden med frågesträngar - Premium](cdn-query-string-premium.md).

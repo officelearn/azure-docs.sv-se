@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: 10c0dd2156e850b421d80901b6f0b40c7d384cef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-aktiviteten i Azure Data Factory
 ForEach-aktiviteten definierar en upprepande Kontrollflöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
@@ -34,7 +34,10 @@ Egenskaperna beskrivs senare i den här artikeln. Egenskapen objekt är en samli
    "type":"ForEach",
    "typeProperties":{  
       "isSequential":"true",
-      "items":"@pipeline().parameters.mySinkDatasetFolderPathCollection",
+        "items": {
+            "value": "@pipeline().parameters.mySinkDatasetFolderPathCollection",
+            "type": "Expression"
+        },
       "activities":[  
          {  
             "name":"MyCopyActivity",
@@ -73,7 +76,7 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på aktiviteten för varje. | Sträng | Ja
 typ | Måste anges till **ForEach** | Sträng | Ja
-isSequential | Anger om slingan ska utföras i följd eller parallellt.  Högst 20 loop iterationer kan köras samtidigt parallellt). Om du har en ForEach aktivitet iterera över en kopieringsaktiviteten med 10 olika källa och mottagare DataSet med till exempel **isSequential** inställt på FALSKT, alla kopior körs samtidigt. Standard är FALSKT. <br/><br/> Om ”isSequential” är inställd på False, måste du kontrollera att det finns en rätt konfiguration för att köra flera körbara filer. I annat fall bör du använda den här egenskapen med försiktighet för att undvika konflikter för skrivning. Mer information finns i [parallell körning](#parallel-execution) avsnitt. | Booleskt värde | Nej. Standard är FALSKT.
+isSequential | Anger om slingan ska utföras i följd eller parallellt.  Högst 20 loop iterationer kan köras samtidigt parallellt). Om du har en ForEach aktivitet iterera över en kopieringsaktiviteten med 10 olika källa och mottagare DataSet med till exempel **isSequential** inställt på FALSKT, alla kopior körs samtidigt. Standard är FALSKT. <br/><br/> Om ”isSequential” är inställd på False, måste du kontrollera att det finns en rätt konfiguration för att köra flera körbara filer. I annat fall bör du använda den här egenskapen med försiktighet för att undvika konflikter för skrivning. Mer information finns i [parallell körning](#parallel-execution) avsnitt. | Boolesk | Nej. Standard är FALSKT.
 Objekt | Ett uttryck som returnerar en JSON-matris på hävdade över. | Uttryck (som returnerar en JSON-matris) | Ja
 Aktiviteter | Aktiviteter som ska köras. | Lista med aktiviteter | Ja
 
@@ -98,7 +101,10 @@ Ange en matris ska vara hävdade över för egenskapen i ForEach-aktiviteten **o
                 "type": "ForEach",
                 "typeProperties": {
                     "isSequential": "true",
-                    "items": "@pipeline().parameters.mySinkDatasetFolderPath",
+                    "items": {
+                        "value": "@pipeline().parameters.mySinkDatasetFolderPath",
+                        "type": "Expression"
+                    },
                     "activities": [
                         {
                             "name": "MyCopyActivity",

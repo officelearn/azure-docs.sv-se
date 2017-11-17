@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Skapa och registrera SOAP-kopplingar i Azure Logic Apps
 
@@ -149,6 +149,12 @@ Registrerad men ocertifierade anpassade kopplingar fungerar som Microsoft-hanter
 Dela din anslutningstjänst med externa användare utanför dessa gränser, till exempel med alla Logic Apps användare [skicka din connector för Microsoft-certifiering](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+
+**F:** är SOAP kopplingen allmänt tillgänglig (GA)? </br>
+**S:** SOAP-kopplingen har **Preview**, och ännu inte är en GA-tjänst.
+
+**F:** finns det några begränsningar och kända problem för SOAP-anslutningen? </br>
+**S:** Ja, finns det [SOAP connector begränsningar och kända problem](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **F:** finns det några gränser för anpassade kopplingar? </br>
 **S:** Ja, finns det [anpassad koppling begränsar här](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

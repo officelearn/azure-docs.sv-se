@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.author: jomolesk
-ms.openlocfilehash: bbf58215a4d236c70bf988cbfa1c8491055b5183
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 0be18e2c2354ea8f766eb48db793c906e565a201
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Nationella säkerhetsprinciper för Cyber Security Centre moln-översikt
 
 
 > [!NOTE]
-> Dessa säkerhetsprinciper har definierats av National Cyber Security Centre (NCSC). Hittar du information om testprocedurer NCSC dokumentationen och riktlinjer för varje säkerhetsprincipen.
+> Dessa säkerhetsprinciper definieras av den Storbritannien National Cyber Security Centre (NCSC). Se [NCSC dokumentationen](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) information om hur du testar procedurer och riktlinjer för varje säkerhetsprincipen.
 
 
 
@@ -435,3 +435,12 @@ Du är ansvarig för viktiga aspekter på säkerheten för dina data och arbetsb
 |---|---|
 | **Kunden** | Azure Resource Manager-mallar och tillhörande resurser som utgör den här Azure-modell kan du följa en strategi för skydd på djupet för säkerhet. För att vara kompatibel med den här principen, krävs ytterligare konfiguration av customer för användning i produktion (t.ex. programvara för hantering av databasen, distribuera webbprogram). |
 | **Providern&nbsp;(Microsoft&nbsp;Azure)** | Inte tillämpligt |
+
+## <a name="disclaimer"></a>Ansvarsfriskrivning
+
+ - Det här dokumentet är endast i informativt syfte. MICROSOFT LÄMNAR INGA GARANTIER, UTTRYCKLIGA, UTTRYCKLIGA ELLER UNDERFÖRSTÅDDA, AVSEENDE INFORMATIONEN I DET HÄR DOKUMENTET. Detta dokument tillhandahålls ”som-är”. Information och åsikter som uttrycks i detta dokument, inklusive Webbadresser och andra webbplatsreferenser, kan ändras utan föregående meddelande. Kunder som det här dokumentet ansvar använder den.
+ - Det här dokumentet innehåller inte kunder inga juridiska rättigheter till någon immateriell egendom i någon Microsoft-produkt eller -lösningar.
+ - Kunderna får kopiera och använda det här dokumentet som intern referens.
+ - Vissa rekommendationerna i det här dokumentet kan resultera i ökade data, nätverk eller beräkning Resursanvändning i Azure och kan öka kostnaderna för en kund Azure licens eller prenumeration.
+ - Den här arkitekturen är avsett att utgöra grunden för kunder att justera sina särskilda krav och ska inte användas som – i en produktionsmiljö.
+ - Det här dokumentet har utvecklats som referens och ska inte användas för att definiera alla metoder som en kund kan uppfylla specifika efterlevnadskrav och -förordningar. Kunder bör söka juridiskt stöd från sin organisation på godkända kund-implementeringar.

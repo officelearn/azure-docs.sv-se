@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 9961a39f8e422d72301958ef467e4267f2c6c498
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för delat flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 
@@ -35,7 +35,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Simulera användning av en databas som delat flera innehavare genom att köra ett angivet belastningen generator
 > * Övervaka databasen som den svarar på ökade belastningen
 > * Skala upp databasen som svar på databasbelastningen ökar
-> * Etablera en ny klient i en egen databas
+> * Etablera en klient till en enskild klient-databas
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
@@ -51,11 +51,11 @@ Hantering av databasprestanda innebär kompilering och analys av prestandadata f
 * Om du vill undvika att övervaka prestanda manuellt är det mest effektiva till **ställa in aviseringar som utlöses när databaser avvika utanför normal adressintervall**.
 * Att svara på kortsiktiga variationer i prestandanivåerna för en databas i **DTU nivå kan skalas upp eller ned**. Om den här variationerna inträffar på grundval regelbundna eller förutsägbar **skalning databasen kan schemaläggas ska ske automatiskt**. Du kan exempelvis skala ned när du vet att din arbetsbelastning är lätt, på nätter eller helger till exempel.
 * Svara till långsiktig variationer eller ändringar i innehavarna **enskilda klienter kan flyttas till andra databasen**.
-* För att svara på kort sikt ökar i *enskilda* klient belastningen **enskilda klienter kan tas bort från en databas och tilldelats en enskilda prestandanivå**. När belastningen minskar, kan klienten sedan returneras till databasen för flera innehavare. När det är känt i förväg, kan klienter flyttas pre-emptively att databasen har alltid resurser som behövs och för att undvika påverkan på andra klienter i databasen för flera innehavare. Om det här kravet är förutsägbart, till exempel en plats där ett populärt evenemang skapar en rusning efter biljetter, kan det här hanteringsbeteendet integreras i programmet.
+* Att svara på kort sikt ökningar i *enskilda* klient belastningen **enskilda klienter kan tas bort från en databas och tilldelats en enskilda prestandanivå**. När belastningen minskar, kan klienten sedan returneras till databasen för flera innehavare. När det är känt i förväg, kan klienter flyttas pre-emptively att databasen har alltid resurser som behövs och för att undvika påverkan på andra klienter i databasen för flera innehavare. Om det här kravet är förutsägbart, till exempel en plats där ett populärt evenemang skapar en rusning efter biljetter, kan det här hanteringsbeteendet integreras i programmet.
 
-[Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL-databas är övervakning och avisering tillgängligt för databaser. Den här inbyggda övervakning och avisering är resurs-specifika, så det är praktiskt att använda för litet antal resurser, men är inte är användbart när du arbetar med många resurser.
+[Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL-databas är övervakning och avisering tillgängligt för databaser. Den här inbyggda övervakning och avisering är resurs-specifika, så det är praktiskt att använda för litet antal resurser, men är inte praktiskt när du arbetar med många resurser.
 
-För omfattande scenarier där du arbetar med många resurser [logganalys (OMS)](https://azure.microsoft.com/services/log-analytics/) kan användas. Detta är en separat Azure-tjänst som ger analytics över skickade diagnostikloggar och telemetri som samlats in i en log analytics-arbetsyta. Logganalys kan samla in telemetri från många tjänster och användas för att fråga efter och Ställ in aviseringar.
+Omfattande scenarier där du arbetar med många resurser, [logganalys (OMS)](https://azure.microsoft.com/services/log-analytics/) kan användas. Detta är en separat Azure-tjänst som ger analytics över skickade diagnostikloggar och telemetri som samlats in i en log analytics-arbetsyta. Logganalys kan samla in telemetri från många tjänster och användas för att fråga efter och Ställ in aviseringar.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta Wingtip biljetter SaaS flera innehavare databasen programmets källkod och skript
 
@@ -71,7 +71,7 @@ Om du har redan etablerats en grupp med klienter i en tidigare kursen, går du t
 1. Ställ in **$DemoScenario** = **1**, _etablera en batch med klienter_
 1. Tryck **F5** för att köra skriptet.
 
-Skriptet ska distribuera 17 innehavare i databasen med flera innehavare i några minuter. 
+Skriptet distribuerar 17 innehavare i databasen med flera innehavare i ett par minuter. 
 
 Den *ny TenantBatch* skriptet skapar nya klienter med unika innehavaren nycklar i delat flera innehavare databasen och initierar dem med typen klient namn och plats. Detta är förenligt med hur appen etablerar en ny klient. 
 
@@ -95,7 +95,7 @@ Belastningsgeneratorn tillämpar en *syntetisk* enbart-CPU-belastning på varje 
 Wingtip biljetter SaaS flera innehavare databasen är en SaaS-app och verkliga belastningen på en SaaS-app är vanligtvis sporadiska och oförutsägbart. För att simulera det så skapar belastningsgeneratorn en slumpmässig belastning som distribueras över alla klienterna. Flera minuter krävs för belastningen mönstret ut, så kör belastningen generatorn för 3-5 minuter innan du försöker att övervaka belastningen i följande avsnitt.
 
 > [!IMPORTANT]
-> Belastningen generator körs som en serie jobb i du är ett nytt PowerShell-fönster. Om du stänger sessionen avbryts generatorn belastningen. Läs in generator finns kvar i en *jobbet anropar* tillstånd där den genererar belastningen på alla nya klienter som tillhandahålls när generatorn har startats. Använd *Ctrl-C* att stoppa anropar nya jobb och avslutas skriptet. Läs in generator fortsätter att köras, men endast på befintliga klienter.
+> Läs in generator körs som en serie jobb i ett nytt PowerShell-fönster. Om du stänger sessionen avbryts generatorn belastningen. Läs in generator finns kvar i en *jobbet anropar* tillstånd där den genererar belastningen på alla nya klienter som tillhandahålls när generatorn har startats. Använd *Ctrl-C* att stoppa anropar nya jobb och avslutas skriptet. Läs in generator fortsätter att köras, men endast på befintliga klienter.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Övervaka Resursanvändning i Azure Portal
 
@@ -120,9 +120,9 @@ Ange en varning på databasen som utlösare på \>75% användning på följande 
 1. Ange ett namn, exempelvis **hög DTU**,
 1. Ställ in följande värden:
    * **Måttet = DTU-procent**
-   * **Villkor = större än**.
+   * **Villkor = större än**
    * **Tröskelvärdet = 75**.
-   * **Period = de senaste 30 minuterna**.
+   * **Period = under de senaste 30 minuterna**
 1. Lägg till en e-postadress till den *ytterligare administratören email(s)* och klicka på **OK**.
 
    ![ange varning](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -153,7 +153,7 @@ Databaserna är online och fullt tillgängliga under hela processen. Programkod 
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Etablera en ny klient i en egen databas 
 
-Delat modell för flera klienter kan du välja om du vill etablera en ny klient i en databas för flera innehavare tillsammans med andra klienter eller att etablera klienten i en databas med sin egen. Genom att etablera en klient i en egen databas fördelar från isolering som är inbyggd i separata-databasen så att du kan hantera prestanda för den klienten oberoende av andra, återställa den klientorganisationen oberoende av andra, osv. Du kan till exempel välja att placera kostnadsfria eller vanliga kunder i en databas med flera innehavare och premium kunder i enskilda databaser.  Om isolerade stöd för en innehavare databaser skapas kan de fortfarande hanteras gemensamt i en elastisk pool för att optimera resurskostnader.
+Delat modell för flera klienter kan du välja om du vill etablera en ny klient i en databas för flera innehavare tillsammans med andra klienter eller att etablera klienten i en databas med sin egen. Genom att etablera en klient i en egen databas fördelar från isolering som är inbyggd i separata-databasen så att du kan hantera prestanda för den klienten oberoende av andra, återställa den klientorganisationen oberoende av andra, osv. Du kan till exempel välja att placera kostnadsfria eller vanliga kunder i en databas med flera innehavare och premium kunder i enskilda databaser.  Om isolerade stöd för en innehavare databaser skapas, kan de fortfarande hanteras gemensamt i en elastisk pool för att optimera resurskostnader.
 
 Hoppa över följande steg om du redan har etablerats en ny klient i en egen databas.
 
@@ -195,7 +195,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Simulera användning av en databas som delat flera innehavare genom att köra ett angivet belastningen generator
 > * Övervaka databasen som den svarar på ökade belastningen
 > * Skala upp databasen som svar på databasbelastningen ökar
-> * Etablera en ny klient i en egen databas
+> * Etablera en klient till en enskild klient-databas
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

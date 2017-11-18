@@ -4,7 +4,7 @@ description: "Hur hanterar inställningar för grupper med hjälp av Azure Activ
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
@@ -12,20 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/16/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
+Den här artikeln innehåller anvisningar för att skapa och uppdatera grupper med Azure Active Directory (AD Azure) PowerShell-cmdlets. Det här innehållet gäller endast för Office 365-grupper. 
 
 > [!IMPORTANT]
-> Det här innehållet gäller endast för Office 365-grupper. Mer information om hur du tillåter användare att skapa säkerhetsgrupper `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` enligt beskrivningen i [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+> Vissa inställningar kräver en Azure Active Directory Premium P1-licens. Mer information finns i [mallinställningar](#template-settings) tabell.
+
+Mer information om hur du tillåter användare att skapa säkerhetsgrupper `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` enligt beskrivningen i [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Inställningar för Office 365-grupper har konfigurerats med ett inställningsobjekt och ett SettingsTemplate-objekt. Inledningsvis visas alla för inställningsobjekt i katalogen, eftersom katalogen är konfigurerad med standardinställningar. Om du vill ändra standardinställningarna, måste du skapa ett nytt inställningsobjekt med en mall för inställningar. Inställningar för mallar har definierats av Microsoft. Det finns flera olika inställningar mallar. Om du vill konfigurera inställningar för din katalog i Office 365-grupper kan du använda mallen med namnet ”Group.Unified”. Använd mallen med namnet ”Group.Unified.Guest” om du vill konfigurera inställningar för Office 365-grupper på en enda grupp. Denna mall används för att hantera gäståtkomst till en grupp för Office 365. 
 
@@ -85,11 +88,12 @@ Vid slutförande returnerar cmdleten ID för det nya inställningsobjektet:
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
-Här är de inställningar som definierats i Group.Unified SettingsTemplate.
+## <a name="template-settings"></a>Mallinställningar
+Här är de inställningar som definierats i Group.Unified SettingsTemplate. Om inget annat anges kräver dessa funktioner en Azure Active Directory Premium P1-licens. 
 
 | **Inställning** | **Beskrivning** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Typ: booleskt<li>Standard: True |Flagga som anger om skapande av en enhetlig grupp tillåts i katalogen med icke-administratörer. |
+|  <ul><li>EnableGroupCreation<li>Typ: booleskt<li>Standard: True |Flagga som anger om skapande av en enhetlig grupp tillåts i katalogen med icke-administratörer. Den här inställningen kräver inte en Azure Active Directory Premium P1-licens.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Typ: Sträng<li>Standard ”:” |GUID för säkerhetsgruppen för vilka medlemmar som tillåts skapa enhetlig grupper även om EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Typ: Sträng<li>Standard ”:” |En länk till riktlinjer för grupp-användning. |
 |  <ul><li>ClassificationDescriptions<li>Typ: Sträng<li>Standard ”:” | En kommaavgränsad lista över klassificering beskrivningar. |
@@ -98,7 +102,7 @@ Här är de inställningar som definierats i Group.Unified SettingsTemplate.
 | <ul><li>CustomBlockedWordsList<li>Typ: Sträng<li>Standard ”:” | Använd inte. Inte implementerat. |
 | <ul><li>EnableMSStandardBlockedWords<li>Typ: booleskt<li>Standard: ”False” | Använd inte
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Typ: booleskt<li>Standard: False | Booleskt värde som anger huruvida en gästanvändare kan vara en ägare av grupper. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Typ: booleskt<li>Standard: True | Booleskt värde som anger huruvida en gästanvändare kan ha åtkomst till innehåll för Unified grupper. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Typ: booleskt<li>Standard: True | Booleskt värde som anger huruvida en gästanvändare kan ha åtkomst till innehåll för Unified grupper.  Den här inställningen kräver inte en Azure Active Directory Premium P1-licens.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Typ: Sträng<li>Standard ”:” | Url till en länk till riktlinjer för gäst-användning. |
 |  <ul><li>AllowToAddGuests<li>Typ: booleskt<li>Standard: True | Ett booleskt värde som anger om eller inte är tillåtet att lägga till gäster i den här katalogen.|
 |  <ul><li>ClassificationList<li>Typ: Sträng<li>Standard ”:” |En kommaavgränsad lista över giltiga klassificeringsvärden som kan tillämpas på Unified grupper. |

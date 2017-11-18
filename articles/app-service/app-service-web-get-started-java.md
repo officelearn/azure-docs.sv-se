@@ -4,7 +4,7 @@ description: "Distribuera en grundläggande Java-app och lär dig hur du kör we
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 6/7/2017
+ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ac8ef479be5a93b2c4baa76279c8d3e53389409a
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 3d9a4d72d348b4fe631f075debb6198462f24c56
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Skapa din första Java-webbapp i Azure
 
 Azure [Web Apps](app-service-web-overview.md) ger en mycket skalbar, automatisk uppdatering värdtjänst. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/).
+
+När du har slutfört den här snabbstarten, ser ditt program ut ungefär som följande bild, när du visar den i en webbläsare:
 
 !["Hello Azure!" exempelwebbapp](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -32,7 +34,7 @@ Azure [Web Apps](app-service-web-overview.md) ger en mycket skalbar, automatisk 
 Installera följande för att slutföra den här snabbstarten:
 
 * Kostnadsfria [Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/downloads/). Den här snabbstarten använder Eclipse Neon.
-* [Azure Toolkit för Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* [Azure Toolkit för Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -167,9 +169,9 @@ Högerklicka på projektet i projektutforskaren och välj sedan **Azure** > **Pu
 
 Dialogrutan **Distribuera webbapp** visas med apptjänsten som du skapade tidigare. 
 
-> [!NOTE]
-> Välj **Distribuera till rot** varje gång du publicerar.
->
+> [!NOTE] 
+> Välj **Distribuera till rot** varje gång du publicerar. 
+> 
 
 Välj webbappen och sedan **Distribuera**. Då publiceras ändringarna.
 

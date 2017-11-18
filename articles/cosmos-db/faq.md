@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -431,7 +431,7 @@ Azure Cosmos-DB anger standard genomströmning för din behållare baserat på d
 Genomströmning konceptet förklaras i den [begära enheter i Azure Cosmos DB](request-units.md) artikel. Genomströmning för en tabell fördelas jämnt över underliggande fysiska partitioner.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>Vad är standard RU/s för tabellen när skapats via CQL? Vad händer om du vill ändra det?
-Azure Cosmos-DB använder frågeenheter per sekund (RU/s) som valuta för att tillhandahålla genomflöde. Tabeller som skapats via CQL har 400 RU. Du kan ändra RU från portalen till 10 000 RU. Om du behöver mer än 10 000 RU i privat förhandsvisning - kan du skapa den första från portalen. Eller om du vill använda den här funktionen för CQL - ansluter du med oss på [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos-DB använder frågeenheter per sekund (RU/s) som valuta för att tillhandahålla genomflöde. Tabeller som skapats via CQL har 400 RU. Du kan ändra RU från portalen. 
 
 CQL
 ```

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Synkronisera data över flera molntjänster och lokala databaser med SQL-datasynkronisering (förhandsgranskning)
 
@@ -80,16 +80,6 @@ Datasynkronisering är inte lämplig för följande scenarier:
 
 ## <a name="sync-req-lim"></a>Krav och begränsningar
 
-### <a name="general-requirements"></a>Allmänna krav
-
--   Varje tabell måste ha en primärnyckel. Ändra inte värdet för den primära nyckeln i en rad. Om du behöver ändra värdet för en primärnyckel, ta bort raden och återskapa den med nya primärnyckelvärdet. 
-
--   En tabell kan inte ha en identitetskolumn som inte är den primära nyckeln.
-
--   Namnen på objekten (databaser, tabeller och kolumner) kan inte innehålla utskrivbara tecken punkt (.), vänster hakparentes ([) eller fyrkantiga höger hakparentes (]).
-
--   Ögonblicksbildisolering måste aktiveras. Mer information finns i [ögonblicksbildisolering i SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
 ### <a name="general-considerations"></a>Allmänna överväganden
 
 #### <a name="eventual-consistency"></a>Slutliga konsekvensen
@@ -98,7 +88,19 @@ Eftersom datasynkronisering utlösaren-baserade, garanteras inte transaktionskon
 #### <a name="performance-impact"></a>Inverkan på prestanda
 Data Sync använder Infoga, uppdatera och ta bort utlösare för att spåra ändringar. Den skapar tabeller sida i databasen för ändringsspårning. Dessa aktiviteter för spårning av ändring kan påverka din arbetsbelastning i databasen. Utvärdera din tjänstnivå och uppgradera om det behövs.
 
+### <a name="general-requirements"></a>Allmänna krav
+
+-   Varje tabell måste ha en primärnyckel. Ändra inte värdet för den primära nyckeln i en rad. Om du behöver ändra värdet för en primärnyckel, ta bort raden och återskapa den med nya primärnyckelvärdet. 
+
+-   Ögonblicksbildisolering måste aktiveras. Mer information finns i [ögonblicksbildisolering i SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
 ### <a name="general-limitations"></a>Allmänna begränsningar
+
+-   En tabell kan inte ha en identitetskolumn som inte är den primära nyckeln.
+
+-   Namnen på objekten (databaser, tabeller och kolumner) kan inte innehålla utskrivbara tecken punkt (.), vänster hakparentes ([) eller fyrkantiga höger hakparentes (]).
+
+-   Azure Active Directory-autentisering stöds inte.
 
 #### <a name="unsupported-data-types"></a>Datatyper
 

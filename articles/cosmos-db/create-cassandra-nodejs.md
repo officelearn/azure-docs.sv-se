@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 76850d6403fc4e87e95f5842b87b258d652c2c35
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: abf88cf96b32bc4168cb8c09a6e70ad0e395e88c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra app med Node.js och Azure Cosmos DB
 
@@ -29,12 +29,13 @@ Azure Cosmos-DB är Microsofts globalt distribuerade flera modellen database-tj�
 
 ## <a name="prerequisites"></a>Krav
 
-* Åtkomst till förhandsgranskningsprogrammet Azure Cosmos DB Cassandra API. Om du inte använder för åtkomst till ännu, [registrera nu](https://aka.ms/cosmosdb-cassandra-signup).
-* [Node.js](https://nodejs.org/en/) version v0.10.29 eller senare
-* [Git](http://git-scm.com/)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Du kan också [försök Azure Cosmos-DB gratis](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, helt kostnadsfritt och åtaganden.
 
+Åtkomst till förhandsgranskningsprogrammet Azure Cosmos DB Cassandra API. Om du inte använder för åtkomst till ännu, [registrera nu](cassandra-introduction.md#sign-up-now).
+
+Följande gäller också:
+* [Node.js](https://nodejs.org/en/) version v0.10.29 eller senare
+* [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -152,7 +153,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. I den [Azure-portalen](http://portal.azure.com/), klickar du på **anslutningssträngen**. 
 
-    Använd den ![Kopieringsknappen](./media/create-cassandra-nodejs/copy.png) knappen på höger sida av skärmen för att kopiera värdet övre KONTAKTA punkten.
+    Använd den ![Kopieringsknapp](./media/create-cassandra-nodejs/copy.png) knappen på höger sida av skärmen för att kopiera värdet övre KONTAKTA punkten.
 
     ![Visa och kopiera KONTAKTA punkt, användarnamn och lösenord från Azure portal, sträng anslutningssidan](./media/create-cassandra-nodejs/keys.png)
 

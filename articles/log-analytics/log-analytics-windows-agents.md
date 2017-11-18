@@ -3,7 +3,7 @@ title: Ansluta Windows-datorer till Azure Log Analytics | Microsoft Docs
 description: "Den här artikeln visar stegen för att ansluta Windows-datorer i din lokala infrastruktur till Log Analytics-tjänsten med hjälp av en anpassad version av Microsoft Monitoring Agent (MMA)."
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf3e596f8c287c60531a6911c5797b3de26e570
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -28,7 +28,7 @@ Den här artikeln visar stegen för att ansluta Windows-datorer i din lokala inf
 Du kan installera agenter med installationsprogrammet, kommandorad, eller med önskad tillstånd Configuration (DSC) i Azure Automation.  
 
 >[!NOTE]
-För virtuella datorer som körs i Azure, kan du förenkla installationen med hjälp av den [tillägg för virtuell dator](log-analytics-azure-vm-extension.md).
+För virtuella datorer som körs i Azure, kan du förenkla installationen med hjälp av den [tillägg för virtuell dator](../virtual-machines/windows/extensions-oms.md).
 
 På datorer med Internet-anslutning använder agenten anslutning till Internet för att skicka data till OMS. För datorer som inte har Internetanslutning kan du använda en proxyserver eller [OMS Gateway](log-analytics-oms-gateway.md).
 

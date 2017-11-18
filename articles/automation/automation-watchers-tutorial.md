@@ -1,5 +1,5 @@
 ---
-title: Skap en watcher aktivitet i Azure Automation-konto | Microsoft Docs
+title: Skapa en watcher uppgift i Azure Automation-konto | Microsoft Docs
 description: "Lär dig hur du skapar en watcher aktivitet i Azure Automation-konto kan du titta på för nya filer som skapas i en mapp."
 services: automation
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/15/2017
 ms.author: eamono
-ms.openlocfilehash: 55971908caca4526f7a3b102e90c554a533a7fee
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7cd6bebcaa1ed263b9854f7307cf22fba006748e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-automation-watcher-tasks-enable-you-to-respond-to-events-happening-in-your-local-datacenter"></a>Azure Automation watcher uppgifter gör det möjligt för dig att svara på händelser som händer i ditt lokala datacenter
 

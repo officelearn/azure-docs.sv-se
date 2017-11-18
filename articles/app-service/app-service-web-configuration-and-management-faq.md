@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e5fc1933efcaa9c6eaa7ab0021c3362e0714a3d5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfiguration och hantering av vanliga frågor och svar för Web Apps i Azure
 
@@ -319,4 +319,4 @@ Du kan också ange vilka dynamiska och statiska MIME-typer som du vill komprimer
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Hur jag migrera från en lokal miljö till App Service?
 
-Om du vill migrera platser från Windows- och Linux-webbservrar till App Service, kan du använda Azure App Service Migration Assistant. Migreringsverktyget skapar webbappar och databaser i Azure efter behov och sedan publicerar innehållet. Mer information finns i [Azure App Service Migration Assistant](https://www.movemetothecloud.net/).
+Om du vill migrera platser från Windows- och Linux-webbservrar till App Service, kan du använda Azure App Service Migration Assistant. Migreringsverktyget skapar webbappar och databaser i Azure efter behov och sedan publicerar innehållet. Mer information finns i [Azure App Service Migration Assistant](https://www.migratetoazure.net/).

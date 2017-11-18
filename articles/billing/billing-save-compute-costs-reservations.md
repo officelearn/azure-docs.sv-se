@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: ab97feac7dd92cdc64343e215f6c623a6de9ef60
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Spara pengar på virtuella datorer med den reserverade virtuella instanser 
 Den reserverade virtuella instanser kan du före betala för ett år eller tre års beräkningskapacitet att få rabatt på de virtuella datorerna som du använder. Minskar avsevärt kostnaderna för virtuella datorer, upp till 72 procent på betalning per användning priser – med Summa åtagande för ett år eller tre år. Den reserverade virtuella instanser är fakturering rabatt och påverkar inte runtime-tillståndet för virtuella datorer.
@@ -46,7 +46,7 @@ Du kan ändra omfånget när du köper reserverade VM-instans. Om du vill ändra
 
 Reservation lågpristaxa gäller endast virtuella datorer i prenumerationer med enterprise eller erbjudna betala allteftersom-typer. Virtuella datorer som körs i en prenumeration med andra erbjudandetyper får ingen reservation rabatt. Företagsprenumerationer för utveckling och testning inte berättigad till reserverade fördelar för enterprise-registreringar.
 
-Hur reservation påverkar virtuella fakturering förklaras i [förstå tillämpningen av reservation fakturering förmån](https://go.microsoft.com/fwlink/?linkid=861721).
+Hur reservation påverkar virtuella fakturering förklaras i [förstå tillämpningen av reservation fakturering förmån](https://go.microsoft.com/fwlink/?linkid=863405).
 
 ## <a name="what-happens-when-the-reservation-term-expires"></a>Vad händer när reservation termen upphör att gälla?
 I slutet av reservation termen fakturering rabatterna upphör att gälla och virtuella infrastrukturen faktureras enligt lön-som-du gå priset. Reservationer inte automatisk förnyelse. Om du vill fortsätta få fakturering rabatten, måste du köpa en ny instans för reserverade virtuella datorn. 

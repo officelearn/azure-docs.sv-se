@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Jämförelse mellan Azure App Service, virtuella datorer, Service Fabric och Cloud Services
 ## <a name="overview"></a>Översikt
@@ -48,7 +48,7 @@ I följande tabell jämförs funktionerna i Apptjänst, Cloud Services, virtuell
 | Åtkomst till tjänster som Service Bus, lagring, SQL-databas |X |X |X |X | |
 | Värden webb- eller web services nivå i en arkitektur med flera nivåer |X |X |X |X | |
 | Värden mellannivån en arkitektur med flera nivåer |X |X |X |X |App Service web apps enkelt kan vara värd för en REST API-mellannivå och [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) funktion kan vara värd för bakgrundsjobb för bearbetning. Du kan köra WebJobs på en dedikerad webbplats att uppnå oberoende skalbarhet för skiktet. |
-| Integrerat stöd för MySQL as a service |X |X |X | |Molntjänster kan integrera MySQL as a service via Cleardbs erbjudanden, men inte som en del av arbetsflödet för Azure-portalen. |
+| Integrerat stöd för MySQL as a service |X |X | | | |
 | Stöd för ASP.NET, klassisk ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric stöder skapandet av en web front-end med [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) eller så kan du distribuera program (Node.js, Java och så vidare) som en [gäst körbara](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Skala ut till flera instanser utan att distribuera om |X |X |X |X |Virtuella datorer kan skala ut till flera instanser, men de tjänster som körs på dem. måste vara skriven för att hantera den här skalbar. Du måste konfigurera en belastningsutjämnare för att vidarebefordra begäranden på alla datorer och skapa en Tillhörighetsgrupp för att förhindra samtidiga omstarter av alla instanser på grund av underhåll eller maskinvarufel. |
 | Stöd för SSL |X |X |X |X |SSL för anpassade domännamn stöds bara för Basic och Standard läge för App Service web apps. Information om hur du använder SSL med webbappar finns [konfigurera ett SSL-certifikat för en Azure-webbplats](app-service-web-tutorial-custom-ssl.md). |
@@ -97,7 +97,7 @@ Azure Apptjänst är en bra lösning för att hantera företagets webbplatser. D
 * Integrering med Active Directory
 
 ### <a id="iis6"></a>Jag har en IIS6-program som körs på Windows Server 2003.
-Azure App Service gör det enkelt att undvika infrastrukturkostnader med migrera äldre IIS6 program. Microsoft har utvecklat [lättanvända Migreringsverktyg och detaljerade riktlinjer](https://www.movemetowebsites.net/) som gör att du kan kontrollera kompatibiliteten och identifiera eventuella ändringar som behöver göras. Integrering med Visual Studio, TFS och gemensamma CMS-verktyg som gör det enkelt att distribuera IIS6 program direkt till molnet. När har distribuerats, tillhandahåller Azure Portal stabil hanteringsverktyg som gör att du kan skala för att hantera kostnader och upp till uppfyller efterfrågan vid behov. Med Migreringsverktyget kan du:
+Azure App Service gör det enkelt att undvika infrastrukturkostnader med migrera äldre IIS6 program. Microsoft har utvecklat [lättanvända Migreringsverktyg och detaljerade riktlinjer](https://www.migratetoazure.net/) som gör att du kan kontrollera kompatibiliteten och identifiera eventuella ändringar som behöver göras. Integrering med Visual Studio, TFS och gemensamma CMS-verktyg som gör det enkelt att distribuera IIS6 program direkt till molnet. När har distribuerats, tillhandahåller Azure Portal stabil hanteringsverktyg som gör att du kan skala för att hantera kostnader och upp till uppfyller efterfrågan vid behov. Med Migreringsverktyget kan du:
 
 * Snabbt och enkelt migrera äldre Windows Server 2003 webbprogrammet till molnet.
 * Välja för att lämna bifogade SQL-databas lokalt för att skapa en hybridprogram.
@@ -174,7 +174,6 @@ Om du vill komma igång med valda alternativ för ditt program, finns i följand
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps

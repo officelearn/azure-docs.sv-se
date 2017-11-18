@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 84b219d31635af6fbdb6bd618e3a9bb4e4848809
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric Linux-kluster till ett virtuellt Azure-nätverk
 Den här kursen ingår i en serie. Du kommer lära dig hur du distribuerar en Linux Service Fabric-kluster till ett befintligt Azure virtuellt nätverk (VNET) och underordnad net med Azure CLI. När du är klar kan har du ett kluster som körs i molnet som du kan distribuera program till. För att skapa ett Windows-kluster med hjälp av PowerShell Se [skapa en säker Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -45,6 +45,22 @@ Innan du börjar den här kursen:
 - Installera den [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 Följande procedurer skapa ett Service Fabric-kluster med fem noder. Att beräkna kostnaden genom att köra ett Service Fabric-kluster i Azure används den [Priskalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/).
+
+## <a name="introduction"></a>Introduktion
+Den här kursen distribuerar ett kluster med fem noder i en enskild nod-typ till ett virtuellt nätverk i Azure.
+
+Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. Kluster kan skalas till tusentals datorer. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper som till exempel placeringsegenskaper.
+
+En nodtyp definierar storlek, antal och egenskaper för en uppsättning virtuella datorer i klustret. Varje definierade nodtyp har ställts in som en [virtuella datorns skaluppsättning](/azure/virtual-machine-scale-sets/), en Azure compute resursen som du använder för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Varje nodtyp kan sedan skalas upp eller ned separat, har olika uppsättningar av öppna portar och kan ha olika kapacitetsdata. Nodtyper används för att definiera roller för en uppsättning noder, till exempel ”klientdel” eller ”serverdel”.  Klustret kan ha fler än en nodtyp, men den primära nodtypen måste ha minst fem datorer för produktion kluster (eller minst tre virtuella datorer för testkluster).  [Service Fabric systemtjänster](service-fabric-technical-overview.md#system-services) placeras på noder av typen primära noden.
+
+## <a name="cluster-capacity-planning"></a>Kapacitetsplanering för kluster
+Den här kursen distribuerar ett kluster med fem noder i en enskild nod-typen.  För alla Produktionsdistribution av klustret är kapacitetsplanering ett viktigt steg. Här följer några saker att tänka på som en del av den här processen.
+
+- Antalet nod av typen ditt kluster behöver 
+- Egenskaperna för varje nodtyp (till exempel storlek, primära, mot internet och antal virtuella datorer)
+- Tillförlitlighet och hållbarhet egenskaper i klustret
+
+Mer information finns i [klustret kapacitetsplaneringsöverväganden](service-fabric-cluster-capacity.md).
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Logga in på Azure och välja din prenumeration
 Den här guiden använder Azure CLI. När du startar en ny session, logga in på ditt Azure-konto och välja din prenumeration innan du kan köra kommandon för Azure.

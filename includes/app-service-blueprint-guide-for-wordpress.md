@@ -1,7 +1,7 @@
 ## <a name="wordpress-and-azure-app-service"></a>WordPress och Azure Apptjänst
 * [Vad är WordPress?](https://wordpress.org/)
-* [Hur du köper ClearDB delade MySQL som är värd för din WordPress-appen](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
-* [Hur till köp ClearDB MySQL dedikerade kluster för WordPress-appen](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
+* [Skapa en WordPress-webbplats i Azure-portalen](https://portal.azure.com/#create/WordPress.WordPress)s
+* [Manuellt skapa en MySQL-databas i Azure](../articles/mysql/quickstart-create-mysql-server-database-using-azure-portal.md)
 * [Distribuera en WordPress-webbapp som säkerhetskopieras med MySQL replikering kluster](/documentation/templates/wordpress-mysql-replication/)
 * [Skapa din egen Master-Master MySQL-kluster med Percona kluster](/documentation/templates/mysql-ha-pxc/) och [Lär dig mer om hur du hanterar klustret](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [Distribuera WordPress backas upp av MySQL replikering kluster med master-slavserver konfiguration](/documentation/templates/mysql-replication/)
@@ -11,8 +11,8 @@
 * [Felsökning av WordPress-appen](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Samla in telemetri med hjälp av Azure Application Insights-tjänsten](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
 * [Kör Zend Zray profileraren mot ditt webbprogram till att diagnostisera problem och prestanda](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
-* [Använda portalen för Kudu-stöd för att diagnostisera och åtgärda problem i realtid](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
-* [Använd olika auto-läka regler för att automatisera lösa incidenter i realtid](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
+* [Använda portalen för Kudu-stöd för att diagnostisera och åtgärda problem](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
+* [Använd olika auto-läka regler för att lösa incidenter automatiskt](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [Hur du säkerhetskopierar din webbapp](../articles/app-service/web-sites-backup.md) och [återställa ditt webbprogram](../articles/app-service/web-sites-restore.md)
 
 ## <a name="performance"></a>Prestanda

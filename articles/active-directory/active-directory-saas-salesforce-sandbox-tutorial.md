@@ -1,190 +1,294 @@
 ---
 title: "Självstudier: Azure Active Directory-integrering med Salesforce Sandbox | Microsoft Docs"
-description: "Lär dig hur du använder Salesforce Sandbox med Azure Active Directory för att aktivera enkel inloggning, Automatisk etablering och mycket mer!."
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce Sandbox."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128d04fdf191b60441b695efef2bf602920d80e6
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Självstudier: Azure Active Directory-integrering med Salesforce Sandbox
 
-Syftet med den här kursen är att visa integreringen av Azure och Salesforce Sandbox.  
+I kursen får lära du att integrera Salesforce Sandbox med Azure Active Directory (AD Azure).
 
->[!TIP]
->Feedback, finns det [Azure supportsidan](http://go.microsoft.com/fwlink/?LinkId=521878). 
-> 
+Integrera Salesforce Sandbox med Azure AD ger dig följande fördelar:
 
-Sandboxar ger dig möjlighet att skapa flera kopior av din organisation i olika miljöer för olika syften, till exempel utveckling, testning och utbildning, utan att kompromissa med data och program i organisationen Salesforce produktion.  
+- Du kan styra i Azure AD som har åtkomst till Salesforce Sandbox.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Salesforce begränsat läge (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Mer information finns i [Sandbox-översikt](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
+## <a name="prerequisites"></a>Krav
 
-* En giltig Azure-prenumeration
-* En sandbox i Salesforce.com
+Om du vill konfigurera Azure AD-integrering med Salesforce Sandbox behöver du följande:
 
-Om du inte har en giltig sandbox i Salesforce.com ännu, måste du kontakta Salesforce.
+- En Azure AD-prenumeration
+- En Salesforce Sandbox enkel inloggning aktiverad prenumeration
 
-Det scenario som beskrivs i den här kursen består av följande byggblock:
+> [!NOTE]
+> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-1. Aktivera programintegrationstyp för Salesforce begränsat läge
-2. Konfigurera enkel inloggning (SSO)
-3. Aktivera din domän
-4. Konfigurera användaretablering
-5. Tilldela användare
+Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
-![Scenariot](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769571.png "Scenario")
+- Använd inte i produktionsmiljön, om det är nödvändigt.
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="enable-the-application-integration-for-salesforce-sandbox"></a>Aktivera application-integration för Salesforce Sandbox
-Syftet med det här avsnittet är att beskriva hur du aktiverar programintegrationstyp för Salesforce begränsat läge.
+## <a name="scenario-description"></a>Scenariobeskrivning
+I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
-**Utför följande steg om du vill aktivera programintegrationstyp för Salesforce begränsat läge:**
+1. Att lägga till Salesforce Sandbox från galleriet
+2. Konfigurera och testa Azure AD enkel inloggning
 
-1. I den klassiska Azure-portalen i det vänstra navigeringsfönstret klickar du på **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700993.png "Active Directory")
-2. Från den **Directory** listan, Välj den katalog som du vill aktivera katalogintegrering.
-3. Klicka för att öppna vyn program i vyn directory **program** på huvudmenyn.
-   
-   ![Program](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700994.png "program")
-4. Öppna den **Programgalleriet**, klickar du på **Lägg till en App**, och klicka sedan på **lägga till ett program som min organisation använder**.
-   
-   ![Vad vill du göra? ] (./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "Vad vill du göra?")
-5. I den **sökrutan**, typen **Salesforce Sandbox**.
-   
-   ![Programgalleriet](./media/active-directory-saas-salesforce-sandbox-tutorial/IC710978.png "Programgalleriet")
-6. I resultatfönstret, Välj **Salesforce Sandbox**, och klicka sedan på **Slutför** lägga till programmet.
-   
-   ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746474.png "Salesforce Sandbox")
-   
-## <a name="configur-single-sign-on-sso"></a>Configur enkel inloggning (SSO)
+## <a name="adding-salesforce-sandbox-from-the-gallery"></a>Att lägga till Salesforce Sandbox från galleriet
+Du måste lägga till Salesforce Sandbox från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Salesforce Sandbox i Azure AD.
 
-Syftet med det här avsnittet är att beskriva hur användarna att autentisera till Salesforce med sitt konto i Azure AD med hjälp av federation baserat på SAML-protokoll.
+**Utför följande steg för att lägga till Salesforce Sandbox från galleriet:**
 
-**Utför följande steg för att konfigurera enkel inloggning:**
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-1. I den klassiska Azure-portalen på den **Salesforce Sandbox** integreringssidan för programmet, klickar du på **Konfigurera enkel inloggning** att öppna den **Konfigurera enkel inloggning** dialogrutan.
-   
-   ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/IC749323.png "Konfigurera enkel inloggning")
-2. På den **hur vill du att användarna kan logga in på Salesforce Sandbox** väljer **Microsoft Azure AD enkel inloggning**, och klicka sedan på **nästa**.
-   
-   ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
-3. På den **konfigurera App-URL** sidan den **logga URL** textruta Skriv URL: en med hjälp av följande mönster `http://company.my.salesforce.com`, och klicka sedan på **nästa**.
-   
-   ![Konfigurera App-URL](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "konfigurera App-URL")
-4. Om du redan har konfigurerat enkel inloggning för en annan Salesforce Sandbox-instans i katalogen, så måste du även konfigurera den **identifierare** ska ha samma värde som den **inloggning URL**. 
- * Den **identifierare** fältet finns genom att kontrollera den **visa avancerade inställningar** kryssruta på den **konfigurera App-URL** sida i dialogrutan.
-5. På den **Konfigurera enkel inloggning på Salesforce Sandbox** klickar du på **hämta certifikat**, och sedan spara certifikatfilen på datorn.
-   
-   ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781023.png "Konfigurera enkel inloggning")
-6. Logga in på ditt Salesforce-sandbox som en administratör i en annan webbläsarfönster.
-7. Klicka på menyn högst upp **installationsprogrammet**.
-   
-   ![Installationsprogrammet](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781024.png "installationen")
-8. I navigeringsfönstret till vänster klickar du på **säkerhetsåtgärder**, och klicka sedan på **inställningar för enkel inloggning**.
-   
-   ![Enkel inloggning inställningar](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781025.png "enkel inloggning inställningar")
-9. Utför följande steg i avsnittet Inställningar för enkel inloggning:
-   
-   ![Enkel inloggning inställningar](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "enkel inloggning inställningar")  
- 1.  Välj **SAML aktiverat**. 
- 2.  Klicka på **Ny**.
-10. Utför följande steg på avsnittet SAML enkel inloggning inställningar:
+    ![Azure Active Directory-knappen][1]
+
+2. Gå till **företagsprogram**. Gå till **alla program**.
+
+    ![Bladet Enterprise program][2]
     
-    ![SAML enkel inloggning inställningar](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "SAML enkel inloggning inställningar")  
- 1. Skriv namnet på konfigurationen i textrutan namn (t.ex.: *SPSSOWAAD\_Test*). 
- 2. I den klassiska Azure-portalen på den **Konfigurera enkel inloggning på Salesforce Sandbox** dialog sidan, kopiera den **utfärdar-URL** värdet och klistrar in det i den **utfärdaren** textruta.
- 3. I den **enhets-Id** textruta typen **https://test.salesforce.com** om det är den första Salesforce Sandbox-instans som du lägger till din katalog. Om du redan har lagt till en instans av Salesforce Sandbox sedan för den **enhets-ID** Skriv i den **logga URL**, som ska vara i formatet:`http://company.my.salesforce.com`   
- 4. Klicka på **Bläddra** att överföra hämtat certifikat.  
- 5. Som **SAML identitetstyp**väljer **Assertion innehåller Federation-ID från användarobjektet**. 
- 6. Som **SAML identitet plats**väljer **identitet är i elementet NameIdentifier i instruktionen ämne**.
- 7. I den klassiska Azure-portalen på den **Konfigurera enkel inloggning på Salesforce Sandbox** dialog sidan, kopiera den **Remote inloggnings-URL** värdet och klistrar in det i den **identitet providern inloggnings-URL** textruta. 
- 8. SFDC har inte stöd för SAML logga ut.  Som en tillfällig lösning kan du klistra in 'https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0' till den **identitet providern logga ut URL** textruta.
- 9. Som **providern initierade begära Tjänstbindning**väljer **HTTP POST**. 
- 10. Klicka på **Spara**.
-11. Välj bekräftelsen konfiguration för enkel inloggning på den klassiska Azure-portalen och klicka sedan på **Slutför** att stänga den **Konfigurera enkel inloggning** dialogrutan.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "Konfigurera enkel inloggning")
+3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-## <a name="enable-your-domain"></a>Aktivera din domän
+    ![Knappen Nytt program][3]
+
+4. I sökrutan skriver **Salesforce Sandbox**väljer **Salesforce Sandbox** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+
+    ![Salesforce Sandbox i resultatlistan](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+
+Du konfigurera och testa Azure AD enkel inloggning med Salesforce Sandbox baserat på en testanvändare som kallas ”Britta Simon” i det här avsnittet.
+
+Azure AD måste du känna till användaren i Salesforce Sandbox motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Salesforce Sandbox upprättas.
+
+I Salesforce Sandbox tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+
+Om du vill konfigurera och testa Azure AD enkel inloggning med Salesforce Sandbox, måste du utföra följande byggblock:
+
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Salesforce Sandbox](#create-a-salesforce-sandbox-test-user)**  – du har en motsvarighet för Britta Simon i Salesforce Sandbox som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Salesforce-Sandbox-program.
+
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med Salesforce Sandbox:**
+
+1. I Azure-portalen på den **Salesforce Sandbox** integreringssidan för programmet, klickar du på **enkel inloggning**.
+
+    ![Konfigurera enkel inloggning länk][4]
+
+2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+ 
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_samlbase.png)
+
+3. På den **Salesforce Sandbox domän och URL: er** avsnittet, utför följande steg:
+
+    ![URL: er och Salesforce Sandbox domän med enkel inloggning information](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url.png)
+
+    a. I den **inloggnings-URL** textruta Skriv det värde som använder följande mönster:`https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+
+    b. I den **identifierare** textruta Skriv det värde som använder följande mönster:`https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+    
+    > [!NOTE] 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Salesforce klienten supportteamet](https://help.salesforce.com/support) att hämta dessa värden.
+
+4. På den **SAML-signeringscertifikat** klickar du på **certifikat** och spara certifikatfilen på datorn.
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_certificate.png) 
+
+5. Klicka på **spara** knappen.
+
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_400.png)
+
+6. På den **Salesforce Sandbox Configuration** klickar du på **konfigurera Salesforce Sandbox** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png) 
+
+7. Öppna en ny flik i webbläsaren och logga in på ditt Salesforce-Sandbox-administratörskonto.
+
+8. Klicka på den **installationsprogrammet** under **inställningsikonen** i det övre högra hörnet på sidan.
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/configure1.png)
+
+9. Rulla ned till den **inställningar** i navigeringsfönstret klickar du på **identitet** att expandera avsnittet relaterade. Klicka på **inställningar för enkel inloggning**.
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-admin-sso.png)
+
+10. Välj **SAML aktiverat**, och klicka sedan på **spara**.
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-enable-saml.png)
+
+11. Om du vill konfigurera SAML enkel inloggning för, klickar du på **ny**.
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+
+12. Utför följande steg på avsnittet SAML enkel inloggning inställningar:
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-saml-config.png)
+
+    a. I den **namn** textruta skriver du namnet på konfigurationen (till exempel: *SPSSOWAAD_Test*). 
+
+    b. I den **utfärdaren** och klistra in värdet för fältet **SAML enhets-ID**, som du har kopierat från Azure-portalen
+
+    c. I den **enhets-Id** textruta typen `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` om det är den första Salesforce Sandbox-instans som du lägger till din katalog. Om du redan har lagt till en instans av Salesforce Sandbox sedan för den **enhets-ID** Skriv i den **logga URL**, som ska vara i formatet:`https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
+ 
+    d. Att överföra den **providern identitetscertifikat**, klickar du på **Välj fil** att bläddra och välja den certifikatfil som du har hämtat från Azure-portalen.  
+
+    e. Som **SAML identitetstyp**, väljer du något av följande alternativ:
+    
+      * Välj **Assertion innehåller användarens Salesforce användarnamn**om användarens Salesforce Username skickas i SAML-kontroll
+
+      * Välj **Assertion innehåller Federation-ID från användarobjektet**om Federation-ID från användarobjektet skickas i SAML-kontroll
+
+      * Välj **Assertion innehåller Använd ID från användarobjektet**om användar-ID från användarobjektet skickas i SAML-kontroll
+ 
+    f. Som **SAML identitet plats**väljer **identitet är i elementet NameIdentifier i instruktionen ämne**.
+
+    g. Som **providern initierade begära Tjänstbindning**väljer **HTTP POST**. 
+
+    h. I **identitet providern inloggnings-URL** textruta klistra in värdet för **inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen. 
+
+    Jag. SFDC har inte stöd för SAML logga ut.  Som en tillfällig lösning kan du klistra in `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` till den **identitet providern logga ut URL** textruta.
+
+    j. Klicka på **Spara**.
+
+### <a name="enable-your-domain"></a>Aktivera din domän
 Det här avsnittet förutsätter att du redan har skapat en domän.  Mer information finns i [definierar domännamn](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 **Utför följande steg om du vill aktivera din domän:**
 
-1. I det vänstra navigeringsfönstret klickar du på **domänhantering**, och klicka sedan på **min domän.**
+1. Klicka på det vänstra navigeringsfönstret i Salesforce **Företagsinställningar** Expandera avsnittet relaterade och klicka sedan på **min domän**.
    
-   ![Min domän](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781029.png "min domän")
+     ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
    
    >[!NOTE]
    >Kontrollera att din domän har konfigurerats korrekt. 
-   > 
-2. I den **sidan inloggningsinställningar** klickar du på **redigera**, sedan som **Autentiseringstjänsten**, Välj namnet på SAML enkel inloggning inställningen från föregående avsnitt och klickar slutligen **spara**.
+
+2. I den **Autentiseringskonfiguration** klickar du på **redigera**, sedan som **Autentiseringstjänsten**, Välj namnet på SAML enkel inloggning inställningen från den tidigare avsnittet och klicka slutligen på **spara**.
    
-   ![Min domän](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781030.png "min domän")
+   ![Konfigurera enkel inloggning](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 Så snart du har en domän som har konfigurerats, bör användarna använda domän-URL för att logga in till Salesforce sandbox.  
 
 Om du vill hämta värdet för URL: en, klickar du på SSO-profil som du har skapat i föregående avsnitt.
 
-## <a name="configure-user-provisioning"></a>Konfigurera användaretablering
-Syftet med det här avsnittet är att beskriva hur du aktiverar användaretablering för Active Directory-användarkonton till Salesforce Sandbox.
+> [!TIP]
+> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-**Utför följande steg för att konfigurera användaretablering:**
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
-1. Välj ditt namn för att expandera användare-menyn i Salesforce-portalen i det övre navigeringsfältet:
-   
-   ![Mina inställningar](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698773.png "Mina inställningar")
-2. Användare-menyn, Välj **Mina inställningar** att öppna din **Mina inställningar** sidan.
-3. I den vänstra rutan klickar du på **personliga** Expandera avsnittet personliga och klicka sedan på **Återställ mina säkerhetstoken**:
-   
-   ![Mina inställningar](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698774.png "Mina inställningar")
-4. På den **Återställ mina säkerhetstoken** klickar du på **återställa säkerhetstoken** att begära ett e-postmeddelande som innehåller din Salesforce.com-säkerhetstoken.
-   
-   ![Ny Token](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698776.png "ny Token")
-5. Kontrollera din inkorg för e-post från Salesforce.com med ”**salesforce.com.com säkerhet bekräftelse**” som ämne.
-6. Granska den här e-post och kopiera säkerhet token-värde.
-7. I den klassiska Azure-portalen på den **salesforce Sandbox** integreringssidan för programmet, klickar du på **konfigurera användaretablering** att öppna den **konfigurera Användaretablering** dialogrutan.
-   
-   ![Konfigurera användaretablering](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "konfigurera användaretablering")
-8. På den **ange inloggningsinformation Salesforce begränsat läge om du vill aktivera automatisk användaretablering** anger du följande inställningar:
-   
-   ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746476.png "Salesforce Sandbox")   
- 1. I den **Salesforce Sandbox administratörsanvändarnamnet** textruta typen en Salesforce sandbox kontonamn som har den **systemadministratören** profil i Salesforce.com som tilldelats.
- 2. I den **Salesforce Sandbox adminlösenord** textruta skriver du lösenordet för det här kontot.
- 3. I den **användartoken säkerhet** textruta klistra in säkerhet token-värde.
- 4. Klicka på **verifiera** att kontrollera konfigurationen.
- 5. Klicka på den **nästa** för att öppna den **bekräftelse** sidan.
-9. På den **bekräftelse** klickar du på **Slutför** att spara konfigurationen.
-   
-## <a name="assigning-users"></a>Tilldela användare
+Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-Om du vill testa konfigurationen måste du bevilja Azure AD-användare som du vill tillåta med hjälp av ditt programåtkomst till den genom att tilldela dem.
+   ![Skapa en testanvändare i Azure AD][100]
 
-**Om du vill tilldela användare till Salesforce Sandbox, utför du följande steg:**
+**Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. Skapa ett testkonto i den klassiska Azure-portalen.
-2. På den ** Salesforce Sandbox ** integreringssidan för programmet, klickar du på **tilldela användare**.
-   
-   ![Tilldela användare](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "tilldela användare")
-3. Välj din testanvändare, klicka på **tilldela**, och klicka sedan på **Ja** att bekräfta din tilldelning.
-   
-   ![Ja](./media/active-directory-saas-salesforce-sandbox-tutorial/IC767830.png "Ja")
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-Nu bör du vänta i 10 minuter och kontrollera att kontot har synkroniserats till Salesforce Sandbox.
+    ![Azure Active Directory-knappen](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_01.png)
 
-Om du vill testa inställningarna för enkel inloggning, öppna åtkomstpanelen. Mer information om åtkomstpanelen finns [introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586).
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_02.png)
+
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+
+    ![Knappen Lägg till](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_03.png)
+
+4. I den **användaren** dialogrutan utför följande steg:
+
+    ![Dialogrutan användare](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+
+    d. Klicka på **Skapa**.
+ 
+### <a name="create-a-salesforce-sandbox-test-user"></a>Skapa en testanvändare Salesforce Sandbox
+
+I det här avsnittet skapas en användare som kallas Britta Simon i Salesforce Sandbox. Salesforce Sandbox stöder just-in-time-allokering som är aktiverad som standard.
+Det finns ingen åtgärd objekt i det här avsnittet. Om en användare inte redan finns i Salesforce Sandbox, skapas en ny när du försöker komma åt Salesforce Sandbox.
+
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Salesforce Sandbox.
+
+![Tilldela rollen][200] 
+
+**Om du vill tilldela Salesforce Sandbox Britta Simon utför du följande steg:**
+
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+
+    ![Tilldela användare][201] 
+
+2. Välj i listan med program **Salesforce Sandbox**.
+
+    ![Länken Salesforce Sandbox i listan med program](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_app.png)  
+
+3. Klicka på menyn till vänster **användare och grupper**.
+
+    ![Länken ”användare och grupper”][202]
+
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+
+    ![Fönstret Lägg till tilldelning][203]
+
+5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+
+6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+
+7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+    
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
+
+I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+
+När du klickar på panelen Salesforce Sandbox på åtkomstpanelen du bör få automatiskt loggat in på ditt Salesforce-Sandbox-program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Ytterligare resurser
+
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_203.png
 

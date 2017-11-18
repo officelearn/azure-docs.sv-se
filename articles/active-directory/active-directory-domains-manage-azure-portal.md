@@ -4,7 +4,7 @@ description: "Management-begrepp och instruktioner för att hantera ett domänna
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domännamn i Azure Active Directory
 Ett domännamn är en viktig del av identifierare för många katalogresurserna: det är en del av ett användarnamn eller e-postadress för en användare, en del av adressen för en grupp, och kan vara en del av app-ID URI för ett program. En resurs i Azure Active Directory (Azure AD) kan innehålla ett domännamn som redan har verifierats som ägs av katalogen som innehåller resursen. Endast en global administratör kan utföra hanteringsuppgifter för domänen i Azure AD.
@@ -29,18 +29,18 @@ När din katalog har skapats, är det ursprungliga domännamnet, till exempel co
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
 2. Välj **Azure Active Directory**.
-   
-   ![Öppna användarhantering](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Välj **domännamn**.
-4. Välj namnet på den domän som du vill se den primära domänen.
+3. Välj **anpassade domännamn**.
+     
+   ![Öppna användarhantering](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
+4. Välj namnet på den domän som du vill ska vara den primära domänen.
 5. Välj den **gör primär** kommando. Bekräfta valet när du uppmanas göra det.
    
-   ![Gör ett domännamn primär](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+   ![Gör ett domännamn primär](./media/active-directory-domains-manage-azure-portal/make-primary-domain.png)
 
 Du kan ändra det primära domännamnet för din katalog ska alla verifierade anpassade domäner som inte är federerat. Primär domän för din katalog kommer ändra användarnamn för eventuella befintliga användare.
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Lägg till anpassade domännamn i din Azure AD
-> Du kan lägga till upp till 900 hanterade domännamn. Du kan lägga till till högst 450 domännamn i varje katalog om du vill konfigurera alla domäner för federering med lokala Active Directory. Mer information finns i [federerat och hanterade domännamn](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Lägg till anpassade domännamn i Azure AD-klient
+Du kan lägga till upp till 900 hanterade domännamn. Du kan lägga till till högst 450 domännamn i varje katalog om du konfigurerar dina domäner för federering med lokala Active Directory. Mer information finns i [federerat och hanterade domännamn](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Lägger till underdomäner i en anpassad domän
 Om du vill lägga till en tredje nivån domännamn, till exempel 'europe.contoso.com' i katalogen bör du först lägga till och kontrollera andranivådomän, t.ex contoso.com. Underdomänen verifieras automatiskt av Azure AD. Uppdatera sidan i webbläsaren visas domänerna om du vill se underdomänen som du just lagt har verifierats.

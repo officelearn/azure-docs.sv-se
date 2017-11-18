@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25fd7ca3a7a6f2bd9b361bd459a707bad49449e4
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: ee6d649ac1ab0813098b13750ccc1f6ebf82f684
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure DB .NET SDK för Cosmos: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -51,6 +51,11 @@ ms.lasthandoff: 11/13/2017
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
+
+* Lägger till möjligheten att ange unika index för dokument med UniqueKeyPolicy-egenskapen på dokumentsamling.
+* Fast ett programfel där de anpassade inställningarna JsonSerializer inte har som Inlöst för vissa frågor och lagrade proceduren körning.
+
 ### <a name="a-name11901190"></a><a name="1.19.0"/>1.19.0
 
 * Anpassning ändring från Azure DocumentDB Azure Cosmos-DB i API-referens dokumentation, metadatainformation i sammansättningar och NuGet-paketet. 
@@ -270,6 +275,7 @@ Alla begäranden till Azure Cosmos-databasen med en pensionerad SDK avvisas av t
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.19.1](#1.19.1) |16 november 2017 |--- |
 | [1.19.0](#1.19.0) |10 november 2017 |--- |
 | [1.18.1](#1.18.1) |07 november 2017 |--- |
 | [1.18.0](#1.18.0) |17 oktober 2017 |--- |

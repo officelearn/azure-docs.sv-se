@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 0f197a28e0c51b06d0b47a03c29fe1fde0c6b78d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f84ab26c43f33827479faed46db1de246920ae5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Skapa en IoT-hubb med hjälp av Azure Resource Manager-mall (.NET)
 
@@ -215,7 +215,7 @@ Mer information om hur du utvecklar för IoT-hubb finns i följande artiklar:
 
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
-* [Simulera en enhet med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -229,4 +229,4 @@ Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

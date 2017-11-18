@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 11/17/2017
 ms.author: bwren
-ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i logganalys
 Datakälla för anpassade loggar i logganalys kan du samla in händelser från textfiler på Windows- och Linux-datorer. Många program loggar information till textfiler i stället för standardtjänster loggning, till exempel Windows-händelseloggen eller Syslog.  När samlas in, analyserar du varje post i loggen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i logganalys.
@@ -56,10 +56,6 @@ Börja med att ladda upp ett exempel på anpassad logg.  Guiden kommer att parsa
 
 Om en avgränsare för en tidsstämpel används fylls egenskapen TimeGenerated för varje post i OMS med datum/tid som angetts för posten i loggfilen.  Om en Radavgränsare för en ny används fylls TimeGenerated med datum och tid att logganalys samlas in transaktionen.
 
-> [!NOTE]
-> Logganalys behandlar för närvarande tidsvärdet som samlas in från en logg med en tidsstämpel avgränsare som UTC.  Detta kommer snart att ändras för att använda tidszonen på agenten.
->
->
 
 1. Klicka på **Bläddra** och bläddra till en exempelfil.  Observera att detta kan knappen betecknas **Välj fil** i vissa webbläsare.
 2. Klicka på **Nästa**.

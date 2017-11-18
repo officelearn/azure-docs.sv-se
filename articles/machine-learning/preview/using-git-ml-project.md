@@ -2,19 +2,19 @@
 title: Med en Azure Machine Learning arbetsstationen projektet Git Repo | Microsoft Docs
 description: "Den här artikeln beskrivs hur du använder en Git-lagringsplats tillsammans med ett projekt för Azure Machine Learning arbetsstationen."
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: hning86
+author: hning86
+ms.author: haining
+manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 59b07c9834904e01256b75344ba2e6892e56438c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.openlocfilehash: c91eadd69eaf16b2496f4d7247e5b0121904e172
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Med ett projekt för Azure Machine Learning arbetsstationen Git-lagringsplats
 Det här dokumentet innehåller information om hur Azure Machine Learning arbetsstationen använder Git så reproducerbara i experimentet vetenskapliga data. Det finns också anvisningar om hur du associerar ditt projekt till ett moln Git-lagringsplats.
@@ -66,27 +66,29 @@ Om du vill gå direkt till grupprojekt precis skapade, URL-Adressen är `https:/
 > Azure Machine Learning stöder för närvarande endast tomt Git repor med ingen mastergrenen. Du kan använda från kommandoradsgränssnittet,--kraft argumentet först ta bort din mastergrenen. 
 
 ## <a name="step-3-create-a-new-azure-ml-project-with-a-remote-git-repo"></a>Steg 3. Skapa ett nytt Azure ML-projekt med en fjärransluten Git repo
-Starta Azure ML-arbetsstationen och skapa ett nytt projekt. Fyll textrutan för Git-lagringsplatsen till lagringsplatsen VSTS Git-URL som du får från steg 2. Det ser oftast ut så här: http://<vsts_account_name>.visualstudio.com/_git/<project_name>
+Starta Azure ML-arbetsstationen och skapa ett nytt projekt. Fyll textrutan för Git-lagringsplatsen till lagringsplatsen VSTS Git-URL som du får från steg 2. Det ser oftast ut så här:`http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
 
 ![Skapa Azure ML-projekt med Git repo](media/using-git-ml-project/create_project_with_git_rep.png)
 
 Nu skapas ett nytt Azure ML-projekt med fjärransluten Git repo integration aktiverad och redo att sätta igång. Projektmappen är alltid Git-initieras som en lokal Git-lagringsplatsen. Git och _remote_ är inställd på fjärranslutna VSTS Git-lagringsplatsen så incheckningar kan skickas till en fjärransluten Git-lagringsplatsen.
 
-## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Steg 3.a koppla ett befintligt Azure ML-projekt med en VSTS Git repo
+## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Steg 3a. Koppla ett befintligt Azure ML-projekt till en VSTS Git repo
 Alternativt kan du också skapa ett Azure ML-projekt utan en VSTS Git-lagringsplatsen och bara förlita dig på lokala Git-lagringsplatsen för ögonblicksbilder av rapporthistorik kör. Och du kan associera en VSTS Git-lagringsplatsen senare med befintliga Azure ML projektet med följande kommando:
 
 ```azurecli
 # make sure you are in the project path so CLI has context of your current project
-az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name
+$ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
 ```
 
 ## <a name="step-4-capture-project-snapshot-in-git-repo"></a>Steg 4. Avbilda projektet ögonblicksbild i Git repo
-Nu kan du köra några körs i projektet, göra vissa ändringar emellan körs. Du kan göra detta från skrivbordsappen, eller från med hjälp av CLI `az ml experiment submit` kommando. Mer information kan du följa den [klassificera Iris kursen](tutorial-classifying-iris-part-1.md). För varje kör om det finns ändringar som gjorts i alla filer i projektmappen är en ögonblicksbild av hela projektmappen allokerade och flyttas fjärransluten Git-lagringsplatsen. Du kan visa filialer och incheckningar genom att bläddra till URL: en för VSTS Git-lagringsplatsen.
+Nu kan du köra några körs i projektet, göra vissa ändringar emellan körs. Du kan göra detta från skrivbordsappen, eller från med hjälp av CLI `az ml experiment submit` kommando. Mer information kan du följa den [klassificera Iris kursen](tutorial-classifying-iris-part-1.md). För varje kör om det finns ändringar som gjorts i alla filer i projektmappen en ögonblicksbild av hela projektmappen är allokerade och flyttas fjärransluten Git-lagringsplatsen under en gren med namnet `AzureMLHistory/<Project_GUID>`. Du kan visa filialer och incheckningar genom att bläddra till URL: en för VSTS Git-lagringsplatsen och hitta förgreningssidan. 
 
 ![Kör historik gren](media/using-git-ml-project/run_history_branch.png)
 
+Obs det är bättre fungerar inte i grenen historik själv. Detta kan förstöra med körningshistorik. Använd mastergrenen eller skapa andra filialer i stället för en egen Git-åtgärder.
+
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>Steg 5. Återställa en tidigare ögonblicksbild i projektet 
-Att återställa hela projektmappen till tillståndet för en tidigare körningshistorik projekt tillstånd ögonblicksbild, från AML arbetsstationen.
+Att återställa hela projektmappen till tillståndet för en tidigare körningshistorik projekt tillstånd ögonblicksbild, från Azure ML-arbetsstationen:
 1. Klicka på **körs** i aktiviteten liggande (timme om ikonen).
 2. Från den **Kör listan** visa, klicka på kör du vill återställa.
 3. Från den **kör detalj** visa, klicka på **återställa**.
@@ -97,29 +99,29 @@ Du kan också använda följande kommando från fönstret Azure ML-arbetsstation
 
 ```azurecli
 # discover the run I want to restore snapshot from:
-az ml history list -o table
+$ az ml history list -o table
 
 # restore the snapshot from a particular run
-az ml project restore --run-id <run_id>
+$ az ml project restore --run-id <run_id>
 ```
 
-Genom att köra det här kommandot vi skriver över hela projektmappen med ögonblicksbilden utförs när den viss körningen har inletts. Det innebär att du kommer att **förlora alla ändringar** i projektmappen aktuella. Så ta vara extra försiktig när du kör det här kommandot.
+Genom att köra det här kommandot vi skriver över hela projektmappen med ögonblicksbilden utförs när den viss körningen har inletts. Men projektet finns kvar på den aktuella grenen. Det innebär att du kommer att **förlora alla ändringar** i projektmappen aktuella. Så ta vara extra försiktig när du kör det här kommandot.
 
 ## <a name="step-6-use-the-master-branch"></a>Steg 6. Använd mastergrenen
-Ett sätt att undvika att förlora den aktuella statusen för projektet, av misstag är att genomföra projektet till mastergrenen av Git-lagringsplatsen. Du kan använda Git direkt från kommandoraden (eller din andra favorit Git klientverktyg) för att använda mastergrenen. Exempel:
+Ett sätt att undvika att av misstag är förlorar den aktuella statusen för projektet, att genomföra projektet till mastergrenen (eller valfri gren som du själv har skapat) för Git-lagringsplatsen. Du kan använda Git direkt från kommandoraden (eller din andra favorit Git klientverktyg) för att använda mastergrenen. Exempel:
 
 ```
-# make sure you are on the master branch
-git checkout master
+# make sure you are on the master branch (or branch of your choice)
+$ git checkout master
 
 # stage all changes
-git add -A
+$ git add -A
 
 # commit all changes locally on the master branch
-git commit -m 'this is my updates so far'
+$ git commit -m 'this is my updates so far'
 
 # push changes into the remote VSTS Git repo master branch.
-git push origin master
+$ git push origin master
 ```
 
 Nu på ett säkert sätt kan du återställa projekt till en tidigare ögonblicksbild följande steg 5 om du vet att du kan alltid gå tillbaka till genomförandet du precis har gjort i bakgrunden grenen.

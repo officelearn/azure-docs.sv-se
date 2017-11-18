@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: arramac
-ms.openlocfilehash: 99f3ddb165fa548ca1d65676bb1f945632c72dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1dcc2178b3c7017338e0097773fbf0d04c8b6a20
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell med Node.js och Azure Cosmos DB-API-app
 
@@ -74,8 +74,6 @@ Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra a
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. Öppna därefter lösningsfilen i Visual Studio. 
-
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. Detta gör att din app för att kommunicera med databasen värdbaserade. 
@@ -84,7 +82,9 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     ![Visa och kopiera den nödvändiga informationen i anslutningssträngen från den i fönstret anslutningssträngen](./media/create-table-nodejs/connection-string.png)
 
-2. Öppna filen app.config och kopiera de nödvändiga egenskaperna för anslutningssträngen i konfigurationsfilen.
+2. Kopiera den primära ANSLUTNINGSSTRÄNGEN med hjälp av kopieringsknappen till höger.
+
+3. Öppna filen app.config och klistra in värdet i connectionString på rad tre. Om Endpoint-delen av anslutningssträngen använder documents.azure.com, korrigera del för att använda table.cosmosdb.azure.com i stället.
 
 3. Spara filen app.config.
 
@@ -94,14 +94,19 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 1. I fönstret git terminal `cd` till lagring-tabellen java-komma-igång-mappen.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. I git börjar terminalfönster, kör följande kommandon för att köra Java-program.
+2. Kör följande kommando för att installera [azure], [nod-uuid], [nconf] och [asynkrona] moduler lokalt samt att spara en post för dem i package.json-filen
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. I git terminalfönster, kör följande kommandon för att köra programmet nod.
+
+    ```
     node ./tableSample.js 
     ```
 

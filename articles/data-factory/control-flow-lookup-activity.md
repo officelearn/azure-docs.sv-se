@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sökning aktivitet i Azure Data Factory
 Lookup-aktiviteten kan användas till att läsa eller söka efter en post/ett tabellnamn/ett värde från valfri extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter. 
@@ -53,6 +53,9 @@ Den här pipelinen innehåller två aktiviteter: **Leta upp** och **kopiera**.
                 "name": "LookupActivity",
                 "type": "Lookup",
                 "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
                     "dataset": { 
                         "referenceName": "LookupDataset", 
                         "type": "DatasetReference" 
@@ -232,8 +235,8 @@ Azure SQL-databasen innehåller data som ska kopieras till blob storage.
 ## <a name="type-properties"></a>Typegenskaper
 Namn | Beskrivning | Typ | Krävs
 ---- | ----------- | ---- | --------
-DataSet | Dataset-attributet är att tillhandahålla dataset-referens för sökningen. För närvarande är stöds dataset-typer:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | nyckel/värde-par | Ja
-Källa | Egenskaper för DataSet-specifik datakälla, samma som kopieringskälla för aktiviteten | Nyckel/värde-par | Nej
+DataSet | Dataset-attributet är att tillhandahålla dataset-referens för sökningen. För närvarande är stöds dataset-typer:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | Nyckel/värde-par | Ja
+källa | Egenskaper för DataSet-specifik datakälla, samma som kopieringskälla för aktiviteten | Nyckel/värde-par | Nej
 firstRowOnly | Returnerar första raden eller alla rader. | Booleskt värde | Nej
 
 ## <a name="next-steps"></a>Nästa steg

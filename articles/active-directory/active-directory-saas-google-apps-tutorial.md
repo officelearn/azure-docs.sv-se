@@ -1,23 +1,24 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Google Apps i Azure | Microsoft Docs"
+title: "Självstudier: Azure Active Directory-integrering med Google Apps | Microsoft Docs"
 description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Google Apps."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 065841d6b4fe50e953f01bba4d3f23de82b82726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d92e673a948dd139ff2d4a24f2e602180be43c5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Självstudier: Azure Active Directory-integrering med Google Apps
 
@@ -25,9 +26,9 @@ I kursen får lära du att integrera Google Apps med Azure Active Directory (AD 
 
 Integrera Google Apps med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Google Apps
-- Du kan aktivera användarna att automatiskt hämta loggat in på Google Apps (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan styra i Azure AD som har åtkomst till Google Apps.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Google Apps (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -44,7 +45,7 @@ Om du vill konfigurera Azure AD-integrering med Google Apps behöver du följand
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad här: [utvärderingsversion erbjudande](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="video-tutorial"></a>Videosjälvstudie
 Så här aktiverar enkel inloggning till Google Apps i två minuter:
@@ -81,40 +82,37 @@ Du måste lägga till Google Apps från galleriet i listan över hanterade SaaS-
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Bladet Enterprise program][2]
     
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Google Apps**.
+4. I sökrutan skriver **Google Apps**väljer **Google Apps** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_search.png)
+    ![Google Apps i resultatlistan](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_addfromgallery.png)
 
-5. Välj i resultatpanelen **Google Apps**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Google Apps baserat på en testanvändare som kallas ”Britta Simon”.
 
 Azure AD måste du känna till användaren i Google Apps motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Google Apps upprättas.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i Google Apps.
+I Google Apps tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Google Apps, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare för Google Apps](#creating-a-google-apps-test-user)**  – du har en motsvarighet för Britta Simon i Google-appar som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare för Google Apps](#create-a-google-apps-test-user)**  – du har en motsvarighet för Britta Simon i Google-appar som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Google Apps-program.
 
@@ -122,32 +120,41 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Google Apps** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_samlbase.png)
 
 3. På den **Google Apps-domän och URL: er** avsnittet, utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_url.png)
+    ![URL: er och Google Apps-domän med enkel inloggning information](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_url.png)
 
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://mail.google.com/a/<yourdomain>`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://mail.google.com/a/<yourdomain.com>`
+
+    b. I den **identifierare** textruta Skriv en URL med följande mönster:
+
+    | |
+    |--|
+    | `http://google.com/a/<yourdomain.com>`|
+    | `http://google.com`|    
+    | `google.com/<yourdomain.com>`|
+    | `google.com`|
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera värdet med det faktiska inloggnings-URL. Kontakta den [Google supportteamet](https://www.google.com/contact/).
- 
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat** och spara certifikatet på datorn.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Google Apps klienten supportteamet](https://www.google.com/contact/) att hämta dessa värden. 
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_certificate.png) 
+4. På den **SAML-signeringscertifikat** klickar du på **certifikat** och spara certifikatfilen på datorn.
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_certificate.png) 
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-google-apps-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-googleapps-tutorial/tutorial_general_400.png)
 
 6. På den **Google Apps-konfiguration** klickar du på **konfigurera Google Apps** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enkel inloggning URL: en och ändra URL: en lösenord** från den **Snabbreferens avsnitt.**
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_configure.png) 
+    ![Google Apps-konfiguration](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_configure.png) 
 
 7. Öppna en ny flik i webbläsaren och logga in på den [Google Apps-administrationskonsolen](http://admin.google.com/) med ditt administratörskonto.
 
@@ -165,11 +172,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     a. Välj **installationsprogrammet SSO med tredjeparts identitetsprovider**.
 
-    b. I den **inloggning Sidadress** fältet i Google Apps, klistra in värdet för **inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
+    b. I den **inloggning Sidadress** fältet i Google Apps, klistra in värdet för **inloggning tjänst-URL för enkel** som du har kopierat från Azure-portalen.
 
-    c. I den **URL för utloggning** fältet i Google Apps, klistra in värdet för **Sign-Out URL**, som du har kopierat från Azure-portalen. 
+    c. I den **URL för utloggning** fältet i Google Apps, klistra in värdet för **Sign-Out URL** som du har kopierat från Azure-portalen. 
 
-    d. I den **ändra lösenord URL** fältet i Google Apps, klistra in värdet för **ändra lösenord URL**, som du har kopierat från Azure-portalen. 
+    d. I den **ändra lösenord URL** fältet i Google Apps, klistra in värdet för **ändra lösenord URL** som du har kopierat från Azure-portalen. 
 
     e. I Google Apps för den **verifieringscertifikat**, ladda upp certifikatet som du har hämtat från Azure-portalen.
 
@@ -177,50 +184,52 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
- 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+   ![Skapa en testanvändare i Azure AD][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-google-apps-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory-knappen](./media/active-directory-saas-googleapps-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-google-apps-tutorial/create_aaduser_02.png) 
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-google-apps-tutorial/create_aaduser_03.png) 
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-googleapps-tutorial/create_aaduser_02.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-google-apps-tutorial/create_aaduser_04.png) 
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    ![Knappen Lägg till](./media/active-directory-saas-googleapps-tutorial/create_aaduser_03.png)
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+4. I den **användaren** dialogrutan utför följande steg:
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    ![Dialogrutan användare](./media/active-directory-saas-googleapps-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-google-apps-test-user"></a>Skapa en testanvändare för Google Apps
+### <a name="create-a-google-apps-test-user"></a>Skapa en testanvändare för Google Apps
 
 Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Google Apps programvara. Google Apps har stöd för automatisk etablering, vilket är aktiverat som standard. Det finns inga åtgärder i det här avsnittet. Om en användare inte redan finns i Google Apps programvara, skapas en ny när du försöker komma åt Google Apps programvara.
 
 >[!NOTE] 
 >Om du behöver skapa en användare manuellt kan kontakta den [Google supportteamet](https://www.google.com/contact/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Google Apps.
 
-![Tilldela användare][200] 
+![Tilldela rollen][200] 
 
 **Om du vill tilldela Google Apps Britta Simon utför du följande steg:**
 
@@ -230,15 +239,15 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 2. Välj i listan med program **Google Apps**.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-google-apps-tutorial/tutorial_googleapps_app.png) 
+    ![Google Apps-länken i listan med program](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Länken ”användare och grupper”][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
-    ![Tilldela användare][203]
+    ![Fönstret Lägg till tilldelning][203]
 
 5. På **användare och grupper** markerar **Britta Simon** på listan användare.
 
@@ -246,55 +255,32 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
     
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet om du vill testa dina inställningar för enkel inloggning, öppna åtkomstpanelen på [https://myapps.microsoft.com](active-directory-saas-access-panel-introduction.md)sedan logga in i testkonto och klicka på **Google Apps** panelen i åtkomstpanelen.
+I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+
+När du klickar på Google Apps-panelen på åtkomstpanelen du bör få automatiskt loggat in på ditt Google Apps-program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Konfigurera Användaretablering](active-directory-saas-google-apps-provisioning-tutorial.md)
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-google-apps-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-googleapps-tutorial/tutorial_general_203.png
+[10]: ./media/active-directory-saas-googleapps-tutorial/gapps-security.png
+[11]: ./media/active-directory-saas-googleapps-tutorial/security-gapps.png
+[12]: ./media/active-directory-saas-googleapps-tutorial/gapps-sso-config.png
 
-[0]: ./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png
-
-[5]: ./media/active-directory-saas-google-apps-tutorial/gapps-added.png
-[6]: ./media/active-directory-saas-google-apps-tutorial/config-sso.png
-[7]: ./media/active-directory-saas-google-apps-tutorial/sso-gapps.png
-[8]: ./media/active-directory-saas-google-apps-tutorial/sso-url.png
-[9]: ./media/active-directory-saas-google-apps-tutorial/download-cert.png
-[10]: ./media/active-directory-saas-google-apps-tutorial/gapps-security.png
-[11]: ./media/active-directory-saas-google-apps-tutorial/security-gapps.png
-[12]: ./media/active-directory-saas-google-apps-tutorial/gapps-sso-config.png
-[13]: ./media/active-directory-saas-google-apps-tutorial/gapps-sso-confirm.png
-[14]: ./media/active-directory-saas-google-apps-tutorial/gapps-sso-email.png
-[15]: ./media/active-directory-saas-google-apps-tutorial/gapps-api.png
-[16]: ./media/active-directory-saas-google-apps-tutorial/gapps-api-enabled.png
-[17]: ./media/active-directory-saas-google-apps-tutorial/add-custom-domain.png
-[18]: ./media/active-directory-saas-google-apps-tutorial/specify-domain.png
-[19]: ./media/active-directory-saas-google-apps-tutorial/verify-domain.png
-[20]: ./media/active-directory-saas-google-apps-tutorial/gapps-domains.png
-[21]: ./media/active-directory-saas-google-apps-tutorial/gapps-add-domain.png
-[22]: ./media/active-directory-saas-google-apps-tutorial/gapps-add-another.png
-[23]: ./media/active-directory-saas-google-apps-tutorial/apps-gapps.png
-[24]: ./media/active-directory-saas-google-apps-tutorial/gapps-provisioning.png
-[25]: ./media/active-directory-saas-google-apps-tutorial/gapps-provisioning-auth.png
-[26]: ./media/active-directory-saas-google-apps-tutorial/gapps-admin.png
-[27]: ./media/active-directory-saas-google-apps-tutorial/gapps-admin-privileges.png
-[28]: ./media/active-directory-saas-google-apps-tutorial/gapps-auth.png
-[29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
-[30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png

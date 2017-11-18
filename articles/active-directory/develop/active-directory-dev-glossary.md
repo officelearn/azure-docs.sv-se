@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory developer ordlista
 Den här artikeln innehåller definitioner för några av de Azure Active Directory (AD) developer grundbegrepp, vilket underlättar vid utbildning om programutveckling för Azure AD.
@@ -33,6 +33,9 @@ En typ av [säkerhetstoken](#security-token) utfärdats av en [auktorisering ser
 * [”Klientens autentiseringsuppgifter” authorization grant](#authorization-grant), klienten ger den enda autentiseringen fungerar utan den resurs-ägare autentisering/auktorisering, så token kan ibland kallas ”App-Only”-token.
 
 Se [Azure AD tokenreferens] [ AAD-Tokens-Claims] för mer information.
+
+## <a name="application-id-client-id"></a>program-id (klient-id)
+Unik identifierare Azure AD-problem registreringen av ett program som identifierar ett visst program och de associera konfigurationerna.  Program-id ([klient-id](https://tools.ietf.org/html/rfc6749#page-15)) används när autentisering begär och har angetts till autentiseringsbibliotek i tid. Program-id (klient-id) är inte en hemlighet. 
 
 ## <a name="application-manifest"></a>Applikationsmanifestet
 En funktion som tillhandahålls av den [Azure-portalen][AZURE-portal], som producerar en JSON-representation av programmets identitet konfiguration används som en mekanism för att uppdatera de associerade [programmet] [ AAD-Graph-App-Entity] och [ServicePrincipal] [ AAD-Graph-Sp-Entity] entiteter. Se [förstå Azure Active Directory-programmanifestet] [ AAD-App-Manifest] för mer information.
@@ -174,7 +177,7 @@ Ungefär samma sätt som en tjänst för huvudobjekt används för att represent
 En typ av [klientprogrammet](#client-application) som utför all kod på en webbserver och kan fungera som en ”konfidentiellt” klient genom att lagra sina autentiseringsuppgifter på ett säkert sätt på servern. Se [OAuth2 klienten typer och profiler] [ OAuth2-Client-Types] för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
-Den [Azure AD-Guide för utvecklare] [ AAD-Dev-Guide] är portal för alla Azure AD-utveckling relaterade ämnen, t.ex. en översikt över [programintegrationstyp] [ AAD-How-To-Integrate] och grunderna i [scenarier för autentiseringsmetoder som stöds och Azure AD authentication][AAD-Auth-Scenarios].
+Den [Azure AD-Guide för utvecklare] [ AAD-Dev-Guide] är Landningssida för alla Azure AD-utveckling relaterade ämnen, t.ex. en översikt över [programintegrationstyp] [ AAD-How-To-Integrate] och grunderna i [scenarier för autentiseringsmetoder som stöds och Azure AD authentication][AAD-Auth-Scenarios].  Du kan också hitta kodexempel och självstudier om hur du kommer igång snabbt på [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Använd kommentarer nedan för att ge feedback och hjälp oss att förbättra och utforma innehållet, inklusive förfrågningar efter nya definitioner eller uppdaterar befintliga!
 

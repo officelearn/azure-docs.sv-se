@@ -14,17 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 31142fa2ab06b7479aa93f9ece14f4dd51fa28ef
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
 När den [Azure-portalen] ger en fullständig uppsättning av verktyg för att utveckla och testa Azure Functions, många utvecklare föredrar en lokal utveckling upplevelse. Azure Functions gör det enkelt att använda din favorit redigerare och lokala utvecklingsverktyg att utveckla och testa dina funktioner på den lokala datorn. Dina funktioner kan utlösa händelser i Azure och du kan felsöka ditt C# och JavaScript-funktioner på den lokala datorn. 
 
 Om du är en Visual Studio C# utvecklare Azure Functions även [kan integreras med Visual Studio 2017](functions-develop-vs.md).
+
+>[!IMPORTANT]  
+> Blanda inte lokal utveckling med portalen utveckling i appen med samma funktion. När du skapar och publicera funktioner från ett lokalt projekt bör du inte försöka underhåll eller ändra Projektkod i portalen.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core-verktyg
 

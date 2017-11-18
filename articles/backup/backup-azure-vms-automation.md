@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/13/2017
+ms.date: 11/17/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db04f8c6ab61d33df80cd442abc5636867e5809a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: d6682bf5e4b0b64d5309f939379906efff6e017d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Använda AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer
 > [!div class="op_single_selector"]
@@ -266,7 +266,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Återställa en virtuell dator i Azure
-Det finns en viktigaste skillnaden mellan att återställa en virtuell dator med hjälp av Azure portal och återställa en virtuell dator med hjälp av PowerShell. Återställningen har slutförts med PowerShell när diskar och konfigurationsinformation från återställningspunkten skapas.
+Det finns en viktigaste skillnaden mellan att återställa en virtuell dator med hjälp av Azure portal och återställa en virtuell dator med hjälp av PowerShell. Återställningen har slutförts med PowerShell när diskar och konfigurationsinformation från återställningspunkten skapas. Om du vill återställa eller återställa filer från en virtuell dator i Azure-säkerhetskopiering, referera till den [filen återställning](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 
 > [!NOTE]
 > Återställningen skapar inte en virtuell dator.
@@ -507,6 +507,76 @@ När du har återställt diskarna, Följ dessa steg för att skapa och konfigure
     ```    
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
+
+## <a name="restore-files-from-an-azure-vm-backup"></a>Återställa filer från en virtuell dator i Azure-säkerhetskopiering
+
+Du kan även återställa enskilda filer från en virtuell dator i Azure-säkerhetskopiering utöver återställning av diskar. Återställ filer funktioner ger tillgång till alla filer i en återställningspunkt och du kan hantera dem via Utforskaren, som du skulle göra med normala filer.
+
+Grundläggande steg för att återställa en fil från Virtuella Azure-säkerhetskopiering är:
+
+* Välj den virtuella datorn
+* Välj en återställningspunkt
+* Montera diskar återställningspunkt
+* Kopiera de nödvändiga filerna
+* Demontera disken
+
+
+### <a name="select-the-vm"></a>Välj den virtuella datorn
+Starta från behållare i valvet för att få PowerShell-objektet som identifierar just säkerhetskopiering artikeln och gå nedåt i objekthierarkin. Markera den behållare som representerar den virtuella datorn med hjälp av  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet och skicka som att den  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet.
+
+```
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+```
+
+### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
+Använd den  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  för att visa en lista med alla återställningspunkter för säkerhetskopiering objektet. Välj återställningspunkt att återställa. Om du inte vet vilken återställningspunkt som ska användas, är det en bra idé att välja den senaste RecoveryPointType = AppConsistent punkten i listan.
+
+I följande skript variabeln, **$rp**, är en matris med återställningspunkter för det markerade säkerhetskopiering objektet från de senaste sju dagarna. Matrisen är sorterad i omvänd ordning för den senaste återställningspunkten vid index 0. Använd standard PowerShell matris indexering för att välja återställningspunkten. I det här exemplet väljer $rp [0] den senaste återställningspunkten.
+
+```
+PS C:\> $startDate = (Get-Date).AddDays(-7)
+PS C:\> $endDate = Get-Date
+PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+PS C:\> $rp[0]
+RecoveryPointAdditionalInfo :
+SourceVMStorageType         : NormalStorage
+Name                        : 15260861925810
+ItemName                    : VM;iaasvmcontainer;RGName1;V2VM
+RecoveryPointId             : /subscriptions/XX/resourceGroups/ RGName1/providers/Microsoft.RecoveryServices/vaults/testvault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainer;RGName1;V2VM/protectedItems/VM;iaasvmcontainer; RGName1;V2VM/recoveryPoints/15260861925810
+RecoveryPointType           : AppConsistent
+RecoveryPointTime           : 4/23/2016 5:02:04 PM
+WorkloadType                : AzureVM
+ContainerName               : IaasVMContainer;iaasvmcontainer; RGName1;V2VM
+ContainerType               : AzureVM
+BackupManagementType        : AzureVM
+```
+
+### <a name="mount-the-disks-of-recovery-point"></a>Montera diskar återställningspunkt
+
+Använd den  **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)**  för att hämta skriptet för att montera alla diskar för återställningspunkten.
+
+> [!NOTE]
+> Diskarna monteras som iSCSI-anslutna diskar till den dator där skriptet körs. Därför är nästan omedelbar och till inte en avgift
+>
+>
+
+```
+PS C:\> Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+
+OsType  Password        Filename
+------  --------        --------
+Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
+```
+Kör skriptet på datorn där du vill återställa filer. Du måste ange lösenordet som visas ovan för att köra skriptet. När diskarna är kopplade använda Utforskaren i Windows och bläddra igenom nya volymer och filer. Mer information finns i den [filen recovery dokumentation](backup-azure-restore-files-from-vm.md)
+
+### <a name="unmount-the-disks"></a>Demontera diskar
+När de nödvändiga filerna har kopierats demontera diskarna med hjälp av den  **[inaktivera AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)**  cmdlet. Detta rekommenderas eftersom det säkerställer att längre tillgång till filerna för återställningspunkten
+
+```
+PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 Om du föredrar att använda PowerShell för att interagera med dina Azure-resurser finns i PowerShell-artikeln [distribuera och hantera säkerhetskopiering för Windows Server](backup-client-automation.md). Om du hanterar DPM-säkerhetskopiering finns i artikeln [distribuera och hantera säkerhetskopiering för DPM](backup-dpm-automation.md). Båda dessa artiklar har en version för klassiska distributioner och Resource Manager distributioner.  

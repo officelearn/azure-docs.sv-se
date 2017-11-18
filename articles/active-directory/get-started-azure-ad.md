@@ -1,12 +1,12 @@
 ---
 title: "Kom igång med Azure Active Directory | Microsoft Docs"
-description: 
+description: "Hämta licenser, lägga till domännamn, skapa anpassade inloggningssidan och lägga till Självbetjäning för återställning av lösenord i Azure Active Directory"
 keywords: 
-author: jeffgilb
-manager: femila
-ms.author: jeffgilb
+author: curtand
+manager: michael.tillman
+ms.author: curtand
 ms.reviewer: jsnow
-ms.date: 10/04/2017
+ms.date: 11/14/2017
 ms.topic: article
 ms.prod: 
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.technology: 
 ms.assetid: 
 services: active-directory
-custom: it-pro
-ms.openlocfilehash: 714f90155dbf53c5728e27995cee95f132fa452b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.custom: it-pro
+ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Kom igång med Azure AD
 Moderna Identitetshantering kräver skalbart och konsekvent reliablity att kontrollera tillgänglighet för program och tjänster till endast autentiserade användare. För att stödja identity management behoven hos användare, IT-behov rätt ett sätt att ge åtkomst till offentliga godkända program som en tjänst (SaaS)-appar, ett sätt att värden interna branschspecifika appar och även kan förbättra lokalt app-utveckling och användning. Alla dessa krav peka behovet av en molnbaserad identitetshanteringslösning.      
@@ -41,8 +41,8 @@ Om du vill registrera dig för Active Directory Premium kan du välja mellan fle
 - Använda en Enterprise Mobility + Security-licensieringsplan
 - Använda en Microsoft-volymlicensieringsplan
 
-> ### <a name="verification-step"></a>Verifieringssteg
-> Se till att du kan logga in till tjänsten efter aktivera prenumerationen.
+### <a name="verification-step"></a>Verifieringssteg
+Se till att du kan logga in till tjänsten efter aktivera prenumerationen.
 
 ## <a name="add-a-custom-domain-name"></a>Lägg till ett anpassat domännamn
 Varje Azure AD-katalog som medföljer ett första domännamn i form av *domainname*. onmicrosoft.com. Det ursprungliga domännamnet inte kan ändras eller tas bort, men du kan också [lägga till företagets domännamn i Azure AD](add-custom-domain.md). Din organisation har till exempel förmodligen andra domännamn som används för att göra affärs- och användare som loggar in med företagets domännamn. Lägga till anpassade domännamn i Azure AD kan du tilldela användarnamn i katalogen som dina användare som ”alice@contoso.com”. i stället för 'alice@.onmicrosoft.com'. Processen är enkel:
@@ -51,22 +51,22 @@ Varje Azure AD-katalog som medföljer ett första domännamn i form av *domainna
 2. Lägga till en DNS-post för domännamnet hos domännamnsregistratorn
 3. Verifiera det anpassade domännamnet i Azure AD
 
-> ### <a name="verification-step"></a>Verifieringssteg
-> När du lägger till en anpassad domän måste du kontrollera att den innehåller den **verifierad** status visas på den **domännamn** bladet för Azure AD-portalen.
+### <a name="verification-step"></a>Verifieringssteg
+När du lägger till en anpassad domän måste du kontrollera att den innehåller den **verifierad** status visas på den **anpassade domännamn** bladet för Azure AD-portalen.
 
 ## <a name="add-company-branding-to-your-sign-in-page"></a>Lägga till företagsanpassning till din inloggningssida 
 För att undvika förvirring vill många företag använda ett enhetligt utseende på alla webbplatser och tjänster som de hanterar. Azure Active Directory (AD Azure) tillhandahåller den här funktionen genom att låta dig [anpassa utseendet på inloggningssidan med företagets logotyp och egna färgscheman](customize-branding.md). På inloggningssidan är den sida som visas när du loggar in på Office 365 eller andra webbaserade program som använder Azure AD som deras identitetsleverantör. Du kan interagera med den här sidan om du vill ange dina autentiseringsuppgifter.
 
-> ### <a name="verification-step"></a>Verifieringssteg
-> Logga in på Azure-portalen och kontrollera att dina anpassade inloggningssidan och eventuella ytterligare språk anpassningar har konfigurerats korrekt. 
+### <a name="verification-step"></a>Verifieringssteg
+Logga in på Azure-portalen och kontrollera att dina anpassade inloggningssidan och eventuella ytterligare språk anpassningar har konfigurerats korrekt. 
 
 ## <a name="add-new-users"></a>Lägg till nya användare
 Du kan [lägga till nya användare till din organisations Azure AD](add-users-azure-active-directory.md) en i taget med Azure-portalen eller genom att synkronisera dina lokala Windows Server AD-resursdata. Du kan lägga till molnbaserade användare direkt från Azure AD-portalen eller synkroniserar lokala användarinformation.
 
 För att aktivera lokal identitetssynkronisering till Azure AD måste du installera och konfigurera [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) på en server i din organisation. Det här programmet hanterar synkronisering av användare och grupper från din befintliga identitetskälla till Azure AD-klienten.
 
-> ### <a name="verification-step"></a>Verifieringssteg
-> När du skapar eller synkronisera nya användare och kontrollera att de visas i Azure AD.
+### <a name="verification-step"></a>Verifieringssteg
+När du skapar eller synkronisera nya användare och kontrollera att de visas i Azure AD.
 
 ## <a name="assign-licenses"></a>Tilldela licenser
 Även om hur du skaffar en prenumeration är allt du behöver konfigurera betalda funktioner, måste du fortfarande [tilldela användarlicenser](license-users-groups.md) för Azure AD Premium betalda funktioner. Alla användare som ska ha åtkomst till eller som hanteras via en Azure AD betald funktionen måste tilldelas en licens. Licenstilldelning finns en mappning mellan en användare och en köpta tjänst, till exempel Azure AD Premium, Basic eller Enterprise Mobility + Security.
@@ -77,17 +77,17 @@ Du kan använda gruppbaserade licenstilldelning ställa in regler som i följand
 - Alla med lämpliga befattning hämtar en licens
 - Du kan delegera beslutet till andra chefer i organisationen (via självbetjäning grupper)
 
-> ### <a name="verification-step"></a>Verifieringssteg
-> Granska tilldelade och tillgängliga licenser under **Azure Active Directory** > **licenser** > **alla produkter**.
+### <a name="verification-step"></a>Verifieringssteg
+Granska tilldelade och tillgängliga licenser under **Azure Active Directory** > **licenser** > **alla produkter**.
 
 ## <a name="configure-self-service-password-reset"></a>Konfigurera lösenordsåterställning via självbetjäning
 [Självbetjäning för lösenordsåterställning (SSPR)](active-directory-passwords-getting-started.md) erbjuder ett enkelt sätt för IT-administratörer så att användarna kan återställa eller låsa upp sitt lösenord eller konton. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
 
-> ### <a name="verification-step"></a>Verifieringssteg
-> Granska aktiverat SSPR egenskaper under **Azure Active Directory** > **lösenordsåterställning** att säkerställa rätt användar- och grupptilldelningar har gjorts. 
+### <a name="verification-step"></a>Verifieringssteg
+Granska aktiverat SSPR egenskaper under **Azure Active Directory** > **lösenordsåterställning** att säkerställa rätt användar- och grupptilldelningar har gjorts. 
 
 
-### <a name="learn-more"></a>Läs mer
+## <a name="next-steps"></a>Nästa steg
 [Produktsida för Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory information prissättningssidan](https://azure.microsoft.com/pricing/details/active-directory/)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Förutsättningar för att få åtkomst till Azure AD reporting API
 
@@ -37,7 +37,7 @@ Om du vill få åtkomst till rapporteringsdata via API: et, måste du ha något 
 För att förbereda din åtkomst till reporting API, måste du:
 
 1. Registrera ett program 
-2. Bevilja behörighet 
+2. Bevilja behörigheter 
 3. Samla in konfigurationsinställningar 
 
 Frågor, frågor eller kommentarer finns [filen ett supportärende](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
@@ -55,7 +55,7 @@ Om du vill konfigurera din katalog för att komma åt Azure AD reporting API som
 
 **Registrera ett Azure Active Directory-program:**
 
-1. I den [Azure-portalen](https://portal.azure.com), klicka på det vänstra navigeringsfönstret **Active Directory**.
+1. I den [Azure-portalen](https://portal.azure.com), klicka på det vänstra navigeringsfönstret **Azure Active Directory**.
    
     ![Registrera program](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -80,7 +80,7 @@ Om du vill konfigurera din katalog för att komma åt Azure AD reporting API som
     d. Klicka på **Skapa**. 
 
 
-## <a name="grant-permissions"></a>Bevilja behörighet 
+## <a name="grant-permissions"></a>Bevilja behörigheter 
 
 Syftet med det här steget är att ge ditt program **läsa katalogdata** behörigheter till den **Windows Azure Active Directory** API.
 
@@ -129,11 +129,11 @@ Du måste dessa värden när du konfigurerar anrop reporting-API: et.
 
 **Hämta ditt domännamn:**
 
-1. I den [Azure-portalen](https://portal.azure.com), klicka på det vänstra navigeringsfönstret **Active Directory**.
+1. I den [Azure-portalen](https://portal.azure.com), klicka på det vänstra navigeringsfönstret **Azure Active Directory**.
    
     ![Registrera program](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. På den **Azure Active Directory** bladet, klickar du på **domännamn**.
+2. På den **Azure Active Directory** bladet, klickar du på **anpassade domännamn**.
 
     ![Registrera program](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ Du måste dessa värden när du konfigurerar anrop reporting-API: et.
 
 **Hämta programmets klient-ID:**
 
-1. I den [Azure-portalen](https://portal.azure.com), klicka på det vänstra navigeringsfönstret **Active Directory**.
+1. I den [Azure-portalen](https://portal.azure.com), klicka på det vänstra navigeringsfönstret **Azure Active Directory**.
    
     ![Registrera program](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ För att få ditt program klienthemlighet, måste du skapa en ny nyckel och spar
 
 **Hämta programmets klienthemlighet:**
 
-1. I den [Azure-portalen](https://portal.azure.com), klicka på det vänstra navigeringsfönstret **Active Directory**.
+1. I den [Azure-portalen](https://portal.azure.com), klicka på det vänstra navigeringsfönstret **Azure Active Directory**.
    
     ![Registrera program](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

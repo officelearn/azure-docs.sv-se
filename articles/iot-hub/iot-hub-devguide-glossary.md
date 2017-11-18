@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ordlista IoT-hubb
 Den här artikeln innehåller några av de vanliga termer som används i IoT-hubb-artiklar.
@@ -37,7 +37,7 @@ Den [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) är et
 Det finns _enheten SDK_ tillgänglig för flera språk som du kan skapa [enhetsappar](#device-app) som interagerar med en IoT-hubb. IoT-hubb självstudiekurser visar hur du använder dessa enheter SDK: er. Du hittar källkoden och ytterligare information om enheten SDK: er i den här GitHub [databasen](https://github.com/Azure/azure-iot-sdks).
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-IoT-gräns kan du skriva program som gör att gateway-anslutna enheter kommunicerar med [IoT-hubb](#iot-hub). IoT-Edge självstudiekurser visar hur du använder den här tjänsten. Du hittar källkoden och ytterligare information om Azure IoT kant i den här GitHub [databasen](https://github.com/Azure/iot-edge).
+Azure IoT-Edge flyttar molnet analyser och anpassad affärslogik till enheter så att din organisation kan fokusera på affärsinsikter i stället för datahantering. Aktivera din lösning för att verkligen skala genom att konfigurera din IoT-programvara, distribuera den till enheter via standard behållare och övervaka allt från molnet. Kom igång med en självstudiekurs som visar hur du installerar och använder Azure IoT kanten på en [Linux](../iot-edge/tutorial-simulate-device-linux.md) eller [Windows](../iot-edge/tutorial-simulate-device-windows.md) enhet.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT service SDK
 Det finns _SDK-tjänsten_ tillgänglig för flera språk som du kan skapa [backend-appar](#back-end-app) som interagerar med en IoT-hubb. IoT-hubb självstudiekurser visar hur du använder dessa service SDK: er. Du hittar källkoden och ytterligare information om SDK: er för tjänsten i den här GitHub [databasen](https://github.com/Azure/azure-iot-sdks).
@@ -189,7 +189,7 @@ Din lösningens serverdel kan använda [jobb](iot-hub-devguide-jobs.md) att sche
 Den [jobb REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) kan du hantera [jobb](#job) körs i din IoT-hubb.
 
 ## <a name="module"></a>Modul
-I [Azure IoT kant](iot-hub-linux-iot-edge-get-started.md), [modulen](iot-hub-linux-iot-edge-get-started.md) är en komponent som utför en viss uppgift. Uppgifter kan innehålla vill föra in ett meddelande från en enhet, omvandla ett meddelande eller skicka ett meddelande till en IoT-hubb. En koordinator ansvarar för att vidarebefordra meddelanden mellan moduler. Azure IoT-Edge innehåller en uppsättning exempel moduler. Du kan också skapa egna anpassade moduler.
+I [Azure IoT kant](../iot-edge/tutorial-simulate-device-linux.md), [modulen](../iot-edge/iot-edge-modules.md) är en komponent som utför en viss uppgift. Uppgifter kan innehålla vill föra in ett meddelande från en enhet, omvandla ett meddelande eller skicka ett meddelande till en IoT-hubb. En koordinator ansvarar för att vidarebefordra meddelanden mellan moduler. Azure IoT-Edge innehåller en uppsättning exempel moduler. Du kan också skapa egna anpassade moduler.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) är en av de messaging protokoll som [IoT-hubb](#iot-hub) har stöd för att kommunicera med enheter. Läs mer om meddelanden protokoll som stöds i IoT-hubb [skicka och ta emot meddelanden med IoT-hubben](iot-hub-devguide-messaging.md).

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e850370faf2d271b4adad1af48c1ead7b316fa67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cafe5009b8e96b147b5bbed1957024f6d96feb58
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="understand-iot-hub-metrics"></a>Förstå IoT-hubb mått
 IoT-hubb mått får du bättre data om tillståndet för Azure IoT-resurser i din Azure-prenumeration. IoT-hubb mått kan du utvärdera den övergripande hälsan för IoT-hubb-tjänsten och de enheter som är anslutna till den. Användarinriktad statistik är viktiga eftersom de hjälper dig att se vad som händer din IoT-hubb och hjälper dig att grundorsaken problem och utan att behöva kontakta Azure-supporten.
@@ -53,32 +53,32 @@ IoT-hubb innehåller flera mått för att ge dig en översikt över hälsotillst
 |d2c.telemetry.egress.Invalid|Ogiltig meddelanden|Antal|Totalt|Antalet meddelanden som inte levereras på grund av inkompatibilitet med slutpunkten|
 |d2c.telemetry.egress.fallback|Meddelanden som matchar villkoret återställningsplats|Antal|Totalt|Antal meddelanden som skrivs till fallback-slutpunkten|
 |d2c.endpoints.egress.eventHubs|Skicka meddelanden till Event Hub-slutpunkter|Antal|Totalt|Antal gånger som meddelanden som skrivits till Event Hub-slutpunkter|
-|d2c.endpoints.latency.eventHubs|Meddelandet svarstid för Event Hub-slutpunkter|millisekunder|Genomsnittlig|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång i Event Hub slutpunkt, i millisekunder|
+|d2c.endpoints.latency.eventHubs|Meddelandet svarstid för Event Hub-slutpunkter|Millisekunder|Genomsnitt|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång i Event Hub slutpunkt, i millisekunder|
 |d2c.endpoints.egress.serviceBusQueues|Skicka meddelanden till Service Bus-kö slutpunkter|Antal|Totalt|Antal gånger som meddelanden som skrivits till Service Bus-kö slutpunkter|
-|d2c.endpoints.latency.serviceBusQueues|Meddelandet svarstid för Service Bus-kö-slutpunkter|millisekunder|Genomsnittlig|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för Service Bus-kö, i millisekunder|
+|d2c.endpoints.latency.serviceBusQueues|Meddelandet svarstid för Service Bus-kö-slutpunkter|Millisekunder|Genomsnitt|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för Service Bus-kö, i millisekunder|
 |d2c.endpoints.egress.serviceBusTopics|Skicka meddelanden till Service Bus-ämne slutpunkter|Antal|Totalt|Antal gånger som meddelanden som skrivits till Service Bus-ämne slutpunkter|
-|d2c.endpoints.latency.serviceBusTopics|Meddelandet svarstiden för Service Bus-ämne slutpunkter|millisekunder|Genomsnittlig|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för Service Bus-ämne, i millisekunder|
+|d2c.endpoints.latency.serviceBusTopics|Meddelandet svarstiden för Service Bus-ämne slutpunkter|Millisekunder|Genomsnitt|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för Service Bus-ämne, i millisekunder|
 |d2c.endpoints.egress.builtIn.events|Skicka meddelanden till inbyggd slutpunkt (meddelanden/händelser)|Antal|Totalt|Antal gånger som meddelanden som skrivits till inbyggd slutpunkt (meddelanden/händelser)|
-|d2c.endpoints.latency.builtIn.events|Meddelandet svarstid för inbyggd slutpunkt (meddelanden/händelser)|millisekunder|Genomsnittlig|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång i inbyggd slutpunkt (meddelanden/händelser), i millisekunder |
+|d2c.endpoints.latency.builtIn.events|Meddelandet svarstid för inbyggd slutpunkt (meddelanden/händelser)|Millisekunder|Genomsnitt|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång i inbyggd slutpunkt (meddelanden/händelser), i millisekunder |
 |d2c.Twin.Read.Success|Lyckad dubbla läser från enheter|Antal|Totalt|Antal alla lyckade enhet initieras dubbla läser.|
 |d2c.Twin.Read.failure|Det gick inte dubbla läsningar av enheter|Antal|Totalt|Antalet alla misslyckades enhet initieras dubbla läsningar.|
-|d2c.Twin.Read.size|Svarsstorlek dubbla läsningar av enheter|Byte|Genomsnittlig|Medel, min och max för alla lyckade enhet initieras dubbla läsningar.|
+|d2c.Twin.Read.size|Svarsstorlek dubbla läsningar av enheter|Byte|Genomsnitt|Medel, min och max för alla lyckade enhet initieras dubbla läsningar.|
 |d2c.Twin.Update.Success|Lyckad dubbla uppdateringar från enheter|Antal|Totalt|Antal uppdateringar för alla lyckade enhet initieras dubbla.|
 |d2c.Twin.Update.failure|Det gick inte dubbla uppdateringar från enheter|Antal|Totalt|Antalet alla misslyckades enhet initieras dubbla uppdateringar.|
-|d2c.Twin.Update.size|Storleken på dubbla uppdateringar från enheter|Byte|Genomsnittlig|Medel, min och max storlek för alla lyckade enhet initieras dubbla uppdateringar.|
+|d2c.Twin.Update.size|Storleken på dubbla uppdateringar från enheter|Byte|Genomsnitt|Medel, min och max storlek för alla lyckade enhet initieras dubbla uppdateringar.|
 |c2d.methods.Success|Lyckad direkta metoden anrop|Antal|Totalt|Antal alla lyckade direkt metodanrop.|
 |c2d.methods.failure|Det gick inte direkt metod anrop|Antal|Totalt|Det gick inte att direkt metodanrop antalet alla.|
-|c2d.methods.requestSize|Storleken på direkta metoden anrop för begäran|Byte|Genomsnittlig|Medel, min och max för alla lyckade direkta metodbegäranden.|
-|c2d.methods.responseSize|Storlek för direkta metoden anrop|Byte|Genomsnittlig|Medel, min och max för alla lyckade direkta metoden svar.|
+|c2d.methods.requestSize|Storleken på direkta metoden anrop för begäran|Byte|Genomsnitt|Medel, min och max för alla lyckade direkta metodbegäranden.|
+|c2d.methods.responseSize|Storlek för direkta metoden anrop|Byte|Genomsnitt|Medel, min och max för alla lyckade direkta metoden svar.|
 |c2d.Twin.Read.Success|Lyckad dubbla läser från serverdelen|Antal|Totalt|Antal alla lyckade tillbaka-end-initierad dubbla läser.|
 |c2d.Twin.Read.failure|Misslyckade dubbla läser från serverdelen|Antal|Totalt|Antalet alla misslyckades tillbaka-end-initierad dubbla läsningar.|
-|c2d.Twin.Read.size|Storlek för dubbla läser från serverdelen|Byte|Genomsnittlig|Medel, min och max för alla lyckade tillbaka-end-initierade dubbla läsningar.|
+|c2d.Twin.Read.size|Storlek för dubbla läser från serverdelen|Byte|Genomsnitt|Medel, min och max för alla lyckade tillbaka-end-initierade dubbla läsningar.|
 |c2d.Twin.Update.Success|Lyckad dubbla uppdateringar från serverdelen|Antal|Totalt|Antal uppdateringar för alla lyckade tillbaka-end-initierad dubbla.|
 |c2d.Twin.Update.failure|Misslyckade dubbla uppdateringar från serverdelen|Antal|Totalt|Antalet alla misslyckades tillbaka-end-initierad dubbla uppdateringar.|
-|c2d.Twin.Update.size|Storleken på dubbla uppdateringar från serverdelen|Byte|Genomsnittlig|Medel, min och max storlek för alla lyckade tillbaka-end-initierad dubbla uppdateringar.|
+|c2d.Twin.Update.size|Storleken på dubbla uppdateringar från serverdelen|Byte|Genomsnitt|Medel, min och max storlek för alla lyckade tillbaka-end-initierad dubbla uppdateringar.|
 |twinQueries.success|Lyckad dubbla frågor|Antal|Totalt|Antal alla lyckade dubbla frågor.|
 |twinQueries.failure|Misslyckade dubbla frågor|Antal|Totalt|Antal alla misslyckade dubbla frågor.|
-|twinQueries.resultSize|Dubbla frågor storlek|Byte|Genomsnittlig|Medel, min och max resultatet av alla lyckade dubbla frågor storlek.|
+|twinQueries.resultSize|Dubbla frågor storlek|Byte|Genomsnitt|Medel, min och max resultatet av alla lyckade dubbla frågor storlek.|
 |jobs.createTwinUpdateJob.success|Lyckad skapande av dubbla uppdatera jobb|Antal|Totalt|Antal alla lyckade skapandet av dubbla uppdateringsjobb.|
 |jobs.createTwinUpdateJob.failure|Misslyckade skapande av dubbla uppdatera jobb|Antal|Totalt|Antal alla misslyckad generering av dubbla uppdateringsjobb.|
 |jobs.createDirectMethodJob.success|Lyckad skapande av metoden anrops-jobb|Antal|Totalt|Antal alla har skapats på direkta metoden anrop jobb.|
@@ -100,7 +100,7 @@ Nu när du har sett en översikt över IoT-hubb mått på länken om du vill vet
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]
-* [Simulera en enhet med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -114,4 +114,4 @@ Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

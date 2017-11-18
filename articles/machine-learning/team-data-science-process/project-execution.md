@@ -11,27 +11,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/16/2017
 ms.author: bradsev;
-ms.openlocfilehash: 8c318f87243d0c98b6a42bebcdffb433f9cc456e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1015a9f24ca2c175ff367b1748f05bb3e464457f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="execution-of-data-science-projects"></a>Körningen av datavetenskap projekt
 
-Det här dokumentet beskrivs hur en data-forskare kan köra en vetenskap dataprojektet i en systematiskt, version kontrollerade och samarbetsfunktioner sätt en projektteamet med hjälp av den [Team datavetenskap Process](overview.md) (TDSP). TDSP är ett ramverk som utvecklats av Microsoft som innehåller en strukturerad sekvensen av aktiviteter att köra molnbaserade, prediktiva Analyslösningar effektivt. En beskrivning av rollerna personal och förknippade aktiviteter som hanteras av en datavetenskap team standardisera på den här processen finns [Team datavetenskap Process roller och aktiviteter](roles-tasks.md). 
+Det här dokumentet beskriver hur utvecklare kan köra en vetenskap dataprojektet i en systematiskt, version kontrollerade och samarbetsfunktioner sätt en projektteamet med hjälp av den [Team datavetenskap Process](overview.md) (TDSP). TDSP är ett ramverk som utvecklats av Microsoft som innehåller en strukturerad sekvensen av aktiviteter att köra molnbaserade, prediktiva Analyslösningar effektivt. En beskrivning av rollerna personal och förknippade aktiviteter som hanteras av en datavetenskap team standardisera på den här processen finns [Team datavetenskap Process roller och aktiviteter](roles-tasks.md). 
 
-Det här avsnittet innehåller instruktioner om hur du: 
+Den här artikeln innehåller anvisningar om hur du: 
 
-1. gör **sprint planera** för arbetsobjekt som ingår i ett projekt.<br> Om du inte känner till sprint planera hittar du informationen nedan och allmän information [här](https://en.wikipedia.org/wiki/Sprint_(software_development) "här"). 
+1. gör **sprint planera** för arbetsobjekt som ingår i ett projekt.<br> Om du inte känner till sprint planera hittar du information och allmän information [här](https://en.wikipedia.org/wiki/Sprint_(software_development) "här"). 
 2. **Lägg till arbetsobjekt** till sprints.
 3. **länka arbetsobjekt med kodning aktiviteter** spåras av git.
 4. gör **code granska**. 
 
-
->[AZURE.NOTE] Vi beskriver de steg som krävs för att ställa in en TDSP teammiljö med hjälp av Visual Studio Team Services VSTS () i följande uppsättning instruktioner. Anger vi hur du utför dessa uppgifter med VSTS eftersom det är hur vi implementera TDSP på Microsoft. Objekt (3) och (4) i listan ovan är fördelarna med naturligt om du väljer att använda VSTS. Om du använder en annan kod som är värd för plattformen för din grupp, ändras inte de uppgifter som måste slutföras av team lead normalt. Men sättet att utföra dessa uppgifter ska vara olika. Till exempel objekt i avsnittet sex, **länka ett arbetsobjekt med en git-gren**, kanske inte är lika enkelt som i VSTS.
+> [!NOTE]
+> De steg som krävs för att ställa in en TDSP teammiljö med hjälp av Visual Studio Team Services VSTS () beskrivs i följande uppsättning instruktioner. De kan ange hur du utför dessa uppgifter med VSTS eftersom det är hur du implementerar TDSP hos Microsoft.  Om du väljer att använda VSTS, artiklar (3) och (4) i listan ovan är fördelarna med naturligt. Om du använder en annan kod som är värd för plattformen för din grupp, ändras inte de uppgifter som måste slutföras av team lead normalt. Men sättet att utföra dessa uppgifter ska vara olika. Till exempel objekt i avsnittet sex, **länka ett arbetsobjekt med en git-gren**, kanske inte är lika enkelt som i VSTS.
+>
+>
 
 Följande bild illustrerar en typisk sprint planering, kodning och källkontroll arbetsflöde som ingår i genomförandet av ett projekt för datavetenskap:
 
@@ -53,9 +55,15 @@ I TDSP Skriv ut planering framework finns det fyra vanliga typer av **arbetsobje
 - **Uppgiften**: aktiviteter är tilldelas koden eller dokumentet arbetsobjekt eller andra aktiviteter som måste göras för att slutföra en specifik artikel. Till exempel aktiviteter i artikeln *hämtar Data* kan vara:
     -  Hämta autentiseringsuppgifterna för SQLServer 
     -  Ladda upp Data till SQL Data Warehouse. 
-- **Programfel**: programfel avser vanligtvis korrigeringar som krävs för en befintlig kod eller ett dokument som är klar när du slutför en aktivitet. Det kan Eskalera till som en artikel eller en uppgift om felet orsakas av respektive saknas steg eller uppgifter. 
+- **Programfel**: programfel avser vanligtvis korrigeringar som krävs för en befintlig kod eller ett dokument som är klar när du slutför en aktivitet. Om felet orsakas av respektive saknas steg eller uppgifter, eskalera den till som en artikel eller en uppgift. 
 
->[AZURE.NOTE] Vi lånar begreppet funktioner, artiklar, uppgifter och buggar från programvaruhantering kod (SCM) som ska användas i datavetenskap. De kan skilja sig något från deras vanliga SCM-definitioner.
+> [!NOTE]
+> Begrepp lånar av funktioner, artiklar, uppgifter och buggar från programvaruhantering kod (SCM) som ska användas i datavetenskap. De kan skilja sig något från deras vanliga SCM-definitioner.
+>
+>
+
+Data forskare anser bekvämare med en smidig mall som specifikt justeras med livscykelstadier för TDSP. Med detta i åtanke har en Agile-härledda sprint planeringsmall skapats, där Epics artiklar osv ersätts med TDSP livscykelstadier eller substages. Dokumentation om hur du skapar en flexibel mall finns [här](https://msdata.visualstudio.com/AlgorithmsAndDataScience/TDSP/_git/TDSP?path=%2FDocs%2Fteam-data-science-process-agile-template.md&version=GBxibingao&_a=preview).
+
 
 ##  2. <a name='SprintPlanning-2'></a>Skriv ut planering 
 
@@ -74,7 +82,7 @@ Om du vill inkludera en funktion i eftersläpningen, klickar du på **eftersläp
 
 ![3](./media/project-execution/project-execution-3-sprint-team-add-work.png)
 
-Dubbelklicka på funktionen som du nyss skapade. Fyll i beskrivningar, tilldela gruppmedlemmar för den här funktionen och ange planering parametrar för den här funktionen. 
+Dubbelklicka på den funktion som du skapade. Fyll i beskrivningar, tilldela gruppmedlemmar för den här funktionen och ange planering parametrar för den här funktionen. 
 
 Du kan också länka den här funktionen i projekt-databasen. Klicka på **länken Lägg till** under den **Development** avsnitt. När du har redigerat funktionen klickar du på **spara och Stäng** att avsluta.
 
@@ -196,7 +204,7 @@ Du kan också använda följande Git-kommandon för att koppla din arbetsgren ti
 
 ##  10. <a name='DataQualityReportUtility-10'></a>Interaktiv Datagranskning, analys och rapportering (IDEAR)-verktyget
 
-Det här verktyget med R-markdown ger ett flexibelt och interaktiva verktyg för att utvärdera och utforska datauppsättningar. Användarna kan snabbt skapa rapporter från datauppsättningen med minimal kodning. Användarna kan klicka på knappar för att exportera resultaten utforskning ser han i verktyget interaktivt till en slutlig rapport som kan skickas till klienter eller används för att fatta beslut om vilka variabler som ska inkluderas i efterföljande modellering steg.
+Det här verktyget med R-markdown ger ett flexibelt och interaktiva verktyg för att utvärdera och utforska datauppsättningar. Användarna kan snabbt skapa rapporter från datauppsättningen med minimal kodning. Användarna kan klicka på knappar för att exportera resultaten utforskning i verktyget interaktivt till en slutlig rapport som kan skickas till klienter eller används för att fatta beslut om vilka variabler som ska inkluderas i efterföljande modellering steg.
 
 För tillfället fungerar verktyget bara på dataramar i minnet. En fil .yaml behövs för att ange parametrarna för de data som ska undersökas. Mer information finns i [IDEAR i TDSP datavetenskap verktyg](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
@@ -229,7 +237,7 @@ Datavetenskap gruppchefer, team leads och projektet leads måste följa förlopp
 
 Information om hur du skapar Power BI-instrumentpaneler och rapporter för att spåra dina aktiviteter för Git-lagringsplatsen och arbetsobjekt som när data för VSTS är ansluten till Power BI finns [skapa Power BI-instrumentpaneler och rapporter](https://www.visualstudio.com/en-us/docs/report/powerbi/report-on-vso-with-power-bi-vs). 
 
-Här följer två enkelt exempel instrumentpaneler som vi bygga om du vill spåra Git aktiviteter och arbetsobjekt. I den första exemplet instrumentpanelen visas git åtagande aktiviteter av olika användare vid olika tidpunkter och på olika databaser. Du kan enkelt statistikforskning för att filtrera de som du är intresserad av.
+Här följer två enkelt exempel instrumentpaneler som byggts för att spåra Git aktiviteter och arbetsobjekt. I den första exemplet instrumentpanelen visas git åtagande aktiviteter av olika användare vid olika tidpunkter och på olika databaser. Du kan enkelt statistikforskning för att filtrera de som du är intresserad av.
 
 ![23](./media/project-execution/project-execution-23-powerbi-git.png)
 
@@ -240,6 +248,6 @@ Arbetsobjekt (artiklar och aktiviteter) i olika iterationer presenteras i den an
  
 ## <a name="next-steps"></a>Nästa steg
 
-Fullständig genomgång för slutpunkt-till-slutpunkt som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De anges och är kopplad till miniatyr beskrivningar i den [exempel genomgång](walkthroughs.md) avsnittet. De visar hur du kombinerar moln, lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program. 
+Fullständig genomgång för slutpunkt-till-slutpunkt som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De anges och är kopplad till miniatyr beskrivningar i den [exempel genomgång](walkthroughs.md) artikel. De visar hur du kombinerar moln, lokala verktyg och tjänster i ett arbetsflöde eller en rörledning för att skapa ett intelligent program. 
 
 Exempel körs steg i Team av vetenskapliga data som använder Azure Machine Learning Studio finns i [med Azure ML](http://aka.ms/datascienceprocess) utbildningsvägar.

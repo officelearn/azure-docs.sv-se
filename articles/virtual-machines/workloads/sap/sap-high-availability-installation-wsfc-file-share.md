@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7b403518c75c72b68957f94dcac750cd922f6bc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: fc957ece0250d233db9cec4f1fdd8b063c13a136
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installera SAP NetWeaver hög tillgänglighet på en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser på Azure
 
@@ -33,6 +33,8 @@ ms.lasthandoff: 11/16/2017
 [1596496]:https://launchpad.support.sap.com/#/notes/1596496
 
 [sap-installation-guides]:http://service.sap.com/instguides
+
+[sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -367,7 +369,7 @@ Get-ClusterAccess
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Skapa ett virtuellt värdnamn för den klustrade instansen SAP ASCS/SCS
 
-Skapa en SAP ASCS/SCS klustrets nätverksnamn (till exempel **pr1 ascs [10.0.6.7]**), enligt beskrivningen i [skapa ett virtuellt värdnamn för den klustrade instansen SAP ASCS/SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] . 
+Skapa en SAP ASCS/SCS klustrets nätverksnamn (till exempel **pr1 ascs [10.0.6.7]**), enligt beskrivningen i [skapa ett virtuellt värdnamn för den klustrade instansen SAP ASCS/SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
 
 ## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Uppdatera standard och SAP ASCS/SCS instans profil
 
@@ -414,17 +416,17 @@ Om du vill använda det nya namnet för SAP ASCS/SCS virtuell värd och SAP glob
 >PowerShell-cmdlet har stöd för både SAP ABAP ASCS och SAP Java SCS instanser.
 >
 
-Kopiera **SAPScripts.ps1** till din lokala enhet C:\tmp och kör följande PowerShell-cmdlet:
+Kopiera [ **SAPScripts.psm1** ] [ sap-powershell-scrips] till din lokala enhet C:\tmp och kör följande PowerShell-cmdlet:
 
 ```PowerShell
-Import-Module C:\tmp\SAPScripts.ps1
+Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Bild 1: SAPScripts.ps1 utdata][sap-ha-guide-figure-8012]
+![Bild 1: SAPScripts.psm1 utdata][sap-ha-guide-figure-8012]
 
-_**Bild 1**: SAPScripts.ps1 utdata_
+_**Bild 1**: SAPScripts.psm1 utdata_
 
 ## <a name="update-the-sidadm-user-environment-variable"></a>Uppdatering av \<sid > adm användarmiljövariabel
 

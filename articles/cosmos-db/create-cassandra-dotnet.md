@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2503e7e6025e6f064574f14855468ae9b1b97fa0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: ebfe845fa4f695064773a03f6d765da37ab44189
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra app med .NET och Azure Cosmos DB
 
@@ -28,13 +28,13 @@ Azure Cosmos-DB är Microsofts globalt distribuerade flera modellen database-tj�
 
 ## <a name="prerequisites"></a>Krav
 
-Åtkomst till förhandsgranskningsprogrammet Azure Cosmos DB Cassandra API. Om du inte använder för åtkomst till ännu, [registrera nu](https://aka.ms/cosmosdb-cassandra-signup).
-
-Om du inte redan har Visual Studio 2017 installerat, du kan hämta och använda den **ledigt** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Du kan också [försök Azure Cosmos-DB gratis](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, helt kostnadsfritt och åtaganden.
 
-Installera [Git](https://www.git-scm.com/) att klona exemplet.
+Åtkomst till förhandsgranskningsprogrammet Azure Cosmos DB Cassandra API. Om du inte använder för åtkomst till ännu, [registrera nu](cassandra-introduction.md#sign-up-now).
+
+Följande gäller också: 
+* Om du inte redan har Visual Studio 2017 installerat, du kan hämta och använda den **ledigt** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+* Installera [Git](https://www.git-scm.com/) att klona exemplet.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -112,7 +112,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. I den [Azure-portalen](http://portal.azure.com/), klickar du på **anslutningssträngen**. 
 
-    Använd den ![Kopieringsknappen](./media/create-cassandra-dotnet/copy.png) knappen på höger sida av skärmen för att kopiera värdet för användarnamn.
+    Använd den ![Kopieringsknapp](./media/create-cassandra-dotnet/copy.png) knappen på höger sida av skärmen för att kopiera värdet för användarnamn.
 
     ![Visa och kopiera snabbtangent i Azure portal, anslutningssträngen-sida](./media/create-cassandra-dotnet/keys.png)
 

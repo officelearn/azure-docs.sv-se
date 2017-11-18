@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2572c618f6ad27f57603d8e8a2ff04de6846c6ca
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Genomgång: Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som autentiserades på indata från användaren
 
@@ -119,7 +119,7 @@ Lägga till anspråk exchange till själva uppgavs tekniska profilen:
 
 1. Öppna filen TrustFrameworkBase.xml och Sök efter `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Granska konfigurationen av den här tekniska profilen. Se hur exchange med användaren har definierats som anspråk som blir ombedd av användaren (inkommande anspråk) och anspråk som förväntas från själva uppgavs providern (utgående anspråk).
-3. Sök efter `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, och Lägg märke till att den här profilen anropas som orchestration-steg 6 av `<UserJourney Id="ProfileEdit">`.
+3. Sök efter `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, och Lägg märke till att den här profilen anropas som orchestration-steg 4 i `<UserJourney Id="ProfileEdit">`.
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Steg 4: Överför och testa redigera RP princip profilfilen
 

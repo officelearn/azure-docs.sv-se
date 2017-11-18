@@ -12,13 +12,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 0900ec1931cc622339133393b72b558076a42710
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5bf995cba884ff9910ce000195c8fa0e3da2d332
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell med Python och Azure Cosmos DB-API-app
 
@@ -84,7 +84,13 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     ![Visa och kopiera ANSLUTNINGSSTRÄNGEN i fönstret anslutningssträngen](./media/create-table-python/connection-string.png)
 
-2. Öppna filen config.py och kopiera de nödvändiga egenskaperna för anslutningssträngen i konfigurationsfilen.
+2. Kopiera KONTONAMNET med knappen till höger.
+
+3. Öppna filen config.py och klistrar in namnet på kontot från portalen i STORAGE_ACCOUNT_NAME värdet på rad 19.
+
+4. Gå tillbaka till portalen och kopiera den PRIMÄRNYCKELN.
+
+5. Klistra in den PRIMÄRNYCKELN från portalen i STORAGE_ACCOUNT_KEY värdet på rad 20.
 
 3. Spara filen config.py.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple enheten Manager-tjänsten för StorSimple 8000-serien enheter
 
@@ -113,6 +113,7 @@ Utför följande steg om du vill överföra din tjänst till Azure-portalen.
 
 När övergången är klar kan hantera du dina enheter via tjänsten StorSimple Enhetshanteraren i Azure-portalen. Om du inte ser ett alternativ för att migrera till Azure-portalen, men du vill flytta, kan du [skicka en begäran om](https://aka.ms/ss8000-cx-signup).
 
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Stöd för åtgärder på enheter som kör versioner före uppdateringen 3.0
 I Azure portal stöds bara på StorSimple-enheter som kör uppdatering 3.0 och senare. De enheter som kör äldre versioner har begränsat stöd. När du har migrerat till Azure portal, Använd följande tabell för att förstå vilka åtgärder som stöds på enheter som kör versioner före uppdateringen 3.0.
 
 | Åtgärd                                                                                                                       | Stöds      |
@@ -121,7 +122,7 @@ I Azure portal stöds bara på StorSimple-enheter som kör uppdatering 3.0 och s
 | Konfigurera inställningar för enheter, till exempel Allmänt, nätverk och säkerhet                                                                | Ja            |
 | Skanna, hämta och installera uppdateringar                                                                                             | Ja            |
 | Inaktivera enhet                                                                                                               | Ja            |
-| Ta bort enheten                                                                                                                   | Ja            |
+| Ta bort enhet                                                                                                                   | Ja            |
 | Skapa, ändra och ta bort en volymbehållare                                                                                   | Nej             |
 | Skapa, ändra och ta bort en volym                                                                                             | Nej             |
 | Skapa, ändra och ta bort en princip för säkerhetskopiering                                                                                      | Nej             |

@@ -14,30 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.openlocfilehash: 69ca030d1b7601df424fa9446e1d194a3f6bd50a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1957e63914d5f9f443a504ef90df49d79ec3e40f
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Hämta Azure Stack-verktyg från GitHub
 
-AzureStack verktyg är en GitHub-lagringsplats som är värd för PowerShell-moduler som du kan använda för att hantera och distribuera resurser till Azure-stacken. Du kan hämta och använda dessa PowerShell-moduler i Azure-stacken Development Kit eller till en extern klient för windows-baserade om du planerar att upprätta en VPN-anslutning. Om du vill hämta verktygen klona GitHub-lagringsplatsen eller hämta mappen AzureStack verktyg. 
-
-Om du vill klona databasen hämta [Git](https://git-scm.com/download/win) för Windows, öppna Kommandotolken och kör följande skript:
-
-```PowerShell
-# Change directory to the root directory 
-cd \
-
-# clone the repository
-git clone https://github.com/Azure/AzureStack-Tools.git --recursive
-
-# Change to the tools directory
-cd AzureStack-Tools
-```
-
-För att hämta verktygsmappen, kör du följande skript:
+AzureStack verktyg är en GitHub-lagringsplats som är värd för PowerShell-moduler som du kan använda för att hantera och distribuera resurser till Azure-stacken. Du kan hämta och använda dessa PowerShell-moduler i Azure-stacken Development Kit eller till en extern klient för windows-baserade om du planerar att upprätta en VPN-anslutning. Om du vill hämta verktygen klona GitHub-lagringsplatsen eller hämta mappen AzureStack verktyg genom att köra följande skript:
 
 ```PowerShell
 # Change directory to the root directory 

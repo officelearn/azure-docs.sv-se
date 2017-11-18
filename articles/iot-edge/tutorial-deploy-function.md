@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 82019392edc99f0adccb26b483e77b7c576822fb
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Distribuera Azure-funktion som en gräns för IoT-modul - förhandsgranskning
 Du kan använda Azure Functions för att distribuera kod som implementerar affärslogiken direkt till IoT Edge-enheter. Den här självstudiekursen vägleder dig genom att skapa och distribuera en Azure-funktion som filtrerar sensordata på simulerade IoT gränsenheten som du skapade i distribuera Azure IoT kanten på en simulerad enhet på [Windows] [ lnk-tutorial1-win]eller [Linux] [ lnk-tutorial1-lin] självstudier. I den här guiden får du lära dig hur man:     
@@ -141,7 +141,7 @@ Följande steg visar hur du skapar en IoT-Edge-funktionen med hjälp av Visual S
 1. Skapa Docker-bild.
     1. Klicka i VS kod explorer den **Docker** mapp för att öppna den. Välj sedan antingen mappen för din plattform för behållaren **linux x64** eller **windows nano**. 
     2. Högerklicka på den **Dockerfile** fil och klicka på **skapa IoT kant modulen Docker bild**. 
-    3. I den **Välj mappen** går du till den **Docker/linux-x64** mappen och klicka på **Välj mapp som EXE_DIR**. 
+    3. I den **Välj mappen** rutan, navigera till projektmappen **FilterFunction**, och klicka på **Välj mapp som EXE_DIR**. 
     4. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel `<docker registry address>/filterfunction:latest`; där *docker registret adress* Docker-ID om du använder Docker-hubb eller liknar `<your registry name>.azurecr.io`, om du använder Azure-behållare registret.
  
 4. Logga in på Docker. Ange följande kommando i integrerad terminal: 

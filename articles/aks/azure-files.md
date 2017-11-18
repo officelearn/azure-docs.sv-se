@@ -13,67 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: bae60e7f78934deacac173767ca3013ce93cf9ad
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Använda Azure-filer i Kubernetes
 
-Behållare baserat program behöver ofta åtkomst och spara data i en volym på externa data. Azure-filer kan användas som den här externa datalager. Den här artikeln information med hjälp av Azure filer som Kubernetes volymer i Azure Container Service.
+Behållaren-baserade program behöver ofta åtkomst och spara data i en volym på externa data. Azure-filer kan användas som den här externa datalager. Den här artikeln information med hjälp av Azure filer som Kubernetes volymer i Azure Container Service.
 
 Mer information om Kubernetes volymer finns [Kubernetes volymer][kubernetes-volumes].
 
-## <a name="creating-a-file-share"></a>Skapa en filresurs
+## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 
-En befintlig Azure-resurs kan användas med Azure Container Service. Om du behöver skapa en använder du följande uppsättning kommandon.
-
-Skapa en resursgrupp för Azure File resursen med det [az gruppen skapa] [ az-group-create] kommando. Resursgruppen för lagringskontot och Kubernetes klustret måste finnas i samma region.
+Innan du använder en Azure-filresurs som en Kubernetes volym, måste du skapa ett Azure Storage-konto och filresursen. Följande skript kan användas för att utföra dessa uppgifter. Notera eller uppdatera parametervärden, vissa av dessa krävs när du skapar Kubernetes volymen.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
+# Change these four parameters
+AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+AKS_PERS_RESOURCE_GROUP=myAKSShare
+AKS_PERS_LOCATION=eastus
+AKS_PERS_SHARE_NAME=aksshare
 
-Använd den [az storage-konto skapar] [ az-storage-create] kommando för att skapa ett Azure Storage-konto. Lagringskontonamnet måste vara unikt. Uppdatera värdet för den `--name` argumentet med ett unikt värde.
+# Create the Resource Group
+az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-```azurecli-interactive
-az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
-```
+# Create the storage account
+az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
-Använd den [az nycklar lagringskontolistan ] [ az-storage-key-list] kommando för att returnera nyckel för säkerhetslagring. Uppdatera värdet för den `--account-name` argumentet med unika lagringskontonamn.
+# Export the connection string as an environment variable, this is used when creating the Azure file share
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
-Ta del av en av nyckelvärden, används i efterföljande steg.
+# Create the file share
+az storage share create -n $AKS_PERS_SHARE_NAME
 
-```azurecli-interactive
-az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
-```
-
-Använd den [az lagringsresurs skapa] [ az-storage-share-create] kommando för att skapa Azure-filresursen. Uppdatering av `--account-key` värdet med ett värde som samlas in i det sista steget.
-
-```azurecli-interactive
-az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+# Get storage account key
+STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
 ```
 
 ## <a name="create-kubernetes-secret"></a>Skapa Kubernetes hemlighet
 
-Kubernetes måste autentiseringsuppgifter för åtkomst till filresursen. I stället för att lagra Azure Storage-kontonamnet och nyckeln med varje baljor, lagras en gång i en [Kubernetes hemlighet] [ kubernetes-secret] och refereras av varje volym på Azure-filer. 
+Kubernetes måste autentiseringsuppgifter för åtkomst till filresursen. Autentiseringsuppgifterna lagras i en [Kubernetes hemlighet][kubernetes-secret], som refereras till när du skapar en Kubernetes baljor.
 
-Värden i en hemlig Kubernetes-manifestet måste vara base64-kodad. Använd följande kommandon för att returnera kodade värden.
+När du skapar en Kubernetes hemliga måste hemliga värdena vara base64-kodad.
 
-Koda först namnet på lagringskontot. Ersätt `storage-account` med namnet på ditt Azure storage-konto.
+Koda först namnet på lagringskontot. Om det behövs, Ersätt `$AKS_PERS_STORAGE_ACCOUNT_NAME` med namnet på Azure-lagringskontot.
 
 ```azurecli-interactive
-echo -n <storage-account> | base64
+echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 ```
 
-Därefter krävs åtkomstnyckeln för lagringskontot. Kör följande kommando för att returnera den kodade nyckeln. Ersätt `storage-key` med nyckel som samlas in i ett tidigare steg
+Därefter koda lagringskontots åtkomstnyckel. Om det behövs, Ersätt `$STORAGE_KEY` med namnet på nyckeln för Azure storage-konto.
 
 ```azurecli-interactive
-echo -n <storage-key> | base64
+echo -n $STORAGE_KEY | base64
 ```
 
 Skapa en fil med namnet `azure-secret.yml` och kopiera följande YAML. Uppdatering av `azurestorageaccountname` och `azurestorageaccountkey` värden med base64-kodade värdena som hämtas i det sista steget.
@@ -89,15 +86,15 @@ data:
   azurestorageaccountkey: <base64_encoded_storage_account_key>
 ```
 
-Använd den [kubectl gäller] [ kubectl-apply] kommando för att skapa hemligheten.
+Använd den [kubectl skapa] [ kubectl-create] kommando för att skapa hemligheten.
 
 ```azurecli-interactive
-kubectl apply -f azure-secret.yml
+kubectl create -f azure-secret.yml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Montera filresursen som volym
 
-Du kan montera filer för Azure-resurs i din baljor genom att konfigurera volymen i dess-specifikationen. Skapa en ny fil med namnet `azure-files-pod.yml` med följande innehåll. Uppdatera `share-name` dela med namnet på Azure-filer.
+Du kan montera filer för Azure-resurs i din baljor genom att konfigurera volymen i dess-specifikationen. Skapa en ny fil med namnet `azure-files-pod.yml` med följande innehåll. Uppdatera `aksshare` dela med namnet på Azure-filer.
 
 ```yaml
 apiVersion: v1
@@ -115,7 +112,7 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      shareName: <share-name>
+      shareName: aksshare
       readOnly: false
 ```
 
@@ -139,6 +136,6 @@ Läs mer om Kubernetes volymer med Azure-filer.
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-apply]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#apply
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [az-group-create]: /cli/azure/group#az_group_create

@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 95d58c600bc43059025e739a8cdb062287f4ffb5
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra app med Python och Azure Cosmos DB
 
@@ -29,13 +29,14 @@ Azure Cosmos-DB är Microsofts globalt distribuerade flera modellen database-tj�
 
 ## <a name="prerequisites"></a>Krav
 
-* Innan du kan köra det här exemplet måste du uppfylla följande krav:
-    * [Python](https://www.python.org/downloads/) version v2.7.14
-    * [Git](http://git-scm.com/)
-    * [Python-drivrutin för Apache Cassandra](https://github.com/datastax/python-driver)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Du kan också [försök Azure Cosmos-DB gratis](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, helt kostnadsfritt och åtaganden.
 
+Åtkomst till förhandsgranskningsprogrammet Azure Cosmos DB Cassandra API. Om du inte använder för åtkomst till ännu, [registrera nu](cassandra-introduction.md#sign-up-now).
+
+Följande gäller också:
+* [Python](https://www.python.org/downloads/) version v2.7.14
+* [Git](http://git-scm.com/)
+* [Python-drivrutin för Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -132,7 +133,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. I den [Azure-portalen](http://portal.azure.com/), klickar du på **anslutningssträngen**. 
 
-    Använd den ![Kopieringsknappen](./media/create-cassandra-python/copy.png) knappen på höger sida av skärmen för att kopiera värdet övre KONTAKTA punkten.
+    Använd den ![Kopieringsknapp](./media/create-cassandra-python/copy.png) knappen på höger sida av skärmen för att kopiera värdet övre KONTAKTA punkten.
 
     ![Visa och kopiera användare, lösenord och kontakta åtkomstpunkt i Azure portal, anslutning sträng-bladet](./media/create-cassandra-python/keys.png)
 

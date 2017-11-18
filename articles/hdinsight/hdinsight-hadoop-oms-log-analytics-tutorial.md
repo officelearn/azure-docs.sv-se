@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: 73c472140861a0d0d270021ab268e8c1113c23b5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Använda Azure Log Analytics för att övervaka HDInsight-kluster
 
@@ -31,7 +31,7 @@ Lär dig hur du använder Azure Log Analytics för att övervaka åtgärder för
 
 * **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free).
 
-* **Ett Azure HDInsight-kluster**. För närvarande kan du använda Azure OMS med följande typer av HDInsight-kluster:
+* **Ett Azure HDInsight-kluster**. För närvarande kan du använda Azure Operations Management Suite med följande typer av HDInsight-kluster:
 
     * Hadoop
     * HBase
@@ -56,7 +56,7 @@ I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster om 
 
     Det tar en stund att spara inställningen.  När det är klart kan du se en **öppna OMS-instrumentpanelen** knappen längst upp. 
 
-    ![Öppna instrumentpanelen i OMS](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "öppna OMS-instrumentpanelen")
+    ![Öppna Operations Management Suite-instrumentpanelen](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "öppna OMS-instrumentpanelen")
 
 5. Klicka på **öppna OMS instrumentpanelen**.
 6. Ange dina autentiseringsuppgifter för Azure om du uppmanas till detta.

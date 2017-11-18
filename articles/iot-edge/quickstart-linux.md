@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Snabbstart: Distribuera din första IoT kant modulen från Azure portal till en enhet för Linux - förhandsgranskning
 
@@ -66,24 +66,26 @@ Skapa en enhetsidentitet för den simulerade enheten så att den kan kommunicera
 IoT kant runtime distribueras på alla kant för IoT-enheter. Det består av två moduler. Först underlättar IoT kant agenten distribution och övervakning av moduler på IoT gränsenheten. Gräns för IoT-hubb hanterar andra, kommunikation mellan moduler på IoT gränsenheten och mellan enheten och IoT-hubb. 
 
 Hämta skriptet IoT kant kontroll på datorn där du kör IoT gränsenheten:
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Konfigurera körningen med anslutningssträngen IoT kant enheten från föregående avsnitt:
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Starta körningen:
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 Kontrollera Docker för att se att IoT kant-agenten körs som en modul:
-```python
+```cmd
 sudo docker ps
 ```
+
+![Se edgeAgent i Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Distribuera en modul
 
@@ -93,11 +95,21 @@ sudo docker ps
 
 I Snabbstart, skapas en ny IoT Edge-enhet och installerat IoT kant-körningsmiljön. Sedan använde du Azure-portalen för att skicka en IoT kant-modul som ska köras på enheten utan att behöva göra ändringar i själva enheten. I det här fallet skapar den modul som du pushas miljödata som du kan använda för självstudierna. 
 
-Visa meddelanden som skickas från modulen tempSensor:
+Öppna Kommandotolken på den dator som kör den simulerade enheten igen. Kontrollera att modulen distribueras från molnet körs på enheten IoT kant:
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![Visa tre moduler på enheten](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+Visa meddelanden som skickas från modulen tempSensor till molnet:
+
+```cmd
 sudo docker logs -f tempSensor
 ```
+
+![Visa data från en modul](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 Du kan också visa telemetri enheten skickar med hjälp av den [IoT-hubb explorer verktyget][lnk-iothub-explorer]. 
 

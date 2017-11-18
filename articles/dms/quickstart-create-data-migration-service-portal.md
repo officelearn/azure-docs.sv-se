@@ -10,20 +10,31 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/08/2017
-ms.openlocfilehash: 4213a0ae73c38dcad403140e3d45e28f2d338020
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: 9faac0716334d627cdde4c0ef16262670333b5d4
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-database-migration-service-instance-using-the-azure-portal"></a>Skapa en instans av databasen migreringstjänsten med hjälp av Azure portal
-I den här snabbstartsguide använder du Azure-portalen för att skapa en instans av tjänsten Azure Database migrering.  När du har skapat tjänsten kommer du att kunna använda den för att migrera data från SQL Server på lokala till en Azure SQL database.
+# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Skapa en instans av tjänsten Azure Database migrering med hjälp av Azure portal
+I den här snabbstartsguide använder du Azure-portalen för att skapa en instans av tjänsten Azure Database migrering.  När du har skapat tjänsten kommer du att kunna använda den för att migrera data från SQL Server lokalt till en Azure SQL database.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Öppna webbläsaren och gå till [Microsoft Azure Portal](https://portal.azure.com/). Ange dina autentiseringsuppgifter och logga in på portalen. Standardvyn är instrumentpanelen.
+
+## <a name="register-the-resource-provider"></a>Registrera resursprovidern
+Du behöver registrera resursprovidern Microsoft.DataMigration innan du skapar din första databas migrering tjänst.
+
+1. Välj i Azure-portalen **alla tjänster**, och välj sedan **prenumerationer**.
+
+1. Välj den prenumeration som du vill skapa en instans av tjänsten Azure Database migrering och välj sedan **resursproviders**.
+
+1. Sök efter migreringen och välj sedan till höger om Microsoft.DataMigration **registrera**.
+
+![Registrera resursprovider](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-azure-database-migration-service"></a>Skapa Migreringstjänst för Azure-databas
 1. Klicka på  **+**  att skapa en ny tjänst.  Migreringstjänst för databasen är fortfarande under förhandsgranskning.  

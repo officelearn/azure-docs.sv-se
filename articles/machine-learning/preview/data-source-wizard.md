@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0b014fe57f3e9d2ceeac94f3570353a9a07b27
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="data-source-wizard"></a>Guiden datakälla #
 
@@ -29,7 +29,7 @@ Ange först hur dina data är för närvarande i. Det kan lagras i en flat-fil e
 ![Steg 1](media/data-source-wizard/step1.png)
 
 ## <a name="step-3-select-data-file"></a>Steg 3: Välj datafilen ##
-Ange sökvägen till filen för en fil/katalog. Välj plats för data i listrutan – det kan vara en lokal filsökväg, Azure Blob Storage eller Azure Data Lake. 
+Ange sökvägen till filen för en fil/katalog. Välj plats för data i listrutan – det kan vara en lokal filsökväg eller Azure Blob Storage. 
 
 Ange sökvägen genom att skriva in den eller klicka på den **Bläddra...** knappen för att söka efter den. Du kan bläddra efter en katalog eller en eller flera filer.
 

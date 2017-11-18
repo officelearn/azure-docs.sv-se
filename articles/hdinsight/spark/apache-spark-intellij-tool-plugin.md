@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
-ms.author: nitinme
-ms.openlocfilehash: 82683349f3e562be5ac89ade4143588283abd71c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/25/2017
+ms.author: maxluk,jejiang
+ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Använda Azure Toolkit för IntelliJ för att skapa Spark-program för ett HDInsight-kluster
 
@@ -168,8 +168,8 @@ Installationsanvisningar finns i [installera Azure Toolkit för IntelliJ](https:
       
       Information om hur du kommer åt jobbutdata finns i ”åtkomst och hantera HDInsight Spark-kluster med hjälp av Azure Toolkit för IntelliJ” senare i den här artikeln.
 
-## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Köra eller felsöka ett Spark Scala-program på ett HDInsight Spark-kluster
-Vi rekommenderar också ett annat sätt att skicka Spark-program i klustret. Du kan göra det genom att ange parametrarna i den **kör/Debug konfigurationer** IDE. Mer information finns i [felsöka Spark-program på ett HDInsight-kluster med Azure Toolkit för IntelliJ via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Felsöka Spark-program lokalt eller via fjärranslutning på ett HDInsight-kluster 
+Vi rekommenderar också ett annat sätt att skicka Spark-program i klustret. Du kan göra också genom att ange parametrarna i den **kör/Debug konfigurationer** IDE. Mer information finns i [felsöka Spark-program lokalt eller via fjärranslutning på ett HDInsight-kluster med Azure Toolkit för IntelliJ via SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Komma åt och hantera HDInsight Spark-kluster med hjälp av Azure Toolkit för IntelliJ
 Du kan utföra olika åtgärder med hjälp av Azure Toolkit för IntelliJ.
@@ -211,50 +211,6 @@ Som standard visar Azure Toolkit för IntelliJ Spark-kluster från alla dina Azu
 1. I Azure Explorer högerklickar du på den **Azure** rot nod och välj sedan **hantera prenumerationer**. 
 
 2. I dialogrutan avmarkerar du kryssrutorna bredvid de prenumerationer som du inte vill att komma åt och välj sedan **Stäng**. Du kan också välja **logga ut** om du vill logga ut från din Azure-prenumeration.
-
-## <a name="run-a-spark-scala-application-locally"></a>Köra ett program med Spark Scala lokalt
-Du kan använda Azure Toolkit för IntelliJ för att köra Spark Scala program lokalt på din arbetsstation. Programmen vanligtvis behöver inte åtkomst till resurser i klustret, till exempel behållare för lagring, och du kan köra och testa dem lokalt.
-
-### <a name="prerequisite"></a>Krav
-När du kör programmet lokalt Spark Scala på en Windows-dator, kan du få ett undantag som beskrivs i [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356). Undantaget inträffar eftersom WinUtils.exe saknas i Windows. 
-
-Du löser det här felet [ladda ned den körbara filen](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) till en plats som **C:\WinUtils\bin**. Lägg sedan till miljövariabeln **HADOOP_HOME**, och ange värdet för variabeln för att **C\WinUtils**.
-
-### <a name="run-a-local-spark-scala-application"></a>Kör ett lokalt Spark Scala-program
-1. Starta IntelliJ IDEA och skapa ett projekt. 
-
-2. I den **nytt projekt** dialogrutan Gör följande:
-   
-    a. Välj **HDInsight** > **Spark på HDInsight lokala kör sampel (Scala)**.
-
-    b. I den **Build verktyget** väljer du något av följande enligt dina behov:
-
-      * **Maven**, Scala skapa projekt guiden support
-      * **Segregerade Barlasttankar**, för att hantera beroenden och skapa för Scala-projekt
-
-    ![Dialogrutan Nytt projekt](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
-
-3. Välj **nästa**.
- 
-4. I fönstret nästa gör du följande:
-   
-    a. Ange ett namn och plats.
-
-    b. I den **projekt SDK** listrutan väljer du en Java-version som är senare än version 1.7.
-
-    c. I den **Spark Version** nedrullningsbara listan, Välj versionen av Scala som du vill använda: Scala 2.11.x för Spark 2.0 eller Scala 2.10.x för Spark 1.6.
-
-    ![Dialogrutan Nytt projekt](./media/apache-spark-intellij-tool-plugin/Create-local-project.PNG)
-
-5. Välj **Slutför**.
-
-6. Mallen lägger till en exempelkod (**LogQuery**) under den **src** mapp som du kan köra lokalt på datorn.
-   
-    ![Platsen för LogQuery](./media/apache-spark-intellij-tool-plugin/local-app.png)
-
-7. Högerklicka på den **LogQuery** program och välj sedan **kör 'LogQuery'**. På den **kör** fliken längst ned kan du se utdata som liknar följande:
-   
-   ![Spark programmet lokala kör resultat](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Konvertera befintliga IntelliJ IDEA program att använda Azure Toolkit för IntelliJ
 Du kan konvertera befintliga Spark Scala program som du skapade i IntelliJ IDEA till att vara kompatibel med Azure Toolkit för IntelliJ. Du kan sedan använda plugin-programmet för att skicka program till ett HDInsight Spark-kluster.

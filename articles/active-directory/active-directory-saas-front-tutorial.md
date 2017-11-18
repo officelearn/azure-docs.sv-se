@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944149746b05108040cd0cc340e882b39713f06e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Självstudier: Azure Active Directory-integrering med framför
 
@@ -104,66 +104,60 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. På den **främre domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+3. På den **främre domän och URL: er** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<companyname>.frontapp.com`
 
     b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<companyname>.frontapp.com/sso/saml/callback`
-
-4. Kontrollera **visa avancerade inställningar för URL: en**, om du vill konfigurera programmet i **SP** initierade läge:
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
-
-    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare, Reply URL och inloggnings-URL som beskrivs senare i självstudiekursen eller kontakta [främre klienten supportteamet](mailto:support@frontapp.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL som beskrivs senare i självstudiekursen eller kontakta [främre klienten supportteamet](mailto:support@frontapp.com) att hämta dessa värden. 
 
-5. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
-6. Klicka på **spara** knappen.
+5. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. På den **främre Configuration** klickar du på **konfigurera främre** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. På den **främre Configuration** klickar du på **konfigurera främre** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Inloggning till framför-klient som administratör.
+7. Inloggning till framför-klient som administratör.
 
-9. Gå till **inställningar (kugghjulet ikonen längst ned i den vänstra sidopanelen) > Inställningar**.
+8. Gå till **inställningar (kugghjulet ikonen längst ned i den vänstra sidopanelen) > Inställningar**.
    
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
-10. Klicka på **enkel inloggning** länk.
+9. Klicka på **enkel inloggning** länk.
    
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Välj **SAML** i listrutan för **enkel inloggning**.
+10. Välj **SAML** i listrutan för **enkel inloggning**.
    
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. I den **startpunkten** textruta ange värdet för **inloggning tjänst-URL för enkel** från guiden Konfigurera program för Azure AD.
+11. I den **startpunkten** textruta ange värdet för **inloggning tjänst-URL för enkel** från guiden Konfigurera program för Azure AD.
     
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. Öppna din hämtade **Certificate(Base64)** fil i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **signeringscertifikat** textruta.
+12. Öppna din hämtade **Certificate(Base64)** fil i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **signeringscertifikat** textruta.
     
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. På den **tjänstinställningar providern** avsnittet, utför följande steg:
+13. På den **tjänstinställningar providern** avsnittet, utför följande steg:
 
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
     a. Kopiera värdet för **enhets-ID** och klistrar in det i den **identifierare** TextBox-kontroll i **främre domän och URL: er** avsnitt i Azure-portalen.
 
-    b. Kopiera värdet för **ACS URL** och klistrar in det i den **inloggnings-URL** TextBox-kontroll i **främre domän och URL: er** avsnitt i Azure-portalen.
+    b. Kopiera värdet för **ACS URL** och klistrar in det i den **Reply URL** TextBox-kontroll i **främre domän och URL: er** avsnitt i Azure-portalen.
     
-15. Klicka på **spara** knappen.
+14. Klicka på **spara** knappen.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

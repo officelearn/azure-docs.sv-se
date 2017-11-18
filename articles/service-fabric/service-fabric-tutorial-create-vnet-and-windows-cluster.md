@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: b06d0196f1f911f2f6cf87242d70455ba22b1f88
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fb32ef2881bdc1e88bb3f54446163c0feac5da9b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
-Den här kursen ingår i en serie. Du kommer lära dig hur du distribuerar ett Windows Service Fabric-kluster till ett befintligt Azure virtuellt nätverk (VNET) och underordnad net med hjälp av PowerShell. När du är klar kan har du ett kluster som körs i molnet som du kan distribuera program till.  För att skapa ett Linux-kluster med Azure CLI, se [skapa en säker Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Den här kursen ingår i en serie. Du får lära dig att distribuera ett Service Fabric-kluster som kör Windows i ett befintligt Azure virtuella nätverk (VNET) och underordnad net med hjälp av PowerShell. När du är klar kan har du ett kluster som körs i molnet som du kan distribuera program till.  För att skapa ett Linux-kluster med Azure CLI, se [skapa en säker Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 I den här guiden får du lära dig hur man:
 
@@ -47,6 +47,22 @@ Innan du börjar den här kursen:
 
 Följande procedurer skapa ett Service Fabric-kluster med fem noder. Att beräkna kostnaden genom att köra ett Service Fabric-kluster i Azure används den [Priskalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/).
 
+## <a name="introduction"></a>Introduktion
+Den här kursen distribuerar ett kluster med fem noder i en enskild nod-typ till ett virtuellt nätverk i Azure.
+
+Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. Kluster kan skalas till tusentals datorer. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper som till exempel placeringsegenskaper.
+
+En nodtyp definierar storlek, antal och egenskaper för en uppsättning virtuella datorer i klustret. Varje definierade nodtyp har ställts in som en [virtuella datorns skaluppsättning](/azure/virtual-machine-scale-sets/), en Azure compute resursen som du använder för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Varje nodtyp kan sedan skalas upp eller ned separat, har olika uppsättningar av öppna portar och kan ha olika kapacitetsdata. Nodtyper används för att definiera roller för en uppsättning noder, till exempel ”klientdel” eller ”serverdel”.  Klustret kan ha fler än en nodtyp, men den primära nodtypen måste ha minst fem datorer för produktion kluster (eller minst tre virtuella datorer för testkluster).  [Service Fabric systemtjänster](service-fabric-technical-overview.md#system-services) placeras på noder av typen primära noden.
+
+## <a name="cluster-capacity-planning"></a>Kapacitetsplanering för kluster
+Den här kursen distribuerar ett kluster med fem noder i en enskild nod-typen.  För alla Produktionsdistribution av klustret är kapacitetsplanering ett viktigt steg. Här följer några saker att tänka på som en del av den här processen.
+
+- Antalet nod av typen ditt kluster behöver 
+- Egenskaperna för varje nodtyp (till exempel storlek, primära, mot internet och antal virtuella datorer)
+- Tillförlitlighet och hållbarhet egenskaper i klustret
+
+Mer information finns i [klustret kapacitetsplaneringsöverväganden](service-fabric-cluster-capacity.md).
+
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Logga in på Azure och välja din prenumeration
 Den här guiden använder Azure PowerShell. När du startar en ny PowerShell-session, logga in på ditt Azure-konto och välja din prenumeration innan du kan köra kommandon för Azure.
  
@@ -68,7 +84,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 ```
 
 ## <a name="deploy-the-network-topology"></a>Distribuera nätverkets topologi
-Därefter konfigurera nätverkets topologi som API Management och Service Fabric-klustret kommer att distribueras. Den [network.json] [ network-arm] Resource Manager-mall har konfigurerats för att skapa ett virtuellt nätverk (VNET) och en undernät och nätverket säkerhetsgrupp (NSG) för Service Fabric och ett undernät, och NSG för API Management . Lär dig mer om Vnet, undernät och NSG: er [här](../virtual-network/virtual-networks-overview.md).
+Därefter konfigurera nätverkets topologi som API Management och Service Fabric-klustret kommer att distribueras. Den [network.json] [ network-arm] Resource Manager-mall har konfigurerats för att skapa ett virtuellt nätverk (VNET) och en undernät och nätverket säkerhetsgrupp (NSG) för Service Fabric och ett undernät, och NSG för API Management . API Management distribueras senare i den här kursen. Lär dig mer om Vnet, undernät och NSG: er [här](../virtual-network/virtual-networks-overview.md).
 
 Den [network.parameters.json] [ network-parameters-arm] parameterfilen innehåller namnen på undernät och NSG: er som Service Fabric och API-hantering distribuera till.  API Management har distribuerats i det [följande kursen](service-fabric-tutorial-deploy-api-management.md). Den här guiden behöver inte parametervärden som ska ändras. Service Fabric Resource Manager-mallar använder dessa värden.  Om värdena ändras här, måste du ändra dem i de andra Resource Manager-mallar används i den här kursen och [distribuera API Management kursen](service-fabric-tutorial-deploy-api-management.md). 
 

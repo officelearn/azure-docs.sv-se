@@ -1,6 +1,6 @@
 ---
-title: "Om diskar och virtuella hårddiskar för virtuella datorer i Microsoft Azure Windows | Microsoft Docs"
-description: "Lär dig grunderna om diskar och virtuella hårddiskar för Windows-datorer i Azure."
+title: "Om disklagring för virtuella datorer i Microsoft Azure Windows | Microsoft Docs"
+description: "Lär dig grunderna för lagring av diskar och virtuella hårddiskar för Windows-datorer i Azure."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: b1beecf2e4268e358285c1101edcb13f6d592948
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 588f18da6056641f3c9e42286b70d1f18b424d76
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-windows-vms"></a>Om diskar och virtuella hårddiskar för virtuella Azure Windows-datorer
+# <a name="about-disk-storage-for-azure-windows-vms"></a>Om disklagring för Azure virtuella Windows-datorer
 Precis som andra dator använder virtuella datorer i Azure diskar som en plats för att lagra ett operativsystem, program och data. Alla Azure virtuella datorer har minst två diskar – en disk i Windows-operativsystem och en tillfällig disk. Operativsystemdisken har skapats från en avbildning och både operativsystemdisken och image är virtuella hårddiskar (VHD) lagras i ett Azure storage-konto. Virtuella datorer kan också ha en eller flera datadiskar som lagras också som virtuella hårddiskar. 
 
 I den här artikeln ska vi pratar om olika användningsområden för diskar och beskrivs de olika typerna av diskar som du kan skapa och använda. Den här artikeln är också tillgängligt för [virtuella Linux-datorer](../linux/about-disks-and-vhds.md).
@@ -79,6 +79,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Nästa steg
-* [Ansluta en disk](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) att lägga till ytterligare lagringsutrymme för den virtuella datorn.
-* [Ändra enhetsbeteckningen för den tillfälliga disken i Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) så att programmet kan använda enheten D: för data.
+* [Ansluta en disk](attach-disk-portal.md) att lägga till ytterligare lagringsutrymme för den virtuella datorn.
+* [Skapa en ögonblicksbild](snapshot-copy-managed-disk.md).
+* [Konvertera till hanterade diskar](convert-unmanaged-to-managed-disks.md).
+
 

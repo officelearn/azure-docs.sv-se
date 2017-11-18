@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 23909c65499697be66fc2d2f43c6d0bd8a02b614
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5ca9b8ed40a1e58a0aea4de87995caf5f9a9212b
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Introduktion till Apache Cassandra API för Azure Cosmos DB
 
@@ -36,7 +36,10 @@ Azure Cosmos-DB kan användas som databas för appar som skrivits för [Apache C
 
 ![Azure Cosmos DB Cassandra-API](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-Cassandra-API kan du samverka med data som lagras i Azure Cosmos-databasen med Cassandra Query Language baserat verktyg (till exempel CQLSH) och Cassandra klientdrivrutiner du är redan bekant med.
+Cassandra-API kan du samverka med data som lagras i Azure Cosmos-databasen med Cassandra Query Language baserat verktyg (till exempel CQLSH) och Cassandra klientdrivrutiner du är redan bekant med. Mer information om den i den här Microsoft Mechanics videon med Principal tekniker Manager Kirill Gavrylyuk.
+
+> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
+>
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Vad är fördelen med att använda Apache Cassandra API för Azure Cosmos DB?
 
@@ -56,17 +59,34 @@ Cassandra-API kan du samverka med data som lagras i Azure Cosmos-databasen med C
 
 **Enterprise-klass**: skyddade och kompatibla som standard – Azure cosmos DB tillhandahåller [kompatibilitet certifieringar](https://www.microsoft.com/trustcenter) så användare kan använda plattformen utan att oroa efterlevnadsproblem. Azure Cosmos-DB ger också kryptering i vila och under rörelse, IP-brandväggen och granskningsloggarna för kontrollen plan aktiviteter.  
 
+<a id="sign-up-now"></a>
+## <a name="sign-up-now"></a>Registrera dig nu 
+
+Om du redan har en Azure-prenumeration kan du registrera dig att delta i programmet för Cassandra API (förhandsgranskning) den [Azure-portalen](https://aka.ms/cosmosdb-cassandra-signup).  Om du har använt Azure registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free) där du får 12 månader gratis tillgång till Azure Cosmos DB. Utför följande steg för att begära åtkomst till programmet Cassandra API (förhandsversion).
+
+1. I den [Azure-portalen](https://portal.azure.com), klickar du på **ny** > **databaser** > **Azure Cosmos DB**. 
+
+2. Välj sidan nytt konto **Cassandra** i rutan API. 
+
+3. I den **prenumeration** väljer du den Azure-prenumeration som du vill använda för det här kontot.
+
+4. Klicka på **registrera dig för förhandsgranskning i dag**.
+
+    ![Azure Cosmos DB Cassandra-API](./media/cassandra-introduction/cassandra-sign-up.png)
+
+3. Logga in om du vill förhandsgranska idag rutan, klicka på **OK**. 
+
+    När du skickar din begäran status ändras till **godkännande** i fönstret nytt konto. 
+
+När du skickar din begäran vänta e-postmeddelande att din begäran har godkänts. Du behöver inte skapa ett supportärende för att slutföra begäran. Begäranden granskas i den ordning de mottogs. 
+
 ## <a name="how-to-get-started"></a>Så här kommer du igång
-Följ Cassandra API-Snabbstart för att skapa ett Azure Cosmos DB Cassandra API-konto och skapa en Cassandra app:
+När du har anslutit förhandsgranskningsprogrammet, följ Cassandra API-Snabbstart för att skapa en app med Cassandra-API:
 
 * [Snabbstart: Skapa en Cassandra webbprogram med Node.js och Azure Cosmos DB](create-cassandra-nodejs.md)
 * [Snabbstart: Skapa en Cassandra webbprogram med Java och Azure Cosmos DB](create-cassandra-java.md)
 * [Snabbstart: Skapa en Cassandra webbprogram med .NET och Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Snabbstart: Skapa en Cassandra webbprogram med Python och Azure Cosmos DB](create-cassandra-python.md)
-
-## <a name="sign-up-now"></a>Registrera dig nu 
-
-Om du redan har en Azure-prenumeration kan du registrera dig för Cassandra API (förhandsgranskning) den [Azure-portalen](https://aka.ms/cosmosdb-cassandra-signup). Om du har använt Azure registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free) där du får 12 månader gratis tillgång till Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Nästa steg
 

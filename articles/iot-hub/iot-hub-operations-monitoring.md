@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 3eafa32907c8f68cfc44cb2771d625349ff42003
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT-hubb operations övervakning
 
@@ -34,7 +34,7 @@ IoT-hubb övervakar sex kategorier av händelser:
 * Meddelanden moln till enhet
 * Anslutningar
 * Filöverföringar
-* Meddelanderoutning
+* Meddelanderedigering
 
 > [!IMPORTANT]
 > IoT-hubb operations övervakning garanterar inte tillförlitligt och sorterad leverans av händelser. Beroende på IoT-hubb underliggande infrastruktur, kan vissa händelser tappas bort eller levereras i ordning. Använda operations övervakning för att generera varningar baserat på fel signalerar till exempel misslyckade anslutningsförsök eller hög frekvens frånkoppling för specifika enheter. Du bör inte lita på operations händelseövervakning om du vill skapa en konsekvent store för enhetens tillstånd, t.ex. en butik spårning ansluten eller frånkopplad tillståndet för en enhet. 
@@ -172,7 +172,7 @@ Den här kategorin kan inte fånga fel som uppstår direkt medan enheten är Öv
 }
 ```
 
-### <a name="message-routing"></a>Meddelanderoutning
+### <a name="message-routing"></a>Meddelanderedigering
 
 Meddelandet routning kategorin spårar fel som inträffar när meddelandet väg utvärdering och slutpunkten hälsa som uppfattas av IoT-hubb. Den här kategorin innefattar händelser, t.ex. när en regel som utvärderar till ”undefined”, när IoT-hubb markerar en slutpunkt som förlorade och andra fel togs emot från en slutpunkt. Den här kategorin omfattar inte felen om själva meddelandena (till exempel enhet begränsning fel) som har rapporterats under kategorin ”enhetstelemetrin”.
 
@@ -291,7 +291,7 @@ class Program
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]
-* [Simulera en enhet med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png
@@ -307,6 +307,6 @@ Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 [lnk-dr]: iot-hub-ha-dr.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

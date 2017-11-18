@@ -12,20 +12,22 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 77bdeda57a23d77e7f00cfea1f9b8d362cfa4979
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 140789122dcc66e01b05ad81791bc3ca54e4f42c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera referensdata för en Azure tid serien Insights-miljö med hjälp av C#
 
-Den här artikeln beskriver C# exempelkoden du kompilera om du vill hantera referensdata för en Azure tid serien Insights-miljö.
+Det här avsnittet beskriver C# exempelkoden du kompilera om du vill hantera referensdata för en Azure tid serien Insights-miljö.
 
-Se till att följande åtgärder har slutförts innan du kompilera och köra exempelkoden:
-1. En referens datauppsättningen har skapats med hjälp av [i den här artikeln](time-series-insights-add-reference-data-set.md).
+Utför följande steg innan du kompilera och köra exempelkod:
+1. [Skapa en referens datauppsättning](time-series-insights-add-reference-data-set.md).
 
-2. Konfigurera åtkomst-token som används för att programmet för att auktorisera med. Var noga med att token förvärvas via Azure Active Directory-API. Denna token ska skickas i den `Authorization` huvudet i varje fråga API-begäran. För att ställa in icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md) artikel.
+2. Konfigurera auktorisering åtkomsttoken för programmet. Var noga med att token förvärvas via Azure Active Directory-API. Du bör lägga till detta token i den `Authorization` huvudet i varje fråga API-begäran. 
+ 
+   Information om hur du ställer in icke-interaktiva program finns [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
 
 3. Redigera exempelkoden om du vill ersätta exempel konstanter, anges vid **DUMMY #**, nära i början av koden. 
 
@@ -232,5 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-> [!div class="nextstepaction"]
-> Den fullständiga REST API-referensen, se [referens Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[Referensdata API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

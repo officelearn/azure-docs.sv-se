@@ -3,7 +3,7 @@ title: 'Snabbstart: Tabell API med .NET - Cosmos Azure DB | Microsoft Docs'
 description: "Den här snabbstarten visar hur du använder Azure Cosmos DB tabell API för att skapa ett program med Azure-portalen och .NET"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/16/2017
+ms.author: mimig
+ms.openlocfilehash: 4e59c333e14e5e21a02c3160cf6311d1182e5a5e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell med .NET och Azure Cosmos DB-API-app 
 
@@ -84,15 +84,16 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 2. Öppna filen App.config i Visual Studio. 
 
-3. Ta bort kommentarerna StorageConnectionString på rad 8 och kommentera ut StorageConnectionString på rad 7 som den här kursen inte används av Storage-emulatorn. 
-
-3. Klistra in värdet för primära ANSLUTNINGSSTRÄNGEN i värdet för StorageConnectionString på rad 8. 
+3. Ta bort kommentarerna StorageConnectionString på rad 8 och kommentera ut StorageConnectionString på rad 7 som den här kursen inte används av Storage-emulatorn. Rad 7 och 8 bör nu se ut så här:
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    Rad 8 bör nu se ut
+4. Klistra in primära ANSLUTNINGSSTRÄNGEN från portalen i StorageConnectionString värdet på rad 8. Klistra in sträng inom citattecken. Om din slutpunkt använder documents.azure.com, ändrar du den del till table.cosmosdb.azure.com. 
+
+    Rad 8 bör nu se ut:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -110,11 +111,25 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 3. Från resultatet installerar den **Microsoft.Azure.CosmosDB.Table** bibliotek. Detta installerar Azure Cosmos DB tabell API-paketet, samt alla beroenden.
 
-4. Tryck på Ctrl + F5 för att köra programmet.
+4. Öppna BasicSamples.cs och Lägg till en brytpunkt 30 och 52.
 
-    Konsolfönstret visar den informationen läggs till i den nya tabell databasen i Azure Cosmos-databasen.
+5. Tryck på Ctrl + F5 för att köra programmet.
 
-    Du kan nu gå tillbaka till datautforskaren och se frågan, ändra och arbeta med dessa nya data.
+    Konsolfönstret visar den informationen läggs till i den nya tabell databasen i Azure Cosmos-databasen. 
+    
+    Om du får ett felmeddelande om beroenden finns [felsökning](table-sdk-dotnet.md#troubleshooting).
+
+    När du klickar på den första brytpunkten, gå tillbaka till Data Explorer i Azure-portalen och utöka tabellen demo * och på **entiteter**. Den **entiteter** flik till höger visas den nya entiteten som lades till, Observera att telefonnummer för användaren är 425-555-0101.
+    
+6. Stäng fliken entiteter i Data Explorer.
+    
+7. Fortsätta att köra appen till nästa brytpunkt.
+
+    När du träffar brytpunkten växla tillbaka till portalen, klicka på entiteter igen för att öppna fliken entiteter och Observera att telefonnumret har uppdaterats till 425-555-0105.
+
+8. Tryck på CTRL + C för att avsluta körningen av appen tillbaka i konsolfönstret. 
+
+    Du kan nu gå tillbaka till Data Explorer och Lägg till eller ändra entiteter och fråga efter data.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 

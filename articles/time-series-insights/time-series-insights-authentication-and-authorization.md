@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a1d364b0dcb70998b390d0d96bcd1e439617e493
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure tid serien Insights API
 
@@ -24,15 +24,15 @@ Den här artikeln förklarar hur du konfigurerar autentisering och auktorisering
 
 ## <a name="service-principal"></a>Tjänstens huvudnamn
 
-Det här avsnittet beskrivs hur du konfigurerar ett program åtkomst till tid serien Insights API för programmet. Programmet kan sedan fråga data eller publicera referensdata i tid serien insikter-miljö med referenser och inte användarens autentiseringsuppgifter.
+Det här avsnittet beskrivs hur du konfigurerar ett program åtkomst till tid serien Insights API för programmet. Programmet kan sedan fråga data eller publicera referensdata i tid serien insikter-miljö med autentiseringsuppgifter i stället för autentiseringsuppgifter.
 
-När du har ett program som behöver åtkomst tiden serien insikter måste du ställa in ett Azure Active Directory-program och tilldelar åtkomstprinciper data i tid serien insikter-miljö. Den här metoden är bättre att köra appen enligt dina autentiseringsuppgifter eftersom:
+När du har ett program som måste åtkomsttid serien insikter måste du ställa in ett Azure Active Directory-program och tilldelar åtkomstprinciper data i tid serien insikter-miljö. Den här metoden är bättre att köra appen enligt dina autentiseringsuppgifter eftersom:
 
-* Du kan tilldela behörigheter till app-identitet som skiljer sig från din egen behörighet. Dessa behörigheter normalt begränsad till exakt vad appen behöver göra. Du kan exempelvis tillåta appen endast läsa data i en viss tid serien insikter miljö.
+* Du kan tilldela behörigheter till app-identitet som skiljer sig från din egen behörighet. Dessa behörigheter normalt begränsad till endast vilka appen kräver. Du kan exempelvis tillåta appen endast läsa data i en viss tid serien insikter miljö.
 * Du behöver ändra appens autentiseringsuppgifterna ändrar dina ansvarsområden.
 * Du kan använda ett certifikat eller en tangent för att automatisera autentisering när du kör ett oövervakat skript.
 
-Den här artikeln visar hur du utför dessa åtgärder via Azure-portalen. Den fokuserar på en enskild klient program där programmet är avsett att köras i en enda organisation. Stöd för en innehavare program används vanligtvis för line-of-business-program som körs i din organisation.
+Det här avsnittet visar hur du utför dessa åtgärder via Azure-portalen. Den fokuserar på en enskild klient program där programmet är avsett att köras i en enda organisation. Stöd för en innehavare program används vanligtvis för line-of-business-program som körs i din organisation.
 
 Installationsprogrammet flödet består av tre huvudsakliga steg:
 
@@ -103,5 +103,7 @@ Använda program-ID och nyckel i ditt program för att autentisera med Azure tid
 
 ## <a name="next-steps"></a>Nästa steg
 - Exempelkod som anropar tid serien Insights API finns [fråga data med hjälp av C#](time-series-insights-query-data-csharp.md).
-- API-Referensinformation finns i [frågan API-referens](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-- [Skapa ett huvudnamn för tjänsten i Azure-portalen](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- API-Referensinformation finns i [frågan API-referens för](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+
+> [!div class="nextstepaction"]
+> [Skapa ett huvudnamn för tjänsten](../azure-resource-manager/resource-group-create-service-principal-portal.md)

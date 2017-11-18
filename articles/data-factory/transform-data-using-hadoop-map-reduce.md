@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.openlocfilehash: b473ba03b8b700b3123f82343e59a1ed897c4189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c022d1c091fdd1b1e4d16270467c7191fc24ae3
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformera data med Hadoop-MapReduce activity i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,6 @@ Se [Pig](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-had
             "type": "LinkedServiceReference"
         },
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
-        "jarlibs": "MyAzureStorage/jars/jar1",
         "getDebugInfo": "Failure",
         "arguments": [
           "-SampleHadoopJobArgument1"
@@ -76,7 +75,7 @@ Se [Pig](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-had
 | Klassnamn         | Namnet på klassen som ska köras         | Ja      |
 | jarLinkedService  | Referens till en Azure Storage-länkade tjänst som används för att lagra Jar-filer. Om du inte anger den här länkade tjänsten används Azure länkade lagringstjänsten definieras i länkad HDInsight-tjänst. | Nej       |
 | jarFilePath       | Ange sökvägen till Jar-filer som lagras i Azure Storage som anges av jarLinkedService. Filnamnet är skiftlägeskänslig. | Ja      |
-| jarlibs           | Ange sökvägen till Jar-DLL-fil som refereras av jobb som lagras i Azure Storage som anges av jarLinkedService. Filnamnet är skiftlägeskänslig. | Nej       |
+| jarlibs           | Strängen matris med sökvägen till Jar-DLL-fil som refereras av jobb som lagras i Azure Storage som definierats i jarLinkedService. Filnamnet är skiftlägeskänslig. | Nej       |
 | getDebugInfo      | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges av jarLinkedService. Tillåtna värden: None, alltid eller fel. Standardvärde: Ingen. | Nej       |
 | Argument         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som argument på kommandoraden för varje aktivitet. | Nej       |
 | definierar           | Ange parametrar som nyckel/värde-par för refererar till i Hive-skript. | Nej       |

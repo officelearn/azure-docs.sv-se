@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera nätverket grupp flödet säkerhetsloggar i Azure med hjälp av Nätverksbevakaren och Graylog
 
@@ -148,9 +148,9 @@ Logstash används för att förenkla JSON-formaterade flödet loggar till en tup
     ```
 Konfigurationsfilen Logstash som består av tre delar: indata, filter och utdata. Avsnittet inkommande betecknar Indatakällan i loggar som bearbetar Logstash – i det här fallet vi ska använda en Azure blogg inkommande plugin-program (installerad i nästa steg) som gör att vi kan komma åt nätverket säkerhet grupp flödet logga JSON-filer som lagras i blob storage.
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+Avsnittet filter förenklar sedan varje flöde loggfil så att varje enskild flödet tuppel och dess associerade egenskaper blir en separat Logstash-händelse.
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+Slutligen vidarebefordrar utdata varje Logstash-händelsen till Graylog-servern. Så att de passar dina specifika behöver, ändra Logstash config-filen som krävs.
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.

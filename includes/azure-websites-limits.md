@@ -18,7 +18,7 @@
 | Anpassad domän [SSL-stöd](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Obegränsade SNI SSL-anslutningar |Obegränsade SNI SSL och 1 IP SSL-anslutningar som ingår |Obegränsade SNI SSL och 1 IP SSL-anslutningar som ingår |
 | Integrerad belastningsutjämnare | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Schemalagda säkerhetskopieringar](../articles/app-service/web-sites-backup.md) | | | |En gång per dag |Var 5: e minut<sup>8</sup> |
+| [Schemalagda säkerhetskopieringar](../articles/app-service/web-sites-backup.md) | | | |12 per dag |Var 5: e minut<sup>8</sup> |
 | [Automatisk skalning](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) stöd | |X |X |X |X |

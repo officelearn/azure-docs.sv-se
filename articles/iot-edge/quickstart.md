@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e232b4cdb62b7bf212808bd380119482ee88b077
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snabbstart: Distribuera din första IoT kant-modul från Azure portal till en windowsenhet - förhandsgranskning
 
@@ -42,7 +42,7 @@ Den här kursen förutsätter att du använder en dator eller virtuell dator som
 >    * Windows Server 1709 (Build 16299), eller
 >    * Windows IoT Core (skapa 16299) på en enhet med x64
 >
-> För Windows IoT kärnor, följer du instruktionerna i [installera IoT kant-körningsmiljön på Windows IoT Core] [lnk-installation-iotcore]. Annars bara [konfigurera Docker om du vill använda Windows behållare][lnk-docker-containers], och du kan också kontrollera dina krav med följande powershell-kommando:
+> För Windows IoT Core, följer du instruktionerna i [installera runtime IoT kanten på Windows IoT Core][lnk-install-iotcore]. Annars bara [konfigurera Docker om du vill använda Windows behållare][lnk-docker-containers], och du kan också kontrollera dina krav med följande powershell-kommando:
 >    ```
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -150,6 +150,7 @@ Du har lärt dig hur du distribuerar en IoT-Edge-modul till en IoT-enhet. Prova 
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

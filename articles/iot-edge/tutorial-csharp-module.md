@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb7674d8c292e7d571a94ac4625b0858a90704b3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: c778c412bf6d65c5b6ee92d603aac7acfa6139eb
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Utveckla och distribuera en C# IoT kant-modul till den simulerade enheten - förhandsgranskning
 
@@ -35,7 +35,6 @@ Modulen IoT kant som du skapar i den här självstudiekursen filtrerar temperatu
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT kant-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). (Du kan installera tillägget panelen tillägg i Visual Studio Code.)
 * [C# för Visual Studio Code (drivs av OmniSharp) tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (Du kan installera tillägget panelen tillägg i Visual Studio Code.)
-* Azure IoT kant-tillägget för Visual Studio Code
 * [Docker](https://docs.docker.com/engine/installation/). Community Edition (CE) för din plattform är tillräcklig för den här kursen. Kontrollera att du installerar den på den dator som VS kod körs på.
 * [.NET core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 

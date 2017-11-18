@@ -10,21 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
-ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/16/2017
+ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Felsöka service-distributionen och miljö
 Följande information kan hjälpa dig att fastställa orsaken till fel när du ställer in hanteringsmiljö modell.
 
 ## <a name="model-management-environment"></a>Modellen hanteringsmiljö
-### <a name="owner-permission-required"></a>Ägaren behörigheten som krävs
-Du måste ha behörighet för ägare på Azure-prenumeration att registrera Compute för Machine Learning.
-
-Du måste också ägare behörighet att konfigurera ett kluster för distribution av web services.
+### <a name="contributor-permission-required"></a>Deltagare behörigheten som krävs
+Du behöver deltagare åtkomst till prenumerationen eller resursgrupp att konfigurera ett kluster för distribution av web services.
 
 ### <a name="resource-availability"></a>Resurstillgänglighet
 Du måste ha tillräckligt med resurser i din prenumeration så att du kan etablera miljö resurser.
@@ -89,6 +87,7 @@ Python-exempel:
 ```
 
 ## <a name="other-common-problems"></a>Andra vanliga problem
+- Om pip-installation av azure cli ml misslyckas med felmeddelandet `cannot find the path specified` på en Windows-dator måste du aktivera stöd för lång sökväg. Se https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - Om den `env setup` kommandot misslyckas med `LocationNotAvailableForResourceType`, använder du troligtvis fel plats (region) för den datorn utbildningsresurser. Kontrollera att platsen med den `-l` parametern är `eastus2`, `westcentralus`, eller `australiaeast`.
 - Om den `env setup` kommandot misslyckas med `Resource quota limit exceeded`, kontrollera att du har tillräckligt med tillgängliga i prenumerationen kärnor och att dina resurser inte används upp i andra processer.
 - Om den `env setup` kommandot misslyckas med `Invalid environment name. Name must only contain lowercase alphanumeric characters`, tjänstens namn kan inte innehålla versaler, symboler eller understreck (_) (som i *my_environment*).

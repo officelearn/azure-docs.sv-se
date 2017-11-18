@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som har åtkomst till resurser
 
@@ -27,11 +27,11 @@ När du har ett program som behöver komma åt eller ändra resurser måste du k
 * Du behöver inte ändra appens autentiseringsuppgifterna ändrar dina ansvarsområden. 
 * Du kan använda ett certifikat för att automatisera autentisering när du kör ett oövervakat skript.
 
-Det här avsnittet visar hur du utför dessa åtgärder via portalen. Den fokuserar på en enskild klient program där programmet är avsett att köras i en enda organisation. Du använder vanligtvis stöd för en innehavare program för line-of-business-program som körs i din organisation.
+Den här artikeln visar hur du utför dessa åtgärder via portalen. Den fokuserar på en enskild klient program där programmet är avsett att köras i en enda organisation. Du använder vanligtvis stöd för en innehavare program för line-of-business-program som körs i din organisation.
 
-## <a name="required-permissions"></a>Behörigheter som krävs
+## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-För att slutföra det här avsnittet måste du har behörighet att registrera ett program med Azure AD-klienten och tilldela program till en roll i din Azure-prenumeration. Vi behöver kontrollera att du har rätt behörighet för att utföra dessa steg.
+För att slutföra den här artikeln, måste du har behörighet att registrera ett program med Azure AD-klienten och tilldela program till en roll i din Azure-prenumeration. Vi behöver kontrollera att du har rätt behörighet för att utföra dessa steg.
 
 ### <a name="check-azure-active-directory-permissions"></a>Kontrollera behörigheter för Azure Active Directory
 
@@ -104,7 +104,7 @@ För att kontrollera din Prenumerationsbehörigheter:
 
    ![Lägg till app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Ange ett namn och URL: en för programmet. Välj antingen **webbapp / API** eller **interna** för typ av program som du vill skapa. När du har angett värden, Välj **skapa**.
+1. Ange ett namn och URL: en för programmet. Välj **webbapp / API** för typ av program som du vill skapa. Du kan inte skapa autentiseringsuppgifter för en **interna** programmet, därför fungerar inte den typen för ett automatiserat program. När du har angett värden, Välj **skapa**.
 
    ![namn på program](./media/resource-group-create-service-principal-portal/create-app.png)
 

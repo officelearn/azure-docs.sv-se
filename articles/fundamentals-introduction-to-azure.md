@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Introduktion till Microsoft Azure
 Microsoft Azure är Microsofts programplattform för det offentliga molnet.  Syftet med den här artikeln är att ge dig en grund för att förstå grunderna i Azure, även om du inte känner till något om cloud computing.
@@ -77,7 +77,7 @@ En av de vanligaste sakerna som människor gör i molnet körs webbplatser och w
 
 Detta är exakt vad Web Apps erbjuder. Den här modellen för beräkning erbjuder en hanterad webbmiljö med hjälp av Azure Management portal samt API: er. Du kan flytta ett befintligt program för webbplatsen i Web Apps oförändrade eller skapa en ny direkt i molnet. När en webbplats körs kan du lägga till eller ta bort instanser dynamiskt, förlita dig på Azure Web Apps att läsa in Utjämna begäranden om över dem. Appar i Azure erbjuder både en delad, där webbplatsen körs i en virtuell dator med andra platser, och en standard som gör att en plats ska köras på egen virtuell dator. Standard alternativet kan du öka storleken (prestanda) för dina instanser om det behövs.
 
-För utveckling stöder Web Apps .NET, PHP, Node.js, Java och Python tillsammans med SQL Database och MySQL (från ClearDB en Microsoft-partner) för relationslagret. Den innehåller också inbyggda stöd för flera populära program, inklusive WordPress, Joomla och Drupal. Målet är att tillhandahålla en billig, skalbara och fritt och praktiskt plattform för att skapa webbplatser och webbprogram i det offentliga molnet.
+För utveckling stöder Web Apps .NET, PHP, Node.js, Java och Python tillsammans med SQL Database och Azure-databas för MySQL för relationslagret. Den innehåller också inbyggda stöd för flera populära program, inklusive WordPress, Joomla och Drupal. Målet är att tillhandahålla en billig, skalbara och fritt och praktiskt plattform för att skapa webbplatser och webbprogram i det offentliga molnet.
 
 **Web Apps scenarier**
 

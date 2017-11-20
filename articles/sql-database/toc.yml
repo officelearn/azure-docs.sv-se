@@ -370,6 +370,8 @@
           items:
             - name: Distribuera exempelapp
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Etablera klienter
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Övervaka databasprestanda
               href: saas-multitenantdb-performance-monitoring.md
             - name: Köra ad hoc-frågor

@@ -25,11 +25,8 @@
 ###### [Simulerade data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Använd verkliga sensorer](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implementera uppdatering för inbyggd programvara](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Anslut Intel NUC-gateway
-##### [Simulerade data](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Använd verklig sensor](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Gör så här för att
+### Instruktionsguider
 #### Anslut en simulerad enhet
 ##### [C i Windows](iot-suite-v1-connecting-devices.md)
 ##### [C i Linux](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Översikt över ansluten fabrikslösning](iot-suite-connected-factory-overview.md)
 ### [Genomgång av ansluten fabrikslösning](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Gör så här för att
+# Instruktionsguider
 ## Fjärrövervakning
 ### [Utföra avancerad övervakning](iot-suite-remote-monitoring-monitor.md)
 ### [Använda regler för att identifiera problem](iot-suite-remote-monitoring-automate.md)

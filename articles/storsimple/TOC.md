@@ -2,6 +2,7 @@
 
 ## Översikt
 ### [Vad är lösningen?](storsimple-ova-overview.md)
+### [Regional tillgänglighet](storsimple-regions.md)
 
 ## Kom igång
 ### Planera
@@ -59,6 +60,7 @@
 ### [Vad är lösningen?](storsimple-overview.md)
 ### [StorSimple-inlärningskarta](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Säkerhetsöverväganden](storsimple-8000-security.md)
+### [Regional tillgänglighet](storsimple-regions.md)
 ### [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Kom igång
@@ -196,7 +198,7 @@
 #### [Version – GA](storsimple-july-2014-release-notes.md)
 
 ## Referens
-### [REST API](https://docs.microsoft.com/rest/api/storsimple)
+### [REST-API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell för StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000-serien (klassisk portal)

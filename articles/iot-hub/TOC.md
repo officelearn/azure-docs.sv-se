@@ -3,7 +3,7 @@
 ## [Vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Översikt över enhetshantering](iot-hub-device-management-overview.md)
 
-# [Kom igång](iot-hub-get-started.md)
+# [Komma igång](iot-hub-get-started.md)
 
 ## Konfigurera enheten
 ### [Simulera en enhet på datorn](iot-hub-get-started-simulated.md)
@@ -28,12 +28,6 @@
 #### [Sparkfun ESP8266 Thing Dev med Arduino IDE](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Adafruit Feather M0 med Arduino IDE](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-#### Använda IoT Gateway-startpaketet
-##### [Konfigurera Intel NUC som en gateway](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Ansluta gatewayen till IoT Hub](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Använda gatewayen för datakonvertering](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-##### [Felsökning](iot-hub-gateway-kit-c-troubleshooting.md)
-
 ## Utökade IoT-scenarier
 ### [Hantera meddelanden mellan enheter och molnet med iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
 ### [Spara meddelanden från IoT Hub i datalagring för Azure](iot-hub-store-data-in-azure-table-storage.md)
@@ -43,7 +37,7 @@
 ### [Enhetshantering med IoT Hub-utforskaren](iot-hub-device-management-iothub-explorer.md)
 ### [Fjärrövervakning och aviseringar med Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-# Gör så här för att
+# Instruktionsguider
 ## Planera
 ### [Jämförelse mellan IoT Hub och Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Skala din lösning](iot-hub-scaling.md)
@@ -147,30 +141,6 @@
 ##### [Koncept för certifikatsäkerhet med X.509 CA](iot-hub-x509ca-concept.md)
 #### [Kom igång med certifikatsäkerhet med X.509 CA](iot-hub-security-x509-get-started.md)
 ##### [Skapa certifikat – PowerShell](iot-hub-security-x509-create-certificates.md)
-
-## Azure IoT Edge
-### [Översikt](iot-hub-iot-edge-overview.md)
-### Kom igång
-#### [Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows](iot-hub-windows-iot-edge-get-started.md)
-### Simulera en enhet
-#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
-#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
-### [Använda en riktig enhet](iot-hub-iot-edge-physical-device.md)
-### Skapa en modul
-#### [Java](iot-hub-iot-edge-create-module-java.md)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
-#### [.NET-standard](iot-hub-iot-edge-create-module-dotnet-core.md)
-#### [Node.js](iot-hub-iot-edge-create-module-js.md)
-### Utveckla
-#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
-#### [.NET Core-modul](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
-#### [.NET Core-hanterad gateway](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
-#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
-#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
-#### [Lägga till en modul dynamiskt](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
-#### [Processextern proxymodul](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
-#### [Ursprunglig modulvärd](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)

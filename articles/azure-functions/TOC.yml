@@ -65,6 +65,8 @@
       href: functions-triggers-bindings.md
     - name: Språk
       items:
+        - name: Språk som stöds
+          href: supported-languages.md
         - name: 'C#-skript'
           href: functions-reference-csharp.md
         - name: .NET-klassbibliotek

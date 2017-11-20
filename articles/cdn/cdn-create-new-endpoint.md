@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 80e8e85f058a5cec2e3ae6a6cff5cb8a363370e1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Komma igång med Azure CDN
 Den här artikeln beskriver hur du aktiverar Azure CDN genom att skapa en ny profil och slutpunkt för CDN.
@@ -82,7 +82,7 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
    > Följande begränsningar gäller för åtkomst till CDN-innehåll via HTTPS:
    > 
    > * Du måste använda SSL-certifikatet som tillhandahålls av CDN. Certifikat från tredje part stöds inte.
-   > * HTTPS-stöd för anpassade Azure CDN-domäner är endast tillgängligt med produkten av typen **Azure CDN from Verizon** (Standard och Premium). Det stöds inte på **Azure CDN från Akamai**-produkter. Mer information finns i [aktivera eller inaktivera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md).
+   > * HTTPS-stöd för anpassade Azure CDN-domäner är endast tillgängligt med produkten av typen **Azure CDN from Verizon** (Standard och Premium). Det stöds inte på **Azure CDN från Akamai**-produkter. Mer information finns i [Konfigurera HTTPS på en anpassad Azure CDN-domän](cdn-custom-ssl.md).
   
 9. Klicka på knappen **Lägg till** för att skapa en ny slutpunkt.
    

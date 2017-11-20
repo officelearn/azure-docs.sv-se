@@ -1,5 +1,5 @@
 ---
-title: "Självstudiekurs: Skapa ditt första Azure Search-index i portalen | Microsoft Docs"
+title: "Skapa index, frågor och filter på sidor i Azure Search-portalen | Microsoft Docs"
 description: "Använd fördefinierade exempeldata för att generera ett index i Azure Portal. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning, geosearch och mycket annat."
 services: search
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Självstudiekurs: Skapa ditt första Azure Search-index i portalen
+# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Skapa, fråga och filtrera ett Azure Search-index i portalen
 
 Gå till Azure-portalen och utgå från en fördefinierad exempeldatauppsättning för att snabbt skapa ett index med hjälp av guiden **Importera data**. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**.  
 
@@ -128,7 +128,7 @@ Nu har du ett sökindex som du kan börja skicka frågor mot. **Sökutforskaren*
 
 **`search=seattle`**
 
-+ Parametern `search` används för att ange en sökordssökning i det här fallet, och returnerar resultat från King County i delstaten Washington med *Seattle* i valfritt sökbart fält i dokumentet. 
++ Parametern **search** används för att ange en sökordssökning i det här fallet, och returnerar resultat från King County i delstaten Washington med *Seattle* i valfritt sökbart fält i dokumentet. 
 
 + **Sökutforskaren** returnerar resultat i JSON, vilket kan vara detaljerat och svårläst om dokumenten har en kompakt struktur. Beroende på vilka dokument som används kan du behöva skriva kod som hanterar sökresultaten för att kunna extrahera viktiga element. 
 
@@ -136,35 +136,48 @@ Nu har du ett sökindex som du kan börja skicka frågor mot. **Sökutforskaren*
 
 **`search=seattle&$count=true&$top=100`**
 
-+ Symbolen `&` används för att lägga till sökparametrar, som kan anges i valfri ordning. 
++ Symbolen **&** används för att lägga till sökparametrar, som kan anges i valfri ordning. 
 
-+  Parametern `$count=true` returnerar ett antal för summan av alla returnerade dokument. Du kan verifiera filterfrågor genom att övervaka ändringar som rapporterats via `$count=true`. 
++  Parametern **$count=true** returnerar ett antal för summan av alla returnerade dokument. Du kan verifiera filterfrågor genom att övervaka ändringar som rapporterats via **$count=true**. 
 
-+ `$top=100` returnerar de högst rangordnade 100 dokumenten bland alla dokument. Som standard returnerar Azure Search de första 50 bästa matchningarna. Du kan öka eller minska antalet via `$top`.
++ **$top=100** returnerar de högst rangordnade 100 dokumenten bland alla dokument. Som standard returnerar Azure Search de första 50 bästa matchningarna. Du kan öka eller minska antalet via **$top**.
 
-**`search=*&facet=city&$top=2`**
 
-+ `search=*` är en tom sökning. Tomma sökningar söker efter allt. En anledning till att skicka en tom fråga är att filtrera eller fasettera över hela uppsättningen dokument. Om du exempelvis vill att en fasetterande navigeringsstruktur ska bestå av alla städer i indexet.
+## <a name="filter-query"></a> Filtrera frågan
 
-+  `facet` returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorier på antalet städer. Det finns ingen aggregering i Azure Search, men du kan uppskatta aggregering via `facet`, som ger en uppräkning av dokument i varje kategori.
-
-+ `$top=2` hämtar tillbaka två dokument, som visar att du kan använda `top` för att både minska eller öka resultat.
-
-**`search=seattle&facet=beds`**
-
-+ De här frågan är en aspekt för sängar, i en textsökning för *Seattle*. `"beds"` kan klassas som ett fasettvärde eftersom fältet är märkt som ett hämtningsbart, filtrerbart och fasettbart fält i indexet. Värdena (numeriska, 1–5) är väl lämpade för att kategorisera och dela upp listor i grupper (listor med 3 sovrum, 4 sovrum etc.). 
-
-+ Endast filtrerbara fält kan fasetteras. Endast hämtningsbara fält kan returneras i resultatet.
+Filter tas med i sökbegäranden när du lägger till parametern **$filter**. 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ Parametern `filter` returnerar resultat som matchar de kriterier som du har angett. I det här fallet sovrum som är större än 3. 
++ Parametern **$filter** returnerar resultat som matchar de kriterier som du har angett. I det här fallet sovrum som är större än 3. 
 
 + Syntaxen för filtret är en OData-konstruktion. Mer information finns i [OData-filtersyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
+## <a name="facet-query"></a> Fasettera frågan
+
+Fasettfilter tas med i sökbegäranden. Du kan använda parametern facet för att returnera ett aggregerat antal dokument som matchar ett fasettvärde som du anger. 
+
+**`search=*&facet=city&$top=2`**
+
++ **search=*** är en tom sökning. Tomma sökningar söker efter allt. En anledning till att skicka en tom fråga är att filtrera eller fasettera över hela uppsättningen dokument. Om du exempelvis vill att en fasetterande navigeringsstruktur ska bestå av alla städer i indexet.
+
++  **facet** returnerar en navigeringsstruktur som du kan skicka till en kontroll i användargränssnittet. Den returnerar kategorier och antal. I det här fallet baseras kategorier på antalet städer. Det finns ingen aggregering i Azure Search, men du kan uppskatta aggregering via `facet`, som ger en uppräkning av dokument i varje kategori.
+
++ **$top=2** hämtar tillbaka två dokument, som visar att du kan använda `top` för att både minska eller öka resultat.
+
+**`search=seattle&facet=beds`**
+
++ De här frågan är en aspekt för sängar, i en textsökning för *Seattle*. *beds* kan klassas som ett fasettvärde eftersom fältet är märkt som ett hämtningsbart, filtrerbart och fasettbart fält i indexet. Värdena (numeriska, 1–5) är väl lämpade för att kategorisera och dela upp listor i grupper (listor med 3 sovrum, 4 sovrum etc.). 
+
++ Endast filtrerbara fält kan fasetteras. Endast hämtningsbara fält kan returneras i resultatet.
+
+## <a name="highlight-query"></a> Lägga till markering
+
+Träffmarkering innebär att formatera all text som matchar sökordet på ett särskilt sätt inom ett givet fält. Om sökordet begravt långt ned i en beskrivning kan du använda träffmarkering för att göra det lättare att hitta ordet. 
+
 **`search=granite countertops&highlight=description`**
 
-+ Träffmarkering innebär att formatera all text som matchar sökordet på ett särskilt sätt inom ett givet fält. Om sökordet begravt långt ned i en beskrivning kan du använda träffmarkering för att göra det lättare att hitta ordet. I det här fallet blir det mycket lättare att hitta den formaterade frasen `"granite countertops"` i beskrivningsfältet.
++ I det här exemplet är den formaterade frasen *granite countertops* enklare att hitta i beskrivningsfältet.
 
 **`search=mice&highlight=description`**
 
@@ -172,23 +185,29 @@ Nu har du ett sökindex som du kan börja skicka frågor mot. **Sökutforskaren*
 
 + Azure Search har stöd för 56 analysverktyg från både Lucene och Microsoft. Som standard används analysverktyget från Lucene av Azure Search. 
 
+## <a name="fuzzy-search"></a>Använda fuzzy-sökning
+
+Normalt sett får du inga träffar på felstavade ord – om du till exempel skrivit *samamish* när du sökte på ”Sammamish Plateau” utanför Seattle. Använd fuzzy-sökning för att hantera felstavningar. En beskrivning av detta finns i nästa exempel.
+
 **`search=samamish`**
 
-+ Normalt sett får du inga träffar på felstavade ord – om du till exempel skrivit ”samamish” när du sökte på ”Sammamish Plateau” utanför Seattle. Använd fuzzy-sökning för att hantera felstavningar. En beskrivning av detta finns i nästa exempel.
++ I det här exemplet stavas en stadsdel i Seattle-området fel.
 
 **`search=samamish~&queryType=full`**
 
-+ Fuzzy-sökning aktiveras när du skriver in symbolen `~` och använder den fullständiga frågeparsern för att tolka och parsa `~`-syntaxen på korrekt sätt. 
++ Fuzzy-sökning aktiveras när du skriver in symbolen **~** och använder den fullständiga frågeparsern för att tolka och parsa **~**-syntaxen på korrekt sätt. 
 
-+ Fuzzy-sökning är tillgängligt när du väljer den fullständiga frågeparsern, som sker när du ställer in `queryType=full`. Mer information om frågescenarier i den fullständiga frågeparsern finns i [Lucene-frågesyntax i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++ Fuzzy-sökning är tillgängligt när du väljer den fullständiga frågeparsern, som sker när du ställer in **queryType=full**. Mer information om frågescenarier i den fullständiga frågeparsern finns i [Lucene-frågesyntax i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-+ När `queryType` inte är angivet används den enklare standardfrågeparsern. Den enklare frågeparsern är snabbare, men om du behöver tillgång till fuzzy-sökning, reguljära uttryck, närhetssökning eller andra typer av avancerade frågetyper behöver du den fullständiga syntaxen. 
++ När **queryType** inte är angivet används den enklare standardfrågeparsern. Den enklare frågeparsern är snabbare, men om du behöver tillgång till fuzzy-sökning, reguljära uttryck, närhetssökning eller andra typer av avancerade frågetyper behöver du den fullständiga syntaxen. 
+
+## <a name="geo-search"></a> Prova geospatial sökning
+
+Geospatial sökning stöds av [datatypen edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i fält som innehåller koordinater. Geosearch är en filtertyp som finns med i [OData-filtersyntaxen](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ Geospatial sökning stöds av [datatypen edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i fält som innehåller koordinater. Geosearch är en filtertyp som finns med i [OData-filtersyntaxen](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
-
-+ Med den här exempelfrågan filtreras alla resultat efter platsdata, där resultaten måste ligga mindre än 5 km från en given plats (koordinaterna anges med latitud och longitud). Om du lägger till `$count` kan du se hur många resultat som returneras när du ändrar antingen avståndet eller koordinaterna. 
++ Med den här exempelfrågan filtreras alla resultat efter platsdata, där resultaten måste ligga mindre än 5 km från en given plats (koordinaterna anges med latitud och longitud). Om du lägger till **$count** kan du se hur många resultat som returneras när du ändrar antingen avståndet eller koordinaterna. 
 
 + Geospatial sökning kan vara användbart om sökprogrammet har en funktion av typen ”hitta en bensinstation i närheten av där jag befinner mig” eller om programmet har en funktion för kartnavigering. Det är dock inte fråga om någon fulltextsökning. Om användarna ställer krav på att kunna söka efter en ort eller ett land lägger du till fält för ort eller land som ett komplement till koordinaterna.
 

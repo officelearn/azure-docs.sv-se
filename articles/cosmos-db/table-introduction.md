@@ -2,7 +2,7 @@
 title: Introduktion till Azure Cosmos DB:s tabell-API | Microsoft Docs
 description: "Lär dig hur du kan använda Azure Cosmos DB för att lagra och ställa frågor till omfattande volymer av nyckelvärdedata med kort svarstid med de populära API:erna för OSS MongoDB."
 services: cosmos-db
-author: bhanupr
+author: mimig
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2017
-ms.author: arramac
-ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 11/15/2017
+ms.author: mimig1
+ms.openlocfilehash: 8e8a5d89080df54da1a951d94fac12592de29c50
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Azure Cosmos DB | Tabell-API
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Tabell-API för Azure Cosmos DB
 
-[Microsoft Azure Cosmos-DB](introduction.md) tillhandahåller tabell-API:t (förhandsversion) för program som är skrivna för Azure-tabellagring och som behöver premiumfunktioner som:
+[Microsoft Azure Cosmos-DB](introduction.md) tillhandahåller tabell-API:t för program som är skrivna för Azure-tabellagring och som behöver premiumfunktioner som:
 
 * [Nyckelfärdig global distribution](distribute-data-globally.md).
 * [Dedikerat dataflöde](partition-data.md) över hela världen.
@@ -39,9 +39,9 @@ Vi rekommenderar att du tittar på nedanstående video, där Aravind Ramachandra
 > 
 
 ## <a name="table-offerings"></a>Tabellerbjudanden
-Om du använder Azure Table Storage får du följande fördelar genom att byta till Azure Cosmos DB:s tabell-API (förhandsversion):
+Om du använder Azure Table Storage får du följande fördelar genom att byta till Azure Cosmos DB:s tabell-API:
 
-| | Azure Table Storage | Azure Cosmos DB tabell-API (förhandsversion) |
+| | Azure Table Storage | Tabell-API för Azure Cosmos DB |
 | --- | --- | --- |
 | Svarstid | Snabb, men inga övre gränser för svarstid. | Ensiffrig millisekundsvarstid för läsningar och skrivningar med <10 ms svarstid för läsning och <15 ms svarstid vid skrivning vid 99:e percentilen, i valfri skala, var som helst i världen. |
 | Dataflöde | Modell med variabelt dataflöde. Tabeller har en gräns för skalbarhet på 20 000 åtgärder/s. | Mycket skalbara med [dedikerat reserverat dataflöde per tabell](request-units.md) som understöds av serviceavtal. Konton har ingen maxgräns för dataflöde och kan hantera >10 miljoner åtgärder/s per tabell. |
@@ -50,7 +50,7 @@ Om du använder Azure Table Storage får du följande fördelar genom att byta t
 | Fråga | Frågekörningen använder index för primär nyckel och genomsöker annars. | Frågor kan dra nytta av automatisk indexering av egenskaper för snabba frågetider. Databasmotorn i Azure Cosmos DB har stöd för mängdfunktioner samt geospatial sökning och sortering. |
 | Konsekvens | Stark inom primär region. Eventuell inom sekundär region. | [Fem väldefinierade konsekvensnivåer](consistency-levels.md) för att balansera tillgänglighet, svarstid, dataflöde och konsekvens baserat på dina programbehov. |
 | Prissättning | Optimerad för lagring. | Optimerad för dataflöde. |
-| Serviceavtal | 99,99 % tillgänglighet. | 99,99 % tillgänglighet inom en enda region och möjlighet att lägga till fler regioner för högre tillgänglighet. [Branschledande omfattande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) med allmän tillgänglighet. |
+| Serviceavtal | 99,99 % tillgänglighet. | Serviceavtal med 99,99 % tillgänglighet för alla konton med tillgång till en eller flera regioner med konsekvensmodellen ”relaxed” (avslappnad). 99,999 % läsningstillgänglighet för alla databaskonton med tillgång till flera regioner. [Branschledande serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) när detta blivit allmänt tillgängligt. |
 
 ## <a name="get-started"></a>Kom igång
 
@@ -64,5 +64,7 @@ Här följer några tips för att komma igång:
 * [Fråga tabelldata med tabell-API](tutorial-query-table.md)
 * [Lär dig konfigurera global distribution i Azure Cosmos DB med tabell-API:t](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB-tabell .NET API](table-sdk-dotnet.md)
-
+* [Azure Cosmos DB-tabell Java API](table-sdk-java.md)
+* [Azure Cosmos DB-tabell Node.js API](table-sdk-nodejs.md)
+* [Azure Cosmos DB-tabell SDK för Python](table-sdk-python.md)
 

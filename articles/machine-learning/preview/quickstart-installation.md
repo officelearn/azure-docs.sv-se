@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 07d06e4de95fcc562bcc76ac5cc4f5cd3483ba6d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Skapa konton för förhandsversionen av Azure Machine Learning och installera Azure Machine Learning Workbench
 Azure Machine Learning är en integrerad lösning från slutpunkt till slutpunkt för avancerade analyser inom dataforskning. Med den här lösningen kan professionella dataforskare få hjälp med att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -93,33 +93,20 @@ Installera Azure Machine Learning Workbench på en dator som kör Windows 10, Wi
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## <a name="install-azure-machine-learning-workbench-on-macos"></a>Installera Azure Machine Learning Workbench på macOS
-Installera Azure Machine Learning Workbench på en dator som kör macOS Sierra.
+Installera Azure Machine Learning Workbench på en dator som kör macOS Sierra eller senare.
 
-1. Installera biblioteket openssl med hjälp av [Homebrew](http://brew.sh). Mer information finns i [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites) (Krav för .NET Core på Mac).
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. Ladda ned det senaste installationsprogrammet för Azure Machine Learning Workbench: [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
+1. Ladda ned det senaste installationsprogrammet för Azure Machine Learning Workbench: [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
 
    >[!IMPORTANT]
    >Ladda ned installationsprogrammet till hårddisken och kör programmet därifrån. Kör inte installationsprogrammet direkt i webbläsarens nedladdningswidget.
 
-3. Dubbelklicka på installationsprogrammet **AmlWorkbench.dmg** från Finder.
+2. Dubbelklicka på installationsprogrammet **AmlWorkbench.dmg** från Finder.
 
-4. Slutför installationen enligt anvisningarna på skärmen.
+3. Slutför installationen enligt anvisningarna på skärmen.
 
    Installationsprogrammet laddar ned alla beroendekomponenter som behövs, till exempel Python, Miniconda och andra relaterade bibliotek. Det kan ta ungefär en halvtimme att hämta alla komponenter och slutföra installationen. 
 
-5. Azure Machine Learning Workbench installeras i följande katalog: 
+4. Azure Machine Learning Workbench installeras i följande katalog: 
 
    `/Applications/AmlWorkbench.app`
 

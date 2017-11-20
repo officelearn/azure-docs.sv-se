@@ -11,87 +11,164 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 09/26/2017
+ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 04b8e0b30bf85c8bafd193c942a6a86f2166c1e7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 63e4c654409651f6655da1bed6ab2f544cf024dd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="create-a-data-factory-and-pipeline-using-powershell"></a>Skapa en datafabrik och pipeline med PowerShell
+# <a name="create-an-azure-data-factory-and-pipeline-using-powershell"></a>Skapa en Azure-datafabrik och pipeline med PowerShell
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 – allmänt tillgänglig](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 – förhandsversion](quickstart-create-data-factory-powershell.md)
 
-Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda. 
+Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Azure-datafabrik. Den pipeline som du skapar i den här datafabriken kopierar data från en plats till en annan i Azure Blob Storage. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Transform data using Spark](transform-data-using-spark.md) (Självstudie: Omvandla data med Spark). 
 
-Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Azure-datafabrik. Pipeline i den här datafabriken kopierar data från en plats till en annan i Azure Blob Storage.
+Den här artikeln ger inte någon detaljerad introduktion till Azure Data Factory-tjänsten. En introduktion till Azure Data Factory-tjänsten finns i [Introduktion till Azure Data Factory](introduction.md).
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Läs [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (kom igång med Data Factory version 1) om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-* **Azure Storage-konto**. Du kan använda blob-lagringen både som **källa** och **mottagare** för datalagringen. Om du inte har något Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Skapa en **blob-behållare** i Blob Storage, skapa en **indatamapp** i behållaren och ladda upp några filer till mappen. Du kan använda verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ansluta till Azure Blob Storage, skapa en blob-behållare, ladda upp en indatafil och verifiera utdatafilen.
-* **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps).
+### <a name="azure-subscription"></a>Azure-prenumeration
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="create-a-data-factory"></a>Skapa en datafabrik
+### <a name="azure-storage-account"></a>Azure Storage-konto
+I den här snabbstarten använder du ett allmänt Azure Storage-konto (Blob Storage, för att vara specifik) som datalager för både **källa** och **destination/mottagare**. Om du inte har något allmänt Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 
-1. Starta **PowerShell**. Låt Azure PowerShell vara öppet tills du är klar med snabbstarten. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
+#### <a name="get-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
+Du använder namnet och nyckeln för Azure Storage-kontot i den här snabbstarten. Följande procedur innehåller steg för att få fram namnet och nyckeln för ditt lagringskonto. 
 
-    Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in i Azure Portal:
-        
+1. Öppna webbläsaren och gå till [Azure Portal](https://portal.azure.com). Logga in med ditt Azure-användarnamn och lösenord. 
+2. Klicka på **Fler tjänster >** i den vänstra menyn, filtrera på nyckelordet **Lagring** och välj **Lagringskonton**.
+
+    ![Sök efter lagringskontot](media/quickstart-create-data-factory-powershell/search-storage-account.png)
+3. Filtrera på ditt lagringskonto (om det behövs) i listan med lagringskonton och välj sedan **ditt lagringskonto**. 
+4. Gå till sidan **Lagringskonto** väljer du **Åtkomstnycklar** i menyn.
+
+    ![Hämta lagringskontots namn och nyckel](media/quickstart-create-data-factory-powershell/storage-account-name-key.png)
+5. Kopiera värdena från fälten med **lagringskontots namn** och **nyckel 1** till Urklipp. Klistra in dem i Anteckningar eller något annat redigeringsprogram och spara.  
+
+#### <a name="create-input-folder-and-files"></a>Skapa indatamapp och filer
+Det här avsnittet förutsätter att du har en blobbehållare med namnet adftutorial i Azure Blob Storage. Skapa en mapp med namnet input i behållaren och ladda upp en exempelfil i indatamappen. 
+
+1. Installera [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) om du inte har den på din dator. 
+2. Starta **Azure Storage Explorer** på din dator.   
+3. Gå till fönstret **Anslut till Azure Storage**, välj **Använd lagringskontonamn och nyckel** och klicka på **Nästa**. Om du inte ser fönstret **Anslut till Azure Storage** högerklickar du på **Lagringskonton** i trädvyn och klickar på **Anslut till Azure Storage**. 
+
+    ![Anslut till Azure Storage](media/quickstart-create-data-factory-powershell/storage-explorer-connect-azure-storage.png)
+4. I fönstret **Bifoga namn och nyckel** klistrar du in det **kontonamn** och **kontonyckel** som du sparade i det förra steget. Klicka sedan på **Nästa**. 
+5. I fönstret med **anslutningssammanfattningen** klickar du på **Anslut**.
+6. Bekräfta att du ser ditt lagringskonto i trädvyn under **(Lokal och bifogad)** -> **Lagringskonton**. 
+7. Expandera **Blobbehållare** och kontrollera att blobbehållaren **adftutorial** inte finns. Om den redan finns hoppar du över nästa steg för att skapa behållaren. 
+8. Högerklicka på **Blobbehållare** och välj **Skapa blobbehållare**.
+
+    ![Skapa blobbehållare](media/quickstart-create-data-factory-powershell/stroage-explorer-create-blob-container-menu.png)
+9. Ange **adftutorial** som namn och tryck på **RETUR**. 
+10. Bekräfta att behållaren **adftutorial** är vald i trädvyn. 
+11. Klicka på **Ny mapp** i verktygsfältet. 
+
+    ![Knappen för att skapa mapp](media/quickstart-create-data-factory-powershell/stroage-explorer-new-folder-button.png)
+12. I fönstret **Skapa ny virtuell katalog** **anger du in** ett **namn** och klickar på **OK**. 
+
+    ![Dialogrutan för att skapa katalog](media/quickstart-create-data-factory-powershell/storage-explorer-create-new-directory-dialog.png)
+13. Starta **Anteckningar**, skapa en fil med namnet **emp.txt** och skriv in följande text: 
+    
+    ```
+    John, Doe
+    Jane, Doe
+    ```    
+    Spara filen i mappen **c:\ADFv2QuickStartPSH**. Skapa mappen **ADFv2QuickStartPSH** om den inte redan finns. 
+14. Klicka på knappen **Överför** i verktygsfältet och välj **Ladda upp filer**. 
+
+    ![Knappen för överföring](media/quickstart-create-data-factory-powershell/storage-explorer-upload-button.png)
+15. I fönstret **Ladda upp filer** går du till **Filer** och väljer `...`. 
+16. I fönstret **Välj mapp att överföra** navigerar du till mappen med **emp.txt** och markerar den filen. 
+
+    ![Dialogrutan för att överföra filer](media/quickstart-create-data-factory-powershell/storage-explorer-upload-files-dialog.png)
+17. I fönstret **Ladda upp filer** klickar du på **Överför**. 
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+#### <a name="install-azure-powershell"></a>Installera Azure PowerShell
+Installera den senaste versionen av Azure PowerShell om du inte har den på din dator. 
+
+1. Öppna webbläsaren och gå till sidan [Ladda ned Azure-SDK:er och verktyg](https://azure.microsoft.com/downloads/). 
+2. Klicka på **Windows-installation** i avsnittet **Kommandoradsverktyg** -> **PowerShell**. 
+3. Kör **MSI**-filen för att installera Azure PowerShell. 
+
+Mer detaljerade anvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+
+#### <a name="log-in-to-azure-powershell"></a>Logga in på Azure PowerShell
+Starta **PowerShell** på din dator. Låt Azure PowerShell vara öppet tills du är klar med snabbstarten. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
+
+1. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen:
+       
     ```powershell
     Login-AzureRmAccount
     ```        
-    Kör följande kommando för att visa alla prenumerationer för det här kontot:
+2. Om du har flera Azure-prenumerationer kör du följande kommando för att visa alla prenumerationer kopplade till det här kontot:
 
     ```powershell
     Get-AzureRmSubscription
     ```
-    Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **SubscriptionId** med ID:t för din Azure-prenumeration:
+3. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **SubscriptionId** med ID:t för din Azure-prenumeration:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
-2. Kör cmdleten **Set-AzureRmDataFactoryV2** för att skapa en datafabrik. Ersätt platshållare med egna värden innan kommandot körs. Ersätt **platshållare** med dina egna värden. 
 
-    Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. 
-    ```powershell
-    $resourceGroupName = "<your resource group to create the factory>";
+## <a name="create-a-data-factory"></a>Skapa en datafabrik
+1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. 
+   
+     ```powershell
+    $resourceGroupName = "<Specify a name for the Azure resource group>";
     ```
-
-    Definiera en variabel för datafabrikens namn som du kan använda senare i PowerShell-kommandon. 
+2. Definiera en variabel för datafabrikens namn som du kan använda senare i PowerShell-kommandon. 
 
     ```powershell
-    $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
+    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
     ```
+1. Definiera en variabel för datafabrikens plats: 
 
-    Skapa en datafabrik genom att köra följande kommandon. 
+    ```powershell
+    $location = "East US"
+    ```
+4. Kör följande kommando för att skapa en Azure-resursgrupp: 
+
+    ```powershell
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och försök igen. Om du vill dela resursgruppen med andra går du vidare med nästa steg. 
+5. Kör följande cmdlet av typen **Set-AzureRmDataFactoryV2** för att skapa en datafabrik: 
+    
     ```powershell       
     Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
     ```
 
-    Observera följande punkter:
+Observera följande punkter:
 
-    * Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
+* Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
 
-        ```
-        The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
-        ```
+    ```
+    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+    ```
 
-    * Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
-    * För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA; östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+* När du ska skapa Data Factory-instanser måste du vara **deltagare** eller **administratör** för Azure-prenumerationen.
+* För närvarande kan du endast skapa datafabriker i Data Factory version 2 i regionerna USA, östra, USA östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 ## <a name="create-a-linked-service"></a>Skapa en länkad tjänst
 
 Skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabbstarten behöver du bara skapa en Azure Storage-länkad tjänst som ska användas som både kopia på källa och mottagarlagring, med namnet "AzureStorageLinkedService" i det här exemplet.
 
-1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll: (skapa mappen ADFv2QuickStartPSH om den inte redan finns.). Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt Azure-lagringskonto innan du sparar filen.
+1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll: (skapa mappen ADFv2QuickStartPSH om den inte redan finns.). 
+
+    > [!IMPORTANT]
+    > Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt Azure-lagringskonto innan du sparar filen.
 
     ```json
     {
@@ -127,7 +204,7 @@ Skapa länkade tjänster i en datafabrik för att länka ditt datalager och ber�
 
 ## <a name="create-a-dataset"></a>Skapa en datamängd
 
-Du definierar en datauppsättning som representerar data som ska kopieras från en källa till en mottagare. I det här exemplet refererar denna blob-datauppsättning till den Azure Storage-länkade tjänst som du skapar i föregående steg. Datauppsättningen tar en parameter vars värde anges i en aktivitet som förbrukar datauppsättningen. Parametern används för att konstruera "folderPath" som pekar mot där data finns/lagras.
+Du definierar en datauppsättning som representerar data som ska kopieras från en källa till en mottagare. I det här exemplet refererar denna blob-datauppsättning till den Azure Storage-länkade tjänst som du skapar i föregående steg. Datauppsättningen tar en parameter vars värde anges i en aktivitet som förbrukar datauppsättningen. Parametern används för att skapa en **folderPath** som pekar mot platsen där data finns/lagras.
 
 1. Skapa en JSON-fil med namnet **BlobDataset.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
 
@@ -173,7 +250,7 @@ Du definierar en datauppsättning som representerar data som ska kopieras från 
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
   
-I det här exemplet innehåller denna pipeline en aktivitet och tar två parametrar – sökvägen till indata-blob och sökvägen till utdata-blob. Värdena för dessa parametrar anges när pipeline utlöses/körs. Kopieringsaktiviteten refererar till samma blobdatauppsättning som skapats i föregående steg som indata och utdata. När datauppsättningen används som indatauppsättning anges indatasökvägen. Och när datauppsättningen används som utdatauppsättning anges utdatasökvägen. 
+I det här exemplet innehåller denna pipeline en aktivitet och tar två parametrar – sökvägen till indata-blob och sökvägen till utdata-blob. Värdena för dessa parametrar anges när pipeline utlöses/körs. Kopieringsaktiviteten använder samma blobdatauppsättning som skapats i föregående steg som indata och utdata. När datauppsättningen används som indatauppsättning anges indatasökvägen. Och när datauppsättningen används som utdatauppsättning anges utdatasökvägen. 
 
 1. Skapa en JSON-fil med namnet **Adfv2QuickStartPipeline.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
 
@@ -247,12 +324,12 @@ I det här steget anger du värden för pipelineparametrarna:  **inputPath** och
 
 1. Skapa en JSON-fil med namnet **PipelineParameters.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
 
-    Ersätt värdet för ”inputPath” med ”outputPath” med din sökväg till käll- och mottagar-blob för att kopiera data från och till innan du sparar filen.
+    Ersätt värdet för **inputPath** med **outputPath** med din sökväg till käll- och mottagarblob om du använder andra behållare och blobbar.
 
     ```json
     {
-        "inputPath": "<the path to existing blob(s) to copy data from, e.g. containername/foldername>",
-        "outputPath": "<the blob path to copy data to, e.g. containername/foldername>"
+        "inputPath": "adftutorial/input",
+        "outputPath": "adftutorial/output"
     }
     ```
 
@@ -344,7 +421,7 @@ I det här steget anger du värden för pipelineparametrarna:  **inputPath** och
     ```
 
 ## <a name="verify-the-output"></a>Verifiera utdata
-Använd verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att kontrollera att bloben i inputBlobPath har kopierats till outputBlobPath.
+Pipelinen skapar automatiskt utdatamappen i blobbehållaren adftutorial. Filen emp.txt kopieras från indatamappen till utdatamappen. Använd [lagringsutforskaren i Azure](https://azure.microsoft.com/features/storage-explorer/) för att kontrollera att blobben/blobbarna i inputBlobPath har kopierats till outputBlobPath. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Du kan rensa de resurser som du skapade i snabbstarten på två sätt. Du kan ta bort den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) som innehåller alla resurser i resursgruppen. Om du vill behålla de andra resurserna intakta ska du bara ta bort den datafabrik du har skapat i den här självstudiekursen.
@@ -357,7 +434,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 Kör följande kommando om du bara vill ta bort datafabriken: 
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
+Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: e7b32aa2de5d6501e8d7894a936e9ab8b2f4f42f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
 
@@ -80,7 +80,7 @@ Anta exempelvis att du vill att kunderna ska kunna ladda upp bilder och du vill 
 
 ## <a name="table-storage"></a>Table Storage
 
-Standard Azure Table Storage är nu en del av Cosmos DB. Du hittar den dokumentationen i [Översikt över Azure Table Storage](../../cosmos-db/table-storage-overview.md). Dessutom finns Premium Tables för Azure Table Storage, som erbjuder tabeller för optimerat dataflöde, global distribution och automatiska sekundära index. Om du vill veta mer om och prova den nya premiumtjänsten går du till avsnittet [Table-API:et för Azure Cosmos DB](https://aka.ms/premiumtables).
+Azure Table Storage är nu en del av Azure Cosmos DB. Du hittar dokumentationen till Azure Table Storage i [Översikt över Azure Table Storage](../../cosmos-db/table-storage-overview.md). Utöver den befintliga Azure Table Storage-tjänsten finns ett nytt tabell-API för Azure Cosmos DB som tillhandahåller genomströmningsoptimerade tabeller, global distribution och automatiska sekundärindex. Om du vill veta mer om och prova den nya premiumtjänsten går du till avsnittet [Tabell-API för Azure Cosmos DB](https://aka.ms/premiumtables).
 
 ## <a name="disk-storage"></a>Disklagring
 

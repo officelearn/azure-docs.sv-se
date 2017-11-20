@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 4a430fb250b9145166a3a212d416a4f1c754473f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Genomgång av den förkonfigurerade lösningen för förebyggande underhåll
 
@@ -33,7 +33,7 @@ Följande diagram illustrerar de logiska komponenterna i den förkonfigurerade l
 
 De blå objekten är Azure-tjänster som är etablerade i den region där du etablerade den förkonfigurerade lösningen. På [etableringssidan][lnk-azureiotsuite] finns en lista över de regioner där du kan distribuera den förkonfigurerade lösningen.
 
-Det gröna objektet är en simulerad enhet som representerar en flygplansmotor. Mer information om dessa simulerade enheter finns i följande avsnitt.
+Det gröna objektet är en simulerad enhet som representerar en flygplansmotor. Mer information om dessa simulerade enheter finns i avsnittet [Simulerade enheter](#simulated-devices).
 
 De grå objekten representerar komponenter som implementerar funktioner för *enhetshantering*. Den aktuella versionen av den förkonfigurerade lösningen för förebyggande underhåll etablerar inte dessa resurser. Mer information om enhetsadministration finns i dokumentationen för [den förkonfigurerade lösningen för fjärrövervakning][lnk-remote-monitoring].
 
@@ -65,7 +65,7 @@ IoT Hub bekräftar enhetskommandona.
 **Händelseprocessorvärden** körs i ett Azure-webbjobb. **Händelseprocessorn** tar de genomsnittliga sensorvärdena från en slutförd cykel. Den skickar dessa värden till en API som får den tränade modellen att beräkna RUL för en motor. API: et exponeras av en Machine Learning-arbetsyta som har etablerats som en del av lösningen.
 
 ## <a name="machine-learning"></a>Machine Learning
-Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till Machine Learning-arbetsytan från ikonen på sidan [azureiotsuite.com][lnk-azureiotsuite] för din etablerade lösning. Panelen är tillgänglig när lösningen har statusen **Redo**.
+Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till Machine Learning-arbetsytan från din lösningsikon på sidan [azureiotsuite.com][lnk-azureiotsuite]. Panelen är tillgänglig när lösningen har statusen **Redo**.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -78,10 +78,10 @@ Du kan även utforska några andra funktioner och möjligheter i de förkonfigur
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-v1-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

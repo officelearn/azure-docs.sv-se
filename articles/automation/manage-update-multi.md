@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f97b28d1588e959728163f7ab16d2550a79f610e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Hantera uppdateringar för flera virtuella Azure-datorer
+# <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
-Med Uppdateringshantering kan du hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer.
+Med Uppdateringshantering kan du hantera uppdateringar och korrigeringar av dina Windows- och Linux-datorer.
 Från ditt [Azure Automation](automation-offering-get-started.md)-konto kan du snabbt publicera virtuella datorer, se status för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributionsresultat för att kontrollera att uppdateringarna har tillämpats för alla virtuella datorer som uppdateringshantering har aktiverats för.
 
 ## <a name="prerequisites"></a>Krav

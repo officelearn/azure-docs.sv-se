@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
-ms.openlocfilehash: cabba8ce04d62d35ca40b3ae35d9d40a6ec7b2b9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Klassificera Iris del 1: Förbereda data
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -69,7 +69,9 @@ Du kan följa anvisningarna i artikeln [Snabbstarten för att installera och ska
    ![Välj iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >Se till att du väljer filen **iris.csv** från den aktuella projektkatalogen för den här övningen. Annars kan senare steg misslyckas. 
+   >Se till att du väljer filen **iris.csv** från den aktuella projektkatalogen för den här övningen. Annars kan senare steg misslyckas.
+   
+4. När du har markerat filen väljer du knappen **Slutför**.
 
 4. Den nya filen som heter **iris-1.dsource** skapas. Filen får ett unikt namn med ”-1”, eftersom exempelprojektet redan har en onumrerad version av filen **iris.dsource**.  
 

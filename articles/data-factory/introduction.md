@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,7 +75,7 @@ Azure Data Factory version 2 bygger vidare på den ursprungliga Azure Data Facto
 
 Efter lanseringen av version 1 upptäckte vi att kunderna behöver skapa komplexa hybridlösningar för dataintegrering som kräver både dataförflyttning och -bearbetning i molnet, lokalt och i virtuella datorer i molnet. De här kraven skapade ett behov av att kunna överföra och bearbeta data inom säkra virtuella nätverksmiljöer och att kunna skala ut med bearbetning på begäran.
 
-Allteftersom datapipelines har blivit en viktig del i företags analysstrategier, har vi sett hur dessa viktiga dataaktiviteter kräver flexibel schemaläggning för att klara ökade databelastningar och händelseaktiverade körningar. Eftersom de här åtgärderna blir allt mer komplexa så ökar också kraven på att tjänsten ska ha stöd för vanliga arbetsflödesparadigmer, inklusive branchning, loopning och villkorsstyrd bearbetning.
+Allteftersom datapipelines har blivit en viktig del i företags analysstrategier, har vi sett hur dessa viktiga dataaktiviteter kräver flexibel schemaläggning för att klara ökade databelastningar och händelseaktiverade körningar. Eftersom de här åtgärderna blir allt mer komplexa så ökar också kraven på att tjänsten ska ha stöd för vanliga arbetsflödesparadigmer, inklusive förgrening, loopning och villkorsstyrd bearbetning.
 
 Med version 2 kan du också migrera befintliga SSIS-paket till molnet. Du kan lyfta och skifta SSIS som en Azure-tjänst som hanteras inom ADF, med hjälp av den nya funktionen Intgration Runtimes (IR). Med en SSIS IR i version 2 kan du köra, hantera, övervaka och skapa SSIS-paket i molnet.
 
@@ -172,11 +172,11 @@ Mer information om Data Factory-begrepp finns i följande artiklar:
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-För närvarande kan du skapa datafabriker i regionerna östra USA och östra USA 2. Dock kan en datafabrik ha åtkomst till datalager och beräkna tjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster.
+För närvarande kan du skapa datafabriker i regionerna USA, västra, USA, östra 2 och Europa, västra. Dock kan en datafabrik ha åtkomst till datalager och beräkna tjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster.
 
 Azure Data Factory lagrar inte själv några data. Du kan använda den för att skapa datadrivna arbetsflöden som samordnar flödet av data mellan datalager som stöds och bearbetning av data med hjälp av beräkningstjänster i andra regioner eller i en lokal miljö. Du kan också övervaka och hantera arbetsflöden med både program- och användargränssnittsmetoder.
 
-Även om Data Factory bara finns i regionerna östra USA och östra USA 2 så finns tjänsten som driver dataförflyttning i Data Factory tillgängligt globalt i flera regioner. Om ett datalager finns bakom en brandvägg kan en gateway för datahantering som installerats i din lokala miljö flytta data i stället.
+Även om Data Factory bara är tillgängligt i regionerna USA, östra, USA, östra 2, och Europa, västra, så finns tjänsten som driver dataförflyttning i Data Factory tillgänglig globalt i flera regioner. Om ett datalager finns bakom en brandvägg kan en gateway för datahantering som installerats i din lokala miljö flytta data i stället.
 
 Exempelvis kan vi anta att dina beräkningsmiljöer, som t.ex. Azure HDInsight-kluster och Azure Machine Learning, körs utanför regionen Europa, västra. Du kan skapa och använda en Azure Data Factory-instans i norra Europa och använda den för att schemalägga jobb i dina beräkningsmiljöer i Västeuropa. Det tar några millisekunder för Data Factory att utlösa jobbet i din beräkningsmiljö, men den tid det tar för att köra jobbet ändras inte.
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8961576d1a7de268bab2f4adf01d89dde1fc8776
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 23621c418663ee5b4ed83ab989663a882e7000bd
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Ansluta till HDInsight (Hadoop) med hjälp av SSH
 
@@ -48,26 +48,24 @@ HDInsight kan använda Linux (Ubuntu) som operativsystem för noder i Hadoop-klu
 > [!TIP]
 > När du ansluter till HDInsight första gången kan SSH-klienten visa en varning att värdens äkthet inte kan fastställas. Vid uppmaning väljer du ”ja” för att lägga till värden i SSH-klientens lista över betrodda servrar.
 >
-> Om du tidigare har anslutit till en server med samma namn kan du få en varning att den lagrade värdnyckeln inte matchar serverns värdnyckel. SSH-klienten kan vägra att ansluta till klustret när det här inträffar. Läs dokumentationen för SSH-klienten om du vill ha information om hur du tar bort den befintliga posten för servernamnet.
+> Om du tidigare har anslutit till en server med samma namn kan du få en varning att den lagrade värdnyckeln inte matchar serverns värdnyckel. Läs dokumentationen för SSH-klienten om du vill ha information om hur du tar bort den befintliga posten för servernamnet.
 
 ## <a name="ssh-clients"></a>SSH-klienter
 
 Linux, Unix- och macOS system ger kommandon `ssh` och `scp`. Klienten `ssh` används ofta för att skapa en fjärrsession med kommandoradsverktyget med Linux eller Unix-baserade system. Klienten `scp` används för att kopiera filer mellan klienten och fjärrdatorn på ett säkert sätt.
 
-Microsoft Windows tillhandahåller ingen SSH-klient som standard. Klienterna `ssh` och `scp` är tillgängliga för Windows via följande paket:
+Microsoft Windows installerar ingen SSH-klient som standard. Klienterna `ssh` och `scp` är tillgängliga för Windows via följande paket:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): Cloud Shell tillhandahåller en Bash-miljö i webbläsaren och tillhandahåller `ssh`, `scp`, och andra vanliga Linux-kommandon.
+* OpenSSH Client (betaversion): I Fall Creators Update går du till __Settings__ (Inställningar)  > __Apps & features__ (Appar och funktioner)  > __Manage optional features__ (Hantera tillvalsfunktioner)  > __Add a feature__ (Lägg till en funktion) och väljer __OpenSSH Client__. 
+
+    > [!NOTE]
+    > Om kommandona `ssh` och `scp` inte är tillgängliga i PowerShell efter att du har aktiverat funktionen kan du prova att logga ut och sedan logga in igen.
 
 * [Bash i Ubuntu för Windows 10](https://msdn.microsoft.com/commandline/wsl/about): `ssh`- och `scp`-kommandot är tillgängligt via Bash för Windows-kommandoraden.
 
+* [Azure Cloud Shell](../cloud-shell/quickstart.md): Cloud Shell tillhandahåller en Bash-miljö i webbläsaren och tillhandahåller `ssh`, `scp`, och andra vanliga Linux-kommandon.
+
 * [Git (https://git-scm.com/)](https://git-scm.com/): `ssh` och `scp`-kommandot är tillgängligt via GitBash-kommandoraden.
-
-* [GitHub Desktop (https://desktop.github.com/)](https://desktop.github.com/) `ssh` och `scp`-kommandot är tillgängligt via GitHub Shell-kommandoraden. GitHub Desktop kan konfigureras att använda Bash, Windows-kommandotolken eller PowerShell som kommandorad för Git Shell.
-
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): PowerShell-teamet porterar OpenSSH till Windows och tillhandahåller testutgåvor.
-
-    > [!WARNING]
-    > OpenSSH-paketet innehåller SSH-serverkomponenten, `sshd`. Den här komponenten startar en SSH-server på din dator så att andra kan ansluta till den. Konfigurera inte den här komponenten och öppna inte port 22 om du inte vill ha en SSH-server på din dator. Det krävs inte för att kommunicera med HDInsight.
 
 Det finns också flera grafiska SSH-klienter, till exempel [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) och [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/). Dessa klienter kan användas för att ansluta till HDInsight, men processen för att ansluta skiljer sig från anslutningsprocessen med `ssh`-verktyget. Mer information finns i dokumentationen för den grafiska klient som du använder.
 
@@ -116,7 +114,7 @@ Du uppmanas att ange information när nyckeln skapas. Till exempel var nycklarna
 SSH-konton kan skyddas med ett lösenord. När du ansluter till HDInsight med hjälp av SSH uppmanas du att ange lösenordet.
 
 > [!WARNING]
-> Vi rekommenderar inte att du använder lösenordsautentisering för SSH. Lösenord kan gissas och är sårbara för råstyrkeattacker. I stället rekommenderar vi att du använder [SSH-nycklar för autentisering](#sshkey).
+> Microsoft rekommenderar inte lösenordsverifiering för SSH. Lösenord kan gissas och är sårbara för råstyrkeattacker. I stället rekommenderar vi att du använder [SSH-nycklar för autentisering](#sshkey).
 
 ### <a name="create-hdinsight-using-a-password"></a>Skapa HDInsight med ett lösenord
 
@@ -160,7 +158,7 @@ Huvudnoderna och kantnoden (om sådan finns) kan nås via Internet på port 22 o
     ```
 
 > [!IMPORTANT]
-> I föregående exempel förutsätts att du använder lösenordsautentisering eller att certifikatautentisering sker automatiskt. Om du använder ett SSH-nyckelpar för autentisering och certifikatet inte används automatiskt, anger du den privata nyckeln med parametern `-i`. Till exempel `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+> I föregående exempel förutsätts att du använder lösenordsverifiering eller att certifikatautentisering sker automatiskt. Om du använder ett SSH-nyckelpar för autentisering och certifikatet inte används automatiskt, anger du den privata nyckeln med parametern `-i`. Till exempel `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
 När du är ansluten ändras fönstret till att visa SSH-användarnamnet och den nod du är ansluten till. När du exempelvis är ansluten till den primära huvudnoden som `sshuser` visar fönstret `sshuser@hn0-clustername:~$`.
 
@@ -176,7 +174,7 @@ Arbetarnoder och Zookeeper-noder är inte tillgängliga direkt från internet. D
 
         ssh sshuser@wn0-myhdi
 
-    Om du vill hämta en lista över domännamnen för noderna i klustret tittar du på [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) (Hantera HDInsight med hjälp av Ambari REST-API:et).
+    Om du vill hämta en lista över nodnamnen tittar du på [Manage HDInsight by using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) (Hantera HDInsight med hjälp av Ambari REST-API:et).
 
 Om SSH-kontot är skyddat med ett __lösenord__ anger du lösenordet när du ansluter.
 

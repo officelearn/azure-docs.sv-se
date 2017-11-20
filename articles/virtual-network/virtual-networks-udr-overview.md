@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -84,7 +84,7 @@ Du kan ange följande nästa hopptyper när du skapar en användardefinierad vä
 
 - **Virtuell installation**: En virtuell installation är en virtuell dator som vanligtvis kör ett nätverksprogram som en brandvägg. Mer information om olika förkonfigurerade virtuella nätverksinstallationer du kan distribuera i ett virtuellt nätverk finns i [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). När du skapar en väg med hopptypen **virtuell installation** anger du även en nästa hopp-IP-adress. IP-adressen kan vara:
 
-    - Ett nätverksgränssnitts [privata IP-adress](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) som är kopplad till en virtuell dator. Ett nätverksgränssnitt som är kopplat till en virtuell dator som vidarebefordrar nätverkstrafik till en annan adress än sin egen måste ha Azure-alternativet *Enable IP forwarding* (Aktivera IP-vidarebefordring) aktiverat. Inställningen inaktiverar Azures kontroll av källa och mål för ett nätverksgränssnitt. Läs mer om att [aktivera IP-vidarekoppling för ett nätverksgränssnitt](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Även om *Enable IP forwarding* (Aktivera IP-vidarebefordring) är en Azure-inställning kanske du också måste aktivera IP-vidarebefordring i den virtuella datorns operativsystem för att vidarebefordra trafik mellan nätverksgränssnitt. Information om att fastställa nödvändiga inställningar på den virtuella datorn finns i dokumentationen för operativsystemet eller nätverksprogrammet.
+    - Ett nätverksgränssnitts [privata IP-adress](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) som är kopplad till en virtuell dator. Ett nätverksgränssnitt som är kopplat till en virtuell dator som vidarebefordrar nätverkstrafik till en annan adress än sin egen måste ha Azure-alternativet *Enable IP forwarding* (Aktivera IP-vidarebefordring) aktiverat. Inställningen inaktiverar Azures kontroll av källa och mål för ett nätverksgränssnitt. Läs mer om att [aktivera IP-vidarekoppling för ett nätverksgränssnitt](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Även om *Enable IP forwarding* (Aktivera IP-vidarebefordring) är en Azure-inställning kanske du också måste aktivera IP-vidarebefordring i den virtuella datorns operativsystem för att vidarebefordra trafik mellan privata IP-adresser som är tilldelade till Azure-nätverksgränssnitt. Om apparaten måste dirigera trafik till en offentlig IP-adress måste den antingen vidarebefordra trafiken eller nätadressöversätta den privata IP-adressen för källans privata IP-adress till sin egen privata IP-adress, som Azure sedan nätadressöversätter till en offentlig IP-adress innan trafiken skickas till Internet. Information om att fastställa nödvändiga inställningar på den virtuella datorn finns i dokumentationen för operativsystemet eller nätverksprogrammet. Läs mer om utgående anslutningar i Azure i [Förstå utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     > [!NOTE]
     > Distribuera en virtuell installation till ett annat undernät än det resurserna som dirigeras genom den virtuella installationen har distribuerats i. Om du distribuerar den virtuella installationen till samma undernät och sedan applicerar en routningstabell till undernätet som dirigerar trafik via den virtuella installationen kan det leda till vägloopar, så att trafiken aldrig lämnar undernätet.

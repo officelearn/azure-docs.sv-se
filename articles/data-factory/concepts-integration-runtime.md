@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 7851a24e7053e03cc28927ffae3a2b69a3291635
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
@@ -85,7 +85,7 @@ Om du vill utföra dataintegration säkert i en privat nätverk-miljö, som har 
 ### <a name="compute-resource-and-scaling"></a>Beräkningsresurs och skalning
 IR med egen värd måste installeras på en lokal dator eller en virtuell dator i ett privat nätverk. För närvarande stöder vi bara att IR med egen värd körs på ett Windows-operativsystem.  
 
-För hög tillgänglighet och skalbarhet kan du skala ut IR med egen värd genom att associera den logiska instansen med flera lokala datorer i aktiv/aktiv-läge.  Om du vill ha mer information läser du avsnittet om hur du skapar och konfigurerar IR med egen värd under ”så här gör du”-guiderna.
+För hög tillgänglighet och skalbarhet kan du skala ut IR med egen värd genom att associera den logiska instansen med flera lokala datorer i aktiv/aktiv-läge.  Om du vill ha mer information läser du artikeln om hur du skapar och konfigurerar IR med egen värd under ”så här gör du”-guiderna.
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime
 Om du vill lyfta och skifta befintlig SSIS-arbetsbelastning kan du skapa en Azure-SSIS IR för att köra SSIS-paket internt.
@@ -96,7 +96,7 @@ Azure-SSIS IR kan etableras i offentliga eller privata nätverk.  Åtkomst till 
 ### <a name="compute-resource-and-scaling"></a>Beräkningsresurs och skalning
 Azure-SSIS IR är ett helt hanterat kluster av virtuella Azure-datorer särskilt avsedda att köras SSIS-paketen. Du kan använda en egen Azure SQL Database- eller hanterad instans-server som värd för katalogen med SSIS-projekt/-paket (SSISDB) som kommer att kopplas till den. Du kan skala upp kraften i beräkningen genom att ange nodstorlek och skala ut den genom att ange antalet noder i klustret. Du kan hantera kostnaden för att köra Azure-SSIS Integration Runtime genom att stoppa och starta den efter önskemål.
 
-Om du vill ha mer information läser du avsnittet om hur du skapar och konfigurerar Azure-SSIS IR under ”så här gör du”-guiderna.  När du har skapat den kan du distribuera och hantera dina befintliga SSIS-paket med få eller inga ändringar med välbekanta verktyg, som SQL Server Data Tools (SSDT) och SQL Server Management Studio (SSMS), precis som när du använder SSIS lokalt.
+Om du vill ha mer information läser du artikeln om hur du skapar och konfigurerar Azure-SSIS IR under ”så här gör du”-guiderna.  När du har skapat den kan du distribuera och hantera dina befintliga SSIS-paket med få eller inga ändringar med välbekanta verktyg, som SQL Server Data Tools (SSDT) och SQL Server Management Studio (SSMS), precis som när du använder SSIS lokalt.
 
 Mer information om Azure-SSIS runtime finns i följande artiklar: 
 
@@ -123,7 +123,7 @@ I följande diagram visas två exempel på kopieringsaktivitet:
 ![Vilken IR som ska användas](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Integration Runtime-plats
-Data Factory-platsen är där metadata för datafabriken lagras och där utlösningen av pipeline initieras. Data Factory-platser som stöds för närvarande är östra USA och östra USA 2. Dock kan en datafabrik ha åtkomst till datalager och beräkna tjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster. Det här beteende realiseras via globalt tillgängligt IR i flera regioner för att säkerställa dataefterlevnad, effektivitet och minskade kostnader för nätverksegress.
+Data Factory-platsen är där metadata för datafabriken lagras och där utlösningen av pipeline initieras. De Data Factory-platser som stöds för närvarande är USA, östra, USA, östra 2 och Europa, västra. Dock kan en datafabrik ha åtkomst till datalager och beräkna tjänster i andra Azure-regioner för att flytta data mellan datalager eller bearbeta data med hjälp av beräkningstjänster. Det här beteende realiseras via globalt tillgängligt IR i flera regioner för att säkerställa dataefterlevnad, effektivitet och minskade kostnader för nätverksegress.
 
 IR-platsen definierar platsen för backend-beräkningen och i stort sett platsen där dataflytt, aktivitetssändning och SSIS-paketkörning utförs. IR-platsen kan skilja sig från platsen som datafabriken tillhör. I följande diagram visas platsinställningar för Data Factory och dess Integration Runtime-instanser:
 

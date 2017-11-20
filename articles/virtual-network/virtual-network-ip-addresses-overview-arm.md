@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
@@ -145,29 +145,22 @@ Privata IP-adresser skapas med en IPv4- eller IPv6-adress. Privata IPv6-adresser
 
 ### <a name="allocation-method"></a>Allokeringsmetod
 
-En privat IP-adress tilldelas från adressintervallet för undernätet som resursen hör till. Adressintervallet för själva undernätet ingår i det virtuella nätverkets adressintervall.
+En privat IP-adress allokeras från adressintervallet för det virtuella undernätet som en resurs är distribuerad i. En privat IP-adress kan allokeras med två metoder:
 
-En privat IP-adress kan allokeras med två metoder: *dynamisk* eller *statisk* allokering. Standardallokeringsmetoden är *dynamisk*, där IP-adressen tilldelas automatiskt från resursens undernät (via DHCP). Den här IP-adressen kan ändras när du stoppar och startar resursen.
-
-Du kan ange allokeringsmetoden till *statisk* om du inte vill att IP-adressen ska ändras. Om du anger *statisk* måste du även ange en giltig IP-adress som finns i resursens undernät.
-
-Statiska privata IP-adresser används ofta för:
-
-* Virtuella datorer som fungerar som domänkontrollanter eller DNS-servrar.
-* Resurser som kräver brandväggsregler med IP-adresser.
-* Resurser som nås av andra appar/resurser via en IP-adress.
+- **Dynamisk**: Azure reserverar de fyra första adresserna i varje undernäts adressintervall och tilldelar inte adresserna. Azure tilldelar nästa tillgängliga adress till en resurs från adressintervallet i undernätet. Om till exempel undernätets adressintervall är 10.0.0.0/16, och adresserna 10.0.0.0.4-10.0.0.14 redan har tilldelats (.0-.3 är reserverade) tilldelar Azure 10.0.0.15 till resursen. Dynamisk är standardinställningen för allokering. När de har tilldelats släpps endast dynamiska IP-adresser om ett nätverksgränssnitt har tagits bort, tilldelats ett annat undernät inom samma virtuella nätverk eller om allokeringsmetoden ändras till statisk och en annan IP-adress anges. Som standard tilldelar Azure den tidigare dynamiskt tilldelade adressen som statisk adress när du ändrar allokeringsmetod från dynamisk till statisk.
+- **Statisk**: Du väljer och tilldelar en adress från undernätets adressintervall. Adressen som du tilldelar kan vara alla adresser i adressintervallet i undernätet som inte är någon av de fyra första adresserna i undernätets adressintervall och som inte är tilldelade till någon annan resurs i undernätet. Statiska adresser släpps endast om ett nätverksgränssnitt tas bort. Om du ändrar allokeringsmetoden till statisk tilldelar Azure dynamiskt de tidigare tilldelade statiska IP-adresserna som dynamiska adresser, även om adressen inte är nästa tillgängliga adress i undernätets adressintervall. Adressen ändras också om nätverksgränssnittet har tilldelats ett annat undernät i samma virtuella nätverk. För att tilldela nätverksgränssnittet till ett annat undernät måste du emellertid först ändra allokeringsmetoden från statisk till dynamisk. När nätverksgränssnittet har tilldelats ett annat undernät kan du ändra allokeringsmetod till statisk och tilldela en IP-adress från det nya undernätets adressintervall.
 
 ### <a name="virtual-machines"></a>Virtuella datorer
 
-En privat IP-adress tilldelas till **nätverksgränssnittet** för en [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)- eller [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-baserad virtuell dator. Om den virtuella datorn har flera nätverksgränssnitt tilldelas en privat IP-adress till varje nätverksgränssnitt. Du kan ange allokeringsmetoden som dynamisk eller statisk för ett nätverksgränssnitt.
+En eller flera privata IP-adresser tilldelas till ett eller flera **nätverksgränssnitt** för en [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)- eller [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-baserad virtuell dator. Du kan ange allokeringsmetoden som dynamisk eller statisk för varje privat IP-adress.
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>Intern DNS-värdnamnsmatchning (för virtuella datorer)
 
 Alla virtuella datorer i Azure konfigureras med [Azure-hanterade DNS-servrar](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) som standard, om du inte uttryckligen konfigurerar anpassade DNS-servrar. Dessa DNS-servrar tillhandahåller intern namnmatchning för virtuella datorer som finns i samma virtuella nätverk.
 
-När du skapar en virtuell dator läggs en mappning till för värdnamnet till dess privata IP-adress för de Azure-hanterade DNS-servrarna. Om en virtuell dator har flera nätverksgränssnitt mappas värdnamnet till den privata IP-adressen för det primära nätverksgränssnittet.
+När du skapar en virtuell dator läggs en mappning till för värdnamnet till dess privata IP-adress för de Azure-hanterade DNS-servrarna. Om en virtuell dator har flera nätverksgränssnitt, eller flera IP-konfigurationer för ett nätverksgränssnitt, mappas värdnamnet till den privata IP-adressen för den primära IP-konfigurationen av det primära nätverksgränssnittet.
 
-Virtuella datorer som konfigurerats med Azure-hanterade DNS-servrar kan matcha värdnamnen för alla virtuella datorer i samma virtuella nätverk till sina privata IP-adresser.
+Virtuella datorer som konfigurerats med Azure-hanterade DNS-servrar kan matcha värdnamnen för alla virtuella datorer i samma virtuella nätverk till sina privata IP-adresser. Du måste använda en anpassad DNS-server för att matcha värdnamn på virtuella datorer i anslutna virtuella nätverk.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Interna belastningsutjämnare (ILB) och programgateways
 

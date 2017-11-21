@@ -16,22 +16,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: ankshah
-ms.openlocfilehash: 9e4419b57edf86e03044ad1047b18397ff4d8d19
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 1ceaa834ff68d5dca4abce561f9185e89af582af
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure DB Cosmos-brandväggsstöd
 Om du vill skydda data som lagras i Azure DB som Cosmos-databaskonto har Azure Cosmos DB fanns stöd för en hemlighet baserat [auktoriseringsmodellen](https://msdn.microsoft.com/library/azure/dn783368.aspx) som använder en stark hashbaserad meddelandeautentiseringskod (HMAC). Förutom den hemliga baserat auktoriseringsmodellen stöder nu Azure Cosmos DB drivs IP-baserade åtkomstkontroller för inkommande brandväggsstöd-princip. Den här modellen liknar brandväggsregler vid traditionella system och ger en extra nivå av säkerhet till databaskontot Azure Cosmos DB. Med den här modellen kan du nu konfigurera en Azure Cosmos DB konto om du vill att endast nås från en godkänd uppsättning datorer och/eller molntjänster. Åtkomst till Azure Cosmos DB resurser från dessa godkända uppsättningar av datorer och tjänster kräver fortfarande anroparen presentera en giltig auktoriserings-token.
 
 ## <a name="ip-access-control-overview"></a>IP-åtkomstkontroll: översikt
-Ett konto för Azure DB som Cosmos-databasen är tillgänglig från offentliga internet som standard så länge begäran åtföljs av en giltig auktoriserings-token. Om du vill konfigurera IP-policy-baserad åtkomstkontroll, måste användaren ange en uppsättning IP-adresser och IP-adressintervall i CIDR-formuläret ska ingå som listan över tillåtna klientens IP-adresser för en viss databas-konto. När den här konfigurationen används blockeras alla begäranden från datorer utanför den här listan över tillåtna av servern.  Anslutningen processchema för IP-baserad åtkomstkontroll beskrivs i följande diagram.
+Ett konto för Azure DB som Cosmos-databasen är tillgänglig från offentliga internet som standard så länge begäran åtföljs av en giltig auktoriserings-token. Om du vill konfigurera IP-policy-baserad åtkomstkontroll, måste användaren ange en uppsättning IP-adresser och IP-adressintervall i CIDR-formuläret ska ingå som listan över tillåtna klientens IP-adresser för en viss databas-konto. När den här konfigurationen används blockeras alla begäranden från datorer utanför den här listan över tillåtna av servern.  Anslutningen processchema för IP-baserad åtkomstkontroll beskrivs i följande diagram:
 
 ![Diagram över anslutningsprocessen för IP-baserad åtkomstkontroll](./media/firewall-support/firewall-support-flow.png)
 
 ## <a name="connections-from-cloud-services"></a>Anslutningar från molntjänster
-I Azure är cloud services ett mycket vanligt sätt som värd för tjänsten mellannivålogik med hjälp av Azure Cosmos DB. Om du vill aktivera åtkomst till ett konto för Azure DB som Cosmos-databasen från en molnbaserad tjänst, offentliga IP-adressen för Molntjänsten måste läggas till listan över tillåtna IP-adresser som är associerade med din Azure Cosmos DB databaskonto av [konfigurera IP-åtkomst Kontrollera principen](#configure-ip-policy).  Detta säkerställer att alla rollinstanser av molntjänster har åtkomst till ditt konto för Azure DB som Cosmos-databasen. Du kan hämta IP-adresser för dina molntjänster i Azure-portalen som visas i följande skärmbild.
+I Azure är cloud services ett vanligt sätt som värd för tjänsten mellannivålogik med hjälp av Azure Cosmos DB. Om du vill aktivera åtkomst till ett konto för Azure DB som Cosmos-databasen från en molnbaserad tjänst, offentliga IP-adressen för Molntjänsten måste läggas till listan över tillåtna IP-adresser som är associerade med din Azure Cosmos DB databaskonto av [konfigurera IP-åtkomst Kontrollera principen](#configure-ip-policy).  Detta säkerställer att alla rollinstanser av molntjänster har åtkomst till ditt konto för Azure DB som Cosmos-databasen. Du kan hämta IP-adresserna för dina molntjänster i Azure-portalen som visas i följande skärmbild:
 
 ![Skärmbild som visar den offentliga IP-adressen för en molnbaserad tjänst som visas i Azure-portalen](./media/firewall-support/public-ip-addresses.png)
 
@@ -47,13 +47,16 @@ När du lägger till ytterligare virtuella datorinstanser i gruppen finns de aut
 ## <a name="connections-from-the-internet"></a>Anslutningar från internet
 När du använder ett konto för Azure Cosmos-DB-databas från en dator på internet kan läggas klientens IP-adress eller IP-adressintervall för datorn till listan över tillåtna IP-adress för databaskontot Azure Cosmos DB. 
 
-## <a id="configure-ip-policy"></a>Konfigurera de IP-principer för åtkomstkontroll
+## <a name="connections-from-azure-paas-service"></a>Anslutningar från Azure PaaS-tjänsten 
+Azure Functions används i Azure, PaaS-tjänster som Azure Stream analytics, tillsammans med Azure Cosmos DB. Om du vill aktivera åtkomst till Azure Cosmos DB databaskonto från dessa typer av tjänster vars IP-adress inte är tillgänglig, IP-adress 0.0.0.0 måste läggas till listan över tillåtna IP-adresser som är kopplat till din Azure Cosmos DB databaskonto genom [konfigurerar de IP-principer för åtkomstkontroll](#configure-ip-policy).  Detta säkerställer att Azure PaaS-tjänster har åtkomst till en Azure DB som Cosmos-konto som har den här regeln. 
+
+ ## <a id="configure-ip-policy"></a>Konfigurera de IP-principer för åtkomstkontroll
 De IP-principer för åtkomstkontroll kan anges i Azure-portalen eller programmässigt via [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), eller [REST API](/rest/api/documentdb/) genom att uppdatera `ipRangeFilter`egenskapen. IP-adressintervall måste vara kommatecken avgränsade och får inte innehålla blanksteg. Exempel: ”13.91.6.132,13.91.6.1/24”. När du uppdaterar din databaskonto via dessa metoder, måste du fylla i alla egenskaper för att förhindra återställs till standardinställningarna.
 
 > [!NOTE]
 > Genom att aktivera en IP-principer för åtkomstkontroll för din Azure Cosmos DB databaskonto tillåtna all åtkomst till din Azure Cosmos DB databaskonto från datorer utanför den konfigurerade listan över IP-adressintervall blockeras. Tack vare den här modellen blockeras surfning plan för åtgärden från portalen också för att kontrollera integriteten för åtkomstkontroll.
 
-För att förenkla utvecklingen hjälper Azure-portalen dig att identifiera och lägga till IP-Adressen för klientdatorn i listan över tillåtna, så att appar som körs på datorn kan komma åt Azure Cosmos DB-konto. Observera att klientens IP-adress här har identifierats som visas av portalen. Det kan vara klientens IP-adress för datorn, men det kan också vara IP-adressen för din nätverks-gateway. Glöm inte att ta bort det innan du fortsätter till produktionen.
+För att förenkla utvecklingen hjälper Azure-portalen dig att identifiera och lägga till IP-Adressen för klientdatorn i listan över tillåtna, så att appar som körs på datorn kan komma åt Azure Cosmos DB-konto. Klientens IP-adress här har identifierats som visas av portalen. Det kan vara klientens IP-adress för datorn, men det kan också vara IP-adressen för din nätverks-gateway. Glöm inte att ta bort det innan du fortsätter till produktionen.
 
 Om du vill ange de IP-principer för åtkomstkontroll i Azure portal, navigerar du till bladet Azure DB som Cosmos-konto, klickar du på **brandväggen** i navigeringsmenyn, klicka på **på** 
 
@@ -80,7 +83,7 @@ Genom att aktivera en IP-principer för åtkomstkontroll för din Azure Cosmos D
 ![Skärmbild som visar en så att aktivera åtkomst till Azure-portalen](./media/firewall-support/azure-portal-access-firewall.png)
 
 ### <a name="sdk--rest-api"></a>SDK & Rest API
-För säkerhetsskäl åtkomst via SDK eller REST-API från datorer som inte finns på listan över tillåtna returneras ett allmänt 404 gick inte att hitta svar utan ytterligare information. Kontrollera att IP-Adressen tillåten lista som konfigurerats för ditt konto för Azure DB som Cosmos-databasen för att säkerställa rätt principkonfigurationen tillämpas på ditt konto för Azure DB som Cosmos-databasen.
+För säkerhetsskäl åtkomst via SDK eller REST-API från datorer som inte finns på listan över tillåtna returneras ett allmänt 404 gick inte att hitta svar utan ytterligare information. Kontrollera IP-Adressen tillåten lista som konfigurerats för ditt konto för Azure DB som Cosmos-databasen för att säkerställa rätt principkonfigurationen tillämpas på ditt konto för Azure DB som Cosmos-databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 Information om nätverk prestandatips finns [prestandatips](performance-tips.md).

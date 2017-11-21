@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 667e68ad444386a5fe29f9909042fdfa7ca66581
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 79a165e3c4c8c2c2e212c6b95da3aed2d47cf6eb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Aktivera Azure Active Directory Domain Services med hjälp av PowerShell
 Den här artikeln visar hur du aktiverar Azure Active Directory (AD) Domain Services med hjälp av PowerShell.
@@ -76,11 +76,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
 Skriv följande PowerShell-kommando för att skapa en resursgrupp:
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
+$AzureLocation = "westus"
 
 # Create the resource group.
 New-AzureRmResourceGroup `
   -Name $ResourceGroupName `
-  -Location westus
+  -Location $AzureLocation
 ```
 
 Du kan skapa det virtuella nätverket och den hanterade domänen med Azure AD Domain Services i den här resursgruppen.
@@ -118,9 +119,15 @@ $Vnet=New-AzureRmVirtualNetwork `
 Skriv följande PowerShell-kommando för att aktivera Azure AD Domain Services för din katalog:
 
 ```powershell
+$AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+$ManagedDomainName = "contoso100.com"
+$ResourceGroupName = "ContosoAaddsRg"
+$VnetName = "DomainServicesVNet_WUS"
+$AzureLocation = "westus"
+
 # Enable Azure AD Domain Services for the directory.
 New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location "westus" `
+  -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
   -ApiVersion 2017-06-01 -Force -Verbose

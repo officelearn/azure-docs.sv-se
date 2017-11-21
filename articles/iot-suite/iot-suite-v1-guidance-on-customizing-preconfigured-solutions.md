@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 52645f7d7934c9b9cf628fec1c0edc763ce98796
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>Anpassa en förkonfigurerad lösning
 
@@ -228,55 +228,6 @@ Standardinställningen är 200. Du kan ändra det här numret i [TelemetryApiCon
 
 Standardvärdet är 10 minuter. Du kan ändra det här värdet i [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
-## <a name="manually-set-up-application-roles"></a>Manuellt konfigurera roller för programmet
-
-Följande procedur beskriver hur du lägger till **Admin** och **ReadOnly** programroller förkonfigurerade lösningen. Observera att det innehåller förkonfigurerade lösningar som etablerats från azureiotsuite.com plats redan den **Admin** och **ReadOnly** roller.
-
-Medlemmar i den **ReadOnly** rollen kan se instrumentpanelen och listan över enheter, men kan inte lägga till enheter, ändra attributen eller skicka kommandon.  Medlemmar i den **Admin** roll har fullständig åtkomst till alla funktioner i lösningen.
-
-1. Gå till den [klassiska Azure-portalen][lnk-classic-portal].
-2. Välj **Active Directory**.
-3. Klicka på namnet på AAD-klient som du använde när du har etablerat din lösning.
-4. Klicka på **program**.
-5. Klicka på namnet på det program som matchar din förkonfigurerade lösningsnamn. Om du inte ser ditt program i listan, Välj **program som företaget äger** i den **visa** listrutan och klicka på bock.
-6. Längst ned på sidan klickar du på **hantera Manifest** och sedan **hämta Manifest**.
-7. Den här proceduren hämtar en JSON-fil till din lokala dator. Öppna filen för redigering i en textredigerare som du väljer.
-8. Du kan se på den tredje raden i JSON-fil:
-
-   ```json
-   "appRoles" : [],
-   ```
-   Ersätt den här raden med följande kod:
-
-   ```json
-   "appRoles": [
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Administrator access to the application",
-   "displayName": "Admin",
-   "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
-   "isEnabled": true,
-   "value": "Admin"
-   },
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Read only access to device information",
-   "displayName": "Read Only",
-   "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
-   "isEnabled": true,
-   "value": "ReadOnly"
-   } ],
-   ```
-
-9. Spara den uppdaterade JSON-fil (du kan skriva över den befintliga filen).
-10. I den klassiska Azure-portalen längst ned på sidan Välj **hantera Manifest** sedan **överför Manifest** att överföra JSON-fil som du sparade i föregående steg.
-11. Du har nu lagt till den **Admin** och **ReadOnly** roller i tillämpningsprogrammet.
-12. Om du vill tilldela en av dessa roller en användare i katalogen, se [behörigheter på webbplatsen azureiotsuite.com][lnk-permissions].
-
 ## <a name="feedback"></a>Feedback
 
 Har du en anpassning du skulle vilja se omfattas i det här dokumentet? Lägg till förslag på funktioner till [User Voice](https://feedback.azure.com/forums/321918-azure-iot), eller en kommentar för den här artikeln. 
@@ -300,6 +251,5 @@ Mer information om alternativ för att anpassa förkonfigurerade lösningar finn
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-cf-customize]: iot-suite-connected-factory-customize.md

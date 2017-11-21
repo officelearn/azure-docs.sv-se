@@ -1,23 +1,23 @@
 ---
 title: HPC Pack kluster med Azure Active Directory | Microsoft Docs
-description: "Lär dig hur du integrerar ett HPC Pack 2016-kluster i Azure med Azure Active Directory"
+description: "Lär dig hur du integrerar en Microsoft HPC Pack 2016-kluster i Azure med Azure Active Directory"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 11/16/2017
 ms.author: danlep
-ms.openlocfilehash: c5a06a9c810349b1bcce01c7f73563941a5af0ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb0e878c4e987d111a535603cede25c639087ca7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>Hantera ett HPC Pack kluster i Azure med hjälp av Azure Active Directory
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) stöder integration med [Azure Active Directory](../../active-directory/index.md) (Azure AD) för administratörer som distribuerar ett HPC Pack kluster i Azure.
@@ -59,69 +59,66 @@ Integrering av ett HPC Pack kluster med Azure AD kan hjälpa dig att uppnå föl
 
 
 ## <a name="step-1-register-the-hpc-cluster-server-with-your-azure-ad-tenant"></a>Steg 1: Registrera server för HPC-kluster med Azure AD-klient
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Klicka på **Active Directory** i den vänstra menyn och klicka sedan på den önskade katalogen i din prenumeration. Du måste ha behörighet att komma åt resurser i katalogen.
-3. Klicka på **användare**, och kontrollera att det finns användarkonton redan skapats eller konfigurerade.
-4. Klicka på **program** > **Lägg till**, och klicka sedan på **Lägg till ett program som min organisation utvecklar**. Ange följande information i guiden:
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Om ditt konto får du tillgång till fler än en Azure AD-klient, klickar du på ditt konto i det övre högra hörnet. Ange sessionen portal till önskade innehavaren. Du måste ha behörighet att komma åt resurser i katalogen. 
+3. Klicka på **Azure Active Directory** i tjänster vänstra navigeringsfönstret klickar du på **användare och grupper**, och kontrollera att det finns användarkonton redan skapats eller konfigurerade.
+4. I **Azure Active Directory**, klickar du på **App registreringar** > **nya appregistrering**. Ange följande information:
     * **Namnet** -HPCPackClusterServer
-    * **Typen** – Välj **webb-program och/eller webb-API**
+    * **Programtyp** – Välj **webbapp / API**
     * **URL: en inloggning**-bas-URL för det här exemplet som är som standard`https://hpcserver`
-    * **App-ID URI** - `https://<Directory_name>/<application_name>`. Ersätt `<Directory_name`> med det fullständiga namnet på din Azure AD-klient, till exempel `hpclocal.onmicrosoft.com`, och Ersätt `<application_name>` med det namn du valde tidigare.
+    * Klicka på **Skapa**.
+5. När appen har lagts till, markerar du den i den **App registreringar** lista. Klicka på **inställningar** > **egenskaper**. Ange följande information:
+    * Välj **Ja** för **flera innehavare**.
+    * Ändra **App-ID URI** till `https://<Directory_name>/<application_name>`. Ersätt `<Directory_name`> med det fullständiga namnet på din Azure AD-klient, till exempel `hpclocal.onmicrosoft.com`, och Ersätt `<application_name>` med det namn du valde tidigare.
+6. Klicka på **Spara**. När du sparar har slutförts på sidan appen klickar du på **Manifest**. Redigera manifestet genom att söka efter den `appRoles` inställningen att lägga till programrollen för följande och klicka sedan på **spara**:
 
-5. När appen har lagts till, klickar du på **konfigurera**. Konfigurera följande egenskaper:
-    * Välj **Ja** för **program är flera innehavare**
-    * Välj **Ja** för **Användartilldelning som krävs för att komma åt appen**.
-
-6. Klicka på **Spara**. När du sparar är klar klickar du på **hantera Manifest**. Den här åtgärden hämtar programmets JavaScript object notation (JSON) manifestfilen. Redigera hämtade manifestet genom att leta upp den `appRoles` inställning och lägga till programrollen för följande:
-    ```json
-    "appRoles": [
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "displayName": "HpcAdminMirror",
-        "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "description": "HpcAdminMirror",
-        "value": "HpcAdminMirror"
-        },
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "description": "HpcUsers",
-        "displayName": "HpcUsers",
-        "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "value": "HpcUsers"
-        }
-    ],
-    ```
-7. Spara filen. Klicka sedan på portalen, **hantera Manifest** > **överför Manifest**. Du kan sedan överföra redigerade manifestet.
-8. Klicka på **användare**, Välj en användare och klicka sedan på **tilldela**. Tilldela någon av de tillgängliga rollerna (HpcUsers eller HpcAdminMirror) för användaren. Upprepa detta steg med ytterligare användare i katalogen. Bakgrundsinformation om klustret användare finns [hantera klustret användare](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
-
-   > [!NOTE] 
-   > För att hantera användare, bör du använda Azure Active Directory preview bladet i den [Azure-portalen](https://portal.azure.com).
-   >
+  ```json
+  "appRoles": [
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "displayName": "HpcAdminMirror",
+     "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "description": "HpcAdminMirror",
+     "value": "HpcAdminMirror"
+     },
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "description": "HpcUsers",
+     "displayName": "HpcUsers",
+     "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "value": "HpcUsers"
+     }
+  ],
+  ```
+7. I **Azure Active Directory**, klickar du på **företagsprogram** > **alla program**. Välj **HPCPackClusterServer** från listan.
+8. Klicka på **egenskaper**, och ändra **Användartilldelning krävs** till **Ja**. Klicka på **Spara**.
+9. Klicka på **användare och grupper** > **Lägg till användare**. Välj en användare och välj en roll och klicka sedan på **tilldela**. Tilldela någon av de tillgängliga rollerna (HpcUsers eller HpcAdminMirror) för användaren. Upprepa detta steg med ytterligare användare i katalogen. Bakgrundsinformation om klustret användare finns [hantera klustret användare](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 
 
 ## <a name="step-2-register-the-hpc-cluster-client-with-your-azure-ad-tenant"></a>Steg 2: Registrera klienten för HPC-kluster med Azure AD-klient
 
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Klicka på **Active Directory** i den vänstra menyn och klicka sedan på den önskade katalogen i din prenumeration. Du måste ha behörighet att komma åt resurser i katalogen.
-3. Klicka på **program** > **Lägg till**, och klicka sedan på **Lägg till ett program som min organisation utvecklar**. Ange följande information i guiden:
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Om ditt konto får du tillgång till fler än en Azure AD-klient, klickar du på ditt konto i det övre högra hörnet. Ange sessionen portal till önskade innehavaren. Du måste ha behörighet att komma åt resurser i katalogen. 
+3. I **Azure Active Directory**, klickar du på **App registreringar** > **nya appregistrering**. Ange följande information:
 
-    * **Namnet** -HPCPackClusterClient
-    * **Typen** – Välj **Native Client-program**
+    * **Namnet** -HPCPackClusterClient    
+    * **Programtyp** – Välj **intern**
     * **Omdirigerings-URI** - `http://hpcclient`
+    * Klicka på **Skapa**
 
-4. När appen har lagts till, klickar du på **konfigurera**. Kopiera den **klient-ID** värde och spara den. Du behöver det senare när du konfigurerar ditt program.
+4. När appen har lagts till, markerar du den i den **App registreringar** lista. Kopiera den **program-ID** värde och spara den. Du behöver det senare när du konfigurerar ditt program.
 
-5. I **behörigheter för andra program**, klickar du på **Lägg till program**. Söka och lägga till programmet HpcPackClusterServer (som du skapade i steg 1).
+5. Klicka på **inställningar** > **nödvändiga behörigheter** > **Lägg till** > **väljer en API**. Söka och välja programmet HpcPackClusterServer (som du skapade i steg 1).
 
-6. I den **delegerade behörigheter** listrutan **åtkomst HpcClusterServer**. Klicka sedan på **Spara**.
+6. I den **Aktivera åtkomst** väljer **åtkomst HpcClusterServer**. Klicka sedan på **Klar**.
 
 
 ## <a name="step-3-configure-the-hpc-cluster"></a>Steg 3: Konfigurera HPC-kluster
@@ -134,21 +131,23 @@ Integrering av ett HPC Pack kluster med Azure AD kan hjälpa dig att uppnå föl
 
     ```powershell
 
-    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
+    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcPackClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
     ```
     där
 
     * `AADTenant`anger klientnamn Azure AD som`hpclocal.onmicrosoft.com`
-    * `AADClientAppId`Anger klient-ID för appen skapade i steg 2.
+    * `AADClientAppId`Anger det program-ID för appen skapade i steg 2.
 
-4. Starta om tjänsten HpcSchedulerStateful.
+4. Gör något av följande, beroende på konfigurationen huvudnod:
 
-    Du kan köra följande PowerShell-kommandon på huvudnoden växla den primära repliken för tjänsten HpcSchedulerStateful i ett kluster med flera huvudnoderna:
+    * Starta om tjänsten HpcScheduler i ett enda huvudnod HPC Pack kluster.
+
+    * Kör följande PowerShell-kommandon i ett HPC Pack kluster med flera huvudnoderna på huvudnoden att starta om tjänsten HpcSchedulerStateful:
 
     ```powershell
     Connect-ServiceFabricCluster
 
-    Move-ServiceFabricPrimaryReplica –ServiceName “fabric:/HpcApplication/SchedulerStatefulService”
+    Move-ServiceFabricPrimaryReplica –ServiceName "fabric:/HpcApplication/SchedulerStatefulService"
 
     ```
 
@@ -161,7 +160,7 @@ För att förbereda klientdatorn, installerar du det certifikat som används und
 Du kan nu köra kommandona HPC Pack eller använda HPC Pack jobbhanteraren GUI för att skicka och hantera kluster-jobb med hjälp av Azure AD-kontot. Skicka alternativ, se [HPC skicka jobb till ett HPC Pack kluster i Azure](hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster).
 
 > [!NOTE]
-> När du försöker ansluta till HPC Pack-kluster i Azure för första gången visas ett popup-fönster. Ange dina autentiseringsuppgifter för Azure AD att logga in. Token cachelagras sedan. Senare anslutningar till klustret i Azure använda cachelagrade token om autentisering ändringar eller det cachelagrade är avmarkerad.
+> När du försöker ansluta till HPC Pack-kluster i Azure för första gången visas ett popup-fönster. Ange dina autentiseringsuppgifter för Azure AD att logga in. Token cachelagras sedan. Senare anslutningar till klustret i Azure använda cachelagrade token om autentisering ändringar eller cachen rensas.
 >
   
 Till exempel när du har slutfört föregående steg kan du fråga efter jobb från en lokal klient på följande sätt:
@@ -174,7 +173,7 @@ Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Own
 
 ### <a name="manage-the-local-token-cache"></a>Hantera lokala token-cache
 
-HPC Pack 2016 innehåller två nya HPC PowerShell-cmdlets för att hantera den lokala cachen för token. Dessa cmdlet: ar är användbara för att skicka jobb icke-interaktivt. Se följande exempel:
+HPC Pack 2016 innehåller följande HPC PowerShell-cmdlets för att hantera den lokala cachen för token. Dessa cmdlet: ar är användbara för att skicka jobb icke-interaktivt. Se följande exempel:
 
 ```powershell
 Remove-HpcTokenCache
@@ -191,9 +190,9 @@ Ibland kanske du vill köra jobbet under användare för HPC-kluster (för en do
 1. Använd följande kommandon för att ange autentiseringsuppgifter för:
 
     ```powershell
-    $localUser = “<username>”
+    $localUser = "<username>"
 
-    $localUserPassword=”<password>”
+    $localUserPassword="<password>"
 
     $secpasswd = ConvertTo-SecureString $localUserPassword -AsPlainText -Force
 

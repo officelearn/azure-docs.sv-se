@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Generering av plattform nivån händelse och loggfiler
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 Det är viktigt att övervaka på nivån plattform för att avgöra om maskinvaran och klustret fungerar som förväntat. Även om Service Fabric kan behålla program som körs under ett maskinvarufel, men du fortfarande behöver diagnostisera om ett fel uppstår i ett program eller i den underliggande infrastrukturen. Du även övervaka dina kluster bättre planera för kapacitet, att hjälpa till att beslut om att lägga till eller ta bort maskinvara.
 
-Service Fabric innehåller fem olika loggen kanaler out-of-the-box som genererar följande händelser:
-
-* Operativa kanalen: övergripande åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod, kommer ett nytt program som distribueras, eller en SA uppgradera återställning osv.
+Service Fabric innehåller den följande loggen kanaler out-of-the-box:
+* Operativa kanalen: övergripande åtgärder som utförs av Service Fabric och klustret, inklusive händelser för en nod som följer, ett nytt program som distribueras eller en uppgradering återställning osv.
 * Operativa kanalen - detaljerad: hälsorapporter och beslut för belastningsutjämning
-* Data & Messaging kanal: kritiska loggar och händelser som genererats i vår messaging (för närvarande endast ReverseProxy) och datasökväg (reliable services modeller)
+* Data & Messaging kanal: kritiska loggar och händelser som genererats i messaging (för närvarande endast ReverseProxy) och datasökväg (reliable services modeller)
 * Data & Messaging kanaler – detaljerad: utförlig kanal som innehåller alla icke-kritiska loggar från data och meddelanden i klustret (den här kanalen har en mycket stor volym med händelser)   
+
+Förutom dessa finns två strukturerade EventSource-kanaler som loggar som samlas in för support.
 * [Händelselogg och tillförlitlig](service-fabric-reliable-services-diagnostics.md): programmering modellen specifika händelser
 * [Tillförlitliga aktörer händelser](service-fabric-reliable-actors-diagnostics.md): programmering modellen specifika händelser och prestandaräknare
 * Stöd för loggarna: systemloggar som genereras av Service Fabric endast ska användas av oss om att ge stöd

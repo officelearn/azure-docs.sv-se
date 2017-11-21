@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Hur du använder Jupyter-anteckningsbok i Azure Machine Learning arbetsstationen
 
 Azure Machine Learning arbetsstationen stöder interaktiva datavetenskap experiment via dess integrering av Jupyter-anteckningsbok. Den här artikeln beskriver hur du gör effektiv användning av den här funktionen för att öka hastigheten och kvaliteten på din interaktiva datavetenskap experiment.
 
 ## <a name="prerequisites"></a>Krav
-- [Installera och skapa Azure Machine Learning](/machine-learning/preview/quickstart-installation.md).
+- [Installera och skapa Azure Machine Learning](quickstart-installation.md).
 - Bekanta dig med [Jupyter-anteckningsbok](http://jupyter.org/)eftersom den här artikeln inte handlar om lära så använder du Jupyter.
 
 ## <a name="jupyter-notebook-architecture"></a>Arkitektur för Jupyter-anteckningsbok

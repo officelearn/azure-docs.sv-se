@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Hantera enheter med hjälp av Azure portal
 
@@ -32,7 +32,30 @@ Det här avsnittet:
 
 - Innehåller information om hur du hanterar dina enheter med hjälp av Azure portal
 
+## <a name="manage-devices"></a>Hantera enheter 
 
+Azure-portalen ger dig en central plats för att hantera dina enheter. Du kommer till denna plats genom att antingen använda en [Direktlänk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) eller genom att följa de manuella stegen:
+
+1. Rör sig till den [Azure-portalen](https://portal.azure.com) som administratör.
+
+2. Klicka på den vänstra navigeringsfält för, **Active Directory**.
+
+    ![Konfigurera inställningar för enheter](./media/device-management-azure-portal/01.png)
+
+3. I den **hantera** klickar du på **enheter**.
+
+    ![Konfigurera inställningar för enheter](./media/device-management-azure-portal/11.png)
+ 
+Den **enheter** sidan kan du:
+
+- Konfigurera inställningarna för enheten
+
+- Hitta enheter
+
+- Utföra hanteringsaktiviteter för enhet
+
+- Granska enhetshantering relaterade granskningsloggar  
+  
 
 ## <a name="configure-device-settings"></a>Konfigurera inställningar för enheter
 
@@ -207,7 +230,7 @@ Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du
 - Aktivitet
 - Datumintervall
 - Mål
-- Initierad av (aktören)
+- Initierad av (aktör)
 
 Utöver filter kan du söka efter specifika poster.
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 943e0849b03debaa47022b5cb6d0df43d82ac230
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET-API: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -34,6 +34,10 @@ ms.lasthandoff: 11/18/2017
 |**Snabbstart**|[Azure Cosmos DB: Skapa en app med .NET och tabellen API](create-table-dotnet.md)|
 |**Självstudie**|[Azure Cosmos DB: Utveckla med tabell-API i .NET](tutorial-develop-table-dotnet.md)|
 |**Aktuella framework som stöds**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+
+> [!IMPORTANT]
+> Om du har skapat ett tabell-API-konto under förhandsgranskningen kan du skapa en [ny tabell-API-kontot](create-table-dotnet.md#create-a-database-account) att arbeta med den allmänt tillgängliga API SDK-verktyg för tabellen.
+>
 
 ## <a name="release-notes"></a>Viktig information
 
@@ -64,6 +68,7 @@ Om du får felet
 Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
 'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
 ```
+
 När du försöker använda Microsoft.Azure.CosmosDB.Table NuGet-paketet har två alternativ för att åtgärda problemet:
 
 * Använd paketet hantera konsolen för att installera paketet Microsoft.Azure.CosmosDB.Table och dess beroenden. Om du vill göra det, skriver du följande i Package Manager-konsolen för din lösning. 
@@ -74,6 +79,7 @@ När du försöker använda Microsoft.Azure.CosmosDB.Table NuGet-paketet har tv�
 * Använd din önskade hanteringsverktyg för Nuget-paketet installera Microsoft.Azure.Storage.Common Nuget-paketet innan du installerar Microsoft.Azure.CosmosDB.Table.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

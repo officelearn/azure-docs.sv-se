@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/17/2017
 ms.author: glenga
-ms.openlocfilehash: b89e9af55342d5d7473d848956996f846250b4b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6882a7b1864d511e70495e1d1d782aa0f03beca3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Lägg till push-meddelanden i appen för Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -56,12 +56,12 @@ I det här avsnittet kan du uppdatera din Android-app i klienten för att hanter
 ### <a name="verify-android-sdk-version"></a>Verifiera version av Android SDK
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Nästa steg är att installera Google Play-tjänster. Google Cloud Messaging har nivån vissa minimikrav API för utveckling och testning, som den **minSdkVersion** egenskap i manifestet måste motsvara.
+Nästa steg är att installera Google Play-tjänster. Firebase Cloud Messaging har nivån vissa minimikrav API för utveckling och testning, som den **minSdkVersion** egenskap i manifestet måste motsvara.
 
-Om du vill testa med en äldre enhet konsultera [ställa in Google Play Services SDK] att avgöra hur låg du kan ange ett värde och anges korrekt.
+Om du vill testa med en äldre enhet konsultera [lägga till Firebase till din Android-projekt] att avgöra hur låg du kan ange ett värde och anges korrekt.
 
-### <a name="add-google-play-services-to-the-project"></a>Lägga till Google Play-tjänster till projektet
-[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+### <a name="add-firebase-cloud-messaging-to-the-project"></a>Lägg till Firebase Cloud Messaging i projektet
+[!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### <a name="add-code"></a>Lägg till kod
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
@@ -79,5 +79,4 @@ Nu när du har slutfört den här självstudiekursen Tänk fortsätter in på n�
 
 <!-- URLs -->
 [Android Snabbstart]: app-service-mobile-android-get-started.md
-
-[ställa in Google Play Services SDK]:https://developers.google.com/android/guides/setup
+[lägga till Firebase till din Android-projekt]:https://firebase.google.com/docs/android/setup

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: ce5c1c25a73bdc02d7e66768752c6942144de517
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell med Java och Azure Cosmos DB-API-app
 
@@ -43,6 +43,10 @@ Följande gäller också:
     * I Ubuntu kan du köra `sudo apt-get install git` för att installera Git.
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
+
+> [!IMPORTANT] 
+> Du måste skapa ett nytt konto för tabellen API att arbeta med den allmänt tillgängliga API SDK-verktyg för tabellen. Tabell API konton som skapas under förhandsgranskningen stöds inte av de allmänt tillgängliga SDK: er.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -98,7 +102,11 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```
 
-6. Klistra in primära ANSLUTNINGSSTRÄNGEN från portalen i StorageConnectionString-värdet i rad 2. Om Endpoint-delen av anslutningssträngen använder documents.azure.com, korrigera del för att använda table.cosmosdb.azure.com i stället.
+6. Klistra in primära ANSLUTNINGSSTRÄNGEN från portalen i StorageConnectionString-värdet i rad 2. 
+
+    > [!IMPORTANT]
+    > Om din slutpunkt använder documents.azure.com som innebär att du har ett konto för förhandsgranskning, och du måste skapa en [ny tabell-API-kontot](#create-a-database-account) att arbeta med SDK API allmänt tillgänglig tabell.
+    >
 
 7. Spara filen config.properties.
 

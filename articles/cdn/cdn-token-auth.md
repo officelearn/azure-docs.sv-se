@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/03/2017
+ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 29da65c5629c08635b4df1aa78386675152bb0cb
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a73df89d5f97d2d6aa295d7efdd46abc15f81de7
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Att säkra Azure Content Delivery Network tillgångar med tokenautentisering
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/18/2017
 
 ## <a name="overview"></a>Översikt
 
-Token-autentisering är en mekanism som gör det möjligt att förhindra att Azure Content Delivery Network (CDN) som betjänar tillgångar obehörig klienter. Tokenautentisering normalt görs för att förhindra ”hotlinking” av innehåll, som använder en annan webbplats, ofta anslagstavla dina tillgångar utan behörighet. Hotlinking kan påverka dina kostnader för leverans av innehåll. Genom att aktivera tokenautentisering på CDN verifieras begäranden av CDN edge POP innan CDN levererar innehållet. 
+Token-autentisering är en mekanism som gör det möjligt att förhindra att Azure Content Delivery Network (CDN) som betjänar tillgångar obehörig klienter. Tokenautentisering normalt görs för att förhindra ”hotlinking” av innehåll, som använder en annan webbplats, till exempel en anslagstavla dina tillgångar utan behörighet. Hotlinking kan påverka dina kostnader för leverans av innehåll. Genom att aktivera tokenautentisering på CDN verifieras begäranden av CDN gränsservern innan CDN levererar innehållet. 
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
@@ -50,7 +50,7 @@ Följande arbetsflödesdiagram beskriver hur CDN använder token-autentisering s
 
 ## <a name="token-validation-logic-on-cdn-endpoint"></a>Token valideringslogik på CDN-slutpunkten
     
-I följande flödesschema beskrivs hur Azure CDN verifierar klientens begäran om tokenautentisering är konfigurerat på CDN-slutpunkten.
+I följande flödesschema beskrivs hur Azure CDN verifierar en klientbegäran om tokenautentisering är konfigurerat på CDN-slutpunkten.
 
 ![CDN-token valideringslogik](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
 
@@ -60,7 +60,7 @@ I följande flödesschema beskrivs hur Azure CDN verifierar klientens begäran o
 
     ![CDN-profilen hantera knappen](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Hovra över **HTTP stora**, och klicka sedan på **Token Auth** i utfällda. Du kan ställa in krypteringsnyckeln och kryptering parametrar på följande sätt:
+2. Hovra över **HTTP stora**, klicka på **Token Auth** i utfällda. Du kan ställa in krypteringsnyckeln och kryptering parametrar på följande sätt:
 
     1. Skapa en eller flera krypteringsnycklar. En krypteringsnyckel är skiftlägeskänsligt och kan innehålla vilken kombination av alfanumeriska tecken. Andra typer av tecken, inklusive blanksteg tillåts inte. Den maximala längden är 250 tecken. Att säkerställa att krypteringsnycklarna är slumpmässig, bör du skapa dem med hjälp av den [OpenSSL verktyget](https://www.openssl.org/). 
 
@@ -115,26 +115,28 @@ I följande flödesschema beskrivs hur Azure CDN verifierar klientens begäran o
        >    </ul>
        > </tr>
        > <tr>
+       >    <td><b>ec_country_allow</b></td> 
+       >    <td>Endast tillåta begäranden som kommer från en eller flera angivna länder. Nekas begäranden som kommer från andra länder. Använd [landskoder](https://msdn.microsoft.com/library/mt761717.aspx) och avgränsa dem med kommatecken. Om du vill tillåta åtkomst från USA och Frankrike t.ex `US,FR`.</td>
+       > </tr>
+       > <tr>
        >    <td><b>ec_country_deny</b></td> 
-       >    <td>Nekar förfrågningar som kommer från en eller flera angivna länder. Förfrågningar som kommer från andra länder tillåts. Använd landskoder och avgränsa dem med kommatecken. Om du vill neka åtkomst från USA och Frankrike t.ex `US, FR`.</td>
+       >    <td>Nekar förfrågningar som kommer från en eller flera angivna länder. Förfrågningar som kommer från andra länder tillåts. Använd landskoder och avgränsa dem med kommatecken. Om du vill neka åtkomst från USA och Frankrike t.ex `US,FR`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_ref_allow</b></td>
-       >    <td>Tillåta begäranden endast från den angivna referent. En referent identifierar URL-Adressen till den webbsida som är länkad till den begärda resursen. Inkludera inte protokollet i referent parametervärdet.>    
-       >    Följande typer av indata är tillåtna för parametervärde:
+       >    <td>Tillåta begäranden endast från den angivna referent. En referent identifierar URL-Adressen till den webbsida som är länkad till den begärda resursen. Inkludera inte protokollet i parametervärdet.>    
+       >    Följande typer av indata tillåts:
        >    <ul>
        >       <li>Ett värdnamn eller ett värdnamn och en sökväg.</li>
        >       <li>Flera referenter. Om du vill lägga till flera referenter, Avgränsa varje referent med kommatecken. Om du anger ett värde för referent, men referent information skickas inte i begäran på grund av konfiguration av webbläsaren, nekas begäran som standard.</li> 
        >       <li>Begäranden med referent information saknas. Ange den text som ”saknas” eller ett tomt värde för att tillåta dessa typer av begäranden.</li> 
-       >       <li>Underdomäner. Om du vill tillåta underdomäner, anger du en asterisk (\*). Till exempel för att tillåta alla underdomäner i `consoto.com`, ange `*.consoto.com`.</li>
+       >       <li>Underdomäner. Om du vill tillåta underdomäner, anger du en asterisk (\*). Till exempel för att tillåta alla underdomäner i `contoso.com`, ange `*.contoso.com`.</li>
        >    </ul> 
-       >    I följande exempel visas indata för att tillåta åtkomst för begäranden från `www.consoto.com`, alla underordnade domäner under `consoto2.com`, och begäranden med saknas eller är tomt referenter: 
-       > 
-       >    ![CDN ec_ref_allow exempel](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)</td>
+       >    Till exempel för att tillåta åtkomst för begäranden från `www.contoso.com`, alla underordnade domäner under `contoso2.com`, och ange begäranden med saknas eller är tomt referenter `www.contoso.com,*.contoso.com,missing`.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_ref_deny</b></td>
-       >    <td>Nekar förfrågningar från den angivna referent. Genomförandet är samma som parametern ec_ref_allow.</td>
+       >    <td>Nekar förfrågningar från den angivna referent. Genomförandet är samma som den <b>ec_ref_allow</b> parameter.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_proto_allow</b></td> 
@@ -146,21 +148,23 @@ I följande flödesschema beskrivs hur Azure CDN verifierar klientens begäran o
        > </tr>
        > <tr>
        >    <td><b>ec_clientip</b></td>
-       >    <td>Begränsar åtkomsten till angivna beställaren IP-adress. Både IPV4 och IPV6 stöds. Du kan ange antingen en enskild begäran IP-adress eller ett IP-undernät. Till exempel, `11.22.33.0/22`</td>
+       >    <td>Begränsar åtkomsten till angivna beställaren IP-adress. Både IPV4 och IPV6 stöds. Du kan ange antingen en enskild begäran IP-adress eller ett IP-undernät. Till exempel `11.22.33.0/22`.</td>
        > </tr>
        > </table>
 
     5. När du är klar med att ange parametervärden för kryptering markerar du en nyckel för att kryptera (om du har skapat både en primär och en reservnyckel) från den **nyckel för att kryptera** lista.
     
-    6. Välj en kryptering version från den **kryptering** lista: **V2** för version 2 eller **V3** för version 3 (rekommenderas). Klicka på **kryptera** att generera token.
+    6. Välj en kryptering version från den **kryptering** lista: **V2** för version 2 eller **V3** för version 3 (rekommenderas). 
+
+    7. Klicka på **kryptera** att generera token.
 
     När token som har genererats visas den i den **genereras Token** rutan. Om du vill använda token, lägger du till dem som en frågesträng till slutet av filen i URL-sökväg. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    7. Du kan testa din token med verktyget dekryptering. Klistra in token-värde i den **Token för att dekryptera** rutan. Välj krypteringsnyckeln ska användas från den **nyckel att dekryptera** listan och klicka sedan på **dekryptera**.
+    8. Du kan testa din token med verktyget dekryptering. Klistra in token-värde i den **Token för att dekryptera** rutan. Välj krypteringsnyckeln ska användas från den **nyckel att dekryptera** listan och klicka sedan på **dekryptera**.
 
     När token dekrypteras dess parametrar visas i den **ursprungliga parametrarna** rutan.
 
-    8. Du kan också anpassa typ av svarskod som returneras när en begäran nekas. Välj **aktiverad**, Välj svarskoden från den **svarskoden** och på **spara**. För vissa svarskoder, måste du också ange Webbadressen till felsidan i den **huvudvärde** rutan. Den **403** svarskoden (förbjuden) väljs som standard. 
+    9. Du kan också anpassa typ av svarskod som returneras när en begäran nekas. Välj **aktiverad**, och välj svarskod från det **svarskoden** lista. Klicka på **spara**. För vissa svarskoder, måste du också ange Webbadressen till felsidan i den **huvudvärde** rutan. Den **403** svarskoden (förbjuden) väljs som standard. 
 
 3. Under **HTTP stora**, klickar du på **regelmotor**. Du kan använda regelmotor för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen tokenautentisering och aktivera ytterligare token autentisering-relaterade funktioner. Mer information finns i [regler motorn referens](cdn-rules-engine-reference.md).
 

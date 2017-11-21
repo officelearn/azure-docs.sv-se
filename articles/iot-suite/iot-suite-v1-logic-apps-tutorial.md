@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Självstudier: Anslut Logikappen i Azure IoT Suite Fjärrövervaknings förkonfigurerade lösningen
 Den [Microsoft Azure IoT Suite] [ lnk-internetofthings] fjärråtkomst övervakning förkonfigurerade lösningen är ett bra sätt att snabbt komma igång med en slutpunkt till slutpunkt funktionsuppsättning som är ett exempel på en IoT-lösning. Den här självstudiekursen vägleder dig igenom hur du lägger till Logikapp till din Microsoft Azure IoT Suite remote förkonfigurerade övervakningslösning. Dessa steg visar hur du kan dra ytterligare IoT-lösningen genom att ansluta till en affärsprocess.
@@ -33,7 +33,7 @@ Innan du börjar den här kursen bör du:
 
 Den här kursen behöver du Visual Studio 2015 eller Visual Studio-2017 för att ändra åtgärder i förkonfigurerade lösningens serverdel.
 
-Under förutsättning att du redan har etablerat din fjärrövervaknings förkonfigurerade lösningen måste du gå till resursgruppen för lösningen i den [Azure-portalen][lnk-azureportal]. Resursgruppen har samma namn som lösningens namn du angav när du har etablerat din fjärranslutna övervakningslösning. Du kan se alla etablerade Azure-resurser för din lösning förutom Azure Active Directory-program som du hittar i den klassiska Azure-portalen i en resursgrupp. Följande skärmbild visar ett exempel **resursgruppen** bladet för en fjärransluten övervakning förkonfigurerade lösningen:
+Under förutsättning att du redan har etablerat din fjärrövervaknings förkonfigurerade lösningen måste du gå till resursgruppen för lösningen i den [Azure-portalen][lnk-azureportal]. Resursgruppen har samma namn som lösningens namn du angav när du har etablerat din fjärranslutna övervakningslösning. Du kan se alla etablerade Azure-resurser för lösningen i en resursgrupp. Följande skärmbild visar ett exempel **resursgruppen** bladet för en fjärransluten övervakning förkonfigurerade lösningen:
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

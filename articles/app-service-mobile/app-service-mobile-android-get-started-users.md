@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Lägg till autentisering i din Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ I den här självstudiekursen du lägger till autentisering i todolist quickstar
 
 Säker autentisering måste du definiera en ny URL-schema för din app. Detta gör att autentiseringssystemet kan omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudiekursen kommer vi använda URL-schemat _appname_ i hela. Du kan dock använda alla URL-schema som du väljer. Det bör vara unikt för din mobila program. Du vill aktivera omdirigering på serversidan:
 
-1. Välj din Apptjänst i [Azure-portalen].
+1. I den [Azure-portalen], Välj din Apptjänst.
 
 2. Klicka på den **autentisering / auktorisering** menyalternativet.
 
@@ -50,7 +50,7 @@ Säker autentisering måste du definiera en ny URL-schema för din app. Detta g�
 
      Detta undantag beror på att appen försöker komma åt serverdel som en oautentiserad användare men *TodoItem* tabellen nu kräver autentisering.
 
-Därefter uppdaterar du appen för att autentisera användare innan du begär resurser från Mobile Apps-serverdel. 
+Därefter uppdaterar du appen för att autentisera användare innan du begär resurser från Mobile Apps-serverdel.
 
 ## <a name="add-authentication-to-the-app"></a>Lägg till autentisering i appen
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -79,3 +79,4 @@ Nu när du har slutfört den här självstudiekursen för grundläggande autenti
 
 <!-- URLs. -->
 [Kom igång med Mobile Apps]: app-service-mobile-android-get-started.md
+[Azure-portalen]: https://portal.azure.com/

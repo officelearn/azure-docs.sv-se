@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar av programvaran i din miljö med lösningen för ändringsspårning
 
@@ -44,7 +44,7 @@ Använd följande steg för att konfigurera filer att spåra på Linux-datorer.
 4. Klicka på **Spara**.  
 
 > [!NOTE]
-> Linux-filen spårning har ytterligare funktioner, inklusive directory spårning, recrusion via kataloger och jokertecken spårning.
+> Linux-filen spårning har ytterligare funktioner, inklusive directory spårning, rekursion via kataloger och jokertecken spårning.
 
 ### <a name="configure-windows-files-to-track"></a>Konfigurera Windows-filer för att spåra
 Använd följande steg för att konfigurera filer att spåra på Windows-datorer.
@@ -69,7 +69,7 @@ Använd följande steg för att konfigurera registernycklar för att spåra på 
    * **Filen** (rapportera filens metadata - storlek, ändringsdatum, hash, etc.)
    * **Directory** (rapporten directory metadata - storlek, ändringsdatum osv.)
 2. **Länkar** (hantera Linux symlink referenser till andra filer eller kataloger)
-   * **Ignorera** (ignorera symlinks under recurions att inte inkludera filer och kataloger som refererar till)
+   * **Ignorera** (ignorera symlinks under rekursion att inte inkludera filer och kataloger som refererar till)
    * **Följ** (följer symlinks under rekursion ska också innehålla filer och kataloger som refererar till)
    * **Hantera** (följer symlinks och ändra behandlingen av returnerade innehåll)
 
@@ -96,14 +96,18 @@ Andra begränsningar:
 * När nätverkstrafiken är hög, kan ändra poster ta upp till maximalt sex timmar att visa.
 * Om du ändrar konfigurationen när en dator är avstängd, kan datorn efter filändringar som tillhör den tidigare konfigurationen.
 
+### <a name="known-issues"></a>Kända problem
+Ändringsspårning lösningen har för närvarande följande problem:
+* Hotfix-uppdateringar har inte samlats in för Windows 10 skapare Update och Windows Server 2016 Core RS3 datorer.
+
 ## <a name="change-tracking-data-collection-details"></a>Ändra data collection detaljer
 Ändringsspårning samlar in programvaruinventering och Windows-tjänst metadata med hjälp av de agenter som du har aktiverat.
 
 I följande tabell visar metoder för insamling av data och annan information om hur data samlas in för spårning av ändringar.
 
-| Plattform | Styr Agent | Operations Manager-agent | Linux-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Frekvens för samlingen |
+| Plattform | Styr Agent | Operations Manager-agent | Linux-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows- och Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minuter till 50 minuter beroende på vilken ändringstyp. Mer information finns i tabellen nedan. |
+| Windows- och Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minuter till 50 minuter beroende på vilken ändringstyp. Visa tabellen nedan för mer information. |
 
 
 I följande tabell visas data collection frekvensen för vilka typer av ändringar.

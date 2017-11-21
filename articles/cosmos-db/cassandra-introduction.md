@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 5ca9b8ed40a1e58a0aea4de87995caf5f9a9212b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Introduktion till Apache Cassandra API för Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Om du redan har en Azure-prenumeration kan du registrera dig att delta i program
 
     När du skickar din begäran status ändras till **godkännande** i fönstret nytt konto. 
 
-När du skickar din begäran vänta e-postmeddelande att din begäran har godkänts. Du behöver inte skapa ett supportärende för att slutföra begäran. Begäranden granskas i den ordning de mottogs. 
+När du skickar din begäran vänta e-postmeddelande att din begäran har godkänts. På grund av stora mängder begäranden, bör du få meddelande inom en vecka. Du behöver inte skapa ett supportärende för att slutföra begäran. Begäranden granskas i den ordning de mottogs. 
 
 ## <a name="how-to-get-started"></a>Så här kommer du igång
 När du har anslutit förhandsgranskningsprogrammet, följ Cassandra API-Snabbstart för att skapa en app med Cassandra-API:

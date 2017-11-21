@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Ordlista för Microsoft Azure: en ordlista med molnet terminologi för Azure-plattformen
 
@@ -87,13 +87,13 @@ De priser, krediter och tillhörande villkor som gäller för en Azure-prenumera
 Finns det [informationssidan för Azure-erbjudande](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
-Säker webbportalen används för att distribuera och hantera Azure-tjänster.  Det finns två portaler: den [Azure-portalen](http://portal.azure.com/) och [klassiska portalen](http://manage.windowsazure.com/). Vissa tjänster finns i båda portaler, medan andra är bara tillgängliga i ena eller den andra. Den [Azure portal tillgänglighet diagram](https://azure.microsoft.com/features/azure-portal/availability/) listor tjänster som är tillgängliga i vilken portal.
+Säker webbportalen används för att distribuera och hantera Azure-tjänster.
 
-## <a name="region"></a>Region
+## <a name="region"></a>region
 Ett område i en geo som inte mellan gränser och innehåller en eller flera datacenter. Priser regionala tjänster och erbjudandetyper exponeras på regionsnivån. En region vanligtvis paras ihop med en annan region, vilket kan vara upp till flera hundra mil bort. Regional par kan användas som en mekanism för katastrofåterställning och scenarier med hög tillgänglighet. Kallas även *plats*.  
 Se [Azure-regioner](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>Resursen
+## <a name="resource"></a>resurs
 Ett objekt som är en del av din Azure-lösning. Varje Azure-tjänst kan du distribuera olika typer av resurser, t.ex databaser eller virtuella datorer.   
 Se [översikt över Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 

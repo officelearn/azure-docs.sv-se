@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 4e59c333e14e5e21a02c3160cf6311d1182e5a5e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell med .NET och Azure Cosmos DB-API-app 
 
@@ -34,6 +34,10 @@ Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Vis
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
+
+> [!IMPORTANT] 
+> Du måste skapa ett nytt konto för tabellen API att arbeta med den allmänt tillgängliga API SDK-verktyg för tabellen. Tabell API konton som skapas under förhandsgranskningen stöds inte av de allmänt tillgängliga SDK: er.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -91,7 +95,11 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. Klistra in primära ANSLUTNINGSSTRÄNGEN från portalen i StorageConnectionString värdet på rad 8. Klistra in sträng inom citattecken. Om din slutpunkt använder documents.azure.com, ändrar du den del till table.cosmosdb.azure.com. 
+4. Klistra in primära ANSLUTNINGSSTRÄNGEN från portalen i StorageConnectionString värdet på rad 8. Klistra in sträng inom citattecken. 
+
+    > [!IMPORTANT]
+    > Om din slutpunkt använder documents.azure.com som innebär att du har ett konto för förhandsgranskning, och du måste skapa en [ny tabell-API-kontot](#create-a-database-account) att arbeta med SDK API allmänt tillgänglig tabell. 
+    > 
 
     Rad 8 bör nu se ut:
 
@@ -99,7 +107,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-4. Spara filen App.config.
+5. Spara filen App.config.
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 

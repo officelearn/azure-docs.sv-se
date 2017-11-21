@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08e59fda2ea439b2272121cf8bfee76fe4f96fc3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Utveckla med tabell-API i .NET
 
@@ -88,7 +88,7 @@ Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra a
 2. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av sample-appen på din dator. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Öppna därefter lösningsfilen i Visual Studio. 
@@ -99,24 +99,32 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. I den [Azure-portalen](http://portal.azure.com/), klickar du på **anslutningssträngen**. 
 
-    Använd knapparna Kopiera på höger sida av skärmen för att kopiera ANSLUTNINGSSTRÄNGEN.
+    Använd knapparna Kopiera på höger sida av skärmen för att kopiera primära ANSLUTNINGSSTRÄNGEN.
 
     ![Visa och kopiera ANSLUTNINGSSTRÄNGEN i fönstret anslutningssträngen](./media/create-table-dotnet/connection-string.png)
 
 2. Öppna filen app.config i Visual Studio. 
 
-3. Klistra in ANSLUTNINGSSTRÄNGEN värdet i filen app.config som värde för CosmosDBStorageConnectionString. 
+3. Ta bort kommentarerna StorageConnectionString på rad 8 och kommentera ut StorageConnectionString på rad 7 som den här kursen inte används av Storage-emulatorn. Rad 7 och 8 bör nu se ut så här:
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+    ```
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+    ```
 
-    > [!NOTE]
-    > Om du vill använda den här appen med Azure Table storage, du behöver ändra anslutningssträngen i `app.config file`. Använda kontonamnet som tabellen kontonamnet och nyckeln som primärnyckel för Azure-lagring. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
+4. Klistra in primära ANSLUTNINGSSTRÄNGEN från portalen i StorageConnectionString värdet på rad 8. Klistra in sträng inom citattecken.
+   
+    > [!IMPORTANT]
+    > Om din slutpunkt använder documents.azure.com som innebär att du har ett konto för förhandsgranskning, och du måste skapa en [ny tabell-API-kontot](#create-a-database-account) att arbeta med SDK API allmänt tillgänglig tabell. 
     >
 
-4. Spara filen app.config.
+    Rad 8 bör nu se ut:
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+5. Spara filen app.config.
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
@@ -316,12 +324,9 @@ CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
 
-## <a name="clean-up-resources"></a>Rensa resurser 
+## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte planerar att använda den här appen mer följer du stegen nedan för att ta bort alla resurser som du har skapat i den här självstudiekursen på Azure-portalen.   
-
-1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade.  
-2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**. 
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

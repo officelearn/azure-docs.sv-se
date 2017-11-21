@@ -1,6 +1,6 @@
 ---
 title: "Azure AD SSPR med tillbakaskrivning av lösenord | Microsoft Docs"
-description: "Med hjälp av Azure AD och Azure AD Connect att tillbakaskrivning av lösenord till lokal katalog"
+description: "Använda Azure AD och Azure AD Connect att tillbakaskrivning av lösenord till en lokal katalog"
 services: active-directory
 keywords: "Hantering av Active directory-lösenord, lösenordshantering, Azure AD self service för lösenordsåterställning"
 documentationcenter: 
@@ -16,201 +16,208 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9733774570f3148e0092f42c1321b4fac1c80b54
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="password-writeback-overview"></a>Översikt över tillbakaskrivning av lösenord
 
-Tillbakaskrivning av lösenord kan du konfigurera Azure AD att tillbakaskrivning av lösenord till din lokala Active Directory. Det eliminerar behovet av att konfigurera och hantera en komplicerad lokala självbetjäning lösenord Återställ lösningen och det är ett bekvämt molnbaserade sätt för dina användare att återställa sina lokala lösenord oavsett var de befinner. Tillbakaskrivning av lösenord är en del av [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) som kan aktiveras och används av aktuella Premium-prenumeranter [Azure Active Directory-versioner](active-directory-editions.md).
+Du kan konfigurera Azure Active Directory (Azure AD) för att skriva tillbaka lösenord till din lokala Active Directory med tillbakaskrivning av lösenord. Tillbakaskrivning av lösenord eliminerar behovet av att konfigurera och hantera en komplicerad lokalt lösenordsåterställning självbetjäning (SSPR) återställningslösning och ger ett bekvämt molnbaserade sätt för dina användare att återställa sina lokala lösenord oavsett var de befinner. Tillbakaskrivning av lösenord är en del av [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) som kan aktiveras och används av aktuella Premium-prenumeranter [Azure Active Directory-versioner](active-directory-whatis.md).
 
 Tillbakaskrivning av lösenord innehåller följande funktioner:
 
-* **Noll fördröjning feedback** -tillbakaskrivning av lösenord är en synkron åtgärd. Användarna meddelas omedelbart om lösenordet inte uppfyller principen eller gick inte att återställa eller ändras av någon anledning.
-* **Har stöd för återställa lösenord för användare som använder AD FS eller andra tekniker för federation** -med tillbakaskrivning av lösenord, så länge som de federerade användarkontona synkroniseras till din Azure AD-klient som ska kunna hantera sina lokala AD-lösenord från molnet.
-* **Har stöd för återställa lösenord för användare som använder [lösenordshashsynkronisering](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)**  – när tjänsten för återställning av lösenord känner av att ett synkroniserade användarkonto har aktiverats för lösenordshashsynkronisering vi återställa lösenord för molnet och det här kontot på lokalt samtidigt.
-* **Har stöd för ändring av lösenord från åtkomstpanelen och Office 365** – när federerade eller lösenord synkroniseras användare kommer att ändra sina lösenord har upphört att gälla eller ej upphört att gälla, vi skriva tillbaka lösenord till din lokala AD-miljö.
-* **Har stöd för skrivning tillbaka lösenord när en administratör återställer dem från Azure portal** – när en administratör återställer ett lösenord i den [Azure-portalen](https://portal.azure.com)om användaren är federerat eller lösenord synkroniseras, vi ställer administratören väljer på din lokala AD, samt lösenordet. Detta stöds för närvarande inte i administrationsportalen för Office.
-* **Tillämpar dina lokala AD lösenordsprinciper** – när en användare återställer sitt lösenord vi Kontrollera att den uppfyller dina lokala AD-princip innan du genomför den till den katalogen. Detta inkluderar historik, komplexitet, ålder, lösenordsfilter och eventuella andra begränsningar för lösenord du har definierat i din lokala AD.
-* **Kräver inte några inkommande brandväggsregler** -tillbakaskrivning av lösenord använder en Azure Service Bus relay som en underliggande kommunikationskanalen, vilket innebär att du inte behöver öppna ingående portar i brandväggen för den här funktionen ska fungera.
-* **Stöds inte för användarkonton som finns inom skyddade grupper i din lokala Active Directory** – för mer information om skyddade grupper, se [skyddade konton och grupper i Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+* **Ger feedback noll fördröjning**: tillbakaskrivning av lösenord är en synkron åtgärd. Användarna meddelas omedelbart om sina lösenord inte uppfyllde principen eller inte kunde återställa eller ändras av någon anledning.
+* **Har stöd för lösenordsåterställning för användare som använder Active Directory Federation Services (AD FS) eller andra tekniker för federation**: med tillbakaskrivning av lösenord, så länge som de federerade användarkontona synkroniseras till din Azure AD-klient som ska kunna hantera sina lokala Active Directory-lösenord från molnet.
+* **Har stöd för lösenordsåterställning för användare som använder** [lösenordshashsynkronisering](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): när tjänsten för återställning av lösenord upptäcker att ett synkroniserade användarkonto är aktiverat för lösenordets hash-synkronisering, återställs både det här kontot Lokal och moln lösenord samtidigt.
+* **Har stöd för lösenord ändras från åtkomstpanelen och Office 365**: om sammanslaget eller lösenord synkroniseras användare kommer att ändra sina lösenord har upphört att gälla eller ej upphört att gälla, vi skriva tillbaka lösenord till din lokala Active Directory-miljö.
+* **Stöder tillbakaskrivning av lösenord när en administratör återställer dem från Azure portal**: när en administratör återställer ett lösenord i den [Azure-portalen](https://portal.azure.com)om användaren är federerat eller lösenord synkroniseras, vi ställer lösenordet administratören väljer i samt lokala Active Directory. Den här funktionen stöds inte för närvarande i administrationsportalen för Office.
+* **Tillämpar din lokala Active Directory-lösenordsprinciper**: när en användare återställer sitt lösenord, vi Kontrollera att den uppfyller din lokala Active Directory-princip innan vi genomför till den katalogen. Den här granska inkluderar kontroll historiken, komplexitet, ålder, lösenordsfilter och eventuella andra begränsningar för lösenord som du har definierat i lokala Active Directory.
+* **Kräver inte några inkommande brandväggsregler**: tillbakaskrivning av lösenord använder en Azure Service Bus relay som en underliggande kommunikationskanalen. Du behöver öppna ingående portar i brandväggen för den här funktionen ska fungera.
+* **Stöds inte för användarkonton som finns i skyddade grupper i lokala Active Directory**: Mer information om skyddade grupper finns [skyddade konton och grupper i Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 
 ## <a name="how-password-writeback-works"></a>Så här fungerar tillbakaskrivning av lösenord
 
 När en federerad eller lösenord hash synkroniserade användaren kommer att återställa eller ändra sina lösenord i molnet, inträffar följande:
 
-1. Vi kontrollerar du vilken typ av lösenord som användaren har.
-    * Om vi se hanteras lösenordet lokalt
-        * Vi kontrollerar om tillbakaskrivning av tjänsten är igång och körs, om det är det så att användare kan fortsätta
-        * Om tjänsten tillbakaskrivning inte är in, meddela vi användaren att deras lösenord inte kan återställas nu
-2. Sedan användaren skickar rätt autentiserings-portar och når skärmen återställning av lösenord.
+1. Vi kontrollerar du vilken typ av lösenord som användaren har. Om vi se att lösenordet är hanteras lokalt:
+   * Vi kontrollerar om tillbakaskrivning av tjänsten är igång. Om den är igång, så vi att användare kan fortsätta.
+   * Om tjänsten tillbakaskrivning inte är in, meddela vi användaren att deras lösenord inte kan återställas just nu.
+2. Sedan användaren skickar rätt autentiserings-portar och når den **Återställ lösenord** sidan.
 3. Användaren väljer ett nytt lösenord och bekräftar den.
-4. När du klickar på Skicka kryptera vi lösenordet i klartext med en symmetrisk nyckel som skapades under installationen tillbakaskrivning.
+4. När användaren väljer **skicka**, vi kryptera lösenordet i klartext med en symmetrisk nyckel som skapades under installationen tillbakaskrivning.
 5. Efter kryptering av lösenordet inkludera vi den i en nyttolast som skickas via en HTTPS-kanal till din klient-specifika service bus relay (som vi också konfigurerar du under installationen tillbakaskrivning). Den här relay skyddas av ett slumpmässigt genererat lösenord som känner av endast lokala installationen.
-6. När meddelandet når service bus, vaknar lösenord Återställ slutpunkten automatiskt och ser att det finns en väntande begäran återställning.
-7. Tjänsten sedan söker efter användaren i fråga med hjälp av fästpunktsattributet moln. För den här sökningen ska lyckas:
+6. När meddelandet når service bus, vaknar slutpunkten för återställning av lösenord automatiskt och ser att det finns en väntande begäran återställning.
+7. Tjänsten söker sedan efter användaren med hjälp av fästpunktsattributet moln. För den här sökningen ska lyckas:
 
-    * Användarobjektet måste finnas i AD-anslutarplats
-    * Objektet måste vara kopplade till motsvarande MV-objekt
-    * Användarobjektet måste länkas till motsvarande AAD connector-objekt.
-    * Länken från AD connector-objekt till MV måste ha synkroniseringsregeln `Microsoft.InfromADUserAccountEnabled.xxx` på länken. <br> <br>
-    När anropet kommer från molnet, Synkroniseringsmotorn använder cloudAnchor-attribut för att leta upp objektet AAD-koppling utrymme sätt länken tillbaka till MV-objekt och följer sedan länken tillbaka till AD-objekt. Eftersom det kan finnas flera AD-objekt (flera skogar) för samma användare, Synkroniseringsmotorn förlitar sig på den `Microsoft.InfromADUserAccountEnabled.xxx` länk för att välja rätt.
+    * Användarobjektet måste finnas i Active Directory-anslutningsplatsen.
+    * Användarobjektet måste kopplas till den motsvarande metaversumobjekt (MV).
+    * Användarobjektet måste länkas till motsvarande Azure Active Directory connector-objekt.
+    * Länken från Active Directory connector-objektet till MV måste ha synkroniseringsregeln `Microsoft.InfromADUserAccountEnabled.xxx` på länken. <br> <br>
+    När anropet kommer från molnet, Synkroniseringsmotorn använder den **cloudAnchor** attribut för att leta upp Azure Active Directory connector utrymme-objektet. Den sedan efter länken MV-objekt och följer sedan länken till Active Directory-objekt. Eftersom det kan finnas flera Active Directory-objekt (flera skogar) för samma användare, Synkroniseringsmotorn förlitar sig på den `Microsoft.InfromADUserAccountEnabled.xxx` länk för att välja rätt.
 
     > [!Note]
-    > På grund av den här logiken att Azure AD Connect kunna kommunicera med PDC-emulatorn för tillbakaskrivning av lösenord ska fungera. Om du behöver aktivera det manuellt kan du ansluta Azure AD Connect till PDC-emulatorn genom att högerklicka på den **egenskaper** av Active Directory-synkronisering koppling, sedan välja **konfigurera katalogpartitioner**. Därifrån kan du söka efter avsnittet med **anslutningsinställningarna för domänkontrollanten** och markera rutan för att **endast använda prioriterade domänkontrollanter**. Även om den primära domänkontrollanten inte är en PDC-emulator, ska Azure AD Connect försöka ansluta till den primära domänkontrollanten för tillbakaskrivning av lösenord.
+    > På grund av den här logiken för lösenord måste tillbakaskrivningen ska fungera Azure AD Connect kunna kommunicera med primära domänkontrollantens (PDC) emulator. Om du behöver aktivera det manuellt kan du ansluta Azure AD Connect till PDC-emulatorn. Högerklicka på den **egenskaper** av Active Directory-synkronisering koppling, Välj **konfigurera katalogpartitioner**. Därifrån kan du leta efter den **inställningarna för domänkontrollanter anslutning** och välj rutan **endast använder prioriterade domänkontrollanter**. Även om den primära domänkontrollanten inte är en PDC-emulator, försöker Azure AD Connect att ansluta till den primära domänkontrollanten för tillbakaskrivning av lösenord.
 
-8. När användarkontot hittas, försöker vi återställa lösenordet direkt i lämplig AD-skog.
+8. När användaren att hitta kontot, vi försöker återställa lösenordet direkt i rätt Active Directory-skogen.
 9. Om lösenordet set-åtgärd lyckas meddela vi användaren sitt lösenord har ändrats.
     > [!NOTE]
-    > I fallet när användarens lösenord synkroniseras till Azure AD med hjälp av Lösenordssynkronisering, finns det en risk att den lokala lösenordsprincipen är lägre än lösenordsprincipen i molnet. Vi framtvinga i det här fallet fortfarande oavsett som den lokala principen och istället låta synkronisering av lösenords-hash att synkronisera hash för lösenordet. Detta säkerställer att din princip för lokal tillämpas i molnet, oavsett om du använder Lösenordssynkronisering eller federation för att tillhandahålla enkel inloggning.
+    > Om användarens lösenord synkroniseras till Azure AD med hjälp av Lösenordssynkronisering, finns det en risk att den lokala lösenordsprincipen är lägre än lösenordsprincipen i molnet. Vi framtvinga i det här fallet fortfarande allt som den lokala principen och i stället använda synkronisering av lösenords-hash för att synkronisera hash för lösenordet. Den här principen ser till att den lokala principen tillämpas i molnet, oavsett om du använder Lösenordssynkronisering eller federation för att tillhandahålla enkel inloggning.
 
-10. Om lösenordet har angetts för åtgärden misslyckas vi felet returneras till användaren och låter dem försök igen.
-    * Åtgärden kan misslyckas på grund av följande
-        * Tjänsten är inaktiv
-        * De markerade lösenordet inte uppfyller kraven för organisationens principer
-        * Det gick inte att hitta användaren i lokala AD
+10. Om lösenordet har angetts för åtgärden misslyckas vi ett fel returneras till användaren och låter dem försök igen. Åtgärden kan misslyckas eftersom:
+    * Tjänsten är inaktiv.
+    * De markerade lösenordet uppfyller inte organisationens principer.
+    * Vi kan inte hitta användaren i lokala Active Directory.
 
     Vi har ett visst meddelande för många av dessa fall och meddela användaren om vad de kan göra för att lösa problemet.
 
-## <a name="configuring-password-writeback"></a>Konfigurera tillbakaskrivning av lösenord
+## <a name="configure-password-writeback"></a>Konfigurera tillbakaskrivning av lösenord
 
 Vi rekommenderar att du använder funktionen för automatisk uppdatering av [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) om du vill använda tillbakaskrivning av lösenord.
 
-DirSync och Azure AD Sync är inte längre stöds sätt för att aktivera tillbakaskrivning av lösenord artikeln [uppgradera från DirSync och Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) med mer information om hur med övergången.
+DirSync och Azure AD Sync stöds inte längre som ett sätt att aktivera tillbakaskrivning av lösenord. Mer information att hjälpa med övergången finns [uppgradera från DirSync och Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md).
 
-Stegen nedan förutsätter att du redan har konfigurerat Azure AD Connect i din miljö med hjälp av den [Express](./connect/active-directory-aadconnect-get-started-express.md) eller [anpassade](./connect/active-directory-aadconnect-get-started-custom.md) inställningar.
+Följande steg förutsätter att du redan har konfigurerat Azure AD Connect i din miljö med hjälp av den [Express](./connect/active-directory-aadconnect-get-started-express.md) eller [anpassade](./connect/active-directory-aadconnect-get-started-custom.md) inställningar.
 
-1. Att konfigurera och aktivera lösenord tillbakaskrivning logga in till Azure AD Connect-servern och starta den **Azure AD Connect** konfigurationsguiden.
-2. På välkomstskärmen klickar du på **konfigurera**.
-3. Klicka på skärmen ytterligare uppgifter **anpassa synkroniseringsalternativ** och välj sedan **nästa**.
-4. Ange autentiseringsuppgifter för en Global administratör på skärmen Anslut till Azure AD, och välj **nästa**.
-5. På sidan Anslut dina kataloger och domän och Organisationsenhet Förfrågningsfiltrering kontrolleras, du kan välja **nästa**.
-6. På skärmen för valfria funktioner du kryssrutan bredvid **tillbakaskrivning av lösenord** och på **nästa**.
+1. Om du vill konfigurera och aktivera tillbakaskrivning av lösenord, logga in till Azure AD Connect-servern och starta den **Azure AD Connect** konfigurationsguiden.
+2. På den **Välkommen** väljer **konfigurera**.
+3. På den **ytterligare uppgifter** väljer **anpassa synkroniseringsalternativ**, och välj sedan **nästa**.
+4. På den **Anslut till Azure AD** sidan Ange autentiseringsuppgifter för en global administratör och välj sedan **nästa**.
+5. På den **ansluta kataloger** och **domän/OU** filtrering sidor, Välj **nästa**.
+6. På den **valfria funktioner** markerar du kryssrutan bredvid **tillbakaskrivning av lösenord** och välj **nästa**.
    ![Aktivera tillbakaskrivning av lösenord i Azure AD Connect][Writeback]
-7. Klicka på klart att konfigurera skärmen, **konfigurera** och vänta på att processen skulle slutföras.
-8. När du ser konfiguration slutföra, klickar du på **avsluta**
+7. På den **redo att konfigurera** väljer **konfigurera** och vänta tills processen har slutförts.
+8. När du ser konfigurationen är klar, Välj **avsluta**.
 
-För gemensamma felsökning uppgifter som rör tillbakaskrivning av lösenord i avsnittet [felsöka tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) i vår felsökningsartikel.
+Vanliga felsökning uppgifter som rör tillbakaskrivning av lösenord, finns i [felsöka tillbakaskrivning av lösenord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) i vår felsökningsartikel.
 
 ## <a name="active-directory-permissions"></a>Active Directory-behörigheter
 
-Kontot som angavs i Azure AD Connect-verktyget måste ha Återställ lösenord, ändra lösenord, skrivbehörighet på lockoutTime och skrivbehörighet på pwdLastSet, utökade behörigheter på antingen rotobjektet av **varje domän** i skogen **eller** användaren organisationsenheter som du vill att i omfånget för SSPR.
+Kontot som angetts i Azure AD Connect-verktyget måste ha följande ange om du vill ska vara i omfånget för SSPR:
 
-Om du inte är säker på vilket konto som anges ovan refererar till öppna Azure Active Directory Connect Konfigurationsgränssnittet och klicka på alternativet Visa aktuella konfiguration. Det konto som du behöver lägga till behörigheter till anges under ”synkroniseras kataloger”
+* **Återställ lösenord** 
+* **Ändra lösenord** 
+* **Skrivbehörighet** på`lockoutTime`  
+* **Skrivbehörighet** på`pwdLastSet`
+* **Utökade rättigheter** på antingen:
+   * Rotobjektet av *varje domän* i den skogen
+   * Användaren organisationsenheter (OU) som du vill ska vara i omfånget för SSPR
 
-Dessa behörigheter kan MA-tjänstkontot för varje skog hantera lösenord för användarkonton i skogen. **Om du inte tilldelar dessa behörigheter sedan få trots att tillbakaskrivning verkar vara korrekt konfigurerade, användare problem när du försöker hantera sina lokala lösenord från molnet.**
+Om du inte vet vilket konto beskrivs kontot refererar till, öppna Azure Active Directory Connect Konfigurationsgränssnittet och välj den **aktuella konfiguration** alternativet. Det konto som du behöver lägga till behörigheter till anges under **synkroniseras kataloger**.
+
+Om du anger dessa behörigheter kan MA-tjänstkontot för varje skog hantera lösenord för användarkonton i skogen. 
+
+>[!IMPORTANT]
+>Om du inte tilldelar dessa behörigheter sedan uppstår trots att tillbakaskrivning verkar vara korrekt konfigurerade, användare fel när de försöker hantera sina lokala lösenord från molnet.
+>
 
 > [!NOTE]
 > Det kan ta upp till en timme eller mer för behörigheterna att replikeras till alla objekt i katalogen.
 >
 
-Att ställa in lämplig behörighet för tillbakaskrivning av lösenord ska ske
+Utför följande steg för att ställa in lämplig behörighet för tillbakaskrivning av lösenord ska ske:
 
-1. Öppna Active Directory-användare och datorer med ett konto som har administratörsbehörighet för lämplig domän
-2. Kontrollera att avancerade funktioner är aktiverat Visa-menyn
-3. I den vänstra rutan högerklickar du på objektet som representerar roten för domänen och välj Egenskaper
-    * Klicka på fliken Säkerhet
-    * Klicka på Avancerat.
-4. Klicka på Lägg till från fliken behörigheter
-5. Välj kontot som behörigheter som används för (från Azure AD Connect-installation)
-6. Välj underordnade objekt i gäller för listruta
-7. Markera kryssrutorna för följande under behörigheter
-    * Unexpire lösenord
-    * Återställ lösenord
-    * Ändra lösenord
-    * Skriva lockoutTime
-    * Skriva pwdLastSet
-8. Klicka på Använd/OK genom att använda och stänga alla öppna dialogrutor.
+1. Öppna Active Directory-användare och datorer med ett konto som har administratörsbehörighet för lämplig domän.
+2. Från den **visa** menyn Kontrollera **avancerade funktioner** är aktiverat.
+3. I den vänstra rutan högerklickar du på det objekt som representerar roten för domänen och välj **egenskaper** > **säkerhet** > **Avancerat**.
+4. Från den **behörigheter** väljer **Lägg till**.
+5. Välj det konto som behörigheter som används för (från Azure AD Connect-installationen).
+6. I den **gäller** listrutan, Välj **underordnade** objekt.
+7. Under **behörigheter**, markerar kryssrutorna för följande:
+    * **Unexpire lösenord**
+    * **Återställ lösenord**
+    * **Ändra lösenord**
+    * **Skriva lockoutTime**
+    * **Skriva pwdLastSet**
+8. Välj **Använd/OK** att tillämpa ändringarna och stänga alla öppna dialogrutor.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
 
-Mer information om licensiering, se [licenser som krävs för tillbakaskrivning av lösenord](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) eller på följande webbplatser
+Information om licensiering finns [licenser som krävs för tillbakaskrivning av lösenord](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) eller på följande webbplatser:
 
-* [Platsen för Azure Active Directory-priser](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory priser för platsen](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Säker produktiva Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
+* [Microsoft 365 Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
 
-### <a name="on-premises-authentication-modes-supported-for-password-writeback"></a>Lokala autentiseringslägen som stöds för tillbakaskrivning av lösenord
+### <a name="on-premises-authentication-modes-that-are-supported-for-password-writeback"></a>Lokala autentiseringslägen som stöds för tillbakaskrivning av lösenord
 
-Tillbakaskrivning av lösenord fungerar för följande typer av användare lösenord:
+Lösenord tillbakaskrivning stöd för följande typer av användare lösenord:
 
-* **Endast molnbaserad användare**: tillbakaskrivning av lösenord är inte giltigt i den här situationen eftersom det inte finns några lokala lösenord
-* **Lösenord synkroniseras användare**: tillbakaskrivning av lösenord som stöds
-* **Federerade användare**: tillbakaskrivning av lösenord som stöds
-* **Direkt-autentisering användare**: tillbakaskrivning av lösenord som stöds
+* **Endast molnbaserad användare**: tillbakaskrivning av lösenord är inte giltigt i den här situationen eftersom det inte finns några lokala lösenord.
+* **Lösenord synkroniseras användare**: tillbakaskrivning av lösenord stöds.
+* **Federerade användare**: tillbakaskrivning av lösenord stöds.
+* **Direkt-autentisering användare**: tillbakaskrivning av lösenord stöds.
 
-### <a name="user-and-admin-operations-supported-for-password-writeback"></a>Användare och administrativa åtgärder som stöds för tillbakaskrivning av lösenord
+### <a name="user-and-admin-operations-that-are-supported-for-password-writeback"></a>Användare och administrativa åtgärder som stöds för tillbakaskrivning av lösenord
 
 Lösenord skrivs tillbaka i följande situationer:
 
-* **Slutanvändarens de åtgärder som stöds**
+* **Stöds slutanvändaråtgärder**
   * Alla slutanvändare självbetjäning frivillig ändra lösenord
-  * Alla slutanvändare självbetjäning kraft ändra lösenord för åtgärden (t ex lösenordet upphör att gälla)
-  * Alla slutanvändare Självbetjäning för lösenordsåterställning härstammar från den [portalen för återställning av lösenord](https://passwordreset.microsoftonline.com)
-* **Administratören de åtgärder som stöds**
+  * Alla slutanvändare självbetjäning kraft ändra lösenord, till exempel lösenordet upphör att gälla
+  * Alla slutanvändare Självbetjäning för lösenordsåterställning som härrör från den [portalen för återställning av lösenord](https://passwordreset.microsoftonline.com)
+* **Stöds åtgärder**
   * En administratör självbetjäning frivillig ändra lösenord
-  * En administratör självbetjäning kraft ändra lösenord för åtgärden (t ex lösenordet upphör att gälla)
-  * En administratör Självbetjäning för lösenordsåterställning härstammar från den [portalen för återställning av lösenord](https://passwordreset.microsoftonline.com)
+  * En administratör självbetjäning kraft ändra lösenord, till exempel lösenordet upphör att gälla
+  * En administratör Självbetjäning för lösenordsåterställning som härrör från den [portalen för återställning av lösenord](https://passwordreset.microsoftonline.com)
   * Alla administratörsstartade slutanvändarens lösenordsåterställning från den [klassiska Azure-portalen](https://manage.windowsazure.com)
   * Alla administratörsstartade slutanvändarens lösenordsåterställning från den [Azure-portalen](https://portal.azure.com)
 
-### <a name="user-and-admin-operations-not-supported-for-password-writeback"></a>Användar- och Admin åtgärder stöds inte för tillbakaskrivning av lösenord
+### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Användar- och admin-åtgärder som inte stöds för tillbakaskrivning av lösenord
 
-Lösenord är **inte** skrivs tillbaka i någon av följande situationer:
+Lösenord är *inte* skrivs tillbaka i någon av följande situationer:
 
-* **Stöds inte slutanvändaråtgärder**
-  * Slutanvändare återställa sina egna lösenord med hjälp av PowerShell v1, v2 eller Azure AD Graph API
+* **Slutanvändaråtgärder stöds inte**
+  * Slutanvändare återställa sina egna lösenord med hjälp av PowerShell version 1, version 2 eller Azure AD Graph API
 * **Åtgärder som inte stöds**
   * Alla administratörsstartade slutanvändarens lösenordsåterställning från den [hanteringsportalen för Office](https://portal.office.com)
-  * Alla administratörsstartade slutanvändarens lösenordsåterställning från PowerShell v1, v2 eller Azure AD Graph API
+  * Alla administratörsstartade slutanvändarens lösenordsåterställning från PowerShell version 1, version 2 eller Azure AD Graph API
 
-När vi arbetar för att ta bort dessa begränsningar kan har vi inte en specifik tidslinje vi kan dela ännu.
+Vi arbetar för att ta bort dessa begränsningar, men vi har inte en specifik tidslinje vi kan dela ännu.
 
 ## <a name="password-writeback-security-model"></a>Säkerhetsmodellen med tillbakaskrivning av lösenord
 
-Tillbakaskrivning av lösenord är ett mycket säkert tjänst.  För att säkerställa att informationen är skyddad, det för att aktivera en 4 nivåer säkerhetsmodell som beskrivs nedan.
+Tillbakaskrivning av lösenord är ett mycket säkert tjänst. För att säkerställa att informationen är skyddad, det för att aktivera en fyra skikt säkerhetsmodell som beskrivs nedan:
 
 * **Klient-specifika service bus relay**
   * När du konfigurerar tjänsten skapa vi en klient-specifika service bus relay som skyddas av ett slumpmässigt genererat starkt lösenord som Microsoft har aldrig åtkomst till.
 * **Krypteringsnyckel för låst, kryptografiskt starka lösenord**
-  * När service bus relay har skapats kan skapa vi en stark symmetriska nyckel som vi använder för att kryptera lösenordet när det gäller via kabel. Den här nyckeln finns bara i ditt företag hemliga store i molnet, som är kraftigt låst och granskas precis som alla lösenord i katalogen.
-* **Industry standard TLS**
+  * När service bus relay har skapats kan skapa vi en stark symmetriska nyckel som vi använder för att kryptera lösenordet när det gäller via kabel. Den här nyckeln finns endast i ditt företag hemliga store i molnet, som är kraftigt låst och granskas, precis som andra lösenord i katalogen.
+* **Industry standard TLS Transport Layer Security)**
   1. När ett lösenord återställa eller ändra åtgärden sker i molnet, vi ta lösenordet i klartext och kryptera med den offentliga nyckeln.
-  2. Vi sedan placera som i en HTTPS-meddelandet som skickas via en krypterad kanal med hjälp av Microsofts SSL-certifikat till din service bus relay.
-  3. När meddelandet anländer till Service Bus, vaknar agenten lokalt och autentiserar till Service Bus med starka lösenord som skapades tidigare.
-  4. Lokal agent hämtar det krypterade meddelandet, dekrypterar den med hjälp av den privata nyckeln som vi har skapat.
-  5. Lokal agent försöker ställa in lösenordet via AD DS SetPassword API.
-     * Det här steget är vad gör att vi kan genomdriva din AD lokala lösenordsprincip (komplexitet, ålder, historik, filter, etc.) i molnet.
+  2. Det sätt som i en HTTPS-meddelandet som skickas via en krypterad kanal genom att använda Microsoft SSL-certifikat till din service bus relay.
+  3. När meddelandet tas emot i service bus, vaknar agenten lokalt och autentiserar till service bus med hjälp av starkt lösenord som skapades tidigare.
+  4. Agenten lokalt hämtar det krypterade meddelandet och dekrypterar den med hjälp av den privata nyckeln som vi har skapat.
+  5. Lokal agent försöker ställa in lösenordet via AD DS SetPassword API. Det här steget är vad gör att vi kan genomdriva lösenordsprinciper din Active Directory lokalt (till exempel komplexitet, ålder, historik och filter) i molnet.
 * **Förfallodatum för meddelandet** 
-  * Om meddelandet placeras i Service Bus eftersom din lokala-tjänsten har stoppats, avslutas och tas bort efter flera minuter att öka säkerheten ytterligare.
+  * Om meddelandet placeras i service bus eftersom din lokala-tjänsten har stoppats, timeout och tas bort efter flera minuter. Ökar säkerheten ytterligare timeout och borttagning av meddelandet.
 
 ### <a name="password-writeback-encryption-details"></a>Krypteringsinformation med tillbakaskrivning av lösenord
 
-Krypteringssteg som en begäran om lösenordsåterställning går igenom när användaren har skickat det, innan den tas emot i din lokala miljö, så högsta tillåtna tillförlitlighet och säkerhet som beskrivs nedan.
+När en användare skickar en återställning av lösenord, går Återställ-begäran igenom flera krypteringssteg för innan den tas emot i din lokala miljö. Stegen kryptering säkerställa maximala service tillförlitlighet och säkerhet. De beskrivs på följande sätt:
 
-* **Steg 1 – lösenordskryptering med 2048-bitars RSA-nyckel** – när en användare skickar ett lösenord för att skrivas tillbaka till lokalt, först själva skickade lösenordet krypteras med en 2048-bitars RSA-nyckel.
-* **Steg 2 – paket-nivå kryptering med AES-GCM** - sedan paketet (lösenord + metadata som krävs) har krypterats med AES-GCM. Krypteringsnycklar förhindrar alla med direkt åtkomst till den underliggande ServiceBus-kanalen visning/manipulation av innehållet.
-* **Steg 3 – All kommunikation som sker över TLS / SSL** -All kommunikation med ServiceBus sker i SSL/TLS-kanal. Denna kryptering skyddar innehållet från obehörig tredje part.
-* **Automatisk nyckelförnyelse var sjätte månad** – var sjätte månad eller varje gång tillbakaskrivning av lösenord är inaktiverad / aktiveras på Azure AD Connect vi automatiskt förnya alla nycklar för att säkerställa högsta säkerheten.
+* **Steg 1: Lösenordskryptering med 2048-bitars RSA-nyckel**: när en användare skickar ett lösenord för att skrivas tillbaka till lokala kan själva skickade lösenordet krypteras med en 2048-bitars RSA-nyckel.
+* **Steg 2: Paketet nivå kryptering med AES-GCM**: hela paketet, lösenordet plus metadata som krävs är krypterad med AES-GCM. Krypteringsnycklar förhindrar alla med direkt åtkomst till den underliggande ServiceBus-kanalen visa och manipulera innehållet.
+* **Steg 3: All kommunikation som sker över TLS/SSL**: All kommunikation med ServiceBus sker i SSL/TLS-kanal. Denna kryptering skyddar innehållet från obehörig tredje part.
+* **Automatisk nyckelförnyelse var sjätte månad**: var sjätte månad eller tillbakaskrivning av lösenord varje gång är inaktiverat och därefter aktiveras på Azure AD Connect. Vi rulla automatiskt över alla nycklar för att säkerställa högsta säkerhet och säkerhet.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Bandbreddsanvändning med tillbakaskrivning av lösenord
 
-Tillbakaskrivning av lösenord är en långsam-tjänst som skickar begäranden till den lokala agenten endast under följande omständigheter:
+Tillbakaskrivning av lösenord är en tjänst för låg bandbredd som endast skickar begäranden till den lokala agenten under följande omständigheter:
 
-1. Två meddelanden när du aktiverar eller inaktiverar funktionen via Azure AD Connect.
-2. Ett meddelande skickas en gång var femte minut som ett pulsslag för så länge som tjänsten körs.
-3. Två meddelanden skickas varje gång ett nytt lösenord har skickats
-    * Första meddelandet som en begäran att utföra åtgärden
-    * Andra meddelande som innehåller resultatet av åtgärden och skickas under följande omständigheter:
+* Två meddelanden skickas när funktionen är aktiverad eller inaktiverad via Azure AD Connect.
+* Ett meddelande skickas en gång var femte minut som ett pulsslag för så länge som tjänsten körs.
+* Två meddelanden skickas varje gång som ett nytt lösenord skickas:
+    * Det första meddelandet är en begäran att utföra åtgärden.
+    * Det andra meddelandet innehåller resultatet av åtgärden och skickas under följande omständigheter:
         * Varje gång ett nytt lösenord skickas när en användare lösenordsåterställning via självbetjäning.
         * Ett nytt lösenord skickas under en användarlösenord ändras igen.
-        * Varje gång ett nytt lösenord skickas under en admin-initierad användaren lösenordsåterställning (från Azure admin portalerna endast).
+        * Varje gång ett nytt lösenord skickas under en admin-initierad användaren lösenordsåterställning (endast från Azure admin-portaler).
 
 #### <a name="message-size-and-bandwidth-considerations"></a>Överväganden för meddelande storlek och bandbredd
 
-Storleken på varje meddelande som beskrivs ovan är vanligtvis under 1 kb, även under extrema belastning, förbrukar några kbit / s bandbredd för själva tjänsten för tillbakaskrivning av lösenord. Eftersom varje meddelande som skickas i realtid, är endast om krävs för en uppdateringsåtgärd för lösenord, och eftersom meddelandelagringsstorlek är så liten bandbreddsanvändningen för tillbakaskrivning av kapaciteten effektivt för liten för att ha några verkliga märkbar effekt.
+Storleken på varje meddelande som beskrivs ovan är vanligtvis under 1 KB. Även under extrema belastningar förbrukar själva tjänsten för tillbakaskrivning av lösenord några kbit / s bandbredd. Eftersom varje meddelande som skickas i realtid, bara vid behov av en uppdateringsåtgärd för lösenord och eftersom meddelandelagringsstorlek är så liten är bandbreddsanvändningen för tillbakaskrivning kapaciteten för liten för att ha någon märkbar effekt.
 
 ## <a name="next-steps"></a>Nästa steg
 

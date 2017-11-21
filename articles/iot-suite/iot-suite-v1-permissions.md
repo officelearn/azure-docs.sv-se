@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 4c4916037ad762dbb9dee803dfd45ec2fd89272b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 17d9e496aedfdf98423e821e7f379dc481ffa0a5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Behörigheter på webbplatsen azureiotsuite.com
 
@@ -105,11 +105,7 @@ Du måste vara AAD global administratör för att ändra roller för en använda
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Jag är en tjänstadministratör och jag skulle vilja ändra directory mappningen mellan min prenumeration och en specifik AAD-klient. Hur jag för att slutföra den här uppgiften?
 
-1. Gå till den [klassiska Azure-portalen][lnk-classic-portal], klickar du på **inställningar** i listan över tjänster på den vänstra sidan.
-2. Välj den prenumeration som du vill ändra katalogmappning till.
-3. Klicka på **redigera Directory**.
-4. Välj den **Directory** du vill använda i listrutan. Klicka på pilen framåt.
-5. Bekräfta mappningen directory och påverkas medadministratörer. Om du flyttar från en annan katalog tas medadministratörer från den ursprungliga katalogen bort.
+Se [att lägga till en befintlig prenumeration i Azure AD-katalogen](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Jag är användaren/medlem i en domän på AAD-klient och du har skapat en förkonfigurerade lösning. Hur jag tilldelas en roll för Mina program?
 
@@ -151,7 +147,6 @@ Se hur du kan om du vill fortsätta lära dig mer om IoT Suite [anpassa förkonf
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md

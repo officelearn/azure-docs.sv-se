@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 2ad497a0244f9c7cdad34faf807cc9ed10ea704d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 228f3153f47e0b147688fe958a767660976b08be
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Använd Fjärrskrivbord för att ansluta till en virtuell Microsoft Azure Linux-dator
 > [!IMPORTANT] 
@@ -49,18 +49,23 @@ Ansluta till din Linux VM via `putty`, och installera `Gnome Desktop`.
 
 Ubuntu, Använd:
 
-    #sudo apt-get update
-    #sudo apt-get install ubuntu-desktop
-
+```bash
+sudo apt-get update
+sudo apt-get install ubuntu-desktop
+```
 
 För OpenSUSE, använder du:
 
-    #sudo zypper install gnome-session
+```bash
+sudo zypper install gnome-session
+```
 
 ## <a name="install-xrdp"></a>Installera xrdp
 Ubuntu, Använd:
 
-    #sudo apt-get install xrdp
+```bash
+sudo apt-get install xrdp
+```
 
 För OpenSUSE, använder du:
 
@@ -69,15 +74,18 @@ För OpenSUSE, använder du:
 > 
 > 
 
-    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
-    #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
-
+```bash
+sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
+```
 
 ## <a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>Starta xrdp och Ställ in xdrp tjänsten vid uppstart
 För OpenSUSE, använder du:
 
-    #sudo systemctl start xrdp
-    #sudo systemctl enable xrdp
+```bash
+sudo systemctl start xrdp
+sudo systemctl enable xrdp
+```
 
 För Ubuntu, kommer xrdp igång och aktiveras vid uppstart automatiskt efter installationen.
 
@@ -86,22 +94,29 @@ Eftersom den aktuella versionen av xrdp inte stöder gör väldigt lätt skrivbo
 
 Så här installerar du `xfce`, använder du följande kommando:
 
-    #sudo apt-get install xubuntu-desktop
+```bash
+sudo apt-get install xubuntu-desktop
+```
 
 Aktivera sedan `xfce` med det här kommandot:
 
-    #echo xfce4-session >~/.xsession
+```bash
+echo xfce4-session >~/.xsession
+```
 
 Redigera konfigurationsfilen `/etc/xrdp/startwm.sh`:
 
-    #sudo vi /etc/xrdp/startwm.sh   
+```bash
+sudo vi /etc/xrdp/startwm.sh   
+```
 
 Lägg till rad `xfce4-session` före raden `/etc/X11/Xsession`.
 
 Använd detta för att starta om tjänsten xrdp:
 
-    #sudo service xrdp restart
-
+```bash
+sudo service xrdp restart
+```
 
 ## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Ansluta din Linux-VM från en Windows-dator
 Starta fjärrskrivbordsklienten på en Windows-dator och ange Linux VM DNS-namn. Eller gå till instrumentpanelen på den virtuella datorn i Azure-portalen och klicka på `Connect` att ansluta din Linux VM. I så fall visas inloggningsfönstret:

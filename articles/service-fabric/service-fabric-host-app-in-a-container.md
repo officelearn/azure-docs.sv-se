@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Distribuera ett .NET-program i en Windows-behållare till Azure Service Fabric
 
@@ -39,11 +39,14 @@ I den här guiden får du lära dig hur man:
 4. Installera [Azure PowerShell][link-azure-powershell-install]
 5. Installera den [kontinuerlig leveransverktyg tillägget för Visual Studio 2017][link-visualstudio-cd-extension]
 6. Skapa en [Azure-prenumeration] [ link-azure-subscription] och en [Visual Studio Team Services-konto][link-vsts-account]. 
-7. [Skapa ett kluster i Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
+7. [Skapa ett kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+
+## <a name="create-a-cluster-on-azure"></a>Skapa ett kluster på Azure
+Service Fabric-program körs i ett kluster, en nätverksansluten uppsättning virtuella eller fysiska datorer. [Konfigurera ett Service Fabric-kluster som körs i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) innan du skapar och distribuerar ditt program. När du skapar klustret, väljer du en SKU som stöder körs behållare (till exempel Windows Server 2016 Datacenter med behållare).
 
 ## <a name="containerize-the-application"></a>Containerize programmet
 
-Nu när du har en [Service Fabric-klustret körs i Azure](service-fabric-tutorial-create-cluster-azure-ps.md) är du redo att skapa och distribuera en av programmet. Om du vill börja köra appen i en behållare, behöver vi lägga till **Docker stöd** till projektet i Visual Studio. När du lägger till **Docker stöd** till programmet, två saker. Först en _Dockerfile_ har lagts till i projektet. Den nya filen beskriver hur behållaren avbildningen skapas. Sedan andra, en ny _docker compose_ projektet läggs till i lösningen. Det nya projektet innehåller några docker compose filer. Docker compose filer kan användas för att beskriva hur behållaren körs.
+Nu när du har ett Service Fabric-kluster som körs i Azure är du redo att skapa och distribuera en av programmet. Om du vill börja köra appen i en behållare, behöver vi lägga till **Docker stöd** till projektet i Visual Studio. När du lägger till **Docker stöd** till programmet, två saker. Först en _Dockerfile_ har lagts till i projektet. Den nya filen beskriver hur behållaren avbildningen skapas. Sedan andra, en ny _docker compose_ projektet läggs till i lösningen. Det nya projektet innehåller några docker compose filer. Docker compose filer kan användas för att beskriva hur behållaren körs.
 
 Mer information om hur du arbetar med [verktyg för Visual Studio-behållaren][link-visualstudio-container-tools].
 

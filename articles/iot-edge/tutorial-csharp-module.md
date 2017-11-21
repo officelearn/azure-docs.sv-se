@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c778c412bf6d65c5b6ee92d603aac7acfa6139eb
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: f93cfcdffd79b4cccdbd5f7c67ec42499bf7628c
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Utveckla och distribuera en C# IoT kant-modul till den simulerade enheten - förhandsgranskning
 
@@ -123,7 +123,7 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
             Console.WriteLine("Desired property change:");
             Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
 
-            if (desiredProperties["TemperatureThreshold"].exists())
+            if (desiredProperties["TemperatureThreshold"]!=null)
                 temperatureThreshold = desiredProperties["TemperatureThreshold"];
 
         }
@@ -226,7 +226,7 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
         
         Användarnamn, lösenord och logga in server som ska användas i det här kommandot finns [Azure-portalen] (https://portal.azure.com). Från **alla resurser**, klickar du på panelen för din Azure-behållaren registret för att öppna dess egenskaper och klicka sedan på **åtkomstnycklar**. Kopiera värdena i den **användarnamn**, **lösenord**, och **inloggningsserver** fält. Inloggningen server sould vara i formatet: `<your registry name>.azurecr.io`.
 
-3. Skicka bilden till Docker-databasen. Använd den **visa | Kommandot paletten... | Edge: Push IoT kant modulen Docker bild** menyn kommando och ange avbildningens namn i textrutan popup visas överst i fönstret VS-kod. Använd samma namn för bilden som du använde i steg 1.c.
+3. Skicka bilden till Docker-databasen. Använd den **visa | Kommandot paletten... | Edge: Push IoT kant modulen Docker bild** menyn kommando och ange avbildningens namn i textrutan popup visas överst i fönstret VS-kod. Använd samma namn för bilden som du använde i steg 1.d.
 
 ## <a name="add-registry-credentials-to-edge-runtime-on-your-edge-device"></a>Lägga till registret autentiseringsuppgifter Edge runtime i Edge-enhet
 Lägg till autentiseringsuppgifterna för registret Edge körningsmiljön på datorn där du kör Edge-enhet. Detta ger runtime-åtkomst till pull-behållaren. 

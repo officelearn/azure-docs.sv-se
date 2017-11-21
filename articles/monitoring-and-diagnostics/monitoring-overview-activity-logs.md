@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: d36cc43889c190544b9a2735ce00e718c11fd216
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervakaraktiviteten i prenumerationen med Azure-aktivitetsloggen
 Den **Azure-aktivitetsloggen** är en prenumerationslogg som ger inblick i prenumerationsnivån händelser som har inträffat i Azure. Detta omfattar en mängd data från Azure Resource Manager användningsdata till uppdateringar på händelser för Hälsotjänst. Aktivitetsloggen tidigare kallades ”granskningsloggar” eller ”operativa loggar” eftersom de administrativa kategorin rapporter kontroll-plan händelserna för dina prenumerationer. Använder aktivitetsloggen, kan du bestämma den ' vad som, och när ' för alla skrivåtgärder (PUT, POST, ta bort) tas för de resurser i din prenumeration. Du kan också få status för åtgärden och andra relevanta egenskaper. Aktivitetsloggen omfattar inte läsåtgärder (GET) eller åtgärder för resurser som använder klassiskt / ”RDFE” modellen.
@@ -49,7 +49,8 @@ Aktivitetsloggen innehåller flera kategorier av data. Mer information om schema
 * **Varning** -den här kategorin innehåller posten för alla aktiveringar av Azure-aviseringar. Ett exempel på typen av händelse visas i den här kategorin är ”processor på myVM har varit över 80 under de senaste fem minuterna”. En mängd Azure system har en aviseringar begrepp – du kan definiera en regel av något slag och ett meddelande när villkor matchar regeln. Varje gång en stöds Azure aviseringstyp 'aktiveras,' eller villkoren är uppfyllda för att generera ett meddelande, en post på aktiveringen skickas även till den här kategorin för aktivitetsloggen.
 * **Autoskala** -den här kategorin innehåller posten för alla händelser relaterade till åtgärden Autoskala motorns baserat på automatiska inställningar du har definierat i din prenumeration. Ett exempel på typen av händelse visas i den här kategorin är ”Autoskala skalas upp misslyckades”. Använda autoskalning kan du automatiskt skala ut eller skala antalet instanser i en stöds resurstyp baserat på tid på dagen och/eller belastningen (mått) data med hjälp av en autoskalningsinställning. När villkoren är uppfyllda för att skala upp eller ned, start- och lyckades eller misslyckades händelser registreras i den här kategorin.
 * **Rekommendation** -den här kategorin innehåller rekommendation händelser från vissa typer av resurser, till exempel webbplatser och SQL-servrar. Dessa händelser ger rekommendationer för hur du bättre utnyttja dina resurser. Du får bara händelser för den här typen om du har resurser som genererar rekommendationer.
-* **Princip-, säkerhets- och Resource Health** -dessa kategorier innehåller inte några händelser, de är reserverad för framtida användning.
+* **Säkerhet** -den här kategorin innehåller posten för alla aviseringar som genereras av Azure Security Center. Ett exempel på typen av händelse visas i den här kategorin är ”misstänkta dubbla tilläggsfilen utförs”.
+* **Principen och Resource Health** -dessa kategorier innehåller inte några händelser, de är reserverad för framtida användning.
 
 ## <a name="event-schema-per-category"></a>Händelseschema per kategori
 [Se den här artikeln för att förstå aktivitetsloggen Händelseschema per kategori.](monitoring-activity-log-schema.md)

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/15/2017
 ms.author: erikje
-ms.openlocfilehash: 24cde66a132ae2e1ba0eb9b1564915746e5ca448
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Registrera Azure stacken med din Azure-prenumeration
 
@@ -38,7 +38,6 @@ Innan du registrerar Azure stacken med Azure måste du ha:
 - Prenumerations-ID för en Azure-prenumeration. Om du vill hämta ID, logga in på Azure, klickar du på **fler tjänster** > **prenumerationer**, klickar du på den prenumeration som du vill använda, och under **Essentials** hittar du i **Prenumerations-ID**. Kina, Tyskland och US government molnprenumerationer stöds inte för närvarande.
 - Användarnamn och lösenord för ett konto som är en ägare till prenumerationen (MSA/2FA konton stöds).
 - Azure Active Directory för Azure-prenumerationen. Du hittar den här katalogen i Azure genom att hovra över din avatar i det övre högra hörnet i Azure-portalen. 
-- [Registrerad resursprovider Azure Stack](#register-azure-stack-resource-provider-in-azure).
 
 Om du inte har en Azure-prenumeration som uppfyller dessa krav, kan du [skapa ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/en-us/free/?b=17.06). Registrera Azure Stack ådrar sig utan kostnad på din Azure-prenumeration.
 
@@ -46,39 +45,65 @@ Om du inte har en Azure-prenumeration som uppfyller dessa krav, kan du [skapa et
 
 ## <a name="register-azure-stack-resource-provider-in-azure"></a>Registerresursleverantören för Azure-stacken i Azure
 > [!NOTE] 
-> Det här steget behöver bara utföras en gång i en Azure-Stack-miljö.
+> Det här steget ska slutföras bara en gång i en Azure-Stack-miljö.
 >
 
-1. Starta Powershell ISE som administratör.
-2. Logga in på Azure-konto som äger den Azure-prenumerationen med EnvironmentName - parameter har angetts till ”AzureCloud”.
+1. Starta en Powershell-session som administratör.
+2. Logga in på Azure-konto som är en ägare av Azure-prenumerationen (du kan använda cmdleten Login-AzureRmAccount för att logga in och när du loggar in, se till att ange parametern - EnvironmentName ”AzureCloud”).
 3. Registrera Azure-resursprovider ”Microsoft.AzureStack”.
 
-Exempel: 
+**Exempel:** 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
-
 ## <a name="register-azure-stack-with-azure"></a>Registrera Azure stacken med Azure
 
 > [!NOTE]
->Dessa steg måste utföras på värddatorn.
+> De här stegen måste köras från en dator som har åtkomst till Privilegierade slutpunkten. Det skulle vara värddatorn för Azure-stacken Development Kit. Kontakta Azure Stack-operatorn om du använder ett integrerat system.
 >
 
-1. [Installera PowerShell för Azure-stacken](azure-stack-powershell-install.md). 
-2. Kopiera den [RegisterWithAzure.psm1 skriptet](https://go.microsoft.com/fwlink/?linkid=842959) till en mapp (exempelvis C:\Temp).
-3. Starta PowerShell ISE som administratör och importera modulen RegisterWithAzure.    
-4. Kör modulen Lägg till AzsRegistration från RegisterWithAzure.psm1-skriptet. Ersätt följande platshållare: 
-    - *YourCloudAdminCredential* är ett PowerShell-objekt som innehåller autentiseringsuppgifter för domänen för domain\cloudadmin (för SDK-paket, det är azurestack\cloudadmin).
-    - *YourAzureSubscriptionID* är ID för Azure-prenumeration som du vill använda för att registrera Azure stacken.
-    - *YourAzureDirectoryTenantName* är namnet på katalogen Azure-klient som är associerade med din Azure-prenumeration. Registrera resursen kommer att skapas i directory-klient. 
-    - *YourPrivilegedEndpoint* är namnet på den [Privilegierade slutpunkt](azure-stack-privileged-endpoint.md).
+1. Öppna ett PowerShell-konsolen som administratör och [installera PowerShell för Azure-stacken](azure-stack-powershell-install.md).  
 
-    ```powershell
-    Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
-    ```
-5. Ange dina autentiseringsuppgifter för Azure-prenumeration i fönstret popup-inloggning.
+2. Lägg till Azure-konto som ska användas för att registrera Azure stacken. Det gör du genom att köra den `Add-AzureRmAccount` cmdlet utan några parametrar. Du uppmanas att ange dina autentiseringsuppgifter för Azure-konto och du kan behöva använda 2-faktor-autentisering baserat på konfigurationen för ditt konto.  
+
+3. Om du har flera prenumerationer kör du följande kommando för att välja den du vill använda:  
+
+   ```powershell
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+4. Ta bort alla befintliga versioner av Powershell-moduler som motsvarar registrering och [ladda ned den senaste versionen av den från GitHub](azure-stack-powershell-download.md).  
+
+5. Navigera till mappen ”registrering” från katalogen ”AzureStack-verktyg-master” som har skapats i föregående steg, och importera modulen ”.\RegisterWithAzure.psm1”:  
+
+   ```powershell 
+   Import-Module .\RegisterWithAzure.psm1 
+   ```
+
+6. Kör följande skript i samma PowerShell-sessionen. När du tillfrågas om autentiseringsuppgifter, ange `azurestack\cloudadmin` som användarnamn och lösenord är detsamma som som användes för den lokala administratören under distributionen.  
+
+   ```powershell
+   $AzureContext = Get-AzureRmContext
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+   Add-AzsRegistration `
+       -CloudAdminCredential $CloudAdminCred `
+       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
+       -PrivilegedEndpoint AzS-ERCS01 `
+       -BillingModel Development 
+   ```
+
+   | Parameter | Beskrivning |
+   | -------- | ------------- |
+   | CloudAdminCredential | Moln-domänautentiseringsuppgifter som används för att [komma åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Användarnamnet är i formatet ”\<Azure Stack domän\>\cloudadmin”. Development kit anges användarnamnet till ”azurestack\cloudadmin”. Om du använder ett integrerat system kontaktar du din Azure Stack-operatorn för att få det här värdet.|
+   | AzureSubscriptionId | Azure-prenumerationen som du använder för att registrera Azure stacken.|
+   | AzureDirectoryTenantName | Namnet på katalogen Azure-klient som är associerad med din Azure-prenumeration. Registrera resursen kommer att skapas i directory-klient. |
+   | PrivilegedEndpoint | En förkonfigurerad PowerShell fjärrkonsolen ger tillgång till funktioner som Logginsamling och andra post distributionsåtgärder. För development kit finns Privilegierade slutpunkten på den virtuella datorn ”AzS ERCS01”. Om du använder ett integrerat system kontaktar du din Azure Stack-operatorn för att få det här värdet. Mer information finns i den [med Privilegierade slutpunkten](azure-stack-privileged-endpoint.md) avsnittet.|
+   | BillingModel | Vilken faktureringsmodell som tillämpas med din prenumeration. Tillåtna värden för den här parametern är-”kapacitet”, ”PayAsYouUse” och ”utveckling”. Det här värdet anges till ”utveckla” för development kit. Om du använder ett integrerat system kontaktar du din Azure Stack-operatorn för att få det här värdet. |
+
+7. När skriptet har slutförts visas ett meddelande om ”Aktivera Azure Stack (det här steget kan ta upp till 10 minuter att slutföra)”. 
 
 ## <a name="verify-the-registration"></a>Verifiera registrering
 

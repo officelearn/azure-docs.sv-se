@@ -10,11 +10,11 @@ ms.reviewer: veyalla
 ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a78efef6bc82a837782c462bc3558a9582a8da7c
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: b6c8e77b16d784373e392d0ac97094050677cb84
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installera IoT kant-körningsmiljön på Windows IoT Core - förhandsgranskning
 
@@ -38,7 +38,7 @@ Azure IoT kant körning kan köras även på små enda Board dator (SBC)-enheter
    ```
 
    >[!NOTE]
-   >Detta PowerShell-skript från Moby projekt build-servern och är avsedd enbart i utvärderingssyfte. Det har inte testats, godkända eller stöds av Docker.
+   >Den här behållaren runtime är från Moby project build-server och riktar sig enbart i utvärderingssyfte. Det har inte testats, godkända eller stöds av Docker.
 
 1. Installera IoT kant-runtime och kontrollera konfigurationen:
 

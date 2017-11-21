@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Paketera och distribuera behållare som ett Service Fabric-program
 
@@ -218,7 +218,7 @@ Om du vill distribuera programmet till ett kluster i Azure kan du antingen anvä
 
 Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster som finns på Azure. Den hanteras av Service Fabric-teamet där alla kan distribuera program och lär dig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster. 
 
-Information om hur du skapar ett eget kluster finns i [Skapa ditt första Service Fabric-kluster i Azure](service-fabric-get-started-azure-cluster.md).
+Information om hur du skapar ditt eget kluster finns i [skapa ett Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Skapa och distribuera programmet till klustret
 Du kan distribuera programmet Azure klustret med hjälp av Service Fabric-CLI. Om Service Fabric CLI inte installerat på datorn, följer du anvisningarna [här](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) att installera den. 

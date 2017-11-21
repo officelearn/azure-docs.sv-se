@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 856348c07a198a8c53c6661441d5c49196ef3af5
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Centrala och samarbete i Azure Machine Learning arbetsstationen
 Det här dokumentet vägleder dig genom Azure Machine Learning arbetsstationen hur flyttas dina projekt över datorer, samt aktivera samarbete med dina gruppmedlemmar. 
@@ -28,10 +28,14 @@ Andra kan komma åt [Visual Studio Team System](https://www.visualstudio.com) oc
 
 ## <a name="create-a-new-azure-machine-learning-project"></a>Skapa ett nytt Azure Machine Learning-projekt
 Starta Azure Machine Learning arbetsstationen och skapa ett nytt projekt (till exempel _iris_). Fyll i **Visualstudio.com URL för GIT-lagringsplatsen** textruta med en giltig URL för VSTS Git-lagringsplatsen. 
->[!IMPORTANT]
->Det går inte att skapa projektet om du inte har läs-/ skrivbehörighet på Git-lagringsplatsen och Git-lagringsplatsen är inte tom, d.v.s. den har redan en mastergrenen.
+
+> [!IMPORTANT]
+> Om du väljer mallen tomt projekt är det OK att Git-lagringsplatsen som du redan har en _master_ grenen. Azure ML klonar bara den _master_ Förgrena lokalt och lägger till den `aml_config` mappen och andra projektfiler metadata till lokala projektmappen. Men om du väljer andra projektmall Git-lagringsplatsen får inte redan ha en _master_ branch eller visas ett felmeddelande. Alternativet är att använda `az ml project create` kommandoradsverktyget för att skapa projektet och ange en `--force` växla. Detta tar bort filer på den ursprungliga mastergrenen och ersätta dem med nya filer på den mall som du väljer.
 
 När projektet har skapats kan du skicka några körs på alla skript i projektet. Den här åtgärden genomför projekt tillstånd till den fjärranslutna Git repo körningshistorik grenen. 
+
+> [!NOTE] 
+> Endast skript körs utlösaren incheckningar körningshistorik grenen. Data Förbered dig körningen eller bärbar dator körs inte utlösa projektet ögonblicksbilder på grenen körningshistorik.
 
 Måste du konfigurera Git-autentisering kan du också explicit fungerar i mastergrenen eller skapa en ny gren. 
 
@@ -71,7 +75,8 @@ I macOS är det här:`/home/<username>/Documents/AzureML`
 
 I en framtida utgåva planerar vi att utöka funktionaliteten så att du kan välja en målmapp. 
 
->Observera att om du råkar ha en mapp i Azure ML-katalogen som har exakt samma namn som projektet download misslyckas. För den tid som, måste du byta namn på den befintliga mappen för att undvika problemet.
+> [!NOTE]
+> Om du har en mapp i Azure ML-katalogen som har exakt samma namn som projektet, misslyckas hämtningen. För den tid som, måste du byta namn på den befintliga mappen för att undvika problemet.
 
 
 ### <a name="work-on-the-downloaded-project"></a>Arbeta med det hämta projektet 

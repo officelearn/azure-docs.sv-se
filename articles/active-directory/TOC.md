@@ -248,12 +248,12 @@
 ## Hantera din katalog
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Egna domännamn
-#### [Översikt](active-directory-domains-manage-azure-portal.md)
-#### [Hantera domännamn](active-directory-domains-manage-azure-portal.md)
+#### [Snabbstart](add-custom-domain.md)
+#### [Lägga till anpassade domännamn](active-directory-domains-manage-azure-portal.md)
 ### [Administrera din katalog](active-directory-administer.md)
 ### [Flera kataloger](active-directory-licensing-directory-independence.md)
 ### [Registrering av självbetjäning](active-directory-self-service-signup.md)
-#### [Ta över en ohanterad katalog](domains-admin-takeover.md)
+### [Ta över en ohanterad katalog](domains-admin-takeover.md)
 ### [Företagsroaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Aktivera](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Grupprincipinställningar](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

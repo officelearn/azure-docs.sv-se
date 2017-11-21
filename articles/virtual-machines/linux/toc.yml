@@ -88,15 +88,21 @@
       href: endorsed-distros.md
     - name: Underhåll och uppdateringar
       href: maintenance-and-updates.md
-    - name: Lagring
-      href: azure-vm-storage-overview.md
+    - name: Disklagring
+      href: about-disks-and-vhds.md
       items:
+        - name: Managed Disks
+          href: managed-disks-overview.md
         - name: Premium Storage
           href: premium-storage.md
         - name: Premium-lagringsprestanda
           href: premium-storage-performance.md
         - name: Standard Storage
           href: standard-storage.md
+        - name: Skalbarhetsmål för diskar
+          href: disk-scalability-targets.md
+        - name: Lagring och haveriberedskap för diskar
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Nätverk
       href: network-overview.md
     - name: Skala program automatiskt
@@ -156,6 +162,8 @@
           href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Hantera virtuella datorer
       items:
+        - name: Förskottsbetala för virtuella datorer – reserverade instanser
+          href: prepay-reserved-vm-instances.md
         - name: Vanliga CLI-åtgärder
           href: cli-manage.md
         - name: Flytta en virtuell dator
@@ -312,8 +320,6 @@
               href: n-series-driver-setup.md
     - name: Hantera lagring
       items:
-        - name: Mer information om Managed Disks
-          href: managed-disks-overview.md
         - name: Vanliga frågor och svar om diskar
           href: faq-for-disks.md
         - name: Lägg till en disk
@@ -328,8 +334,6 @@
           href: expand-disks.md
         - name: Ögonblicksbild av en disk
           href: snapshot-copy-managed-disk.md
-        - name: Lagring och haveriberedskap för diskar
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Säkerhetskopiera ohanterade diskar
           href: incremental-snapshots.md
         - name: Konvertera till Managed Disks

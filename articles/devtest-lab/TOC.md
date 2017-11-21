@@ -55,6 +55,9 @@
 ### [Konfigurera virtuella nätverk](devtest-lab-configure-vnet.md)
 ### [Välj IP-konfigurationsalternativ](devtest-lab-shared-ip.md)
 
+## Hantera datadiskar
+### [Ansluta och koppla från datadiskar](devtest-lab-attach-detach-data-disk.md)
+
 ## [Skala ditt labb](devtest-lab-scale-lab.md)
 
 # Referens

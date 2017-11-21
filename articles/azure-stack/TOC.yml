@@ -63,6 +63,8 @@
           href: azure-stack-integrate-identity.md
         - name: Publicera slutpunkter
           href: azure-stack-integrate-endpoints.md
+        - name: Externa övervakning
+          href: azure-stack-integrate-monitor.md
         - name: Säkerhet
           href: azure-stack-integrate-security.md
     - name: Hantera

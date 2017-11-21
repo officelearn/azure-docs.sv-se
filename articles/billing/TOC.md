@@ -6,6 +6,7 @@
 ## [Registrera dig med Office 365-konto](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Registrera dig för Office 365 med ett Azure-konto](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Ordna resurser med hanteringsgrupper](billing-enterprise-mgmt-group-overview.md)
+## [Spara pengar med reserverade VM-instanser](billing-save-compute-costs-reservations.md)
 ## [Begränsningar och kvoter](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Gör så här för att
@@ -17,9 +18,13 @@
 ### [Förstå villkoren för din användning](billing-understand-your-usage.md)
 ### [Förstå externa tjänstavgifter](billing-understand-your-azure-marketplace-charges.md)
 ### [Förstå den kostnadsfria tjänsten för mätningsmappning](billing-understand-free-service-meter-mapping.md)
+### [Reservera VM-instanser, Windows kostnader](billing-reserved-instance-windows-software-costs.md)
+### [Förstå tillämpningen av rabatter för reserverade VM-instanser](billing-understand-vm-reservation-charges.md)
 ### [Förstå utgiftsgränser](billing-spending-limit.md)
 ### [Ställa in faktureringsvarningar](billing-set-up-alerts.md)
 ### [Lösa passerat betalningsdatum](billing-azure-subscription-past-due-balance.md)
+### [Förstå användningen av reserverade instanser för Betala per användning](billing-understand-reserved-instance-usage.md)
+### [Förstå användningen av reserverade instanser för Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Hantera prenumerationer
 ### [Hantera administratörsroller](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [Uppdatera betalningsinformation](billing-how-to-change-credit-card.md)
 ### [Länka Office 365-klientorganisation](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Betala för prenumerationer med faktura](billing-how-to-pay-by-invoice.md)
+## [Hantera reserverade VM-instanser](billing-manage-reserved-vm-instance.md)
 ## Felsöka
 ### [Registreringsproblem](https://support.microsoft.com/en-us/help/4042959)
 ### [Nekat kort](https://support.microsoft.com/en-us/help/4042960)

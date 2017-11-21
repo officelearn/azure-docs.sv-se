@@ -1,5 +1,5 @@
 ---
-title: Kopiera av lokala data till molnet med Azure Data Factory | Microsoft Docs
+title: "Kopiera data från SQL Server till Blob Storage med hjälp av Azure Data Factory | Microsoft Docs"
 description: "Lär dig hur du kopierar data från ett lokalt datalager till Azure-molnet med hjälp av IR med egen värd i Azure Data Factory."
 services: data-factory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 24a4255a23f0b9b9da5d8c3cefeefb8fe250f2f1
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: afd7735712d03110a67509a7e94d336219a65b34
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="tutorial-copy-data-between-on-premises-and-cloud"></a>Självstudier: Kopiera data mellan lokalt system och molnet
+# <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Självstudier: Kopiera data från SQL Server lokalt till Azure Blob Storage
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar en IR med egen värd i Azure Data Factory, som tillåter integrering av lokala datalager och molndatalager.  Läs mer om att använda andra verktyg/SDK:er för att skapa datafabriker i [Snabbstarter](quickstart-create-data-factory-dot-net.md).
 
 Den här artikeln ger inte någon detaljerad introduktion till Azure Data Factory-tjänsten. En introduktion till Azure Data Factory-tjänsten finns i [Introduktion till Azure Data Factory](introduction.md). 

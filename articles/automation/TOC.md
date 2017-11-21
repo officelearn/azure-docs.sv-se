@@ -32,6 +32,7 @@
 ### [Konfigurera indataparametrar för Runbook](automation-runbook-input-parameters.md)
 ### [Felhantering i grafiska runbook-flöden](automation-runbook-graphical-error-handling.md)
 ### [Spåra ett Runbook-jobb](automation-runbook-execution.md)
+### [Skapa en bevakaraktivitet](automation-watchers-tutorial.md)
 ### [Ändra Runbook-inställningar](automation-runbook-settings.md)
 ### [Hantera Azure Automation-data](automation-managing-data.md)
 ### [Anropa Azure Automation Runbook från en Log Analytics-avisering](automation-invoke-runbook-from-omsla-alert.md)

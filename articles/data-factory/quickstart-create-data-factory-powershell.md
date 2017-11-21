@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure-datafabrik med PowerShell | Microsoft Docs
-description: "Skapa en Azure-datafabrik för att kopiera data från en plats i Azure Blob Storage till en annan plats i samma Blob Storage."
+title: "Kopiera data i Blob Storage med hjälp av Azure Data Factory | Microsoft Docs"
+description: "Skapa en Azure-datafabrik för att kopiera data från en mapp till en annan mapp i Azure Blob Storage till en annan plats i samma Blob Storage."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 63e4c654409651f6655da1bed6ab2f544cf024dd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="create-an-azure-data-factory-and-pipeline-using-powershell"></a>Skapa en Azure-datafabrik och pipeline med PowerShell
+# <a name="create-an-azure-data-factory-using-powershell"></a>Skapa en Azure-datafabrik med hjälp av PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 – allmänt tillgänglig](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 – förhandsversion](quickstart-create-data-factory-powershell.md)
 
-Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Azure-datafabrik. Den pipeline som du skapar i den här datafabriken kopierar data från en plats till en annan i Azure Blob Storage. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Transform data using Spark](transform-data-using-spark.md) (Självstudie: Omvandla data med Spark). 
+Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Azure-datafabrik. Den pipeline du skapar i den här datafabriken kopierar data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Transform data using Spark](transform-data-using-spark.md) (Självstudie: Omvandla data med Spark). 
 
 Den här artikeln ger inte någon detaljerad introduktion till Azure Data Factory-tjänsten. En introduktion till Azure Data Factory-tjänsten finns i [Introduktion till Azure Data Factory](introduction.md).
 

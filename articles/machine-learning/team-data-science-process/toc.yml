@@ -29,8 +29,14 @@
       href: project-ic-tasks.md
 - name: Projektstruktur
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Projektkörning
-  href: project-execution.md
+- name: Planering och körning av projekt
+  items:
+    - name: Projektplanering
+      href: team-data-science-process-project-templates.md
+    - name: Projektkörning
+      items:
+        - name: Dataforskningsprojekt
+          href: project-execution.md
 - name: Exempel
   href: walkthroughs.md
   items:

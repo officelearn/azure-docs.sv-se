@@ -378,6 +378,8 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: Hantera klientorganisationsschema
               href: saas-multitenantdb-schema-management.md
+            - name: ETL för analys
+              href: saas-multitenantdb-tenant-analytics.md
     - name: Utveckla appar
       items:
         - name: C och C ++

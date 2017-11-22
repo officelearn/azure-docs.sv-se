@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 5a793abdc24387ae2b758d29b9dfb25f134097d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b36de6bce597569b4e1eaa615860acdf28dfa798
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en dokumentdatabas med Java och Azure Portal
 
@@ -97,13 +97,19 @@ Vårt arbete i Data Explorer är klar. Observera att du kan också använda Data
 
 Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en DocumentDB-API-app från GitHub, ange anslutningssträngen och köra den. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Öppna en git-terminalfönster, till exempel git bash och använda den `cd` kommando för att ändra till en mapp att installera sample-appen. 
+1. Öppna en kommandotolk, skapa en ny mapp med namnet git-samples och sedan stänga Kommandotolken.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Öppna en git-terminalfönster, till exempel git bash och använda den `cd` kommando för att ändra till den nya mappen installera sample-appen. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av sample-appen på din dator.
+3. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av sample-appen på din dator.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -209,13 +215,25 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
     cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
     ```
 
-2. I git-terminalfönstret skriver du `mvn package` för att installera de Java-paket som krävs.
+2. I fönstret git terminal använder du följande kommando för att installera de nödvändiga paketen Java.
 
-3. I fönstret git terminal kör `mvn exec:java -D exec.mainClass=GetStarted.Program` att starta Java-program.
+    ```
+    mvn package
+    ```
 
-    Fönstret terminal visar ett meddelande om att FamilyDB databasen har skapats. Tryck på valfri tangent för att skapa samlingen, sedan växla till Data Explorer och ser du att den nu innehåller en FamilyDB-databas.
+3. I fönstret git terminal använder du följande kommando för Java-programmet.
+
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    Fönstret terminal visar ett meddelande om att FamilyDB databasen har skapats. 
     
-    Fortsätta att tryck för att skapa dokumenten och utför sedan en fråga.
+4. Tryck på valfri tangent för att skapa samlingen. 
+
+5. Växla tillbaka till Data Explorer ser du att den nu innehåller en FamilyDB-databas.
+    
+6. Fortsätta att trycka ned i konsolfönstret ha koden skapa dokument och utföra en fråga.
     
     I slutet av programmet raderas alla resurser från den här appen från ditt konto så att du inte inga avgifter. 
 

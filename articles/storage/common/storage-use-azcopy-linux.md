@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
-ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Överföra data med AzCopy på Linux
 AzCopy på Linux är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure-Blob och fillagring med enkla kommandon med optimal prestanda. Du kan kopiera data från ett objekt till en annan inom ditt lagringskonto eller mellan lagringskonton.
@@ -559,7 +559,7 @@ azcopy \
     --recursive
 ```
 
-Observera att AzCopy stöder för närvarande endast den [kontots SAS](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+Observera att AzCopy stöder för närvarande endast den [kontots SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Ändringsjournalen mapp
 Varje gång du utfärda ett kommando till AzCopy, kontrollerar den om en journal-fil finns i standardmappen eller om den finns i en mapp som du har angett via det här alternativet. Om journalfilen inte finns på någon plats, behandlar åtgärden som nya AzCopy och genererar en ny journalfil.
@@ -673,7 +673,7 @@ Mer information om Azure Storage och AzCopy finns i följande resurser:
 ### <a name="azure-storage-documentation"></a>Azure Storage-dokumentation:
 * [Introduktion till Azure Storage](../storage-introduction.md)
 * [Skapa ett lagringskonto](../storage-create-storage-account.md)
-* [Hantera blobbar med Lagringsutforskaren](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
+* [Hantera blobbar med Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Med hjälp av Azure CLI 2.0 med Azure Storage](../storage-azure-cli.md)
 * [Hur du använder Blob storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Använda Blob Storage från Java](../blobs/storage-java-how-to-use-blob-storage.md)

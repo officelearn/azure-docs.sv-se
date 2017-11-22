@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 10/13/2017
+ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL-databas med automatisk databassäkerhetskopieringar
 SQL-databas finns följande alternativ för databas återställning med hjälp av [automatisk säkerhetskopiering av databaser](sql-database-automated-backups.md) och [säkerhetskopieringar i långsiktig kvarhållning](sql-database-long-term-retention.md). Du kan återställa från en säkerhetskopia av databasen till:
@@ -80,7 +80,7 @@ Databasen kan återställas till en nivå eller prestanda servicenivå, och som 
 
 Du återställer vanligtvis en databas till en tidigare för återställning. När du gör det kan behandla den återställda databasen som en ersättning för den ursprungliga databasen eller använda den för att hämta data från och uppdatera sedan den ursprungliga databasen. 
 
-* ***Databasen ersättning:*** om den återställda databasen är avsedd som en ersättning för den ursprungliga databasen, bör du kontrollera prestandanivå och/eller tjänstnivå är lämpliga och skala databasen om det behövs. Du kan byta namn på den ursprungliga databasen och ge den återställda databasen det ursprungliga namnet med ALTER DATABASE-kommandot i T-SQL. 
+* ***Databasen ersättning:*** om den återställda databasen är avsedd som en ersättning för den ursprungliga databasen, bör du kontrollera prestandanivå och/eller tjänstnivå är lämpliga och skala databasen om det behövs. Du kan byta namn på den ursprungliga databasen och ge den återställda databasen sedan den ursprungliga namn med hjälp av den [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) i T-SQL. 
 * ***Återställning av data:*** om du planerar att hämta data från den återställda databasen för att återställa från en användare eller ett program fel, måste du skriva och köra de nödvändiga data recovery skript om du vill extrahera data från den återställda databasen till den ursprungliga databasen. Även om återställningen kan ta lång tid att slutföra, visas databasen som ska återställas i databaslistan under återställningen. Om du tar bort databasen under återställningen återställningen avbryts och du debiteras inte för den databas som inte gick att slutföra återställningen. 
 
 ### <a name="azure-portal"></a>Azure Portal

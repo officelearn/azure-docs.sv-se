@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -30,7 +30,7 @@ Använda SQL Server resource provider kort för att exponera SQL-databaser som e
 
 Resursprovidern stöder inte alla databasen hanteringsfunktioner i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Till exempel elastiska databaspooler och möjligheten att reglera databasprestanda uppåt och nedåt automatiskt inte tillgänglig. Dock resource provider har stöd liknande skapa, läsa, uppdatera och ta bort CRUD-åtgärder. API: et är inte kompatibel med SQL-databas.
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>SQL Server Resource Provider Adapter-arkitektur
+## <a name="sql-resource-provider-adapter-architecture"></a>SQL Resource Provider Adapter-arkitektur
 Resursprovidern består av tre komponenter:
 
 - **SQL resource provider kortet VM**, vilket är en Windows-dator som kör provider-tjänster.
@@ -50,6 +50,9 @@ Du måste skapa en (eller flera) SQL-servrar och/eller ge åtkomst till externa 
     b. På datorer med flera noder, måste värden vara ett system som kan komma åt den privilegierade slutpunkten.
 
 3. [Hämta SQL-providern binärfiler resursfilen](https://aka.ms/azurestacksqlrp) och köra Self-Extractor extrahera innehållet till en tillfällig katalog.
+
+    > [!NOTE]
+    > Om du kör ett Azure-stacken bygger 20170928.3 eller tidigare, [ladda ned den här versionen](https://aka.ms/azurestacksqlrp1709).
 
 4. Azure-stacken rotcertifikatet hämtas från Privilegierade slutpunkten. För ASDK skapas ett självsignerat certifikat som en del av den här processen. Du måste ange ett lämpligt certifikat för flera noder.
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametrar
@@ -141,27 +153,25 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon par
       ![Kontrollera distributionen av SQL-RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>Ta bort Resource Provider för SQL-kort
+## <a name="remove-the-sql-resource-provider-adapter"></a>Ta bort SQL Resource Provider-kort
 
 Det är viktigt att du först ta bort eventuella beroenden för att ta bort resursprovidern.
 
-1. Kontrollera att du har de ursprungliga distributionspaket som du hämtade för den här versionen av Resursprovidern.
+1. Kontrollera att du har de ursprungliga distributionspaket som du hämtade för den här versionen av SQL Resource Provider nätverkskort.
 
 2. Alla användardatabaser som måste tas bort från resursprovidern (detta inte ta bort data). Det här ska utföras av användarna själva.
 
-3. Administratören måste ta bort värdservrar från SQL-kort
+3. Administratören måste ta bort värdservrar från SQL Resource Provider nätverkskort
 
-4. Administratören måste ta bort de scheman som refererar till SQL-kort.
+4. Administratören måste ta bort de scheman som refererar till SQL Resource Provider nätverkskort.
 
-5. Administratören måste ta bort alla SKU: er och kvoter som är kopplade till SQL-kort.
+5. Administratören måste ta bort alla SKU: er och kvoter som är associerade med SQL Resource Provider nätverkskort.
 
 6. Kör skriptet för distribution med-avinstallera parametern, Azure Resource Manager slutpunkter, DirectoryTenantID och autentiseringsuppgifter för administratörskontot för tjänsten.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
+[Lägg till värd servrar](azure-stack-sql-resource-provider-hosting-servers.md) och [skapa databaser](azure-stack-sql-resource-provider-databases.md).
 
 Försök med andra [PaaS services](azure-stack-tools-paas-services.md) som den [MySQL Server resursprovidern](azure-stack-mysql-resource-provider-deploy.md) och [Apptjänster resursprovidern](azure-stack-app-service-overview.md).

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 08e59fda2ea439b2272121cf8bfee76fe4f96fc3
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Utveckla med tabell-API i .NET
 
@@ -72,6 +72,10 @@ Om du inte redan har Visual Studio 2017 installerat, du kan hämta och använda 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
 Börja med att skapa ett Azure DB som Cosmos-konto i Azure-portalen.  
+ 
+> [!IMPORTANT]  
+> Du måste skapa ett nytt konto för tabellen API att arbeta med den allmänt tillgängliga API SDK-verktyg för tabellen. Tabell API konton som skapas under förhandsgranskningen stöds inte av de allmänt tillgängliga SDK: er. 
+>
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 

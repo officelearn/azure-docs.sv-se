@@ -10,15 +10,22 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9c9bf2df078bfebb23ad549c7053f12b62fab59b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Distribuera Azure IoT kanten på en simulerad enhet i Windows - förhandsgranskning
 
-Azure IoT-Edge flyttar kraften i molnet till Sakernas Internet (IoT)-enheter. Den här självstudiekursen vägleder dig genom att skapa en simulerad IoT insticksenhet som genererar sensordata. Lär dig att:
+Azure IoT-gräns kan du utföra analyser och databehandling på dina enheter utan att behöva skicka alla data till molnet. IoT kant självstudiekurser visar hur du distribuerar olika typer av moduler som skapats från Azure-tjänster eller anpassad kod, men du måste först en enhet för att testa. 
+
+I den här självstudiekursen får du lära du dig att:
+
+1. Skapa en IoT-hubb
+2. Registrera en IoT-enhet
+3. Starta IoT kant-körning
+4. Distribuera en modul
 
 ![Självstudiekurs arkitektur][2]
 

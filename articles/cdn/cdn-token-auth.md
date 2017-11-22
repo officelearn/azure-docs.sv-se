@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: a73df89d5f97d2d6aa295d7efdd46abc15f81de7
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Att säkra Azure Content Delivery Network tillgångar med tokenautentisering
 
@@ -96,12 +96,12 @@ I följande flödesschema beskrivs hur Azure CDN verifierar en klientbegäran om
        > </tr>
        > <tr>
        >    <td><b>ec_expire</b></td>
-       >    <td>Tilldelar en förfallotid till en token efter vilken token upphör att gälla. Begäranden skickas efter förfallotiden nekas. Den här parametern används en Unix-tidsstämpel som baseras på antalet sekunder sedan standard epok av `1/1/1970 00:00:00 GMT`. (Du kan använda online verktyg för att konvertera mellan standard och Unix tid.)> 
+       >    <td>Tilldelar en förfallotid till en token efter vilken token upphör att gälla. Begäranden skickas efter förfallotiden nekas. Den här parametern används en Unix-tidsstämpel som baseras på antalet sekunder sedan standard Unix-epok av `1/1/1970 00:00:00 GMT`. (Du kan använda online verktyg för att konvertera mellan standard och Unix tid.)> 
        >    Om du vill att token ut vid exempelvis `12/31/2016 12:00:00 GMT`, ange tidsstämpelvärde Unix `1483185600`. 
        > </tr>
        > <tr>
        >    <td><b>ec_url_allow</b></td> 
-       >    <td>Kan du skräddarsy token till en viss tillgång eller sökväg. Den begränsar åtkomsten till begäranden vars URL börjar med en viss relativ sökväg. URL: er är skiftlägeskänsliga. Ange flera sökvägar genom att avgränsa varje sökväg med ett kommatecken. Beroende på dina krav kan ställa du in olika värden för att tillhandahålla olika åtkomstnivå.> 
+       >    <td>Kan du skräddarsy token till en viss tillgång eller sökväg. Den begränsar åtkomsten till begäranden vars URL börjar med en viss relativ sökväg. URL: er är skiftlägeskänsliga. Ange flera sökvägar genom att avgränsa varje sökväg med ett kommatecken; Lägg inte till blanksteg. Beroende på dina krav kan ställa du in olika värden för att tillhandahålla olika åtkomstnivå.> 
        >    Till exempel för URL: en `http://www.mydomain.com/pictures/city/strasbourg.png`, dessa begäranden som tillåts för följande indatavärdena: 
        >    <ul>
        >       <li>Ange värde `/`: alla begäranden som tillåts.</li>
@@ -116,11 +116,11 @@ I följande flödesschema beskrivs hur Azure CDN verifierar en klientbegäran om
        > </tr>
        > <tr>
        >    <td><b>ec_country_allow</b></td> 
-       >    <td>Endast tillåta begäranden som kommer från en eller flera angivna länder. Nekas begäranden som kommer från andra länder. Använd [landskoder](https://msdn.microsoft.com/library/mt761717.aspx) och avgränsa dem med kommatecken. Om du vill tillåta åtkomst från USA och Frankrike t.ex `US,FR`.</td>
+       >    <td>Endast tillåta begäranden som kommer från en eller flera angivna länder. Nekas begäranden som kommer från andra länder. Använda två bokstäver [ISO 3166 landskod](https://msdn.microsoft.com/library/mt761717.aspx) för varje land och avgränsa dem med kommatecken, inte till ett blanksteg. Om du vill tillåta åtkomst från USA och Frankrike t.ex `US,FR`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_country_deny</b></td> 
-       >    <td>Nekar förfrågningar som kommer från en eller flera angivna länder. Förfrågningar som kommer från andra länder tillåts. Använd landskoder och avgränsa dem med kommatecken. Om du vill neka åtkomst från USA och Frankrike t.ex `US,FR`.</td>
+       >    <td>Nekar förfrågningar som kommer från en eller flera angivna länder. Förfrågningar som kommer från andra länder tillåts. Genomförandet är samma som den <b>ec_country_allow</b> parameter. Om en landskod finns i både den <b>ec_country_allow</b> och <b>ec_country_deny</b> parametrar, den <b>ec_country_allow</b> parametern företräde.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_ref_allow</b></td>
@@ -128,27 +128,27 @@ I följande flödesschema beskrivs hur Azure CDN verifierar en klientbegäran om
        >    Följande typer av indata tillåts:
        >    <ul>
        >       <li>Ett värdnamn eller ett värdnamn och en sökväg.</li>
-       >       <li>Flera referenter. Om du vill lägga till flera referenter, Avgränsa varje referent med kommatecken. Om du anger ett värde för referent, men referent information skickas inte i begäran på grund av konfiguration av webbläsaren, nekas begäran som standard.</li> 
-       >       <li>Begäranden med referent information saknas. Ange den text som ”saknas” eller ett tomt värde för att tillåta dessa typer av begäranden.</li> 
+       >       <li>Flera referenter. Om du vill lägga till flera referenter, Avgränsa varje referent med kommatecken; Lägg inte till ett blanksteg. Om du anger ett värde för referent, men referent information skickas inte i begäran på grund av konfiguration av webbläsaren, nekas begäran som standard.</li> 
+       >       <li>Begäranden med information som saknas eller är tomt referent. Som standard den <b>ec_ref_allow</b> parametern blockerar dessa typer av begäranden. Ange antingen den text som ”saknas” eller ett tomt värde (med hjälp av en efterföljande komma) för att tillåta dessa förfrågningar.</li> 
        >       <li>Underdomäner. Om du vill tillåta underdomäner, anger du en asterisk (\*). Till exempel för att tillåta alla underdomäner i `contoso.com`, ange `*.contoso.com`.</li>
-       >    </ul> 
+       >    </ul>     
        >    Till exempel för att tillåta åtkomst för begäranden från `www.contoso.com`, alla underordnade domäner under `contoso2.com`, och ange begäranden med saknas eller är tomt referenter `www.contoso.com,*.contoso.com,missing`.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_ref_deny</b></td>
-       >    <td>Nekar förfrågningar från den angivna referent. Genomförandet är samma som den <b>ec_ref_allow</b> parameter.</td>
+       >    <td>Nekar förfrågningar från den angivna referent. Genomförandet är samma som den <b>ec_ref_allow</b> parameter. Om en referent finns i både den <b>ec_ref_allow</b> och <b>ec_ref_deny</b> parametrar, den <b>ec_ref_allow</b> parametern företräde.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_proto_allow</b></td> 
-       >    <td>Endast tillåta begäranden från det angivna protokollet. Till exempel HTTP eller HTTPS.</td>
+       >    <td>Endast tillåta begäranden från det angivna protokollet. Giltiga värden är `http`, `https`, eller `http,https`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_proto_deny</b></td>
-       >    <td>Nekar förfrågningar från det angivna protokollet. Till exempel HTTP eller HTTPS.</td>
+       >    <td>Nekar förfrågningar från det angivna protokollet. Genomförandet är samma som den <b>ec_proto_allow</b> parameter. Om ett protokoll finns i både den <b>ec_proto_allow</b> och <b>ec_proto_deny</b> parametrar, den <b>ec_proto_allow</b> parametern företräde.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_clientip</b></td>
-       >    <td>Begränsar åtkomsten till angivna beställaren IP-adress. Både IPV4 och IPV6 stöds. Du kan ange antingen en enskild begäran IP-adress eller ett IP-undernät. Till exempel `11.22.33.0/22`.</td>
+       >    <td>Begränsar åtkomsten till angivna beställaren IP-adress. Både IPV4 och IPV6 stöds. Du kan ange antingen en enskild begäran IP-adress eller IP-adresser som är associerade med ett specifikt undernät. Till exempel `11.22.33.0/22` tillåta begäranden från IP-adresser 11.22.32.1 11.22.35.254.</td>
        > </tr>
        > </table>
 
@@ -160,11 +160,11 @@ I följande flödesschema beskrivs hur Azure CDN verifierar en klientbegäran om
 
     När token som har genererats visas den i den **genereras Token** rutan. Om du vill använda token, lägger du till dem som en frågesträng till slutet av filen i URL-sökväg. Till exempel `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    8. Du kan testa din token med verktyget dekryptering. Klistra in token-värde i den **Token för att dekryptera** rutan. Välj krypteringsnyckeln ska användas från den **nyckel att dekryptera** listan och klicka sedan på **dekryptera**.
+    8. Du kan testa din token med verktyget dekryptera så att du kan visa din token-parametrar. Klistra in token-värde i den **Token för att dekryptera** rutan. Välj krypteringsnyckeln ska användas från den **nyckel att dekryptera** listan och klicka sedan på **dekryptera**.
 
     När token dekrypteras dess parametrar visas i den **ursprungliga parametrarna** rutan.
 
-    9. Du kan också anpassa typ av svarskod som returneras när en begäran nekas. Välj **aktiverad**, och välj svarskod från det **svarskoden** lista. Klicka på **spara**. För vissa svarskoder, måste du också ange Webbadressen till felsidan i den **huvudvärde** rutan. Den **403** svarskoden (förbjuden) väljs som standard. 
+    9. Du kan också anpassa typ av svarskod som returneras när en begäran nekas. Välj **aktiverad**, Välj svarskod från det **svarskoden** lista. **Huvudets namn** automatiskt **plats**. Klicka på **spara** att implementera nya svarskoden. För vissa svarskoder, måste du också ange Webbadressen till felsidan i den **huvudvärde** rutan. Den **403** svarskoden (förbjuden) väljs som standard. 
 
 3. Under **HTTP stora**, klickar du på **regelmotor**. Du kan använda regelmotor för att definiera sökvägar för att tillämpa funktionen, aktivera funktionen tokenautentisering och aktivera ytterligare token autentisering-relaterade funktioner. Mer information finns i [regler motorn referens](cdn-rules-engine-reference.md).
 

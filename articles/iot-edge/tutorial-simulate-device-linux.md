@@ -10,17 +10,22 @@ ms.reviewer: elioda
 ms.date: 10/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 11353ef93455a47f9f1c252fc5e192c111d87dd7
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Distribuera Azure IoT kanten på en simulerad enhet i Linux - förhandsgranskning
 
 Azure IoT-gräns kan du utföra analyser och databehandling på dina enheter utan att behöva skicka alla data till molnet. IoT kant självstudiekurser visar hur du distribuerar olika typer av moduler som skapats från Azure-tjänster eller anpassad kod, men du måste först en enhet för att testa. 
 
-Den här självstudiekursen vägleder dig genom att skapa en simulerad IoT insticksenhet, distribuera en modul som genererar sensordata. Lär dig att:
+I den här självstudiekursen får du lära du dig att:
+
+1. Skapa en IoT-hubb
+2. Registrera en IoT-enhet
+3. Starta IoT kant-körning
+4. Distribuera en modul
 
 ![Självstudiekurs arkitektur][2]
 

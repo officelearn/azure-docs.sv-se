@@ -9,12 +9,15 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 4df0dcc7d0f2bde24c1a7e12eea6fa142612a0e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
+# <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL-drivrutiner och hanteringsverktyg som är kompatibla med Azure-databas för MySQL
+Den här artikeln beskriver drivrutiner och hanteringsverktyg som är kompatibla med Azure-databas för MySQL.
+
 ## <a name="mysql-drivers"></a>MySQL-drivrutiner
 Azure-databas för MySQL använder världens populäraste community-versionen av MySQL-databas. Därför är kompatibla med en mängd olika programmeringsspråk och drivrutiner. Målet är att stödja de tre senaste versionerna MySQL drivrutiner och fortsätta arbetet med öppen källkod författare att ständigt förbättra funktionalitet och användbarhet MySQL-drivrutiner. En lista över drivrutiner som har testats och befunnits vara kompatibla med Azure-databas för MySQL 5.6 och 5.7 finns i följande tabell:
 

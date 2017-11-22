@@ -1,5 +1,5 @@
 ---
-title: "Azure marketplace-objekt som är tillgängliga för Azure-stacken | Microsoft Docs"
+title: "Azure Marketplace-objekt för Azure-stacken | Microsoft Docs"
 description: "Dessa Azure Marketplace-objekt kan användas i Azure-stacken."
 services: azure-stack
 documentationcenter: 
@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: erikje
-ms.openlocfilehash: 09177c3d036c38c366253f9291d0096994cc123b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d04a96e061c4f25e10b1582736012a3ada6f6a6b
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/21/2017
 ---
-# <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure marketplace-objekt som är tillgängliga för Azure-stacken
+# <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt för Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Microsoft Azure-stacken stöder följande Azure marketplace-objekt:
+Microsoft Azure-stacken stöder följande Azure Marketplace-objekt:
 
 |  | Objektnamnet | Beskrivning | Utgivare |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Docker-tillägget för Linux virtuella datorer. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [R Server endast SQL Server 2016 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.RServerOnlySQLServer2016Enterprise?tab=Overview) | R Server endast SQL Server 2016 Enterprise. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 på Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Machine Learning Server 9.2.1 på Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Server 9.2.1 på Ubuntu 16.04 för Maskininlärning](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft Machine Learning Server 9.2.1 på Ubuntu 16.04. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Server 9.2.1 på CentOS Linux 7.2 för Maskininlärning](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft Machine Learning Server 9.2.1 på CentOS Linux 7.2. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Distribution av Fjärrskrivbordstjänster (RDS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/rds.remote-desktop-services-basic-deployment?tab=Overview) | Skapa en grundläggande distribution av Remote Desktop Services (RDS). | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Utvärderingsversionen av SharePoint Server 2013](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2013Trial?tab=Overview) | Microsoft SharePoint Server 2013 Trial på Windows Server 2012 Datacenter och 2017 för Visual Studio community edition. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016-utvärderingsversion](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2016Trial?tab=Overview) | Microsoft SharePoint Server 2016-utvärderingsversion på Windows Server 2016 Datacenter. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 på Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 servicepack 2. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 för Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databasplattform för intelligent verksamhetskritiska program. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Developer på Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | Utvecklarversionen av SQL Server 2016 SP1 för, transaktionsdata lagring, business intelligence och analytics arbetsbelastningar. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Express på Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | Express-versionen av SQL Server 2016 SP1 | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise på Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databasplattform för intelligent verksamhetskritiska program. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2014 SP2 på Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 servicepack 2.  **Obligatorisk nedladdning:** SQL IaaS-tillägget. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 för Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databasplattform för intelligent verksamhetskritiska program. **Obligatorisk nedladdning:** SQL IaaS-tillägget. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Developer på Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | Utvecklarversionen av SQL Server 2016 SP1 för, transaktionsdata lagring, business intelligence och analytics arbetsbelastningar.  **Obligatorisk nedladdning:** SQL IaaS-tillägget. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Express på Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | Express-versionen av SQL Server 2016 SP1. **Obligatorisk nedladdning:** SQL IaaS-tillägget. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2016 SP1 Enterprise på Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Databasplattform för intelligent verksamhetskritiska program.  **Obligatorisk nedladdning:** SQL IaaS-tillägget. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) | Företagsklass lösningar som är enkel att distribuera, kostnadseffektiv, fokuserar på programmet och användarcentrerad. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.abantecart?tab=Overview) | Öppna källa e-handel kundvagn. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.activemq?tab=Overview) | Öppna källa meddelandet broker i Java. | Bitnami |
@@ -154,18 +156,22 @@ Microsoft Azure-stacken stöder följande Azure marketplace-objekt:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine försäljning CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compact marknadsföring, försäljning och kunden tjänstprogrammet. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS och Web Portal Program som skapar dynamiska webbplatser.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Öppna källa CRM-system: Mobile, sociala och Gamified. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC säkerhetshantering](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Check Point vSEC ger avancerade, flera lager hot förebyggande för att skydda kundens tillgångar i Azure från skadlig kod och avancerade hot. | Check Point |
 | ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatisera chef](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Skapa, distribuera och hantera med Chef automatisera kontinuerlig Automation-plattformen. | Chef programvara, Inc |
-| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 ”Jessie” med backports kernel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview) | Debian GNU/Linux är en av de mest populära Linux-distributioner. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Behållaren Linux av virtuell CoreOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Behållaren Linux är en modern och minimal Linux distributionsplats tillhandahåller ett enkelt sätt att köra behållare, hantera kluster och uppdatera sömlöst servrarna - alla komponenter som möjliggör skalning datalager compute. | CoreOS |
+| ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server är världens populäraste Linux för molnmiljöer. | Canonical |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 ”Jessie”](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux är en av de mest populära Linux-distributioner. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 ”Stretch”](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian9?tab=Overview) | Debian GNU/Linux är en av de mest populära Linux-distributioner. | credativ |
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster belastningen belastningsutjämnaren ADC innehåll växel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kemptech.vlm-azure?tab=Overview) | Nivå 4 – 7 programmet leverans domänkontrollant (ADC) belastningsutjämnare, innehåll växeln och Traffic Manager. | KEMP Technologies, Inc. |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 6,9](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased69?tab=Overview) | Den här distributionen av Linux baseras på CentOS och tillhandahålls av falska Wave programvara. | Otillåten Wave-programvara (tidigare OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 7.3](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased73?tab=Overview) | Den här distributionen av Linux baseras på CentOS och tillhandahålls av falska Wave programvara. | Otillåten Wave-programvara (tidigare OpenLogic) |
+| ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-baserade 7.4](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased74?tab=Overview) | Den här distributionen av Linux baseras på CentOS och tillhandahålls av falska Wave programvara. | Otillåten Wave-programvara (tidigare OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription?tab=Overview) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription?tab=Overview) | Bäst i klassen Öppna källa infrastrukturhantering. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Djupgående säkerhet Agent för Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Trend Micro djup Security tillägget för Linux. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Djupgående säkerhet Agent för Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Trend Micro djup Security tillägget för Windows. | Trend Micro |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Verktyget ZeroDown program](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown programvara verktyget v7.1 - migrera + hög tillgänglighet. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Verktyget ZeroDown program](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown programvara verktyget v7.1 - migrera + hög tillgänglighet. | ZeroDown programvara |
 
 
 ### <a name="next-steps"></a>Nästa steg
-[Hämta en marketplace-objekt](azure-stack-download-azure-marketplace-item.md)
-
+[Hämta en Marketplace-objekt](azure-stack-download-azure-marketplace-item.md)

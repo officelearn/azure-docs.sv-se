@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/20/2017
+ms.date: 11/20/2017
 ms.author: denlee
-ms.openlocfilehash: 4470b5adb52debce1492b084ce71100da77da046
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en grafdatabas med Java och Azure Portal
 
@@ -72,13 +72,19 @@ Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafd
 
 Nu ska vi övergå till att arbeta med kod. Vi ska klona en Graph API-app från GitHub, ange anslutningssträngen och kör den. Du kommer att se hur lätt det är att arbeta med data programmässigt.  
 
-1. Öppna en git-terminalfönster, till exempel git bash och använda den `cd` kommando för att ändra till en mapp att installera sample-appen.  
+1. Öppna en kommandotolk, skapa en ny mapp med namnet git-samples och sedan stänga Kommandotolken.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Öppna en git-terminalfönster, till exempel git bash och använda den `cd` kommando för att ändra till en mapp att installera sample-appen.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av sample-appen på din dator. 
+3. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av sample-appen på din dator. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -86,7 +92,7 @@ Nu ska vi övergå till att arbeta med kod. Vi ska klona en Graph API-app från 
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du är intresserad av att lära sig hur databasresurser skapas i koden kan granska du följande kodavsnitt. Fragmenten hämtas från den `Program.java` filen i mappen C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. Annars kan du gå vidare till [uppdatera anslutningssträngen](#update-your-connection-string). 
+Det här steget är valfritt. Om du är intresserad av att lära sig hur databasresurser skapas i koden kan granska du följande kodavsnitt. Fragmenten hämtas från den `Program.java` filen i mappen C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. Annars kan du gå vidare till [uppdatera anslutningssträngen](#update-your-connection-information). 
 
 * Gremlin-`Client`en initieras från konfigurationen i `src/remote.yaml`.
 
@@ -148,11 +154,23 @@ Gå nu tillbaka till Azure-portalen att hämta anslutningsinformationen och kopi
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. I git-terminalfönstret skriver du `mvn package` för att installera de Java-paket som krävs.
+2. I fönstret git terminal använder du följande kommando för att installera de nödvändiga paketen Java.
 
-3. I fönstret git terminal kör `mvn exec:java -D exec.mainClass=GetStarted.Program` att starta Java-programmet.
+   ```
+   mvn package
+   ```
 
-    I terminalfönstret visas de hörn som läggs till i tabellen. När programmet slutar växla tillbaka till Azure-portalen i webbläsaren. 
+3. I fönstret git terminal använder du följande kommando för Java-programmet.
+    
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    I terminalfönstret visas de hörn som läggs till i tabellen. 
+    
+    Om du får timeout-fel, kontrollera att du har uppdaterat anslutningen korrekt på [uppdatera anslutningsinformationen](#update-your-connection-information), och även kör det sista kommandot igen. 
+    
+    När programmet slutar att trycka på RETUR, växla sedan tillbaka till Azure-portalen i webbläsaren. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Granska och lägg till exempeldata
@@ -200,11 +218,11 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 10. Klicka på **OK**. 
 
-11. Klicka på **Använd Filter** med `g.V()` filter för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
+11. Klicka på den **Använd Filter** knapp med standardvärdet `g.V()` filter för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
 
     Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Data Explorer `g.V()` att hämta alla formhörnen i ett diagram. Du kan ändra den till en annan [diagram frågan](tutorial-query-graph.md), som `g.V().count()`, för att returnera en uppräkning av alla formhörnen i diagrammet i JSON-format. Om du har ändrat filtret, ändra filtret tillbaka till `g.V()` och på **Använd Filter** så att visas igen.
 
-12. Nu kan vi koppla ihop Rakesh och Ashley. Se till att **ashley** är markerat i listan**Resultat** och klicka sedan på redigeringsknappen bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
+12. Nu kan vi koppla ihop Rakesh och Ashley. Se till att **Anita** väljs i den **resultat** lista och sedan klicka på Redigera bredvid **mål** nedre höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
 
    ![Ändra mål för ett hörn i en graf](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

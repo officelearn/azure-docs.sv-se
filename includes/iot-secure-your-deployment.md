@@ -50,22 +50,6 @@ När du upprättar en säker TLS-anslutning med IoT-hubben autentiserar IoT-enhe
 ## <a name="securing-the-connection"></a>Att säkra anslutningen
 Internet-anslutning mellan IoT-enhet och IoT-hubb skyddas med Transport Layer Security (TLS)-standard. Azure IoT stöder [TLS 1.2][lnk-tls12], TLS 1.1 och TLS 1.0 i den här ordningen. Stöd för TLS 1.0 tillhandahålls endast för bakåtkompatibilitet. Det rekommenderas att använda TLS 1.2 eftersom det ger bäst skydd.
 
-Azure IoT Suite stöder följande krypteringssviter i den här ordningen.
-
-| Chiffersvit | Längd |
-| --- | --- |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (eq. FS 7680 bitar RSA) |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (eq. FS 3072 bitar RSA) |128 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (eq. FS 7680 bitar RSA) |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (eq. FS 3072 bitar RSA) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (0x9d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (0x9c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256 (0x3d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0x3c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA (0x35) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) |128 |
-| TLS\_RSA\_WITH\_3DES\_Nederländerna\_CBC\_SHA (0xa) |112 |
-
 ## <a name="securing-the-cloud"></a>Skydda molnet
 Azure IoT-hubb tillåter definition av [åtkomstprinciper kontrollen] [ lnk-protocols] för varje säkerhetsnyckel. Följande uppsättning behörigheter som används för att bevilja åtkomst till var och en av IoT-hubb slutpunkter. Behörigheter som begränsar åtkomsten till en IoT-hubb som baseras på funktionen.
 

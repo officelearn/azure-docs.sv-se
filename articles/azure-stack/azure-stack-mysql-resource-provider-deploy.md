@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Använda MySQL-databaser på Microsoft Azure-stacken
 
@@ -40,13 +40,14 @@ Den här versionen skapar inte längre en MySQL-instans. Du måste skapa dem och
 - Skapa en MySQL-server du
 - Hämta och distribuera en MySQL-Server från Marketplace.
 
-! [OBS] Värd för servrar som installerats på ett flernodigt Azure stacken måste skapas från en klientprenumeration. De kan inte skapas från prenumerationen Standard Provider. Med andra ord måste de skapas från klientportalen eller från en PowerShell-session med en lämplig inloggning. Alla värdservrar avgiftsbelagda virtuella datorer och måste ha rätt licenser för. Tjänstadministratören kan vara ägare till den prenumerationen.
+> [!NOTE]
+> Värd för servrar som installerats på ett flernodigt Azure stacken måste skapas från en klientprenumeration. De kan inte skapas från prenumerationen Standard Provider. Med andra ord måste de skapas från klientportalen eller från en PowerShell-session med en lämplig inloggning. Alla värdservrar avgiftsbelagda virtuella datorer och måste ha rätt licenser för. Tjänstadministratören kan vara ägare till den prenumerationen.
 
 ### <a name="required-privileges"></a>Behörigheter som krävs
 System-kontot måste ha följande behörigheter:
 
 1.  Databas: Skapa, ta bort
-2.  Inloggning: Skapa, ställa in, Drop, bevilja, återkalla
+2.  Inloggning: Skapa, ställa in, drop, bevilja, återkalla
 
 ## <a name="deploy-the-resource-provider"></a>Distribuera resursprovidern
 
@@ -60,6 +61,9 @@ System-kontot måste ha följande behörigheter:
     b. På datorer med flera noder, måste värden vara ett system som kan komma åt den privilegierade slutpunkten.
 
 3. [Hämta filen MySQL resource provider binärfiler](https://aka.ms/azurestackmysqlrp) och köra Self-Extractor extrahera innehållet till en tillfällig katalog.
+
+    > [!NOTE]
+    > Om du kör ett Azure-stacken bygger 20170928.3 eller tidigare, [ladda ned den här versionen](https://aka.ms/azurestackmysqlrp1709).
 
 4.  Azure-stacken rotcertifikatet hämtas från Privilegierade slutpunkten. För ASDK skapas ett självsignerat certifikat som en del av den här processen. Du måste ange ett lämpligt certifikat för flera noder.
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,17 +130,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parametrar
 
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametrar
 Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon parameter valideringen misslyckas, uppmanas du att ange de nödvändiga.
 
 | Parameternamn | Beskrivning | Kommentar eller standardvärde |
@@ -153,7 +162,7 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon par
 Beroende på systemets prestanda och hämta hastigheter, kan installationen ta så lite som 20 minuter eller så länge som flera timmar. Uppdatera administrationsportal om bladet MySQLAdapter inte är tillgänglig.
 
 > [!NOTE]
-> Om installationen tar mer än 90 minuter, kanske den inte och visas ett felmeddelande på skärmen och i loggfilen. Distributionen försöks från steg som misslyckades. Datorer som inte uppfyller de rekommenderade specifikationerna för minne och vCPU kan inte distribuera MySQL RP.
+> Om installationen tar mer än 90 minuter, kanske den inte och visas ett felmeddelande på skärmen och i loggfilen. Distributionen försöks från steg som misslyckades. Datorer som inte uppfyller de rekommenderade specifikationerna för minne och core kan inte distribuera MySQL RP.
 
 
 
@@ -187,16 +196,17 @@ Beroende på systemets prestanda och hämta hastigheter, kan installationen ta s
 4. När du lägger till servrar, måste du tilldela dem till en ny eller befintlig SKU att differentiering av Tjänsterbjudanden.
   Du kan till exempel har en enterprise-instans tillhandahåller:
     - databaskapacitet
-    - automatisk säkerhetskopiering
+    - Automatisk säkerhetskopiering
     - reservera högpresterande servrar för olika avdelningar
-    - och så vidare.
-    SKU-namnet bör avspegla egenskaper så att klienter kan placera sina databaser på lämpligt sätt. Alla värdservrar i en SKU ska ha samma funktioner.
+ 
 
-    ![Skapa en MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+SKU-namnet bör avspegla egenskaper så att klienter kan placera sina databaser på lämpligt sätt. Alla värdservrar i en SKU ska ha samma funktioner.
+
+![Skapa en MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-SKU: er kan ta upp till en timme att vara synliga i portalen. Du kan inte skapa en databas förrän SKU: N har skapats.
+> SKU: er kan ta upp till en timme att vara synliga i portalen. Du kan inte skapa en databas förrän SKU: N har skapats.
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>Testa distributionen genom att skapa din första MySQL-databas
@@ -231,17 +241,17 @@ SKU: er kan ta upp till en timme att vara synliga i portalen. Du kan inte skapa 
 Lägga till kapacitet genom att lägga till ytterligare servrar för MySQL på Azure Stack-portalen. Ytterligare servrar kan läggas till en ny eller befintlig SKU. Kontrollera server-egenskaper är samma.
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>Gör MySQL-databaser som är tillgängliga för klienter
+## <a name="make-mysql-databases-available-to-tenants"></a>Göra MySQL-databaser som är tillgängliga för klienter
 Skapa planer och erbjudanden om du vill göra MySQL-databaser som är tillgängliga för klienter. Lägg till Microsoft.MySqlAdapter-tjänst, Lägg till en kvot osv.
 
 ![Skapa planer och erbjudanden om du vill inkludera databaser](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>Uppdatera lösenordet för administratörer
+## <a name="update-the-administrative-password"></a>Uppdatera lösenordet för administratörer
 Du kan ändra lösenordet genom att först ändra MySQL-serverinstansen. Bläddra till **ADMINISTRATIONSRESURSER** &gt; **MySQL värd servrar** &gt; och klicka på värdservern. Klicka på panelen inställningar på lösenord.
 
 ![Uppdatera administratörslösenordet](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>Ta bort MySQL kortet Resource Provider
+## <a name="remove-the-mysql-resource-provider-adapter"></a>Ta bort MySQL Resource Provider-kort
 
 Om du vill ta bort resursprovidern, är det viktigt att du först ta bort eventuella beroenden.
 
@@ -263,6 +273,5 @@ Om du vill ta bort resursprovidern, är det viktigt att du först ta bort eventu
 
 
 ## <a name="next-steps"></a>Nästa steg
-
 
 Försök med andra [PaaS services](azure-stack-tools-paas-services.md) som den [SQL Server-resursprovidern](azure-stack-sql-resource-provider-deploy.md) och [Apptjänster resursprovidern](azure-stack-app-service-overview.md).

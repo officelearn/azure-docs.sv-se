@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3b51276fe074282339d30d075547160277bee53f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cd321531c99f14e93d8cab2acb7844ae79be2158
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Förstå utgående anslutningar i Azure
 
@@ -72,18 +72,21 @@ Du måste se till att den virtuella datorn kan ta emot hälsa avsökningen begä
 
 ## <a name="snatexhaust"></a>Hantera SNAT resursuttömning
 
-Tillfälliga portar som används för SNAT är en icke förnybara resurs som beskrivs i [Standalone VM med ingen offentlig IP på instansnivå adress](#standalone-vm-with-no-instance-level-public-ip-address) och [belastningsutjämnade virtuell dator med ingen offentlig IP på instansnivå adress](#standalone-vm-with-no-instance-level-public-ip-address).  
+Tillfälliga portar som används för SNAT är en icke förnybara resurs som beskrivs i [Standalone VM med ingen offentlig IP på instansnivå adress](#standalone-vm-with-no-instance-level-public-ip-address) och [belastningsutjämnade virtuell dator med ingen offentlig IP på instansnivå adress](#standalone-vm-with-no-instance-level-public-ip-address).
 
-Om du vet du att initiera många utgående anslutningar till samma mål, se misslyckas utgående anslutningar eller bör support kan du inte lång körningstid förbrukar SNAT portar, har du flera alternativ för Allmänt skydd.  Granska alternativen och bestämma vad som är bäst för ditt scenario.  Det är möjligt eller mer kan hantera det här scenariot.
+Om du vet du att initiera många utgående anslutningar till samma mål-IP-adress och port, se misslyckas utgående anslutningar eller bör support kan du inte lång körningstid förbrukar SNAT portar, har du flera alternativ för Allmänt skydd.  Granska alternativen och bestämma vad som är bäst för ditt scenario.  Det är möjligt eller mer kan hantera det här scenariot.
 
-### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Tilldela en offentlig IP på instansnivå på varje virtuell dator
-Detta ändrar ditt scenario till [instansnivå offentliga IP-Adressen till en virtuell dator](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Alla tillfälliga portar för den offentliga IP-Adressen som används för varje virtuell dator är tillgängliga för den virtuella datorn (i stället för scenarier där tillfälliga portar på en offentlig IP-adress som delas med alla Virtuella kopplade till respektive serverdelspoolen).
+### <a name="modify-application-to-reuse-connections"></a>Ändra program att återanvända anslutningar 
+Du kan minska behovet av tillfälliga portar som används för SNAT genom att återanvända anslutningar i ditt program.  Detta gäller särskilt för protokoll som HTTP/1.1 där detta uttryckligen stöds.  Och andra protokoll med HTTP-transport (d.v.s. REST) kan dra i sin tur.  Återanvändning är alltid bättre än enskilda, atomiska TCP-anslutningar för varje begäran.
 
 ### <a name="modify-application-to-use-connection-pooling"></a>Ändra program att använda anslutningspooler
-Du kan minska behovet av tillfälliga portar som används för SNAT med hjälp av anslutningspooler i ditt program.  Ytterligare flödar till samma mål kommer att använda ytterligare portar.  Om du återanvänder samma flöde för flera begäranden din flera förfrågningar kommer att använda en enskild port.
+Du kan använda en anslutningspoolen schema i ditt program där förfrågningar internt är fördelade på en fast uppsättning anslutningar (varje återanvända där det är möjligt).  Om du återanvänder samma flöde för flera begäranden din flera förfrågningar kommer att använda en enskild port i stället för att ytterligare flödar till samma mål förbrukar ytterligare portar och leder till att få slut på villkor.
 
 ### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>Ändra program att använda mindre aggressivt logik
 Du kan minska behovet av tillfälliga portar med hjälp av en mindre aggressivt logik.  När tillfälliga portar som används för SNAT uttöms återförsök aggressivt eller brute force utan decay och backoff logik orsak uttömning att spara.  Tillfälliga portar har ett 4-minuters timeout vid inaktivitet (inte justerbara) och om de nya försök för Aggressivt, stoppas har någon möjlighet att rensa på sin egen.
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Tilldela en offentlig IP på instansnivå på varje virtuell dator
+Detta ändrar ditt scenario till [instansnivå offentliga IP-Adressen till en virtuell dator](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Alla tillfälliga portar för den offentliga IP-Adressen som används för varje virtuell dator är tillgängliga för den virtuella datorn (i stället för scenarier där tillfälliga portar på en offentlig IP-adress som delas med alla Virtuella kopplade till respektive serverdelspoolen).  Det finns avvägningarna att tänka på, till exempel ytterligare kostnaden för IP-adresser och potentiella effekten av vitlistning av ett stort antal enskilda IP-adresser.
 
 ## <a name="limitations"></a>Begränsningar
 

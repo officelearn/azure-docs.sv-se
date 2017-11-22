@@ -9,7 +9,7 @@
     Inställning|Föreslaget värde|Beskrivning
     ---|---|---
     ID|*Ange ett unikt namn*|Ange ett unikt namn som identifierar det här kontot i Azure Cosmos DB. Eftersom*documents.azure.com* läggs till det ID du anger för att skapa din URI ska du använda ett unikt men identifierbart ID.<br><br>Ditt id får bara innehålla gemener, siffror och bindestreck och måste innehålla mellan 3 och 50 tecken.
-    API|Gremlin (graf)|API: et avgör vilken typ av konto för att skapa. Azure Cosmos-DB innehåller fyra-API: er som passar bäst för ditt program: Gremlin (diagram), MongoDB, SQL (DocumentDB) och tabellen (nyckelvärde) varje som för närvarande kräver ett särskilt konto. <br><br>Välj **Gremlin (diagram)** eftersom denna Snabbstart du skapar ett diagram som är frågbar med Gremlin syntax.<br><br>[Mer information om Graph-API](../articles/cosmos-db/graph-introduction.md)
+    API|Gremlin (graf)|API: et avgör vilken typ av konto för att skapa. Azure Cosmos-DB innehåller fem-API: er som passar bäst för ditt program: SQL (dokumentdatabasen), Gremlin (graph-databas), MongoDB (dokumentdatabasen), Azure Table och Cassandra, varje som för närvarande kräver ett särskilt konto. <br><br>Välj **Gremlin (diagram)** eftersom denna Snabbstart du skapar ett diagram som är frågbar med Gremlin syntax.<br><br>[Mer information om Graph-API](../articles/cosmos-db/graph-introduction.md)
     Prenumeration|*Din prenumeration*|Välj Azure-prenumeration som du vill använda för det här kontot i Azure Cosmos DB. 
     Resursgrupp|*Ange samma unika namn som anges ovan i ID: T*|Ange ett nytt resursgrupp namn för ditt konto. För enkelhetens skull kan du använda samma namn som för ditt ID. 
     Plats|*Välj regionen som är närmast dina användare*|Välj geografisk plats som värd för ditt Azure DB som Cosmos-konto. Använd den plats som är närmast dina användare att ge dem snabbast åtkomst till data.
@@ -20,7 +20,7 @@
 
     ![Det nya kontobladet för Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
-4. Skapa konto tar några minuter. När kontot skapas i portalen visas den **distribuerar Azure Cosmos DB** panelen.
+4. Skapa konto tar några minuter. När kontot skapas i portalen visas den **distribuerar Azure Cosmos DB** panelen till höger kan du behöva rulla åt höger på instrumentpanelen för att se panelen. Det finns också en förloppsindikator som visas längst upp på skärmen. Du kan titta på antingen området för pågår.
 
     ![Meddelandefönstret i Azure-portalen](./media/cosmos-db-create-dbaccount-graph/deploying-cosmos-db.png)
 

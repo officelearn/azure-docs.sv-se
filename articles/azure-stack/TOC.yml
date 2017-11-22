@@ -157,10 +157,10 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: Distribuera SQL-resursprovider
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Skapa SQL-databaser
-              href: azure-stack-sql-resource-provider-databases.md
             - name: Lägg till värdservrar
               href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: Skapa SQL-databaser
+              href: azure-stack-sql-resource-provider-databases.md
         - name: Erbjudande om App Service som PaaS
           items:
             - name: Översikt över App Service på Azure Stack
@@ -183,11 +183,11 @@
               href: azure-stack-marketplace.md
             - name: Ladda ned Marketplace-objekt
               href: azure-stack-download-azure-marketplace-item.md
-            - name: Azure Marketplace-objekt för Azure Stack
+            - name: Azure Marketplace-objekt för Azure-Stack
               href: azure-stack-marketplace-azure-items.md
             - name: Skapa och publicera ett Marketplace-objekt
               href: azure-stack-create-and-publish-marketplace-item.md
-            - name: Använd verktyget för Marketplace-publicering
+            - name: Använd verktyget marketplace publishing
               href: azure-stack-marketplace-publisher.md
             - name: Lägg till en anpassad avbildning av virtuell dator
               href: azure-stack-add-vm-image.md

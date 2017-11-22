@@ -16,9 +16,8 @@
 ### [4- Övervaka och diagnostisera](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Använd en befintlig .NET-app i behållare
-### [1- Skapa ett säkert kluster på Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2- Distribuera ett .NET-program med Docker Compose](service-fabric-host-app-in-a-container.md)
-### [3- Övervaka din behållare](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1- Distribuera en .NET-app med hjälp av Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2- Övervaka din behållare](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Skapa en app för Linux-behållare
 ### [1- Skapa behållaravbildningar](service-fabric-tutorial-create-container-images.md)
@@ -284,7 +283,6 @@
 ## Skapa och hantera kluster
 ### Kluster i Azure
 #### Skapa
-##### [Skapa ditt första kluster på Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Skala

@@ -5,7 +5,7 @@
 
 # Kom igång
 
-## [Självstudie för nybörjare](sql-data-warehouse-get-started-tutorial.md)
+## [Läsa in datasjälvstudier](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Självstudie för elastisk fråga](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Bästa praxis](sql-data-warehouse-best-practices.md)
 ## [Hantera](sql-data-warehouse-overview-manage.md)

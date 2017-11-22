@@ -41,16 +41,20 @@
           href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Självstudier
   items:
-    - name: 1 – Functions med Logic Apps
+    - name: Funktioner med Logic Apps
       href: functions-twitter-email.md
-    - name: 2.– Skapa ett serverlöst API
+    - name: Skapa ett serverlöst API
       href: functions-create-serverless-api.md
-    - name: 3 - Skapa en OpenAPI-definition
+    - name: Skapa en OpenAPI-definition
       href: functions-openapi-definition.md
-    - name: 4 – Ändra storlek på avbildning med Event Grid
+    - name: Ändra storlek på avbildning med Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: 5 – Funktioner i en anpassad avbildning
-      href: functions-create-function-linux-custom-image.md
+    - name: Funktioner på Linux
+      items:
+        - name: Anpassad avbildning
+          href: functions-create-function-linux-custom-image.md
+        - name: IoT Edge-enhet
+          href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Exempel
   items:
     - name: Kodexempel

@@ -5,19 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 11/21/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a01d8d1ed0f5234f4950d448b54087767353c8ef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Vanliga frågor om Azure kostnaden Management
-
 
 Den här artikeln tar några vanliga frågor om Azure kostnaden Management (även kallat Cloudyn). Om du har frågor om hantering av kostnaden kan du be dem vid [vanliga frågor om Azure kostnaden hanteringen av Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
@@ -125,3 +124,15 @@ Om det uppstår en fördröjning skicka data från Azure till Cloudyn, registrer
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Hur kan en direkt CSP konfigurera Cloudyn åtkomst för indirekt CSP kunder eller partners?
 
 Instruktioner finns i [konfigurera indirekt CSP-åtkomst i Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
+
+## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>Vad som orsakar menyalternativet optimering ska visas?
+
+När du lägger till Azure Resource Manager åtkomst och data som samlas in, bör du se den **optimering** alternativet. Om du vill aktivera åtkomst till Azure Resource Manager, se [hur aktiverar inaktiverade konton med autentiseringsuppgifter för Azure?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
+
+## <a name="is-cost-managementcloudyn-agent-based"></a>Baseras kostnaden hantering/Cloudyn agent
+
+Nej. Agenter används inte. Virtuella Azure-datorn mätvärden för virtuella datorer som har samlats in från Microsoft Insights API. Om du vill samla in mått data från Azure virtuella datorer som de behöver ha diagnostikinställningar aktiverad.
+
+## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Visar Cloudyn rapporter flera AD-klient per rapport?
+
+Ja. Du kan [skapar en motsvarande molnet konto entitet](tutorial-user-access.md#create-entities) för varje AD-klient som du har. Du kan visa alla dina Azure AD-klientdata och andra molntjänstleverantörer plattform inklusive Amazon Web Services och Google Cloud Platform.

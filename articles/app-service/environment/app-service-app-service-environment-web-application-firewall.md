@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: naziml
-ms.openlocfilehash: 4c0e2d649f71d7797efbfe2c8e93ea0c844152df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c218a6fe3857c216bc185c5d3630025f332147b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (Brandvägg) för Apptjänst-miljö
 ## <a name="overview"></a>Översikt
@@ -27,64 +27,67 @@ Web application brandväggar som den [Barracuda Brandvägg för Azure](https://w
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>Konfiguration
-För det här dokumentet som vi konfigurerar balanserade våra Apptjänstmiljö bakom flera belastningen instanser av Barracuda Brandvägg så att endast trafik från Brandvägg kan nå Apptjänst-miljön och det inte är tillgänglig från Perimeternätverket. Vi har även Azure Traffic Manager framför våra Barracuda Brandvägg instanser kan belastningsutjämna mellan Azure-datacenter och regioner. En hög nivå diagram över installationen skulle se ut vad som anges nedan.
+För det här dokumentet konfigurerar vi Apptjänstmiljö bakom Utjämning av nätverksbelastning alla instanser av Barracuda Brandvägg så att endast trafik från Brandvägg kan nå Apptjänst-miljön och den inte är tillgänglig från DMZ: N. Vi har även Azure Traffic Manager framför Barracuda Brandvägg instanser kan belastningsutjämna mellan Azure-datacenter och regioner. Ett Översiktsdiagram över installationen ser ut som följande bild:
 
 ![Arkitektur][Architecture] 
 
-> Obs: med introduktionen av [ILB stöd för Apptjänst-miljö](app-service-environment-with-internal-load-balancer.md), kan du konfigurera ASE för att vara tillgänglig från Perimeternätverket och bara är tillgänglig för det privata nätverket. 
+> [!NOTE]
+> Med introduktionen av [ILB stöd för Apptjänst-miljö](app-service-environment-with-internal-load-balancer.md), kan du konfigurera ASE för att vara tillgänglig från Perimeternätverket och bara är tillgänglig för det privata nätverket. 
 > 
 > 
 
 ## <a name="configuring-your-app-service-environment"></a>Konfigurera din Apptjänst-miljö
-Så här konfigurerar du en Apptjänst-miljö finns i [vår dokumentation](app-service-web-how-to-create-an-app-service-environment.md) om ämnet. När du har en Apptjänst-miljö skapas kan du skapa Webbappar, API Apps och [Mobilappar](../../app-service-mobile/app-service-mobile-value-prop.md) i den här miljön kommer alla skyddas bakom en Brandvägg som konfigureras i nästa avsnitt.
+Om du vill konfigurera en Apptjänst-miljö, referera till [vår dokumentation](app-service-web-how-to-create-an-app-service-environment.md) om ämnet. När du har en Apptjänst-miljö skapas kan du skapa Webbappar, API Apps och [Mobilappar](../../app-service-mobile/app-service-mobile-value-prop.md) i den här miljön kommer alla skyddas bakom en Brandvägg som konfigureras i nästa avsnitt.
 
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>Konfigurera Barracuda Brandvägg Molntjänsten
-Barracuda har en [detaljerad artikel](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) om distribution av dess Brandvägg på en virtuell dator i Azure. Men eftersom vi vill redundans och inte inför en enskild felpunkt som du vill distribuera minst 2 Brandvägg instans virtuella datorer i samma molntjänst när följa dessa anvisningar.
+Barracuda har en [detaljerad artikel](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) om distribution av dess Brandvägg på en virtuell dator i Azure. Men eftersom vi vill redundans och inte inför en enskild felpunkt som du vill distribuera minst två Brandvägg instans virtuella datorer i samma molntjänst när följa dessa anvisningar.
 
 ### <a name="adding-endpoints-to-cloud-service"></a>Att lägga till slutpunkter molntjänst
-När du har 2 eller mer Brandvägg VM-instanser i din molntjänst kan du använda den [Azure-portalen](https://portal.azure.com/) att lägga till HTTP och HTTPS-slutpunkter som används av programmet som visas i bilden nedan.
+När du har 2 eller mer Brandvägg VM-instanser i Molntjänsten, kan du använda den [Azure-portalen](https://portal.azure.com/) att lägga till HTTP och HTTPS-slutpunkter som används av programmet som visas i följande bild:
 
 ![Konfigurera slutpunkt][ConfigureEndpoint]
 
 Om dina program använder slutpunkter, se till att lägga till dem i listan samt. 
 
 ### <a name="configuring-barracuda-waf-through-its-management-portal"></a>Konfigurera Barracuda Brandvägg via dess hanteringsportalen
-Barracuda Brandvägg använder TCP-Port 8000 för konfigurationen med hjälp av dess hanteringsportalen. Eftersom vi har flera instanser av de virtuella datorerna Brandvägg behöver du upprepa de här stegen för varje VM-instans. 
+Barracuda Brandvägg använder TCP-Port 8000 för konfigurationen med hjälp av dess hanteringsportalen. Om du har flera instanser av de virtuella datorerna Brandvägg kan behöva du upprepa de här stegen för varje VM-instans. 
 
-> Obs: När du är klar med konfigurationen av Brandvägg, ta bort slutpunkten TCP/8000 från alla din Brandvägg virtuella datorer för att skydda din Brandvägg.
+> [!NOTE]
+> När du är klar med konfigurationen av Brandvägg, kan du ta bort TCP/8000 slutpunkten från alla din Brandvägg virtuella datorer för att skydda din Brandvägg.
 > 
 > 
 
-Lägg till management-slutpunkt som visas i bilden nedan för att konfigurera din Brandvägg Barracuda.
+Lägg till management-slutpunkt som visas i följande bild för att konfigurera din Brandvägg Barracuda.
 
 ![Lägg till slutpunkt för hantering][AddManagementEndpoint]
 
-Använda en webbläsare för att bläddra till management-slutpunkten på Molntjänsten. Om din molntjänst anropas test.cloudapp.net, skulle du åtkomst till den här slutpunkten genom att bläddra till http://test.cloudapp.net:8000. Du bör se en inloggningssida som nedan kan logga in med autentiseringsuppgifterna som du angav i installationsfasen Brandvägg VM.
+Använda en webbläsare för att bläddra till management-slutpunkten på Molntjänsten. Om din molntjänst anropas test.cloudapp.net, skulle du åtkomst till den här slutpunkten genom att bläddra till http://test.cloudapp.net:8000. Du bör se en inloggningssida som på följande bild som du kan logga in med autentiseringsuppgifterna som du angav i installationsfasen Brandvägg VM.
 
 ![Hantering av inloggningssidan][ManagementLoginPage]
 
-När du loggar in bör du se en instrumentpanel som det i bilden nedan visas grundläggande statistik om Brandvägg skyddet.
+Du bör se en instrumentpanel som det i följande bild som visar grundläggande statistik om Brandvägg skydd när du loggar in.
 
 ![Instrumentpanel för hantering][ManagementDashboard]
 
-Klicka på fliken tjänster kan du konfigurera din Brandvägg för tjänster som skyddas. Mer information om hur du konfigurerar din Brandvägg Barracuda finns [deras dokumentation](https://techlib.barracuda.com/waf/getstarted1). I exemplet nedan en Azure-Webbapp har som betjänar trafik via HTTP och HTTPS konfigurerats.
+Klicka på den **Services** fliken kan du konfigurera din Brandvägg för tjänster som skyddas. Mer information om hur du konfigurerar din Brandvägg Barracuda finns [deras dokumentation](https://techlib.barracuda.com/waf/getstarted1). I följande exempel visas har en Azure-Webbapp som betjänar trafik via HTTP och HTTPS konfigurerats.
 
 ![Hantering av lägga till tjänster][ManagementAddServices]
 
-> Obs: Beroende på hur dina program är konfigurerade och vilka funktioner som används i din Apptjänst-miljö, behöver du vidarebefordrar trafik för TCP andra portar än 80 och 443, t.ex. Om du har IP SSL-inställningar för ett webbprogram. En lista över nätverksportar som används i Apptjänstmiljöer, referera till [kontroll för inkommande trafik dokumentationen](app-service-app-service-environment-control-inbound-traffic.md) nätverksportar avsnitt.
+> [!NOTE]
+> Beroende på hur dina program är konfigurerade och vilka funktioner som används i din Apptjänst-miljö kan behöver du vidarebefordra trafik för TCP andra portar än 80 och 443, till exempel om du har IP SSL-inställningar för ett webbprogram. En lista över nätverksportar som används i Apptjänstmiljöer finns [kontroll för inkommande trafik dokumentationen](app-service-app-service-environment-control-inbound-traffic.md) nätverksportar avsnitt.
 > 
 > 
 
 ## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Konfigurera Microsoft Azure Traffic Manager (valfritt)
-Om ditt program är tillgängligt i flera områden, och du vill läsa in balansera dem bakom [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Att göra så att du kan lägga till en slutpunkt i den [klassiska Azure-portalen](https://manage.azure.com) med Molntjänsten namn för din Brandvägg i Traffic Manager-profilen som visas i bilden nedan. 
+Om ditt program är tillgängligt i flera områden, och du vill läsa in balansera dem bakom [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Om du vill göra det, kan du lägga till en slutpunkt i den [Azure-portalen](https://portal.azure.com) med Molntjänsten namn för din Brandvägg i Traffic Manager-profilen som visas i följande bild. 
 
 ![Traffic Manager-slutpunkt][TrafficManagerEndpoint]
 
-Om ditt program kräver autentisering, se till att du har en resurs som inte kräver någon autentisering för Traffic Manager att pinga tillgängligheten för ditt program. Du kan konfigurera URL: en i avsnittet Konfigurera på den [klassiska Azure-portalen](https://manage.azure.com) enligt nedan.
+Om ditt program kräver autentisering, se till att du har en resurs som inte kräver någon autentisering för Traffic Manager att pinga tillgängligheten för ditt program. Du kan konfigurera URL-Adressen på den **Configuration** sidan i den [Azure-portalen](https://portal.azure.com) som visas i följande bild:
 
 ![Konfigurera Traffic Manager][ConfigureTrafficManager]
 
-För att vidarebefordra Traffic Manager-ping från din Brandvägg till ditt program, måste du installationen webbplats översättningar på Barracuda-Brandvägg att vidarebefordra trafik till tillämpningsprogrammet som visas i exemplet nedan.
+För att vidarebefordra Traffic Manager-ping från din Brandvägg till ditt program, måste du konfigurera webbplatsen översättningar på din Brandvägg Barracuda att vidarebefordra trafik till tillämpningsprogrammet som visas i följande exempel:
 
 ![Webbplatsen översättningar][WebsiteTranslations]
 
@@ -95,7 +98,8 @@ Följ den [kontroll för inkommande trafik dokumentationen](app-service-app-serv
 
 Ersätt SourceAddressPrefix med virtuella IP-adress (VIP) för din Brandvägg Molntjänsten.
 
-> Obs: VIP för Molntjänsten ändras när du tar bort och återskapa Molntjänsten. Se till att uppdatera IP-adressen i nätverket resursgruppens namn när du gör. 
+> [!NOTE]
+> VIP-Adressen för din molntjänst ändras när du tar bort och återskapa Molntjänsten. Se till att uppdatera IP-adressen i nätverket resursgruppens namn när du gör. 
 > 
 > 
 

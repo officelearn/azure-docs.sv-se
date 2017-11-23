@@ -1,207 +1,191 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med samarbete | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och samarbete."
+title: "Självstudier: Azure Active Directory-integrering med Teamwork.com | Microsoft Docs"
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Teamwork.com."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: 03760032-3d76-4b47-ab84-241f72fbd561
+ms.reviewer: joflore
+ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Självstudier: Azure Active Directory-integrering med samarbete
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Självstudier: Azure Active Directory-integrering med Teamwork.com
 
-I kursen får lära du att integrera samarbete med Azure Active Directory (AD Azure).
+I kursen får lära du att integrera Teamwork.com med Azure Active Directory (AD Azure).
 
-Integrera samarbete med Azure AD ger dig följande fördelar:
+Integrera Teamwork.com med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till samarbete
-- Du kan aktivera användarna att automatiskt hämta loggat in på samarbete (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - till Azure-hanteringsportalen
+- Du kan styra i Azure AD som har åtkomst till Teamwork.com.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Teamwork.com (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Krav
 
-För att konfigurera Azure AD-integrering med samarbete, behöver du följande:
+För att konfigurera Azure AD-integrering med Teamwork.com, behöver du följande:
 
 - En Azure AD-prenumeration
-- Ett samarbete enkel inloggning på aktiverade prenumeration
-
+- En Teamwork.com enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
-- Du bör inte använda produktionsmiljön, om det inte är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion av en månad [här](https://azure.microsoft.com/pricing/free-trial/).
-
+- Använd inte i produktionsmiljön, om det är nödvändigt.
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
-1. Att lägga till samarbete från galleriet
+1. Att lägga till Teamwork.com från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
+## <a name="adding-teamworkcom-from-the-gallery"></a>Att lägga till Teamwork.com från galleriet
+Du måste lägga till Teamwork.com från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Teamwork.com i Azure AD.
 
-## <a name="adding-teamwork-from-the-gallery"></a>Att lägga till samarbete från galleriet
-Du måste lägga till samarbete från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av samarbete i Azure AD.
+**Utför följande steg för att lägga till Teamwork.com från galleriet:**
 
-**Utför följande steg för att lägga till samarbete från galleriet:**
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-1. I den  **[Azure-hanteringsportalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
-
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Bladet Enterprise program][2]
     
-3. Klicka på **Lägg till** knappen överst i dialogrutan.
+3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **samarbete**.
+4. I sökrutan skriver **Teamwork.com**väljer **Teamwork.com** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_001.png)
+    ![Teamwork.com i resultatlistan](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_addfromgallery.png)
 
-5. Välj i resultatpanelen **samarbete**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_0001.png)
+I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Teamwork.com baserat på en testanvändare som kallas ”Britta Simon”.
 
+Azure AD måste du känna till användaren i Teamwork.com motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Teamwork.com upprättas.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med samarbete baserat på en testanvändare som kallas ”Britta Simon”.
+I Teamwork.com, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
-Azure AD måste du känna till användaren i samarbete motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i samarbete upprättas.
+Om du vill konfigurera och testa Azure AD enkel inloggning med Teamwork.com, måste du utföra följande byggblock:
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i samarbete.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Teamwork.com](#create-a-teamworkcom-test-user)**  – du har en motsvarighet för Britta Simon i Teamwork.com som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med samarbete, måste du utföra följande byggblock:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare samarbete](#creating-a-teamwork-test-user)**  – du har en motsvarighet för Britta Simon i samarbete som är kopplad till Azure AD-representation av henne.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Teamwork.com program.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med Teamwork.com:**
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportalen och konfigurera enkel inloggning i ditt program för samarbete.
+1. I Azure-portalen på den **Teamwork.com** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med samarbete:**
+    ![Konfigurera enkel inloggning länk][4]
 
-1. I Azure-hanteringsportalen på den **samarbete** integreringssidan för programmet, klickar du på **enkel inloggning**.
-
-    ![Konfigurera enkel inloggning][4]
-
-2. På den **enkel inloggning** dialogrutan som **läge** Välj **SAML-baserade inloggning** att aktivera enkel inloggning på.
+2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_01.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_samlbase.png)
 
-3. På den **samarbete domän och URL: er** avsnitt i den **logga URL** textruta Skriv en URL med följande mönster:`https://<company name>.teamwork.com`
+3. På den **Teamwork.com domän och URL: er** avsnittet, utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_02.png)
+    ![URL: er och Teamwork.com domän med enkel inloggning information](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
+
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<company name>.teamwork.com`
 
     > [!NOTE] 
-    > Observera att detta inte är det verkliga värdet. Du måste uppdatera det här värdet med faktiska logga på URL: en. Kontakta [samarbete supportteamet](mailto:support@teamwork.com) att hämta det här värdet. 
+    > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [Teamwork.com supportteamet](mailto:support@teamwork.com) att hämta det här värdet. 
 
-4. På den **SAML-signeringscertifikat** klickar du på **Skapa nytt certifikat**.
+4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)   
+    ![Länken hämta certifikatet](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_certificate.png) 
 
-5. På den **skapa nya certifikat** dialogrutan, klicka på kalenderikonen och välj en **förfallodatum**. Klicka på **spara** knappen.
+5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-teamwork-tutorial/tutorial_general_300.png)
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
-6. På den **SAML-signeringscertifikat** väljer **aktivera nya certifikatet** och på **spara** knappen.
+6. Konfigurera enkel inloggning på **Teamwork.com** sida, måste du skicka den hämtade **XML-Metadata för** till [Teamwork.com supportteamet](mailto:support@teamwork.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_04.png)
+> [!TIP]
+> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-7. På popup-fönstret **förnyelsecertifikat** -fönstret klickar du på **OK**.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
+Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-8. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_05.png) 
-
-9. För att få SSO konfigurerats för ditt program, kontakta [samarbete supportteamet](mailto:support@teamwork.com) och ger dem den hämtade **metadata**.
-  
-
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-Syftet med det här avsnittet är att skapa en testanvändare i Azure Management portal kallas Britta Simon.
-
-![Skapa Azure AD-användare][100]
+   ![Skapa en testanvändare i Azure AD][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-hanteringsportalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory-knappen](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png)
 
-2. Gå till **användare och grupper** och på **alla användare** att visa en lista över användare.
-    
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png) 
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-3. Klicka på överst i dialogrutan **Lägg till** att öppna den **användaren** dialogrutan.
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png)
+
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+
+    ![Knappen Lägg till](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png)
+
+4. I den **användaren** dialogrutan utför följande steg:
+
+    ![Dialogrutan användare](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+
+    d. Klicka på **Skapa**.
  
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png) 
+### <a name="create-a-teamworkcom-test-user"></a>Skapa en testanvändare Teamwork.com
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png) 
+I det här avsnittet skapar du en användare som kallas Britta Simon i Teamwork.com. Arbeta med [Teamwork.com supportteamet](mailto:support@teamwork.com) att lägga till användare i Teamwork.com-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Teamwork.com.
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+![Tilldela rollen][200] 
 
-    d. Klicka på **Skapa**. 
+**Om du vill tilldela Teamwork.com Britta Simon utför du följande steg:**
 
-
-
-### <a name="creating-a-teamwork-test-user"></a>Skapa en testanvändare samarbete
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i samarbete. Se tillsammans med [samarbete supportteamet](mailto:support@teamwork.com) att lägga till användare i samarbete-plattformen.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja sin åtkomst till samarbete.
-
-![Tilldela användare][200] 
-
-**Om du vill tilldela samarbete Britta Simon utför du följande steg:**
-
-1. Öppna vyn program i Azure-hanteringsportalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **samarbete**.
+2. Välj i listan med program **Teamwork.com**.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_50.png) 
+    ![Länken Teamwork.com i listan med program](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Länken ”användare och grupper”][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
-    ![Tilldela användare][203]
+    ![Fönstret Lägg till tilldelning][203]
 
 5. På **användare och grupper** markerar **Britta Simon** på listan användare.
 
@@ -209,14 +193,12 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
     
-
-
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på panelen samarbete på åtkomstpanelen du bör få automatiskt loggat in på ditt program för samarbete.
-
+När du klickar på panelen Teamwork.com på åtkomstpanelen du bör få automatiskt loggat in på ditt Teamwork.com program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -238,3 +220,4 @@ När du klickar på panelen samarbete på åtkomstpanelen du bör få automatisk
 [201]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_203.png
+

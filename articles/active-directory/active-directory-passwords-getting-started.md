@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5ba922175a25776c6e27ee03fae9b2941235881
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0320cb33dcab63ea394cf8e13e9aef5cc75951fa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Snabb distribution av återställning av lösenord för självbetjäning i Azure AD
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 Återställning av lösenord för självbetjäning (SSPR) erbjuder ett enkelt sätt för IT-administratörer att låta användarna återställa eller låsa upp sina lösenord eller sina konton. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
 
-I den här handboken förutsätts att du redan har en aktiv utvärderingsversion eller licensierad Azure Active Directory-klient (Azure AD). Om du behöver hjälp med att konfigurera Azure AD kan du läsa [Komma igång med Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
+I den här handboken förutsätts att du redan har en aktiv utvärderingsversion eller licensierad Azure Active Directory-klient (Azure AD). Om du behöver hjälp med att konfigurera Azure AD kan du läsa [Komma igång med Azure AD](get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Aktivera SSPR för din Azure AD-klientorganisation
 
@@ -73,7 +73,7 @@ För att aktivera lokal identitetssynkronisering till Azure AD måste du install
 
 * [Uppgradera från DirSync eller AD Sync till Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Komma igång med Azure AD Connect med expressinställningar](./connect/active-directory-aadconnect-get-started-express.md)
-* [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback) för att skriva lösenord från Azure AD tillbaka till din lokala katalog
+* [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configure-password-writeback) för att skriva lösenord från Azure AD tillbaka till din lokala katalog
 
 ### <a name="on-premises-policy-change"></a>Ändring av lokala principer
 

@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: e752e18f6d579633c0cf553224ae7617b774ad0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 697ea4aedb025f4bff4b88df3370ed7c12e7b0d7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Skapa en MongoDB-app med Angular och Azure Cosmos DB – del 5: Ansluta till Azure Cosmos DB med hjälp av Mongoose
 
@@ -73,7 +73,7 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
     const env = require('./env/environment');
 
     // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
     function connect() {
      mongoose.set('debug', true);
@@ -91,26 +91,24 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
 5. Vi måste lägga till `dbName`, `key` och `cosmosPort` från mongo.js-filen. Kopiera därför följande kod till **environment.js**.
 
     ```javascript
-    const cosmosPort = 1234; // replace with your port
-    const dbName = 'your-cosmos-db-name-goes-here';
-    const key = 'your-key-goes-here';
-
+    // TODO: replace if yours are different
     module.exports = {
-      dbName,
-      key,
-      cosmosPort
+      accountName: 'your-cosmosdb-account-name-goes-here',
+      databaseName: 'admin', 
+      key: 'your-key-goes-here',
+      port: 10255
     };
     ```
 
 ## <a name="get-the-connection-string-information"></a>Hämta information om anslutningssträngen
 
-1. Ändra värdet `cosmosPort` till 10255 i **environment.js**. (Du hittar din Cosmos DB-port i Azure Portal)
+1. Ändra värdet `port` till 10255 i **environment.js**. (Du hittar din Cosmos DB-port i Azure Portal)
 
     ```javascript
-    const cosmosPort = 10255;
+    const port = 10255;
     ```
 
-2. I **environment.js** ändrar du värdet på `dbName` till namnet på det Azure Cosmos DB-konto som du skapade i [steg 4](tutorial-develop-mongodb-nodejs-part4.md). 
+2. I **environment.js** ändrar du värdet på `accountName` till namnet på det Azure Cosmos DB-konto som du skapade i [steg 4](tutorial-develop-mongodb-nodejs-part4.md). 
 
 3. Hämta primärnyckeln för Azure Cosmos DB-kontot genom att köra följande kommando i kommandoradsgränssnittet i terminalfönstret: 
 
@@ -130,7 +128,7 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
 
 2. Kopiera följande kod till **hero.model.js**. Den här koden:
    * Kräver Mongoose.
-   * Skapar ett nytt schema med ett id, ett name och en saying.
+   * Skapar ett nytt schema med ett id, ett namn och en fras.
    * Skapar en modell med hjälp av schemat.
    * Exporterar modellen. 
    * Ge samlingen namnet Heroes (i stället för Heros, som är standardnamnet för samlingen baserat på reglerna för namn i plural i Mongoose).
@@ -226,7 +224,7 @@ Utför stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md) av självstudi
 
     ![Nytt Azure Cosmos DB-konto på Azure-portalen](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
-   Det finns inga heroes-komponenter lagrade i appen än, men i nästa steg i självstudiekursen ska vill lägga till put-, push- och delete-funktionerna så att vi kan lägga till, uppdatera och ta bort heroes-komponenter från användargränssnittet med hjälp av Mongoose-anslutningar till vår Azure Cosmos DB-databas. 
+   Det finns inga heroes-komponenter lagrade i appen än, men i nästa steg i självstudiekursen ska vill lägga till Put-, Push- och Delete-funktionerna så att vi kan lägga till, uppdatera och ta bort heroes-komponenter från användargränssnittet med hjälp av Mongoose-anslutningar till vår Azure Cosmos DB-databas. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -234,7 +232,7 @@ I den här delen av självstudiekursen har du gjort följande:
 
 > [!div class="checklist"]
 > * Använt Mongoose-API:er för att ansluta heroes-appen till Azure Cosmos DB 
-> * Lagt till get heroes-funktionen till appen
+> * Lagt till getHeroes-funktionen till appen
 
 Fortsätt till nästa del av självstudiekursen och lägg till Post-, Put- och Delete-funktioner till appen.
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Säkerhetsmetoder för Azure-nätverk
-Microsoft Azure kan du ansluta virtuella datorer och enheter till andra nätverksenheter genom att placera dem på Azure-nätverk. Ett Azure Virtual Network är en konstruktion för virtuella nätverk som gör det möjligt att ansluta virtuella nätverkskort till ett virtuellt nätverk till att tillåta TCP/IP-baserade kommunikation mellan nätverksenheter som aktiveras. Azure virtuella datorer som är anslutna till ett virtuellt Azure-nätverk kan ansluta till enheter i samma Azure virtuella nätverk, olika virtuella Azure-nätverk, på Internet eller även på din egen lokala nätverk.
+Microsoft Azure kan du ansluta virtuella datorer och enheter till andra nätverksenheter genom att placera dem på Azure-nätverk. Ett virtuellt Azure-nätverk är en konstruktion som gör det möjligt att ansluta virtuella nätverkskort till ett virtuellt nätverk till att tillåta TCP/IP-baserade kommunikation mellan nätverksenheter som aktiveras. Azure virtuella datorer som är anslutna till ett virtuellt Azure-nätverk kan ansluta till enheter i samma Azure virtuella nätverk, olika virtuella Azure-nätverk, på Internet eller även på din egen lokala nätverk.
 
 I den här artikeln diskuteras en samling Azure-nätverk säkerhetsmetoder. Följande rekommendationer härleds från våra erfarenhet av Azure-nätverk och erfarenheter från kunder som dig själv.
 
@@ -50,9 +50,9 @@ Azure Network Metodtips om säkerhet i den här artikeln omfattar:
 * Utöka ditt datacenter till Azure
 
 ## <a name="logically-segment-subnets"></a>Logiskt segmentet undernät
-[Virtuella Azure-nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) liknar ett lokalt nätverk i ditt lokala nätverk. Syftet med ett virtuellt Azure-nätverk är att du skapar ett enda privat IP-adress-baserade nätverk där du kan placera alla dina [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). De privata IP-adressutrymmen tillgängliga finns i klass A (10.0.0.0/8), klass B (172.16.0.0/12) och klass C (192.168.0.0/16) intervall.
+[Virtuella Azure-nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) liknar ett lokalt nätverk i ditt lokala nätverk. Syftet med ett virtuellt Azure-nätverk är att du skapar ett enda privat IP-adress-baserade nätverk där du kan placera alla dina [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). De privata IP-adressutrymmena tillgängliga i klass A (10.0.0.0/8) klass B (172.16.0.0/12) och klass C (192.168.0.0/16) intervall.
 
-Liknar vad du gör lokalt, kommer du att segmentera större adressutrymme i undernät. Du kan använda [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) baserat undernät principer för att skapa dina undernät.
+Liknar vad du gör lokalt, bör du segmentera större adressutrymme i undernät. Du kan använda [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) baserat undernät principer för att skapa dina undernät.
 
 Routning mellan undernät sker automatiskt och du behöver inte konfigurera routningstabeller manuellt. Standardinställningen är dock att det finns inga nätverk åtkomstkontroller mellan undernät som du skapar i Azure Virtual Network. För att skapa nätverk åtkomstkontroller mellan undernät, måste du placera något mellan undernäten.
 
@@ -82,7 +82,7 @@ Du kan lära dig mer om användardefinierade vägar och hur du konfigurerar dem 
 
 ## <a name="enable-forced-tunneling"></a>Aktivera Tvingad tunneltrafik
 För att bättre förstå Tvingad tunneling, är det bra att förstå vilka ”delade tunnlar”.
-De vanligaste exemplet med delade tunnlar visas med VPN-anslutningar. Anta att du upprättar en VPN-anslutning från hotellrummet till företagets nätverk. Den här anslutningen kan du ansluta till resurser på företagsnätverket och all kommunikation till resurser i företagsnätverket gå via VPN-tunnel.
+De vanligaste exemplet med delade tunnlar visas med VPN-anslutningar. Anta att du upprättar en VPN-anslutning från hotellrummet till företagets nätverk. Den här anslutningen kan du komma åt företagets resurser och all kommunikation till företagsnätverket gå via VPN-tunnel.
 
 Vad händer när du vill ansluta till resurser på Internet? När delade tunnlar aktiveras gå anslutningarna direkt till Internet och inte via VPN-tunnel. Vissa säkerhetsexperter Överväg att detta ska vara en möjlig risk och rekommenderar därför att delade tunnlar inaktiveras och alla anslutningar, de avsedda för Internet och de avsedda för företagsresurser, gå igenom VPN-tunnel. Fördelen med att göra detta är att tvingas sedan anslutningar till Internet via företagsnätverket säkerhetsenheter som skulle vara fallet om VPN-klienten är ansluten till Internet utanför VPN-tunnel.
 
@@ -144,10 +144,9 @@ Sekretess, integritet och tillgänglighet (CIA) utgör triad av dagens mest infl
 Tillgängligheten kan betraktas som om drifttid och prestanda. Om en tjänst är nere kan kan inte information nås. Om prestanda är så låg att göra data inte kan användas, kan vi anser att data inte är tillgänglig. Därför från ett säkerhetsperspektiv behöver vi göra allt vi kan kontrollera våra tjänster finns optimala drifttid och prestanda.
 En populär och effektiv metod som används för att förbättra tillgänglighet och prestanda är att använda belastningsutjämning. Belastningsutjämning är en metod för att distribuera nätverkstrafik på servrar som är en del av en tjänst. Till exempel om du har frontend-webbservrar som en del av din tjänst, kan du använda belastningsutjämning distribuerar trafik över din flera frontend-webbservrar.
 
-Den här distributionen av trafik ökar tillgängligheten eftersom om en av webbservrarna blir otillgänglig, belastningsutjämnaren stoppas skickar trafik till servern och omdirigera trafik till de servrar som är online. Belastningsutjämning hjälper också till prestanda eftersom processorn, nätverk och minne omkostnader för begäranden distribueras till alla belastningen belastningsutjämnade servrar.
+Den här distributionen av trafik ökar tillgängligheten eftersom om en av webbservrarna blir otillgänglig, belastningsutjämnaren slutar att skicka trafik till servern och omdirigerar till de servrar som är online. Belastningsutjämning hjälper också till prestanda eftersom processorn, nätverk och minne omkostnader för begäranden distribueras till alla belastningen belastningsutjämnade servrar.
 
-Vi rekommenderar att du använder att belastningsutjämning när du kan och som passar dina tjänster. Vi ska hantera lämpligheten i följande avsnitt.
-Azure tillhandahåller du med tre huvudsakliga läser in alternativ för belastningsutjämning på Azure Virtual Network-nivå:
+Vi rekommenderar att du använder att belastningsutjämning när du kan och som passar dina tjänster. Vi ska åtgärda lämpligheten i följande avsnitt: Azure på Azure Virtual Network-nivå, tillhandahåller du med tre huvudsakliga läsa in belastningsutjämning alternativ:
 
 * HTTP-baserade belastningsutjämning
 * Extern belastningsutjämning
@@ -162,7 +161,7 @@ Vi rekommenderar att du oss Azure Programgateway när:
 * Program som du vill frigöra server webbservergrupper från SSL-avslutning omkostnader genom att utnyttja Application Gateway [SSL-avlastning](https://f5.com/glossary/ssl-offloading) funktion.
 * Program, till exempel ett nätverk för innehållsleverans som kräver flera HTTP-förfrågningar på samma tidskrävande TCP-anslutningen dirigeras eller läsa in den belastningsutjämnade till olika backend-servrar.
 
-Mer information om hur Azure Application Gateway fungerar och hur du kan använda den i dina distributioner finns i artikel [Gateway Programöversikt](../application-gateway/application-gateway-introduction.md).
+Läs artikeln om du vill veta mer om hur Azure Application Gateway fungerar och hur du kan använda den i dina distributioner, [Gateway Programöversikt](../application-gateway/application-gateway-introduction.md).
 
 ## <a name="external-load-balancing"></a>Extern belastningsutjämning
 Extern belastningsutjämning sker när inkommande anslutningar från Internet belastningsutjämnas mellan servrarna finns i ett Azure Virtual Network. Den externa belastningsutjämnaren med Azure kan ge dig den här funktionen och vi rekommenderar att du använder den när du inte behöver Fäst sessioner eller SSL-avlastning.
@@ -176,7 +175,7 @@ Mer information om hur Azure externa belastningsutjämnaren fungerar och hur du 
 ## <a name="internal-load-balancing"></a>Intern belastningsutjämning
 Intern belastningsutjämning liknar extern belastningsutjämning och använder samma metod för att läsa in saldo anslutningar till servrar bakom dem. Den enda skillnaden är att belastningsutjämnaren i det här fallet godkänna anslutningar från virtuella datorer som inte är på Internet. I de flesta fall initieras de anslutningar som accepteras för belastningsutjämning av enheter i ett Azure Virtual Network.
 
-Vi rekommenderar att du använder intern belastningsutjämning för scenarier som drar nytta av den här funktionen, till exempel när du behöver läsa in saldo anslutningar till SQL-servrar eller interna servrar.
+Vi rekommenderar att du använder intern belastningsutjämning för scenarier som har nytta av den här funktionen, till exempel när du behöver läsa in saldo anslutningar till SQL-servrar eller interna servrar.
 
 Mer information om hur Azure intern belastningsutjämning fungerar och hur du kan distribuera finns i artikel [komma igång med en intern belastningsutjämnare använder PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
 

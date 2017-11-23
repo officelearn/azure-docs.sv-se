@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute (förhandsgranskning)
 
@@ -96,7 +96,7 @@ Om du redan använder Network Performance Monitor för att övervaka andra objek
 1. På den **nätverk prestanda Monitor-konfiguration – TCP installationssidan** för din resurs i den **installera OMS-agenter** klickar du på agenten som motsvarar serverns processor och ladda ned den installationsfilen.
 
   >[!NOTE]
-  >Linux-agenten stöds inte för närvarande för ExpressRoute övervakning.
+  >Agenten måste installeras på en Windows-Server (2008 SP1 eller senare). Övervakning av ExpressRoute-kretsar med hjälp av Windows Desktop OS- och Linux-operativsystem stöds inte. 
   >
   >
 2. Kopiera den **arbetsyte-ID** och **primärnyckel** till anteckningar.
@@ -105,6 +105,8 @@ Om du redan använder Network Performance Monitor för att övervaka andra objek
   ![PowerShell-skript](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: Installera en övervakningsagent på varje server som övervakning
+
+Vi rekommenderar att du installerar minst två agenter på varje sida av ExpressRoute-anslutning (d.v.s. lokalt, Azure Vnet) för redundans. Använd följande steg för att installera agenter:
 
 1. Kör **installationsprogrammet** att installera agenten på varje server som du vill använda för att övervaka ExpressRoute. Den server du använder för att övervaka kan antingen vara en virtuell dator eller lokalt och måste ha tillgång till Internet. Du måste installera minst en agent lokalt och en agent på varje nätverkssegment som du vill övervaka i Azure.
 2. På den **Välkommen** klickar du på **nästa**.

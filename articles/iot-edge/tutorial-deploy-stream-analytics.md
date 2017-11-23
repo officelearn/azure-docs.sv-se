@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 88dc0860b4455d19b05b4f4f1766210e3f3c704e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 0d19d1142cf15221f84692f7e613edd6b46b4083
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Distribuera Azure Stream Analytics som en gräns för IoT-modul - förhandsgranskning
 
@@ -68,10 +68,10 @@ I det här avsnittet skapar du ett Azure Stream Analytics-jobb för att arbeta m
 
 5. I Azure-portalen går du till **skapar du en resurs** > **Sakernas Internet** och välj **Stream Analytics-jobbet**.
 
-6. Ange ett namn, Välj **kant** som värd-miljön och använda de återstående standardvärdena.  Klicka på **Skapa**.
+2. Ange ett namn, Välj **kant** som värd-miljön och använda de återstående standardvärdena.  Klicka på **Skapa**.
 
     >[!NOTE]
-    >Det finns för närvarande ett begränsat antal regioner som stöder ASA jobb på IoT kant. Välj något av följande som: centrala USA, västra centrala USA, norra centrala USA, östra USA, Kanada Öst östra Japan, östra Asien, Nordeuropa, Storbritannien Syd, östra, södra. 
+    >För närvarande stöds ASA jobb på IoT Edge inte i oss West-2-region. Välj en annan plats.
 
     ![Skapa ASA][5]
 

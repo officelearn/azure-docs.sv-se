@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Hantera kostnader med hjälp av Azure kostnaden Management
 
@@ -80,6 +80,23 @@ Följande bild visar ett exempel på regler som har skapats för en ny kategori 
 
 ![Exempel kategori](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>Taggen källor och rapporter
+
+Taggdata som visas i Cloudyn rapporter har sitt ursprung på tre platser:
+
+- Providern molnresurser API: er
+- Molntjänstleverantör för fakturering API: er
+- Manuellt skapade taggar från följande källor:
+    - Cloudyn entitetstaggar - användardefinierade metadata som tillämpas på Cloudyn entiteter
+    - Kategori Manager - data Rensa verktyg som skapar nya etiketter baserat på regler som tillämpas på befintliga taggar
+
+Om du vill visa molnet providern taggar i Cloudyn kostnadsrapporter måste du skapa en anpassad kostnad allokering modell med kostnaden allokering 360. Gör du genom att gå till **kostnaden** > **kostnaden Management** > **kostnaden allokering 360**, Välj önskade taggar och definiera regler för hantering av ej taggade kostnader. Skapa sedan en ny modell för kostnad. Du kan därefter kan visa rapporter i kostnaden allokering analys att visa, filtrera och sortera på Azure-resurs-taggar.
+
+Azure-resurstaggar visas endast i **kostnaden allokering Analysis** rapporter.
+
+Molnet providern fakturering taggar visas i alla kostnadsrapporter.
+
+Cloudyn entitetstaggar och taggar som du skapar manuellt visas i alla kostnadsrapporter.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>Skapa showback och återbetalningsrapporter

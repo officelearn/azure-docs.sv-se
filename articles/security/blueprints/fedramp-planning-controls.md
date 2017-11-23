@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 34d04fdc5e509aea22c96d04063e4845408ce92b
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8e4d4f228940d08bc522aabcd6f4ab573ff231d4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="planning-pl"></a>Planera (PL)
+
 > [!NOTE]
 > De här kontrollerna definieras av NIST och USA Handelsdepartementet som en del av NIST Special Publication 800-53 version 4. Läs NIST 800 53 Rev. 4 för information om hur du testar procedurer och riktlinjer för varje kontroll.
-    
-    
-
-# <a name="planning-pl"></a>Planera (PL)
 
 ## <a name="nist-800-53-control-pl-1"></a>NIST 800 53 kontrollen PL-1
 

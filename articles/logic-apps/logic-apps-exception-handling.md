@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -26,38 +26,74 @@ Med Azure Logikappar innehåller omfattande verktyg och mönster som hjälper di
 
 ## <a name="retry-policies"></a>Försök principer
 
-En återförsöksprincip är den mest grundläggande typ av undantag och felhantering. Om en inledande begäran misslyckades eller orsakade timeout (alla förfrågningar som resulterar i en 429 eller 5xx-svar), den här principen definierar om åtgärden bör försöka. Som standard gör alla åtgärder 4 ytterligare gånger över 20 sekunders intervall. Om den första begäranden tar emot en `500 Internal Server Error` svar, arbetsflödesmotorn pausar i 20 sekunder och försöker begäran igen. Om efter alla försök det fortfarande är undantag eller fel, arbetsflödet fortsätter och markerar Åtgärdsstatus som `Failed`.
+En återförsöksprincip är den mest grundläggande typ av undantag och felhantering. Om en inledande begäran misslyckades eller orsakade timeout (alla förfrågningar som resulterar i en 429 eller 5xx-svar), den här principen definierar om och hur åtgärden ska försöka igen. Det finns tre typer av principer för återförsök `exponential`, `fixed`, och `none`. Om en återförsöksprincip som har angetts i arbetsflödesdefinitionen, används standardprincipen. Du kan konfigurera principer för försök i den **indata** för en särskild funktion eller utlösare om det är återförsökbart. På samma sätt i försöket Logic App Designer principer kan konfigureras (om tillämpligt) under den **inställningar** för ett visst block.
 
-Du kan konfigurera principer för försök i den **indata** för en viss åtgärd. Du kan till exempel konfigurera en återförsöksprincip för upp till 4 gånger över 1 timme intervall. Fullständig information om indataparametrar finns [arbetsflödesåtgärder och utlösare][retryPolicyMSDN].
+Mer information om begränsningar för återförsök principer finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md) och mer information om syntax som stöds finns i [återförsöksprincip avsnittet i arbetsflödesåtgärder och utlösare][retryPolicyMSDN].
+
+### <a name="exponential-interval"></a>Exponentiell intervall
+Den `exponential` principtypen försöker en misslyckad begäran efter ett slumpmässigt tidsintervall från ett exponentiellt växande intervall. Varje nytt försök garanterat skickas med slumpmässiga intervall som är större än **minimumInterval** och mindre än **maximumInterval**. En enhetlig slumpmässiga variabel i den under intervallet kommer att genereras för varje försök till och med **antal**:
+<table>
+<tr><th> Slumpmässiga variabeln intervall </th></tr>
+<tr><td>
+
+| Antal försök | Minsta intervall | Maximalt intervall |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max (0, **minimumInterval**) | Min (intervall, **maximumInterval**) |
+| 2 | Max (intervall, **minimumInterval**) | Min (2 * intervall, **maximumInterval**) |
+| 3 | Max (2 * intervall, **minimumInterval**) | Min (4 * intervall, **maximumInterval**) |
+| 4 | Max (4 * intervall, **minimumInterval**) | Min (8 * intervall, **maximumInterval**) |
+| ... |
+
+</td></tr></table>
+
+För `exponential` skriver principer, **antal** och **intervall** krävs när **minimumInterval** och **maximumInterval** kan vara Du kan också ange om du vill åsidosätta standardvärden för PT5S och PT1D respektive.
+
+| Elementnamn | Krävs | Typ | Beskrivning |
+| ------------ | -------- | ---- | ----------- |
+| typ | Ja | Sträng | `exponential` |
+| antal | Ja | Integer | antal omförsök, måste vara mellan 1 och 90  |
+| interval | Ja | Sträng | återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), måste vara mellan PT5S och PT1D |
+| minimumInterval | Nej| Sträng | minsta återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), måste vara mellan PT5S och **intervall** |
+| maximumInterval | Nej| Sträng | minsta återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), måste vara mellan **intervall** och PT1D |
+
+### <a name="fixed-interval"></a>Fasta intervaller
+
+Den `fixed` principtypen försöker en misslyckad begäran genom att vänta med det angivna tidsintervall innan du skickar nästa begäran.
+
+| Elementnamn | Krävs | Typ | Beskrivning |
+| ------------ | -------- | ---- | ----------- |
+| typ | Ja | Sträng | `fixed`|
+| antal | Ja | Integer | antal omförsök, måste vara mellan 1 och 90 |
+| interval | Ja | Sträng | återförsöksintervall i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), måste vara mellan PT5S och PT1D |
+
+### <a name="none"></a>Ingen
+Den `none` principtypen försöker inte återställa en misslyckad begäran.
+
+| Elementnamn | Krävs | Typ | Beskrivning |
+| ------------ | -------- | ---- | ----------- |
+| typ | Ja | Sträng | `none`|
+
+### <a name="default"></a>Standard
+Om ingen återförsöksprincip har angetts används standardprincipen. Standardprincipen är en princip för exponentiell intervall som sedan skickar upp till 4 återförsök exponentiellt öka intervall skalas 7.5 sekunder och begränsat till mellan 5 och 45 sekunder. Den här standardprincipen (används när **retryPolicy** är odefinierat) motsvarar principen i det här exemplet HTTP arbetsflödesdefinitionen:
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-Om du vill att HTTP-åtgärd försök 4 gånger och vänta i 10 minuter mellan varje försök, använder du följande definition:
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-Mer information om syntax som stöds finns i [återförsöksprincip avsnittet i arbetsflödesåtgärder och utlösare][retryPolicyMSDN].
 
 ## <a name="catch-failures-with-the-runafter-property"></a>Catch-fel med egenskapen RunAfter
 

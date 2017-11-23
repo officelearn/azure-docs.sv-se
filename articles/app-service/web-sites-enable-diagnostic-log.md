@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för web apps i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -34,9 +34,9 @@ App Service web apps ange diagnostikfunktion för att logga information från b�
 ### <a name="web-server-diagnostics"></a>Web serverdiagnostik
 Du kan aktivera eller inaktivera följande typer av loggar:
 
-* **Detaljerad felloggning** -information om felet för HTTP-statuskoder som indikerar att en (statuskod 400 eller högre). Detta kan innehålla information som kan hjälpa dig att avgöra varför servern returnerade felkoden.
-* **Kunde inte begäran spårning** -detaljerad information om misslyckade förfrågningar, inklusive en spårning av IIS-komponenter som används för att bearbeta begäran och tidsåtgång i varje komponent. Detta kan vara användbart om du försöker öka prestanda för webbplatsen eller isolera vad som orsakar ett specifikt HTTP-fel som ska returneras.
-* **Web Server-loggning** -Information om HTTP-transaktioner med hjälp av den [W3C utökat loggfilsformat](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Detta är användbart när du fastställer övergripande plats mätvärden, till exempel antalet förfrågningar som hanteras eller hur många förfrågningar som kommer från en specifik IP-adress.
+* **Detaljerad felloggning** -information om felet för HTTP-statuskoder som indikerar att en (statuskod 400 eller högre). Den kan innehålla information som kan hjälpa dig att avgöra varför servern returnerade felkoden.
+* **Kunde inte begäran spårning** -detaljerad information om misslyckade förfrågningar, inklusive en spårning av IIS-komponenter som används för att bearbeta begäran och tidsåtgång i varje komponent. Det är användbart om du försöker öka prestanda för webbplatsen eller isolera vad som orsakar ett specifikt HTTP-fel som ska returneras.
+* **Web Server-loggning** -Information om HTTP-transaktioner med hjälp av den [W3C utökat loggfilsformat](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Det är användbart när du fastställer övergripande plats mätvärden, till exempel antalet förfrågningar som hanteras eller hur många förfrågningar som kommer från en specifik IP-adress.
 
 ### <a name="application-diagnostics"></a>Programdiagnostik
 Programdiagnostik kan du samla in information som produceras av ett webbprogram. ASP.NET-program kan använda den [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) klassen för att logga information till diagnostik programloggen. Exempel:
@@ -45,7 +45,7 @@ Programdiagnostik kan du samla in information som produceras av ett webbprogram.
 
 Vid körning kan hämta du dessa loggar för felsökning. Mer information finns i [felsöka Azure web apps i Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-App Service web apps även logga information om distribution när du publicerar innehåll till en webbapp. Detta sker automatiskt och det finns inga konfigurationsinställningar för loggning för distribution. Loggning för distribution kan du avgöra varför en distribution misslyckades. Till exempel om du använder ett anpassat distributionsskriptet, kan du använda deployment loggning för att avgöra varför skriptet inte.
+App Service web apps även logga information om distribution när du publicerar innehåll till en webbapp. Det sker automatiskt och det finns inga konfigurationsinställningar för loggning för distribution. Loggning för distribution kan du avgöra varför en distribution misslyckades. Till exempel om du använder ett anpassat distributionsskriptet, kan du använda deployment loggning för att avgöra varför skriptet inte.
 
 ## <a name="enablediag"></a>Så här aktiverar du diagnostik
 Aktivera diagnostik i den [Azure-portalen](https://portal.azure.com), gå till sidan för webbappen och klickar på **Inställningar > diagnostik loggar**.
@@ -53,21 +53,20 @@ Aktivera diagnostik i den [Azure-portalen](https://portal.azure.com), gå till s
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![En del loggar](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-När du aktiverar **programdiagnostik**, du också välja den **nivå**. Den här inställningen kan du filtrera den information som har hämtats till **informationsmeddelande**, **varning**, eller **fel** information. Att **utförlig** loggar all information som genereras av programmet.
+När du aktiverar **programdiagnostik**, du också välja den **nivå**. Den här inställningen kan du filtrera den information som har hämtats till **informationsmeddelande**, **varning**, eller **fel** information. Ange värdet till **utförlig** loggar all information som genereras av programmet.
 
 > [!NOTE]
 > Till skillnad från ändrar web.config-filen, återanvändning aktiverar programdiagnostik eller ändrar diagnostiska loggningsnivåer tillämpningsdomän som programmet körs inom.
 >
 >
 
-I den [klassiska portalen](https://manage.windowsazure.com) webbapp **konfigurera** fliken kan du välja **lagring** eller **filsystem** för **web server-loggning**. Att välja **lagring** kan du välja ett lagringskonto och en blob-behållare som loggarna skrivs till. Alla loggar för **plats diagnostik** skrivs till endast filsystemet.
+För **programloggning**, du kan aktivera alternativet filen system tillfälligt för felsökning. Det här alternativet inaktiverar automatiskt i 12 timmar. Du kan också aktivera alternativet blob storage och välj en blogg behållare att skriva loggfiler.
 
-Den [klassiska portalen](https://manage.windowsazure.com) webbapp **konfigurera** fliken finns också ytterligare inställningar för application diagnostics:
+För **Web server-loggning**, kan du välja **lagring** eller **filsystem**. Att välja **lagring** kan du välja ett lagringskonto och en blob-behållare som loggarna skrivs till. 
 
-* **Filsystem** -lagrar diagnostik programinformationen till filsystemet web app. Dessa filer kan nås av FTP eller hämtas som en Zip-arkiv med hjälp av Azure PowerShell eller Azure-kommandoradsgränssnittet (Azure CLI).
-* **Table storage** -lagrar diagnostik programinformationen i det angivna namnet för Azure Storage-konto och tabell.
-* **BLOB storage** -programmet diagnostikinformation lagras i den angivna Azure Storage-konto och blob-behållaren.
-* **Kvarhållningsperioden** -som standard loggar tas inte bort automatiskt från **blob storage**. Välj **ange kvarhållning** och ange antalet dagar att behålla loggarna om du vill ta bort loggar automatiskt.
+Om du sparar loggar i filsystemet, kan filerna som nås av FTP, eller hämtas som en Zip-arkiv med hjälp av Azure PowerShell eller Azure-kommandoradsgränssnittet (Azure CLI).
+
+Som standard loggar tas inte bort automatiskt (med undantag av **programloggning (filsystem)**). Ta bort loggar automatiskt, ange den **kvarhållningsperiod (dagar)** fältet.
 
 > [!NOTE]
 > Om du [återskapa åtkomstnycklar för ditt lagringskonto](../storage/common/storage-create-storage-account.md), måste du återställa respektive loggningsinställningarna för att använda de uppdaterade nycklarna. Gör så här:
@@ -101,12 +100,10 @@ Katalogstrukturen som lagrats i loggarna är som följer:
 * **Distributionsloggar** -loggfilerna/Git. Den här mappen innehåller loggar som genereras av de interna distributionsprocesser som används av Azure-webbappar samt loggar för Git-distributioner.
 
 ### <a name="ftp"></a>FTP
-För att komma åt diagnostisk information som med FTP, finns det **instrumentpanelen** av ditt webbprogram i den [klassiska portalen](https://manage.windowsazure.com). I den **snabböversikten** Använd den **FTP diagnostikloggar** länken för att komma åt filerna med hjälp av FTP. Den **distribution/FTP-användare** post visar det användarnamn som ska användas för åtkomst till FTP-platsen.
 
-> [!NOTE]
-> Om den **distribution/FTP-användare** transaktionen inte har angetts eller du har glömt lösenordet för den här användaren kan du skapa en ny användare och lösenord med hjälp av den **återställa distributionsbehörigheterna** länken i den **snabböversikten** avsnitt i den **instrumentpanelen**.
->
->
+Om du vill öppna en FTP-anslutning till FTP-server för din app Se [distribuera din app till Azure App Service med FTP/S](app-service-deploy-ftp.md).
+
+När du är ansluten till ditt webbprogram FTP/S-servern, öppna den **loggfiler** mappen, där filerna lagras.
 
 ### <a name="download-with-azure-powershell"></a>Hämta med Azure PowerShell
 Starta en ny instans av Azure PowerShell för att hämta filerna, och använder du följande kommando:
@@ -145,7 +142,7 @@ Programinsikter för Visual Studio innehåller verktyg för att filtrera och sö
 [Mer information om prestanda spårning med Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a>Så här: strömma loggar
-När du utvecklar ett program, är det ofta praktiskt att visa loggningsinformation i nära realtid. Detta kan åstadkommas genom att logga information i din utvecklingsmiljö med hjälp av Azure PowerShell eller Azure-kommandoradsgränssnittet för strömning.
+När du utvecklar ett program, är det ofta praktiskt att visa loggningsinformation i nära realtid. Du kan strömma loggningsinformation till din utvecklingsmiljö med hjälp av Azure PowerShell eller Azure-kommandoradsgränssnittet.
 
 > [!NOTE]
 > Vissa typer av loggning buffert skriva till loggfilen, vilket kan leda till oordnade händelser i dataströmmen. Exempelvis kan en loggpost för program som uppstår när en användare besöker en sida visas i dataströmmen innan motsvarande HTTP-loggpost för begäran.
@@ -207,7 +204,7 @@ Varje rad inloggade filsystemet eller tas emot med streaming är i följande for
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-Till exempel visas en felhändelse liknar följande:
+Till exempel skulle en felhändelse liknar följande exempel:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
@@ -221,10 +218,10 @@ När de loggar till tabellagring används ytterligare egenskaper som för att un
 | --- | --- |
 | PartitionKey |Datum/tid för händelse i yyyyMMddHH format |
 | RowKey |Ett GUID-värde som unikt identifierar den här entiteten |
-| tidsstämpel |Datum och tid då händelsen inträffade |
+| Tidsstämpel |Datum och tid då händelsen inträffade |
 | EventTickCount |Datum och tid då händelsen inträffade i Tick-format (större precision) |
 | ApplicationName |Webbprogramnamnet |
-| Nivå |Händelsenivå (t.ex. fel, varning, information) |
+| Nivå |Händelsenivå (till exempel fel, varning, information) |
 | Händelse-ID |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
 | InstanceId |Instans av webbappen som den även inträffade |
 | Process-ID |Process-ID |
@@ -238,7 +235,7 @@ När loggning för att blob storage, lagras data i fil med kommaavgränsade vär
 | Egenskapsnamn | Value-format |
 | --- | --- |
 | Date |Datum och tid då händelsen inträffade |
-| Nivå |Händelsenivå (t.ex. fel, varning, information) |
+| Nivå |Händelsenivå (till exempel fel, varning, information) |
 | ApplicationName |Webbprogramnamnet |
 | InstanceId |Instans av webbappen som händelsen inträffade |
 | EventTickCount |Datum och tid då händelsen inträffade i Tick-format (större precision) |
@@ -247,7 +244,7 @@ När loggning för att blob storage, lagras data i fil med kommaavgränsade vär
 | tid |Tråd-ID för tråden som skapades av händelsen |
 | Meddelande |Detaljerat meddelande |
 
-Data som lagras i en blob skulle se ut ungefär så här:
+Data som lagras i en blob som ser ut som följande exempel:
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -258,14 +255,14 @@ Data som lagras i en blob skulle se ut ungefär så här:
 >
 
 ### <a name="failed-request-traces"></a>Det gick inte begäranden
-Misslyckade begäranden lagras i XML-filer med namnet **fr ### .xml**. För att göra det enklare att visa information om loggade XSL-formatmallar med namnet **freb.xsl** finns i samma katalog som XML-filerna. Om du öppnar en XML-filerna i Internet Explorer använder Internet Explorer XSL-formatmallar för att ge en formaterad visningen av spårningsinformationen. Det ser ut som följande:
+Misslyckade begäranden lagras i XML-filer med namnet **fr ### .xml**. För att göra det enklare att visa information om loggade XSL-formatmallar med namnet **freb.xsl** finns i samma katalog som XML-filerna. Om du öppnar en XML-filerna i Internet Explorer använder Internet Explorer XSL-formatmallar för att tillhandahålla en formaterad visningen av spårningsinformation liknar följande exempel:
 
 ![misslyckade begäranden som visas i webbläsaren](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 ### <a name="detailed-error-logs"></a>Detaljerade felloggar
 Detaljerade felloggar är HTML-dokument som innehåller mer detaljerad information om HTTP-fel som har inträffat. Eftersom de bara HTML-dokument, kan de visas i en webbläsare.
 
-### <a name="web-server-logs"></a>Webbserverloggarna
+### <a name="web-server-logs"></a>Webbserverloggar
 Web server-loggar har formaterats med den [W3C utökat loggfilsformat](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Den här informationen kan läsas med hjälp av en textredigerare eller parsas med verktyg, till exempel [Loggparser](http://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]

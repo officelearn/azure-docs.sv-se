@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 059576e28b0b74700b5e4fbad06e74606c893af7
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="system-and-communications-protection-sc"></a>System och kommunikation skydd (SC)
+
 > [!NOTE]
 > De här kontrollerna definieras av NIST och USA Handelsdepartementet som en del av NIST Special Publication 800-53 version 4. Läs NIST 800 53 Rev. 4 för information om hur du testar procedurer och riktlinjer för varje kontroll.
-    
-    
-
-# <a name="system-and-communications-protection-sc"></a>System och kommunikation skydd (SC)
 
 ## <a name="nist-800-53-control-sc-1"></a>NIST 800 53 kontrollen SC-1
 

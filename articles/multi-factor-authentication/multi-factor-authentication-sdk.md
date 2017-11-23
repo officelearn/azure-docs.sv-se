@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9be948a7328b0f535d8683e6cdc695a01654a94
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Skapa Multifaktorautentisering i anpassade appar (SDK)
+
+> [!IMPORTANT]
+> Utfasningen av Azure Multi-Factor Authentication Software Development Kit (SDK) har har meddelats. Den här funktionen kommer inte längre stöd för nya kunder. Kunderna kan fortsätta använda SDK tills 14 November 2018. Anrop till SDK misslyckas när som helst. 
 
 Azure Multi-Factor Authentication Software Development Kit (SDK) kan du skapa tvåstegsverifiering direkt i inloggning eller transaktionen processer för program i Azure AD-klienten.
 
@@ -35,30 +38,7 @@ Eftersom API: erna inte har åtkomst till användare som har registrerats i Azur
 
 
 ## <a name="download-the-sdk"></a>Ladda ned SDK
-Hämta SDK för Azure Multi-Factor kräver en [Azure leverantör av Multifaktorautent](multi-factor-authentication-get-started-auth-provider.md).  Detta kräver en fullständig Azure-prenumeration, även om Azure MFA, Azure AD Premium eller Enterprise Mobility Suite licenser äger.  Navigera till Multi-Factor-hanteringsportalen om du vill ladda ned SDK. Du kan komma åt portalen genom att hantera den leverantör av Multifaktorautent direkt eller genom att klicka på den **”gå till portalen”** länk på inställningssidan för MFA-tjänsten.
-
-### <a name="download-from-the-azure-classic-portal"></a>Ladda ned från den klassiska Azure-portalen
-1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
-2. Välj **Active Directory** till vänster.
-3. På sidan Active Directory på den översta väljer **Flerfunktionsautentiseringsleverantörer**
-4. Markera längst **hantera**. En ny sida öppnas.
-5. Klicka på vänster längst ned, **SDK**.
-   <center>![Ladda ned](./media/multi-factor-authentication-sdk/download.png)</center>
-6. Välj önskat språk och klicka på en de associera länkarna.
-7. Spara den nedladdade filen.
-
-### <a name="download-from-the-service-settings"></a>Ladda ned från tjänstinställningar
-1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com) som administratör.
-2. Välj **Active Directory** till vänster.
-3. Dubbelklicka på din instans av Azure AD.
-4. Klicka på **Konfigurera** längst upp.
-5. Välj under multifaktorautentisering, **hantera tjänstinställningar**
-   ![hämta](./media/multi-factor-authentication-sdk/download2.png)
-6. På sidan för tjänstinställningar klickar du på **Gå till portalen** längst ned på sidan. En ny sida öppnas.
-   ![Ladda ned](./media/multi-factor-authentication-sdk/download3a.png)
-7. Klicka på vänster längst ned, **SDK**.
-8. Välj önskat språk och klicka på en de associera länkarna.
-9. Spara den nedladdade filen.
+Hämta SDK för Azure Multi-Factor kräver en [Azure leverantör av Multifaktorautent](multi-factor-authentication-get-started-auth-provider.md).  Detta kräver en fullständig Azure-prenumeration, även om Azure MFA, Azure AD Premium eller Enterprise Mobility Suite licenser äger. De offentliga metoderna för att hämta SDK har decomissioned eftersom SDK är föråldrad. Du måste öppna ett supportärende med Microsoft om du behöver hämta SDK.
 
 ## <a name="whats-in-the-sdk"></a>Vad är i SDK
 SDK innehåller följande:

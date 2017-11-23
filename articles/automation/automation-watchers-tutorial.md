@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/15/2017
 ms.author: eamono
-ms.openlocfilehash: 7cd6bebcaa1ed263b9854f7307cf22fba006748e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0ddd31f7ce2217c1136eccd391bb30bd4461c3e5
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-watcher-tasks-enable-you-to-respond-to-events-happening-in-your-local-datacenter"></a>Azure Automation watcher uppgifter gör det möjligt för dig att svara på händelser som händer i ditt lokala datacenter
 
@@ -64,7 +64,7 @@ Den här kursen krävs följande.
 ## <a name="create-a-watcher-task-that-selects-the-watcher-runbook-and-action-runbook"></a>Skapa en watcher uppgift som väljer watcher runbook och åtgärden runbook
 1.  Öppna sidan Watcher aktiviteter och klicka på ”Lägg till en aktivitet watcher”.
 ![Watcher listan från Gränssnittet](media/automation-watchers-tutorial/WatchersList.png)
-2.  Ange ”titta på nya filer” som namn.
+2.  Ange ”WatchMyFolder” som namn.
 3.  Välj ”Konfigurera watcher” och ”titta på NewFile” runbook.
 ![Konfigurera watcher från Gränssnittet](media/automation-watchers-tutorial/ConfigureWatcher.png)
 4.  Ange följande värden för parametrar:
@@ -86,7 +86,7 @@ Den här kursen krävs följande.
 2.  Lägg till en ny textfil till den mapp som övervakas av aktiviteten watcher.
 
 ## <a name="inspect-the-output-from-the-action-runbook-that-shows-information-on-the-new-file"></a>Inspektera resultatet från åtgärden runbook som visar information om den nya filen
-1.  Klicka på aktiviteten watcher för ”titta på nya filer”
+1.  Klicka på aktiviteten watcher för ”WatchMyFolder”
 2.  Klicka på ”Visa watcher strömmar” att se att watcher hitta den nya filen och startade åtgärden runbook.
 3.  Klicka på ”Visa watcher åtgärdsjobb” att åtgärden runbook-jobbet.
 ![Watcher åtgärdsjobb från Gränssnittet](media/automation-watchers-tutorial/WatcherActionJobs.png)

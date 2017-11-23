@@ -1,5 +1,5 @@
 ---
-title: "Hur du lägger till en Händelsehubb händelsekälla Azure tid serien Insights miljön | Microsoft Docs"
+title: "Hur du lägger till en Händelsehubb händelsekälla Azure tid serien Insights | Microsoft Docs"
 description: "Den här artikeln beskriver hur du lägger till en källa som är ansluten till en Händelsehubb i miljön tid serien insikter."
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: f3a9a1c7e57383925877f674a2e02f931e5c1e3c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Hur du lägger till en Händelsehubb händelsekälla tid serien insikter miljö
 
@@ -61,7 +61,7 @@ Den här artikeln beskriver hur du använder Azure-portalen för att lägga till
    | Event hub principnyckel | Värdet för nyckeln kan fyllas i.
    | Event hub konsumentgrupp | Konsumentgrupp att läsa händelser från Event Hub. Vi rekommenderar starkt att använda en dedikerad konsumentgrupp för din händelsekälla. |
    | Händelsen serialiseringsformat | JSON är för närvarande endast tillgängligt serialisering. Meddelanden om händelser måste vara i formatet eller inga data kan läsas. |
-   | Tidsstämpel egenskapsnamn | För att fastställa detta värde, måste du förstå meddelandeformat för meddelandedata som skickas till Händelsehubben. Det här värdet är den **namn** för egenskapen specifika händelser i meddelandedata som du vill använda som tidsstämpel för händelse. Värdet är skiftlägeskänsligt. När värdet är tomt används den **sätta händelsetid** i händelsen källa används som tidsstämpel för händelse. |
+   | Egenskapsnamn för tidsstämpel | För att fastställa detta värde, måste du förstå meddelandeformat för meddelandedata som skickas till Händelsehubben. Det här värdet är den **namn** för egenskapen specifika händelser i meddelandedata som du vill använda som tidsstämpel för händelse. Värdet är skiftlägeskänsligt. När värdet är tomt används den **sätta händelsetid** i händelsen källa används som tidsstämpel för händelse. |
 
 
 9. Om du har valt den **ange Event Hub-inställningar manuellt** alternativet i följande tabell beskrivs varje obligatorisk egenskap:
@@ -76,7 +76,7 @@ Den här artikeln beskriver hur du använder Azure-portalen för att lägga till
    | Event hub principnyckel | Den delade åtkomstnyckeln som används för att autentisera åtkomst till Service Bus-namnrymd. Ange de primära och sekundära nycklarna här.
    | Event hub konsumentgrupp | Konsumentgrupp att läsa händelser från Event Hub. Vi rekommenderar starkt att använda en dedikerad konsumentgrupp för din händelsekälla.
    | Händelsen serialiseringsformat | JSON är för närvarande endast tillgängligt serialisering. Meddelanden om händelser måste vara i formatet eller inga data kan läsas. |
-   | Tidsstämpel egenskapsnamn | För att fastställa detta värde, måste du förstå meddelandeformat för meddelandedata som skickas till Händelsehubben. Det här värdet är den **namn** för egenskapen specifika händelser i meddelandedata som du vill använda som tidsstämpel för händelse. Värdet är skiftlägeskänsligt. När värdet är tomt används den **sätta händelsetid** i händelsen källa används som tidsstämpel för händelse. |
+   | Egenskapsnamn för tidsstämpel | För att fastställa detta värde, måste du förstå meddelandeformat för meddelandedata som skickas till Händelsehubben. Det här värdet är den **namn** för egenskapen specifika händelser i meddelandedata som du vill använda som tidsstämpel för händelse. Värdet är skiftlägeskänsligt. När värdet är tomt används den **sätta händelsetid** i händelsen källa används som tidsstämpel för händelse. |
 
 
 10. Välj **skapa** att lägga till ny händelsekälla.

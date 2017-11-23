@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 845e2b165fe01a0a3a2193165eb7ab73a06b9ff5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9e9e473285f4e82e1da40b8c3d496d65733fbd45
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="physical-and-environmental-protection-pe"></a>Fysisk och miljösäkerhet skydd (PE)
+
 > [!NOTE]
 > De här kontrollerna definieras av NIST och USA Handelsdepartementet som en del av NIST Special Publication 800-53 version 4. Läs NIST 800 53 Rev. 4 för information om hur du testar procedurer och riktlinjer för varje kontroll.
-    
-    
-
-# <a name="physical-and-environmental-protection-pe"></a>Fysisk och miljösäkerhet skydd (PE)
 
 ## <a name="nist-800-53-control-pe-1"></a>NIST 800 53 kontrollen PE-1
 

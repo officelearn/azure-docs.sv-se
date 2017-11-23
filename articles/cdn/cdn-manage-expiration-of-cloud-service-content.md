@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 87d65479960cd6b5977fd7ac31cbb71afc0959e2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Hantera förfallotiden för webbinnehåll i Azure innehåll Delivery Network
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/16/2017
 Filer från en offentligt tillgänglig ursprung webbserver kan cachelagras i Azure Content Delivery Network (CDN) tills deras time to live (TTL) går ut. TTL-värdet bestäms av den `Cache-Control` rubriken i HTTP-svaret från den ursprungliga servern. Den här artikeln beskriver hur du ställer in `Cache-Control` huvuden för funktionen Web Apps i Microsoft Azure App Service, Azure Cloud Services, ASP.NET-program och platser för Internet Information Services (IIS), som är konfigurerade på samma sätt. Du kan ange den `Cache-Control` rubrik genom att använda konfigurationsfiler eller programmässigt.
 
 > [!TIP]
-> Du kan välja att ange inga TTL-värde för en fil. I det här fallet gäller Azure CDN automatiskt en standard-TTL sju dagar.
+> Du kan välja att ange inga TTL-värde för en fil. I det här fallet gäller Azure CDN automatiskt en standard-TTL sju dagar. Den här standardinställningen TTL-värde gäller enbart för Internet leverans optimeringar. Standard-TTL är en dag för stora filer optimeringar och för direktuppspelning av optimeringar, standard TTL-värde är ett år.
 > 
 > Mer information om hur Azure CDN fungerar för att påskynda åtkomst till filer och andra resurser finns [översikt över Azure innehållsleveransnätverk](cdn-overview.md).
 > 

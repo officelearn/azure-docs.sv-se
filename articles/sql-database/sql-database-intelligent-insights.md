@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 86011610885ff913bfd70aa46389e4e39989d0a3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
@@ -49,8 +49,6 @@ När ett problem med prestanda försämras identifieras från flera observerade 
 
 Mått som används för att mäta och identifiera problem med databasprestanda baseras på frågan varaktighet, timeout-begäranden, långa väntetiden och felaktiga begäranden. Mer information om mått finns i [identifiering mått](sql-database-intelligent-insights.md#detection-metrics) i det här dokumentet.
 
-## <a name="degradations-detected"></a>Degradations upptäcktes
-
 Identifiera SQL-databas prestandaförsämringar registreras i loggen diagnostik med intelligent poster som består av följande egenskaper:
 
 | Egenskap             | Information              |
@@ -64,36 +62,49 @@ Identifiera SQL-databas prestandaförsämringar registreras i loggen diagnostik 
 | Rotorsaksanalys | Rotorsak analys av problem som identifieras i ett läsbart format. Vissa insikter kan innehålla en rekommendation för förbättring av prestanda när det är möjligt. |
 |||
 
-## <a name="issues-state-lifecycle-active-verifying-and-complete"></a>Problem tillstånd livscykel: ”aktiv”, ”verifiera” och ”Slutför”
-
 Prestandaproblem som har registrerats i loggen diagnostik är flaggade med något av tre tillstånd i livscykeln för ett problem: ”aktiv”, ”verifiera” och ”Slutför”. När en prestanda problem upptäcks och länge den har bedömer som finns med SQL-databas inbyggd intelligens problemet har flaggats som ”aktiv”. När problemet anses minskas, kontrolleras och problemet statusen ändras till ”verifiera”. När SQL-databas inbyggd intelligens anser problemet löst, har problemet status flaggats som ”Slutför”.
 
 ## <a name="use-intelligent-insights"></a>Använd Intelligent insikter
 
-Du kan skicka loggen Intelligent insikter diagnostik till Azure Log Analytics, Azure Event Hubs och Azure Storage. Mer information finns i [Azure SQL Database mått och diagnostikloggning](sql-database-metrics-diag-logging.md). När du har skickat loggen till någon av dessa mål kan loggen användas för anpassade aviseringar och övervaka utveckling med hjälp av Microsoft eller verktyg från tredje part. 
+Intelligent Insights är en smart prestanda diagnostik logg. Kan integreras med andra produkter för användning och sådana specifika program är Azure Log Analytics, Azure Event Hubs och Azure storage eller tredje parts produkter. 
 
-Mer information om SQL-databasens prestanda felsökning med hjälp av Intelligent insikter finns [felsöka Azure SQL Database prestandaproblem med Intelligent insikter](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent insikter tillsammans med Azure logganalys används vanligtvis för att visa insikter via en webbläsare och kanske en av de enklaste sätten att få ut med produkten. Intelligent insikter tillsammans med Azure Event Hubs används vanligtvis för att konfigurera anpassade övervakning och avisering scenarier. Intelligent insikter tillsammans med Azure storage används vanligtvis för utveckling av anpassade program, exempelvis är till exempel anpassade rapporter, eller kanske dataarkivering och hämtning.
 
-## <a name="built-in-intelligent-insights-analytics-with-log-analytics"></a>Den inbyggda Intelligent insikter analytics med logganalys 
+Integrering av Intelligent insikter med andra produkter Azure logganalys Azure Event Hub, Azure storage eller produkter från tredje part för förbrukning utförs via första aktiverar Intelligent insikter loggning (SQLInsights loggning) och sedan konfigurera Intelligent insikter logga data strömmas till någon av dessa produkter. Mer information om hur du aktiverar loggning för Intelligent insikter och för att konfigurera loggdata strömmas till en lång produkt finns [Azure SQL Database mått och diagnostikloggning](sql-database-metrics-diag-logging.md). 
 
-En lösning för Log Analytics tillhandahåller rapporter och aviseringar funktioner utöver Intelligent insikter diagnostik logga data. I följande exempel visas en Intelligent insikter rapport i Azure SQL Analytics:
+För en praktisk översikt om hur du använder Intelligent insikter med hjälp av Azure logganalys och vanliga Användningsscenarier finns inbäddad video:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
+Intelligent insikter kommer till sin rätt i identifiering och felsökning av problem med SQL Database prestanda. För att kunna använda Intelligent insikter för att felsöka prestanda för SQL-databas finns [felsöka Azure SQL Database prestandaproblem med Intelligent insikter](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="set-up-intelligent-insights-with-log-analytics"></a>Ställ in Intelligent insikter med logganalys 
+
+Logga Analytics lösning tillhandahåller rapporter och aviseringar funktioner utöver de Intelligent insikter diagnostik logga data.
+
+Om du vill använda Intelligent insikter med logganalys konfigurera Intelligent insikter loggdata som strömmas till logganalys hittar [Azure SQL Database mått och diagnostikloggning](sql-database-metrics-diag-logging.md). 
+
+I följande exempel visas en Intelligent insikter rapport i Azure SQL Analytics:
 
 ![Intelligent insikter rapport](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 Intelligent insikter diagnostik loggen är konfigurerad att sända data till SQL Analytics, kan du [övervaka SQL-databasen med hjälp av SQL-Analytics](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="custom-integrations-of-intelligent-insights-log"></a>Anpassad integrering av Intelligent insikter logg
-
-Mer information om övervakning utveckling med hjälp av Microsoft eller verktyg från tredje part och anpassade aviseringar finns [Använd Intelligent insikter databasen prestanda diagnostik logga](sql-database-intelligent-insights-use-diagnostics-log.md).
-
 ## <a name="set-up-intelligent-insights-with-event-hubs"></a>Ställ in Intelligent insikter med Händelsehubbar
 
-- Om du vill konfigurera Intelligent insikter om du vill strömma logghändelser i Händelsehubbar finns [dataströmmen Azure diagnostics loggar för Händelsehubbar](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
-- Om du vill använda Händelsehubbar för anpassade övervakning och avisering finns [vad du gör med mätvärden och diagnostikfunktionerna loggar i Händelsehubbar](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
+Konfigurera Intelligent insikter logginformation till strömmas till Händelsehubbar finns i avsnittet om du vill använda Intelligent insikter med Händelsehubbar [dataströmmen Azure diagnostics loggar för Händelsehubbar](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+
+Om du vill använda Händelsehubbar för att konfigurera anpassade övervakning och avisering finns [vad du gör med mätvärden och diagnostikfunktionerna loggar i Händelsehubbar](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
 
 ## <a name="set-up-intelligent-insights-with-storage"></a>Ställ in Intelligent insikter med lagring
 
-- Om du vill konfigurera Intelligent insikter lagras med lagring finns [dataström i Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+Om du vill använda Intelligent insikter med lagring, konfigurera Intelligent insikter loggdata att strömmas till lagring finns [dataström i Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+
+## <a name="custom-integrations-of-intelligent-insights-log"></a>Anpassad integrering av Intelligent insikter logg
+
+Om du vill använda Intelligent insikter med verktyg från tredje part eller för att övervaka utveckling och anpassade aviseringar, se [Använd Intelligent insikter databasen prestanda diagnostik logga](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="detection-metrics"></a>Identifiering av mått
 

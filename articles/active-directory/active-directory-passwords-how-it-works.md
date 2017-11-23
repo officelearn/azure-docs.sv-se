@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Självbetjäning för återställning av lösenord i Azure AD ingående
 
@@ -207,7 +207,7 @@ Exempel: Det finns fyra administratörer i en miljö. Administratören A återst
 
 ## <a name="on-premises-integration"></a>Lokal integrering
 
-Om du installerar, konfigurerar och aktiverar Azure AD Connect har du följande ytterligare alternativ för lokal integreringar. Om dessa alternativ är nedtonade har sedan tillbakaskrivning inte konfigurerats korrekt. Mer information finns i [konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback).
+Om du installerar, konfigurerar och aktiverar Azure AD Connect har du följande ytterligare alternativ för lokal integreringar. Om dessa alternativ är nedtonade har sedan tillbakaskrivning inte konfigurerats korrekt. Mer information finns i [konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configure-password-writeback).
 
 ![Tillbakaskrivning][Writeback]
 
@@ -217,7 +217,7 @@ Den här sidan innehåller en snabb lokal tillbakaskrivning av klientens status 
 * Azure AD är online och är ansluten till din lokala tillbakaskrivning av klienten. Det verkar dock som den installerade versionen av Azure AD Connect är inaktuell. Överväg att [uppgraderar Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) så att du har de senaste funktionerna för anslutning och viktiga korrigeringarna.
 * Vi kan inte tyvärr, kontrollera din lokala tillbakaskrivning klientstatus eftersom den installerade versionen av Azure AD Connect är inaktuell. [Uppgradera Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) för att kunna kontrollera anslutningsstatus för.
 * Det verkar tyvärr som vi inte kan ansluta till din lokala tillbakaskrivning klient just nu. [Felsöka Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) att återställa anslutningen.
-* Vi kan tyvärr inte ansluta till lokalt tillbakaskrivning klienten eftersom tillbakaskrivning av lösenord inte har konfigurerats korrekt. [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback) att återställa anslutningen.
+* Vi kan tyvärr inte ansluta till lokalt tillbakaskrivning klienten eftersom tillbakaskrivning av lösenord inte har konfigurerats korrekt. [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configure-password-writeback) att återställa anslutningen.
 * Det verkar tyvärr som vi inte kan ansluta till din lokala tillbakaskrivning klient just nu. Detta kan bero på tillfälliga problem hos oss. Om problemet kvarstår [felsöka Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) att återställa anslutningen.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Skriv tillbaka lösenord till din lokala katalog
@@ -248,12 +248,12 @@ Om du vill testa det här scenariot, går du till http://passwordreset.microsoft
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande artiklar innehåller ytterligare information om lösenordsåterställning via Azure AD:
+Följande artiklar ger ytterligare information om lösenordsåterställning via Azure AD:
 
 * [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
 * [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
 * [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
 * [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)

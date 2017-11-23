@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/22/2017
+ms.date: 11/21/2017
 ms.author: asgang
-ms.openlocfilehash: f9f97cf840b722c8cfee169dd1640e0682f287ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du ställer in replikering av virtuella datorer 
 
 ## <a name="prerequisites"></a>Krav
 
-* Artikeln förutsätter att du redan vet om Site Recovery och Recovery Services-valvet. Du måste ha en Recovery services-ventilen pre skapas.
+* Artikeln förutsätter att du redan vet om Site Recovery och Recovery Services-valvet. Du måste ha en 'återställningstjänstvalvet' som skapats i förväg.
 
     >[!NOTE]
     >
@@ -51,11 +51,11 @@ För den här bilden kommer vi replikera virtuella datorer som körs i östra As
 
  Klicka på **+ replikera** i valvet för att aktivera replikering för virtuella datorer.
 
-1. **Källa:** det refererar till referenspunkt för datorer i det här fallet **Azure**.
+1. **Källa:** den refererar till punkten ursprung för datorer, i det här fallet **Azure**.
 
-2. **Datakällplats:** är det Azure-region där du vill skydda dina virtuella datorer. Den här bilden ska källplatsen östra Asien
+2. **Datakällplats:** är det Azure-region där du vill skydda dina virtuella datorer. För den här bilden är källplatsen östra Asien
 
-3. **Distributionsmodell:** refererar den till Azure distributionsmodell källdatorer. Du kan välja antingen klassiska eller resource manager och datorer som tillhör en viss modell visas för skydd i nästa steg.
+3. **Distributionsmodell:** refererar den till Azure distributionsmodell källdatorer. Du kan välja antingen klassiska eller Resource Manager och datorer som tillhör en viss modell visas för skydd i nästa steg.
 
       >[!NOTE]
       >
@@ -76,27 +76,27 @@ Under inställningar kan du konfigurera egenskaper för mål
     > [!TIP]
     > Det rekommenderas att hålla målplats samma från och med din recovery services-valvet.
 
-2. **Målresursgruppen:** är det resursgruppen där alla de replikerade virtuella datorerna ska tillhöra. Som standard skapar ASR en ny resursgrupp i området mål med namn med suffixet ”asr”. Om resursgruppen som skapats av ASR redan finns, den av återanvändas. Du kan också välja att anpassa den som visas i följande avsnitt.    
-3. **Mål för virtuella nätverk:** som standard ASR skapar ett nytt virtuellt nätverk i målregionen med namn med suffixet ”asr”. Detta kommer att mappas till nätverket källa och kommer att användas för alla framtida skydd.
+2. **Målresursgruppen:** är det resursgruppen där alla de replikerade virtuella datorerna ska tillhöra. Standard skapar Azure Site Recovery en ny resursgrupp i området mål med namn med suffixet ”asr”. Resursgruppen som skapats av Azure Site Recovery redan finns den av återanvändas. Du kan också välja att anpassa den som visas i följande avsnitt.    
+3. **Mål för virtuella nätverk:** som standard, Azure Site Recovery skapar ett nytt virtuellt nätverk i området mål med namn med suffixet ”asr”. Detta kommer att mappas till nätverket källa och kommer att användas för alla framtida skydd.
 
     > [!NOTE]
     > [Nätverk klientkontrollen](site-recovery-network-mapping-azure-to-azure.md) vill veta mer om nätverksmappning.
 
-4. **Rikta Storage-konton:** som standard ASR skapar nya mål-lagringskontot frihandsbilden lagringskonfigurationen källa VM. Om lagringskonto som skapats av ASR redan finns, den av återanvändas.
+4. **Rikta Storage-konton:** som standard skapar Azure Site Recovery nya mål-lagringskontot frihandsbilden lagringskonfigurationen källa VM. Om lagringskonto som skapats av Azure Site Recovery redan finns, den av återanvändas.
 
-5. **Cachelagra Storage-konton:** ASR måste extra lagring som kallas konto för cachelagring i området för källa. Alla ändringar som sker på virtuella källdatorer spåras och skickas till cachen storage-konto innan du replikerar de till målplatsen.
+5. **Cachelagra Storage-konton:** Azure Site Recovery behöver extra lagring som kallas konto för cachelagring i området för källa. Alla ändringar som sker på virtuella källdatorer spåras och skickas till cachen storage-konto innan du replikerar de till målplatsen.
 
-6. **Tillgänglighetsuppsättningen:** som standard ASR skapar en ny tillgänglighetsuppsättning i området mål med namn med suffixet ”asr”. Om tillgänglighet som skapats av ASR redan finns kommer den av återanvändas.
+6. **Tillgänglighetsuppsättningen:** Azure Site Recovery kommer som standard skapar en ny tillgänglighetsuppsättning i området mål med namn med suffixet ”asr”. Tillgänglighetsuppsättningen redan skapat av Azure Site Recovery finns den av återanvändas.
 
-7.  **Replikeringsprincip:** definierar inställningar för återställning punkt kvarhållning historik och app programkonsekvent ögonblicksbild frekvens. Som standard skapas ASR en ny replikeringsprincip med standardinställningarna för ”24 timmars för kvarhållningstid för återställningspunkten och” 60 minuters för app programkonsekvent ögonblicksbild frekvens.
+7.  **Replikeringsprincip:** definierar inställningar för återställning punkt kvarhållning historik och app programkonsekvent ögonblicksbild frekvens. Standard skapas Azure Site Recovery en ny replikeringsprincip med standardinställningarna för ”24 timmars för kvarhållningstid för återställningspunkten och” 60 minuters för app programkonsekvent ögonblicksbild frekvens.
 
     ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
 ## <a name="customize-target-resources"></a>Anpassa target-resurser
 
-Om du vill ändra standardinställningarna som används av ASR kan du ändra inställningarna utifrån dina behov.
+Om du vill ändra standardinställningarna som används av Azure Site Recovery kan du ändra inställningarna utifrån dina behov.
 
-1. **Anpassa:** Klicka om du vill ändra standardinställningarna som används av ASR.
+1. **Anpassa:** Klicka om du vill ändra standardinställningarna som används av Azure Site Recovery.
 
 2. **Målresursgruppen:** du kan välja resursgruppen från listan över alla resursgrupper finns i målplatsen i prenumerationen.
 
@@ -112,7 +112,7 @@ Om du vill ändra standardinställningarna som används av ASR kan du ändra ins
 När virtuella datorer är skyddade du kan kontrollera status för virtuella datorer hälsa under **replikerade objekt**
 
 >[!NOTE]
->Under tid då det inledande replikering kan en risk för att det tar tid att uppdatera status och du inte kan se förloppet under en viss tid. Du kan klicka på uppdateringsknappen överst på bladet för att hämta senaste status.
+>Under tiden för inledande replikering kan det finnas en möjlighet status tar tid att uppdatera och du kan se inte förloppet under en viss tid. Du kan klicka på uppdateringsknappen överst på bladet för att hämta senaste status.
 >
 
 ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/replicateditems.PNG)

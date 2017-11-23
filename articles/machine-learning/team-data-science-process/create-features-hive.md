@@ -4,7 +4,7 @@ description: "Exempel på Hive-frågor som genererar funktioner i data som lagra
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor
-Det här dokumentet beskrivs hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop-kluster med hjälp av Hive-frågor. Dessa Hive-frågor använda inbäddade Hive användardefinierade funktioner (UDF), skript som tillhandahålls.
+# <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor
+Det här dokumentet beskrivs hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop-kluster med hjälp av Hive-frågor. Dessa Hive-frågor via inbäddade Hive User-Defined funktioner (UDF), skript som tillhandahålls.
 
 De åtgärder som behövs för att skapa funktioner kan vara minnesintensiva. Prestanda för Hive-frågor blir mer kritiska i sådana fall och kan förbättras genom att justera vissa parametrar. Justering av dessa parametrar beskrivs i den sista delen.
 
@@ -39,7 +39,7 @@ Den här artikeln förutsätter att du har:
 * Data har överförts till Hive-tabeller i Azure HDInsight Hadoop-kluster. Om den inte har följer [skapa och läsa in data till Hive-tabeller](move-hive-tables.md) först överföra data till Hive-tabeller.
 * Aktivera fjärråtkomst till klustret. Om du behöver mer information, se [komma åt det Head nod för Hadoop-kluster](customize-hadoop-cluster.md).
 
-## <a name="hive-featureengineering"></a>Funktionen Generation
+## <a name="hive-featureengineering"></a>Funktionen generation
 I det här avsnittet beskrivs flera exempel på sätt som funktioner kan genereras med hjälp av Hive-frågor. När du har genererat ytterligare funktioner, kan du lägga till dem som kolumner i den befintliga tabellen eller skapa en ny tabell med ytterligare funktioner och primär nyckel, vilket kan sedan kopplas till den ursprungliga tabellen. Här följer exempel visas:
 
 1. [Frekvens-baserad funktion Generation](#hive-frequencyfeature)
@@ -48,7 +48,7 @@ I det här avsnittet beskrivs flera exempel på sätt som funktioner kan generer
 4. [Extrahera funktioner från textfält](#hive-textfeatures)
 5. [Beräkna avståndet mellan GPS koordinater](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>Frekvens-baserad funktion Generation
+### <a name="hive-frequencyfeature"></a>Frekvens-baserad funktion generation
 Det är ofta användbar för att beräkna frekvenserna av en kategoriska variabel eller frekvenser för vissa kombinationer av nivåerna från flera kategoriska variabler. Användare kan använda följande skript för att beräkna dessa frekvenser:
 
         select
@@ -62,8 +62,8 @@ Det är ofta användbar för att beräkna frekvenserna av en kategoriska variabe
         order by frequency desc;
 
 
-### <a name="hive-riskfeature"></a>Riskerna med Kategoriska variabler i binär klassificering
-Vi behöver konvertera icke-numeriska kategoriska variabler till numeriska funktioner när modeller används bara ta numeriska funktioner i binär klassificering. Detta görs genom att ersätta alla icke-numeriska nivå med numeriska risk. Det här avsnittet beskrivs vissa allmänna Hive-frågor som beräknar riskvärden (loggen oddsen) för en kategoriska variabel.
+### <a name="hive-riskfeature"></a>Riskerna med kategoriska variabler i binär klassificering
+I binär klassificering konverteras icke-numeriska kategoriska variabler till numeriska funktioner när modeller används bara ta numeriska funktioner. Den här konverteringen görs genom att ersätta alla icke-numeriska nivå med numeriska risk. Det här avsnittet beskrivs vissa allmänna Hive-frågor som beräknar riskvärden (loggen oddsen) för en kategoriska variabel.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -87,7 +87,7 @@ I det här exemplet variabler `smooth_param1` och `smooth_param2` är inställda
 
 Efter risken beräknade tabell, användare kan tilldela riskvärden till en tabell genom att anslutas med tabellen risk. Anslutande Hive-frågan har angetts i föregående avsnitt.
 
-### <a name="hive-datefeatures"></a>Extrahera funktioner från Datetime-Fields
+### <a name="hive-datefeatures"></a>Extrahera funktioner från datetime-fält
 Hive levereras med en uppsättning UDF: er för bearbetning av datetime-fält. I Hive, standardformatet för datum/tid är ”åååå-MM-dd 00:00:00 ' ('1970-01-01 12:21:32, till exempel). Det här avsnittet visas exempel som extraherar dagen i månaden, månaden från ett datetime-fält och andra exempel som konverteras en datetime-sträng i formatet än standardformatet till ett datetime-sträng i formatet.
 
         select day(<datetime field>), month(<datetime field>)
@@ -134,34 +134,44 @@ De fält som används i den här frågan är GPS-koordinaterna för hämtning oc
         and dropoff_latitude between 30 and 90
         limit 10;
 
-Matematiska formler som beräknar avståndet mellan två GPS-koordinater kan hittas på den <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">flyttbar typen skript</a> plats som skapats av Peter Lapisu. I sin Javascript funktionen `toRad()` är bara *lat_or_lon*pi/180 *, som konverterar grader till radianer. Här, *lat_or_lon* är latitud och longitud. Eftersom Hive inte ger funktionen `atan2`, men ger funktionen `atan`, `atan2` funktionen implementeras av `atan` funktion i Hive frågan ovan med definitionen i <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+Matematiska formler som beräknar avståndet mellan två GPS-koordinater kan hittas på den <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">flyttbar typen skript</a> plats som skapats av Peter Lapisu. I den här Javascript funktionen `toRad()` är bara *lat_or_lon*pi/180 *, som konverterar grader till radianer. Här, *lat_or_lon* är latitud och longitud. Eftersom Hive inte ger funktionen `atan2`, men ger funktionen `atan`, `atan2` funktionen implementeras av `atan` funktion i Hive frågan ovan med definitionen i <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Skapa arbetsyta](./media/create-features-hive/atan2new.png)
 
 En fullständig lista över Hive inbäddade UDF: er finns i den **inbyggda funktioner** avsnitt på den <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Avancerade alternativ: finjustera Hive parametrar för att förbättra hastighet för frågan
-Parametern standardinställningarna för Hive-kluster är kanske inte lämplig för Hive-frågor och de data som bearbetar frågorna. I det här avsnittet diskuterar vi vissa parametrar som användare kan justera som förbättrar prestandan för Hive-frågor. Användare måste lägga till parametern justera frågor innan frågor för bearbetning av data.
+## <a name="tuning"></a>Avancerade alternativ: finjustera Hive parametrar att fråga snabbare
+Parametern standardinställningarna för Hive-kluster är kanske inte lämplig för Hive-frågor och de data som bearbetar frågorna. Det här avsnittet beskrivs vissa parametrar som användare kan justera för att förbättra prestanda för Hive-frågor. Användare måste lägga till parametern justera frågor innan frågor för bearbetning av data.
 
-1. **Java heap utrymme**: för frågor som rör koppla stora datauppsättningar eller bearbetning långa poster **heap utrymmet börjar ta slut** är en av vanliga fel. Detta kan anpassas genom att ange parametrar *mapreduce.map.java.opts* och *mapreduce.task.io.sort.mb* till önskade värden. Här är ett exempel:
+1. **Java heap utrymme**: för frågor som rör koppla stora datauppsättningar eller bearbetning långa poster **heap utrymmet börjar ta slut** är en av vanliga fel. Det här felet kan undvikas genom att ange parametrar *mapreduce.map.java.opts* och *mapreduce.task.io.sort.mb* till önskade värden. Här är ett exempel:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Den här parametern allokerar 4GB minne till Java heap utrymmet och även gör sortering effektivare genom att allokera mer minne för den. Det är en bra idé att spela med dessa allokeringar om det finns jobb felen som rör heap utrymme.
 
-1. **DFS-blockstorlek**: den här parametern anger den minsta enheten av data som lagras i filsystemet. Exempelvis om DFS-blockstorlek är 128MB, sedan några data av storlek mindre än och upp till lagras 128MB i ett enda block när data som är större än 128MB tilldelas extra block. Om du väljer en liten blockstorlek medför stora kostnaderna i Hadoop eftersom noden namn har att bearbeta många fler begäranden för att hitta relevanta block som hör till filen. En rekommenderad inställning när behandlar gigabyte (eller större) data är:
-   
+1. **DFS-blockstorlek**: den här parametern anger den minsta enheten av data som lagras i filsystemet. Exempelvis om DFS-blockstorlek är 128 MB, sedan några data av storlek mindre än och upp till lagras 128 MB i ett enda block. Data som är större än 128 MB tilldelas extra block. 
+2. Om du väljer en liten blockstorlek medför stora kostnaderna i Hadoop eftersom noden namn har att bearbeta många fler begäranden för att hitta relevanta block som hör till filen. En rekommenderad inställning när behandlar gigabyte (eller större) data är:
+
         set dfs.block.size=128m;
+
 2. **Optimera join-uttrycket i Hive**: vid anslutning till åtgärder i kartan/minska framework vanligtvis sker minska fas, ibland enorma vinster kan uppnås genom att schemalägga kopplingar i fasen mappning (även kallat ”mapjoins”). Ange om du vill dirigera Hive för att göra det när det är möjligt:
    
-        set hive.auto.convert.join=true;
+       set hive.auto.convert.join=true;
+
 3. **Anger antalet mappers till Hive**: medan Hadoop tillåter användaren att ange antalet förminskningsapparater, antal mappers är vanligtvis inte anges av användaren. Ett tips som gör att viss mån av kontrollen i det här antalet är att välja variablerna Hadoop *mapred.min.split.size* och *mapred.max.split.size* som storleken på varje mappning uppgiften avgörs av:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
-    Normalt standardvärdet *mapred.min.split.size* är 0, som *mapred.max.split.size* är **Long.MAX** och *dfs.block.size* är 64MB. Som vi ser anges storleken på data justera parametrarna av ”inställningen” dem gör att vi kan justera antalet mappers används.
-4. Några fler **avancerade alternativ** för att optimera Hive prestanda anges nedan. Dessa kan du ange det minne som allokerats för att mappa och minska uppgifter och kan vara användbar vid modifiera prestanda. Kontrollera Tänk på att den *mapreduce.reduce.memory.mb* får inte vara större än storlek för fysiskt minne för varje arbetsnod i Hadoop-kluster.
+    Normalt standardvärdet för:
+    
+    - *mapred.min.split.size* är 0, som
+    - *mapred.Max.split.size* är **Long.MAX** och 
+    - *DFS.block.size* är 64 MB.
+
+    Som vi ser anges storleken på data justera parametrarna av ”inställningen” dem gör att vi kan justera antalet mappers används.
+
+4. Här följer några fler **avancerade alternativ** för att optimera prestanda för Hive. Dessa kan du ange det minne som allokerats för att mappa och minska uppgifter och kan vara användbar vid modifiera prestanda. Tänk på att den *mapreduce.reduce.memory.mb* får inte vara större än storlek för fysiskt minne för varje arbetsnod i Hadoop-kluster.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

@@ -1,286 +1,289 @@
 ---
 title: "Självstudier: Azure Active Directory-integrering med Cezanne HR programvara | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Cezanne HR-programvaran och Azure Active Directory."
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Cezanne HR programvaran och Azure Active Directory."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: fb8f95bf-c3c1-4e1f-b2b3-3b67526be72d
+ms.reviewer: joflore
+ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 623c438edfce5f98c2d32d8bb25a97d86aa77909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf44d749ecbfcffb3d5a6e5e12aa49e66f7cde2e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-cezanne-hr-software"></a>Självstudier: Integrera Azure Active Directory med Cezanne HR-programvara
+# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Självstudier: Azure Active Directory-integrering med Cezanne HR programvara
 
 I kursen får lära du att integrera Cezanne HR-program med Azure Active Directory (AD Azure).
 
-Integrera Cezanne HR-program med Azure AD ger dig följande fördelar. Du kan:
+Integrera Cezanne HR-program med Azure AD ger dig följande fördelar:
 
-- Kontrollera i Azure AD som har åtkomst till Cezanne HR-programvara.
-- Ge användarna logga in automatiskt Cezanne HR-program med enkel inloggning (SSO) med sina Azure AD-konton.
-- Hantera dina konton i en central plats: Azure-portalen.
+- Du kan styra i Azure AD som har åtkomst till Cezanne HR programvara.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Cezanne HR-programvara (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
-Läs mer om programvara som en tjänst (SaaS) appintegrering med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Cezanne HR programvara, behöver du följande:
 
 - En Azure AD-prenumeration
-- Cezanne HR-programvara SSO-aktiverade prenumeration
+- En Cezanne HR programvara enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
-> Om du vill testa stegen i den här självstudiekursen, rekommenderar vi att du inte använder en produktionsmiljö.
+> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Följ dessa rekommendationer för att testa stegen i den här självstudiekursen:
+Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
 - Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD SSO i en testmiljö. 
+I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
-Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+1. Lägga till Cezanne HR programvara från galleriet
+2. Konfigurera och testa Azure AD enkel inloggning
 
-* Lägga till Cezanne HR programvara från galleriet
-* Konfigurera och testa Azure AD-SSO
+## <a name="adding-cezanne-hr-software-from-the-gallery"></a>Lägga till Cezanne HR programvara från galleriet
+Du måste lägga till Cezanne HR programvara från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Cezanne HR-program i Azure AD.
 
-## <a name="add-cezanne-hr-software-from-the-gallery"></a>Lägg till Cezanne HR programvara från galleriet
-Lägg till Cezanne HR programvara från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Cezanne HR-program i Azure AD.
+**Utför följande steg för att lägga till Cezanne HR programvara från galleriet:**
 
-Lägg till Cezanne HR programvara från galleriet genom att göra följande:
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, i den vänstra rutan, Välj den **Azure Active Directory** knappen. 
+    ![Azure Active Directory-knappen][1]
 
-    ![Knappen ”Azure Active Directory”][1]
+2. Gå till **företagsprogram**. Gå till **alla program**.
 
-2. Välj **företagsprogram** > **alla program**.
-
-    ![Länken ”alla program”][2]
+    ![Bladet Enterprise program][2]
     
-3. Att lägga till ett nytt program överst i den **alla program** dialogrutan **nytt program**.
+3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-    ![”Det nya programmet” knappen][3]
+    ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Cezanne HR programvara**.
+4. I sökrutan skriver **Cezanne HR programvara**väljer **Cezanne HR programvara** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Sökrutan](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_search.png)
-
-5. Välj i resultatlistan **Cezanne HR programvara** och välj sedan den **Lägg till** för att lägga till programmet.
-
-    ![Resultatlistan](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
+    ![Cezanne HR-programvara i resultatlistan](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD SSO med Cezanne HR programvara baserat på en testanvändare som kallas ”Britta Simon”.
 
-För enkel inloggning ska fungera, Azure AD som behöver veta Cezanne HR programvarumotsvarighet till Azure AD-användare. Med andra ord måste du upprätta en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Cezanne HR-programvara.
+I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Cezanne HR programvara baserat på en testanvändare som kallas ”Britta Simon”.
 
-Tilldela Cezanne HR-programvara för att upprätta länken relationen, **användarnamn** värde som Azure AD **användarnamn** värde.
+Azure AD måste du känna till motsvarande användaren i Cezanne HR programvara till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Cezanne HR programvara upprättas.
 
-Slutför följande byggblock för att konfigurera och testa Azure AD SSO med Cezanne HR-programvara.
+I Cezanne HR-program, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD för enkel inloggning
+Om du vill konfigurera och testa Azure AD enkel inloggning med Cezanne HR programvara, måste du utföra följande byggblock:
 
-I det här avsnittet kan du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i Cezanne HR programmet genom att göra följande:
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Cezanne HR programvara](#create-a-cezannehrsoftware-test-user)**  – du har en motsvarighet för Britta Simon Cezanne HR programvara som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
-1. I Azure-portalen på den **Cezanne HR programvara** programmet integration anger **enkel inloggning**.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-    ![Kommandot ”enkel inloggning”][4]
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i Cezanne HR programmet.
 
-2. Att aktivera enkel inloggning, i den **enkel inloggning** dialogrutan markerar du den **läge** som **SAML-baserade inloggning**.
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med Cezanne HR programvara:**
+
+1. I Azure-portalen på den **Cezanne HR programvara** integreringssidan för programmet, klickar du på **enkel inloggning**.
+
+    ![Konfigurera enkel inloggning länk][4]
+
+2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Rutan ”läge”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_samlbase.png)
 
-3. Under **Cezanne HR programvara domän och URL: er**, gör du följande:
+3. På den **Cezanne HR programvara domän och URL: er** avsnittet, utför följande steg:
 
-    ![Avsnittet ”Cezanne HR programvara domän och URL: er”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
+    ![URL: er och Cezanne HR programvara domän med enkel inloggning information](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. I den **inloggnings-URL** skriver en URL som har följande syntax:`https://w3.cezanneondemand.com/cezannehr/-/<tenant id>`
+    a. I den **inloggnings-URL** textruta anger du URL:`https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`
 
-    b. I den **Reply URL** skriver en URL som har följande syntax:`https://w3.cezanneondemand.com:443/<tenantid>`    
-     
-    > [!NOTE] 
-    > Föregående värden är inte verkliga. Uppdatera dem med faktiska reply-Webbadressen och Webbadressen för inloggning. För att få värdena kan kontakta den [Cezanne HR programvara klienten supportteamet](mailto:info@cezannehr.com).
+    b. I den **identifierare** textruta anger du URL:`https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-4. Under **SAML-signeringscertifikat**väljer **certifikat (Base64)**, och sedan spara certifikatfilen på datorn.
+    c. I den **Reply URL** textruta anger du URL:`https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`
 
-    ![Avsnittet ”SAML signeringscertifikat”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
+4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
-5. Välj **Spara**.
+    ![Länken hämta certifikatet](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_certificate.png) 
 
-    ![Knappen ”Spara”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
+5. Klicka på **spara** knappen.
+
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
+
+6. På den **Cezanne HR programvarukonfiguration** klickar du på **konfigurera Cezanne HR programvara** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+
+    ![Cezanne HR konfiguration av programvara](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+
+7. I en annan webbläsarfönster inloggning till klienten Cezanne HR programvara som en administratör.
+
+8. I det vänstra navigeringsfönstret klickar du på **systeminställningarna**. Gå till **säkerhetsinställningar**. Gå till **konfiguration för enkel inloggning**.
+
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+
+9. I den **Tillåt användare att logga in med följande tjänst för enkel inloggning (SSO)** panelen, kontrollera den **SAML 2.0** och välj den **Advanced Configuration** alternativet.
+
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+
+10. Klicka på **Lägg till ny** knappen.
+
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+
+11. Utför följande steg på **SAML 2.0 IDENTITETSLEVERANTÖRER** avsnitt.
+
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
-6. Under **Cezanne HR programvarukonfiguration**väljer **konfigurera Cezanne HR programvara** att öppna den **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID** och **SAML enkel inloggning** URL från den **Snabbreferens** avsnitt.
+    a. Ange namnet på din identitetsleverantör som den **visningsnamn**.
 
-    ![I avsnittet ”Cezanne HR programvarukonfiguration”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    b. I den **identifiering** textruta klistra in värdet för **SAML enhets-ID** som du har kopierat från Azure-portalen. 
 
-7. Logga in på din Cezanne HR-klient för programvara som en administratör i en annan webbläsarfönster.
+    c. Ändra den **SAML bindning** till ”POST”.
 
-8. I den vänstra rutan, Välj **systeminställningarna**. Välj **säkerhetsinställningar** > **enkel inloggning Configuration**.
+    d. I den **säkerhetstoken tjänstslutpunkten** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel** som du har kopierat från Azure-portalen.
 
-    ![Länken ”enkel inloggning-konfiguration”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
-
-9. I den **Tillåt användare att logga in med följande tjänster för enkel inloggning (SSO)** väljer den **SAML 2.0** kryssrutan och välj den **Advanced Configuration** alternativet.
-
-    ![Enkel inloggning services-alternativ](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
-
-10. Välj **lägga till nya**.
-
-    ![Knappen ”Lägg till ny”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
-
-11. Under **SAML 2.0 identitetsleverantörer**, gör du följande:
-
-    ![Avsnittet ”identitetsleverantörer SAML 2.0”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+    e. Ange i textrutan användarnamn ID-attributet `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
-    a. I den **visningsnamn** anger du namnet på din identitetsleverantör.
-
-    b. I den **identifiering** klistra in den **SAML enhets-ID** som du kopierade från Azure-portalen. 
-
-    c. I den **SAML bindning** väljer **efter**.
-
-    d. I den **säkerhetstoken tjänstslutpunkten** klistra in den **SAML enkel inloggning** URL som du kopierade från Azure-portalen. 
+    f. Klicka på **överför** ikon för att ladda upp det hämta certifikatet från Azure-portalen.
     
-    e. I den **användarnamn ID-attributet** ange `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
-    
-    f. Ladda upp det hämta certifikatet från Azure AD, Välj den **överför** knappen.
-    
-    g. Välj **OK**. 
+    g. Klicka på knappen **OK**. 
 
-12. Välj **Spara**.
+12. Klicka på **spara** knappen.
 
-    ![Knappen ”Spara”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 > [!TIP]
-> När du skapar appen kan du läsa en kortare version av föregående anvisningarna i den [Azure-portalen](https://portal.azure.com). När du har lagt till appen från den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken. Komma åt inbäddade dokumentationen från den **Configuration** avsnitt. 
-
-Mer information om funktionen inbäddade dokumentation finns [Azure AD inbäddade dokumentationen]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-I det här avsnittet skapar du testanvändare Britta Simon i Azure-portalen.
 
-![Testanvändare Britta Simon][100]
+Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-Om du vill skapa en testanvändare i Azure AD, gör du följande:
+   ![Skapa en testanvändare i Azure AD][100]
 
-1. I den **Azure-portalen**, i den vänstra rutan, Välj den **Azure Active Directory** knappen.
+**Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-    ![Knappen ”Azure Active Directory”](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_01.png) 
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-2. Om du vill visa en lista över användare, Välj **användare och grupper** > **alla användare**.
-    
-    ![Länken ”alla användare”](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png) 
-    
-    Den **alla användare** öppnas.
+    ![Azure Active Directory-knappen](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_01.png)
 
-3. Öppna den **användare** dialogrutan **Lägg till**.
- 
-    ![Knappen ”Lägg till”](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png) 
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-4. I den **användaren** dialogrutan Gör följande:
- 
-    ![Dialogrutan ”användare”](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png) 
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_02.png)
+
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+
+    ![Knappen Lägg till](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_03.png)
+
+4. I den **användaren** dialogrutan utför följande steg:
+
+    ![Dialogrutan användare](./media/active-directory-saas-cezannehrsoftware-tutorial/create_aaduser_04.png)
 
     a. I den **namn** skriver **BrittaSimon**.
 
-    b. I den **användarnamn** Skriv användaren Britta Simon **e-postadress**.
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
 
-    c. Välj den **visa lösenordet** och anteckna värdet som har genererats i den **lösenord** rutan.
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
-    d. Välj **Skapa**.
+    d. Klicka på **Skapa**.
  
-### <a name="create-a-cezanne-hr-software-test-user"></a>Skapa en testanvändare för Cezanne HR-programvara
+### <a name="create-a-cezanne-hr-software-test-user"></a>Skapa en testanvändare Cezanne HR programvara
 
-Om du vill aktivera Azure AD-användare att logga in på Cezanne HR programvara, måste de etableras i Cezanne HR programvara. När det gäller Cezanne HR-program är etablering en manuell aktivitet.
+För att aktivera Azure AD-användare att logga in på Cezanne HR programvara, måste de etableras i Cezanne HR programvara. När det gäller Cezanne HR-program är etablering en manuell aktivitet.
 
-Konfigurera ett användarkonto genom att göra följande:
+**Utför följande steg om du vill konfigurera ett användarkonto:**
 
-1.  Logga in på webbplatsen Cezanne HR programvara företag som administratör.
+1.  Logga in på webbplatsen för företagets Cezanne HR programvara som en administratör.
 
-2.  I den vänstra rutan, Välj **systeminställningarna** > **hantera användare** > **Lägg till nya användare**.
+2.  I det vänstra navigeringsfönstret klickar du på **systeminställningarna**. Gå till **hantera användare**. Gå till **Lägg till nya användare**.
 
-    ![Länken ”Lägg till nya användare”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "ny användare")
+    ![Ny användare](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "ny användare")
 
-3.  Under **detaljer**, gör du följande:
+3.  På **detaljer** avsnittet, utföra nedanstående steg:
 
-    ![Avsnittet ”Person information”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "ny användare")
+    ![Ny användare](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "ny användare")
     
-    a. Ange **intern användare** som **OFF**.
+    a. Ange **intern användare** som OFF.
     
-    b. I den **Förnamn** Skriv användarens förnamn, till exempel **Britta**.  
+    b. I den **Förnamn** textruta Ange först namnet på användaren som **Britta**.  
  
-    c. I den **efternamn** Skriv användarens efternamn, till exempel **Simon**.
+    c. I den **efternamn** textruta typen efternamn för användaren som **Simon**.
     
-    d. I den **e-post** Skriv användarens e-postadress, till exempel Brittasimon@contoso.com.
+    d. I den **e-post** textruta typen e-postadressen för användaren som Brittasimon@contoso.com.
 
-4.  Under **kontoinformation**, gör du följande:
+4.  På **kontoinformation** avsnittet, utföra nedanstående steg:
 
-    ![Avsnittet ”kontoinformation”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "ny användare")
+    ![Ny användare](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "ny användare")
     
-    a. I den **användarnamn** Skriv användarens e-postadress, till exempel Brittasimon@contoso.com.
+    a. I den **användarnamn** textruta, ange den e-posten för användare som Brittasimon@contoso.com.
     
-    b. I den **lösenord** Skriv användarens lösenord.
+    b. I den **lösenord** textruta skriver du lösenordet för användaren.
     
-    c. I den **säkerhetsroll** väljer **HR Professional**.
+    c. Välj **HR Professional** som **säkerhetsroll**.
     
-    d. Välj **OK**.
+    d. Klicka på **OK**.
 
-5. På den **enkel inloggning** fliken den **SAML 2.0 identifierare** väljer **Lägg till ny**.
+5. Gå till **enkel inloggning** fliken och markera **Lägg till ny** i den **SAML 2.0 identifierare** område.
 
-    ![Knappen ”Lägg till ny”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "användare")
+    ![Användaren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "användare")
 
-6. I den **identitetsleverantör** Välj identitetsprovider. I den **användar-ID** ange e-postadressen för test användaren Britta Simons konto.
+6. Välj din identitetsleverantör för den **identitetsleverantör** och i textrutan för **användar-ID**, ange e-postadress Britta Simon konto.
 
-    ![Rutorna ”identitetsleverantör” och ”User ID”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "användare")
+    ![Användaren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "användare")
     
-7. Välj **Spara**.
+7. Klicka på **spara** knappen.
 
-    ![Knappen ”Spara”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "användare")
+    ![Användaren](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "användare")
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera testanvändare Britta Simon att använda Azure SSO genom att bevilja åtkomst till Cezanne HR-programvara.
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Cezanne HR programvara.
 
-![Testa användaråtkomst][200] 
+![Tilldela rollen][200] 
 
-1. Öppna program och sedan gå till vyn katalog i Azure-portalen. Välj **företagsprogram** > **alla program**.
+**Om du vill tilldela Cezanne HR programvara Britta Simon utför du följande steg:**
 
-    ![Länken ”alla program”][201] 
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+
+    ![Tilldela användare][201] 
 
 2. Välj i listan med program **Cezanne HR programvara**.
 
-    ![Listan med ”program”](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png) 
+    ![Länken Cezanne HR-program i listan med program](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_app.png)  
 
-3. Välj på menyn till vänster **användare och grupper**.
+3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Länken ”användare och grupper”][202]
 
-4. Välj **Lägg till**. I den **Lägg uppdrag** dialogrutan **användare och grupper**.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
-    ![”Användare och grupper” länk][203]
+    ![Fönstret Lägg till tilldelning][203]
 
-5. I den **användare och grupper** i dialogrutan den **användare** väljer **Britta Simon**.
+5. På **användare och grupper** markerar **Britta Simon** på listan användare.
 
-6. I den **användare och grupper** dialogrutan **Välj**.
+6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
 
-7. I den **Lägg uppdrag** dialogrutan **tilldela**.
+7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
     
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet testa du konfigurationen av Azure AD SSO med hjälp av åtkomstpanelen.
+I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du väljer panelen Cezanne HR programvara på åtkomstpanelen kan logga du in automatiskt i tillämpningsprogrammet Cezanne HR-programvara.
+När du klickar på panelen Cezanne HR programvara på åtkomstpanelen du bör få automatiskt loggat in på ditt Cezanne HR-program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)

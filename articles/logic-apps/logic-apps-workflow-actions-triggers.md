@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 7e0266cdc477715a5d2f9067c6dcea73da9ba763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Utlösare och åtgärder för logik app arbetsflöden
 
@@ -194,21 +194,11 @@ HTTP-utlösare avsöker den angivna slutpunkten och kontrollera svaret för att 
 | Metoden | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
 | URI: N | Ja| Sträng | HTTP eller HTTPs slutpunkten som söker av utlösaren. Maximal strängens storlek: 2 KB | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| Rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. | 
+| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
 ||||| 
-
-En *standardpolicy* gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
  
 Om du vill arbeta med din logikapp kräver HTTP-utlösaren HTTP-API för att överensstämma med ett specifikt mönster. Utlösaren identifierar dessa egenskaper:  
   
@@ -234,8 +224,8 @@ Här är http-utlösaren utdata:
   
 | Elementnamn | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| Rubriker | Objekt | Sidhuvuden för HTTP-svar | 
-| Brödtext | Objekt | Innehållet i HTTP-svar | 
+| rubriker | Objekt | Sidhuvuden för HTTP-svar | 
+| brödtext | Objekt | Innehållet i HTTP-svar | 
 |||| 
 
 ## <a name="api-connection-trigger"></a>Utlösare för API-anslutningen  
@@ -267,9 +257,9 @@ Utlösare för API-anslutningen är samma som HTTP-utlösaren i dess grundlägga
 | värden | Ja | Objekt | Värdbaserade gateway och -ID för API-appen | 
 | Metoden | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| Rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. | 
+| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
@@ -281,22 +271,12 @@ För den `host` objekt följer egenskaper:
 | Anslutningens namn |  | Namnet på den hanterade API-anslutningen som används i arbetsflödet. Måste referera till en parameter med namnet `$connection`. |
 |||| 
 
-En *standardpolicy* gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
-
 Här följer utdata för en utlösare för API-anslutningen:
   
 | Elementnamn | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| Rubriker | Objekt | Sidhuvuden för HTTP-svar | 
-| Brödtext | Objekt | Innehållet i HTTP-svar | 
+| rubriker | Objekt | Sidhuvuden för HTTP-svar | 
+| brödtext | Objekt | Innehållet i HTTP-svar | 
 |||| 
   
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook utlösare  
@@ -360,8 +340,8 @@ Här följer utdata från HTTPWebhook utlösa och innehållet i den inkommande b
   
 | Elementnamn | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| Rubriker | Objekt | Sidhuvuden för HTTP-svar | 
-| Brödtext | Objekt | Innehållet i HTTP-svar | 
+| rubriker | Objekt | Sidhuvuden för HTTP-svar | 
+| brödtext | Objekt | Innehållet i HTTP-svar | 
 |||| 
 
 ## <a name="conditions"></a>Villkor  
@@ -527,22 +507,13 @@ Här är den `inputs` objektet följer dessa parametrar som krävs för att kons
 | Metoden | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
 | URI: N | Ja| Sträng | HTTP eller HTTPs slutpunkten som söker av utlösaren. Maximal strängens storlek: 2 KB | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| Rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. | 
+| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
 | Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). <p>Utöver Scheduler, är en mer stöds egenskap: `authority`. Det här värdet är som standard `https://login.windows.net` om anges, men du kan använda ett annat värde som`https://login.windows\-ppe.net`. | 
 ||||| 
 
-HTTP- och APIConnection åtgärder stöder *försök principer*. En återförsöksprincip som gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 Det här exemplet HTTP-åtgärden försöker hämta de senaste nyheterna två gånger om återkommande fel för totalt tre körningar och en fördröjning på 30 sekunder mellan varje försök:
   
 ```json
@@ -629,22 +600,12 @@ Här är ett exempel APIConnection åtgärd:
 | Metoden | Ja | Sträng | Använder en av metoderna HTTP: ”GET”, ”publicera”, ”PLACERA”, ”ta bort”, ”uppdatera” eller ”chef” | 
 | Sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| Rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. | 
+| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
 | Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
-
-En återförsöksprincip som gäller för återkommande fel som betecknas som HTTP-statuskoder 408 och 429 5xx utöver eventuella undantag. Du kan definiera principen med den `retryPolicy` objekt som visas här:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## <a name="apiconnection-webhook-action"></a>APIConnection webhook åtgärd
 
@@ -682,9 +643,9 @@ En återförsöksprincip som gäller för återkommande fel som betecknas som HT
 | värden | Ja | Objekt | Representerar connector information som den `runtimeUrl` och referens till connection-objektet. | 
 | Sökväg | Ja | Sträng | Sökvägen för API-åtgärd | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| Rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
-| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. | 
+| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| retryPolicy | Nej | Objekt | Använd det här objektet för att anpassa försök beteendet för 4xx eller 5xx-fel. Mer information finns i [försök principer](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Nej | Sträng | Definierar de särskilda beteenden att åsidosätta. | 
 | Autentisering | Nej | Objekt | Representerar den metod som begäran ska användas för autentisering. Mer information finns i [Scheduler utgående autentisering](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
@@ -750,8 +711,8 @@ Den här åtgärden kan du representerar och anropa ett [Azure funktionen](../az
 | funktionen id | Ja | Sträng | Resurs-ID för Azure-funktionen som du vill anropa. | 
 | Metoden | Nej | Sträng | HTTP-metoden som används för att anropa funktionen. Om inget anges är ”POST” standardmetoden. | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| Rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
 |||||
 
 När du sparar din logikapp, utför kontroller på den angivna funktionen Azure Logic Apps:
@@ -839,8 +800,8 @@ Den här åtgärden utdata är baserat på vad du anger i den `response` åtgär
 | värd-id | Ja | Sträng| Resurs-ID för det arbetsflöde som du vill anropa | 
 | värden Utlösarnamn | Ja | Sträng | Namnet på det som du vill anropa utlöser | 
 | frågor | Nej | Objekt | Representerar alla frågeparametrar som du vill inkludera i URL: en. <p>Till exempel `"queries": { "api-version": "2015-02-01" }` lägger till `?api-version=2015-02-01` till URL: en. | 
-| Rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
+| rubriker | Nej | Objekt | Representerar varje huvud som skickades i begäran. <p>Till exempel ange språk och Skriv begäran: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| brödtext | Nej | Objekt | Representerar nyttolasten som skickas till slutpunkten. | 
 |||||   
 
 ## <a name="compose-action"></a>Skriv åtgärd
@@ -880,7 +841,7 @@ Till exempel om du vill konvertera en matris av talen i en array med objekt som 
 
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
-| Från | Ja | Matris | Källmatrisen |
+| från | Ja | Matris | Källmatrisen |
 | Välj | Ja | Alla | Projektionen som tillämpas på varje element i källmatrisen |
 ||||| 
 
@@ -907,7 +868,7 @@ Utdata från den `query` åtgärden är en matris som har element från Indatama
 
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
-| Från | Ja | Matris | Källmatrisen |
+| från | Ja | Matris | Källmatrisen |
 | där | Ja | Sträng | Villkoret som kopplas till varje element från källmatrisen |
 ||||| 
 
@@ -972,7 +933,7 @@ Resultatet från det här exemplet ser ut som den här HTML-tabellen:
 
 | Namn | Krävs | Typ | Beskrivning | 
 | ---- | -------- | ---- | ----------- | 
-| Från | Ja | Matris | Källmatrisen. Om den `from` egenskapsvärdet är en tom matris, utdata är en tom tabell. | 
+| från | Ja | Matris | Källmatrisen. Om den `from` egenskapsvärdet är en tom matris, utdata är en tom tabell. | 
 | Format | Ja | Sträng | Tabellformatet som du vill antingen **CSV** eller **HTML** | 
 | Kolumner | Nej | Matris | De tabellkolumner som du vill använda. Används för att åsidosätta standard tabellform. | 
 | kolumnrubrik | Nej | Sträng | Kolumnrubriken | 
@@ -1160,7 +1121,7 @@ Den här åtgärden kan du logiskt gruppera åtgärder i ett arbetsflöde.
 | åtgärder | Ja | Objekt | Inre åtgärder för att köra i den här slingan | 
 | uttryck | Ja | Sträng | Uttrycket som ska utvärderas efter varje iteration | 
 | Gränsen | Ja | Objekt | Gränser för loopen. Måste ange minst en gräns. | 
-| Antal | Nej | Integer | Gränsen för antalet iterationer för att utföra | 
+| antal | Nej | Integer | Gränsen för antalet iterationer för att utföra | 
 | timeout | Nej | Sträng | Timeout-gränsen i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger hur länge slingan ska köras |
 ||||| 
 

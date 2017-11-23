@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -108,7 +108,7 @@ Information om hur du installerar rollen Nätverksprincip och åtkomsttjänster 
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licens
 
-Det krävs en licens för Azure Multi-Factor Authentication och är tillgänglig via en Azure AD Premium, Enterprise Mobility + Security eller en Multi-Factor Authentication-prenumeration. Förbrukningsbaserad licenser för Azure MFA som per användare eller per autentisering licenser är inte kompatibla med NPS-tillägget. Mer information finns i [hur du hämtar Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). I testsyfte kan använda du en utvärderingsprenumeration.
+Det krävs en licens för Azure Multi-Factor Authentication och är tillgänglig via en Azure AD Premium, Enterprise Mobility + Security eller en fristående Multi-Factor Authentication-licens. Förbrukningsbaserad licenser för Azure MFA som per användare eller per autentisering licenser är inte kompatibla med NPS-tillägget. Mer information finns i [hur du hämtar Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). I testsyfte kan använda du en utvärderingsprenumeration.
 
 ### <a name="windows-server-software"></a>Windows Server-programvara
 
@@ -491,7 +491,7 @@ Om du vill använda skriptet ger tillägget dina administrativa autentiseringsup
 
 6. Starta om servern.
 
-### <a name="verify-the-configuration"></a>Verifiera konfigurationen
+### <a name="verify-the-configuration"></a>Kontrollera att konfigurationen
 Om du vill verifiera konfigurationen måste du upprätta en ny VPN-anslutning med VPN-servern. När du har angett dina autentiseringsuppgifter för primär autentisering, väntar VPN-anslutningen på den sekundära autentiseringen ska lyckas innan anslutningen har upprättats, enligt nedan. 
 
 ![Fönstret VPN för Windows-inställningar](./media/nps-extension-vpn/image42.png)

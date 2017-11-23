@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: e5fc1933efcaa9c6eaa7ab0021c3362e0714a3d5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Konfiguration och hantering av vanliga frågor och svar för Web Apps i Azure
 
@@ -147,7 +147,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>Lösning
 
-Vi arbetar för att uppdatera Hybridanslutningshanteraren för att åtgärda problemet. Lösningar, se [Hybridanslutningar fel med SQL Server: System.OverflowException: aritmetiska operationen orsakade spill](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+Undantaget orsakades av ett problem med Hybridanslutningshanteraren som sedan har åtgärdats. Se till att [uppdatera din Hybridanslutningshanteraren](https://go.microsoft.com/fwlink/?LinkID=841308) att lösa problemet.
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Hur jag för att lägga till eller redigera en URL-omskrivning regel?
 

@@ -4,7 +4,7 @@ description: "Artikeln innehåller en granskad lista över Microsoft Security Re
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: Mbaldwin
 editor: TomSh
 ms.assetid: 6293b13f-55d0-4d85-a993-4f1cd3c103c0
 ms.service: security
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c824be4f6a1520ee643361a24cc34823d6e58a4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft Security Response Center
-Microsoft Security Response Center (MSRC) vägleds av några av världens mest erfarna säkerhetsexperter. Dessa experter identifiera, övervaka, svara på och åtgärda säkerhetsincidenter och lokala och molnet säkerhetsriskerna runt klockan, varje dag på året.
+Microsoft Security Response Center (MSRC) vägleds av några av världens mest erfarna säkerhetsexperter. De identifierar, övervaka, svara, och åtgärda säkerhetsincidenter och lokala och molnet säkerhetsriskerna runt klockan, varje dag på året.
 
-Förutom kontinuerliga arbetet MSRC har i bakgrunden, har MSRC team ett antal resurser som är tillgängliga för dig så att du förstår hur din Azure tillgångar och distributioner mer effektivt.
+Förutom kontinuerliga arbetet har MSRC team ett antal resurser som är tillgängliga för dig så att du förstår hur din Azure tillgångar och distributioner mer effektivt.
 
 ## <a name="the-msrc-blog"></a>MSRC-bloggen
 Den [MSRC blogg](https://blogs.technet.microsoft.com/msrc/) är går för att hämta de senaste nyheterna på vad MSRC gör för att skydda dig mot hot i molnet.
@@ -34,7 +34,12 @@ MSRC har publicerat ett antal [faktablad](https://technet.microsoft.com/library/
 ## <a name="security-researcher-engagement-and-bounty-programs"></a>Säkerhet forskare Engagement och glädje program
 MSRC stöder samarbete och relationer med säkerhet forskare globalt att avancera säkerhet för Microsoft-produkt.
 
-Microsoft-program som glädje betalar forskare för nya utnyttjande tekniker, defensiva idéer som minimera nya exploitations och identifiering av kritiska säkerhetsrisker i Microsoft lokala och moln programvara.
+Microsoft-program som glädje betala forskare för:
+- Nya utnyttjande tekniker
+- Defensiva idéer som minskar nya kryphål
+- Identifiering av kritiska säkerhetsrisker i Microsoft lokalt och moln programvara.
+
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om dessa program när den [MSRC Bug glädje](https://technet.microsoft.com/security/dn425036) sidan och [MSRC blogg](https://blogs.technet.microsoft.com/msrc/).
 

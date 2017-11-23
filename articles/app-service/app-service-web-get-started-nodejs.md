@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e5193460bf46c2b826cad371e4549a9690180f17
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -36,8 +36,8 @@ Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. Det tar cirk
 
 För att slutföra den här snabbstarten behöver du:
 
-* [Installera Git](https://git-scm.com/)
-* [Installera Node.js och NPM](https://nodejs.org/)
+* <a href="https://git-scm.com/" target="_blank">Installera Git</a>
+* <a href="https://nodejs.org/" target="_blank">Installera Node.js och NPM</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Vanliga frågor om Azure Active Directory Connect
 
@@ -43,8 +43,14 @@ Alla nätverksprogramvara fysiska enheter eller något annat som begränsar den 
 **F: är SLDs (enkel etikett domäner) stöds?**  
 Nej, Azure AD Connect har inte stöd för lokala skogar och domäner med SLDs.
 
+**F: är skogar med åtskilda AD-domäner som stöds?**  
+Nej, Azure AD Connect har inte stöd för lokala skogar som innehåller åtskilda namnområden.
+
 **F: är ”prickad” NetBios-namnet stöds?**  
 Nej, Azure AD Connect har inte stöd för lokala skogar och domäner där NetBios-namnet innehåller en punkt ””. i namnet.
+
+**F: är rent IPv6-miljö som stöds?**  
+Nej, Azure AD Connect inte stöder endast IPv6-miljö.
 
 ## <a name="federation"></a>Federation
 **F: Vad gör jag om jag får ett e-postmeddelande som ber mig att förnya certifikatet min Office 365**  

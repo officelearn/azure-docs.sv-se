@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta integrering med System Center Operations Manager
   > [!NOTE]
@@ -30,7 +30,7 @@ Operations Management Suite Tjänstkarta automatiskt identifierar programkompone
 Med den här integreringen mellan Tjänstkarta och System Center Operations Manager kan automatiskt skapa diagram för distribuerade program i Operations Manager som är baserade på dynamiskt beroende maps i Tjänstkartan.
 
 ## <a name="prerequisites"></a>Krav
-* En Operations Manager-hanteringsgrupp som hanterar en uppsättning servrar.
+* En Operations Manager-hanteringsgrupp (2012 R2 eller senare) som kan hantera en uppsättning servrar.
 * En Operations Management Suite-arbetsyta med Tjänstkarta lösningen aktiverad.
 * En uppsättning servrar (minst) som hanteras av Operations Manager och skicka data till Tjänstkartan. Windows- och Linux-servrar stöds.
 * Ett huvudnamn för tjänsten med åtkomst till Azure-prenumerationen som är associerad med Operations Management Suite-arbetsyta. Mer information finns på [skapa ett huvudnamn för tjänsten](#creating-a-service-principal).

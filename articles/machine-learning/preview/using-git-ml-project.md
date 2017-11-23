@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: fe2a302a32f1b9ec474416704c6cb613cd384a0e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 0cd447a52964578dd2348a786dd57a45ea87516e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Med ett projekt för Azure Machine Learning arbetsstationen Git-lagringsplats
 Det här dokumentet innehåller information om hur Azure Machine Learning arbetsstationen använder Git för att ange versionskontroll och kontrollera reproducerbara i experimentet vetenskapliga data. Det finns också anvisningar om hur du associerar ditt projekt till ett moln Git-lagringsplats.
@@ -121,7 +121,7 @@ Genom att köra det här kommandot vi skriver över hela projektmappen med ögon
 ## <a name="step-6-use-the-master-branch"></a>Steg 6. Använd mastergrenen
 Ett sätt att undvika att av misstag är förlorar den aktuella statusen för projektet, att genomföra projektet till mastergrenen (eller valfri gren som du själv har skapat) för Git-lagringsplatsen. Du kan använda Git direkt från kommandoraden (eller din andra favorit Git klientverktyg) för att använda mastergrenen. Exempel:
 
-```
+```sh
 # check status to make sure you are on the master branch (or branch of your choice)
 $ git status
 

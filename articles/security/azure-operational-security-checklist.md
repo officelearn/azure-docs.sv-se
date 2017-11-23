@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 1877e6ab19d504c8be6130578f17b608f123e20a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Checklista för Azure operativ säkerhet
 Distribuera ett program på Azure är snabb, enkel och kostnadseffektiv. Innan du distribuerar cloud program i produktion praktiskt att ha en checklista för att hjälpa dig att utvärdera programmet mot en lista över viktiga och rekommenderade operativ säkerhetsåtgärder som du bör tänka.

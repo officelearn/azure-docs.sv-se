@@ -1,8 +1,6 @@
 I Cloud Shell skapar du en [webbapp](../articles/app-service/app-service-web-overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#create). 
 
-Webbappen ger dig ett lagringsutrymme för din kod och du får en URL så att du kan visa den distribuerade appen.
-
-Ersätt *\<app_name>* med ett unikt namn (giltiga tecken är `a-z`, `0-9` och `-`) i följande kommando. Om `<app_name>` inte är unikt får du ett felmeddelande om att webbplatsen med det angivna namnet <app_name> redan finns. Standardwebbadressen för webbappen är `https://<app_name>.azurewebsites.net`. 
+I följande exempel ersätter  *\<appnamn >* med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9`, och `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -32,7 +30,7 @@ Du har skapat en tom webbapp med git-distribution som är aktiverad.
 > URL för Git-fjärråtkomstprincipen visas i den `deploymentLocalGitUrl` egenskap med formatet `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Spara den här URL: en som du behöver senare.
 >
 
-Gå till webbplatsen för att se webbappen du precis skapade.
+Bläddra till den nya webbappen.
 
 ```bash
 http://<app_name>.azurewebsites.net

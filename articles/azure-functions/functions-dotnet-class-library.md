@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: e55af617236f3c36da161158a10b26f2f8f30224
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Med hjälp av .NET-klassbibliotek med Azure Functions
 
@@ -37,7 +37,7 @@ Den här artikeln har följande krav:
 
 Skapa ett nytt Azure Functions-projekt från Visual Studio. Den nya projektmallen för skapar filerna *host.json* och *local.settings.json*. Du kan [Anpassa inställningar för Azure Functions-runtime i host.json](functions-host-json.md). 
 
-Filen *local.settings.json* lagrar app-inställningar, anslutningssträngar och inställningar för Azure Functions Core verktyg. Läs mer om strukturen i [koden och testa Azure functions lokalt](functions-run-local.md#local-settings).
+Filen *local.settings.json* lagrar app-inställningar, anslutningssträngar och inställningar för Azure Functions Core verktyg. Läs mer om strukturen i [koden och testa Azure functions lokalt](functions-run-local.md#local-settings-file).
 
 ### <a name="functionname-attribute"></a>FunctionName attribut
 
@@ -144,7 +144,7 @@ Om du vill binda till en Cosmos-DB-dokumentet använder attributet `[DocumentDB]
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }

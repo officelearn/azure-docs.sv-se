@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestanda genom att komprimera filerna i Azure CDN
 Komprimering är ett enkelt och effektivt sätt att förbättra hastighet för överföring av filen och öka belastningen prestanda genom att minska filstorleken innan den skickas från servern. Det minskar kostnader för bandbredd och ger en mer effektiv upplevelse för användarna.
@@ -100,7 +100,7 @@ Dessa tabeller beskrivs Azure CDN komprimering beteendet för varje scenario.
 > * Är större än 128 byte.
 > * Vara mindre än 1 MB.
 > 
-> Stöd för de här profilerna **gzip** (GNU zip) **deflate**, **bzip2**, eller **br** kodning (Brotli). Komprimeringen görs endast i utkanten för Brotli kodning. Klientwebbläsaren måste skicka förfrågan Brotli kodning och komprimerade tillgången måste komprimerats på ursprung sida först. 
+> Stöd för de här profilerna **gzip** (GNU zip) **deflate**, **bzip2**, eller **br** kodning (Brotli). Komprimeringen måste göras på ursprung för Brotli kodning. Klientwebbläsaren måste skicka förfrågan Brotli kodning och komprimerade tillgången måste komprimerats på ursprung sida först. 
 
 > [!IMPORTANT]
 > För **Azure CDN från Akamai** profiler, alla filer är tillgängliga för komprimering. En fil måste dock vara en MIME-typ som har varit [konfigurerats för komprimering](#enabling-compression).

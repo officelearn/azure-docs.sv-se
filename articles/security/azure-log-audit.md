@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 035f51d9f12e887d2017b058f0b0471870f411f7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Azure-loggning och granskning
 ## <a name="introduction"></a>Introduktion
@@ -309,7 +309,7 @@ Application Insights är avsett för utvecklingsteamet och gör det lättare att
 |[Automatisk och manuell aviseringar](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-alerts)|Automatiska aviseringar är anpassade efter appens normala telemetrimönster och visas vid händelser som avviker från det vanliga mönstret. Du kan också ställa in aviseringar på särskilda nivåer med anpassade mätvärden eller standardmätvärden.||
 |[Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-visual-studio)|Visa prestandadata i koden. Gå till kod från stackspårningar.||
 |[Power BI](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-power-bi)|Integrera användningsmätvärden med annan Business Intelligence.||
-|[REST API](https://dev.applicationinsights.io/)|Skriv kod för att köra frågor mot dina mätvärden och rådata.||
+|[REST-API](https://dev.applicationinsights.io/)|Skriv kod för att köra frågor mot dina mätvärden och rådata.||
 |[Löpande export](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-telemetry)|Massredigera export av rådata till lagring när det kommer fram.||
 
 ### <a name="azure-security-center-alerts"></a>Azure Security Center-aviseringar
@@ -355,23 +355,23 @@ Det finns fyra olika sätt att [att samla in loggar och mått för Azure-tjänst
 | Tjänst | Resurstyp | Logs | Mått | Lösning |
 | :------ | :------------ | :--- | :------ | :------- |
 |Programgateways|  Microsoft.Network/<br>applicationGateways|  Diagnostik|Diagnostik|    [Azure-program](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
-|Programinsikter||     koppling|  koppling|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [anslutningsprogrammet (förhandsversion)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
+|Programinsikter||     Koppling|  Koppling|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [anslutningsprogrammet (förhandsversion)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Automation-konton|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostik||       [Mer information](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Batch-konton|    Microsoft.Batch/<br>batchAccounts|  Diagnostik|    Diagnostik||
 |Klassiska molntjänster||       Lagring||       [Mer information](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
 |Cognitive Services|    Microsoft.CognitiveServices/<br>konton|       Diagnostik|||
 |Data Lake analytics|   Microsoft.DataLakeAnalytics/<br>konton|   Diagnostik|||
 |Data Lake store|   Microsoft.DataLakeStore/<br>konton|   Diagnostik|||
-|Event Hub namnområde|   Microsoft.EventHub/<br>namnområden|  Diagnostik|    Diagnostik||
+|Namnområde för händelsehubb|   Microsoft.EventHub/<br>namnområden|  Diagnostik|    Diagnostik||
 |IoT-hubbar|  Microsoft.Devices/<br>IotHubs||     Diagnostik||
 |Key Vault| Microsoft.KeyVault/<br>Valv|  Diagnostik  || [KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
-|Belastningsutjämnare|    Microsoft.Network/<br>loadBalancers|    Diagnostik|||
+|Belastningsutjämning|    Microsoft.Network/<br>loadBalancers|    Diagnostik|||
 |Logic Apps|    Microsoft.Logic/<br>Arbetsflöden|  Diagnostik|    Diagnostik||
 ||Microsoft.Logic/<br>integrationAccounts||||
 |Nätverkssäkerhetsgrupper|   Microsoft.Network/<br>networksecuritygroups|Diagnostik||   [Azure Nätverkssäkerhetsgruppen Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Recovery-valv|   Microsoft.RecoveryServices/<br>Valv|||[Azure Recovery Services Analytics (förhandsgranskning)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Söktjänster|   Microsoft.Search/<br>searchServices|    Diagnostik|    Diagnostik||
-|Service Bus-namnrymd| Microsoft.ServiceBus/<br>namnområden|    Diagnostik|Diagnostik|    [Service Bus Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Service Bus-namnområde| Microsoft.ServiceBus/<br>namnområden|    Diagnostik|Diagnostik|    [Service Bus Analytics (förhandsgranskning)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Lagring||    [Service Fabric Analytics (förhandsgranskning)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servrar /<br>databaser||       Diagnostik||
 ||Microsoft.Sql/<br>servrar /<br>elasticPools||||

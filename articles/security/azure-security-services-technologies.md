@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ea707d3d149734dad2d5c76d853ddd667cbf73b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Säkerheten i Azure-tjänster och teknik
 I vår diskussioner med aktuella och framtida Azure-kunder uppmanas vi ofta ”har du en lista över alla relaterade tjänster och teknik som Azure har att erbjuda”?
 
-Vi förstår att när du utvärderar cloud service provider tekniska alternativen är det bra att ha en sådan lista kan användas för att sätta igång ned djupare när tiden är rätt för dig.
+När du utvärderar molnalternativ service provider, är det bra att ha den här informationen.
 
 Följande är vårt första arbete med att tillhandahålla en lista. Över tiden, den här listan ändrar och växer, precis som Azure. Kategoriseras i listan och listan över kategorier kommer också att växa med tiden. Se till att markera den här sidan med jämna mellanrum att hålla dig uppdaterad på vår säkerhetsrelaterade tjänster och teknik.
 

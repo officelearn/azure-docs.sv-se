@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c7ee06a00488b3f958127f6d7f57324c7ed14ab4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Så här aktiverar du kapslade virtualisering i en Azure VM
 
@@ -49,7 +49,7 @@ Skapa en fjärrskrivbordsanslutning till den virtuella datorn.
 Du kan konfigurera dessa inställningar manuellt eller så har vi angett ett PowerShell-skript för att automatisera konfigurationen.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Alternativ 1: Använd ett PowerShell-skript för att konfigurera kapslade virtualisering
-Det finns ett PowerShell-skript för att aktivera kapslade virtualisering på en Windows Server 2016-värd på [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Skriptet kontrollerar kraven och konfigurerar sedan kapslade virtualisering på Azure VM. En omstart av Azure VM är nödvändigt för att slutföra konfigurationen. Det här skriptet fungerar i andra miljöer, men är inte säkert. Ta en titt på Azure blogginlägget med en levande videodemonstration kapslade virtualisering som körs på Azure! https://aka.MS/AzureNVblog.
+Det finns ett PowerShell-skript för att aktivera kapslade virtualisering på en Windows Server 2016-värd på [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Skriptet kontrollerar kraven och konfigurerar sedan kapslade virtualisering på Azure VM. En omstart av Azure VM är nödvändigt för att slutföra konfigurationen. Det här skriptet fungerar i andra miljöer, men är inte säkert. Ta en titt på Azure blogginlägget med en levande videodemonstration kapslade virtualisering som körs på Azure! https://aka.MS/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Alternativ 2: Konfigurera kapslade virtualisering manuellt
 

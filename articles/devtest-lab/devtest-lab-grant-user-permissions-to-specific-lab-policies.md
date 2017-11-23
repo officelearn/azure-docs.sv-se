@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Bevilja användarbehörighet att principer för specifika labbet
 ## <a name="overview"></a>Översikt
@@ -87,9 +87,9 @@ I föregående exempel är den **AllowedVmSizesInLab** principen används. Du ka
 ## <a name="next-steps"></a>Nästa steg
 När du har behörighet användaren att principer för specifika labbet här är att tänka på följande steg:
 
-* [Säker åtkomst till ett labb](devtest-lab-add-devtest-user.md).
-* [Ange principer för labbet](devtest-lab-set-lab-policy.md).
-* [Skapa en labbmall](devtest-lab-create-template.md).
-* [Skapa anpassade artefakter för dina virtuella datorer](devtest-lab-artifact-author.md).
-* [Lägga till en virtuell dator med artefakter i ett labb](devtest-lab-add-vm-with-artifacts.md).
+* [Säker åtkomst till ett labb](devtest-lab-add-devtest-user.md)
+* [Ange principer för labbet](devtest-lab-set-lab-policy.md)
+* [Skapa en labbmall](devtest-lab-create-template.md)
+* [Skapa anpassade artefakter för dina virtuella datorer](devtest-lab-artifact-author.md)
+* [Lägga till en virtuell dator i ett labb](devtest-lab-add-vm.md)
 

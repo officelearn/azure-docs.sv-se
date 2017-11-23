@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsgranskning) i logganalys
 
@@ -29,6 +29,11 @@ Azure SQL Analytics lösningen i Azure Log Analytics samlar in och visualizes vi
 Den här preview-lösningen stöder för närvarande, upp till 150 000 Azure SQL-databaser och 5 000 SQL elastiska pooler per arbetsytan.
 
 Azure SQL Analytics-lösningen, precis som andra tillgängliga för Log Analytics hjälper dig att övervaka och ta emot meddelanden om hälsotillståndet för dina Azure-resurser – i det här fallet, Azure SQL Database. Microsoft Azure SQL Database är en skalbar relationsdatabas-tjänst som tillhandahåller välbekanta SQL-Server-liknande funktioner till program som körs i Azure-molnet. Logganalys hjälper dig att samla in, korrelera och visualisera strukturerade och Ostrukturerade data.
+
+För en praktisk översikt om hur du använder Azure SQL Analytics lösning och vanliga Användningsscenarier finns inbäddad video:
+          
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
 
 ## <a name="connected-sources"></a>Anslutna källor
 
@@ -115,7 +120,7 @@ Varje perspektiv innehåller sammanfattningar för prenumerationen, server, elas
 
 ### <a name="intelligent-insights-report"></a>Intelligent insikter rapport
 
-Alla Intelligent insikter som samlas in kan visualiseras och nås via insikter perspektiv. 
+Azure SQL Database [Intelligent insikter](../sql-database/sql-database-intelligent-insights.md) gör att du vet vad som händer med databasens prestanda. Alla Intelligent insikter som samlas in kan visualiseras och nås via insikter perspektiv.
 
 ![Azure SQL Analytics insikter](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 

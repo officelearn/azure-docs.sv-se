@@ -1,6 +1,6 @@
-Skapa en webbapp i molnet Shell, den `myAppServicePlan` App Service-plan med den [az webapp skapa](/cli/azure/webapp#create) kommandot. Glöm inte att ersätta `<app_name>` med ett unikt appnamn.
+Skapa en webbapp i molnet Shell, den `myAppServicePlan` App Service-plan med den [az webapp skapa](/cli/azure/webapp#create) kommandot. 
 
-Körningsfel i följande kommando anges till `python|3.4`. Om du vill se alla stöds körningar kör [az webapp lista-körningar](/cli/azure/webapp#list-runtimes). 
+I följande exempel ersätter `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9`, och `-`). Körningen har angetts till `python|3.4`. Om du vill se alla stöds körningar kör [az webapp lista-körningar](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "python|3.4" --deployment-local-git

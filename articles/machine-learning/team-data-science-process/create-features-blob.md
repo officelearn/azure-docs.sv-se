@@ -4,7 +4,7 @@ description: "Så här skapar du funktioner för data som lagras i Azure blob-be
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Skapa funktioner för Azure Blob Storage-data med Panda
 Det här dokumentet beskrivs hur du skapar funktioner för data som lagras i Azure blob-behållaren med den [Pandas](http://pandas.pydata.org/) Python-paketet. Efter beskriver hur du läser in data i ett Panda data visas hur du skapar kategoriska funktioner med hjälp av Python-skript med indikatorn värden och diskretisering funktioner.
@@ -31,9 +31,9 @@ Detta **menyn** länkar till avsnitt som beskriver hur du skapar funktioner för
 Den här artikeln förutsätter att du har skapat ett Azure blob storage-konto och har sparat dina data. Om du behöver anvisningar för att konfigurera ett konto, se [skapa ett Azure Storage-konto](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Läsa in data i ett Pandas data
-För att kunna utforska och ändra en datamängd, måste den hämtas från blob-källan till en lokal fil som sedan kan läsas in i en Pandas data ram. Här följer de steg för den här proceduren:
+För att utforska och ändra en datamängd hämtas den från käll-blob till en lokal fil. Läsa in den i ett Pandas data. Här följer de steg för den här proceduren:
 
-1. Hämta data från Azure blob med följande Python exempelkod med blob-tjänsten. Ersätt variabeln i koden nedan med dina specifika värden:
+1. Hämta data från Azure blob med följande Python exempelkod med blob-tjänsten. Ersätt variabeln i följande kod med din specifika värden:
    
         from azure.storage.blob import BlobService
         import tables
@@ -60,7 +60,7 @@ Du är nu redo att utforska data och generera funktioner på denna dataset.
 ## <a name="blob-featuregen"></a>Funktionen Generation
 I följande två avsnitt visar hur du skapar kategoriska funktioner med indikatorn värden och diskretisering funktioner med hjälp av Python-skript.
 
-### <a name="blob-countfeature"></a>Indikatorvärdet baserat funktionen Generation
+### <a name="blob-countfeature"></a>Indikatorns värde baserat funktionen Generation
 Kategoriska funktioner kan skapas på följande sätt:
 
 1. Kontrollera distributionen av kolumnen kategoriska:
@@ -80,7 +80,7 @@ Kategoriska funktioner kan skapas på följande sätt:
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
 ### <a name="blob-binningfeature"></a>Diskretisering funktionen Generation
-För att generera binned funktioner fortsätta enligt följande:
+Göra så här för att generera binned funktioner:
 
 1. Lägga till en sekvens av kolumner till bin en numerisk kolumn
    
@@ -93,8 +93,8 @@ För att generera binned funktioner fortsätta enligt följande:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>Data skrivs tillbaka till Azure blob och använda i Azure Machine Learning
-När du har gjort data och skapa nödvändiga funktioner, kan du överföra data (provtagning eller featurized) till ett Azure blob- och använda den i Azure Machine Learning med följande steg: Observera att du kan skapa ytterligare funktioner i Azure Machine Learning Studio samt.
+## <a name="sql-featuregen"></a>Data skrivs tillbaka till Azure blob att använda i Azure Machine Learning
+Att nyttja data i Azure Machine Learning som du har gjort provtagning eller featurized, ladda upp data till en Azure blob. Ytterligare funktioner kan skapas i Azure Machine Learning Studio samt. Följande steg visar hur du överför data:
 
 1. Skriva dataramen till en lokal fil
    
@@ -120,7 +120,7 @@ När du har gjort data och skapa nödvändiga funktioner, kan du överföra data
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Nu går att läsa data från blob med hjälp av Azure Machine Learning [importera Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) modulen som visas på skärmen nedan:
+3. Nu går att läsa data från blob med hjälp av Azure Machine Learning [importera Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) modulen som visas i följande skärmbild visar:
 
 ![läsaren blob](./media/data-blob/reader_blob.png)
 

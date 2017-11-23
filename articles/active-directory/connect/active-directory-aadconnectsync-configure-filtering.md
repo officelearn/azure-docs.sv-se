@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1adf5935e7fc01a24db6ada3c4cfe4ac0a4d55
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Med filtrering kan kan du kontrollera vilka objekt som visas i Azure Active Directory (AD Azure) från din lokala katalog. Standardkonfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är är det här den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, t.ex Exchange Online och Skype för företag, nytta av en fullständig globala adresslistan så att de kan skicka e-post och anropa alla. Med standardkonfigurationen, skulle de ha samma upplevelse som de kan ha med en lokal implementering av Exchange och Lync.
@@ -296,7 +296,14 @@ Nu är det dags att aktivera Schemaläggaren igen.
 ## <a name="group-based-filtering"></a>Gruppbaserade filtrering
 Du kan konfigurera gruppbaserade filtrering första gången du installerar Azure AD Connect med hjälp av [anpassad installation](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Den är avsedd för en pilotdistribution där du vill att endast en liten uppsättning objekt som ska synkroniseras. När du inaktiverar gruppbaserade filtrering kan aktiveras inte igen. Den har *stöds inte* att använda gruppbaserade filtrering i en anpassad konfiguration. Det kan bara användas om du vill konfigurera den här funktionen med hjälp av installationsguiden. När du har slutfört din pilot och sedan använda en av de andra filtreringsalternativ i det här avsnittet. När du använder OU-baserade filtrering tillsammans med gruppbaserade filtrering måste organisationsenheterna där gruppen och dess medlemmar finns tas med.
 
-Du kan konfigurera gruppbaserade filtrering genom att ange en annan grupp för varje AD-koppling när du synkroniserar flera AD-skogar. Om du inte vill för att synkronisera en användare i en AD skog och samma användare har en eller fler motsvarande FSP (sekundärt säkerhetsobjekt) objekt i andra AD-skogar, måste du se till att användarobjektet och dess motsvarande FSP objekt inom gruppbaserade filtrerar omfång. Om en eller flera av objekt som FSP undantas genom att filtrera gruppbaserade synkroniseras användarobjektet inte till Azure AD.
+Du kan konfigurera gruppbaserade filtrering genom att ange en annan grupp för varje AD-koppling när du synkroniserar flera AD-skogar. Om du inte vill för att synkronisera en användare i en AD skog och samma användare har en eller flera motsvarande objekt i andra AD-skogar, måste du se till att användarobjektet och dess motsvarande objekt inom gruppbaserade filtrerar omfång. Exempel:
+
+* Du har en användare i en skog som har ett motsvarande FSP (sekundärt säkerhetsobjekt) objekt i en annan skog. Båda objekten måste inom gruppbaserade filtrera scope. Annars kommer användaren inte att synkroniseras till Azure AD.
+
+* Du har en användare i en skog som har en motsvarande resurskonto (t.ex. länkad postlåda) i en annan skog. Dessutom har du konfigurerat Azure AD Connect för att länka användare med resurskonto. Båda objekten måste inom gruppbaserade filtrera scope. Annars kommer användaren inte att synkroniseras till Azure AD.
+
+* Du har en användare i en skog som har en motsvarande post Kontakta i en annan skog. Dessutom har du konfigurerat Azure AD Connect för att länka användare med e-post kontakten. Båda objekten måste inom gruppbaserade filtrera scope. Annars kommer användaren inte att synkroniseras till Azure AD.
+
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [Azure AD Connect-synkronisering](active-directory-aadconnectsync-whatis.md) konfiguration.

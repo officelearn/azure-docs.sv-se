@@ -1,5 +1,5 @@
 ---
-title: "Hur du lägger till en IoT-hubb händelsekälla Azure tid serien Insights miljön | Microsoft Docs"
+title: "Hur du lägger till en IoT-hubb händelsekälla Azure tid serien Insights | Microsoft Docs"
 description: "Den här artikeln beskriver hur du lägger till en källa som är ansluten till en IoT-hubb i miljön tid serien insikter"
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 29b617422810480f5f8cbcd5b78ebe8605734bbf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 11/21/2017
+ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Hur du lägger till en IoT-hubb händelsekälla tid serien insikter miljö
 Den här artikeln beskriver hur du använder Azure-portalen för att lägga till en händelsekälla som läser data från en IoT-hubb i din miljö för tid serien insikter.
@@ -58,7 +58,7 @@ Den här artikeln beskriver hur du använder Azure-portalen för att lägga till
    | IoT-hubb principnyckel | Nyckeln är förinställd.
    | IoT-hubb konsumentgrupp | Konsumentgrupp som händelser ska läsas från IoT-hubben. Vi rekommenderar starkt att använda en dedikerad konsumentgrupp för din händelsekälla.
    | Händelsen serialiseringsformat | JSON är för närvarande endast tillgängligt serialisering. Meddelanden om händelser måste vara i formatet eller inga data kan läsas. |
-   | Tidsstämpel egenskapsnamn | För att fastställa detta värde, måste du förstå meddelandeformat för meddelandedata som skickas till IoT-hubb. Det här värdet är den **namn** för egenskapen specifika händelser i meddelandedata som du vill använda som tidsstämpel för händelse. Värdet är skiftlägeskänsligt. När värdet är tomt används den **sätta händelsetid** i händelsen källa används som tidsstämpel för händelse. |
+   | Egenskapsnamn för tidsstämpel | För att fastställa detta värde, måste du förstå meddelandeformat för meddelandedata som skickas till IoT-hubb. Det här värdet är den **namn** för egenskapen specifika händelser i meddelandedata som du vill använda som tidsstämpel för händelse. Värdet är skiftlägeskänsligt. När värdet är tomt används den **sätta händelsetid** i händelsen källa används som tidsstämpel för händelse. |
 
 9. Om du har valt den **ange IoT-hubb inställningar manuellt** alternativet i följande tabell beskrivs varje obligatorisk egenskap:
 
@@ -71,7 +71,7 @@ Den här artikeln beskriver hur du använder Azure-portalen för att lägga till
    | IoT-hubb principnyckel | Den delade åtkomstnyckeln som används för att autentisera åtkomst till Service Bus-namnrymd. Ange de primära och sekundära nycklarna här.
    | IoT-hubb konsumentgrupp | Konsumentgrupp som händelser ska läsas från IoT-hubben. Vi rekommenderar starkt att använda en dedikerad konsumentgrupp för din händelsekälla.
    | Händelsen serialiseringsformat | JSON är för närvarande endast tillgängligt serialisering. Meddelanden om händelser måste vara i formatet eller inga data kan läsas. |
-   | Tidsstämpel egenskapsnamn | För att fastställa detta värde, måste du förstå meddelandeformat för meddelandedata som skickas till IoT-hubb. Det här värdet är den **namn** för egenskapen specifika händelser i meddelandedata som du vill använda som tidsstämpel för händelse. Värdet är skiftlägeskänsligt. När värdet är tomt används den **sätta händelsetid** i händelsen källa används som tidsstämpel för händelse. |
+   | Egenskapsnamn för tidsstämpel | För att fastställa detta värde, måste du förstå meddelandeformat för meddelandedata som skickas till IoT-hubb. Det här värdet är den **namn** för egenskapen specifika händelser i meddelandedata som du vill använda som tidsstämpel för händelse. Värdet är skiftlägeskänsligt. När värdet är tomt används den **sätta händelsetid** i händelsen källa används som tidsstämpel för händelse. |
 
 10. Välj **skapa** att lägga till ny händelsekälla.
 

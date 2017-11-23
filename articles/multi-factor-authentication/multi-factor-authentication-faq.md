@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 Det här avsnittet får du svar vanliga frågor om Azure Multi-Factor Authentication och använder multi-Factor Authentication-tjänsten. Den är uppdelad i frågor om tjänsten i allmänhet modeller, användarupplevelser, fakturering och felsökning.
@@ -95,7 +95,7 @@ Om din katalog har en *per autentisering* Azure Multi-Factor Authentication prov
 
 **F: min organisation har att använda och synkronisera identiteter för att använda Azure Multi-Factor Authentication?**
 
-Om organisationen använder en förbrukningsbaserad fakturering modell, är Azure Active Directory valfritt, men krävs inte. Om MFA-leverantören inte är kopplad till en Azure AD-klient, kan du bara distribuera Azure Multi-Factor Authentication-servern eller den Azure Multi-Factor Authentication SDK lokalt.
+Om organisationen använder en förbrukningsbaserad fakturering modell, är Azure Active Directory valfritt, men krävs inte. Om MFA-leverantören inte är kopplad till en Azure AD-klient, kan du bara distribuera Azure Multi-Factor Authentication-servern på lokalt.
 
 Azure Active Directory krävs för licens-modellen eftersom licenser läggs till Azure AD-klienten när du köper och tilldela dem till användare i katalogen.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server du använda dina lokala Windows Server-licenser och köra virtuella Windows-datorer i Azure till en lägre kostnad. Du kan använda Azure Hybrid-förmån för Windows Server för att distribuera nya virtuella datorer från eventuella Azure stöds Windows Server plattformsavbildning eller anpassade Windows-avbildningar. Den här artikeln går över stegen på hur du distribuerar nya virtuella datorer med Azure Hybrid-förmån för Windows Server och hur du kan uppdatera befintliga virtuella datorer som körs. Mer information om Azure Hybrid-förmån för Windows Server finns i licens- och besparingar i [Azure Hybrid-förmån för Windows Server-licensiering sidan](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -28,7 +28,7 @@ För kunder med Software Assurance kan Azure Hybrid-förmån för Windows Server
 >
 
 > [!NOTE]
-> Med hjälp av Azure Hybrid-förmån för Windows Server med virtuella datorer som debiteras för ytterligare programvara, till exempel SQL Server eller någon tredje parts marketplace-bilder som lyfts. Om du får felet 409 exempel: ändra egenskapen 'LicenseType' inte är tillåtet; sedan försöker du konvertera eller distribuera en ny Windows virtuell dator som har ytterligare programvara kostnad, vilket inte stöds i den regionen.
+> Med hjälp av Azure Hybrid-förmån för Windows Server med virtuella datorer som debiteras för ytterligare programvara, till exempel SQL Server eller någon tredje parts marketplace-bilder som lyfts. Om du får felet 409 exempel: ändra egenskapen 'LicenseType' inte är tillåtet; sedan försöker du konvertera eller distribuera en ny Windows virtuell dator som har ytterligare programvara kostnad, vilket inte stöds i den regionen. Samma om du försöker leta för portalen konfigurationen alternativet för konvertering och du kan inte se den för den virtuella datorn.
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>Portalen
 Från portalen VM-bladet, kan du uppdatera den virtuella datorn om du vill använda Azure Hybrid dra genom att välja alternativet ”Configuration” och växla mellan alternativet ”Azure hybrid dra”
+
+> [!NOTE]
+> Om du inte ser alternativet att växla ”Azure hybrid förmånen” under ”Configuration” är det eftersom konverteringen inte stöds ännu för den valda virtuella datorn (till exempel en virtuell dator inbyggda från anpassad avbildning eller från en avbildning som har ytterligare betald program som SQL Server eller Azure Marketplace tredjepartsprogram).
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>Överför en Windows Server VHD
 Om du vill distribuera en Windows Server-VM i Azure måste du först skapa en virtuell Hårddisk som innehåller din grundläggande Windows-version. Den här virtuella Hårddisken måste förberedas på rätt sätt via Sysprep innan du överför den till Azure. Du kan [Läs mer om kraven för virtuell Hårddisk och Sysprep-processen](upload-generalized-managed.md) och [Sysprep-stöd för serverroller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Säkerhetskopiera den virtuella datorn innan du kör Sysprep. 
@@ -180,12 +184,14 @@ I den virtuella datorn skaluppsättning för Resource Manager-mallar, en extra p
 Du kan också [skapa och distribuera en virtuella datorns skaluppsättning](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) och egenskapen LicenseType
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [så spara pengar och de fördelar som Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Läs mer om [så spara pengar med förmån för Azure-Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Lär dig mer om [Azure Hybrid-förmån för Windows Server-licensiering detaljerad vägledning](http://go.microsoft.com/fwlink/?LinkId=859786)
+Lär dig mer om [Azure Hybrid-förmån för Windows Server-licensiering detaljerad vägledning](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
 
-Lär dig mer om [med hjälp av Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md).
+Lär dig mer om [med hjälp av Resource Manager-mallar](../../azure-resource-manager/resource-group-overview.md)
 
-Lär dig mer om [Azure Hybrid-förmån för Windows Server och Azure Site Recovery göra migrera program till Azure ännu mer kostnadseffektiv](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+Lär dig mer om [Azure Hybrid-förmån för Windows Server och Azure Site Recovery göra migrera program till Azure ännu mer kostnadseffektivt](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
+
+Lär dig mer om [Windows 10 på Azure med Multitenant värd höger](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Läs mer om [vanliga frågor och svar](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

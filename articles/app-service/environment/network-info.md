@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 121dd1a90e9bde66f1c3b752412a657a67295084
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Överväganden för nätverk för Apptjänst-miljö #
 
@@ -103,7 +103,7 @@ Förutom funktionella beroenden ASE finns några extra artiklar som rör portal 
 
 -   Webjobs.
 -   Funktioner
--   Logg för strömning
+-   Loggströmning
 -   Kudu
 -   Tillägg
 -   Processutforskaren
@@ -164,7 +164,7 @@ Alla objekt som visas i följande utgående regler behövs, förutom det sista o
 
 ![Utgående säkerhetsregler][5]
 
-När dina NSG: er har definierats kan du tilldela dem till undernät som din ASE på. Om du inte kommer ihåg ASE VNet eller undernät, kan du se den från hanteringsportalen ASE. Gå till undernätet för Gränssnittet för att tilldela undernätet NSG: N och välj NSG: N.
+När dina NSG: er har definierats kan du tilldela dem till undernät som din ASE på. Om du inte kommer ihåg ASE VNet eller undernät, kan du se den från ASE portalsidan. Gå till undernätet för Gränssnittet för att tilldela undernätet NSG: N och välj NSG: N.
 
 ## <a name="routes"></a>Vägar ##
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Felsökning av anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur anslutning mellan Azure AD Connect och AD Azure fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är stor sannolikhet kommer att visas i en miljö med en proxyserver.
@@ -40,7 +40,7 @@ Proxyservern måste också ha de URL: erna öppnas. Den officiella förteckninge
 
 Följande tabell är det absoluta minst för att kunna ansluta till Azure AD alls av dessa webbadresser. Den här listan innehåller inte några valfria funktioner, till exempel tillbakaskrivning av lösenord eller Azure AD Connect Health. Den dokumenteras här för att underlätta felsökningen för den inledande konfigurationen.
 
-| URL: EN | Port | Beskrivning |
+| URL | Port | Beskrivning |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
 | \*. verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
@@ -90,10 +90,13 @@ Om du får **kan inte ansluta till fjärrservern**, sedan PowerShell försöker 
 Om proxy inte är korrekt konfigurerad, du får ett felmeddelande: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Fel | Feltext | Kommentar |
+| Fel | Feltext | Kommentera |
 | --- | --- | --- |
-| 403 |Tillåts inte |Proxyn har inte öppnats för begärd URL. Kontrollera igen proxykonfigurationen och kontrollera att den [URL: er](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) har öppnats. |
+| 403 |Förbjudna |Proxyn har inte öppnats för begärd URL. Kontrollera igen proxykonfigurationen och kontrollera att den [URL: er](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) har öppnats. |
 | 407 |Det krävs proxyautentisering |Proxyservern måste en inloggning och inget har tillhandahållits. Om proxyservern kräver autentisering, se till att ha den här inställningen konfigurerad i machine.config. Kontrollera också att du använder domänkonton för användaren som kör guiden och för tjänstkontot. |
+
+### <a name="proxy-idle-timeout-setting"></a>Tidsgränsen för inaktivitet proxyinställningar
+När Azure AD Connect skickar en begäran för export till Azure AD, kan Azure AD ta upp till 5 minuter att bearbeta begäran innan du genererar ett svar. Detta kan inträffa särskilt om det finns ett antal gruppobjekt med stora gruppmedlemskap som ingår i samma begäran för export. Se till att tidsgränsen för inaktivitet Proxy har konfigurerats för att vara större än 5 minuter. Annars kan du sett återkommande anslutningsproblem med Azure AD på Azure AD Connect-servern.
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Mönstret för kommunikation mellan Azure AD Connect och Azure AD
 Om du har följt de föregående stegen och fortfarande inte kan ansluta, kan du nu starta tittar på nätverket loggar. Det här avsnittet är dokumentera ett normalt och lyckad anslutning mönster. Det också en lista med vanliga red herrings som kan ignoreras när du läser loggar för nätverket.
@@ -107,7 +110,7 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 **Anslut till Azure AD**
 
-| Tid | URL: EN |
+| Tid | URL |
 | --- | --- |
 | 1/11/2016 8:31 |Connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |Connect://adminwebservice.microsoftonline.com:443 |
@@ -118,7 +121,7 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 **Konfigurera**
 
-| Tid | URL: EN |
+| Tid | URL |
 | --- | --- |
 | 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |ansluta: / /*bba800 fästpunkt*. microsoftonline.com:443 |
@@ -134,7 +137,7 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 **Inledande synkronisering**
 
-| Tid | URL: EN |
+| Tid | URL |
 | --- | --- |
 | 1/11/2016 8:48 |Connect://login.Windows.NET:443 |
 | 1/11/2016 8:49 |Connect://adminwebservice.microsoftonline.com:443 |

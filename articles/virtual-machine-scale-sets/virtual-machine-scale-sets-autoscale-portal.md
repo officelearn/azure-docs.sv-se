@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 266e9674a422dffb7f78a4aa3dd0adfa3c8bab3b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en virtuell dator skaluppsättningen i Azure-portalen
 När du skapar en skaluppsättning för definiera antalet VM-instanser som du vill köra. När din begäran för program ändras, kan du automatiskt öka eller minska antalet VM-instanser. Möjligheten att Autoskala kan du Håll dig uppdaterad med kundernas behov eller svara på ändringar i programmet prestanda under hela livscykeln för din app.
@@ -34,7 +34,7 @@ Du behöver en befintlig virtuell dator för att skapa regler för automatiska s
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Skapa en regel för att automatiskt skala ut
 Om ditt program begäran ökar, ange ökar belastningen på VM-instanser i nivå. Om den här ökade belastningen är konsekvent, i stället för bara en kort begäran, kan du konfigurera automatiska regler för att öka antalet VM-instanser i skaluppsättning. När dessa VM-instanser som skapas och dina program distribueras börjar skaluppsättning distribuera trafik till dem via belastningsutjämnaren. Du kan styra vilka mått som ska övervakas, t.ex CPU eller disk, hur länge belastningen program måste uppfylla ett visst tröskelvärde och ange hur många VM-instanser som ska läggas till skalan.
 
-1. Öppna Azure portal och välj **resursgrupper** på menyn i den vänstra storleken på instrumentpanelen.
+1. Öppna Azure portal och välj **resursgrupper** på menyn till vänster på instrumentpanelen.
 2. Välj den resursgrupp som innehåller din skaluppsättning, och välj sedan din skaluppsättningen i listan över resurser.
 3. Välj **skalning** ange fönster på menyn till vänster för skalan. Klicka om du vill **aktivera Autoskala**:
 
@@ -48,13 +48,13 @@ Om ditt program begäran ökar, ange ökar belastningen på VM-instanser i nivå
     
     | Parameter              | Förklaring                                                                                                         | Värde          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Aggregation tid*     | Definierar hur mätvärdena som samlats in ska aggregeras för analys.                                                | Genomsnittlig        |
-    | *Måttnamnet*          | Prestanda-mått för att övervaka och tillämpa skala ange åtgärder på.                                                   | Procentandel CPU |
-    | *Tid grain statistik* | Definierar hur mätvärdena som samlats in i varje tidsenhet ska aggregeras för analys.                             | Genomsnittlig        |
+    | *Aggregation tid*     | Definierar hur mätvärdena som samlats in ska aggregeras för analys.                                                | Genomsnitt        |
+    | *Måttnamnet*          | Prestanda-mått för att övervaka och tillämpa skala ange åtgärder på.                                                   | Processorprocentandel |
+    | *Tid grain statistik* | Definierar hur mätvärdena som samlats in i varje tidsenhet ska aggregeras för analys.                             | Genomsnitt        |
     | *Operatorn*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
     | *Tröskelvärde*            | Den procentandel som regeln Autoskala kan utlösa en åtgärd.                                                 | 70             |
     | *Varaktighet*             | Tidsperiod som övervakas innan värdena mått och tröskelvärdet jämförs.                                   | 10 minuter     |
-    | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                        | Öka procent av |
+    | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                        | Öka procent med |
     | *Instansantal*       | Procentandelen av VM-instanser som ska ändras när regeln utlöser.                                            | 20             |
     | *Ned (minuter)*  | Hur lång tid ska gå innan regeln tillämpas igen så att automatiska åtgärder har tid att börja gälla. | 5 minuter      |
 
@@ -77,7 +77,7 @@ På en kväll eller helger minska program-begäran. Om det här minskar belastni
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operatorn*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                      | Mindre än   |
     | *Tröskelvärde*            | Den procentandel som regeln Autoskala kan utlösa en åtgärd.                                                 | 30             |
-    | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                         | Minska procent av |
+    | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                         | Minska procent med |
     | *Instansantal*       | Procentandelen av VM-instanser som ska ändras när regeln utlöser.                                             | 20             |
 
 3. För att skapa regeln, Välj **Lägg till**
@@ -88,7 +88,7 @@ Autoskala profilen måste definiera en lägsta, högsta och standardantalet VM-i
 
 1. Ange följande beräkningsrollsinstansens begränsningar:
 
-    | Minimum | Maximalt | Standard|
+    | Minimum | Maximal | Standard|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 

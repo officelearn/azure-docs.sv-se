@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synkronisering: driftåtgärder och beräkningen
 Syftet med det här avsnittet är att beskriva operativa uppgifter för Azure AD Connect-synkronisering.
@@ -33,6 +33,11 @@ Mellanlagringsläge kan användas för flera olika scenarier, inklusive:
 Du kan göra ändringar i konfigurationen och förhandsgranska ändringarna innan du gör att servern är aktiv med en server i mellanlagringsläge. Du kan också köra fullständig import och fullständig synkronisering för att kontrollera att alla ändringar som förväntat innan du gör dessa ändringar till din produktionsmiljö.
 
 Under installationen, väljer du den server som ska vara i **mellanlagringsläge**. Den här åtgärden gör servern aktivt för import och synkronisering, men några exporter körs inte. En server i fristående läge körs inte Lösenordssynkronisering och tillbakaskrivning av lösenord, även om dessa funktioner har valts under installationen. När du inaktiverar mellanlagringsläget börjar exporten, aktiverar Lösenordssynkronisering och aktiverar tillbakaskrivning av lösenord.
+
+> [!NOTE]
+> Anta att du har en Azure AD Connect för synkronisering av lösenords-hash-funktionen är aktiverad. När du aktiverar mellanlagringsläge, server-slutar som synkroniserar lösenord ändras från lokala AD. När du inaktiverar mellanlagringsläget återupptar servern Synkronisera lösenordsändringar från där den senast avbröts. Om servern är kvar i mellanlagringsläge under en längre tidsperiod, kan den ta en stund för servern för att synkronisera alla lösenordsändringar som inträffat under tidsperioden.
+>
+>
 
 Du kan fortfarande framtvinga en export med hjälp av hanteraren för synkroniseringstjänsten.
 

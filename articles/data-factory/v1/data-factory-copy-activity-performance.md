@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/14/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aeb3820667f264e4a26860913e3f7b0e22e4c4a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera prestandajustering guide och prestanda för aktiviteten
 > [!NOTE]
@@ -49,6 +49,8 @@ Som en referens, visar tabellen nedan kopiera genomflöde i Mbit/s för de angiv
 
 ![Matris för prestanda](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
+>[!IMPORTANT]
+>Azure Data Factory version 1 är minimal molnet dataflytt enheterna för molnet till molnkopieringen två. Om inget anges finns data movement standardenheter som används i [molnet data movement enheter](#cloud-data-movement-units).
 
 **Pekar på Observera:**
 * Genomströmning beräknas med hjälp av följande formel: [storleken på data läsas från källan] / [kopia aktivitet kör duration].
@@ -90,9 +92,16 @@ Och så vidare.
 I det här exemplet när den **samtidighet** har värdet 2, **aktivitet köras 1** och **aktivitet köras 2** kopiera data från två aktivitet windows **samtidigt** att förbättra prestandan för flytt av data. Men om flera filer som är associerade med aktiviteten kör 1, kopierar av data movement service filer från källan till filen en i taget.
 
 ### <a name="cloud-data-movement-units"></a>Molnet data movement enheter
-En **moln data movement enhet (dmu här)** är ett mått som representerar en enhet i Data Factory styrka (en kombination av CPU, minne och nätverksresursallokering). En dmu här kan användas i ett moln-to-cloud kopieringsåtgärden, men inte i en hybrid-kopia.
+En **moln data movement enhet (dmu här)** är ett mått som representerar en enhet i Data Factory styrka (en kombination av CPU, minne och nätverksresursallokering). Dmu här gäller för moln-to-cloud kopieringsåtgärder, men inte i en hybrid-kopia.
 
-Som standard används ett enda moln dmu här Data Factory för att utföra en enda kopia aktivitet som kör. Om du vill åsidosätta denna standardinställning måste du ange ett värde för den **cloudDataMovementUnits** egenskapen på följande sätt. Information om andelen prestandafördelar som du kan få när du konfigurerar flera enheter för en specifik kopieringskälla och mottagare finns i [Prestandareferens](#performance-reference).
+**Minimal molnet dataflytt enheter för att möta Kopieringsaktiviteten kör är två.** Om den inte anges visas i följande tabell standard-DMUs som används i olika kopiera scenarier:
+
+| Kopiera scenario | Standard DMUs bestäms av tjänsten |
+|:--- |:--- |
+| Kopiera data mellan filbaserade lagrar | Mellan 2 och 16 beroende på antalet och storleken på filerna. |
+| Alla andra copy-scenarier | 2 |
+
+Om du vill åsidosätta denna standardinställning måste du ange ett värde för den **cloudDataMovementUnits** egenskapen på följande sätt. Den **tillåtna värden** för den **cloudDataMovementUnits** egenskapen är 2, 4, 8, 16, 32. Den **faktiska antalet molnet DMUs** att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om andelen prestandafördelar som du kan få när du konfigurerar flera enheter för en specifik kopieringskälla och mottagare finns i [Prestandareferens](#performance-reference).
 
 ```json
 "activities":[  
@@ -114,7 +123,6 @@ Som standard används ett enda moln dmu här Data Factory för att utföra en en
     }
 ]
 ```
-Den **tillåtna värden** för den **cloudDataMovementUnits** egenskapen är 1 (standard), 2, 4, 8, 16, 32. Den **faktiska antalet molnet DMUs** att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster.
 
 > [!NOTE]
 > Om du behöver mer molnet DMUs för en högre genomströmning Kontakta [Azure-supporten](https://azure.microsoft.com/support/). Inställning av 8 och senare fungerar aktuellt endast när du **kopiera flera filer från Blob storage/Datasjölager/Amazon S3 eller ett moln FTP-eller ett moln SFTP till Blob storage/Datasjölager/Azure SQL Database**.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -258,7 +258,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
 |timeout = ”heltal”|Det går inte att timeoutintervall i sekunder innan anropet till serverdelstjänsten.|Nej|Ingen tidsgräns|  
-|Följ omdirigeringar = ”true &#124; FALSE ”|Anger huruvida omdirigeringar från serverdelstjänsten följt av gateway eller returneras till anroparen.|Nej|FALSKT|  
+|Följ omdirigeringar = ”true &#124; FALSE ”|Anger huruvida omdirigeringar från serverdelstjänsten följt av gateway eller returneras till anroparen.|Nej|false|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -268,26 +268,26 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   **Princip för scope:** alla scope  
   
 ##  <a name="LimitConcurrency"></a>Gränsen för samtidighet  
- Den `limit-concurrency` princip förhindrar att omslutna principer körning av fler än det angivna antalet förfrågningar vid en given tidpunkt. På överskrider tröskeln läggs nya begäranden till en kö tills maximala kölängden uppnås. När kön uttömning misslyckas nya begäranden omedelbart.
+ Den `limit-concurrency` princip förhindrar att omslutna principer körning av fler än det angivna antalet förfrågningar vid en given tidpunkt. Vid överstiger det antalet misslyckas nya begäranden direkt med statuskoden 429 för många begäranden.
   
 ###  <a name="LimitConcurrencyStatement"></a>Principframställning  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>Exempel  
   
-####  <a name="ChooseExample"></a>Exempel  
+#### <a name="example"></a>Exempel  
  Exemplet nedan visar hur du begränsar antalet begäranden som vidarebefordras till en serverdel baserat på värdet för en variabel i kontexten.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |---------------|-----------------|--------------|--------------|  
 |key|En sträng. Uttryck tillåts. Anger samtidighet scope. Kan delas av flera principer.|Ja|Saknas|  
 |Max antal|Ett heltal. Anger maximalt antal begäranden som tillåts att ange principen.|Ja|Saknas|  
-|timeout|Ett heltal. Uttryck tillåts. Anger antalet sekunder som en begäran ska vänta med att ange ett scope innan åtgärden misslyckas med ”429 för många begäranden”|Nej|Infinity|  
-|Max Kölängd|Ett heltal. Uttryck tillåts. Anger den maximala längden. Inkommande begäranden försök att ange den här principen kommer att avslutas med ”429 för många begäranden” omedelbart när kön är slut.|Nej|Infinity|  
   
-###  <a name="ChooseUsage"></a>Användning  
+### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Avsnitt i princip:** inkommande, utgående backend fel  
@@ -457,7 +455,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
 |Villkor|En boolesk literal eller [uttryck](api-management-policy-expressions.md) anger om återförsök ska stoppas (`false`) eller fortsatte (`true`).|Ja|Saknas|  
-|Antal|Ett positivt tal som anger det maximala antalet försök att försöka.|Ja|Saknas|  
+|antal|Ett positivt tal som anger det maximala antalet försök att försöka.|Ja|Saknas|  
 |interval|Ett positivt tal i sekunder som anger vänta intervall mellan det nya försöket försöker.|Ja|Saknas|  
 |Max-intervall|Ett positivt tal i sekunder som anger maximalt vänta mellan nya försök. Den används för att implementera en algoritm exponentiell försök igen.|Nej|Saknas|  
 |delta|Ett positivt tal i sekunder som anger att vänta intervall ökning. Används för att implementera linjär och exponentiella retry-algoritmer.|Nej|Saknas|  
@@ -575,13 +573,13 @@ status code and media type. If no example or schema found, the content is empty.
 |URL: en|URL för begäran.|Inga om läge = kopian. Annars Ja.|  
 |Metoden|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|  
 |sidhuvud|Huvudet i begäran. Använda flera huvud-element för flera huvuden för begäran.|Nej|  
-|Brödtext|Begärandetexten.|Nej|  
+|brödtext|Begärandetexten.|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|  
+|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Skapa|  
 |namn|Anger namnet på rubriken anges.|Ja|Saknas|  
 |Det finns åtgärd|Anger vilken åtgärd som ska vidtas när huvudet har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintliga-huvud.<br />-skip - ersätter inte det befintliga huvudvärdet.<br />-Tillägg - lägger till värdet på det befintliga huvudvärdet.<br />-delete - tar bort huvudet i begäran.<br /><br /> Om värdet är `override` ta med flera poster med samma namn resulterar i sidhuvudet har angetts enligt alla poster (som visas flera gånger); endast listade värden anges i resultatet.|Nej|åsidosätt|  
   
@@ -654,16 +652,16 @@ status code and media type. If no example or schema found, the content is empty.
 |URL: en|URL för begäran.|Inga om läge = kopian. Annars Ja.|  
 |Metoden|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|  
 |sidhuvud|Huvudet i begäran. Använda flera huvud-element för flera huvuden för begäran.|Nej|  
-|Brödtext|Begärandetexten.|Nej|  
+|brödtext|Begärandetexten.|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|  
+|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Skapa|  
 |svaret variabelnamn = ”sträng”|Om den inte finns `context.Response` används.|Nej|Saknas|  
 |timeout = ”heltal”|Det går inte att timeout-intervall i sekunder innan anropet till URL: en.|Nej|60|  
-|Ignorera fel|Om true, och begäran resulterar i ett fel:<br /><br /> – Om svaret variabelnamn angavs innehåller ett null-värde.<br />– Om svaret variabelnamn inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|FALSKT|  
+|Ignorera fel|Om true, och begäran resulterar i ett fel:<br /><br /> – Om svaret variabelnamn angavs innehåller ett null-värde.<br />– Om svaret variabelnamn inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|false|  
 |namn|Anger namnet på rubriken anges.|Ja|Saknas|  
 |Det finns åtgärd|Anger vilken åtgärd som ska vidtas när huvudet har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintliga-huvud.<br />-skip - ersätter inte det befintliga huvudvärdet.<br />-Tillägg - lägger till värdet på det befintliga huvudvärdet.<br />-delete - tar bort huvudet i begäran.<br /><br /> Om värdet är `override` ta med flera poster med samma namn resulterar i sidhuvudet har angetts enligt alla poster (som visas flera gånger); endast listade värden anges i resultatet.|Nej|åsidosätt|  
   
@@ -936,7 +934,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|Källa|Stränglitteral meningsfulla för visningsprogram och ange källan för meddelandet.|Ja|Saknas|  
+|källa|Stränglitteral meningsfulla för visningsprogram och ange källan för meddelandet.|Ja|Saknas|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
@@ -1003,7 +1001,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|för|Anger om den `wait` principen väntar på att alla direkt underordnade principer ska slutföras eller bara en. Tillåtna värden är:<br /><br /> -   `all`-Vänta tills alla direkt underordnade principer ska slutföras<br />-alla - vänta tills alla direkt underordnade principen att slutföra. När den första omedelbara underordnade principen är klar, den `wait` principen har slutförts och körningen av alla andra principer för omedelbart underordnade avslutas.|Nej|Alla|  
+|för|Anger om den `wait` principen väntar på att alla direkt underordnade principer ska slutföras eller bara en. Tillåtna värden är:<br /><br /> -   `all`-Vänta tills alla direkt underordnade principer ska slutföras<br />-alla - vänta tills alla direkt underordnade principen att slutföra. När den första omedelbara underordnade principen är klar, den `wait` principen har slutförts och körningen av alla andra principer för omedelbart underordnade avslutas.|Nej|alla|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

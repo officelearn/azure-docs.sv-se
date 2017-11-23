@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Skapa attributbaserade regler för dynamiska gruppmedlemskap i Azure Active Directory
 Du kan skapa avancerade regler för att aktivera avancerade attributbaserad dynamiskt medlemskap för grupper i Azure Active Directory (AD Azure). Den här artikeln beskrivs de attribut och syntax för att skapa regler för dynamiskt medlemskap för användare eller enheter.
@@ -72,7 +72,7 @@ Fullständig lista över parametrar som stöds och uttryck regeln operatorer, fi
 Den totala längden på innehållet i avancerade regeln får inte överskrida 2048 tecken.
 
 > [!NOTE]
-> Sträng och regex åtgärder är inte skiftlägeskänsliga. Du kan också utföra Null-kontroller, till exempel med $null som en konstant, user.department - eq $null.
+> Sträng och regex åtgärder är inte skiftlägeskänsliga. Du kan också utföra Null-kontroller med hjälp av *null* som en konstant, till exempel user.department - eq *null*.
 > Strängar som innehåller citattecken ”ska avgränsas med-tecken, till exempel user.department - eq \`” försäljning ”.
 
 ## <a name="supported-expression-rule-operators"></a>Stöds uttryck regeln operatorer
@@ -158,31 +158,31 @@ Tillåtna operatörer
 
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
-| city |Ett string-värde eller $null |(user.city - eq ”värde”) |
-| Land |Ett string-värde eller $null |(User.Country. - eq ”värde”) |
-| Företagsnamn | Ett string-värde eller $null | (user.companyName - eq ”värde”) |
-| Avdelning |Ett string-värde eller $null |(user.department - eq ”värde”) |
+| city |Någon strängvärde eller *null* |(user.city - eq ”värde”) |
+| Land |Någon strängvärde eller *null* |(User.Country. - eq ”värde”) |
+| Företagsnamn | Någon strängvärde eller *null* | (user.companyName - eq ”värde”) |
+| Avdelning |Någon strängvärde eller *null* |(user.department - eq ”värde”) |
 | Visningsnamn |Ett värde |(user.displayName - eq ”värde”) |
-| facsimileTelephoneNumber |Ett string-värde eller $null |(user.facsimileTelephoneNumber - eq ”värde”) |
-| givenName |Ett string-värde eller $null |(user.givenName - eq ”värde”) |
-| Befattning |Ett string-värde eller $null |(user.jobTitle - eq ”värde”) |
-| E-post |Alla strängvärde eller $null (SMTP-adressen för användaren) |(user.mail - eq ”värde”) |
+| facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber - eq ”värde”) |
+| givenName |Någon strängvärde eller *null* |(user.givenName - eq ”värde”) |
+| Befattning |Någon strängvärde eller *null* |(user.jobTitle - eq ”värde”) |
+| E-post |Någon strängvärde eller *null* (SMTP-adressen för användaren) |(user.mail - eq ”värde”) |
 | mailNickName |Ett värde (e postalias för användaren) |(user.mailNickName - eq ”värde”) |
-| mobila |Ett string-värde eller $null |(user.mobile - eq ”värde”) |
+| mobila |Någon strängvärde eller *null* |(user.mobile - eq ”värde”) |
 | objekt-ID |GUID för användarobjektet |(user.objectId - eq ”1111111-1111-1111-1111-111111111111”) |
 | onPremisesSecurityIdentifier | Lokalt säkerhetsidentifierare (SID) för användare som har synkroniserats från lokalt till molnet. |(user.onPremisesSecurityIdentifier - eq ”S-1-1-11-1111111111-1111111111-1111111111-1111111”) |
 | passwordPolicies |Ingen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq ”DisableStrongPassword”) |
-| physicalDeliveryOfficeName |Ett string-värde eller $null |(user.physicalDeliveryOfficeName - eq ”värde”) |
-| Postnummer |Ett string-värde eller $null |(user.postalCode - eq ”värde”) |
+| physicalDeliveryOfficeName |Någon strängvärde eller *null* |(user.physicalDeliveryOfficeName - eq ”värde”) |
+| Postnummer |Någon strängvärde eller *null* |(user.postalCode - eq ”värde”) |
 | preferredLanguage |ISO 639-1-kod |(user.preferredLanguage - eq ”sv-se”) |
-| sipProxyAddress |Ett string-värde eller $null |(user.sipProxyAddress - eq ”värde”) |
-| state |Ett string-värde eller $null |(user.state - eq ”värde”) |
-| StreetAddress |Ett string-värde eller $null |(user.streetAddress - eq ”värde”) |
-| Efternamn |Ett string-värde eller $null |(user.surname - eq ”värde”) |
-| telephoneNumber |Ett string-värde eller $null |(user.telephoneNumber - eq ”värde”) |
+| sipProxyAddress |Någon strängvärde eller *null* |(user.sipProxyAddress - eq ”värde”) |
+| state |Någon strängvärde eller *null* |(user.state - eq ”värde”) |
+| StreetAddress |Någon strängvärde eller *null* |(user.streetAddress - eq ”värde”) |
+| Efternamn |Någon strängvärde eller *null* |(user.surname - eq ”värde”) |
+| telephoneNumber |Någon strängvärde eller *null* |(user.telephoneNumber - eq ”värde”) |
 | usageLocation |Två bokstäver landskod |(user.usageLocation - eq ”USA”) |
 | UserPrincipalName |Ett värde |(user.userPrincipalName - eq ”alias@domain”) |
-| UserType |medlemmen gäst $null |(user.userType - eq ”medlem”) |
+| UserType |medlemmen gäst *null* |(user.userType - eq ”medlem”) |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
 Tillåtna operatörer
@@ -225,14 +225,10 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Null-värden
 
-Du kan använda ”null” eller $null om du vill ange ett null-värde i en regel. Exempel:
+Om du vill ange ett null-värde i en regel som du kan använda den *null* värde. Var noga med att inte använda citattecken runt ordet *null* -om du gör det tolkas som en teckensträng. Beskriver hur du refererar till det null-värdet är:
 ```
    user.mail –ne null
 ```
-motsvarar
-```
-   user.mail –ne $null
-   ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Tilläggsattribut och anpassade attribut
 Tilläggsattribut och anpassade attribut stöds i regler för dynamiskt medlemskap.

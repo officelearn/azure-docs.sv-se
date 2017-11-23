@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b58d6be3d6412b5357aa405269aac4563a7a33a9
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-a-java-application"></a>Skapa ett Java-program
 Azure Service Fabric är en plattform för distribuerade system för att distribuera och hantera mikrotjänster och behållare. 
@@ -147,5 +147,5 @@ I den här snabbstarten har du lärt dig att:
 > * Skalbara program över flera noder
 
 * Lär dig mer om [tjänster i Java med Eclipse-felsökning](service-fabric-debugging-your-application-java.md)
-* Lär dig mer om [ställa in din kontinuerlig integreation & distribution med Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* Lär dig mer om [ställa in din kontinuerlig integreation & distribution med Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 * Utcheckning andra [Java-exempel](https://github.com/Azure-Samples/service-fabric-java-getting-started)

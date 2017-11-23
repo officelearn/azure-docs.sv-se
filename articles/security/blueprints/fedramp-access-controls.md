@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 4f2445f1166ae24afb1c6b2a81cf02176593fdaa
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="access-control-ac"></a>Åtkomstkontroll (nät)
+
 > [!NOTE]
 > De här kontrollerna definieras av NIST och USA Handelsdepartementet som en del av NIST Special Publication 800-53 version 4. Läs NIST 800 53 Rev. 4 för information om hur du testar procedurer och riktlinjer för varje kontroll.
-    
-    
-
-# <a name="access-control-ac"></a>Åtkomstkontroll (nät)
 
 ## <a name="nist-800-53-control-ac-1"></a>NIST 800 53 kontrollen AC-1
 

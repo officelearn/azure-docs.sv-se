@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolera i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -90,7 +90,7 @@ Azure RBAC har tre grundläggande roller som gäller för alla typer av resurser
 
 - **Läsaren** kan visa befintliga Azure-resurser.
 
-![Rollbaserad åtkomstkontroll i Azure](./media/azure-isolation/azure-isolation-fig3.png)
+![Azures rollbaserade åtkomstkontroll](./media/azure-isolation/azure-isolation-fig3.png)
 
 Resten av rollerna i Azure RBAC kan hanteringen av specifika Azure-resurser. Till exempel tillåter virtuella deltagarrollen användaren att skapa och hantera virtuella datorer. Det ger dem åtkomst till Azure-nätverk eller undernät som den virtuella datorn ansluter till.
 

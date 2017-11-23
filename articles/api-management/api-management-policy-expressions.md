@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-policy-expressions"></a>API Management principuttrycken
 Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna implicit [kontexten](api-management-policy-expressions.md#ContextVariables) variabel och ett tillåtna [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.  
@@ -174,7 +174,7 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 |----------------------|-------------------------------------------------------|  
 |Kontexten|API: IApi<br /><br /> Distribution<br /><br /> LastError<br /><br /> Åtgärd<br /><br /> Produkt<br /><br /> Förfrågan<br /><br /> Begärande-ID: Guid<br /><br /> Svar<br /><br /> Prenumeration<br /><br /> Spårning: bool<br /><br /> Användare<br /><br /> Variabler: IReadOnlyDictionary < sträng, objekt ><br /><br /> void Trace(message: string)|  
 |kontexten. API|ID: sträng<br /><br /> Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> ServiceUrl: IUrl|  
-|kontexten. Distribution|Region: sträng<br /><br /> Namn på tjänst: sträng|  
+|kontexten. Distribution|Region: sträng<br /><br /> Namn på tjänst: sträng<br /><br /> Certifikat: IReadOnlyDictionary < sträng, X509Certificate2 >|  
 |kontexten. LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfång: sträng<br /><br /> Avsnittet: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> Mer information om kontexten. LastError, se [felhantering](api-management-error-handling-policies.md).|  
 |kontexten. Åtgärden|ID: sträng<br /><br /> Metod: sträng<br /><br /> Namn: sträng<br /><br /> UrlTemplate: sträng|  
 |kontexten. Produkten|API: er: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Grupper: IEnumerable < IGroup\><br /><br /> ID: sträng<br /><br /> Namn: sträng<br /><br /> Tillstånd: enum ProductState {NotPublished, publicerad}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
@@ -199,6 +199,12 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 |bool TryParseJwt (indata: den här strängen, resultat: ut Jwt)|indata: sträng<br /><br /> resultatet: ut Jwt<br /><br /> Om parametern innehåller ett giltigt JWT-token värde, metoden returnerar `true` och resultatet parametern innehåller ett värde av typen `Jwt`; annars returnerar-metoden `false`.|  
 |Jwt|Algoritm: sträng<br /><br /> Målgrupp: IEnumerable < sträng\><br /><br /> Anspråk: IReadOnlyDictionary < string, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> ID: sträng<br /><br /> Utfärdare: sträng<br /><br /> Inte före: DateTime?<br /><br /> Ämne: sträng<br /><br /> Typ: sträng|  
 |sträng Jwt.Claims.GetValueOrDefault (claimName: sträng, defaultValue: sträng)|claimName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsad anspråksvärden eller `defaultValue` om sidhuvudet inte hittas.|
+|byte [] kryptera (indata: den här byte [], alg: sträng, nyckel: byte [], iv:byte[])|indata - oformaterad text som ska krypteras<br /><br />ALG - namnet på en symmetrisk kryptografisk algoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar krypterad klartext.|
+|byte [] kryptera (indata: den här byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|indata - oformaterad text som ska krypteras<br /><br />ALG - krypteringsalgoritm<br /><br />Returnerar krypterad klartext.|
+|byte [] kryptera (indata: den här byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, nyckel: byte [], iv:byte[])|indata - oformaterad text som ska krypteras<br /><br />ALG - krypteringsalgoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar krypterad klartext.|
+|byte [] dekryptera (indata: den här byte [], alg: sträng, nyckel: byte [], iv:byte[])|indata - cyphertext som ska dekrypteras<br /><br />ALG - namnet på en symmetrisk kryptografisk algoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar oformaterad text.|
+|byte [] dekryptera (indata: den här byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|indata - cyphertext som ska dekrypteras<br /><br />ALG - krypteringsalgoritm<br /><br />Returnerar oformaterad text.|
+|byte [] dekryptera (indata: den här byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, nyckel: byte [], iv:byte[])|indata - indata - cyphertext som ska dekrypteras<br /><br />ALG - krypteringsalgoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar oformaterad text.|
 
 ## <a name="next-steps"></a>Nästa steg
 Arbeta med principer för mer information finns i [principer i API Management](api-management-howto-policies.md).  

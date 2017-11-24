@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Rensa en Azure CDN-slutpunkt
 ## <a name="overview"></a>Översikt
@@ -52,7 +52,7 @@ Den här självstudiekursen vägleder dig genom att rensa tillgångar från alla
    > 
 4. Välj vilka resurser som du vill ta bort från noderna kant.  Om du vill rensa alla tillgångar, klickar du på den **Rensa alla** kryssrutan.  Annars anger du sökvägen till varje tillgång som du vill rensa i den **sökväg** textruta. Under format stöds i sökvägen.
     1. **Den enda URL Rensa**: Rensa enskilda tillgångar genom att ange den fullständiga URL, med eller utan filtillägget, t.ex.`/pictures/strasbourg.png`;`/pictures/strasbourg`
-    2. **Jokertecken Rensa**: Asterisk (\*) kan användas som jokertecken. Rensa alla mappar, undermappar och filer på en slutpunkt med `/*` i sökvägen eller rensa alla undermappar och filer under en viss mapp genom att ange mappen följt av `/*`, t.ex.`/pictures/*`.  Observera att rensa jokertecken inte stöds av Azure CDN från Akamai för närvarande. 
+    2. **Jokertecken Rensa**: Asterisk (\*) kan användas som jokertecken. Rensa alla mappar, undermappar och filer på en slutpunkt med `/*` i sökvägen eller rensa alla undermappar och filer under en viss mapp genom att ange mappen följt av `/*`, t.ex`/pictures/*`.  Observera att rensa jokertecken inte stöds av Azure CDN från Akamai för närvarande. 
     3. **Roten domän Rensa**: Rensa roten för slutpunkten med ”/” i sökvägen.
    
    > [!TIP]
@@ -68,7 +68,7 @@ Den här självstudiekursen vägleder dig genom att rensa tillgångar från alla
     ![Rensa knappen](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Rensa begäranden tar cirka 2-3 minuter att bearbeta med **Azure CDN från Verizon** (Standard och Premium) och cirka 7: e minut med **Azure CDN från Akamai**.  Azure CDN är begränsad till 50 samtidiga Rensa begäranden samtidigt. 
+> Rensa begäranden tar cirka 2-3 minuter att bearbeta med **Azure CDN från Verizon** (Standard och Premium) och cirka 7: e minut med **Azure CDN från Akamai**.  Azure CDN är begränsad till 50 samtidiga Rensa begäranden vid en given tidpunkt på nivån profil. 
 > 
 > 
 

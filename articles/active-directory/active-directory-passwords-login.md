@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9f7fdb97fd121eecf9e7b2f4edc1b568c8114869
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Azure AD-lösenordsåterställning från inloggningsskärmen
 
 Du redan har distribuerat Azure AD-lösenordsåterställning via självbetjäning (SSPR) men dina användare kan fortfarande ringa supportavdelningen när de glömmer lösenordet. De ringer supportavdelningen eftersom de inte kan komma till en webbläsare för att komma åt SSPR.
 
-Med nya Windows 10 Fall Creators Update kan användare med Azure AD-kopplade enheter se länken ”Återställ lösenord” på sin inloggningsskärm. När de klickar på den här länken kommer de till samma lösenordsåterställning via självbetjäning (SSPR) de är vana vid 
+Med nya Windows 10 Fall Creators Update kan användare med Azure AD-kopplade enheter se länken ”Återställ lösenord” på sin inloggningsskärm. När de klickar på den här länken kommer de till samma lösenordsåterställning via självbetjäning (SSPR) som de är vana vid.
 
 För att användare ska kunna återställa sitt Azure AD-lösenord från Windows 10-inloggningsskärmen måste följande krav vara uppfyllda:
 
-* Windows 10, version 1709 eller senare klient som är kopplad till en Azure AD-domän.
+* Windows 10, version 1709, eller senare klient som är [kopplad till Azure AD](device-management-azure-portal.md).
 * Återställning av lösenord för självbetjäning i Azure AD måste vara aktiverat.
 * Konfigurera och distribuera inställningen för att aktivera länken för återställning av lösenord via någon av följande metoder:
    * [Konfigurationsprofil för Intune-enhet](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -90,7 +90,7 @@ Du har nu skapat och tilldelat en enhetskonfigurationsprincip för att aktivera 
 
 Vi rekommenderar att du använder den här metoden enbart för att testa ändringen av inställningen.
 
-1. Logga in på enheten som är kopplad till Azure AD-domänen med administratörsautentiseringsuppgifter
+1. Logga in på enheten som är kopplad till Azure AD med autentiseringsuppgifterna för administratören
 2. Kör **regedit** som administratör
 3. Ange följande registernyckel
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -104,7 +104,7 @@ Vad förändras för användaren när principen är konfigurerad och tilldelad? 
 
 När användarna försöker logga in ser de nu en länk för återställning av lösenord som öppnar självbetjäningen för återställning av lösenord på inloggningsskärmen. Via den här funktionen kan användarna återställa sina lösenord utan att de behöver använda en annan enhet för att få åtkomst till webbläsaren.
 
-Dina användare får hjälp med att använda funktionen i [Reset your work or school password](active-directory-passwords-update-your-own-password.md#reset-password-at-login) (Återställa ditt arbets- eller skollösenord)
+Dina användare får hjälp med att använda funktionen i [Reset your work or school password](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Återställa ditt arbets- eller skollösenord)
 
 ## <a name="common-issues"></a>Vanliga problem
 

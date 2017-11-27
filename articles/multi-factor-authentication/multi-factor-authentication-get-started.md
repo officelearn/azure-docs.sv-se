@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 18d5cd8f3904a0c6ea89df440d917785510409cb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b05cc76f8d8b2d14ac87fa3c55479bf0cf2377b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Välj den Azure Multi-Factor Authentication-lösning som passar dig
 Eftersom det finns flera varianter av Azure Multi-Factor Authentication (MFA) måste vi ställa oss några frågor för att ta reda på vilken version som är lämpligast.  Dessa frågor är:
@@ -60,7 +60,7 @@ I följande tabell jämförs funktionerna som är tillgängliga med Multi-Factor
 | Verifieringskod via mobilapp som en andra faktor | ● | ● |
 | Telefonsamtal som en andra faktor | ● | ● |
 | Enkelriktad SMS som en andra faktor | ● | ● |
-| Dubbelriktad SMS som en andra faktor | | ● |
+| Dubbelriktad SMS som en andra faktor | | ●  (Inaktuell)| 
 | Maskinvarutoken som en andra faktor | | ● |
 | Applösenord för Office 365-klienter som inte stöder MFA | ● | |
 | Administratörskontroll över autentiseringsmetoder | ● | ● |

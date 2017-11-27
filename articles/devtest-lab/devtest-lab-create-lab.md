@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c2c6cbff31f5d4992163d3fb46e4f1e13a58024
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Skapa ett labb i Azure DevTest Labs
 Ett labb i Azure DevTest Labs är den infrastruktur som omfattar en grupp med resurser, till exempel virtuella datorer (VM), som låter dig hantera resurserna genom att ange gränser och kvoter. Den här artikeln beskriver steg för steg hur du skapar ett labb med hjälp av Azure CLI.
@@ -59,9 +59,9 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
 ## <a name="next-steps"></a>Nästa steg
 När du har skapat labbet kan du fundera på följande steg:
 
-* [Säker åtkomst till ett labb](devtest-lab-add-devtest-user.md).
-* [Ange principer för labbet](devtest-lab-set-lab-policy.md).
-* [Skapa en labbmall](devtest-lab-create-template.md).
-* [Skapa anpassade artefakter för dina virtuella datorer](devtest-lab-artifact-author.md).
-* [Lägga till en virtuell dator med artefakter i ett labb](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/).
+* [Säker åtkomst till ett labb](devtest-lab-add-devtest-user.md)
+* [Ange principer för labbet](devtest-lab-set-lab-policy.md)
+* [Skapa en labbmall](devtest-lab-create-template.md)
+* [Skapa anpassade artefakter för virtuella datorer](devtest-lab-artifact-author.md)
+* [Lägga till en virtuell dator i ett labb](devtest-lab-add-vm.md)
 

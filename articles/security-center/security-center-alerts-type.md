@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Förstå säkerhetsaviseringar i Azure Security Center
 Den här artikeln visar de olika typerna av säkerhetsaviseringar och meddelanden som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar och händelser finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -53,6 +53,45 @@ Följande fält är gemensamma för alla exempel på aviseringar som är relater
 * DUMPFILE: Namnet på kraschdumpfilen.
 * PROCESSNAME: Namnet på processen som kraschat.
 * PROCESSVERSION: Versionen för processen som kraschat.
+
+### <a name="code-injection-discovered"></a>Identifierad kodinmatning
+Kodinmatning är inmatningen av körbara moduler i processer eller trådar som körs.  Den här tekniken används av skadlig kod för att komma åt, dölja eller förhindra borttagningen av data (t.ex. persistence). Den här varningen anger att en inmatad modul finns i kraschdumpen. Legitima programutvecklare kan ibland utföra den här typen av kodinmatning för icke-skadliga ändamål, t.ex för att ändra eller utöka ett befintligt program eller en komponent i operativsystemet.  För att skilja mellan skadlig och icke-skadlig inmatning av moduler kontrollerar Security Center om den inmatade modulen överensstämmer med en profil för misstänkt beteende. Resultatet av den här kontrollen anges i ”SIGNATURE”-fältet i varningen och avspeglas i varningens allvarlighetsgrad, varningsbeskrivningen och i stegen för att åtgärda varningen. 
+
+Den här varningen tillhandahåller följande ytterligare fält:
+
+- ADDRESS: Den inmatade modulens plats i minnet.
+- IMAGENAME: Namnet på den inmatade modulen. Observera att det kan vara tomt om avbildningsnamnet inte finns angivet i avbildningen.
+- SIGNATURE: Anger om den inmatade modulen överensstämmer med en profil för misstänkt beteende. 
+
+Tabellen nedan visar exempel på resultat och deras beskrivning:
+
+| Signaturens värde                      | Beskrivning                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Misstänkt intrång med reflektiv inläsning | Den här typen av misstänkt beteende är ofta kopplat till inläsningen av inmatad kod oberoende av operativsystemets inläsningsfunktion. |
+| Misstänkt intrång med inmatning av kod          | Den här typen av misstänkt intrång är ofta kopplat till inmatningen av kod i minnet.                                       |
+| Misstänkt intrång med inmatad kod         | Den här typen av misstänkt intrång är ofta kopplat till användningen av kod som matats in i minnet.                                   |
+| Misstänkt intrång med inmatat felsökningsverktyg | Den här typen av misstänkt intrång är ofta kopplat till identifieringen av eller försök att kringgå en felsökare.                         |
+| Misstänkt intrång med fjärrinmatning   | Den här typen av misstänkt intrång är ofta kopplat till C2-scenarier (kommando och kontroll).                                 |
+
+Här är ett exempel på den här typen av varning:
+
+![Kodinmatningsvarning](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>Misstänkt kodsegment
+Det misstänkta kodsegmentet visar att ett kodsegment har tilldelats med metoder som inte är standard, t.ex. sådana som används av reflekterande inmatning och processurholkning.  Den här aviseringen bearbetar även ytterligare egenskaper i kodsegmentet för att ge ett sammanhang vad gäller funktioner och beteenden för det rapporterade kodsegmentet.
+
+Den här varningen tillhandahåller följande ytterligare fält:
+
+- ADDRESS: Den inmatade modulens plats i minnet.
+- SIZE: Det misstänkta kodsegmentets storlek
+- STRINGSIGNATURES: Det här fältet visar en lista med funktioner för API:er vars funktionsnamn ingår i kodsegmentet. Följande är exempel på funktioner:
+    - Beskrivningar av bildavsnitt, dynamisk kodkörning för x64, minnestilldelning och lastkapacitet, funktion för fjärrkodsinmatning, funktion för kontroll av kapning, läsning av miljövariabler, läsning av godtyckligt processminne, fråga eller ändra tokenprivilegier, HTTP/HTTPS-nätverkskommunikation och kommunikation med nätverkssocket.
+- IMAGEDETECTED: Det här fältet visar om en PE-avbildning har matats in i processen där det misstänkta kodsegmentet identifierades, och på vilken adress den inmatade modulen börjar.
+- SHELLCODE: Det här fältet visar att det förekommer ett beteende som ofta används av skadlig belastning för att få åtkomst till ytterligare säkerhetskänsliga operativsystemfunktioner. 
+
+Här är ett exempel på den här typen av varning:
+
+![Varning om misstänkt kodsegment](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>Identifierad Shellcode
 Shellcode är nyttolasten som körs när skadlig kod har utnyttjat en sårbarhet i ett program. Den här aviseringen anger att en analys av kraschdumpfiler har identifierat körbar kod som uppvisar beteenden som vanligen utförs av skadliga nyttolaster. Icke-skadlig programvara kan uppvisa detta beteende, men det är inte typiskt i normala programutvecklingsrutiner.

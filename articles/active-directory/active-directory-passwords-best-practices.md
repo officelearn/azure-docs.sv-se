@@ -13,74 +13,76 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="how-to-successfully-rollout-self-service-password-reset"></a>Så här distribuerar du självbetjäning för återställning av lösenord
+# <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Distribuera självbetjäning för återställning av lösenord
 
-Merparten av kunderna följer stegen nedan för att säkerställa en smidig distribution av självbetjäningsfunktionen för återställning av lösenord (SSPR).
+De flesta kunder genomför följande steg för att säkerställa en smidig distribution av funktionen med självbetjäning för återställning av lösenord (SSPR) i Azure Active directory (Azure AD):
 
 1. [Aktivera lösenordsåterställning i katalogen](active-directory-passwords-getting-started.md).
-2. [Konfigurera lokala AD-behörigheter för tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configuring-password-writeback) för att skriva lösenord från Azure AD tillbaka till din lokala katalog.
+2. [Konfigurera lokala Active Directory-behörigheter för tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#active-directory-permissions).
+3. [Konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configure-password-writeback) för att skriva lösenord från Azure AD tillbaka till din lokala katalog.
 4. [Tilldela och verifiera nödvändiga licenser](active-directory-passwords-licensing.md).
-5. Om du vill distribuera SSPR gradvis kan du begränsa åtkomsten till en grupp användare så att du först kan testa med en viss grupp. Gör detta genom att gå till **Återställning av lösenord via självbetjäning har aktiverats**, byta inställning till **Valda** och välja säkerhetsgruppen för aktivering av lösenordsåterställning. 
-6. Fyll i [Autentiseringsdata](active-directory-passwords-data.md) för användarna, till exempel deras arbetstelefon, mobiltelefon och alternativa e-postadress.
+5. Avgör om du vill genomföra en stegvis distribution. Om du vill distribuera SSPR gradvis kan du begränsa åtkomsten till en grupp användare så att du först kan testa programmet med en viss grupp. Om du vill distribuera till en specifik grupp ställer du in **Återställning av lösenord via självbetjäning har aktiverats** på **Valt** och väljer den säkerhetsgrupp som du vill ska kunna använda lösenordsåterställningen. 
+6. Fyll i [autentiseringsdata](active-directory-passwords-data.md) som krävs för att användarna ska kunna registreras, till exempel deras arbetstelefon, mobiltelefon och alternativa e-postadress.
 7. [Anpassa Azure AD-inloggningen för att inkludera din företagsanpassning](active-directory-passwords-customize.md).
-8. Lär gärna era användare hur de gör för att använda SSPR – skicka ut anvisningar för hur man registrerar sig och återställer lösenord.
-9. Du kan välja att framtvinga registrering när som helst. Användaren måste då bekräfta sin autentiseringsinformation efter en viss tidsperiod.
-10. Om du vill granska användarnas registreringar och användning kan du gå igenom [rapporterna från Azure AD](active-directory-passwords-reporting.md).
-11. När du är redo kan du aktivera återställning av lösenord för alla användare genom att ställa in **Återställning av lösenord via självbetjäning har aktiverats** på **Alla**. 
+8. Lär användarna hur de använder SSPR. Skicka anvisningar till dem om hur de ska registrera sig och återställa sina lösenord.
+9. Fastställ när du vill framtvinga registrering. Du kan välja att framtvinga registrering när som helst. Du kan också kräva att användarna bekräftar sin autentiseringsinformation igen efter en viss tidsperiod.
+10. Använd rapporteringsfunktionen. Med tiden kan du granska användarnas registrering och användning med hjälp av [rapporteringsfunktionen i Azure AD](active-directory-passwords-reporting.md).
+11. Aktivera lösenordsåterställning. När du är redo kan du aktivera återställning av lösenord för alla användare genom att ställa in **Återställning av lösenord via självbetjäning har aktiverats** på **Alla**. 
+12. [Aktivera lösenordsåterställning på inloggningsskärmen för Windows 10-användare](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
-   > Testa SSPR med en användare och inte en administratör eftersom Microsoft tillämpar starka autentiseringskrav för Azure-konton av administratörstyp. Mer information om lösenordsprinciper för administratörer finns i vår [artikel om lösenordsprinciper](active-directory-passwords-policy.md#administrator-password-policy-differences).
+   > Testa SSPR med en användare och inte en administratör eftersom Microsoft tillämpar starka autentiseringskrav för administratörskonton i Azure. Mer information om lösenordsprinciper för administratörer finns i vår artikel om [lösenordsprinciper](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="email-based-rollout"></a>E-postbaserad distribution
 
-Många kunder tycker att det enklaste sättet att få användarna att använda SSPR är att skicka ut e-post med enkla anvisningar. [Vi har skapat tre enkla e-postmeddelanden som du kan använda som mall när du ska distribuera.](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16)
+Många kunder tycker att det enklaste sättet att få användarna att använda SSPR är att skicka ut e-post med enkla anvisningar. [Vi har skapat tre enkla e-postmeddelanden som du kan använda som mall när du ska distribuera](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16):
 
-* **Coming Soon** (Kommer snart) – Den här e-postmallen används några veckor eller dagar före distributionen äger rum, så att användarna uppmärksammas på att en åtgärd krävs.
-* **Available Now** (Nu tillgänglig) – Den här e-postmallen används samma dag som distributionen äger rum för att tvinga användarna att registrera sig och bekräfta sina autentiseringsdata, så att de kan använda SSPR vid behov.
-* **Sign up Reminder** (Påminnelse om registrering) – Den här e-postmallen används under några dagar eller veckor efter distributionen för att påminna användarna om att de måste registrera sig och bekräfta sina autentiseringsdata.
+* **Kommer snart**: Den här e-postmallen används några veckor eller dagar innan distributionen äger rum, så att användarna uppmärksammas på att en åtgärd krävs.
+* **Tillgänglig nu**: Den här e-postmallen används samma dag som distributionen äger rum för att leda användarna till att registrera sig och bekräfta sina autentiseringsdata. Om användarna registrerar sig nu är SSPR tillgängligt för dem när de behöver det.
+* **Påminnelse om registrering**: En e-postmall som används under några dagar eller veckor efter distributionen för att påminna användarna om att de måste registrera sig och bekräfta sina autentiseringsdata.
 
 ![E-post][Email]
 
-## <a name="creating-your-own-password-portal"></a>Skapa din egen lösenordsportal
+## <a name="create-your-own-password-portal"></a>Skapa en egen lösenordsportal
 
-Många av våra större kunder väljer att själva agera värd för webbsidan och skapar en DNS-rot, till exempel https://passwords.contoso.com. De fyller vanligtvis sidan med länkar till återställning av Azure AD-lösenord, registrering inför lösenordsåterställning och annan företagsspecifik information. De kan då skicka ut e-post eller flygblad med en egen URL som är lätt att komma ihåg, och dit användarna kan vända sig när de behöver använda tjänsterna.
+Många kunder väljer att själva agera värd för webbsidan och skapa en DNS-rot, till exempel https://passwords.contoso.com. De fyller den här sidan med länkar till följande information:
 
-* Portal för lösenordsåterställning – https://aka.ms/sspr
-* Portal för registrering inför lösenordsåterställning – http://aka.ms/ssprsetup
-* Portal för ändring av lösenord – https://account.activedirectory.windowsazure.com/ChangePassword.aspx
+* [Portal för Azure AD-lösenordsåterställning](https://aka.ms/sspr)
+* [Registreringsportal för Azure AD-lösenordsåterställning](http://aka.ms/ssprsetup)
+* [Portal för Azure AD-lösenordsändring](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* Annan information som är specifik för organisationen
 
-Vi har skapat en exempelsida som du kan använda och anpassa efter din organisations behov. Sidan kan hämtas från [GitHub](https://github.com/ajamess/password-reset-page).
+De kan då skicka ut e-post eller flygblad med en egen URL som är lätt att komma ihåg, och dit användarna kan vända sig när de behöver använda tjänsterna. Vi har skapat en [exempelsida för lösenordsåterställning](https://github.com/ajamess/password-reset-page) som du kan använda och anpassa efter din organisations behov.
 
-## <a name="using-enforced-registration"></a>Använda tvingade registrering
+## <a name="use-enforced-registration"></a>Använd tvingande registrering
 
-Om du vill att användarna ska registrera sig innan de får återställa lösenordet kan du tvinga dem att registrera dig när de loggar in med Azure AD. Du kan aktivera det här alternativet från din katalogs blad för **återställning av lösenord**. Aktivera alternativet **Kräv att användare registrerar vid inloggning?** på **registreringsfliken**.
+Om du vill att användarna ska registrera sig innan de får återställa lösenordet kan du kräva att de registrerar sig när de loggar in med Azure AD. Du kan aktivera det här alternativet från katalogens fönster **Återställning av lösenord**. Aktivera alternativet **Kräv att användare registrerar vid inloggning?** på fliken **Registrering**.
 
-Administratörer kan kräva att användarna registrerar sig igen efter en viss tid genom att ange ett värde på 0–730 dagar för alternativet **Antal dagar innan användare ombeds att återbekräfta sin autentiseringsinformation**.
+Administratörer kan kräva att användarna registrerar sig igen efter en viss tidsperiod. Alternativet **Ange antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation** kan ställas in på 0 till 730 dagar.
 
 När du aktiverar det här alternativet får alla användare som loggar in ett meddelande om att administratören kräver att de verifierar sin autentiseringsinformation.
 
 ## <a name="populate-authentication-data"></a>Fylla i autentiseringsdata
 
-Om du [fyller i autentiseringsdata för dina användare](active-directory-passwords-data.md) behöver inte användarna registrera sig för lösenordsåterställning innan de kan använda SSPR. Så länge som användarna har definierade autentiseringsdata som uppfyller den princip för återställning av lösenord som du har definierat kan användarna återställa sina egna lösenord.
+Du bör [fylla i autentiseringsdata för dina användare](active-directory-passwords-data.md). På så sätt behöver inte användarna registrera sig för lösenordsåterställning innan de kan använda SSPR. Om användarna har angivit autentiseringsdata som uppfyller den princip för återställning av lösenord som du har definierat så kan de återställa sina egna lösenord.
 
-## <a name="disabling-self-service-password-reset"></a>Inaktivera självbetjäningsfunktionen för återställning av lösenord
+## <a name="disable-self-service-password-reset"></a>Inaktivera lösenordsåterställning via självbetjäning
 
-Om du vill inaktivera självbetjäningsfunktionen för återställning av lösenord öppnar du din Azure AD-klient och går till **Återställning av lösenord**, **Egenskaper** och väljer **Ingen** under **Återställning av lösenord via självbetjäning har aktiverats**
+Det är enkelt att inaktivera lösenordsåterställning via självbetjäning. Öppna Azure AD-klienten och gå till **Återställning av lösenord** > **Egenskaper**. Välj sedan **Ingen** under **Återställning av lösenord via självbetjäning har aktiverats**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md).
-* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md).
+* [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
+* [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
 * [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
 * [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)

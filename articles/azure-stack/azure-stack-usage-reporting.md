@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.openlocfilehash: 5abc325a6e7c019dc3cb84f7f6ff63c3eb2ff76c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a4ca742e232a19cd890552bec08f4d11cca52020
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Rapportera Azure Stack användningsdata till Azure 
 
@@ -53,7 +53,7 @@ Om du vill konfigurera användningsrapport data måste du [registrera Azure Stac
 
 ## <a name="view-usage---csp-subscriptions"></a>Visa användningen - CSP-prenumerationer
 
-Om du har registrerat din Azure-stacken använder en CSP-prenumeration kan du visa din användning och kostnader på samma sätt som du visar Azure-förbrukningen. Azure Stack-användning som ska inkluderas i fakturan och filen avstämning tillgängliga via [Partnercenter](https://partnercenter.microsoft.com/en-us/partner/home). Filen avstämning uppdateras varje månad. Du kan använda API: er för Partner Center om du behöver åtkomst till senaste användningsinformation för Azure-stacken.
+Om du har registrerat din Azure-stacken använder en CSP-prenumeration kan du visa din användning och kostnader på samma sätt som du visar Azure-förbrukningen. Azure Stack-användning som ska inkluderas i fakturan och filen avstämning tillgängliga via [Partnercenter](https://partnercenter.microsoft.com/partner/home). Filen avstämning uppdateras varje månad. Du kan använda API: er för Partner Center om du behöver åtkomst till senaste användningsinformation för Azure-stacken.
 
    ![partnercenter](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -82,7 +82,7 @@ Användare endast debiteras för virtuella datorer som körs under klient prenum
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Jag har en Windows Server-licens som du vill använda Azure-stacken, hur gör jag?
 
-Med hjälp av befintliga licenser undviker genererar användning mätare. Befintliga Windows Server-licenser kan användas i Azure-stacken, enligt beskrivningen i avsnittet ”använda befintliga program med Azure Stack” i [licensiering guiden Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Kunder som behöver distribuera sina virtuella datorer i Windows Server enligt beskrivningen i den [Hybrid-förmån för Windows Server-licens](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) avsnittet för att kunna använda sina befintliga licenser.
+Med hjälp av befintliga licenser undviker genererar användning mätare. Befintliga Windows Server-licenser kan användas i Azure-stacken, enligt beskrivningen i avsnittet ”använda befintliga program med Azure Stack” i [licensiering guiden Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Kunder som behöver distribuera sina virtuella datorer i Windows Server enligt beskrivningen i den [Hybrid-förmån för Windows Server-licens](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) avsnittet för att kunna använda sina befintliga licenser.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Vilken prenumeration debiteras för de resurser som används?
 Den prenumeration som har angetts när [registrera Azure stacken med Azure](azure-stack-register.md) debiteras.
@@ -97,7 +97,7 @@ I Azure-stacken Development Kit kräver rapportering av användningsdata prenume
 
 ## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Hur kan användare identifiera Azure Stack användningsdata i Azure portal för fakturering?
 
-Användare kan se Azure Stack användningsdata i filen användning information. Om du vill veta om hur du hämtar filen användning information, referera till den [hämta användning filen från Azure Kontocenter artikeln](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Användning av information filen innehåller Azure Stack-mätare som identifierar Azure Stack lagring och virtuella datorer. Alla resurser som används i Azure-stacken rapporteras under region med namnet ”Azure stacken”.
+Användare kan se Azure Stack användningsdata i filen användning information. Om du vill veta om hur du hämtar filen användning information, referera till den [hämta användning filen från Azure Kontocenter artikeln](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Användning av information filen innehåller Azure Stack-mätare som identifierar Azure Stack lagring och virtuella datorer. Alla resurser som används i Azure-stacken rapporteras under region med namnet ”Azure stacken”.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Varför matchar inte användningsdata som rapporteras i Azure-stacken rapporten genereras från Azure Account Center?
 

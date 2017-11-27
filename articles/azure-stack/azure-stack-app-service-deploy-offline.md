@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/23/2017
 ms.author: anwestg
-ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Lägg till en Apptjänst-resursprovidern i en frånkopplad miljö för Azure-stacken skyddas av AD FS
 
@@ -75,7 +75,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
         - Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel cloudadmin@azurestack.local. Ange ditt lösenord och klicka på **logga In**.
     2. I den **Azure Stack-prenumerationer** väljer din prenumeration.
     3. I den **Azure Stack platser** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure-stacken Development Kit.
-    4. Ange en **resursgruppens namn** för Apptjänst-distributionen. Som standard anges till **APPTJÄNST\<MOBILE\>**.
+    4. Ange en **resursgruppens namn** för Apptjänst-distributionen. Som standard anges till **APPTJÄNST-lokala**.
     5. Ange den **Lagringskontonamnet** som du vill att Apptjänst ska skapa som en del av installationen. Som standard anges till **appsvclocalstor**.
     6. Klicka på **Nästa**.
 
@@ -119,7 +119,7 @@ Om du vill distribuera Apptjänst i en frånkopplad miljö måste du först skap
 
     | Roll | Minsta instanser | Minsta SKU | Anteckningar |
     | --- | --- | --- | --- |
-    | Domänkontrollant | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hanterar och underhåller hälsotillståndet för App Service-molnet. |
+    | Kontrollenhet | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hanterar och underhåller hälsotillståndet för App Service-molnet. |
     | Hantering | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Hanterar App Service Azure Resource Manager och API-slutpunkter, portal tillägg (admin, klient, Functions-portalen) och datatjänsten. Som stöd för växling vid fel, ökade rekommenderade instanser till 2. |
     | Utgivare | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publicerar innehåll via FTP- och webb-distribution. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Skickar begäranden till App-tjänstprogram. |

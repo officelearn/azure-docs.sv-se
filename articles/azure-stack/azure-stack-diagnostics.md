@@ -2,28 +2,29 @@
 title: Diagnostik i Azure Stack
 description: "Hur du samlar in loggfiler för diagnostik i Azure-stacken"
 services: azure-stack
-author: adshar
-manager: byronr
+author: jeffgilb
+manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/2/2017
-ms.author: adshar
-ms.openlocfilehash: 9b1fbbf63ddd8bac2c1a76bbcd5daca69e2513f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: jeffgilb
+ms.reviewer: adshar
+ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnosverktyg
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
  
-Azure stacken är ett stort antal komponenter som arbetar tillsammans och interagera med varandra. Alla dessa komponenter genererar sina egna unika loggar. Detta kan göra diagnostisera problem utmaning, särskilt för fel som kommer från flera interacting Azure Stack-komponenter. 
+Azure stacken är ett stort antal komponenter som arbetar tillsammans och interagera med varandra. Alla dessa komponenter genererar sina egna unika loggar. Detta kan göra diagnostisera problem utmaning, särskilt för fel som kommer från flera interagerar Azure Stack-komponenter. 
 
 Vår diagnosverktyg säkerställer mekanism för logg-samling är enkelt och effektivt. Följande diagram visar logga hur samling verktyg i Azure-stacken arbete:
 
-![Logga samling verktyg](media/azure-stack-diagnostics/image01.png)
+![Diagnostikverktyg för Azure Stack](media/azure-stack-diagnostics/get-azslogs.png)
  
  
 ## <a name="trace-collector"></a>Spåra insamlaren
@@ -34,10 +35,11 @@ Följande är viktiga saker att veta om Trace insamlaren:
  
 * Spåra insamlaren kör kontinuerligt med standard storleksgränser. Standard maximala storleken som tillåts för varje fil (200 MB) är **inte** klara storlek. En storlek kontroll inträffar regelbundet (för närvarande varannan minut) och om den aktuella filen är > = 200 MB sparas så skapas en ny fil. Det finns också en 8 GB (konfigureras) gräns på den totala filstorleken genereras per händelsesessionen. När den här gränsen har nåtts, raderas de äldsta filerna när nya skapas.
 * Det finns en åldersgräns på 5 dagar på loggarna. Den här gränsen kan också konfigureras. 
-* Varje komponent definierar konfigurationsegenskaper spårning via en JSON-fil. JSON-filerna lagras i `C:\TraceCollector\Configuration`. Dessa filer kan redigeras om du vill ändra ålder och storlek gränserna för loggar som samlats in om det behövs. Ändringar i dessa filer kräver en omstart av den *Microsoft Azure Stack Trace Collector* tjänsten för att ändringarna ska börja gälla.
-* Följande exempel är en trace konfigurationens JSON-fil för FabricRingServices åtgärder från XRP VM: 
+* Varje komponent definierar konfigurationsegenskaper spårning via en JSON-fil. JSON-filerna lagras i **C:\TraceCollector\Configuration**. Dessa filer kan redigeras om du vill ändra ålder och storlek gränserna för loggar som samlats in om det behövs. Ändringar i dessa filer kräver en omstart av den *Microsoft Azure Stack Trace Collector* tjänsten för att ändringarna ska börja gälla.
 
-```
+Följande exempel är en trace konfigurationens JSON-fil för FabricRingServices åtgärder från XRP VM: 
+
+```json
 {
     "LogFile": 
     {
@@ -57,19 +59,13 @@ Följande är viktiga saker att veta om Trace insamlaren:
 }
 ```
 
-* **MaxDaysOfFiles**
-
-    Denna parameter styr ålder filerna ska sparas. Äldre loggfiler tas bort.
-* **MaxSizeInMB**
-
-    Denna parameter styr tröskelvärdet för databasstorleken för en enskild fil. Om storleken uppnås, skapas en ny etl-fil.
-* **TotalSizeInMB**
-
-    Den här parametern styr den totala storleken på etl-filer som skapas från en händelsesessionen. Om den totala filstorleken är större än det här parametervärdet tas äldre filer bort.
+* **MaxDaysOfFiles**. Denna parameter styr ålder filerna ska sparas. Äldre loggfiler tas bort.
+* **MaxSizeInMB**. Denna parameter styr tröskelvärdet för databasstorleken för en enskild fil. Om storleken uppnås, skapas en ny etl-fil.
+* **TotalSizeInMB**. Den här parametern styr den totala storleken på etl-filer som skapas från en händelsesessionen. Om den totala filstorleken är större än det här parametervärdet tas äldre filer bort.
   
 ## <a name="log-collection-tool"></a>Loggen samling verktyget
  
-PowerShell-kommandot `Get-AzureStackLog` kan användas för att samla in loggar från alla komponenter i en Azure-Stack-miljö. Det sparar dem i zip-filer i en användardefinierad plats. Om vår tekniska support måste loggarna för att felsöka ett problem, de kan bli ombedd att köra det här verktyget.
+PowerShell-kommandot **Get-AzureStackLog** kan användas för att samla in loggar från alla komponenter i en Azure-Stack-miljö. Det sparar dem i zip-filer i en användardefinierad plats. Om vår tekniska support måste loggarna för att felsöka ett problem, de kan bli ombedd att köra det här verktyget.
 
 > [!CAUTION]
 > Loggfilerna kan innehålla personligt identifierbar information (PII). Ta hänsyn innan du publicerar offentligt alla loggfiler.
@@ -78,43 +74,49 @@ Följande är några exempel loggen typer som samlas in:
 *   **Azure Stack-distributionsloggar**
 *   **Windows-händelseloggar**
 *   **Panther loggar**
-
-   Felsökning av problem med att skapa VM:
 *   **Kluster-loggar**
 *   **Diagnostikloggar för lagring**
 *   **ETW-loggar**
 
-Filerna som samlas in av spårning insamlaren och lagras i en resurs från var `Get-AzureStackLog` hämtar dem.
+Filerna som samlas in av spårning insamlaren och lagras i en resurs från var **Get-AzureStackLog** hämtar dem.
  
-**Att köra Get-AzureStackLog på ett system med Azure Stack Development Kit (ASDK)**
-1.  Logga in som AzureStack\AzureStackAdmin på värden.
-2.  Öppna ett PowerShell-fönster som administratör.
-3.  Kör `Get-AzureStackLog`.  
+### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Att köra Get-AzureStackLog på ett system med Azure Stack Development Kit (ASDK)
+1. Logga in som **AzureStack\CloudAdmin** på värden.
+2. Öppna ett PowerShell-fönster som administratör.
+3. Kör den **Get-AzureStackLog** PowerShell-cmdlet.
 
-    **Exempel**
+   **Exempel**
 
-    - Samla in alla loggar för alla roller:
+    Samla in alla loggar för alla roller:
 
-        `Get-AzureStackLog -OutputPath C:\AzureStackLogs`
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs
+    ```
 
-    - Samla in loggar från virtuella datorer och BareMetal roller:
+    Samla in loggar från virtuella datorer och BareMetal roller:
 
-        `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal`
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+    ```
 
-    - Samla in loggar från virtuella datorer och BareMetal roller med Datumfiltrering för loggfiler för de senaste 8 timmarna:
+    Samla in loggar från virtuella datorer och BareMetal roller med Datumfiltrering för loggfiler för de senaste 8 timmarna:
+    
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+    ```
 
-        `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)`
+    Samla in loggar från virtuella datorer och BareMetal roller med Datumfiltrering för loggfiler för tidsperioden mellan 8 timmar sedan och 2 timmar sedan:
 
-    - Samla in loggar från virtuella datorer och BareMetal roller med Datumfiltrering för loggfiler för tidsperioden mellan 8 timmar sedan och 2 timmar sedan:
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+    ```
 
-      `Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)`
-
-**Integrerat system för att köra Get-AzureStackLog på en Azure-Stack:**
+### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Integrerat system för att köra Get-AzureStackLog på en Azure-stacken
 
 Om du vill köra verktyget log samlingen på ett integrerat system som du behöver ha åtkomst till Privilegierade slutpunkt (program). Här är ett exempelskript som du kan köra detta program kan samla in loggar på ett integrerat system:
 
-```
-$ip = "<IP OF THE PEP VM>" # You can also use the machine name instead of IP here.
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
  
 $pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
@@ -126,7 +128,7 @@ $s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Cred
 $fromDate = (Get-Date).AddHours(-8)
 $toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
  
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDREESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
 if($s)
 {
@@ -134,43 +136,43 @@ if($s)
 }
 ```
 
-- När du samlar in loggar från detta program, ange den `OutputPath` parameter ska vara en plats på den HLH datorn. Kontrollera också att platsen är krypterad.
-- Parametrarna `OutputSharePath` och `OutputShareCredential` är valfria och används när du överför loggar till en extern delad mapp. Använd de här parametrarna *dessutom* till `OutputPath`. Om `OutputPath` anges verktyget log samlingen använder program VM systemenhet för lagring. Detta kan orsaka skriptet misslyckas eftersom diskutrymme som är begränsad.
-- Som visas i föregående exempel är den `FromDate` och `ToDate` parametrar kan användas för att samla in loggar för en viss tidsperiod. Det kan finnas i praktiska för scenarier som insamling av loggar när ett uppdateringspaket på ett integrerat system.
+- När du samlar in loggar från detta program, ange den **OutputPath** parameter ska vara en plats på datorn maskinvara livscykel värden (HLH). Kontrollera också att platsen är krypterad.
+- Parametrarna **OutputSharePath** och **OutputShareCredential** är valfria och används när du överför loggar till en extern delad mapp. Använd de här parametrarna *dessutom* till **OutputPath**. Om **OutputPath** anges verktyget log samlingen använder program VM systemenhet för lagring. Detta kan orsaka skriptet misslyckas eftersom diskutrymme som är begränsad.
+- Som visas i föregående exempel är den **FromDate** och **ToDate** parametrar kan användas för att samla in loggar för en viss tidsperiod. Det kan finnas i praktiska för scenarier som insamling av loggar när ett uppdateringspaket på ett integrerat system.
 
-**Parametern överväganden för både ASDK och integrerat system:**
+### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Parametern överväganden för både ASDK och integrerat system
 
-- Om den `FromDate` och `ToDate` parametrar har angetts, loggarna har samlats in under de senaste fyra timmarna som standard.
-- Du kan använda den `TimeOutInMinutes` parametern ange tidsgränsen för Logginsamling. Den är inställd på 150 (2,5 timmar) som standard.
+- Om den **FromDate** och **ToDate** parametrar har angetts, loggarna har samlats in under de senaste fyra timmarna som standard.
+- Du kan använda den **TimeOutInMinutes** parametern ange tidsgränsen för Logginsamling. Den är inställd på 150 (2,5 timmar) som standard.
 
-- För närvarande kan du använda den `FilterByRole` parameter till filter Logginsamling av följande roller:
+- För närvarande kan du använda den **FilterByRole** parameter till filter Logginsamling av följande roller:
 
    |   |   |   |
    | - | - | - |
-   | `ACSMigrationService`     | `ACSMonitoringService`   | `ACSSettingsService` |
-   | `ACS`                     | `ACSFabric`              | `ACSFrontEnd`        |
-   | `ACSTableMaster`          | `ACSTableServer`         | `ACSWac`             |
-   | `ADFS`                    | `ASAppGateway`           | `BareMetal`          |
-   | `BRP`                     | `CA`                     | `CPI`                |
-   | `CRP`                     | `DeploymentMachine`      | `DHCP`               |
-   |`Domain`                   | `ECE`                    | `ECESeedRing`        |        
-   | `FabricRing`              | `FabricRingServices`     | `FRP`                |
-   |` Gateway`                 | `HealthMonitoring`       | `HRP`                |               
-   | `IBC`                     | `InfraServiceController` | `KeyVaultAdminResourceProvider`|
-   | `KeyVaultControlPlane`    | `KeyVaultDataPlane`      | `NC`                 |            
-   | `NonPrivilegedAppGateway` | `NRP`                    | `SeedRing`           |
-   | `SeedRingServices`        | `SLB`                    | `SQL`                |     
-   | `SRP`                     | `Storage`                | `StorageController`  |
-   | `URP`                     | `UsageBridge`            | `VirtualMachines`    |  
-   | `WAS`                     | `WASPUBLIC`              | `WDS`                |
+   | ACSMigrationService     | ACSMonitoringService   | ACSSettingsService |
+   | ACS                     | ACSFabric              | ACSFrontEnd        |
+   | ACSTableMaster          | ACSTableServer         | ACSWac             |
+   | ADFS                    | ASAppGateway           | BareMetal          |
+   | BRP                     | CERTIFIKATUTFÄRDARE                     | CPI                |
+   | CERTIFIKATREGISTRERINGSPLATS                     | DeploymentMachine      | DHCP               |
+   | Domän                  | FN                    | ECESeedRing        | 
+   | FabricRing              | FabricRingServices     | FRP                |
+   | Gateway                 | HealthMonitoring       | HRP                |   
+   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
+   | NonPrivilegedAppGateway | NRP                    | SeedRing           |
+   | SeedRingServices        | SLB                    | SQL                |   
+   | SRP                     | Lagring                | StorageController  |
+   | URP                     | UsageBridge            | virtuella datorer    |  
+   | VAR                     | WASPUBLIC              | WDS                |
 
 
-Ytterligare några saker att Observera:
+### <a name="additional-considerations"></a>Annat som är bra att tänka på
 
 * Kommandot tar tid att köra baserat på vilka roller som samlar in loggarna. Bidragande faktorer också innefatta varaktighet som angetts för Logginsamling och antal noder i Azure Stack-miljö.
-* När Logginsamling är klar kontrollerar du den nya mappen skapas i den `-OutputPath` parameter har angetts i kommandot.
+* När Logginsamling är klar kontrollerar du den nya mappen skapas i den **OutputPath** parameter har angetts i kommandot.
 * Varje roll har loggar i enskilda zip-filer. Beroende på storleken på de insamlade loggarna kan en roll ha loggar dela med flera zip-filer. Använd ett verktyg som kan packa i grupp (till exempel 7zip) för en roll, om du vill ha alla loggfiler som uppackade i till en enda mapp. Välj de komprimerade filerna för rollen och välj **extrahera här**. Detta upp alla loggfiler för rollen i en enda kopplade mapp.
-* En fil som heter `Get-AzureStackLog_Output.log` skapas också i den mapp som innehåller de komprimerade loggfilerna. Den här filen är en logg över kommandoutdata som kan användas vid felsökning av problem vid Logginsamling av.
+* En fil som heter **Get-AzureStackLog_Output.log** skapas också i den mapp som innehåller de komprimerade loggfilerna. Den här filen är en logg över kommandoutdata som kan användas vid felsökning av problem vid Logginsamling av.
 * Loggar kan behövas från mer än en komponent för att undersöka ett specifikt fel.
     -   System och händelseloggarna för alla virtuella datorer som infrastrukturen har samlats in i den *VirtualMachines* roll.
     -   System och händelseloggarna för alla värdar har samlats in i den *BareMetal* roll.

@@ -1,6 +1,6 @@
 ---
-title: "Göra webb-, mobil- och API-appar tillgängliga för användarna Azure Stack | Microsoft Docs"
-description: "Kursen hjälper dig att installera App-tjänstresursprovider och skapa erbjuder som ger Azure Stack användarna möjlighet att skapa webb-, mobil, och API apps."
+title: "Göra webb- och API-appar tillgängliga för användarna Azure Stack | Microsoft Docs"
+description: "Kursen hjälper dig att installera App-tjänstresursprovider och skapa erbjuder som ger Azure Stack användarna möjlighet att skapa webb- och API apps."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Göra webb-, mobil- och API apps tillgängliga för användarna i Azure-stacken
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Göra webb- och API apps tillgängliga för användarna i Azure-stacken
 
-Du kan skapa erbjudanden som användarna kan som administratör Azure Stack-moln (klienter) skapa Azure Functions- och webb-, mobil- och API-program. Genom att ge tillgång till apparna på begäran, molnbaserad till användarna, kan du spara dem tid och resurser. Om du vill ställa in, kommer du att:
+Du kan skapa erbjudanden som användarna kan som administratör Azure Stack-moln (klienter) skapa Azure Functions- och webb- och API-program. Genom att ge tillgång till apparna på begäran, molnbaserad till användarna, kan du spara dem tid och resurser. Om du vill ställa in, kommer du att:
 
 > [!div class="checklist"]
 > * Distribuera App-tjänstresursprovider
@@ -43,7 +43,7 @@ Du kan skapa erbjudanden som användarna kan som administratör Azure Stack-moln
 Du kan skapa ett erbjudande som låter användarna skapa DNN web innehållshanteringssystem som ett exempel. Den kräver SQL Server-tjänsten som du redan har aktiverat genom att installera SQL Server-resursprovidern.
 
 1.  [Anger en kvot](azure-stack-setting-quotas.md) och ger den namnet *AppServiceQuota*. Välj **Microsoft.Web** för den **Namespace** fältet.
-2.  [Skapa en plan](azure-stack-create-plan.md). Ge den namnet *TestAppServicePlan*, Välj den den **Microsoft.SQL** tjänsten, och **Apptjänst kvot** kvoten.
+2.  [Skapa en plan](azure-stack-create-plan.md). Ge den namnet *TestAppServicePlan*, Välj den **Microsoft.SQL** tjänsten, och **Apptjänst kvot** kvoten.
 
     > [!NOTE]
     > Andra tjänster kan krävas i planen för att låta användarna skapa andra appar. Till exempel Azure Functions kräver att planen omfattar den **Microsoft.Storage** service, medan Wordpress kräver **Microsoft.MySQL**.

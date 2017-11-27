@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Användningsvillkorsfunktion för Azure Active Directory (förhandsversion)
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare.  Det gör att användarna kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav.
@@ -43,7 +43,8 @@ Så här konfigurerar du användningsvillkoren för Azure AD:
 2. Kontrollera att katalogen har en Azure AD Premium P1-, P2-, EMS E3- eller EMS E5-prenumeration.  Om den inte har det ska du [hämta Azure AD Premium](active-directory-get-started-premium.md) eller [starta en utvärderingsperiod](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. Visa instrumentpanelen med användningsvillkoren för Azure AD på [https://aka.ms/catou](https://aka.ms/catou).
 
-
+>[!IMPORTANT]
+>Kontrollerna för principer för villkorlig åtkomst (inklusive användningsvillkoren) stöder inte tvingande för tjänstkonton.  Vi rekommenderar att du exkluderar alla tjänstkonton från principen för villkorlig åtkomst.
 
 ## <a name="add-company-terms-of-use"></a>Lägga till företagets användningsvillkor
 När du har skapat dina användningsvillkor använder du följande metod för att lägga till dem.
@@ -92,7 +93,6 @@ Användare som ingår i området ser följande när användningsvillkoren har sk
 
 ## <a name="additional-information"></a>Ytterligare information
 Följande information är något som du bör känna till, och det kan hjälpa till med användningsvillkor.
-
 
 Användare inom området behöver logga ut och logga in för att uppfylla en ny princip om:
  - en villkorlig åtkomstprincip är aktiverad för ett användningsvillkor

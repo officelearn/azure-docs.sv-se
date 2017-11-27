@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Virtual Network-tjänstslutpunkter (förhandsversion)
 
@@ -28,7 +28,7 @@ Med tjänstslutpunkter för Virtual Network (VNet) får du ett utökat privat ad
 Den här funktionen är tillgänglig som förhandsversion för följande Azure-tjänster och regioner:
 
 - **Azure Storage**: Alla regioner i det offentliga Azure-molnet.
-- **Azure SQL Database**: västra centrala USA, västra USA 2 och östra USA.
+- **Azure SQL**: Alla regioner i det offentliga Azure-molnet.
 
 De mest uppdaterade meddelandena om förhandsversionen finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -122,4 +122,5 @@ För en Azure-tjänstresurs (till exempel ett Azure Storage-konto) kan det finna
 - Lär dig att [skydda ett Azure Storage-konto i ett virtuellt nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig att [skydda en Azure SQL-databas i ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Lär dig om [Azure-tjänstintegrering i virtuella nätverk](virtual-network-for-azure-services.md)
+-  Snabbstart: [Azure Resource Manager-mall](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) för att konfigurera tjänstslutpunkt på ett VNet:s undernät och säkra Azure Storage-kontot till det undernätet.
 

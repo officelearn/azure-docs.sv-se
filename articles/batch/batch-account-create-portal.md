@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2017
+ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7629e496f2d73798b94acdc611014a8b3afead7
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: ebda2f11f93b04a5592d18f8e15c8fc3b560aac3
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -37,7 +37,8 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 
 ## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
 
-
+> [!NOTE]
+> När du skapar ett Batch-konto ska du normalt välja standardläget för **Batch-tjänsten**. Där allokeras pooler bakom kulisserna i Azure-hanterade prenumerationer. I det alternativa läget **användarprenumeration**, som inte längre rekommenderas för de flesta scenarier, skapas virtuella Batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Du måste registrera din prenumeration med Azure Batch och koppla kontot till ett Azure Key Vault för att kunna skapa ett Batch-konto i läget Användarprenumeration.
 
 1. Logga in på [Azure Portal][azure_portal].
 2. Klicka på **Ny** och sök på Marketplace efter **Batch-tjänst**.
@@ -66,7 +67,7 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 ## <a name="view-batch-account-properties"></a>Visa egenskaper för ett Batch-konto
 När kontot har skapats kan du klicka på kontot för att komma åt dess inställningar och egenskaper. Du kan komma åt alla kontoinställningar och kontoegenskaper från den vänstra menyn.
 
-![Bladet för Batch-kontot på Azure Portal][account_blade]
+![Sidan för Batch-kontot på Azure Portal][account_blade]
 
 * **Batch-kontots URL**: När du utvecklar ett program med [Batch-API:er](batch-apis-tools.md#azure-accounts-for-batch-development) behöver du en konto-URL till Batch-resurserna. URL:en för ett Batch-konto har följande format:
 
@@ -91,11 +92,45 @@ Vi rekommenderar att du skapar ett nytt lagringskonto för exklusiv användning 
 ![Skapa ett allmänt lagringskonto][storage_account]
 
 > [!NOTE]
-> Var noga när du återskapar åtkomstnycklarna för ett länkat Storage-konto. Återskapa endast en Storage-kontonyckel och klicka på **Synkronisera nycklar** på bladet för det länkade Storage-kontot. Vänta fem minuter så att nycklarna hinner distribueras till beräkningsnoderna i poolerna och återskapa och synkronisera sedan den andra nyckeln om det behövs. Om du återskapar båda nycklarna samtidigt kan dina beräkningsnoder inte synkronisera någon av nycklarna och de förlorar åtkomst till Storage-kontot.
+> Var noga när du återskapar åtkomstnycklarna för ett länkat Storage-konto. Återskapa endast en Storage-kontonyckel och klicka på **Synkronisera nycklar** på sidan för det länkade Storage-kontot. Vänta fem minuter så att nycklarna hinner distribueras till beräkningsnoderna i poolerna och återskapa och synkronisera sedan den andra nyckeln om det behövs. Om du återskapar båda nycklarna samtidigt kan dina beräkningsnoder inte synkronisera någon av nycklarna och de förlorar åtkomst till Storage-kontot.
 >
 >
 
 ![Återskapa lagringskontonycklar][4]
+
+## <a name="additional-configuration-for-user-subscription-mode"></a>Ytterligare konfiguration för läget Användarprenumeration
+
+Om du väljer att skapa ett Batch-konto i läget Användarprenumeration ska du utföra följande åtgärder innan du skapar kontot.
+
+### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Tillåt att Azure Batch får åtkomst till prenumerationen (engångsåtgärd)
+När du skapar ditt första Batch-konto i användarprenumerationsläge behöver du registrera prenumerationen med Batch. (Om du redan har gjort detta går du vidare till nästa avsnitt.)
+
+1. Logga in på [Azure Portal][azure_portal].
+
+2. Klicka på **Fler tjänster** > **Prenumerationer** och klicka på den prenumeration som du vill använda för Batch-kontot.
+
+3. På sidan **Prenumeration** klickar du på **Åtkomstkontroll (IAM)** > **Lägg till**.
+
+    ![Åtkomstkontroll för prenumeration][subscription_access]
+
+4. På sidan **Lägg till behörigheter** väljer du rollen **Deltagare** och söker efter Batch-API:t. Sök efter var och en av de här strängarna tills du hittar API:t:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. Nyare Azure AD-klientorganisationer kan använda det här namnet.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t. 
+
+5. När du har hittat Batch-API:t markerar du det och klickar på **Spara**.
+
+    ![Lägg till Batch-behörigheter][add_permission]
+
+### <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
+I användarprenumerationsläge krävs ett Azure-nyckelvalv som tillhör samma resursgrupp som Batch-kontot som ska skapas. Kontrollera att resursgruppen finns i en region där Batch är [tillgängligt](https://azure.microsoft.com/regions/services/) och som din prenumeration stöder.
+
+1. På [Azure Portal][azure_portal] klickar du på **Nytt** > **Säkerhet + identitet** > **Nyckelvalv**.
+
+2. På sidan **Skapa nyckelvalv** anger du ett namn för nyckelvalvet och skapar en resursgrupp i den region som du vill använda för ditt Batch-konto. Lämna standardvärdena för resten av inställningarna och klicka sedan på **Skapa**.
+
+
+
 
 ## <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 Precis som med Azure-prenumerationen och andra Azure-tjänster, så har Batch-konton vissa [kvoter och begränsningar](batch-quota-limit.md). Aktuella kvoter för Batch-kontot visas i **Kvoter**.
@@ -133,4 +168,4 @@ Förutom att använda Azure Portal kan du skapa och hantera Batch-konton med fö
 [quotas]: ./media/batch-account-create-portal/quotas.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
-[account_portal_byos]: ./media/batch-account-create-portal/batch_acct_portal_byos.png
+

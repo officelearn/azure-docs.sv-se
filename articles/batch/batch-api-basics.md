@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -75,7 +75,7 @@ Du kan skapa ett Azure Batch-konto med [Azure Portal](batch-account-create-porta
 Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuera dina arbetsbelastningar mellan Batch-konton som är i samma prenumeration, men i olika Azure-regioner.
 
 > [!NOTE]
-> När du skapar ett Batch-konto ska du normalt välja standardläget för **Batch-tjänsten**. Där allokeras pooler bakom kulisserna i Azure-hanterade prenumerationer. I det alternativa läget **Användarprenumeration**, som inte längre rekommenderas, skapas virtuella Batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Du måste koppla kontot till ett Azure Key Vault för att kunna skapa ett Batch-konto i läget Användarprenumeration.
+> När du skapar ett Batch-konto ska du normalt välja standardläget för **Batch-tjänsten**. Där allokeras pooler bakom kulisserna i Azure-hanterade prenumerationer. I det alternativa läget **användarprenumeration**, som inte längre rekommenderas för de flesta scenarier, skapas virtuella Batch-datorer och andra resurser direkt i prenumerationen när en pool skapas. Du måste registrera din prenumeration med Azure Batch och koppla kontot till ett Azure Key Vault för att kunna skapa ett Batch-konto i läget Användarprenumeration.
 >
 
 
@@ -150,7 +150,9 @@ Detaljerade krav och steg finns i [Use a custom image to create a pool of virtua
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Stöd för behållare i pooler med virtuella datorer
 
-När du skapar en pool med virtuella datorer med hjälp av Batch-API:er kan du ställa in poolen på att köra uppgifter i Docker-behållare. För närvarande måste du skapa poolen med hjälp av Windows Server 2016 Datacenter och en behållaravbildning från Microsoft Azure Marketplace. Alternativt kan du ange en anpassad VM-avbildning som innehåller Docker Community Edition och alla nödvändiga drivrutiner. Poolinställningarna måste innehålla en [behållarkonfiguration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) som kopierar behållaravbildningar till de virtuella datorerna när poolen skapas. Uppgifter som körs i poolen kan sedan referera till behållaravbildningar och körningsalternativ för behållare.
+När du skapar en pool med virtuella datorer med hjälp av Batch-API:er kan du ställa in poolen på att köra uppgifter i Docker-behållare. För närvarande måste du skapa poolen med hjälp av en avbildning som stöder Docker-behållare. Använd Windows Server 2016 Datacenter och en behållaravbildning från Microsoft Azure Marketplace. Alternativt kan du ange en anpassad VM-avbildning som innehåller Docker Community Edition eller Enterprise Edition och alla nödvändiga drivrutiner. Poolinställningarna måste innehålla en [behållarkonfiguration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) som kopierar behållaravbildningar till de virtuella datorerna när poolen skapas. Uppgifter som körs i poolen kan sedan referera till behållaravbildningar och körningsalternativ för behållare.
+
+Mer information finns i [Run Docker container applications on Azure Batch](batch-docker-container-workloads.md) (Köra Docker-behållarprogram på Azure Batch).
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>Typ av beräkningsnod och antal målnoder
 

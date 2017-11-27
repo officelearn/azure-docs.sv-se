@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 41279502c16d0b23c91739dcb62e8f94f3b8bd67
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4f5e249238020429b6c6e0d39c580c83bc43969e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Skapa en plats-till-plats-anslutning på Azure Portal
 
@@ -50,15 +50,13 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 Vi använder följande värden i exemplen. Du kan använda värdena till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln. Mer information om VPN-gatewayinställningar finns i [Om VPN Gateway-inställningar](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **VNet-namn:** TestVNet1
-* **Adressutrymme:** 
-  * 10.11.0.0/16
-  * 10.12.0.0/16 (valfritt för den här övningen)
-* **Undernät:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (valfritt för den här övningen)
-* **GatewaySubnet:** 10.11.255.0/27
+* **Adressutrymme:** 10.11.0.0/16 och 10.12.0.0/16 (valfritt för den här övningen)
+* **Prenumeration:** Ange den prenumeration som du vill använda
 * **Resursgrupp:** TestRG1
 * **Plats:** Östra USA
+* **Undernät:** FrontEnd: 10.11.0.0/24, BackEnd: 10.12.0.0/24 (valfritt för den här övningen)
+* **Namn för gateway-undernät:** GatewaySubnet (anges automatiskt i portalen)
+* **Adressintervall för gateway-undernätet:** 10.11.255.0/27
 * **DNS Server:** Valfritt. IP-adressen för din DNS-server.
 * **Namn på virtuell nätverksgateway:** VNet1GW
 * **Offentlig IP:** VNet1GWIP
@@ -67,6 +65,7 @@ Vi använder följande värden i exemplen. Du kan använda värdena till att ska
 * **Gateway-typ:** VPN
 * **Gateway-namn på lokalt nätverk:** Site2
 * **Anslutningsnamn:** VNet1toSite2
+* **Delad nyckel:** I det här exemplet använder vi abc123. Men du kan använda det som är kompatibelt med din VPN-maskinvara. Huvudsaken är att värdena matchar på båda sidorna av anslutningen.
 
 ## <a name="CreatVNet"></a>1. Skapa ett virtuellt nätverk
 
@@ -125,10 +124,21 @@ Du kan behöva återställa en Azure VPN-gateway om VPN-anslutningen mellan fler
 
 Anvisningar som beskriver hur du ändrar en gateway-SKU finns i [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
+## <a name="addconnect"></a>Lägga till ytterligare en anslutning till en VPN-gateway
+
+Du kan lägga till ytterligare anslutningar, förutsatt att ingen av adressutrymmena överlappar mellan anslutningar.
+
+1. Om du vill lägga till ytterligare en anslutning går du till VPN-gatewayen och klickar du sedan på **Anslutningar** för att öppna sidan Anslutningar.
+2. Klicka på **+Lägg till** för att lägga till din anslutning. Justera anslutningstyp för att återspegla antingen VNet-to-VNet (om du ansluter till en annan VNet-gateway) eller Plats-till-plats.
+3. Om du ansluter med Plats-till-plats och inte redan har skapat en lokal nätverksgateway för webbplatsen du vill ansluta till kan du skapa en ny.
+4. Ange den delade nyckeln som du vill använda och klicka sedan på **OK** för att skapa anslutningen.
+
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om BGP finns i [BGP-översikt](vpn-gateway-bgp-overview.md) och [Så här konfigurerar du BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Information om tvingad tunneltrafik finns i [Om forcerade tunnlar](vpn-gateway-forced-tunneling-rm.md).
 * Mer information om aktiv-aktiv-anslutningar med hög tillgänglighet finns i [Anslutning med hög tillgänglighet på flera platser och VNet-till-VNet-anslutning](vpn-gateway-highlyavailable.md).
+* Mer information om hur du begränsar nätverkstrafiken till resurser i ett virtuellt nätverk finns i [Nätverkssäkerhet](../virtual-network/security-overview.md).
+* Mer information om hur Azure dirigerar trafik mellan Azure, lokala och Internet-resurser finns i [Trafikdirigering i virtuella nätverk](../virtual-network/virtual-networks-udr-overview.md).
 * Information om hur du skapar en VPN-anslutning från plats till plats med en Azure Resource Manager-mall finns i [Skapa en plats-till-plats-anslutning via VPN](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
 * Information om hur du skapar en VPN-anslutning mellan två virtuella nätverk med en Azure Resource Manager-mall finns i [Distribuera HBase-georeplikering](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
@@ -59,11 +59,17 @@ Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga fråg
 
 ### <a name="which-set-of-steps-should-i-use"></a>Vilka steg ska jag använda?
 
-I den här artikeln beskrivs två uppsättningar med steg. En uppsättning steg för [virtuella nätverk som finns i samma prenumeration](#samesub) och en annan för [virtuella nätverk som finns i olika prenumerationer](#difsub).
-
-## <a name="samesub"></a>Så här ansluter du VNets som finns i samma prenumeration
+I den här artikeln beskrivs två uppsättningar med steg. En uppsättning steg för [VNets som finns i samma prenumeration](#samesub). Stegen för den här konfigurationen använder TestVNet1 och TestVNet4.
 
 ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+Det finns en separat artikel för [VNets som finns i olika prenumerationer](#difsub). Stegen för den här konfigurationen använder TestVNet1 och TestVNet5.
+
+![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+Du kan kombinera konfigurationer om du vill, eller bara välja den du vill arbeta med.
+
+## <a name="samesub"></a>Så här ansluter du VNets som finns i samma prenumeration
 
 ### <a name="before-you-begin"></a>Innan du börjar
 
@@ -88,7 +94,7 @@ Vi använder följande värden i exemplen:
 * Offentlig IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (för VNet i olika prenumerationer)
 * ConnectionType: VNet2VNet
 
 **Värden för TestVNet4:**
@@ -255,8 +261,6 @@ Nu har du två VNets med VPN-gatewayer. Nästa steg är att skapa VPN-gateway-an
 
 ## <a name="difsub"></a>Ansluta VNets som finns i olika prenumerationer
 
-![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 I det här scenariot ansluter vi TestVNet1 och TestVNet5. VNets finns i olika prenumerationer. Prenumerationerna behöver inte vara associerade med samma Active Directory-klient. I stegen för den här konfigurationen lägger vi till ytterligare en VNet-till-VNet-anslutning för att kunna ansluta TestVNet1 till TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Steg 5 – Skapa och konfigurera TestVNet1
@@ -362,7 +366,7 @@ Vi har upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]** och
 ## <a name="verify"></a>Kontrollera anslutningarna
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Vanliga frågor och svar om VNet-till-VNet
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

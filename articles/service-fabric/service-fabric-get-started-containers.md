@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-behållarapp i Windows
 > [!div class="op_single_selector"]
@@ -294,8 +294,7 @@ Windows stöder två isoleringslägen för behållare: process och Hyper-V. Om p
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > Hyper-V-isoleringsläget är tillgängligt på Ev3 och Dv3 Azure SKU:er som har stöd för kapslad virtualisering. 
-   >
+   > Hyper-V-isoleringsläget är tillgängligt på Ev3 och Dv3 Azure SKU:er som har stöd för kapslad virtualisering. Kontrollera att rollen hyperv är installerad på värdarna. Verifiera det genom att ansluta till värdarna.
    >
 
 ## <a name="configure-resource-governance"></a>Konfigurera resursstyrning
@@ -325,7 +324,7 @@ Appen är klar när den har ```Ready```status: ![Ready][2] (Klar)
 Öppna en webbläsare och navigera till http://containercluster.westus2.cloudapp.azure.com:8081. Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
-Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party-kluster](https://try.servicefabric.azure.com/) tas bort automatiskt efter ett par timmar.
+Det kostar pengar så länge klustret körs. Fundera på om du vill [ta bort klustret](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  [Party-kluster](https://try.servicefabric.azure.com/) tas bort automatiskt efter ett par timmar.
 
 När du har överfört avbildningen till behållarregistret kan du ta bort den lokala avbildningen från utvecklingsdatorn:
 

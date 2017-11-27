@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av PowerShell
 
@@ -59,13 +59,17 @@ Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga fråg
 
 ## <a name="which-set-of-steps-should-i-use"></a>Vilka steg ska jag använda?
 
-I den här artikeln beskrivs två uppsättningar med steg. En uppsättning steg för [virtuella nätverk som finns i samma prenumeration](#samesub) och en annan för [virtuella nätverk som finns i olika prenumerationer](#difsub). Den viktigaste skillnaden mellan uppsättningarna är huruvida du kan skapa och konfigurera alla virtuella nätverk och gateway-resurser i samma PowerShell-session.
-
-I stegen i den här artikeln används variabler som deklareras i början av varje avsnitt. Om du redan arbetar med befintliga virtuella nätverk kan du ändra variablerna så att de avspeglar din miljö. Information om hur du använder namnmatchning för dina virtuella nätverk finns i [Namnmatchning](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-## <a name="samesub"></a>Så här ansluter du VNets som finns i samma prenumeration
+I den här artikeln beskrivs två uppsättningar med steg. En uppsättning steg för [VNets som finns i samma prenumeration](#samesub). Stegen för den här konfigurationen använder TestVNet1 och TestVNet4.
 
 ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+Det finns en separat artikel för [VNets som finns i olika prenumerationer](#difsub). Stegen för den här konfigurationen använder TestVNet1 och TestVNet5.
+
+![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+Den viktigaste skillnaden mellan uppsättningarna är huruvida du kan skapa och konfigurera alla virtuella nätverk och gateway-resurser i samma PowerShell-session. Du måste använda separata PowerShell-sessioner när du konfigurerar anslutningar för Vnet som finns i olika prenumerationer. Du kan kombinera konfigurationer om du vill, eller bara välja den du vill arbeta med.
+
+## <a name="samesub"></a>Så här ansluter du VNets som finns i samma prenumeration
 
 ### <a name="before-you-begin"></a>Innan du börjar
 
@@ -90,7 +94,7 @@ Vi använder följande värden i exemplen:
 * Offentlig IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (för VNet i olika prenumerationer)
 * ConnectionType: VNet2VNet
 
 **Värden för TestVNet4:**
@@ -279,8 +283,6 @@ När du har konfigurerat TestVNet1 skapar du TestVNet4. Följ stegen nedan och e
 4. Verifiera anslutningen. Mer information finns i avsnittet [Verifiera anslutningen](#verify).
 
 ## <a name="difsub"></a>Så här ansluter du VNets som finns i olika prenumerationer
-
-![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 I det här scenariot ansluter vi TestVNet1 och TestVNet5. TestVNet1 och TestVNet5 finns i olika prenumerationer. Prenumerationerna behöver inte vara associerade med samma Active Directory-klient. Skillnaden mellan de här stegen och den tidigare uppsättningen är att några av konfigurationsstegen måste utföras i en separat PowerShell-session för den andra prenumerationen. Detta gäller särskilt om två prenumerationer tillhör olika organisationer.
 

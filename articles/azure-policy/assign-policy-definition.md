@@ -9,11 +9,11 @@ ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a1b2f72cf33c740a52cf817766e9950a04886141
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Skapa en tilldelning av principer för att identifiera icke-kompatibla resurser i Azure-miljön
 Det första steget i att förstå efterlevnad i Azure är viktigt att veta där du stå med aktuella resurserna. Denna Snabbstart vägleder dig genom processen att skapa en tilldelning av principer för att identifiera virtuella datorer som inte använder hanterade diskar.
@@ -62,7 +62,7 @@ I den här snabbstarten vi skapa en principtilldelning och tilldela den *Audit v
 5. Ange en bildskärm **namn** för tilldelning av principer. I det här fallet ska vi använda *Audit virtuella datorer som inte använder hanterade diskar*. Du kan också lägga till en valfri **beskrivning**. Beskrivningen innehåller information om hur den här principtilldelning identifierar alla virtuella datorer som skapats i denna miljö som inte använder hanterade diskar.
 6. Ändra prisnivån till **Standard** så att principen tillämpas med befintliga resurser.
 
-   Det finns två prisnivåer i Azure princip – *lediga* och *Standard*. Med den kostnadsfria nivån kan du bara tvinga principer för framtida resurser, medan med Standard, du kan även tillämpa dem på befintliga resurser för att bättre förstå din kompatibilitetstillstånd. Eftersom vi finns i begränsad förhandsgranskningen vi ännu inte har startats prisnivå modellen, så du får en faktura för att välja *Standard*. Du kan läsa mer om prissättning, titta på: [priser för Azure princip](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Det finns två prisnivåer i Azure princip – *lediga* och *Standard*. Med den kostnadsfria nivån kan du bara tvinga principer för framtida resurser, medan med Standard, du kan även tillämpa dem på befintliga resurser för att bättre förstå din kompatibilitetstillstånd. Eftersom vi finns i begränsad förhandsgranskningen vi ännu inte har startats prisnivå modellen, så du får en faktura för att välja *Standard*. Du kan läsa mer om prissättning, titta på: [priser för Azure princip](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Välj den **omfång** som principen ska tillämpas på.  Ett omfång avgör vilka resurser eller gruppering av resurser hämtar principtilldelningen tillämpas på. Det kan röra sig om en prenumeration till resursgrupper.
 8. Välj den prenumeration (eller resursgrupp) du tidigare har registrerat med när du har valt att Azure-principen. I det här exemplet använder vi den här prenumerationen - **Azure Analytics kapacitet Dev**, men alternativen varierar.

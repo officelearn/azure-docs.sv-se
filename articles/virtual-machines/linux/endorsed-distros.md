@@ -13,24 +13,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 39cb2464eb593a29c4436afb5c14419b704ebff4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811769443e322af3a2981c58979040a1e33b06e9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux på distributioner godkända av Azure
 Partners ger Linux bilder i Azure Marketplace. Vi arbetar med olika Linux communities att lägga till ytterligare varianter i listan över godkända Distribution. Under tiden för distributioner som inte är tillgängliga från Marketplace, du kan alltid ta egna Linux genom att följa riktlinjerna i [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="supported-distributions-and-versions"></a>Distributioner som stöds och versioner
-I följande tabell visas de Linux-distributioner och versioner som stöds på Azure. Referera till [stöd för Linux bilder i Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892) mer detaljerad information.
+I följande tabell visas de Linux-distributioner och versioner som stöds på Azure. Referera till [stöd för Linux-avbildningar i Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) mer detaljerad information om stöd för Linux och öppenkällteknik i Azure.
 
 Linux Integration Services (LIS)-drivrutiner för Hyper-V och Azure är kernel-moduler som Microsoft bidrar direkt till den överordnade Linux-kerneln.  Vissa drivrutiner LIS är inbyggda i kernel för den distribution som standard. Äldre distributioner som är baserade på Red Hat Enterprise (RHEL) och CentOS är tillgängliga som en separat fil på [Linux Integration Services Version 4.1 för Hyper-V](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Se [Linux kernel krav](create-upload-generic.md#linux-kernel-requirements) för mer information om LIS drivrutiner.
 
 Azure Linux-agenten är redan installerad på Azure Marketplace-bilder och är vanligtvis tillgänglig från den distributionsplatsen paketdatabasen. Källkoden kan hittas på [GitHub](https://github.com/azure/walinuxagent).
 
+  
 | Distribution | Version | Drivrutiner | Agent |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS hämta](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: I kernel |Paket: I [lagringsplatsen](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) under ”WALinuxAgent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -39,8 +40,11 @@ Azure Linux-agenten är redan installerad på Azure Marketplace-bilder och är v
 | Oracle Linux |6.4+, 7.0+ |I kernel |Paket: I lagringsplatsen under ”WALinuxAgent” <br/>Källkod: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7 +, 7.1 + |I kernel |Paket: I lagringsplatsen under ”WALinuxAgent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES för SAP<br>11 SP4<br>12 SP1 +|I kernel |Paket:<p> för 11 i [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagringsplatsen<br>för 12 ingår i modulen ”offentliga moln” under ”python-azure-agent”<br/>Källkod: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE Leap 42.1 + |I kernel |Paket: I [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagringsplatsen under ”python-azure-agent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16,10 |I kernel |Paket: I lagringsplatsen under ”walinuxagent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE |openSUSE Leap 42.2 + |I kernel |Paket: I [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagringsplatsen under ”python-azure-agent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04 +  **<sup>1</sup>** |I kernel |Paket: I lagringsplatsen under ”walinuxagent” <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+
+  - **<sup>1</sup>**  stöd för Ubuntu 12.04 på Azure hittar du den [EOL meddelande](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+
 
 ## <a name="partners"></a>Partner
 
@@ -59,7 +63,7 @@ Credativ är en oberoende rådgivning och tjänster företaget som är specialis
 ### <a name="oracle"></a>Oracle
 [http://www.Oracle.com/technetwork/topics/cloud/FAQ-1963009.HTML](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
-Oracles strategi är att erbjuda en bred portfölj av lösningar för offentliga och privata moln. Strategin ger kunder valmöjligheterna och flexibiliteten i hur de distribuerar en Oracle-programvara i Oracle-moln och andra moln. Oracles partnerskap med Microsoft kan kunder distribuera Oracle-programvara i Microsoft offentliga och privata moln med förtroende för certifiering och stöd från Oracle.  Oracles åtaganden och investering i Oracle offentliga och privata molnlösningar är oförändrade.
+Oracles strategi är att erbjuda en bred portfölj av lösningar för offentliga och privata moln. Strategin ger kunder valmöjligheterna och flexibiliteten i hur de distribuerar en Oracle-programvara i Oracle-moln och andra moln. Oracles partnerskap med Microsoft gör att kunderna kan distribuera Oracle-program i Microsofts offentliga och privata moln med certifiering och support från Oracle.  Oracles åtaganden och investering i Oracle offentliga och privata molnlösningar är oförändrade.
 
 ### <a name="red-hat"></a>Red Hat
 [http://www.Redhat.com/en/partners/Strategic-Alliance/Microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)

@@ -4,7 +4,7 @@ description: "Lär dig hur du skapar, dekryptera och redigera ett supportpaket f
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett stödpaket för StorSimple 8000-serien
 
@@ -58,14 +58,14 @@ Du kan dela din manuellt genererad supportpaket Microsoft support via e-post. Ut
    
    * För nätverksresurser som är lösenordsskyddad, ange:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+       `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       Du uppmanas för ett lösenord, en sökväg till den delade nätverksmappen och krypteringslösenfrasen (eftersom paketet stöd krypteras). Ett supportpaket skapas i den angivna mappen.
+       Du uppmanas för ett lösenord och krypteringslösenfrasen (eftersom paketet stöd krypteras). Ett supportpaket skapas i standardmappen (enhetsnamn läggas till med aktuellt datum och tid).
    * För resurser som inte är lösenordsskyddad, behöver du inte den `-Credential` parameter. Ange följande:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+       `Export-HcsSupportPackage`
      
-       Stöd för paketet skapas för både domänkontrollanter i den angivna delade mappen. Det är en krypterad, komprimerad fil som kan skickas till Microsoft Support för felsökning. Mer information finns i [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+       Stöd för paketet skapas för både domänkontrollanter i standardmappen. Paketet är en krypterad, komprimerad fil som kan skickas till Microsoft Support för felsökning. Mer information finns i [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 ### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Export-HcsSupportPackage cmdlet-parametrarna
 

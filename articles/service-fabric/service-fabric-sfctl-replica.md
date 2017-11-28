@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 50d185294131e42aaf8b541ab17495fcb40c89dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="sfctl-replica"></a>sfctl replik
 Hantera replikerna som tillhör tjänsten partitioner.
@@ -29,8 +29,7 @@ Hantera replikerna som tillhör tjänsten partitioner.
 | --- | --- |
 |    Distribueras  | Hämtar information om repliken har distribuerats på en Service Fabric-nod.|
 |    distribuerat lista| Hämtar listan över repliker som har distribuerats på en Service Fabric-nod.|
-|    Hälsotillstånd    | Hämtar hälsotillståndet för Service Fabric tillståndskänslig service replik eller tillståndslösa tjänsten
-                   instans.|
+|    hälsa    | Hämtar hälsotillståndet för Service Fabric tillståndskänslig service replik eller tillståndslösa tjänstinstansen.|
 |    Info      | Hämtar information om en replik av en Service Fabric-partition.|
 |    lista      | Hämtar information om repliker för en partition för Service Fabric-tjänsten.|
 |    Ta bort    | Tar bort en replik för tjänsten som körs på en nod.|

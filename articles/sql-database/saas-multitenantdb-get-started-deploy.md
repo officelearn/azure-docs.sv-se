@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett delat flera innehavare program som använder Azure SQL Database
 
@@ -35,7 +35,7 @@ Distribution av avsnittet som följer ger den **till Azure** knappen. Om knappen
 
 Programmet har distribuerats med data för tre exempel klienter. Innehavarna lagras tillsammans i en databas för flera innehavare.
 
-Vem som helst kan ladda ned källkoden C# och PowerShell för Wingtip biljetter från [vår Github-lagringsplats][link-github-wingtip-multitenantdb-55g].
+Vem som helst kan ladda ned källkoden C# och PowerShell för Wingtip biljetter från [vår GitHub-lagringsplats][link-github-wingtip-multitenantdb-55g].
 
 #### <a name="learn-in-this-tutorial"></a>Lär dig i den här självstudiekursen
 
@@ -93,7 +93,7 @@ Hämta program källa kod och hantering av skript vid distribution av programmet
 > [!IMPORTANT]
 > Körbara innehållet (skript, DLL-filer) kan blockeras av Windows när zip-filer laddas ned från en extern källa och extraheras. När skript från en zip-fil, Använd följande steg för att avblockera .zip-filen innan du extraherar. Genom att avblockera .zip-filen Kontrollera du skript tillåts köra.
 
-1. Bläddra till [github-repo-WingtipTicketsSaaS MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+1. Bläddra till [WingtipTicketsSaaS MultiTenantDb GitHub-repo-](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Klicka på **kloning eller hämta**.
 3. Klicka på **hämta ZIP** och spara filen.
 4. Högerklicka på den **WingtipTicketsSaaS-MultiTenantDb-master.zip** fil och markera **egenskaper**.
@@ -120,7 +120,7 @@ Appen visar platser, som konsertlokaler, jazzklubbar, sportklubbar som organiser
 Central **händelser hubb** innehåller en lista med länkar till innehavare i din distribution.
 
 1. Öppna den *händelser hubb* i webbläsaren:
-    - http://events.Wingtip-MT.&lt;användare&gt;. trafficmanager.net &nbsp; *(Ersätt med din distribution användaren värdet).*
+    - http://events.Wingtip. &lt;Användare&gt;. trafficmanager.net &nbsp; *(Ersätt med din distribution användaren värdet).*
 
     ![evenemangshubben](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Central **händelser hubb** innehåller en lista med länkar till innehavare i d
 
 Att kontrollera distributionen av inkommande begäranden, appen använder [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Sidorna händelser som är specifika för klienten, inkludera innehavarens namn i URL: en. URL: er också innehålla värdet för din specifika användare och följande format:
 
-- http://events.Wingtip-MT.&lt;användare&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.Wingtip. &lt;Användare&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 Händelser appen Parsar klientnamn från URL: en och hash-kodar den för att skapa en nyckel för att få åtkomst till en katalog med hjälp av [Fragmentera kartan management](sql-database-elastic-scale-shard-map-management.md). Katalogen mappar nyckeln till klientens databasplatsen. Den **händelser hubb** visar en lista över alla klienter som är registrerade i katalogen. Den **händelser hubb** använder utökade metadata i katalogen för att hämta namnet på den klient som är associerade med varje avbildning för att konstruera URL: er.
 
@@ -156,7 +156,7 @@ Du kanske vill starta om belastningen generator sessionen om du vill använda ol
 
 Den första distributionen innehåller tre exempel hyresgäster i den *Tenants1* databas. Nu ska vi skapa en annan klient om du vill se hur detta påverkar det distribuerade programmet. I det här steget kan skapa du snabbt en ny klient.
 
-1. Öppna... \\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1* i den *PowerShell ISE*.
+1. Öppna... \\Modules\Provision och katalogen\\*Demo-ProvisionTenants.ps1* i den *PowerShell ISE*.
 2. Tryck på **F5** att köra skriptet (lämna standardvärdena för tillfället).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ Delat modell för flera klienter kan du välja om för att etablera en ny klient
 
 Nu etablera vi en annan klient nu i en egen databas.
 
-1. I... \\Learning moduler\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, ändra *$TenantName* till **Salix Salsa**,  *$VenueType* till **webbsidor** och *$Scenario* till **2**.
+1. I... \\Learning moduler\\etablera och katalogen\*Demo-ProvisionTenants.ps1* ändra *$TenantName* till **Salix Salsa**, *$VenueType*  till **webbsidor** och *$Scenario* till **2**.
 
 2. Tryck på **F5** att köra skriptet igen.
     - Den här tryck på F5 etablerar den nya innehavaren i en separat databas. Databasen och klienten har registrerats i katalogen. Sedan öppnas i webbläsaren sidan händelser för innehavaren.
@@ -239,7 +239,7 @@ I den här guiden har du lärt dig:
 > - Hur du ser poolanvändning för att övervaka klientaktivitet
 > - Hur du tar bort exempelresurser för att stoppa relaterad fakturering
 
-Prova den [etablera hyresgäster kursen](sql-database-saas-tutorial-provision-and-catalog.md).
+Prova den [etablera och katalogen kursen](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 

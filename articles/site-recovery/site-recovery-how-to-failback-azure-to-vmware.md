@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Växla tillbaka från Azure till en lokal plats
 
@@ -135,3 +135,17 @@ När skyddar jobbet har slutförts, den virtuella datorn replikeras tillbaka til
 
 ## <a name="common-issues"></a>Vanliga problem
 Se till att vCenter är i anslutet tillstånd innan du gör en återställning efter fel. Annars misslyckas kopplar från diskar och koppla dem till den virtuella datorn.
+
+### <a name="common-error-codes"></a>Vanliga felkoder
+
+#### <a name="error-code-8038"></a>Felkoden 8038
+
+*Det gick inte att öppna den lokala virtuella datorn på grund av fel*
+
+Detta händer när 
+1. Den lokala virtuella datorn tas på en värd som inte har tillräckligt med minne som har etablerats.
+
+Lös problemet
+1. Du kan etablera mer minne på ESXi-värd.
+2. vMotion den virtuella datorn till en annan ESXi-värd som har tillräckligt med minne för att starta den virtuella datorn.
+

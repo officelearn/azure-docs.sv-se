@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Distribuera och utforska ett SaaS-program med flera innehavare som använder databasen per klient mönster med Azure SQL Database
 
@@ -173,11 +173,11 @@ Nu när du har startat körs en belastning för samlingen av innehavare kan vi t
 
 Om belastningsgeneratorn har kört i flera minuter, borde tillräckliga data finnas tillgänglig för att börja titta på några av de inbyggda övervakningsfunktionerna i poolerna och databaserna.
 
-1. Bläddra till servern **tenants1-dpt -&lt;användare&gt;**, och klicka på **Pool1** att visa resursanvändningen för poolen (belastningen generator körde för en timme i följande diagram):
+Bläddra till servern **tenants1-dpt -&lt;användare&gt;**, och klicka på **Pool1** att visa resursanvändningen för poolen (belastningen generator körde för en timme i följande diagram):
 
    ![övervaka poolen](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
-Övre diagrammet visar pool-eDTU-användning, medan ned diagrammet visar eDTU utiization av övre 5 databaserna i poolen.  De här diagrammen visar hur väl lämpade elastiska pooler och SQL Database är för arbetsbelastningar från SaaS-program. Fyra databaser som toppar på så mycket som 40 eDTU:er stöds enkelt i en 50 eDTU-pool. Om de har etablerats som fristående databaser, de skulle varje måste vara en S2 (50 DTU) för att stödja belastning. Kostnaden för 4 fristående S2 databaser är nästan 3 gånger priset på poolen och poolen har fortfarande tillräckligt med utrymme för många flera databaser. I verkliga situationer använder SQL Database kunder för närvarande upp till 500 databaser i 200 eDTU pooler. Mer information finns i [prestandaövervakningsguiden](saas-dbpertenant-performance-monitoring.md).
+Övre diagrammet visar pool-eDTU-användning, medan ned diagrammet visar eDTU-användning av övre 5 databaserna i poolen.  De här diagrammen visar hur väl lämpade elastiska pooler och SQL Database är för arbetsbelastningar från SaaS-program. Fyra databaser som toppar på så mycket som 40 eDTU:er stöds enkelt i en 50 eDTU-pool. Om de har etablerats som fristående databaser, de skulle varje måste vara en S2 (50 DTU) för att stödja belastning. Kostnaden för 4 fristående S2 databaser är nästan 3 gånger priset på poolen och poolen har fortfarande tillräckligt med utrymme för många flera databaser. I verkliga situationer använder SQL Database kunder för närvarande upp till 500 databaser i 200 eDTU pooler. Mer information finns i [prestandaövervakningsguiden](saas-dbpertenant-performance-monitoring.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

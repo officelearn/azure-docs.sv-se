@@ -1,10 +1,10 @@
 ---
-title: Provtagning indata i Azure Stream Analytics | Microsoft Docs
+title: "Frågetestning i Azure Stream Analytics | Microsoft Docs"
 description: "Identifiera problem när du felsöker Stream Analytics-jobb."
 keywords: "Felsöka inkommande, inkommande provtagning"
 documentationcenter: 
 services: stream-analytics
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: db9686fad7153d63fc659869b93821200e08397c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e2636b8b89b86bbb2a2991972386462535d5a10f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="azure-stream-analytics-input-stream-sampling"></a>Azure Stream Analytics indata-stream provtagning
+# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Azure Stream Analytics query testning och indata-stream provtagning
 
 Du kan prova inkommande händelser som kommer från en fil och testa frågor i portalen utan att behöva starta eller stoppa ett jobb med hjälp av Azure Stream Analytics.
 

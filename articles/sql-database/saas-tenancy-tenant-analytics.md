@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 54aa3d9982ff5cd99be2eb145e223397ca8d6a3f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Mellan klient analytics med hjälp av data som hämtas
 
@@ -73,7 +73,7 @@ Förstå hur konsekvent varje klient använder tjänsten ger en möjlighet att s
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 - Wingtip biljetter SaaS databas Per klient programmet distribueras. För att distribuera på mindre än fem minuter finns [distribuera och utforska Wingtip SaaS-program](saas-dbpertenant-get-started-deploy.md)
-- Wingtip biljetter SaaS databas Per klient skript och programmet [källkod](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) laddas ned från GitHub. Se Hämta instruktioner. Se till att *avblockera zip-filen* innan du extraherar innehållet.
+- Wingtip biljetter SaaS databas Per klient skript och programmet [källkod](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) laddas ned från GitHub. Se Hämta instruktioner. Se till att *avblockera zip-filen* innan du extraherar innehållet. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 - Power BI Desktop har installerats. [Hämta Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - I gruppen med ytterligare klienter har etablerats, finns det [ **etablera hyresgäster kursen**](saas-dbpertenant-provision-and-catalog.md).
 - Ett jobb konto och databas för jobbet har skapats. Se anvisningarna i den [ **schemat management kursen**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).

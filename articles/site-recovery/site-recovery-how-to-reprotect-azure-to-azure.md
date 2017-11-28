@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Det gick inte att skydda igen från via Azure-region tillbaka till primär region
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>Översikt
 När du [redundans](site-recovery-failover.md) virtuella datorer från en Azure-region till en annan, de virtuella datorerna är oskyddad. Om du vill få dem tillbaka till den primära regionen måste du först skydda virtuella datorer och växling vid fel igen. Det finns ingen skillnad mellan hur redundans i en riktning eller andra. Bokför på samma sätt kan aktivera skydd för virtuella datorer och det finns ingen skillnad mellan att skydda igen efter växling vid fel eller efter återställning efter fel.
-Att förklara arbetsflöden för att skydda igen och undvika sammanblandning använder vi den primära platsen för de skydda datorerna som Östasien region och återställningsplatsen för datorer som Sydostasien region. Under växling vid fel, kommer du att redundans de virtuella datorerna till Sydostasien region. Innan du återställning efter fel måste du skyddar virtuella datorer från Sydostasien tillbaka till Östasien. Den här artikeln beskriver stegen för hur du skyddar.
+Att förklara arbetsflöden för att skydda igen, och att undvika förvirring, referera till den primära platsen för de skydda datorerna som Östasien region och återställningsplatsen för datorer som Sydostasien region. Under växling vid fel startar de virtuella datorerna i Sydostasien region. Innan du återställning efter fel måste du skyddar virtuella datorer från Sydostasien tillbaka till Östasien. Den här artikeln beskriver stegen för hur du skyddar.
 
 > [!WARNING]
-> Om du har [slutfört en migrering](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), flyttas den virtuella datorn till en annan resursgrupp eller ta bort Azure-dator, det går inte att återställning efter.
+> Om du har [slutfört en migrering](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), flyttas den virtuella datorn till en annan resursgrupp eller ta bort Azure-dator, du kan inte skydda igen eller återställning av den virtuella datorn.
 
 När skyddar är klar och replikerar de skyddade virtuella datorerna, kan du påbörja en växling på de virtuella datorerna för att göra dem Östasien region.
 
@@ -56,7 +56,7 @@ Nedan följer stegen för att skydda igen en virtuell dator med standardinställ
 
 ![Skapa nytt blad](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
-3. Granska de **resurs grupp, nätverk, lagring och tillgänglighet anger** information och klicka på OK. Om det finns några resurser som är markerade (nya), kommer att skapas som en del av att skydda igen.
+3. Granska de **resursgrupp, nätverk, lagring och tillgänglighet anger** information och klicka på OK. Om det finns några resurser som är markerade (nya), kommer att skapas som en del av att skydda igen.
 
 Detta kommer att utlösa ett jobb skyddar jobb som kommer först att dirigera målplatsen (SEA i det här fallet) med den senaste informationen och när som har slutförts, replikeras innan du redundans går tillbaka till Sydostasien.
 
@@ -72,7 +72,7 @@ Du kan anpassa följande egenskaper för han virtuella måldatorn under skydda i
 |Egenskap |Anteckningar  |
 |---------|---------|
 |Målresursgruppen     | Du kan välja att ändra målresursgruppen th virtuella datorn kommer att skapas. Som del av skyddar, kommer att ta bort den virtuella måldatorn, därför kan du välja en ny resursgrupp som du kan skapa VM efter växling vid fel         |
-|Mål virtuellt nätverk     | Nätverket kan inte ändras under skydda igen. Gör om nätverksmappningen om du vill ändra i nätverket.         |
+|Mål virtuellt nätverk     | Nätverket kan inte ändras under skyddar jb. Gör om nätverksmappningen om du vill ändra i nätverket.         |
 |Mål-Lagringskontot     | Du kan ändra lagringskontot som den virtuella datorn kommer att skapas efter växling vid fel.         |
 |Cachelagring     | Du kan ange ett cache-lagringskonto som ska användas vid replikering. Om du går med standardvärdena skapas ett nytt lagringskonto för cache, om den inte redan finns.         |
 |Tillgänglighetsuppsättning     |Om den virtuella datorn i Östasien ingår i en tillgänglighetsuppsättning, kan du välja en tillgänglighetsuppsättning för den virtuella måldatorn i Sydostasien. Standardvärden hittar den befintliga SEA tillgänglighetsuppsättningen och försöker använda den. Vid anpassning, kan du ange en helt ny uppsättning AV.         |
@@ -80,7 +80,7 @@ Du kan anpassa följande egenskaper för han virtuella måldatorn under skydda i
 
 ### <a name="what-happens-during-reprotect"></a>Vad som händer under skydda igen?
 
-Precis som när först aktiverar skydd, följande är av som skapas om du använder standardinställningarna.
+Precis som när först aktiverar skydd, följande är artefakter som skapas om du använder standardinställningarna.
 1. Ett cache-lagringskonto skapas i Östasien region.
 2. Om mål-lagringskontot (ursprungliga lagringskontot för den virtuella datorn Sydostasien) inte finns, skapas en ny. Namnet är Östasien virtuella storage-konto med ”asr” suffixet.
 3. Om måluppsättningen AV finns inte och standardinställningarna identifiera som behöver skapa en ny uppsättning AV och kommer att skapas som en del av jobbet skydda igen. Om du har anpassat skydda igen, används den valda AV uppsättningen.
@@ -88,7 +88,7 @@ Precis som när först aktiverar skydd, följande är av som skapas om du använ
 
 Följande är listan över steg som kan inträffar när du utlösa ett jobb som skyddar. Detta är sida virtuella måldatorn finns.
 
-1. De krävs av skapas som en del av skydda igen. Om det redan finns, och sedan återanvänds.
+1. Nödvändiga artefakter skapas som en del av skydda igen. Om det redan finns, och sedan återanvänds.
 2. Sida (Sydostasien) virtuella måldatorn är först avstängd, om det körs.
 3. Den mål på serversidan virtuella datorns disk kopieras av Azure Site Recovery till en behållare som en seed-blob.
 4. Virtuella måldatorn på klientsidan så tas bort.
@@ -99,7 +99,7 @@ Följande är listan över steg som kan inträffar när du utlösa ett jobb som 
 > [!NOTE]
 > Du kan inte skydda på en återställning plan nivå. Du kan bara skydda igen på en per VM-nivå.
 
-När skyddar lyckas, kommer den virtuella datorn ange ett skyddat läge.
+När jobbet skyddar lyckas, kommer den virtuella datorn ange ett skyddat läge.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 11/27/2017
 ms.author: bryanla
-ms.openlocfilehash: c166d5d4e0ae054e89eb3a5728f1d86f4e008c12
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: adad9bcb210281a3cd782dbfa63687602ed343fc
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Konfigurera en virtuell dator hanteras Service identitet (MSI) med hjälp av PowerShell
 
@@ -31,7 +31,7 @@ I den här artikeln beskrivs hur du aktiverar och ta bort MSI för en Azure-dato
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Dessutom installera [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) om du inte redan har gjort.
+Dessutom installera [den senaste versionen av Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) (version 4.3.1 eller senare) om du inte redan har gjort.
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Aktivera MSI under skapandet av en Azure VM
 

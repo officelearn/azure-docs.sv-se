@@ -12,28 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 03/19/2017
+ms.date: 11/13/2017
 ms.author: kraigb
-ms.openlocfilehash: b2578c837732ab05d538e9b896ed3a3035075a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54acfc7c686dc7025368c381d79cde93d7d48fc5
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>Åtkomst till privata moln som Azure med Visual Studio
-Som standard stöder Visual Studio REST-slutpunkter för offentliga Azure-molnet. I det här avsnittet du lär dig hur du använder certifikat för ditt privata moln för att komma åt - och interagera med - privat moln från Visual Studio.
 
-## <a name="to-access-a-private-azure-cloud-in-visual-studio"></a>Åtkomst till en privat Azure cloud i Visual Studio
-1. I den [klassiska Azure-portalen](http://go.microsoft.com/fwlink/?LinkID=213885) hämta publiceringsinställningarna filen för det privata molnet, eller kontakta administratören för en publiceringsinställningarna fil. På den offentliga versionen av Azure länken för att hämta den här är [https://manage.windowsazure.com/publishsettings/](https://manage.windowsazure.com/publishsettings/). (Den hämta filen ska ha filnamnstillägget `.publishsettings`)
+Som standard stöder Azure-molnet REST-slutpunkter i Visual Studio. I den här artikeln får du lära dig hur du använder certifikat för ditt privata moln för att få åtkomst till och interagera med det privata molnet från Visual Studio.
 
-1. Öppna Visual Studio
+1. Ladda ner publiceringsinställningarna filen i Azure-portalen för det privata molnet, eller kontakta administratören för en publiceringsinställningarna fil. (Filen har filnamnstillägget `.publishsettings`.)
 
-1. I **Server Explorer**, högerklicka på den **Azure** nod och på snabbmenyn Välj **hantera och Filter prenumerationer**.
-   
+1. I Visual Studio **Server Explorer**, högerklicka på den **Azure** och välj **hantera och Filter prenumerationer**.
+
     ![Hantera prenumerationer kommando](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790778.png)
 
-1. I den **hantera Azure-prenumerationer** markerar den **certifikat** och välj sedan **importera**.
-   
+1. I den **hantera Azure-prenumerationer** markerar den **certifikat** fliken och markera sedan **importera**.
+
     ![Import av Azure certifikat](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790779.png)
 
 1. I den **Importera Microsoft Azure-prenumerationer** markerar **Bläddra**.
@@ -49,7 +47,4 @@ Som standard stöder Visual Studio REST-slutpunkter för offentliga Azure-molnet
     ![Importera filen publiceringsinställningarna](./media/vs-azure-tools-access-private-azure-clouds-with-visual-studio/IC790780.png)
 
     Certifikaten har importerats från publiceringsinställningarna filen till Visual Studio och du kan nu interagera med resurser för privata moln.
-   
-## <a name="next-steps"></a>Nästa steg
-- [Publicering till en Azure-molntjänst från Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-- [Så här: hämta och importera publicera inställningar och prenumerationsinformation om](https://msdn.microsoft.com/library/dn385850\(v=nav.70\).aspx)
+

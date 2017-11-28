@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Flytta data till och från Azure Storage
 Om du vill flytta lokala data till Azure Storage (eller vice versa) finns det flera olika sätt att göra detta. Den metod som passar dig bäst beror på ditt scenario. Den här artikeln ger en snabb överblick över olika scenarier och lämpliga erbjudanden för varje kriterium.
@@ -76,4 +76,4 @@ När du har lokala arbetsbelastningar och program, måste en lösning som gör a
 Se [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) vill veta mer.
 ### <a name="moving-data-faq"></a>Flytta Data vanliga frågor och svar:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>Kan jag migrera virtuella hårddiskar från en region till en annan utan att kopiera?
-Det enda sättet att kopiera virtuella hårddiskar mellan region används för att kopiera data mellan lagringskonton på varje region. Du kan använda AZCopy för den här. Överföra data med kommandoradsverktyget Azcopy mer information finns i. För mycket stora mängder data kan du också Azure Import/Export. Se [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) vill veta mer.
+Det enda sättet att kopiera virtuella hårddiskar mellan region används för att kopiera data mellan lagringskonton på varje region. Du kan använda AZCopy för den här. Överföra data med kommandoradsverktyget Azcopy mer information finns i. För mycket stora mängder data kan du också Azure Import/Export. Se [Azure Import/Export](https://docs.microsoft.com/azure/storage/storage-import-export-service) vill veta mer.

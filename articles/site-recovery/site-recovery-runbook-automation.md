@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
+ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 064a6782970b950543f93c24800998c1f104c8df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation-runbooks återställningsplaner
 I den här artikeln beskrivs hur Azure Site Recovery kan integreras med Azure Automation kan du utöka din återställningsplaner. Återställningsplaner kan samordna återställning av virtuella datorer som är skyddade med Site Recovery. Återställningsplaner fungerar både för replikering till en sekundär molnet och för replikering till Azure. Återställningsplaner även gör återställningen **konsekvent korrekt**, **repeterbara**, och **automatiserad**. Om du växlar över dina virtuella datorer till Azure utökar-integrering med Azure Automation din återställningsplaner. Du kan använda den för att köra runbooks, som ger kraftfulla automation-aktiviteter.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Kom igång med Lagringsutforskaren (förhandsversion)
 ## <a name="overview"></a>Översikt
@@ -230,7 +230,7 @@ Förutom hantera Azure Cosmos DB konton via Azure-prenumeration, ett alternativt
 
     ![ansluta till Azure Cosmos-databas med anslutningssträngen][33]
 
-2. Välj Azure Cosmos DB-API, klistra in din **anslutningssträngen**, och klicka sedan på **OK** att ansluta till Azure DB som Cosmos-konto. Information om hur du hämtar anslutningssträngen finns [hämta anslutningssträngen](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Välj Azure Cosmos DB-API, klistra in din **anslutningssträngen**, och klicka sedan på **OK** att ansluta till Azure DB som Cosmos-konto. Information om hur du hämtar anslutningssträngen finns [hämta anslutningssträngen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![connection-string][32]
 

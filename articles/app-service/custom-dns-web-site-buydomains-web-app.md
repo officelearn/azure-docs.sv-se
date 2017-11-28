@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Köp ett anpassat domännamn för Azure-Webbappar
 
@@ -31,6 +31,7 @@ Den här artikeln är Azure App Service (Web Apps, API Apps, Mobilappar, Logic A
 För att slutföra den här kursen behöver du:
 
 * [Skapa en Apptjänst-app](/azure/app-service/), eller använda en app som du skapade för en annan kursen.
+* [Ta bort utgiftsgränsen för din prenumeration](../billing/billing-spending-limit.md#remove). Du kan inte köpa Apptjänst domäner med ledigt prenumerationskrediter.
 
 ## <a name="prepare-the-app"></a>Förbered appen
 
@@ -82,15 +83,25 @@ I den **Web Apps** klickar du på namnet på ditt webbprogram, Välj **inställn
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-I den **anpassade domäner** klickar du på **köpa domäner**.
+I den **anpassade domäner** klickar du på **köpa domän**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> Om du inte ser den **App Service domäner** avsnitt, du måste ta bort utgiftsgränsen på ditt Azure-konto (se [krav](#prerequisites)).
+>
+>
+
 ### <a name="configure-the-domain-purchase"></a>Konfigurera domänen köpet
 
-I den **Service tillämpningsdomän** sidan den **Sök efter domän** skriver domännamnet som du vill köpa och skriv `Enter`. Föreslagna tillgängliga domäner visas under textrutan. Välj en eller flera domäner som du vill köpa. 
+I den **Service tillämpningsdomän** sidan den **Sök efter domän** skriver domännamnet som du vill köpa och skriv `Enter`. Föreslagna tillgängliga domäner visas under textrutan. Välj en eller flera domäner som du vill köpa.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> Följande [toppnivådomäner](https://wikipedia.org/wiki/Top-level_domain) stöds av Apptjänst domäner: _com_, _net_, _co.uk_, _org_, _nl_, _i_, _biz_, _org.uk_, och _co.in_.
+>
+>
 
 Klicka på den **kontaktuppgifter** och fylla i domänens kontaktinformation formulär. När du är klar klickar du på **OK** att återgå till sidan App Service-domän.
    
@@ -100,8 +111,7 @@ Välj därefter önskade alternativ för din domän. Se följande tabell förkla
 
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
-|Förnya automatiskt | **Aktivera** | Förnyar din App Service domän automatiskt varje år. Ditt kreditkort debiteras samma inköpspriset vid tidpunkten för förnyelsen. |
-|Sekretesskydd | Aktivera | Välja att ”sekretesskydd”, som ingår i inköpspriset _gratis_ (utom toppnivådomäner vars register inte stöder sekretesskydd, t.ex _. co.in_, _. co.uk_och så vidare). |
+|Sekretesskydd | Aktivera | Välja att ”sekretesskydd”, som ingår i inköpspriset _gratis_. Vissa toppnivådomäner hanteras av registratorer som inte stöder sekretesskydd och de visas på den **sekretesskydd** sidan. |
 | Tilldela standard värdnamn | **www** och**@** | Välj önskad värdnamnsbindningar om så önskas. När domänen köp åtgärden är slutförd måste kan ditt webbprogram nås på den valda värdnamnen. Om webbappen bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), visas alternativet att tilldela rotdomänen (@), eftersom Traffic Manager har inte stöd för A-poster. Du kan ändra värdnamnet tilldelningar efter domän köpet har slutförts. |
 
 ### <a name="accept-terms-and-purchase"></a>Acceptera villkoren och köpa
@@ -125,7 +135,7 @@ Om du har tilldelat ditt webbprogram standard värdnamn se du också en lyckad a
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Du också se valda värdnamn i den **anpassade domäner** sidan den **värdnamn** avsnitt. 
+Du också se valda värdnamn i den **anpassade domäner** sidan den **anpassad värdnamn** avsnitt. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -182,7 +192,25 @@ Du bör nu se nytilldelade hostname(s) i din app **anpassade domäner** sidan.
 
 Gå till listan värdnamn i webbläsaren. I exemplet i den föregående skärmbilden försök gå till _abc.kontoso.net_.
 
-<a name="custom" />
+## <a name="renew-the-domain"></a>Förnya domänen
+
+Apptjänst-domän som du har köpt är giltig i ett år från tidpunkten då du köper. Som standard konfigureras domänen för att förnya automatiskt genom att dra betalningsmetoden för nästa år. Om du vill inaktivera automatisk förnyelse eller om du vill manuellt förnya din domän anvisningarna här.
+
+I den **Web Apps** klickar du på namnet på ditt webbprogram, Välj **inställningar**, och välj sedan **anpassade domäner**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+I den **App Service domäner** väljer du den domän som du vill konfigurera.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+I det vänstra navigeringsfönstret i domänen, väljer du **domänförnyelse**. Om du vill stoppa automatiskt förnya din domän, Välj **av**, och sedan **spara**. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+Om du vill manuellt förnya din domän, Välj **förnya domänen**. Men är den här knappen inte aktiv förrän 90 dagar före domänens förfallodatum.
+
+<a name="custom"></a>
 
 ## <a name="manage-custom-dns-records"></a>Hantera anpassade DNS-poster
 
@@ -236,6 +264,14 @@ Om den annullering på domänen köpta inte har gått, väljer **Avbryt inköp**
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Välj **OK** att bekräfta åtgärden. Om du inte vill fortsätta klickar du utanför bekräftelsedialogrutan.
+Bekräfta åtgärden genom att markera **Ja**.
 
 När åtgärden är klar, är domänen utgivna från prenumerationen och är tillgängliga för alla att köpa igen. 
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Direkt standard-URL till en anpassad katalog
+
+Som standard gör Apptjänst webbegäranden till rotkatalogen för din Appkod. Att dirigera dem till en underkatalog som `public`, se [direkt standard-URL till en anpassad katalog](app-service-web-tutorial-custom-domain.md#virtualdir).
+
+## <a name="more-resources"></a>Fler resurser
+
+[Vanliga frågor och svar: App Service-domän (förhandsversion) och anpassade domäner](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

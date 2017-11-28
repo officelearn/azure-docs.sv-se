@@ -243,6 +243,7 @@
 ### [Felsöka en .NET-tjänst i VS](service-fabric-debugging-your-application.md)
 ### [Vanliga fel och undantag](service-fabric-errors-and-exceptions.md)
 ### [Övervaka och diagnostisera lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Konfigurera ett Linux-kluster på Windows](service-fabric-local-linux-cluster-windows.md)
 
 ## Arbeta i en Linux-utvecklarmiljö
 ### [Komma igång med Eclipse-plugin för utveckling med Java](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [Använda testscenarier](service-fabric-testability-scenarios.md)
 ##### [Använda API:er för nodövergång](service-fabric-node-transition-apis.md)
 
-### [Distribuera ditt Linux Java-program med Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### Konfigurera kontinuerlig integrering
+#### [Konfigurera kontinuerlig integrering med VSTS](service-fabric-set-up-continuous-integration.md)
+#### [Distribuera ditt Linux-program med Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Skapa och hantera kluster
 ### Kluster i Azure

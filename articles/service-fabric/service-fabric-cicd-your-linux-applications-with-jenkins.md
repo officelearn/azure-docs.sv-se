@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 4e1f2f7d63666315f363caa8fec272ec2b6f18fc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8fcce0e3fea8f0789e198d19754f93dcdf0c84f9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Använd Jenkins för att skapa och distribuera Linux-program
 Jenkins är ett populärt verktyg för kontinuerlig integrering och distribution av appar. Så här skapar och distribuerar du ett Azure Service Fabric-program med Jenkins.
@@ -42,24 +42,24 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
    > [!NOTE]
    > Se till att 8081 port har angetts som en anpassad slutpunkt i klustret.
    >
-2. Klona programmet, med hjälp av följande steg:
 
+2. Klona programmet, med hjälp av följande steg:
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-cd service-fabric-java-getting-started/Services/JenkinsDocker/
-```
+  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  ```
 
 3. Spara tillståndet för behållaren Jenkins i en filresurs:
   * Skapa ett Azure storage-konto i den **samma region** som klustret med ett namn som ``sfjenkinsstorage1``.
   * Skapa en **filresurs** under lagringen konto med ett namn som ``sfjenkins``.
   * Klicka på **Anslut** för filresurser och Observera värdena visas **ansluter från Linux**, värdet bör likna exemplet nedan:
-```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
-```
+  ```sh
+  sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+  ```
 
-> [!NOTE]
-> Att montera cifs-resurser som du behöver ha cifs-verktyg för webbplatsuppgradering paketet installerad på klusternoderna.         
->
+  > [!NOTE]
+  > Att montera cifs-resurser som du behöver ha cifs-verktyg för webbplatsuppgradering paketet installerad på klusternoderna.       
+  >
 
 4. Uppdatera platshållarvärdena i den ```setupentrypoint.sh``` skriptet med azure storage-information från steg 3.
 ```sh
@@ -68,16 +68,33 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
   * Ersätt ``[REMOTE_FILE_SHARE_LOCATION]`` med värdet ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` från utdata från connect i steg 3 ovan.
   * Ersätt ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` med värdet ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` från steg 3 ovan.
 
-5. Anslut till klustret och installera behållarprogrammet.
-```sh
-sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
-bash Scripts/install.sh
-```
-Detta installerar en Jenkins-behållare på klustret och kan övervakas med Service Fabric Explorer.
+5. **Säker kluster:** för att konfigurera distribution av program på en säker kluster från Jenkins certifikatet måste vara tillgänglig i Jenkins-behållaren. På Linux-kluster kopieras bara certificates(PEM) över från arkivet som anges av X509StoreName till behållaren. Lägg till det här Certifikatreferens i ApplicationManifest under ContainerHostPolicies och uppdatera av tumavtrycksvärde. Stämpelvärdet måste vara att av ett certifikat som finns på noden.
+  ```xml
+  <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
+  ```
+  > [!NOTE]
+  > Stämpelvärdet måste vara samma som det certifikat som används för att ansluta till det säkra klustret. 
+  >
 
-   > [!NOTE]
-   > Det kan ta några minuter för Jenkins avbildningen hämtas i klustret.
-   >
+6. Anslut till klustret och installera behållarprogrammet.
+
+  **Skydda klustret**
+  ```sh
+  sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  **Oskyddade kluster**
+  ```sh
+  sfctl cluster select --endpoint http://PublicIPorFQDN:19080 # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  Detta installerar en Jenkins-behållare på klustret och kan övervakas med Service Fabric Explorer.
+
+    > [!NOTE]
+    > Det kan ta några minuter för Jenkins avbildningen hämtas i klustret.
+    >
 
 ### <a name="steps"></a>Steg
 1. Gå till ``http://PublicIPorFQDN:8081`` i webbläsaren. På sidan visas sökvägen till det ursprungliga administratörslösenordet som krävs för att logga in. 
@@ -176,13 +193,19 @@ Här kan du ladda upp ett plugin-program. Välj **Välj fil**, och välj sedan d
 
     ![Service Fabric Jenkins Build-åtgärd][build-step-dotnet]
   
-   h. I listrutan **Post-Build Actions** (Åtgärder efter skapandet) väljer du **Deploy Service Fabric Project** (Distribuera Service Fabric-projekt). Här måste du ange klusterinformation där Jenkins-kompilerade Service Fabric-programmet skulle distribueras. Du kan även ange ytterligare information som används för att distribuera programmet. Följande skärmbild visar ett exempel på hur det kan se ut:
+   h. I listrutan **Post-Build Actions** (Åtgärder efter skapandet) väljer du **Deploy Service Fabric Project** (Distribuera Service Fabric-projekt). Här måste du ange klusterinformation där Jenkins-kompilerade Service Fabric-programmet skulle distribueras. Sökväg till certifikatet kan hittas av eko värdet för echo Certificates_JenkinsOnSF_Code_MyCert_PEM miljövariabeln från i behållaren. Den här sökvägen kan användas för nyckeln för klienten och klienten Cert-fält.
+
+      ```sh
+      echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
+      ```
+   
+    Du kan även ange ytterligare information som används för att distribuera programmet. Följande skärmbild visar ett exempel på hur det kan se ut:
 
     ![Service Fabric Jenkins Build-åtgärd][post-build-step]
 
-    > [!NOTE]
-    > Det här klustret kan vara detsamma som det kluster som är värd för Jenkins-behållarprogrammet om du använder Service Fabric för att distribuera Jenkins-behållaravbildningen.
-    >
+      > [!NOTE]
+      > Det här klustret kan vara detsamma som det kluster som är värd för Jenkins-behållarprogrammet om du använder Service Fabric för att distribuera Jenkins-behållaravbildningen.
+      >
 
 ## <a name="next-steps"></a>Nästa steg
 GitHub och Jenkins har nu konfigurerats. Fundera över om du vill göra ändringar i ditt ``MyActor``-projekt i databasexemplet på https://github.com/sayantancs/SFJenkins. Skicka dina ändringar till en ``master``-fjärrgren (eller valfri gren som du använder i ditt projekt). Detta utlöser Jenkins-jobbet (``MyJob``) som du konfigurerade. Jobbet hämtar ändringarna från GitHub, bygger dem och distribuerar programmet till den klusterslutpunkt som du angav i åtgärderna efter byggprocessen.  

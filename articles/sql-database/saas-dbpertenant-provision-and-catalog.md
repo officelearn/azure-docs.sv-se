@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig att etablera nya klienter och registrerar dem i katalogen
 
@@ -68,9 +68,9 @@ Etablering metod du använder måste vara comprehended i din övergripande schem
 Wingtip biljetter SaaS databas per klient app etablerar nya klienter genom att kopiera en mall för databas med namnet _basetenantdb_, distribuerad på katalog-server.  Etablering kan vara integrerat i programmet som en del av en registrering och/eller stöds offline med hjälp av skript. Den här självstudiekursen utforskar etablering med hjälp av PowerShell. Etablering skripten kopiera basetenantdb databasen för att skapa en ny klient-databas i en elastisk pool och sedan initiera med klient-specifik information och registrera det i katalogen Fragmentera kartan.  I Wingtip biljetter SaaS databas Per klient app klient databaser får namn baserat på innehavarens namn, men detta är inte en viktig del av mönstret – användningen av katalogen ger ett namn som ska tilldelas klient databaser. + 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>Hämta Wingtip-programskript
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta programskript Wingtip biljetter SaaS databas Per klient
 
-Wingtip SaaS-skript och programmets källkod är tillgängliga i den [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-lagringsplatsen. [Steg för att hämta Wingtip biljetter SaaS-skripten](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Wingtip biljetter SaaS flera innehavare databasen skript och programmets källkod är tillgängliga i den [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-lagringsplatsen. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Etablera och katalogisera detaljerad genomgång

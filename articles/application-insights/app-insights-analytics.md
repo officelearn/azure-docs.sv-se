@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: 80a9e248ca50c11ef61a5c50c4986c4f8f4ead9d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="analytics-in-application-insights"></a>Analyser i Application Insights
 Analytics är kraftfulla Sök- och verktyg för [Programinsikter](app-insights-overview.md). Analytics är ett Webbverktyg så att inga inställningar krävs. Om du redan har konfigurerat Application Insights för en av dina appar så att du kan analysera data i din app genom att öppna Analytics från din app [översikt bladet](app-insights-dashboards.md).
@@ -49,7 +49,7 @@ Språket har många bra funktioner:
 
 * [Filter](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) dina rådata app telemetri av alla fält, inklusive din anpassade egenskaper och mått.
 * [Anslut](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) flera tabeller – korrelera begäranden med sidvisningar, beroendeanrop, undantag och loggspårningar.
-* Kraftfulla statistiska [aggregeringar](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+* Kraftfulla statistiska [aggregeringar](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
 * Omedelbar och kraftfulla visualiseringar.
 * [REST API](https://dev.applicationinsights.io/) som du kan använda för att köra frågor via programmering, till exempel från PowerShell.
 

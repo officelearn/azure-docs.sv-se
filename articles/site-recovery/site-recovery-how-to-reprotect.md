@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Skydda igen från Azure till en lokal plats
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Den här artikeln beskriver hur du skyddar virtuella Azure-datorer från Azure till en lokal plats. Följ anvisningarna i den här artikeln när du är redo att växla tillbaka din virtuella VMware-datorer eller Windows-/ Linux fysiska servrar när de har redundansväxlats från lokalt platsen till Azure (enligt beskrivningen i [replikera VMware-datorer och fysiska servrar till Azure med Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Det går inte att återställning efter fel när du har antingen [slutfört en migrering](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), flytta en virtuell dator till en annan resursgrupp eller ta bort den virtuella Azure-datorn. Om du inaktiverar skydd för den virtuella datorn, kan du inte återställning efter fel.
+> Det går inte att återställning efter fel när du har antingen [slutfört en migrering](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), flytta en virtuell dator till en annan resursgrupp eller ta bort den virtuella Azure-datorn. Om du inaktiverar skydd för den virtuella datorn, kan du inte återställning efter fel. Om den virtuella datorn skapades i Azure (föddes i molnet) kan du skyddar den tillbaka till lokalt. Datorn ska har ursprungligen skyddade lokalt och växlas över till Azure innan du skyddar.
 
 
 Du kan starta en återställning efter fel på de virtuella datorerna för att anpassa dem till den lokala platsen efter att återaktivera skyddet har slutförts och replikerar de skyddade virtuella datorerna.
@@ -63,7 +63,10 @@ När du förbereder att skydda virtuella datorer kan ta eller Överväg att föl
     * [En virtuell Linux-dator måste en Linux-huvudmålserver](site-recovery-how-to-install-linux-master-target.md).
     * En virtuell Windows-dator måste en Windows-huvudmålserver. Du kan använda de lokala processen server och master måldatorerna igen.
 
-    Huvudmålservern har andra krav som anges i [vanliga saker att kontrollera på Huvudmålet innan du skyddar](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> Alla virtuella datorer i en replikeringsgrupp ska vara av samma typ av operativsystem (alla fönster eller alla Linux). En replikeringsgrupp med blandade operativsystem stöds för närvarande inte för att skydda igen och återställning till lokalt. Detta beror på att huvudmålservern ska vara av samma operativsystem som den virtuella datorn och alla virtuella datorer i en replikeringsgrupp ska ha samma huvudmålservern. 
+
+    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 * En konfigurationsservern är lokala när du växlar tillbaka. Under återställning efter fel, måste den virtuella datorn finns i server-konfigurationsdatabasen. Återställning är annars misslyckas. 
 
@@ -170,6 +173,8 @@ Azure Site Recovery stöder för närvarande, misslyckas tillbaka endast till en
 * Huvudmålservern kan inte ha ögonblicksbilder på diskarna. Om det finns ögonblicksbilder, misslyckas återaktivera skydd och återställning efter fel.
 
 * Huvudmålservern kan inte ha en Paravirtual SCSI-styrenhet. Kontrollanten kan bara finnas en domänkontrollant för en LSI Logic. Utan en domänkontrollant för en LSI Logic återaktivera skyddet fungerar inte.
+
+* Huvudmålservern kan ha atmst 60 diskar som är anslutna till den i en viss instans. Om antalet virtuella datorer att återaktivera skyddet till den lokala huvudmålservern har summan totala antal diskar som är mer än 60 och sedan reprotects till huvudmålservern startar misslyckas. Se till att du har tillräckligt med master riktade disken platser eller distribuera ytterligare huvudmålservern servrar.
 
 <!--
 ### Failback policy

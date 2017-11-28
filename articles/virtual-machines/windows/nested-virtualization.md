@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Så här aktiverar du kapslade virtualisering i en Azure VM
 
@@ -140,7 +140,7 @@ Följ stegen nedan för att konfigurera DHCP på den virtuella datorn i värden 
   
 2. I guiden klickar du på **nästa** förrän sidan serverroller.
   
-3. Markerar du den **DHCP-Server** kryssrutan, klicka på **Lägg till funktioner**, och klicka sedan på**nästa** förrän du har slutfört guiden.
+3. Markerar du den **DHCP-Server** kryssrutan, klicka på **Lägg till funktioner**, och klicka sedan på **nästa** förrän du har slutfört guiden.
   
 4. Klicka på **Installera**.
 
@@ -159,7 +159,7 @@ Följ stegen nedan för att konfigurera DHCP på den virtuella datorn i värden 
 6. Klicka på **nästa** tills guiden har slutförts, lämnar du alla standardvärden klicka **Slutför**.
     
 ### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Alternativ 2: Ange en statisk IP-adress manuellt på den virtuella gästdatorn
-Om du inte har konfigurerat DHCP för att dynamiskt tilldela en IP-adress toe den virtuella gästdatorn, följer du dessa steg om du vill ange en statisk IP-adress.
+Om du inte har konfigurerat DHCP för att dynamiskt tilldela en IP-adress till den virtuella gästdatorn, följer du dessa steg om du vill ange en statisk IP-adress.
 
 1. Öppna PowerShell som administratör på Azure-VM.
 

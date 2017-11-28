@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 14f73322701dffea283432bf2a25b5e6cd3e9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Förstå och justera enheter för strömning
 
@@ -59,7 +59,6 @@ Mer information om hur du väljer rätt antal SUs finns i den här sidan: [skala
 
 > [!Note]
 > Om du väljer hur många SUs krävs för ett specifikt jobb beror på konfigurationen av partitionen för indata och frågan som definierats för jobbet. Du kan välja upp till din kvot i SUs för ett jobb. Som standard har varje Azure-prenumeration en kvot på upp till 200 SUs för analytics-jobb i en viss region. För att öka SUs för dina prenumerationer utöver den här kvoten kan kontakta [Microsoft-supporten](http://support.microsoft.com). Giltiga värden för SUs per jobb är 1, 3, 6, och upp i steg 6.
-> Observera att använda 1 SU inte rekommenderas för produktionsjobb. Vi vanligtvis råd att bara använda SU-1-jobb för prototyper och testa jobb.
 
 
 

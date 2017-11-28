@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: ec93bbb477a047a028328964d3e152c1ab4bb58f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Mellan klient analytics med hjälp av data som hämtas
 
@@ -73,7 +73,7 @@ Förstå hur konsekvent varje klient använder tjänsten ger en möjlighet att s
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 - Databasprogram Wingtip biljetter SaaS flera innehavare distribueras. För att distribuera på mindre än fem minuter finns [distribuera och utforska databasprogram Wingtip biljetter SaaS flera innehavare](saas-multitenantdb-get-started-deploy.md)
-- Wingtip SaaS-skript och programmet [källkod](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) laddas ned från GitHub. Se till att *avblockera zip-filen* innan du extraherar innehållet.
+- Wingtip SaaS-skript och programmet [källkod](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) laddas ned från GitHub. Se till att *avblockera zip-filen* innan du extraherar innehållet. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 - Power BI Desktop har installerats. [Hämta Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - I gruppen med ytterligare klienter har etablerats, finns det [ **etablera hyresgäster kursen**](saas-multitenantdb-provision-and-catalog.md).
 - Ett jobb konto och databas för jobbet har skapats. Se anvisningarna i den [ **schemat management kursen**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -212,7 +212,7 @@ Föregående området för Contoso samklang Hall visar att den får går lite f�
 
 Insikter om biljett sälja mönster leda Wingtip biljetter för att optimera sin affärsmodell. I stället för att ladda alla klienter lika bör kanske Wingtip installera tjänstnivåer med olika prestandanivåer. Större handelsplatser som behöver sälja mer biljetter per dag skulle kunna erbjudas en högre nivå med ett högre servicenivåavtal (SLA). De handelsplatser kan ha sina databaser som placerats i pool med högre gränserna för per databas. Varje tjänstnivå kan ha en timvis allokering, med ytterligare avgifter debiteras för tilldelning. Större handelsplatser som har periodiska belastning av försäljningen skulle dra nytta av de högre nivåerna och Wingtip biljetter kan tjäna pengar på sina service mer effektivt.
 
-Vissa kunder Wingtip biljetter klagar under tiden de behöva kämpa sälja tillräckligt med biljetter om du vill justera kostnaden för tjänsten. Kanske i dessa insikter har möjlighet att öka försäljningen biljett för presterar handelsplatser som förväntat. Högre försäljning ökar upplevd värdet för tjänsten. Högerklicka på fact_Tickets och välj **nytt mått**. Ange följande uttryck för det nya måttet som kallas **AverageTicketsSold**:
+Vissa kunder Wingtip biljetter klagar under tiden de behöva kämpa sälja tillräckligt med biljetter om du vill justera kostnaden för tjänsten. Kanske i dessa insikter har möjlighet att öka försäljningen av biljett för under utför handelsplatser. Högre försäljning ökar upplevd värdet för tjänsten. Högerklicka på fact_Tickets och välj **nytt mått**. Ange följande uttryck för det nya måttet som kallas **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))

@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: d9816f53e1d0e09f938452a022c75a3d20a43da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrera program med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -178,7 +178,7 @@ Följande avsnitt visar hur du exponera åtkomstscope, genom att ändra resursen
   }
   ```
   > [!NOTE]
-  > ”Id”-värdet måste skapas med hjälp av ett verktyg för generering av GUID, till exempel [guidgen]] (https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) eller programmässigt. Den representerar en unik identifierare för omfånget som exponeras av webb-API. När en klient är korrekt konfigurerad med behörighet att komma åt ditt webb-API, utfärdas en åtkomsttoken som OAuth2.0 av Azure AD. När klientanrop webb-API: Anger den åtkomst-token som har omfång (scp) anspråk som de behörigheter som efterfrågas i registreringen programmet.
+  > ”Id”-värdet måste skapas med ett verktyg för generering av GUID, till exempel [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) eller programmässigt. Den representerar en unik identifierare för omfånget som exponeras av webb-API. När en klient är korrekt konfigurerad med behörighet att komma åt ditt webb-API, utfärdas en åtkomsttoken som OAuth2.0 av Azure AD. När klientanrop webb-API: Anger den åtkomst-token som har omfång (scp) anspråk som de behörigheter som efterfrågas i registreringen programmet.
   >
   > Du kan visa ytterligare scope senare, vid behov. Överväg att ditt webb-API kan det hända att flera scope som är associerade med en mängd olika funktioner. Resursen kan styra åtkomsten till webb-API vid körning, genom att utvärdera omfattningen (`scp`) anspråken i mottagna OAuth 2.0-åtkomsttoken.
   > 

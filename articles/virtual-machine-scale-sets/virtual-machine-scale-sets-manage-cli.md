@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 2348db8f19391292f79608092a3c2482216493c6
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Hantera en virtuell dator-skala med Azure CLI 2.0
 Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykel-uppgifter. Den här artikeln beskrivs några av de vanliga Azure CLI 2.0-kommandon som gör att du kan utföra dessa uppgifter.
@@ -36,7 +36,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skaluppsättning
-Du kan visa en lista över VM-instans i en skaluppsättning [az vmss listinstanserna](/cli/azure/vmss#list-instances). I följande exempel visa en lista med alla VM-instanser i skaluppsättningen namngivna *myScaleSet* och i den *myResourceGroup* resursgruppen. Ange egna värden för dessa namn:
+Du kan visa en lista över VM-instans i en skaluppsättning [az vmss listinstanserna](/cli/azure/vmss#list-instances). I följande exempel visa en lista med alla VM-instanser i skaluppsättningen namngivna *myScaleSet* i den *myResourceGroup* resursgruppen. Ange egna värden för dessa namn:
 
 ```azurecli
 az vmss list-instances \

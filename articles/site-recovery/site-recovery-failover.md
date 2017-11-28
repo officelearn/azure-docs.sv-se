@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>Redundans i Site Recovery
 Den här artikeln beskriver hur till redundans virtuella datorer och fysiska servrar som skyddas av Site Recovery.
@@ -70,7 +70,7 @@ Den här proceduren beskriver hur du kör en redundansväxling för en [återst�
 1. När du är nöjd med den redundansväxlade virtuella datorn kan du **genomför** växling vid fel. Commit tar bort alla återställningspunkter som är tillgängliga med tjänsten och **ändra återställningspunkt** alternativet kommer inte längre tillgänglig.
 
 ## <a name="planned-failover"></a>Planerad redundans
-Virtuella datorer/fysiska servrar som skyddas med Site Recovery även stöd **planerad redundans**. Planerad redundans är ett noll data går förlorade redundans alternativ. När en planerad redundansväxling initieras först virtuella källdatorer är avstängd, synkroniseras data som ska synkroniseras och sedan en växling vid fel utlöses.
+Virtuella datorer/fysiska servrar som skyddas med Site Recovery även stöd **planerad redundans**. Planerad redundans är ett noll data går förlorade redundans alternativ. När en planerad redundansväxling initieras först virtuella källdatorer är avstängd, senaste data synkroniseras och sedan en växling vid fel utlöses.
 
 > [!NOTE]
 > När du redundans Hyper-v virtuella datorer från en lokal plats till en annan lokal plats för att gå tillbaka till webbplatsen för primär lokal måste du första **replikera omvänt** den virtuella datorn tillbaka till primär plats och sedan Utlös en växling vid fel. Om den primära virtuella datorn inte är tillgängliga innan från att **replikera omvänt** du måste återställa den virtuella datorn från en säkerhetskopia.   

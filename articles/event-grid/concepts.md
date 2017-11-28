@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Koncept i Azure händelse rutnätet
 
@@ -20,7 +20,7 @@ Grundbegreppen i rutnätet för Azure-händelse är:
 
 ## <a name="events"></a>Händelser
 
-En händelse är den minsta mängden information som beskriver fullständigt något som har inträffat i systemet.  Alla händelser har gemensamma information, till exempel: källan för händelsen, tiden händelsen tog plats och unik identifierare.  Alla händelser har också specifik information som endast är relevanta för händelsen. Till exempel innehåller en händelse om en ny fil skapas i Azure Storage information om filen, till exempel lastTimeModified värdet. Eller en händelse om en virtuell dator startas om innehåller namnet på den virtuella datorn och orsaken till omstart. Varje händelse är begränsat till 64 KB med data.
+En händelse är den minsta mängden information som beskriver fullständigt något som har inträffat i systemet.  Alla händelser har gemensamma information, till exempel: källan för händelsen, tiden händelsen tog plats och unik identifierare.  Alla händelser har också specifik information som endast är relevanta för typ av händelse. Till exempel en händelse om en ny fil skapas i Azure Storage innehåller information om filen som den `lastTimeModified` värde. Eller en händelse om en virtuell dator startas om innehåller namnet på den virtuella datorn och orsaken till omstart. Varje händelse är begränsat till 64 KB med data.
 
 ## <a name="event-sourcespublishers"></a>Källor/händelseutfärdare
 
@@ -46,7 +46,7 @@ När du prenumererar på ett ämne, kan du filtrera de händelser som skickas ti
 
 ## <a name="security"></a>Säkerhet
 
-Händelsen ger säkerhet för att prenumerera på ämnen och publicera avsnitt. När du prenumererar, måste du ha tillräckliga behörigheter på resurs eller avsnittet. När du publicerar, måste du ha en SAS-token eller nyckelautentisering för avsnittet. Mer information finns i [händelse rutnätet säkerhets- och autentiseringstjänster](security-authentication.md).
+Händelsen rutnätet ger säkerhet för att prenumerera på ämnen och publicera avsnitt. När du prenumererar, måste du ha tillräckliga behörigheter på resurs eller avsnittet. När du publicerar, måste du ha en SAS-token eller nyckelautentisering för avsnittet. Mer information finns i [händelse rutnätet säkerhets- och autentiseringstjänster](security-authentication.md).
 
 ## <a name="failed-delivery"></a>Misslyckade leverans
 

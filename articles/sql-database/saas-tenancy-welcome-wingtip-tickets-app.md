@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip biljetter SaaS-program
 
@@ -27,7 +27,7 @@ Samma *Wingtip biljetter* program är implementerad i var och en av tre prover. 
 
 ## <a name="three-saas-application-patterns"></a>Tre mönster för SaaS-program
 
-Tre vesions av appen är tillgängliga. varje utforskar ett mönster för innehavare av annan databas på Azure SQL Database.  Först använder en enskild klient-program med en isolerad enskild klient-databas. Andra använder en app för flera innehavare, med en databas per klient. Tredje används en app för flera innehavare med delat databaser för flera innehavare.
+Tre versioner av appen är tillgängliga. varje utforskar ett mönster för innehavare av annan databas på Azure SQL Database.  Först använder en enskild klient-program med en isolerad enskild klient-databas. Andra använder en app för flera innehavare, med en databas per klient. Tredje används en app för flera innehavare med delat databaser för flera innehavare.
 
 ![Tre innehavare mönster][image-three-tenancy-patterns]
 
@@ -63,15 +63,15 @@ Kolla in den [självstudier] [ docs-tutorials-for-wingtip-mt] och kod på GitHub
 
 - Fristående app:
     - [Självstudier för fristående app][docs-tutorials-for-wingtip-sa].
-    - [Koden för fristående på Github][github-code-for-wingtip-sa].
+    - [Koden för fristående på GitHub][github-code-for-wingtip-sa].
 
 - Databas per klient:
     - [Självstudier för databasen per klient][docs-tutorials-for-wingtip-dpt].
-    - [Koden för databasen per klient på Github][github-code-for-wingtip-dpt].
+    - [Koden för databasen per klient på GitHub][github-code-for-wingtip-dpt].
 
 - Delat flera innehavare:
     - [Självstudier för delat flera innehavare][docs-tutorials-for-wingtip-mt].
-    - [Koden för delat flera innehavare på Github][github-code-for-wingtip-mt].
+    - [Koden för delat flera innehavare på GitHub][github-code-for-wingtip-mt].
 
 
 

@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Återställa en enskild innehavare Azure SQL-databas i en SaaS-app för flera innehavare
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Återställa en enskild klient Azure SQL-databas i en SaaS-app för flera innehavare
 
-Wingtip SaaS-appar skapas med en databas per klient-modell där varje innehavare har sin egen databas. En av fördelarna med den här modellen är att det är lätt att återställa en enskild klient data i isolering utan att påverka andra klienter.
+Wingtip biljetter SaaS-appar skapas med en databas per klient-modell där varje innehavare har sin egen databas. En av fördelarna med den här modellen är att det är lätt att återställa en enskild klient data i isolering utan att påverka andra klienter.
 
 Lär dig två mönster för återställning av data i den här självstudiekursen:
 
@@ -53,9 +53,9 @@ I det första mönstret återställs data till en ny databas. Klienten sedan få
 
 I det andra mönstret, vilket förutsätter att klienten har haft en förlust eller data skadas, återställs klientens produktionsdatabasen till en tidigare tidpunkt. Återställning i plats mönstret tas innehavaren offline under en kort tid när databasen har återställts och online igen. Den ursprungliga databasen tas bort, men kan fortfarande återställa från om du behöver gå tillbaka till en även tidigare tidpunkt. En variant av det här mönstret kan byta namn på databasen i stället för att ta bort den, även om byta namn på databasen innehåller inga ytterligare fördelar vad gäller datasäkerheten.
 
-## <a name="get-the-wingtip-application-scripts"></a>Hämta Wingtip-programskript
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta programskript Wingtip biljetter SaaS databas Per klient
 
-Wingtip SaaS-skript och programmets källkod är tillgängliga i den [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github-lagringsplatsen. [Steg för att hämta Wingtip SaaS-skripten](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Wingtip biljetter SaaS flera innehavare databasen skript och programmets källkod är tillgängliga i den [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-lagringsplatsen. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simulera en klient oavsiktlig borttagning av data
 
@@ -146,6 +146,6 @@ I den här självstudiekursen lärde du dig att:
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* Ytterligare [självstudier som bygger på Wingtip SaaS-program](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Ytterligare självstudier som bygger på Wingtip SaaS-program](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Översikt över verksamhetskontinuitet med Azure SQL Database](sql-database-business-continuity.md)
 * [Lär dig mer om säkerhetskopiering av SQL-databaser](sql-database-automated-backups.md)

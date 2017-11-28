@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b23e73c47b9a00893e036b67826e4b7ead819a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52212c44c925598b2c19df1b20eb4e8123f974ba
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Självstudier: Azure Active Directory-integrering med Druva
 
@@ -104,23 +104,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
     ![Enkel inloggning dialogrutan](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. På den **Druva domän och URL: er** avsnittet, utför följande steg:
+3. På den **Druva domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
+    I den **identifierare** textruta skriver strängvärdet:`druva-cloud`
+    
+4. Kontrollera **visa avancerade inställningar för URL: en**. Om du vill konfigurera programmet i **SP** initierade läge:
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    
     I den **inloggnings-URL** textruta anger du URL:`https://cloud.druva.com/home`
 
-4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+5. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Länken hämta certifikatet](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. Tillämpningsprogrammet Druva förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till attributmappningar till din **SAML-Token attribut** konfiguration. 
+6. Tillämpningsprogrammet Druva förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till attributmappningar till din **SAML-Token attribut** konfiguration. 
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i den föregående bilden och utför följande steg:
+7. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i den föregående bilden och utför följande steg:
 
-    | Attributets namn      | Attributvärdet      |
+    | Attributnamn      | Attributvärde      |
     | ------------------- | -------------------- |
     | synkroniserad\_auth\_token |Ange token genererade värde |
     
@@ -136,47 +142,47 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     d. Klicka på **OK**.    
 
-7. Klicka på **spara** knappen.
+8. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. På den **Druva Configuration** klickar du på **konfigurera Druva** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out Webbadressen och SAML enkel inloggning Service** från den **Snabbreferens avsnitt.**
+9. På den **Druva Configuration** klickar du på **konfigurera Druva** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out Webbadressen och SAML enkel inloggning Service** från den **Snabbreferens avsnitt.**
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. I en annan webbläsarfönster loggar du in på webbplatsen Druva företag som administratör.
+10. I en annan webbläsarfönster loggar du in på webbplatsen Druva företag som administratör.
 
-10. Gå till **hantera \> inställningar**.
+11. Gå till **hantera \> inställningar**.
 
     ![Inställningar för](./media/active-directory-saas-druva-tutorial/ic795091.png "inställningar")
 
-11. I dialogrutan Inställningar för enkel inloggning utför du följande steg:
+12. I dialogrutan Inställningar för enkel inloggning utför du följande steg:
 
     ![Enkel inloggning inställningar](./media/active-directory-saas-druva-tutorial/ic795092.png "enkel inloggning inställningar")
     
-    a. Klistra in **SAML enkel inloggning Tjänstwebbadress** -värde som du har kopierat från Azure-portalen i den **ID providern inloggnings-URL** textruta.
-    
-    b. Klistra in **Sign-Out URL** -värde som du har kopierat från Azure-portalen i den **ID providern logga ut URL** textruta.
-    
-     c. Öppna din Base64-kodade certifikatet i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **ID providern certifikat** textruta
+    a. I **ID providern inloggnings-URL** textruta klistra in värdet för **inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
+        
+    b. I **ID providern logga ut URL** textruta klistra in värdet för **Sign-Out URL**, som du har kopierat från Azure-portalen
+        
+    c. Öppna din Base64-kodade certifikatet i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **ID providern certifikat** textruta
      
-     d. Öppna den **inställningar** klickar du på **spara**.
+    d. Öppna den **inställningar** klickar du på **spara**.
 
-12. På den **inställningar** klickar du på **generera SSO Token**.
+13. På den **inställningar** klickar du på **generera SSO Token**.
 
     ![Inställningar för](./media/active-directory-saas-druva-tutorial/ic795093.png "inställningar")
 
-13. På den **enkel inloggning autentiseringstoken** dialogrutan, utför följande steg:
+14. På den **enkel inloggning autentiseringstoken** dialogrutan, utför följande steg:
 
     ![SSO Token](./media/active-directory-saas-druva-tutorial/ic795094.png "SSO-Token")
     
-    a. Klicka på **kopia**, klistra in kopieras värdet i den **värdet** TextBox-kontroll i den **lägga till attributet** avsnittet.
+    a. Klicka på **kopia**, klistra in kopieras värdet i den **värdet** TextBox-kontroll i den **Lägg till attribut** avsnitt i Azure-portalen.
     
     b. Klicka på **Stäng**.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
@@ -280,8 +286,6 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

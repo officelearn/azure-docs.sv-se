@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6eb37ef4e836bd33a77180ef5aa8589ca5139af
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsökning av problem med Azure-filer i Linux
 
@@ -154,6 +154,21 @@ Vanliga orsaker till problemet är:
 ### <a name="solution"></a>Lösning
 
 Lös problemet genom att använda den [felsökningsverktyget för Azure-filer montera fel på Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Det här verktyget kan du validera den klient som kör miljö, identifiera inkompatibla klientkonfigurationen som skulle orsaka fel åtkomst för Azure-filer, ger vägledning om själva åtgärda och samlar in diagnostik spårningar.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: Det går inte att komma åt '&lt;sökväg&gt;': / o-fel
+
+När du försöker lista över filer i en Azure-filresursen med kommandot ls visas följande felmeddelande:
+
+**ls: Det går inte att komma åt '&lt;sökväg&gt;': / o-fel**
+
+
+### <a name="solution"></a>Lösning
+Uppgradera Linux-kärnan följande versioner som har korrigering för problemet:
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- Alla versioner som är större eller lika med 4.13
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 

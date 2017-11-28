@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: cf44d749ecbfcffb3d5a6e5e12aa49e66f7cde2e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Självstudier: Azure Active Directory-integrering med Cezanne HR programvara
 
@@ -108,11 +108,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och Cezanne HR programvara domän med enkel inloggning information](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. I den **inloggnings-URL** textruta anger du URL:`https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`
+    a. I den **inloggnings-URL** textruta anger du URL:`https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
     b. I den **identifierare** textruta anger du URL:`https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-    c. I den **Reply URL** textruta anger du URL:`https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`
+    c. I den **Reply URL** textruta anger du URL:`https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
+    
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och Reply-URL. Kontakta [Cezanne HR-Programvaruklienten supportteamet](https://cezannehr.com/services/support/) att hämta dessa värden.
 
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 

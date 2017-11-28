@@ -1,5 +1,5 @@
 ---
-title: "Så här konfigurerar du autentisering och auktorisering API: er i Azure tid serien insikter"
+title: 'Hur du autentisera och auktorisera av API: T i Azure tid serien insikter'
 description: "Den här artikeln beskriver hur du konfigurerar autentisering och auktorisering för ett anpassat program som anropar Azure tid serien Insights API."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure tid serien Insights API
 
@@ -32,7 +32,7 @@ När du har ett program som måste åtkomsttid serien insikter måste du ställa
 * Du behöver ändra appens autentiseringsuppgifterna ändrar dina ansvarsområden.
 * Du kan använda ett certifikat eller en tangent för att automatisera autentisering när du kör ett oövervakat skript.
 
-Det här avsnittet visar hur du utför dessa åtgärder via Azure-portalen. Den fokuserar på en enskild klient program där programmet är avsett att köras i en enda organisation. Stöd för en innehavare program används vanligtvis för line-of-business-program som körs i din organisation.
+Den här artikeln visar hur du utför dessa åtgärder via Azure-portalen. Den fokuserar på en enskild klient program där programmet är avsett att köras i en enda organisation. Stöd för en innehavare program används vanligtvis för line-of-business-program som körs i din organisation.
 
 Installationsprogrammet flödet består av tre huvudsakliga steg:
 

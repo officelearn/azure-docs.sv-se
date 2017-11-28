@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: df707f2c54ce6d4fd48490085b182ad16d7cfaed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 04efb82addd0f307c68c73e28e46b602e5bc194a
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Användare, sessioner och händelser för analys i Application Insights
 
@@ -65,7 +65,7 @@ Insikter sidopanelen visar stora kluster med användare som har gemensamma egens
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill aktivera användning upplevelser börja skicka [anpassade händelser](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sidvisningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Om du vill aktivera användning upplevelser börja skicka [anpassade händelser](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) eller [sidvisningar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Om du skickar redan anpassade händelser eller sidvisningar, utforska verktygen användning om du vill veta hur användarna använder din tjänst.
     - [Trattar](usage-funnels.md)
     - [Kvarhållning](app-insights-usage-retention.md)

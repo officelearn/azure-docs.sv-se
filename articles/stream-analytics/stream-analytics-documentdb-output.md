@@ -4,7 +4,7 @@ description: "Lär dig hur Stream Analytics kan inrikta dig på Azure Cosmos DB 
 keywords: JSON-utdata
 documentationcenter: 
 services: stream-analytics,documentdb
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
@@ -14,19 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Mål Azure Cosmos DB för JSON-utdata från Stream Analytics
 Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) att aktivera arkivering och låg latens datafrågor på Ostrukturerade JSON-data för JSON-utdata. Det här dokumentet beskrivs några metoder för att implementera den här konfigurationen.
 
 För de som inte är bekant med Cosmos DB, ta en titt på [Azure Cosmos DB Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/documentdb/) att komma igång. 
 
-Obs: Mongo DB API-baserad Cosmos DB samlingar stöds inte för närvarande. 
+> [!Note]
+> Just nu är Azure Stream Analytics endast stöd för anslutning till CosmosDB med **DocumentDB SQL-API**.
+> Andra Azure Cosmos DB-API: er stöds inte ännu. Om platsen Azure Stream Analytics till Azure DB som Cosmos-konton som har skapats med andra API: er, kanske data inte korrekt lagras. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Grunderna i Cosmos DB som ett mål för utdata
 Azure DB som Cosmos-utdata i Stream Analytics kan skriva strömmen bearbetning resultatet som JSON-utdata till Cosmos-DB-samling(ar). Stream Analytics skapar inte samlingar i databasen, i stället att du behöver skapa dem på en gång. Detta är så att fakturering kostnaderna för Cosmos DB samlingar är transparent och så att du kan finjustera prestanda, konsekvens och kapacitet för samlingar direkt med den [Cosmos DB-API: er](https://msdn.microsoft.com/library/azure/dn781481.aspx). Vi rekommenderar en Cosmos-DB-databas per direktuppspelningsjobbet till logiskt separata samlingar för ett direktuppspelningsjobb.
@@ -67,5 +69,5 @@ Partitionerad samling | Flera ”enskild Partition” samlingar
 * **Samlingsnamnsmönstret** – namnet på samlingen eller deras mönster för samlingar som ska användas. Samlingsnamnsformatet kan konstrueras med valfritt {partition}-token, där partitionerna börjar från 0. Följande är exempel giltiga indata:  
   1\) MyCollection – en samling med namnet ”MyCollection” måste finnas.  
   2\) MyCollection {partition} – dessa samlingar måste finnas – ”MyCollection0”, ”MyCollection1”, ”MyCollection2” och så vidare.  
-* **Partitionera nyckeln** – det är valfritt. Det här krävs bara om du använder en {partition}-token i din samlingsnamnsmönstret. Namnet på fältet i utdatahändelserna används för att specificera nyckeln för att partionera utdata över samlingarna. Enda samling utdata för en godtycklig utdatakolumnen kan vara används t.ex. PartitionId.  
+* **Partitionera nyckeln** – det är valfritt. Det här krävs bara om du använder en {partition}-token i din samlingsnamnsmönstret. Namnet på fältet i utdatahändelserna används för att ange nyckel för att partionera utdata över samlingarna. Enda samling utdata för en godtycklig utdatakolumnen kan vara används t.ex. PartitionId.  
 * **Dokumentera ID** – det är valfritt. Namnet på fältet i utdatahändelserna används för att ange den primära nyckeln operations baseras på vilka insert eller update.  

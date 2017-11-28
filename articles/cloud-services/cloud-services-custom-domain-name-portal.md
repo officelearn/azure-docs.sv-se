@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett anpassat domännamn för en Azure-molntjänst
 När du skapar en molnbaserad tjänst Azure tilldelar den en underdomän till **cloudapp.net**. Till exempel om Molntjänsten har namnet ”contoso”, kommer användarna att kunna komma åt programmet på en URL som http://contoso.cloudapp.net. Azure ger också en virtuell IP-adress.
@@ -28,7 +28,7 @@ Men du kan också exponera dina program på ditt eget domännamn som **contoso.c
 Har du redan att förstå vilka CNAME- och A-poster är? [Hoppa över en förklaring](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Procedurerna i det här steget gäller för Azure Cloud Services. App-tjänster, se [detta](../app-service/app-service-web-tutorial-custom-domain.md). Storage-konton finns [detta](../storage/blobs/storage-custom-domain-name.md).
+> Procedurerna i det här steget gäller för Azure Cloud Services. App-tjänster, se [mappa ett befintligt anpassade DNS-namn till Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md). Storage-konton finns [konfigurera ett anpassat domännamn för din Azure Blob storage-slutpunkt](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

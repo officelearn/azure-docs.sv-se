@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: ddd51c23c7e7d01e38b02c79c27d1951eea61e70
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Introduktion till en SQL-databas med flera innehavare SaaS app-exempel
 
 Den *Wingtip SaaS* programmet är en exempelapp för flera innehavare som visar de unika fördelarna med SQL-databas. Appen använder ett SaaS-mönster med en databas-per-klient, för att hantera flera klienter. Appen är avsedd att demonstrerar funktionerna i Azure SQL Database som möjliggör SaaS scenarier, inklusive flera SaaS design- och mönster. För att snabbt komma igång, distribuerar Wingtip SaaS-appen på mindre än fem minuter!
 
-Programmet källa koden och hantering av skript är tillgängliga i den [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github-lagringsplatsen. Att köra skripten [hämtningsmapp Learning moduler](#download-and-unblock-the-wingtip-saas-scripts) till den lokala datorn.
+Programmet källa koden och hantering av skript är tillgängliga i den [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-lagringsplatsen. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 
 ## <a name="application-architecture"></a>Programarkitektur
 
@@ -42,7 +42,7 @@ När appen har distribuerats, utforska följande kurser som bygger på den förs
 
 | Självstudier | Beskrivning |
 |:--|:--|
-| [Vägledning och tips för Azure SQL Database med flera innehavare SaaS app exempel](saas-dbpertenant-wingtip-app-guidance-tips.md) | **BÖRJA HÄR!** Hämta och köra PowerShell-skript för att förbereda delar av programmet. |
+| [Vägledning och tips för Azure SQL Database med flera innehavare SaaS app exempel](saas-tenancy-wingtip-app-guidance-tips.md) | **BÖRJA HÄR!** Hämta och köra PowerShell-skript för att förbereda delar av programmet. |
 |[Distribuera och utforska Wingtip SaaS-program](saas-dbpertenant-get-started-deploy.md)|  Distribuera och utforska Wingtip SaaS-program på Azure-prenumerationen. |
 |[Etablera och katalogen klienter](saas-dbpertenant-provision-and-catalog.md)| Lär dig hur programmet ansluter till klienter som använder en katalog-databas och hur klienter mappas till deras data i katalogen. |
 |[Övervaka och hantera prestanda](saas-dbpertenant-performance-monitoring.md)| Lär dig hur du använder övervakningsfunktionerna i SQL-databas och hur du ställer in meddelanden när tröskelvärden för prestanda har överskridits. |
@@ -55,6 +55,6 @@ När appen har distribuerats, utforska följande kurser som bygger på den förs
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vägledning och tips för Azure SQL Database med flera innehavare SaaS app exempel](saas-dbpertenant-wingtip-app-guidance-tips.md)
+- [Vägledning och tips för Azure SQL Database med flera innehavare SaaS app exempel](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Distribuera Wingtip SaaS-program](saas-dbpertenant-get-started-deploy.md)

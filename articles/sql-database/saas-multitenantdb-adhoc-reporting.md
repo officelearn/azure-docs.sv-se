@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Köra frågor för ad hoc-analytics över flera Azure SQL-databaser
 
@@ -52,12 +52,11 @@ Det är lätt att komma åt en enkel databas med flera klienter, men inte så en
 
 Genom att distribuera frågor över klient-databaser innehåller elastisk frågan direkta insikter om live produktionsdata. Men eftersom elastisk fråga hämtar data från potentiellt många databaser, kan svarstid ibland vara högre än för motsvarande frågor skickas till en enskild databas för flera innehavare. Se till att designen frågor för att minska de data som returneras. Elastisk frågan är ofta bäst för frågor små mängder data i realtid, till skillnad från byggnad som används ofta eller komplexa analytics-frågor eller rapporter. Om frågorna inte utför också titta på den [åtgärdsplan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) att se vilken del av frågan har aviserats till fjärrdatabasen. Och bedöma hur mycket data som returneras. Frågor som kräver komplexa analytisk bearbetning kan det vara bättre hanteras genom att spara extraherade klientdata i en databas som är optimerad för analytics-frågor. SQL Database och SQL Data Warehouse kan vara värd för sådana analytics databasen.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+Det här mönstret för analytics beskrivs i den [klient analytics kursen](saas-multitenantdb-tenant-analytics.md).
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Hämta programskript Wingtip biljetter SaaS flera innehavare databas
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta Wingtip biljetter SaaS flera innehavare databasen programmets källkod och skript
 
-Wingtip biljetter SaaS flera innehavare databasen skript och programmets källkod är tillgängliga i den [WingtipTicketsSaaS MultitenantDB github-repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Se till att följa avblockera stegen som beskrivs i Viktigt-filen.
+Wingtip biljetter SaaS flera innehavare databasen skript och programmets källkod är tillgängliga i den [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub-lagringsplatsen. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 
 ## <a name="create-ticket-sales-data"></a>Skapa biljett försäljningsdata
 
@@ -96,7 +95,7 @@ Den här övningen lägger till schemat (extern datakälla och extern tabelldefi
 
     ![Skapa autentiseringsuppgifter](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   Den externa datakällan som definieras för att använda klient Fragmentera kartan i katalogdatabasen. Med det som den externa datakällan kan distribueras frågor för alla databaser som är registrerade i katalogen när frågan körs. Eftersom servernamn är olika för varje distribution, hämtar Initieringsskript för den här platsen för katalogdatabasen genom att hämta den aktuella servern (@@servername) där skriptet körs.
+   Med katalog-databas som den externa datakällan kan distribueras frågor för alla databaser som är registrerade i katalogen när frågan körs. Eftersom servernamn är olika för varje distribution, hämtar Initieringsskript för den här platsen för katalogdatabasen genom att hämta den aktuella servern (@@servername) där skriptet körs.
 
     ![Skapa extern datakälla](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ Nu när den *adhocreporting* databasen är ställa in, gå vidare och köra någ
 
 När undersöks körningsplanen, hovra över plan ikoner för information. 
 
-1. Öppna... \\Learning moduler\\operativa Analytics\\ad hoc Reporting\\*Demo-AdhocReportingQueries.sql* i SSMS.
+1. I *SSMS*öppnar... \\Learning moduler\\operativa Analytics\\ad hoc Reporting\\*Demo-AdhocReportingQueries.sql*.
 2. Se till att du är ansluten till den **adhocreporting** databas.
 3. Välj den **frågan** -menyn och klicka på **innehåller faktiska körning som planera**
 4. Markera den *vilka handelsplatser är registrerade?* fråga och tryck på **F5**.
@@ -155,9 +154,7 @@ I den här självstudiekursen lärde du dig att:
 > * Köra distribuerade frågor över alla klientdatabaser
 > * Distribuera en ad hoc-rapportdatabasen och lägga till schemat för att kunna köra distribuerade frågor.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Prova den [klient Analytics-självstudier](saas-multitenantdb-tenant-analytics.md) att utforska extrahera data till en separat analytics-databas för mer komplexa analyser bearbetning.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

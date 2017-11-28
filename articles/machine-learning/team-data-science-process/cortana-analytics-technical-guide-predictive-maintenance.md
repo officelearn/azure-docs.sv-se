@@ -14,74 +14,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 03ae6245e83c1f26546ec2a33c74dc9519847d7b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Teknisk guide till Cortana Intelligence-Lösningsmall för förebyggande underhåll i aerospace och andra företag
 
-## <a name="important"></a>**Viktigt**
-Den här artikeln har ersatts. Diskussionen är relevant för det aktuella problemet, det vill säga förutsägande Underhåll investerar, men avser [lösning: översikt för Business målgrupper](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) aktuell information.
+>[!Important]
+Den här artikeln har ersatts. Diskussion om förutsägande Underhåll investerar är relevant, men för aktuell information, referera till [lösning: översikt för Business målgrupper](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
-## <a name="acknowledgements"></a>**Bekräftelser**
-Den här artikeln har skapats av datavetare Yan Zhang Gauher Shaheen, Fidan Boylu Uz och programvara tekniker Dan Grecoe på Microsoft.
 
-## <a name="overview"></a>**Översikt**
-Lösningsmallar är avsedda att skynda på processen för att skapa en E2E demo ovanpå Cortana Intelligence Suite. En mall för distribuerade etablerar prenumerationen med nödvändiga komponenter i Cortana Intelligence och skapa relationer mellan dem. Det lägger också pipeline data med exempeldata som genereras från ett generator program, som du hämtar och installerar på din lokala dator när du distribuerar lösningen mallen. Data som genereras från generatorn hydrates i data pipeline och starta genererar maskininlärning förutsägelser som kan sedan visualiserade på Power BI-instrumentpanelen. Distributionsprocessen vägleder dig genom stegen för att ställa in autentiseringsuppgifterna lösning. Kontrollera att du spelar in autentiseringsuppgifter, till exempel lösningens namn, användarnamn och lösenord som du anger under distributionen.  
+Lösningsmallar är avsedda att skynda på processen för att skapa en E2E demo ovanpå Cortana Intelligence Suite. En mall för distribuerade etablerar prenumerationen med nödvändiga komponenter i Cortana Intelligence och relationer mellan dem och skapar sedan. Det lägger också data rörledningen med exempeldata från ett generator program, som du hämtar och installerar på din lokala dator när du distribuerar lösningen mallen. Data från generatorn hydrates i data pipeline och starta genererar maskininlärning förutsägelser som kan sedan visualiserade på Power BI-instrumentpanelen.
 
-Målet med det här dokumentet är att förklara Referensarkitektur och komponenter som har etablerats i din prenumeration som en del av den här lösningen mallen, visas hur du ersätta exempeldata med dina egna data och hur du ändrar den Lösningsmall.  
+Distributionsprocessen vägleder dig genom stegen för att ställa in autentiseringsuppgifterna lösning. Kontrollera att du spelar in autentiseringsuppgifter, till exempel lösningens namn, användarnamn och lösenord som du anger under distributionen. 
+
+
+Målen för den här artikeln är att:
+- Beskriv Referensarkitektur och komponenter som har etablerats i din prenumeration.
+- Visa hur du kan ersätta exempeldata med din egen information. 
+- Visa hur du ändrar lösningsmall.  
 
 > [!TIP]
-> Du kan hämta och skriva ut en [PDF-version av det här dokumentet](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> Du kan hämta och skriva ut en [PDF-version av den här artikeln](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
-## <a name="overview"></a>**Översikt**
+## <a name="overview"></a>Översikt
 ![Arkitektur för förutsägande Underhåll](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
-Distribuera lösningen aktiverar Azure-tjänster i Cortana Analytics Suite (Event Hub, Stream Analytics, HDInsight, Data Factory, Machine Learning *etc.*). För Arkitekturdiagram visar hur förutsägande Underhåll för flyg Lösningsmall är uppbyggd. Du kan undersöka dessa tjänster i Azure-portalen genom att klicka på dem på lösningen mallen diagram som skapats med distributionen av lösningen (med undantag för HDInsight, som har etablerats på begäran när relaterade pipeline-aktiviteter som krävs för att köra och därefter borttagna).
+När du distribuerar lösningen aktiverar Azure-tjänster i Cortana Analytics sviten (inklusive Event Hub, Stream Analytics, HDInsight, Data Factory och Maskininlärning). För Arkitekturdiagram visar hur förutsägande Underhåll för flyg Lösningsmall är uppbyggd. Du kan undersöka dessa tjänster i Azure-portalen genom att klicka på dem i lösningen mallen diagram som skapats med distributionen av lösningen (förutom HDInsight, som har etablerats på begäran när relaterade pipeline-aktiviteter som krävs för att köra och är ta bort efteråt).
 Hämta en [i full storlek version av diagrammet](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 I följande avsnitt beskrivs delarna av lösningen.
 
-## <a name="data-source-and-ingestion"></a>**Datakällan och införandet**
+## <a name="data-source-and-ingestion"></a>Datakällan och införandet
 ### <a name="synthetic-data-source"></a>Syntetiska datakälla
-Datakällan som används genereras från ett program som du hämtar och kör lokalt, efter slutförd distribution för den här mallen. Instruktionerna för att ladda ned och installera det här programmet är i fältet egenskaper när du väljer den första noden som kallas förutsägande Underhåll Datagenerator i lösningen mallen diagrammet. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) med datapunkter, eller händelser som används i resten av flödet lösning. Den här datakällan har härletts från offentligt tillgängliga data från den [NASA data databasen](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) med hjälp av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Datakällan som används genereras från ett program som du hämtar och kör lokalt efter slutförd distribution för den här mallen.
+
+Välj den första noden förutsägande Underhåll Datagenerator i lösningen mallen diagrammet för att hitta instruktionerna för att ladda ned och installera det här programmet. Anvisningarna finns i fältet egenskaper. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) med datapunkter, eller händelser som används i resten av flödet lösning. Den här datakällan har härletts från offentligt tillgängliga data från den [NASA data databasen](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) med hjälp av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
 Händelsen generation programmet fyller Azure Event Hub endast när det körs på datorn.
 
-### <a name="azure-event-hub"></a>Azure händelsehubb
+### <a name="azure-event-hub"></a>Azure Event Hub
 Den [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) service är mottagaren av indata som angetts av syntetiska datakällan.
 
-## <a name="data-preparation-and-analysis"></a>**Förberedelse av data och analys**
+## <a name="data-preparation-and-analysis"></a>Förberedelse av data och analys
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
-Använd [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) -tjänsten för att tillhandahålla nästan analys i realtid på Indataströmmen från den [Azure Event Hub](#azure-event-hub) tjänst och publicera resultatet till en [Power BI](https://powerbi.microsoft.com) instrumentpanelen som arkiverar alla rådata inkommande händelser till den [Azure Storage](https://azure.microsoft.com/services/storage/) tjänsten för senare bearbetning av den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) service.
+Använd [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) att tillhandahålla nästan analys i realtid på Indataströmmen från den [Azure Event Hub](#azure-event-hub) service. Sedan publicera resultaten till en [Power BI](https://powerbi.microsoft.com) instrumentpanelen samt Arkivera alla rådata inkommande händelser till den [Azure Storage](https://azure.microsoft.com/services/storage/) tjänsten för senare bearbetning av den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)service.
 
 ### <a name="hdinsight-custom-aggregation"></a>Anpassade HDInsight-sammanställning
 Kör [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript (styrd av Azure Data Factory) med hjälp av HDInsight aggregeringar på raw händelser arkiveras med Azure Stream Analytics-tjänsten.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Göra förutsägelser på återstående livslängd (RUL) för en viss flygplan motor som är angivna indata som tagits emot med [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning/) (styrd av Azure Data Factory) till 
+Göra förutsägelser på återstående livslängd (RUL) en viss flygplan motor med hjälp av indata som tagits emot med [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning/) (styrd av Azure Data Factory). 
 
-## <a name="data-publishing"></a>**Publicering av data**
-### <a name="azure-sql-database-service"></a>Azure SQL Database-tjänsten
-Använd [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) att lagra (hanteras av Azure Data Factory) förutsägelser som tagits emot av tjänsten Azure Machine Learning förbrukas i den [Power BI](https://powerbi.microsoft.com) instrumentpanelen.
+## <a name="data-publishing"></a>Publicering av data
+### <a name="azure-sql-database"></a>Azure SQL Database
+Använd [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) att lagra förutsägelser som tagits emot av tjänsten Azure Machine Learning, som sedan används i den [Power BI](https://powerbi.microsoft.com) instrumentpanelen.
 
-## <a name="data-consumption"></a>**Användning av data**
+## <a name="data-consumption"></a>Dataförbrukning
 ### <a name="power-bi"></a>Power BI
-Använd [Power BI](https://powerbi.microsoft.com) -tjänsten för att visa en instrumentpanel som innehåller aggregeringar och aviseringar som tillhandahålls av den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) tjänsten samt RUL förutsägelser som lagras i [Azure SQL Database ](https://azure.microsoft.com/services/sql-database/) som skapas med hjälp av den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) service.
+Använd [Power BI](https://powerbi.microsoft.com) att visa en instrumentpanel som innehåller aggregeringar och aviseringar som tillhandahålls av [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), samt RUL förutsägelser lagras i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som skapas med hjälp av [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
-## <a name="how-to-bring-in-your-own-data"></a>**Hur du hanterar i dina egna data**
+## <a name="how-to-bring-in-your-own-data"></a>Hur du hanterar i dina egna data
 Det här avsnittet beskrivs hur du hanterar dina egna data till Azure och vilka områden som behöver ändras för de data du sätta i den här arkitekturen.
 
-Det är inte troligt att datauppsättningen matchar den datamängd som används av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) används för den här lösningen mallen. Förstå dina data och kraven är avgörande för hur du ändrar den här mallen för att arbeta med dina egna data. 
+Det är inte troligt att datamängden matchar den datamängd som används av den [turbofläktmotorer endast motorn försämring simuleringen datauppsättning](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) används för den här lösningen mallen. Förstå dina data och kraven är avgörande för hur du ändrar den här mallen för att arbeta med dina egna data. 
 
-I följande avsnitt beskrivs i avsnitt på mallen som kräver ändringar när en ny datamängd införs.
+I följande avsnitt beskrivs de delar av mallen som kräver ändringar när en ny datamängd införs.
 
 ### <a name="azure-event-hub"></a>Azure Event Hub
-Tjänsten Azure Event Hub är generisk; data kan vara upp till hubben i CSV- eller JSON-format. Ingen särskild bearbetning sker i Azure-Händelsehubb, men det är viktigt att du förstår de data som matas in.
+Azure Event Hub är generisk; data kan vara upp till hubben i CSV- eller JSON-format. Ingen särskild bearbetning sker i Azure-Händelsehubb, men det är viktigt att du förstår de data som matas in.
 
 Det här dokumentet beskriver inte hur att mata in data, men kan du enkelt skicka händelser eller data till en Azure-Händelsehubb med hjälp av Event Hub-API: er.
 
@@ -142,7 +147,7 @@ Den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learni
 
 Information om hur Azure Machine Learning-experiment skapades finns [förutsägande Underhåll: steg 1 av 3, förberedelse av data och funktionen tekniker](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
-## <a name="monitor-progress"></a>**Övervaka förloppet**
+## <a name="monitor-progress"></a>Övervaka förloppet
 När Data Generator har startats pipeline börjar dehydratisera och de olika komponenterna i din lösning starta lanseras i åtgärden följande kommandon från data factory. Det finns två sätt att övervaka pipeline.
 
 1. En av Stream Analytics-jobb skriver inkommande rådata till blob storage. Om du klickar på Blob Storage-komponenten i din lösning från skärmen du har distribuerat lösningen och klicka på Öppna i den högra panelen, tar du det [Azure-portalen](https://portal.azure.com/). När det, klickar du på Blobbar. I panelen nästa visas en lista över behållare. Klicka på **maintenancesadata**. I nästa panelen är den **\data** mapp. I mappen \data är mappar med namn som timme = 17 och timme = 18. Förekomsten av dessa mappar anger rådata som genereras på datorn och lagras i blob storage. Du bör se csv-filer med begränsad storlek i MB i mapparna.
@@ -152,7 +157,7 @@ När Data Generator har startats pipeline börjar dehydratisera och de olika kom
    
     Här kan du klicka på ny fråga och fråga för hur många rader (till exempel väljer count(*) från PMResult). Län, öka antalet rader i tabellen.
 
-## <a name="power-bi-dashboard"></a>**Power BI-instrumentpanel**
+## <a name="power-bi-dashboard"></a>Power BI-instrumentpanel
 
 Ställ in en Power BI-instrumentpanel visualisera dina Azure Stream Analytics-data (varm sökväg) och batch förutsägelse resultat från Azure machine learning (kalla sökväg).
 
@@ -227,10 +232,10 @@ Följande steg hjälper dig hur du visualisera data från Stream Analytics-jobb 
    * Klicka på den **PIN-kod Visual** ikonen i det övre högra hörnet av den här linjediagram. Ett ”PIN-kod till instrumentpanel” fönster kan visas som du kan välja en instrumentpanel. Välj ”förutsägande Underhåll Demo” och klicka på ”Pin”.
    * Markören över den här panelen på instrumentpanelen, klicka på ikonen ”edit” i det övre högra hörnet för att ändra dess namn till ”flottan vy av Sensor 11 vs. Tröskelvärde för 48,26 ”och underrubrik till” medelvärde över flottan över tid ”.
 
-## <a name="how-to-delete-your-solution"></a>**Hur du tar bort din lösning**
-Se till att du avbryter datagenerator när inte aktivt med lösningen som kör datagenerator påförs högre kostnader. Ta bort lösningen om du inte använder den. Tar bort din lösning för alla komponenter som har etablerats i din prenumeration när du distribuerade lösningen. Om du vill ta bort lösningen klickar du på din lösningens namn i den vänstra panelen av lösningsmall och klicka på Ta bort.
+## <a name="delete-your-solution"></a>Ta bort din lösning
+Se till att du avbryter datagenerator när inte aktivt med lösningen som kör datagenerator påförs högre kostnader. Ta bort lösningen om du inte använder den. Tar bort din lösning för alla komponenter som har etablerats i din prenumeration när du distribuerade lösningen. Om du vill ta bort lösningen, klickar du på din lösning i den vänstra panelen av lösningen mallen och klicka sedan på **ta bort**.
 
-## <a name="cost-estimation-tools"></a>**Kostnad uppskattning verktyg**
+## <a name="cost-estimation-tools"></a>Kostnad uppskattning verktyg
 Följande två verktyg är tillgängliga som hjälper dig att bättre förstå de totala kostnaderna för med förutsägande Underhåll för flyg Lösningsmall i din prenumeration:
 
 * [Microsoft Azure kostnaden exteriörbedömning-verktyget (online)](https://azure.microsoft.com/pricing/calculator/)

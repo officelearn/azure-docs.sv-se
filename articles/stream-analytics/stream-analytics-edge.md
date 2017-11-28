@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT kant (förhandsgranskning)
 
@@ -61,6 +61,11 @@ Du kan följa [stegvisa självstudierna](https://docs.microsoft.com/azure/iot-ed
 
 #### <a name="create-an-asa-edge-job"></a>Skapa ett ASA Edge-jobb
 1. Skapa en ny ”Stream Analytics-jobbet” från Azure-portalen. [Direktlänk så här skapar du en ny ASA här](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+
+> [!Note]
+> Du kan skapa Edge jobb i alla regioner som stöds av ASA, **förutom i ”västra USA 2” region**.
+> Den här begränsningen tas bort inom kort.
+
 2. På skärmen skapa väljer **kant** som **värdmiljön** (se följande bild) ![skapa jobb](media/stream-analytics-edge/ASAEdge_create.png)
 3. Jobbdefinitionen
     1. **Definiera inkommande Stream(s)**. Definiera en eller flera inkommande dataströmmar för jobbet.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: billgib
-ms.openlocfilehash: 346177be29ec196464f4f441858222ac5d5eb8c3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e4b8e38d20ec408869f2228597afdf2f9620515b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Hantera schemat för flera klienter i ett program för flera innehavare som använder Azure SQL Database
 
@@ -45,7 +45,7 @@ Se till att följande förhandskrav är slutförda för att kunna slutföra den 
 * Den senaste versionen av SQL Server Management Studio (SSMS) ska vara installerad. [Ladda ned och installera SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> *Den här guiden använder funktioner för SQL Database-tjänsten som är i en begränsad förhandsgranskning (elastiska databasjobb). Om du vill följa den här guiden, måste du ange ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = Förhandsgranskning av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här förhandsgranskningen är begränsad, så Kontakta SaaSFeedback@microsoft.com för frågor eller support.*
+> Den här kursen använder funktioner för SQL Database-tjänsten som är i en begränsad förhandsgranskning (elastisk databas jobb). Om du vill följa den här guiden, måste du ange ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = Förhandsgranskning av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här förhandsgranskningen är begränsad, så Kontakta SaaSFeedback@microsoft.com för frågor eller support.
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till SaaS-schemahanteringsmönster
@@ -58,9 +58,9 @@ Delat flera innehavare databasmodellen används i det här exemplet gör det mö
 
 Det finns en ny version av elastiska jobb som nu är en inbyggd funktion i Azure SQL Database (som inte kräver några ytterligare tjänster eller komponenter). Den här nya versionen av elastiska jobb är för närvarande i begränsad förhandsvisning. Den här begränsade förhandsvisningen stöder för närvarande PowerShell för att skapa jobbkonton och T-SQL för att skapa och hantera jobb.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Hämta programskript Wingtip biljetter SaaS flera innehavare databas
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta Wingtip biljetter SaaS flera innehavare databasen programmets källkod och skript
 
-Wingtip biljetter SaaS flera innehavare databasen skript och programmets källkod är tillgängliga i den [WingtipTicketsSaaS MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub-lagringsplatsen. <!-- [Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts](saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+Wingtip biljetter SaaS flera innehavare databasen skript och programmets källkod är tillgängliga i den [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub-lagringsplatsen. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript. 
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Skapa en jobbkonto-databas och ett nytt jobbkonto
 
@@ -89,13 +89,14 @@ För att skapa ett nytt jobb, använder vi oss av en uppsättning jobbsystemlagr
 6. Ändra instruktionen: Ange @User = &lt;användaren&gt; och Ersätt det användar-värde som används när du distribuerade databasprogram Wingtip biljetter SaaS flera innehavare.
 7. Tryck **F5** för att köra skriptet.
 
-    * **SP\_lägga till\_mål\_grupp** skapar målgruppen namn DemoServerGroup, nu lägga till målet medlemmar i gruppen.
-    * **SP\_lägga till\_mål\_grupp\_medlem** lägger till en *server* mål Medlemstyp som bedömer alla databaser på servern (Observera att detta är tenants1 - huvudmålservern - &lt;användare&gt; servern som innehåller klienter databasen) vid tidpunkten för jobbkörningen ska inkluderas i jobbet, en *databasen* mål Medlemstyp för ”gyllene'-databasen (basetenantdb) som finns på katalog-huvudmålservern -&lt;användare&gt; server, och slutligen en *databasen* måltyp medlem att inkludera adhocreporting databasen som används i en senare vägledning.
-    * **SP\_lägga till\_jobbet** skapas ett jobb som kallas ”referens Data distribution”.
-    * **SP\_lägga till\_jobbsteg** skapar de steg som innehåller text för T-SQL-kommandot om du vill uppdatera referenstabellen VenueTypes.
-    * De återstående vyerna i skriptet visar att jobbet finns och övervakar jobbkörningen. Använd de här frågorna för att granska statusvärde i den **livscykel** kolumnen att avgöra när jobbet har slutförts på databasen för klienter och de två ytterligare databaser som innehåller referenstabellen.
+Observera följande i den *DeployReferenceData.sql* skript:
+* **SP\_lägga till\_mål\_grupp** skapar målgruppen namn DemoServerGroup, nu lägga till målet medlemmar i gruppen.
+* **SP\_lägga till\_mål\_grupp\_medlem** lägger till en *server* mål Medlemstyp som bedömer alla databaser på servern (Observera att detta är tenants1 - huvudmålservern - &lt;användare&gt; servern som innehåller klienter databasen) vid tidpunkten för jobbkörningen ska inkluderas i jobbet, en *databasen* mål Medlemstyp för ”gyllene'-databasen (basetenantdb) som finns på katalog-huvudmålservern -&lt;användare&gt; server, och slutligen en *databasen* måltyp medlem att inkludera adhocreporting databasen som används i en senare vägledning.
+* **SP\_lägga till\_jobbet** skapas ett jobb som kallas ”referens Data distribution”.
+* **SP\_lägga till\_jobbsteg** skapar de steg som innehåller text för T-SQL-kommandot om du vill uppdatera referenstabellen VenueTypes.
+* De återstående vyerna i skriptet visar att jobbet finns och övervakar jobbkörningen. Använd de här frågorna för att granska statusvärde i den **livscykel** kolumnen att avgöra när jobbet har slutförts på databasen för klienter och de två ytterligare databaser som innehåller referenstabellen.
 
-1. SSMS, bläddra till klient-databasen på den *tenants1-huvudmålservern -&lt;användare&gt;*  server och fråga den *VenueTypes* tabell för att bekräfta att *motorcykel tävling* och *simning en* är nu **läggs* i tabellen.
+SSMS, bläddra till klient-databasen på den *tenants1-huvudmålservern -&lt;användare&gt;*  server och fråga den *VenueTypes* tabell för att bekräfta att *motorcykel tävling* och *simning en* är nu **läggs* i tabellen.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Skapa ett jobb för att hantera referenstabellindexet
@@ -105,11 +106,12 @@ På liknande vis som föregående övning så skapar den här ett jobb för att 
 
 1. Anslut till jobaccount databas i katalogen i SSMS,-huvudmålservern -&lt;användaren&gt;. database.windows.net server.
 2. Öppna i SSMS... \\Learning moduler\\schemat Management\\OnlineReindex.sql.
-3. Tryck på **F5** att köra skriptet
+3. Tryck **F5** för att köra skriptet.
 
-    * **SP\_lägga till\_jobbet** skapar ett nytt jobb som kallas ”Online omindexera PK\_\_VenueTyp\_\_265E44FD7FD4C885”.
-    * **SP\_lägga till\_jobbsteg** skapar de steg som innehåller text för T-SQL-kommando för att uppdatera indexet.
-    * De återstående vyerna i skriptet övervaka jobbkörning av. Använd de här frågorna för att granska statusvärde i den **livscykel** kolumnen att avgöra när jobbet har slutförts på på alla mål-gruppmedlemmar.
+Observera följande i den *OnlineReindex.sql* skript:
+* **SP\_lägga till\_jobbet** skapar ett nytt jobb som kallas ”Online omindexera PK\_\_VenueTyp\_\_265E44FD7FD4C885”.
+* **SP\_lägga till\_jobbsteg** skapar de steg som innehåller text för T-SQL-kommando för att uppdatera indexet.
+* De återstående vyerna i skriptet övervaka jobbkörning av. Använd de här frågorna för att granska statusvärde i den **livscykel** kolumnen att avgöra när jobbet har slutförts på på alla mål-gruppmedlemmar.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -121,7 +123,7 @@ I den här guiden lärde du dig hur man:
 > * Uppdaterar data i alla klientdatabaser
 > * Skapar ett index i en tabell i alla klientdatabaser
 
-[Ad-hoc analys-guide](saas-multitenantdb-adhoc-reporting.md)
+Försök med den [Ad hoc-rapportering kursen](saas-multitenantdb-adhoc-reporting.md).
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser

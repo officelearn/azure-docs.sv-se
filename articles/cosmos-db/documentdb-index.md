@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: ce24e445177b7e2e499309f016478030efa6bfe8
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: DocumentDB API-dokumentation
 
@@ -36,7 +36,7 @@ Dessa är måste läsa ämnen och resurser för att starta lära dig mer om Docu
 
 ## <a name="quickstarts"></a>Snabbstarter
 
-Snabbstart-avsnitt är det snabbaste sättet att skapa ett fungerande program med Azure Cosmos DB. I varje Quickstart lära du dig att använda UI-baserad Azure-portalen och din favorit kodning språk för att skapa databaslösningar med Azure Cosmos DB. Klonbara web apps från GitHub område som är tillgängliga för varje Snabbstart. 
+Snabbstart-avsnitt är det snabbaste sättet att skapa ett fungerande program med Azure Cosmos DB. I varje Quickstart lära du dig att använda UI-baserad Azure-portalen och din favorit kodning språk för att skapa databaslösningar med Azure Cosmos DB. Klonbara webbappar från GitHub är tillgängliga för varje Snabbstart. 
 
 - [.NET + azure-portalen + Web apps](create-documentdb-dotnet.md)
 - [Java + Azure-portalen + Web apps](create-documentdb-java.md)

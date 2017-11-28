@@ -16,11 +16,11 @@ ms.date: 10/26/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 260462e57c53d2d41bb2bfd8381a1c184303eea1
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -30,7 +30,7 @@ Följande administratörsroller är tillgängliga:
 
 * **Faktureringsadministratör**: gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstens hälsa.
 
-* **Kompatibilitet administratören**: användare med den här rollen ha administrativ behörighet i i Office 365 säkerhet & Efterlevnadscentret och administrationscentret för Exchange. Mer information i ”[om administratörsroller i Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)”.
+* **Kompatibilitet administratören**: användare med den här rollen ha administrativ behörighet i i Office 365 säkerhet & Efterlevnadscentret och administrationscentret för Exchange. Mer information i ”[om administratörsroller i Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)”.
 
 * **Villkorlig åtkomst administratör**: användare med den här rollen har möjlighet att hantera inställningar för villkorlig åtkomst i Azure Active Directory.
   > [!NOTE]
@@ -55,7 +55,7 @@ Följande administratörsroller är tillgängliga:
   >
   >
 
-* **Gästen bjuder in**: användare i den här rollen kan hantera Azure Active Directory B2B gästen användaren inbjudningar när inställningen ”medlemmar kan bjuda in” user är inställd på Nej. Mer information om B2B-samarbete när [om i Azure AD B2B-samarbete preview](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Det innehåller inte några andra behörigheter.
+* **Gästen bjuder in**: användare i den här rollen kan hantera Azure Active Directory B2B gästen användaren inbjudningar när inställningen ”medlemmar kan bjuda in” user är inställd på Nej. Mer information om B2B-samarbete när [om i Azure AD B2B-samarbete preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Det innehåller inte några andra behörigheter.
 
 * **Intune-tjänstadministratören**: användarna med den här rollen har globala behörigheter i Microsoft Intune Online när tjänsten finns. Dessutom innehåller den här rollen kan hantera användare och enheter för att associera principen, samt skapa och hantera grupper.
 
@@ -72,13 +72,13 @@ Följande administratörsroller är tillgängliga:
   >
   >
   
-* **Power BI tjänstadministratör**: användare med den här rollen har globala behörigheter i Microsoft Power BI när tjänsten är tillgänglig, samt möjlighet att hantera supportärenden och övervakar tjänstens hälsa. Mer information på [om Office 365-administratörsroller](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
+* **Power BI tjänstadministratör**: användare med den här rollen har globala behörigheter i Microsoft Power BI när tjänsten är tillgänglig, samt möjlighet att hantera supportärenden och övervakar tjänstens hälsa. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Privilegierade rollen Administratör**: användare med den här rollen kan hantera rolltilldelningar i Azure Active Directory, såväl i Azure AD Privileged Identity Management. Den här rollen kan dessutom hantering av alla aspekter av Privileged Identity Management.
 
-* **Säkerhetsadministratör**: användare med den här rollen har alla läsbehörighet reader säkerhetsrollen plus möjligheten att hantera konfigurationen för säkerhetsrelaterade services: Azure Active Directory-identitetsskydd, privilegierad Identity Management och Office 365 säkerhet och efterlevnad Center. Mer information om Office 365 behörigheter finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscentret](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Säkerhetsadministratör**: användare med den här rollen har alla läsbehörighet reader säkerhetsrollen plus möjligheten att hantera konfigurationen för säkerhetsrelaterade services: Azure Active Directory-identitetsskydd, privilegierad Identity Management och Office 365 säkerhet och efterlevnad Center. Mer information om Office 365 behörigheter finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscentret](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Säkerhet Reader**: användare med den här rollen har globala skrivskyddad åtkomst, inklusive alla uppgifter i Azure Active Directory, identitetsskydd, Privileged Identity Management, samt möjlighet att läsa Azure Active Directory-inloggning rapporter och granskningsloggar. Rollen ger även skrivskyddad behörighet i Office 365-säkerhet och efterlevnad Center. Mer information om Office 365 behörigheter finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscentret](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Säkerhet Reader**: användare med den här rollen har globala skrivskyddad åtkomst, inklusive alla uppgifter i Azure Active Directory, identitetsskydd, Privileged Identity Management, samt möjlighet att läsa Azure Active Directory-inloggning rapporter och granskningsloggar. Rollen ger även skrivskyddad behörighet i Office 365-säkerhet och efterlevnad Center. Mer information om Office 365 behörigheter finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscentret](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Stöd för tjänstadministratör**: användare med den här rollen kan öppna supportärenden med Microsoft för Azure och Office 365-tjänster och vyer som tjänsten instrumentpanelen och meddelandet center i Azure-portalen och administrationsportalen för Office 365. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -130,14 +130,14 @@ Följande administratörsroller är tillgängliga:
 ### <a name="security-reader"></a>Säkerhet läsare
 | i | Kan göra |
 | --- | --- |
-| Identity Protection Center |Läsa alla säkerhetsrapporter och inställningsinformation om för säkerhet<ul><li>Skräppost<li>Kryptering<li>Skydd mot dataförlust<li>Skadlig kod<li>Avancerat skydd<li>Mot nätfiske<li>Mailflow regler |
+| Identity Protection Center  |Läsa alla säkerhetsrapporter och inställningsinformation om för säkerhet<ul><li>Skräppost<li>Kryptering<li>Skydd mot dataförlust<li>Skadlig kod<li>Avancerat skydd<li>Mot nätfiske<li>Mailflow regler |
 | Privileged Identity Management |<p>Har skrivskyddad åtkomst till all information som angetts i Azure AD PIM: principer och rapporter för Azure AD-rolltilldelningar säkerhet granskar och i framtiden skrivskyddad åtkomst till principdata och rapporter för scenarier utöver Azure AD-rolltilldelning.<p>**Det går inte att** registrera dig för Azure AD PIM eller göra några ändringar. PIMS portalen eller via PowerShell kan någon i den här rollen aktivera ytterligare roller (till exempel Global administratör eller Privilegierade rollen Administratör), om användaren är en kandidat för dem. |
 | <p>Tjänstens hälsa för Övervakare för Office 365</p><p>Office 365-säkerhet och efterlevnad Center</p> |<ul><li>Läsa och hantera aviseringar<li>Läs säkerhetsprinciper<li>Läsa hotinformation, Cloud App Discovery och karantän i Sök- och undersök<li>Läsa alla rapporter |
 
 ### <a name="security-administrator"></a>Säkerhetsadministratör
 | i | Kan göra |
 | --- | --- |
-| Identity Protection Center |<ul><li>Alla behörigheter för rollen säkerhet läsare.<li>Dessutom kan utföra alla åtgärder för IPC förutom återställa lösenord. |
+| Identity Protection Center  |<ul><li>Alla behörigheter för rollen säkerhet läsare.<li>Dessutom kan utföra alla åtgärder för IPC förutom återställa lösenord. |
 | Privileged Identity Management |<ul><li>Alla behörigheter för rollen säkerhet läsare.<li>**Det går inte att** Hantera medlemskap i Azure AD-roller eller inställningar. |
 | <p>Tjänstens hälsa för Övervakare för Office 365</p><p>Office 365-säkerhet och efterlevnad Center |<ul><li>Alla behörigheter för rollen säkerhet läsare.<li>Kan konfigurera alla inställningar i funktionen Advanced Threat Protection (skydd mot skadlig kod och virus, skadliga URL-config, URL-spårning, etc.). |
 

@@ -337,8 +337,10 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: SaaS med flera klientorganisationer
       items:
-        - name: Välkommen till Wingtips
+        - name: Exempel på Wingtip-biljetter
           href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Allmän vägledning
+          href: saas-tenancy-wingtip-app-guidance-tips.md
         - name: Fristående program
           items:
             - name: Distribuera exempelapp

@@ -1,7 +1,7 @@
 ---
 title: "Azure Data Lake-verktyg: Använd Azure Data Lake-verktyg för Visual Studio Code | Microsoft Docs"
 description: "Lär dig hur du använder Azure Data Lake-verktyg för Visual Studio-koden för att skapa, testa och köra U-SQL-skript. "
-Keywords: "VScode, Azure Data Lake-verktyg, lokal körning lokala felsökning felsöka lokal förhandsgranskning lagringsfilen, ladda upp till sökvägen till lagring, hämtning, överför"
+Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/10/2017
+ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: e724a8db4424a1e608ae7ee5625cd4cc16f6078f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake-verktyg för Visual Studio Code
 
 Läs Azure Data Lake-verktyg för Visual Studio-koden (VS) att skapa, testa och köra U-SQL-skript. Informationen finns också i följande video:
 
-<a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
+<a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## <a name="prerequisites"></a>Krav
 
@@ -86,33 +86,20 @@ Du måste öppna ett U-SQL-fil eller mapp att arbeta med U-SQL.
 
     Skriptet skapar en departments.csv-fil med vissa data som ingår i mappen/Output.
 
-5. Spara filen som **myUSQL.usql** i mappen öppnas. En konfigurationsfil för adltools_settings.json läggs också till i projektet.
-4. Öppna och konfigurera adltools_settings.json med följande egenskaper:
+5. Spara filen som **myUSQL.usql** i mappen öppnas. En konfigurationsfil för xxx_settings.json läggs också till i mappen.
+6. Öppna och konfigurera xxx_settings.json med följande egenskaper:
 
-    - Konto: Ett Data Lake Analytics-konto under din Azure-prenumeration.
+    - Konto: Ett Data Lake Analytics-konto under din Azure-prenumeration som behövs för att kompilera och köra U-SQL-jobb, så du måste konfigurera kontot innan du kompilera och köra U-SQL-jobb.
     - Databas: En databas med ditt konto. Standardvärdet är **master**.
     - Schema: Ett schema under din databas. Standardvärdet är **dbo**.
     - Valfria inställningar:
         - Prioritet: Prioritet intervallet är från 1 till 1000 med 1 är den högsta prioriteten. Standardvärdet är **1000**.
         - Parallellitet: Parallellitet-intervallet är från 1 till 150. Standardvärdet är maximalt parallellitet tillåts i ditt Azure Data Lake Analytics-konto. 
         
-        > [!NOTE] 
-        > Om inställningarna är ogiltiga, används standardvärden.
-
         ![Data Lake-verktyg för Visual Studio Code konfigurationsfil](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
-
-        Beräkning Data Lake Analytics-konto krävs för att kompilera och köra U-SQL-jobb. Du måste konfigurera kontot innan du kan kompilera och köra U-SQL-jobb.
-    
-        När konfigurationen har sparats kontot, databas och schema informationen som visas i statusfältet längst ned till vänster i motsvarande .usql-fil. 
- 
- 
-Jämfört med att öppna en fil när du öppnar en mapp som du kan:
-
-- Använda en fil med bakomliggande kod. Bakomliggande kod stöds inte i filen-läge.
-- Använd en konfigurationsfil. När du öppnar en mapp, skript i arbetsmappen för att dela en enda konfigurationsfil.
-
-
-U-SQL-skriptet kompilerar via fjärranslutning via Data Lake Analytics-tjänsten. När du skickar den **Kompilera** kommandot U-SQL-skriptet som skickas till ditt Data Lake Analytics-konto. Visual Studio-koden får senare Kompileringsresultatet. På grund av fjärråtkomst kompilering kräver Visual Studio Code att du visa information om att ansluta till Data Lake Analytics-kontot i konfigurationsfilen.
+      
+        > [!NOTE] 
+        > När konfigurationen har sparats visas kontot, databas och schemainformation i statusfältet längst ned till vänster i motsvarande .usql-fil.
 
 **Att kompilera ett U-SQL-skript**
 
@@ -129,29 +116,8 @@ När du skickar ett U-SQL-jobb loggar som skickas visas i den **utdata** fönste
 
 Om du vill aktivera utdata i Jobbinformationen ange **jobInformationOutputPath** i den **vs Platskod för u-sql_settings.json** fil.
  
-## <a name="use-a-code-behind-file"></a>Använda en fil med bakomliggande kod
-
-En fil med bakomliggande kod är ett C#-fil som är associerad med ett enda U-SQL-skript. Du kan definiera ett skript som är dedikerad till UDO, UDA, UDT och UDF i filen bakomliggande kod. UDO, UDA, UDT och UDF kan användas direkt i skriptet utan att registrera sammansättningen först. Bakomliggande kod filen placeras i samma mapp som dess peering U-SQL-skriptfilen. Om skriptet heter xxx.usql, heter bakomliggande kod som xxx.usql.cs. Om du manuellt ta bort filen bakomliggande kod inaktiveras funktionen bakomliggande kod för dess associerade U-SQL-skript. Mer information om hur du skriver kunden koden för U-SQL-skript finns [skrivning och använder anpassad kod i U-SQL: användardefinierade funktioner]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
-
-För att stödja bakomliggande kod, måste du öppna en arbetsmapp. 
-
-**Att generera en fil med bakomliggande kod**
-
-1. Öppna en källfil. 
-2. Välj Ctrl + Skift + P för att öppna paletten kommando.
-3. Ange **ADL: Generera kod bakom**. En fil med bakomliggande kod skapas i samma mapp. 
-
-Du kan också högerklicka på en skriptfil och sedan välja **ADL: Generera kod bakom**. 
-
-Att kompilera och skicka ett U-SQL-skript med en fil med bakomliggande kod är lika med den fristående U-SQL-skriptfilen.
-
-Följande två skärmbilderna visar en fil med bakomliggande kod och dess associerade U-SQL-skriptfilen:
- 
-![Data Lake-verktyg för Visual Studio Code bakomliggande kod](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind.png)
-
-![Data Lake-verktyg för Visual Studio Code bakomliggande kod skriptfilen](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
-
-Vi stöder lokal körning och lokala felsökning finns i anvisningarna [lokal U-SQL kör och lokala debug med Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
+## <a name="use-python-r-and-csharp-code-behind-file"></a>Använda Python, R och CSharp bakomliggande kod-fil
+Azure Data Lake-verktyget stöder flera anpassad kod finns i anvisningarna [utveckla U-SQL med Python, R och CSharp för Azure Data Lake Analytics i VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## <a name="use-assemblies"></a>Använd sammansättningar
 
@@ -277,14 +243,14 @@ Du kan använda följande steg för att komma åt U-SQL-katalogen när du har an
 Du kan använda lagring av Azure Data Lake-relaterade kommandon:
  - Bläddra igenom Azure Data Lake-lagringsresurser. [Storage-sökvägen](#list-the-storage-path). 
  - Förhandsgranska Azure Data Lake Storage-fil. [Förhandsgranska lagringsfilen](#preview-the-storage-file). 
- - Ladda upp filen direkt till Azure Data Lake-lagring i VS-kod. [Ladda upp filen](#upload-file).
+ - Ladda upp filen direkt till Azure Data Lake-lagring i VS-kod. [Ladda upp filen eller mappen](#upload-file-or-folder).
  - Hämta filen direkt från Azure Data Lake Storage i VS-kod. [Hämta filen](#download-file).
 
 ## <a name="list-the-storage-path"></a>Sökvägen för lagring 
 
 **Listan lagringssökväg via paletten kommando**
 
-Högerklicka på Skriptredigeraren och välj **ADL: listan Lagringssökväg**.
+Högerklicka på Skriptredigeraren och välj **ADL: listan sökvägen**.
 
 Välj mappen i listan eller klicka på **ange sökvägen** eller **Bläddra från roten** (använder ange en sökväg som exempel). Välj -> din **ADLA konto**. Analysera -> eller ange sökvägen till lagring (till exempel: / utdata /). -> Kommandot paletten listorna sökvägsinformationen baserat på dina uppgifter.
 
@@ -294,55 +260,40 @@ Det enklaste sättet att visa den relativa sökvägen är via snabbmenyn.
 
 **Listan lagringssökväg genom att högerklicka på**
 
-Högerklicka på sökvägssträngen för att välja **lista Lagringssökväg** att fortsätta.
+Högerklicka på sökvägssträngen för att välja **lista sökvägen** att fortsätta.
 
 ![Data Lake-verktyg för Visual Studio Code högerklickar du på snabbmenyn](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
 ## <a name="preview-the-storage-file"></a>Förhandsgranska lagringsfilen
 
-Högerklicka på Skriptredigeraren och välj **ADL: Preview lagringsfilen**.
+Högerklicka på Skriptredigeraren och välj **ADL: förhandsgranskningsfil**.
 
 Välj din **ADLA konto**. Ange en filsökväg (till exempel /output/SearchLog.txt) för Azure storage ->. Result ->: filen öppnas i VSCode.
 
    ![Data Lake-verktyg för Visual Studio Code förhandsgranska filen resultat](./media/data-lake-analytics-data-lake-tools-for-vscode/preview-storage-file.png)
 
-Ett annat sätt att förhandsgranska lagringsfilen är via snabbmenyn på den fullständiga sökvägen eller den relativa sökvägen i Skriptredigeraren. 
+Det är ett annat sätt att förhandsgranskningsfilen via snabbmenyn på den fullständiga sökvägen eller den relativa sökvägen i Skriptredigeraren. 
 
-## <a name="upload-file"></a>Ladda upp filen 
+## <a name="upload-file-or-folder"></a>Ladda upp filen eller mappen
 
-Du kan ladda upp filer genom att ange kommandona **ADL: ladda upp filen** eller **ADL: ladda upp filen via konfiguration**.
+1. Högerklicka på Skriptredigeraren och välj **överför filen** eller **överför mappen**.
 
-**Att överföra filer via ADL: ladda upp filen via Konfigurationskommando**
-1.  Högerklicka på Skriptredigeraren och välj sedan **överför filen via konfiguration**.
-2.  VS-kod visar en JSON-fil. Du kan ange sökvägar och överför flera filer samtidigt. Instruktioner visas i den **utdata** fönster. Om du vill fortsätta att överföra filen, spara (Ctrl + S) JSON-filen.
+2. Välj en eller flera filer om du väljer överför filen eller välj hela mappen om du väljer Skicka mapp sedan klickar du på **överför**. -> Välj lagringsmappen i listan, eller klicka på **ange sökvägen** eller **Bläddra från roten** (använder ange en sökväg som exempel). Välj -> din **ADLA konto**. Analysera -> eller ange sökvägen till lagring (till exempel: / utdata /). -> Klicka **Välj aktuella mappen** att ange din målplatsen.
 
-       ![Data Lake-verktyg för Visual Studio Code filsökväg](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
+   ![Data Lake-verktyg för Visual Studio Code överför status](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
 
-3.  Resultat: Den **utdata** Överföringsstatusen filen visas i fönstret.
 
-       ![Data Lake-verktyg för Visual Studio Code överför status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
+   Ett annat sätt att ladda upp filer till lagring är via snabbmenyn på den fullständiga sökvägen eller den relativa sökvägen i Skriptredigeraren.
 
 På samma gång, kan du övervaka den [Överföringsstatus](#check-storage-tasks-status).
 
-**Att överföra filer via ADL: ladda upp fil (kommando)**
-
-Högerklicka på Skriptredigeraren och välj **överför filen**.
-
-Ange din **lokal filsökväg**. -> Välj mappen i listan, eller klicka på **ange sökvägen** eller **Bläddra från roten** (använder ange en sökväg som exempel). Välj -> din **ADLA konto**. Analysera -> eller ange sökvägen till lagring (till exempel: / utdata /). -> Klicka **Välj aktuella mappen** att ange din målplatsen.
-
-![Data Lake-verktyg för Visual Studio Code överför status](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
-
-
-Ett annat sätt att ladda upp filer till lagring är via snabbmenyn på den fullständiga sökvägen eller den relativa sökvägen i Skriptredigeraren.
-
-På samma gång, kan du övervaka den [Överföringsstatus](#check-storage-tasks-status).
 
 ## <a name="download-file"></a>Hämta filen 
-Du kan hämta filer genom att ange kommandona **ADL: hämta lagringsfilen** eller **ADL: hämta lagringsfilen via konfiguration**.
+Du kan hämta filer genom att ange kommandona **ADL: hämta filen** eller **ADL: hämta filen (Avancerat)**.
 
-**Hämta filer även om ADL: hämta filen via Konfigurationskommando**
-1. Högerklicka på Skriptredigeraren och välj sedan **hämta lagringsfilen via konfiguration**.
+**Hämta filer även om ADL: hämta filen (Avancerat)**
+1. Högerklicka på Skriptredigeraren och välj sedan **hämta filen (Avancerat)**.
 2. VS-kod visar en JSON-fil. Du kan ange sökvägar och hämta flera filer samtidigt. Instruktioner visas i den **utdata** fönster. Om du vill fortsätta att hämta filen, spara (Ctrl + S) JSON-filen.
 
     ![Data Lake-verktyg för Visual Studio-koden och hämta filer med config](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
@@ -353,17 +304,16 @@ Du kan hämta filer genom att ange kommandona **ADL: hämta lagringsfilen** elle
 
 På samma gång, kan du övervaka den [hämtar status](#check-storage-tasks-status).
 
-**Hämta filer även om ADL: hämta lagringsfilen kommando**
+**Hämta filer även om ADL: hämta filen**
 
-Högerklicka på Skriptredigeraren och välj sedan **hämta lagringsfilen**.
+1. Högerklicka på Skriptredigeraren, Välj **hämta filen**, och välj sedan målmappen från den **Välj mapp** dialogrutan.
 
-Välj mappen i listan eller klicka på **ange sökvägen** eller **Bläddra från roten** (använder ange en sökväg som exempel). Välj -> din **ADLA konto**. Analysera -> eller ange sökvägen till lagring (till exempel: / utdata) -> Välj en fil att ladda ned.
+2. Välj mappen i listan eller klicka på **ange sökvägen** eller **Bläddra från roten** (använder ange en sökväg som exempel). Välj -> din **ADLA konto**. Analysera -> eller ange sökvägen till lagring (till exempel: / utdata) -> Välj en fil att ladda ned.
 
    ![Hämta status för data Lake-verktyg för Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
 
-   I resultatet bild spara filen som den temporära mappen. Du kan ange ett standardvärde som hämtar sökväg för parametern **usql.defaultLocalFolderForDownload** själv via menyn VSCode **filen** -> **inställningar**  ->  **Inställningen**.
-
-Ett annat sätt för att hämta lagringsfilerna är via snabbmenyn på den fullständiga sökvägen eller den relativa sökvägen i Skriptredigeraren.
+   
+   Ett annat sätt för att hämta lagringsfilerna är via snabbmenyn på den fullständiga sökvägen eller den relativa sökvägen i Skriptredigeraren.
 
 På samma gång, kan du övervaka den [hämtar status](#check-storage-tasks-status).
 
@@ -373,12 +323,20 @@ Statusen visas längst ned i statusfältet när du är klar överföra och ladda
 
    ![Data Lake-verktyg för Visual Studio Code Kontrollera lagring status](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
+## <a name="vscode-explorer-integration-with-azure-data-lake"></a>VSCode Explorer integrering med Azure Data Lake
+1. Efter inloggningen, visas alla Azure-konton visas i den vänstra panelen i den **DataLake Explorer**. Expandera en databas kan du visa den **scheman**, **tabeller**, **sammansättningar** och så vidare, under noden.
 
-## <a name="open-azure-storage-explorer"></a>Öppna Azure Lagringsutforskaren
-Du kan öppna **Azure Lagringsutforskaren** genom att ange kommandot **ADL: öppna Lagringsutforskaren för Web Azure** eller genom att välja den från snabbmenyn.
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**Öppna Azure Lagringsutforskaren**
+2. Du kan utföra kommandot **registrera sammansättningen** genom att högerklicka på den **sammansättningar** nod.
 
+    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
+
+3. Gå till **Lagringskonto**, du kan överföra eller hämta filen genom att högerklicka på mappen eller filen. Och du även **Preview** en fil, **hämta**, **kopiera relativa sökväg**, **Kopiera fullständig sökväg** av snabbmenyn.
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+## <a name="open-adl-storage-explorer-in-portal"></a>Öppna Lagringsutforskaren för ADL i portalen
 1. Välj Ctrl + Skift + P för att öppna paletten kommando.
 2. Ange **öppna Web Azure Lagringsutforskaren** eller högerklicka på en relativ sökväg eller den fullständiga sökvägen i Skriptredigeraren och välj **öppna Web Azure Lagringsutforskaren**.
 3. Välj ett Data Lake Analytics-konto.
@@ -420,11 +378,12 @@ Data Lake-verktyg för VS-koden har stöd för följande funktioner:
     ![Data Lake-verktyg för Visual Studio Code syntax visar](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
 ## <a name="next-steps"></a>Nästa steg
+- [Utveckla U-SQL med Python, R och CSharp för Azure Data Lake Analytics i VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+- [Lokal U-SQL kör och lokala debug med Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
+- [Självstudier: Kom igång med Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
+- [Självstudier: Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+- [Utveckla U-SQL-sammansättningar för Azure Data Lake Analytics-jobb](data-lake-analytics-u-sql-develop-assemblies.md)
 
-- Lokal U-SQL-körning och lokala debug med Visual Studio Code finns [lokal U-SQL kör och lokala debug med Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
-- Kom igång-information på Data Lake Analytics finns [Självstudier: Kom igång med Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
-- Information om Data Lake-verktyg för Visual Studio finns [Självstudier: utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-- Information om hur du utvecklar sammansättningar finns [utveckla U-SQL-sammansättningar för Azure Data Lake Analytics-jobb](data-lake-analytics-u-sql-develop-assemblies.md).
 
 
 

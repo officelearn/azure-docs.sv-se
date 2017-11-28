@@ -1,6 +1,7 @@
 ---
 title: Mappa ett befintligt anpassade DNS-namn till Azure Web Apps | Microsoft Docs
 description: "Lär dig hur du lägger till en befintlig anpassad DNS-domännamn (alternativa domänen) till en webbapp, mobilappsserverdel eller API-app i Azure App Service."
+keywords: "App service, azure app service, domänmappning, domännamn, befintlig domän, värdnamn"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mappa ett befintligt anpassade DNS-namn till Azure Web Apps
 
@@ -269,6 +270,27 @@ Välj den  **+**  ikonen igen om du vill lägga till ett annat värdnamn som mat
 Bläddra till DNS-namn som du tidigare har konfigurerat (till exempel `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, och `sub2.contoso.com`).
 
 ![Portalen navigering till Azure-app](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## <a name="resolve-404-error-web-site-not-found"></a>Åtgärda 404 felet ”Det gick inte att hitta webbplatsen”
+
+Om du får felmeddelandet HTTP 404 (inget hittas) när du bläddrar till URL: en för den anpassade domänen kontrollerar du att din domän matchas till din app IP-adress med <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Om inte, det kan bero på något av följande skäl:
+
+- Den anpassade domänen som konfigurerats saknar en A-post och/eller en CNAME-post.
+- Klientens webbläsare har cachelagrat gamla IP-adressen för din domän. Rensa cache och testa DNS-matchningen igen. På en Windows-dator du har rensat med `ipconfig /flushdns`.
+
+<a name="virtualdir"></a>
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Direkt standard-URL till en anpassad katalog
+
+Som standard gör Apptjänst webbegäranden till rotkatalogen för din Appkod. Vissa web ramverk starta men inte i rotkatalogen. Till exempel [Laravel](https://laravel.com/) startar i den `public` underkatalog. Fortsätta den `contoso.com` DNS exempelvis sådana en app som skulle vara tillgängligt vid `http://contoso.com/public`, men du vill verkligen vill dirigera `http://contoso.com` till den `public` katalog i stället. Det här steget inbegriper inte DNS-matchning, men anpassa den virtuella katalogen.
+
+Om du vill göra det, Välj **programinställningar** i det vänstra navigeringsfönstret på webbsidan för appen. 
+
+Längst ned på sidan, den virtuella rotkatalogen `/` pekar på `site\wwwroot` som standard, vilket är rotkatalogen för din Appkod. Ändra den att peka mot den `site\wwwroot\public` i stället, till exempel och spara ändringarna. 
+
+![Anpassa virtuell katalog](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+När åtgärden har slutförts ska du app returnera högra sidan vid rotsökvägen (till exempel http://contoso.com).
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

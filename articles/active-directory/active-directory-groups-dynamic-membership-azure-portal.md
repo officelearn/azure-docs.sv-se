@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Skapa attributbaserade regler för dynamiska gruppmedlemskap i Azure Active Directory
 Du kan skapa avancerade regler för att aktivera avancerade attributbaserad dynamiskt medlemskap för grupper i Azure Active Directory (AD Azure). Den här artikeln beskrivs de attribut och syntax för att skapa regler för dynamiskt medlemskap för användare eller enheter.
@@ -163,6 +163,7 @@ Tillåtna operatörer
 | Företagsnamn | Någon strängvärde eller *null* | (user.companyName - eq ”värde”) |
 | Avdelning |Någon strängvärde eller *null* |(user.department - eq ”värde”) |
 | Visningsnamn |Ett värde |(user.displayName - eq ”värde”) |
+| employeeId |Ett värde |(user.employeeId - eq ”värde”)<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber - eq ”värde”) |
 | givenName |Någon strängvärde eller *null* |(user.givenName - eq ”värde”) |
 | Befattning |Någon strängvärde eller *null* |(user.jobTitle - eq ”värde”) |

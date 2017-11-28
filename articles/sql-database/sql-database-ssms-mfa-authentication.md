@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/29/2017
 ms.author: rickbyh
-ms.openlocfilehash: bd5a7a117ec6c4a4b75fcced3f2b5987004c83d0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cdf78a3c64933f5f01642d5ef8fe1fca64cb1fbb
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Universal autentisering med SQL Database och SQL Data Warehouse (SSMS stöd för MFA)
 Azure SQL Database och Azure SQL Data Warehouse stöder anslutningar från SQL Server Management Studio (SSMS) med hjälp av *Active Directory Universal autentisering*. 
@@ -63,4 +63,4 @@ Azure AD-användare som stöds i Azure AD B2B-scenarier som gästanvändare (se 
 - [Importera en BACPAC-fil till en ny Azure SQL-databas](../sql-database/sql-database-import.md)  
 - [Exportera en Azure SQL database till en BACPAC-fil](../sql-database/sql-database-export.md)  
 - C#-gränssnitt [IUniversalAuthProvider gränssnitt](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- När du använder **Active Directory - Universal med MFA** autentisering, ADAL spårning är tillgängliga från och med [SSMS 17,3 tum](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Inaktiverar som standard, du kan aktivera ADAL spårning med hjälp av den **verktyg**, **alternativ** menyn under **Azure Services**, **Azure-molnet**,  **ADAL utdata fönstret spårningsnivån**följt genom att aktivera **utdata** i den **visa** menyn. Spåren är tillgängliga i utdatafönstret när du väljer **Azure Active Directory-alternativet**.  
+- När du använder **Active Directory - Universal med MFA** autentisering, ADAL spårning är tillgängliga från och med [SSMS 17,3 tum](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Inaktiverar som standard, du kan aktivera ADAL spårning med hjälp av den **verktyg**, **alternativ** menyn under **Azure Services**, **Azure-molnet**,  **ADAL utdata fönstret spårningsnivån**följt genom att aktivera **utdata** i den **visa** menyn. Spåren är tillgängliga i utdatafönstret när du väljer **Azure Active Directory-alternativet**.  

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 
@@ -62,9 +62,9 @@ Pooler och databaserna i poolen, bör övervakas för att säkerställa att de f
 
 Omfattande scenarier där du arbetar med många resurser, [logganalys (OMS)](saas-dbpertenant-log-analytics.md) kan användas. Detta är en separat Azure-tjänst som ger analytics över skickade diagnostikloggar och telemetri som samlats in i en log analytics-arbetsyta. Logganalys kan samla in telemetri från många tjänster och användas för att fråga efter och Ställ in aviseringar.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Hämta Wingtip biljetter SaaS databas Per klient programmets källkod och skript
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta programskript Wingtip biljetter SaaS databas Per klient
 
-Wingtip biljetter SaaS databas Per klient skript och programmets källkod är tillgängliga i den [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github-lagringsplatsen. [Steg för att hämta Wingtip biljetter SaaS databas Per klient skripten](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Wingtip biljetter SaaS flera innehavare databasen skript och programmets källkod är tillgängliga i den [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-lagringsplatsen. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg för att ladda ned och avblockera Wingtip biljetter SaaS-skript.
 
 ## <a name="provision-additional-tenants"></a>Etablera ytterligare klienter
 
@@ -220,7 +220,7 @@ Den här övningen simulerar effekten av att Contosos konserthall upplever en h�
 
 När hög belastning på databasen för contosoconcerthall subsides returnera du den för att minska kostnaden för dess. Om det är oklart om som sker du kan ange en avisering på databasen som utlöses när dess DTU-användningen sjunker under den per databasen max på poolen. Övrning 5 beskriver hur du flyttar en databas till en pool.
 
-## <a name="other-performance-management-patterns"></a>Övriga prestandahanteringsmönster
+## <a name="other-performance-management-patterns"></a>Andra mönster för hantering av prestanda
 
 **Pre-emptive skalning** i övning ovan där utforskade du hur du skalar en isolerad databas du vet vilken databas som ska sökas. Om hantering av Contoso samklang Hall hade Wingtips för nära förestående biljett försäljning, ha databasen flyttats från poolen pre-emptively. Annars hade det sannolikt behövts en avisering på poolen eller databasen för att upptäcka vad som hände. Du vill inte få reda på sånt här genom att andra klienter i poolen klagar på försämrad prestanda. Och om klienten kan förutse hur länge de behöver ytterligare resurser, kan du ställa in en Azure Automation-runbook för att flytta ut databasen från poolen och sedan tillbaka igen enligt ett definierat schema.
 

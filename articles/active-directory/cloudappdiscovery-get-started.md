@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Konfigurera Cloud App Discovery i Azure AD
 
@@ -37,7 +37,7 @@ Cloud App Discovery i Azure AD är nu baserat på integrering med data som är t
 
 2. [Ställ in kontinuerlig reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker) att analysera alla loggar som vidarebefordras från nätverket med hjälp av logginsamlare Cloud App Security. Du kan använda dem för att identifiera nya appar och användningstrender.
 
-3. Om dina loggar inte stöds för närvarande, [ställa in en anpassad logg-parser](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser) så att Cloud App Discovery kan analysera dem.
+3. Om dina loggar inte stöds för närvarande, [ställa in en anpassad logg-parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser) så att Cloud App Discovery kan analysera dem.
   
 ## <a name="log-processing-flow"></a>Loggen processchema
 

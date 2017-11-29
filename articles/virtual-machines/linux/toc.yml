@@ -83,7 +83,7 @@
         - name: Databehandling med höga prestanda
           href: sizes-hpc.md
         - name: Azure-beräkningsenheter (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Godkända distributioner
       href: endorsed-distros.md
     - name: Underhåll och uppdateringar

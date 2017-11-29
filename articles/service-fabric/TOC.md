@@ -185,19 +185,10 @@
 #### [Nätverkslägen för behållare](service-fabric-networking-modes.md)
 
 ### Skapa en Reliable Service-tjänst
-#### [Översikt](service-fabric-reliable-services-introduction.md)
-#### Koncept
-##### [Reliable Services-livscykel – C#](service-fabric-reliable-services-lifecycle.md)
-##### [Reliable Services-livscykel – Java](service-fabric-reliable-services-lifecycle-java.md)
-
 #### Reliable Collections
-##### [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
-##### [Riktlinjer och rekommendationer för Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Arbeta med Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transaktioner och lås](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Reliable Collection-serialisering](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Internt i Reliable State Manager och Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Kom igång
 ##### [C# i Windows](service-fabric-reliable-services-quick-start.md)

@@ -35,8 +35,8 @@ sections:
         style: ordered
         items:
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Komma igång med Azure Databricks</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-blob-storage" target="_blank">Importera data från Azure Storage</a>'
-          - hmtl: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store" target="_blank">Import data from Azure Data Lake Store</a>'
+          - html: '<a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Importera data från Azure Storage</a>'
+          - hmtl: '<a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>'
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Arbeta med bärbara datorer</a>'
           - html: '<a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Köra Spark-jobb</a>'
           - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Använda datakällor från Spark</a>'

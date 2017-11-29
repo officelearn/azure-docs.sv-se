@@ -24,7 +24,7 @@ ms.lasthandoff: 11/14/2017
 
 ## <a name="what-is-azure-active-directory-pass-through-authentication"></a>Vad är Azure Active Directory direkt-autentisering?
 
-Azure Active Directory (AD Azure) direkt-autentisering kan användarna att logga in på både lokala och molnbaserade program med samma lösenord. Den här funktionen ger användarna en bättre upplevelse - mindre komma ihåg ett lösenord, och minskar supportkostnaderna IT eftersom användarna är mindre troligt att glömma loggar in. När användare loggar in med Azure AD, verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory.
+Azure Active Directory (AD Azure) direkt-autentisering tillåter användarna att logga in på både lokala och molnbaserade program med samma lösenord. Den här funktionen ger användarna en bättre upplevelse - ett mindre lösenord att komma ihåg, och minskar IT-supportkostnaderna eftersom att det är mindre troligt att användarna glömmer sitt lösenord. När användare loggar in med Azure AD, verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
 

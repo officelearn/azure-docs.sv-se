@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snabbstart för PowerShell i Azure-molnet Shell (förhandsgranskning)
 
@@ -135,7 +135,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 
 ```
 
-Du kan använda följande kommando för att montera filresursen Azure med anslutningssträngen.
+Du kan använda följande kommando för att montera resursen Azure-filer med anslutningssträngen.
         
 ``` PowerShell
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
@@ -143,9 +143,9 @@ net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<My
 
 ```
 
-Mer information finns i [montera en filresurs på Azure och få åtkomst till resursen i Windows][azmount].
+Mer information finns i [montera en resurs i Azure-filer och få åtkomst till resursen i Windows][azmount].
 
-Du kan också navigera kataloger under Azure-filresursen på följande sätt:
+Du kan också navigera kataloger under Azure Files-resursen på följande sätt:
 
             
 ``` PowerShell
@@ -288,7 +288,7 @@ Du kan fortfarande göra följt av en cmdlet Get-Help för ett specifikt kommand
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-file-storage-to-store-your-data"></a>Använda Azure File Storage för att lagra dina data
+## <a name="use-azure-files-to-store-your-data"></a>Använda Azure-filer för att lagra dina data
 
 Du kan skapa ett skript, säg `helloworld.ps1`, och spara den till din `CloudDrive` att använda över shell-sessioner.
 
@@ -300,7 +300,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-Nästa gång när du använder PowerShell molnet Shell, den `helloworld.ps1` filen kommer att finnas den `CloudDrive` mapp som monterar Azure-filresurs.
+Nästa gång när du använder PowerShell molnet Shell, den `helloworld.ps1` filen kommer att finnas den `CloudDrive` mapp som monterar filer för Azure-resurs.
 
 ## <a name="use-custom-profile"></a>Använd anpassad profil
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installera tillägget beständiga funktioner och exempel (Azure-funktioner)
 
@@ -33,7 +33,7 @@ Visual Studio har för närvarande den bästa upplevelsen för att utveckla appa
 
 ### <a name="prerequisites"></a>Krav
 
-* Installera den [senaste versionen av Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 eller högre). Inkludera Azure-verktyg i din installationsalternativ.
+* Installera den [senaste versionen av Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 eller högre). Inkludera den **Azure-utveckling** arbetsbelastningen i din installationsalternativ.
 
 ### <a name="start-with-sample-functions"></a>Börja med exempel funktioner
 
@@ -61,7 +61,7 @@ Om du vill kan använda du Azure portal för utveckling av beständiga funktione
 
 1. Skapa en ny funktionsapp på [functions.azure.com](https://functions.azure.com/signin).
 2. Konfigurera funktionsapp till [använder version 2.0 runtime](functions-versions.md).
-3. Skapa en ny funktion och välj den **varaktiga funktioner Orchestrator - C#** mall.
+3. Skapa en ny funktion genom att välja ”C#” för språk och ”alla” för scenariot. Välj sedan den **varaktiga funktioner Orchestrator - C#** mall.
 4. Under **inte installerade tilläggen**, klickar du på **installera** att ladda ned tillägget från NuGet.org.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>Kopiera exempelkod till funktionen appen

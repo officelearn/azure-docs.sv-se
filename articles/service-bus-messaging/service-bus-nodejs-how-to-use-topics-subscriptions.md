@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5e758e831765ba2762b7efe7c3a10f10e59a5ddc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9e463273fff0ecc198b0574443c4241dde7be79
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Använd Service Bus-ämnen och prenumerationer med Node.js
 
@@ -61,7 +61,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Konfigurera en Service Bus-anslutning
-Azure-modulen läser miljövariablerna `AZURE_SERVICEBUS_NAMESPACE` och `AZURE_SERVICEBUS_ACCESS_KEY` information som krävs för att ansluta till Service Bus. Om de här miljövariablerna inte har angetts måste du ange kontoinformationen vid anrop av `createServiceBusService`.
+Azure-modulen läser miljövariabeln `AZURE_SERVICEBUS_CONNECTION_STRING` för anslutningssträngen som du fick från det tidigare steget ”skaffa autentiseringsuppgifter”. Om den här miljövariabeln inte har angetts måste du ange kontoinformationen vid anrop av `createServiceBusService`.
 
 Ett exempel på hur miljövariablerna för ett Azure Cloud Service, se [Node.js molntjänst med lagring][Node.js Cloud Service with Storage].
 

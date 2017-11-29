@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Skala Service Fabric-klustret in eller ut använda regler för automatisk skalning
 Skaluppsättningar för den virtuella datorn är en Azure compute-resurs som du kan använda för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Varje nodtyp som definieras i Service Fabric-klustret har konfigurerats som en separat skaluppsättning för virtuell dator. Varje nodtyp kan sedan skalas i ut oberoende av varandra, har olika uppsättningar av öppna portar och kan ha olika kapacitetsdata. Läs mer om den i den [nodetypes får Service Fabric](service-fabric-cluster-nodetypes.md) dokumentet. Eftersom typer för Service Fabric-nod i klustret har skapats på skalningsuppsättningar i virtuella datorer på serverdelen, behöver du ställa in automatisk skalning regler för varje nod typ/virtuella datorns skaluppsättning.
@@ -72,8 +72,8 @@ Följ exemplet/instruktionerna i den [Snabbstart mallgalleriet](https://github.c
 
 Du måste köra den följande steg för en VM-instansen i taget. Detta ger systemtjänsterna (och tillståndskänsliga tjänster) stängs avslutas på VM-instans som du tar bort och nya repliker som skapas på andra noder.
 
-1. Kör [inaktivera ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) med syftet 'RemoveNode' att inaktivera noden ska du ta bort (högsta instans i den nodtypen).
-2. Kör [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) och kontrollera att noden verkligen har övergått till inaktiverad. Om inte, vänta tills noden är inaktiverad. Du kan skynda dig det här steget.
+1. Kör [inaktivera ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) med syftet 'RemoveNode' att inaktivera noden ska du ta bort (högsta instans i den nodtypen).
+2. Kör [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) och kontrollera att noden verkligen har övergått till inaktiverad. Om inte, vänta tills noden är inaktiverad. Du kan skynda dig det här steget.
 3. Följ exemplet/instruktionerna i den [Snabbstart mallgalleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) att ändra antal virtuella datorer med en i denna Nodetype. Instansen tas bort är den högsta VM-instansen. 
 4. Upprepa steg 1 till 3 efter behov, men aldrig skala ned antalet instanser i de primära noden typerna mindre än tillförlitlighetsnivån garanterar. Referera till [information på tillförlitlighet nivåerna här](service-fabric-cluster-capacity.md). 
 
@@ -85,8 +85,8 @@ Du måste köra den följande steg för en VM-instansen i taget. Detta ger syste
 
 Du måste köra de följande stegen en VM-instansen i taget. Detta ger systemtjänsterna (och tillståndskänsliga tjänster) stängs avslutas på VM-instans som du tar bort och nya repliker skapas annan var.
 
-1. Kör [inaktivera ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) med syftet 'RemoveNode' att inaktivera noden ska du ta bort (högsta instans i den nodtypen).
-2. Kör [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) och kontrollera att noden verkligen har övergått till inaktiverad. Om du inte vänta tills noden är inaktiverad. Du kan skynda dig det här steget.
+1. Kör [inaktivera ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) med syftet 'RemoveNode' att inaktivera noden ska du ta bort (högsta instans i den nodtypen).
+2. Kör [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) och kontrollera att noden verkligen har övergått till inaktiverad. Om du inte vänta tills noden är inaktiverad. Du kan skynda dig det här steget.
 3. Följ exemplet/instruktionerna i den [Snabbstart mallgalleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) att ändra antal virtuella datorer med en i denna Nodetype. Den högsta VM-instansen tas nu bort. 
 4. Upprepa steg 1 till 3 efter behov, men aldrig skala ned antalet instanser i de primära noden typerna mindre än tillförlitlighetsnivån garanterar. Referera till [information på tillförlitlighet nivåerna här](service-fabric-cluster-capacity.md).
 

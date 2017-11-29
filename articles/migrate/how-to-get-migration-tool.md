@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: d633f140635ba184642a2af999efcde845f3ec31
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 730111411a080a3134ad69fee8bfceead4d27fa4
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Migrera datorer efter utvärdering
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 11/27/2017
 
 Den här artikeln beskriver hur du får förslag på en Migreringsverktyget när du har kört en utvärdering av migreringen.
 
-## <a name="migration-methods"></a>Metoder
+## <a name="migration-tool-suggestion"></a>Migrering verktyget förslag
 
-Efter en bedömning som använder Azure migrera är här vad vi föreslår:
+Du måste installera agenter på lokala datorer för att få förslag om Migreringsverktyg.  
 
-1. Skapa ett Azure migrera projekt, identifiera lokala datorer och köra en utvärdering av migreringen. [Läs mer](tutorial-assessment-vmware.md).
+1. Skapa ett Azure migrera projekt, identifiera lokala datorer och skapa en utvärdering av migreringen. [Läs mer](tutorial-assessment-vmware.md).
 2. Hämta och installera Azure migrera-agenterna på varje lokal dator som du vill se en rekommenderad migreringsmetod. [Den här proceduren](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) att installera agenter.
 2. Identifiera dina lokala datorer som är lämpliga för lift och SKIFT-migrering. Dessa är de virtuella datorer som inte kräver inga ändringar av appar som körs på dem och som kan migreras som är.
 3. Vi rekommenderar för lift och SKIFT migrering med hjälp av Azure Site Recovery. [Läs mer](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternativt kan du använda 3 part verktyg som stöder migrering till Azure.

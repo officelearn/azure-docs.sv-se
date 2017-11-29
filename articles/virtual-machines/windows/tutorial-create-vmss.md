@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7fc2e841a193c219822e232fbc994df5e934ddc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8f161af7753d2cd93a8683e8a93128144b86079
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Skapa en Virtual Machine Scale Set och distribuera en app som har hög tillgänglighet i Windows
 En skaluppsättning för virtuell dator kan du distribuera och hantera en uppsättning identiska, automatisk skalning virtuella datorer. Du kan skala antalet virtuella datorer i skaluppsättning manuellt eller definiera regler för att kunna Autoskala baserat på Resursanvändning t.ex CPU, minne begäran eller nätverkstrafik. I kursen får distribuera du en virtuell dator skala i Azure. Lär dig att:
@@ -62,7 +62,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
-    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
+    "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 

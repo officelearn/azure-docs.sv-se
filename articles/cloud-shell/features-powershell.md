@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c2eeef9c20f25d2af97e6c754f005b698222385
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funktioner och verktyg för PowerShell Azure Cloud Shell (förhandsgranskning)
 
@@ -37,7 +37,7 @@ PowerShell i molnet Shell (förhandsversion) autentiserar på ett säkert sätt 
 
 ### <a name="files-persistence-across-sessions"></a>Filer beständiga mellan sessioner
 
-För att bevara filer mellan sessioner vägleder dig genom att koppla en Azure-filresursen startas för första i molnet Shell.
+För att bevara filer mellan sessioner vägleder dig genom att koppla en resurs för Microsoft Azure-filer startas för första i molnet Shell.
 När slutfört, koppla molnet Shell automatiskt din lagring (monterade som `$home\clouddrive`) för alla framtida sessioner.
 Eftersom varje begäran för molnet Shell allokerar en temporär dator filer utanför din `$home\clouddrive` och datorns tillstånd är inte beständiga mellan sessioner.
 

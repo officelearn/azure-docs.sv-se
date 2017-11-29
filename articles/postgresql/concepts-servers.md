@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/27/2017
+ms.openlocfilehash: a1008936c053316630360403be688e4eedc8b2c0
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure-databas för PostgreSQL-servrar
 Den här artikeln innehåller information och riktlinjer för att arbeta med Azure-databas för PostgreSQL-servrar.
@@ -38,13 +38,7 @@ Du kan skapa en eller flera databaser i en Azure-databas för PostgreSQL-servern
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Hur gör ansluta och autentisera till en Azure-databas för PostgreSQL-servern?
 Följande element att säkerställa säker åtkomst till databasen.
 
-|||
-| :-- | :-- |
-| **Autentisering och auktorisering** | Azure-databas för PostgreSQL server stöder interna PostgreSQL-autentisering. Du kan ansluta och autentisera till servern med serverns administratör för inloggning. |
-| **Protokoll** | Tjänsten stöder en message-baserat protokoll som används av PostgreSQL. |
-| **TCP/IP** | Protokollet stöds via TCP/IP och över sockets för Unix-domän. |
-| **Brandvägg** | För att skydda dina data, förhindrar en brandväggsregel all åtkomst till servern och dess databaser förrän du anger vilka datorer som har behörighet. Se [Azure-databas för PostgreSQL serverbrandväggsreglerna](concepts-firewall-rules.md). |
-|||
+| :-- | :-- | | **Autentisering och auktorisering** | Azure-databas för PostgreSQL server stöder interna PostgreSQL-autentisering. Du kan ansluta och autentisera till servern med serverns administratör för inloggning. | | **Protokollet** | Tjänsten stöder en message-baserat protokoll som används av PostgreSQL. | | **TCP/IP** | Protokollet stöds via TCP/IP och över sockets för Unix-domän. | | **Brandväggen** | För att skydda dina data, förhindrar en brandväggsregel all åtkomst till servern och dess databaser förrän du anger vilka datorer som har behörighet. Se [Azure-databas för PostgreSQL serverbrandväggsreglerna](concepts-firewall-rules.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Hur hanterar ett server?
 Du kan hantera Azure-databas för PostgreSQL-servrar med hjälp av den [Azure-portalen](https://portal.azure.com) eller [Azure CLI](/cli/azure/postgres).

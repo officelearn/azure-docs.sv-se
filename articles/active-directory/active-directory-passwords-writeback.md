@@ -6,21 +6,21 @@ keywords: "Hantering av Active directory-lösenord, lösenordshantering, Azure A
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="password-writeback-overview"></a>Översikt över tillbakaskrivning av lösenord
 
@@ -108,8 +108,8 @@ Om du inte vet vilket konto beskrivs kontot refererar till, öppna Azure Active 
 
 Om du anger dessa behörigheter kan MA-tjänstkontot för varje skog hantera lösenord för användarkonton i skogen. 
 
->[!IMPORTANT]
->Om du inte tilldelar dessa behörigheter sedan uppstår trots att tillbakaskrivning verkar vara korrekt konfigurerade, användare fel när de försöker hantera sina lokala lösenord från molnet.
+> [!IMPORTANT]
+> Om du inte tilldelar dessa behörigheter sedan uppstår trots att tillbakaskrivning verkar vara korrekt konfigurerade, användare fel när de försöker hantera sina lokala lösenord från molnet.
 >
 
 > [!NOTE]
@@ -125,7 +125,6 @@ Utför följande steg för att ställa in lämplig behörighet för tillbakaskri
 5. Välj det konto som behörigheter som används för (från Azure AD Connect-installationen).
 6. I den **gäller** listrutan, Välj **underordnade** objekt.
 7. Under **behörigheter**, markerar kryssrutorna för följande:
-    * **Unexpire lösenord**
     * **Återställ lösenord**
     * **Ändra lösenord**
     * **Skriva lockoutTime**

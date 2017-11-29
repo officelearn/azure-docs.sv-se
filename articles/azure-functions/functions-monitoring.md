@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -50,7 +50,7 @@ Aktivera Application Insights i funktionen appen **skapa** sidan:
 
 ### <a name="existing-function-app"></a>Befintliga funktionsapp
 
-Hämta en instrumentation nyckel och spara den i en funktionsapp:
+Hämta instrumentation nyckeln och spara den i en funktionsapp:
 
 1. Skapa Application Insights-instans. Ange program **allmänna**.
 
@@ -60,7 +60,7 @@ Hämta en instrumentation nyckel och spara den i en funktionsapp:
 
    ![Kopiera nyckeln som Application Insights instrumentation](media/functions-monitoring/copy-ai-key.png)
 
-1. I appen funktionen **programinställningar** sidan [lägga till en appinställning](functions-how-to-use-azure-function-app-settings.md#settings) med namnet APPINSIGHTS_INSTRUMENTATIONKEY och klistra in nyckeln instrumentation.
+1. I appen funktionen **programinställningar** sidan [lägga till en appinställning](functions-how-to-use-azure-function-app-settings.md#settings) genom att klicka på **lägga till nya inställningen**. Namnge den nya inställningen APPINSIGHTS_INSTRUMENTATIONKEY och klistra in den kopierade instrumentation nyckeln.
 
    ![Lägg till nyckel för instrumentation appinställningar](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Hämta en instrumentation nyckel och spara den i en funktionsapp:
 
 ## <a name="view-telemetry-data"></a>Visa telemetridata
 
-För att navigera till Application Insights från en funktionsapp i portalen, Välj den **Programinsikter** länk på funktionsapp **översikt** sidan.
+För att navigera till den anslutna Application Insights-instansen från en funktionsapp i portalen, Välj den **Programinsikter** länk på funktionsapp **översikt** sidan.
 
 Information om hur du använder Application Insights finns i [Application Insights dokumentationen](https://docs.microsoft.com/azure/application-insights/). Detta avsnitt visar några exempel på hur du visar data i Application Insights. Om du redan är bekant med Application Insights kan du gå direkt till [avsnitt om att konfigurera och anpassa telemetridata](#configure-categories-and-log-levels).
 
@@ -84,7 +84,7 @@ På den [prestanda](../application-insights/app-insights-performance-counters.md
 
 ![Prestanda](media/functions-monitoring/performance.png)
 
-Den **servrar** visar resursutnyttjande och genomströmning per server. Dessa data kan vara användbart för felsökning av scenarier där funktioner bogging ned underliggande resurserna. Servrar kallas *molnet rollinstanser*. 
+Den **servrar** visar resursutnyttjande och genomströmning per server. Dessa data kan vara användbart för felsökning av scenarier där funktioner bogging ned underliggande resurserna. Servrar kallas **molnet rollinstanser**.
 
 ![Servrar](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ Den [direktsänd dataström med mått](../application-insights/app-insights-live
 
 ## <a name="query-telemetry-data"></a>Fråga telemetridata
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) ger dig tillgång till alla telemetridata i form av tabeller i en databas. Analytics ger ett frågespråk för att extrahera och manipulera data.
+[Application Insights Analytics](../application-insights/app-insights-analytics.md) ger dig tillgång till alla telemetridata i form av tabeller i en databas. Analytics ger ett frågespråk för extrahering, hantering och visualisera dina data.
 
 ![Välj Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ Körningen ger `customDimensions.LogLevel` och `customDimensions.Category`. Du k
 
 ## <a name="configure-categories-and-log-levels"></a>Konfigurera kategorier och logga nivåer
 
-Du kan använda Application Insights utan någon anpassad konfiguration, men standardkonfigurationen kan leda till stora mängder data. Om du använder en Visual Studio-Azure-prenumeration kan du träffa dina data cap för App Insights. Resten av den här artikeln visar hur du konfigurerar och anpassa de data som dina funktioner skickar till Application Insights.
+Du kan använda Application Insights utan någon anpassad konfiguration, men standardkonfigurationen kan leda till stora mängder data. Om du använder en Visual Studio-Azure-prenumeration kan du träffa dina data cap för Application Insights. Resten av den här artikeln visar hur du konfigurerar och anpassa de data som dina funktioner skickar till Application Insights.
 
 ### <a name="categories"></a>Kategorier
 
@@ -152,7 +152,7 @@ Azure functions loggaren innehåller också en *certifikatutfärdarnivå* med va
 |Information | 2 |
 |Varning     | 3 |
 |Fel       | 4 |
-|kritiska    | 5 |
+|Kritiskt    | 5 |
 |Ingen        | 6 |
 
 Logga nivå `None` beskrivs i nästa avsnitt. 
@@ -178,7 +178,7 @@ Den *host.json* filen konfigurerar hur mycket loggning en funktionsapp skickar t
 
 Det här exemplet anger följande regler:
 
-1. Efter loggar med kategorin ”Host.Results” eller ”funktionen” Skicka endast `Error` nivå och högre till Application Insights. Loggar för `Information` nivå och nedanför ignoreras.
+1. Efter loggar med kategorin ”Host.Results” eller ”funktionen” Skicka endast `Error` nivå och högre till Application Insights. Loggar för `Warning` nivå och nedanför ignoreras.
 2. Efter loggar med kategori värden. Aggregatorn, skicka endast `Information` nivå och högre till Application Insights. Loggar för `Debug` nivå och nedanför ignoreras.
 3. Skicka bara för alla andra loggar `Information` nivå och högre till Application Insights.
 
@@ -217,7 +217,7 @@ Alla dessa loggar skrivs på `Information` nivå, så om du filtrerar på `Warni
 
 Dessa loggar ge antal och genomsnitt av funktionsanrop via en [konfigurerbara](#configure-the-aggregator) period tid. Standardvärdet är 30 sekunder eller 1 000 resultat, beroende på vilket som inträffar först. 
 
-Loggarna visas som ”customMetrics” i Application Insights. Exempel är antalet körs, lyckade resultat och varaktighet.
+Loggarna är tillgängliga i den **customMetrics** tabellen i Application Insights. Exempel är antalet körs, lyckade resultat och varaktighet.
 
 ![customMetrics fråga](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Alla dessa loggar skrivs på `Information` nivå, så om du filtrerar på `Warni
 
 ### <a name="other-categories"></a>Andra kategorier
 
-Alla loggar för kategorier än som finns redan visas som ”spår” i Application Insights.
+Alla loggar för kategorier än som redan i listan är tillgängliga i den **spårningar** tabellen i Application Insights.
 
 ![spår fråga](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ Om du behålla samma Meddelandesträngen och vända på ordningen på parametrar
 
 Platshållare hanteras det här sättet så att du kan göra strukturerade loggning. Application Insights lagrar parametern namn / värde-par förutom message-sträng. Resultatet är att argumenten meddelandet blir fält som du kan fråga på.
 
-Till exempel om loggaren-metodanrop ser ut som i föregående exempel, du kan fråga fältet `customDimensions.prop__rowKey`. Prefixet läggs så att det inte finns några konflikter mellan körningsmiljön lägger till och fält som lägger till funktionskoden.
+Till exempel om loggaren-metodanrop ser ut som i föregående exempel, du kan fråga fältet `customDimensions.prop__rowKey`. Den `prop__` prefix har lagts till så att det inte finns några konflikter mellan fälten körningsmiljön fälten Funktionskoden och lägger till lägger du till.
 
 Du kan också fråga på den ursprungliga Meddelandesträngen med refererar till fältet `customDimensions.prop__{OriginalFormat}`.  
 
@@ -454,7 +454,7 @@ Den `tagOverrides` parameteruppsättningarna `operation_Id` till den funktionen 
 
 ### <a name="dependencies"></a>Beroenden
 
-Beroenden visas inte automatiskt, men du kan skriva anpassade kod för att visa beroenden. Exempelkoden i den [C# telemetri om anpassade avsnittet](#custom-telemetry-in-c-functions) visar hur. Exempelkoden resulterar i en *programavbildningen* i Application Insights ser ut så här:
+Beroenden som funktionen har till andra tjänster visas inte automatiskt, men du kan skriva anpassade kod för att visa beroenden. Exempelkoden i den [C# telemetri om anpassade avsnittet](#custom-telemetry-in-c-functions) visar hur. Exempelkoden resulterar i en *programavbildningen* i Application Insights ser ut så här:
 
 ![Programkarta](media/functions-monitoring/app-map.png)
 
@@ -473,10 +473,10 @@ Välj den **övervakaren** fliken för en funktion och du hämta en lista över 
 
 ### <a name="real-time-monitoring"></a>Realtidsövervakning
 
-Realtidsövervakning är tillgänglig genom att klicka på **live händelseströmmen** på funktionen **övervakaren** fliken. Dataströmmen direktsänd händelse visas i ett diagram i en ny flik i webbläsaren
+Realtidsövervakning är tillgänglig genom att klicka på **Live Händelseströmmen** på funktionen **övervakaren** fliken. Dataströmmen direktsänd händelse visas i ett diagram i en ny webbläsarflik.
 
 > [!NOTE]
-> Det finns ett känt problem som kan orsaka att data ska kunna fyllas i. Du kan behöva stänga fliken som innehåller dataströmmen direktsänd händelse och klicka sedan på **live händelseströmmen** igen för att göra det möjligt att fylla i din händelsedata dataströmmen korrekt. 
+> Det finns ett känt problem som kan orsaka att data ska kunna fyllas i. Du kan behöva stänga fliken som innehåller dataströmmen direktsänd händelse och klicka sedan på **direktsänd händelse dataström** igen för att göra det möjligt att fylla i din händelsedata dataströmmen korrekt. 
 
 Statistiken är realtid men den faktiska grafiska Körningsdata kanske cirka 10 sekunder svarstid.
 

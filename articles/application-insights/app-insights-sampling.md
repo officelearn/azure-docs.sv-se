@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3ae7df7939431e3bd13c070d65876145706e06b5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -309,7 +309,9 @@ När presenterar telemetri för dig, justeras Application Insights-tjänsten mä
 
 Korrektheten i uppskattning beror till stor del på konfigurerade samplingsprocenten. Dessutom ökar precisionen för program som hanterar stora mängder vanligtvis liknande begäranden från många olika användare. Å andra sidan för program som inte fungerar med en stor belastning behövs provtagning inte dessa program kan skicka all telemetri vanligtvis när du befinner dig inom kvoten, utan att orsaka förlust av data från begränsning. 
 
-Observera att Application Insights exempel inte mått och sessioner telemetri typer eftersom för dessa typer, minskad precisionen kan vara hög oönskade. 
+> [!WARNING]
+> Application Insights inte sample mått och sessioner telemetri typer. Minskad precisionen kan vara hög främmande för dessa typer av telemetri.
+> 
 
 ### <a name="adaptive-sampling"></a>Anpassningsbar provtagning
 Anpassningsbar provtagning lägger till en komponent som övervakar den aktuella överföringshastigheten från SDK och justerar samplingsprocenten att hålla sig inom den högsta hastigheten för målet. Justeringen beräknas med jämna mellanrum och baseras på ett glidande medelvärde för utgående överföringshastigheten.

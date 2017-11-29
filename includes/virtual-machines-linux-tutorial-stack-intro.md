@@ -12,7 +12,7 @@ az group create --name myResourceGroup --location eastus
 
 Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm#create). 
 
-Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
+Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. Kommandot anger också *azureuser* som ett administratörsanvändarnamn. Du kan använda det här namnet senare för att ansluta till den virtuella datorn. 
 
 ```azurecli-interactive 
 az vm create \
@@ -23,7 +23,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-När den virtuella datorn har skapats visar Azure CLI information som ser ut ungefär som i följande exempel. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.
+När den virtuella datorn har skapats visar Azure CLI information som ser ut ungefär som i följande exempel. Anteckna `publicIpAddress`. Den här adressen används för åtkomst till den virtuella datorn i senare steg.
 
 ```azurecli-interactive 
 {
@@ -50,14 +50,14 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>SSH till den virtuella datorn
 
 
-Om du inte redan vet offentliga IP-adressen för den virtuella datorn kan köra den [az offentliga ip-lista över](/cli/azure/network/public-ip#list) kommando:
+Om du inte redan vet offentliga IP-adressen för den virtuella datorn kan köra den [az offentliga ip-lista över](/cli/azure/network/public-ip#list) kommando. Du behöver den här IP-adressen för flera senare steg.
 
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt rätt offentliga IP-adressen för den virtuella datorn. I det här exemplet IP-adressen är *40.68.254.142*.
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt rätt offentliga IP-adressen för den virtuella datorn. I det här exemplet IP-adressen är *40.68.254.142*. *azureuser* anges administratörsanvändarnamn när du skapade den virtuella datorn.
 
 ```bash
 ssh azureuser@40.68.254.142

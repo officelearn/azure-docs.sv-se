@@ -10,19 +10,19 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 11/03/2017
-ms.openlocfilehash: 9fe5b56d64d325f855b6030ef3dcc0ed65ad7afc
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: a5a24e9aeea193df28bd49d5c428a72b5ec75d1b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Övervaka och skala en enskild PostgreSQL-server med hjälp av Azure CLI
 Det här exempelskriptet CLI skalar en Azure-databas för PostgreSQL-server till en annan prestandanivå efter frågar mätvärdena. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver i den här artikeln att du använder Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 I det här exempelskriptet ändrar du markerade rader om du vill anpassa admin användarnamn och lösenord. Ersätt prenumerations-ID som används i az övervakaren kommandon med din egen prenumerations-ID.
@@ -37,10 +37,10 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | **Kommandot** | **Anteckningar** |
 |---|---|
-| [Skapa AZ grupp](/cli/azure/group#create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ postgres server](/cli/azure/postgres/server#create) | Skapar en PostgreSQL-server som är värd för databaserna. |
-| [AZ övervakaren mått lista](/cli/azure/monitor/metrics#list) | Visa en lista med måttet för resurser. |
-| [ta bort grupp AZ](/cli/azure/group#delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [Skapa AZ grupp](/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [Skapa AZ postgres server](/cli/azure/postgres/server#az_postgres_server_create) | Skapar en PostgreSQL-server som är värd för databaserna. |
+| [AZ övervakaren mått lista](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Visa en lista med måttet för resurser. |
+| [ta bort grupp AZ](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure/overview)

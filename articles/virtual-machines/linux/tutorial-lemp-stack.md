@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 87d60ae51aaa33b709d272605419fd85eeb5d93d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Installera en LEMP webbserver på en Azure VM
 Den här artikeln får du veta hur du distribuerar en NGINX-webbservern, MySQL och PHP (LEMP stack) på en Ubuntu VM i Azure. LEMP-stacken är ett alternativ till att den populära [LYKTA stack](tutorial-lamp-stack.md), där du kan också installera i Azure. Om du vill se LEMP servern i praktiken du om du vill installera och konfigurera en WordPress-webbplats. I den här självstudiekursen får du lära du dig att:
@@ -31,6 +31,8 @@ Den här artikeln får du veta hur du distribuerar en NGINX-webbservern, MySQL o
 > * Verifiera installation och konfiguration
 > * Installera WordPress på servern LEMP
 
+
+Den här installationen är för snabb tester eller konceptbevis.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -73,15 +75,16 @@ Kontrollera vilken version av MySQL med följande kommando (Observera kapital `V
 mysql -V
 ```
 
-Vi rekommenderar att du kör följande skript om du vill skydda installationen av MySQL:
+Om du vill skydda installationen av MySQL kör den `mysql_secure_installation` skript. Om du bara konfigurerar en tillfällig server, kan du hoppa över det här steget. 
 
 ```bash
 mysql_secure_installation
 ```
 
-Ange lösenordet för roten MySQL och konfigurera säkerhetsinställningarna för din miljö.
+Ange ett rotlösenord för MySQL och konfigurera säkerhetsinställningarna för din miljö.
 
-Om du vill skapa en MySQL-databas, lägga till användare eller ändra konfigurationsinställningarna, logga in på MySQL:
+Om du vill prova MySQL-funktioner (skapa en MySQL-databas, lägga till användare eller ändra konfigurationsinställningarna), logga in på MySQL. Det här steget krävs inte för att slutföra den här självstudiekursen. 
+
 
 ```bash
 mysql -u root -p

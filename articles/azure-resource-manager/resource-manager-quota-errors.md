@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Åtgärda fel för resurskvoter
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Lösning 3
 
-Om du måste öka en kvotgräns, gå till portalen och filen ett supportproblem för att höja din kvot för den region som du vill distribuera.
+Gå till portalen för att begära en ökad kvot och filen ett supportproblem. I support-problemet du begära en ökning av din kvot för den region som du vill distribuera.
 
 > [!NOTE]
 > Kom ihåg att för resursgrupper, kvoten för varje enskild region, inte för hela prenumerationen. Om du behöver distribuera 30 kärnor i USA, västra måste du be om 30 Resource Manager kärnor i USA, västra. Om du behöver distribuera 30 kärnor i någon av regionerna som du har åtkomst bör du be om 30 Resource Manager kärnor i alla regioner.
 >
 >
+
+1. Välj **prenumerationer**.
+
+   ![Prenumerationer](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Välj den prenumeration som behöver en ökad kvot.
+
+   ![Välj en prenumeration](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Välj **användning + kvoter**
+
+   ![Välj användnings- och kvoter](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. I det övre högra hörnet väljer **begära**.
+
+   ![Begära](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Fyll i formulär för typ av du behöva öka kvoten.
+
+   ![Fyll i formuläret](./media/resource-manager-quota-errors/forms.png)

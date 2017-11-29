@@ -3,7 +3,7 @@ title: "Skydda igen från Azure till en lokal plats | Microsoft Docs"
 description: "Du kan starta en återställning efter fel om du vill flytta virtuella datorer lokala efter redundans för virtuella datorer till Azure. Lär dig att skydda innan en återställning efter fel."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 06/05/2017
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/28/2017
@@ -62,16 +62,20 @@ När du förbereder att skydda virtuella datorer kan ta eller Överväg att föl
   * **Huvudmålservern**: huvudmålservern tar emot data för återställning efter fel. Lokala management-server som du har skapat har en huvudmålserver som installeras som standard. Beroende på mängden misslyckades tillbaka trafik, kan du dock behöver skapa en separat huvudmålserver för återställning efter fel.
     * [En virtuell Linux-dator måste en Linux-huvudmålserver](site-recovery-how-to-install-linux-master-target.md).
     * En virtuell Windows-dator måste en Windows-huvudmålserver. Du kan använda de lokala processen server och master måldatorerna igen.
+    * Huvudmålservern har andra krav som anges i [vanliga saker att kontrollera på Huvudmålet innan du skyddar](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 > [!NOTE]
 > Alla virtuella datorer i en replikeringsgrupp ska vara av samma typ av operativsystem (alla fönster eller alla Linux). En replikeringsgrupp med blandade operativsystem stöds för närvarande inte för att skydda igen och återställning till lokalt. Detta beror på att huvudmålservern ska vara av samma operativsystem som den virtuella datorn och alla virtuella datorer i en replikeringsgrupp ska ha samma huvudmålservern. 
 
-    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+    
 
 * En konfigurationsservern är lokala när du växlar tillbaka. Under återställning efter fel, måste den virtuella datorn finns i server-konfigurationsdatabasen. Återställning är annars misslyckas. 
 
 > [!IMPORTANT]
 > Kontrollera att du vidtar regelbundna schemalagda säkerhetskopieringar serverns konfiguration. Om det finns en katastrof, återställa servern med samma IP-adress så att återställningen fungerar.
+
+> [!WARNING]
+> En replikeringsgrupp endast ha virtuella Windows-datorer eller virtuella Linux-datorer och inte en blandning av båda eftersom alla virtuella datorer i en grupp för replictaion använder samma huvudmålservern och Linux VM kräver en Linux huvudmålserver och som klokt för Windows VM.
 
 * Ange den `disk.EnableUUID=true` i konfigurationsparametrar för huvudmålservern virtuell dator i VMware. Om den här raden inte finns, kan du lägga till den. Den här inställningen krävs för att ge en konsekvent UUID till den virtuella disken (VMDK) så att den monterar korrekt.
 

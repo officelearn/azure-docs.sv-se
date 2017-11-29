@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar i Azure-molnet Shell
 
@@ -28,10 +28,10 @@ Azure Cloud Shell har följande kända begränsningar:
 
 ### <a name="system-state-and-persistence"></a>Systemtillstånd och beständiga
 
-Den dator som innehåller molnet Shell sessionen är temporär och den återanvänds när sessionen har varit inaktiv i 20 minuter. Molnet Shell kräver en filresurs som ska monteras. Därför kan måste din prenumeration kunna ställa in lagringsresurser för att få åtkomst till molnet Shell. Andra överväganden omfattar:
+Den dator som innehåller molnet Shell sessionen är temporär och den återanvänds när sessionen har varit inaktiv i 20 minuter. Molnet Shell kräver en Azure-filresurs som ska monteras. Därför kan måste din prenumeration kunna ställa in lagringsresurser för att få åtkomst till molnet Shell. Andra överväganden omfattar:
 
 * Med monterade storage kan endast ändringar i den `clouddrive` directory sparas. I Bash, din `$Home` directory sparas också.
-* Filresurser kan monteras endast från din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
+* Azure-filresurser kan monteras endast från din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Kör i Bash, `env` att hitta din region som `ACC_LOCATION`.
 * Azure Files stöder endast lokalt redundant lagring och konton för geo-redundant lagring.
 
@@ -47,7 +47,7 @@ Molnet Shell stöder de senaste versionerna av Microsoft Edge, Microsoft Interne
 
 Användare kan endast starta en typ av shell samtidigt, antingen **Bash** eller **PowerShell**. Du kan dock ha flera instanser av Bash eller PowerShell körs samtidigt. Växla mellan Bash eller PowerShell orsaker molnet Shell måste startas om, vilket avslutar befintliga sessioner.
 
-### <a name="usage-limits"></a>Gränserna för Resursanvändning
+### <a name="usage-limits"></a>Användningsgränser
 
 Moln-gränssnittet är avsedd för interaktiva användningsfall. Därför kan avslutas alla icke-interaktiv tidskrävande sessioner utan varning.
 
@@ -77,7 +77,12 @@ PowerShell Azure Cloud Shell (förhandsversion) kan ta upp till 60 sekunder att 
 Data som skrivs till `$Home` av alla program (exempel: git vim och andra) inte har behållits över PowerShell-sessioner. En lösning [visas här](troubleshooting.md#powershell-resolutions).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standardplatsen för när de skapas från Azure enhet:
+
 Med PowerShell-cmdlets, kan användare inte skapa filer under Azure enhet. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna i mappen C:\Users som standard. 
+
+### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
+
+Om användaren som kör ett kommando som skulle skapa en Windows-dialogruta som `Connect-AzureAD` eller `Login-AzureRMAccount`, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 6a0f8cb76684a6efcc5e2d4be05493f18d5d4c76
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Så här kräver tvåstegsverifiering för en användare eller grupp
 
@@ -40,11 +40,11 @@ Båda dessa alternativ be användarna att registrera dig för Azure Multi-Factor
 
 Användarkonton i Azure Multi-Factor Authentication har följande tre skilda lägen:
 
-| Status | Beskrivning | Icke-webbläsarappar som påverkas |
-|:---:|:---:|:---:|
-| Disabled |Standardläget för en ny användare har inte registrerats för Azure Multi-Factor Authentication (MFA). |Nej |
-| Enabled |Användaren har registrerats i Azure MFA, men har inte registrerats. De uppmanas att registrera sig nästa gång de loggar in. |Nej.  De fortsätter att fungera tills registreringen har slutförts. |
-| Enforced |Användaren har registrerats och har slutfört registreringsprocessen för Azure MFA. |Ja.  Appar kräver applösenord. |
+| Status | Beskrivning | Icke-webbläsarappar som påverkas | Webbläsarbaserade appar och modern autentisering som påverkas |
+|:---:|:---:|:---:|:--:|
+| Disabled |Standardläget för en ny användare har inte registrerats för Azure Multi-Factor Authentication (MFA). |Nej |Nej |
+| Enabled |Användaren har registrerats i Azure MFA, men har inte registrerats. De uppmanas att registrera sig nästa gång de loggar in. |Nej.  De fortsätter att fungera tills registreringen har slutförts. | Ja. MFA-registrering måste utföras när uppdateringstoken för sessionen upphör att gälla.|
+| Enforced |Användaren har registrerats och har slutfört registreringsprocessen för Azure MFA. |Ja.  Appar kräver applösenord. |Ja. MFA krävs vid inloggningen. |
 
 Tillstånd för en användare visar om en administratör har registrerats dem i Azure MFA och om de slutfört registreringsprocessen.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/17/2017
+ms.date: 11/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6682bf5e4b0b64d5309f939379906efff6e017d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Använda AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery 
 2. Recovery Services-valvet är en Resource Manager-resurs, så du måste placera det inom en resursgrupp. Du kan använda en befintlig resursgrupp eller skapa en resursgrupp med det  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet. När du skapar en resursgrupp kan du ange namn och plats för resursgruppen.  
 
     ```
-    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
     ```
 3. Använd den  **[ny AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  för att skapa Recovery Services-valvet. Se till att ange samma plats för valvet som användes för resursgruppen.
 
@@ -116,7 +116,7 @@ Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery 
 4. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). I följande exempel visas alternativet - BackupStorageRedundancy för testvault anges till GeoRedundant.
 
     ```
-    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testvault"
+    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
@@ -290,8 +290,8 @@ Identifiera säkerhetskopierade objekt och den återställningspunkt som innehå
 Starta från behållare i valvet för att få PowerShell-objektet som identifierar just säkerhetskopiering artikeln och gå nedåt i objekthierarkin. Markera den behållare som representerar den virtuella datorn med hjälp av  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet och skicka som att den  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet.
 
 ```
-PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
-PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
 ### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
@@ -525,8 +525,8 @@ Grundläggande steg för att återställa en fil från Virtuella Azure-säkerhet
 Starta från behållare i valvet för att få PowerShell-objektet som identifierar just säkerhetskopiering artikeln och gå nedåt i objekthierarkin. Markera den behållare som representerar den virtuella datorn med hjälp av  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet och skicka som att den  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet.
 
 ```
-PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
-PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
 ### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt

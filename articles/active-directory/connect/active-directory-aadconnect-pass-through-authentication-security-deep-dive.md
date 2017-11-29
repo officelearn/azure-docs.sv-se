@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5d2c581b25d34ea1b83f54292b5b65b2286e5a9d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 4428f3da5dd9423aa60daa697e4ea15c99f92188
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory direkt-autentisering säkerhet ingående
 
@@ -39,7 +39,7 @@ Dessa är nyckelsäkerhet aspekter av den här funktionen:
 - Endast standardportar (80 och 443) används för utgående kommunikation från agenter för autentisering till Azure AD. Du behöver inte öppna ingående portar i brandväggen. 
   - Port 443 används för alla autentiserade utgående kommunikation.
   - Port 80 används bara för att ladda ned den listor över återkallade certifikat (CRL) för att säkerställa att ingen av de certifikat som används av den här funktionen har återkallats.
-  - En fullständig lista över nätverkskraven finns [Azure Active Directory direkt-autentisering: Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+  - En fullständig lista över nätverkskraven finns [Azure Active Directory direkt-autentisering: Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Lösenord som användare anger under inloggning krypteras i molnet innan lokal autentisering agenter acceptera villkoren för verifiering mot Active Directory.
 - HTTPS-kanal mellan Azure AD och lokala autentiseringsagent skyddas med hjälp av ömsesidig autentisering.
 - Funktionen integreras sömlöst med Azure AD-molnskydd funktioner, till exempel principer för villkorlig åtkomst (inklusive Azure Multi-Factor Authentication) identitetsskydd och smarta kontoutelåsning.

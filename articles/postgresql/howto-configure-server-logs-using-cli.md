@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 5e10ddd8c850d457b4ad77cd5ea4d92edc07017e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: d18ec44ecede44829b488ac9864bbfae2c62883a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Konfigurera och komma åt server-loggar med hjälp av Azure CLI
 Du kan hämta felloggar för PostgreSQL-servern med hjälp av kommandoradsgränssnittet (Azure CLI). Åtkomst till transaktionsloggar stöds dock inte. 
@@ -33,14 +33,14 @@ Du kan konfigurera servern för att få åtkomst till frågeloggar och i fellogg
 Mer information finns i [anpassa server konfigurationsparametrar](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Lista loggar för Azure-databas för PostgreSQL-server
-Om du vill visa tillgängliga loggfilerna för din server kör den [az postgres serverloggen listan](/cli/azure/postgres/server-logs#list) kommando.
+Om du vill visa tillgängliga loggfilerna för din server kör den [az postgres serverloggen listan](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) kommando.
 
 Du kan visa loggfilerna för server **mypgserver 20170401.postgres.database.azure.com** under resursgrupp **myresourcegroup**, och direkt till en textfil med namnet **loggen\_filer\_list.txt.**
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mypgserver-20170401 > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Hämta loggarna lokalt från servern
-Den [az postgres serverloggen hämta](/cli/azure/postgres/server-logs#download) kommandot kan du hämta individuella loggfiler för servern. 
+Den [az postgres serverloggen hämta](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) kommandot kan du hämta individuella loggfiler för servern. 
 
 Det här exemplet hämtas specifik loggfil för servern **mypgserver 20170401.postgres.database.azure.com** under resursgrupp **myresourcegroup** till din lokala miljö.
 ```azurecli-interactive

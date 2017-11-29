@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Cykeln filresurs Självstudier: avancerade förberedelse av data med Azure Machine Learning arbetsstationen
 Azure Machine Learning-tjänster (förhandsversion) är en integrerad, slutpunkt-till-slutpunkt datavetenskap och avancerade analyser lösning för professionella datavetare och förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -56,7 +56,7 @@ Den här kursen använder den [Boston Hubway dataset](https://s3.amazonaws.com/h
 
 ## <a name="learn-about-the-datasets"></a>Lär dig mer om datauppsättningar
 1. Den __Boston väder__ filen innehåller följande väder-relaterade fält rapporteras på timme:
-   * DATUM
+   * Datum
    * REPORTTPYE
    * HOURLYDRYBULBTEMPF
    * HOURLYRelativeHumidity
@@ -261,10 +261,7 @@ Om du vill använda data i en förutsägelse för två-timmarsformat block, mås
 
    > [!NOTE]
    > Azure ML-arbetsstationen Syntetiserar program baserat på de exempel som tillhandahålls av du och använder samma program på övriga rader. Alla andra rader fylls i automatiskt baserat på de exempel som du angav. Arbetsstationen också analyserar dina data och försöker identifiera edge fall. 
-
-   > [!IMPORTANT]
-   > Identifiering av edge fall kanske inte fungerar på Mac i den aktuella versionen av arbetsstationen. Hoppa över den __steg 3__ och __steg 4__ nedan på Mac. Utan på __OK__ när alla rader hämta fylls med de härledda värdena.
-   
+  
 3. Texten **analysera Data** ovanför rutnätet anger att arbetsstationen försöker identifiera edge fall. När du är klar status ändras till **granska nästa föreslagna rad** eller **inga förslag**. I det här exemplet **granska nästa föreslagna rad** returneras.
 
 4. Om du vill granska de föreslagna ändringarna, Välj **granska nästa föreslagna rad**. Cellen som du bör granska och korrigera (vid behov) är markerad på skärmen.
@@ -294,11 +291,6 @@ Om du vill använda data i en förutsägelse för två-timmarsformat block, mås
 
    ![Bild av exemplet ' 01 januari 2015 12: 00 - 02: 00](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
-   > [!IMPORTANT]
-   > Följ anvisningarna nedan om du i stället för på Mac __steg 8__ nedan.
-   >
-   > * Gå till den första cellen som innehåller `Feb 01, 2015 12AM-2AM`. Det bör vara den __rad 15__. Korrigera värdet för `Jan 02, 2015 12AM-2AM`, och tryck på __RETUR__. 
-   
 
 8. Vänta tills status för att ändra från **analysera Data** till **granska nästa föreslagna rad**. Det kan ta flera sekunder. Välj länken status för att navigera till den föreslagna raden. 
 
@@ -513,12 +505,7 @@ Använd härledda kolumner för att sammanfatta cykel efterfrågan på en 2-timm
     > Du kan ge ett exempel mot någon av raderna. I det här exemplet värdet för `Jan 01, 2017 12AM-2AM` är giltig för den första raden med data.
 
     ![Bild av exempeldata](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-
-   > [!IMPORTANT]
-   > Följ anvisningarna nedan om du i stället för på Mac __steg 3__ nedan.
-   >
-   > * Gå till den första cellen som innehåller `Jan 01, 2017 1AM-2AM`. Det bör vara den __rad 14__. Korrigera värdet för `Jan 01, 2017 12AM-2AM`, och tryck på __RETUR__. 
-
+   
 3. Vänta tills programmet beräknar värden mot alla rader. Det kan ta flera sekunder. När analysen är klar kan du använda den __granska nästa föreslagna rad__ länken för att granska data.
 
    ![Bild av slutförda analysen med granska länk](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)

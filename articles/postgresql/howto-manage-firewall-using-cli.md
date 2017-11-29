@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: ec362cec28160b5c4827f6e47614661319ba4039
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: c3cb598825477bd588a6680d5c6ddb07b72eca79
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure-databas för PostgreSQL-Server från en specifik IP-adress eller intervall av IP-adresser. Med hjälp av lämplig Azure CLI-kommandona, kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure-databas för PostgreSQL brandväggsregler, se [Azure-databas för PostgreSQL serverbrandväggsreglerna](concepts-firewall-rules.md)
@@ -28,7 +28,7 @@ Du behöver följande för att gå igenom den här instruktioner:
 Den [az postgres-brandväggsregel](/cli/azure/postgres/server/firewall-rule) kommandon som används för att konfigurera brandväggens regler.
 
 ## <a name="list-firewall-rules"></a>Lista brandväggsregler 
-Om du vill visa en lista med befintliga brandväggsregler för servern, kör den [az postgres brandväggsregel serverlista](/cli/azure/postgres/server/firewall-rule#list) kommando.
+Om du vill visa en lista med befintliga brandväggsregler för servern, kör den [az postgres brandväggsregel serverlista](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_list) kommando.
 ```azurecli-interactive
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401
 ```
@@ -37,7 +37,7 @@ Utdata visar brandväggsregler, om sådant finns, som standard i JSON-format. Du
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401 --output table
 ```
 ## <a name="create-firewall-rule"></a>Skapa brandväggsregel
-Om du vill skapa en ny brandväggsregel på servern, kör den [az postgres-brandväggsregel skapa](/cli/azure/postgres/server/firewall-rule#create) kommando. 
+Om du vill skapa en ny brandväggsregel på servern, kör den [az postgres-brandväggsregel skapa](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) kommando. 
 
 Genom att ange 0.0.0.0 som den `--start-ip-address` och 255.255.255.255 som den `--end-ip-address` intervallet, i följande exempel tillåts alla IP-adresser för åtkomst till servern **mypgserver 20170401.postgres.database.azure.com**
 ```azurecli-interactive
@@ -51,7 +51,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup
 Kommandoutdata visas vid lyckades, information om brandväggsregeln som du har skapat, som standard i JSON-format. Om det finns ett fel, visar utdata ett felmeddelande i stället.
 
 ## <a name="update-firewall-rule"></a>Uppdatera brandväggsregel 
-Uppdatera en befintlig brandväggsregel på servern med [az postgres server-brandväggsregel uppdateringen](/cli/azure/postgres/server/firewall-rule#update) kommando. Ange namnet på befintlig brandväggsregel som indata och starta IP- och IP-attribut som ska uppdateras.
+Uppdatera en befintlig brandväggsregel på servern med [az postgres server-brandväggsregel uppdateringen](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_update) kommando. Ange namnet på befintlig brandväggsregel som indata och starta IP- och IP-attribut som ska uppdateras.
 ```azurecli-interactive
 az postgres server firewall-rule update --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.255
 ```
@@ -60,14 +60,14 @@ Kommandoutdata visas vid lyckades, information om brandväggsregeln som du har u
 > Om brandväggsregeln inte finns, hämtar den har skapats av kommandot update.
 
 ## <a name="show-firewall-rule-details"></a>Visa brandväggen regeldetaljer
-Du kan också visa information om en befintlig brandväggsregel på servernivå genom att köra [az postgres server-brandväggsregel visa](/cli/azure/postgres/server/firewall-rule#show) kommando.
+Du kan också visa information om en befintlig brandväggsregel på servernivå genom att köra [az postgres server-brandväggsregel visa](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_show) kommando.
 ```azurecli-interactive
 az postgres server firewall-rule show --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```
 Kommandoutdata visas vid lyckades, information om brandväggsregeln som du har angett som standard i JSON-format. Om det finns ett fel, visar utdata ett felmeddelande i stället.
 
 ## <a name="delete-firewall-rule"></a>Ta bort brandväggsregel
-Om du vill återkalla åtkomst för ett IP-adressintervall till servern, ta bort en befintlig brandväggsregel genom att köra den [az postgres-brandväggsregel ta bort](/cli/azure/postgres/server/firewall-rule#delete) kommando. Ange namnet på befintlig brandväggsregel.
+Om du vill återkalla åtkomst för ett IP-adressintervall till servern, ta bort en befintlig brandväggsregel genom att köra den [az postgres-brandväggsregel ta bort](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete) kommando. Ange namnet på befintlig brandväggsregel.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```

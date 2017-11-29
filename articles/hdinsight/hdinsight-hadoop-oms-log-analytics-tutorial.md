@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: nitinme
-ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ca2cf642cfff2961dcb0dd18f0e712f61d6915c2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Använda Azure Log Analytics för att övervaka HDInsight-kluster
 
@@ -44,7 +44,7 @@ Lär dig hur du använder Azure Log Analytics för att övervaka åtgärder för
 
 * **Logganalys-arbetsytan**. Du kan se den här arbetsytan som en unik logganalys-miljö med en egen lagringsplats för data, datakällor och lösningar. Du måste ha en sådan arbetsyta som redan har skapats som du kan associera med Azure HDInsight-kluster. Instruktioner finns i [skapa logganalys-arbetsytan](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
-## <a name="configure-hdinsight-cluster-to-use-log-analytics"></a>Konfigurera HDInsight-kluster om du vill använda logganalys
+## <a name="enable-log-analytics-by-using-the-portal"></a>Aktivera Log Analytics med hjälp av portalen
 
 I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster om du vill använda en Azure logganalys-arbetsyta för att övervaka jobb, felsökningsloggar osv.
 
@@ -62,6 +62,25 @@ I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster om 
 6. Ange dina autentiseringsuppgifter för Azure om du uppmanas till detta.
 
     ![Operations Management Suite-portalen](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-oms-portal.png "Operations Management Suite-portalen")
+
+## <a name="enable-log-analytics-by-using-azure-powershell"></a>Aktivera Log Analytics med hjälp av Azure PowerShell
+
+Du kan aktivera Log Analytics med hjälp av Azure PowerShell. Cmdlet är:
+
+```powershell
+Enable-AzureRmHDInsightOperationsManagementSuite
+```
+
+Se [aktivera AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0).
+
+Om du vill inaktivera, är cmdlet 
+
+```powershell
+Disable-AzureRmHDInsightOperationsManagementSuite
+```
+
+Se [inaktivera AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0).
+
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till lösningar för hantering av HDInsight-klustret till logganalys](hdinsight-hadoop-oms-log-analytics-management-solutions.md)

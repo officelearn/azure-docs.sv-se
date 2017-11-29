@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Installera en LYKTA webbserver på en Azure VM
 Den här artikeln får du veta hur du distribuerar en Apache-webbservern, MySQL och PHP (LYKTA stack) på en Ubuntu VM i Azure. Om du föredrar den NGINX-servern finns i [LEMP stack](tutorial-lemp-stack.md) kursen. Om du vill se LYKTA servern i praktiken du om du vill installera och konfigurera en WordPress-webbplats. I den här självstudiekursen får du lära du dig att:
@@ -32,7 +32,7 @@ Den här artikeln får du veta hur du distribuerar en Apache-webbservern, MySQL 
 > * Installera WordPress på servern LYKTA
 
 
-Mer information om LYKTA-stacken, inklusive rekommendationer för en produktionsmiljö, finns det [Ubuntu dokumentationen](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Den här installationen är för snabb tester eller konceptbevis. Mer information om LYKTA-stacken, inklusive rekommendationer för en produktionsmiljö, finns det [Ubuntu dokumentationen](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,13 +42,12 @@ Om du väljer att installera och använda CLI lokalt kursen krävs att du använ
 
 ## <a name="install-apache-mysql-and-php"></a>Installera Apache, MySQL och PHP
 
-Kör följande kommando för att uppdatera Ubuntu paketet källor och installera Apache, MySQL och PHP. Observera hatt (^) i slutet av kommandot.
+Kör följande kommando för att uppdatera Ubuntu paketet källor och installera Apache, MySQL och PHP. Observera hatt (^) i slutet av kommandot, som är en del av den `lamp-server^` paketnamn. 
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
 
 
 Du uppmanas att installera paket och andra beroenden. När du uppmanas, anger du ett rotlösenord för MySQL, och sedan [Retur] för att fortsätta. Följ anvisningarna för återstående. Den här processen installerar de minsta nödvändiga PHP-tillägg för att kunna använda PHP med MySQL. 
@@ -78,15 +77,15 @@ Kontrollera vilken version av MySQL med följande kommando (Observera kapital `V
 mysql -V
 ```
 
-Vi rekommenderar att du kör följande skript om du vill skydda installationen av MySQL:
+Om du vill skydda installationen av MySQL kör den `mysql_secure_installation` skript. Om du bara konfigurerar en tillfällig server, kan du hoppa över det här steget.
 
 ```bash
 mysql_secure_installation
 ```
 
-Ange lösenordet för roten MySQL och konfigurera säkerhetsinställningarna för din miljö.
+Ange ett rotlösenord för MySQL och konfigurera säkerhetsinställningarna för din miljö.
 
-Om du vill skapa en MySQL-databas, lägga till användare eller ändra konfigurationsinställningarna, logga in på MySQL:
+Om du vill prova MySQL-funktioner (skapa en MySQL-databas, lägga till användare eller ändra konfigurationsinställningarna), logga in på MySQL. Det här steget krävs inte för att slutföra den här självstudiekursen.
 
 ```bash
 mysql -u root -p

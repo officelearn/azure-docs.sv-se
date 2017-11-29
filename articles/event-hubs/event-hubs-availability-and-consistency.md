@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 681a9d1636d547492f6f827461c6b2494b918778
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1398e9b0a10efcd694e46d6322d5d7b9e7a843
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Tillgänglighet och konsekvens i Händelsehubbar
 
@@ -36,7 +36,7 @@ Brewers sats definierar konsekvens och tillgänglighet på följande sätt:
 Händelsehubbar är byggt på en partitionerad datamodell. Du kan konfigurera antalet partitioner i din event hub under installationen, men du kan inte ändra det här värdet senare. Eftersom du måste använda partitioner med Händelsehubbar, måste du fatta ett beslut om tillgänglighet och konsekvens för ditt program.
 
 ## <a name="availability"></a>Tillgänglighet
-Det enklaste sättet att komma igång med Händelsehubbar är att använda standardinställningen. Om du skapar en ny `EventHubClient` objekt och använda den `Send` metoden händelserna automatiskt distribueras mellan partitioner i din event hub. Detta gör att störst upptid.
+Det enklaste sättet att komma igång med Händelsehubbar är att använda standardinställningen. Om du skapar en ny  **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)**  objekt och använda den  **[skicka](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**  metoden händelserna automatiskt distribueras mellan partitioner i din event hub. Detta gör att störst upptid.
 
 Den här modellen är prioriterade för användningsområden som kräver högsta tid.
 

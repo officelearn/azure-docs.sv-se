@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 76179b6a8eb7066c90828d33729b557f5e37c17a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f872972135f43efd1fbfdedcf9697c3e8100ebde
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Metadata Azure: Schemalagda händelser (förhandsversion) för virtuella Windows-datorer
 
@@ -27,31 +27,38 @@ ms.lasthandoff: 11/03/2017
 > Förhandsgranskningar görs tillgängliga för dig under förutsättning att du godkänner användningsvillkoren. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Schemalagda händelser är en av subservices under tjänsten Azure Metadata. Ansvarar för att visa information om kommande händelser (till exempel omstart) så att programmet kan förbereda för dem och begränsa avbrott. Den är tillgänglig för alla typer av Azure virtuella datorer inklusive PaaS och IaaS. Schemalagda händelser ger din virtuella tid att utföra förebyggande åtgärder för att minimera effekten av en händelse. 
+Schemalagda händelser är en Azure Metadata som ger dina program tid att förbereda för underhåll av virtuell dator. Den ger information om kommande underhållshändelser (t.ex. Starta om) så att programmet kan förbereda för dem och begränsa avbrott. Den är tillgänglig för alla typer av Azure virtuella datorer inklusive PaaS och IaaS i både Windows och Linux. 
 
-Schemalagda händelser är tillgänglig för både Linux och Windows-datorer. Information om schemalagda händelser på Linux finns [schemalagda händelser för virtuella Linux-datorer](../linux/scheduled-events.md).
+Information om schemalagda händelser på Linux finns [schemalagda händelser för virtuella Linux-datorer](../linux/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Varför schemalagda händelser?
 
-Du kan vidta åtgärder för att begränsa effekten av plattform intiated underhåll eller användare utför åtgärder på din tjänst med schemalagda händelser. 
+Många program kan dra nytta av tid att förbereda för underhåll av virtuell dator. Tid kan användas för att utföra specifika åtgärder i program som kan förbättra tillgänglighet, pålitlighet och brukbarheten inklusive: 
 
-Flera instanser arbetsbelastningar, som använder replikeringstekniker för för att upprätthålla tillstånd, kan vara utsatt för avbrott som händer i flera instanser. Exempel driftsavbrott kan resultera i dyra aktiviteter (till exempel återskapande index) eller även en replik går förlorade. 
+- Kontrollpunkt och återställning
+- Anslutningen tömmer
+- Primära repliken växling vid fel 
+- Tas bort från belastningen pool för belastningsutjämnare
+- Händelseloggning
+- Korrekt avslutning 
 
-I många andra fall totala tjänsttillgängligheten kan förbättras genom att utföra en korrekt avslutningssekvens som Slutför (eller annullerar) pågående transaktioner, tilldela uppgifter till andra virtuella datorer i klustret (manuell redundans) eller ta bort virtuellt Datorn från poolen network load belastningsutjämnaren. 
+Med hjälp av schemalagda händelser programmet kan identifiera när Underhåll ska ske och utlösa uppgifter för att begränsa dess konsekvenser.  
 
-Finns det fall där tala med administratören om en kommande händelse eller logga sådan händelse att förbättra brukbarheten av program finns i molnet.
-
-Azure Metadata Service hämtar schemalagda händelser i följande användningsområden:
--   Plattform som initierade Underhåll (till exempel värd-OS-installationen)
--   Användarinitierad anrop (till exempel användaren startar om eller återdistribuerar en virtuell dator)
-
+Schemalagda händelser ger händelser i följande användningsområden:
+- Plattform som initierade Underhåll (t.ex. värden OS uppdatering)
+- Användaren initierade Underhåll (t.ex. användare startar om eller återdistribuerar en virtuell dator)
 
 ## <a name="the-basics"></a>Grunderna  
 
 Metadata i Azure-tjänsten visar information om att köra virtuella datorer med en REST-slutpunkt som är tillgänglig från den virtuella datorn. Informationen är tillgänglig via en icke-dirigerbara IP-adress så att inte exponeras utanför den virtuella datorn.
 
 ### <a name="scope"></a>Omfång
-Schemalagda händelser är anslutna till alla virtuella datorer i en molnbaserad tjänst eller till alla virtuella datorer i en Tillgänglighetsuppsättning. Därför bör du kontrollera den `Resources` i händelsen för att identifiera vilka virtuella datorer kommer att påverkas. 
+Schemalagda händelser levereras till:
+- Alla virtuella datorer i en tjänst i molnet
+- Alla virtuella datorer i en Tillgänglighetsuppsättning
+- Alla virtuella datorer på en skala Ange placering av grupp. 
+
+Därför bör du kontrollera den `Resources` i händelsen för att identifiera vilka virtuella datorer kommer att påverkas. 
 
 ### <a name="discovering-the-endpoint"></a>Identifiering av slutpunkten
 I de fall där en virtuell dator skapas ett virtuellt nätverk (VNet), metadatatjänsten är tillgänglig från en statisk icke-dirigerbara IP `169.254.169.254`.
@@ -73,9 +80,6 @@ Första gången du skapar en begäran om schemalagda händelser aktiverar Azure 
 Användaren initierade underhålla virtuella datorer via Azure portal, API, CLI eller PowerShell resulterar i en schemalagd händelse. Det kan du testa Underhåll förberedelse av logiken i ditt program och att ditt program att förbereda för användarinitierad underhåll.
 
 Starta om en virtuell dator schemalägger en händelse med typen `Reboot`. Omdistribuera en virtuell dator schemalägger en händelse med typen `Redeploy`.
-
-> [!NOTE] 
-> För närvarande kan högst 10 användarinitierad underhållsåtgärder samtidigt schemaläggas. Den här gränsen mjukas upp före schemalagda händelser allmän tillgänglighet.
 
 > [!NOTE] 
 > Användarinitierad Underhåll ledde schemalagda händelser kan för närvarande inte konfigureras. Konfigurationsmöjligheter är planerad för framtida versioner.

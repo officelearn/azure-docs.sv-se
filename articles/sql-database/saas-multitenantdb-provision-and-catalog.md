@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: 93a2f8aa8890f40a8ef9b88fe172efa24aac7811
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e7de7bb545e0ce04dc1b3dd398cc920213d09bae
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/28/2017
@@ -86,10 +86,10 @@ Wingtip biljetter SaaS flera innehavare databasen skript och programmets källko
 
 Lägg till en brytpunkt och stega igenom arbetsflödet för att förstå hur programmet Wingtip biljetter implementerar ny allokering i en delad databas-klient:
 
-1. I den _PowerShell ISE_öppnar... \\Learning moduler\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ och ange följande parametrar:
-   * **$TenantName** = **Bushwillow blått**, namnet på den nya platsen.
-   * **$VenueType** = **blått**, en av de fördefinierade plats typerna: *blått*, classicalmusic, webbsidor, jazz, judo, motorracing, multipurpose, opera, rockmusic, fotboll ( gemen, inga blanksteg).
-   * **$Scenario** = **1**, *etablera en klient i en delad databas med andra klienter*.
+1. I den _PowerShell ISE_öppnar... \\Learning moduler\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ och ange följande parametrar:
+   * **$TenantName** = **Bushwillow blått**, namnet på en ny plats.
+   * **$VenueType** = **blått**, en av de fördefinierade plats typerna: blått, classicalmusic, webbsidor, jazz, judo, motorracing, multipurpose, opera, rockmusic, fotboll (gemen, inga blanksteg).
+   * **$DemoScenario** = **1**, *etablera en klient i en delad databas med andra klienter*.
 
 1. Lägga till en brytpunkt genom att placera markören på rad 38, raden: *ny klient '*, och tryck på **F9**.
 
@@ -120,10 +120,10 @@ Följande är viktiga delar i etablering arbetsflödet du steg för steg:
 
 Nu genomgång processen när du skapar en klient i en egen databas:
 
-1. Fortfarande i... \\Learning moduler\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ ange följande parametrar:
-   * **$TenantName** = **sequoia fotboll**, namnet på den nya platsen.
-   * **$VenueType** = **fotboll**, en av de fördefinierade plats typerna: blått, classicalmusic, webbsidor, jazz, judo, motorracing, multipurpose, opera, rockmusic, *fotboll* () gemen, inga blanksteg).
-   * **$Scenario** = **2**, *etablera en klient i en delad databas med andra klienter*.
+1. Fortfarande i... \\Learning moduler\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ ange följande parametrar:
+   * **$TenantName** = **sequoia fotboll**, namnet på en ny plats.
+   * **$VenueType** = **fotboll**, en av de fördefinierade plats typerna: blått, classicalmusic, webbsidor, jazz, judo, motorracing, multipurpose, opera, rockmusic, fotboll (gemen, inga blanksteg).
+   * **$DemoScenario** = **2**, *etablera en klient i en egen databas*.
 
 1. Lägga till en ny brytpunkt genom att placera markören på raden 57, raden:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '*, och tryck på **F9**.
 
@@ -151,30 +151,31 @@ Följande är viktiga delar av arbetsflödet du gå igenom när spårning skript
 
 Den här övningen etablerar en batch med 17 innehavare. Det rekommenderas att du etablerar den här gruppen med klienter innan du startar andra kurser i Wingtip biljetter så att det finns flera databaser du arbetar med.
 
-1. I den *PowerShell ISE*öppnar... \\Learning moduler\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* och ändra den *$Scenario* parameter till 3:
-   * **$Scenario** = **3**, *etablera en grupp med klienter i en delad databas*.
+
+1. I den *PowerShell ISE*öppnar... \\Learning moduler\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* och ändra den *$DemoScenario* parameter till 4:
+   * **$DemoScenario** = **4**, *etablera en grupp med klienter i en delad databas*.
 1. Tryck på **F5** och kör skriptet.
 
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>Kontrollera en distribuerad uppsättning klienter 
-Du har en blandning av klienter som har distribuerats till en delad databas och klienter som har distribuerats till sina egna databaser i det här skedet. Azure-portalen kan användas för att inspektera de databaser som skapas:  
-
-* I den [Azure-portalen](https://portal.azure.com)öppnar den **tenants1-huvudmålservern -\<användare\>**  servern genom att bläddra i listan över SQL-servrar.  Den **SQL-databaser** listan över ska inkludera den delade **tenants1** databasen och databaserna för klienter som finns i deras egna databasen:
+Du har en blandning av klienter som har distribuerats till en delad databas och klienter som har distribuerats till sina egna databaser i det här skedet. Azure-portalen kan användas för att inspektera de databaser som skapas. I den [Azure-portalen](https://portal.azure.com)öppnar den **tenants1-huvudmålservern -\<användare\>**  servern genom att bläddra i listan över SQL-servrar.  Den **SQL-databaser** listan över ska inkludera den delade **tenants1** databasen och databaserna för klienter som finns i deras egna databasen:
 
    ![databaslista](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 Medan Azure portal visas innehavaren databaser, kan inte se hyresgäster *inuti* den delade databasen. Du kan se en fullständig lista över klienter på sidan Wingtip biljetter händelser hubb och genom att bläddra i katalogen:   
 
-1. Öppna sidan händelser hubb i webbläsaren (http:events.wingtip-mt.\<användaren\>. trafficmanager.net)  
+**Med Wingtip biljetter händelser hubb sida** <br>
+Öppna sidan händelser hubb i webbläsaren (http:events.wingtip-mt.\<användaren\>. trafficmanager.net)  
 
-   En fullständig lista över klienter och deras motsvarande databas finns i katalogen. En SQL-vyn finns i databasen tenantcatalog som ansluter till innehavarens namn lagras i tabellen klienter till databasnamn i tabellerna Fragmentera Management. Den här vyn visar snyggt värdet för att utöka de metadata som lagras i katalogen.
+**Med katalog-databas** <br>
+En fullständig lista över klienter och deras motsvarande databas finns i katalogen. En SQL-vyn finns i databasen tenantcatalog som ansluter till innehavarens namn lagras i tabellen klienter till databasnamn i tabellerna Fragmentera Management. Den här vyn visar snyggt värdet för att utöka de metadata som lagras i katalogen.
 
-2. I *SQL Server Management Studio (SSMS)*, ansluta till servern för klienter på **om tenants1 mt.\<användare\>. database.windows.net**, med inloggningen: **utvecklare** , Lösenord:**P@ssword1**
+1. I *SQL Server Management Studio (SSMS)* ansluta till servern för klienter på **om katalogen mt.\<användare\>. database.windows.net**, med inloggningen: **developer**, Lösenord:**P@ssword1**
 
     ![SSMS anslutningsdialogrutan](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. I den *Object Explorer*, bläddra till vyer i den *tenantcatalog* databas.
-2. Högerklicka på vyn *TenantsExtended* och välj **Välj de 1000 översta raderna**. Observera mappningen mellan klientnamn och databasen för olika klienter.
+1. I den *Object Explorer*, bläddra till vyer i den *tenantcatalog* databas.
+1. Högerklicka på vyn *TenantsExtended* och välj **Välj de 1000 översta raderna**. Observera mappningen mellan klientnamn och databasen för olika klienter.
 
     ![ExtendedTenants vyn i SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       

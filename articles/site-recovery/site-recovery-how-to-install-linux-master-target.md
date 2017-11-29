@@ -3,7 +3,7 @@ title: "Så här installerar du en Linux-huvudmålserver för redundans från Az
 description: "Innan du skydda en Linux-dator, måste en Linux-huvudmålserver. Lär dig hur du installerar en."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 029e1b51c52e440666238f6177d15aea0a5e07a7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/28/2017
@@ -206,7 +206,7 @@ Om du vill aktivera den här parametern, gör du följande:
 
 #### <a name="disable-kernel-upgrades"></a>Inaktivera kernel-uppgraderingar
 
-Azure Site Recovery-huvudmålservern kräver en särskild version av Ubuntu, se till att kernel-uppgraderingar är inaktiverat för den virtuella datorn.
+Azure Site Recovery-huvudmålservern kräver en viss version av Ubuntu, se till att kernel-uppgraderingar är inaktiverad för den virtuella datorn.
 
 Om kernel uppgraderingar är aktiverade kan orsaka reguljära uppgraderingar huvudmålservern inte fungerar korrekt.
 
@@ -369,12 +369,12 @@ När installationen är klar kan du registrera konfigurationsservern med hjälp 
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Vänta tills skriptet har slutförts. Om huvudmålservern är registrerade har, huvudmålservern finns på den **Site Recovery-infrastruktur** i portalen.
+   Vänta tills skriptet har slutförts. Om huvudmålservern har registrerats, visas huvudmålservern på den **Site Recovery-infrastruktur** i portalen.
 
 
 ### <a name="upgrade-the-master-target"></a>Uppgradera huvudmålservern
 
-Kör installationsprogrammet. Den upptäcker automatiskt att agenten är installerad på huvudmålservern. Om du vill uppgradera, Välj **Y**.  När installationen har slutförts, kontrollerar du vilken version av huvudmålservern installeras med hjälp av följande kommando.
+Kör installationsprogrammet. Den upptäcker automatiskt att agenten är installerad på huvudmålservern. Om du vill uppgradera, Välj **Y**.  När installationen har slutförts, kontrollerar du vilken version av huvudmålservern installeras med hjälp av följande kommando:
 
     ```
     cat /usr/local/.vx_version
@@ -387,7 +387,7 @@ Kan du se att den **Version** fältet visar versionsnumret på Huvudmålet.
 Du måste installera VMware-verktyg på huvudmålservern så att den kan identifiera datalager. Om inte verktygen är installerade, visas skyddar skärmen inte i datalager. Du måste starta om efter installationen av VMware-verktyg.
 
 ## <a name="next-steps"></a>Nästa steg
-Efter installation och registrering av huvudmålservern har finsihed, du kan se huvudmålservern visas på den **Huvudmålservern** i avsnittet **Site Recovery-infrastruktur**, under Konfigurationsöversikt för servern.
+Efter installation och registrering av huvudmålservern har slutförts visas huvudmålservern visas på den **Huvudmålservern** i avsnittet **Site Recovery-infrastruktur**, enligt konfigurationen Översikt över Server.
 
 Du kan nu fortsätta med [återaktivera skydd](site-recovery-how-to-reprotect.md), följt av återställning efter fel.
 

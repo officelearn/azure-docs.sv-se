@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9de535b2fb70181c68fb698e847dd8361bf54385
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 899ca9f7a82ce526eba04b88420ab01e208fe784
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -43,18 +43,20 @@ Du besöker sidan regelbundet vi uppdateras varje månad.
 
 ## <a name="november-2017"></a>November 2017
  
+### <a name="retiring-acs"></a>Ta bort ACS
+
 
 
 **Typ:** ändringsplan  
 **Tjänstekategori:** ACS  
 **Produkten kapaciteten:** åtkomst till tjänsten 
 
-**Ta bort ACS**
 
 Microsoft Azure Active Directory-åtkomstkontroll (även kallat åtkomstkontrolltjänsten eller ACS) ska tas bort i sen 2018.  Ytterligare information, inklusive en detaljerad schema & övergripande migrering vägledning ges i nästa några veckor. Under tiden kan lämna kommentarer på denna sida med frågor om ACS och medlem i vårt team kommer för att svara.
 
 ---
 
+### <a name="restrict-browser-access-to-the-intune-managed-browser"></a>Begränsa webbläsaråtkomst till den hantera webbläsaren i Intune 
 
 
 **Typ:** ändringsplan  
@@ -62,7 +64,6 @@ Microsoft Azure Active Directory-åtkomstkontroll (även kallat åtkomstkontroll
 **Produkten kapaciteten:** identitet säkerhet och skydd
 
 
-**Begränsa webbläsaråtkomst till den hantera webbläsaren i Intune** 
 
 
 Med det här problemet kommer du att kunna begränsa webbläsaråtkomst till Office 365 och andra Azure AD-anslutna molnappar med hjälp av Intune Managed Browser som en godkänd app. 
@@ -82,6 +83,7 @@ Mer information finns i [villkorlig åtkomst i Azure Active Directory](active-di
  
 ---
 
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nya godkända klientappar för Azure AD app-baserad villkorlig åtkomst
 
  
 **Typ:** ändringsplan  
@@ -89,7 +91,6 @@ Mer information finns i [villkorlig åtkomst i Azure Active Directory](active-di
 **Produkten kapaciteten:** identitet säkerhet och skydd
 
 
-**Nya godkända klientappar för Azure AD app-baserad villkorlig åtkomst**
 
 
 Följande appar är tänkta att läggas till i listan över [godkända klientprogram](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
@@ -108,6 +109,9 @@ Mer information finns i:
 
 ---
 
+### <a name="terms-of-use-support-for-multiple-languages"></a>Villkoren för användning stöd för flera språk
+
+
 
 **Typ:** ny funktion    
 **Tjänstekategori:** villkor för användning  
@@ -115,7 +119,6 @@ Mer information finns i:
 
 
 
-**Villkoren för användning stöd för flera språk**
 
 
 Administratörer kan nu skapa nya villkor för användning (TOU) som innehåller flera PDF-dokument. Du kan tagga dessa PDF-dokument med motsvarande språk. Användare som finns i omfattningen visas PDF-filen med motsvarande språk utifrån deras preferenser. Om det finns ingen matchning, visas standardspråk.
@@ -124,13 +127,15 @@ Administratörer kan nu skapa nya villkor för användning (TOU) som innehåller
 ---
  
 
+### <a name="realtime-password-writeback-client-status"></a>Realtid lösenord tillbakaskrivning klientstatus
+
+
 
 **Typ:** ny funktion  
 **Tjänstekategori:** SSPR  
 **Produkten kapaciteten:** användarautentisering
 
 
-**Realtid lösenord tillbakaskrivning klientstatus**
  
 
 Nu kan du granska status för lokala lösenord tillbakaskrivning av klienten. Det här alternativet är tillgängligt i den **lokalt integration** avsnitt i den  **[lösenordsåterställning](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)**  sidan. 
@@ -145,6 +150,12 @@ Mer information finns i [lokalt integration](active-directory-passwords-how-it-w
 
  
 ---
+
+
+### <a name="azure-ad-app-based-conditional-access"></a>Azure AD app-baserad villkorlig åtkomst 
+
+
+
  
 **Typ:** ny funktion  
 **Tjänstekategori:** Azure AD  
@@ -152,7 +163,6 @@ Mer information finns i [lokalt integration](active-directory-passwords-how-it-w
 
 
 
-**Azure AD app-baserad villkorlig åtkomst** 
 
 
 Du kan nu begränsa åtkomst till Office 365 och andra Azure AD-anslutna molnappar till [godkända klientappar](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) som stöd för Intune App Protection principer med hjälp av [Azure AD app-baserad villkorlig åtkomst](active-directory-conditional-access-mam.md). Intune app protection-principer används för att konfigurera och skydda företagets data på dessa program.
@@ -180,6 +190,8 @@ Mer information finns i [Azure Active Directory app-baserad villkorlig åtkomst]
  
 ---
 
+### <a name="managing-azure-ad-devices-in-the-azure-portal"></a>Hantera Azure AD-enheter i Azure-portalen
+
 
 
 **Typ:** ny funktion  
@@ -188,7 +200,6 @@ Mer information finns i [Azure Active Directory app-baserad villkorlig åtkomst]
 
  
 
-**Hantera Azure AD-enheter i Azure-portalen**
 
 
 Nu kan du visa alla dina enheter som är anslutna till Azure AD och enhetsrelaterade aktiviteter i ett och samma ställe. Det finns en ny administration-miljö för att hantera identiteter för enheten och inställningar i Azure-portalen. I den här versionen kan du:
@@ -209,14 +220,13 @@ Mer information finns i [hantera enheter med hjälp av Azure portal](device-mana
  
 ---
 
+### <a name="support-for-macos-as-device-platform-for-azure-ad-conditional-access"></a>Stöd för macOS som enhetsplattform för villkorlig åtkomst i Azure AD 
+
+
 
 **Typ:** ny funktion    
 **Tjänstekategori:** villkorlig åtkomst  
 **Produkten kapaciteten:** identitet säkerhet och skydd 
-
-
-
-**Stöd för macOS som enhetsplattform för villkorlig åtkomst i Azure AD** 
  
 
 Du kan nu inkludera (eller exkludera) macOS som enhet plattform villkor i din Azure AD-principen för villkorlig åtkomst. Med tillägg av macOS till enhetsplattformar som stöds kan du:
@@ -236,13 +246,14 @@ Mer information finns i:
  
 ---
 
+### <a name="nps-extension-for-azure-mfa"></a>NPS-tillägget för Azure MFA 
+
 
 **Typ:** ny funktion    
 **Tjänstekategori:** MFA  
 **Produkten kapaciteten:** användarautentisering
 
 
-**NPS-tillägget för Azure MFA** 
 
 
 Server (NPS)-tillägget för Azure MFA lägger till funktioner för molnbaserade MFA till din infrastruktur för autentisering med hjälp av din befintliga servrar. Med filnamnstillägget NPS du kan lägga till telefonsamtal, textmeddelande eller app telefonverifiering din befintliga autentiseringsflödet utan att behöva installera, konfigurera och underhålla nya servrar. 
@@ -281,14 +292,12 @@ I administrationscentret för Azure AD kan du nu:
  
 ---
 
-
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>Nya godkända klientappar för Azure AD app-baserad villkorlig åtkomst
 
  
 **Typ:** ändrade funktionen  
 **Tjänstekategori:** villkorlig åtkomst  
 **Produkten kapaciteten:** identitet säkerhet och skydd
-
-**Nya godkända klientappar för Azure AD app-baserad villkorlig åtkomst**
 
 
 Följande appar har lagts till i listan över [godkända klientprogram](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
@@ -307,14 +316,13 @@ Mer information finns i:
 
 ---
 
+### <a name="ability-to-or-between-controls-in-a-conditional-access-policy"></a>Möjligheten att 'eller' mellan kontroller i en princip för villkorlig åtkomst 
 
 
 **Typ:** ändrade funktionen    
 **Tjänstekategori:** villkorlig åtkomst  
 **Produkten kapaciteten:** identitet säkerhet och skydd
 
-
-**Möjligheten att 'eller' mellan kontroller i en princip för villkorlig åtkomst** 
  
 Möjligheten att 'Eller' (kräver en av de markerade kontrollerna) kontroller för villkorlig åtkomst har släppts. Den här funktionen kan du skapa principer med en **eller** mellan åtkomstkontroller. Du kan till exempel använda den här funktionen för att skapa en princip som kräver att en användare att logga in med multifaktorautentisering **eller** på en kompatibel enhet.
 
@@ -323,13 +331,13 @@ Mer information finns i [kontrollerna i Azure Active Directory för villkorlig �
  
 ---
 
+### <a name="aggregation-of-realtime-risk-events"></a>Sammanställning av riskhändelser i realtid
 
 
 **Typ:** ändrade funktionen    
 **Tjänstekategori:** identitetsskydd  
 **Produkten kapaciteten:** identitet säkerhet och skydd
 
-**Sammanställning av riskhändelser i realtid**
 
 Om du vill förbättra upplevelsen administration i Azure AD Identity Protection samman realtid riskhändelser som har sitt ursprung på samma IP-adress på en viss dag nu för varje typ av händelse risk. Den här ändringen begränsar mängden riskhändelser visas utan att användarens säkerhets förändras.
 
@@ -344,12 +352,15 @@ Den underliggande realtid identifieringen fungerar varje gång en användare log
 
 ## <a name="october-2017"></a>Oktober 2017
 
+
+### <a name="deprecating-azure-ad-reports"></a>Sluta Azure AD-rapporter
+
+
 **Typ:** ändringsplan  
 **Tjänstekategori:** rapportering  
 **Produkten kapaciteten:** Identitetshantering livscykel  
 
 
-**Sluta Azure AD-rapporter**
 
 Azure-portalen ger dig:
 
@@ -360,12 +371,13 @@ På grund av de nya funktionerna i rapporten API: er under den **/rapporter** sl
 
 ---
 
+### <a name="automatic-sign-in-field-detection"></a>Fältet för automatisk inloggning identifiering
+
+
 **Typ:** fast   
 **Tjänstekategori:** Mina appar  
 **Produkten kapaciteten:** enkel inloggning  
 
-
-**Fältet för automatisk inloggning identifiering**
 
 
 Azure Active Directory har stöd för automatisk inloggning fältet identifiering för program som renderas ett HTML-fält för användarnamn och lösenord.  De här stegen finns dokumenterade i [så att automatiskt samla in inloggning fält för ett program](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). Du hittar den här funktionen genom att lägga till en *icke-galleriet* på den **företagsprogram** sidan i den [Azure-portalen](http://aad.portal.azure.com). Du kan också konfigurera den **enkel inloggning** läge för den här nya programmet till **lösenordsbaserade enkel inloggning**, ange en URL och sedan spara sidan.
@@ -374,12 +386,14 @@ Den här funktionen har tillfälligt inaktiverats för en viss tidsperiod på gr
 
 ---
 
+### <a name="new-mfa-features"></a>Nya MFA-funktioner
+
+
 **Typ:** ny funktion  
 **Tjänstekategori:** MFA  
 **Produkten kapaciteten:** identitet säkerhet och skydd  
 
 
-**Nya MFA-funktioner**
 
 Multifaktorautentisering (MFA) är en viktig del av att skydda din organisation. Följande funktioner har lagts till för att göra mer anpassningsbar autentiseringsuppgifter och erfarenhet smidigare: 
 
@@ -393,12 +407,16 @@ Mer information finns i [referens för multifaktorautentisering rapportering i A
 
 
 ---
+
+### <a name="introducing-terms-of-use"></a>Introduktion till villkor för användning
+
+
+
 **Typ:** ny funktion  
 **Tjänstekategori:** villkor för användning  
 **Produkten kapaciteten:** styrning  
 
 
-**Introduktion till villkor för användning**
 
 Azure AD-villkor för användning av ger en enkel metod för att presentera information till slutanvändare. Detta säkerställer att användarna ser relevanta FRISKRIVNINGAR för juridiska eller efterlevnadskrav.
 
@@ -414,11 +432,14 @@ Mer information finns i [Azure Active Directory användningsvillkoren](active-di
 
 
 ---
+
+### <a name="enhancements-to-privileged-identity-management"></a>Förbättringar av privileged identity Management
+
+
 **Typ:** ny funktion  
 **Tjänstekategori:** PIM  
 **Produkten kapaciteten:** Privileged Identity Management  
 
-**Förbättringar av privileged identity Management**
 
 Med Azure Active Directory Privileged Identity Management (PIM), kan du nu hantera, kontrollera och övervaka åtkomst till resurser i Azure (förhandsversion) inom organisationen:
 
@@ -432,11 +453,14 @@ Mer information finns i [PIM för Azure-resurser](privileged-identity-management
 
 
 ---
+
+### <a name="introducing-access-reviews"></a>Introduktion till access granskar
+
+
 **Typ:** ny funktion  
 **Tjänstekategori:** åtkomst till granskningar  
 **Produkten kapaciteten:** styrning  
 
-**Introduktion till access granskar**
 
 
 Åtkomst granskningar (förhandsgranskning) gör att organisationer att effektivt hantera gruppmedlemskap och åtkomst till företagsprogram: 
@@ -451,12 +475,16 @@ Mer information finns i [åtkomst till Azure AD granskar](active-directory-azure
 
 
 ---
+
+### <a name="hiding-third-party-applications-from-my-apps-and-the-office-365-launcher"></a>Dölja tredjepartsprogram från Mina appar och Office 365-starta
+
+
+
 **Typ:** ny funktion  
 **Tjänstekategori:** Mina appar  
 **Produkten kapaciteten:** enkel inloggning  
 
 
-**Dölja tredjepartsprogram från Mina appar och Office 365-starta**
 
 Du kan nu hantera appar som visas på din användare portaler via en ny bättre **dölja app** egenskapen. Dölja appar hjälper med fall där appen paneler visas för backend-tjänster eller dubbla paneler och hamna fyller hela användarens app startprogram. Att växlingsknappen finns i egenskapsavsnittet för appen från tredje part och etiketteras **synligt för användaren?** Du kan även dölja en app programmässigt med hjälp av PowerShell. 
 
@@ -470,12 +498,14 @@ Mer information finns i [dölja tredjepartsprogram från användarens upplevelse
 
 ## <a name="september-2017"></a>September 2017
 
+### <a name="hotfix-for-microsoft-identity-manager"></a>Snabbkorrigering för Microsoft Identity Manager
+
+
 **Typ:** ändrade funktionen  
 **Tjänstekategori:** Microsoft Identity Manager  
 **Produkten kapaciteten:** Identitetshantering livscykel  
 
 
-**Snabbkorrigering för Microsoft Identity Manager**
 
 En samlad snabbkorrigering (build 4.4.1642.0) är tillgängliga från och med 25 September 2017 för Microsoft Identity Manager (MIM) 2016 2016 servicepack 1 (SP1). Det här paketet:
 

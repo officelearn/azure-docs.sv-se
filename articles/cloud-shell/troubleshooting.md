@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 59aec1cb6433e90caf683b4bce98c92e9f79fd18
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Felsöka Azure-molnet Shell
 
@@ -64,8 +64,9 @@ Kända lösningar på problem i Azure Cloud Shell inkluderar:
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
-- **Information om**: om en användare startar en GUI-app, frågan inte returnerar. När en användare klonar en privat GitHub-repo-som är aktiverad för tvåfaktorsautentisering, till exempel visas en dialogruta för att slutföra två faktorautentisering.
-- **Lösning**: `Ctrl+C` avsluta kommandot.
+- **Information om**: om en användare startar en GUI-app, frågan inte returnerar. När en användare klonar en privat GitHub-repo-som är aktiverad för tvåfaktorsautentisering, till exempel visas en dialogruta för att slutföra två faktorautentisering.  
+- **Lösning**: Stäng och öppna gränssnittet.
+
 
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - online går inte att öppna hjälpsidan
 

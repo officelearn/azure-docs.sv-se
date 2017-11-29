@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>FAN-in/fan-i scenariot i varaktiga funktioner - molnet säkerhetskopiering exempel
 
@@ -67,13 +67,13 @@ Den här funktionen för orchestrator i grunden gör följande:
 4. Väntar på att alla överföringar slutförts.
 5. Returnerar summan Totalt antal byte som har överförts till Azure Blob Storage.
 
-Observera den `await Task.WhenAll(tasks);` rad. Alla anrop till den `E2_CopyFileToBlob` funktion har *inte* inväntas. Detta är avsiktligt så att de körs parallellt. När vi skicka denna matris med aktiviteter som `Task.WhenAll`, vi få tillbaka en uppgift som inte slutföra *förrän alla kopieringsåtgärder har slutfört*. Om du är bekant med den uppgiften parallella bibliotek (TPL) i .NET, är detta inte nya för dig. Skillnaden är att dessa uppgifter kan köras på flera virtuella datorer samtidigt och tillägget säkerställer att slutpunkt till slutpunkt-körningen är känsligt för processåtervinning.
+Observera den `await Task.WhenAll(tasks);` rad. Alla anrop till den `E2_CopyFileToBlob` funktion har *inte* inväntas. Detta är avsiktligt så att de körs parallellt. När vi skicka denna matris med aktiviteter som `Task.WhenAll`, vi få tillbaka en uppgift som inte slutföra *förrän alla kopieringsåtgärder har slutfört*. Om du är bekant med den uppgiften parallella bibliotek (TPL) i .NET, är detta inte nya för dig. Skillnaden är att dessa uppgifter kan köras på flera virtuella datorer samtidigt och tillägget varaktiga funktioner garanterar att slutpunkt till slutpunkt-körningen är känsligt för processåtervinning.
 
 Efter väntar på från `Task.WhenAll`, vi vet att alla funktionsanrop har slutförts och returnerade värden tillbaka till oss. Varje anrop till `E2_CopyFileToBlob` returnerar antalet byte som överförs, så räknar summan Totalt antal byte är en fråga för att lägga till alla de returvärden tillsammans.
 
 ## <a name="helper-activity-functions"></a>Hjälpfunktioner för aktiviteten
 
-Aktiviteten hjälpfunktioner precis som med andra exempel är vanliga funktioner som använder den `activityTrigger` utlösa bindning. Till exempel *function.json* för `E2_GetFileList` ser ut som följande:
+Aktiviteten hjälpfunktioner som med andra exempel är vanliga funktioner som använder den `activityTrigger` utlösa bindning. Till exempel den *function.json* för `E2_GetFileList` ser ut som följande:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
@@ -92,7 +92,7 @@ Genomförandet är också enkelt. Det händer använder vissa avancerade funktio
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-Implementeringen filen läses från disken och strömmar asynkront innehållet i en blob med samma namn. Det returnera värdet är antalet byte som kopieras till lagring, som sedan används av orchestrator-funktionen för att beräkna summan.
+Implementeringen filen läses från disken och strömmar asynkront innehållet i en blob med samma namn i behållaren ”säkerhetskopiering”. Det returnera värdet är antalet byte som kopieras till lagring, som sedan används av orchestrator-funktionen för att beräkna summan.
 
 > [!NOTE]
 > Detta är ett bra exempel för att flytta i/o-åtgärder i en `activityTrigger` funktion. Inte bara kan fördelas arbete på många olika virtuella datorer, men du får också fördelarna med kontrollpunkter förloppet. Om värdprocessen hämtar avslutas av någon anledning, vet du vilken överföringar har slutförts.

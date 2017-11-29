@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 5163d20aece01addddeae93cb07355bde928a440
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importera data för användning med Azure Cosmos DB tabell API
 
@@ -32,11 +32,11 @@ Den här kursen ingår följande uppgifter:
 
 ## <a name="data-migration-tool"></a>Verktyg för migrering
 
-Azure Cosmos DB datamigrering kommandoradsverktyget (dt.exe) kan användas för att importera dina befintliga Azure Table storage data till en tabell API GA-konto eller migrera data från en tabell-API (förhandsgranskning)-kontot till ett tabell-API GA-konto. Andra källor stöds inte för närvarande.
+Azure Cosmos DB datamigrering kommandoradsverktyget (dt.exe) kan användas för att importera dina befintliga Azure Table storage data till en tabell API GA-konto eller migrera data från en tabell-API (förhandsgranskning)-kontot till ett tabell-API GA-konto. Andra källor stöds inte för närvarande. Användargränssnittet baserat datamigrering verktyget (dtui.exe) stöds inte för närvarande för tabellen API-konton. 
 
 Om du vill utföra en migrering av tabelldata, utför följande uppgifter:
 
-1. Hämta Migreringsverktyget från den [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) eller från [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Hämta Migreringsverktyget från [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Kör `dt.exe` med kommandoradsargument för ditt scenario.
 
 DT.exe tar ett kommando i följande format:

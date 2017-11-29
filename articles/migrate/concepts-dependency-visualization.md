@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: e787cd6746b53c28fc1495b9a3ac62f2aa08f639
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: a8a8cee327dac8adfb0ae53d101c382ef20599d2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="dependency-visualization"></a>Beroende visualiseringen
 
@@ -43,7 +43,7 @@ Om du vill använda beroende visualiseringen måste hämta och installera agente
 
 ## <a name="do-i-need-to-pay-for-it"></a>Behöver jag betala för den?
 
-Ja. Logganalys-arbetsytan skapas som standard, men det inte används om du inte använder beroende visualisering i Azure migrera. Om du använder beroende visualiseringen (eller Använd arbetsytan utanför Azure migrera), debiteras du för användning i arbetsytan.  [Lär dig mer](https://www.microsoft.com/cloud-platform/operations-management-suite) om prissättningen för Tjänstkarta lösning. 
+Ja. Logganalys-arbetsytan skapas som standard, men det inte används om du inte använder beroende visualisering i Azure migrera. Om du använder beroende visualiseringen (eller Använd arbetsytan utanför Azure migrera), debiteras du för användning i arbetsytan.  [Lär dig mer](https://azure.microsoft.com/pricing/details/insight-analytics/) om prissättningen för Tjänstkarta lösning. 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Hur hanterar arbetsytan?
 

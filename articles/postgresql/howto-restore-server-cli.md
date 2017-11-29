@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 0cfce63b1523f939dc2d706dba771e56ce9ccd6c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: 7027669597b8c1989f7baac5c5f9d997b218750a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure-databas för PostgreSQL med hjälp av Azure CLI
 
@@ -41,7 +41,7 @@ Med funktionen om automatisk säkerhetskopiering kan du återställa servern och
 ## <a name="restore-a-database-to-a-previous-point-in-time-by-using-the-azure-cli"></a>Återställa en databas till en tidigare tidpunkt med hjälp av Azure CLI
 Använd Azure-databas för PostgreSQL för att återställa servern till en tidigare tidpunkt. Återställda data kopieras till en ny server och den befintliga servern är kvar. Till exempel kan en tabell av misstag utelämnas kl. tolv idag så, du återställa tiden innan på dagen. Du kan sedan hämta saknas tabellen och data från den återställda kopian av servern. 
 
-Använd Azure CLI för att återställa servern [az postgres server återställning](/cli/azure/postgres/server#restore) kommando.
+Använd Azure CLI för att återställa servern [az postgres server återställning](/cli/azure/postgres/server#az_postgres_server_restore) kommando.
 
 ### <a name="run-the-restore-command"></a>Kör kommandot restore
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i varaktiga funktioner - Phone verifiering exempel
 
@@ -33,7 +33,7 @@ Det här exemplet implementerar en SMS-baserade phone verifieringssystem. Dessa 
 
 ## <a name="scenario-overview"></a>Scenarioöversikt
 
-Telefonverifiering är en används för att kontrollera att slutanvändare för ditt program inte är skickar skräppost och att de är de som de säger att de är. Multifaktorautentisering är ett vanligt användningsfall för att skydda användarkonton från hackare. Utmaningen med implementera phone verifieringen är att det krävs en **tillståndskänslig interaktion** med en människa som. En användare anges vanligtvis kod (t.ex. en 4 siffror) och måste svara **inom en rimlig tid**.
+Telefonverifiering används för att kontrollera att slutanvändare för ditt program inte är skickar skräppost och att de är de som de säger att de är. Multifaktorautentisering är ett vanligt användningsfall för att skydda användarkonton från hackare. Utmaningen med implementera phone verifieringen är att det krävs en **tillståndskänslig interaktion** med en människa som. En användare anges vanligtvis kod (t.ex. en 4 siffror) och måste svara **inom en rimlig tid**.
 
 Vanlig Azure Functions tillståndslös (som är många andra molntjänster slutpunkter för andra plattformar), så att dessa typer av interaktioner måste du uttryckligen hantera i en databas eller några andra beständiga tillståndslager externt. Interaktionen måste dessutom delas i flera funktioner som kan samordnas tillsammans. Till exempel behöver du minst en funktion för att bestämma om en, spara den någonstans och skicka det till användarens telefon. Dessutom måste minst en annan funktion att ta emot ett svar från användaren och mappa det på något sätt tillbaka till det ursprungliga funktionsanropet för att göra validering kod. En tidsgräns är också en viktig aspekt att säkerställa säkerheten. Detta kan få ganska komplex ganska snabbt.
 
@@ -43,7 +43,7 @@ Det här scenariot komplexitet minskas avsevärt när du använder beständiga f
 
 Det här exemplet är med hjälp av den [Twilio](https://www.twilio.com/) -tjänsten för att skicka SMS-meddelanden till en mobiltelefon. Azure Functions redan har stöd för Twilio via den [Twilio bindning](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), och funktionen används.
 
-Den först öppna du du behöver är ett Twilio-konto. Du kan skapa ett kostnadsfritt på https://www.twilio.com/try-twilio. När du har ett konto kan du lägga till följande tre **appinställningar** i projektet.
+Det första du behöver är en Twilio-konto. Du kan skapa ett kostnadsfritt på https://www.twilio.com/try-twilio. När du har ett konto kan du lägga till följande tre **appinställningar** i appen funktion.
 
 | Appen inställningsnamn | Värdebeskrivning |
 | - | - |

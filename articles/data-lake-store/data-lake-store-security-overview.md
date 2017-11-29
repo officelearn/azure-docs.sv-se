@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 5b71c7e7f1ea58a273beb58717102522ad0f8c4a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 52e176711f512e8a3788309a58011c8484821a1e
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Säkerhet i Azure Data Lake Store
 Många företag att utnyttja analyser av stordata för affärsinsikter hjälper dem att fatta smarta beslut. En organisation kan ha en komplex och reglerade miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att affärskritiska data lagras säkrare, med rätt nivå av åtkomst till enskilda användare. Azure Data Lake Store är utformat för att uppfylla dessa säkerhetskrav. I den här artikeln lär dig mer om säkerhetsfunktioner för Data Lake Store, inklusive:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fad082a576bc994897c6b396e5edcfa02313487
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hur du delegerar användarens registrering och produkt-prenumeration
 Delegering kan du använda din befintliga webbplats för att hantera developer logga-i/sign-upp och din prenumeration på produkter i stället för med inbyggda funktioner i developer-portalen. Detta gör att din webbplats ska äga användardata och utföra valideringen av stegen i ett anpassat sätt.
@@ -172,7 +172,7 @@ Mer information om delegering finns i följande videoklipp.
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[begär en enkel inloggning (SSO) token]: http://go.microsoft.com/fwlink/?LinkId=507409
+[begär en enkel inloggning (SSO) token]: https://docs.microsoft.com/en-us/rest/api/apimanagement/User/GenerateSsoUrl
 [Skapa en användare]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [anropa REST-API för produkten prenumeration]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps

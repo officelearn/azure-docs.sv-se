@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76be085aa114b571f40603b4f182b13b9354b8b8
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-guide för utvecklare
 I Azure Functions dela funktioner några grundläggande tekniska begrepp och komponenter, oavsett språk eller bindning som du använder. Innan du går till learning information som är specifika för ett visst språk eller bindning bör du läsa igenom den här översikten som gäller för alla.
@@ -81,11 +81,8 @@ Funktionen redigeraren inbyggda i Azure-portalen kan du uppdatera den *function.
 Funktionen appar bygger på Apptjänst, så alla de [distributionsalternativ för standard web apps](../app-service/app-service-deploy-local-git.md) finns också tillgängliga för funktionen appar. Här följer några metoder som du kan använda för att hämta eller uppdatera funktionen programfilerna. 
 
 #### <a name="to-use-app-service-editor"></a>Du använder App Service Editor
-1. I Azure Functions-portalen klickar du på **fungerar appinställningar**.
-2. I den **avancerade inställningar** klickar du på **går du till App Service-inställningar**.
-3. Klicka på **App Service Editor** i Appmenyn Nav under **UTVECKLINGSVERKTYG**.
-4. Klicka på **Gå**.
-   
+1. I Azure Functions-portalen klickar du på **plattformsfunktioner**.
+2. I den **UTVECKLINGSVERKTYG** klickar du på **App Service Editor**.   
    När App Service Editor har lästs in, visas den *host.json* fil- och mappar under *wwwroot*. 
 5. Öppna filer att redigera dem, eller dra och släppa från utvecklingsdatorn att överföra filer.
 

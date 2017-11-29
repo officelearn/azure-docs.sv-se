@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure-molnet Shell
 Azure Cloud-gränssnittet är en interaktiv, webbläsare-tillgängliga shell för att hantera Azure-resurser.
@@ -55,9 +55,9 @@ Förutom molnet skal som är tillgängliga från Azure-portalen, kan den också 
 * [Azure mobilappar](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-files-storage"></a>Ansluta din Azure File storage
+### <a name="connect-your-microsoft-azure-files-storage"></a>Ansluta din Microsoft Azure File storage
 Molnet Shell datorer är tillfälliga och därför kräver en resurs för Azure-filer som ska monteras som `clouddrive` att bevara $Home-katalogen.
-Första start molnet Shell uppmanas du för att skapa en resurs dela grupp, storage-konto och filen på å dina vägnar. Detta är ett enstaka steg och bifogas automatiskt för alla sessioner. En enda filresurs kan mappas och kommer att användas av både Bash och PowerShell i molnet Shell (förhandsversion).
+Första startas för molnet Shell uppmanas du för att skapa en resursgrupp, dela storage-konto och en Azure-fil för din räkning. Detta är ett enstaka steg och bifogas automatiskt för alla sessioner. En enda Azure filresurs kan mappas och kommer att användas av både Bash och PowerShell i molnet Shell (förhandsversion).
 
 #### <a name="create-new-storage"></a>Skapa nya lagringsenheter
 ![](media/overview/basic-storage.png)
@@ -70,7 +70,7 @@ Tre resurser kommer att skapas för din räkning:
 3. Filresurs med namnet:`cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> Bash i molnet Shell skapar även en standardbild 5 GB disk för att bevara `$Home`. Alla filer i katalogen $Home, till exempel SSH-nycklar finns kvar i din användare diskavbildning som lagras i monterade filresursen. Tillämpa metodtips när du sparar filer i din $Home katalog och monterade filresurs.
+> Bash i molnet Shell skapar även en standardbild 5 GB disk för att bevara `$Home`. Alla filer i katalogen $Home, till exempel SSH-nycklar finns kvar i din användare diskavbildning som lagras i den monterade Azure-filresursen. Tillämpa metodtips när du sparar filer i din $Home katalog och monterade Azure-filresursen.
 
 #### <a name="use-existing-resources"></a>Använda befintliga resurser
 ![](media/overview/advanced-storage.png)
@@ -79,13 +79,13 @@ Ett avancerat alternativ har angetts för att associera befintliga resurser till
 Klicka på ”Visa avancerade inställningar” i Kommandotolken lagring installationen att visa ytterligare alternativ.
 Nedrullningsbara listorna filtreras för molntjänster Shell regionen och lokalt/globalt-redundant storage-konton.
 
-[Lär dig om molnet Shell lagring, uppdatera filresurser och ladda upp/hämta filer.](persisting-shell-storage.md)
+[Lär dig om molnet Shell lagring, uppdatera Azure-filresurser och ladda upp/hämta filer.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Koncept
 * Molnet Shell körs på en tillfällig värd på en per session, per användare
 * Molnet Shell timeout efter 20 minuter utan interaktiva aktivitet
-* Molnet Shell kräver en filresurs som ska monteras
-* Molnet Shell använder samma filresurs för både Bash och PowerShell
+* Molnet Shell kräver en Azure-filresurs som ska monteras
+* Molnet Shell använder samma Azure-filresursen för både Bash och PowerShell
 * Molnet Shell tilldelas en dator per konto
 * Behörigheter har angetts som en vanlig Linux-användare i Bash
 

@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnosverktyg
 
@@ -29,43 +29,11 @@ Vår diagnosverktyg säkerställer mekanism för logg-samling är enkelt och eff
  
 ## <a name="trace-collector"></a>Spåra insamlaren
  
-Spåra insamlaren är aktiverad som standard. Den kontinuerligt körs i bakgrunden och samlar in alla ETW Event Tracing for Windows ()-loggar från Komponenttjänster på Azure-stacken och lagrar dem på en gemensam lokal resurs. 
+Spåra insamlaren är aktiverad som standard och körs kontinuerligt i bakgrunden för att samla in alla ETW Event Tracing for Windows ()-loggar från Azure-stacken Komponenttjänster. ETW-loggfilerna lagras i en gemensam lokal resurs med en övre gräns ålder fem dagar. När den här gränsen har nåtts, raderas de äldsta filerna när nya skapas. Den standard maximala tillåtna storleken för varje fil är 200MB. En storlek kontroll inträffar regelbundet (varannan minut) och om den aktuella filen är > = 200 MB sparas så skapas en ny fil. Det finns också en 8GB gräns på den totala filstorleken genereras per händelsesessionen. 
 
-Följande är viktiga saker att veta om Trace insamlaren:
- 
-* Spåra insamlaren kör kontinuerligt med standard storleksgränser. Standard maximala storleken som tillåts för varje fil (200 MB) är **inte** klara storlek. En storlek kontroll inträffar regelbundet (för närvarande varannan minut) och om den aktuella filen är > = 200 MB sparas så skapas en ny fil. Det finns också en 8 GB (konfigureras) gräns på den totala filstorleken genereras per händelsesessionen. När den här gränsen har nåtts, raderas de äldsta filerna när nya skapas.
-* Det finns en åldersgräns på 5 dagar på loggarna. Den här gränsen kan också konfigureras. 
-* Varje komponent definierar konfigurationsegenskaper spårning via en JSON-fil. JSON-filerna lagras i **C:\TraceCollector\Configuration**. Dessa filer kan redigeras om du vill ändra ålder och storlek gränserna för loggar som samlats in om det behövs. Ändringar i dessa filer kräver en omstart av den *Microsoft Azure Stack Trace Collector* tjänsten för att ändringarna ska börja gälla.
-
-Följande exempel är en trace konfigurationens JSON-fil för FabricRingServices åtgärder från XRP VM: 
-
-```json
-{
-    "LogFile": 
-    {
-        "SessionName": "FabricRingServicesOperationsLogSession",
-        "FileName": "\\\\SU1FileServer\\SU1_ManagementLibrary_1\\Diagnostics\\FabricRingServices\\Operations\\AzureStack.Common.Infrastructure.Operations.etl",
-        "RollTimeStamp": "00:00:00",
-        "MaxDaysOfFiles": "5",
-        "MaxSizeInMB": "200",
-        "TotalSizeInMB": "5120"
-    },
-    "EventSources":
-    [
-        {"Name": "Microsoft-AzureStack-Common-Infrastructure-ResourceManager" },
-        {"Name": "Microsoft-OperationManager-EventSource" },
-        {"Name": "Microsoft-Operation-EventSource" }
-    ]
-}
-```
-
-* **MaxDaysOfFiles**. Denna parameter styr ålder filerna ska sparas. Äldre loggfiler tas bort.
-* **MaxSizeInMB**. Denna parameter styr tröskelvärdet för databasstorleken för en enskild fil. Om storleken uppnås, skapas en ny etl-fil.
-* **TotalSizeInMB**. Den här parametern styr den totala storleken på etl-filer som skapas från en händelsesessionen. Om den totala filstorleken är större än det här parametervärdet tas äldre filer bort.
-  
 ## <a name="log-collection-tool"></a>Loggen samling verktyget
  
-PowerShell-kommandot **Get-AzureStackLog** kan användas för att samla in loggar från alla komponenter i en Azure-Stack-miljö. Det sparar dem i zip-filer i en användardefinierad plats. Om vår tekniska support måste loggarna för att felsöka ett problem, de kan bli ombedd att köra det här verktyget.
+PowerShell-cmdleten **Get-AzureStackLog** kan användas för att samla in loggar från alla komponenter i en Azure-Stack-miljö. Det sparar dem i zip-filer i en användardefinierad plats. Om vår tekniska support måste loggarna för att felsöka ett problem, de kan bli ombedd att köra det här verktyget.
 
 > [!CAUTION]
 > Loggfilerna kan innehålla personligt identifierbar information (PII). Ta hänsyn innan du publicerar offentligt alla loggfiler.
@@ -78,38 +46,38 @@ Följande är några exempel loggen typer som samlas in:
 *   **Diagnostikloggar för lagring**
 *   **ETW-loggar**
 
-Filerna som samlas in av spårning insamlaren och lagras i en resurs från var **Get-AzureStackLog** hämtar dem.
+Dessa filer samlas in och sparas på en resurs av insamlaren för spårning. Den **Get-AzureStackLog** PowerShell-cmdlet kan användas för att samla in dem vid behov.
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Att köra Get-AzureStackLog på ett system med Azure Stack Development Kit (ASDK)
 1. Logga in som **AzureStack\CloudAdmin** på värden.
 2. Öppna ett PowerShell-fönster som administratör.
 3. Kör den **Get-AzureStackLog** PowerShell-cmdlet.
 
-   **Exempel**
+**Exempel:**
 
-    Samla in alla loggar för alla roller:
+  Samla in alla loggar för alla roller:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  ```
 
-    Samla in loggar från virtuella datorer och BareMetal roller:
+  Samla in loggar från virtuella datorer och BareMetal roller:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  ```
 
-    Samla in loggar från virtuella datorer och BareMetal roller med Datumfiltrering för loggfiler för de senaste 8 timmarna:
+  Samla in loggar från virtuella datorer och BareMetal roller med Datumfiltrering för loggfiler för de senaste 8 timmarna:
     
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-    Samla in loggar från virtuella datorer och BareMetal roller med Datumfiltrering för loggfiler för tidsperioden mellan 8 timmar sedan och 2 timmar sedan:
+  Samla in loggar från virtuella datorer och BareMetal roller med Datumfiltrering för loggfiler för tidsperioden mellan 8 timmar sedan och 2 timmar sedan:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Integrerat system för att köra Get-AzureStackLog på en Azure-stacken
 
@@ -158,7 +126,7 @@ if($s)
    | Domän                  | FN                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | Gateway                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
@@ -166,6 +134,13 @@ if($s)
    | URP                     | UsageBridge            | virtuella datorer    |  
    | VAR                     | WASPUBLIC              | WDS                |
 
+
+### <a name="collect-logs-using-a-graphical-user-interface"></a>Samla in loggar med ett grafiskt användargränssnitt
+Du kan utnyttja tillgängliga öppen källkod Azure Stack verktyg som finns i huvudsakliga Azure Stack verktyg GitHub-lagret på http://aka.ms/AzureStackTools i stället för att tillhandahålla de obligatoriska parametrarna för cmdleten Get-AzureStackLog att hämta Azure Stack-loggar.
+
+Den **ERCS_AzureStackLogs.ps1** PowerShell-skriptet lagras i databasen för GitHub-verktyg och uppdateras regelbundet. Starta från en administrativ PowerShell-session skriptet ansluter till Privilegierade slutpunkten och kör Get-AzureStackLog med angivna parametrar. Om inga parametrar har angetts som standard skriptet för att fråga efter parametrar via ett grafiskt användargränssnitt.
+
+Läs mer om ERCS_AzureStackLogs.ps1 PowerShell-skript du kan titta på [en kort video](https://www.youtube.com/watch?v=Utt7pLsXEBc) eller visa skriptets [Readme-filen](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) finns i Azure-stacken verktyg GitHub-lagringsplatsen. 
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
 

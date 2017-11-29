@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -194,9 +194,11 @@ Det finns vissa skillnader i som användare som kommer från Azure Table storage
 * Azure Cosmos DB tabell API använder en modell för reserverad kapacitet för att säkerställa garanterad prestanda, men detta innebär att en betalar för kapacitet när tabellen har skapats, även om kapaciteten som inte används. Med Azure Table storage betalar en endast för kapacitet som faktiskt används. Detta hjälper dig att förklara varför tabell API kan erbjuda en 10 ms läsa och 15 ms skriva SLA vid 99th percentilen medan Azure Table storage erbjuder ett 10 andra SERVICENIVÅAVTAL. Men följaktligen med tabell-API-tabeller, även tomma tabeller utan några förfrågningar pengar kostnaden för att säkerställa att kapaciteten är tillgängliga för att hantera alla begäranden till dem i SLA erbjuds av Azure Cosmos DB.
 * Frågeresultatet returneras av API: et för tabellen sorteras inte partition nyckel/key rad. som i Azure Table storage.
 * Raden nycklar kan endast vara upp till 255 byte
+* Batchar kan endast innehålla upp till 2 MB
 * CreateIfNotExists anrop har begränsats av en begränsning av hantering som är fasta och åtskild från andra åtgärder för tabeller som omfattas av RUs. Detta innebär att de gör stort antal CreateIfNotExists hämta begränsas och inte kan göra något åt den eftersom gränsen inte kommer från sina RUs.
 * CORS stöds inte för närvarande
 * Tabellnamn i Azure Table storage är inte skiftlägeskänsliga, men de finns i Azure Cosmos DB tabell API
+* Vissa av Azure Cosmos DB internt format för kodning information, till exempel binära fält är inte så effektivt en kanske gillar. Därför kan det orsaka oväntade begränsningar på datastorlek. Exempelvis använder för närvarande en gick inte fullständig 1 MB på en tabellentiteten för att lagra binära data eftersom den kodningen ökar storleken på data.
 
 Det finns ett antal slutpunkter/fråga alternativ som inte stöds av Azure Cosmos DB tabell API med avseende på REST API:
 | REST-metoder | REST-slutpunkt/frågealternativet | Doc-URL: er | Förklaring |

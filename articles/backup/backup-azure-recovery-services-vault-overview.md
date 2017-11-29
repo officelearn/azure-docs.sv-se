@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/15/2017
-ms.author: markgal;arunak
-ms.openlocfilehash: a3d50d0066f1d0fe38bd7c5474386f54df81bec5
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: markgal;arunak;sogup
+ms.openlocfilehash: ad685744595ab86def8d226d7c2fb5455af98da4
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
 Den här artikeln beskriver funktionerna i Recovery Services-valvet. Recovery Services-valvet är en enhet för lagring i Azure som innehåller data. Data är vanligtvis kopior av data eller konfigurationsinformation för virtuella datorer (VM), arbetsbelastningar, servrar eller arbetsstationer. Du kan använda Recovery Services-valv för att lagra säkerhetskopierade data för olika Azure-tjänster, till exempel virtuella IaaS-datorer (Linux eller Windows) och Azure SQL-databaser. Recovery Services valv stöd för System Center DPM, Windows Server, Azure Backup Server och mer. Med Recovery Services-valv är det enkelt att organisera dina säkerhetskopierade data samtidigt som du minimerar hanteringskostnaden. 
 
-Du kan skapa upp till 25 Recovery Services-valv i en Azure-prenumeration.
+Du kan skapa upp till 25 Recovery Services-valv per region i en Azure-prenumeration.
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Jämför Recovery Services-valv och säkerhetskopieringsvalv
 

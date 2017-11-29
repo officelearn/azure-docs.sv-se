@@ -10,19 +10,19 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: sample
-ms.date: 11/03/2017
-ms.openlocfilehash: c83c5e86ea99a25ff106e0238f4d294bec100c32
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: f92739181a2011be7ce609b65bf7c862ac705129
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Skapa en Azure-databas för PostgreSQL-servern och konfigurera en brandväggsregel med hjälp av Azure CLI
 Det här exempelskriptet CLI skapar en Azure-databas för PostgreSQL-server och konfigurerar en brandväggsregel på servernivå. När skriptet har körts utan problem, kan PostgreSQL-servern nås från alla Azure-tjänster och den konfigurerade IP-adressen.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver i den här artikeln att du använder Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 I det här exempelskriptet Redigera markerade rader om du vill anpassa admin användarnamn och lösenord.
@@ -37,10 +37,10 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | **Kommandot** | **Anteckningar** |
 |---|---|
-| [Skapa AZ grupp](/cli/azure/group#create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ postgres server](/cli/azure/postgres/server#create) | Skapar en PostgreSQL-server som är värd för databaserna. |
-| [Skapa AZ postgres serverbrandvägg](/cli/azure/postgres/server/firewall-rule#create) | Skapar en brandväggsregel för att tillåta åtkomst till servern och databaserna under den från det angivna IP-adressintervallet. |
-| [ta bort grupp AZ](/cli/azure/group#delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [Skapa AZ grupp](/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [Skapa AZ postgres server](/cli/azure/postgres/server#az_postgres_server_create) | Skapar en PostgreSQL-server som är värd för databaserna. |
+| [Skapa AZ postgres serverbrandvägg](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) | Skapar en brandväggsregel för att tillåta åtkomst till servern och databaserna under den från det angivna IP-adressintervallet. |
+| [ta bort grupp AZ](/cli/azure/group#az_group_delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure/overview)

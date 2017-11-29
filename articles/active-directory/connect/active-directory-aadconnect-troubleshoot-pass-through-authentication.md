@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory direkt-autentisering
 
@@ -67,7 +67,7 @@ Gå till **Azure Active Directory** -> **inloggningar** på den [Azure Active Di
 | 80005 | Autentiseringsagent: Fel uppstod. | Tillfälligt fel. Försök igen senare.
 | 80007 | Det gick inte att ansluta autentiseringsagenten till Active Directory. | Kontrollera om din Active Directory kan nås från Authentication Agent.
 | 80010 | Autentiseringsagenten kan inte dekryptera lösenordet. | Om problemet är konsekvent reproduceras, installera och registrera en ny Agent för autentisering. Och avinstallera den aktuella processen. 
-| 80011 | Det gick inte att hämta dekrypteringsnyckeln autentiseringsagent. | Om problemet är konsekvent reproduceras, installera och registrera en ny Agent för autentisering. Och avinstallera den aktuella processen.
+| 80011 | Autentiseringsagenten kunde inte hämta dekrypteringsnyckeln. | Om problemet är konsekvent reproduceras, installera och registrera en ny Agent för autentisering. Och avinstallera den aktuella processen.
 
 ## <a name="authentication-agent-installation-issues"></a>Problem med installationen av autentisering
 
@@ -79,7 +79,7 @@ Gå till **Azure Active Directory** -> **inloggningar** på den [Azure Active Di
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>Registreringen av agenten autentisering misslyckades på grund av blockerade portar
 
-Kontrollera att servern där autentisering-agenten har installerats kan kommunicera med vår tjänst-URL: er och portar [här](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Kontrollera att servern där autentisering-agenten har installerats kan kommunicera med vår tjänst-URL: er och portar [här](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Registreringen av agenten autentisering misslyckades på grund av token eller konto auktorisering fel
 
@@ -105,7 +105,7 @@ Du måste ha minst en aktiv autentiseringsagent aktivera direkt-autentisering p�
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>Aktiverar funktionen misslyckades på grund av blockerade portar
 
-Kontrollera att servern där Azure AD Connect är installerat kan kommunicera med vår tjänst-URL: er och portar [här](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Kontrollera att servern där Azure AD Connect är installerat kan kommunicera med vår tjänst-URL: er och portar [här](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Aktiverar funktionen misslyckades på grund av token eller konto auktorisering fel
 

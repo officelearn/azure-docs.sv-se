@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/03/2017
-ms.openlocfilehash: 17f045f516792e50f7349805ec9f7a01e3f9d5b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: d3de3fdf28997b63321bf23443472db43ebb5c52
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Server begrepp i Azure för MySQL-databas
-Det här avsnittet innehåller information och riktlinjer för att arbeta med Azure-databas för MySQL-servrar.
+Den här artikeln innehåller information och riktlinjer för att arbeta med Azure-databas för MySQL-servrar.
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>Vad är en Azure-databas för MySQL-servern?
 
@@ -38,15 +38,13 @@ Du kan skapa en eller flera databaser på en Azure Database för MySQL-server. D
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Hur gör ansluta och autentisera till en Azure-databas för MySQL-servern?
 
 Följande element att säkerställa säker åtkomst till databasen.
-
 |||
 | :-- | :-- |
 | **Autentisering och auktorisering** | Azure-databas för MySQL-server stöder interna MySQL-autentisering. Du kan ansluta och autentisera till en server med serverns administratör för inloggning. |
 | **Protokoll** | Tjänsten stöder en message-baserat protokoll som används av MySQL. |
 | **TCP/IP** | Protokollet stöds via TCP/IP och över sockets för Unix-domän. |
-| **Brandvägg** | För att skydda dina data, förhindrar en brandväggsregel all åtkomst till databasservern eller till dess databaser förrän du anger vilka datorer som har behörighet. Se [Azure-databas för MySQL serverbrandväggsreglerna](./concepts-firewall-rules.md). |
+| **Brandvägg** | För att skydda dina data, förhindrar en brandväggsregel all åtkomst till databasservern, förrän du anger vilka datorer som har behörighet. Se [Azure-databas för MySQL serverbrandväggsreglerna](./concepts-firewall-rules.md). |
 | **SSL** | Tjänsten stöder att framtvinga SSL-anslutningar mellan dina program och databasservern.  Se [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Konfigurera SSL-anslutning i ditt program för att säkert ansluta till Azure Database för MySQL). |
-|||
 
 ## <a name="how-do-i-manage-a-server"></a>Hur hanterar ett server?
 Du kan hantera Azure-databas för MySQL-servrar med hjälp av Azure-portalen eller Azure CLI.

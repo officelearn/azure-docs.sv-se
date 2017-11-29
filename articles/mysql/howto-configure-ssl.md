@@ -8,27 +8,27 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/25/2017
-ms.openlocfilehash: 83830e4776eaa7c4f10bc14dcefd47c6eaf25997
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/27/2017
+ms.openlocfilehash: 289d1c4c0ffd2667c49c5625e72780d54a71ceb5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Konfigurera SSL-anslutning i ditt program för att ansluta säkert till Azure-databas för MySQL
 Azure-databas för MySQL stöder anslutning av din Azure-databas för MySQL-servern till klientprogram som använder Secure Sockets Layer (SSL). Framtvinga SSL-anslutningar mellan databasservern och ditt klientprogram hjälper dig att skydda mot attacker som ”man i mitten” genom att kryptera dataströmmen mellan servern och ditt program.
 
 ## <a name="step-1-obtain-ssl-certificate"></a>Steg 1: Få SSL-certifikat
-Hämta certifikat som behövs för att kommunicera via SSL med din Azure-databas för MySQL-servern från [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) och spara filen med certifikat till din lokala enhet (med den här självstudiekursen kommer vi använde c:\ssl).
+Hämta certifikat som behövs för att kommunicera via SSL med din Azure-databas för MySQL-servern från [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) och spara filen med certifikat till din lokala enhet (detta kursen använder c:\ssl till exempel).
 **För Microsoft Internet Explorer och Microsoft Edge:** när hämtningen är slutförd, ändra certifikatet till BaltimoreCyberTrustRoot.crt.pem.
 
 ## <a name="step-2-bind-ssl"></a>Steg 2: Binda SSL
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Ansluta till servern med hjälp av MySQL-arbetsstationen via SSL
 Konfigurera MySQL-arbetsstationen för att ansluta på ett säkert sätt via SSL. Konfigurera nya Connection dialog, navigerar du till den **SSL** fliken. I den **SSL CA-fil:** , ange sökvägen till den **BaltimoreCyberTrustRoot.crt.pem**. 
-![Spara anpassade panelen](./media/howto-configure-ssl/mysql-workbench-ssl.png) för befintliga anslutningar du binda SSL genom att högerklicka på anslutningsikonen för och väljer Redigera. Gå sedan till den **SSL** fliken och binda av certifikatfilen.
+![Spara anpassade panelen](./media/howto-configure-ssl/mysql-workbench-ssl.png) för befintliga anslutningar kan du binda SSL genom att högerklicka på ikonen och välj Redigera. Gå sedan till den **SSL** fliken och binda av certifikatfilen.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Ansluter till servern med hjälp av MySQL-CLI via SSL
-Ett annat sätt att binda SSL-certifikatet med hjälp av kommandoradsgränssnittet MySQL genom att köra följande kommando:
+Ett annat sätt att binda SSL-certifikatet är att använda MySQL-kommandoradsgränssnittet genom att köra följande kommando:
 ```dos
 mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4demo -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
@@ -52,9 +52,10 @@ mysql> status
 Bekräfta anslutningen är krypterad genom att granska utdata som ska visas: **SSL: Cipher används är AES256 SHA** 
 
 ## <a name="sample-code"></a>Exempelkod
-För att upprätta en säker anslutning till Azure-databas för MySQL via SSL från ditt program, se följande kodexempel.
+För att upprätta en säker anslutning till Azure-databas för MySQL via SSL från ditt program, se följande kodexempel:
+
 ### <a name="php"></a>PHP
-```
+```php
 $conn = mysqli_init();
 mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ; 
 mysqli_real_connect($conn, 'myserver4demo.mysql.database.azure.com', 'myadmin@myserver4demo', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
@@ -63,7 +64,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
-```
+```python
 try:
     conn=mysql.connector.connect(user='myadmin@myserver4demo', 
         password='yourpassword', 
@@ -74,7 +75,7 @@ except mysql.connector.Error as err:
     print(err)
 ```
 ### <a name="python-pymysql"></a>Python (PyMySQL)
-```
+```python
 conn = pymysql.connect(user = 'myadmin@myserver4demo', 
         password = 'yourpassword', 
         database = 'quickstartdb', 
@@ -82,7 +83,7 @@ conn = pymysql.connect(user = 'myadmin@myserver4demo',
         ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 ### <a name="ruby"></a>Ruby
-```
+```ruby
 client = Mysql2::Client.new(
         :host     => 'myserver4demo.mysql.database.azure.com', 
         :username => 'myadmin@myserver4demo',      
@@ -92,7 +93,7 @@ client = Mysql2::Client.new(
     )
 ```
 ### <a name="golang"></a>Golang
-```
+```go
 rootCertPool := x509.NewCertPool()
 pem, _ := ioutil.ReadFile("/var/www/html/BaltimoreCyberTrustRoot.crt.pem")
 if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
@@ -104,7 +105,7 @@ connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&
 db, _ := sql.Open("mysql", connectionString)
 ```
 ### <a name="javajdbc"></a>JAVA(JDBC)
-```
+```java
 # generate truststore and keystore in code
 String importCert = " -import "+
     " -alias mysqlServerCACert "+
@@ -131,7 +132,7 @@ properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
 ### <a name="javamariadb"></a>Java(MariaDB)
-```
+```java
 # generate truststore and keystore in code
 String importCert = " -import "+
     " -alias mysqlServerCACert "+

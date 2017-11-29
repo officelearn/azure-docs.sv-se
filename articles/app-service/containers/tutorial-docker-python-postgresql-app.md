@@ -5,25 +5,22 @@ services: app-service\web
 documentationcenter: python
 author: berndverst
 manager: erikre
-editor: 
-ms.assetid: 2bada123-ef18-44e5-be71-e16323b20466
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: fa3aa3a73338970fde2d0b0230e7b2e6ca687dc9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 55d6f1d10ff08fd8f0ea4aba775a96549192cef2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Skapa en Docker Python och PostgreSQL-webbapp i Azure
 
-Web App för behållare ger en mycket skalbar, automatisk uppdatering värdtjänst. Den här kursen visar hur du skapar en grundläggande Docker Python-webbapp i Azure. Du måste ansluta den här appen till en PostgreSQL-databas. När du är klar har du en Python Flask-program som körs i en dockerbehållare på [Apptjänst i Linux](app-service-linux-intro.md).
+Web App för behållare ger en mycket skalbar, automatisk uppdatering värdtjänst. Den här kursen visar hur du skapar en grundläggande Docker Python-webbapp i Azure. Du kan ansluta den här appen till en PostgreSQL-databas. När du är klar har du en Python Flask-program som körs i en dockerbehållare på [Apptjänst i Linux](app-service-linux-intro.md).
 
 ![Docker Python Flask-app i App Service på Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -146,7 +143,7 @@ Använd den [az apptjänst lista-platser](/cli/azure/appservice#list-locations) 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database för PostgreSQL-server
 
-Skapa en PostgreSQL-server med den [az postgres servern skapa](/cli/azure/documentdb#create) kommando.
+Skapa en PostgreSQL-server med den [az postgres servern skapa](/cli/azure/postgres/server#az_postgres_server_create) kommando.
 
 I följande kommando i stället använda ett unikt namn för den  *\<postgresql_name >* platshållare och en användare namn för den  *\<admin_username >* platshållare. Namnet på server som används som en del av din PostgreSQL-slutpunkt (`https://<postgresql_name>.postgres.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure. Användarnamnet är för inledande databasen administratörsanvändarkontot. Du uppmanas att välja ett lösenord för den här användaren.
 
@@ -207,7 +204,7 @@ Anslut Python Flask exempelprogrammet till Azure-databasen för PostgreSQL-serve
 
 ### <a name="create-an-empty-database-and-set-up-a-new-database-application-user"></a>Skapa en tom databas och skapa en ny databasanvändare för programmet
 
-Skapa en databasanvändare med åtkomst till en enskild databas. Du använder dessa autentiseringsuppgifter för att undvika att programmet fullständig åtkomst till servern.
+Skapa en databasanvändare med åtkomst till en enskild databas. Du kan använda dessa autentiseringsuppgifter för att undvika att programmet fullständig åtkomst till servern.
 
 Ansluta till databasen (uppmanas du admin-lösenordet).
 
@@ -293,7 +290,7 @@ Databasen innehåller redan den registrering som du skapade tidigare.
 
 ## <a name="upload-the-docker-container-to-a-container-registry"></a>Överför dockerbehållare till en behållare registret
 
-I det här steget överför Docker-behållare till en behållare för registret. Du använder Azure-behållare registret, men du kan också använda andra populära dem som Docker Hub.
+I det här steget överför Docker-behållare till en behållare för registret. Använd Azure Container registret, men du kan också använda andra populära dem som Docker Hub.
 
 ### <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
 

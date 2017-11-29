@@ -9,19 +9,19 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 8ff85f842356eff3f12ccd04e337d71c52d0efcd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-policy-definition-structure"></a>Azure principstruktur definition
+# <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
 Resursdefinitionen princip som används av principen i Azure kan du etablera konventioner för resurser i din organisation genom att beskriva när principen tillämpas och åtgärd att vidta. Du kan styra kostnader genom att definiera konventioner och mer hantera enkelt dina resurser. Du kan till exempel ange att endast vissa typer av virtuella datorer är tillåtna. Eller, du kan kräva att alla resurser som har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip används för en resursgrupp, är det så gäller för alla resurser i resursgruppen.
 
 Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
 
-* Läge
+* läge
 * parameters
 * Visningsnamn
 * description
@@ -88,13 +88,21 @@ Du kan till exempel definiera en princip för en resursegenskap att begränsa de
     "type": "array",
     "metadata": {
       "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations"
+      "displayName": "Allowed locations",
+      "strongType": "location"
     }
   }
 }
 ```
 
 Typ av en parameter kan vara antingen sträng eller matris. Metadataegenskapen används för verktyg som Azure-portalen för att visa användarvänliga information.
+
+Du kan använda i metadataegenskap **strongType** att tillhandahålla en flerval lista över alternativen i Azure-portalen.  Tillåtna värden för **strongType** nu:
+
+* `"location"`
+* `"resourceTypes"`
+* `"storageSkus"`
+* `"vmSKUs"`
 
 I principregeln referera parametrar med följande syntax:
 

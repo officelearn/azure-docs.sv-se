@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: 793a2cdd55c4e9213e5097f4e318c0790960a64d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 1a20b9c6981125895ecd6952135ec4f365bb8d45
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT-hubb
 
@@ -28,7 +28,7 @@ För att stödja smidig samverkan över protokoll, definierar IoT-hubb ett gemen
 * En uppsättning *programegenskaper*. En ordlista med egenskaper för anslutningssträngar som programmet kan definiera och åtkomst utan att avbryta serialiseringen för brödtext. IoT-hubb ändrar aldrig dessa egenskaper.
 * En täckande binära brödtext.
 
-Egenskapsnamn och värden kan endast innehålla alfanumeriska ASCII-tecken, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` när du:
+Egenskapsnamn och värden kan endast innehålla alfanumeriska ASCII-tecken, plus ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` när du:
 
 * Skicka meddelanden från enhet till moln med hjälp av HTTPS-protokollet.
 * Skicka meddelanden moln till enhet.
@@ -45,7 +45,7 @@ I följande tabell visas en uppsättning egenskaper i IoT-hubb-meddelanden.
 | ExpiryTimeUtc |Datum och tid för meddelandet upphör att gälla. |
 | EnqueuedTime |Datum och tid i [moln till enhet] [ lnk-c2d] meddelande togs emot av IoT-hubb. |
 | CorrelationId |En strängegenskap i ett svarsmeddelande som vanligtvis innehåller MessageId för begäran i request-reply-mönster. |
-| Användar-ID |Ett ID som används för att ange ursprung av meddelanden. När meddelanden som genereras av IoT-hubb, den är inställd på `{iot hub name}`. |
+| UserId |Ett ID som används för att ange ursprung av meddelanden. När meddelanden som genereras av IoT-hubb, den är inställd på `{iot hub name}`. |
 | Ack |En feedback generatorn för meddelandet. Den här egenskapen används i meddelanden moln till enhet för att begära IoT-hubb för att generera feedback meddelanden till följd av användningen av meddelandet av enheten. Möjliga värden: **ingen** (standard): ingen feedback-meddelandet genereras **positivt**: ett meddelande feedback om meddelandet slutfördes **negativa**: ta emot en feedback meddelande om meddelandet har upphört att gälla (eller leverans av maximalt antal nåddes) utan slutförs av enheten, eller **fullständig**: både positiva och negativa. Mer information finns i [meddelande feedback][lnk-feedback]. |
 | ConnectionDeviceId |Ett ID som angetts av IoT-hubb på meddelanden från enhet till moln. Den innehåller den **deviceId** på den enhet som skickade meddelandet. |
 | ConnectionDeviceGenerationId |Ett ID som angetts av IoT-hubb på meddelanden från enhet till moln. Den innehåller den **generationId** (enligt [identitet enhetsegenskaper][lnk-device-properties]) på den enhet som skickade meddelandet. |

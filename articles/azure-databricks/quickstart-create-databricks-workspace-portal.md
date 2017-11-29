@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: b5f80427234549b13a1aca94cd04e4f7e6f94ccf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cffc78c06de6be252704c2a116d7ded2c7e8567f
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Kör ett jobb med Spark på Azure Databricks med Azure-portalen
 
@@ -97,7 +97,7 @@ Utför följande steg för att skapa en bärbar dator i Databricks, konfigurera 
     Instruktioner om hur du hämtar lagringskontots åtkomstnyckel finns [hantera åtkomstnycklar för lagring](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
     > [!NOTE]
-    > Du kan också använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använd Data Lake Store med Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
+    > Du kan också använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använd Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
 
 4. Kör en SQL-instruktion för att skapa en tillfällig tabell med hjälp av data från den JSON Exempeldatafilen **small_radio_json.json**. I följande fragment ersätta platshållarvärdena med behållarens namn och namnet på lagringskontot. Klistra sammandraget cellredigering koden i anteckningsboken och sedan trycka på SKIFT + RETUR. I fragment, `path` anger platsen för exempel JSON-filen som du överfört till ditt Azure Storage-konto.
 
@@ -159,4 +159,4 @@ Om du inte valde kryssrutan, måste du manuellt avsluta klustret. Om du vill gö
 I den här artikeln, skapa ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data i Azure-lagring. Du kan också titta på [Väck datakällor](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) att lära dig hur du importerar data från andra datakällor till Azure Databricks. Gå vidare till nästa artikeln lär du dig hur du använder Azure Data Lake Store med Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Använd Data Lake Store med Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)
+>[Använd Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1aba03102dcd96753ef4db57edce889a43e4e3fc
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 066f151aa96b3a57c86515411ba05a982c10aa5f
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser i Händelsehubbar i Azure API Management
 Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Händelsehubbar fungerar som ”ytterdörren” för en händelsepipeline, och när data har samlats in i en händelsehubb, det kan omvandlas och lagras med hjälp av en leverantör av realtidsanalys eller adaptrar för batchbearbetning/lagring. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
@@ -68,7 +68,7 @@ Ange text på begäran med hjälp av följande mall.
 
 ```json
 {
-  "type" : "AzureEventHub",
+  "loggertype" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -77,7 +77,7 @@ Ange text på begäran med hjälp av följande mall.
 }
 ```
 
-* `type`måste anges till `AzureEventHub`.
+* `loggertype`måste anges till `AzureEventHub`.
 * `description`ger en valfri beskrivning av loggaren och kan vara en tom sträng om så önskas.
 * `credentials`innehåller den `name` och `connectionString` för din Azure-Händelsehubb.
 

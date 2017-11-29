@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: fd9513cda899a7ac2a51c4e1ab03a80ce0adf2fd
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/28/2017
@@ -76,12 +76,20 @@ Kontrollera att den. ÄGG filen är säker, innan du distribuerar den.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Den genererade hashen måste matcha inställningarna.
-
+    
+    För ägg version 1.0.8.38
     **Algoritmen** | **Hash-värde**
     --- | ---
     MD5 | dd27dd6ace28f9195a2b5d52a4003067 
     SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
     SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+
+    För ägg version 1.0.8.40
+    **Algoritmen** | **Hash-värde**
+    --- | ---
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
+    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
 ## <a name="create-the-collector-vm"></a>Skapa insamlaren VM
 
@@ -98,7 +106,6 @@ Importera den hämta filen till vCenter-servern.
 8. I **diskformat**, ange disktyp och storlek.
 9. I **nätverksmappning**, ange som kommer ansluta till insamlaren VM-nätverk. Nätverket måste internet-anslutning att skicka metadata till Azure. 
 10. Granska och bekräfta inställningarna och klicka på **Slutför**.
-
 
 ## <a name="run-the-collector-to-discover-vms"></a>Kör insamlaren för att identifiera virtuella datorer
 
@@ -118,6 +125,9 @@ Importera den hämta filen till vCenter-servern.
     - I **Taggkategori för att gruppera**väljer **ingen**.
 1. I **Välj projekt**anger Azure migrera projekt-ID och nyckel som du kopierade från portalen. Om inte kopiera dem, öppna Azure-portalen från VM-insamlaren. I projektet **översikt** klickar du på **identifiera datorer**, och kopiera värdena.  
 2. I **fullständig identifiering**, övervaka identifiering och kontrollera att metadata som samlas in från de virtuella datorerna är i ett omfång. Insamlaren ger en tid för ungefärlig identifiering.
+
+> [!NOTE]
+> Insamlaren har endast stöd för ”engelska (USA)” som språket i operativsystemet och gränssnittsspråk insamlaren. Stöd för flera språk kommer snart.
 
 
 ### <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen

@@ -1,5 +1,5 @@
 ---
-title: "Skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure portal | Microsoft Docs"
+title: "Skapa och hantera MySQL brandväggsregler i Azure-databas för MySQL | Microsoft Docs"
 description: "Skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure portal"
 services: mysql
 author: v-chenyh
@@ -8,19 +8,19 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0604b29fcd9849545886a783ae5bbb2cbb72f2ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: 63ea6337b35193420924096690ed15cc1d5ede25
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure-databas för MySQL brandväggsregler med hjälp av Azure portal
 Brandväggsregler på servernivå kan administratörer få åtkomst till en Azure-databas för MySQL-Server från en angiven IP-adress eller ett intervall med IP-adresser. 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Skapa en brandväggsregel på servernivå på Azure Portal
 
-1. I bladet MySQL-servern under inställningar rubrik, klickar du på **anslutningssäkerhet** att öppna bladet anslutningssäkerhet för Azure-databas för MySQL.
+1. På sidan MySQL-server under inställningar rubrik, klickar du på **anslutningssäkerhet** att öppna sidan anslutningssäkerhet för Azure-databas för MySQL.
 
    ![Azure portal – Klicka på anslutningssäkerhet](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
@@ -52,4 +52,4 @@ Upprepa stegen för att hantera brandväggsreglerna.
 * Klicka på **Spara** för att spara ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
-- Hjälp med att ansluta till en Azure-databas för MySQL-servern finns [anslutningsbibliotek för Azure-databas för MySQL](./concepts-connection-libraries.md)
+Hjälp med att ansluta till en Azure-databas för MySQL-servern finns [anslutningsbibliotek för Azure-databas för MySQL](./concepts-connection-libraries.md)

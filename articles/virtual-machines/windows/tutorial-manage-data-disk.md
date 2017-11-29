@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Hantera Azure-diskar med PowerShell
 
@@ -41,13 +41,13 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 När en virtuell Azure-dator har skapats är automatiskt två diskar kopplade till den virtuella datorn. 
 
-**Operativsystemdisken** -drift systemdiskar kan storleksändras upp till 1 terabyte och är värd för operativsystemet för virtuella datorer.  OS-disken har tilldelats en enhetsbokstav för *c:* som standard. Disken cachelagring konfigurationen av OS-disken har optimerats för OS-prestanda. OS-disk **bör inte** värd för program eller data. Använd en datadisk, vilket beskrivs senare i den här artikeln för program och data.
+**Operativsystemdisken** -drift systemdiskar kan storleksändras upp till 4 terabyte och är värd för operativsystemet för virtuella datorer.  OS-disken har tilldelats en enhetsbokstav för *c:* som standard. Disken cachelagring konfigurationen av OS-disken har optimerats för OS-prestanda. OS-disk **bör inte** värd för program eller data. Använd en datadisk, vilket beskrivs senare i den här artikeln för program och data.
 
 **Diskutrymme** -tillfälliga diskar använder ett SSD-enhet som finns på samma Azure-värd som den virtuella datorn. Temporär diskar har hög performant och kan användas för åtgärder som till exempel temporär databearbetning. Om den virtuella datorn flyttas till en ny värd bort data som lagrats på en tillfällig disk. Storleken på den tillfälliga disken bestäms av VM-storlek. Tillfällig diskar tilldelas en enhetsbeteckning för *d:* som standard.
 
 ### <a name="temporary-disk-sizes"></a>Tillfällig diskstorlekar
 
-| Typ | VM-storlek | Maxstorlek för temporär disk (GB) |
+| Typ | Storlek på virtuell dator | Maxstorlek för temporär disk (GB) |
 |----|----|----|
 | [Generellt syfte](sizes-general.md) | A och D-serien | 800 |
 | [Beräkningsoptimerad](sizes-compute.md) | F-serien | 800 |
@@ -62,7 +62,7 @@ Ytterligare datadiskar kan läggas till för att installera program och lagra da
 
 ### <a name="max-data-disks-per-vm"></a>Maximalt antal datadiskar per VM
 
-| Typ | VM-storlek | Maximalt antal datadiskar per VM |
+| Typ | Storlek på virtuell dator | Maximalt antal datadiskar per VM |
 |----|----|----|
 | [Generellt syfte](sizes-general.md) | A och D-serien | 32 |
 | [Beräkningsoptimerad](sizes-compute.md) | F-serien | 32 |
@@ -81,7 +81,7 @@ Standard Storage stöds av hårddiskar och levererar kostnadseffektiv lagring sa
 
 ### <a name="premium-disk"></a>Premium-disk
 
-Premiumdiskar backas upp av SSD-baserad hög prestanda, låg latens disk. Perfekt för virtuella datorer som kör produktion arbetsbelastning. Premium-lagring stöder DS-serien, DSv2-serien GS-serien och FS-serien virtuella datorer. Premiumdiskar finns i tre olika typer (P10 P20, P30) och storleken på disken fastställer typ av disk. När du väljer, avrundat diskstorleken värdet till nästa typen. Till exempel om storleken är lägre än 128 GB blir disktyp P10, mellan 129 och 512 P20 och över 512 P30. 
+Premiumdiskar backas upp av SSD-baserad hög prestanda, låg latens disk. Perfekt för virtuella datorer som kör produktion arbetsbelastning. Premium-lagring stöder DS-serien, DSv2-serien GS-serien och FS-serien virtuella datorer. Premiumdiskar finns i tre olika typer (P10, P20, P30, P40, p 50) och storleken på disken fastställer typ av disk. När du väljer, avrundat diskstorleken värdet till nästa typen. Till exempel om storleken är lägre än 128 GB disktyp är P10, mellan 129 och 512 P20 512 för P30, P40 för 2TB och p 50 4TB. 
 
 ### <a name="premium-disk-performance"></a>Premium-diskprestanda
 

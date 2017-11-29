@@ -5,8 +5,6 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
-ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,11 +13,11 @@ ms.topic: tutorial
 ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 11e8708987f4e085fc8bf1db10144283a9a17d2e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 86ee5b02fe2a9f34db651f6446398d366b24b5d2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Skapa en PHP- och MySQL-webbapp i Azure
 
@@ -106,7 +104,7 @@ composer install
 
 Skapa en fil med namnet i Lagringsplatsens rot *.env*. Kopiera följande variabler i den *.env* fil. Ersätt den  _&lt;root_password >_ med MySQL rotanvändarens lösenord.
 
-```
+```txt
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -236,7 +234,7 @@ I det här steget kan ansluta du PHP-program på MySQL-databas som du skapade i 
 
 I Lagringsplatsens rot, skapa en _. env.production_ filen och kopiera följande variabler i den. Ersätt platshållaren  _&lt;mysql_server_name >_.
 
-```
+```txt
 APP_ENV=production
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -332,7 +330,7 @@ I det här steget kan distribuera du MySQL-anslutna PHP-program till Azure App S
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Konfigurera databasinställningarna
+### <a name="configure-database-settings"></a>Konfigurera databasinställningar för
 
 I App Service som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config/appsettings#set) kommando.
 

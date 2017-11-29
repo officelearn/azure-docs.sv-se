@@ -3,7 +3,7 @@ title: "Hur du skyddar från redundansväxlats virtuella Azure-datorer till Azur
 description: "Du kan använda Azure Site Recovery efter växling för virtuella datorer från en Azure-region till en annan, för att skydda datorer i omvänd riktning. Lär dig stegen om du vill skydda igen innan en växling vid fel igen."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 3e614b6c3c8358585f3b502f301cc659d2088e2f
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/28/2017
@@ -58,7 +58,7 @@ Nedan följer stegen för att skydda igen en virtuell dator med standardinställ
 
 3. Granska de **resursgrupp, nätverk, lagring och tillgänglighet anger** information och klicka på OK. Om det finns några resurser som är markerade (nya), kommer att skapas som en del av att skydda igen.
 
-Detta kommer att utlösa ett jobb skyddar jobb som kommer först att dirigera målplatsen (SEA i det här fallet) med den senaste informationen och när som har slutförts, replikeras innan du redundans går tillbaka till Sydostasien.
+Skapa nytt jobb kommer först att initiera målplatsen (SEA i det här fallet) med den senaste informationen och när det är klart kommer att replikeras innan du redundans går tillbaka till Sydostasien.
 
 ### <a name="reprotect-customization"></a>Skapa nytt anpassning
 Om du vill välja extrahera storage-konto eller nätverket under skyddar göra du det med alternativet Anpassa på bladet skydda igen.

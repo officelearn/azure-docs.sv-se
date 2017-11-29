@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Övergång till nya Azure Log Analytics-frågespråket
 Logganalys nyligen implementerat ett nytt frågespråk.  Den här artikeln innehåller hjälp om övergång till det här språket för Log Analytics om du redan är bekant med det äldre språket och fortfarande behöver hjälp.
+
+## <a name="resources"></a>Resurser
+
 
 ## <a name="language-converter"></a>Språk konverterare
 
 Om du är bekant med det äldre Log Analytics-frågespråket är det enklaste sättet att skapa samma fråga på nytt språk konverteraren språk som har installerats i loggen Sök portal när din arbetsyta konverteras.  Konverteraren är lika enkelt som att skriva i en äldre fråga i den översta textrutan och klicka sedan på **konvertera**.  Du kan antingen klicka på Sök för att köra frågan eller kopiera och klistra in den för att använda den någon annanstans.
 
 ![Språk konverterare](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>Resurser
+Den [dokumentationswebbplats för Log Analytics-frågespråket](https://docs.loganalytics.io) har alla de resurser som du behöver för att komma igång på det nya språket.  Detta inkluderar självstudier, exempel och en fullständig Språkreferens.
 
 
 ## <a name="cheat-sheet"></a>Fusklapp

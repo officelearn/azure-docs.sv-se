@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Självstudier: Azure Active Directory-integrering med Trello
 
@@ -96,6 +96,10 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Trello, måste du
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Trello program.
 
+>[!NOTE]
+    >Du bör få den  **\<enterprise\>**  slug från Trello. Om du inte har värdet slug Kontakta [Trello supportteamet](mailto:support@trello.com) att hämta slug för ditt företag.
+    > 
+
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Trello:**
 
 1. I Azure-portalen på den **Trello** integreringssidan för programmet, klickar du på **enkel inloggning**.
@@ -112,17 +116,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     I den **Reply URL** textruta Skriv en URL med följande mönster:`https://trello.com/auth/saml/consume/<enterprise>`
 
-4. På den **Trello domän och URL: er** om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. Om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
+
+  ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     a. Klicka på den **visa avancerade inställningar för URL: en**.
 
-    b. I den **logga URL** textruta Skriv en URL med följande mönster:`https://trello.com/auth/saml/consume/<enterprise>`
+    b. I den **logga URL** textruta Skriv en URL med följande mönster:`https://trello.com/auth/saml/login/<enterprise>`
 
-    >[!NOTE]
-    >Du bör få den  **\<enterprise\>**  slug från Trello. Om du inte har värdet slug Kontakta [Trello supportteamet](mailto:support@trello.com) att hämta slug du enterprise.
-    > 
+  c. I den **identifierare** textruta, ange följande URL:`https://trello.com/auth/saml/metadata`
 
 5. Trello program förväntar SAML intyg som innehåller specifika attribut. Konfigurera följande attribut för det här programmet. Du kan hantera värden för attributen från den **”användarattribut”** av programmet. Följande skärmbild visar ett exempel för det här.
 
@@ -130,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. På den **SAML-token attribut** dialogrutan för varje rad som visas i tabellen nedan, utför följande steg:
  
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | --- | --- |
     | User.Email | User.Mail |
     | User.FirstName | User.givenName |

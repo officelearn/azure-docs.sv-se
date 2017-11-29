@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-koncepten
 Det här avsnittet ger en översikt av de viktigaste Media Services-begrepp.
@@ -83,7 +83,7 @@ Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare
 All åtkomst till Azure Storage görs genom ett lagringskonto. Ett Media Service-konto kan associera med en eller flera lagringskonton. Ett konto kan innehålla ett obegränsat antal behållare, så länge som deras sammanlagda storlek är under 500TB per lagringskonto.  Media Services tillhandahåller SDK nivån verktygsuppsättning så att du kan hantera flera lagringskonton och belastningsutjämna distribution av dina tillgångar vid överföring till dessa konton baserat på mått eller en slumpmässig distributionsplats. Mer information finns i Arbeta med [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Jobb och uppgifter
-En [jobbet](https://https://docs.microsoft.com/rest/api/media/operations/job) används vanligtvis för att bearbeta (till exempel index eller koda) ljud/video presentationer. Om du bearbetar flera videor, skapa ett jobb varje video ska kodas.
+En [jobbet](https://docs.microsoft.com/en-us/rest/api/media/operations/job) används vanligtvis för att bearbeta (till exempel index eller koda) ljud/video presentationer. Om du bearbetar flera videor, skapa ett jobb varje video ska kodas.
 
 Ett jobb innehåller metadata om bearbetning ska utföras. Varje jobb innehåller en eller flera [aktivitet](https://docs.microsoft.com/rest/api/media/operations/task)s som anger en atomisk Bearbetningsuppgift tillgångarna indata, utdata tillgångar, en medieprocessor och dess associerade inställningarna. Uppgifter i ett jobb kan sammankopplas, där utdatatillgången av en aktivitet anges som indata tillgången till nästa aktivitet. På så sätt kan ett jobb innehåller alla bearbetning behövs för en media.
 

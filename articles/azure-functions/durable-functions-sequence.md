@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 913805901bf8131e4908be03e9213539a26205ed
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktionen länkning i varaktiga funktioner - Hello sekvens-exempel
 
@@ -46,7 +46,7 @@ Om du använder Azure-portalen för utveckling, här är innehållet i den *func
 Viktigt är den `orchestrationTrigger` bindningstyp. Alla orchestrator-funktioner måste använda den här typen av utlösare.
 
 > [!WARNING]
-> Om du vill följa av regeln ”ingen i/o” orchestrator-funktioner inte använda några indata eller utdata bindningar när du använder den `orchestrationTrigger` utlösa bindning.  Om andra indata eller utdata bindningar krävs, de bör i stället användas i kontexten för `activityTrigger` funktioner.
+> Om du vill följa av regeln ”ingen i/o” orchestrator-funktioner inte använda några indata eller utdata bindningar när du använder den `orchestrationTrigger` utlösa bindning.  Om andra indata eller utdata bindningar krävs, de bör i stället användas i kontexten för `activityTrigger` funktioner som anropas av orchestrator.
 
 ## <a name="c-script"></a>C#-skript
 
@@ -54,7 +54,7 @@ Här är källkoden:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-Alla C# orchestration-funktioner måste ha en `DurableOrchestrationContext` parametern, som finns i den `Microsoft.Azure.WebJobs.Extensions.DurableTask` sammansättning. Om du använder C# skript för sammansättningen kan refereras med den `#r` notation. Context-objektet kan du anropa andra *aktiviteten* funktioner och pass indataparametrar med dess [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) metod.
+Alla C# orchestration-funktioner måste ha en parameter av typen `DurableOrchestrationContext`, som finns i den `Microsoft.Azure.WebJobs.Extensions.DurableTask` sammansättning. Om du använder C# skript för sammansättningen kan refereras med den `#r` notation. Context-objektet kan du anropa andra *aktiviteten* funktioner och pass indataparametrar med dess [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) metod.
 
 Koden anropar `E1_SayHello` tre gånger i följd med olika parametervärden. Returvärdet för varje anrop har lagts till i den `outputs` listan som returneras i slutet av funktionen.
 
@@ -69,7 +69,7 @@ Implementeringen av `E1_SayHello` är en relativt trivial sträng formatering ig
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-Den här funktionen har en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)parametern, som används för att hämta indata som skickades till den av funktionen orchestrator anrop till [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)>.
+Den här funktionen har en parameter av typen [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), som används för att hämta indata som skickades till den av funktionen orchestrator anrop till [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
 ## <a name="run-the-sample"></a>Köra exemplet
 

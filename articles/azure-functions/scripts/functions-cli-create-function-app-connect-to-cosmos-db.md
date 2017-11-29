@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.openlocfilehash: c2c3530df62a1f291be51739a7918f7b8ab08487
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce48f8dd71d5b9e48dcd506df976e07d385f34c5
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Skapa en Azure-funktion som ansluter till en Azure-Cosmos-databas
 
@@ -54,7 +54,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapa en resursgrupp med platsen |
 | [Skapa AZ storage-konto](https://docs.microsoft.com/cli/azure/storage/account) | skapar ett lagringskonto |
 | [Skapa AZ functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Skapa en ny funktionsapp |
-| [Skapa AZ documentdb](https://docs.microsoft.com/cli/azure/documentdb#az_documentdb_create) | Skapa documentdb-databas |
+| [Skapa AZ cosmosdb](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Skapa cosmosdb databas |
 | [ta bort grupp AZ](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Rensa |
 
 ## <a name="next-steps"></a>Nästa steg

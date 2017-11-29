@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer - skillnad från och med
 Den här artikeln analyserar skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: lagringsköer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -30,12 +30,12 @@ Azure stöder två typer av kön mekanismer: **lagringsköer** och **Service Bus
 
 **Service Bus-köer** är en del av en bredare [Azure messaging](https://azure.microsoft.com/services/service-bus/) infrastruktur som stöder queuing samt publicera/prenumerera och mer avancerade integration mönster. Mer information om Service Bus-köer/artiklar/prenumerationer finns i [översikt över Service Bus](service-bus-messaging-overview.md).
 
-Medan båda queuing teknikerna samtidigt kan introducerades lagringsköer först som en mekanism för lagring av dedikerade kön byggda på Azure Storage-tjänster. Service Bus-köer är byggda på bredare ”” meddelandeinfrastrukturen integreras program eller programkomponenter som kan sträcka sig över flera kommunikationsprotokoll, datakontrakt, betrodda domäner och nätverksmiljöer.
+Medan båda queuing teknikerna samtidigt kan introducerades lagringsköer först som en mekanism för lagring av dedikerade kön byggda på Azure Storage-tjänster. Service Bus-köer är byggda på bredare meddelandeinfrastrukturen integreras program eller programkomponenter som kan sträcka sig över flera kommunikationsprotokoll, datakontrakt, betrodda domäner och nätverksmiljöer.
 
 ## <a name="technology-selection-considerations"></a>Överväganden för val av teknik
 Både lagringsköer och Service Bus-köer är implementeringar av message queuing-tjänsten som erbjuds av Microsoft Azure. Varje har ett något annorlunda funktionsuppsättningen, vilket innebär att du kan välja en av eller båda, beroende på din lösning eller business-tekniska problem du lösa behov.
 
-När du fastställer vilka queuing teknik passar syftet med en viss lösning bör lösningsarkitekter och utvecklare rekommendationerna nedan. Mer information finns i nästa avsnitt.
+När du fastställer vilka queuing teknik passar syftet med en viss lösning bör lösningsarkitekter och utvecklare de här rekommendationerna. Mer information finns i nästa avsnitt.
 
 Som lösning systemarkitekt/utvecklare, **bör du använda lagringsköer** när:
 
@@ -75,8 +75,8 @@ Det här avsnittet jämför några av de grundläggande queuing funktioner som t
 | API för push-format |**Nej** |**Ja**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) och **OnMessage** sessioner .NET-API. |
 | Mottagningsläge |**Granska & låna ut** |**Granska & Lås**<br/><br/>**Ta bort & ta emot** |
 | Exklusivt läge |**Lease-baserade** |**Lås-baserade** |
-| / Utlämningslås varaktighet |**30 sekunder (standard)**<br/><br/>**7 dagar (max)** (du kan förnya eller släppa ett meddelande lån med hjälp av den [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API.) |**60 sekunder (standard)**<br/><br/>Du kan förnya ett meddelande Lås med den [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
-| / Utlämningslås precision |**Meddelandenivå**<br/><br/>(varje meddelande kan ha ett annat timeout-värde som du kan sedan uppdatera som behövs vid bearbetningen av meddelandet med hjälp av den [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API) |**Kön nivå**<br/><br/>(varje kö har ett lås precision som används för alla meddelanden, men du kan förnya Lås med hjälp av den [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
+| / Utlämningslås varaktighet |**30 sekunder (standard)**<br/><br/>**7 dagar (max)** (du kan förnya eller släppa ett meddelande lån med hjälp av den [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API.) |**60 sekunder (standard)**<br/><br/>Du kan förnya ett meddelande Lås med den [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
+| / Utlämningslås precision |**Meddelandenivå**<br/><br/>(varje meddelande kan ha ett annat timeout-värde som du kan sedan uppdatera som behövs vid bearbetningen av meddelandet med hjälp av den [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API) |**Kön nivå**<br/><br/>(varje kö har ett lås precision som används för alla meddelanden, men du kan förnya Lås med hjälp av den [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
 | Batchar ta emot |**Ja**<br/><br/>(explicit anger antalet meddelanden vid hämtning av meddelanden, upp till högst 32 meddelanden) |**Ja**<br/><br/>(aktivera implicit en före fetch-egenskap eller uttryckligen med hjälp av transaktioner) |
 | Batch skicka |**Nej** |**Ja**<br/><br/>(genom att använda transaktioner eller batchbearbetning på klientsidan) |
 
@@ -89,7 +89,7 @@ Det här avsnittet jämför några av de grundläggande queuing funktioner som t
 * Service Bus-köer ger stöd för lokala transaktioner i kontexten för en enskild kö.
 * Den **ta emot och ta bort** läge som stöds av Service Bus ger dig möjlighet att minska den asynkrona åtgärden antal (och associerade kostnaden) mot nedsänkt leverans säkerhet.
 * Lagringsköer ge lån möjligheter att utöka lån för meddelanden. Detta gör att anställda att underhålla kort lån på meddelanden. Därför om en worker kraschar kan meddelandet snabbt bearbetas igen med en annan worker. Dessutom kan en arbetare förlänga lånet på ett meddelande om behöver bearbetar den längre än den aktuella lånetiden.
-* Lagringsköer erbjuder en synlighet tidsgräns som du kan ange när den skulle köas eller mellan köer för ett meddelande. Dessutom kan du uppdatera ett meddelande med olika lån värden vid körning och uppdatera olika värden över meddelanden i samma kö. Service Bus lås-timeout har definierats i kön metadata; men du kan förnya låset genom att anropa den [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) metod.
+* Lagringsköer erbjuder en synlighet tidsgräns som du kan ange när enqueuing eller mellan köer för ett meddelande. Dessutom kan du uppdatera ett meddelande med olika lån värden vid körning och uppdatera olika värden över meddelanden i samma kö. Service Bus lås-timeout har definierats i kön metadata; men du kan förnya låset genom att anropa den [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) metod.
 * Maximal timeout-värdet är för en spärr mottagningsåtgärd i Service Bus-köer 24 dagar. REST-baserad timeout har dock ett maximalt värde 55 sekunder.
 * Klientsidan batchbearbetning tillhandahålls av Service Bus gör en kö klienten att batchbearbeta flera meddelanden till en enda send-åtgärd. Batchbearbetning är endast tillgängligt för asynkron sändning åtgärder.
 * Funktioner, till exempel 200 TB taket lagringsköer (Mer information när du virtualisera konton) och obegränsade köer gör det en utmärkt plattform för SaaS-providers.
@@ -132,9 +132,9 @@ Det här avsnittet jämför lagringsköer och Service Bus-köer ur [kapacitet oc
 | Jämförelsevillkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Största köstorlek |**500 TB**<br/><br/>(begränsat till en [enkel kapacitet för lagringskonton](../storage/common/storage-introduction.md#queue-storage)) |**1 GB till 80 GB**<br/><br/>(definieras när du skapar en kö och [aktiverar partitionering](service-bus-partitioning.md) – finns i avsnittet ”Mer Information”) |
-| Maximal meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – nu kan du sätta upp till 200GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, högsta huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivån](service-bus-premium-messaging.md). |
+| Maximal meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – nu kan du sätta upp till 200 GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, högsta huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivån](service-bus-premium-messaging.md). |
 | Maximal meddelande-TTL |**7 dagar** |**TimeSpan.Max** |
-| Maximalt antal köer |**Obegränsat** |**10,000**<br/><br/>(per namnområde för tjänsten, kan du öka) |
+| Maximalt antal köer |**Obegränsat** |**10,000**<br/><br/>(per namnområde för tjänsten) |
 | Maximalt antal samtidiga klienter |**Obegränsat** |**Obegränsat**<br/><br/>(100 samtidiga anslutningsgränsen gäller endast för TCP-protokoll-baserad kommunikation) |
 
 ### <a name="additional-information"></a>Ytterligare information

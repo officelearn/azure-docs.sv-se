@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 Det här avsnittet får du svar vanliga frågor om Azure Multi-Factor Authentication och använder multi-Factor Authentication-tjänsten. Den är uppdelad i frågor om tjänsten i allmänhet modeller, användarupplevelser, fakturering och felsökning.
@@ -45,6 +45,22 @@ När autentiseringsbegäranden skickas till Molntjänsten, data samlas in för a
 De valfria fälten kan konfigureras i Multi-Factor Authentication-servern.
 
 Verifieringen resultatet (lyckades eller nekades) och orsaken om den nekades lagras med autentiseringsdata. Dessa data är tillgängliga i autentisering och användningsrapporter.
+
+**F: vad SMS korta koder används för att skicka SMS-meddelanden till Mina användare?**
+
+Använder följande koder för SMS-kort i USA Microsoft:
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+Använder följande koder för SMS-kort i Kanada Microsoft:
+
+   * 759731 
+   * 673801
+
+Microsoft kan inte garantera konsekvent SMS eller röst-baserade Multifaktorautentisering fråga leverans av samma nummer. För våra användare Microsoft Lägg till eller ta bort korta koder när som helst som vi göra justeringar för vägen att förbättra SMS deliverability. Microsoft stöder inte korta koder för länder förutom USA och Kanada
 
 ## <a name="billing"></a>Fakturering
 De flesta faktureringsfrågor kan lösas genom att referera till antingen den [prissättning för multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) eller i dokumentationen om [hur du hämtar Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).

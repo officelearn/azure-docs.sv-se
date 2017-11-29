@@ -29,6 +29,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Integrerat system viktig information
           items:
+            - name: 1711 uppdatering
+              href: azure-stack-update-1711.md
             - name: 1710 uppdatering
               href: azure-stack-update-1710.md
     - name: Huvudfunktioner och koncept
@@ -131,7 +133,7 @@
               href: Azure-stack-create-service-principals.md
             - name: Aktivera flera innehavare
               href: azure-stack-enable-multitenancy.md
-    - name: Erbjuda tjänster
+    - name: Tjänster i erbjudandet
       items:
         - name: Översikt över erbjudna tjänster
           href: azure-stack-offer-services-overview.md
@@ -213,7 +215,7 @@
               href: azure-stack-connect-vpn.md
             - name: Ansluta med ExpressRoute
               href: azure-stack-connect-expressroute.md
-    - name: Felsöka
+    - name: Felsök
       items:
         - name: Kända problem
           href: azure-stack-troubleshooting.md

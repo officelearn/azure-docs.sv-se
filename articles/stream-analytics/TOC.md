@@ -20,7 +20,7 @@
 
 ## Skapa jobb
 ### [Skapa indata](stream-analytics-define-inputs.md)
-### [Exempel på inmatade data](stream-analytics-sample-data-input.md)
+### [Testfrågor och exempel på inmatade data](stream-analytics-sample-data-input.md)
 ### [Vanliga frågemönster](stream-analytics-stream-analytics-query-patterns.md)
 ### [Fönsterfunktioner](stream-analytics-window-functions.md)
 

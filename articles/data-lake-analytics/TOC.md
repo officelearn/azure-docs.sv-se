@@ -4,6 +4,7 @@
 # Kom igång
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
@@ -29,7 +30,7 @@
 ### [U-SQL R-tillägg](data-lake-analytics-u-sql-r-extensions.md)
 ### [Kognitiva tillägg för U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Analysera webbplatsloggar](data-lake-analytics-analyze-weblogs.md)
-### [U-SQL för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Anpassad U-SQL-kod för Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 
 ## Felsöka U-SQL-program
 ### [Övervaka och felsöka jobb](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

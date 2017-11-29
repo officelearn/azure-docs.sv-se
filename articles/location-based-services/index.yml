@@ -1,0 +1,40 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure Location Based Services (förhandsversion)
+metadata:
+  document_id: null
+  title: Dokumentation om Azure Location Based Services (förhandsversion) | Microsoft Docs
+  meta.description: Use Azure Location Based Services (preview) to provide geospatial services to your web or mobile application.
+  services: location-based-services
+  author: philmea
+  manager: timlt
+  ms.service: location-based-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: philmea
+abstract:
+  description: 'Azure Location Based Services (förhandsversion) ger utvecklare från alla branscher kraftfulla geospatiala funktioner med nya mappningsdata som krävs för att tillhandahålla geografisk kontext till webb- och mobilprogram. Den här tjänsten är en uppsättning REST API:er som är kompatibla med Azure One API och som åtföljs av en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkelt, flexibelt och portabelt.'
+sections:
+  - title: Snabbstarter på fem minuter
+    items:
+      - type: paragraph
+        text: Starta en app för kartsökning med Azure Location Based Services (förhandsversion).
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Starta demonstration av en kartapp
+            href: /azure/location-based-services/quick-demo-map-app
+  - title: Stegvisa självstudier
+    items:
+      - type: paragraph
+        text: Skapa ett geospatialt webbprogram för att söka efter orienteringspunkter och dirigera till platser med hjälp av Azure Location Based Services (förhandsversion).
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/location-based-services/tutorial-search-location">Sök efter orienteringspunkter</a>
+          - html: <a href="/azure/location-based-services/tutorial-route-location">Dirigera till en orienteringspunkt</a>
+          - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Vägar efter färdsätt</a>

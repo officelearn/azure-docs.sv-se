@@ -1,0 +1,40 @@
+- name: Azure Migrate-dokumentation
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Azure Migrate
+      href: migrate-overview.md
+- name: Självstudier
+  items:
+    - name: Utforska och utvärdera virtuella VMware-datorer
+      href: tutorial-assessment-vmware.md
+- name: Koncept
+  items:
+    - name: Utvärderingsberäkningar
+      href: concepts-assessment-calculation.md
+    - name: Visualisering av beroenden
+      href: concepts-dependency-visualization.md
+- name: Instruktionsguider
+  items:
+    - name: Utforska och utvärdera en stor miljö
+      href: how-to-scale-assessment.md
+    - name: Gruppera datorer
+      href: how-to-create-a-group.md
+    - name: Gruppera datorer med datorberoenden
+      href: how-to-create-group-machine-dependencies.md
+    - name: Gruppera datorer med VMware-taggar
+      href: how-to-tag-v-center.md
+    - name: Förfina grupper med gruppberoenden
+      href: how-to-create-group-dependencies.md
+    - name: Anpassa en utvärdering
+      href: how-to-modify-assessment.md
+    - name: Migrera datorer efter utvärdering
+      href: how-to-get-migration-tool.md
+    - name: Felsöka Azure Migrate
+      href: troubleshooting-general.md
+- name: Resurser
+  items:
+    - name: Azure Migrate
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'

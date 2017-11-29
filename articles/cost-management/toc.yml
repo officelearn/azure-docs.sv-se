@@ -23,6 +23,10 @@
       href: tutorial-forecast-spending.md
     - name: 4 – Hantera kostnader
       href: tutorial-manage-costs.md
+- name: Koncept
+  items:
+    - name: Förstå kostnadsrapporter
+      href: understading-cost-reports.md
 - name: Resurser
   items:
     - name: Kostnadshanteringsvideor

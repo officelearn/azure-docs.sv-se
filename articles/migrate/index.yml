@@ -1,0 +1,26 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Migrate-dokumentation
+metadata:
+  title: 'Dokumentation om Azure Migrate – självstudier, API-referens | Microsoft Docs'
+  description: Lär dig att utvärdera lokala datorer för migrering till Azure
+  services: migration-planner
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: migration
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: raynew
+abstract:
+  description: Azure Migrate hjälper dig att identifiera och utvärdera hur lämpliga lokala datorer är för migrering till Azure och beräknar storlekar och kostnader för att köra virtuella Azure-datorer.
+sections:
+  - title: Steg för steg-självstudier
+    items:
+      - type: paragraph
+        text: Lär dig att utvärdera virtuella VMware-datorer för migrering till Azure
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-assessment-vmware">Utforska och utvärdera lokala virtuella VMware-datorer</a>

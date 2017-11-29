@@ -1,52 +1,56 @@
 # Översikt
 
-## [Vad är SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
-## [Arbetsbelastning i informationslager](sql-data-warehouse-overview-workload.md)
+## [Om SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 
-# Kom igång
+# Snabbstarter
 
-## [Läsa in datasjälvstudier](load-data-from-azure-blob-storage-using-polybase.md)
-## [Självstudie för elastisk fråga](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
-## [Bästa praxis](sql-data-warehouse-best-practices.md)
-## [Hantera](sql-data-warehouse-overview-manage.md)
+## [Skapa och anslut – portalen](create-data-warehouse-portal.md)
 
-# Gör så här för att
+# Självstudier
+## [1 – Läs in data från blob](load-data-from-azure-blob-storage-using-polybase.md)
 
+# Koncept
 ## Tjänstfunktioner
 ### [MPP-arkitektur](massively-parallel-processing-mpp-architecture.md)
 ### [Prestandanivåer](performance-tiers.md)
 ### [Informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Säkerhetskopior av informationslager](sql-data-warehouse-backups.md)
+### [Granskning](sql-data-warehouse-auditing-overview.md)
 ### [Kapacitetsbegränsningar](sql-data-warehouse-service-capacity-limits.md)
 ### [Vanliga frågor och svar](sql-data-warehouse-overview-faq.md)
 
-## Säkerhetskopiering och återställning
+## Säkerhet
+### [Översikt](sql-data-warehouse-overview-manage-security.md)
+### [Autentisering](sql-data-warehouse-authentication.md)
 
-### [Översikt över Backup](sql-data-warehouse-backups.md)
-### [Återställa översikt](sql-data-warehouse-restore-database-overview.md)
-#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
-#### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
-## Anslut
+## Migrera till SQL Data Warehouse
+### [Översikt](sql-data-warehouse-overview-migrate.md)
+### [Migreringsverktyg](sql-data-warehouse-migrate-migration-utility.md)
+### [Migrera schema](sql-data-warehouse-migrate-schema.md)
+### [Migrera kod](sql-data-warehouse-migrate-code.md)
+### [Migrera data](sql-data-warehouse-migrate-data.md)
 
-### [Översikt](sql-data-warehouse-connect-overview.md)
-### [SSMS](sql-data-warehouse-query-ssms.md)
-### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-### [Installera Visual Studio](sql-data-warehouse-install-visual-studio.md)
-### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-### [Anslutningssträngar](sql-data-warehouse-connection-strings.md)
+## Läsa in och flytta data
+### [Översikt](sql-data-warehouse-overview-load.md)
+### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
 
-## Skapa
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
-## Utveckla
+## Integrera
+### [Översikt](sql-data-warehouse-overview-integrate.md)
 
+
+## Övervaka och finjustera
+### [Riktlinjer](resource-classes-for-workload-management.md)
+### [Columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
+### [Övervaka](sql-data-warehouse-manage-monitor.md)
+### [Felsöka](sql-data-warehouse-troubleshoot.md)
+
+## Utveckla informationslager
 ### [Översikt](sql-data-warehouse-overview-develop.md)
+### [Komponenter för informationslager](sql-data-warehouse-overview-workload.md)
 
 ### Tabeller
-
 #### [Översikt](sql-data-warehouse-tables-overview.md)
 #### [CTAS](sql-data-warehouse-develop-ctas.md)
 #### [Datatyper](sql-data-warehouse-tables-data-types.md)
@@ -59,13 +63,11 @@
 #### [Tillfällig](sql-data-warehouse-tables-temporary.md)
 
 ### Frågor
-
 #### [Dynamisk SQL](sql-data-warehouse-develop-dynamic-sql.md)
 #### [Gruppera efter alternativ](sql-data-warehouse-develop-group-by-options.md)
 #### [Etiketter](sql-data-warehouse-develop-label.md)
 
 ### Språkelement för T-SQL
-
 #### [Loopar](sql-data-warehouse-develop-loops.md)
 #### [Lagrade procedurer](sql-data-warehouse-develop-stored-procedures.md)
 #### [Transaktioner](sql-data-warehouse-develop-transactions.md)
@@ -74,77 +76,45 @@
 #### [Variabeltilldelning](sql-data-warehouse-develop-variable-assignment.md)
 #### [Vyer](sql-data-warehouse-develop-views.md)
 
-## Integrera
-
-### [Översikt](sql-data-warehouse-overview-integrate.md)
-### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)
-### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
-### [Machine Learning, självstudier](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-### [Power BI](sql-data-warehouse-integrate-power-bi.md)
-### [Power BI-visualisering](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-
-### [Elastisk fråga med SQL Database och SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
-
-## Läsa in
-
-### Koncept
-#### [Översikt](sql-data-warehouse-overview-load.md)
-#### [PolyBase-vägledning](sql-data-warehouse-load-polybase-guide.md)
-
-### Självstudier
-#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-
-### Instruktionsguider
-#### [Exempeldata](sql-data-warehouse-load-sample-databases.md)
-#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
-#### [BCP](sql-data-warehouse-load-with-bcp.md)
-#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-#### [PolyBase från Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-#### [PolyBase från SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-#### [RedGate](sql-data-warehouse-load-with-redgate.md)
-#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-
-## Migrera
-
-### [Översikt](sql-data-warehouse-overview-migrate.md)
-### [Migreringsverktyg](sql-data-warehouse-migrate-migration-utility.md)
-### [Migrera schema](sql-data-warehouse-migrate-schema.md)
-### [Migrera kod](sql-data-warehouse-migrate-code.md)
-### [Migrera data](sql-data-warehouse-migrate-data.md)
-### [Migrera till Premium Storage](sql-data-warehouse-migrate-to-premium-storage.md)
-
-## Hantera beräkning
-
-### [Översikt](sql-data-warehouse-manage-compute-overview.md)
-### [Azure-portal](sql-data-warehouse-manage-compute-portal.md)
-### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [REST-API](sql-data-warehouse-manage-compute-rest-api.md)
-### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
-### [Automatisera beräkningsnivåer](manage-compute-with-azure-functions.md)
-
-### Resursklasser
-#### [Riktlinjer](resource-classes-for-workload-management.md)
-#### [Analysera din arbetsbelastning](analyze-your-workload.md)
-
-## Prestanda
-
-### [Översikt](sql-data-warehouse-overview-manage-user-queries.md)
-### [Columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Övervaka](sql-data-warehouse-manage-monitor.md)
+# Instruktionsguider
+## Tjänstfunktioner
+### [Återställ ett informationslager – portalen](sql-data-warehouse-restore-database-portal.md)
+### [Återställ ett informationslager – PowerShell](sql-data-warehouse-restore-database-powershell.md)
+### [Återställ ett informationslager – REST API](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Säkerhet
-
-### [Översikt](sql-data-warehouse-overview-manage-security.md)
-### [Granskning](sql-data-warehouse-auditing-overview.md)
-### [Granskning för äldre klienter](sql-data-warehouse-auditing-downlevel-clients.md)
-### [Autentisering](sql-data-warehouse-authentication.md)
-### [Kryptering](sql-data-warehouse-encryption-tde.md)
-### [Kryptering med T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
+### [Aktivera kryptering – portalen](sql-data-warehouse-encryption-tde.md)
+### [Aktivera kryptering – T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Hotidentifiering](sql-data-warehouse-security-threat-detection.md)
 
-## Felsöka
-### [Felsöka](sql-data-warehouse-troubleshoot.md)
+
+## Läsa in och flytta data
+### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [BCP](sql-data-warehouse-load-with-bcp.md)
+### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+### [PolyBase från Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [PolyBase från SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [RedGate](sql-data-warehouse-load-with-redgate.md)
+### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+
+
+## Integrera
+###  [Konfigurera elastisk fråga från SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Lägg till Azure Stream Analytics-jobb](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [Konfigurera elastisk fråga](how-to-use-elastic-query-with-sql-data-warehouse.md)
+### [Använd maskininlärning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+### [Visualisera med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+
+## Övervaka och finjustera
+### [Analysera din arbetsbelastning](analyze-your-workload.md)
+
+## Skala ut
+### [Hantera beräkning – portalen](sql-data-warehouse-manage-compute-portal.md)
+### [Hantera beräkning – PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+### [Hantera beräkning – REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [Automatisera beräkningsnivåer](manage-compute-with-azure-functions.md)
+
 
 # Referens
 

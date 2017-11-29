@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Partitionering
       href: partition-data.md
+    - name: Unika nycklar
+      href: unique-keys.md
     - name: Konsekvens
       href: consistency-levels.md
     - name: Dataflöde

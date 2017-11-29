@@ -6,16 +6,16 @@
       href: how-iot-edge-works.md
 - name: Snabbstarter
   items:
-    - name: Distribuera till Edge – Windows
-      href: quickstart.md
     - name: Distribuera till Edge – Linux
       href: quickstart-linux.md
+    - name: Distribuera till Edge – Windows
+      href: quickstart.md
 - name: Självstudier
   items:
-    - name: Simulera en Edge-enhet – Windows
-      href: tutorial-simulate-device-windows.md
     - name: Simulera en Edge-enhet – Linux
       href: tutorial-simulate-device-linux.md
+    - name: Simulera en Edge-enhet – Windows
+      href: tutorial-simulate-device-windows.md
     - name: 'Utveckla en C#-modell'
       href: tutorial-csharp-module.md
     - name: Distribuera Azure Stream Analytics
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: Instruktionsguider
   items:
-    - name: Skapa en gateway-enhet
-      href: how-to-create-gateway-device.md
+    - name: Skapa en transparent gateway
+      href: how-to-create-transparent-gateway.md
     - name: Distribuera och övervaka i skala
       href: how-to-deploy-monitor.md
     - name: Etablera en IoT Core-enhet
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: Distributioner
       href: module-deployment-monitoring.md
+    - name: IoT Edge-enhet som en gateway
+      href: iot-edge-as-gateway.md
     - name: Säkerhet
       href: security.md
 - name: Resurser

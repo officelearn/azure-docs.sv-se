@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: bdf83fac9bd0ac6790062f802748a18045c7a171
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Anslutningen bibliotek och ramverk för Microsoft SQL Server
 
@@ -47,12 +47,25 @@ I tabellen nedan visas några exempel på ramverk för objektet relationella map
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby spår](http://rubyonrails.org/) |
+||||
 
 ## <a name="related-links"></a>Relaterade länkar
 - [SQL Server-drivrutiner](http://msdn.microsoft.com/library/mt654049.aspx) för att ansluta från klientprogram
-- [Ansluta till SQL Database med .NET (C#)](sql-database-connect-query-dotnet.md)
-- [Ansluta till SQL Database med PHP](sql-database-connect-query-php.md)
-- [Ansluta till SQL Database med Node.js](sql-database-connect-query-nodejs.md)
-- [Ansluta till SQL Database med Java](sql-database-connect-query-java.md)
-- [Anslut till SQL Database med Python](sql-database-connect-query-python.md)
-- [Ansluta till SQL Database med Ruby](sql-database-connect-query-ruby.md)
+- Anslut till SQL-databasen:
+    - [Ansluta till SQL Database med .NET (C#)](sql-database-connect-query-dotnet.md)
+    - [Ansluta till SQL Database med PHP](sql-database-connect-query-php.md)
+    - [Ansluta till SQL Database med Node.js](sql-database-connect-query-nodejs.md)
+    - [Ansluta till SQL Database med Java](sql-database-connect-query-java.md)
+    - [Anslut till SQL Database med Python](sql-database-connect-query-python.md)
+    - [Ansluta till SQL Database med Ruby](sql-database-connect-query-ruby.md)
+- Försök logik kodexempel:
+    - [Resiliently att ansluta till SQL med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+    - [Resiliently att ansluta till SQL med PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

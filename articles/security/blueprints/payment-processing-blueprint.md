@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/29/2017
 ms.author: frasim
-ms.openlocfilehash: f6131d7f177c3ca02cf8dfe5d140df5e6d8a7ffa
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="payment-processing-blueprint-for-pci-dss-compliant-environments"></a>Betalningen bearbetning utkast för PCI DSS-kompatibel miljöer
+# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Automation utkast: Betalning för PCI DSS-kompatibel miljöer bearbetades.
 
-Betalningen bearbetning utkast för PCI DSS-kompatibel miljöer vägledning för distribution av en lämplig för att hantera känslig betalkortsuppgifter PCI DSS-kompatibel plattform som en-tjänst (PaaS) miljö. Den innehåller en gemensam Referensarkitektur och förenklar införandet av Microsoft Azure. Den här grundläggande arkitekturen illustrerar en lösning för att uppfylla behoven för organisationer som vill ha en molnbaserad metod för att minska belastningen och kostnaden för distribution.
+## <a name="overview"></a>Översikt
 
-Denna grundläggande arkitektur uppfyller kraven för strikta Payment Card Industry Data Security Standards (PCI DSS 3.2) för insamling, lagring och hämtning av betalkortsuppgifter. Den visar kreditkortdata (inklusive kort tal, förfallodatum och verifiering data) att hantera en säker och kompatibla flera nivåer miljö distribueras som en slutpunkt till slutpunkt Azure-baserad lösning. Mer information om vilka PCI DSS 3.2 krav och den här lösningen finns [PCI DSS krav - High-Level översikt](pci-dss-requirements-overview.md).
+Betalningen bearbetning för PCI DSS-kompatibel miljöer vägledning för distribution av en lämplig för att hantera känslig betalkortsuppgifter PCI DSS-kompatibel plattform som en-tjänst (PaaS) miljö. Den innehåller en gemensam Referensarkitektur och förenklar införandet av Microsoft Azure. Det här utkastet illustrerar en lösning för att uppfylla behoven för organisationer som vill ha en molnbaserad metod för att minska belastningen och kostnaden för distribution.
 
-Den här arkitekturen är avsett att utgöra grunden för kunder att justera sina särskilda krav och ska inte användas som – i en produktionsmiljö. Distribuera ett program till den här miljön utan ändringar är inte tillräcklig för helt uppfyller kraven för en lösning för PCI DSS-kompatibel. Observera följande:
-- Den här grundläggande arkitekturen ger en baslinje för att hjälpa kunderna att använda Microsoft Azure på ett sätt som PCI DSS-kompatibel.
+Det här utkastet är utformad för att uppfylla kraven i strikta Payment Card Industry Data Security Standards (PCI DSS 3.2) för insamling, lagring och hämtning av betalkortsuppgifter. Den visar kreditkortdata (inklusive kort tal, förfallodatum och verifiering data) att hantera en säker och kompatibla flera nivåer miljö distribueras som en slutpunkt till slutpunkt Azure-baserade PaaS-lösning. Mer information om vilka PCI DSS 3.2 krav och den här lösningen finns [PCI DSS krav - High-Level översikt](pci-dss-requirements-overview.md).
+
+Det här utkastet är avsett att utgöra grunden för kunder att bättre förstå kraven och ska inte användas som – i en produktionsmiljö. Distribuera ett program till den här miljön utan ändringar är inte tillräckliga för att helt uppfylla kraven för en PCI DSS-kompatibel lösning för en anpassad lösning. Observera följande:
+- Det här utkastet ger en baslinje för att hjälpa kunderna att använda Microsoft Azure på ett sätt som PCI DSS-kompatibel.
 - För att uppnå PCI DSS godkännande krävs att en auktoriserad kvalificerade säkerhet utvärderare (QSA) certifiera en kund lösning för produktion.
 - Kunder ansvarar för att utföra lämpliga säkerhet och efterlevnad granskning av en lösning som skapats med denna grundläggande arkitektur kraven kan variera baserat på egenskaperna för varje kund implementering och geografisk plats.  
 
@@ -41,7 +43,7 @@ Grundläggande arkitektur består av följande komponenter:
 - **Distributionsmallar**. I den här distributionen [Azure Resource Manager-mallar](/azure/azure-resource-manager/resource-group-overview#template-deployment) används för att automatiskt distribuera komponenterna i arkitekturen i Microsoft Azure genom att ange konfigurationsparametrar under installationen.
 - **Automatisk distribution skript**. Dessa skript att distribuera lösningen för slutpunkt till slutpunkt. Skripten består av:
     - En installation av modulen och [global administratör](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installationsskriptet används för att installera och kontrollera att PowerShell-moduler som krävs och global administratörsroller är korrekt konfigurerade.
-    - En installation av PowerShell-skript används för att distribuera lösningen för slutpunkt till slutpunkt, som tillhandahålls via en .zip-fil och en .bacpac-fil som innehåller en förskapad demo webbprogrammet med exemplen för SQL-databasen. Källkoden för den här lösningen är tillgänglig för granskning [här](https://github.com/Microsoft/azure-sql-security-sample).
+    - En installation av PowerShell-skript används för att distribuera lösningen för slutpunkt till slutpunkt, som tillhandahålls via en .zip-fil och en .bacpac-fil som innehåller en förskapad demo webbprogrammet med [SQL-databas exempel](https://github.com/Microsoft/azure-sql-security-sample). innehåll. Källkoden för den här lösningen är tillgänglig för granskning [betalning bearbetning utkast databasen][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Arkitekturdiagram
 
@@ -49,9 +51,9 @@ Grundläggande arkitektur består av följande komponenter:
 
 ## <a name="user-scenario"></a>Användarscenario
 
-Grundläggande arkitektur adresser användningsfall i nedan.
+Du vilken löser användningsfallet nedan.
 
-> Det här scenariot visas hur en fiktiv vi besvarar flytta sina betalkort bearbetning till en Azure-baserad lösning. Lösningen hanterar insamling av grundläggande information, inklusive Betalningsdata. Lösningen behandla inte betalningar med den här kreditkortsinformation; När data samlas in, ansvarar kunder för att initiera och slutföra transaktioner med en Betalningsprocessor som. Mer information finns i dokumentet ”granska och riktlinjer för genomförande” på den [Microsoft Service litar på portalen](http://aka.ms/stp).
+> Det här scenariot visas hur en fiktiv vi besvarar flytta sina betalkort bearbetning till en Azure-baserade PaaS-lösning. Lösningen hanterar insamling av grundläggande information, inklusive Betalningsdata. Lösningen behandla inte betalningar med den här kreditkortsinformation; När data samlas in, ansvarar kunder för att initiera och slutföra transaktioner med en Betalningsprocessor som. Mer information finns i [”granska och riktlinjer för genomförande”](https://aka.ms/pciblueprintprocessingoverview).
 
 ### <a name="use-case"></a>Användningsfall
 En liten vi besvarar kallas *Contoso Webstore* är redo att flytta sina betalningssystemet till molnet. Microsoft Azure som värd för processen för att köpa och för att tillåta en clerk att samla in kreditkortsbetalningar från sina kunder har valts.
@@ -76,9 +78,9 @@ Användarroller som används för att illustrera användningsfallet och ger inbl
 | Namn: |`Global Admin Azure PCI Samples`|
 |Användartyp av:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
-* Administratörskontot kan inte läsa kreditkortsinformation avmaskerad. Alla åtgärder har loggats.
-* Administratörskontot kan inte hantera eller logga in på SQL-databas.
-* Administratörskontot kan hantera Active Directory och prenumeration.
+- Administratörskontot kan inte läsa kreditkortsinformation avmaskerad. Alla åtgärder har loggats.
+- Administratörskontot kan inte hantera eller logga in på SQL-databas.
+- Administratörskontot kan hantera Active Directory och prenumeration.
 
 #### <a name="role-sql-administrator"></a>Roll: SQL-administratör
 
@@ -90,8 +92,8 @@ Användarroller som används för att illustrera användningsfallet och ger inbl
 |Efternamn: |`PCI Samples`|
 |Användartyp av:| `Administrator`|
 
-* Sqladmin-konto kan inte visa ofiltrerade kreditkortsinformation. Alla åtgärder har loggats.
-* Kontot sqladmin kan hantera SQL-databas.
+- Sqladmin-konto kan inte visa ofiltrerade kreditkortsinformation. Alla åtgärder har loggats.
+- Kontot sqladmin kan hantera SQL-databas.
 
 #### <a name="role-clerk"></a>Roll: Clerk
 
@@ -113,13 +115,13 @@ Edna Benson är hanteraren receptionist och verksamhet. Hon ansvarar för att s�
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - uppskattade priser
 
-Den här grundläggande arkitektur och exempel webbprogrammet har en månatlig avgift struktur och en användning kostnad per timme som måste beaktas vid bedömning av lösningen. Dessa kostnader kan beräknas med hjälp av den [Azure kostnadskrävande Kalkylatorn](https://azure.microsoft.com/pricing/calculator/). Från och med September 2017 månatliga uppskattade kostnaden för den här lösningen är ~ $900. Dessa kostnader varierar beroende på hur användning och kan ändras. Har skyldighet att kunden beräkna de uppskattade kostnaderna för månatliga vid tidpunkten för distributionen för en mer tillförlitlig uppskattning. 
+Den här grundläggande arkitektur och exempel webbprogrammet har en månatlig avgift struktur och en användning kostnad per timme som måste beaktas vid bedömning av lösningen. Dessa kostnader kan beräknas med hjälp av den [Azure kostnadskrävande Kalkylatorn](https://azure.microsoft.com/pricing/calculator/). Från och med September 2017 månatliga uppskattade kostnaden för den här lösningen är ~ $2500 Detta omfattar en $ 1 000/månad användning kostnad för ASE v2. Dessa kostnader varierar beroende på hur användning och kan ändras. Har skyldighet att kunden beräkna de uppskattade kostnaderna för månatliga vid tidpunkten för distributionen för en mer tillförlitlig uppskattning. 
 
 Den här lösningen används följande Azure-tjänster. Information om arkitektur för distribution finns i den [distributionsarkitektur](#deployment-architecture) avsnitt.
 
 >- Application Gateway
 >- Azure Active Directory
->- App Service Environment
+>- Apptjänst-miljö v2
 >- OMS logganalys
 >- Azure Key Vault
 >- Nätverkssäkerhetsgrupper
@@ -234,7 +236,7 @@ Mer information om hur du använder säkerhetsfunktionerna i Azure SQL-databasen
 
 [Azure Apptjänst](/azure/app-service/) är en hanterad tjänst för att distribuera webbprogram. Contoso Webstore program distribueras som en [App Service Web App](/azure/app-service-web/app-service-web-overview).
 
-[Azure App Service miljö (ASE)](/azure/app-service/app-service-environment/intro) är en funktion i App Service som tillhandahåller en helt isolerad och dedikerad miljö för säker körning av Apptjänst-appar i hög skala. Det är en Premium service-plan som används av den här grundläggande arkitektur för att aktivera PCI DSS.
+[Azure Apptjänst-miljö (ASE v2)](/azure/app-service/app-service-environment/intro) är en funktion i App Service som tillhandahåller en helt isolerad och dedikerad miljö för säker körning av Apptjänst-appar i hög skala. Det är en Premium service-plan som används av den här grundläggande arkitektur för att aktivera PCI DSS.
 
 ASEs är isolerad för att endast en enskild kund program som körs och alltid har distribuerats till ett virtuellt nätverk. Kunder har detaljerad kontroll över både inkommande och utgående nätverkstrafik och program kan upprätta säkra höghastighetsanslutning över virtuella nätverk till lokala företagsresurser.
 
@@ -270,7 +272,7 @@ En virtuell dator har skapats som en jumpbox (skyddsmiljö host) med följande k
 
 [Microsoft Antimalware](/azure/security/azure-security-antimalware) för Azure-molntjänster och virtuella datorer är realtidsskydd funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig programvara med konfigurerbara aviseringar när kända skadliga eller oönskade programvara försöker installeras eller köras på din Azure-system.
 
-### <a name="operations-management"></a>Verksamhetsstyrning
+### <a name="operations-management"></a>Åtgärdshantering
 
 #### <a name="application-insights"></a>Application Insights
 
@@ -282,7 +284,7 @@ Använd [Programinsikter](https://azure.microsoft.com/services/application-insig
 
 #### <a name="oms-solutions"></a>OMS-lösningar
 
-Följande lösningar i OMS installeras före som en del av den grundläggande arkitekturen:
+Dessa ytterligare OMS-lösningar ska anses vara och konfigureras:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure-nätverksanalys](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,7 +340,7 @@ Du rekommenderas att en ren installation av PowerShell används för att distrib
     
     Detaljerade instruktioner finns i [skript instruktioner – distribuera och konfigurera Azure-resurser](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. OMS loggning och övervakning. När lösningen har distribuerats, en [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) arbetsytan kan öppnas och exempelmallarna i databasen lösning som kan användas för att illustrera hur en instrumentpanelen för övervakning kan vara konfigurerad. OMS exempelmallarna finns i den [omsDashboards mappen](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+3. OMS loggning och övervakning. När lösningen har distribuerats, en [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) arbetsytan kan öppnas och exempelmallarna i databasen lösning som kan användas för att illustrera hur en instrumentpanelen för övervakning kan vara konfigurerad. OMS exempelmallarna finns i den [omsDashboards mappen](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Observera att måste samlas in i OMS mallar för att distribuera på rätt sätt. Detta kan ta upp till en timme eller mer beroende på platsaktivitet.
  
     När du konfigurerar din OMS-loggning överväga att använda följande resurser:
  
@@ -355,11 +357,11 @@ Du rekommenderas att en ren installation av PowerShell används för att distrib
     
 ## <a name="threat-model"></a>Hotmodell
 
-En data-Flödesdiagram (DFD) och exempel hotmodell för Contoso Webstore finns i avsnittet dokument i den [databasen][code-repo].
+En data-Flödesdiagram (DFD) och exempel hotmodell för Contoso Webstore [betalning bearbetning utkast Hotmodell](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
-Mer information finns i [PCI utkast Hotmodell](https://aka.ms/pciblueprintthreatmodel).
+
 
 ## <a name="customer-responsibility-matrix"></a>Kunden ansvar matris
 
@@ -376,7 +378,10 @@ Lösningen granskades av Coalfire systems, Inc. (PCI-DSS kvalificerade säkerhet
 - Det här dokumentet är endast i informativt syfte. MICROSOFT OCH AVYAN GÖR INGA GARANTIER, UTTRYCKLIGA, UNDERFÖRSTÅDDA ELLER UNDERFÖRSTÅDDA, AVSEENDE INFORMATIONEN I DET HÄR DOKUMENTET. Detta dokument tillhandahålls ”som-är”. Information och åsikter som uttrycks i detta dokument, inklusive Webbadresser och andra webbplatsreferenser, kan ändras utan föregående meddelande. Kunder som det här dokumentet ansvar använder den.  
 - Det här dokumentet innehåller inte kunder med inga juridiska rättigheter till någon immateriell egendom i någon Microsoft eller Avyan produkt eller lösningar.  
 - Kunderna får kopiera och använda det här dokumentet som intern referens.  
-- Vissa rekommendationerna i det här dokumentet kan resultera i ökade data, nätverk eller beräkning Resursanvändning i Azure och kan öka kostnaderna för en kund Azure licens eller prenumeration.  
+
+  > [!NOTE]
+  > Vissa rekommendationerna i det här dokumentet kan resultera i ökade data, nätverk eller beräkning Resursanvändning i Azure och kan öka kostnaderna för en kund Azure licens eller prenumeration.  
+
 - Lösningen i det här dokumentet är avsett som en grundläggande arkitektur och får inte användas som-är för produktion. För att uppnå PCI-överensstämmelse krävs att kunder konsultera sina kvalificerade utvärderare säkerhet.  
 - Alla kundnamn, transaktionsposter och eventuella relaterade data på den här sidan är fiktiva, skapas för denna grundläggande arkitektur och endast för jämförelseändamål. Ingen verklig associering eller koppling är avsedd och oavsiktliga ingen.  
 - Den här lösningen har utvecklats gemensamt av Microsoft och Avyan rådgivning och är tillgängliga under den [MIT-licensen](https://opensource.org/licenses/MIT).
@@ -384,8 +389,8 @@ Lösningen granskades av Coalfire systems, Inc. (PCI-DSS kvalificerade säkerhet
 
 ### <a name="document-authors"></a>Dokumentförfattare
 
-* *Frank Simorjay (Microsoft)*  
-* *Gururaj Pandurangi (Avyan samråd)*
+- *Frank Simorjay (Microsoft)*  
+- *Gururaj Pandurangi (Avyan samråd)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Databasen"

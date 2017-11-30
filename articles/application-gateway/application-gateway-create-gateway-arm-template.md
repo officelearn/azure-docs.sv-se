@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Skapa en programgateway med hjälp av Azure Resource Manager-mallen
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Azure Application Gateway är en Layer 7-belastningsutjämnare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Application Gateway innehåller många ADC-funktioner (Application Delivery Controller), inklusive HTTP-belastningsutjämning, cookie-baserad sessionstilldelning, SSL-avlastning (Secure Sockets Layer), anpassade hälsoavsökningar, stöd för flera platser och mycket mer. En fullständig lista över funktioner som stöds finns [Programgateway översikt](application-gateway-introduction.md)
 
-Den här artikeln beskriver hur du hämtar och ändrar en befintlig Azure Resource Manager-mall från GitHub och distribuerar mallen från GitHub, PowerShell och Azure CLI.
+Den här artikeln beskriver hur du hämtar och ändra en befintlig [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) från GitHub och distribuerar mallen från GitHub, PowerShell och Azure CLI.
 
-Om du bara distribuerar Azure Resource Manager-mallen direkt från GitHub utan ändringar kan du gå vidare och distribuera en mall från GitHub.
+Om du bara distribuerar mallen direkt från GitHub utan ändringar, kan du hoppa över om du vill distribuera en mall från GitHub.
 
 ## <a name="scenario"></a>Scenario
 
@@ -75,9 +75,6 @@ Du kan hämta den befintliga Azure Resource Manager-mallen för att skapa ett vi
    * **type**. Typ av resurs som skapas av mallen. I det här fallet typen är `Microsoft.Network/applicationGateways`, som representerar en Programgateway.
    * **name**. Namn på den virtuella resursen. Observera användningen av `[parameters('applicationGatewayName')]`, vilket innebär att namnet har angetts som indata av dig eller en parameterfil under distributionen.
    * **properties**. Lista över egenskaper för resursen. Den här mallen använder det virtuella nätverket och den offentliga IP-adressen när programgatewayen skapas.
-
-   > [!NOTE]
-   > Mer information om mallar finns: [referens för Resource Manager-mallar](/templates/)
 
 1. Gå tillbaka till [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Klicka på **azuredeploy-parameters.json**, och klicka sedan på **RAW**.

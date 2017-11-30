@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Blob storage-bindningar
+title: "Azure Blob storage-bindningar för Azure Functions"
 description: "Förstå hur du använder Azure Blob storage-utlösare och bindningar i Azure Functions."
 services: functions
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob storage-bindningar
+# <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
 Den här artikeln förklarar hur du arbetar med Azure Blob storage bindningar i Azure Functions. Azure Functions stöder utlösa indata och utdata bindningar för BLOB.
 
@@ -30,7 +30,7 @@ Den här artikeln förklarar hur du arbetar med Azure Blob storage bindningar i 
 > [!NOTE]
 > [Endast BLOB storage-konton](../storage/common/storage-create-storage-account.md#blob-storage-accounts) stöds inte. BLOB storage-utlösare och bindningar kräver ett allmänt lagringskonto. 
 
-## <a name="blob-storage-trigger"></a>BLOB storage-utlösare
+## <a name="trigger"></a>Utlösare
 
 Använd en Blob storage-utlösare för att starta en funktion när en ny eller uppdaterad blob har upptäckts. Blobbinnehållet tillhandahålls som indata för funktionen.
 
@@ -59,7 +59,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Mer information om den `BlobTrigger` attribut, se [utlösaren - attribut för förkompilerade C#](#trigger---attributes-for-precompiled-c).
+Mer information om den `BlobTrigger` attribut, se [utlösaren - attribut](#trigger---attributes-for-precompiled-c).
 
 ### <a name="trigger---c-script-example"></a>Utlösaren - exempel på C#-skript
 
@@ -138,7 +138,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Utlösaren - attribut för förkompilerade C#
+## <a name="trigger---attributes"></a>Utlösaren - attribut
 
 För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd följande attribut för att konfigurera en blob-utlösare:
 
@@ -151,6 +151,9 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
   public static void Run(
       [BlobTrigger("sample-images/{name}")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
 
   Du kan ange den `Connection` att ange storage-konto du använder, enligt följande exempel:
@@ -160,7 +163,12 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
   public static void Run(
       [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
+
+  En komplett exempel finns [utlösaren - förkompilerade C#-exempel](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -173,6 +181,9 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
       [FunctionName("BlobTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ....
+  }
   ```
 
 Storage-konto du använder bestäms i följande ordning:
@@ -193,7 +204,9 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. Undantag anges i den [användning](#trigger---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden. | 
 |**sökväg** | **BlobPath** |Behållare för övervakning.  Kan vara en [blob namnmönstret](#trigger-blob-name-patterns). | 
-|**anslutning** | **Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>När du utvecklar lokalt appinställningar går du till värdena för den [local.settings.json filen](functions-run-local.md#local-settings-file).|
+|**anslutning** | **Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Utlösaren - användning
 
@@ -295,7 +308,7 @@ Om alla 5 försök misslyckas Azure Functions läggs ett meddelande till en kö 
 
 Om blob-behållaren som övervakas innehåller fler än 10 000 blobbar, loggfiler funktioner runtime genomsökningar kan du titta på för nya eller ändrade BLOB. Den här processen kan orsaka försening. En funktion kan hämta aktiveras inte förrän flera minuter eller längre efter blob skapas. Dessutom [lagring loggfiler skapas på ”bästa prestanda”](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Det är inte säkert att alla händelser fångas. Loggar under vissa förhållanden kan missas. Om du behöver snabbare och mer tillförlitlig blob-bearbetning kan du skapa en [kömeddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar blob. Använd sedan en [kö utlösaren](functions-bindings-storage-queue.md) i stället för en blob-trigger för att bearbeta blob. Ett annat alternativ är att använda händelsen rutnät. Se Självstudierna [automatisera storleksändring upp bilder med hjälp av händelse rutnätet](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="blob-storage-input--output-bindings"></a>BLOB storage indata och utdata bindningar
+## <a name="input--output"></a>Indata och utdata
 
 Använda Blob storage indata och utdata bindningar för att läsa och skriva BLOB.
 
@@ -434,7 +447,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input--output---attributes-for-precompiled-c"></a>Indata och utdata - attribut för förkompilerade C#
+## <a name="input--output---attributes"></a>Indata och utdata - attribut
 
 För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -445,6 +458,9 @@ Den Attributkonstruktorn tar sökvägen till blob och en `FileAccess` parameter 
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+{
+    ...
+}
 ```
 
 Du kan ange den `Connection` att ange storage-konto du använder, enligt följande exempel:
@@ -454,9 +470,14 @@ Du kan ange den `Connection` att ange storage-konto du använder, enligt följan
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+{
+    ...
+}
 ```
 
-Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [utlösaren - attribut för förkompilerade C#](#trigger---attributes-for-precompiled-c).
+En komplett exempel finns [indata och utdata - förkompilerade C#-exempel](#input--output---c-example).
+
+Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [utlösaren - attribut](#trigger---attributes-for-precompiled-c).
 
 ## <a name="input--output---configuration"></a>Indata och utdata - konfiguration
 
@@ -468,8 +489,10 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**riktning** | Saknas | Måste anges till `in` för en indatabindning eller out för en bindning för utdata. Undantag anges i den [användning](#input--output---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange till `$return` att referera till returvärde för funktion.|
 |**sökväg** |**BlobPath** | Sökvägen till blob. | 
-|**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>När du utvecklar lokalt appinställningar går du till värdena för den [local.settings.json filen](functions-run-local.md#local-settings-file).|
+|**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |Saknas | **Åtkomst** | Anger om du läsning eller skrivning. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input--output---usage"></a>Indata och utdata - användning
 

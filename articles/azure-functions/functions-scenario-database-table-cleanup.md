@@ -15,14 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
-Det här avsnittet visar hur du använder Azure Functions för att skapa ett schemalagt jobb som rensar upp rader i en tabell i Azure SQL-databas. Den nya C#-funktionen skapas baserat på en fördefinierad timer utlösaren mall i Azure-portalen. För att stödja det här scenariot måste du också ange en anslutningssträng för databasen som en inställning i funktionen appen. Det här scenariot använder en massåtgärd mot databasen. Om du vill att din funktion bearbeta enskilda CRUD-åtgärder i en tabell för Mobile Apps bör du istället använda [Mobile Apps bindningar](functions-bindings-mobile-apps.md).
+Det här avsnittet visar hur du använder Azure Functions för att skapa ett schemalagt jobb som rensar upp rader i en tabell i Azure SQL-databas. Den nya C#-funktionen skapas baserat på en fördefinierad timer utlösaren mall i Azure-portalen. För att stödja det här scenariot måste du också ange en anslutningssträng för databasen som en appinställning i funktionen appen. Det här scenariot använder en massåtgärd mot databasen. 
+
+Har din funktion processen individuella skapa, Läs-, update- och borttagningsåtgärder (CRUD) i en tabell för Mobile Apps ska du i stället använda [Mobile Apps bindningar](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -59,7 +61,7 @@ En funktionsapp är värd för körningen av dina funktioner i Azure. Det är en
     | Inställning       | Föreslaget värde | Beskrivning             | 
     | ------------ | ------------------ | --------------------- | 
     | **Namn**  |  sqldb_connection  | Används för att få åtkomst till lagrade anslutningssträngen i funktionskoden.    |
-    | **Värde** | Kopierade sträng  | Tidigare anslutningssträngen kopierade du i föregående avsnitt. |
+    | **Värde** | Kopierade sträng  | Klistra in anslutningssträngen som du kopierade i föregående avsnitt och Ersätt `{your_username}` och `{your_password}` platshållarna med verkliga värden. |
     | **Typ** | SQL Database | Använd SQL databasanslutningen. |   
 
 3. Klicka på **Spara**.
@@ -84,7 +86,7 @@ Nu kan du lägga till C#-Funktionskoden som ansluter till SQL-databasen.
     using System.Threading.Tasks;
     ```
 
-4. Ersätta den befintliga **kör** funktionen med följande kod:
+4. Ersätta den befintliga `Run` funktionen med följande kod:
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -105,7 +107,7 @@ Nu kan du lägga till C#-Funktionskoden som ansluter till SQL-databasen.
     }
     ```
 
-    Det här exemplet kommandot uppdaterar den **Status** kolumnen baserat på leverera datumet. Det bör uppdatera 32 datarader.
+    Det här exemplet kommandot uppdaterar den `Status` kolumnen baserat på leverera datumet. Det bör uppdatera 32 datarader.
 
 5. Klicka på **spara**, titta på den **loggar** windows för nästa fungera körning och notera antalet rader som uppdateras med den **SalesOrderHeader** tabell.
 

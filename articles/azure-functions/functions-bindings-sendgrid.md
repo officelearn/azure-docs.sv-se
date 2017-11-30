@@ -1,56 +1,76 @@
 ---
-title: Azure Functions SendGrid bindningar | Microsoft Docs
-description: Azure Functions SendGrid bindningar referens
+title: Azure Functions SendGrid bindningar
+description: Azure Functions SendGrid bindningar referens.
 services: functions
 documentationcenter: na
-author: rachelappel
+author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
-ms.author: rachelap
-ms.openlocfilehash: 4cdafbe05e29d8b483c6b0e1daf41a36583d7b5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: tdykstra
+ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid bindningar
 
-Den här artikeln beskriver hur du konfigurerar och arbetar med SendGrid-bindningar i Azure Functions. Med SendGrid, kan du använda Azure Functions skicka anpassade e-post via programmering.
+Den här artikeln beskrivs hur du skickar e-post med hjälp av [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) bindningar i Azure Functions. Azure Functions stöder en output-bindning för SendGrid.
 
-Den här artikeln är referensinformation för Azure Functions-utvecklare. Om du har använt Azure Functions, börja med följande resurser:
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-[Skapa din första Azure-funktion](functions-create-first-azure-function.md). 
-[C#](functions-reference-csharp.md), [F #](functions-reference-fsharp.md), eller [nod](functions-reference-node.md) developer referenser.
+## <a name="example"></a>Exempel
 
-## <a name="functionjson-for-sendgrid-bindings"></a>Function.JSON för SendGrid bindningar
+Finns i det språkspecifika:
 
-Azure Functions innehåller en output-bindning för SendGrid. SendGrid utdata bindning kan du skapa och skicka e-post via programmering. 
+* [Förkompilerade C#](#c-example)
+* [C#-skript](#c-script-example)
+* [JavaScript](#javascript-example)
 
-SendGrid bindningen stöder följande egenskaper:
+### <a name="c-example"></a>C#-exempel
 
-|Egenskap  |Beskrivning  |
-|---------|---------|
-|**Namn**| Obligatoriskt - variabelnamnet som används i Funktionskoden för begäran eller begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
-|**typ**| Krävs – måste vara inställd på `sendGrid`.|
-|**riktning**| Krävs – måste vara inställd på `out`.|
-|**apiKey**| Krävs – måste anges till namnet på din API-nyckel som lagras i appen funktionen app-inställningar. |
-|**att**| mottagarens e-postadress. |
-|**från**| avsändarens e-postadress. |
-|**ämne**| ämnet för e-postmeddelandet. |
-|**text**| e-postinnehåll. |
+Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) att utlösa för använder en Service Bus-kö och en SendGrid utdatabindning.
 
-Exempel på **function.json**:
+```cs
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
+
+Kan du utelämna inställningen attributets `ApiKey` egenskapen om du har din API-nyckel i en appinställning med namnet ”AzureWebJobsSendGridApiKey”.
+
+### <a name="c-script-example"></a>Exempel på C#-skript
+
+I följande exempel visas en SendGrid bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen.
+
+Här är de bindande data den *function.json* fil:
 
 ```json 
 {
     "bindings": [
         {
-            "name": "$return",
+            "name": "message",
             "type": "sendGrid",
             "direction": "out",
             "apiKey" : "MySendGridKey",
@@ -62,19 +82,16 @@ Exempel på **function.json**:
 }
 ```
 
-> [!NOTE]
-> Azure Functions lagrar dina anslutningsinformationen och API-nycklar som app-inställningar så att de inte kontrolleras i din källkontroll. Den här åtgärden skyddar känslig information.
->
->
+Den [configuration](#configuration) förklaras de här egenskaperna.
 
-## <a name="c-example-of-the-sendgrid-output-binding"></a>C#-exempel på SendGrid utdatabindning
+Här är skriptkod C#:
 
 ```csharp
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
 
-public static Mail Run(TraceWriter log, string input, out Mail message)
+public static void Run(TraceWriter log, string input, out Mail message)
 {
      message = new Mail
     {        
@@ -94,7 +111,31 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 }
 ```
 
-## <a name="node-example-of-the-sendgrid-output-binding"></a>Noden exempel på SendGrid utdatabindning
+### <a name="javascript-example"></a>JavaScript-exempel
+
+I följande exempel visas en SendGrid bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen.
+
+Här är de bindande data den *function.json* fil:
+
+```json 
+{
+    "bindings": [
+        {
+            "name": "$return",
+            "type": "sendGrid",
+            "direction": "out",
+            "apiKey" : "MySendGridKey",
+            "to": "{ToEmail}",
+            "from": "{FromEmail}",
+            "subject": "SendGrid output bindings"
+        }
+    ]
+}
+```
+
+Den [configuration](#configuration) förklaras de här egenskaperna.
+
+Här är JavaScript-kod:
 
 ```javascript
 module.exports = function (context, input) {    
@@ -110,13 +151,44 @@ module.exports = function (context, input) {
 
     context.done(null, message);
 };
-
 ```
 
+## <a name="attributes"></a>Attribut
+
+För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+
+Information om egenskaper för attribut som du kan konfigurera finns [Configuration](#configuration). Här är en `SendGrid` attributet exempel i en signatur:
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    ...
+}
+```
+
+En komplett exempel finns [förkompilerat C#-exempel](#c-example).
+
+## <a name="configuration"></a>Konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `SendGrid` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**typ**|| Krävs – måste vara inställd på `sendGrid`.|
+|**riktning**|| Krävs – måste vara inställd på `out`.|
+|**Namn**|| Obligatoriskt - variabelnamnet som används i Funktionskoden för begäran eller begärandetexten. Det här värdet är ```$return``` när det är endast ett returvärde. |
+|**apiKey**|**ApiKey**| Namnet på en appinställning som innehåller API-nyckel. Om inte aktiverad, standardappen inställningen är ”AzureWebJobsSendGridApiKey”.|
+|**att**|**Till**| mottagarens e-postadress. |
+|**från**|**Från**| avsändarens e-postadress. |
+|**ämne**|**Ämne**| ämnet för e-postmeddelandet. |
+|**text**|**Text**| e-postinnehåll. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
 ## <a name="next-steps"></a>Nästa steg
-Information om andra bindningar och utlösare för Azure Functions finns i 
-- [Azure Functions-utlösare och bindningar för utvecklare](functions-triggers-bindings.md)
 
-- [Metodtips för Azure Functions](functions-best-practices.md) listar några rekommendationer att använda när du skapar Azure Functions.
-
-- [Azure Functions för utvecklare](functions-reference.md) programmerare om att koda funktioner och definiera utlösare och bindningar.
+> [!div class="nextstepaction"]
+> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

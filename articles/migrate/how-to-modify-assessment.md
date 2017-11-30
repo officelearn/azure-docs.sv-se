@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: 6db4ff050dbf8d4e08415226931e71f964525068
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 20aeb2073ad307952f92c8377bc9d78169f1756c
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="customize-an-assessment"></a>Anpassa en utvärdering
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/27/2017
 
     **Inställning** | **Detaljer** | **Standard**
     --- | --- | ---
-    **Målplats** | Den Azure-plats som du vill migrera. |  Endast östra USA stöds för närvarande.
+    **Målplats** | Den Azure-plats som du vill migrera. |  USA, västra 2 är standardplatsen.
     **Redundans för lagring** | Typ av lagring som virtuella Azure-datorer ska använda efter migreringen. | Endast [lokalt redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikering stöds för närvarande.
     **Bekvämlighet faktor** | Bekvämlighet faktorn är en buffert som används under utvärdering. Används för att konto för till exempel när användning, kort prestandahistorik, sannolikt ökar i framtida användning. | Standardinställningen är 1.3 x.
     **Prestanda långsammare historik** | Tid som används vid utvärdering av prestandahistorik. | Standardvärdet är en månad.

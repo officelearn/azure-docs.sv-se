@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och kända problem.
@@ -81,7 +81,7 @@ Information om tidigare för Media Services REST API-versioner finns [Azure Medi
 Nu har stöd för Media Services [Azure Active Directory (Azure AD)-baserad autentisering](media-services-use-aad-auth-to-access-ams-api.md).
 
 > [!IMPORTANT]
-> Media Services stöder för närvarande Azure Access Control service autentisering modellen. Access Control tillstånd att bli inaktuell på den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentisering så snart som möjligt.
+> Media Services stöder för närvarande Azure Access Control service autentisering modellen. Access Control tillstånd att bli inaktuell på den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt.
 
 ## <a name="march-2017-release"></a>Mars 2017 version
 
@@ -411,7 +411,7 @@ Följande ändringar har gjorts i 3.0.0.3:
 
 Den senaste versionen av Media Services SDK är nu 3.0.0.0. Du kan hämta det senaste paketet från Nuget eller hämta bits från [GitHub].
 
-Från och med Media Services SDK version 3.0.0.0 kan du återanvända den [Azure Active Directory Access Control Service (ACS)] token. Mer information finns i avsnittet ”återanvända Access Control Service Tokens” i den [ansluter till Media Services med Media Services SDK för .NET] artikel.
+Från och med Media Services SDK version 3.0.0.0 kan återanvända du token för Azure Active Directory Access Control Service (ACS). 
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure Media Services .NET SDK-tilläggen 2.0.0.0
 Azure Media Services .NET SDK-tilläggen är en uppsättning tilläggsmetoder och hjälpfunktioner som förenklar koden och gör det enklare att utveckla med Azure Media Services. Du kan hämta den senaste bits från [Azure Media Services .NET SDK-tilläggen].
@@ -526,7 +526,7 @@ De ändringar som nämns i det här avsnittet har uppdateringar som ingår i Nov
   * IAssetFile.UploadAsync (filePath, blobTransferClient, lokaliserare, cancellationToken): en asynkron metod. Detta är den önskade överför mekanismen. 
     
     Känt fel: med cancellationToken verkligen avbryta uppladdningen; tillståndet annullering av aktiviteterna kan dock vara någon av ett antal tillstånd. Du måste korrekt fånga och hantera undantag.
-* Lokaliserare
+* Positionerare
   
     Ursprung-specifika versioner har tagits bort. SAS-specifika-kontext. Locators.CreateSasLocator (tillgången, accessPolicy) markeras som föråldrad eller tagits bort av GA. Se avsnittet lokaliserare under nya funktioner för uppdaterade beteendet.
 
@@ -536,7 +536,7 @@ Följande funktioner är nya i November-versionen av SDK.
 * Ta bort enheter
   
     IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey objekt har nu tagits bort på objektnivå, d.v.s. IObject.Delete() i stället för att en delete i samlingen som är cloudMediaContext.ObjCollection.Delete(objInstance).
-* Lokaliserare
+* Positionerare
   
     Lokaliserare nu måste skapas med metoden CreateLocator och Använd uppräkningsvärden LocatorType.SAS eller LocatorType.OnDemandOrigin som ett argument för typ av lokaliserare som du vill skapa.
   
@@ -581,7 +581,7 @@ Följande funktioner är nya i November-versionen av SDK.
 [segment för att gå till Video]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Azure Media Services .NET SDK 3.0.0.1 och 3.0.0.2 släpper]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
 [Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[ansluter till Media Services med Media Services SDK för .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure Media Services .NET SDK-tilläggen]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-verktyg]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

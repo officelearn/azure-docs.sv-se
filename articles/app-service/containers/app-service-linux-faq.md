@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure Apptjänst i Linux vanliga frågor och svar
 
@@ -64,6 +64,20 @@ Ja.
 **Kan jag använda *webbdistribution* att distribuera webbappen?**
 
 Ja, du måste ange en app inställningen kallas `WEBSITE_WEBDEPLOY_USE_SCM` till *FALSKT*.
+
+**Git-distribution för Mina program misslyckas när du använder Linux-webbprogram. Hur kan jag lösning problemet?**
+
+Om det inte går att ditt webbprogram för Linux Git-distribution, kan du välja följande alternativ alternativ för att distribuera din programkod:
+
+- Använd funktionen kontinuerlig leverans (förhandsversion): du kan lagra appens källkod i ett Team Services Git repo eller GitHub-repo-att använda Azure kontinuerlig leverans. Mer information finns i [hur du konfigurerar kontinuerlig leverans för Linux-webbprogrammet](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+
+- Använd den [ZIP distribuera API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): du använder detta API [SSH till ditt webbprogram](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) och gå till mappen där du vill distribuera din kod. Kör följande:
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   Om du får ett felmeddelande som den `curl` kommando inte hittas, måste du installera curl med hjälp av `apt-get install curl` innan du kör den tidigare `curl` kommando.
 
 ## <a name="language-support"></a>Språkstöd
 

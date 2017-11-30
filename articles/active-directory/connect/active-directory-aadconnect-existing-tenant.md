@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a62a3954d10e718f5d180ddb725c6a9c7cda56c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7df154748a4ce8ac592a41f2a3d6b10ac359113
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: När du har en befintliga klient
 De flesta avsnitt för hur du använder Azure AD Connect förutsätter att du börjar med en ny Azure AD-klient och att det finns inga användare eller det andra objekt. Men om du har börjat med Azure AD-klient fylls med användare och andra objekt, och nu vill använda Connect, sedan det här avsnittet är för dig.
@@ -33,7 +33,7 @@ Om du startade att hantera användare i Azure AD som finns också i lokala AD oc
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synkronisera med befintliga användare i Azure AD
 När du installerar Azure AD Connect och du startar synkroniseringen, Azure AD sync-tjänsten (i Azure AD) har en kontroll av alla nya objekt och försök att hitta ett befintligt objekt som matchar. Det finns tre attribut som används för den här processen: **userPrincipalName**, **proxyAddresses**, och **sourceAnchor**/**immutableID** . En matchning på **userPrincipalName** och **proxyAddresses** kallas en **mjuka matchar**. En matchning på **sourceAnchor** kallas **hårda matchar**. För den **proxyAddresses** attributet värdet med **SMTP:**, som den primära e-postadressen används för utvärdering.
 
-Matchningen utvärderas bara för nya objekt som kommer från Connect. Om du ändrar en befintlig objekt så att den matchar någon av dessa attribut kan se du ett fel i stället.
+Matchningen utvärderas bara för nya objekt som kommer från Connect. Om du ändrar ett befintligt objekt så att den matchar någon av dessa attribut kan se du ett fel i stället.
 
 Om Azure AD hittar ett objekt där attributvärden är desamma för ett objekt som kommer från Connect och att det finns redan i Azure AD, tas objektet i Azure AD över av Connect. Tidigare molnhanterade objekt flaggas som lokalt hanteras. Alla attribut i Azure AD med ett värde i lokala AD skrivs över med lokalt värde. Undantaget är när ett attribut har en **NULL** värdet lokalt. I det här fallet kan värdet i Azure AD finns kvar, men du fortfarande endast ändra den lokala till något annat.
 

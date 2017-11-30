@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1b2645580c12777ea39816bdcc62cfabc172d16
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: Hur man frågar tabelldata med tabell-API
 
@@ -38,7 +38,7 @@ Frågorna i den här artikeln använder i följande exempel `People` tabell:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Se [frågor till tabeller och enheter] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) mer information om hur frågan med tabell-API. 
+Se [frågor till tabeller och de entiteter](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) mer information om hur frågan med tabell-API. 
 
 Mer information om premium-funktioner som erbjuder Azure Cosmos DB finns [Azure Cosmos DB tabell API](table-introduction.md) och [utveckla med tabell-API: et i .NET](tutorial-develop-table-dotnet.md). 
 

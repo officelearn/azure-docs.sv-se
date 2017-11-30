@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ Skapa ett enkelt konsolprogram att anropa tjänsten aktören.
     ![Lägg till dialogrutan Nytt projekt][6]    
     
     > [!NOTE]
-    > Ett konsolprogram är inte typ av app som du använder normalt som en klient i Service Fabric, men det är ett enkelt exempel för att felsöka och testa med hjälp av lokal Service Fabric-emulatorn.
+    > Ett konsolprogram är inte typ av app som du använder normalt som en klient i Service Fabric, men det är ett enkelt exempel för felsökning och testning med det lokala Service Fabric-klustret.
 
 3. Konsolprogrammet måste vara ett 64-bitarsprogram att bibehålla kompatibilitet med gränssnittet projektet och andra beroenden.  I Solution Explorer högerklickar du på den **ActorClient** projektet och klicka sedan på **egenskaper**.  På den **skapa** ställer du in **plattform mål** till **x64**.
     

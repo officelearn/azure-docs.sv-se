@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 86b43b312bf7ce52ab75855424cc5db473245159
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Så här hanterar du ett konto i Azure Cosmos DB
 Lär dig mer om att ställa in globalt konsekvensfel, fungerar med nycklar och ta bort ett Azure DB som Cosmos-konto i Azure-portalen.
@@ -33,10 +33,10 @@ Att välja rätt konsekvensnivå beror på semantiken för ditt program. Bekanta
 3. I den **standard konsekvenskontroll** väljer du den nya konsekvensnivå och klicka på **spara**.
     ![Standard konsekvenskontroll session][5]
 
-## <a id="keys"></a>Visa, kopiera och återskapa åtkomstnycklar
-När du skapar ett konto i Azure Cosmos DB genererar tjänsten två master åtkomstnycklar som kan användas för autentisering vid åtkomst av Azure DB som Cosmos-konto. Genom att tillhandahålla två åtkomstnycklar kan Azure Cosmos DB du återskapa nycklarna utan avbrott i Azure DB som Cosmos-konto. 
+## <a id="keys"></a>Visa, kopiera och återskapa åtkomstnycklar och lösenord
+När du skapar ett konto i Azure Cosmos DB tjänsten genererar två åtkomstnycklar för master (eller två lösenorden för MongoDB-API) som kan användas för autentisering vid åtkomst av Azure DB som Cosmos-konto. Genom att tillhandahålla två åtkomstnycklar kan Azure Cosmos DB du återskapa nycklarna utan avbrott i Azure DB som Cosmos-konto. 
 
-I den [Azure-portalen](https://portal.azure.com/), åtkomst på **nycklar** sida på menyn resurs på den **Azure Cosmos DB konto** sidan om du vill visa, kopiera och återskapa åtkomstnycklar som används för att komma åt ditt konto i Azure Cosmos DB.
+I den [Azure-portalen](https://portal.azure.com/), åtkomst på **nycklar** sida på menyn resurs på den **Azure Cosmos DB konto** sidan om du vill visa, kopiera och återskapa åtkomstnycklar som används för att komma åt ditt konto i Azure Cosmos DB. För MongoDB-API-konton, komma åt den **anslutningssträngen** sida från resurs-menyn för att visa, kopiera och återskapa de lösenord som används för att komma åt ditt konto.
 
 ![Azure portal skärmbilden nycklar sida](./media/manage-account/keys.png)
 
@@ -47,25 +47,25 @@ I den [Azure-portalen](https://portal.azure.com/), åtkomst på **nycklar** sida
 
 Skrivskyddad är också tillgängliga på den här sidan. Läsning och frågor är skrivskyddade åtgärder stund skapar, tar bort, inte och ersätter.
 
-### <a name="copy-an-access-key-in-the-azure-portal"></a>Kopiera en snabbtangent i Azure-portalen
-På den **nycklar** klickar du på den **kopiera** knappen till höger om den nyckel som du vill kopiera.
+### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Kopiera en åtkomstnyckel eller lösenord i Azure-portalen
+På den **nycklar** sidan (eller **anslutningssträngen** för MongoDB-API-konton), klickar du på den **kopiera** knappen till höger om nyckeln eller lösenordet som du vill kopiera.
 
 ![Visa och kopiera snabbtangent i Azure portal, nycklar-sida](./media/manage-account/copykeys.png)
 
-### <a name="regenerate-access-keys"></a>Återskapa åtkomstnycklar
-Du bör ändra åtkomstnycklarna till ditt Azure DB som Cosmos-konto med jämna mellanrum för att skydda dina anslutningar. Två åtkomstnycklar tilldelas så att du kan upprätthålla anslutningar till Azure Cosmos DB kontot den ena åtkomstnyckeln medan du återskapar den andra åtkomstnyckeln.
+### <a name="regenerate-access-keys-and-passwords"></a>Återskapa åtkomstnycklar och lösenord
+Du bör ändra snabbtangenter (och lösenorden för MongoDB-API) till Azure DB som Cosmos-konto med jämna mellanrum för att skydda dina anslutningar. Två åtkomst nycklar lösenord tilldelas så att du kan upprätthålla anslutningar till Azure Cosmos DB kontot den ena åtkomstnyckeln medan du återskapar den andra åtkomstnyckeln.
 
 > [!WARNING]
 > Återskapar åtkomstnycklarna påverkar alla program som är beroende av den aktuella nyckeln. Alla klienter som använder snabbtangenten för att få åtkomst till Azure DB som Cosmos-kontot måste uppdateras för att använda den nya nyckeln.
 > 
 > 
 
-Om du har program eller molntjänster med hjälp av Azure DB som Cosmos-konto kan förlorar du anslutningar om du återskapa nycklar, såvida inte du lanserar dina nycklar. Följande steg beskriver processen ingår i rullande dina nycklar.
+Om du har program eller molntjänster med hjälp av Azure DB som Cosmos-konto kan förlorar du anslutningar om du återskapa nycklar, såvida inte du lanserar dina nycklar. Följande steg beskriver processen ingår i rullande dina nycklar/lösenord.
 
 1. Uppdatera åtkomstnyckeln i din programkod för att referera till den sekundära åtkomstnyckeln för kontot Azure Cosmos DB.
 2. Återskapa den primära åtkomstnyckeln för ditt Azure DB som Cosmos-konto. I den [Azure-portalen](https://portal.azure.com/), komma åt ditt konto i Azure Cosmos DB.
-3. I den **Azure Cosmos-DB konto** klickar du på **nycklar**.
-4. På den **nycklar** sidan, klicka på knappen Generera och klicka på **Ok** att bekräfta att du vill skapa en ny nyckel.
+3. I den **Azure Cosmos-DB konto** klickar du på **nycklar** (eller **anslutningssträngen** för MongoDB konton **).
+4. På den **nycklar**/**anslutningssträngen** sidan, klicka på knappen Generera och klicka på **Ok** att bekräfta att du vill skapa en ny nyckel.
     ![Återskapa åtkomstnycklar](./media/manage-account/regenerate-keys.png)
 5. När du har verifierat att den nya nyckeln är tillgänglig för användning (cirka fem minuter efter återskapandet), uppdatera åtkomstnyckeln i din programkod för att referera till den nya primärnyckeln.
 6. Återskapa den sekundära åtkomstnyckeln.
@@ -77,11 +77,11 @@ Om du har program eller molntjänster med hjälp av Azure DB som Cosmos-konto ka
 > 
 > 
 
-## <a name="get-the--connection-string"></a>Hämta anslutningssträngen
+## <a name="get-the-connection-string"></a>Hämta anslutningssträngen
 Hämta din anslutningssträng genom att göra följande: 
 
 1. I den [Azure-portalen](https://portal.azure.com), komma åt ditt konto i Azure Cosmos DB.
-2. Resurs-menyn klickar du på **nycklar**.
+2. Resurs-menyn klickar du på **nycklar** (eller **anslutningssträngen** för MongoDB-API-konton).
 3. Klicka på den **kopiera** knappen bredvid den **primära anslutningssträngen** eller **sekundära anslutningssträngen** rutan. 
 
 Om du använder anslutningssträngen i den [Migreringsverktyget för Azure Cosmos DB databasen](import-data.md), Lägg till namnet på databasen i slutet av anslutningssträngen. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.

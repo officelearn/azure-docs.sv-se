@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurera inställningar för Azure Multi-Factor Authentication - Public preview
 
@@ -170,21 +170,40 @@ När tillförlitliga IP-adresser aktiveras tvåstegsverifiering är *inte* kräv
 
 Om betrodda IP-adresser är aktiverad eller inte kan tvåstegsverifiering krävs för webbläsaren flöden och applösenord krävs för äldre klientappar. 
 
-### <a name="to-enable-trusted-ips"></a>Så här aktiverar du tillförlitliga IP-adresser
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Välj **Active Directory** till vänster.
-3. Välj den katalog som du vill hantera. 
-4. Välj **konfigurera**
-5. Välj under Multi-Factor Authentication **hantera tjänstinställningar**.
-6. På sidan Inställningar under betrodda IP-adresser, har du två alternativ:
+### <a name="enable-named-locations-using-conditional-access"></a>Aktivera sökvägarna med villkorlig åtkomst
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Till vänster, Välj **Azure Active Directory** > **villkorlig åtkomst** > **med namnet platser**
+3. Välj **ny plats**
+4. Ange ett namn för platsen
+5. Välj **Markera som betrodd plats**
+6. Ange IP-adressintervall i CIDR-notation (exempel 192.168.1.1/24)
+7. Välj **skapa**
+
+### <a name="enable-trusted-ips-using-conditional-access"></a>Aktivera tillförlitliga IP-adresser med villkorlig åtkomst
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Till vänster, Välj **Azure Active Directory** > **villkorlig åtkomst** > **med namnet platser**
+3. Välj **konfigurera MFA tillförlitliga IP-adresser**
+4. På sidan Inställningar under betrodda IP-adresser, har du två alternativ:
    
    * **För förfrågningar från externa användare som kommer från intranätet** – Markera kryssrutan. Alla externa användare som loggar in från företagsnätverket kringgå tvåstegsverifiering med hjälp av ett anspråk som utfärdats av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätet anspråk till lämpliga trafik. Om regeln inte finns, skapa följande regel i AD FS ”: c: [typen ==” http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork ”] = > issue(claim = c)”;
 
+   * **För begäranden från en viss mängd offentliga IP-adresser** – ange IP-adresser i textrutan med CIDR-notering. Till exempel: xxx.xxx.xxx.0/24 för IP-adresser i intervallet xxx.xxx.xxx.1 – xxx.xxx.xxx.254 eller xxx.xxx.xxx.xxx/32 för en enda IP-adress. Du kan ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser kringgå tvåstegsverifiering.
+5. Välj **Spara**.
 
+### <a name="enable-trusted-ips-using-service-settings"></a>Aktivera tillförlitliga IP-adresser med hjälp av service-inställningar
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Till vänster, Välj **Azure Active Directory** > **användare och grupper** > **alla användare**
+3. Välj **Multi-Factor Authentication**
+4. Välj under Multi-Factor Authentication **tjänstinställningar**.
+5. På sidan Inställningar under betrodda IP-adresser, har du två alternativ:
+   
+   * **För förfrågningar från externa användare som kommer från intranätet** – Markera kryssrutan. Alla externa användare som loggar in från företagsnätverket kringgå tvåstegsverifiering med hjälp av ett anspråk som utfärdats av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätet anspråk till lämpliga trafik. Om regeln inte finns, skapa följande regel i AD FS ”: c: [typen ==” http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork ”] = > issue(claim = c)”;
 
    * **För begäranden från en viss mängd offentliga IP-adresser** – ange IP-adresser i textrutan med CIDR-notering. Till exempel: xxx.xxx.xxx.0/24 för IP-adresser i intervallet xxx.xxx.xxx.1 – xxx.xxx.xxx.254 eller xxx.xxx.xxx.xxx/32 för en enda IP-adress. Du kan ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser kringgå tvåstegsverifiering.
-7. Klicka på **Spara**.
-8. När uppdateringarna har tillämpats, klickar du på **Stäng**.
+6. Välj **Spara**.
 
 ![Tillförlitliga IP-adresser](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -239,11 +258,10 @@ Azure AD stöder federation (enkel inloggning) med lokala Windows Server Active 
 ### <a name="allow-app-password-creation"></a>Tillåt att appen lösenord skapas
 Användare kan inte skapa applösenord som standard. Den här funktionen måste vara aktiverat. Använd följande procedur för att ge användare möjlighet att skapa applösenord:
 
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Välj **Active Directory** till vänster.
-3. Välj den katalog som du vill hantera. 
-4. Välj **konfigurera**
-5. Välj under Multi-Factor Authentication **hantera tjänstinställningar**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Till vänster, Välj **Azure Active Directory** > **användare och grupper** > **alla användare**
+3. Välj **Multi-Factor Authentication**
+4. Välj under Multi-Factor Authentication **tjänstinställningar**.
 6. Välj knappen bredvid **låta användarna skapa applösenord för att logga in på icke-webbläsarappar**.
 
 ![Skapa Applösenord](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -270,16 +288,16 @@ Därför kan komma ihåg Multifaktorautentisering på betrodda enheter minskar a
 >Den här funktionen är inte kompatibel med funktionen ”jag vill förbli inloggad” i AD FS när användare utför tvåstegsverifiering för AD FS via Azure MFA-Server eller en MFA-lösning från tredje part. Om användarna Markera ”jag vill förbli inloggad” på AD FS och även markera sin enhet som betrodd för MFA, kan de inte verifiera efter ”Kom ihåg MFA” antalet dagar upphör att gälla. Azure AD begär en ny tvåstegsverifiering, men AD FS returnerar en token med den ursprungliga MFA anspråk och datumet i stället för att utföra tvåstegsverifiering igen. Anger av en kontroll skapas mellan Azure AD och AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Aktivera Kom ihåg multifaktorautentisering
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Välj **Active Directory** till vänster.
-3. Välj den katalog som du vill hantera. 
-4. Välj **konfigurera**
-5. Välj under Multi-Factor Authentication **hantera tjänstinställningar**.
-6. På sidan Inställningar under hantera användarinställningar för enheten, kontrollera den **Tillåt användare att komma ihåg multifaktorautentisering på enheter de litar** rutan.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Till vänster, Välj **Azure Active Directory** > **användare och grupper** > **alla användare**
+3. Välj **Multi-Factor Authentication**
+4. Välj under Multi-Factor Authentication **tjänstinställningar**.
+5. På sidan Inställningar under **hantera komma ihåg multifaktorautentisering**, kontrollera den **Tillåt användare att komma ihåg multifaktorautentisering på enheter de litar** rutan.
+
    ![Kom ihåg enheter](./media/multi-factor-authentication-whats-next/remember.png)
-7. Ange antalet dagar som du vill tillåta att kringgå tvåstegsverifiering betrodda enheter. Standardvärdet är 14 dagar.
-8. Klicka på **Spara**.
-9. Klicka på **Stäng**.
+
+6. Ange antalet dagar som du vill tillåta att kringgå tvåstegsverifiering betrodda enheter. Standardvärdet är 14 dagar.
+7. Välj **Spara**.
 
 ### <a name="mark-a-device-as-trusted"></a>Markera en enhet som betrodd
 
@@ -300,13 +318,12 @@ När användarna registrerar sina konton för MFA, kan de välja sin önskade ve
 | Verifieringskod från mobilapp |Microsoft Authenticator-appen genererar en ny OATH-Verifieringskod var 30: e sekund. Användaren anger den här koden i gränssnittet för inloggning.<br>Microsoft Authenticator-appen är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Hur du aktiverar/inaktiverar autentiseringsmetoder
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Välj **Active Directory** till vänster.
-3. Välj den katalog som du vill hantera. 
-4. Välj **konfigurera**
-5. Välj under Multi-Factor Authentication **hantera tjänstinställningar**.
-6. På sidan Inställningar för tjänsten, under Alternativ för verifiering, Markera/avmarkera de alternativ som du vill använda.
-   ![Alternativ för verifiering](./media/multi-factor-authentication-whats-next/authmethods.png)
-7. Klicka på **Spara**.
-8. Klicka på **Stäng**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Till vänster, Välj **Azure Active Directory** > **användare och grupper** > **alla användare**
+3. Välj **Multi-Factor Authentication**
+4. Välj under Multi-Factor Authentication **tjänstinställningar**.
+5. På sidan Inställningar under **verifieringsalternativ**, Markera/avmarkera de alternativ som du vill använda.
 
+   ![Alternativ för verifiering](./media/multi-factor-authentication-whats-next/authmethods.png)
+
+6. Klicka på **Spara**.

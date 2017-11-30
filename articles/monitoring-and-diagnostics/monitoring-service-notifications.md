@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-health-notifications"></a>Meddelanden om hälsostatus
 ## <a name="overview"></a>Översikt
 
 Den här artikeln visar hur du visar hälsotillstånd tjänstmeddelanden med Azure-portalen.
 
-Meddelanden om hälsostatus kan du visa meddelanden om hälsotillstånd har publicerats av Azure-teamet som kan påverka resurser i din prenumeration. Dessa aviseringar är en underklass till aktiviteten logghändelser och finns även på bladet aktivitet loggen. Meddelanden om hälsostatus kan vara information eller tillämplig beroende på klassen.
+Meddelanden om hälsostatus kan du visa meddelanden om hälsotillstånd har publicerats av Azure-teamet som kan påverka resurser i din prenumeration. Dessa aviseringar är en underklass till aktiviteten logghändelser och finns även i aktivitetsloggen. Meddelanden om hälsostatus kan vara information eller tillämplig beroende på klassen.
 
 Det finns fem typer av meddelanden om hälsostatus:  
 
-- **Åtgärd krävs:** då vi eventuellt se något annorlunda hända om ditt konto. Vi behöver kan hjälpa dig med att åtgärda detta. Vi skickar dig ett meddelande som antingen med information om åtgärderna som du behöver ta eller med information om hur du kontaktar Azure tekniker eller support.  
-- **Assisterad återställning:** en händelse har inträffat och tekniker har bekräftat att du fortfarande har effekt. Tekniker behöver du samarbetar med dig direkt för att ta dina tjänster till återställning.  
+- **Åtgärd krävs:** från gång till gång Azure hända något annorlunda hända om ditt konto. Azure behöver arbeta med dig för att åtgärda detta. Azure kommer att skicka ett meddelande som antingen med information om åtgärderna du måste vidta eller med information om hur du kontaktar Azure tekniker eller support.  
+- **Assisterad återställning:** en händelse har inträffat och tekniker har bekräftat att du fortfarande har effekt. Azure tekniker behöver dig direkt för att återställa tjänsterna för fullständig hälsa.  
 - **Incident:** en tjänst som påverkar händelse för närvarande påverkar en eller flera resurser i din prenumeration.  
 - **Underhåll:** detta är ett meddelande informerar dig om en aktivitet för planerat underhåll som kan påverka en eller flera av resurserna i din prenumeration.  
-- **Information:** från tid att vi kan skicka meddelanden som en kommunicera till dig om potentiella optimeringar som kan förbättra din resursutnyttjande.  
+- **Information:** då och då du Azure kan skicka meddelanden med information om potentiella optimeringar som kan förbättra din resursutnyttjande.  
 - **Säkerhet:** brådskande säkerhetsrelaterade information om din solution(s) som körs på Azure.
 
-Varje meddelande för tjänsten hälsotillstånd hanterar information om omfattningen av och påverkan på dina resurser. Innehåller information:
+Varje meddelande för health service innehåller information om omfattningen av och påverkan på dina resurser. Innehåller:
 
 Egenskapsnamn | Beskrivning
 -------- | -----------
@@ -54,7 +54,7 @@ subscriptionId | Azure-prenumeration som den här händelsen loggades
 status | Sträng som beskriver status för åtgärden. Vissa vanliga värden: startas i pågår, slutfört, misslyckades, aktiv, löst.
 operationName | Namnet på åtgärden.
 category | ”ServiceHealth”
-resourceId | Resurs-id för resursen påverkas.
+resourceId | Resurs-ID för resursen påverkas.
 Properties.title | Lokaliserade rubriken för den här kommunikationen. Engelska är standardspråk.
 Properties.Communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
 Properties.incidentType | Möjliga värden: AssistedRecovery, ActionRequired, Information, incidenter, underhåll, säkerhet
@@ -70,14 +70,12 @@ Properties.communicationId | Kommunikationen den här händelsen är kopplat.
 1.  I den [portal](https://portal.azure.com), navigera till den **övervakaren** service
 
     ![Övervaka](./media/monitoring-service-notifications/home-monitor.png)
-2.  Klicka på den **övervakaren** alternativet för att öppna bladet övervakaren. På det här bladet sammanförs alla dina övervakningsinställningar och -data till en sammanslagen vy. Först öppnas den i avsnittet **Aktivitetslogg**.
+2.  Klicka på den **övervakaren** alternativet för att öppna Monitor-upplevelse. Azure-Monitor samlar alla dina övervakning inställningar och data till en samlad vy. Först öppnas den i avsnittet **Aktivitetslogg**.
 
-3.  Klicka på **tjänstmeddelanden** avsnitt
+3.  Klicka på **aviseringar** avsnitt
 
     ![Övervaka](./media/monitoring-service-notifications/service-health-summary.png)
-4.  Klicka på någon av de vill visa mer information
-
-5. Klicka på den **+ Lägg till aktivitet loggen avisering** åtgärd för att ta emot meddelanden så får du ett meddelande för framtida tjänstmeddelanden av den här typen. Mer information om hur du konfigurerar aviseringar på tjänstmeddelanden [Klicka här](monitoring-activity-log-alerts-on-service-notifications.md)
+4. Klicka på den **+ Lägg till loggen varning** och konfigurera en avisering om du vill se till att du får ett meddelande för framtida tjänstmeddelanden. Mer information om hur du konfigurerar aviseringar på tjänstmeddelanden [finns på aktiviteten loggen aviseringar och tjänstmeddelanden](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## <a name="next-steps"></a>Nästa steg:
 Ta emot [aviseringar när ett meddelande om tjänstens hälsa](monitoring-activity-log-alerts-on-service-notifications.md) skickas  

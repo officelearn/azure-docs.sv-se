@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager vanliga frågor (FAQ)
 
@@ -277,7 +277,7 @@ Azure Resource Manager kräver att alla resursgrupper att ange en plats, som ang
 
 Den aktuella övervakning statusen för varje slutpunkt, utöver den övergripande profilen visas i Azure-portalen. Den här informationen är också tillgängligt via trafik övervakaren [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell-cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), och [plattformsoberoende Azure CLI](../cli-install-nodejs.md).
 
-Azure tillhandahåller inte historisk information om den senaste slutpunkten hälsotillstånd eller möjligheten att aktivera aviseringar om ändringar för slutpunkten hälsa.
+Du kan också använda Azure övervakaren spårar hälsotillståndet för dina slutpunkter och finns en bild av dem. Mer information om hur du använder Azure-Monitor finns i [Azure-övervakning dokumentationen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Övervakar jag HTTPS-slutpunkter
 
@@ -288,6 +288,10 @@ Traffic manager kan inte ange några certifikatvalidering inklusive:
 * Serversidan certifikat verifieras inte
 * SNI serversidan certifikat stöds inte
 * Klientcertifikat stöds inte
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Jag har stoppats en Azure-molntjänst / webb-programmet slutpunkt i Traffic Manager-profil men jag kan inte ta emot trafik även när det startas om. Hur kan jag åtgärda detta?
+
+När en Azure cloud service / webb-programslutpunkt är stoppad Traffic Manager stoppar kontrollerar hälsotillståndet och startar om hälsokontrollerna endast när det upptäcker att slutpunkten har startats om. Om du vill förhindra att den här fördröjningen, inaktivera och återaktivera sedan denna slutpunkt i Traffic Manager-profilen när du startar om slutpunkten.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Kan jag använda Traffic Manager även om mitt program inte har stöd för HTTP eller HTTPS?
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ta bort prestandanivåer S1, S2 och S3
 
@@ -93,7 +93,7 @@ Om du har 10 S1 samlingar, 1 GB lagringsutrymme i region oss Öst och du migrera
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Vad händer om jag behöver fler än 10 GB lagringsutrymme?
 
-Om du har en samling med en S1, S2 och S3 prestandanivå eller ha en enda partition samling, 10 GB tillgängligt lagringsutrymme som alla har kan du använda Cosmos-Migreringsverktyget DB Data för att migrera dina data till en partitionerad samling med praktiskt taget obegränsade lagring. Information om fördelarna med en partitionerad samling finns [partitionering och skalning i Azure Cosmos DB](documentdb-partition-data.md). Information om hur du migrerar din S1 S2, S3 eller enskild partition samlingen till en partitionerad samling finns [migrera från en enskild partition till partitionerade samlingar](documentdb-partition-data.md#migrating-from-single-partition). 
+Om du har en samling med en S1, S2 och S3 prestandanivå eller ha en enda partition samling, 10 GB tillgängligt lagringsutrymme som alla har kan du använda Cosmos-Migreringsverktyget DB Data för att migrera dina data till en partitionerad samling med praktiskt taget obegränsade lagring. Information om fördelarna med en partitionerad samling finns [partitionering och skalning i Azure Cosmos DB](documentdb-partition-data.md). 
 
 <a name="change-before"></a>
 

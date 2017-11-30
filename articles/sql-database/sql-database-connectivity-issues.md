@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Felsöka, diagnostisera och förhindra SQL-anslutningsfel och tillfälliga fel för SQL Database
 Den här artikeln beskriver hur du förhindra, Felsök, diagnostisera och minska anslutningsfel och tillfälliga fel som ditt klientprogram påträffar när det interagerar med Azure SQL Database. Lär dig hur du konfigurerar logik för omprövning, anslutningssträngen och justera andra anslutningsinställningar för.
@@ -40,16 +40,17 @@ Du kommer försök SQL-anslutning eller upprätta igen, beroende på följande:
 * **Ett tillfälligt fel inträffar under ett anslutningsförsök**: anslutningen ska göras efter att förskjuta för några sekunder.
 * **Ett tillfälligt fel inträffar under en SQL-kommandot query**: kommandot bör inte göras omedelbart. I stället efter en fördröjning i anslutningen bör nyligen upprättas. Sedan kan kommandot göras.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>Logik för omprövning av tillfälliga fel
+## <a name="retry-logic-for-transient-errors"></a>Logik för omprövning av tillfälliga fel
 Klientprogram som kan uppstår ett tillfälligt fel är mer robusta när de innehåller logik för omprövning.
 
 När ditt program kommunicerar med Azure SQL Database via en 3 part mellanprogram, fråga med leverantören om mellanprogram innehåller logik för omprövning av tillfälliga fel.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>Principer för nya försök
+### <a name="principles-for-retry"></a>Principer för nya försök
 * Ett försök att öppna en anslutning ska göras om felet är tillfälligt.
 * En SQL SELECT-instruktion som misslyckas med ett tillfälligt fel bör inte göras direkt.
   
@@ -58,30 +59,31 @@ När ditt program kommunicerar med Azure SQL Database via en 3 part mellanprogra
   
   * Logik för omprövning måste se till att hela Databastransaktionen slutförts, eller som hela transaktionen återställs.
 
-#### <a name="other-considerations-for-retry"></a>Andra överväganden för nya försök
+### <a name="other-considerations-for-retry"></a>Andra överväganden för nya försök
 * En kommandofil som startas automatiskt efter arbetstid och som kommer att slutföras innan morgon har råd att mycket tålamod med lång tidsintervall mellan dess nya försök.
 * Ett gränssnitt användarprogram bör ta hänsyn till mänsklig tendens att avstå från efter för lång väntan.
   
   * Lösningen måste dock inte att försöka några sekunders eftersom principen kan översvämma system med begäranden.
 
-#### <a name="interval-increase-between-retries"></a>Öka intervall mellan försök
+### <a name="interval-increase-between-retries"></a>Öka intervall mellan försök
 Vi rekommenderar att du fördröjning för 5 sekunder innan din första försök. Försöker igen efter en kortare än 5 sekunder risker överbelasta Molntjänsten fördröjning. För varje efterföljande försök fördröjningen ska växa exponentiellt, upp till högst 60 sekunder.
 
 En beskrivning av den *blockerande period* för klienter som använder ADO.NET finns i [SQL Server anslutning poolning (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Du kanske också vill ange ett maximalt antal försök innan programmet avslutar själva.
 
-#### <a name="code-samples-with-retry-logic"></a>Kodexempel med logik
-Kodexempel med logik för omprövning, på en mängd olika programmeringsspråk, finns på:
+### <a name="code-samples-with-retry-logic"></a>Kodexempel med logik
+Kodexempel med logik finns på:
 
-* [Anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md)
+- [Resiliently att ansluta till SQL med ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Resiliently att ansluta till SQL med PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>Testa din logik
+### <a name="test-your-retry-logic"></a>Testa din logik
 Om du vill testa logik för omprövning, måste du simulera eller orsaka fel än kan korrigeras medan programmet körs.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Testa genom frånkoppling från nätverket
+#### <a name="test-by-disconnecting-from-the-network"></a>Testa genom frånkoppling från nätverket
 Ett sätt som du kan testa din logik är att koppla från din klientdator från nätverket medan programmet körs. Felet är:
 
 * **SqlException.Number** = 11001
@@ -98,7 +100,7 @@ För att göra detta praktiska kan du koppla från datorn från nätverket innan
    * Pausa körning med hjälp av antingen den **Console.ReadLine** metod eller en dialogruta med en OK-knapp. Användaren trycker på RETUR när datorn är ansluten till nätverket.
 5. Försök igen att ansluta, förväntas lyckades.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testa genom skriver namnet på databasen vid anslutning
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testa genom skriver namnet på databasen vid anslutning
 Programmet kan ändamålsenligt fel användarnamn innan det första anslutningsförsöket. Felet är:
 
 * **SqlException.Number** = 18456
@@ -114,15 +116,15 @@ För att göra det praktiska kände programmet igen en körning-parameter som in
 4. Ta bort 'WRONG_' från användarnamnet.
 5. Försök igen att ansluta, förväntas lyckades.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET SqlConnection parametrar för anslutningen försök igen
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>.NET SqlConnection parametrar för anslutningen försök igen
 Om klientprogrammet ansluter till Azure SQL Database med hjälp av .NET Framework-klassen **System.Data.SqlClient.SqlConnection**, bör du använda .NET 4.6.1 eller senare (eller .NET Core) så att du kan utnyttja funktionen anslutning försök igen. Information om funktionen [här](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 När du skapar den [anslutningssträngen](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) för din **SqlConnection** objekt, bör du samordna värdena bland följande parametrar:
 
@@ -138,7 +140,7 @@ Till exempel om antalet = 3 och intervall = 10 sekunder timeout för bara 29 sek
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>Anslutningen jämfört med kommandot
+## <a name="connection-versus-command"></a>Anslutningen jämfört med kommandot
 Den **ConnectRetryCount** och **ConnectRetryInterval** -parametrar kan din **SqlConnection** objekt försök ansluta utan uppmanar eller stör din program, till exempel kontrollen återgår till programmet. Återförsöken kan inträffa i följande situationer:
 
 * mySqlConnection.Open metodanrop
@@ -146,8 +148,9 @@ Den **ConnectRetryCount** och **ConnectRetryInterval** -parametrar kan din **Sql
 
 Det finns en liten finess. Om ett tillfälligt fel uppstår när din *frågan* körs din **SqlConnection** objekt inte försök ansluta igen och den verkligen inte köra frågan igen. Dock **SqlConnection** snabbt kontrollerar anslutningen innan du skickar frågan för körning. Om snabb kontrollen identifierar ett anslutningsproblem **SqlConnection** försöker ansluta igen. Om det nya försöket lyckas, skickas frågan för du för körning.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount kombineras med logik för omprövning av programmet?
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount kombineras med logik för omprövning av programmet?
 Anta att programmet har robust anpassade logik. Det kan och försök ansluta igen 4 gånger. Om du lägger till **ConnectRetryInterval** och **ConnectRetryCount** = 3 till anslutningssträngen, ökar antalet försök att 4 * 3 = 12 återförsök. Du kan inte avser sådana ett stort antal återförsök.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Mer information finns: [5 – som enkelt som som omfattas av av en logg: med blo
 ### <a name="entlib60-istransient-method-source-code"></a>Källkoden för EntLib60 IsTransient metod
 Nästa från den **SqlDatabaseTransientErrorDetectionStrategy** klassen, är den C#-källkoden för den **IsTransient** metod. Källkoden klargör vilka fel ansågs vara tillfälligt och worthy på försök igen, från och med April 2013.
 
-Ett stort antal **//comment** rader har tagits bort från den här kopian att betona läsbarhet.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Nästa steg
 * Felsöka andra vanliga problem med Azure SQL Database anslutningen finns [felsökning av problem med anslutningen till Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
-* [SQL Server anslutningspoolen (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [Anslutningsbibliotek för SQL Database och SQL Server](sql-database-libraries.md)
+* [SQL Server anslutningspoolen (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Du försöker* är ett Apache 2.0 licensierad allmänna du försöker biblioteket som skrivits i **Python**, för att förenkla uppgiften att lägga till försök beteende till bara om något.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

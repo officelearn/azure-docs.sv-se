@@ -9,11 +9,11 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - vanliga frågor (FAQ)
  
@@ -30,7 +30,7 @@ Azure Search har stöd för flera datakällor [språkliga analys för många spr
 När du vill jämföra Sök tekniker efterfrågar kunder ofta närmare information på hur Azure Search Jämför med Elasticsearch. Kunder som väljer Azure Search över Elasticsearch för sökningen programprojekt vanligtvis inte eftersom vi har gjort en nyckel uppgift enklare eller de behöver den inbyggda integreringen med andra Microsoft-tekniker:
 
 + Azure Search är en fullständigt hanterad molntjänst med 99,9% servicenivåavtal (SLA) när etableras med tillräckligt redundans (2 repliker för läsbehörighet, 3 repliker för skrivskyddad).
-+ Microsofts [naturligt språk processorer](https://docs.microsoft.com/rest/api/searchservice/language-support) erbjuder senaste inguistic analys.  
++ Microsofts [naturligt språk processorer](https://docs.microsoft.com/rest/api/searchservice/language-support) erbjuder senaste språkliga analys.  
 + [Azure Search indexerare](search-indexer-overview.md) kan crawlas en mängd olika Azure-datakällor för inledande och inkrementella indexering.
 + Om du behöver snabba svar till variationer i fråga eller indexering volymer, kan du använda [skjutreglage](search-manage.md#scale-up-or-down) i Azure portal eller kör en [PowerShell-skript](search-manage-powershell.md), kringgå Fragmentera management direkt.  
 + [Poäng och finjustera funktioner](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) ger metoder för att påverka söka rangordning utöver vad sökmotorn enbart kan ge. 

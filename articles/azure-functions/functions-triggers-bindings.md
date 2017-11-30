@@ -1,5 +1,5 @@
 ---
-title: "Arbeta med utlösare och bindningar i Azure Functions | Microsoft Docs"
+title: "Arbeta med utlösare och bindningar i Azure Functions"
 description: "Lär dig hur du använder utlösare och bindningar i Azure Functions för att ansluta din kodkörning online händelser och molnbaserade tjänster."
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "azure-funktioner, funktioner, händelsebearbetning, webhooks, dynamisk beräkning, serverlös arkitektur"
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-utlösare och bindningar begrepp
 Azure Functions kan du skriva kod som svar på händelser i Azure och andra tjänster via *utlösare* och *bindningar*. Den här artikeln innehåller en översikt av utlösare och bindningar för alla programmeringsspråk som stöds. Här beskrivs funktioner som är gemensamma för alla bindningar.
 
 ## <a name="overview"></a>Översikt
 
-Utlösare och bindningar är en deklarativ metod för att definiera hur en funktion anropas och hur det fungerar med data. En *utlösaren* definierar hur en funktion har anropats. En funktion måste ha exakt en utlösare. Utlösare har associerade data, vilket är vanligtvis nyttolasten som utlöste funktionen. 
+Utlösare och bindningar är en deklarativ metod för att definiera hur en funktion anropas och hur det fungerar med data. En *utlösaren* definierar hur en funktion har anropats. En funktion måste ha exakt en utlösare. Utlösare har associerade data, vilket är vanligtvis nyttolasten som utlöste funktionen.
 
 Indata och utdata *bindningar* tillhandahåller en deklarativ metod för att ansluta till data från i din kod. Precis som utlösare kan du ange anslutningssträngar och andra egenskaper i konfigurationen av funktionen. Bindningar är valfria och en funktion kan ha flera indata och utdata bindningar. 
 
@@ -35,11 +34,13 @@ Med hjälp av utlösare och bindningar, du kan skriva kod som är mer generisk o
 
 Du kan konfigurera utlösare och bindningar i den **integrera** i Azure Functions-portalen. Under försättsbladen, Användargränssnittet ändrar en fil med namnet *function.json* fil i katalogen funktion. Du kan redigera den här filen genom att ändra till den **redigeraren**.
 
-I följande tabell visas utlösare och bindningar som stöds med Azure Functions. 
+## <a name="supported-bindings"></a>Stöds bindningar
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>Exempel: kön utlösare och tabellen utdatabindning
+Information om vilka bindningar finns i förhandsgranskningen eller godkänns för produktion finns [språk som stöds](supported-languages.md).
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>Exempel: kön utlösare och tabellen utdatabindning
 
 Anta att du vill skriva en ny rad till Azure Table Storage när ett nytt meddelande visas i Azure Queue Storage. Det här scenariot kan implementeras med hjälp av en Azure-kö utlösare och Azure-tabellagring utdatabindning. 
 
@@ -126,9 +127,9 @@ Visa och redigera innehållet i *function.json* i Azure-portalen klickar du på 
 
 Mer kodexempel och information om att integrera med Azure Storage finns [Azure Functions-utlösare och bindningar för Azure Storage](functions-bindings-storage.md).
 
-### <a name="binding-direction"></a>Bindningen riktning
+## <a name="binding-direction"></a>Bindningen riktning
 
-Alla utlösare och bindningar har en `direction` egenskapen:
+Alla utlösare och bindningar har en `direction` egenskap i den *function.json* fil:
 
 - För utlösare är riktningen alltid`in`
 - Inkommande och utgående bindningar använda `in` och`out`
@@ -243,7 +244,7 @@ Till exempel stöder en kö för Azure Storage-utlösare följande egenskaper:
 
 Information om metadataegenskaper för varje utlösare beskrivs i motsvarande referensavsnittet. Dokumentation är också tillgänglig i den **integrera** för portalen, i den **dokumentationen** avsnittet nedan konfigurationsområde bindning.  
 
-Eftersom blob-utlösare har vissa fördröjningar kan du använda en utlösare för kön för att köra funktionen (se [Blob Storage utlösaren](functions-bindings-storage-blob.md#blob-storage-trigger)). Kön meddelandet innehåller blobfilnamn som utlöser på. Med hjälp av den `queueTrigger` metadataegenskapen, du kan ange det här beteendet i konfigurationen, i stället för din kod.
+Eftersom blob-utlösare har vissa fördröjningar kan du använda en utlösare för kön för att köra funktionen (se [Blob Storage utlösaren](functions-bindings-storage-blob.md#trigger)). Kön meddelandet innehåller blobfilnamn som utlöser på. Med hjälp av den `queueTrigger` metadataegenskapen, du kan ange det här beteendet i konfigurationen, i stället för din kod.
 
 ```json
   "bindings": [

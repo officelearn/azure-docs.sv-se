@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a13a5777161ab18840501d7d7e1d52192c22315
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5c53a7bfdcf5105df0ed3d3f70d927fc06cf36cf
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/15/2017
 * Den här SDK-versionen kräver den senaste versionen av Azure Cosmos DB emulatorn måste vara tillgänglig för nedladdning från https://aka.ms/cosmosdb-emulator.
 
 ### <a name="1.13.0"/>1.13.0</a>
-* Splitproofed mellan partition frågor.
+* Dela proofed mellan partition frågor.
 * Lägger till stöd för resurslänken med inledande och avslutande snedstreck (och motsvarande tester).
 
 ### <a name="1.12.2"/>1.12.2</a>

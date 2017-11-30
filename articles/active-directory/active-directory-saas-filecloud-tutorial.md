@@ -6,19 +6,19 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1f16865a3adb55fc63c09c1dbdc9720b02f9c33
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Självstudier: Azure Active Directory-integrering med FileCloud
 
@@ -108,12 +108,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![URL: er och FileCloud domän med enkel inloggning information](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.filecloudhosted.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.filecloudonline.com`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [FileCloud klienten supportteamet](mailto:support@codelathe.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [FileCloud klienten supportteamet](mailto:support@codelathe.com) att hämta dessa värden. 
 
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
@@ -131,23 +131,23 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 8. I det vänstra navigeringsfönstret klickar du på **inställningar**. 
    
-    ![Inställningar för avsnittet på App-sida](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Klicka på **SSO** för inställningar. 
    
-    ![Enkel inloggning fliken på App-sida](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. Välj **SAML** som **standard SSO typen** på **inställningar för enkel inloggning (SSO)** panelen.
    
-    ![Enkel inloggning panelen i appen inställningar på klientsidan](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. Klistra in **SAML enhets-ID**, som du har kopierat från Azure-portalen i den **IdP slutpunkt URL** textruta.
+11. I den **IdP slutpunkt URL** textruta klistra in värdet för **SAML enhets-ID** som du har kopierat från Azure-portalen.
 
-    ![IDP slutet punkt URL: en textruta](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. Öppna hämtade metadatafilen i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **IdP metadata** textruta på **SAML inställningar** panelen.
 
-    ![IDP Meta dataavsnittet på App-sida](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Klicka på **spara** knappen.
 
@@ -192,7 +192,7 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i FileCloud. FileCloud stöder just-in-time-etablering, vilket är aktiverat som standard. Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas under ett försök att komma åt FileCloud om den inte finns.
 
 >[!NOTE]
->Om du behöver skapa en användare manuellt, måste du kontakta den [FileCloud klienten supportteamet](mailto:support@codelathe.com). 
+>Om du behöver skapa en användare manuellt, måste du kontakta den [FileCloud klienten supportteamet](mailto:support@codelathe.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -226,9 +226,10 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Syftet med det här avsnittet är att testa Azure AD SSO-konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
 När du klickar på panelen FileCloud på åtkomstpanelen du bör få automatiskt loggat in på ditt FileCloud program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

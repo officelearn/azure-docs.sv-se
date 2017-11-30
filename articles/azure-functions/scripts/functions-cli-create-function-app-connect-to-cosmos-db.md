@@ -3,7 +3,7 @@ title: Skapa en Azure-funktion som ansluter till en Azure-Cosmos-databas | Micro
 description: Azure CLI-skript Sample - skapa en Azure-funktion som ansluter till en Azure-Cosmos-databas
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: functions
@@ -14,10 +14,10 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 04/20/2017
-ms.author: rachelap
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ce48f8dd71d5b9e48dcd506df976e07d385f34c5
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e9ccd26e7c066189576903c39be63a421d1da23
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/29/2017
@@ -30,7 +30,7 @@ Det här exempelskriptet skapar en App för Azure-funktion och ansluter till en 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du använder CLI lokalt kan du kontrollera att du använder Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -46,13 +46,13 @@ Efter skriptexempel har körts, följ-kommando kan användas för att ta bort re
 
 ## <a name="script-explanation"></a>Skriptet förklaring
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandot viss dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
 | [AZ inloggning](https://docs.microsoft.com/cli/azure/#login) | Logga in på Azure. |
 | [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapa en resursgrupp med platsen |
-| [Skapa AZ storage-konto](https://docs.microsoft.com/cli/azure/storage/account) | skapar ett lagringskonto |
+| [Skapa AZ storage-konton](https://docs.microsoft.com/cli/azure/storage/account) | skapar ett lagringskonto |
 | [Skapa AZ functionapp](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Skapa en ny funktionsapp |
 | [Skapa AZ cosmosdb](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Skapa cosmosdb databas |
 | [ta bort grupp AZ](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Rensa |

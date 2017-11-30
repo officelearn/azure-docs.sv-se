@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Hur du konfigurerar portar för hög tillgänglighet för interna belastningsutjämnare
 
@@ -41,13 +41,10 @@ Bild 1 - nätverket virtuella installationer distribueras bakom en intern belast
 
 ## <a name="preview-sign-up"></a>Förhandsgranska registrering
 
-Registrera prenumerationen för att få åtkomst med hjälp av Azure CLI 2.0 eller PowerShell för att delta i förhandsversionen av funktionen hög tillgänglighet portar i Load Balancer Standard.  Registrera prenumerationen för
-
-1. [Belastningen belastningsutjämnaren Standard preview](https://aka.ms/lbpreview#preview-sign-up) och 
-2. [Hög tillgänglighet portar Förhandsgranska](https://aka.ms/haports#preview-sign-up).
+Registrera prenumerationen för att få åtkomst med hjälp av Azure CLI 2.0 eller PowerShell för att delta i förhandsversionen av funktionen hög tillgänglighet portar i Load Balancer Standard. Registrera prenumerationen för [Load Balancer Standard preview](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Om du vill använda den här funktionen måste du också registrera för belastningsutjämnaren [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) förutom HA portar. Registrering av hög tillgänglighet portar eller läsa in belastningsutjämning Standard förhandsversioner kan ta upp till en timme.
+>Registrering av belastningen belastningsutjämnaren Standard förhandsversioner kan ta upp till en timme.
 
 ## <a name="configuring-ha-ports"></a>Hur du konfigurerar portar för hög tillgänglighet
 

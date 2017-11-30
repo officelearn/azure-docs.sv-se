@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: bb9b89d087cfb62efe63cf0ff600d7faa58a7b8b
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/30/2017
 ---
-## <a name="intro-on-role-based-access-control"></a>Introduktion på rollbaserad åtkomstkontroll
+# <a name="intro-on-role-based-access-control"></a>Introduktion på rollbaserad åtkomstkontroll
 
 Rollbaserad åtkomstkontroll är en Azure portal endast funktionen som tillåter ägare av en prenumeration att tilldela detaljerade roller till andra användare som kan hantera en viss resurs-scope i sina miljöer.
 
@@ -32,11 +32,10 @@ Med RBAC i Azure-miljön kräver:
 * Med en fristående Azure-prenumeration tilldelas användaren som ägare (prenumeration roll)
 * Har rollen som ägare av Azure-prenumeration
 * Ha åtkomst till den [Azure-portalen](https://portal.azure.com)
-* Se till att ha följande Resursleverantörer som registrerats för användaren prenumerationen: **Microsoft.Authorization**. Läs mer om hur du registrerar resursleverantörer [Resource Manager-providers, regioner, API-versioner och scheman](/azure-resource-manager/resource-manager-supported-services.md).
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
+* Se till att ha följande Resursleverantörer som registrerats för användaren prenumerationen: **Microsoft.Authorization**. Läs mer om hur du registrerar resursleverantörer [Resource Manager-providers, regioner, API-versioner och scheman](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Office 365-prenumerationer eller Azure Active Directory-licenser (till exempel: åtkomst till Azure Active Directory) etablerats från O365 portal inte kvalitet med RBAC.
+> Office 365-prenumerationer eller Azure Active Directory-licenser (till exempel: åtkomst till Azure Active Directory) etablerats från O365 portal inte uppfyller kraven för att använda RBAC.
 
 ## <a name="how-can-rbac-be-used"></a>Hur kan RBAC användas
 RBAC kan tillämpas på tre olika scope i Azure. Från området högsta till lägsta som är de följande:
@@ -76,8 +75,7 @@ När du har valt prenumerationen admin-användaren måste klicka på **Access Co
 
 ![lägga till nya användare i IAM-funktionen åtkomstkontroll i Azure-portalen](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-Nästa steg är att välja rollen tilldelas och användaren som ska tilldelas rollen RBAC. I den **rollen** listrutan administratörsanvändare ser de inbyggda RBAC roller som är tillgängliga i Azure. Mer detaljerade beskrivningar av varje roll och deras tilldelningsbara scope finns [inbyggda roller för rollbaserad åtkomstkontroll i](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
+Nästa steg är att välja rollen tilldelas och användaren som ska tilldelas rollen RBAC. I den **rollen** listrutan administratörsanvändare ser de inbyggda RBAC roller som är tillgängliga i Azure. Mer detaljerade beskrivningar av varje roll och deras tilldelningsbara scope finns [inbyggda roller för rollbaserad åtkomstkontroll i](role-based-access-built-in-roles.md).
 
 Administratören måste sedan lägga till den externa användaren e-postadress. Förväntat beteende är externa användare kan inte visas i den befintliga klienten. När den externa användaren har bjudits han visas under **prenumerationer > Access Control (IAM)** med de aktuella användare som är tilldelade en RBAC-rollen på prenumerationsomfattningen.
 
@@ -123,8 +121,7 @@ I den **användare** vyn i båda portaler externa användare kan identifieras av
 * Typen av olika ikoner i Azure-portalen
 * Olika sourcing punkten i den klassiska portalen
 
-Dock bevilja **ägare** eller **deltagare** åtkomst till en extern användare i den **prenumeration** omfång, tillåter inte åtkomst till katalogen för admin-användare, såvida inte den **Global administratör** tillåter. I användar-proprieties den **användartyp** som har två gemensamma parametrar, **medlem** och **gäst** kan identifieras. En medlem är en användare som har registrerats i katalogen medan gäst är en användare som bjudits in till katalogen från en extern källa. Mer information finns i [hur till B2B-samarbete användare av Azure Active Directory-administratörer](/active-directory/active-directory-b2b-admin-add-users).
-<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
+Dock bevilja **ägare** eller **deltagare** åtkomst till en extern användare i den **prenumeration** omfång, tillåter inte åtkomst till katalogen för admin-användare, såvida inte den **Global administratör** tillåter. I användar-proprieties den **användartyp** som har två gemensamma parametrar, **medlem** och **gäst** kan identifieras. En medlem är en användare som har registrerats i katalogen medan gäst är en användare som bjudits in till katalogen från en extern källa. Mer information finns i [hur till B2B-samarbete användare av Azure Active Directory-administratörer](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
 > Kontrollera att den externa användaren väljer att logga in på rätt katalog när du har angett autentiseringsuppgifterna i portalen. Samma användare kan ha åtkomst till flera kataloger och kan välja någon av dem genom att klicka på användarnamnet i den översta högra sidan i Azure-portalen och välj sedan den aktuella katalogen i listrutan.
@@ -165,7 +162,7 @@ Normalt beteende för den här externa användare med den här inbyggda rollen �
 
 
 
-![deltagare rollen översikt över virtuella datorer i azure-portalen](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
+![deltagare rollen översikt över virtuella datorer i Azure-portalen](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Bevilja åtkomst till en prenumerationsnivå för en användare i samma katalog
 Processflödet är identisk med att lägga till en extern användare, både ur administratör ge RBAC-roll som användaren beviljas åtkomst till rollen. Skillnaden här är att inbjudna användare inte får någon e-inbjudningar som resursen scope i prenumerationen kommer att finnas i instrumentpanelen efter inloggningen.
@@ -342,10 +339,10 @@ Den nya rollen är nu tillgänglig i Azure-portalen och assignation-processen ä
 
 ![Azure portal Skärmbild av anpassade RBAC-roll som skapats med hjälp av CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
 
-Azure Cloud-gränssnittet är allmänt tillgänglig från och med den senaste Build 2017. Azure Cloud-gränssnittet är ett komplement till IDE- och Azure Portal. Med den här tjänsten får du ett webbaserat gränssnitt som är autentiserad och värdbaserad i Azure och du kan använda den i stället för CLI installerat på datorn.
+Azure Cloud-gränssnittet är allmänt tillgänglig från och med den senaste Build 2017. Azure Cloud-gränssnittet är ett komplement till IDE- och Azure portal. Med den här tjänsten får du ett webbaserat gränssnitt som är autentiserad och värdbaserad i Azure och du kan använda den i stället för CLI installerat på datorn.
 
 
 
 
 
-![Azure-molnet Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
+![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -39,6 +39,17 @@ Om du stöter på problem under installationen finns installer loggfilerna här:
 /tmp/amlinstaller/logs/*
 ```
 Du kan zip-innehållet i de här katalogerna och skicka det till oss för diagnostik.
+
+### <a name="app-update"></a>Uppdatering för App 
+#### <a name="no-update-notification-on-windows-desktop"></a>Inga meddelanden om uppdateringar på skrivbordet 
+Det här problemet åtgärdas i en kommande uppdatering. Under tiden är lösningen att undvika att starta appen från genvägen i Aktivitetsfältet. I stället att starta appen med hjälp av Start-menyn eller starta sökfältet eller genvägen på skrivbordet (om du har en). 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Inga meddelanden om uppdateringar på en Ubuntu Data Sciece Virtual Machine (DSVM)
+Utför följande steg för att hämta senaste programmet:   
+   - ta bort mappen \Users\AppData\Local\amlworkbench
+   - ta bort skriptet`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - ta bort genväg på skrivbordet som startar skriptet ovan
+   - installera rätt sätt med [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### <a name="workbench-desktop-app"></a>Arbetsstationen skrivbordsapp
 Om du har problem med att logga in, eller om arbetsstationen skrivbordet krascher, hittar du här loggfiler:

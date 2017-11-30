@@ -1,9 +1,9 @@
 ---
-title: Azure storage-bindningar tabellen funktioner
+title: "Azure Table storage bindningar för Azure Functions"
 description: "Förstå hur du använder Azure Table storage bindningar i Azure Functions."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,20 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
-ms.author: chrande
-ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: tdykstra
+ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-table-storage-bindings"></a>Azure storage-bindningar tabellen funktioner
+# <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage bindningar för Azure Functions
 
 Den här artikeln förklarar hur du arbetar med Azure Table storage bindningar i Azure Functions. Azure Functions stöder indata och utdata bindningar för Azure Table storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="table-storage-input-binding"></a>Table storage indatabindning
+## <a name="input"></a>Indata
 
 Använda Azure Table storage indatabindning för att läsa en tabell i ett Azure Storage-konto.
 
@@ -284,7 +284,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="input---attributes-for-precompiled-c"></a>Indata - attribut för förkompilerade C#
+## <a name="input---attributes"></a>Indata - attribut
  
 För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd följande attribut för att konfigurera en tabell indatabindning:
 
@@ -298,6 +298,9 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   Du kan ange den `Connection` att ange storage-konto du använder, enligt följande exempel:
@@ -308,7 +311,12 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
+
+  En komplett exempel finns [indata - förkompilerade C#-exempel](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -321,6 +329,9 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
       [FunctionName("TableInput")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 Storage-konto du använder bestäms i följande ordning:
@@ -345,7 +356,9 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**rowKey** |**RowKey** | Valfri. Raden nyckeln för att läsa tabellentiteten. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
 |**ta** |**Ta** | Valfri. Det maximala antalet enheter att läsa i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
 |**filter** |**Filter** | Valfri. En OData-filteruttrycket för tabellen indata i JavaScript. Finns det [användning](#input---usage) avsnittet vägledning om hur du använder den här egenskapen.| 
-|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br/>När du utvecklar lokalt appinställningar går du till värdena för den [local.settings.json filen](functions-run-local.md#local-settings-file).|
+|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Indata - användning
 
@@ -368,7 +381,7 @@ Table storage inkommande bindningen stöder följande scenarion:
 
   Ange den `filter` och `take` egenskaper. Konfigurerar inte `partitionKey` eller `rowKey`. Åtkomst till den inkommande tabell entitet (eller entiteter) med hjälp av `context.bindings.<name>`. Avserialiserat objekt har `RowKey` och `PartitionKey` egenskaper.
 
-## <a name="table-storage-output-binding"></a>Tabellagring utdatabindning
+## <a name="output"></a>Resultat
 
 Använd Azure Table storage utdata bindning skriva entiteter till en tabell i ett Azure Storage-konto.
 
@@ -554,9 +567,9 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="output---attributes-for-precompiled-c"></a>Utdata - attribut för förkompilerade C#
+## <a name="output---attributes"></a>Utdata - attribut
 
- För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Attributets konstruktorn har tabellens namn. Den kan användas på ett `out` parametern eller returvärdet för funktionen som visas i följande exempel:
 
@@ -566,6 +579,9 @@ Attributets konstruktorn har tabellens namn. Den kan användas på ett `out` par
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
 Du kan ange den `Connection` att ange storage-konto du använder, enligt följande exempel:
@@ -576,9 +592,14 @@ Du kan ange den `Connection` att ange storage-konto du använder, enligt följan
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
     TraceWriter log)
+{
+    ...
+}
 ```
 
-Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [indata - attribut för förkompilerat C#](#input---attributes-for-precompiled-c).
+En komplett exempel finns [utdata - förkompilerade C#-exempel](#output---c-example).
+
+Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [indata - attribut](#input---attributes-for-precompiled-c).
 
 ## <a name="output---configuration"></a>Output - konfiguration
 
@@ -592,7 +613,9 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**tableName** |**TableName** | Namnet på tabellen.| 
 |**partitionKey** |**PartitionKey** | Partitionsnyckeln för tabellentiteten för att skriva. Finns det [användning](#output---usage) vägledning om hur du använder den här egenskapen.| 
 |**rowKey** |**RowKey** | Raden nyckeln för tabellentiteten för att skriva. Finns det [användning](#output---usage) vägledning om hur du använder den här egenskapen.| 
-|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br/>När du utvecklar lokalt appinställningar går du till värdena för den [local.settings.json filen](functions-run-local.md#local-settings-file).|
+|**anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Utdata - användning
 

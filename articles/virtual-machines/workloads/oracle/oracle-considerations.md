@@ -10,18 +10,18 @@ ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 011/28/2017
 ms.author: rclaus
-ms.openlocfilehash: 9174f7c8d16ff311312980fbe4d35996ec7ac832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e903495e08001069fc33ddff5a343864fb7f7084
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Oracle-lösningar och deras distribution på Microsoft Azure
-Den här artikeln omfattar information som krävs för kunnat distribuera olika Oracle-lösningar för Microsoft Azure. Dessa lösningar baseras på virtuella avbildningar publicerade av Oracle i Azure Marketplace. Om du vill hämta en lista över tillgängliga avbildningar, kör du följande kommando:
+Den här artikeln innehåller information som krävs för att distribuera olika Oracle-lösningar för Microsoft Azure. Dessa lösningar baseras på virtuella avbildningar publicerade av Oracle i Azure Marketplace. Om du vill hämta en lista över tillgängliga avbildningar, kör du följande kommando:
 ```azurecli-interactive
 az vm image list --publisher oracle -o table --all
 ```
@@ -43,10 +43,10 @@ Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLo
 
 Dessa avbildningar betraktas som ”Bring Your Own License” och som sådan endast debiteras du för bearbetning, lagring och nätverk kostnaderna genom att köra en virtuell dator.  Det förutsätts att du korrekt licens för att använda Oracle-programvara och att du har en aktuell supportavtal på plats med Oracle. Oracle har garanteras licensera mobility från lokal till Azure. Finns det publicerade [Oracle och Microsoft](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) Obs mer information om licensmobilitet. 
 
-Enskilda användare kan också välja att basera sina lösningar på anpassade avbildningar de skapa från grunden i Azure eller ladda upp en anpassad bilder från sina på lokala miljöer.
+Enskilda användare kan också välja att basera sina lösningar på en anpassad avbildning de skapa från grunden i Azure eller ladda upp en anpassad avbildning från deras på lokala miljö.
 
 ## <a name="support-for-jd-edwards"></a>Stöd för JD Edwards
-Enligt stöd för Oracle Obs [Doc-ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4) , JD Edwards EnterpriseOne versioner 9.2 och senare stöds i **alla offentliga molntjänster erbjudande** som uppfyller specifikt `Minimum Technical Requirements` (MTR).  Behöver du skapa anpassade avbildningar som uppfyller deras MTR specifikationerna för operativsystem och programvara kompatibilitet för program. 
+Enligt stöd för Oracle Obs [Doc-ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4) , JD Edwards EnterpriseOne version 9.2 och senare stöds i **alla offentliga molntjänster erbjudande** som uppfyller specifikt `Minimum Technical Requirements` (MTR).  Du behöver skapa anpassade avbildningar som uppfyller deras MTR specifikationerna för operativsystem och programvara programkompatibilitet. 
 
 ## <a name="oracle-database-virtual-machine-images"></a>Oracle Database avbildningar av virtuella datorer
 Oracle stöder körs Oracle DB 12.1 Standard och Enterprise-versioner i Azure på avbildningar av virtuella datorer baserat på Oracle Linux.  För bästa prestanda för produktionsarbetsbelastningar av Oracle-databas på Azure, måste du rätt storlek VM-avbildning och använda hanterade diskar som backas upp av Premium-lagring. För instruktioner om hur du snabbt en Oracle-databas körs i Azure med hjälp av Oracle publicerade VM-avbildning [försök Oracle DB Quickstart genomgången](oracle-database-quick-create.md).
@@ -55,21 +55,21 @@ Oracle stöder körs Oracle DB 12.1 Standard och Enterprise-versioner i Azure p�
 
 Anslutna diskar förlitar sig på tjänsten Azure Blob storage. Varje disk som standard kan teoretiskt maximalt cirka 500 i/o-åtgärder per sekund (IOPS). Vår premium disk erbjudande är att föredra för högpresterande arbetsbelastningar och kan få upp till 5 000 IOps per disk. Medan du kan använda en enda disk om som uppfyller dina prestandabehov - du kan förbättra effektiva IOPS prestanda om du använder flera anslutna diskar, fördelade databasdata på dem och sedan använda Oracle automatisk Storage Management (ASM). Se [automatiska Oracle-lagring – översikt](http://www.oracle.com/technetwork/database/index-100339.html) mer Oracle ASM specifik information. Ett exempel på hur du installerar och konfigurerar Oracle ASM på en Linux Azure VM - försök i [installera och konfigurera Oracle Automated lagringshantering](configure-oracle-asm.md) kursen.
 
-### <a name="oracle-realtime-application-cluster-rac"></a>Oracle realtid programmet kluster (RAC)
-Oracle RAC är utformat för att minimera fel på en enskild nod i ett kluster med flera noder lokala-konfiguration.  Den förlitar sig på två lokala tekniker som inte är inbyggt i storskaliga offentliga molnmiljöer: multicast-nätverket och delad disk. Det finns tredjeparts-lösningar som skapats av andra företag [, till exempel FlashGrid](https://www.flashgrid.io/oracle-rac-in-azure/) som emulerar dessa tekniker om du behöver distribuera Oracle RAC i Azure. 
+## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
+Oracle RAC är utformat för att minimera fel på en enskild nod i ett kluster med flera noder lokala-konfiguration. Den förlitar sig på två lokala tekniker som inte är inbyggt i storskaliga offentliga molnmiljöer: multicast-nätverket och delad disk. Om din databaslösning kräver Oracle RAC i Azure, måste 3 tillverkare för att aktivera dessa tekniker.  En **Microsoft Azure-certifierad** erbjudande kallas [FlashGrid nod för Oracle RAC](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-racnode?tab=Overview) är tillgängliga i Azure Marketplace publicerad av FlashGrid Inc. Mer information om den här lösningen och hur det fungerar i Azure finns i [FlashGrid lösning sidan](https://www.flashgrid.io/oracle-rac-in-azure/).
 
-### <a name="high-availability-and-disaster-recovery-considerations"></a>Hög tillgänglighet och katastrofåterställning överväganden
+## <a name="high-availability-and-disaster-recovery-considerations"></a>Hög tillgänglighet och katastrofåterställning överväganden
 När du använder Oracle-databaser i Azure måste ansvarar du för att implementera en hög tillgänglighet och haveriberedskap lösning för att undvika driftavbrott. 
 
-Hög tillgänglighet och katastrofåterställning återställning för Oracle Database Enterprise Edition (utan RAC) i Azure kan uppnås med hjälp av [Data Guard, aktiva Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), eller [Oracle guld Gate](http://www.oracle.com/technetwork/middleware/goldengate), med två databaser i två separata virtuella datorer. Både virtuella datorer måste vara i samma [virtuellt nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) så de har åtkomst till varandra via privata beständiga IP-adress.  Vi rekommenderar dessutom att placera de virtuella datorerna i samma tillgänglighetsuppsättning så att Azure för att placera dem i separata feldomäner och uppgradera domäner.  Du kan ha två databaserna replikera mellan två olika regioner och ansluta två instanser med en VPN-Gateway bör du vill ha geo-redundans.
+Hög tillgänglighet och katastrofåterställning återställning för Oracle Database Enterprise Edition (utan Oracle RAC) kan ske på Azure med hjälp av [Data Guard, aktiva Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), eller [Oracle guld Gate](http://www.oracle.com/technetwork/middleware/goldengate), med två databaser på två separata virtuella datorer. Både virtuella datorer måste vara i samma [virtuellt nätverk](https://azure.microsoft.com/documentation/services/virtual-network/) så de har åtkomst till varandra via privata beständiga IP-adress.  Vi rekommenderar dessutom att placera de virtuella datorerna i samma tillgänglighetsuppsättning så att Azure för att placera dem i separata feldomäner och uppgradera domäner.  Du kan ha två databaserna replikera mellan två olika regioner och ansluta två instanser med en VPN-Gateway bör du vill ha geo-redundans.
 
-Vi har en självstudiekurs ”[implementera Oracle DataGuard på Azure](configure-oracle-dataguard.md)” som vägleder dig genom proceduren för grundläggande konfiguration till test detta på Azure.  
+Vi har en självstudiekurs ”[implementera Oracle DataGuard på Azure](configure-oracle-dataguard.md)”, som vägleder dig genom proceduren för grundläggande konfiguration till test detta på Azure.  
 
 Med Oracle Data Guard hög tillgänglighet kan uppnås med en primär databas i en virtuell dator, en sekundär (standby) databas i en annan virtuell dator och konfigurera mellan dem replikering. Resultatet är läsbehörighet till kopia av databasen. Du kan konfigurera dubbelriktad replikering mellan de två databaserna med Oracle GoldenGate. Information om hur du ställer in en lösning för hög tillgänglighet för dina databaser med hjälp av dessa verktyg finns [aktiva Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) och [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) dokumentation på Oracle-webbplatsen. Om du behöver skrivskyddad åtkomst till en kopia av databasen, kan du använda [Active Oracle Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
-Vi har en självstudiekurs ”[implementera Oracle GoldenGate på Azure](configure-oracle-golden-gate.md)” som vägleder dig genom proceduren för grundläggande seup till test detta på Azure.
+Vi har en självstudiekurs ”[implementera Oracle GoldenGate på Azure](configure-oracle-golden-gate.md)”, som vägleder dig genom proceduren för grundläggande konfiguration till test detta på Azure.
 
-Trots att ha en lösning för hög tillgänglighet och Katastrofåterställning konstruerad i Azure, ska så du kontrollera att du har en strategi för säkerhetskopiering för att återställa databasen.  Vi har en självstudiekurs [säkerhetskopiering och Återställ en Oracle-databas](oracle-backup-recovery.md) som vägleder dig genom grundläggande proceduren för att upprätta en consistant-säkerhetskopia.
+Trots att ha en lösning för hög tillgänglighet och Katastrofåterställning konstruerad i Azure som du vill kontrollera att du har en strategi för säkerhetskopiering för att återställa databasen.  Vi har en självstudiekurs [säkerhetskopiering och Återställ en Oracle-databas](oracle-backup-recovery.md) som vägleder dig genom de grundläggande proceduren för att upprätta en konsekvent säkerhetskopiering.
 
 ## <a name="oracle-weblogic-server-virtual-machine-images"></a>Oracle WebLogic Server avbildningar av virtuella datorer
 * **Kluster stöds på Enterprise Edition endast.** Du är licensierad för att använda WebLogic kluster när du använder Enterprise Edition av WebLogic Server. Använd inte kluster med WebLogic Server Standard Edition.
@@ -80,7 +80,7 @@ Trots att ha en lösning för hög tillgänglighet och Katastrofåterställning 
 
        Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-   Det beror på att för fjärråtkomst T3, WebLogic Server förväntar sig belastningen belastningsutjämnaren port och WebLogic hanteras serverporten ska vara samma. Ovan om klienten har åtkomst till port 7006 (belastningen belastningsutjämnaren port) och den hanterade servern lyssnar på 7008 (privat port). Den här begränsningen gäller endast för T3 åtkomst, inte HTTP.
+   Det beror på att för fjärråtkomst T3, WebLogic Server förväntar sig belastningen belastningsutjämnaren port och WebLogic hanteras serverporten ska vara samma. I föregående fall klienten har åtkomst till port 7006 (belastningen belastningsutjämnaren port) och den hanterade servern lyssnar på 7008 (privat port). Den här begränsningen gäller endast för T3 åtkomst, inte HTTP.
 
    Om du vill undvika det här problemet använder du någon av följande lösningar:
 
@@ -91,9 +91,9 @@ Trots att ha en lösning för hög tillgänglighet och Katastrofåterställning 
 
 Mer information finns i KB-artikel **860340.1** på <http://support.oracle.com>.
 
-* **Dynamisk kluster och begränsningar för belastningsutjämning.** Anta att du vill använda en dynamisk klustret i WebLogic Server och exponera den via en enskild, offentlig belastningsutjämnade slutpunkt i Azure. Detta kan göras så länge som du använder ett fast portnummer för var och en av de hanterade servrarna (inte dynamiskt tilldelade från ett intervall) och starta inte mer hanterade servrar än det finns datorer som administratören för att spåra (som är mer än en hanterad server per virtuell m achine). Om din konfiguration resulterar i fler WebLogic servrar startas än det finns virtuella datorer (det vill säga där flera WebLogic serverinstanser dela samma virtuella dator), är inte möjligt för mer än en av de instanserna av WebLogic Server servrar som ska bindas till ett visst portnummer – andra på den virtuella datorn misslyckas.
+* **Dynamisk kluster och begränsningar för belastningsutjämning.** Anta att du vill använda en dynamisk klustret i WebLogic Server och exponera den via en enskild, offentlig belastningsutjämnade slutpunkt i Azure. Detta kan göras så länge som du använder ett fast portnummer för var och en av de hanterade servrarna (inte dynamiskt tilldelade från ett intervall) och starta inte mer hanterade servrar än det finns datorer som administratören för att spåra (som är mer än en hanterad server per virtuell m achine). Om din konfiguration resulterar i fler WebLogic servrar startas än det finns virtuella datorer (det vill säga där flera WebLogic serverinstanser dela samma virtuella dator), är inte möjligt för mer än en av de instanserna av WebLogic servrar Om du vill binda ett visst portnummer – misslyckas andra på den virtuella datorn.
 
-   Å andra sidan om du konfigurerar admin-servern för att automatiskt tilldela unika portnummer för dess hanterade servrar, är sedan belastningsutjämning inte möjligt eftersom Azure inte stöder mappning från en offentlig port till flera privata portar som krävs för den här konfigurationen.
+   Om du konfigurerar admin-servern för att automatiskt tilldela unika portnummer för dess hanterade servrar sedan är belastningsutjämning inte möjligt eftersom Azure inte stöder mappning från en offentlig port till flera privata portar som krävs för den här konfiguration.
 * **Flera instanser av Weblogic Server på en virtuell dator.** Beroende på distributionskraven kan kan du välja att köra flera instanser av WebLogic Server på samma virtuella dator, om den virtuella datorn är tillräckligt stor. Till exempel på en normal storlek virtuell dator som innehåller två kärnor, kan du köra två instanser av WebLogic Server. Observera dock att fortfarande rekommenderar vi att du inte införa enskilda felpunkter i din arkitektur som skulle vara fallet om du använder en virtuell dator som kör flera instanser av WebLogic Server. Med hjälp av minst två virtuella datorer kan vara en bättre metod och var och en av de virtuella datorerna kan sedan köra flera instanser av WebLogic Server. Var och en av dessa instanser av WebLogic Server gick fortfarande inte ingå i samma kluster. Obs!, men det går för närvarande inte att använda Azure att belastningsutjämna slutpunkter som exponeras av distribueringar WebLogic Server i samma virtuella dator eftersom Azure belastningsutjämnare kräver belastningsutjämnade servrarna som ska distribueras till unika virtuella datorer.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Oracle JDK avbildningar av virtuella datorer
@@ -103,5 +103,5 @@ Mer information finns i KB-artikel **860340.1** på <http://support.oracle.com>.
 * **64-bitars JDK.** Oracle WebLogic Server virtuella avbildningar och Oracle JDK virtuella avbildningar som tillhandahålls av Azure innehåller 64-bitarsversioner av Windows Server- och JDK.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du en översikt över aktuella Oracle-lösningar för Microsoft Azure. Nästa steg är att gå och distribuera din första Oracle-databas på Azure.
+Nu har du en översikt över aktuella Oracle-lösningar för Microsoft Azure. Nästa steg är att distribuera din första Oracle-databas på Azure.
 - Försök i [skapa en Oracle-databas på Azure](oracle-database-quick-create.md) kursen och kom igång.

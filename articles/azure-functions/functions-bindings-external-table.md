@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Azure Functions extern tabell bindning (förhandsgranskning)
 Den här artikeln visar hur du hanterar tabelldata på SaaS-providers (t.ex. Sharepoint, Dynamics) i din funktion med inbyggda bindningar. Azure Functions stöder inkommande och utgående bindningar för externa tabeller.
@@ -33,7 +33,7 @@ När du tilldelar en bindning kan du antingen skapa en ny API-anslutning eller a
 
 ### <a name="supported-api-connections-tables"></a>Stöds API-anslutningar (tabellen) s
 
-|koppling|Utlösare|Indata|Resultat|
+|Koppling|Utlösare|Indata|Resultat|
 |:-----|:---:|:---:|:---:|
 |[DB2](https://docs.microsoft.com/azure/connectors/connectors-create-api-db2)||x|x
 |[Dynamics 365 för åtgärder](https://ax.help.dynamics.com/wiki/install-and-configure-dynamics-365-for-operations-warehousing/)||x|x
@@ -99,9 +99,9 @@ Det här exemplet ansluter till en tabell med namnet ”kontakta” med Id, efte
 
 En tabell koppling innehåller datauppsättningar och varje datamängd innehåller tabeller. Namnet på datamängden som standard är ”standard”. Rubrikerna för en datauppsättning och en tabell i olika SaaS-providers visas nedan:
 
-|koppling|Datauppsättning|Tabell|
+|Koppling|Datauppsättning|Tabell|
 |:-----|:---|:---| 
-|**SharePoint**|plats|SharePoint-lista
+|**SharePoint**|Webbplats|SharePoint-lista
 |**SQL**|Databas|Tabell 
 |**Google-blad**|Kalkylblad|Kalkylblad 
 |**Excel**|Excel-fil|Blad 
@@ -198,4 +198,6 @@ Skapa ett kalkylblad i Google-dokument med ett kalkylblad med namnet `Contact`. 
 dataSetName är ”standard”.
 
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

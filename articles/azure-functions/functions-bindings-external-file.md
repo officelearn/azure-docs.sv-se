@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: 7e3b396d290212d3875385521bd7ae92da196b95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a1ff4d4488b37b1969edfbb6f935eccd63413c
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Azure Functions extern fil Bindningar (förhandsgranskning)
 Den här artikeln visar hur du manipulera filerna från olika SaaS-providrar (t.ex. OneDrive, Dropbox) i din funktion använder inbyggda bindningar. Azure functions stöder utlösa indata och utdata bindningar för extern fil.
@@ -29,7 +29,7 @@ Den här bindningen skapar API-anslutningar till SaaS-providrar eller använder 
 
 ## <a name="supported-file-connections"></a>Stöds filen anslutningar
 
-|koppling|Utlösare|Indata|Resultat|
+|Koppling|Utlösare|Indata|Resultat|
 |:-----|:---:|:---:|:---:|
 |[Rutan](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
@@ -362,4 +362,6 @@ module.exports = function(context) {
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

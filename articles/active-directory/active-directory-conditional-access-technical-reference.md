@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 243c42b8637b7887047c85a60e5dfedfd7f6904a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory villkorlig åtkomst Teknisk referens
 
-Du kan använda [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md) att finjustera hur behöriga användare kan komma åt dina resurser.  
+Du kan använda [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md) att finjustera hur behöriga användare kan komma åt dina resurser.   
 
-Det här avsnittet innehåller information om stöd för följande konfigurationsalternativ för en princip för villkorlig åtkomst: 
+Den här artikeln innehåller information om stöd för följande konfigurationsalternativ för en princip för villkorlig åtkomst: 
 
 - Molnet program tilldelningar
 
@@ -38,7 +38,7 @@ Det här avsnittet innehåller information om stöd för följande konfiguration
 
 ## <a name="cloud-apps-assignments"></a>Molnet appar tilldelningar
 
-När du konfigurerar en princip för villkorlig åtkomst måste du [Välj molnappar som använder din princip](active-directory-conditional-access-azure-portal.md#who). 
+Med principer för villkorlig åtkomst kan du styra hur användarna kommer åt din [molnappar](active-directory-conditional-access-azure-portal.md#who). Du måste välja minst en molnapp för när du konfigurerar en princip för villkorlig åtkomst. 
 
 ![Välj molnappar för principen](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -48,6 +48,7 @@ När du konfigurerar en princip för villkorlig åtkomst måste du [Välj molnap
 Du kan tilldela en princip för villkorlig åtkomst till följande molnappar från Microsoft:
 
 - Azure Information Protection - [Läs mer](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -103,7 +104,7 @@ Du kan konfigurera villkoret enhet plattform för att koppla principen till oper
 
 ## <a name="client-apps-condition"></a>Klienten appar villkor 
 
-När du konfigurerar en princip för villkorlig åtkomst, kan du [Välj klientappar](active-directory-conditional-access-azure-portal.md#client-apps) för klienten app-villkor. Ange appar villkoret som beviljar eller blockerar åtkomst när en åtkomst görs från följande typer av klientprogram för klienten:
+I principen för villkorlig åtkomst konfigurerar du den [klientappar](active-directory-conditional-access-azure-portal.md#client-apps) villkoret för att koppla principen till klientappen som har initierat en anslutningsförsöket. Ange appar villkoret som beviljar eller blockerar åtkomst när en åtkomst görs från följande typer av klientprogram för klienten:
 
 - Webbläsare
 - Mobilappar och skrivbordsappar
@@ -112,11 +113,11 @@ När du konfigurerar en princip för villkorlig åtkomst, kan du [Välj klientap
 
 ### <a name="supported-browsers"></a>Webbläsare som stöds 
 
-Kontrollera webbläsaråtkomst genom att använda den **webbläsare** alternativ i principen för villkorlig åtkomst. Åtkomst beviljas endast när försöket görs av en webbläsare som stöds. När en åtkomst görs av en webbläsare som inte stöds blockeras försöket.
+Du kan välja i principen för villkorlig åtkomst **webbläsare** som klientapp.
 
 ![Kontrollera åtkomst för webbläsare som stöds](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Följande webbläsare stöds i principen för villkorlig åtkomst: 
+Den här inställningen påverkar åtkomstförsök från följande webbläsare: 
 
 
 | Operativsystem                     | Webbläsare                            | Support     |
@@ -140,14 +141,16 @@ Följande webbläsare stöds i principen för villkorlig åtkomst:
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Stöd för mobila program och skrivbord klienter
 
-Åtkomstkontroll appen och klienten med hjälp av den **mobilappar och skrivbordsklienter** alternativ i principen för villkorlig åtkomst. Åtkomst beviljas endast när försöket görs av en mobil app som stöds eller klientversionen. När en åtkomst görs av en app som inte stöds eller klienten är blockerad försöket.
+Du kan välja i principen för villkorlig åtkomst **mobilappar och skrivbordsklienter** som klientapp.
+
 
 ![Kontrollera åtkomst för mobila appar som stöds eller skrivbordsklienter](./media/active-directory-conditional-access-technical-reference/06.png)
 
-Följande mobila appar och skrivbord klienter stöder villkorlig åtkomst för Office 365 och andra Azure AD-anslutna tjänstprogram:
+
+Den här inställningen påverkar åtkomstförsök från följande mobila appar och skrivbord klienter: 
 
 
-|Klientprogram|Måltjänsten|Plattform|
+|Klientappar|Måltjänsten|Plattform|
 |---|---|---|
 |Azure RemoteApp|Azure RemoteApp-tjänsten|Windows 10, Windows 8.1, Windows 7, iOS, Android och Mac OS X|
 |Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS och Android|
@@ -170,11 +173,11 @@ Följande mobila appar och skrivbord klienter stöder villkorlig åtkomst för O
 
 ## <a name="approved-client-app-requirement"></a>Godkända klienten app-krav 
 
-Kontrollera klientanslutningar genom att använda den **kräver godkända klientappen** alternativ i principen för villkorlig åtkomst. Åtkomst beviljas endast när ett anslutningsförsök görs av en godkänd klientapp.
+Du kan kräva att ett åtkomst försöker valda molnappar måste göras från en godkänd klientappen i principen för villkorlig åtkomst. 
 
 ![Kontrollera åtkomsten för godkända klientprogram](./media/active-directory-conditional-access-technical-reference/21.png)
 
-Följande klientappar kan användas med programkrav godkända klienten:
+Den här inställningen gäller för följande klientappar:
 
 
 - Microsoft Azure Information Protection

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 899ca9f7a82ce526eba04b88420ab01e208fe784
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/29/2017
@@ -178,7 +178,7 @@ Följande villkor och kontroller är nu tillgängliga för användning med app-b
 
 **Klienten appar villkor**
 
-- Mobilappar och skrivbordsklienter
+- Mobila appar och skrivbordsklienter
 
 **Åtkomstkontroll**
 
@@ -266,13 +266,13 @@ Mer information finns i [integrera din befintliga infrastruktur för NPS med Azu
  
 ---
 
+### <a name="restore-or-permanently-remove-deleted-users"></a>Återställ eller ta bort borttagna användare
+
 
 **Typ:** ny funktion    
 **Tjänstekategori:** användarhantering  
 **Produkten kapaciteten:** Directory 
 
-
-**Återställ eller ta bort borttagna användare**
 
 
 I administrationscentret för Azure AD kan du nu:

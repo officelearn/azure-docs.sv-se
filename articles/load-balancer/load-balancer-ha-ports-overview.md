@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar för hög tillgänglighet
 
@@ -65,69 +65,10 @@ Funktionen för hög tillgänglighet portar finns i den [samma regioner som Load
 
 ## <a name="preview-sign-up"></a>Förhandsgranska registrering
 
-Om du vill delta i förhandsversionen av funktionen hög tillgänglighet portar i Load Balancer Standard registrera prenumerationen för att få åtkomst. Du kan använda Azure CLI 2.0 eller PowerShell.
+Om du vill delta i förhandsversionen av funktionen hög tillgänglighet portar i Load Balancer Standard registrera prenumerationen för belastningsutjämnaren [Standard preview](https://aka.ms/lbpreview#preview-sign-up). Du kan registrera med Azure CLI 2.0 eller PowerShell.
 
 >[!NOTE]
->Om du vill använda den här funktionen måste du också registrera dig för belastningsutjämnaren [Standard preview](https://aka.ms/lbpreview#preview-sign-up), förutom funktionen portar för hög tillgänglighet. Registrering kan ta upp till en timme.
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Logga med hjälp av Azure CLI 2.0
-
-1. Registrera funktionen med providern:
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-2. Den föregående åtgärden kan ta upp till 10 minuter att slutföra. Du kan kontrollera status för åtgärden med följande kommando:
-
-    ```cli
-    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-    Åtgärden har lyckats när funktionen registreringstillstånd returnerar **registrerade**, som visas här:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowILBAllPortsRule",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. Slutför registreringen förhandsgranskningen genom att registrera prenumerationen med resursprovidern:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-### <a name="sign-up-by-using-powershell"></a>Logga med hjälp av PowerShell
-
-1. Registrera funktionen med providern:
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    
-2. Den föregående åtgärden kan ta upp till 10 minuter att slutföra. Du kan kontrollera status för åtgärden med följande kommando:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    Åtgärden har lyckats när funktionen registreringstillstånd returnerar **registrerade**, som visas här:
-   
-    ```
-    FeatureName          ProviderName      RegistrationState
-    -----------          ------------      -----------------
-    AllowILBAllPortsRule Microsoft.Network Registered
-    ```
-    
-3. Slutför registreringen förhandsgranskningen genom att registrera prenumerationen med resursprovidern:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
+>Registrering kan ta upp till en timme.
 
 ## <a name="limitations"></a>Begränsningar
 

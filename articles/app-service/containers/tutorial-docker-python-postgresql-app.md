@@ -9,14 +9,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 05/03/2017
+ms.date: 11/28/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 55d6f1d10ff08fd8f0ea4aba775a96549192cef2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 89e2192b3b5c978da4a41dea51d0ab70181b500d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Skapa en Docker Python och PostgreSQL-webbapp i Azure
 
@@ -121,7 +121,7 @@ I det här steget skapar du en PostgreSQL-databas i Azure. När appen har distri
 
 ### <a name="log-in-to-azure"></a>Logga in på Azure
 
-Du kommer nu att använda Azure CLI 2.0 för att skapa resurser som behövs för att vara värd för programmet Python i webbprogram för behållare.  Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/#login) och följ anvisningarna på skärmen.
+Du kommer nu att använda Azure CLI 2.0 för att skapa resurser som behövs för att vara värd för programmet Python i webbprogram för behållare.  Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/#az_login) och följ anvisningarna på skärmen.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en [resursgrupp](../../azure-resource-manager/resource-group-overview.md) med [az group create](/cli/azure/group#create).
+Skapa en [resursgrupp](../../azure-resource-manager/resource-group-overview.md) med [az group create](/cli/azure/group#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,7 +139,7 @@ I följande exempel skapas en resursgrupp i USA, västra region:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Använd den [az apptjänst lista-platser](/cli/azure/appservice#list-locations) Azure CLI-kommando för att lista över tillgängliga platser.
+Använd den [az apptjänst lista-platser](/cli/azure/appservice#az_appservice_list_locations) Azure CLI-kommando för att lista över tillgängliga platser.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database för PostgreSQL-server
 
@@ -260,7 +260,7 @@ Docker visas en bekräftelse som har skapats i behållaren.
 Successfully built 7548f983a36b
 ```
 
-Lägg till miljövariabler för databasen i en miljö variabelfil *db.env*. Appen ansluter till PostgreSQL-produktionsdatabasen i Azure.
+Lägg till miljövariabler för databasen i en miljö variabelfil *db.env*. Appen ansluter till Azure-databasen för PostgreSQL-produktionsdatabas.
 
 ```text
 DBHOST="<postgresql_name>.postgres.database.azure.com"
@@ -364,7 +364,7 @@ I det här steget kan distribuera du Docker behållaren-baserade Python Flask pr
 
 ### <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 
-Skapa en App Service-plan med kommandot [az appservice plan create](/cli/azure/appservice/plan#create).
+Skapa en App Service-plan med kommandot [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ När programtjänstplanen har skapats visas Azure CLI information liknar följan
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
-Skapa en webbapp i den *myAppServicePlan* App Service-plan med de [az webapp skapa](/cli/azure/webapp#create) kommando.
+Skapa en webbapp i den *myAppServicePlan* App Service-plan med de [az webapp skapa](/cli/azure/webapp#az_webapp_create) kommando.
 
 Webbappen ger dig en värd med utrymme för att distribuera din kod och ger en URL som du kan visa det distribuerade programmet. Använd för att skapa webbprogrammet.
 
@@ -445,7 +445,7 @@ När webbappen har skapats visar Azure CLI information liknande den i följande 
 
 Tidigare i självstudierna definierat du miljövariabler för att ansluta till PostgreSQL-databasen.
 
-I App Service som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config#set) kommando.
+I App Service som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config#az_webapp_config_appsettings_set) kommando.
 
 I följande exempel anger anslutningsinformation för databasen som app-inställningar. Dessutom används den *PORT* variabel till karta PORT 5000 från din Dockerbehållare tar emot HTTP-trafik på PORT 80.
 

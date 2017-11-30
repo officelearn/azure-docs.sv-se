@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: d6cc4d95adb52b5b0bfc4b674ade878af764a3e7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7d5f14d5a65253cf0aad1811ace419bf2f39f7db
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Programmeringsguide för händelsehubbar
 
@@ -117,7 +117,7 @@ Att skicka händelser i batchar hjälper dig att öka genomflödet. Den [SendBat
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Observera att en enskild batch inte får överstiga 256 KB-gränsen för en händelse. Dessutom använder varje meddelande i batchen samma utgivaridentitet. Det är avsändarens ansvar att se till att batchen inte överskrider den maximala händelsestorleken. Om den gör det genereras ett **Skicka**-felmeddelande för klienten. Du kan använda hjälpklass [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) att säkerställa att batchen inte överskrider 256 KB. Du får en tom [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) från den [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) API och sedan använda [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) lägga till händelser för att skapa gruppen. Använd slutligen [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) underliggande händelser ska skickas till den [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) API.
+Observera att en enskild batch inte får överstiga 256 KB-gränsen för en händelse. Dessutom använder varje meddelande i batchen samma utgivaridentitet. Det är avsändarens ansvar att se till att batchen inte överskrider den maximala händelsestorleken. Om den gör det genereras ett **Skicka**-felmeddelande för klienten. Du kan använda hjälpmetoden [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) att säkerställa att batchen inte överskrider 256 KB. Du får en tom [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) från den [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) API och sedan använda [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) lägga till händelser för att skapa gruppen. Använd slutligen [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) underliggande händelser ska skickas till den [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) API.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Skicka asynkront och skicka i skala
 Du kan även skicka händelser till en händelsehubb asynkront. Att skicka asynkront kan göra att en klient kan skicka händelser mer frekvent. Både metoderna [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) och [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) är tillgängliga i asynkrona versioner som returnerar ett [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx)-objekt. Även om den här tekniken kan öka genomflödet kan den också göra att klienten fortsätter att skicka händelser även när den begränsas av händelsehubbtjänsten. Det kan leda till att klienten råkar ut för fel eller förlorade meddelanden om tekniken inte implementeras på ett korrekt sätt. Du kan dessutom använda egenskapen [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) på klienten för att styra alternativ för att försöka igen i klienten.

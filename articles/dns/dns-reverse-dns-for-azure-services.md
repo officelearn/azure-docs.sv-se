@@ -3,7 +3,7 @@ title: "Omvänd DNS för Azure-tjänster | Microsoft Docs"
 description: "Lär dig hur du konfigurerar omvänd DNS-sökning för tjänster i Azure"
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurera omvänd DNS för tjänster i Azure
 
@@ -28,9 +28,8 @@ Det här scenariot ska inte förväxlas med möjlighet att [värd zoner omvänd 
 
 Innan du läser den här artikeln bör du vara bekant med den här [översikt över omvänd DNS- och support i Azure](dns-reverse-dns-overview.md).
 
-Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).
-* I Resource Manager-distributionsmodellen exponeras beräkningsresurser (till exempel virtuella datorer, virtuella datorer eller Service Fabric-kluster) via en PublicIpAddress-resurs. Omvänd DNS-sökningar har konfigurerats med hjälp av egenskapen 'ReverseFqdn' för PublicIpAddress.
-* I den klassiska distributionsmodellen exponeras beräkningsresurser med molntjänster. Omvänd DNS-sökningar har konfigurerats med hjälp av egenskapen 'ReverseDnsFqdn' för Molntjänsten.
+I Azure DNS exponeras beräkningsresurser (till exempel virtuella datorer, virtuella datorer eller Service Fabric-kluster) via en PublicIpAddress-resurs. Omvänd DNS-sökningar har konfigurerats med hjälp av egenskapen 'ReverseFqdn' för PublicIpAddress.
+
 
 Omvänd DNS stöds inte för Azure App Service.
 

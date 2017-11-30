@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Host.JSON referens för Azure Functions
 
@@ -132,7 +132,7 @@ Kontroller av [provtagning funktion i Application Insights](functions-monitoring
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|IsEnabled|falskt|Aktiverar eller inaktiverar provtagning.| 
+|IsEnabled|false|Aktiverar eller inaktiverar provtagning.| 
 |maxTelemetryItemsPerSecond|5|Tröskelvärdet på vilka provtagning börjar.| 
 
 ## <a name="eventhub"></a>EventHub
@@ -141,7 +141,7 @@ Konfigurationsinställningar för [Event Hub-utlösare och bindningar](functions
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>funktioner
 
 En lista över funktioner som värd för jobbet ska köras.  En tom matris innebär att köra alla funktioner.  Avsedd att användas endast när [körs lokalt](functions-run-local.md). I funktionen appar använda den *function.json* `disabled` egenskapen i stället för den här egenskapen i *host.json*.
 
@@ -165,23 +165,7 @@ Anger timeout-varaktighet för alla funktioner. Det giltiga intervallet är mell
 
 Konfigurationsinställningar för [http-utlösare och bindningar](functions-bindings-http-webhook.md).
 
-```json
-{
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
-        "dynamicThrottlesEnabled": false
-    }
-}
-```
-
-|Egenskap  |Standard | Beskrivning |
-|---------|---------|---------| 
-|routePrefix|api|Prefixet för vägen som gäller för alla vägar. Ta bort prefixet som standard med hjälp av en tom sträng. |
-|maxOutstandingRequests|-1|Maximalt antal väntande förfrågningar som hålls kvar vid en given tidpunkt (-1 innebär unbounded). Gränsen inkluderar begäranden som står i kö men har inte startats, samt alla pågående körningar. Alla inkommande förfrågningar via den här gränsen avvisas med ett 429 ”upptagen” svar. Anropare kan använda det svaret för att använda strategier för tidsbaserade försök igen. Kontrollerar den här inställningen bara queuing som sker inom jobbet värden körning av sökväg. Andra köer, till exempel begärandekön ASP.NET påverkas inte av den här inställningen. |
-|maxConcurrentRequests|-1|Maximalt antal HTTP-funktioner som körs parallellt (-1 innebär unbounded). Du kan till exempel ange en gräns om HTTP-funktioner använder för mycket systemresurser när samtidighet är hög. Eller om dina funktioner gör utgående förfrågningar till en tjänst från tredje part, anropen behöva vara begränsad hastighet.|
-|dynamicThrottlesEnabled|falskt|Gör en begäran om bearbetning pipeline att regelbundet kontrollera prestandaräknare för system. Räknare som inkluderar anslutningar, trådar, processer, minne och cpu. Om någon av räknarna som är över en inbyggd tröskelvärdet (80%) avvisas förfrågningar med svaret 429 ”upptagen” förrän counter(s) återgå till normal nivå.|
+[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 

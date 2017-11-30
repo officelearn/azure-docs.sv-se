@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e61c99028a2b67bd9188c239bc95dba0625b638
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Använda tidsbaserad Oozie-koordinator med Hadoop i HDInsight för att definiera arbetsflöden och samordna jobb
 I den här artikeln lär du dig hur du definierar arbetsflöden och koordinatorer och hur du utlöser coordinator jobb, baserat på tid. Är det bra att gå igenom [Använd Oozie med HDInsight] [ hdinsight-use-oozie] innan den här artikeln. Förutom Oozie, kan du också schemalägga jobb med hjälp av Azure Data Factory. Information om Azure Data Factory finns [Use Pig och Hive med Data Factory](../data-factory/transform-data.md).
@@ -82,7 +82,8 @@ Innan du påbörjar de här självstudierna måste du ha:
     <tr><td>Azure storage-kontonamn</td><td>$storageAccountName</td><td></td><td>Ett Azure Storage-konto är tillgängligt för HDInsight-klustret. Använd standardkontot för lagring som du angav när klustret etablera för den här självstudiekursen.</td></tr>
     <tr><td>Azure Blob-behållarnamn</td><td>$containerName</td><td></td><td>I det här exemplet använder du Azure Blob storage-behållare som används för filsystemet för HDInsight-kluster. Som standard har samma namn som HDInsight-klustret.</td></tr>
     </table>
-* **En Azure SQL database**. Du måste konfigurera en brandväggsregel för SQL Database-server att tillåta åtkomst från din arbetsstation. Instruktioner om hur du skapar en Azure SQL-databas och hur du konfigurerar brandväggen finns i [komma igång med Azure SQL database] [sqldatabase-get-started]. Den här artikeln innehåller en Windows PowerShell-skript för att skapa Azure SQL database-tabellen som ska användas för den här kursen.
+
+* **En Azure SQL database**. Du måste konfigurera en brandväggsregel för SQL Database-server att tillåta åtkomst från din arbetsstation. Anvisningar om att skapa en Azure SQL-databas och hur du konfigurerar brandväggen finns [komma igång med Azure SQL database][sqldatabase-get-started]. Den här artikeln innehåller en Windows PowerShell-skript för att skapa Azure SQL database-tabellen som ska användas för den här kursen.
 
     <table border = "1">
     <tr><th>Egenskapen för SQL-databas</th><th>Variabelnamn för Windows PowerShell</th><th>Värde</th><th>Beskrivning</th></tr>

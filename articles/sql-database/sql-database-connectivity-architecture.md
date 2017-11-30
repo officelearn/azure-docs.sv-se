@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-arkitektur 
 
-Den här artikeln beskriver arkitekturen för Azure SQL Database-anslutningen och förklarar hur de olika komponenterna fungerar för att dirigera trafik till din Azure SQL Database-instans. Dessa Azure SQL Database connectivity komponenter funktion för att dirigera nätverkstrafik till Azure-databas med klienter som ansluter från i Azure och anslutande klienter från utanför Azure. Den här artikeln innehåller även skriptexempel att ändra hur anslutningen sker och överväganden som rör ändra standardinställningar för anslutningen. Om det finns några frågor när du har läst den här artikeln kan du kontakta Dhruv på dmalik@microsoft.com. 
+Den här artikeln beskriver arkitekturen för Azure SQL Database-anslutningen och förklarar hur de olika komponenterna fungerar för att dirigera trafik till din Azure SQL Database-instans. Dessa Azure SQL Database connectivity komponenter funktion för att dirigera nätverkstrafik till Azure-databas med klienter som ansluter från i Azure och anslutande klienter från utanför Azure. Den här artikeln innehåller även skriptexempel att ändra hur anslutningen sker och överväganden som rör ändra standardinställningar för anslutningen. 
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
 
-Följande diagram ger en översikt över arkitekturen för Azure SQL Database-anslutningen. 
+Följande diagram ger en översikt över arkitekturen för Azure SQL Database-anslutningen.
 
 ![arkitektur, översikt](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ I följande tabell visas de primära och sekundära IPs för Azure SQL Database-
 | --- | --- |--- |
 | Östra Australien | 191.238.66.109 | 13.75.149.87 |
 | Sydöstra Australien | 191.239.192.109 | 13.73.109.251 |
-| Södra Brasilien | 104.41.11.5 | |    
-| Centrala Kanada | 40.85.224.249 | |    
+| Södra Brasilien | 104.41.11.5 | |
+| Centrala Kanada | 40.85.224.249 | |
 | Östra Kanada | 40.86.226.166 | |
 | Centrala USA | 23.99.160.139 | 13.67.215.62 |
 | Östasien | 191.234.2.139 | 52.175.33.150 |
 | Östra USA 1 | 191.238.6.43 | 40.121.158.30 |
 | Östra USA 2 | 191.239.224.107 | 40.79.84.180 |
-| Centrala Indien | 104.211.96.159  | |   
+| Centrala Indien | 104.211.96.159  | |
 | Södra Indien | 104.211.224.146  | |
 | Västra Indien | 104.211.160.80 | |
 | Östra Japan | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ I följande tabell visas de primära och sekundära IPs för Azure SQL Database-
 | Södra centrala USA | 23.98.162.75 | 13.66.62.124 |
 | Sydostasien | 23.100.117.95 | 104.43.15.0 |
 | Storbritannien, norra | 13.87.97.210 | |
-| Storbritannien, Syd 1 | 51.140.184.11 | |    
+| Storbritannien, Syd 1 | 51.140.184.11 | |
 | Storbritannien, södra 2 | 13.87.34.7 | |
 | Storbritannien, västra | 51.141.8.11  | |
 | Västra centrala USA | 13.78.145.25 | |
@@ -95,12 +95,12 @@ I följande tabell visas de primära och sekundära IPs för Azure SQL Database-
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Ändra principen för Azure SQL Database-anslutning
 
-Om du vill ändra principen för Azure SQL Database för en Azure SQL Database-server, använder den [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+Om du vill ändra principen för Azure SQL Database för en Azure SQL Database-server, använder den [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 
-- Om din anslutningsprincip har angetts till **Proxy**, alla nätverksenheter paket flöde via Azure SQL Database-gateway. Du måste tillåta utgående till bara Azure SQL Database gateway IP-Adressen för den här inställningen. Med hjälp av inställningen **Proxy** har flera svarstider än inställningen **omdirigera**. 
-- Om din anslutning principinställningen **omdirigera**, alla nätverksenheter paket flödet direkt till mellanprogram proxy. Du måste tillåta utgående till flera IP-adresser för den här inställningen. 
+- Om din anslutningsprincip har angetts till **Proxy**, alla nätverksenheter paket flöde via Azure SQL Database-gateway. Du måste tillåta utgående till bara Azure SQL Database gateway IP-Adressen för den här inställningen. Med hjälp av inställningen **Proxy** har flera svarstider än inställningen **omdirigera**.
+- Om din anslutning principinställningen **omdirigera**, alla nätverksenheter paket flödet direkt till mellanprogram proxy. Du måste tillåta utgående till flera IP-adresser för den här inställningen.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Skript för att ändra anslutningsinställningar via PowerShell 
+## <a name="script-to-change-connection-settings-via-powershell"></a>Skript för att ändra anslutningsinställningar via PowerShell
 
 > [!IMPORTANT]
 > Skriptet kräver den [Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps).
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Skript för att ändra anslutningsinställningar via Azure CLI 2.0 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Skript för att ändra anslutningsinställningar via Azure CLI 2.0
 
 > [!IMPORTANT]
 > Skriptet kräver den [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 CLI följande skript visar hur du ändrar principen.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 

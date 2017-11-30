@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: e8e943db5a48f8fbbcd63a448abe34b66f5f987a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 2df39c64470e28bdf664d388041ae1b17d80db69
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Metadata Azure: Schemalagda händelser (förhandsversion) för virtuella Linux-datorer
 
@@ -61,25 +61,41 @@ Schemalagda händelser levereras till:
 Därför bör du kontrollera den `Resources` i händelsen för att identifiera vilka virtuella datorer kommer att påverkas.
 
 ### <a name="discovering-the-endpoint"></a>Identifiering av slutpunkten
+För virtuella nätverk aktiverat virtuella datorer är fullständig slutpunkten för den senaste versionen av schemalagda händelser: 
+
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+
 I de fall där en virtuell dator skapas ett virtuellt nätverk (VNet), metadatatjänsten är tillgänglig från en statisk icke-dirigerbara IP `169.254.169.254`.
-Om den virtuella datorn inte har skapat ett virtuellt nätverk, standard-fall för molntjänster och klassiska virtuella datorer, krävs ytterligare logik för att identifiera slutpunkt för att använda. Referera till det här exemplet att lära dig hur du [identifiera värden slutpunkt](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Om den virtuella datorn inte har skapat ett virtuellt nätverk, standard-fall för molntjänster och klassiska virtuella datorer, krävs ytterligare logik för att identifiera IP-adressen ska användas. Referera till det här exemplet att lära dig hur du [identifiera värden slutpunkt](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Versionshantering 
-Tjänsten instans Metadata är en ny version. Versioner är obligatoriska och den aktuella versionen är `2017-03-01`.
+Tjänsten schemalagda händelser skapas. Versioner är obligatoriska och den aktuella versionen är `2017-08-01`.
+
+| Version | Viktig information | 
+| - | - | 
+| 2017-08-01 | <li> Ta bort inledd understreck från resursnamn för Iaas-VM<br><li>Metadatarubrik krav för alla begäranden | 
+| 2017-03-01 | <li>Offentliga förhandsversionen
+
 
 > [!NOTE] 
 > Tidigare förhandsvisningarna av schemalagda händelser stöds {senaste} som den api-versionen. Det här formatet stöds inte längre och kommer att inaktualiseras i framtiden.
 
 ### <a name="using-headers"></a>Med hjälp av rubriker
-När du frågar Metadata Service måste du ange rubriken `Metadata: true` så begäran inte omdirigerades oavsiktligt.
+När du frågar Metadata Service måste du ange rubriken `Metadata:true` så begäran inte omdirigerades oavsiktligt. Den `Metadata:true` rubrik krävs för alla schemalagda händelser förfrågningar. Det gick inte att använda huvud i begäran resulterar i en felaktig begäran-svar från Metadata Service.
 
 ### <a name="enabling-scheduled-events"></a>Aktivera schemalagd händelser
 Första gången du skapar en begäran om schemalagda händelser aktiverar Azure implicit funktionen på den virtuella datorn. Därför bör du förväntar dig en fördröjd svar i din första anropet av upp till två minuter.
+
+> [!NOTE]
+> Schemalagda händelser inaktiveras automatiskt för din tjänst om tjänsten inte anropa slutpunkten för 1 dag. När schemalagda händelser är inaktiverat för tjänsten, kommer det inte händelser som har skapats för användarinitierad underhåll.
 
 ### <a name="user-initiated-maintenance"></a>Användarinitierad Underhåll
 Användaren initierade underhålla virtuella datorer via Azure portal, API, CLI eller PowerShell resulterar i en schemalagd händelse. Det kan du testa Underhåll förberedelse av logiken i ditt program och att ditt program att förbereda för användarinitierad underhåll.
 
 Starta om en virtuell dator schemalägger en händelse med typen `Reboot`. Omdistribuera en virtuell dator schemalägger en händelse med typen `Redeploy`.
+
+> [!NOTE] 
+> För närvarande kan högst 100 användarinitierad underhållsåtgärder samtidigt schemaläggas.
 
 > [!NOTE] 
 > Användarinitierad Underhåll ledde schemalagda händelser kan för närvarande inte konfigureras. Konfigurationsmöjligheter är planerad för framtida versioner.
@@ -89,8 +105,9 @@ Starta om en virtuell dator schemalägger en händelse med typen `Reboot`. Omdis
 ### <a name="query-for-events"></a>Fråga efter händelser
 Du kan fråga efter schemalagda händelser genom att göra följande anrop:
 
+#### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 Svaret innehåller en matris med schemalagda händelser. En tom matris innebär att det inte finns för närvarande inga händelser som är schemalagda.
@@ -134,15 +151,24 @@ Varje händelse schemaläggs en minimal mängd tidpunkt i framtiden baserat på 
 
 När du har lärt dig i en kommande händelse och slutföra din logik för att korrekt avslutning, kan du godkänna utestående händelsen genom att göra en `POST` anrop till metadatatjänsten med i `EventId`. Detta anger att Azure att det korta meddelandet minsta (när det är möjligt). 
 
+Följande är json förväntas i den `POST` begäran. Begäran ska innehålla en lista över `StartRequests`. Varje `StartRequest` innehåller den `EventId` för händelsen som du vill påskynda:
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+{
+    "StartRequests" : [
+        {
+            "EventId": {EventId}
+        }
+    ]
+}
+```
+
+#### <a name="bash-sample"></a>Bash-exempel
+```
+curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
 > Bekräfta en händelse kan händelsen för att fortsätta för alla `Resources` i händelseloggen, inte bara den virtuella datorn som om händelsen. Därför kan du välja att välja ledande koordinera bekräftelse, vilket kan vara så enkelt som den första datorn i den `Resources` fältet.
-
-
-
 
 ## <a name="python-sample"></a>Python-exempel 
 
@@ -189,6 +215,6 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>Nästa steg 
-
+- Granska schemalagda händelser kodexemplen i den [Azure instans Metadata schemalagda händelser Github-lagringsplatsen](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Läs mer om API: er finns i den [instans Metadata tjänsten](instance-metadata-service.md).
 - Lär dig mer om [planerat underhåll för Linux virtuella datorer i Azure](planned-maintenance.md).

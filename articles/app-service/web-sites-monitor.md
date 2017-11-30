@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 283428c603cc73d23f0afa94670a23dbb45068d5
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Så här: övervaka appar i Azure App Service
 [Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714) har inbyggda funktioner som övervakning för den [Azure-portalen](https://portal.azure.com).
-Detta omfattar möjligheten att granska **kvoter** och **mått** för en app, samt App Service-plan, ställa in **aviseringar** och även **skalning**automatiskt baserat på de här måtten.
+Azure portal innehåller möjligheten att granska **kvoter** och **mått** för en app, samt App Service-plan, ställa in **aviseringar** och även **skalning**  automatiskt baserat på de här måtten.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -48,12 +48,12 @@ Om programmet finns i en **grundläggande**, **Standard** eller **Premium** plan
 * **Filsystem**
   * Totalt antal tillåtet lagringsutrymme.
 
-Kvoten som endast till appar som finns på **grundläggande**, **Standard** och **Premium** planer är **Filesystem**.
+Kvoten som endast till appar som finns på **grundläggande**, **Standard**, och **Premium** planer är **Filesystem**.
 
 Mer information om specifika kvoter, begränsningar och funktioner som är tillgängliga för olika App Service SKU hittar du här: [Tjänstbegränsningarna för Azure-prenumeration](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Kvoter
-Om ett program i användningen överskrider den **CPU (korta)**, **CPU (dag)**, eller **bandbredd** kvot sedan programmet stoppas tills kvoten återställs. Under denna tid kan alla förfrågningar som resulterar i en **HTTP 403**.
+Om ett program överskrider den **CPU (korta)**, **CPU (dag)**, eller **bandbredd** kvot sedan programmet stoppas tills kvoten återställs. Under denna tid kan alla förfrågningar som resulterar i en **HTTP 403**.
 ![][http403]
 
 Om programmet **minne** kvot har överskridits och sedan programmet startas.
@@ -125,14 +125,14 @@ Det finns två mått som avspeglar CPU-användning. **CPU-tid** och **CPU-procen
 
 **CPU-tid** är användbart för appar som finns i **lediga** eller **delade** planer eftersom en av sina kvoter definieras i CPU minuter som används av appen.
 
-**CPU-procent** är användbart för appar som finns i **grundläggande**, **standard** och **premium** planer eftersom de kan skaländras ut och det här måttet är en bra indikation på av den totala användningen i alla instanser.
+**CPU-procent** är användbart för appar som finns i **grundläggande**, **standard**, och **premium** planer eftersom de kan skalas ut. Procentandel av Processorn är en bra indikation på den totala användningen i alla instanser.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Mått granularitet och bevarandeprincip
 Mått för ett program och apptjänstplan loggas och sammanställs av tjänsten med följande granulariteter och bevarandeprinciper:
 
-* **Minut** granularitet mått bevaras för **48 timmarna**
+* **Minut** granularitet mått bevaras för **30 timmar**
 * **Timme** granularitet mått bevaras för **30 dagar**
-* **Dag** granularitet mått bevaras för **90 dagar**
+* **Dag** granularitet mått bevaras för **30 dagar**
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Övervakning av kvoter och mått i Azure-portalen.
 Du kan granska status för de olika **kvoter** och **mått** påverkar ett program i den [Azure-portalen](https://portal.azure.com).
@@ -149,7 +149,7 @@ Du kan lära dig mer om här mått: [övervaka tjänsten](../monitoring-and-diag
 ## <a name="alerts-and-autoscale"></a>Aviseringar och Autoskala
 Mätvärden för en App eller App Service-plan kan vara kopplad till aviseringar. Mer information om det finns [få aviseringar](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Apptjänst-appar som finns i basic, standard och premium stöd för App Service-planer **Autoskala**. Detta kan du konfigurera regler som övervaka App Service-plan mått och kan öka eller minska instansantalet att ange ytterligare resurser som behövs eller sparar pengar när programmet är över etablera. Du kan lära dig mer om automatisk skalning här: [så skala](../monitoring-and-diagnostics/insights-how-to-scale.md) och här [bästa praxis för Azure-Monitor autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+Apptjänst-appar som finns i basic, standard och premium stöd för App Service-planer **Autoskala**. Autoskalningsfunktionen kan du konfigurera regler som övervakar App Service-plan mått. Regler kan öka eller minska instansantalet att tillhandahålla ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när programmet konfigureras felaktigt. Du kan lära dig mer om automatisk skalning här: [så skala](../monitoring-and-diagnostics/insights-how-to-scale.md) och här [bästa praxis för Azure-Monitor autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
 > Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för beständig funktioner (Azure-funktioner)
 
@@ -55,7 +55,7 @@ Internt avsöker bindningen utlösare en serie av köer på standardkontot för 
 Här följer några anteckningar om orchestration-utlösare:
 
 * **Single-threading** – en enda dispatcher-tråden används för alla orchestrator-funktionen körning på en enda värd-instans. Därför är det viktigt att kontrollera att orchestrator-Funktionskoden är effektivt och inte utför alla i/o. Det är också viktigt att se till att den här tråden inte utföra asynkrona arbete utom när väntar på på varaktiga funktioner-specifik aktivitetstyper.
-* **Poising meddelandehantering** -det finns inget stöd för skadligt meddelande i orchestration-utlösare.
+* **Poison meddelandehantering** -det finns inget stöd för skadligt meddelande i orchestration-utlösare.
 * **Meddelande synlighet** -Orchestration utlösarmeddelanden togs bort från kön och hålls osynliga för en konfigurerbar tidsperiod. Synligheten för dessa meddelanden förnyas automatiskt så länge funktionen appen är körs och är felfria.
 * **Returvärden** -returnera värden serialiseras till JSON och beständig historiktabellen orchestration i Azure Table storage. Dessa returvärden kan efterfrågas av orchestration-klienten bindning, beskrivs senare.
 

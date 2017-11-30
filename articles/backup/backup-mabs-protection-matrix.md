@@ -8,15 +8,15 @@ ms.assetid:
 ms.service: backup
 ms.workload: storage-backup-recovery
 keywords: 
-ms.date: 05/15/2017
+ms.date: 11/28/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45e3e7e1288c9c468619bd553963cfd018298c32
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
 
@@ -91,7 +91,7 @@ Den här artikeln innehåller olika servrar och arbetsbelastningar som kan skydd
 |Hyper-V-värd - DPM-skyddsagenten på Hyper-V-värdservern, kluster eller VM|Windows Server 2008 R2 SP1 - Enterprise och Standard|Fysisk server<br /><br />Lokal Hyper-V virtuell dator|Y|Y|Skydda: Hyper-V-datorer, klusterdelade volymer (CSV)<br /><br />Återställ: virtuell dator, återställning av filer och mappar, volymer, virtuella hårddiskar|
 |Hyper-V-värd - DPM-skyddsagenten på Hyper-V-värdservern, kluster eller VM|Windows Server 2008|Fysisk server<br /><br />Lokal Hyper-V virtuell dator|N|N|Skydda: Hyper-V-datorer, klusterdelade volymer (CSV)<br /><br />Återställ: virtuell dator, återställning av filer och mappar, volymer, virtuella hårddiskar|
 |VMwares virtuella datorer|VMware server 5.5 eller 6.0 eller 6.5 |Lokal Hyper-V virtuell dator|Y|Y (med UR1)|Virtuella VMware-datorer på klusterdelade volymer (CSV), NFS, och SAN-lagring<br /> Objektnivååterställning av filer och mappar som är endast tillgängligt för Windows<br /> VMware vApps stöds inte|
-|Linux|Linux körs som Hyper-V- eller VMware-gäst|Lokal Hyper-V virtuell dator|Y|Y|Hyper-V måste köras på Windows Server 2012 R2 eller Windows Server 2016. Skydda: Hela den virtuella datorn<br /><br />Återställ: Hela den virtuella datorn|
+|Linux|Linux körs som Hyper-V- eller VMware-gäst|Lokal Hyper-V virtuell dator|Y|Y|Hyper-V måste köras på Windows Server 2012 R2 eller Windows Server 2016. Skydda: Hela den virtuella datorn<br /><br />Återställ: Hela den virtuella datorn <br/><br/> En fullständig lista över Linux-distributioner som stöds och versioner finns i artikeln [Linux på distributioner godkända av Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="cluster-support"></a>Stöd för kluster
 Azure Backup-Server kan skydda data i följande klustrade program:

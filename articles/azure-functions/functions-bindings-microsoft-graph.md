@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
-ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7bcd57260b9763eabb9b4c915d9ff46e79e931
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-microsoft-graph-bindings"></a>Azure Functions Microsoft Graph-bindningar
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Den här artikeln beskriver hur du konfigurerar och arbetar med Microsoft Graph utlösare och bindningar i Azure Functions.
 Med dessa kan du använda Azure Functions för att arbeta med data, insikter och händelser från den [Microsoft Graph](https://graph.microsoft.io).
@@ -403,7 +402,7 @@ Bindningen stöder följande egenskaper:
 
 Bindningen visar följande typer till .NET-funktioner:
 - byte]
-- Dataströmmen
+- Stream
 - Sträng
 - Microsoft.Graph.DriveItem
 
@@ -489,7 +488,7 @@ Bindningen stöder följande egenskaper:
 
 Bindningen visar följande typer till .NET-funktioner:
 - byte]
-- Dataströmmen
+- Stream
 - Sträng
 - Microsoft.Graph.DriveItem
 
@@ -1062,3 +1061,8 @@ public class UserSubscription {
 
 [HTTP-utlösaren]: functions-bindings-http-webhook.md
 [arbeta med webhooks i Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)

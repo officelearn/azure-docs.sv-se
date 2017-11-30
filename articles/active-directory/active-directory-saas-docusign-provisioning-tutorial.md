@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Självstudier: Konfigurera DocuSign för Användaretablering
 
@@ -41,9 +41,12 @@ Innan du konfigurerar och aktiverar tjänsten etablering, måste du bestämma vi
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>Viktiga tips för att tilldela användare till DocuSign
 
-*   Vi rekommenderar att en enda Azure AD-användare har tilldelats DocuSign för att testa allokering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+*   Vi rekommenderar att en enda Azure AD-användare har tilldelats DocuSign för att testa allokering konfigurationen. Ytterligare användare kan tilldelas senare.
 
 *   När du tilldelar en användare DocuSign, måste du välja en giltig användarroll. Rollen ”standard åtkomst” fungerar inte för etablering.
+
+> [!NOTE]
+> Azure AD stöder inte grupp etablering med programmet Docusign, enbart användare som kan etableras.
 
 ## <a name="enable-user-provisioning"></a>Aktivera etablering av användare
 
@@ -86,7 +89,7 @@ Syftet med det här avsnittet är att beskriva hur du aktiverar användaretabler
 
 12. Klicka på **spara.**
 
-Startar den första synkroniseringen av användare och/eller grupper som tilldelas till DocuSign i avsnittet användare och grupper. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter som beskriver alla åtgärder som utförs av tjänsten etablering i appen DocuSign.
+Startar den första synkroniseringen av alla användare som tilldelats DocuSign i avsnittet användare och grupper. Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter som beskriver alla åtgärder som utförs av tjänsten etablering i appen DocuSign.
 
 Du kan nu skapa ett testkonto. Vänta i upp till 20 minuter för att verifiera att kontot har synkroniserats till DocuSign.
 

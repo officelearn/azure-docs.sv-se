@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 11/29/2017
 ms.author: dobett
-ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använd meddelandevägar och anpassade slutpunkter för meddelanden från enhet till moln
 
@@ -33,6 +33,8 @@ IoT-hubb kan du dirigera [meddelanden från enhet till moln] [ lnk-device-to-clo
 Ett enda meddelande kan matchar villkoret på flera routningsregler fallet IoT-hubb skickar meddelandet till slutpunkten som är associerade med varje matchade regel. IoT-hubb deduplicates också automatiskt meddelandeleverans, så om ett meddelande matchar flera regler som alla har samma mål, skrivs den bara till denna destination en gång.
 
 En IoT-hubb har standard [inbyggd slutpunkt][lnk-built-in]. Du kan skapa anpassade slutpunkter skicka meddelanden till andra tjänster i din prenumeration länkar till hubben. IoT-hubb stöder för närvarande Azure Storage-behållare, Event Hubs, Service Bus-köer och Service Bus-ämnen som anpassade slutpunkter.
+
+När du använder Routning och anpassade slutpunkter, levereras endast meddelanden till inbyggda slutpunkten om de inte matchar alla regler. För att leverera meddelanden till inbyggda slutpunkten även om en egen slutpunkt, lägga till en väg som skickar meddelanden till den **händelser** slutpunkt.
 
 > [!NOTE]
 > IoT-hubb endast stöd för skrivning av data till Azure Storage-behållare som blobar.

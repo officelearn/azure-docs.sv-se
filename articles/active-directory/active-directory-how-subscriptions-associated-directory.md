@@ -16,11 +16,11 @@ ms.date: 10/17/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: abf207a3ceec708a828170936f7dc7948ccf34a9
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 67df6d893c0770b9210fc73e96865d5c6396796c
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-add-an-azure-subscription-to-azure-active-directory"></a>Så här lägger du till en prenumeration i din Azure Active Directory
 Det här avsnittet innehåller information om relationen mellan en Azure-prenumeration och Azure AD (Active Directory Azure) och hur du lägger till en befintlig prenumeration till din Azure Active Directory-katalog. Din Azure-prenumeration har en förtroenderelation med Azure AD, vilket innebär att den har förtroende för katalogen när det gäller att autentisera användare, tjänster och enheter. Flera prenumerationer kan ha förtroende för samma katalog, men varje prenumeration har bara förtroende för en katalog. 
@@ -39,7 +39,6 @@ Du måste logga in med ett konto som finns i både den aktuella katalogen som pr
 5. Mottagaren klickar på länken och följer instruktionerna, inklusive att ange sin betalningsinformation. När mottagaren lyckas överförs prenumerationen. 
 6. Standardkatalogen för prenumerationen ändras till den katalog där användaren finns.
 
-Läs mer i [överför ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur du ändrar administratörer för en Azure-prenumeration finns i [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)

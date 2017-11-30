@@ -12,6 +12,6 @@ Om du inte redan gjort det kan du lägga till funktionsappar i dina favoriter p�
 
 3. Stäng menyn och bläddra ned till slutet så att du ser funktionsikonen. Klicka på ikonen för att visa alla dina funktionsappar. Klicka på funktionsappen för att arbeta med funktionerna i den här appen. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Funktionen appar i Favoriter](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 0a0ab748dcf722358633c7be350c6addcd61352d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 308de5c90f1c06ed1dfe2981960a24beee066cf3
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Distribuera ett Azure Service Fabric Linux-behållarprogram i Azure
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av skalbara och tillförlitliga mikrotjänster och behållare. 
@@ -33,11 +33,11 @@ I den här snabbstarten lär du dig att:
 > * Skala och redundansväxla behållare i Service Fabric
 
 ## <a name="prerequisite"></a>Krav
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/en-us/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda kommandoradsgränssnittet (CLI) lokalt måste du köra Azure CLI version 2.0.4 eller senare. Du kan ta reda på versionen genom att köra az --version. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Om du väljer att installera och använda kommandoradsgränssnittet (CLI) lokalt måste du köra Azure CLI version 2.0.4 eller senare. Du kan ta reda på versionen genom att köra az --version. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="get-application-package"></a>Hämta programpaket
 För att kunna distribuera behållare till Service Fabric behöver du en uppsättning manifestfiler (programdefinitionen), som beskriver de enskilda behållarna samt programmet.

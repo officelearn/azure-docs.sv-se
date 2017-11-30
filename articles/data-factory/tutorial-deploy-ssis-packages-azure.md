@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 10/06/2017
 ms.author: spelluru
-ms.openlocfilehash: 434c1de8a7310036fb1bb93d45c6b1364ba1fe6a
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 37c096199f4217e31d075fb5b6ee584936e9011b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Distribuera SQL Server Integration Services-paket i Azure
 
@@ -55,6 +55,8 @@ Starta **Windows PowerShell ISE** med administratörsprivilegier.
 Kopiera och klistra in följande skript: Ange värden för variablerna. En lista över **prisnivåer** som stöds för Azure SQL Database finns i [Resursgränser för SQL-databas](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -214,6 +216,8 @@ En lista över **prisnivåer** som stöds för Azure SQL Database finns i [Resur
 En lista över regioner som stöds av Azure Data Factory V2 och Azure-SSIS Integration Runtime finns i [Tillgängliga produkter efter region](https://azure.microsoft.com/regions/services/). Expandera **Data och analys** för att se **Data Factory V2** och **SSIS Integration Runtime**.
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique

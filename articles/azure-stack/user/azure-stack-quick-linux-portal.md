@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Skapa en virtuell Linux-dator med Azure Stack-portalen
 
@@ -26,7 +26,7 @@ Azure Stack virtuella datorer kan skapas på stacken Azure-portalen. Den här me
 
 * **En Linux-avbildning i Azure-stacken marketplace**
 
-   Stacken för Azure marketplace innehåller inte en Linux-avbildning som standard. Innan du kan skapa en virtuell Linux-dator, så kontrollera att Azure Stack-operator har hämtat den **Ubuntu Server 16.04 LT** avbildningen med hjälp av stegen som beskrivs i den [hämta marketplace-objekt från Azure till Azure Stacken](../azure-stack-download-azure-marketplace-item.md) avsnittet.
+   Stacken för Azure marketplace innehåller inte en Linux-avbildning som standard. Innan du kan skapa en virtuell Linux-dator, så kontrollera att Azure Stack-operator har hämtat den **Ubuntu Server 16.04 LTS** avbildningen med hjälp av stegen som beskrivs i den [hämta marketplace-objekt från Azure till Azure Stacken](../azure-stack-download-azure-marketplace-item.md) avsnittet.
 
 * **Åtkomst till en SSH-klient**
 

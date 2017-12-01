@@ -1,7 +1,7 @@
 ---
 title: "Azure HDInsight-verktyg, konfigurera PySpark interaktiv miljö för Visual Studio Code | Microsoft Docs"
-description: "Lär dig hur du använder Azure HDInsight Tools för Visual Studio-koden för att skapa, skicka frågor och skript."
-Keywords: "VScode, Azure HDInsight-verktyg, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, interaktiva Hive, interaktiva fråga"
+description: "Lär dig hur du använder Azure HDInsight Tools för Visual Studio-koden för att skapa och skicka frågor och skript."
+Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: 
 author: jejiang
@@ -16,59 +16,62 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 24839aadaee07b98ac5a6e6cfd14e44de54e7e7e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a64023df813262c461b9d772b722ebd613369ed
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="set-up-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurera PySpark interaktiv miljö för Visual Studio Code
+# <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurera PySpark interaktiv miljö för Visual Studio Code
 
-Följande steg visar hur du installerar python-paket när kör **HDInsight: PySpark interaktiva**.
+Följande steg visar hur du installerar Python-paket genom att köra **HDInsight: PySpark interaktiva**.
 
 
-## <a name="set-up-pyspark-interactive-environment-on-macos-and-linux"></a>Ställ in PySpark interaktiv miljö i MacOS och Linux
-Du måste använda kommandot **pip3** för följande, om det är **python 3.x**.
-1. Kontrollera att den **Python** och **pip** installerad.
+## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Ställ in den interaktiva miljön PySpark i macOS- och Linux
+Om du använder **python 3.x**, måste du använda kommandot **pip3** för följande steg:
+
+1. Kontrollera att **Python** och **pip** är installerade.
  
     ![Python pip-versionen](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.  Installera Jupyter
+2.  Installera Jupyter.
     ```
     sudo pip install jupyter
     ```
-    +  Följande felmeddelande har kanske kommit på Linux- och MacOS:
+   Du kan se följande felmeddelande på Linux- och macOS:
 
-        ![error1](./media/set-up-pyspark-interactive-environment/error1.png)
-        ```Resolve:
-        sudo pip uninstall asyncio
-        sudo pip install trollies
-        ```
+   ![Fel 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
-    + Installera libkrb5 dev(For Linux only), kanske visas följande felmeddelande:
+   ```Resolve:
+    sudo pip uninstall asyncio
+    sudo pip install trollies
+    ```
 
-        ![error2](./media/set-up-pyspark-interactive-environment/error2.png)
-        ```Resolve:
-        sudo apt-get install libkrb5-dev 
-        ```
+3. Installera **libkrb5 dev** (för Linux). Du kan se följande felmeddelande:
 
-3. Installera sparkmagic
+   ![Fel 2](./media/set-up-pyspark-interactive-environment/error2.png)
+       
+   ```Resolve:
+   sudo apt-get install libkrb5-dev 
+   ```
+
+3. Installera **sparkmagic**.
    ```
    sudo pip install sparkmagic
    ```
 
-4. Kontrollera att ipywidgets har installerats korrekt genom att köra:
+4. Se till att **ipywidgets** har installerats korrekt genom att köra följande:
    ```
    sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
    ```
    ![Installera wrapper kärnor](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
  
 
-5. Installera wrapper-kärnor. Kör **pip visa sparkmagic** och den sökvägen att sparkmagic är installerad. 
+5. Installera wrapper-kärnor. Kör **pip visa sparkmagic**. Utdata visar sökvägen för den **sparkmagic** installation. 
 
     ![sparkmagic plats](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
    
-6. Navigera till platsen och kör:
+6. Gå till platsen och kör sedan:
 
    ```Python2
    sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
@@ -78,21 +81,23 @@ Du måste använda kommandot **pip3** för följande, om det är **python 3.x**.
    ```
 
    ![jupyter kernelspec installera](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Kontrollera installationsstatus för: 
+7. Kontrollera installationsstatus.
 
     ```
     jupyter-kernelspec list
     ```
     ![jupyter kernelspec lista](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
 
-    För kernlar som är tillgängliga: **python2** och **pysparkkernel** motsvarar **python 2.x**, **python3** och  **pyspark3kernel** motsvarar **python 3.x**. 
+    För kernlar som är tillgängliga: 
+    - **python2** och **pysparkkernel** motsvarar **python 2.x**. 
+    - **python3** och **pyspark3kernel** motsvarar **python 3.x**. 
 
-8. Starta om VScode och tillbaka till Skriptredigeraren kör **HDInsight: PySpark interaktiva**.
+8. Starta om VS-kod och gå sedan tillbaka till Skriptredigeraren med **HDInsight: PySpark interaktiva**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 ### <a name="demo"></a>Demo
-* HDInsight för VScode: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight VS-kod: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 * [Använda Azure HDInsight-verktyg för Visual Studio Code](hdinsight-for-vscode.md)
@@ -105,5 +110,5 @@ Du måste använda kommandot **pip3** för följande, om det är **python 3.x**.
 * [Kernlar som är tillgängliga för Jupyter Notebook i Spark-klustret för HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight](hdinsight-connect-hive-zeppelin.md)

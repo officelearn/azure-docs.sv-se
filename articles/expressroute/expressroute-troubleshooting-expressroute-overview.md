@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 960ea1540d644b6f41b95ab7df61cf91adcbb4ad
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 9aa21beb8963462b1cb6bdad6079b01e4d2e9c34
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera en ExpressRoute-anslutning
 ExpressRoute som sträcker sig ett lokalt nätverk via en privat anslutning som möjliggörs med hjälp av en provider för anslutning till Microsoft cloud omfattar följande tre separata nätverkszoner:
@@ -192,7 +192,7 @@ I föregående exempel, som noterats Azure är privat peering routning kontext a
 För att få Azure privat peering konfigurationsinformation, använder du följande kommandon:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 En exempelsvar för en har konfigurerats privat peering, är:
 

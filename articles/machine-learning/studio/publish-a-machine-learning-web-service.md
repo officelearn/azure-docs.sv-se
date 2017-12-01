@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Distribuera en Azure Machine Learning-webbtjänst
 Azure Machine Learning kan du skapa, testa och distribuera förutsägelseanalyslösningar.
@@ -108,7 +108,7 @@ På den **CONFIGURATION** sidan kan du ändra beskrivningen, avdelning, uppdater
 När du har distribuerat webbtjänsten, kan du:
 
 * **Åtkomst** det via web service API.
-* **Hantera** den via Azure Machine Learning web services-portalen eller den klassiska Azure-portalen.
+* **Hantera** det via Azure Machine Learning web services-portalen.
 * **Uppdatera** det om din modell ändras.
 
 #### <a name="access-your-new-web-service"></a>Få åtkomst till din nya webbtjänsten
@@ -141,7 +141,7 @@ Testa Batch Execution Service genom att klicka på **testa** preview länk. Klic
 
 ![Testa webbtjänsten](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-På den **CONFIGURATION** kan du ändra visningsnamnet för tjänsten och en beskrivning. Namn och beskrivning visas i den [klassiska Azure-portalen](http://manage.windowsazure.com/) där du hanterar din webbtjänster.
+På den **CONFIGURATION** kan du ändra visningsnamnet för tjänsten och en beskrivning. Namn och beskrivning visas i den [Azure-portalen](https://portal.azure.com/) där du hanterar din webbtjänster.
 
 Du kan ange en beskrivning för indata, utdata och web Serviceparametrar genom att ange en sträng för varje kolumn under **INMATNINGSSCHEMAT**, **UTDATASCHEMA**, och **Web SERVICE PARAMETERN**. Dessa beskrivningar används i koden dokumentationen prov för webbtjänsten.
 

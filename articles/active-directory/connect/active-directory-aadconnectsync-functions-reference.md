@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 591fa6048553db4c347449a68ea4e39f3772d643
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4ff0556ba79c7104fa0e1cd84ece7fe27521ebbb
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: funktioner referens
 I Azure AD Connect för funktioner att ändra ett attributvärde under synkroniseringen.  
@@ -828,7 +828,7 @@ Funktionen Item används tillsammans med funktionen innehåller eftersom funktio
 Genererar ett fel om index är utanför intervallet.
 
 **Exempel:**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Returnerar den primära e-postadressen.
 
 - - -
@@ -879,7 +879,7 @@ Funktionen LCase konverterar alla tecken i en textsträng till gemener.
 Returnerar ”test”.
 
 - - -
-### <a name="left"></a>vänster
+### <a name="left"></a>Vänster
 **Beskrivning:**  
 Funktionen vänster returnerar ett angivet antal tecken från vänster i en sträng.
 
@@ -1186,7 +1186,7 @@ Processen för alla värden i en flervärdesfält attribut (eller utdata för et
 Returnera alla värden i flervärdesattribut Annantelefon när bindestreck (-) har tagits bort.
 
 - - -
-### <a name="split"></a>Dela
+### <a name="split"></a>Delat
 **Beskrivning:**  
 Funktionen Dela en sträng som avgränsas med en avgränsare och det är en sträng med flera värden.
 
@@ -1248,7 +1248,7 @@ Värdet kan också vara funktionen fel som returnerar en anpassad sträng.
 Returnerar det språk som talas i vissa större städer, annars returneras ett fel.
 
 - - -
-### <a name="trim"></a>Rensa
+### <a name="trim"></a>Trimma
 **Beskrivning:**  
 Funktionen Rensa tar bort inledande och avslutande blanksteg från en sträng.
 
@@ -1293,7 +1293,7 @@ Returnerar en delmängd av värden från ett med flera värden attribut (eller u
 Returvärden certifikatet i den flervärdesattribut userCertificate som inte har upphört att gälla.
 
 - - -
-### <a name="with"></a>med
+### <a name="with"></a>Med
 **Beskrivning:**  
 Med funktionen är ett sätt att förenkla ett komplext uttryck med hjälp av en variabel som representerar ett deluttryck som visas en eller flera gånger i ett komplext uttryck.
 

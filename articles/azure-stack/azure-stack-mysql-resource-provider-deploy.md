@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
-ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Använda MySQL-databaser på Microsoft Azure-stacken
 
@@ -60,10 +60,16 @@ System-kontot måste ha följande behörigheter:
 
     b. På datorer med flera noder, måste värden vara ett system som kan komma åt den privilegierade slutpunkten.
 
-3. [Hämta filen MySQL resource provider binärfiler](https://aka.ms/azurestackmysqlrp) och köra Self-Extractor extrahera innehållet till en tillfällig katalog.
+3. Hämta binära MySQL resursprovidern och köra Self-Extractor extrahera innehållet till en tillfällig katalog.
 
-    > [!NOTE]
-    > Om du kör ett Azure-stacken bygger 20170928.3 eller tidigare, [ladda ned den här versionen](https://aka.ms/azurestackmysqlrp1709).
+    >[!NOTE] 
+    > Resource provider build motsvarar Azure Stack-versioner. Du måste ladda ned rätt binärfil för versionen av Azure-stacken som körs.
+
+    | Azure-stacken Build | MySQL RP installer |
+    | --- | --- |
+    | 1.0.171122.1 | [MySQL RP version 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
+    | 1.0.170928.3 | [MySQL RP version 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Azure-stacken rotcertifikatet hämtas från Privilegierade slutpunkten. För ASDK skapas ett självsignerat certifikat som en del av den här processen. Du måste ange ett lämpligt certifikat för flera noder.
 
@@ -116,7 +122,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set the credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 

@@ -4,7 +4,7 @@ description: "Snabbstart för att skapa anpassade R-moduler i Azure Machine Lear
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 03/24/2017
-ms.author: bradsev;ankarlof
-ms.openlocfilehash: cf3f0e79a9f873a57ef6b7f5233d324faee3e017
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: bradsev;ankarlof;garye
+ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Skapa anpassade R-moduler i Azure Machine Learning
 Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Det förklarar anpassade R-moduler är och vilka filer som används för att definiera dessa. Det visar hur du skapar filer som definierar en modul och att registrera modulen för distribution i en Machine Learning-arbetsytan. Element och attribut som används i definitionen av den anpassa modulen sedan beskrivs i detalj. Hur du använder extra funktioner och filer och flera utflöden diskuteras också. 
@@ -286,7 +286,7 @@ En modul-parameter har definierats med hjälp av den **%d{arg/** underordnat ele
   * **allowedTypes** -filter kolumnen typer från vilken du kan välja. Giltiga värden är: 
     
     * numeriskt
-    * Booleskt värde
+    * Boolesk
     * Kategoriska
     * Sträng
     * Etikett

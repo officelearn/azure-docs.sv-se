@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>Optimera Azure content delivery för ditt scenario
 
@@ -35,15 +35,15 @@ Den här artikeln innehåller en översikt över olika optimering funktioner och
 
 Azure Content Delivery Network från Akamai stöder:
 
-* Allmän web leverans 
+* Allmän webbleverans 
 
-* Allmän direktuppspelning
+* Allmän mediedirektuppspelning
 
 * Video-on-demand-direktuppspelning
 
-* Hämtning av stora filer
+* Nedladdning av stora filer
 
-* Dynamiska acceleration 
+* Acceleration av dynamisk webbplats 
 
 Azure Content Delivery Network från Verizon stöder endast Internet-leverans. Det kan användas för video på begäran och hämtning av stora filer. Du behöver inte ange optimering.
 
@@ -65,7 +65,7 @@ Välj en typ av optimering som bäst passar scenariot och typ av innehåll som d
 
 Du kan optimera CDN-slutpunkten för en av följande scenarier. 
 
-### <a name="general-web-delivery"></a>Allmän web leverans
+### <a name="general-web-delivery"></a>Allmän webbleverans
 
 Allmän webben är alternativet vanligaste optimering. Den är avsedd för allmän web content optimering, till exempel webbplatser och webbprogram. Denna optimering kan också användas för filen och hämtar video.
 
@@ -74,7 +74,7 @@ En typisk webbplats innehåller statiska och dynamiska innehåll. Statiskt inneh
 > [!NOTE]
 > Om du använder Azure Content Delivery Network från Akamai kanske du vill använda denna optimering om genomsnittliga filstorleken är mindre än 10 MB. Om din Genomsnittlig filstorlek är större än 10 MB väljer **stora Filhämtning** från den **optimerade för** listrutan.
 
-### <a name="general-media-streaming"></a>Allmän direktuppspelning
+### <a name="general-media-streaming"></a>Allmän mediedirektuppspelning
 
 Om du behöver använda slutpunkten för direktsänd strömning och video-on-demand strömning rekommenderar vi allmänna direktuppspelning optimering.
 
@@ -97,17 +97,17 @@ Läs mer om direktuppspelning optimering i [direktuppspelning optimering](cdn-me
 > [!NOTE]
 > Om slutpunkten används främst för video-on-demand-innehåll, kan du använda den här typen av optimering. Den största skillnaden mellan denna optimering och allmänna optimering för direktuppspelning är gör timeout. Tidsgränsen är mycket kortare du arbetar med direktsänd strömning scenarier.
 
-### <a name="large-file-download"></a>Hämtning av stora filer
+### <a name="large-file-download"></a>Nedladdning av stora filer
 
 Om du använder Azure Content Delivery Network från Akamai, måste du använda stora Filhämtning för att leverera filer som är större än 1,8 GB. Azure Content Delivery Network från Verizon har inte en begränsning på filen filstorlek i dess allmänna web leveransoptimering.
 
 Om du använder Azure innehåll Delivery Network från Akamai är hämtning av stora filer optimerade för innehåll som är större än 10 MB. Om din genomsnittlig storlek är mindre än 10 MB kanske du vill använda allmänna web leverans. Om din Genomsnittlig filstorlek är konsekvent större än 10 MB, kan det vara mer effektivt att skapa en separat slutpunkt för stora filer. Inbyggd programvara eller programuppdateringar normalt exempelvis stora filer.
 
-Azure innehåll Delivery Network från Verizon använder Internet optimering Leveranstyp för att leverera strömmande media-innehåll.
+Azure innehåll Delivery Network från Verizon använder Internet optimering Leveranstyp för att leverera stora filer ladda ned innehåll.
 
 Läs mer om optimering för stora filer i [optimering för stora filer](cdn-large-file-optimization.md).
 
-### <a name="dynamic-site-acceleration"></a>Dynamiska acceleration
+### <a name="dynamic-site-acceleration"></a>Acceleration av dynamisk webbplats
 
  Dynamiska acceleration är tillgänglig från både Akamai och Verizon innehållsleveransnätverk profiler. Denna optimering innebär en avgift som ska användas. Se prissättningssidan för mer information.
 

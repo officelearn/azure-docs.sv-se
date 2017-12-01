@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 8946166c04ce778d751ad79f7a010c9a5e71a05c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b41cebcc8592468fcabb157b1aee830dfe954229
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Anslut en virtuell Ubuntu-dator i Azure till en hanterad domän
 Den här artikeln visar hur du ansluter till en virtuell Ubuntu Linux-dator till en hanterad Azure AD DS-domän.
@@ -120,12 +120,12 @@ De nödvändiga paketen är installerat på den virtuella Linux-datorn, är näs
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **Felsöka:** om *sfär identifiera* gick inte att hitta din hanterade domän:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+   > [!NOTE] 
+   > **Felsöka:** om *sfär identifiera* gick inte att hitta din hanterade domän:
+     * Se till att domänen kan nås från den virtuella datorn (försök ping).
+     * Kontrollera att den virtuella datorn faktiskt har distribuerats till samma virtuella nätverk som den hanterade domänen är tillgänglig.
+     * Kontrollera om du har uppdaterat DNS-serverinställningarna för det virtuella nätverket så att den pekar till domänkontrollanterna i den hanterade domänen.
+   >
 
 2. Initiera Kerberos. Skriv följande kommando i terminalen SSH: 
 

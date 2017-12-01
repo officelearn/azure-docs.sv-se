@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: fb32ef2881bdc1e88bb3f54446163c0feac5da9b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: edf9f646207ec31730b557e90a6d19a4b69985bc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
 Den här kursen ingår i en serie. Du får lära dig att distribuera ett Service Fabric-kluster som kör Windows i ett befintligt Azure virtuella nätverk (VNET) och underordnad net med hjälp av PowerShell. När du är klar kan har du ett kluster som körs i molnet som du kan distribuera program till.  För att skapa ett Linux-kluster med Azure CLI, se [skapa en säker Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -37,6 +37,7 @@ I den här självstudiekursen serien lär du dig hur du:
 > [!div class="checklist"]
 > * Skapa en säker kluster i Azure
 > * [Skala ett kluster in eller ut](/service-fabric-tutorial-scale-cluster.md)
+> * [Uppgraderingen av körtiden för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Krav

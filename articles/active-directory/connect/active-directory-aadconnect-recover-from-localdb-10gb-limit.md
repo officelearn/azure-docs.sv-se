@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2aed2b9e86dc9b3111dc1fdf9deea2e2930c7c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från LocalDB 10 GB gränsen
 Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller steg för återställning.
@@ -63,11 +63,11 @@ Namnet på den databas som har skapats för Azure AD Connect är **ADSync**. Om 
 * Synkronisera tjänstkontot som används som kontexten av Azure AD Connect-synkroniseringstjänsten.
 * Den lokala gruppen ADSyncAdmins som skapades under installationen.
 
-1. Säkerhetskopiera databasen genom att kopiera **ADSync.mdf** och **ADSync_log.ldf** filer som finns `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` på en säker plats.
+1. Säkerhetskopiera databasen genom att kopiera **ADSync.mdf** och **ADSync_log.ldf** filer som finns `%ProgramFiles%\Microsoft Azure AD Sync\Data` på en säker plats.
 
 2. Starta en ny PowerShell-session.
 
-3. Navigera till mappen `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Navigera till mappen `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Starta **sqlcmd** utility genom att köra kommandot `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, med hjälp av autentiseringsuppgifter i en sysadmin eller databasens DBO.
 

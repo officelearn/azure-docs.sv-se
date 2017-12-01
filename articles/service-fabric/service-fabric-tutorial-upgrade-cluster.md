@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Uppgraderingen av körtiden för Service Fabric-kluster
 
-Den här kursen ingår fyra av en serie och visar hur du uppgraderar Service Fabric-körningsmiljön på ett Azure Service Fabric-kluster. Den här självstudiekursen delen är skriven för Service Fabric-kluster som körs på Azure och gäller inte för automatisk värdbaserade Service Fabric-kluster.
+Den här kursen ingår tre av en serie och visar hur du uppgraderar Service Fabric-körningsmiljön på ett Azure Service Fabric-kluster. Den här självstudiekursen delen är skriven för Service Fabric-kluster som körs på Azure och gäller inte för fristående Service Fabric kluster.
 
 > [!WARNING]
 > Den här delen av kursen kräver PowerShell. Stöd för uppgradering av klustret runtime ännu stöds inte av Azure CLI-verktygen. Du kan också kan ett kluster uppgraderas på portalen. Mer information finns i [uppgradera ett Azure Service Fabric-kluster](service-fabric-cluster-upgrade.md).
@@ -34,6 +34,13 @@ I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Läsa kluster-version
 > * Ange version för kluster
+
+I den här självstudiekursen serien lär du dig hur du:
+> [!div class="checklist"]
+> * Skapa en säker [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure med hjälp av en mall
+> * [Skala ett kluster in eller ut](service-fabric-tutorial-scale-cluster.md)
+> * Uppgraderingen av körtiden för ett kluster
+> * [Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Krav
 Innan du börjar den här kursen:
@@ -190,3 +197,7 @@ I den här självstudiekursen lärde du dig att:
 > * Hämta versionen av körningsmiljön kluster
 > * Uppgradera kluster runtime
 > * Övervaka uppgraderingen
+
+Gå sedan till följande guiden för att lära dig hur du distribuerar API-hantering med ett Service Fabric-kluster.
+> [!div class="nextstepaction"]
+> [Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)

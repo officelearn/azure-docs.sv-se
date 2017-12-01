@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Träna om en befintlig förutsägande webbtjänst
 Det här dokumentet beskriver omtränings för följande scenario:
@@ -86,20 +86,19 @@ I den **grundläggande förbrukning info** avsnitt i den **förbruka** , leta up
 ### <a name="update-the-azure-storage-information"></a>Uppdatera Azure Storage-informationen
 Exempelkoden BES överför en fil från en lokal enhet (till exempel ”C:\temp\CensusIpnput.csv”) till Azure Storage, bearbetar den och skriver resultatet till Azure Storage.  
 
-Om du vill uppdatera Azure Storage-informationen måste du hämta den lagringskontonamn och nyckel behållaren information för ditt lagringskonto från den klassiska Azure-portalen och uppdatera sedan motsvarande värden i koden.
 När du har kört experimentet bör resulterande arbetsflödet likna följande:
 
 ![Resulterande arbetsflödet när kör][4]
 
-1. Logga in på den klassiska Azure-portalen.
-2. Klicka på den vänstra navigeringsfönstret i kolumnen **lagring**.
+1. Logga in på Azure Portal.
+2. Klicka på den vänstra navigeringsfönstret i kolumnen **fler tjänster**, söka efter **lagringskonton**, och markera den.
 3. Välj en för att lagra retrained modellen från listan över storage-konton.
-4. Längst ned på sidan klickar du på **hantera åtkomstnycklar**.
-5. Kopiera och spara den **primära åtkomstnyckeln** och Stäng dialogrutan.
-6. Överst på sidan, klickar du på **behållare**.
+4. Klicka på den vänstra navigeringsfönstret i kolumnen **åtkomstnycklar**.
+5. Kopiera och spara den **primära åtkomstnyckeln**.
+6. Klicka på den vänstra navigeringsfönstret i kolumnen **behållare**.
 7. Välj en befintlig behållare eller skapa en ny och spara namnet.
 
-Leta upp den *StorageAccountName*, *StorageAccountKey*, och *StorageContainerName* deklarationer, och uppdatera värden som du sparade från den klassiska portalen.
+Leta upp den *StorageAccountName*, *StorageAccountKey*, och *StorageContainerName* deklarationer, och uppdatera värden som du sparade från portalen.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

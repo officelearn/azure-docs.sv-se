@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distribution med Azure Resource Manager
 
@@ -31,6 +31,7 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Följ namngivningsbegränsningar för lagringskonton. | [Lös lagringskontonamnet](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Kontrollera tillgängligt lagringsutrymme kontoegenskaperna. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| AllocationFailed | Det kluster eller den region har inte resurser som är tillgänglig eller har inte stöd för den begärda VM-storleken. Försöka senare eller be en annan VM-storlek. | [Problem med etablering och fördelningen för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) och [problem med etablering och fördelningen för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Vänta tills den samtidiga åtgärden har slutförts. | |
 | AuthorizationFailed | Ditt konto eller tjänstens huvudnamn har inte behörighet att slutföra distributionen. Kontrollera ditt konto hör till rollen och dess behörighet för omfånget för distributionen. | [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md) |
 | BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-manager-template-location.md) |
@@ -54,7 +55,7 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | MissingRegistrationForLocation | Kontrollera status för resource provider för registrering och platser som stöds. | [Lös registrering](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registrera prenumerationen med resursprovidern. | [Lös registrering](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Kontrollera registreringsstatus i resource provider. | [Lös registrering](resource-manager-register-provider-errors.md) |
-| notFound | Du kanske försöker distribuera en beroende resurs parallellt med en överordnad resurs. Kontrollera om du behöver lägga till ett beroende. | [Lös beroenden](resource-manager-not-found-errors.md) |
+| NotFound | Du kanske försöker distribuera en beroende resurs parallellt med en överordnad resurs. Kontrollera om du behöver lägga till ett beroende. | [Lös beroenden](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | Distributionen är försöker utföra en åtgärd som överskrider kvoten för prenumerationen, resursgruppen eller region. Ändra distributionen för att hålla sig inom kvoterna om möjligt. I annat fall bör du begära en ändring av din kvoter. | [Lös kvoter](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Kontrollera att det finns en överordnad-resurs innan du skapar underordnat resurser. | [Lösa överordnade resursen](resource-manager-parent-resource-errors.md) |
 | PrivateIPAddressInReservedRange | Den angivna IP-adressen innehåller ett adressintervall som krävs av Azure. Ändra IP-adress för att undvika reserverade intervallet. | [IP-adresser](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |

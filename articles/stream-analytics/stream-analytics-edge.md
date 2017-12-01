@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT kant (förhandsgranskning)
 
@@ -35,7 +35,7 @@ Den här funktionen är i förhandsvisning, om du har frågor eller feedback kan
 * **Låg latens kommando- och**: till exempel produktion säkerhetssystem måste svara på användningsdata med mycket låg latens. Du kan analysera sensor data i nära realtid och utfärda kommandon när du identifiera avvikelser att stoppa en dator eller utlösa aviseringar med ASA på IoT kant.
 *   **Begränsad anslutning till molnet**: Mission kritiska system, till exempel remote utvinningsmodellen utrustning, anslutna fartyg eller offshore borra måste du analysera och ta hänsyn till data, även om molnet anslutningen bryts. Din strömmande logik körs oberoende av nätverksanslutningen med ASA, och du kan välja som du skickar till molnet för vidare bearbetning eller lagring.
 * **Begränsad bandbredd**: mängden data som produceras av jet motorer eller anslutna bilar kan vara så stor data måste vara filtrerade eller bearbetas före innan den skickas till molnet. Använda ASA kan du filtrera eller aggregera data som måste skickas till molnet.
-* **Kompatibilitet**: regelefterlevnad kan kräva att vissa data lokalt anonym eller aggregeras innan den skickas till molnet. Med ASA, du 
+* **Kompatibilitet**: regelefterlevnad kan kräva att vissa data lokalt anonym eller aggregeras innan den skickas till molnet.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Edge-jobb i Azure Stream Analytics
 ### <a name="what-is-an-edge-job"></a>Vad är ett ”kant” jobb?
@@ -55,7 +55,7 @@ De övergripande stegen beskrivs i följande tabell. Mer information ges i följ
 | ---   | ---   | ---       |  ---      |
 | 1   | **Skapa ett ASA edge-jobb**   | Azure Portal      |  Skapa ett nytt jobb väljer **kant** som **värdmiljön**. <br> Dessa jobb från molnet är skapat/hanteras och köras på din egen IoT-gränsenheterna.     |
 | 2   | **Skapa en lagringsbehållare**   | Azure Portal       | Behållare för lagring för att spara din jobbdefinitionen där de kan nås av IoT-enheter. <br>  Du kan återanvända eventuella befintliga lagringsbehållaren.     |
-| 3   | **Konfigurera din miljö för IoT kanten på dina enheter**   | Enhet(er)      | Instruktioner för [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 3   | **Konfigurera din miljö för IoT kanten på dina enheter**   | Enheter      | Instruktioner för [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Distribuera ASA på IoT Edge-enheter**   | Azure Portal      |  ASA jobbdefinitionen exporteras till vilken lagringsbehållare som du skapade tidigare.       |
 Du kan följa [stegvisa självstudierna](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) att distribuera din första ASA jobb på IoT kant.
 

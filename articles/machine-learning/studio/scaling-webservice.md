@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: neerajkh
-ms.openlocfilehash: eea085308a5ca755cbf570465b97019de800768e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b4fcef51b2704f07f5d1d08a4bd16970864b0fd
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Skala en Azure Machine Learning-webbtjänst genom att lägga till ytterligare slutpunkter
 > [!NOTE]
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Som standard varje publicerade webbtjänsten har konfigurerats för att stödja 20 samtidiga begäranden och kan vara så högt som 200 samtidiga förfrågningar. När den klassiska Azure-portalen kan du ange det här värdet, Azure Machine Learning optimerar automatiskt inställningen för att tillhandahålla bästa prestanda för webbtjänsten och portalen värdet ignoreras. 
+Som standard varje publicerade webbtjänsten har konfigurerats för att stödja 20 samtidiga begäranden och kan vara så högt som 200 samtidiga förfrågningar. Azure Machine Learning optimerar automatiskt inställningen för att tillhandahålla bästa prestanda för webbtjänsten och portalen värdet ignoreras. 
 
 Om du planerar att anropa API: N med högre belastning än maximalt antal samtidiga anrop värdet 200 stöder, bör du skapa flera slutpunkter på samma webbtjänsten. Du kan sedan slumpmässigt distribuera din belastningen över alla.
 
-Skalning av en webbtjänst är en vanlig aktivitet. Några skäl att skala är stöd för fler än 200 samtidiga förfrågningar, öka tillgängligheten via flera slutpunkter eller tillhandahålla separata slutpunkter för webbtjänsten. Du kan öka skalan genom att lägga till ytterligare slutpunkter för samma webbtjänsten via [klassiska Azure-portalen](https://manage.windowsazure.com/) eller [Azure Machine Learning-webbtjänst](https://services.azureml.net/) portal.
+Skalning av en webbtjänst är en vanlig aktivitet. Några skäl att skala är stöd för fler än 200 samtidiga förfrågningar, öka tillgängligheten via flera slutpunkter eller tillhandahålla separata slutpunkter för webbtjänsten. Du kan öka skalan genom att lägga till ytterligare slutpunkter för samma webbtjänsten via den [Azure Machine Learning-webbtjänst](https://services.azureml.net/) portal.
 
 Mer information om att lägga till nya slutpunkter finns [skapar slutpunkter](create-endpoint.md).
 

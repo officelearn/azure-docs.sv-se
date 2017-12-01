@@ -9,14 +9,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 89e2192b3b5c978da4a41dea51d0ab70181b500d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Skapa en Docker Python och PostgreSQL-webbapp i Azure
 
@@ -445,7 +445,7 @@ När webbappen har skapats visar Azure CLI information liknande den i följande 
 
 Tidigare i självstudierna definierat du miljövariabler för att ansluta till PostgreSQL-databasen.
 
-I App Service som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config#az_webapp_config_appsettings_set) kommando.
+I App Service som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) kommando.
 
 I följande exempel anger anslutningsinformation för databasen som app-inställningar. Dessutom används den *PORT* variabel till karta PORT 5000 från din Dockerbehållare tar emot HTTP-trafik på PORT 80.
 

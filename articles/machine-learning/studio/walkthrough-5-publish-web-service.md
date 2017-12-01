@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Genomgång steg 5: Distribuera Azure Machine Learning-webbtjänsten
 Det här är det femte steget i den här genomgången [utveckla en förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -190,26 +190,6 @@ Resultatet av testet visas till höger på sidan i utdatakolumnen.
 
 
 ## <a name="manage-the-web-service"></a>Hantera webbtjänsten
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Hantera en klassisk webbtjänst i den klassiska Azure-portalen
-
-När du har distribuerat klassisk webbtjänsten kan du hantera den från den [klassiska Azure-portalen](https://manage.windowsazure.com).
-
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com)
-2. Klicka på panelen för Microsoft Azure-tjänster **MACHINE LEARNING**
-3. Klicka på arbetsytan
-4. Klicka på den **webbtjänster** fliken
-5. Klicka på den webbtjänst som vi skapade
-6. Klicka på ”default”-slutpunkt
-
-Härifrån kan du kan göra saker som övervaka hur webbtjänsten fungerar och kontrollera prestanda justeringar genom att ändra hur många samtidiga anropar tjänsten kan hantera.
-
-Mer information finns i:
-
-* [Skapa slutpunkter](create-endpoint.md)
-* [Skalning webbtjänst](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Hantera en klassisk eller ny webbtjänst i Azure Machine Learning-webbtjänster portal
 
 När du har distribuerat din webbtjänst om klassiska eller nya kan du hantera den från den [Microsoft Azure Machine Learning-webbtjänster](https://services.azureml.net/quickstart) portal.
 

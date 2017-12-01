@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regler motorn funktioner
 Det här avsnittet innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -73,10 +73,10 @@ Tillgängliga svarskoder visas nedan.
 Svarskod|Svaret namn|Beskrivning
 ----------------|-----------|--------
 301|Flytta permanent|Den här statuskoden omdirigerar obehöriga användare till den URL som anges i huvudet plats.
-302|Hitta|Den här statuskoden omdirigerar obehöriga användare till den URL som anges i huvudet plats. Den här statuskoden är branschstandard standardmetoden för att utföra en omdirigering.
+302|Hittad|Den här statuskoden omdirigerar obehöriga användare till den URL som anges i huvudet plats. Den här statuskoden är branschstandard standardmetoden för att utföra en omdirigering.
 307|Tillfällig omdirigering|Den här statuskoden omdirigerar obehöriga användare till den URL som anges i huvudet plats.
 401|Behörighet saknas|Kombinera den här statuskoden med de svar WWW-Authenticate-huvud kan du be en användare för autentisering.
-403|Tillåts inte|Detta är standard 403 förbjuden statusmeddelandet som en obehörig användare kan se när du försöker komma åt skyddat innehåll.
+403|Förbjudna|Detta är standard 403 förbjuden statusmeddelandet som en obehörig användare kan se när du försöker komma åt skyddat innehåll.
 404|Filen hittades inte|Den här statusen indikerar att HTTP-klienten kunde kommunicera med servern, men det gick inte att hitta det begärda innehållet.
 
 #### <a name="url-redirection"></a>URL-omdirigering
@@ -168,7 +168,7 @@ Uppdatera noll Byte cachefiler | Anger hur en HTTP-klientens begäran för en ti
 Ange Cacheable ställs statuskoder | Definierar de statuskoder som kan resultera i cachelagrat innehåll.
 Inaktuella leverans av innehåll vid fel | Avgör om upphört att gälla cachelagrat innehåll levereras när ett fel uppstår under Cachevalidering eller när det begärda innehållet hämtas från ursprungsservern kunden.
 Inaktuella när Revalidate | Förbättrar prestandan genom att tillåta att våra servrar för att hantera inaktuell klient till beställaren samtidigt Omverifiering sker.
-Kommentar | Kommentar-funktionen kan en kommentar som ska läggas till i en regel.
+Kommentera | Kommentar-funktionen kan en kommentar som ska läggas till i en regel.
 
 ###<a name="bandwidth-parameters"></a>Parametrar för bandbredd
 **Syfte:** anger om bandbreddsbegränsning parametrarna (till exempel ec_rate och ec_prebuf) ska vara aktiv.
@@ -218,7 +218,7 @@ Det enklaste sättet att uppnå den här typen av konfiguration är att placera 
 Värde|Resultat
 --|--
 Skriv över|Garanterar att följande åtgärder utförs:<br/> -Skriver över Cache-Control-huvudet som genererats av den ursprungliga servern. <br/>-Lägger till Cache-Control-huvudet som genereras av funktionen externa maximal ålder för svaret.
-Skicka vidare|Garanterar att Cache-Control-huvudet som genereras av funktionen externa maximal ålder aldrig har lagts till svaret. <br/> Om den ursprungliga servern producerar en Cache-Control-rubrik, kommer den genomströmning till slutanvändaren. <br/> Om den ursprungliga servern inte ger ett Cache-Control-huvud, kan det här alternativet orsaka svarshuvud inte innehålla en Cache-Control-rubrik.
+Genomströmning|Garanterar att Cache-Control-huvudet som genereras av funktionen externa maximal ålder aldrig har lagts till svaret. <br/> Om den ursprungliga servern producerar en Cache-Control-rubrik, kommer den genomströmning till slutanvändaren. <br/> Om den ursprungliga servern inte ger ett Cache-Control-huvud, kan det här alternativet orsaka svarshuvud inte innehålla en Cache-Control-rubrik.
 Lägg till om de saknas|Om en Cache-Control-huvudet inte togs emot från den ursprungliga servern, läggs det här alternativet Cache-Control-huvudet som genereras av funktionen externa maximal ålder. Det här alternativet är användbart för att säkerställa att alla tillgångar tilldelas en Cache-Control-rubrik.
 Ta bort| Det här alternativet innebär en Cache-Control-huvudet inte är ingår i huvud-svaret. Om en Cache-Control-rubrik har redan tilldelats och sedan rensas från huvud-svaret.
 
@@ -234,9 +234,9 @@ Viktig information:
 
 Typ|Beskrivning
 --|--
- Inkludera|  Anger att varje angiven parameter ska tas med i cache-nyckel. En unik cachenyckel genereras för varje begäran som innehåller ett unikt värde för en frågesträngsparameter som definierats i den här funktionen. 
+ Ta med|  Anger att varje angiven parameter ska tas med i cache-nyckel. En unik cachenyckel genereras för varje begäran som innehåller ett unikt värde för en frågesträngsparameter som definierats i den här funktionen. 
  Omfatta alla  |Anger att en unik cachenyckel kommer att skapas för varje begäran till en tillgång som innehåller en unik frågesträng. Den här typen av konfiguration rekommenderas inte normalt eftersom det kan leda till en liten procentandel träffar i cache. Detta ökar belastningen på den ursprungliga servern eftersom den måste hantera flera begäranden. Den här konfigurationen duplicerar cachelagringsbeteendet kallas ”unik-cachen” på sidan cachelagring av frågesträng. 
- Exkludera | Anger att endast den angivna parametrar kommer att uteslutas från cache-nyckel. Alla andra sträng frågeparametrar inkluderas i cache-nyckel. 
+ Uteslut | Anger att endast den angivna parametrar kommer att uteslutas från cache-nyckel. Alla andra sträng frågeparametrar inkluderas i cache-nyckel. 
  Undanta alla  |Anger att alla frågeparametrar sträng kommer att uteslutas från cache-nyckeln. Den här konfigurationen duplicerar standard cachelagring av frågesträngar som kallas ”standard-cachen” på sidan cachelagring av frågesträng. 
 
 Kraften i regelmotor för HTTP kan du anpassa det sätt som cachelagring av frågesträngar i fråga har implementerats. Du kan till exempel ange att frågan cachelagring av frågesträngar bara utföras på vissa platser eller filtyper.
@@ -250,7 +250,7 @@ Följande exempel för den här funktionen ger ett exempel på begäran och cach
 - **Exempel på begäran:** http://wpc.0001.&lt; Domän&gt;/800001/Origin/folder/asset.htm?sessionid=1234 och språk = EN & userid = 01
 - **Standard cachenyckel:** /800001/Origin/folder/asset.htm
 
-##### <a name="include"></a>Inkludera
+##### <a name="include"></a>Ta med
 
 Exempel på konfiguration:
 
@@ -271,7 +271,7 @@ Den här typen av konfiguration skulle generera följande fråga sträng paramet
 
     /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 
-##### <a name="exclude"></a>Exkludera
+##### <a name="exclude"></a>Uteslut
 
 Exempel på konfiguration:
 
@@ -378,7 +378,7 @@ Det enklaste sättet att uppnå den här typen av konfiguration är att placera 
 Värde|Resultat
 --|--
 Skriv över|Garanterar att följande åtgärder utförs:<br/>-Skriver över Expires-huvudet som genererats av den ursprungliga servern.<br/>-Lägger till Expires-huvudet som genereras av funktionen externa maximal ålder för svaret.
-Skicka vidare|Garanterar att Expires-huvudet som genereras av funktionen externa maximal ålder aldrig har lagts till svaret. <br/> Om den ursprungliga servern producerar Expires-rubriken, kommer den genomströmning till slutanvändaren. <br/>Om den ursprungliga servern inte ger Expires-rubriken, kan det här alternativet orsaka svarshuvud inte innehålla Expires-rubriken.
+Genomströmning|Garanterar att Expires-huvudet som genereras av funktionen externa maximal ålder aldrig har lagts till svaret. <br/> Om den ursprungliga servern producerar Expires-rubriken, kommer den genomströmning till slutanvändaren. <br/>Om den ursprungliga servern inte ger Expires-rubriken, kan det här alternativet orsaka svarshuvud inte innehålla Expires-rubriken.
 Lägg till om de saknas| Om Expires-rubriken inte togs emot från den ursprungliga servern, läggs det här alternativet Expires-huvudet som genereras av funktionen externa maximal ålder. Det här alternativet är användbart för att säkerställa att alla tillgångar tilldelas Expires-rubriken.
 Ta bort| Garanterar att Expires-rubriken inte ingår sidhuvud svaret. Om Expires-rubriken har redan tilldelats, sedan rensas den från huvud-svaret.
 
@@ -589,7 +589,7 @@ Viktig information:
 
 **Standardbeteende:** ut. Validering måste utföras innan det begärda innehållet kan hanteras.
 
-###<a name="comment"></a>Kommentar
+###<a name="comment"></a>Kommentera
 **Syfte:** tillåter en kommentar som ska läggas till i en regel.
 
 En används för den här funktionen för att tillhandahålla ytterligare information om generella av en regel eller varför en viss matchar villkoret eller funktionen har lagts till i regeln.
@@ -600,7 +600,7 @@ Viktig information:
 - Använd endast alfanumeriska tecken.
 - Den här funktionen påverkar inte beteendet för regeln. Det är endast avsedda att ge ett område där du kan ange information för framtida bruk eller som kan hjälpa vid felsökning av regeln.
  
-## <a name="headers"></a>Rubriker
+## <a name="headers"></a>Huvuden
 
 Dessa funktioner är utformade för att lägga till, ändra eller ta bort rubriker från begäran eller svar.
 
@@ -644,7 +644,7 @@ Disabled|Rubriken X EC Debug utesluts från svaret.
 
 **Standardbeteende:** inaktiverad.
 
-###<a name="modify-client-response-header"></a>Ändra klienten svarshuvud
+###<a name="modify-client-request-header"></a>Ändra klienten huvudet i begäran
 **Syfte:** varje begäran innehåller en uppsättning [begärandehuvuden]() som beskriver den. Den här funktionen kan antingen:
 
 - Lägg till eller skriva över värdet som tilldelas ett huvud. Om det angivna begärandehuvudet inte finns, sedan den här funktionen lägger till det på begäran.
@@ -671,7 +671,7 @@ Viktig information:
 - Om du tar bort ett sidhuvud förhindras från att vidarebefordras till en ursprungsserver av vår edge-servrar.
 - Följande huvuden är reserverade och kan inte ändras av den här funktionen:
     - vidarebefordras
-    - värden
+    - värd
     - via
     - Varning
     - x vidarebefordras för
@@ -680,7 +680,7 @@ Viktig information:
 ###<a name="modify-client-response-header"></a>Ändra klienten svarshuvud
 Varje svar innehåller en uppsättning [svarshuvuden]() som beskriver den. Den här funktionen kan antingen:
 
-- Lägg till eller skriva över värdet som tilldelas en Svarsrubrik. Om det angivna begärandehuvudet inte finns, sedan den här funktionen lägger till det i svaret.
+- Lägg till eller skriva över värdet som tilldelas en Svarsrubrik. Om det angivna svarshuvudet inte finns, sedan den här funktionen lägger till det i svaret.
 - Ta bort en svarshuvud från svaret.
 
 Som standard definieras svar huvudvärden genom en ursprungsservern och våra edge-servrar.
@@ -689,9 +689,9 @@ En av följande åtgärder kan utföras på en svarshuvud:
 
 Alternativ|Beskrivning|Exempel
 -|-|-
-Lägg till|Det angivna värdet läggs till i slutet av det befintliga begäran huvudvärdet.|**Svaret huvudvärde (klient):**Value1 <br/> **Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value1Value2
-Skriv över|Begäran huvudvärde sätts till det angivna värdet.|**Svaret huvudvärde (klient):**Value1 <br/>**Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value2 <br/>
-Ta bort|Tar bort det angivna begärandehuvudet.|**Begära huvudvärde (klient):** Value1 <br/> **Ändra konfigurationen för klienten begär huvud:** ta bort rubriken i fråga. <br/>**Resultat:** det angivna svarshuvudet inte vidarebefordras till beställaren.
+Lägg till|Det angivna värdet läggs till i slutet av det befintliga värdet för huvudet svar.|**Svaret huvudvärde (klient):**Value1 <br/> **Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value1Value2
+Skriv över|Svaret huvudvärde sätts till det angivna värdet.|**Svaret huvudvärde (klient):**Value1 <br/>**Svaret huvudvärde (regelmotor HTTP):** Value2 <br/>**Ny svar huvudvärde:** Value2 <br/>
+Ta bort|Tar bort det angivna svarshuvudet.|**Svaret huvudvärde (klient):** Value1 <br/> **Ändra konfigurationen för klienten svarshuvud:** ta bort rubriken i fråga. <br/>**Resultat:** det angivna svarshuvudet inte vidarebefordras till beställaren.
 
 Viktig information:
 
@@ -708,7 +708,7 @@ Viktig information:
     - Innehållskodning
     - innehållslängden
     - innehåll-intervall
-    - Datum
+    - datum
     - server
     - släpvagn
     - Transfer-encoding
@@ -730,7 +730,7 @@ Se till att angivna huvudets namn inte matchar något av följande namn:
 - Standard begäran sidhuvud namn. En lista över standard sidhuvud namn finns i [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Namn på reserverade huvud:
     - vidarebefordras för
-    - värden
+    - värd
     - variera
     - via
     - Varning
@@ -894,7 +894,7 @@ Viktig information:
 
 **Standardbeteende:** 14 Kb
  
-## <a name="url"></a>URL: EN
+## <a name="url"></a>Webbadress
 
 Dessa funktioner kan en begäran att omdirigerad eller skrivas om till en annan URL.
 

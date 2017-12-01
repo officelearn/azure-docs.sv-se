@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Den här artikeln lär du metodtips Autoskala i Azure. Azure övervakaren Autoskala gäller enbart för [Skalningsuppsättningar i virtuella](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), och [App Service - Webbappar](https://azure.microsoft.com/services/app-service/web/). Andra Azure-tjänster använda olika metoder för skalning.
@@ -113,7 +113,7 @@ Nu ska vi se detta med hjälp av ett exempel:
 
 På bilden nedan visas ett autoskalningsinställning med en standardprofil minsta instanser = 2 och högsta förekomster = 10. I det här exemplet regler är konfigurerade för att skala ut när antalet meddelanden i kön är större än 10 och skala in när antalet meddelanden i kön är mindre än 3. Resursen kan nu skala mellan 2 och 10 instanser.
 
-Dessutom är en återkommande profil som angetts för måndag. Den värdet för minsta instanser = 2 och högsta förekomster = 12. Detta innebär måndag, första gången Autoskala söker efter det här villkoret om instansantalet är 2, den växer till den nya minst 3. Så länge Autoskala fortsätter att söka efter den här profilen villkor matchas (måndag), bara bearbetas processorbaserad scale-out/i reglerna som konfigurerats för den här profilen. Just nu är kontrollerar den inte om kölängden. Men om du även vill kön längd villkoret som ska kontrolleras bör du ta regler från standardprofilen samt i profilen för måndag.
+Dessutom är en återkommande profil som angetts för måndag. Den värdet för minsta instanser = 3 och högsta förekomster = 10. Detta innebär måndag, första gången Autoskala söker efter det här villkoret om instansantalet är 2, den växer till den nya minst 3. Så länge Autoskala fortsätter att söka efter den här profilen villkor matchas (måndag), bara bearbetas processorbaserad scale-out/i reglerna som konfigurerats för den här profilen. Just nu är kontrollerar den inte om kölängden. Men om du även vill kön längd villkoret som ska kontrolleras bör du ta regler från standardprofilen samt i profilen för måndag.
 
 På liknande sätt när Autoskala växlar tillbaka till standardprofil, kontrollerar först den om de lägsta och högsta villkor är uppfyllda. Om antalet instanser då 12 skalningen i till 10, det maximalt tillåtna för standardprofilen.
 

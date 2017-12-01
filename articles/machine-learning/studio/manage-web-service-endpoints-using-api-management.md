@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 11/03/2017
 ms.author: roalexan
-ms.openlocfilehash: 53a6b18fb74db46ccb66c7c70851a9bf364e927c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Lär dig hur du hanterar AzureML-webbtjänster som använder API Management
 ## <a name="overview"></a>Översikt
@@ -39,94 +39,133 @@ Du behöver följande för att slutföra den här guiden:
 * Arbetsytan, tjänst och api_key för en AzureML-experiment som distribueras som en webbtjänst. Klicka på [här](create-experiment.md) mer information om hur du skapar ett AzureML-experiment. Klicka på [här](publish-a-machine-learning-web-service.md) för information om hur du distribuerar en AzureML experiment som en webbtjänst. Bilaga A har också anvisningar för hur du skapar och testar ett enkelt experiment AzureML och distribuera det som en webbtjänst.
 
 ## <a name="create-an-api-management-instance"></a>Skapa en API Management-instans
-Nedan visas stegen för att hantera din AzureML-webbtjänsten med hjälp av API-hantering. Först skapa en instans av tjänsten. Logga in på den [klassiska portalen](https://manage.windowsazure.com/) och på **ny** > **Apptjänster** > **API Management** > **skapa**.
 
-![Skapa instans](./media/manage-web-service-endpoints-using-api-management/create-instance.png)
+Du kan hantera dina Azure Machine Learning-webbtjänst med en API Management-instans.
 
-Ange ett unikt **URL**. Den här guiden använder **demoazureml** – måste du välja något annat. Välj önskad **prenumeration** och **region** för din tjänstinstans. Klicka på Nästa när du har gjort dina val.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Välj **+ skapa en resurs för**.
+3. I sökrutan skriver du ”API management”, och välj sedan ”API management”-resursen.
+4. Klicka på **Skapa**.
+5. Den **namn** värde används för att skapa en unik URL (det här exemplet använder ”demoazureml”).
+6. Välj en **prenumeration**, **resursgruppen**, och **plats** för service-instans.
+7. Ange ett värde för **organisationsnamn** (det här exemplet använder ”demoazureml”).
+8. Ange din **administratör e-post** -e-postmeddelandet ska användas för meddelanden från API Management-systemet.
+9. Klicka på **Skapa**.
 
-![skapa-tjänsten-1](./media/manage-web-service-endpoints-using-api-management/create-service-1.png)
+Det kan ta upp till 30 minuter för en ny tjänst skapas.
 
-Ange ett värde för den **organisationsnamn**. Den här guiden använder **demoazureml** – måste du välja något annat. Ange din e-postadress i den **administratör e-post** fältet. Den här e-postadressen används för meddelanden från API Management-systemet.
+![Skapa tjänst](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
-![skapa-tjänsten-2](./media/manage-web-service-endpoints-using-api-management/create-service-2.png)
-
-Markera kryssrutan om du vill skapa en tjänstinstans. *Det tar upp till 30 minuter innan en ny tjänst skapas*.
 
 ## <a name="create-the-api"></a>Skapa API: et
 När instansen för tjänsten har skapats, är nästa steg att skapa API: et. Ett API består av en uppsättning åtgärder som kan anropas från ett klientprogram. API-åtgärder körs via en proxy till befintliga webbtjänster. Den här guiden skapar API: er proxyinställningarna så att de befintliga AzureML RRS och BES-webbtjänsterna.
 
-API: er skapas och konfigureras från publisher-portalen API som öppnas via den klassiska Azure-portalen. Välj service-instans för att nå publisher-portalen.
+Skapa API: et:
 
-![Välj tjänstinstans](./media/manage-web-service-endpoints-using-api-management/select-service-instance.png)
+1. Öppna service-instans som du skapade i Azure-portalen.
+2. I det vänstra navigeringsfönstret väljer **API: er**.
 
-Klicka på **hantera** i den klassiska Azure-portalen för API Management-tjänsten.
+   ![management-API-menyn](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
-![hantera service](./media/manage-web-service-endpoints-using-api-management/manage-service.png)
+1. Klicka på **lägga till API**.
+2. Ange en **Web API-namnet** (det här exemplet använder ”AzureML Demo-API”).
+3. För **-webbtjänstens URL**, ange ”`https://ussouthcentral.services.azureml.net`”.
+4. Ange en ** URL för Web API-suffixet ”. Detta blir den sista delen av den URL som kunder använder för att skicka begäranden till instansen för tjänsten (i det här exemplet används ”azureml-demo”).
+5. För **Web API-URL-schema**väljer **HTTPS**.
+6. För **produkter**väljer **Starter**.
+7. Klicka på **Spara**.
 
-Klicka på **API: er** från den **API Management** menyn till vänster och klicka sedan på **lägga till API**.
-
-![management-API-menyn](./media/manage-web-service-endpoints-using-api-management/api-management-menu.png)
-
-Typen **AzureML Demo API** som den **Web API-namnet**. Typen **https://ussouthcentral.services.azureml.net** som den **-webbtjänstens URL**. Typen **azureml-demo** som den **URL för Web API-suffix**. Kontrollera **HTTPS** som den **URL för Web API** schema. Välj **Starter** som **produkter**. När du är klar klickar du på **spara** att skapa API: et.
-
-![Lägg till-nya-api](./media/manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ## <a name="add-the-operations"></a>Lägg till åtgärder
-Klicka på **lägga till åtgärden** att lägga till åtgärder i detta API.
 
-![lägga till åtgärden](./media/manage-web-service-endpoints-using-api-management/add-operation.png)
+Åtgärder läggs till och konfigurerats för att en API i portalen utgivare. Publisher-portalen, klicka på **Publisher portal** i Azure-portalen för API Management-tjänsten väljer **API: er**, **Operations**, klicka på **Lägga till åtgärden**.
+
+![lägga till åtgärden](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
 Den **nya åtgärden** visas och **signatur** fliken väljs som standard.
 
 ## <a name="add-rrs-operation"></a>Lägg till RR-åtgärd
-Först skapa en åtgärd för AzureML RRS-tjänsten. Välj **POST** som den **HTTP-verbet**. Typen **/workspaces/ {arbetsytan} /services/ {tjänsten} / execute? api-version = {apiversion} & information = {information}** som den **URL mallen**. Typen **Resursposter köra** som den **visningsnamn**.
+Först skapa en åtgärd för AzureML RRS-tjänsten:
 
-![Lägg till RR-åtgärden-signaturer](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+1. För den **HTTP-verbet**väljer **efter**.
+2. För den **URL mallen**, typ ”`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`”.
+3. Ange en **visningsnamn** (det här exemplet använder ”Resursposter köra”).
 
-Klicka på **svar** > **lägga till** till vänster och välj **200 OK**. Klicka på **spara** att spara den här åtgärden.
+   ![Lägg till RR-åtgärden-signaturer](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-![Lägg till-RR-åtgärden-svar](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+4. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
+5. Klicka på **spara** att spara den här åtgärden.
+
+   ![Lägg till-RR-åtgärden-svar](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## <a name="add-bes-operations"></a>Lägga till BES-åtgärder
-Skärmbilder ingår inte för BES-åtgärder som de är mycket lik dem för att lägga till åtgärden Resursposter.
+
+> [!NOTE]
+> Skärmbilder ingår inte för BES-åtgärder som de är mycket lik dem för att lägga till åtgärden Resursposter.
 
 ### <a name="submit-but-not-start-a-batch-execution-job"></a>Skicka (men inte startar) ett Batch Execution-jobb
-Klicka på **lägga till åtgärden** att lägga till åtgärden AzureML BES-API: et. Välj **POST** för den **HTTP-verbet**. Typen **/workspaces/ {arbetsytan} /services/ {tjänsten} / jobb? api-version = {apiversion}** för den **URL mallen**. Typen **BES skicka** för den **visningsnamn**. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**. Klicka på **spara** att spara den här åtgärden.
+
+1. Klicka på **lägga till åtgärden** att lägga till en åtgärd för BES-API: et.
+2. För den **HTTP-verbet**väljer **efter**.
+3. För den **URL mallen**, typ ”`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`”.
+4. Ange en **visningsnamn** (det här exemplet använder ”BES skicka”).
+5. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
+6. Klicka på **Spara**.
 
 ### <a name="start-a-batch-execution-job"></a>Starta ett jobb i Batch Execution
-Klicka på **lägga till åtgärden** att lägga till åtgärden AzureML BES-API: et. Välj **POST** för den **HTTP-verbet**. Typen **/workspaces/ {arbetsytan} /services/ {tjänsten} /jobs/ {jobid} / start? api-version = {apiversion}** för den **URL mallen**. Typen **BES starta** för den **visningsnamn**. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**. Klicka på **spara** att spara den här åtgärden.
+
+1. Klicka på **lägga till åtgärden** att lägga till en åtgärd för BES-API: et.
+2. För den **HTTP-verbet**väljer **efter**.
+3. För den **HTTP-verbet**, typ ”`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`”.
+4. Ange en **visningsnamn** (det här exemplet använder ”BES Start”).
+6. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
+7. Klicka på **Spara**.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Hämta status eller resultatet av ett Batch Execution-jobb
-Klicka på **lägga till åtgärden** att lägga till åtgärden AzureML BES-API: et. Välj **hämta** för den **HTTP-verbet**. Typen **/workspaces/ {arbetsytan} /services/ {tjänsten} /jobs/ {jobid}? api-version = {apiversion}** för den **URL mallen**. Typen **BES Status** för den **visningsnamn**. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**. Klicka på **spara** att spara den här åtgärden.
+
+1. Klicka på **lägga till åtgärden** att lägga till en åtgärd för BES-API: et.
+2. För den **HTTP-verbet**väljer **hämta**.
+3. För den **URL mallen**, typ ”`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`”.
+4. Ange en **visningsnamn** (det här exemplet använder ”BES Status”).
+6. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
+7. Klicka på **Spara**.
 
 ### <a name="delete-a-batch-execution-job"></a>Ta bort en Batch Execution-jobb
-Klicka på **lägga till åtgärden** att lägga till åtgärden AzureML BES-API: et. Välj **ta bort** för den **HTTP-verbet**. Typen **/workspaces/ {arbetsytan} /services/ {tjänsten} /jobs/ {jobid}? api-version = {apiversion}** för den **URL mallen**. Typen **BES ta bort** för den **visningsnamn**. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**. Klicka på **spara** att spara den här åtgärden.
 
-## <a name="call-an-operation-from-the-developer-portal"></a>Anropa en åtgärd från utvecklarportalen
-Åtgärder kan anropas direkt från Developer-portalen, vilket ger ett bekvämt sätt att visa och testa driften av ett API. I det här steget i guiden kommer du anropar den **Resursposter köra** metod som har lagts till i den **AzureML Demo API**. Klicka på **Developer-portalen** på menyn längst upp i den klassiska portalen.
+1. Klicka på **lägga till åtgärden** att lägga till en åtgärd för BES-API: et.
+2. För den **HTTP-verbet**väljer **ta bort**.
+3. För den **URL mallen**, typ ”`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`”.
+4. Ange en **visningsnamn** (det här exemplet använder ”BES bort”).
+5. Klicka på **svar** > **lägga till** till vänster och välj **200 OK**.
+6. Klicka på **Spara**.
 
-![Developer-portalen](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+## <a name="call-an-operation-from-the-developer-portal"></a>Anropa en åtgärd från Developer-portalen
 
-Klicka på **API: er** från den översta menyn och klicka sedan på **AzureML Demo API** att se åtgärderna som är tillgängliga.
+Åtgärder kan anropas direkt från Developer-portalen, vilket ger ett bekvämt sätt att visa och testa driften av ett API. I det här steget kommer du anropar den **Resursposter köra** metod som har lagts till i den **AzureML Demo API**. 
 
-![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+1. Klicka på **utvecklarportalen**.
 
-Välj **Resursposter köra** för åtgärden. Klicka på **prova**.
+   ![Developer-portalen](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-![Försök it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+2. Klicka på **API: er** från den översta menyn och klicka sedan på **AzureML Demo API** att se åtgärderna som är tillgängliga.
 
-De begäranparametrarna, Skriv din **arbetsytan**, **service**, **2.0** för den **apiversion**, och **SANT** för den **information**. Du hittar din **arbetsytan** och **service** i instrumentpanelen för AzureML web service (se **testa webbtjänsten** i bilaga A).
+   ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-Huvuden för begäran, klickar du på **Lägg till sidhuvud** och skriv **Content-Type** och **application/json**, klicka på **Lägg till sidhuvud** och skriv **auktorisering** och **ägar <YOUR AZUREML SERVICE API-KEY>** . Du kan hitta din **api-nyckel** i instrumentpanelen för AzureML web service (se **testa webbtjänsten** i bilaga A).
+3. Välj **Resursposter köra** för åtgärden. Klicka på **prova**.
 
-Typen **{”indata”: {”input1”: {”ColumnNames”: [”Col2”], ”värden”: [[”det här är en bra dag”]]}}, ”GlobalParameters”: {}}** för begärandetexten.
+   ![Försök it](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+4. För **parametrar för begäran**, Skriv din **arbetsytan** och **service**, typ ”2.0 för den **apiversion**, och” true ”för **information**. Du hittar din **arbetsytan** och **service** i instrumentpanelen för AzureML web service (se **testa webbtjänsten** i bilaga A).
 
-Klicka på **skicka**.
+   För **Begäransrubriker**, klickar du på **Lägg till sidhuvud** och Skriv ”Content-Type” och ”application/json”. Klicka på **Lägg till sidhuvud** igen och Skriv ”tillstånd” och ”ägar  *\<tjänsten API-nyckel\>*”. Du kan hitta din API-nyckel i instrumentpanelen för AzureML web service (se **testa webbtjänsten** i bilaga A).
 
-![Skicka](./media/manage-web-service-endpoints-using-api-management/send.png)
+   För **Begärandetext**, typen `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
+
+   ![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+
+5. Klicka på **skicka**.
+
+   ![Skicka](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 När en åtgärd har anropats developer-portalen visar den **begärda URL: en** från backend-tjänsten, den **svarsstatusen**, **svarshuvuden**, och en **svar innehåll**.
 
@@ -196,7 +235,7 @@ Du hittar den **api_key** genom att klicka på experimentet web service-instrume
 ##### <a name="test-button"></a>Knappen Testa
 Ett enkelt sätt att testa RR-slutpunkten är att klicka på **testa** på instrumentpanelen web service.
 
-![Test](./media/manage-web-service-endpoints-using-api-management/test.png)
+![test](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 Typen **detta är en bra dag** för **col2**. Klicka på bockmarkeringen.
 

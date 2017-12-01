@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Använd Jenkins för att skapa och distribuera Linux-program
 Jenkins är ett populärt verktyg för kontinuerlig integrering och distribution av appar. Så här skapar och distribuerar du ett Azure Service Fabric-program med Jenkins.
 
 ## <a name="general-prerequisites"></a>Allmänna krav
 - Du måste ha Git installerat lokalt. På [nedladdningssidan för Git](https://git-scm.com/downloads) kan du installera lämplig Git-version för ditt operativsystem. Om du är nybörjare på Git kan du läsa mer i [Git-dokumentationen](https://git-scm.com/docs).
-- Du måste ha plugin-programmet Service Fabric Jenkins till hands. Du kan ladda ned det från [Service Fabric-nedladdningar](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
+- Du måste ha plugin-programmet Service Fabric Jenkins till hands. Du kan ladda ned det från [Service Fabric-nedladdningar](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Om du använder edge webbläsare byta tillägget för hämtade filer från ZIP i .hpi.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Konfigurera Jenkins i ett Service Fabric-kluster
 
@@ -129,8 +129,8 @@ Du måste ha Docker installerat. Följande kommandon kan användas för att inst
 När du kör ``docker info`` på terminalen visar utdata nu att Docker-tjänsten körs.
 
 ### <a name="steps"></a>Steg
-  1. Kör behållaren Service Fabric Jenkins, avbildning: ``docker pull sayantancs/jenkins:v9``
-  2. Kör behållaravbildningen: ``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
+  1. Kör behållaren Service Fabric Jenkins, avbildning: ``docker pull rapatchi/jenkins:v9``
+  2. Kör behållaravbildningen: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
   3. Hämta ID:t för behållaravbildningsinstansen. Du kan visa en lista med alla Docker-behållare med hjälp av kommandot ``docker ps –a``
   4. Logga in på Jenkins-portalen med följande steg:
 

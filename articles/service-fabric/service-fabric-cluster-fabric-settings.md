@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 076d4d95db21f0a1c1500ae7766392547a441d1b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Anpassa inställningar för Service Fabric-kluster och Fabric-uppgradera princip
 Det här dokumentet förklarar hur du anpassar olika infrastrukturinställningarna och infrastrukturen uppgradera princip för Service Fabric-klustret. Du kan anpassa dem via den [Azure-portalen](https://portal.azure.com) eller med en Azure Resource Manager-mall.
@@ -678,7 +678,7 @@ PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 |GetCodePackageActivationContextTimeout|TimeSpan, standard är Common::TimeSpan::FromSeconds(120)|Dynamisk|Ange tidsintervall i sekunder. Timeout-värdet för CodePackageActivationContext-anrop. Detta gäller inte för ad hoc-tjänster. |
 |IPProviderEnabled|bool, standard är FALSKT|Statisk|Möjliggör hantering av IP-adresser. |
 |NTLMAuthenticationEnabled|bool, standard är FALSKT|Statisk| Aktiverar stöd för att använda NTLM av koden paket som kör andra användare så att processerna mellan datorer kan kommunicera på ett säkert sätt. |
-|NTLMAuthenticationPasswordSecret|SecureString, standard är Common::SecureString(L"")|Statisk|Har ett krypterat som används för att generera lösenordet för NTLM-användare. Måste anges om NTLMAuthenticationEnabled är true. Validerad av distributionen. |
+|NTLMAuthenticationPasswordSecret|SecureString, standard är Common::SecureString(L"")|Statisk|Är en krypterad hash-algoritm som används för att generera lösenordet för NTLM-användare. Måste anges om NTLMAuthenticationEnabled är true. Validerad av distributionen. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, standard är Common::TimeSpan::FromMinutes(3)|Dynamisk|Ange tidsintervall i sekunder. Miljö-specifika inställningar regelbundna intervall på vilken värd söker efter nya certifikat som ska användas för FileStoreService NTLM-konfiguration. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, standard är Common::TimeSpan::FromMinutes(4)|Dynamisk| Ange tidsintervall i sekunder. Tidsgränsen för att konfigurera NTLM-användare med vanliga namn för certifikatet. NTLM-användare krävs för FileStoreService resurser. |
 |RegisterCodePackageHostTimeout|TimeSpan, standard är Common::TimeSpan::FromSeconds(120)|Dynamisk| Ange tidsintervall i sekunder. Timeout-värdet för anropet FabricRegisterCodePackageHost synkronisering. Detta gäller endast multi kod paketet programvärdar som FWP |

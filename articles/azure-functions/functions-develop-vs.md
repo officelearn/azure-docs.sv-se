@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 1f0d50331aa3986e80542902fd528f98e1c91bc2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools för Visual Studio  
 
@@ -32,6 +32,9 @@ Azure Functions verktyg ger följande fördelar:
 * Felkod dina funktioner i C# med alla fördelar med Visual Studio-utveckling. 
 
 Det här avsnittet visar hur du använder Azure Functions-verktyg för Visual Studio 2017 för att utveckla dina funktioner i C#. Du också lära dig hur du publicerar projektet till Azure som en .NET-sammansättning.
+
+> [!IMPORTANT]
+> Blanda inte lokal utveckling med portalen utveckling i appen med samma funktion. När du publicerar från ett lokalt projekt till en funktionsapp distributionsprocessen skriver över alla funktioner som du har utvecklat i portalen.
 
 ## <a name="prerequisites"></a>Krav
 

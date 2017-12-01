@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 1efdda867703613e4f85e6994004df32e70ccb3d
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 122a2f8e506b3f567e73a816cbbeac569339c924
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Påskynda realtid stordata med Spark på Azure DB som Cosmos-kopplingen
 
@@ -172,7 +172,7 @@ För närvarande använder connector projektet maven. Du kan köra för att skap
 ```
 mvn clean package
 ```
-Du kan också hämta de senaste versionerna av JAR från den *släpper* mapp.
+Du kan också hämta de senaste versionerna av JAR från den [ *släpper* mappen](https://github.com/Azure/azure-cosmosdb-spark/releases).
 
 ### <a name="include-the-azure-cosmos-db-spark-jar"></a>Inkludera Azure Cosmos DB Spark JAR
 Innan du kan köra all kod som du behöver inkludera JAR till Spark för Azure Cosmos DB.  Om du använder den **spark-shell**, och du kan inkludera JAR med hjälp av den **--burkar** alternativet.  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bf4b0f67a4c3667fb0c0cb826a822d6090c36375
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric Linux-kluster till ett virtuellt Azure-nätverk
 Den här kursen ingår i en serie. Du kommer lära dig hur du distribuerar en Linux Service Fabric-kluster till ett befintligt Azure virtuellt nätverk (VNET) och underordnad net med Azure CLI. När du är klar kan har du ett kluster som körs i molnet som du kan distribuera program till. För att skapa ett Windows-kluster med hjälp av PowerShell Se [skapa en säker Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -35,7 +35,8 @@ I den här guiden får du lära dig hur man:
 I den här självstudiekursen serien lär du dig hur du:
 > [!div class="checklist"]
 > * Skapa en säker kluster i Azure
-> * [Skala ett kluster in eller ut](/service-fabric-tutorial-scale-cluster.md)
+> * [Skala ett kluster in eller ut](service-fabric-tutorial-scale-cluster.md)
+> * [Uppgraderingen av körtiden för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Krav

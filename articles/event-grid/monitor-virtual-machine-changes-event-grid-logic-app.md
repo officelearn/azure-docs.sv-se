@@ -9,13 +9,13 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Övervaka ändringar av virtuella datorer med Azure händelse rutnätet och Logic Apps
 
@@ -91,7 +91,7 @@ Skapa en logikapp och lägga till en händelseutlösare rutnät som övervakar r
    ![Logga in med dina autentiseringsuppgifter för Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Om du har loggat in med ett personligt microsoftkonto som @outlook.com eller @hotmail.com, händelse rutnätet utlösaren kanske inte visas korrekt. Som en tillfällig lösning kan välja [Anslut med tjänstens huvudnamn](/azure-resource-manager/resource-group-create-service-principal-portal.md), eller som en medlem i Azure Active Directory som är kopplad till ditt Azure-prenumeration, till exempel autentisera *användarnamn*@emailoutlook.onmicrosoft.com.
+   > Om du har loggat in med ett personligt microsoftkonto som @outlook.com eller @hotmail.com, händelse rutnätet utlösaren kanske inte visas korrekt. Som en tillfällig lösning kan välja [Anslut med tjänstens huvudnamn](../azure-resource-manager/resource-group-create-service-principal-portal.md), eller som en medlem i Azure Active Directory som är kopplad till ditt Azure-prenumeration, till exempel autentisera *användarnamn*@emailoutlook.onmicrosoft.com.
 
 8. Nu prenumerera logikappen publisher händelser. Ange detaljer för din händelseprenumeration som anges i följande tabell:
 

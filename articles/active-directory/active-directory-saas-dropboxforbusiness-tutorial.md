@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 11/29/2017
 ms.author: jeedes
-ms.openlocfilehash: a56a5af171eaca259db29f25fee4331a77313420
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a71892296c82e3655a75ca3e863539cc19ea998
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Självstudier: Azure Active Directory-integrering med Dropbox för företag
 
@@ -25,9 +26,9 @@ I kursen får lära du att integrera Dropbox för företag med Azure Active Dire
 
 Integrera Dropbox för företag med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Dropbox för företag
-- Du kan aktivera användarna att automatiskt hämta loggat in på Dropbox för företag (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan styra i Azure AD som har åtkomst till Dropbox för företag.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Dropbox för företag (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -44,7 +45,7 @@ För att konfigurera Azure AD-integrering med Dropbox för företag, behöver du
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
@@ -59,40 +60,37 @@ Du måste lägga till Dropbox för företag från galleriet i listan över hante
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Bladet Enterprise program][2]
     
-3. Klicka på **nytt program** knappen överst i dialogrutan.
+3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Dropbox för företag**.
+4. I sökrutan skriver **Dropbox för företag**väljer **Dropbox för företag** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_search.png)
+    ![Dropbox för företag i resultatlistan](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
 
-5. Välj i resultatpanelen **Dropbox för företag**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Dropbox för företag som baseras på en testanvändare som kallas ”Britta Simon”.
 
 Azure AD måste du känna till motsvarande användaren i Dropbox för företag till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Dropbox för företag upprättas.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i Dropbox för företag.
+I Dropbox för företag att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Dropbox för företag, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en Dropbox för Business testanvändare](#creating-a-dropbox-for-business-test-user)**  – du har en motsvarighet för Britta Simon i Dropbox för företag som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en Dropbox för Business testanvändare](#create-a-dropbox-for-business-test-user)**  – du har en motsvarighet för Britta Simon i Dropbox för företag som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din Dropbox för affärsprogram.
 
@@ -100,13 +98,37 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Dropbox för företag** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
 
 3. På den **Dropbox Business domän och URL: er** avsnittet, utför följande steg:
+
+    ![Dropbox för Business domän och URL: er enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
+
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://www.dropbox.com/sso/<id>`
+
+    b. I den **identifierare** textruta, ange ett värde:`Dropbox`
+
+    > [!NOTE] 
+    > Föregående inloggnings-URL-värdet är inte verkliga värde. Du uppdaterar värdet med det faktiska inloggnings-URL, som beskrivs senare i självstudierna. Kontakta [Dropbox för Business Client supportteamet](https://www.dropbox.com/business/contact) värdet hämtas. 
+ 
+
+4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
+
+5. Klicka på **spara** knappen.
+
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_400.png)
+
+6. På den **Dropbox för konfiguration av företag** klickar du på **konfigurera Dropbox för företag** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+
+    ![Dropbox för företag-konfiguration](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
+
+7. Konfigurera enkel inloggning på **Dropbox för företag** sidan finns på din Dropbox för företag-klient.
 
     a. Logga in på din Dropbox för företag-klient. 
    
@@ -124,38 +146,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     ![Konfigurera enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769512.png "Konfigurera enkel inloggning")
    
-    e. Kopiera URL-Adressen bredvid **användarna kan logga in genom att ange sina e-postadress eller de kan gå direkt till**. 
+    e. Kopiera URL-Adressen bredvid **användarna kan logga in genom att ange sina e-postadress eller de kan gå direkt till** och klistrar in det i den **inloggnings-URL** textruta för **Dropbox Business domän och URL: er** avsnitt på Azure-portalen. 
     
     ![Konfigurera enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769513.png)
     
-    f. På Azure-portalen i den **inloggnings-URL** textruta klistra in Webbadressen.
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url.png)
-
-     I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://www.dropbox.com/sso/<id>`
-
-    > [!NOTE] 
-    > Det här värdet är inte verkliga värde. Uppdatera värdet med det faktiska inloggnings-URL du får från deras avsnitt för enkel inloggning. Kontakta [Dropbox för Business Client supportteamet](https://www.dropbox.com/business/contact) att hämta det här värdet. 
- 
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
-
-5. Klicka på **spara** knappen.
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_general_400.png)
-
-6. På den **Dropbox för konfiguration av företag** klickar du på **konfigurera Dropbox för företag** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
-
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
-
-7. Konfigurera enkel inloggning på **Dropbox för företag** sidan finns på din Dropbox för företag-klient i den **enkel inloggning** avsnitt i den **autentisering** utför följande steg: 
+8. I den **enkel inloggning** avsnitt i den **autentisering** utför följande steg: 
    
     ![Konfigurera enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769516.png "Konfigurera enkel inloggning")
    
     a. Klicka på **krävs**.
    
-    b. I Azure-portalen på den **konfigurera inloggning** fönster, kopiera den **SAML enkel inloggning Tjänstwebbadress** värdet och klistrar in det i den **inloggning URL** textruta.
+    b. I den den **inloggning URL** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel** som du har kopierat från Azure-portalen.
 
     c. Klicka på **Välj certifikat**, och bläddra sedan till din **Base64-kodade certifikatfilen**.
 
@@ -163,39 +164,41 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+   ![Skapa en testanvändare i Azure AD][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory-knappen](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_01.png)
 
-2.  Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_02.png) 
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-3. Klicka på överst i dialogrutan **Lägg till** att öppna den **användaren** dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_03.png) 
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_02.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_04.png) 
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    ![Knappen Lägg till](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_03.png)
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+4. I den **användaren** dialogrutan utför följande steg:
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    ![Dialogrutan användare](./media/active-directory-saas-dropboxforbusiness-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-dropbox-for-business-test-user"></a>Skapa en Dropbox för Business testanvändare
+### <a name="create-a-dropbox-for-business-test-user"></a>Skapa en Dropbox för Business testanvändare
 
 I det här avsnittet skapas en användare som kallas Britta Simon i Dropbox för företag. Dropbox för företag stöder just-in-time-allokering som är aktiverad som standard.
 
@@ -204,11 +207,11 @@ Det finns ingen åtgärd objekt i det här avsnittet. Om en användare inte reda
 >[!Note]
 >Om du behöver skapa en användare manuellt, kontakta [Dropbox för Business Client supportteamet](https://www.dropbox.com/business/contact) 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Dropbox för företag.
 
-![Tilldela användare][200] 
+![Tilldela rollen][200] 
 
 **Utför följande steg om du vill tilldela Britta Simon till Dropbox för företag:**
 
@@ -218,15 +221,15 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 2. Välj i listan med program **Dropbox för företag**.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_app.png) 
+    ![Dropbox för Business länk i listan med program](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Länken ”användare och grupper”][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
-    ![Tilldela användare][203]
+    ![Fönstret Lägg till tilldelning][203]
 
 5. På **användare och grupper** markerar **Britta Simon** på listan användare.
 
@@ -234,17 +237,19 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
     
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
 När du klickar på Dropbox för företag-panelen på åtkomstpanelen bör du hämta inloggningssidan i din Dropbox för affärsprogram.
+ 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Konfigurera Användaretablering](active-directory-saas-dropboxforbusiness-provisioning-tutorial.md)
+
+
 
 <!--Image references-->
 

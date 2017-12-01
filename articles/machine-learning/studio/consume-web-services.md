@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 13de6daabf2b6d83cc703ae6b3f0a30a1dfa34d6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: ed41ec58dbdfd41931e8bab3a3cbe33caafe9a74
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Använda en Azure Machine Learning-webbtjänst
 
@@ -64,18 +64,11 @@ Att hämta API-nyckeln för det klassiska Machine Learning:
 5. Kopiera och spara den **primärnyckel**.
 
 ### <a name="classic-web-service"></a>Klassiska webbtjänst
- Du kan också hämta en nyckel för det klassiska från Machine Learning Studio eller den klassiska Azure-portalen.
+ Du kan också hämta en nyckel för det klassiska från Machine Learning Studio.
 
 #### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. I Machine Learning Studio klickar du på **WEB SERVICES** till vänster.
 2. Klicka på en webbtjänst. Den **API-nyckel** finns på den **INSTRUMENTPANELEN** fliken.
-
-#### <a name="azure-classic-portal"></a>Klassisk Azure-portal
-1. Klicka på **MASKININLÄRNING** till vänster.
-2. Klicka på arbetsytan som webbtjänsten finns.
-3. Klicka på **WEBBTJÄNSTER**.
-4. Klicka på en webbtjänst.
-5. Klicka på en slutpunkt. ”API-NYCKELN” är nere nere till höger.
 
 ## <a id="connect"></a>Ansluta till en Machine Learning-webbtjänst
 Du kan ansluta till en Machine Learning-webbtjänst med hjälp av programmeringsspråk som stöder HTTP-begäran och svar. Du kan visa exempel i C#, Python och R från en Machine Learning-webbtjänstens hjälpsida.

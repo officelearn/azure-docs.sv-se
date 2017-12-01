@@ -4,7 +4,7 @@ description: "Med hjälp av Team datavetenskap Process för en slutpunkt till sl
 services: machine-learning,hdinsight
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.date: 11/29/2017
+ms.author: bradsev
+ms.openlocfilehash: ad7bc8bb65a3395599a4de9a9954ff203fa624c6
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team vetenskap av data i praktiken: Använd Azure HDInsight Hadoop-kluster
 I den här genomgången ska vi använda den [Team Data vetenskap processen (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt med hjälp av en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska och funktion tekniker data från den offentligt tillgängliga [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset, och exempeldata nedåt. Modeller av data skapas med Azure Machine Learning att hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter.

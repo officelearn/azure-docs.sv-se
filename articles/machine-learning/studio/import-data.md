@@ -5,7 +5,7 @@ keywords: "Importera data, dataformatet, datatyper, datakällor, träningsdata"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/29/2017
 ms.author: garye;bradsev
-ms.openlocfilehash: 98a8fa15922ef100a7f8cadd92fb7ffef0d3bcde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importera dina utbildningsdata till Azure Machine Learning Studio från olika datakällor
 Om du vill använda dina egna data i Machine Learning Studio för att utveckla och träna en förutsägelseanalys, kan du: 
@@ -60,7 +60,7 @@ Du kan importera ett antal datatyper i experimentet, beroende på vilken metod d
 * Fil med kommaavgränsade värden (CSV med ett huvud (.csv) eller utan) (. nh.csv)
 * Tabbavgränsade värden (TVS med ett huvud (TSV) eller utan) (. nh.tsv)
 * Excel-fil
-* Azure-tabellen
+* Azure-tabell
 * Hive-tabell
 * SQL-databastabell
 * OData-värden
@@ -80,8 +80,8 @@ Följande **datatyper** som identifieras av Machine Learning Studio:
 * Sträng
 * Integer
 * dubbla
-* Booleskt värde
-* Datum och tid
+* Boolesk
+* DateTime
 * TimeSpan
 
 Machine Learning Studio använder en intern datatyp som kallas ***datatabell*** att överföra data mellan moduler. Du kan uttryckligen konvertera data till tabellen format med hjälp av den [konvertera till Dataset] [ convert-to-dataset] modulen.

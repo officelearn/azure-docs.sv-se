@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en virtuell dator skaluppsättningen i Azure-portalen
 När du skapar en skaluppsättning för definiera antalet VM-instanser som du vill köra. När din begäran för program ändras, kan du automatiskt öka eller minska antalet VM-instanser. Möjligheten att Autoskala kan du Håll dig uppdaterad med kundernas behov eller svara på ändringar i programmet prestanda under hela livscykeln för din app.
@@ -48,13 +48,13 @@ Om ditt program begäran ökar, ange ökar belastningen på VM-instanser i nivå
     
     | Parameter              | Förklaring                                                                                                         | Värde          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Aggregation tid*     | Definierar hur mätvärdena som samlats in ska aggregeras för analys.                                                | Genomsnitt        |
+    | *Aggregation tid*     | Definierar hur mätvärdena som samlats in ska aggregeras för analys.                                                | Medel        |
     | *Måttnamnet*          | Prestanda-mått för att övervaka och tillämpa skala ange åtgärder på.                                                   | Processorprocentandel |
-    | *Tid grain statistik* | Definierar hur mätvärdena som samlats in i varje tidsenhet ska aggregeras för analys.                             | Genomsnitt        |
+    | *Tid grain statistik* | Definierar hur mätvärdena som samlats in i varje tidsenhet ska aggregeras för analys.                             | Medel        |
     | *Operatorn*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
     | *Tröskelvärde*            | Den procentandel som regeln Autoskala kan utlösa en åtgärd.                                                 | 70             |
     | *Varaktighet*             | Tidsperiod som övervakas innan värdena mått och tröskelvärdet jämförs.                                   | 10 minuter     |
-    | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                        | Öka procent med |
+    | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                        | Öka procent av |
     | *Instansantal*       | Procentandelen av VM-instanser som ska ändras när regeln utlöser.                                            | 20             |
     | *Ned (minuter)*  | Hur lång tid ska gå innan regeln tillämpas igen så att automatiska åtgärder har tid att börja gälla. | 5 minuter      |
 
@@ -77,7 +77,7 @@ På en kväll eller helger minska program-begäran. Om det här minskar belastni
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operatorn*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                      | Mindre än   |
     | *Tröskelvärde*            | Den procentandel som regeln Autoskala kan utlösa en åtgärd.                                                 | 30             |
-    | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                         | Minska procent med |
+    | *Åtgärd*            | Anger om skaluppsättning bör skala upp eller ned när regeln gäller och i vilka steg                         | Minska procent av |
     | *Instansantal*       | Procentandelen av VM-instanser som ska ändras när regeln utlöser.                                             | 20             |
 
 3. För att skapa regeln, Välj **Lägg till**
@@ -122,7 +122,7 @@ I föregående exempel skalas automatiskt en skala ställa in eller ut med grund
 
     ![Skapa automatiska regler som kan skalas enligt ett schema](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Om du vill se hur Autoskala-regler tillämpas, Välj **kör historik** längst upp i den **skalning** fönster. Diagram och händelser lista visas när reglerna Autoskala utlösa och antalet VM-instanser i nivå ökar eller minskar.
+Om du vill se hur Autoskala-regler tillämpas, Välj **kör historik** längst upp i den **skalning** fönster. Diagram och händelser lista visas när Autoskala regler utlösaren och antalet VM-instanser i nivå ökar eller minskar.
 
 
 ## <a name="next-steps"></a>Nästa steg

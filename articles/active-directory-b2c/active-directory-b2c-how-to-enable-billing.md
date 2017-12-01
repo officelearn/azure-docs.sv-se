@@ -3,75 +3,96 @@ title: "Så här länkar du en Azure-prenumeration till Azure AD B2C | Microsoft
 description: "Steg för steg-guide för att aktivera fakturering för Azure AD B2C-klient till en Azure-prenumeration."
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
-manager: mbaldwin
+author: parakhj
+manager: krassk
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
-ms.author: joroja
-ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: parja
+ms.openlocfilehash: 35fab74abf2c2ba27a8bf99eb93eb53f39b26227
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Länka en Azure-prenumeration till en Azure B2C-klient för att betala för avgifter för användning
-
-Pågående kostnader för Azure Active Directory B2C (eller Azure AD B2C) debiteras till en Azure-prenumeration. Det är nödvändigt för klientadministratör explicit länka Azure AD B2C-klient till en Azure-prenumeration när du har skapat den B2C-klienten.  Den här länken uppnås genom att skapa en Azure AD ”B2C-klient” resurs i målet Azure-prenumeration. Många B2C-klienter kan vara länkad till en enda Azure-prenumeration tillsammans med andra Azure-resurser (till exempel virtuella datorer, lagring av Data, LogicApps)
-
+# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Länka en Azure-prenumeration till en Azure AD B2C-klient
 
 > [!IMPORTANT]
-> Den senaste informationen om användning fakturering och priser för B2C är på följande sida: [Azure AD B2C-priser](
-https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Den senaste informationen om användning fakturering och priser för Azure AD B2C finns på följande sida: [Azure AD B2C-priser](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-## <a name="step-1---create-an-azure-ad-b2c-tenant"></a>Steg 1 – skapa en Azure AD B2C-klient
-Skapa en B2C-klient måste slutföras först. Hoppa över det här steget om du redan har skapat ditt mål B2C-klient. [Kom igång med Azure AD B2C](active-directory-b2c-get-started.md)
+Kostnader för Azure AD B2C debiteras till en Azure-prenumeration. När en Azure AD B2C-klient skapas måste innehavaradministratören uttryckligen länka Azure AD B2C-klient till en Azure-prenumeration. Den här artikeln visar hur du gör.
 
-## <a name="step-2---open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Steg 2 – öppna Azure-portalen i Azure AD-klient som visar din Azure-prenumeration
-Navigera till [Azure-portalen](https://portal.azure.com). Växla till Azure AD-klient som visar Azure-prenumeration om du vill använda. Azure AD-klient skiljer sig från B2C-klient. Klicka på namnet på kontot på den övre högra hörnet på instrumentpanelen för att välja Azure AD-klient i Azure-portalen. En Azure-prenumeration krävs för att fortsätta. [Hämta en Azure-prenumeration](https://account.windowsazure.com/signup?showCatalog=True)
+> [!NOTE]
+> En prenumeration som är kopplad till en Azure AD B2C-klient kan endast användas för fakturering för användning av Azure AD B2C. Prenumerationen kan inte användas för att lägga till andra Azure-tjänster eller Office 365 licenser *i Azure AD B2C-klient*.
 
-![Växla till din Azure AD-klient](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
+ Länken prenumeration uppnås genom att skapa en Azure AD B2C ”resurs” inom den Azure-prenumeration. Många Azure AD B2C ”resurser” kan skapas i en enda Azure-prenumeration, tillsammans med andra Azure-resurser (till exempel virtuella datorer, lagring av Data, LogicApps). Du kan se alla resurser i prenumerationen genom att gå till Azure AD-klient som prenumerationen är kopplad till.
 
-## <a name="step-3---create-a-b2c-tenant-resource-in-azure-marketplace"></a>Steg 3 – skapa en B2C-klient-resurs i Azure Marketplace
-Öppna Marketplace genom att klicka på ikonen Marketplace eller markera gröna ”+” i det övre vänstra hörnet på instrumentpanelen.  Sök efter och välj Azure Active Directory B2C. Välj Skapa.
+En giltig Azure-prenumeration krävs för att fortsätta.
 
-![Välj Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
+## <a name="create-an-azure-ad-b2c-tenant"></a>Skapa en Azure AD B2C-klient
 
-![Sök AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
+Du måste först [skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md) som du vill länka en prenumeration på. Hoppa över det här steget om du redan har skapat en Azure AD B2C-klient.
 
-Azure AD B2C-resursen skapa dialogrutan omfattar följande parametrar:
+## <a name="open-azure-portal-in-the-azure-ad-tenant-that-shows-your-azure-subscription"></a>Öppna Azure-portalen i Azure AD-klient som visar din Azure-prenumeration
 
-1. Azure AD B2C-klient – Välj en Azure AD B2C-klient i listrutan.  Visa endast berättigade Azure AD B2C-klienter.  Berättigad B2C hyresgäster uppfyller dessa villkor: du är global administratör för B2C-klient och B2C-klient är inte associerat till en Azure-prenumeration
+Gå till Azure AD-klient som visar din Azure-prenumeration. Öppna den [Azure-portalen](https://portal.azure.com), och växla till Azure AD-klient som visar Azure-prenumeration om du vill använda.
 
-2. Azure AD B2C resursnamnet - är förvalt för att matcha domännamnet för B2C-klient
+![Växla till Azure AD-klient](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
-3. Prenumeration – en aktiv Azure-prenumeration som du är administratör eller en medadministratör.  Flera innehavare av Azure AD B2C kan läggas till en Azure-prenumeration
+## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Hitta Azure AD B2C i Azure Marketplace
 
-4. Resursgrupp och resursgruppen plats - med hjälp av den här artefakten kan du ordna flera Azure-resurser.  Det här alternativet har ingen inverkan på din B2C-klient plats, prestanda eller fakturering status
+Klicka på **Nytt**. I fältet **Sök på marketplace** skriver du `B2C`.
 
-5. Fäst på instrumentpanelen för enklaste åtkomst till din faktureringsinformation för B2C-klient och inställningar för B2C-klient ![skapa B2C-resurs](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Lägg till knappen markerad och texten Azure AD B2C Sök i fältet marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-## <a name="step-4---manage-your-b2c-tenant-resources-optional"></a>Steg 4 – hantera B2C-klient-resurser (valfritt)
-När installationen är klar får en ny resurs ”B2C-klient” har skapats i målresursgruppen och relaterade Azure-prenumeration.  Du bör se en ny resurs av typen ”B2C-klient” lagt till tillsammans med andra Azure-resurser.
+Välj i resultatlistan **Azure AD B2C**.
 
-![Skapa resurs för B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcedashboard.png)
+![Azure AD B2C som valts i resultatlistan över](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-Genom att klicka på resursen B2C-klient, kan du
-- Klicka på prenumerationsnamn att granska faktureringsinformation. Se fakturerings- och användning.
-- Klicka på Azure AD B2C-inställningar om du vill öppna en ny webbläsarflik direkt i till din B2C-klient inställningsbladet
+Information om Azure AD B2C visas. Du börjar konfigurera den nya Azure Active Directory B2C-klientorganisationen genom att klicka på **Skapa**.
+
+På skärmen resursen skapas väljer **länka ett befintligt Azure AD B2C-klient till min Azure-prenumeration**.
+
+## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Skapa en Azure AD B2C-resurs i Azure-prenumeration
+
+Välj en Azure AD B2C-klient i dialogrutan Skapa resurs i listrutan. Alla klienter som du är global administratör för och som inte redan är länkade till en prenumeration visas.
+
+Resursnamnet Azure AD B2C kommer vara förvald för att matcha domännamnet för Azure AD B2C-klient.
+
+Välj en aktiv Azure-prenumeration som du är administratör för prenumeration.
+
+Välj en resursgrupp och plats för resursgruppen. Den här markeringen har ingen inverkan på din plats för Azure AD B2C-klient, prestanda eller fakturering status.
+
+![Skapa resurs för B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+
+## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Hantera dina resurser för Azure AD B2C-klient
+
+När en resurs i Azure AD B2C har skapats i Azure-prenumeration, bör du se en ny resurs av typen ”B2C-klient” lagt till tillsammans med andra Azure-resurser.
+
+Du kan använda den här resursen till:
+
+- Gå till prenumerationen att granska faktureringsinformation.
+- Gå till din Azure AD B2C-klient
 - Skicka en supportförfrågan
-- Flytta resursernas B2C-klient till en annan Azure-prenumeration eller till en annan resursgrupp.  Det här valet ändringar som Azure-prenumeration tar emot avgifter för användning.
+- Flytta din Azure AD B2C-klient resurs till en annan Azure-prenumeration eller till en annan resursgrupp.
 
 ![B2C resursinställningar](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Kända problem
-- Borttagning av B2C-klient. Om en B2C-klient skapas, tas bort och återskapas med samma domännamn du också ta bort och återskapa ”länka” resurs med samma domännamn.  Du hittar den här resursen ”länka” under ”alla resurser” i prenumerationen klienten via Azure portal.
-- Automatisk införas begränsningar för regional resource-plats.  I sällsynta fall kan har en användare upprättat en regional begränsning för att skapa en Azure-resurs.  Den här begränsningen kan hindra skapandet av länken mellan en Azure-prenumeration och en B2C-klient. Slappna av den här begränsningen om du vill minska.
+
+### <a name="csp-subscriptions"></a>CSP-prenumerationer
+
+För närvarande en Azure AD B2C-klient **kan** länk till CSP-prenumerationer.
+
+### <a name="self-imposed-restrictions"></a>Automatisk införas begränsningar
+
+En användare har upprättat en regional begränsning för att skapa en Azure-resurs. Den här begränsningen kan förhindra att Azure AD B2C-resurs. Slappna av den här begränsningen om du vill minska.
 
 ## <a name="next-steps"></a>Nästa steg
-När de här stegen är klar för varje B2C-klienter kan debiteras din Azure-prenumeration i enlighet med dina uppgifter för Azure direkt eller Enterprise-avtal.
-- Granska användnings- och fakturering inom din valda Azure-prenumeration
-- Granska detaljerad dag för dag användningsrapporter med hjälp av den [användning Reporting API](active-directory-b2c-reference-usage-reporting-api.md)
+
+När de här stegen är klar för var och en av dina Azure AD B2C-klienter kan debiteras din Azure-prenumeration i enlighet med dina uppgifter för Azure direkt eller Enterprise-avtal.
+
+Du kan granska användnings- och faktureringsinformation inom din valda Azure-prenumeration. Du kan också granska detaljerad dag för dag användningsrapporter med hjälp av den [användning reporting API](active-directory-b2c-reference-usage-reporting-api.md).

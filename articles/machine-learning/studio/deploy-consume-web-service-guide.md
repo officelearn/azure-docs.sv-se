@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning-webbtjänster: Distribution och användning
 Du kan använda Azure Machine Learning för att distribuera machine learning arbetsflöden och modeller som webbtjänster. Dessa webbtjänster kan sedan användas för att anropa machine learning-modeller från program via Internet för att göra förutsägelser i realtid eller i batchläge. Eftersom webbtjänsterna RESTful kan anropa du dem från olika programmeringsspråk språk och plattformar, till exempel .NET och Java, och program som Excel.
@@ -26,6 +26,7 @@ Du kan använda Azure Machine Learning för att distribuera machine learning arb
 Nästa avsnitt innehåller länkar till genomgång, kod och dokumentation för att komma igång.
 
 ## <a name="deploy-a-web-service"></a>Distribuera en webbtjänst
+
 ### <a name="with-azure-machine-learning-studio"></a>Med Azure Machine Learning Studio
 Machine Learning Studio och Microsoft Azure Machine Learning-webbtjänster portalen kan du distribuera och hantera en webbtjänst utan att skriva kod.
 
@@ -58,7 +59,7 @@ Kör programmet skapar en mall för JSON web. Om du vill använda mallen för at
 
 * Lagringskontonamn och nyckel
 
-    Du kan hämta lagringskontonamn och nyckel från antingen den [Azure-portalen](https://portal.azure.com/) eller [klassiska Azure-portalen](http://manage.windowsazure.com/).
+    Du kan hämta namnet på lagringskontot och nyckeln från den [Azure-portalen](https://portal.azure.com/).
 * Åtagande plan-ID
 
     Du kan hämta plan-ID från den [Azure Machine Learning-webbtjänster](https://services.azureml.net) portal genom att logga in och klicka på ett namn för energischema.

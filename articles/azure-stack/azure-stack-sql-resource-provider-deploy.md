@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
-ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -49,10 +49,17 @@ Du måste skapa en (eller flera) SQL-servrar och/eller ge åtkomst till externa 
 
     b. På datorer med flera noder, måste värden vara ett system som kan komma åt den privilegierade slutpunkten.
 
-3. [Hämta SQL-providern binärfiler resursfilen](https://aka.ms/azurestacksqlrp) och köra Self-Extractor extrahera innehållet till en tillfällig katalog.
+3. Hämta SQL resursprovidern binära och köra Self-Extractor extrahera innehållet till en tillfällig katalog.
 
-    > [!NOTE]
-    > Om du kör ett Azure-stacken bygger 20170928.3 eller tidigare, [ladda ned den här versionen](https://aka.ms/azurestacksqlrp1709).
+    >[!NOTE] 
+    > Resource provider build motsvarar Azure Stack-versioner. Du måste ladda ned rätt binärfil för versionen av Azure-stacken som körs.
+
+    | Azure-stacken Build | SQL RP installer |
+    | --- | --- |
+    | 1.0.171122.1 | [SQL RP version 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
+    | 1.0.170928.3 | [SQL RP version 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
+   
 
 4. Azure-stacken rotcertifikatet hämtas från Privilegierade slutpunkten. För ASDK skapas ett självsignerat certifikat som en del av den här processen. Du måste ange ett lämpligt certifikat för flera noder.
 
@@ -102,7 +109,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 

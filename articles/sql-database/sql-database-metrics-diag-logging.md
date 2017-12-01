@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 6d5fc10b5186f2830f724325846a485e4064d12b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mätvärden och diagnostikloggning 
 Azure SQL Database kan generera mätvärden och diagnostikfunktionerna loggar för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
@@ -48,7 +48,7 @@ Du måste ange Azure-resurs där valda data samlas in när du aktiverar mått oc
 
 Du kan etablera en ny resurs i Azure eller välj en befintlig resurs. Du måste ange vilka data som ska samlas in när du har valt storage-resursen. Alternativen är:
 
-- [1 minut mått](sql-database-metrics-diag-logging.md#1-minute-metrics): innehåller DTU-procent, DTU gränsen, CPU-procent fysiska data läsa procent, log skriva procent, lyckade/misslyckade/Blocked av brandväggens anslutningar, sessioner procent, arbetare procent, lagring, lagring procent och XTP lagringsprocent.
+- [Alla mätvärden](sql-database-metrics-diag-logging.md#all-metrics): innehåller DTU-procent, DTU gränsen, CPU-procent fysiska data läsa procent, log skriva procent, lyckade/misslyckade/Blocked av brandväggens anslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent , och XTP lagringsprocent.
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): innehåller information om frågan runtime statistik, till exempel CPU-användning och fråga varaktighet.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): innehåller information om frågan vänta statistik, som talar om dina frågor väntat, t.ex CPU, LOGG och LÅSET.
 - [Fel](sql-database-metrics-diag-logging.md#errors-dataset): innehåller information om SQL-fel som inträffat på den här databasen.
@@ -243,7 +243,7 @@ Eller att:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Till exempel kanske en blob-namnet för 1 minut mått:
+Till exempel kanske ett blob-namn för alla mått:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -261,7 +261,7 @@ Lär dig hur du [hämta mätvärden och diagnostikfunktionerna loggar från lagr
 
 ## <a name="metrics-and-logs-available"></a>Mått och tillgängliga loggar
 
-### <a name="1-minute-metrics"></a>1 minut mått
+### <a name="all-metrics"></a>Alla mått
 
 |**Resurs**|**Mått**|
 |---|---|
@@ -331,7 +331,7 @@ Lär dig mer om [Frågearkivet Körningsdata statistik](https://docs.microsoft.c
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: QueryStoreWaitStatistics|
 |OperationName|Namnet på åtgärden. Alltid: QueryStoreWaitStatisticsEvent|
-|Resurs|Namnet på resursen|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -369,7 +369,7 @@ Lär dig mer om [Query Store vänta statistikdata](https://docs.microsoft.com/en
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: fel|
 |OperationName|Namnet på åtgärden. Alltid: ErrorEvent|
-|Resurs|Namnet på resursen|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -398,7 +398,7 @@ Lär dig mer om [felmeddelanden i SQL Server](https://msdn.microsoft.com/en-us/l
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: DatabaseWaitStatistics|
 |OperationName|Namnet på åtgärden. Alltid: DatabaseWaitStatisticsEvent|
-|Resurs|Namnet på resursen|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -427,7 +427,7 @@ Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/en-us/sq
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: timeout|
 |OperationName|Namnet på åtgärden. Alltid: TimeoutEvent|
-|Resurs|Namnet på resursen|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|
@@ -450,7 +450,7 @@ Lär dig mer om [databasen vänta statistik](https://docs.microsoft.com/en-us/sq
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL|
 |Kategori|Namnet på kategorin. Alltid: block|
 |OperationName|Namnet på åtgärden. Alltid: BlockEvent|
-|Resurs|Namnet på resursen|
+|Resurs|Namn på resursen|
 |ResourceType|Namnet på resurstypen. Alltid: Servrar/databaser|
 |SubscriptionId|Prenumeration GUID som databasen tillhör.|
 |ResourceGroup|Namnet på resursgruppen som databasen tillhör.|

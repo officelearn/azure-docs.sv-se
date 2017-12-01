@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Omtrimma en klassisk webbtjänst
 Förutsägande webbtjänsten som du har distribuerat är standard bedömningsslutpunkten. Slutpunkter hålls synkroniserade med den ursprungliga utbildningen och bedömningen experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten måste du lägga till en ny slutpunkt till webbtjänsten. 
@@ -43,11 +43,10 @@ Skapa en ny bedömningsprofil slutpunkt på den förutsägande webbtjänst som k
 > 
 > 
 
-Det finns tre sätt som du kan lägga till en ny slutpunkt till en webbtjänst:
+Det finns två sätt som du kan lägga till en ny slutpunkt till en webbtjänst:
 
 1. Programmässigt
 2. Webbtjänster för Microsoft Azure-portalen
-3. Använd den klassiska Azure-portalen
 
 ### <a name="programmatically-add-an-endpoint"></a>Lägga till en slutpunkt
 Du kan lägga till bedömningsprofil slutpunkter som använder exempelkoden i den här [github-lagringsplatsen](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
@@ -58,18 +57,10 @@ Du kan lägga till bedömningsprofil slutpunkter som använder exempelkoden i de
 3. Klicka på **Lägg till**.
 4. Skriv ett namn och beskrivning för den nya slutpunkten. Välj loggningsnivån och om exempeldata är aktiverad. Mer information om loggning finns [aktivera loggning för Machine Learning-webbtjänster](web-services-logging.md).
 
-### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>Använd den klassiska Azure-portalen för att lägga till en slutpunkt
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. I den vänstra menyn klickar du på **Maskininlärning**.
-3. Klicka på arbetsytan under namn och klicka sedan på **Web Services**.
-4. Under namn, klickar du på **inventering modellen [förutsägande exp].** .
-5. Längst ned på sidan klickar du på **Lägg till slutpunkt**. Mer information om att lägga till slutpunkter finns [skapar slutpunkter](create-endpoint.md). 
-
-## <a name="update-the-added-endpoints-trained-model"></a>Uppdatera tillagda slutpunkten Trained Model
+## <a name="update-the-added-endpoints-trained-model"></a>Uppdatera tillagda slutpunkten tränade modellen
 Om du vill slutföra omtränings, måste du uppdatera den tränade modellen för den nya slutpunkt som du har lagt till.
 
-* Om du har lagt till nya slutpunkten med den klassiska Azure-portalen, du kan klicka på namnet på den nya slutpunkten i portalen kommer **UpdateResource** länken för att hämta Webbadress måste du uppdatera slutpunkten modellen.
-* Om du har lagt till slutpunkten med exempelkoden inkluderar plats för hjälp-URL som identifieras av den *HelpLocationURL* värdet i utdata.
+Om du har lagt till slutpunkten med exempelkoden inkluderar plats för hjälp-URL som identifieras av den *HelpLocationURL* värdet i utdata.
 
 Att hämta sökvägen-URL:
 

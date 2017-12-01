@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 6a0d218a9b9cb41a87264cfd5f653bb631b0bce9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 11/29/2017
+ms.openlocfilehash: 5983bbf6fac9c3cddda19f6a11d2fe2b18177160
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Anpassa parametrar för konfiguration av servern med hjälp av Azure CLI
 Du kan visa, visa och uppdatera konfigurationsparametrar för en Azure-databas för MySQL-servern med hjälp av Azure CLI, Azure kommandoradsverktyget. En delmängd av motorkonfigurationer är exponerad på servernivå och kan ändras. 
@@ -34,7 +34,7 @@ az mysql server configuration list --resource-group myresourcegroup --server mys
 Definition av var och en av parametrarna i listan finns i avsnittet MySQL referens på [Server systemvariabler](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## <a name="show-server-configuration-parameter-details"></a>Visa serverkonfiguration parameterinformation
-Om du vill visa information om en specifik konfigurationsparameter för en server som kör den [az mysql server configuration visa](/cli/azure/mysql/server/configuration#show) kommando.
+Om du vill visa information om en specifik konfigurationsparameter för en server som kör den [az mysql server configuration visa](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show) kommando.
 
 Det här exemplet visas information om den **långsam\_frågan\_loggen** server konfigurationsparameter för server **myserver4demo.mysql.database.azure.com** under resursgrupp **myresourcegroup.**
 ```azurecli-interactive

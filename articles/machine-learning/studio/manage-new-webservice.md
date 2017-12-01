@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster-portalen
 Du kan hantera Machine Learning nya och klassiska webbtjänster med hjälp av portalen för Microsoft Azure Machine Learning-webbtjänster. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande tekniker, ha lite olika hanteringsfunktioner för dem.
@@ -155,36 +155,4 @@ Du kan uppdatera följande egenskaper:
 * **Loggning av** kan du aktivera eller inaktivera felloggning på slutpunkten. Mer information om loggning finns i Aktivera [loggning för Machine Learning-webbtjänster](web-services-logging.md).
 * **Aktivera exempeldata** kan du ange exempeldata som du kan använda för att testa tjänsten begäran och svar. Om du har skapat webbtjänsten i Machine Learning Studio hämtas exempeldata från data din används för att träna din modell. Om du har skapat tjänsten programmässigt hämtas data från de exempel informationen som en del av JSON-paketet.
 
-## <a name="grant-or-suspend-access-to-web-services-for-users-in-the-portal"></a>Bevilja eller inaktivera åtkomst till webbtjänster för användare i portalen
-Med den klassiska Azure-portalen kan du tillåta eller neka åtkomst till specifika användare.
-
-### <a name="access-for-users-of-new-web-services"></a>Åtkomst för användare av nya webbtjänster
-Om du vill aktivera andra användare att arbeta med webbtjänster i Azure Machine Learning-webbtjänster portal, du måste lägga till dem som co-administratörer på Azure-prenumerationen.
-
-Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com/) med Microsoft Azure-konto – Använd det konto som är kopplad till den Azure-prenumerationen.
-
-1. I navigeringsfönstret klickar du på **inställningar**, klicka på **administratörer**.
-2. Längst ned i fönstret klickar du på **Lägg till**. 
-3. Skriv e-postadressen för den person som du vill lägga till som medadministratör och välj den prenumeration som du vill att komma åt medadministratörerna i dialogrutan ADD A CO-administratör.
-4. Klicka på **Spara**.
-
-### <a name="access-for-users-of-classic-web-services"></a>Åtkomst för användare av klassiska webbtjänster
-Hantera en arbetsyta:
-
-Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com/) med Microsoft Azure-konto – Använd det konto som är kopplad till den Azure-prenumerationen.
-
-1. Klicka på panelen för Microsoft Azure-tjänster **MASKININLÄRNING**.
-2. Klicka på arbetsytan som du vill hantera.
-3. Klicka på den **konfigurera** fliken.
-
-Från konfigurationsfliken kan du inaktivera åtkomst till Machine Learning-arbetsytan genom att klicka på **NEKA**. Användare kommer inte längre att kunna öppna arbetsytan i Machine Learning Studio. Om du vill återställa åtkomst **TILLÅT**.
-
-Till specifika användare:
-
-Om du vill hantera ytterligare konton som har åtkomst till arbetsytan i Machine Learning Studio klickar du på **logga in på ML Studio** i den **INSTRUMENTPANELEN** fliken. Då öppnas arbetsytan i Machine Learning Studio. Härifrån kan du klicka på den **inställningar** fliken och sedan **användare**. Du kan klicka på **bjuda in fler användare** att ge användare åtkomst till arbetsytan, eller välj en användare och klicka på **ta bort**.
-
-> [!NOTE]
-> Den **logga in på ML Studio** länken öppnar Machine Learning Studio med Account du för närvarande är inloggad på. Account du använde för att logga in på den klassiska Azure-portalen för att skapa en arbetsyta har inte behörighet att öppna arbetsytan automatiskt. Om du vill öppna en arbetsyta, måste du vara inloggad på Account som har definierats som ägare till arbetsytan eller måste du få en inbjudan från ägare att ansluta till arbetsytan.
-> 
-> 
 

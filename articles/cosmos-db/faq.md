@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -195,7 +195,6 @@ Det finns vissa skillnader i som användare som kommer från Azure Table storage
 * Frågeresultatet returneras av API: et för tabellen sorteras inte partition nyckel/key rad. som i Azure Table storage.
 * Raden nycklar kan endast vara upp till 255 byte
 * Batchar kan endast innehålla upp till 2 MB
-* CreateIfNotExists anrop har begränsats av en begränsning av hantering som är fasta och åtskild från andra åtgärder för tabeller som omfattas av RUs. Detta innebär att de gör stort antal CreateIfNotExists hämta begränsas och inte kan göra något åt den eftersom gränsen inte kommer från sina RUs.
 * CORS stöds inte för närvarande
 * Tabellnamn i Azure Table storage är inte skiftlägeskänsliga, men de finns i Azure Cosmos DB tabell API
 * Vissa av Azure Cosmos DB internt format för kodning information, till exempel binära fält är inte så effektivt en kanske gillar. Därför kan det orsaka oväntade begränsningar på datastorlek. Exempelvis använder för närvarande en gick inte fullständig 1 MB på en tabellentiteten för att lagra binära data eftersom den kodningen ökar storleken på data.
@@ -205,7 +204,7 @@ Det finns ett antal slutpunkter/fråga alternativ som inte stöds av Azure Cosmo
 | ------------| ------------- | ---------- | ----------- |
 | HÄMTA OCH PLACERA | /? restype =service@comp= egenskaper| [Ange egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) och [hämta egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Den här slutpunkten används för att ange CORS-regler, analytics lagringskonfiguration och loggningsinställningar. CORS stöds inte för närvarande och analyser och loggning hanteras annorlunda i Azure Cosmos DB än Azure Storage-tabeller |
 | ALTERNATIV | / < resurs-tabellnamn > | [Före svarta CORS tabell begäran](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
-| HÄMTA | /? restype =service@comp= statistik | [Hämta Service tabellstatistik](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära. Detta är inte behövs i Cosmos DB eftersom replikering är en del av skrivningar. |
+| GET | /? restype =service@comp= statistik | [Hämta Service tabellstatistik](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära. Detta är inte behövs i Cosmos DB eftersom replikering är en del av skrivningar. |
 | HÄMTA OCH PLACERA | /mytable? comp = acl | [Hämta tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) och [ange tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomstprinciper som används för att hantera delade åtkomst signaturer (SAS). Även om SAS stöds de ställs och hanteras annorlunda. |
 
 Dessutom stöder Azure Cosmos DB tabell API endast JSON-format, inte ATOM.
@@ -504,7 +503,7 @@ Använd [mått](use-metrics.md) Använd [diagnostikloggar](logging.md).
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>Vilka klient-SDK: er kan arbeta med Apache Cassandra API för Azure Cosmos DB?
 Drivrutiner som använder CQLv3 användes i privat förhandsvisning Apache Cassandra SDK: ns-klienten för klientprogram. Om du har andra drivrutiner som du använder eller om du inför problem, skicka e-post till [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
 
-### <a name="is-composite-primary-key-supported"></a>Det finns stöd för sammansatt primärnyckel
+### <a name="is-composite-partition-key-supported"></a>Det finns stöd för sammansatt partitionsnyckel
 Ja, kan du använda reguljära syntax för att skapa sammansatta partitionsnyckel. 
 
 ### <a name="can-i-use-sstable-loader-for-data-loading"></a>Kan jag använda sstable inläsaren för inläsning av data?

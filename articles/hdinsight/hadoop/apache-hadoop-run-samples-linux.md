@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 3e52fc6ee18faa9b8a04ad19db52dd48505782ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 700f73d86686761908d241f989aab25e0fb43c0e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Kör MapReduce-exempel som ingår i HDInsight
 
@@ -67,10 +67,7 @@ Lär dig hur du kör MapReduce-exempel som ingår i Hadoop i HDInsight.
 * `wordmedian`: Ett mapreduce-program som räknar ord i indatafilerna median längd.
 * `wordstandarddeviation`: Ett mapreduce-program som räknar standardavvikelsen för längden på texten i de inkommande filerna.
 
-**Källkoden**: källkoden för exemplen ingår i HDInsight-kluster på `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
-
-> [!NOTE]
-> Den `2.2.4.9-1` i sökvägen är versionen av Hortonworks Data Platform för HDInsight-kluster och kan vara olika för klustret.
+**Källkoden**: källkoden för exemplen ingår i HDInsight-kluster på `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 ## <a name="run-the-wordcount-example"></a>Köra wordcount-exemplet
 

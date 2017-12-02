@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 1e4d72540a44f3b1838b6ed4dfad47dbe84489dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c21b575e9e055b2dec69bea270012b91df2b662b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och åtgärda fel togs emot från WebHCat på HDInsight
 
@@ -46,13 +46,13 @@ Läs mer om felmeddelanden när du använder WebHCat med HDInsight och hur du l�
 
 Om följande standardvärden överskrids kan försämra WebHCat prestanda eller orsaka fel:
 
-| Inställning | Vad verktyget gör | Standardvärde |
+| Inställning | Vad läget gör | Standardvärde |
 | --- | --- | --- |
 | [yarn.Scheduler.Capacity.maximum-program][maximum-applications] |Det maximala antalet jobb som kan vara aktiva samtidigt (väntande eller körs) |10 000 |
 | [templeton.Exec.Max procs][max-procs] |Det maximala antalet förfrågningar som hanteras samtidigt |20 |
 | [mapreduce.jobhistory.Max-ålder-ms][max-age-ms] |Antalet dagar som jobbhistorik bevaras |7 dagar |
 
-## <a name="too-many-requests"></a>För många begäranden
+## <a name="too-many-requests"></a>För många förfrågningar
 
 **HTTP-statuskod**: 429
 

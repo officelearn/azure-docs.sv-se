@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 06c7f9f6bd49ebfaf03b04cb6e30b963593bfb35
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: f3fc8fb08cd23543ecfcbdc4010aabc9c0184a65
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Konfigurera parametrar för server i Azure-databas för MySQL med hjälp av Azure portal
 
@@ -44,7 +44,7 @@ Följande parametrar inte är konfigurerbar och bundet till din [prisnivån](con
 | Standard 400 | 10240 | 800 | 
 | Standard 800 | 20480 | 1600 |
 
-Andra server parametern standardvärden för version [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) och [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Alla andra server som inte listas i föregående tabell har angetts till sina standardvärden för versioner [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) och [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Anslutningsbibliotek för Azure-databas för MySQL](concepts-connection-libraries.md).

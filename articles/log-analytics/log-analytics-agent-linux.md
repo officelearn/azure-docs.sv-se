@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/07/2017
+ms.date: 11/30/2017
 ms.author: magoedte
-ms.openlocfilehash: 56c666d1a18937df21a6aca8acde87beda1cad8e
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 1f6e0f2a638d9ce9b06f19feba1c9e216812862c
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="connect-your-linux-computers-to-log-analytics"></a>Linux-datorer ansluta till logganalys 
 
@@ -43,7 +43,7 @@ Följande Linux-distributioner stöds officiellt.  OMS-Agent för Linux kan ocks
 * Oracle Linux 5, 6 och 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6 och 7 (x86/x64)
 * Debian GNU/Linux 6, 7 och 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 och 12 (x86/x64)
 
 ### <a name="network"></a>Nätverk
@@ -147,7 +147,7 @@ Konfigurationsvärdet proxy har följande syntax:
 Egenskap|Beskrivning
 -|-
 Protokoll|https
-Användaren|Valfritt användarnamn för proxyautentisering
+användare|Valfritt användarnamn för proxyautentisering
 lösenord|Lösenord för proxyautentisering
 proxyhost|Adress eller FQDN för proxy server/OMS Gateway
 port|Valfria portnumret för proxyservern server/OMS Gateway

@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Hub-enhet till moln meddelanden med hjälp av vägar (.Net) | Microsoft Docs"
-description: "Så här bearbeta meddelanden från IoT-hubb enhet till moln genom att använda regler för Routning och anpassade slutpunkter för att skicka meddelanden till andra backend-tjänster."
+title: Vidarebefordra meddelanden med Azure IoT Hub (.Net) | Microsoft Docs
+description: "Så här bearbeta meddelanden för Azure IoT Hub-enhet till moln genom att använda regler för Routning och anpassade slutpunkter för att skicka meddelanden till andra backend-tjänster."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>IoT-hubb enhet till moln-meddelanden med hjälp av vägar (.NET)
+# <a name="routing-messages-with-iot-hub-net"></a>Vidarebefordra meddelanden med IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ För att kunna genomföra den här kursen behöver du följande:
 * Visual Studio 2015 eller Visual Studio 2017.
 * Ett aktivt Azure-konto. <br/>Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter.
 
-Du bör ha vissa grundläggande kunskaper om [Azure Storage] och [Azure Service Bus].
+Vi rekommenderar också läsa mer om [Azure Storage] och [Azure Service Bus].
 
 ## <a name="send-interactive-messages"></a>Skicka interaktiva meddelanden
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Den här metoden lägger slumpmässigt till egenskapen `"level": "critical"` på meddelanden som skickas av enheten, som simulerar ett meddelande som kräver omedelbara åtgärder med lösningen serverdel. Appen enheten överför denna information i egenskaperna för meddelandet i stället för i meddelandetexten, så att IoT-hubb kan vidarebefordra meddelandet till rätt meddelandets mål.
+Den här metoden lägger slumpmässigt till egenskapen `"level": "critical"` och `"level": "storage"` på meddelanden som skickas av enheten, som simulerar ett meddelande som kräver omedelbar åtgärd som programmet backend- eller som behöver lagras permanent. Programmet Överför denna information i egenskaperna för meddelandet i stället för i meddelandetexten, så att IoT-hubb kan vidarebefordra meddelandet till rätt meddelandets mål.
 
 > [!NOTE]
 > Du kan använda meddelandeegenskaper skicka meddelanden för olika scenarier, inklusive kall sökväg bearbetning, förutom hot sökväg exemplet som visas här.
 
 > [!NOTE]
-> För enkelhetens skull implementerar inte den här självstudiekursen princip försök igen. I produktionskod, bör du implementera en återförsöksprincip som exponentiell backoff enligt förslaget i MSDN-artikel [hantering av tillfälliga fel].
+> Vi rekommenderar starkt att du använder en återförsöksprincip som exponentiell backoff enligt förslaget i MSDN-artikel [hantering av tillfälliga fel].
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Skicka meddelanden till en kö i din IoT-hubb
 
@@ -177,6 +185,30 @@ Du är nu redo att köra programmen.
    
    ![Tre konsolappar][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Valfritt) Lägg till lagringsbehållaren i IoT-hubb och flöde meddelanden till den
+
+I det här avsnittet, skapa ett lagringskonto, ansluta till din IoT-hubb och konfigurera din IoT-hubb för att skicka meddelanden till kontot utifrån förekomsten av en egenskap i meddelandet. Mer information om hur du hanterar lagring finns [komma igång med Azure Storage][Azure Storage].
+
+ > [!NOTE]
+   > Om du inte är begränsad till en **Endpoint**, du kan konfigurera den **StorageContainer** förutom den **CriticalQueue** och kör både simulatneously.
+
+1. Skapa ett lagringskonto som beskrivs i [Azure Storage-dokumentation] [lnk-storage]. Anteckna namnet på kontot.
+
+2. Öppna din IoT-hubb i Azure-portalen och klicka på **slutpunkter**.
+
+3. I den **slutpunkter** bladet väljer den **CriticalQueue** slutpunkt och klicka på **ta bort**. Klicka på **Ja**, och klicka sedan på **Lägg till**. Namnet på slutpunkten **StorageContainer** och markera med hjälp av listrutorna **Azure Storage-behållare**, och skapa en **lagringskonto** och en **lagring behållaren**.  Anteckna namnen.  När du är klar klickar du på **OK** längst ned. 
+
+ > [!NOTE]
+   > Om du inte är begränsad till en **Endpoint**, du behöver inte ta bort den **CriticalQueue**.
+
+4. Klicka på **vägar** i din IoT-hubb. Klicka på **Lägg till** längst upp på bladet för att skapa en regel för vidarebefordran som skickar meddelanden till kön du just lagt till. Välj **meddelanden** som datakällan. Ange `level="storage"` som villkor och välj **StorageContainer** som en anpassad slutpunkt som routning regeln slutpunkt. Klicka på **spara** längst ned.  
+
+    Kontrollera återställningsplats vägen är inställd på **på**. Den här inställningen är standardkonfigurationen för en IoT-hubb.
+
+1. Kontrollera att dina tidigare program körs fortfarande. 
+
+1. I Azure-portalen går du till ditt lagringskonto under **Blob-tjänsten**, klicka på **Bläddra blobbar...** .  Välj din behållare, navigera till och klicka JSON-filen och på **hämta** att visa data.
+
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen beskrivs hur du ska skicka meddelanden från enhet till moln med hjälp av meddelandet routningsfunktionen för IoT-hubb.
 
@@ -204,5 +236,5 @@ Läs mer om meddelanderoutning i IoT-hubb i [skicka och ta emot meddelanden med 
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 [hantering av tillfälliga fel]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 81954835185ebaa86c11a9498a85879e6985897a
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Centrala och samarbete i Azure Machine Learning arbetsstationen
 Det här dokumentet vägleder dig genom Azure Machine Learning arbetsstationen hur flyttas dina projekt över datorer, samt aktivera samarbete med dina gruppmedlemmar. 
@@ -156,9 +156,9 @@ För att illustrera samarbete flödet, låt oss gå igenom ett exempel. Contoso 
 
 7. Bob klickar på projektnamnet och projektet hämtas till datorn.
     
-    a. De hämta projektfilerna är klonerna för ögonblicksbilden av senast körs registreras i körningshistoriken. De är inte den senaste bekräftelsen på mastergrenen.
+    a. Hämtade projektfiler är en kopia av ögonblicksbild av den senaste körningen registreras i körningshistoriken. De är inte den senaste bekräftelsen på mastergrenen.
     
-    b. Lokala projektmappen är inställd på _master_ gren med unstaged ändringar.
+    b. Lokala projektmappen är inställd på _master_ gren med unstaged ändringarna.
 
 8. Bob kan nu bläddra körs som körs av Alice och Återställ ögonblicksbild av alla tidigare körs.
 

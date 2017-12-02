@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux-agenten
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ En konfigurationsfil (/ etc/waagent.conf) styr åtgärder för waagent. En exemp
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ En konfigurationsfil (/ etc/waagent.conf) styr åtgärder för waagent. En exemp
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 Olika beskrivs i detalj nedan. Konfigurationsalternativ som är av tre typer. Boolesk, sträng eller heltal. Booleskt konfigurationsalternativen kan anges som ”y” eller ”n”. Särskilda nyckelordet ”None” kan användas för vissa sträng typen konfigurationsposter enligt anvisningarna nedan.
 
@@ -209,8 +211,12 @@ Standard: n
 
 Om det har angetts waagent körs CustomData efter etableringen.
 
+**Provisioning.AllowResetSysUser** typ: booleskt standard: n
+
+Det här alternativet kan lösenordet för användaren sys återställs; Standardvärdet är inaktiverat.
+
 **Provisioning.PasswordCryptId**  
-Typ: sträng  
+Typ: Sträng  
 Standard: 6
 
 Algoritm som används av crypt vid generering av lösenords-hash.  
@@ -220,7 +226,7 @@ Algoritm som används av crypt vid generering av lösenords-hash.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Typ: sträng  
+Typ: Sträng  
 Standard: 10
 
 Längden på slumpmässiga salt som används vid generering av lösenords-hash.
@@ -290,6 +296,12 @@ Typ: Sträng
 Standard: ingen
 
 Om kan agenten ska använda den här proxyservern åtkomst till internet. 
+
+**AutoUpdate.Enabled** typ: booleskt standard: y
+
+Aktivera eller inaktivera automatisk uppdatering för målet tillstånd bearbetning. Standardinställningen är aktiverad.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu molnet bilder
 Observera att använda Ubuntu molnet bilder [moln init](https://launchpad.net/ubuntu/+source/cloud-init) att utföra många konfigurationer som annars skulle hanteras av Azure Linux-agenten.  Observera följande skillnader:

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: b267f5ce5ec76a89327ac58ca76895f8bcc4696b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Använda MapReduce i Hadoop i HDInsight
 
@@ -57,7 +57,7 @@ MapReduce kan implementeras på olika språk. Java är de vanligaste implementer
 
 ## <a name="development-languages"></a>Programmeringsspråk
 
-Språk eller ramverk som baseras på Java- och Java Virtual Machine kan köras direkt som ett MapReduce-jobb. Exemplet i det här dokumentet är ett MapReduce för Java-program. Icke-Java-språk, till exempel C#, Python eller fristående körbara filer, måste använda Hadoop-strömning.
+Språk eller ramverk som baseras på Java- och Java Virtual Machine kan köras direkt som ett MapReduce-jobb. Exemplet i det här dokumentet är ett MapReduce för Java-program. Icke-Java-språk, till exempel C#, Python eller fristående körbara filer, måste använda **Hadoop streaming**.
 
 Hadoop streaming kommunicerar med mapper och reducer via STDIN och STDOUT. Den mapper reducer läsa data till en rad i taget från STDIN och skriva utdata till STDOUT. Varje rad läsa eller sänds av mapper och reducer måste vara i formatet av en nyckel/värde-par avgränsas med ett tabbtecken:
 

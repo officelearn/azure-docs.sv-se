@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 11/30/2017
+ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure tid serien insikter explorer
 Den här artikeln innehåller olika funktioner och alternativ som är tillgängliga i tid serien insikter explorer webbapp. Du kan använda tid serien insikter explorer i webbläsaren för att skapa visualiseringar av dina data.
@@ -90,7 +90,7 @@ Du kan utforska och fråga tid seriens data inom minuter ansluta din händelsek�
 
 11. Den **heatmap** kan användas för att snabbt hitta unikt eller avvikande dataserien i en given fråga. Endast en sökterm kan vara visualiseras som en heatmap.    
 
-   ![Heatmap](media/time-series-insights-explorer/explorer6.png)
+   ![Termisk karta](media/time-series-insights-explorer/explorer6.png)
 
 12. **Händelser**: när du väljer utforska händelser när du väljer eller högerklicka ovan panelen Händelser görs tillgänglig.  Här kan du se alla dina rådata händelser och exportera händelserna som JSON- eller CSV-filer. Observera att tid serien insikter lagrar alla rådata.
 

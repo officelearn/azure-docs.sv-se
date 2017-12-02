@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36e204c73e62e950c3f40eab7e1ce6bccd7abd83
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bb4c21456643532df040df4fcd5f4fa1a4f48d2c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Hur du använder PerfInsights 
 
@@ -30,7 +30,7 @@ Vi rekommenderar att du kör det här skriptet innan du skapar ett supportärend
 
 PerfInsights kan samla in och analysera flera typer av information som är grupperade i unika scenarier.
 
-### <a name="collect-disk-configuration"></a>Samla in diskkonfigurationen 
+### <a name="collect-basic-configuration"></a>Samla in grundläggande konfiguration 
 
 Det här scenariot samlar in diskkonfigurationen och annan viktig information, inklusive följande:
 
@@ -57,7 +57,7 @@ Detta är en passiv insamling av information som inte bör påverka systemet.
 >[!Note]
 >Det här scenariot ingår automatiskt i var och en av följande scenarier.
 
-### <a name="benchmarkstorage-performance-test"></a>Prestandamått/lagring prestandatester
+### <a name="benchmarking"></a>Prestandamätningar
 
 Det här scenariot körs den [diskspd](https://github.com/Microsoft/diskspd) benchmark-test (IOPS och Mbit/s) för alla enheter som är kopplade till den virtuella datorn. 
 
@@ -65,11 +65,11 @@ Det här scenariot körs den [diskspd](https://github.com/Microsoft/diskspd) ben
 > Det här scenariot kan påverka systemet och bör inte köras på ett levande produktionssystem. Kör det här scenariot i en dedikerad underhållsfönstret för att undvika problem vid behov. En ökad belastning som orsakas av ett spårningen eller prestandamått test att sänka prestandan för den virtuella datorn.
 >
 
-### <a name="general-vm-slow-analysis"></a>Allmänna VM långsam analys 
+### <a name="slow-vm-analysis"></a>Långsam VM analys 
 
 Det här scenariot körs en [prestandaräknaren](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) spårningen med hjälp av de räknare som anges i filen Generalcounters.txt. Om den virtuella datorn identifieras som en server som kör SQL Server, kör en räknare spårning av prestanda med hjälp av de räknare som finns i filen Sqlcounters.txt. Den omfattar också prestanda diagnostikdata.
 
-### <a name="vm-slow-analysis-and-benchmark"></a>Långsam VM analys- och prestandamått
+### <a name="slow-vm-analysis-and-benchmarking"></a>Långsam VM-analys och prestandamätningar
 
 Det här scenariot körs en [prestandaräknaren](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) spårning som följs av en [diskspd](https://github.com/Microsoft/diskspd) benchmark-test. 
 
@@ -99,9 +99,9 @@ Det här scenariot körs en särskild prestandaräknaren avbildning tillsammans 
 |              | Genomsn. Skriva Kölängd       |
 |              | Genomsn. Kölängd för data        |
 
-### <a name="custom-configuration"></a>Anpassad konfiguration 
+### <a name="custom-slow-vm-analysis"></a>Anpassade långsam VM-analys 
 
-När du kör en anpassad konfiguration kör du alla spår (Prestandadiagnostik, prestandaräknare, xperf, nätverk, storport) parallellt, beroende på hur många olika spår har valts. När spårning är klar kör verktyget diskspd-prestandamått, om den är markerad. 
+När du kör en anpassad långsam VM analys kör du alla spår (prestandaräknaren, xperf, nätverk, storport) parallellt, beroende på hur många olika spår har valts. När spårning är klar kör verktyget diskspd-prestandamått, om den är markerad. 
 
 > [!Note]
 > Det här scenariot kan påverka systemet och bör inte köras på ett levande produktionssystem. Kör det här scenariot i en dedikerad underhållsfönstret för att undvika problem vid behov. En ökad belastning som orsakas av ett spårningen eller prestandamått test att sänka prestandan för den virtuella datorn.
@@ -113,7 +113,7 @@ Information om Windows VM, diskar eller pooler lagringskonfiguration, prestandar
 
 |Data som samlas in                              |  |  | Scenarier för prestanda |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Samla in disk konfiguration | Prestandamått/lagringsprestanda test | Allmänna VM långsam analys | Långsam VM analys- och prestandamått | Azure filer analys | Anpassad konfiguration |
+|                              | Samla in grundläggande konfiguration | Prestandamätningar | Långsam VM analys | Långsam VM-analys och prestandamätningar | Azure filer analys | Anpassade långsam VM-analys |
 | Information från händelseloggar      | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Systeminformation               | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Volymen karta                       | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
@@ -127,7 +127,7 @@ Information om Windows VM, diskar eller pooler lagringskonfiguration, prestandar
 | Nätverkskonfiguration            | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Brandväggskonfiguration           | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
 | Konfiguration av SQL Server         | Ja                        | Ja                                | Ja                      | Ja                            | Ja                  | Ja                  |
-| Prestanda diagnostik spårningar * |                            |                                    | Ja                      |                                |                      | Ja                  |
+| Prestanda diagnostik spårningar * | Ja                        | Ja                                | Ja                      |                                | Ja                  | Ja                  |
 | Prestandaräknaren Trace **     |                            |                                    |                          |                                |                      | Ja                  |
 | SMB-räknaren Trace **             |                            |                                    |                          |                                | Ja                  |                      |
 | SQL Server-räknaren Trace **      |                            |                                    |                          |                                |                      | Ja                  |
@@ -180,9 +180,9 @@ Diskspd-i/o arbetsbelastning tester [OS-disken (write) och pool-enheter (läsa/s
 
 **Möjliga problem när du kör skriptet på produktion virtuella datorer:**
 
-1.  Skriptet kan negativt påverka prestandan för den virtuella datorn när den används tillsammans med ”Benchmark” eller ”anpassad” scenariot som har konfigurerats med hjälp av XPerf eller DiskSpd. Var försiktig när du kör skriptet i en produktionsmiljö.
+1.  När du använder någon Benchmarking scenarier eller ”anpassad långsam VM analys” scenario som är konfigurerad för att använda XPerf eller DiskSpd kan skriptet påverka prestanda negativt för den virtuella datorn. Det rekommenderas inte att köra dessa scenarier i en produktionsmiljö utan övervakning av en CSS-tekniker.
 
-2.  När du använder skriptet tillsammans med ”Benchmark” eller ”anpassad” scenariot som konfigureras med hjälp av DiskSpd, se till att inga andra bakgrundsaktivitet stör i/o-arbetsbelastning på testade diskarna.
+2.  När du använder någon Benchmarking scenarier eller ”anpassad långsam VM analys” scenario som är konfigurerad för att använda DiskSpd, se till att inga andra bakgrundsaktivitet stör i/o-arbetsbelastning på testade diskarna.
 
 3.  Som standard använder skriptet enhetens tillfällig lagring för att samla in data. Om spårning förblir aktiverad under en längre tid, vara mängden data som samlas in relevanta. Detta kan minska tillgängligheten för utrymmet på den tillfälliga disken därför påverkar alla program som förlitar sig på den här enheten.
 
@@ -236,7 +236,7 @@ Följ dessa steg om du vill köra skriptet PerfInsights:
 
 8.  Du kan också köra PerfInsights utan användargränssnitt.
 
-    Följande kommando körs ”Allmänt VM långsam analysen” felsökning scenariot utan en UI-kommandotolk eller samla in data i 30 sekunder. Ombeds du samtycker till att samma friskrivning och LICENSAVTALET som nämns i steg 4.
+    Följande kommando körs ”långsam VM analysen” felsökning scenariot utan en UI-kommandotolk eller samla in data i 30 sekunder. Ombeds du samtycker till att samma friskrivning och LICENSAVTALET som nämns i steg 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
@@ -264,13 +264,13 @@ Om du fortfarande har skriptfelet trots flera försök, rekommenderar vi att du 
 
 När felet inträffade, kopiera fullständig utdata från PowerShell-konsolen och skicka den till Microsoft Support-agent som hjälper dig att felsöka problemet.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>Hur kör skriptet i läget för anpassad konfiguration?
+### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>Hur kör skriptet i anpassade långsam VM analys läge?
 
-Genom att välja den **anpassad** konfiguration, kan du aktivera flera spårningar parallellt (Använd skifte till flerval):
+Genom att välja den **anpassad långsam VM analysis**, du kan aktivera flera spårningar parallellt (Använd skifte till flerval):
 
 ![Välj scenarier](media/how-to-use-perfInsights/select-scenario.png)
 
-När du väljer Prestandadiagnostik prestandaräknaren Trace XPerf spårning, spårning i nätverket eller Storport Trace scenarier, följ instruktionerna i dialogrutorna och försök att återskapa problemet med långsamma prestanda när du har startat spåren.
+När du väljer prestandaräknaren spårningen XPerf spårning, spårning i nätverket eller Storport Trace scenarier, följ instruktionerna i dialogrutorna och försöker återskapa problemet med långsamma prestanda när du har startat spåren.
 
 Följande dialogruta kan du starta en spårning:
 
@@ -289,21 +289,22 @@ I den **CollectedData\_åååå-MM-dd\_hh\_mm\_ss.zip filen** som genereras av P
 
 Välj den **resultaten** fliken.
 
-![fliken Sök](media/how-to-use-perfInsights/findingtab.png)
+![hitta fliken](media/how-to-use-perfInsights/findingtab.png)
+![resultat](media/how-to-use-perfInsights/findings.PNG)
 
 **Anteckningar**
 
--   Meddelanden i rött kända konfigurationsproblem som kan orsaka prestandaproblem.
+-   Resultaten kategoriserade som kritiskt är kända problem som kan orsaka prestandaproblem.
 
--   Meddelanden i gult är varningar som representerar icke-optimal konfigurationer som inte nödvändigtvis orsakar prestandaproblem.
+-   Resultaten kategoriserade som representerar viktiga icke-optimal konfigurationer som inte nödvändigtvis orsakar prestandaproblem.
 
--   Meddelanden i blått är informativa instruktioner.
+-   Resultaten kategoriserade som informationsmeddelande är informativa instruktioner.
 
-Granska HTTP-länkar för alla felmeddelanden i rött att få mer detaljerad information om resultaten och hur de kan påverka prestanda eller bästa praxis för prestanda-optimerad konfigurationer.
+Granska rekommendationer och länkar till alla kritiska och viktiga resultat att få mer detaljerad information om resultaten och hur de kan påverka prestanda eller bästa praxis för prestanda-optimerad konfigurationer.
 
-### <a name="disk-configuration-tab"></a>Fliken för konfiguration av disk
+### <a name="storage-tab"></a>Fliken lagring
 
-Den **översikt** avsnitt visar olika vyer av lagringskonfiguration, inklusive information från Diskpart och lagringsutrymmen
+Den **resultaten** avsnittet visas olika resultat och rekommendationer om lagring.
 
 Den **DiskMap** och **VolumeMap** avsnitt beskrivs på ett dubbla perspektiv logiska volymer och fysiska diskar som är relaterade till varandra.
 
@@ -315,21 +316,24 @@ Med tanke på volymen (*VolumeMap*), tabeller visar alla fysiska diskar under va
 
 ![fliken volym](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-server-tab"></a>SQL Server-fliken
+### <a name="sql-tab"></a>SQL-fliken
 
-Om målet VM är värd för SQL Server-instanser måste du se ytterligare en flik i rapporten som heter **SQL Server**:
+Om målet VM är värd för SQL Server-instanser måste du se ytterligare en flik i rapporten som heter **SQL**:
 
 ![SQL-fliken](media/how-to-use-perfInsights/sqltab.png)
 
-Det här avsnittet innehåller ytterligare sub flikarna och ”Overview” för varje SQL Server-instanser som finns på den virtuella datorn.
+Det här avsnittet innehåller en ”resultat”-fliken och ytterligare sub flikarna för varje SQL Server-instanser som finns på den virtuella datorn.
 
-I avsnittet ”översikt” innehåller en användbar tabell som sammanfattar alla fysiska diskar (system- och datadiskar) som körs och som innehåller en blandning av datafiler och transaktionsloggfiler.
+Fliken ”resultat” innehåller en lista över alla SQL relaterade prestandaproblem hitta tillsammans med rekommendationer.
 
 I följande exempel *PhysicalDrive0* (som kör enhet C) visas eftersom både den *modeldev* och *modellog* filerna finns på enhet C och de är av olika typer (till exempel datafilen och transaktionsloggen, respektive):
 
 ![LogInfo](media/how-to-use-perfInsights/loginfo.png)
 
 SQL Server-instans-specifika flikarna innehåller ett allmänt avsnitt som innehåller grundläggande information om den valda instansen och ytterligare avsnitt avancerad information, inklusive inställningar, konfigurationer och användaralternativ.
+
+### <a name="diagnostic-tab"></a>Fliken diagnostik
+Diagnostiska som innehåller information om högsta CPU, Disk- och konsumenter på rutan under PerfInsights kör. Du kan också hitta annan användbar information, till exempel kritiska korrigeringar att systemet kan sakna, uppgiftslista och viktiga händelser i systemet. 
 
 ## <a name="references-to-the-external-tools-used"></a>Referenser till externa verktyg som används
 

@@ -1,11 +1,10 @@
 ---
-title: "Lägg till ett SSL-certifikat i appen Azure App Service | Microsoft Docs"
-description: "Lär dig hur du lägger till ett SSL-certifikat till din Apptjänst-app."
+title: "Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst | Microsoft Docs"
+description: "Lär dig hur du köpa ett certifikat för App Service och binda den till din Apptjänst-app"
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för din Azure Apptjänst
 
@@ -74,12 +73,16 @@ När du har valt nyckeln valvet databasen att lagra certifikatet, den **lagra** 
 
 ## <a name="step-4---verify-the-domain-ownership"></a>Steg 4 – verifiera domänen ägarskap
 
-> [!NOTE]
-> Det finns tre typer av domänverifiering som stöds av Apptjänstcertifikat: verifiering av domän, e-post manuellt. Dessa typer av verifiering beskrivs mer detaljerat i den [avancerade avsnitt](#advanced).
-
 Från samma **Certifikatkonfigureringen** du använde i steg3 klickar du på **steg 2: Kontrollera**.
 
-**Verifiering av domän** det här är den enklaste processen **endast om** du har  **[köpt din anpassade domän från Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+Välj önskad domän verifieringsmetod. 
+
+Det finns fyra typer av domänverifiering som stöds av Apptjänstcertifikat: Apptjänst, domän, e-post och manuell kontroll. Dessa typer av verifiering beskrivs mer detaljerat i den [avancerade avsnitt](#advanced).
+
+> [!NOTE]
+> **App Service verifiering** är det enklaste alternativet när du vill verifiera domänen är redan mappad till en Apptjänst-app i samma prenumeration. Det tar nytta av det faktum att App Service-appen har redan verifierats ägarskap för domänen.
+>
+
 Klicka på **Kontrollera** för att slutföra det här steget.
 
 ![infoga bilden för verifiering av domän](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -133,7 +136,7 @@ Du ska nu kunna besöka app med hjälp av `HTTPS://` i stället för `HTTP://` a
 
 Det finns två flera typer av domänverifiering som stöds av Apptjänstcertifikat: e-post och manuell kontroll.
 
-#### <a name="mail-verification"></a>Verifiering av e-post
+#### <a name="mail-verification"></a>E-postverifiering
 
 E-postmeddelandet har redan skickats till den e-adress som är associerade med den här domänen.
 Öppna e-postmeddelandet för att slutföra verifieringssteg e-post, och klicka på verifieringslänken.
@@ -142,7 +145,11 @@ E-postmeddelandet har redan skickats till den e-adress som är associerade med d
 
 Om du vill skicka e-postmeddelandet klickar du på den **skicka e-post** knappen.
 
-#### <a name="manual-verification"></a>Manuell kontroll
+#### <a name="domain-verification"></a>Domänverifiering
+
+Välj det här alternativet endast för [en Apptjänst-domän som du har köpt från Azure.](custom-dns-web-site-buydomains-web-app.md). Azure automatiskt lägger till verifiering TXT-posten för du och slutför processen.
+
+#### <a name="manual-verification"></a>Manuell verifiering
 
 > [!IMPORTANT]
 > HTML-webbsida verifiering (fungerar bara med certifikat SKU: N)
@@ -197,6 +204,7 @@ Om SSL-certifikat har konfigurerats för automatisk förnyelse, men det inte fö
 - GoDaddy, vilket genererar apptjänstcertifikat kräver verifiering av domän vart tre år. Domänadministratören får ett e-postmeddelande när alla tre år för att verifiera domänen. Det gick inte att kontrollera den e-posten eller verifiera din domän förhindrar att App Service-certifikat förnyas automatiskt. 
 - Apptjänst certifikat före mars 31 2017 måste Omverifiering av domän vid tiden för nästa förnyelse (även om automatisk förnyelse har aktiverats för certifikatet). Detta är ett resultat av ändring i principen för GoDaddy. Kontrollera din e-post och genomföra denna domänverifiering för en om du vill fortsätta automatisk förnyelse av certifikat för App Service. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="more-resources"></a>Fler resurser
 
-* [Lägg till ett nätverk för Innehållsleverans](app-service-web-tutorial-content-delivery-network.md)
+* [Om du Använd SSL-certifikat i din programkod i Azure App Service](app-service-web-ssl-cert-load.md)
+* [Vanliga frågor och svar: Apptjänstcertifikat](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

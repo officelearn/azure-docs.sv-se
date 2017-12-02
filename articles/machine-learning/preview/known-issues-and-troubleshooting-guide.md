@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -112,6 +112,19 @@ Det finns ingen enkel korrigering på denna. Du måste utföra följande steg f�
    - ta bort skriptet`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - ta bort genväg på skrivbordet som startar skriptet ovan
    - Hämta installer https://aka.ms/azureml-wb-msi och installera om.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Fastna när ”kontrollerar experiment kontot” visas när du loggar in
+När du loggar in kan appen arbetsstationen fastna på ett tomt fönster med ett meddelande som visar ”kontrollerar experiment konto” med en snurrande hjul. Lös problemet, gör du följande:
+1. Stäng appen
+2. Ta bort följande fil:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Starta om appen.
 
 ## <a name="cant-delete-experimentation-account"></a>Det går inte att ta bort experiment konto
 Du kan använda CLI för att ta bort ett experiment konto, men du måste först ta bort underordnade arbetsytorna och underordnade projekt i dessa underordnade arbetsytor. I annat fall visas ett fel.

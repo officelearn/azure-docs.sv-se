@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs bindningar för Azure Functions
 
@@ -33,6 +33,27 @@ Den här artikeln förklarar hur du arbetar med [Azure Event Hubs](../event-hubs
 Använd Händelsehubbar utlösaren ska svara på en händelse som skickas till en event hub händelseström. Du måste ha läsbehörighet till händelsehubben för att konfigurera utlösaren.
 
 När en funktion för Händelsehubbar utlösare utlöses skickas meddelandet som utlöser den i funktionen som en sträng.
+
+## <a name="trigger---scaling"></a>Utlösa - skalning
+
+Varje instans av en Event Hub-Triggered funktion backas upp av endast 1 EventProcessorHost (EPH)-instans. Händelsehubbar garanterar att bara 1 EPH kan få ett lån på en given partition.
+
+Anta exempelvis att vi börjar med följande inställningar och förutsättningarna för en Händelsehubb:
+
+1. 10 partitioner.
+1. 1000 händelser fördelas jämnt över alla partitioner = > 100 meddelanden i varje partition.
+
+När din funktion aktiveras först, är det endast 1 instans av funciton. Vi ska anropa den här funktionen instansen Function_0. Function_0 har 1 EPH som hanterar för att få ett lån på alla 10 partitioner. Läsa händelser från partitioner 0-9 startas. Från och med nu händer något av följande:
+
+* **Funktionen endast 1 instans krävs** -Function_0 har kunnat bearbeta alla 1000 innan Azure Functions skalning logik aktiveras. Därför måste bearbetas alla 1000 meddelanden av Function_0.
+
+* **Lägga till 1 mer funktionen instans** -Azure Functions skalning logik bestämmer att Function_0 har fler meddelanden än den kan bearbeta så skapas en ny instans Function_1,. Händelsehubbar identifierar att en ny instans av EPH som försöker läsa meddelanden. Händelsehubbar startar belastningsutjämning partitionerna över EPH instanser, t.ex. partitioner 0-4 tilldelas Function_0 och partitioner 5 – 9 tilldelas Function_1. 
+
+* **Lägg till N fungerar fler instanser** -Azure Functions skalning logik anger att både Function_0 och Function_1 har fler meddelanden än de kan bearbeta. Det kommer skala igen för Function_2... N, där N är större än Event Hub-paritions. Läser in Händelsehubbar Utjämna partitionerna över Function_0... 9 instanser.
+
+Unikt till Azure Functions aktuella skalning logik är att N är större än antalet partitioner. Detta görs för att säkerställa att det alltid är instanser av EPH är tillgänglig för att snabbt få ett lås på den partitionen/partitionerna när de blir tillgängliga från andra instanser. Användare endast debiteras för de resurser som används när funktionen-instansen körs och debiteras inte för den här överbelasta.
+
+Om alla körningar av funktionen fungerar utan fel har kontrollpunkter lagts till det associerade lagringskontot. När du pekar lyckas, ska alla 1000 meddelanden aldrig hämtas igen.
 
 ## <a name="trigger---example"></a>Utlösaren - exempel
 

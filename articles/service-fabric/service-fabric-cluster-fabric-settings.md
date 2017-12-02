@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 076d4d95db21f0a1c1500ae7766392547a441d1b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Anpassa inställningar för Service Fabric-kluster och Fabric-uppgradera princip
-Det här dokumentet förklarar hur du anpassar olika infrastrukturinställningarna och infrastrukturen uppgradera princip för Service Fabric-klustret. Du kan anpassa dem via den [Azure-portalen](https://portal.azure.com) eller med en Azure Resource Manager-mall.
+Det här dokumentet beskriver hur du anpassar olika infrastrukturinställningarna och uppgradera princip för Service Fabric-klustret. Du kan anpassa dem via den [Azure-portalen](https://portal.azure.com) eller med en Azure Resource Manager-mall.
 
 > [!NOTE]
 > Alla inställningar är inte tillgängliga i portalen. Anpassa den med hjälp av en Azure Resource Manager-mall om en inställning nedan inte är tillgängliga via portalen.
@@ -772,8 +772,8 @@ PropertyGroup|X509NameMap, standard är ingen|Dynamisk| |
 |MaxPrimaryReplicationQueueMemorySize|Uint, standardvärdet är 0|Statisk|Detta är det maximala värdet för den primära Replikeringskön i byte.|
 |MaxSecondaryReplicationQueueSize|uint, standard är 2048|Statisk|Detta är det maximala antalet åtgärder som kan finnas i sekundära Replikeringskön. Observera att det måste vara delbart med 2.|
 |MaxSecondaryReplicationQueueMemorySize|Uint, standardvärdet är 0|Statisk|Detta är det maximala värdet för den sekundära Replikeringskön i byte.|
-|QueueHealthMonitoringInterval|TimeSpan, standard är Common::TimeSpan::FromSeconds(30)|Statisk|Ange tidsintervall i sekunder. Det här värdet anger hur lång tid som används av replikatorn för att övervaka varning hälsa händelser i replikeringsköer för åtgärden. Värdet '0' inaktiverar övervakning av hälsotillstånd |
-|QueueHealthWarningAtUsagePercent|uint, standard är 80|Statisk|Det här värdet avgör hur replikering kön (i procent) efter vilken vi rapporterar varning om hög användning. Vi kan göra det efter ett QueueHealthMonitoringInterval grace tidsintervall. Om kön användning understiger procentsatsen i den grace-period|
+|QueueHealthMonitoringInterval|TimeSpan, standard är Common::TimeSpan::FromSeconds(30)|Statisk|Ange tidsintervall i sekunder. Det här värdet anger hur lång tid som används av replikatorn för att övervaka varning hälsa händelser i replikeringsköer för åtgärden. Värdet '0' inaktiverar övervakning av hälsotillstånd. |
+|QueueHealthWarningAtUsagePercent|uint, standard är 80|Statisk|Det här värdet avgör hur replikering kön (i procent) efter vilken vi rapporterar varning om hög användning. Vi kan göra det efter ett QueueHealthMonitoringInterval grace tidsintervall. Om kön användning hamnar under har denna procentandel i den grace-period varningen inte rapporterats.|
 |RetryInterval|TimeSpan, standard är Common::TimeSpan::FromSeconds(5)|Statisk|Ange tidsintervall i sekunder. När en åtgärd går förlorad eller avvisa den här timern avgör hur ofta replikatorn försöker skicka igen.|
 
 ### <a name="section-name-transport"></a>Avsnittsnamn: Transport

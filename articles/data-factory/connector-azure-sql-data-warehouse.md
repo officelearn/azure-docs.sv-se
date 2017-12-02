@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,7 +269,7 @@ SQL Data Warehouse PolyBase stöd direkt för Azure Blob och Azure Data Lake Sto
 Om kraven inte uppfylls, kontrollerar du inställningarna för Azure Data Factory och faller automatiskt tillbaka till BULKINSERT mekanism för flytt av data.
 
 1. **Källan länkade tjänsten** är av typen: **AzureStorage** eller **AzureDataLakeStore**.
-2. Den **inkommande dataset** är av typen: **AzureBlob** eller **AzureDataLakeStoreFile**, och skriv `type` egenskaper är **OrcFormat** , eller **TextFormat** med följande konfigurationer:
+2. Den **inkommande dataset** är av typen: **AzureBlob** eller **AzureDataLakeStoreFile**, och skriv `type` egenskaper är **OrcFormat** , **ParquetFormat**, eller **TextFormat** med följande konfigurationer:
 
    1. `rowDelimiter`måste vara  **\n** .
    2. `nullValue`anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
@@ -390,7 +390,7 @@ Du kanske vill dela källtabellerna lodrätt i flera små där den största Rads
 
 Följande tabell innehåller exempel på hur du anger den **tableName** egenskap i dataset JSON för olika kombinationer av schema och tabellnamn.
 
-| DB-Schema | Tabellnamnet | tableName JSON-egenskapen |
+| DB-Schema | Tabellnamn | tableName JSON-egenskapen |
 | --- | --- | --- |
 | dbo |Mytable prefix |Mytable prefix eller dbo. Mytable prefix eller [dbo]. [MyTable] |
 | dbo1 |Mytable prefix |dbo1. Mytable prefix eller [dbo1]. [MyTable] |
@@ -421,11 +421,11 @@ När du kopierar data från/till Azure SQL Data Warehouse, används följande ma
 |:--- |:--- |
 | bigint |Int64 |
 | Binär |byte] |
-| bitar |Booleskt värde |
+| bitar |Boolesk |
 | Char |Sträng, Char] |
-| Datum |Datum och tid |
-| Datum och tid |Datum och tid |
-| datetime2 |Datum och tid |
+| datum |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attributet (varbinary(max)) |byte] |
@@ -437,9 +437,9 @@ När du kopierar data från/till Azure SQL Data Warehouse, används följande ma
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Enskild |
+| Verklig |Ogift |
 | ROWVERSION |byte] |
-| smalldatetime |Datum och tid |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |

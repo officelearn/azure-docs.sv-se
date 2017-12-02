@@ -4,7 +4,7 @@ description: "Hämta templatefor en virtuell dator för att automatisera distrib
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
@@ -13,23 +13,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 9e4c0c3cf0e233447369a24b1d5fe27495abd1cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93ed84cb146119c877c3a143c5f7af9ca8ba0656
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="download-the-template-for-a-vm"></a>Ladda ned mallen för en virtuell dator
 När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell skapas automatiskt en Resource Manager-mall för dig. Du kan använda den här mallen för att snabbt duplicera en distribution. Mallen innehåller information om alla resurser i en resursgrupp. För en virtuell dator, innebär detta att mallen innehåller allt som har skapats för den virtuella datorn i den resursgrupp, inklusive nätverksresurser.
 
 ## <a name="download-the-template-using-the-portal"></a>Hämta en mall med hjälp av portalen
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. En hubbmenyn, markerar du **virtuella datorer**.
+2. En den vänstra menyn markerar **virtuella datorer**.
 3. Välj den virtuella datorn i listan.
 4. Välj **automatiseringsskriptet**.
-5. Välj **hämta** och spara ZIP-filen till den lokala datorn.
+5. Välj **hämta** från menyn överst och spara ZIP-filen till den lokala datorn.
 6. Öppna .zip-filen och extrahera filerna till en mapp. ZIP-filen innehåller:
    
    * Deploy.ps1

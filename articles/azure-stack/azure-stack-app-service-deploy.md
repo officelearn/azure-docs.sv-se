@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en Apptjänst-resursprovidern i Azure stapel
 
@@ -73,7 +73,7 @@ Följ dessa steg om du vill distribuera appen tjänstresursprovider:
     ![Installationsprogrammet för App Service](media/azure-stack-app-service-deploy/image04.png)
 
 8. På nästa sida:
-    1. I den **identitet program-ID** Ange GUID för programmet som du använder för identiteten.
+    1. I den **identitet program-ID** Ange GUID för programmet som du använder för identiteten (från Azure AD).
     2. I den **identitet programmet certifikatfilen** rutan, ange (eller bläddra till) platsen för certifikatfilen.
     3. I den **identitet programmet certifikatlösenord** ange lösenordet för certifikatet. Lösenordet är det som du antecknade när du använde skriptet för att skapa certifikat.
     4. I den **Azure Resource Manager rotcertifikatfilen** rutan, ange (eller bläddra till) platsen för certifikatfilen.
@@ -106,7 +106,7 @@ Följ dessa steg om du vill distribuera appen tjänstresursprovider:
 
     | Roll | Minsta instanser | Minsta SKU | Anteckningar |
     | --- | --- | --- | --- |
-    | Domänkontrollant | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hanterar och underhåller hälsotillståndet för App Service-molnet. |
+    | Kontrollenhet | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hanterar och underhåller hälsotillståndet för App Service-molnet. |
     | Hantering | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Hanterar App Service Azure Resource Manager och API-slutpunkter, portal tillägg (admin, klient, Functions-portalen) och datatjänsten. Som stöd för växling vid fel, ökade rekommenderade instanser till 2. |
     | Utgivare | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publicerar innehåll via FTP- och webb-distribution. |
     | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Skickar begäranden till App-tjänstprogram. |
@@ -157,7 +157,7 @@ När du distribuerar och registerresursleverantören Apptjänst, testa och se ti
 >
 Du *måste* har en klientprenumeration att skapa program som använder App Service på Azure-stacken. Endast funktioner som en tjänstadministratör kan fylla i administrationsportal är relaterade till resource provider administration av App Service. Dessa funktioner omfattar att lägga till kapacitet, konfigurerar distributionen källor och lägger till Worker nivåer och SKU: er.
 >
-Från och med technical preview tredje funktioner appar för att skapa webb-, API- och Azure, du måste använda klientportalen och har en klientprenumeration.
+Om du vill skapa webb-, API- och Azure funktioner appar, du måste använda klientportalen och har en klientprenumeration.
 
 1. Klicka i klientportalen Azure Stack **ny** > **webb + mobilt** > **Web App**.
 

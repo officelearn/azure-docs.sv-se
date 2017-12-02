@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 9ce1d32a2785bec1164d2a89dea9946fe113cb33
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c28d92ad23e42401d42d9510fd7d07429929ade7
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Skapa DSVM och HDI Spark-kluster som compute mål
 
@@ -63,18 +63,22 @@ Kopiera och klistra in JSON följande kodavsnitt i den `mydsvm.json` filen och F
 
 För den _vmSize_ fältet som du kan använda alla de stöds VM-storlek som anges i den [Ubuntu DSVM Azure resource management-mallen](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Vi rekommenderar att du använder någon av de nedan storlekar som beräkna mål för Azure ML. 
 
-- Standard_DS2_v2 
-- Standard_DS3_v2 
-- Standard_DS4_v2 
-- Standard_DS12_v2 
-- Standard_DS13_v2 
-- Standard_DS14_v2 
-- Standard_NC6 
-- Standard_NC12 
-- Standard_NC24 
- 
+
 >[!TIP]
-> Storlek på Virtuella datorer igång med ”NC” är de utrustade med GPU.
+> För [djup learning arbetsbelastningar](how-to-use-gpu.md) du kan distribuera till GPU påslagen virtuella datorer.
+
+- [Generella virtuella datorer](/virtual-machines/linux/sizes-general.md)
+  - Standard_DS2_v2 
+  - Standard_DS3_v2 
+  - Standard_DS4_v2 
+  - Standard_DS12_v2 
+  - Standard_DS13_v2 
+  - Standard_DS14_v2 
+- [GPU påslagen virtuella datorer](/virtual-machines/linux/sizes-gpu.md)
+  - Standard_NC6 
+  - Standard_NC12 
+  - Standard_NC24 
+ 
 
 Läs mer om dessa [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/sizes.md) och deras [prisinformation](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 

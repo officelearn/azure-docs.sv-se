@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/30/2017
 ms.author: tomfitz
-ms.openlocfilehash: e789a234979be877d990665902fd6219ae7ec40b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använda Azure Key Vault för att skicka säkra parametervärdet under distributionen
 
@@ -66,7 +66,11 @@ Se till att distribuera mallen användaren kan komma åt hemligheten som om du a
 
 ## <a name="reference-a-secret-with-static-id"></a>Referera till en hemlighet med statiska ID
 
-Den mall som tar emot en hemlighet i nyckelvalvet är precis som alla andra mallar. Det beror på **du refererar till nyckelvalvet i parameterfilen inte mall.** Följande mall distribuerar till exempel en SQL-databas som innehåller ett administratörslösenord. Parametern password anges till en säker sträng. Men mallen anger inte där värdet kommer från.
+Den mall som tar emot en hemlighet i nyckelvalvet är precis som alla andra mallar. Det beror på **du refererar till nyckelvalvet i parameterfilen inte mall.** Följande bild visar hur parameterfilen refererar till hemligheten och skickar det värdet i mallen.
+
+![Statisk ID](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+
+Till exempel den [följande mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) distribuerar en SQL-databas som innehåller ett administratörslösenord. Parametern password anges till en säker sträng. Men mallen anger inte där värdet kommer från.
 
 ```json
 {
@@ -102,7 +106,7 @@ Den mall som tar emot en hemlighet i nyckelvalvet är precis som alla andra mall
 }
 ```
 
-Nu skapa en parameterfil för föregående mallen. Ange en parameter som matchar namnet på parametern i mallen i parameterfilen. Parametervärde, referera till hemligheten från nyckelvalvet. Du kan referera hemligheten genom att skicka resurs-ID för nyckelvalvet och namnet på hemligheten. I följande exempel nyckelvalv hemlighet måste redan finnas och du kan ange ett statiskt värde för resurs-ID.
+Nu skapa en parameterfil för föregående mallen. Ange en parameter som matchar namnet på parametern i mallen i parameterfilen. Parametervärde, referera till hemligheten från nyckelvalvet. Du kan referera hemligheten genom att skicka resurs-ID för nyckelvalvet och namnet på hemligheten. I den [följande parameterfilen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json)nyckelvalv hemlighet måste redan finnas och du kan ange ett statiskt värde för resurs-ID. Kopiera den här filen lokalt och ange prenumerations-ID, valvnamnet och SQL server-namnet.
 
 ```json
 {
@@ -127,25 +131,27 @@ Nu skapa en parameterfil för föregående mallen. Ange en parameter som matchar
 }
 ```
 
-Nu kan distribuera mallen och ange parameterfilen. Om du använder Azure CLI använder du:
+Nu kan distribuera mallen och ange parameterfilen. Du kan använda mallen exempel från GitHub, men du måste använda en lokal parameterfil med de värden som anges i din miljö.
+
+Om du använder Azure CLI använder du:
 
 ```azurecli-interactive
-az group create --name datagroup --location "Central US"
+az group create --name datagroup --location "South Central US"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
 Om du använder PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "Central US"
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
@@ -153,7 +159,13 @@ New-AzureRmResourceGroupDeployment `
 
 I föregående avsnitt visades hur du skickar en statisk resurs-ID för nyckelvalvet hemlighet. Dock i vissa fall kan behöva du referera en nyckelvalv hemlighet som varierar baserat på den aktuella distributionen. I så fall, det går inte att hårdkoda resurs-ID i filen parametrar. Tyvärr kan generera du inte dynamiskt resurs-ID i parameterfilen eftersom malluttryck inte är tillåtna i parameterfilen.
 
-För att dynamiskt generera resurs-ID för en hemlighet i nyckelvalvet, måste du flytta resursen som behöver hemligheten i en kapslad mall. I mallen master du lägger till den kapslade mallen och ange en parameter som innehåller dynamiskt genererade resurs-ID. Mallen för kapslade måste vara tillgänglig via en extern URI. Resten av den här artikeln förutsätter att du har lagt till föregående mallen till ett lagringskonto och är tillgänglig via URI - `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+För att dynamiskt generera resurs-ID för en hemlighet i nyckelvalvet, måste du flytta resursen som behöver hemligheten till en länkad mall. I den överordnade mallen lägga till den länka mallen och ange en parameter som innehåller dynamiskt genererade resurs-ID. Följande bild visar hur hemligheten som refererar till en parameter i den länkade mallen.
+
+![Dynamisk ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+
+Den länka mallen måste vara tillgänglig via en extern URI. Normalt du lägger till mallen för ett lagringskonto och åtkomst till den via URI som `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+
+Den [följande mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) dynamiskt skapar nyckelvalv-ID och skickar det som en parameter. Den länkar till en [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) i GitHub.
 
 ```json
 {
@@ -184,7 +196,7 @@ För att dynamiskt generera resurs-ID för en hemlighet i nyckelvalvet, måste d
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -205,7 +217,29 @@ För att dynamiskt generera resurs-ID för en hemlighet i nyckelvalvet, måste d
 }
 ```
 
-Distribuera föregående mallen och ange värden för parametrarna.
+Distribuera föregående mallen och ange värden för parametrarna. Du kan använda mallen exempel från GitHub, men du måste ange parametervärden för din miljö.
+
+Om du använder Azure CLI använder du:
+
+```azurecli-interactive
+az group create --name datagroup --location "South Central US"
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json \
+    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+```
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json `
+  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * Allmän information om nyckelvalv finns [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md).

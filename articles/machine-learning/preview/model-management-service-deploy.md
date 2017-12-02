@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Distribuera en Maskininlärningsmodell som en webbtjänst
 
@@ -25,7 +25,7 @@ Det här dokumentet beskriver steg för att distribuera modeller som webbtjänst
 ## <a name="deploying-web-services"></a>Distribuera webbtjänster
 Med CLIs kan använda du webbtjänster som ska köras på den lokala datorn eller på ett kluster.
 
-Vi rekommenderar att du börjar med en lokal distribution. Du först verifiera att din modell koden fungerar och sedan distribuera webbtjänsten till ett kluster för produktionsskala användning. Mer information om hur du konfigurerar din miljö för klusterdistribution finns [modellen konfigurationstjänsten](model-management-configuration.md). 
+Vi rekommenderar att du börjar med en lokal distribution. Du först verifiera att din modell koden fungerar och sedan distribuera webbtjänsten till ett kluster för produktionsskala användning. Mer information om hur du konfigurerar din miljö för klusterdistribution finns [modellen konfigurationstjänsten](deployment-setup-configuration.md). 
 
 Här följer stegen för distributionen:
 1. Använd din sparade utbildade, Machine Learning-modell
@@ -186,4 +186,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har testat webbtjänsten ska köras lokalt kan distribuera du den till ett kluster för storskalig användning. Mer information om hur du skapar ett kluster för web service-distributionen finns [modellen Management Configuration](model-management-configuration.md). 
+Nu när du har testat webbtjänsten ska köras lokalt kan distribuera du den till ett kluster för storskalig användning. Mer information om hur du skapar ett kluster för web service-distributionen finns [modellen Management Configuration](deployment-setup-configuration.md). 

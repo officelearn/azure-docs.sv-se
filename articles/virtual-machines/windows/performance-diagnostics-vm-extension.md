@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Azure prestanda diagnostik VM-tillägget för Windows
 
 ## <a name="summary"></a>Sammanfattning
-Azure prestanda diagnostik VM-tillägget hjälper samlar in diagnostik prestandadata från virtuella Windows-datorer, utför analys och ger en rapport över resultaten och rekommendationerna för att identifiera och lösa problem med prestanda på den virtuella datorn. Det här tillägget installeras ett verktyg för felsökning kallas [PerfInsights](http://aka.ms/perfinsights).
+Azure prestanda diagnostik VM-tillägget kan samla in diagnostik prestandadata från virtuella Windows-datorer utför analys och ger en rapport över resultaten och rekommendationerna för att identifiera och lösa problem med prestanda på den virtuella datorn. Det här tillägget installeras ett verktyg för felsökning kallas [PerfInsights](http://aka.ms/perfinsights).
 
 ## <a name="prerequisites"></a>Krav
 ### <a name="operating-systems"></a>Operativsystem
@@ -46,7 +46,6 @@ Följande JSON visar schemat för Azure prestanda diagnostik tillägget. Det hä
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -70,15 +69,13 @@ Följande JSON visar schemat för Azure prestanda diagnostik tillägget. Det hä
 |Publisher|Microsoft.Azure.Performance.Diagnostics|Publisher namnområdet för tillägget
 |typ|AzurePerformanceDiagnostics|Typ av VM-tillägget
 |typeHandlerVersion|1.0|Versionen av tillägget-hanteraren
-|performanceScenario|Grundläggande|Prestanda scenario för att samla in data för. Giltiga värden är: **grundläggande**, **vmslow**, **azurefiles**, och **anpassade**.
+|performanceScenario|grundläggande|Prestanda scenario för att samla in data för. Giltiga värden är: **grundläggande**, **vmslow**, **azurefiles**, och **anpassade**.
 |traceDurationInSeconds|300|Varaktighet för spåren om något av alternativen för spårningen har valts.
-|DiagnosticsTrace|D|Alternativet för att aktivera diagnostiska spårning. Giltiga värden är **d** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som anges.
 |perfCounterTrace|P|Alternativet för att aktivera spårning av prestandaräknaren. Giltiga värden är **p** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som anges.
 |networkTrace|n|Alternativet för att aktivera Netmon spårning. Giltiga värden är  **n**  eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som anges.
 |xperfTrace|x|Alternativet för att aktivera XPerf spårning. Giltiga värden är **x** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som anges.
 |storPortTrace|S|Alternativet för att aktivera spårning för StorPort. Giltiga värden är s eller ett tomt värde. Om du inte vill samla in den här spårningen lämna värdet som anges.
 |srNumber|123452016365929|Om det finns stöd för Biljettnummer. Lämna som tomt om du inte har den.
-|requestTimeUtc|2017-9/2 11:06:00 PM|Aktuellt datum/tid i Utc. Du behöver inte ange det här värdet om du använder portalen för att installera det här tillägget.
 |storageAccountName|mittlagringskonto|Namnet på lagringskontot för att lagra diagnostik loggar och resultat.
 |storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|Nyckel för lagringskontot.
 
@@ -153,10 +150,6 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schem
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schem
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Azure-d
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -231,13 +223,13 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Information om data som hämtats
-PerfInsights verktyget samlar in olika loggar, konfiguration, diagnostikdata etc. beroende på det valda scenariot. För mer information om data som samlas in per scenario du besök [PerfInsights dokumentationen](http://aka.ms/perfinsights).
+PerfInsights verktyget samlar in olika loggar, konfiguration, diagnostikdata etc. beroende på det valda scenariot. Mer information om data som samlas in per scenario finns [PerfInsights dokumentationen](http://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Visa och dela resultaten
 
 Utdata för tillägget lagras i en mapp med namnet log_collection under Temp enhet (vanligtvis D:\log_collection) som standard. Du kan se zip-fil som innehåller diagnostiska loggar och en rapport med resultaten och rekommendationerna under den här mappen.
 
-Zip-filen skapas också överföras till storage-konto som angavs under installationen och delas i 30 dagar med [signaturer av delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). En textfil med namnet *zipfilename*_saslink.txt skapas också i mappen log_collection. Den här filen innehåller SAS-länk skapas för att hämta zip-filen. Alla som har den här länken kommer att kunna hämta zip-filen.
+Zip-filen skapas också överföras till storage-konto som angavs under installationen och delas i 30 dagar med [signaturer av delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). En textfil med namnet *zipfilename*_saslink.txt skapas också i mappen log_collection. Den här filen innehåller SAS-länk skapas för att hämta zip-filen. Alla som har den här länken kan hämta zip-filen.
 
 Microsoft använder SAS länken för att hämta data för ytterligare undersökning av stöd för tekniker som arbetar på ditt supportärende diagnostik.
 

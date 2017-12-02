@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a56afa7c5200b53b398f8a99e8a36df3685b2f66
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -196,7 +196,7 @@ SQL Data Warehouse PolyBase stöd direkt för Azure Blob och Azure Data Lake Sto
 Om kraven inte uppfylls, kontrollerar du inställningarna för Azure Data Factory och faller automatiskt tillbaka till BULKINSERT mekanism för flytt av data.
 
 1. **Källan länkade tjänsten** är av typen: **AzureStorage** eller **AzureDataLakeStore med huvudsakliga autentiseringen av tjänsten**.  
-2. Den **inkommande dataset** är av typen: **AzureBlob** eller **AzureDataLakeStore**, och skriv `type` egenskaper är **OrcFormat**, eller **TextFormat** med följande konfigurationer:
+2. Den **inkommande dataset** är av typen: **AzureBlob** eller **AzureDataLakeStore**, och skriv `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat** med följande konfigurationer:
 
    1. `rowDelimiter`måste vara  **\n** .
    2. `nullValue`anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
@@ -275,7 +275,7 @@ Du kanske vill dela källtabellerna lodrätt i flera små där den största Rads
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>Tabellnamn i Azure SQL Data Warehouse
 Följande tabell innehåller exempel på hur du anger den **tableName** egenskap i dataset JSON för olika kombinationer av schema och tabellnamn.
 
-| DB-Schema | Tabellnamnet | tableName JSON-egenskapen |
+| DB-Schema | Tabellnamn | tableName JSON-egenskapen |
 | --- | --- | --- |
 | dbo |Mytable prefix |Mytable prefix eller dbo. Mytable prefix eller [dbo]. [MyTable] |
 | dbo1 |Mytable prefix |dbo1. Mytable prefix eller [dbo1]. [MyTable] |
@@ -303,7 +303,7 @@ Data Factory skapas tabellen i målarkivet med samma namn i datalagret källa. D
 
 | Typ av kolumn SQL-databas | Måltypen SQL DW kolumn (storleksbegränsning) |
 | --- | --- |
-| int | int |
+| Int | Int |
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
@@ -317,7 +317,7 @@ Data Factory skapas tabellen i målarkivet med samma namn i datalagret källa. D
 | Binär | Binär |
 | varbinary | Varbinary (upp till 8000) |
 | Date | Date |
-| Datum och tid | Datum och tid |
+| DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Tid | Tid |
 | DateTimeOffset | DateTimeOffset |
@@ -348,11 +348,11 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | --- | --- |
 | bigint |Int64 |
 | Binär |byte] |
-| bitar |Booleskt värde |
+| bitar |Boolesk |
 | Char |Sträng, Char] |
-| Datum |Datum och tid |
-| Datum och tid |Datum och tid |
-| datetime2 |Datum och tid |
+| datum |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attributet (varbinary(max)) |byte] |
@@ -364,9 +364,9 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Enskild |
+| Verklig |Ogift |
 | ROWVERSION |byte] |
-| smalldatetime |Datum och tid |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |

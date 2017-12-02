@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: sngun
-ms.openlocfilehash: 039806e164be29b80e604bbcf0f2997e635664e5
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: fe7b38d66e0e17924bad1bf3fde4af486e7968b2
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Komma igång med PowerShell i Azure-stacken
 
@@ -50,7 +50,6 @@ Set-ExecutionPolicy RemoteSigned `
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
 Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -86,7 +85,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 
 # Register an AzureRM environment that targets your Azure Stack instance
@@ -96,7 +95,7 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
 
 # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
-    -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+    -AADTenantName $TenantName `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
@@ -105,9 +104,9 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
     -TenantId $TenantID 
 ```
 
-## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Konfigurera PowerShell för AD FS-baserade distributioner 
+## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Konfigurera PowerShell för AD FS-baserade distributioner
 
-Logga in på ditt Azure-stacken Development Kit eller en extern Windows-baserad klient om du är ansluten via VPN. Öppna en upphöjd PowerShell ISE-session och kör följande skript. Se till att uppdatera den **ArmEndpoint** och **GraphAudience** variabler som krävs i din miljö konfiguration:
+Du kan använda följande skript om du använder Azure Stack när du är ansluten till internet. Men om du använder Azure-stacken utan Internetanslutning, använder den [frånkopplad sätt att installera PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) och cmdletar för att konfigurera PowerShell ska vara samma som det visas i det här skriptet. Logga in på ditt Azure-stacken Development Kit eller en extern Windows-baserad klient om du är ansluten via VPN. Öppna en upphöjd PowerShell ISE-session och kör följande skript. Se till att uppdatera den **ArmEndpoint** och **GraphAudience** variabler som krävs i din miljö konfiguration:
 
 ```powershell
 
@@ -120,8 +119,7 @@ Set-ExecutionPolicy RemoteSigned `
   -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command:
-Get-Module -ListAvailable | `
-  where-Object {$_.Name -like “Azure*”} | `
+Get-Module -ListAvailable -Name Azure* | `
   Uninstall-Module
 
 # Install PowerShell for Azure Stack.
@@ -156,7 +154,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
+$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `

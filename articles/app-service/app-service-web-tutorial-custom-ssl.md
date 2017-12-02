@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Bind ett befintligt anpassat SSL-certifikat till Azure Web Apps
 
@@ -214,61 +214,17 @@ Nu är återstår gör att HTTPS fungerar för domänen. Olika webbläsare, blä
 
 ## <a name="enforce-https"></a>Använda HTTPS
 
-Apptjänst har *inte* genomdriva HTTPS, så att alla kan fortfarande komma åt ditt webbprogram med hjälp av HTTP. Om du vill använda HTTPS för ditt webbprogram, definiera en omarbetning regel i den _web.config_ -filen för ditt webbprogram. Apptjänst använder den här filen, oavsett språkramverket av ditt webbprogram.
+Som standard alla fortfarande komma åt ditt webbprogram med hjälp av HTTP. Du kan omdirigera alla HTTP-begäranden till HTTPS-porten.
 
-> [!NOTE]
-> Det finns språkspecifika omdirigering av begäranden. ASP.NET MVC kan använda den [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter i stället för omarbetning regeln i _web.config_.
+Välj i din app webbsida, i det vänstra navigeringsfönstret **anpassade domäner**. I **endast HTTPS**väljer **på**.
 
-Om du är en .NET-utvecklare kan vara du relativt bekant med den här filen. Det är i roten av din lösning.
+![Använda HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Alternativt, om du utvecklar med PHP, Node.js, Python eller Java, ökar risken skapade vi den här filen för din räkning i App Service.
+När åtgärden har slutförts, navigera till alla HTTP-URL: er som pekar på din app. Exempel:
 
-Ansluta till ditt webbprogram FTP-slutpunkten genom att följa anvisningarna i [distribuera din app till Azure App Service med FTP/S](app-service-deploy-ftp.md).
-
-Den här filen måste finnas i _/home/site/wwwroot_. Om inte, skapar du en _web.config_ filen i mappen med XML-följande:
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-För en befintlig _web.config_ fil, kopiera hela `<rule>` element i din _web.config_'s `configuration/system.webServer/rewrite/rules` element. Om det finns andra `<rule>` element i din _web.config_, placera den kopierade `<rule>` elementet innan den andra `<rule>` element.
-
-Den här regeln returnerar en HTTP-301 (permanent omdirigering) till HTTPS-protokollet när användaren gör en HTTP-begäran till ditt webbprogram. Till exempel Serverproxyn från `http://contoso.com` till `https://contoso.com`.
-
-Mer information om IIS URL modulen för omarbetning finns i [URL-omskrivning om](http://www.iis.net/downloads/microsoft/url-rewrite) dokumentation.
-
-## <a name="enforce-https-for-web-apps-on-linux"></a>Använd HTTPS för webbprogram på Linux
-
-App-tjänsten på Linux *inte* genomdriva HTTPS, så att alla kan fortfarande komma åt ditt webbprogram med hjälp av HTTP. Om du vill använda HTTPS för ditt webbprogram, definiera en omarbetning regel i den _.htaccess_ -filen för ditt webbprogram. 
-
-Ansluta till ditt webbprogram FTP-slutpunkten genom att följa anvisningarna i [distribuera din app till Azure App Service med FTP/S](app-service-deploy-ftp.md).
-
-I _/home/site/wwwroot_, skapa en _.htaccess_ med följande kod:
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-Den här regeln returnerar en HTTP-301 (permanent omdirigering) till HTTPS-protokollet när användaren gör en HTTP-begäran till ditt webbprogram. Till exempel Serverproxyn från `http://contoso.com` till `https://contoso.com`.
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
@@ -312,7 +268,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Offentliga certifikat (valfritt)
-Du kan ladda upp [offentliga certifikat](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) till ditt webbprogram. Du kan använda certifikat för offentlig med Web Apps i Apptjänst eller App Service-miljö (ASE). Om du behöver lagra certifikatet i arkivet LocalMachine certifikat, måste du använda en webbapp i App Service-miljö. Mer information finns i [hur du konfigurerar offentliga certifikat till ditt webbprogram](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+Du kan ladda upp [offentliga certifikat](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) till ditt webbprogram. Du kan använda certifikat för offentlig för appar i Apptjänstmiljöer också. Om du behöver lagra certifikatet i arkivet LocalMachine certifikat som du behöver använda ett webbprogram på Apptjänst-miljö. Mer information finns i [hur du konfigurerar offentliga certifikat till ditt webbprogram](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Överför offentliga certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -330,3 +286,5 @@ Gå vidare till nästa kurs att lära dig hur du använder Azure Content Deliver
 
 > [!div class="nextstepaction"]
 > [Lägg till ett innehållsleveransnätverk (CDN) till en Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+
+Mer information finns i [använder SSL-certifikat i din programkod i Azure App Service](app-service-web-ssl-cert-load.md).

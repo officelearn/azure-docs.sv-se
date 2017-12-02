@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ded0809fa90e98b2e845d328fbeec6d21507c46b
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: cf27e4d9997a796fa61af6e6f0af3c0c5a0c296f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Använd Azure hanterade tjänstidentiteten i Azure API Management
 
@@ -116,6 +116,25 @@ I följande exempel visas hur du skaffar ett certifikat från Azure Key Vault. D
 1. Skapa en API Management-instans med en identitet.
 2. Uppdatera principer för åtkomst av en Azure Key Vault-instans och Tillåt API Management-instansen för att erhålla hemligheter från den.
 3. Uppdatera API Management-instans genom att ange ett eget domännamn via ett certifikat från Key Vault-instans.
+
+### <a name="prerequisites"></a>Krav
+Att köra den nedan arm-mall måste följande 
+1. Key Vault som innehåller pfx-certifikat i samma prenumeration och samma resursgrupp som Api Management-tjänsten. Detta är ett krav i arm-mallen. 
+2. Innehållstypen för hemligheten som ska vara *pkcs12-program/x*. Du kan använda följande skript för att ladda upp certifikatet
+
+```powershell
+$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
+$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
+$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
+$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
+$collection.Import($pfxFilePath, $pwd, $flag) 
+$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
+$clearBytes = $collection.Export($pkcs12ContentType) 
+$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
+$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
+$secretContentType = 'application/x-pkcs12' 
+Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
+```
 
 > [!Important]
 > Om objektversion av certifikatet inte tillhandahålls, hämta API Management automatiskt den nya versionen av certifikatet när det överförs till Nyckelvalvet. 

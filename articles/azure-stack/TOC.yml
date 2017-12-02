@@ -133,7 +133,7 @@
               href: Azure-stack-create-service-principals.md
             - name: Aktivera flera innehavare
               href: azure-stack-enable-multitenancy.md
-    - name: Tjänster i erbjudandet
+    - name: Erbjuda tjänster
       items:
         - name: Översikt över erbjudna tjänster
           href: azure-stack-offer-services-overview.md
@@ -213,9 +213,13 @@
           items:
             - name: Ansluta med hjälp av VPN
               href: azure-stack-connect-vpn.md
+            - name: Om VPN-gateway
+              href: azure-stack-vpn-gateway-about-vpn-gateways.md
+            - name: Inställningar för VPN-gateway
+              href: azure-stack-vpn-gateway-settings.md
             - name: Ansluta med ExpressRoute
               href: azure-stack-connect-expressroute.md
-    - name: Felsök
+    - name: Felsöka
       items:
         - name: Kända problem
           href: azure-stack-troubleshooting.md

@@ -29,6 +29,8 @@
       href: how-to-manage-account-keys.md
     - name: Så här använder du Kartkontroll
       href: how-to-use-map-control.md
+    - name: Så här söker du efter en adress
+      href: how-to-search-for-address.md
 - name: Referens
   items:
     - name: Azure IoT Developer Center

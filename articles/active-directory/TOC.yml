@@ -40,8 +40,6 @@
 - name: Hanterad tjänstidentitet
   href: msi-overview.md
   items:
-    - name: Så här loggar du in eller hämtar en token
-      href: msi-how-to-get-access-token-using-msi.md
     - name: Konfigurera MSI för en virtuell Azure-dator
       items:
         - name: Använda Azure Portal
@@ -62,6 +60,14 @@
           href: msi-howto-assign-access-powershell.md
         - name: Använda Azure CLI
           href: msi-howto-assign-access-cli.md
+    - name: Så här använder du en virtuell MSI-dator
+      items:
+        - name: Hämta en åtkomsttoken
+          href: msi-how-to-use-vm-msi-token.md
+        - name: 'Logga in i PowerShell, Azure CLI'
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: 'Använda med Azure-SDK:er'
+          href: msi-how-to-use-vm-msi-sdk.md
     - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Data Lake Store
       items:
         - name: Från en virtuell Windows-dator

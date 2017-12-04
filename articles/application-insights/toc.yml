@@ -247,6 +247,8 @@
       items:
         - name: Inga data för .NET
           href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Felsökningsprogram för ögonblicksbilder
+          href: app-insights-troubleshoot-snapshot-debugger.md
         - name: Analys
           href: app-insights-analytics-troubleshooting.md
         - name: Java

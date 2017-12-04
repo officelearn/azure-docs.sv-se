@@ -27,6 +27,10 @@
   items:
     - name: Förstå kostnadsrapporter
       href: understading-cost-reports.md
+- name: Instruktionsguider
+  items:
+    - name: Använda Cost Management-rapporter
+      href: use-reports.md
 - name: Resurser
   items:
     - name: Kostnadshanteringsvideor

@@ -21,8 +21,8 @@
 ## Hantera
 ### [Hantera med Azure PowerShell](cdn-manage-powershell.md)
 ### Konfigurera livslängd
-#### [Web Apps/Cloud Services, ASP.NET eller IIS-innehåll](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Storage Blob Service-innehåll](cdn-manage-expiration-of-blob-content.md)
+#### [Azure-webbinnehåll](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 ### [Begränsa åtkomst per land](cdn-restrict-access-by-country.md)
 ### [Förbättra prestandan genom att komprimera filer](cdn-improve-performance.md)
 ### Cachelagra innehåll efter frågesträng

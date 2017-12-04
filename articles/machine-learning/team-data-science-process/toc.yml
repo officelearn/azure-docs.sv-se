@@ -29,14 +29,18 @@
       href: project-ic-tasks.md
 - name: Projektstruktur
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Planering och körning av projekt
+- name: Projektplanering
+  href: team-data-science-process-project-templates.md
+- name: Projektkörning
   items:
-    - name: Projektplanering
-      href: team-data-science-process-project-templates.md
-    - name: Projektkörning
-      items:
-        - name: Dataforskningsprojekt
-          href: project-execution.md
+    - name: Smidig utveckling
+      href: agile-development.md
+    - name: Samarbetsbaserad kodning med Git
+      href: collaborative-coding-with-git.md
+    - name: Köra datavetenskapsaktiviteter
+      href: execute-data-science-tasks.md
+    - name: Spåra förlopp
+      href: track-progress.md
 - name: Exempel
   href: walkthroughs.md
   items:
@@ -52,12 +56,12 @@
     - name: Spark med PySpark och Scala
       href: walkthroughs-spark.md
       items:
-        - name: Utforska data
+        - name: Utforska och modellera data
           href: spark-data-exploration-modeling.md
+        - name: Avancerad datagranskning och modellering
+          href: spark-advanced-data-exploration-modeling.md
         - name: Poängmodeller
           href: spark-model-consumption.md
-        - name: Avancerad datagranskning
-          href: spark-advanced-data-exploration-modeling.md
     - name: Hive med HDInsight Hadoop
       href: walkthroughs-hdinsight-hadoop.md
     - name: U-SQL med Azure Data Lake
@@ -136,7 +140,8 @@
             - name: Använda AzCopy
               href: move-data-to-azure-blob-using-azcopy.md
             - name: Använda Python
-              href: move-data-to-azure-blob-using-python.md
+              href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+              maintainContext: true
             - name: Använda SSIS
               href: move-data-to-azure-blob-using-ssis.md
             - name: Flytta till en virtuell dator
@@ -211,14 +216,8 @@
             - name: Algoritmfacit
               href: ../studio/algorithm-cheat-sheet.md
               maintainContext: true
-    - name: Distribuera modeller
-      items:
-        - name: Med en webbtjänst
-          href: ../studio/publish-a-machine-learning-web-service.md
-          maintainContext: true
-        - name: Använda en webbtjänst
-          href: ../studio/consume-web-services.md
-          maintainContext: true
+    - name: Distribuera modeller i produktion
+      href: deploy-models-in-production.md
 - name: Relaterat
   items:
     - name: Microsoft Cognitive Toolkit – CNTK

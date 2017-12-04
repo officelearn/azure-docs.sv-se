@@ -224,6 +224,8 @@
       items:
         - name: Chef
           href: chef-automation.md
+        - name: Publicera webbapp från Visual Studio
+          href: publish-web-app-from-visual-studio.md
     - name: Köra program
       items:
         - name: SQL Server

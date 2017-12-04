@@ -11,8 +11,9 @@
 ### [Konfiguration för hög tillgänglighet med STONITH](ha-setup-with-stonith.md)
 ### [Säkerhetskopiering av operativsystem för Type II-SKU:er](os-backup-type-ii-skus.md)
 # SAP HANA på Azure Virtual Machines
-## [Enkel instans av SAP HANA](hana-get-started.md)
+## [Enkel instans av SAP HANA-installation](hana-get-started.md)
 ## [Distributionsguide för S/4 HANA eller BW/4 HANA SAP CAL](cal-s4h.md)
+## [Användarguide för SAP HANA på Azure](hana-vm-operations.md)
 ## [SAP HANA, hög tillgänglighet för virtuella Azure-datorer](sap-hana-high-availability.md)
 ## [Översikt över SAP HANA-säkerhetskopiering](sap-hana-backup-guide.md)
 ## [Säkerhetskopiering av SAP HANA-filnivå](sap-hana-backup-file-level.md)

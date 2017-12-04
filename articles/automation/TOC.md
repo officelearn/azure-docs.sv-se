@@ -70,6 +70,7 @@
 ### [Anropa Azure Automation Runbook från en Log Analytics-avisering](automation-invoke-runbook-from-omsla-alert.md)
 ### [Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook](automation-deploy-template-runbook.md)
 ## Lösningar
+### [Publicera uppdateringar och ändringsspårning](automation-onboard-solutions.md)
 ### [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)
 #### [Hantera uppdateringar för fler virtuella datorer](manage-update-multi.md)
 #### [Integrera SCCM med uppdateringshantering för OMS](oms-solution-updatemgmt-sccmintegration.md)

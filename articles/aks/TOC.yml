@@ -7,8 +7,10 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa ett AKS-kluster
+    - name: Skapa ett AKS-kluster – CLI
       href: kubernetes-walkthrough.md
+    - name: Skapa ett AKS-kluster – portalen
+      href: kubernetes-walkthrough-portal.md
 - name: Självstudier
   items:
     - name: 1 – Förbereda program för AKS

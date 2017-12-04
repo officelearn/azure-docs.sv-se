@@ -59,6 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: Webhook-schema
+      href: container-registry-webhook-reference.md
 - name: Resurser
   items:
     - name: Regional tillgänglighet

@@ -31,6 +31,8 @@
 ### [Kognitiva tillägg för U-SQL](data-lake-analytics-u-sql-cognitive.md)
 ### [Analysera webbplatsloggar](data-lake-analytics-analyze-weblogs.md)
 ### [Anpassad U-SQL-kod för Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+### [U-SQL för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Exportera U-SQL-databas](data-lake-analytics-data-lake-tools-export-database.md)
 
 ## Felsöka U-SQL-program
 ### [Övervaka och felsöka jobb](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

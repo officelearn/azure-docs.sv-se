@@ -63,7 +63,7 @@
       href: functions-cli-samples.md
 - name: Koncept
   items:
-    - name: Jämförelse av värdplaner
+    - name: Skalning och värdtjänster
       href: functions-scale.md
     - name: Utlösare och bindningar
       href: functions-triggers-bindings.md

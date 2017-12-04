@@ -46,7 +46,7 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure Portal](resource-group-portal.md)
-### [REST-API](resource-manager-rest-api.md)
+### [REST API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
 ### [Ordna prenumerationer med hanteringsgrupper](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -67,26 +67,20 @@
 
 ## Felsöka
 ### [Vanliga distributionsfel](resource-manager-common-deployment-errors.md)
-### [Förstå vanliga distributionsfel](resource-manager-troubleshoot-tips.md)
-### Åtgärda fel
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Linux-distributionsproblem](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Problem med etablering och allokering för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Problem med etablering och allokering för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### Distributionsfel för virtuell dator
-#### Linux
-##### [Distributionsproblem](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Problem med etablering och tilldelning](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Vanliga felmeddelanden](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Distributionsproblem](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Problem med etablering och tilldelning](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Vanliga felmeddelanden](../virtual-machines/windows/error-messages.md)
+#### [Windows-distributionsproblem](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Förstå vanliga distributionsfel](resource-manager-troubleshoot-tips.md)
 
 # Referens
 ## [Mallformat](/azure/templates/)

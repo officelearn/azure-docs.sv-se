@@ -127,6 +127,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Använd en hanterad tjänstidentitet
           href: app-service-managed-service-identity.md
+        - name: Använda SSL-certifikat i programkod
+          href: app-service-web-ssl-cert-load.md
         - name: Konfigurera ömsesidig TLS-autentisering
           href: app-service-web-configure-tls-mutual-auth.md
     - name: Skalningsapp

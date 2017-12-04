@@ -4,6 +4,8 @@
   items:
     - name: Introduktion till Data Factory
       href: introduction.md
+    - name: Jämför version 1 och 2
+      href: compare-versions.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -19,6 +21,8 @@
           href: quickstart-create-data-factory-rest-api.md
         - name: Portalen
           href: quickstart-create-data-factory-portal.md
+        - name: Resource Manager-mall
+          href: quickstart-create-data-factory-resource-manager-template.md
 - name: Självstudier
   items:
     - name: 1 – Distribuera SSIS-paket till Azure

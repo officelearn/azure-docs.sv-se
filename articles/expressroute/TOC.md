@@ -58,6 +58,7 @@
 
 ## Felsöka
 ### [Verifiera ExpressRoute-anslutning](expressroute-troubleshooting-expressroute-overview.md)
+### [Återställa en misslyckad krets](reset-circuit.md)
 ### [Hämta ARP-tabeller](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Hämta ARP-tabeller (klassisk)](expressroute-troubleshooting-arp-classic.md)
 

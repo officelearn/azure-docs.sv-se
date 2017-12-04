@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -87,6 +87,16 @@ Uppdateringshantering har aktiverats för den virtuella datorn.
 Instruktioner om hur du aktiverar uppdateringshantering för virtuella datorer som inte använder Azure Windows och datorer finns i [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md) (Anslut Windows-datorer till Log Analytics-tjänsten i Azure).
 
 Instruktioner om hur du aktiverar uppdateringshantering för virtuella Linux-datorer och datorer som inte använder Azure finns i [Connect your Linux Computers to Log Analytics](../log-analytics/log-analytics-agent-linux.md) (Anslut dina Linux-datorer till Log Analytics).
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Visa datorer som är anslutna till ditt Automation-konto
+När du har aktiverat uppdateringshantering för dina datorer kan du visa deras information genom att klicka på **Datorer**. Datorinformation som *Namn*, *Efterlevnad*, *Miljö*, *OS-typ*, *Kritiska uppdateringar och säkerhetsuppdateringar* och *Övriga uppdateringar* finns tillgänglig. 
+
+  ![Visa fliken för datorer](./media/manage-update-multi/update-computers-tab.png)
+
+Datorer som nyligen har aktiverats för uppdateringshantering kanske ännu inte har utvärderats. Efterlevnadstillståndet för dessa datorer skulle ha statusen  *	Ej utvärderat*.  Här följer en lista över värden för efterlevnadstillstånd:
+* Kompatibel – Datorer som inte saknar kritiska uppdateringar eller säkerhetsuppdateringar.
+* Inkompatibel – Datorer som saknar minste en kritisk uppdatering eller säkerhetsuppdatering.
+* Ej utvärderat – Data för kontroll av uppdateringar har inte tagits emot från datorn inom den förväntade tidsramen.  För Linux-datorer under de tre senaste timmarna och för Windows-datorer under de 12 senaste timmarna.  
 
 ## <a name="view-an-update-assessment"></a>Visa en uppdateringsbedömning
 

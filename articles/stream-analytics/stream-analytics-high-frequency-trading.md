@@ -15,23 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 0a5a1129c5b7fc693ed7c187d928a128650f28b9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Handelssimulering med hög frekvens med Stream Analytics
-Kombinationen av Azure Stream Analytics SQL-språk och JavaScripts UDF och UDA är mycket kraftfull. Användarna kan använda den här kombinationen för att utföra avancerade analyser, inklusive maskininlärning online med träning och bedömning samt tillståndskänslig processimulering. I den här artikeln finns en beskrivning av hur du utför linjär regression i ett Azure Stream Analytics-jobb som kör kontinuerlig träning och bedömning i ett scenario med högfrekvent handel.
+Kombinationen av SQL-språket och JavaScript-användardefinierade funktion (UDF) och användardefinierade aggregeringar (UDA) i Azure Stream Analytics gör det möjligt för användare att utföra avancerade analyser. Avancerade analyser kan innehålla onlineutbildning för maskininlärning och bedömningar samt tillståndskänslig processimulering. I den här artikeln finns en beskrivning av hur du utför linjär regression i ett Azure Stream Analytics-jobb som kör kontinuerlig träning och bedömning i ett scenario med högfrekvent handel.
 
 ## <a name="high-frequency-trading"></a>Handel med hög frekvens
-Logikflödet för handel med hög frekvens handlar om att få offerter i realtid från börsen, bygga en förutsägelsemodell kring offerthanteringen för att bättre kunna förutspå prisfluktueringar samt att köpa och sälja i rättan tid för att kunna tjäna pengar på värdeförändringar. Därför behöver vi följande:
-* Offertflöde i realtid
-* En förutsägelsemodell som kan användas tillsammans med offerter i realtid
-* En handelssimulering som visar resultatet (vinst/förlust) för handelsalgoritmen
+Det logiska flödet för handel med hög frekvens handlar om att:
+1. Få offerter i realtid från börsen.
+2. Bygga en förutsägelsemodell kring offerthanteringen för att bättre kunna förutspå prisfluktueringar.
+3. Köpa och sälja i rättan tid för att kunna tjäna pengar på värdeförändringar. 
+
+Därför behöver vi:
+* Ett offertflöde i realtid.
+* En förutsägelsemodell som kan användas tillsammans med offerter i realtid.
+* En handelssimulering som visar resultatet (vinst eller förlust) för handelsalgoritmen.
 
 ### <a name="real-time-quote-feed"></a>Offertflöde i realtid
-IEX tillhandahåller kostnadsfria bud och offertförfrågningar i realtid med socket.io, https://iextrading.com/developer/docs/#websockets. Det går att skriva ett enkelt konsolprogram som tar emot offerter i realtid och push-överför till händelsehubben i form av en datakälla. Stommen till programmet visas nedan. Felhanteringen har utelämnats av utrymmesskäl. Ditt projekt måste också innehålla NuGet-paket för SocketIoClientDotNet och WindowsAzure.ServiceBus.
+IEX erbjuder kostnadsfria [bud och offertförfrågningar i realtid](https://iextrading.com/developer/docs/#websockets) med socket.io. Det går att skriva ett enkelt konsolprogram som tar emot offerter i realtid och push-överför till Azure Event Hubs i form av en datakälla. Följande kod är stommen i programmet. Kortfattat utelämnar koden felhantering. Ditt projekt måste också innehålla NuGet-paket för SocketIoClientDotNet och WindowsAzure.ServiceBus.
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -51,7 +56,7 @@ IEX tillhandahåller kostnadsfria bud och offertförfrågningar i realtid med so
         socket.Emit("subscribe", symbols);
     });
 
-Här följer några exempel på händelser som genereras.
+Här följer några exempel på händelser som genereras:
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -65,15 +70,17 @@ Här följer några exempel på händelser som genereras.
 >Tidsstämpeln för händelsen är **lastUpdated** i epoktid.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Förutsägelsemodell för handel med hög frekvens
-Under den här demonstrationen använder vi en linjär modell så som den beskrivits i en artikel av Darryl Shen. http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf.
+Under den här demonstrationen använder vi en linjär modell så som den beskrivits i [en artikel](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf) av Darryl Shen.
 
-Volume Order Imbalance (VOI) är en funktion som hanterar diskrepanser mellan aktuellt bud/försäljningspris och volym samt aktuellt bud/försäljningspris/volym från förra ticket. Artikeln visar korrelationen mellan VOI och framtida prisfluktueringar. Sedan följer en beskrivning av hur man bygger en linjär modell med de senaste fem VOI-värdena och prisförändringarna för de kommande tio ticken. Modellen tränas med linjär regression och baseras på data från föregående dag. Den tränade modellen används sedan för att göra förutsägelser om prisändringar i offerter i realtid under den aktuella handelsdagen. När en tillräckligt stor prisändring förutsägs genomförs en transaktion. Beroende på inställt tröskelvärde kan du sedan förvänta dig tusentals transaktioner med samma aktie under en handelsdag.
+Volume Order Imbalance (VOI) är en funktion som hanterar diskrepanser mellan aktuellt bud/försäljningspris och volym samt aktuellt bud/försäljningspris och volym från förra ticket. Artikeln visar korrelationen mellan VOI och framtida prisfluktueringar. Den bygger en linjär modell med de senaste fem VOI-värdena och prisförändringarna för de kommande tio ticken. Modellen tränas med linjär regression och baseras på data från föregående dag. 
+
+Den tränade modellen används sedan för att göra förutsägelser om prisändringar i offerter i realtid under den aktuella handelsdagen. När en tillräckligt stor prisändring förutsägs genomförs en transaktion. Beroende på inställt tröskelvärde kan du sedan förvänta dig tusentals transaktioner med samma aktie under en handelsdag.
 
 ![VOI-definition](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
 Nu ska vi visa hur träning och förutsägelser fungerar i ett Azure Stream Analytics-jobb.
 
-Vi börjar med att snygga upp indata. Epoktid omvandlas till datetime med **DATEADD**. **TRY_CAST** används för att tvinga datatyper utan att frågan misslyckas. Det är alltid en bra idé att omvandla inmatningsfält till de förväntade datatyperna, så att du inte får några otrevliga överraskningar i form av oväntat beteende när det gäller manipulering av värden eller jämförelser av fält.
+Vi börjar med att snygga upp indata. Epoktid omvandlas till datetime via **DATEADD**. **TRY_CAST** används för att tvinga datatyper utan att frågan misslyckas. Det är alltid en bra idé att omvandla inmatningsfält till de förväntade datatyperna, så att du inte får några otrevliga överraskningar i form av oväntat beteende när det gäller manipulering av värden eller jämförelser av fält.
 
     WITH
     typeconvertedquotes AS (
@@ -93,7 +100,7 @@ Vi börjar med att snygga upp indata. Epoktid omvandlas till datetime med **DATE
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
         SELECT * FROM typeconvertedquotes
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
@@ -116,7 +123,7 @@ Härnäst använder vi funktionen **LAG** för att hämta värden från det sena
         FROM timefilteredquotes
     ),
 
-Vi kan nu beräkna VOI-värdet. Observera att vi för säkerhets skull filtrerar bort null-värden om det inte finns några gamla tick.
+Vi kan nu beräkna VOI-värdet. För säkerhets skull filtrerar vi bort null-värden om det inte finns några gamla tick.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -230,7 +237,7 @@ Eftersom Azure Stream Analytics inte har någon inbyggd funktion för linjär re
         FROM modelparambs
     ),
 
-För att kunna använda föregående dags modell för bedömning av aktuella händelser kopplar vi ihop offerterna med modellen. Men istället för att använda **JOIN** använder vi **UNION** för att koppla ihop modellhändelser och offerthändelser. Sedan använder vi **LAG** för att para ihop händelserna med föregående dags modell. På så sätt får vi exakt en matchning. På grund av helgen måste vi gå tre dagar tillbaka i tiden. Om du använder ett enkelt **JOIN** skulle vi få tre modeller för varje offerthändelse.
+För att kunna använda föregående dags modell för bedömning av aktuella händelser kopplar vi ihop offerterna med modellen. Men istället för att använd **JOIN** använder vi **UNION** för att koppla ihop modellhändelser och offerthändelser. Sedan använder vi **LAG** för att para ihop händelserna med föregående dags modell. På så sätt får vi exakt en matchning. På grund av helgen måste vi gå tre dagar tillbaka i tiden. Om du använder ett enkelt **JOIN** skulle vi få tre modeller för varje offerthändelse.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -266,7 +273,7 @@ För att kunna använda föregående dags modell för bedömning av aktuella hä
         FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
         SELECT
             symbol,
             midPrice,
@@ -279,7 +286,7 @@ För att kunna använda föregående dags modell för bedömning av aktuella hä
         WHERE type = 'voi'
     ),
 
-Nu kan vi göra förutsägelser och generera köp-/säljsignaler baserat på modellen, med ett tröskelvärde på 0,02. Värdet 10 betyder köp, värdet -10 betyder sälj.
+Nu kan vi göra förutsägelser och generera köp-/säljsignaler baserat på modellen, med ett tröskelvärde på 0,02. Värdet 10 betyder köp. Värdet -10 betyder sälj.
 
     prediction AS (
         /* make prediction if there is a model */
@@ -308,11 +315,13 @@ Nu kan vi göra förutsägelser och generera köp-/säljsignaler baserat på mod
     ),
 
 ### <a name="trading-simulation"></a>Handelssimulering
-När vi har fått handelssignalerna på plats ska vi testa hur effektiva handelsstrategin är utan att behöva genomföra några riktiga transaktioner. Detta uppnås med hjälp av en användardefinierad sammansättning (UDA) med ett hoppande fönster som hoppar en gång i minuten. Ytterligare gruppering efter datum och having-satsen medger endast fönster för konton med händelser under en och samma dag. För ett hoppande fönster som sträcker sig över två dagar kan du använda **GROUP BY** för att dela upp grupperingarna i föregående dag och aktuell dag. **HAVING**-satsen filtrerar ut fönster som slutar på den aktuella dagen, men grupperas med föregående dag.
+När vi har fått handelssignalerna på plats ska vi testa hur effektiva handelsstrategin är utan att behöva genomföra några riktiga transaktioner. 
+
+Detta uppnås med hjälp av en användardefinierad sammansättning (UDA) med ett hoppande fönster som hoppar en gång i minuten. Ytterligare gruppering efter datum och having-satsen medger endast fönster för konton med händelser under en och samma dag. För ett hoppande fönster som sträcker sig över två dagar kan du använda **GROUP BY** för att dela upp grupperingarna i föregående dag och aktuell dag. **HAVING**-satsen filtrerar ut fönster som slutar på den aktuella dagen, men grupperas med föregående dag.
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
         SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
             symbol,
@@ -323,7 +332,13 @@ När vi har fått handelssignalerna på plats ska vi testa hur effektiva handels
         Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-JavaScripts UDA initierar alla ackumulatorer i init-funktionen, beräknar tillståndsövergången för varje händelse som läggs till i fönstret och returnerar simuleringsresultaten längst ned i fönstret. Den allmänna handelsprocessen omfattar köp av aktier när en köpsignal inkommer och det inte finns något aktieinnehav, försäljning av aktier när en säljsignal inkommer och det finns ett aktieinnehav eller blankning om det inte finns något innehav. Om du har blankat och får en köpsignal görs köp för att täcka detta. I denna simulering behåller eller blankar vi aldrig 10 aktier. Transaktionskostnaden är 8 USD.
+JavaScripts UDA initierar alla ackumulatorer i `init`-funktionen, beräknar tillståndsövergången för varje händelse som läggs till i fönstret och returnerar simuleringsresultaten längst ned i fönstret. Den allmänna handelsprocessen omfattar:
+
+- Köp av aktier när en köpsignal inkommer och det inte finns något aktieinnehav.
+- Försäljning av aktier när en säljsignal inkommer och det finns ett aktieinnehav.
+- Blankning om det inte finns något innehav. 
+
+Om du har blankat och får en köpsignal görs köp för att täcka detta. I denna simulering behåller eller blankar vi aldrig 10 aktier. Transaktionskostnaden är 8 USD.
 
 
     function main() {
@@ -432,6 +447,10 @@ Slutligen skickas utdata till Power BI-instrumentpanelen för visualisering.
 
 
 ## <a name="summary"></a>Sammanfattning
-Som du ser kan en realistisk handelsmodell med hög frekvens implementeras med hjälp av en ganska komplex fråga i Azure Stream Analytics. Då det inte finns någon inbyggd linjär regressionsfunktion måste vi förenkla modellen från fem indatavariabler till två. Men om du är riktigt ambitiös kan du använda algoritmer med högre dimensioner och mer avancerad uppbyggnad för att sedan implementera dessa som JavaScript UDA. Observera att större delen av frågan (det som inte är JavaScript UDA) kan testas och felsökas i Visual Studio med hjälp av [Azure Stream Analytics-verktyget för Visual Studio](stream-analytics-tools-for-visual-studio.md). När den första frågan skrevs lade författaren ner mindre än 30 minuter på testning och felsökning av frågan i Visual Studio. För närvarande går det inte att felsöka UDA i Visual Studio. Vi jobbar på att aktivera detta med tilläggsfunktionen att kunna stega igenom JavaScript-koden. Fält som når fram till UDA får fältnamn med gemena bokstäver. Detta var inget uppenbart beteende under testningen av frågefunktionerna. Från och med Azure Stream Analytics kompatibilitetsnivå 1.1 kan du dock bevara skiftläget för namnet, så att beteendet blir mer naturligt.
+Vi implementerar en realistisk handelsmodell med hög frekvens med en ganska komplex fråga i Azure Stream Analytics. Då det inte finns någon inbyggd linjär regressionsfunktion måste vi förenkla modellen från fem indatavariabler till två. Men om du är riktigt ambitiös kan du använda algoritmer med högre dimensioner och mer avancerad uppbyggnad för att sedan implementera dessa som JavaScript UDA. 
+
+Observera att större delen av frågan (det som inte är JavaScript UDA) kan testas och felsökas i Visual Studio med hjälp av [Azure Stream Analytics-verktyget för Visual Studio](stream-analytics-tools-for-visual-studio.md). När den första frågan skrevs lade författaren ner mindre än 30 minuter på testning och felsökning av frågan i Visual Studio. 
+
+För närvarande går det inte att felsöka UDA i Visual Studio. Vi jobbar på att aktivera detta med tilläggsfunktionen att kunna stega igenom JavaScript-koden. Fält som når fram till UDA får fältnamn med gemena bokstäver. Detta var inget uppenbart beteende under testningen av frågefunktionerna. Från och med Azure Stream Analytics kompatibilitetsnivå 1.1 kan du dock bevara skiftläget för namnet, så att beteendet blir mer naturligt.
 
 Jag hoppas den här artikeln fungerar som en inspiration för alla Azure Stream Analytics-användare som vill använda vår tjänst för att utföra avancerade analyser i nära nog realtid och utan avbrott. Lämna gärna feedback för att förenkla implementeringen av frågor i scenarion med avancerade analyser.

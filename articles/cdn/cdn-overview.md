@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 411c5a43d8a3245fc4642596b3725dadf8745728
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Översikt över Azure CDN (Content Delivery Network)
-> [!NOTE]
-> Det här dokumentet beskriver vad Azure CDN (Content Delivery Network) är och hur det fungerar samt funktionerna i respektive Azure CDN-produkt.  Om du vill hoppa över den här informationen och gå direkt till självstudiekursen om hur du skapar en CDN-slutpunkt läser du [Använda Azure CDN](cdn-create-new-endpoint.md).  Om du vill visa en lista över aktuella CDN-nodplatser läser du [POP-platser för Azure CDN](cdn-pop-locations.md).
-> 
-> 
+Azure CDN (Content Delivery Network) cachelagrar statiskt webbinnehåll på strategiskt placerade platser för att leverera innehåll till användarna med maximalt datagenomflöde. CDN förser utvecklare med en global lösning för innehållsleverans med hög bandbredd där innehållet cachelagras på fysiska noder i hela världen. 
 
-Azure CDN (Content Delivery Network) cachelagrar statiskt webbinnehåll på strategiskt placerade platser för att leverera innehåll till användarna med maximalt datagenomflöde.  CDN förser utvecklare med en global lösning för innehållsleverans med hög bandbredd där innehållet cachelagras på fysiska noder i hela världen. 
+> [!NOTE]
+> Den här artikeln beskriver Azure CDN, hur det fungerar och funktionerna i varje Azure CDN-produkt. Om du vill hoppa över den här informationen och visa en självstudie om hur man skapar en CDN-slutpunkt läser du [Komma igång med Azure CDN](cdn-create-new-endpoint.md). Om du vill visa en lista över aktuella CDN-nodplatser läser du [POP-platser för Azure CDN](cdn-pop-locations.md).
+> 
 
 Här är några exempel på fördelarna med att använda CDN för att cachelagra webbplatstillgångar:
 
 * Bättre prestanda och upplevelse för slutanvändarna, särskilt när de använder program där flera turer krävs för att läsa in innehållet.
 * Skalning för effektiv hantering av plötsliga belastningstoppar, t.ex. i början av en produktlansering.
-* Genom att distribuera användarförfrågningar och hämta innehåll från edge-servrar skickas mindre trafik till ursprunget.
+* Genom att distribuera användarförfrågningar och hämta innehåll direkt från edge-servrar skickas mindre trafik till ursprunget.
+
 
 ## <a name="how-it-works"></a>Hur det fungerar
 ![Översikt över CDN](./media/cdn-overview/cdn-overview.png)
@@ -90,7 +90,7 @@ Det finns tre Azure CDN-produkter:  **Azure CDN Standard från Akamai**, **Azure
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du kommer igång med CDN finns i [Använda Azure CDN](cdn-create-new-endpoint.md).
+Läs [Komma igång med Azure CDN](cdn-create-new-endpoint.md) för att komma igång.
 
 Om du är en befintlig CDN-kund kan du nu hantera dina CDN-slutpunkter via [Microsoft Azure-portalen](https://portal.azure.com) eller med [PowerShell](cdn-manage-powershell.md).
 
@@ -98,5 +98,5 @@ Om du vill se hur CDN fungerar i praktiken tittar du på [videon från vår Buil
 
 Läs mer om hur man automatiserar Azure CDN med [.NET](cdn-app-dev-net.md) eller [Node.js](cdn-app-dev-node.md).
 
-Information om priser finns i avsnittet om [CDN-priser](https://azure.microsoft.com/pricing/details/cdn/).
+Prissättningsinformation finns i [Priser för Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 

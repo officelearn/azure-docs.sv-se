@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 77078087e2532ac779d25ef63cc7fa19b40f0851
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: ca8e664ff1fd509d0461b6d167f28743d2e1e69c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Självstudier: Kopiera data från SQL Server lokalt till Azure Blob Storage
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet. 
@@ -51,7 +51,7 @@ Du använder en lokal SQL Server-databas som **källdata** i den här självstud
 1. Öppna **SQL Server Management Studio** på datorn. Om du inte har SQL Server Management Studio på din dator installerar du det via [Download Center](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
 2. Anslut till SQL-servern med hjälp av dina autentiseringsuppgifter. 
 3. Skapa en exempeldatabas. I trädvyn högerklickar du på **Databaser** och klicka på **Ny databas**. Gå till dialogrutan **Ny databas**, ange ett **namn** för databasen och klicka på **OK**. 
-4. Kör följande frågeskript mot databasen, vilket skapar tabellen **emp**. I trädvyn högerklickar du på **databasen** du har skapat och klickar på **Ny fråga**. 
+4. Kör följande frågeskript mot databasen, vilket skapar tabellen **emp** och infogar lite exempeldata i den. I trädvyn högerklickar du på **databasen** du har skapat och klickar på **Ny fråga**. 
 
     ```sql   
     CREATE TABLE dbo.emp
@@ -61,13 +61,10 @@ Du använder en lokal SQL Server-databas som **källdata** i den här självstud
         LastName varchar(50),
         CONSTRAINT PK_emp PRIMARY KEY (ID)
     )
-    GO
-    ```
-2. Kör följande kommandon mot databasen som infogar exempeldata i tabellen:
 
-    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
+    GO
     ```
 
 ### <a name="azure-storage-account"></a>Azure-lagringskonto
@@ -92,7 +89,7 @@ Det här avsnittet förutsätter att du har en blobbehållare med namnet **adftu
 1. På sidan **Lagringskonto** växlar du till **Översikt** och klickar på **Blobbar**. 
 
     ![Alternativet Välj blobar](media/tutorial-hybrid-copy-powershell/select-blobs.png)
-1. På sidan **Blob Service** klickar du på **+ Container** (+Behållare) i verktygsfältet. 
+1. På sidan **Blob Service** klickar du på **+ Behållare** i verktygsfältet. 
 
     ![Lägga till behållarknapp](media/tutorial-hybrid-copy-powershell/add-container-button.png)
 3. I dialogrutan **Ny behållare** anger du **adftutorial** som namn och klickar på **OK**. 
@@ -105,10 +102,10 @@ Det här avsnittet förutsätter att du har en blobbehållare med namnet **adftu
 
     ![Sidan Container (Behållare)](media/tutorial-hybrid-copy-powershell/container-page.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>Installera Azure PowerShell
-Installera den senaste versionen av Azure PowerShell om du inte redan har den på din dator. 
+#### <a name="install-powershell"></a>Installera PowerShell
+Installera den senaste versionen av PowerShell om du inte redan har den på din dator. 
 
 1. Öppna webbläsaren och gå till sidan [Ladda ned Azure-SDK:er och verktyg](https://azure.microsoft.com/downloads/). 
 2. Klicka på **Windows-installation** i avsnittet **Kommandoradsverktyg** -> **PowerShell**. 
@@ -116,9 +113,9 @@ Installera den senaste versionen av Azure PowerShell om du inte redan har den p�
 
 Mer detaljerade anvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-#### <a name="log-in-to-azure-powershell"></a>Logga in på Azure PowerShell
+#### <a name="log-in-to-powershell"></a>Logga in på PowerShell
 
-1. Starta **PowerShell** på din dator. Låt Azure PowerShell vara öppet tills du är klar med snabbstarten. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
+1. Starta **PowerShell** på din dator. Låt PowerShell-fönstret vara öppet tills du är klar med snabbstarten. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
 
     ![Starta PowerShell](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 1. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen:
@@ -142,25 +139,28 @@ Mer detaljerade anvisningar finns i [Installera och konfigurera Azure PowerShell
 1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. Definiera en variabel för datafabrikens namn som du kan använda senare i PowerShell-kommandon. 
-
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
-    ```
-1. Definiera en variabel för datafabrikens plats: 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. Kör följande kommando för att skapa en Azure-resursgrupp: 
+2. Kör följande kommando för att skapa en Azure-resursgrupp: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen.   
+    Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen.
+3. Definiera en variabel för datafabrikens namn som du kan använda senare i PowerShell-kommandon. Namnet måste börja med en bokstav eller en siffra och får bara innehålla bokstäver, siffror och bindestreck (-).
+
+    > [!IMPORTANT]
+    >  Uppdateringen av datafabrikens namn måste vara unikt globalt. Till exempel ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFTutorialFactory"
+    ```
+1. Definiera en variabel för datafabrikens plats: 
+
+    ```powershell
+    $location = "East US"
+    ```  
 5. Kör följande cmdlet av typen **Set-AzureRmDataFactoryV2** för att skapa en datafabrik: 
     
     ```powershell       
@@ -182,12 +182,12 @@ Observera följande punkter:
 
 I det här avsnittet kan du skapa en Integration Runtime med egen värd och koppla den till en lokal dator med SQL Server-databasen. Den lokala installationen av Integration Runtime är den komponent som kopierar data från SQL Server på din dator till Azure Blob Storage. 
 
-1. Skapa en variabel för namnet på din Integration Runtime. Anteckna det här namnet. Du använder det senare i den här självstudien. 
+1. Skapa en variabel för namnet på din Integration Runtime. Använd ett unikt namn och notera namnet. Du använder det senare i den här självstudien. 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+   $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. Skapa Integration Runtime med egen värd. Använd ett unikt namn om det finns en annan Integration Runtime med samma namn.
+1. Skapa Integration Runtime med egen värd. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -230,7 +230,7 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
    State                     : NeedRegistration
    ```
 
-3. Kör följande kommando för att hämta **autentiseringsnycklarna** för att registrera Integration Runtime med tjänsten Data Factory i molnet. Kopiera en av nycklarna (uteslut dubbla citattecken) för att registrera den lokala installation av Integration Runtime som du installerar på datorn i nästa steg.  
+3. Kör följande kommando för att hämta **autentiseringsnycklarna** för att registrera Integration Runtime med tjänsten Data Factory i molnet. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -243,7 +243,8 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. Kopiera en av nycklarna (uteslut dubbla citattecken) för att registrera den lokala installation av Integration Runtime som du installerar på datorn i nästa steg.  
 
 ## <a name="install-integration-runtime"></a>Installera Integration Runtime
 1. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) Integration Runtime med egen värd på en lokal Windows-dator och kör installationen. 
@@ -283,6 +284,7 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
     - Ange **användarnamn**. 
     - Ange **lösenord** för användarnamnet.
     - Klicka på **Test** för att bekräfta att Integration Runtime kan ansluta till SQL Server. Du ser en grön bockmarkering om anslutningen är klar. Annars ser du ett felmeddelande som är kopplat till felet. Åtgärda eventuella problem och se till att Integration Runtime kan ansluta till din SQL Server.
+    - Anteckna värdena (autentiseringstyp, server, databas, användare, lösenord). Du använder det senare i den här självstudien. 
     
       
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
@@ -294,7 +296,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFv2Tutorial** med följande innehåll: skapa mappen ADFv2Tutorial om den inte redan finns.  
 
     > [!IMPORTANT]
-    > Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt Azure Storage-konto innan du sparar filen.
+    > Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt **Azure Storage-konto** innan du sparar filen. Du skrev ned dem som en del av [kraven](#get-storage-account-name-and-account-key).
 
    ```json
     {
@@ -310,6 +312,8 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
         "name": "AzureStorageLinkedService"
     }
    ```
+
+    Om du använder Anteckningar ska du välja **Alla filer** för det **filformat** som anges i dialogrutan **Spara som**. Annars kan tillägget `.txt` läggas till för filen. Till exempel `AzureStorageLinkedService.json.txt`. Om du skapar en fil i Utforskaren innan du öppnar den i Anteckningar kanske du inte ser tillägget `.txt` eftersom alternativet för att **dölja tillägg för alla kända filtyper** är valt som standard. Ta bort tillägget `.txt` innan du fortsätter till nästa steg. 
 2. I **Azure PowerShell** växlar du till mappen **C:\ADFv2Tutorial**.
 
    Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**. 
@@ -326,6 +330,8 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
     DataFactoryName   : onpremdf0914
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
+
+    Gör så här om du ser felmeddelandet ”Filen hittades inte”. Kör kommandot `dir` för att bekräfta att filen finns. Om filnamnet har tillägget `.txt` (till exempel AzureStorageLinkedService.json.txt) tar du bort det och kör sedan PowerShell-kommandot igen. 
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Skapa och kryptera en SQL Server som är länkad tjänst (källa)
 I det här steget länkar du din lokala SQL Server till datafabriken.
@@ -366,7 +372,7 @@ I det här steget länkar du din lokala SQL Server till datafabriken.
                     "type": "SecureString",
                     "value": "Server=<server>;Database=<database>;Integrated Security=True"
                 },
-                "userName": "<domain>\\<user>",
+                "userName": "<user> or <domain>\\<user>",
                 "password": {
                     "type": "SecureString",
                     "value": "<password>"

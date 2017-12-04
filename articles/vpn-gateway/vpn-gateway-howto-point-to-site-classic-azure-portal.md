@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med certifikatautentisering: den klassiska Azure-portalen
 
@@ -35,8 +35,10 @@ Den här artikeln visar dig hur du skapar ett virtuellt nätverk med en punkt-ti
 
 Med en VPN-gateway med P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. Punkt-till-plats-VPN-anslutningar är användbara när du vill fjärransluta till ditt VNet, exempelvis när du distansarbetar från hemmet eller en konferens. En P2S-VPN-anslutning är också en bra lösning att använda i stället för en plats-till-plats-VPN-anslutning när du bara har ett fåtal klienter som behöver ansluta till ett VNet. En P2S-VPN-anslutning upprättas genom att du startar den från klientdatorn.
 
-Den klassiska distributionsmodellen stöder endast Windows VPN-klienter och använder Secure Socket Tunneling Protocol (SSTP), ett SSL-baserat VPN-protokoll. För att stödja icke-Windows VPN-klienter, måste ditt VNet skapas med hjälp av Resource Manager-distributionsmodellen. Resource Manager-distributionsmodellen stöder IKEv2 VPN, utöver SSTP. Mer information finns i [om P2S-anslutningar](point-to-site-about.md).
-
+> [!IMPORTANT]
+> Den klassiska distributionsmodellen stöder endast Windows VPN-klienter och använder Secure Socket Tunneling Protocol (SSTP), ett SSL-baserat VPN-protokoll. För att stödja icke-Windows VPN-klienter, måste ditt VNet skapas med hjälp av Resource Manager-distributionsmodellen. Resource Manager-distributionsmodellen stöder IKEv2 VPN, utöver SSTP. Mer information finns i [om P2S-anslutningar](point-to-site-about.md).
+>
+>
 
 ![Punkt-till-plats-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 

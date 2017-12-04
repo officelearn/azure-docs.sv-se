@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2da1c7148e27ca8dd8eb774d4201415a969fada
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure Portal
 
-Den här artikeln visar hur du skapar en VPN-gatewayanslutning mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. När du ansluter virtuella nätverk från olika prenumerationer, behöver inte prenumerationerna vara associerade med samma Active Directory-klient. 
+Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-anslutningstypen. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. När du ansluter virtuella nätverk från olika prenumerationer, behöver inte prenumerationerna vara associerade med samma Active Directory-klient. 
 
 Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av Azure-portalen. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
@@ -39,15 +39,15 @@ Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmod
 
 ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-VNet) på nästan samma sätt som du ansluter ett VNet till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE. Det går att skapa Plats-till-plats-anslutningar (IPsec) mellan VNets, istället för VNet-till-VNet. Båda anslutningstyperna fungerar på samma sätt när de kommunicerar. Men när du skapar en VNet-till-VNet-anslutning och uppdaterar adressutrymmer för ett VNet dirigerar det andra VNet-nätverket automatiskt till det uppdaterade adressutrymmet. Om du skapar Plats-till-plats-anslutningar (IPsec) måste du konfigurera adressutrymmet för den lokala nätverksgatewayen manuellt. När du arbetar med komplexa konfigurationer kanske du föredrar att skapa IPsec-anslutningar i stället för VNet-till-VNet. På så sätt kan du ange ytterligare adressutrymme manuellt för den lokala nätverksgatewayen.
+## <a name="about"></a>Om att ansluta virtuella nätverk
 
-Om dina VNets finns i samma region kan det vara bättre att ansluta dem med hjälp av VNet-peering. Ingen VPN-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
+Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk med VNet-till-VNet-anslutningstypen på nästan samma sätt som du skapar en IPsec-anslutning till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE, och båda fungerar på samma sätt vid kommunikation. Skillnaden mellan anslutningstyperna är hur den lokala nätverksgatewayen har konfigurerats. När du skapar en anslutning mellan virtuella nätverk ser du inte adressutrymmet för den lokala nätverksgatewayen. Den skapas och fylls i automatiskt. Om du uppdaterar adressutrymmer för ett VNet dirigerar det andra VNet-nätverket automatiskt till det uppdaterade adressutrymmet.
 
-VNet-till-VNet-kommunikation kan kombineras med konfigurationer för flera platser. Därmed kan du etablera nätverkstopologier som kombinerar anslutningar mellan olika anläggningar med virtuell nätverksanslutning enligt följande diagram:
+Om du arbetar med en komplicerad konfiguration kanske du föredrar att använda IPsec-anslutningstypen i stället för VNet-till-VNet. På så sätt kan du ange ytterligare adressutrymme för den lokala nätverksgatewayen för att dirigera trafik. Om du ansluter till dina virtuella nätverk med IPsec-anslutningstypen måste du skapa och konfigurera den lokala nätverksgatewayen manuellt. Mer information finns i [Site-to-Site configurations](vpn-gateway-howto-site-to-site-resource-manager-portal.md) (Plats-till-plats-konfigurationer).
 
-![Om anslutningar](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Om anslutningar")
+Om dina VNets dessutom finns i samma region kan det vara bättre att ansluta dem med hjälp av VNet-peering. VNet-peering använder ingen VPN-gateway och prissättningen och funktionaliteten är lite annorlunda. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="why-connect-virtual-networks"></a>Varför ska man ansluta virtuella nätverk?
+### <a name="why"></a>Varför ska jag skapa en anslutning mellan virtuella nätverk?
 
 Du kan vilja ansluta virtuella nätverk av följande skäl:
 
@@ -59,7 +59,11 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
 
   * Inom samma region kan du konfigurera flernivåprogram med flera virtuella nätverk som är anslutna till varandra på grund av isolering eller administrativa krav.
 
-När du följer dessa steg som en övning kan du använda följande exempelinställningsvärden. I det här exemplet är de virtuella nätverken i samma prenumeration, men i olika resursgrupper. Observera att du inte skapar anslutningen i portalen om dina virtuella nätverk finns i olika prenumerationer. Du kan använda [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) eller [CLI](vpn-gateway-howto-vnet-vnet-cli.md). Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#faq) i slutet av den här artikeln.
+VNet-till-VNet-kommunikation kan kombineras med konfigurationer för flera platser. Därmed kan du etablera nätverkstopologier som kombinerar anslutningar mellan olika anläggningar med virtuell nätverksanslutning enligt följande diagram:
+
+![Om anslutningar](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Om anslutningar")
+
+I den här artikeln får du hjälp med att ansluta virtuella nätverk med anslutningstypen VNet-till-VNet. När du följer dessa steg som en övning kan du använda följande exempelinställningsvärden. I det här exemplet är de virtuella nätverken i samma prenumeration, men i olika resursgrupper. Observera att du inte skapar anslutningen i portalen om dina virtuella nätverk finns i olika prenumerationer. Du kan använda [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) eller [CLI](vpn-gateway-howto-vnet-vnet-cli.md). Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#faq) i slutet av den här artikeln.
 
 ### <a name="values"></a>Exempelinställningar
 

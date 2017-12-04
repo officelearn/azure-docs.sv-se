@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/14/2017
-ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.date: 11/29/2017
+ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: Distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -163,7 +163,7 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
 
 3. Skapa miljön. Du måste utföra det här steget en gång per miljö. Exempelvis utför du det en gång för utvecklingsmiljön och en gång för produktion. Använd _lokalt läge_ för den här första miljön. Du kan prova med flaggorna `-c` eller `--cluster` i följande kommando om du vill konfigurera en miljö i _klusterläge_ senare.
 
-Observera att följande installationskommando kräver att du har deltagarbehörighet inom ramen för prenumerationen. Om du inte har det, behöver du som minst deltagarbehörighet för resursgruppen som du distribuerar till. Om du vill göra det senare måste du ange resursgruppens namn som en del av installationskommandot med flaggan `-g`. 
+   Observera att följande installationskommando kräver att du har deltagarbehörighet inom ramen för prenumerationen. Om du inte har det, behöver du som minst deltagarbehörighet för resursgruppen som du distribuerar till. Om du vill göra det senare måste du ange resursgruppens namn som en del av installationskommandot med flaggan `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -276,10 +276,10 @@ Nu är du redo att köra webbtjänsten.
 
 Testa **irisapp**-webbtjänsten som körs med hjälp av en JSON-kodad post med en matris med fyra slumptal:
 
-1. Webbtjänsten innehåller exempeldata. Vid körning i lokalt läge kan du anropa kommandot **az ml service show realtime**. Anropet hämtar ett exempelkörningskommando som är användbart när du testar tjänsten. Anropet hämtar även en bedömnings-URL som du kan använda när du ska införliva tjänsten i dina egna anpassade appar:
+1. Webbtjänsten innehåller exempeldata. Vid körning i lokalt läge kan du anropa kommandot **az ml service usage realtime**. Anropet hämtar ett exempelkörningskommando som är användbart när du testar tjänsten. Anropet hämtar även en bedömnings-URL som du kan använda när du ska införliva tjänsten i dina egna anpassade appar:
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. Om du vill testa tjänsten kör du tjänstkörningskommandot som returnerades:

@@ -1,6 +1,6 @@
 ---
-title: "Ansluta ett virtuellt Azure-nätverk till ett annat VNet: PowerShell | Microsoft Docs"
-description: "Den här artikeln visar hur du ansluter virtuella nätverk tillsammans med hjälp av Azure Resource Manager och PowerShell."
+title: "Ansluta ett virtuellt Azure-nätverk till ett annat VNet med en VNet-till-VNet-anslutning: PowerShell | Microsoft Docs"
+description: "Den här artikeln visar hur du ansluter virtuella nätverk tillsammans med en VNet-till-VNet-anslutning och PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av PowerShell
 
-Den här artikeln visar hur du skapar en VPN-gatewayanslutning mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. När du ansluter virtuella nätverk från olika prenumerationer, behöver inte prenumerationerna vara associerade med samma Active Directory-klient. 
+Den här artikeln visar hur du ansluter virtuella nätverk via VNet-till-VNet-anslutningstypen. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. När du ansluter virtuella nätverk från olika prenumerationer, behöver inte prenumerationerna vara associerade med samma Active Directory-klient.
 
 Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen och användning av PowerShell. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
@@ -37,13 +37,15 @@ Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmod
 >
 >
 
-Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-VNet) på nästan samma sätt som du ansluter ett VNet till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE. Om dina VNets finns i samma region kan det vara bättre att ansluta dem med hjälp av VNet-peering. Ingen VPN-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>Om att ansluta virtuella nätverk
 
-VNet-till-VNet-kommunikation kan kombineras med konfigurationer för flera platser. Därmed kan du etablera nätverkstopologier som kombinerar anslutningar mellan olika anläggningar med virtuell nätverksanslutning enligt följande diagram:
+Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk med VNet-till-VNet-anslutningstypen (VNet2VNet) på nästan samma sätt som du skapar en IPsec-anslutning till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE, och båda fungerar på samma sätt vid kommunikation. Skillnaden mellan anslutningstyperna är hur den lokala nätverksgatewayen har konfigurerats. När du skapar en anslutning mellan virtuella nätverk ser du inte adressutrymmet för den lokala nätverksgatewayen. Den skapas och fylls i automatiskt. Om du uppdaterar adressutrymmer för ett VNet dirigerar det andra VNet-nätverket automatiskt till det uppdaterade adressutrymmet.
 
-![Om anslutningar](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
+Om du arbetar med en komplicerad konfiguration kanske du föredrar att använda IPsec-anslutningstypen i stället för VNet-till-VNet. På så sätt kan du ange ytterligare adressutrymme för den lokala nätverksgatewayen för att dirigera trafik. Om du ansluter till dina virtuella nätverk med IPsec-anslutningstypen måste du skapa och konfigurera den lokala nätverksgatewayen manuellt. Mer information finns i [Site-to-Site configurations](vpn-gateway-create-site-to-site-rm-powershell.md) (Plats-till-plats-konfigurationer).
 
-### <a name="why-connect-virtual-networks"></a>Varför ska man ansluta virtuella nätverk?
+Om dina VNets dessutom finns i samma region kan det vara bättre att ansluta dem med hjälp av VNet-peering. VNet-peering använder ingen VPN-gateway och prissättningen och funktionaliteten är lite annorlunda. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Varför ska jag skapa en anslutning mellan virtuella nätverk?
 
 Du kan vilja ansluta virtuella nätverk av följande skäl:
 
@@ -55,19 +57,22 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
 
   * Inom samma region kan du konfigurera flernivåprogram med flera virtuella nätverk som är anslutna till varandra på grund av isolering eller administrativa krav.
 
-Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#faq) i slutet av den här artikeln.
+VNet-till-VNet-kommunikation kan kombineras med konfigurationer för flera platser. Det innebär att du kan etablera nätverkstopologier som kombinerar anslutningen för flera platser med en intern virtuell nätverksanslutning.
 
 ## <a name="which-set-of-steps-should-i-use"></a>Vilka steg ska jag använda?
 
-I den här artikeln beskrivs två uppsättningar med steg. En uppsättning steg för [VNets som finns i samma prenumeration](#samesub). Stegen för den här konfigurationen använder TestVNet1 och TestVNet4.
+I den här artikeln beskrivs två uppsättningar med steg. En uppsättning steg för [virtuella nätverk som finns i samma prenumeration](#samesub) och en annan för [virtuella nätverk som finns i olika prenumerationer](#difsub).
+Den största skillnaden mellan uppsättningarna är att du måste använda separata PowerShell-sessioner när du konfigurerar anslutningar för Vnet som finns i olika prenumerationer. 
 
-![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+För den här övningen kan du kombinera konfigurationer eller bara välja den du vill arbeta med. Alla konfigurationer använder anslutningstypen VNet-till-VNet. Nätverkstrafik flödar mellan virtuella nätverk som är direkt anslutna till varandra. I den här övningen dirigeras inte trafik från TestVNet4 till TestVNet5.
 
-Det finns en separat artikel för [VNets som finns i olika prenumerationer](#difsub). Stegen för den här konfigurationen använder TestVNet1 och TestVNet5.
+* [VNets som finns i samma prenumeration:](#samesub) I stegen för den här konfigurationen används TestVNet1 och TestVNet4.
 
-![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+  ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-Den viktigaste skillnaden mellan uppsättningarna är huruvida du kan skapa och konfigurera alla virtuella nätverk och gateway-resurser i samma PowerShell-session. Du måste använda separata PowerShell-sessioner när du konfigurerar anslutningar för Vnet som finns i olika prenumerationer. Du kan kombinera konfigurationer om du vill, eller bara välja den du vill arbeta med.
+* [VNets som finns i olika prenumerationer:](#difsub) I stegen för den här konfigurationen används TestVNet1 och TestVNet5.
+
+  ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 ## <a name="samesub"></a>Så här ansluter du VNets som finns i samma prenumeration
 
@@ -77,7 +82,7 @@ Du måste installera den senaste versionen av Azure Resource Managers PowerShell
 
 ### <a name="Step1"></a>Steg 1 – Planera dina IP-adressintervall
 
-I följande steg ska vi skapa två virtuella nätverk och deras respektive gateway-undernät och konfigurationer. Sedan ska vi skapa en VPN-anslutning mellan de två virtuella nätverken. Det är viktigt att planera IP-adressintervallen för nätverkskonfigurationen. Tänk på att inga av dina VNet-intervall eller lokala nätverksintervall får överlappa varandra på något sätt. I de här exemplen tar vi inte med någon DNS-server. Information om hur du använder namnmatchning för dina virtuella nätverk finns i [Namnmatchning](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+I följande steg ska vi skapa två virtuella nätverk och deras respektive gateway-undernät och konfigurationer. Sedan ska du skapa en VPN-anslutning mellan de två virtuella nätverken. Det är viktigt att planera IP-adressintervallen för nätverkskonfigurationen. Tänk på att inga av dina VNet-intervall eller lokala nätverksintervall får överlappa varandra på något sätt. I de här exemplen tar vi inte med någon DNS-server. Information om hur du använder namnmatchning för dina virtuella nätverk finns i [Namnmatchning](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Vi använder följande värden i exemplen:
 

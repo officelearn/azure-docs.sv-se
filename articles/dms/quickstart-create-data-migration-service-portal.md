@@ -1,6 +1,6 @@
 ---
-title: "Skapa Azure-databas migrering tjänstinstansen med Azure-portalen | Microsoft Docs"
-description: "Använda Azure portal för att skapa en instans av tjänsten Azure Database migrering"
+title: "Skapa en instans av Azure Database Migration Service med hjälp av Azure-portalen | Microsoft Docs"
+description: "Använd Azure-portalen och skapa en instans av Azure Database Migration Service"
 services: database-migration
 author: edmacauley
 ms.author: edmaca
@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/17/2017
-ms.openlocfilehash: 9faac0716334d627cdde4c0ef16262670333b5d4
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: MT
+ms.date: 11/28/2017
+ms.openlocfilehash: 7fc4f8521afa41f21cda6576459a0794bef9ad3b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Skapa en instans av tjänsten Azure Database migrering med hjälp av Azure portal
-I den här snabbstartsguide använder du Azure-portalen för att skapa en instans av tjänsten Azure Database migrering.  När du har skapat tjänsten kommer du att kunna använda den för att migrera data från SQL Server lokalt till en Azure SQL database.
+# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Skapa en instans av Azure Database Migration Service med hjälp av Azure-portalen
+I den här snabbstarten använder du Azure-portalen för att skapa en instans av Azure Database Migration Service.  När du har skapat tjänsten kan du använda den för att migrera data från en lokal SQL Server till en Azure SQL-databas.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -26,38 +26,39 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 Öppna webbläsaren och gå till [Microsoft Azure Portal](https://portal.azure.com/). Ange dina autentiseringsuppgifter och logga in på portalen. Standardvyn är instrumentpanelen.
 
 ## <a name="register-the-resource-provider"></a>Registrera resursprovidern
-Du behöver registrera resursprovidern Microsoft.DataMigration innan du skapar din första databas migrering tjänst.
+Registrera resursprovidern Microsoft.DataMigration innan du skapar din första instans av Database Migration Service.
 
-1. Välj i Azure-portalen **alla tjänster**, och välj sedan **prenumerationer**.
+1. Gå till Azure-portalen och välj **Alla tjänster** och sedan **Prenumerationer**.
 
-1. Välj den prenumeration som du vill skapa en instans av tjänsten Azure Database migrering och välj sedan **resursproviders**.
+2. Välj den prenumeration där du vill skapa en instans av Azure Database Migration Service och välj sedan **Resursprovidrar**.
 
-1. Sök efter migreringen och välj sedan till höger om Microsoft.DataMigration **registrera**.
+3. Sök efter migreringen och välj sedan **Registrera** till höger om Microsoft.DataMigration.
 
 ![Registrera resursprovider](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
-## <a name="create-azure-database-migration-service"></a>Skapa Migreringstjänst för Azure-databas
-1. Klicka på  **+**  att skapa en ny tjänst.  Migreringstjänst för databasen är fortfarande under förhandsgranskning.  
+## <a name="create-an-instance-of-the-service"></a>Skapar en instans av tjänsten
+1. Klicka på **+ Skapa en resurs** om du vill skapa en instans av Azure Database Migration Service, som för närvarande finns som förhandsversion.
 
-1. Sök marketplace för ”migreringen”, Välj ”migrering databastjänsten (förhandsgranskning)” och sedan på **skapa**.
+2. Sök i Marketplace efter ”migration” och välj **Azure Database Migration Service**. Klicka sedan, på skärmen **Azure Database Migration Service (förhandsversion)**, på **Skapa**.
 
-    ![Skapa migreringstjänst](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
+3. På skärmen **Database Migration Service**: 
 
-    - Välj en **tjänstnamnet** som är lätt att komma ihåg och unikt identifiera din Azure-databas migrering Service-instans.
-    - Välj din Azure **prenumeration** i som du vill skapa databastjänsten för migrering.
-    - Skapa en ny **nätverk** med ett unikt namn.
-    - Välj den **plats** som ligger närmast din käll- eller server.
-    - Välj Basic: 1 vCore för den **prisnivå**.
+    - Välj ett **tjänstnamn** som är lätt att komma ihåg och unikt för att identifiera din instans av Azure Database Migration Service.
+    - Välj den Azure-**prenumeration** där du vill skapa instansen.
+    - Skapa ett nytt **Nätverk** med ett unikt namn.
+    - Välj den **plats** som ligger närmast din käll- eller målserver.
+    - Välj Basic: 1 virtuell kärna för **Prisnivå**.
 
-1. Klicka på **Skapa**.
+    ![Skapa migreringstjänsten](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
+4. Välj **Skapa**.
 
-Efter en liten stund blir tjänsten Azure Databasmigrering skapade och redo att användas.  Migrering databastjänsten visas som visas i bilden.
+Efter en liten stund har din instans av Azure Database Migration Service skapats och är redo att användas. Database Migration Service visas som på den här bilden:
 
 ![Migreringstjänsten har skapats](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Du kan rensa de resurser som du skapade i Snabbstart genom att ta bort den [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md).  Om du vill ta bort resursgruppen navigerar du till migrering databastjänsten du har skapat, klicka på den **resursgruppen** namn och välj sedan **ta bort resursgruppen**.  Den här åtgärden tar bort alla tillgångar i resursgruppen samt själva gruppen.
+Rensa alla resurser som du har skapat i den här snabbstarten genom att ta bort [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md).  Ta bort resursgruppen genom att navigera till instansen av Azure Database Migration Service som du skapade. Markera **resursgruppsnamnet** och välj sedan **Ta bort resursgrupp**.  Den här åtgärden tar bort alla resurser i resursgruppen samt själva gruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Migrera SQL Server lokalt till Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
+> [Migrera lokal SQL Server till Azure SQL Database](tutorial-sql-server-to-azure-sql.md)

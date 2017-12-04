@@ -11,6 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Resurser
   items:
+    - name: Vanliga frågor
+      href: frequently-asked-questions-databricks.md
+    - name: Viktig information
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
     - name: Dokumentation för Databricks
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Azure-översikt

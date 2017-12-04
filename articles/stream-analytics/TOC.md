@@ -35,7 +35,7 @@
 
 ## Använda Visual Studio-verktyg
 ### [Installera](stream-analytics-tools-for-visual-studio-install.md)
-### [Komma igång](stream-analytics-tools-for-visual-studio.md)
+### [Kom igång](stream-analytics-tools-for-visual-studio.md)
 ### [Konfigurera CI/CD-pipelines](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Övervaka och optimera
@@ -57,7 +57,6 @@
 ### [Resource Health-blad](stream-analytics-resource-health.md)
 ### [Jobbdiagram och mått](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO-felsökning](stream-analytics-select-into.md)
-### [Hantering av händelseordning](stream-analytics-out-of-order-and-late-events.md)
 ### [Överväganden för händelseordning](stream-analytics-out-of-order-and-late-events.md)
 ### [Läsbegränsningar för händelsehubb](stream-analytics-event-hub-consumer-groups.md)
 ### [Diagnostikloggar](stream-analytics-job-diagnostic-logs.md)

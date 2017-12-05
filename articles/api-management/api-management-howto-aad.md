@@ -3,22 +3,21 @@ title: "Auktorisera developer konton med hjälp av Azure Active Directory - Azur
 description: "Lär dig mer om att auktorisera användare med Azure Active Directory i API-hantering."
 services: api-management
 documentationcenter: API Management
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 33a69a83-94f2-4e4e-9cef-f2a5af3c9732
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2e8bc33ddf38657fe2d0d84a7bf64d4177d51572
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 > [!WARNING]
 > Azure Active Directory-integrering finns i den [Developer- och Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) endast nivåer.
@@ -71,11 +70,11 @@ Om flera aktiva Azure-kataloger ska användas för det här programmet, klickar 
 
 Kopiera den **omdirigerings-URL** från den **Azure Active Directory** avsnitt i den **externa identiteter** i portalen för utgivaren och klistrar in det i den **svar URL: en** textruta. 
 
-![Reply-URL][api-management-aad-reply-url]
+![Svars-URL][api-management-aad-reply-url]
 
 Bläddra till längst ned på fliken Konfigurera väljer den **programbehörigheter** listrutan, och kontrollera **läsa katalogdata**.
 
-![Behörigheter för program][api-management-aad-app-permissions]
+![Programbehörigheter][api-management-aad-app-permissions]
 
 Välj den **delegera behörigheter** listrutan, och kontrollera **aktivera inloggning och läsa användarprofiler**.
 
@@ -87,11 +86,11 @@ Välj den **delegera behörigheter** listrutan, och kontrollera **aktivera inlog
 
 Kopiera den **klient-Id** till Urklipp.
 
-![Klient-Id][api-management-aad-app-client-id]
+![Klient-ID][api-management-aad-app-client-id]
 
 Växla tillbaka till publisher-portalen och klistra in i den **klient-Id** kopieras från konfigurationen av Azure Active Directory-program.
 
-![Klient-Id][api-management-client-id]
+![Klient-ID][api-management-client-id]
 
 Växla tillbaka till Azure Active Directory-konfigurationen och klicka på den **Markera varaktighet** listrutan i den **nycklar** avsnittet och ange ett intervall. I det här exemplet **1 års** används.
 
@@ -227,10 +226,10 @@ Dina användare är nu inloggad i developer-portalen för din API Management ser
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

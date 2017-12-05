@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-policy-expressions"></a>API Management principuttrycken
 Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna implicit [kontexten](api-management-policy-expressions.md#ContextVariables) variabel och ett tillåtna [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.  
   
-> [!NOTE]
+> [!TIP]
 >  Mer information om principen uttryck finns i [Principuttrycken](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
 >   
 >  Demonstration av hur du konfigurerar principer med hjälp av principuttrycken finns [moln omfattar avsnitt 177: mer API Management-funktioner med Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Den här videon innehåller följande princip uttryck demonstrationer.  
@@ -206,5 +206,15 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 |byte [] dekryptera (indata: den här byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|indata - cyphertext som ska dekrypteras<br /><br />ALG - krypteringsalgoritm<br /><br />Returnerar oformaterad text.|
 |byte [] dekryptera (indata: den här byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, nyckel: byte [], iv:byte[])|indata - indata - cyphertext som ska dekrypteras<br /><br />ALG - krypteringsalgoritm<br /><br />nyckel - krypteringsnyckeln<br /><br />IV - Initieringsvektorn<br /><br />Returnerar oformaterad text.|
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
+>
 ## <a name="next-steps"></a>Nästa steg
-Arbeta med principer för mer information finns i [principer i API Management](api-management-howto-policies.md).  
+
+Arbeta med principer, Läs mer:
+
++ [Principer för i API-hantering](api-management-howto-policies.md)
++ [Transformera API: er](transform-api.md)
++ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
++ [Princip-exempel](policy-samples.md)   

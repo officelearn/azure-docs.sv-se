@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
-ms.openlocfilehash: 1d289c09465cb8d5e4bfa569441dffcbf562b3bf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: b67fdfc82bbc132772186e3500079cfcfdafe02b
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Ta bort en virtuell nätverksgateway med hjälp av portalen
 
@@ -28,11 +28,15 @@ ms.lasthandoff: 11/17/2017
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (klassisk)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
-Det finns ett par olika metoder som du kan använda när du vill ta bort en virtuell nätverksgateway för en konfiguration för VPN-gateway.
+Den här artikeln innehåller instruktioner för att ta bort en Azure VPN-gatewayer distribueras med Resource Manager-distributionsmodellen. Det finns ett par olika metoder som du kan använda när du vill ta bort en virtuell nätverksgateway för en konfiguration för VPN-gateway.
 
 - Om du vill ta bort allt och börja om från början, som i fallet med en testmiljö kan du ta bort resursgruppen. När du tar bort en resursgrupp tar bort alla resurser i gruppen. Det här är metod rekommenderas endast om du inte vill behålla några resurser i resursgruppen. Du kan inte selektivt Radera endast några resurser med hjälp av den här metoden.
 
 - Om du vill behålla vissa av resurserna i resursgruppen blir tar bort en virtuell nätverksgateway något mer komplicerad. Innan du kan ta bort den virtuella nätverksgatewayen, måste du först ta bort alla resurser som är beroende av denna gateway. De steg du följer beror på vilken typ av anslutningar som du skapade och beroende resurser för varje anslutning.
+
+> [!IMPORTANT]
+> Anvisningarna nedan beskriver hur du tar bort Azure VPN-gatewayer distribueras med Resource Manager-distributionsmodellen. Om du vill ta bort en VPN-gateway distribueras med den klassiska distributionsmodellen, Använd Azure PowerShell enligt [här](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
+
 
 ## <a name="delete-a-vpn-gateway"></a>Ta bort en VPN-gateway
 

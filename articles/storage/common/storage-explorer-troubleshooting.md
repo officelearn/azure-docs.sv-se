@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Lagringsutforskaren felsökningsguiden
 
@@ -172,6 +172,14 @@ Om du ansluter till en tjänst med hjälp av en SAS-URL och det här felet:
 - Kontrollera att URL: en inte har gått ut.
 
 - Om SAS-URL är baserat på en åtkomstprincip, kontrollerar du att åtkomstprincipen inte har återkallats.
+
+Om din av misstag kopplas en ogiltig SAS-URL och kunde inte koppla från, följer du dessa anvisningar:
+1.  När du kör Lagringsutforskaren trycker du på F12 för att öppna fönstret developer tools.
+2.  Klicka på fliken program och klicka sedan på lokal lagring > file:// i trädet till vänster.
+3.  Hitta nyckeln som associeras med tjänsttypen problematiska SAS-URI. Till exempel om dåligt SAS-URI är för en blob-behållare, letar du efter nyckeln med namnet ”StorageExplorer_AddStorageServiceSAS_v1_blob”.
+4.  Värdet för nyckeln ska vara en JSON-matris. Hitta ett objekt som är associerade med den felaktiga URI och ta bort den.
+5.  Tryck på Ctrl + R för att läsa in Lagringsutforskaren.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

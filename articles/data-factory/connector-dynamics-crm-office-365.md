@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiera data från/till Dynamics 365 / Dynamics CRM med hjälp av Azure Data Factory
 
@@ -30,14 +30,20 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 
 Du kan kopiera data från Dynamics 365 / Dynamics CRM till alla stöds sink-datalagret eller kopiera data från alla datalager stöds källa till Dynamics 365 / Dynamics CRM. En lista över datakällor som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt stöder den här anslutningen Dynamics nedan Dynamics versioner och typer av autentisering:
+Den här anslutningen Dynamics stöder nedan Dynamics versioner och typer av autentisering (*IFD är kort för Internet Facing Deployment*):
 
 | Dynamics versioner | Typer av autentisering | Länkad tjänst-exempel |
 |:--- |:--- |:--- |
 | Dynamics 365 online <br> Dynamics CRM online | Office 365 | [Dynamics Online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 lokalt med IFD <br> Dynamics CRM 2016 lokalt med IFD <br> Dynamics CRM 2015 lokalt med IFD | IFD | [Dynamics lokalt med IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD är kort för Internet Facing Deployment.*
+För Dynamics 365 mer specifikt kan stöds följande programtyper:
+
+- Dynamics 365 för försäljning
+- Dynamics 365 för kundservice
+- Dynamics 365 för fältet Service
+- Dynamics 365 för projektet Service Automation
+- Dynamics 365 marknadsföring
 
 > [!NOTE]
 > Om du vill använda Dynamics connector lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån vid kopiering av data. Se hur du konfigurerar i [länkade tjänstegenskaper](#linked-service-properties) avsnitt.
@@ -321,15 +327,15 @@ Konfigurera motsvarande ADF-datatypen i datauppsättningsstrukturen baserat på 
 | Dynamics-datatyp | Data factory tillfälliga datatyp | Stöds som källa | Stöds som mottagare |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lång | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Booleskt värde | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolesk | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ |  |
-| AttributeType.DateTime | Datum och tid | ✓ | ✓ |
+| AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | dubbla | ✓ | ✓ |
 | AttributeType.EntityName | Sträng | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ |  |
-| AttributeType.ManagedProperty | Booleskt värde | ✓ |  |
+| AttributeType.ManagedProperty | Boolesk | ✓ |  |
 | AttributeType.Memo | Sträng | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ |  |
 | AttributeType.Owner | GUID | ✓ | |

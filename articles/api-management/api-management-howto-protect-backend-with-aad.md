@@ -3,22 +3,21 @@ title: Skydda ett webb-API-serverdelen med Azure Active Directory och API-hanter
 description: "Lär dig hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3dd583c47fd2d9133c8a07e7bedcd49750ffdce4
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Hur du skyddar en webb-API-serverdel med Azure Active Directory och API-hantering
 Följande videoklipp visar hur du skapar ett Web API-serverdel och skydda den med hjälp av OAuth 2.0-protokollet med Azure Active Directory och API-hantering.  Den här artikeln innehåller en översikt och ytterligare information för stegen i videon. Den här 24 minuter långa videon visar hur till:
@@ -378,21 +377,21 @@ Det första steget i att konfigurera developer-portalen för att ge utvecklare s
 
 Gå till Azure AD-klient från det första steget i den här videon i det här exemplet **APIMDemo** och navigera till den **program** fliken.
 
-![nytt program][api-management-aad-new-application-devportal]
+![Nytt program][api-management-aad-new-application-devportal]
 
 Klicka på den **Lägg till** knappen om du vill skapa ett nytt program för Azure Active Directory och välj **Lägg till ett program som min organisation utvecklar**.
 
-![nytt program][api-management-new-aad-application-menu]
+![Nytt program][api-management-new-aad-application-menu]
 
 Välj **Web application och/eller webb-API**, ange ett namn och klicka på pilen Nästa. I det här exemplet **APIMDeveloperPortal** används.
 
-![nytt program][api-management-aad-new-application-devportal-1]
+![Nytt program][api-management-aad-new-application-devportal-1]
 
 För **inloggnings-URL** anger du URL för API Management-tjänsten och Lägg till `/signin`. I det här exemplet `https://contoso5.portal.azure-api.net/signin` används.
 
 För **App-Id-URL** anger du URL för API Management-tjänsten och lägga till vissa unika tecken. Det kan vara önskade tecken och i det här exemplet `https://contoso5.portal.azure-api.net/dp` används. När den önskade **appegenskaper** är konfigurerad, klicka på kryssmarkeringen för att skapa programmet.
 
-![nytt program][api-management-aad-new-application-devportal-2]
+![Nytt program][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Konfigurera en server för API Management OAuth 2.0-auktorisering
 Nästa steg är att konfigurera en server för OAuth 2.0-auktorisering i API-hantering. Det här steget visas i början på 9:43 videon.
@@ -431,7 +430,7 @@ Förutom klistra in tokenslutpunkten, lägga till en ytterligare brödtext param
 
 Därefter anger du klientautentiseringsuppgifterna. Det är dessa autentiseringsuppgifter för den resurs som du vill komma åt i det här fallet developer-portalen.
 
-![Klientens autentiseringsuppgifter][api-management-client-credentials]
+![Klientautentiseringsuppgifter][api-management-client-credentials]
 
 Att hämta den **klient-Id**, navigera till den **konfigurera** för AAD-programmet för developer-portalen och kopiera den **klient-Id**.
 
@@ -452,7 +451,7 @@ Kopiera nyckeln till Urklipp, växla tillbaka till publisher-portalen, klistra i
 
 Direkt efter klientens autentiseringsuppgifter är en kod bevilja för auktorisering. Kopiera den här auktoriseringskod och går tillbaka till Azure AD developer portal programmet Konfigurera och klistra in authorization grant i den **Reply URL** fältet och klickar på **spara** igen.
 
-![Reply-URL][api-management-aad-reply-url]
+![Svars-URL][api-management-aad-reply-url]
 
 Nästa steg är att konfigurera behörigheter för developer-portalen AAD-program. Klicka på **programbehörigheter** och markera kryssrutan för **läsa katalogdata**. Klicka på **spara** att spara den här ändringen och klicka sedan på **lägga till program**.
 
@@ -561,5 +560,5 @@ En annan demonstration av hur du konfigurerar och använder den här principen f
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Manage your first API]: api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Manage your first API]: import-and-publish.md

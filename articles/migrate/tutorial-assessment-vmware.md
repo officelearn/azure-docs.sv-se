@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Identifiera och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -37,10 +37,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Krav
 
-- **VMware**: du behöver minst en VMware VM finns på en ESXi-värd eller kluster som kör version 5.0 eller senare. Värd eller kluster måste hanteras av en vCenter-server som kör version 5.5, 6.0 eller 6.5.
-- **vCenter konto**: du behöver ett skrivskyddat konto med administratörsbehörighet för vCenter-servern. Azure migrera använder kontot för att identifiera virtuella datorer.
-- **Behörigheter**: på vCenter-server du behöver för att skapa en virtuell dator genom att importera en fil i. ÄGG format. 
-- **Inställningar för statistik**: statistik inställningarna för vCenter-servern ska vara inställd på nivå 3 innan du börjar distributionen. Om är lägre än nivå 3 bedömning fungerar, men inte samlas in prestandadata för lagring och nätverk.
+- **VMware**: på virtuella datorer som du planerar att migrera måste hanteras av en vCenter-servern körs version 5.5, 6.0 eller 6.5. Du måste dessutom en ESXi-värd kör version 5.0 eller senare distribution insamlaren VM. 
+ 
+> [!NOTE]
+> Stöd för Hyper-V finns i vår översikt över och kommer att aktiveras snart. 
+
+- **vCenter Server-konto**: du behöver ett konto för skrivskyddad åtkomst till vCenter-servern. Azure migrera använder kontot för att identifiera de lokala virtuella datorerna.
+- **Behörigheter**: på vCenter Server du behöver för att skapa en virtuell dator genom att importera en fil i. ÄGG format. 
+- **Inställningar för statistik**: statistik inställningarna för vCenter-servern ska vara inställd på nivå 3 innan du börjar distributionen. Om det är lägre än nivå 3, bedömning fungerar, men samlas in inte prestandadata för lagring och nätverk. Storlek i det här fallet kommer att göras rekommendationer baserat på prestandadata för CPU och minne och konfiguration data för disk och nätverkskort. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på [Azure-portalen](https://portal.azure.com).
@@ -51,7 +55,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 2. Sök efter **Azure migrera**, och välj tjänsten (**Azure migrera (förhandsgranskning)** i sökresultaten. Klicka sedan på **Skapa**.
 3. Ange ett projektnamn och Azure-prenumeration för projektet.
 4. Skapa en ny resursgrupp.
-5. Ange regionen där du vill skapa projektet och klicka sedan på **skapa**. Metadata som samlats in från lokala virtuella datorer kommer att lagras i den här regionen. Du kan bara skapa ett Azure migrera projekt i West centrala oss region för den här förhandsversionen. Du kan dock bedöma virtuella datorer för en annan plats.
+5. Ange regionen där du vill skapa projektet och klicka sedan på **skapa**. Metadata som samlats in från lokala virtuella datorer kommer att lagras i den här regionen. Du kan bara skapa ett Azure migrera projekt i West centrala oss region för den här förhandsversionen. Du kan dock fortfarande planera migreringen för alla Azure-plats. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -143,7 +147,7 @@ Identifiering av tiden beror på hur många virtuella datorer som du identifiera
 Efter att virtuella datorer identifieras gruppera dem och skapa en utvärdering. 
 
 1. I projektet **översikt** klickar du på **+ skapa assessment**.
-2. Klicka på **visa alla** att granska inställningarna för utvärdering.
+2. Klicka på **visa alla** att granska egenskaperna assessment.
 3. Skapa gruppen och ange ett gruppnamn.
 4. Välj de datorer som du vill lägga till i gruppen.
 5. Klicka på **skapa Assessment**, för att skapa gruppen och bedömningen.
@@ -168,13 +172,16 @@ Den här vyn visar beredskap status för varje dator.
 
 #### <a name="monthly-cost-estimate"></a>Månatliga kostnadsuppskattning
 
-Den här vyn visar Kostnadshantering för beräkning och lagring för varje dator. Kostnad uppskattningar beräknas med hjälp av rekommendationer för prestandabaserad storlek för en dator och dess diskar och assessment egenskaper.
+Den här vyn visar totalt antal beräkning och lagringskostnaden för att köra de virtuella datorerna i Azure tillsammans med information för varje dator. Kostnad uppskattningar beräknas med hjälp av rekommendationer för prestandabaserad storlek för en dator och dess diskar och assessment egenskaper. 
 
-Beräknade månatliga kostnader för beräkning och lagring sammanställs för alla virtuella datorer i gruppen. Du kan klicka på varje dator och öka detaljnivån för ytterligare information. 
+> [!NOTE]
+> Den uppskattning som tillhandahålls av Azure migrera är för de lokala virtuella datorerna som körs som Azure-infrastruktur som en tjänst (IaaS) virtuella datorer. Någon plattform som en tjänst (PaaS) eller programvara som en tjänst (SaaS) kostnader anses inte. 
+
+Beräknade månatliga kostnader för beräkning och lagring sammanställs för alla virtuella datorer i gruppen. 
 
 ![Bedömning VM-kostnad](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-Du kan öka detaljnivån till se kostnader för en specifik dator.
+Du kan öka detaljnivån till mer information finns för en specifik dator.
 
 ![Bedömning VM-kostnad](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

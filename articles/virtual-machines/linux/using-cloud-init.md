@@ -1,9 +1,9 @@
 ---
-title: "Använda molntjänster init för att anpassa en Linux VM | Microsoft Docs"
-description: "Hur du använder molntjänster init för att anpassa en Linux VM under genereringen av med Azure CLI 2.0"
+title: "Översikt över molntjänster init-stöd för Linux virtuella datorer i Azure | Microsoft Docs"
+description: "Översikt över molntjänster init-funktioner i Microsoft Azure"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
+author: rickstercdn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,171 +13,86 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/03/2017
-ms.author: iainfou
-ms.openlocfilehash: 5559f258f5c29b07edb5e61be4755d67173019e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: rclaus
+ms.openlocfilehash: 3670676032eb71a5339bb1219cb794366b912147
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Använda molntjänster init för att anpassa en Linux VM i Azure
-Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedocs.io) uppdateringspaket om du vill ange värdnamnet och hantera användarkonton på en virtuell dator (VM) i Azure. Skripten molnet init körs på Start när du skapar en virtuell dator med Azure CLI 2.0. En mer detaljerad översikt över hur du installerar program, skriva konfigurationsfiler och mata in nycklar från Nyckelvalvet finns [självstudierna](tutorial-automate-vm-deployment.md). Du kan också utföra dessa steg med [Azure CLI 1.0](using-cloud-init-nodejs.md).
-
+Den här artikeln visar hur du använder [moln init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller virtuella datorn anger skala (VMSS) vid etablering tid i Azure. Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure.  
 
 ## <a name="cloud-init-overview"></a>Översikt över molntjänster initiering
-[Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init körs under den ursprungliga startprocessen, det inte finns några ytterligare steg krävs agenter att tillämpa konfigurationen.
+[Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init anropas under den ursprungliga startprocessen, finns det inga ytterligare steg eller nödvändiga agenter att tillämpa konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer finns i [molnet init dokumentationsplatsen](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`fiels är textfiler i base64-kodade.
 
 Molnet init fungerar även över distributioner. Exempelvis kan du inte använda **lgh get installera** eller **yum installera** att installera ett paket. I stället kan du definiera en lista över paket som ska installeras. Molnet init används automatiskt det ursprungliga paket hanteringsverktyget för distro som du väljer.
 
-Vi arbetar med våra partner att hämta molnet initiering ingår och arbeta med bilder som skickas till Azure. I följande tabell beskrivs aktuella molnet init tillgängligheten på Azure-plattformen bilder:
+ Vi arbetar aktivt med våra påtecknade Linux distro partners för att molnet init aktiverat bilder som finns i Azure marketplace. Dessa avbildningar gör dina molntjänster init-distributioner och konfigurationer fungerar sömlöst med virtuella datorer och Virtuella skala uppsättningar (VMSS). I följande tabell beskrivs aktuella molnet init aktiverat bilder tillgängligheten på Azure-plattformen:
 
-| Alias | Utgivare | Erbjudande | SKU | Version |
+| Utgivare | Erbjudande | SKU | Version | redo för molnet initiering
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |senaste |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |senaste |
-| CoreOS |CoreOS |CoreOS |Stable |senaste |
+|Canonical |UbuntuServer |16.04 LTS |senaste |ja | 
+|Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
+|CoreOS |CoreOS |Stable |senaste |ja |
+|OpenLogic |CentOS |7 CI |senaste |förhandsgranskning |
+|Redhat |RHEL |7 RÅDATA CI |senaste |förhandsgranskning |
 
+## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Vad är skillnaden mellan moln init- och Linux-agenten (WALA)?
+WALA är en Azure plattformsspecifika agent används för att etablera och konfigurera virtuella datorer och hantera Azure-tillägg. Vi förbättra uppgiften att konfigurera virtuella datorer för att använda molnet init i stället för Linux-agenten för att tillåta befintliga molnet init kunderna att använda sina aktuella molnet init-skript.  Om du har befintliga investeringar i molnet init-skript för att konfigurera Linux-system är **inga ytterligare inställningar krävs** så att de. 
 
-## <a name="set-the-hostname-with-cloud-init"></a>Ange värdnamnet med molnet initiering
-Molnet init-filer skrivs i [YAML](http://www.yaml.org). Att köra ett moln init-skript när du skapar en virtuell dator i Azure med [az vm skapa](/cli/azure/vm#create), ange molnet init-filen med den `--custom-data` växla. Nu ska vi titta på några exempel på vad du kan konfigurera med en moln-init-fil. Ett vanligt scenario är att ange värdnamnet för en virtuell dator. Som standard är värdnamnet samma som namnet på virtuella datorn. 
+Om du inte tar med kommandoradsväxeln AzureCLI `--custom-data` vid etablering tid WALA tar minimal VM etablering parametrar som krävs för att etablera den virtuella datorn och slutföra distributionen med standardinställningarna.  Om du refererar till molnet initiering `--custom-data` växla, oavsett finns i dina egna data (individuella inställningar eller fullständig skript) åsidosätter standardinställningarna WALA definieras. 
 
-Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats:
+WALA konfigurationer av virtuella datorer är tid att fungera inom den maximala etablering VM-tid.  Molnet init-konfigurationer som tillämpas på virtuella datorer har inte tidsbegränsningar och kommer inte att orsaka en misslyckas av tidsfel vid distributionen. 
 
-```azurecli
+## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Distribuera en moln-init aktiverad virtuell dator
+Distribuera en virtuell dator i molnet init aktiverad är så enkelt som refererar till en moln-init-aktiverad distributionsplats under distributionen.  Sköter underhåll själva för Linux-distribution måste du välja att aktivera och integrera molnet init i deras grundläggande Azure publicerade bilder. När du har bekräftat bilden som du vill distribuera är moln init-aktiverad, kan du använda AzureCLI ska distribuera avbildningen. 
+
+Det första steget i att distribuera den här avbildningen är att skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#create) kommando. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
+
+I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-
-Skapa en fil med namnet i din aktuella shell *cloud_init_hostname.txt* och klistra in följande konfiguration. Till exempel skapa filen i molnet Shell inte på den lokala datorn. Du kan använda valfri redigerare som du vill. Ange i molnet-gränssnittet `sensible-editor cloud_init_hostname.txt` att skapa filen och se en lista över tillgängliga redigerare. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden:
-
-```yaml
-#cloud-config
-hostname: myhostname
-```
-
-Nu ska du skapa en virtuell dator med [az vm skapa](/cli/azure/vm#create) och ange molnet init-fil med `--custom-data cloud_init_hostname.txt` på följande sätt:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMHostname \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_hostname.txt
-```
-
-När du skapat visas information om den virtuella datorn i Azure CLI. Använd den `publicIpAddress` till SSH till den virtuella datorn. Ange din egen adress enligt följande:
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-Namnet på virtuella datorn, Använd den `hostname` kommandot på följande sätt:
-
-```bash
-hostname
-```
-
-Den virtuella datorn bör rapportera värdnamnet som det värde som anges i molnet init-filen som visas i följande exempel utdata:
-
-```bash
-myhostname
-```
-
-## <a name="update-a-vm-with-cloud-init"></a>Uppdatera en virtuell dator med molnet initiering
-Av säkerhetsskäl kanske du vill konfigurera en virtuell dator för att tillämpa de senaste uppdateringarna på första start. Som molntjänster init fungerar även över olika Linux-distributioner, det finns ingen anledning att ange `apt` eller `yum` för package manager. I stället kan du definiera `package_upgrade` och låta molnet init processen fastställa rätt mekanism för distro används. Det här arbetsflödet kan du använda samma molnet init skripten över distributioner.
-
-Om du vill se uppgraderingsprocessen i praktiken, skapa en moln-init-fil med namnet *cloud_init_upgrade.txt* och klistra in följande konfiguration:
+Nästa steg är att skapa en fil i din aktuella shell med namnet *moln init.txt* och klistra in följande konfiguration. I det här exemplet skapar du filen i molnet Shell inte på den lokala datorn. Du kan använda valfri redigerare som du vill. Ange `sensible-editor cloud-init.txt` att skapa filen och se en lista över tillgängliga redigerare. Välj #1 att använda den **nano** editor. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
 package_upgrade: true
+packages:
+  -httpd
 ```
+Tryck på `ctrl-X` avsluta filen, skriva `y` att spara filen och klicka på `enter` bekräfta filnamnet avslutas.
 
-Nu ska du skapa en virtuell dator med [az vm skapa](/cli/azure/vm#create) och ange molnet init-fil med `--custom-data cloud_init_upgrade.txt` på följande sätt:
+Det sista steget är att skapa en virtuell dator med den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. 
 
-```azurecli
+I följande exempel skapas en virtuell dator med namnet *centos74* och skapar SSH-nycklar, om de inte redan finns på standardplatsen nyckel. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  Använd den `--custom-data` parametern för att skicka in din moln-init-konfigurationsfilen. Ange den fullständiga sökvägen till den *moln init.txt* config om du har sparat filen utanför arbetskatalogen finns. I följande exempel skapas en virtuell dator med namnet *centos74*:
+
+```azurecli-interactive 
 az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUpgrade \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_upgrade.txt
+  --resource-group myResourceGroup \
+  --name centos74 \
+  --image OpenLogic:CentOS:7-CI:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys 
 ```
 
-SSH till den offentliga IP-adressen på den virtuella datorn visas i utdata från kommandot ovan. Ange dina egna offentliga IP-adressen på följande sätt:
+När den virtuella datorn har skapats, visar Azure CLI information specifik för din distribution. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.  Det tar tid för den virtuella datorn skapas, paket för att installera och starta appen. Det finns bakgrundsaktiviteter för att fortsätta att köras när Azure CLI återgår till Kommandotolken. Du kan SSH till den virtuella datorn och använda de steg som beskrivs i avsnittet om felsökning för att visa molnet init-loggar. 
 
-```bash
-ssh azureuser@publicIpAddress
-```
+## <a name="troubleshooting-cloud-init"></a>Felsöka cloud initiering
+När den virtuella datorn har etablerats, molnet init körs via alla moduler och skript som definierats i `--custom-data` för att kunna konfigurera den virtuella datorn.  Om du behöver felsöka eventuella fel och utelämnanden från konfigurationen måste du söka efter modulnamnet (`disk_setup` eller `runcmd` till exempel) i molnet init-log - finns i **/var/log/cloud-init.log**.
 
-Kör verktyget för hantering av paket och Sök efter uppdateringar. I följande exempel används `apt-get` på en Ubuntu VM:
+> [!NOTE]
+> Inte alla modulfel resulterar i ett allvarligt molnet initiering övergripande configuration-fel. Till exempel med hjälp av den `runcmd` modulen, om skriptet inte molnet init rapporterar fortfarande etablering lyckades eftersom modulen runcmd utförs.
 
-```bash
-sudo apt-get upgrade
-```
-
-När molnet init kontrolleras för och installerade uppdateringar på Start, finns det inga uppdateringar att gälla, som visas i följande exempel utdata:
-
-```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-```
-
-## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Lägga till en användare till en virtuell dator med molnet initiering
-En av de första aktiviteterna på alla nya Linux-VM är att lägga till en användare själv Undvik att använda *rot*. SSH-nycklar är bästa praxis för säkerhet och användbarhet. Nycklar som läggs till i *~/.ssh/authorized_keys* fil med det här molnet init-skriptet.
-
-Om du vill lägga till en användare till en Linux-VM, skapa en moln-init-fil med namnet *cloud_init_add_user.txt* och klistra in följande konfiguration. Ange dina egna offentliga nyckeln (till exempel innehållet i *~/.ssh/id_rsa.pub*) för *ssh-behörighet-nycklar*:
-
-```yaml
-#cloud-config
-users:
-  - name: myadminuser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>
-```
-
-Nu ska du skapa en virtuell dator med [az vm skapa](/cli/azure/vm#create) och ange molnet init-fil med `--custom-data cloud_init_add_user.txt` på följande sätt:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUser \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_add_user.txt
-```
-
-SSH till den offentliga IP-adressen på den virtuella datorn visas i utdata från kommandot ovan. Ange dina egna offentliga IP-adressen på följande sätt:
-
-```bash
-ssh myadminuser@publicIpAddress
-```
-
-Bekräfta dina användare har lagts till den virtuella datorn och de angivna grupperna genom att visa innehållet i den */etc/grupp* enligt följande:
-
-```bash
-cat /etc/group
-```
-
-Följande exempel visas användaren från den *cloud_init_add_user.txt* fil har lagts till den virtuella datorn och den aktuella gruppen:
-
-```bash
-root:x:0:
-<snip />
-sudo:x:27:myadminuser
-<snip />
-myadminuser:x:1000:
-```
+Mer information om molnet init loggning avser den [moln init-dokumentation](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Nästa steg
-Molnet init är en standard sätt att ändra din virtuella Linux-datorer på Start. Du kan också använda VM-tillägg för att ändra din Linux VM på Start eller när den körs i Azure. Du kan till exempel använda Virtuella Azure-tillägget för att köra ett skript på en aktiv virtuell dator, inte bara att starta. Mer information om VM-tillägg finns [VM-tillägg och funktioner](extensions-features.md), eller exempel på hur du använder tillägget finns [hantera användare, SSH, och kontrollera eller reparera diskar på virtuella Azure Linux-datorer med hjälp av VMAccess-tillägget](using-vmaccess-extension.md).
+Molnet initiering exempel av konfigurationsändringar finns i följande dokument:
+ 
+- [Lägga till en ytterligare Linux-användare till en virtuell dator](cloudinit-add-user.md)
+- [Kör en package manager för att uppdatera befintliga paket på första starten](cloudinit-update-vm.md)
+- [Ändra lokala värdnamnet för VM](cloudinit-update-vm-hostname.md) 
+- [Installera ett programpaket, uppdatera konfigurationsfiler och mata in nycklar](tutorial-automate-vm-deployment.md)

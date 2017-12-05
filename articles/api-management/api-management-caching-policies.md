@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-caching-policies"></a>Cachelagring API Management-principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 -   Svaret cachelagring principer  
   
     -   [Hämta från cache](api-management-caching-policies.md#GetFromCache) -utföra cache Leta upp och returnera ett giltigt cachelagrade svar när det är tillgängligt.  
-  
     -   [Arkivet ska cachelagras](api-management-caching-policies.md#StoreToCache) -cachelagrar svar enligt den angivna konfigurationen.  
   
 -   Värdet cachelagring principer  
-  
-    -   [Hämta ett värde från cache](#GetFromCacheByKey) -hämta ett cachelagrade objekt med nyckel.  
-  
-    -   [Lagrar värdet i cache](#StoreToCacheByKey) -lagra ett objekt i cacheminnet av nyckeln.  
-  
+
+    -   [Hämta ett värde från cache](#GetFromCacheByKey) -hämta ett cachelagrade objekt med nyckel. 
+    -   [Lagrar värdet i cache](#StoreToCacheByKey) -lagra ett objekt i cacheminnet av nyckeln. 
     -   [Ta bort värdet från cache](#RemoveCacheByKey) -ta bort ett objekt i cacheminnet av nyckeln.  
   
 ##  <a name="GetFromCache"></a>Hämta från cache  
@@ -116,17 +113,16 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|Tillåt privat-svar-cachelagring|Om värdet är `true`, tillåter cachelagring av begäranden som innehåller ett Authorization-huvud.|Nej|FALSKT|  
-|underordnade-cachelagring-typ|Det här attributet måste anges till ett av följande värden.<br /><br /> -Ingen - underordnade cachelagring tillåts inte.<br />-privat - cachelagring underordnade privata.<br />-offentlig - cachelagring privata och delade underordnade.|Nej|Ingen|  
-|must-revalidate|När efterföljande cachelagring av det här attributet aktiverar eller inaktiverar det `must-revalidate` cache-control-direktiv i gateway-svar.|Nej|SANT|  
-|variera av utvecklare|Ange till `true` till cache svar per developer nyckel.|Nej|FALSKT|  
-|variera-av-utvecklare-grupper|Ange till `true` till cache svar per användarroll.|Nej|FALSKT|  
+|Tillåt privat-svar-cachelagring|Om värdet är `true`, tillåter cachelagring av begäranden som innehåller ett Authorization-huvud.|Nej|false|  
+|underordnade-cachelagring-typ|Det här attributet måste anges till ett av följande värden.<br /><br /> -Ingen - underordnade cachelagring tillåts inte.<br />-privat - cachelagring underordnade privata.<br />-offentlig - cachelagring privata och delade underordnade.|Nej|ingen|  
+|must-revalidate|När efterföljande cachelagring av det här attributet aktiverar eller inaktiverar det `must-revalidate` cache-control-direktiv i gateway-svar.|Nej|true|  
+|variera av utvecklare|Ange till `true` till cache svar per developer nyckel.|Nej|false|  
+|variera-av-utvecklare-grupper|Ange till `true` till cache svar per användarroll.|Nej|false|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Avsnitt i princip:** inkommande  
-  
 -   **Princip för scope:** API, åtgärden, produkt  
   
 ##  <a name="StoreToCache"></a>Lagra cacheminne  
@@ -198,8 +194,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Avsnitt i princip:** utgående  
-  
+-   **Avsnitt i princip:** utgående    
 -   **Princip för scope:** API, åtgärden, produkt  
   
 ##  <a name="GetFromCacheByKey"></a>Hämta ett värde från cache  
@@ -244,7 +239,6 @@ Det här avsnittet innehåller en referens för följande API Management-princip
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Avsnitt i princip:** inkommande, utgående backend fel  
-  
 -   **Princip för scope:** globala API, åtgärden, produkt  
   
 ##  <a name="StoreToCacheByKey"></a>Lagrar värdet i cache  
@@ -287,11 +281,10 @@ Det här avsnittet innehåller en referens för följande API Management-princip
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Avsnitt i princip:** inkommande, utgående backend fel  
-  
 -   **Princip för scope:** globala API, åtgärden, produkt  
   
 ###  <a name="RemoveCacheByKey"></a>Ta bort värdet från cache  
- Den `cache-remove-value` tar bort en cachelagrade objekt som identifieras av dess nyckel. Nyckeln kan ha ett godtyckligt värde och anges vanligtvis med ett principuttryck.  
+Den `cache-remove-value` tar bort en cachelagrade objekt som identifieras av dess nyckel. Nyckeln kan ha ett godtyckligt värde och anges vanligtvis med ett principuttryck.  
   
 #### <a name="policy-statement"></a>Principframställning  
   
@@ -325,9 +318,13 @@ Det här avsnittet innehåller en referens för följande API Management-princip
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **Avsnitt i princip:** inkommande, utgående backend fel  
-  
 -   **Princip för scope:** globala API, åtgärden, produkt  
-  
 
 ## <a name="next-steps"></a>Nästa steg
-Arbeta med principer för mer information finns i [principer i API Management](api-management-howto-policies.md).  
+
+Arbeta med principer, Läs mer:
+
++ [Principer för i API-hantering](api-management-howto-policies.md)
++ [Transformera API: er](transform-api.md)
++ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
++ [Princip-exempel](policy-samples.md)   

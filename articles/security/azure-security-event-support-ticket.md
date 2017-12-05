@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
 ms.author: v-dabosl
-ms.openlocfilehash: 01168e050f5feec1fa2eafc57b76f2e18c921b93
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 753d6abcdd063d5c092b0c90770396d176bc52e8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Logga ett supportärende för säkerhet händelse
 
-1. Gå till [Publisher Portal](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) och logga in med Microsoft-autentiseringsuppgifter.
+1. Gå till [utgivarens Support](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) och logga in med autentiseringsuppgifterna för ditt Microsoft.
 2. Markera ”säkerhetshändelse” som Problem och välja mellan ”säkerhetsincident” och ”säkerhetsproblem” kategorier.
 
     ![Händelsetyp och Definition][1]
 
-3. När du väljer problemtyp och kategori, klickar du på den '**startbegäran**-knappen.
+3. När du väljer problemtyp och kategori, klickar du på den '**startbegäran**-knappen. Ange följande information som hjälper oss att förstå problemet.
 
-    Jag. Vad är problemet och/eller säkerhetsproblem.
+    Jag. Vad är problemet och/eller säkerhetsproblem?
 
     II. Säkerhetsrisker, ange CVE (mitre.org) eller den fylld ut CVSS3 v3 Kalkylatorn (https://www.first.org/cvss/calculator/3.0).
 

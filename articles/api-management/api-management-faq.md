@@ -1,6 +1,6 @@
 ---
 title: "Azure API Management vanliga frågor och svar | Microsoft Docs"
-description: "Lär dig svar på vanliga frågor, mönster och bästa praxis i Azure API Management."
+description: "Svar på vanliga frågor och svar (FAQ) mönster och bästa praxis i Azure API Management."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,20 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management vanliga frågor och svar
 Få svar på vanliga frågor, mönster och bästa praxis för Azure API Management.
 
 ## <a name="contact-us"></a>Kontakta oss
 * [Hur kan jag fråga Microsoft Azure API Management-teamet?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 * [Vad innebär det när en funktion i förhandsversionen?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -62,7 +61,7 @@ När det är en funktion i förhandsversionen, innebär det att vi aktivt som be
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Hur kan jag skydda anslutningen mellan API Management gateway och mitt backend-tjänster?
 Du har flera alternativ för att skydda anslutningen mellan API Management gateway och backend-tjänster. Du kan:
 
-* Använd grundläggande HTTP-autentisering. Mer information finns i [konfigurera API-inställningarna](api-management-howto-create-apis.md#configure-api-settings).
+* Använd grundläggande HTTP-autentisering. Mer information finns i [Import och publicera din första API](import-and-publish.md).
 * Använda SSL ömsesidig autentisering som beskrivs i [säkra backend-tjänster med hjälp av klienten certifikatautentisering i Azure API Management](api-management-howto-mutual-certificates.md).
 * Använd IP-vitlistning på backend-tjänst. Om du har en Standard eller Premium-nivån API Management instans konstant IP-adressen för gateway. Du kan ange din godkända så att denna IP-adress. Du kan hämta IP-adressen för din API Management-instans på instrumentpanelen i Azure-portalen.
 * Anslut din API Management-instans till ett Azure Virtual Network.
@@ -102,7 +101,7 @@ Om den princip som du vill lägga till visas nedtonat eller skuggade i Redigerar
 Har du några alternativ för att använda API versionshantering i API-hantering:
 
 * Du kan konfigurera API: er som representerar olika versioner i API-hantering. Du kan till exempel ha två olika API: er, MyAPIv1 och MyAPIv2. En utvecklare kan välja den version som utvecklare som vill använda.
-* Du kan också konfigurera din API med en URL som inte innehåller en versionssegment, till exempel https://my.api. Konfigurera sedan ett versionssegment på varje åtgärd [omarbetning URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) mall. Du kan till exempel ha en åtgärd med en [URL mallen](api-management-howto-add-operations.md#url-template) kallas /resource och en [omarbetning URL](api-management-howto-add-operations.md#rewrite-url-template) mallen kallas v1-resurs. Du kan ändra segment versionsvärdet separat för varje åtgärd.
+* Du kan också konfigurera din API med en URL som inte innehåller en versionssegment, till exempel https://my.api. Konfigurera sedan ett versionssegment på varje åtgärd [omarbetning URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) mall. 
 * Om du vill ha ett segment för ”default” version i API: er tjänst-URL i valda åtgärder, ange en princip som använder den [ange serverdelstjänst](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) princip för att ändra sökvägen till backend-begäran.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Hur ställer jag in flera miljöer i ett enda API?

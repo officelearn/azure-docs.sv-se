@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Installera en ny Active Directory-skog på Azure-nätverk
-Det här avsnittet beskrivs hur du skapar en ny Windows Server Active Directory-miljö på Azure-nätverk på en virtuell dator (VM) på en [virtuella Azure-nätverket](../virtual-network/virtual-networks-overview.md). I det här fallet är virtuella Azure-nätverket inte ansluten till ett lokalt nätverk.
+Den här artikeln visar hur du skapar en ny Windows Server Active Directory-miljö på en virtuell dator (VM) på en [virtuella Azure-nätverket](../virtual-network/virtual-networks-overview.md). I det här fallet är virtuella Azure-nätverket inte ansluten till ett lokalt nätverk.
 
-Du kan också vara intresserad av dessa Närliggande ämnen:
+Du kan också vara intresserad av dessa relaterade artiklar:
 
 * Se en video som visar de här stegen [hur du installerar en ny Active Directory-skog på Azure-nätverk](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * Du kan alternativt [konfigurera en plats-till-plats-VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) och sedan installera en ny skog eller utöka en lokal skog till ett Azure virtual network. De här stegen finns [installera en replikerad Active Directory-domänkontroller i ett Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
@@ -87,7 +87,7 @@ När DC-installationen är klar att ansluta till den virtuella datorn igen och l
    3. På den **vidarebefordrare** fliken IP-adressen för vidarebefordraren och klicka på **redigera**.  Välj IP-adressen och klicka på **ta bort**.
    4. Klicka på **OK** Stäng redigeraren och **Ok** igen för att stänga egenskaperna för DNS-servern.
 2. Uppdatera DNS-Serverinställningen för det virtuella nätverket.
-   1. Klicka på **virtuella nätverk** > Dubbelklicka på det virtuella nätverket som du skapade > **konfigurera** > **DNS-servrar**, skriver du namnet och DIP-ADRESSEN för en av de virtuella datorerna som körs på DC/DNS-serverrollen och klickar på **spara**.
+   1. Klicka på **virtuella nätverk** > Dubbelklicka på det virtuella nätverket som du skapade > **konfigurera** > **DNS-servrar**, skriver du namnet och IP-Adressen för en av de virtuella datorerna som körs på DC/DNS-serverrollen och klickar på **spara**.
    2. Välj den virtuella datorn och klicka på **starta om** ska utlösa den virtuella datorn för att konfigurera inställningar för DNS-matchare med IP-adressen för den nya DNS-servern.
 
 ## <a name="create-vms-for-domain-members"></a>Skapa virtuella datorer för medlemmar i domänen

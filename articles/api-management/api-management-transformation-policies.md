@@ -6,19 +6,18 @@ documentationcenter:
 author: miaojiang
 manager: erikre
 editor: 
-ms.assetid: 7406a8ce-5f9c-4fae-9b0f-e574befb2ee9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -79,7 +78,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |tillämpa|Attributet måste anges till ett av följande värden.<br /><br /> -alltid - alltid gäller konvertering.<br />-innehåll typ-json - Konvertera endast om response Content-Type-huvud anger förekomsten av JSON.|Ja|Saknas|  
-|Överväg att acceptera-huvud|Attributet måste anges till ett av följande värden.<br /><br /> tillämpa - true - konvertering om JSON begärs i begäran Accept-huvud.<br />-alltid gäller false - konvertering.|Nej|SANT|  
+|Överväg att acceptera-huvud|Attributet måste anges till ett av följande värden.<br /><br /> tillämpa - true - konvertering om JSON begärs i begäran Accept-huvud.<br />-alltid gäller false - konvertering.|Nej|true|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -123,7 +122,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |----------|-----------------|--------------|-------------|  
 |typ|Attributet måste anges till ett av följande värden.<br /><br /> javascript-anpassad - konverterade JSON har ett eget JavaScript-utvecklare formulär.<br />-direkt - visar konverterade JSON det ursprungliga XML-dokumentets struktur.|Ja|Saknas|  
 |tillämpa|Attributet måste anges till ett av följande värden.<br /><br /> -alltid - konvertera alltid.<br />-innehåll-typ-xml - Konvertera endast om response Content-Type-huvud anger förekomsten av XML.|Ja|Saknas|  
-|Överväg att acceptera-huvud|Attributet måste anges till ett av följande värden.<br /><br /> tillämpa - true - konvertering om begärs XML i begäran Accept-huvud.<br />-alltid gäller false - konvertering.|Nej|SANT|  
+|Överväg att acceptera-huvud|Attributet måste anges till ett av följande värden.<br /><br /> tillämpa - true - konvertering om begärs XML i begäran Accept-huvud.<br />-alltid gäller false - konvertering.|Nej|true|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -157,7 +156,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
-|Från|Sträng att söka efter.|Ja|Saknas|  
+|från|Sträng att söka efter.|Ja|Saknas|  
 |till|Ersättningssträngen. Ange ersättning nollängd för att ta bort söksträngen.|Ja|Saknas|  
   
 ### <a name="usage"></a>Användning  
@@ -629,7 +628,7 @@ OriginalUrl.
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
 |mall|Den faktiska webbtjänst-URL med någon fråga string-parametrar. När du använder uttryck måste hela värdet vara ett uttryck.|Ja|Saknas|  
-|Kopiera omatchade parametrar|Anger om Frågeparametrar i inkommande begäran finns inte i den ursprungliga mallen URL läggs till den URL som definieras i Skriv mallen|Nej|SANT|  
+|Kopiera omatchade parametrar|Anger om Frågeparametrar i inkommande begäran finns inte i den ursprungliga mallen URL läggs till den URL som definieras i Skriv mallen|Nej|true|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -692,7 +691,7 @@ OriginalUrl.
 |Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |XSL-Transformation|Rotelementet.|Ja|  
-|Parametern|Används för att definiera variabler som används i listan i transformeringen|Nej|  
+|Parameter|Används för att definiera variabler som används i listan i transformeringen|Nej|  
 |XSL: stylesheet|Formatmallen rotelementet. Alla element och attribut som definierats inom följer standarden [XSLT-specifikationen](http://www.w3.org/TR/xslt)|Ja|  
   
 ### <a name="usage"></a>Användning  
@@ -703,4 +702,9 @@ OriginalUrl.
 -   **Princip för scope:** globala, produkt, API, åtgärden  
   
 ## <a name="next-steps"></a>Nästa steg
-Arbeta med principer för mer information finns i [principer i API Management](api-management-howto-policies.md).  
+
+Mer information finns i följande avsnitt:
+
++ [Principer för i API-hantering](api-management-howto-policies.md)
++ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
++ [Princip-exempel](policy-samples.md)   

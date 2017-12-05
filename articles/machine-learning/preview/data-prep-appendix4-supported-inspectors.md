@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Stöds kontrollanter för förberedelse av förhandsversionen av Azure Machine Learning-data
 Det här dokumentet beskriver uppsättningen kontrollanter som är tillgängliga i den här förhandsgranskningen.
@@ -33,8 +33,8 @@ Den här inspector innehåller en mängd olika statistik om kolumnen för numeri
 - Lägre KVARTIL
 - Median
 - Övre KVARTIL
-- Maximalt
-- Genomsnittlig
+- Maximal
+- Medel
 - Standardavvikelse
 
 
@@ -113,3 +113,18 @@ En karta med punkter som ritas, förutsatt att latitud och longitud har angetts.
 Den här inspector stöder filtrering via punkt markeringen på kartan. Tryck på den **Ctrl** nyckel, och klicka och dra med musen för att bilda en fyrkant runt punkterna. Tillämpa filter enligt beskrivningen ovan.
 
 Du kan snabbt ändra storlek på kartan för att visa endast möjliga punkter genom att trycka på **E** vänster på kartan.
+
+
+## <a name="pattern-frequency"></a>Mönstret frekvens 
+
+Den här inspector visar en lista över mönster i den markerade kolumnen sträng. Mönster som representeras med ett reguljärt uttryck som syntax. Placera markören på mönstret visas exempel på värden som representeras av mönstret. Tillsammans med mönster visas också ungefärliga coverages som ett procenttal.
+
+![Bild av mönster-inspector](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Alternativ
+- Antal antal värden
+- Fallande
+- Visa halo
+
+### <a name="actions"></a>Åtgärder
+Den här inspector stöder filtrering baserat på visas mönster. Tryck på den **Ctrl** nyckeln och välj sedan fyllda staplar i mönstret inspector. Tillämpa filter enligt beskrivningen ovan. På grund av användaren-acion läggs ett steg i avancerade filter. Du kan se och ändra den genererade koden Python genom att aktivera alternativet Redigera av steget avancerade Filter.

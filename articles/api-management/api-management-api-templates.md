@@ -3,8 +3,8 @@ title: API-mallar i Azure API Management | Microsoft Docs
 description: "Lär dig hur du anpassar innehållet i API-sidor i developer-portalen i Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9055c7fc0b562fa02aa2f2ec8425a4a41b69e600
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2317047165f49de8c42c41dc864f0752df4af068
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-mallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet i developer portalens sidor med hjälp av en uppsättning mallar som konfigurerar deras innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, t.ex [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [String resurser](api-management-template-resources.md#strings), [glyf resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), du har stor flexibilitet för att konfigurera innehåll för sidorna som du vill använda dessa mallar.  
   
- Mallarna i det här avsnittet kan du anpassa innehållet i API-sidor i developer-portalen.  
+Mallarna i det här avsnittet kan du anpassa innehållet i API-sidor i developer-portalen.  
   
 -   [API-lista](#APIList)  
 -   [Åtgärd](#Product)  
@@ -348,7 +348,7 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
 |åtgärden|[Åtgärd](api-management-template-data-model-reference.md#Operation)|För närvarande visas igen.|  
 |sampleUrl|Sträng|URL till den aktuella åtgärden.|  
 |operationMenu|[Åtgärd-menyn](api-management-template-data-model-reference.md#Menu)|En meny med åtgärder för detta API.|  
-|consoleUrl|URI: N|URI för den **prova** knappen.|  
+|consoleUrl|URI|URI för den **prova** knappen.|  
 |Exempel|Samling av [kodexemplet](api-management-template-data-model-reference.md#Sample) entiteter.|Kodexempel för den aktuella åtgärden...|  
   
 ### <a name="sample-template-data"></a>Mallen exempeldata  

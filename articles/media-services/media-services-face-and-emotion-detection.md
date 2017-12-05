@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: a55a0c2ef8c1c065b39fce9dc6ef2f806b60dfdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89a2e590d7ae80540ac9f4d76be6f5f50049bdd6
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Identifiera Ansikts- och Känslo med Azure Media Analytics
 ## <a name="overview"></a>Översikt
@@ -333,6 +333,13 @@ Följande program visar hur du:
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
 Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
+
+Följ dessa två ytterligare steg för det här exemplet ska fungera:
+
+1. Använd version 4.1.0 av **WindowsAzure.MediaServices.Extensions** (på grund av kompatibilitetsproblem med beroende paket). 
+2. Använd version 3.16.1 av **Microsoft.IdentityModel.Clients.ActiveDirectory** (på grund av ett känt fel i senare versioner).
+
+Dessa krav gäller från och med 24 November 2017.
 
 #### <a name="example"></a>Exempel
 

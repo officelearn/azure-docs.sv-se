@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Vanliga frågor om Azure kostnaden Management
 
@@ -92,20 +92,13 @@ För CSP: er:
 
 Om du vill lägga till ytterligare CSP-konton till en entitet, Välj **MSP åtkomst** i stället för **Enterprise** när du skapar den nya entiteten. Om ditt konto är registrerad som ett Enterprise-avtal och du vill lägga till CSP-autentiseringsuppgifter, kan Cloudyn supportpersonal behöva ändra inställningarna för ditt konto. Om du är en betald Azure-prenumerant kan skapa du en ny supportförfrågan i Azure-portalen. Välj **hjälp + support**, och välj sedan **ny supportbegäran**.
 
-## <a name="how-do-i-change-the-currency-symbol-used-in-cloudyn"></a>Hur ändrar den valutasymbol som används i Cloudyn?
+## <a name="currency-symbols-in-cloudyn-reports"></a>Tecken i Cloudyn rapporter
 
-När alla Azure-konton i en enda enhet använder samma valuta, identifieras automatiskt valutan som du använder. Dock valutasymbol visas felaktigt som  **$**  för någon av följande valutor:
+Du kan ha flera Azure-konton som använder olika valutor. Kostnadsrapporter i Cloudyn visa men inte mer än en valuta per rapport.
 
-- SEK = Storbritannien pund
-- EUR = Europeiska euro
-- INR = indiska rupier
-- NOK = norska kronor
+Om du har flera prenumerationer med hjälp av olika valutor en överordnad enhet och dess underordnade entiteten valutor visas med den  **$**  symbolen. Vår föreslagna bästa praxis är att undvika att använda olika valutor i samma entitet hierarki. Med andra ord alla dina prenumerationer som är ordnade i en entitet som ska använda samma valuta.
 
-Även om valutasymbolen som kan visa  **$**  för USD, kostnadsvärden visas i din rätt valuta. Om alla konton använder euro i samma entitet, till exempel den _värden_ visas i Cloudyn är euro, även om den  **$**  symbolen visas felaktigt.
-
-Om du är en kund med Azure-Företagsavtal kan Cloudyn supportpersonal ändra din valutasymbol visas i kostnadsrapporter från $. Du kan skapa en ny supportförfrågan i Azure-portalen. Välj **hjälp + support**, och välj sedan **ny supportbegäran**.
-
-Om du använder en CSP-kund kan ändra du inte din valutasymbol. Cloudyn stöder endast priskort som använder USD. Cloudyn möjligheterna alternativet för att stödja priskort i olika valutor.
+Cloudyn identifierar din Enterprise-avtal prenumeration valuta automatiskt och visas korrekt i rapporter.  Dock Cloudyn visas endast de  **$**  symbol för CSP och Azure web direct-konton.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Vad är Cloudyn data Uppdatera tidslinjer?
 

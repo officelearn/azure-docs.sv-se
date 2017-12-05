@@ -7,13 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: v-jamebr
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 710a83ba693ad72730ea0dabee6b5d7f4638da95
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.custom: mvc
+ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Distribuera Azure-funktion som en gräns för IoT-modul - förhandsgranskning
 Du kan använda Azure Functions för att distribuera kod som implementerar affärslogiken direkt till IoT Edge-enheter. Den här självstudiekursen vägleder dig genom att skapa och distribuera en Azure-funktion som filtrerar sensordata på simulerade IoT gränsenheten som du skapade i distribuera Azure IoT kanten på en simulerad enhet på [Windows] [ lnk-tutorial1-win]eller [Linux] [ lnk-tutorial1-lin] självstudier. I den här guiden får du lära dig hur man:     

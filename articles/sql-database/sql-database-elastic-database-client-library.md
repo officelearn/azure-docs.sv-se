@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0674aba66b48b26b70b3ab32d9283de5c63a267a
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Skapa skalbara molndatabaser
 Skala ut databaser kan enkelt utföras med hjälp av skalbara verktyg och funktioner för Azure SQL Database. I synnerhet kan du använda den **klientbibliotek för elastisk databas** att skapa och hantera databaser som skalats ut. Den här funktionen kan du enkelt utvecklar delat program med hundratals, eller till och med tusentals – för Azure SQL-databaser. [Elastiska jobb](sql-database-elastic-jobs-powershell.md) kan sedan användas för att underlätta hanteringen av dessa databaser.
 
 Så här hämtar:
-* .NET-versionen av biblioteket, se [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 * Java-versionen av biblioteket, se [Maven centrallager](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* .NET-versionen av biblioteket, se [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="documentation"></a>Dokumentation
 1. [Kom igång med elastiska databasverktyg](sql-database-elastic-scale-get-started.md)
@@ -60,11 +60,11 @@ I allmänhet kunder som använder elastisk Databasverktyg kan förvänta sig att
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Klientbibliotek för elastisk databas ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) – för att **hämta** i biblioteket.
+- Klientbibliotek för elastisk databas ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) – för att **hämta** i biblioteket.
 
 - [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md) – du kan prova den **exempelapp** som visar klientfunktioner.
 
-- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - om du vill se bidrag till koden.
+- GitHub ([Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md), [.NET](https://github.com/Azure/elastic-db-tools)) - om du vill se bidrag till koden.
 - [Översikt av Azure SQL Database-elastisk frågan](sql-database-elastic-query-overview.md) - om du vill använda elastisk frågor.
 
 - [Flytta data mellan databaser som skalats ut molnet](sql-database-elastic-scale-overview-split-and-merge.md) - instruktioner om hur du använder den **för delade sökvägssammanslagning**.

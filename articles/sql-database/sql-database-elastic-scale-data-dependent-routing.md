@@ -15,26 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: ddove
-ms.openlocfilehash: ef88d6072cfa95842703c31ec8e95ff4664f91ff
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2add03568f1d111010cdfb49d850d33cdab8e21b
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="data-dependent-routing"></a>Databeroende routning
-**Data beroende routning** är möjligheten att använda data i en fråga för att vidarebefordra begäran till en lämplig databas. Detta är ett grundläggande mönster när du arbetar med delat databaser. Kontexten för begäran kan även användas för routning av begäran, särskilt om nyckeln för horisontell partitionering inte är en del av frågan. Varje specifik fråga eller en transaktion i ett program som använder data beroende routning är begränsad åtkomst till en enskild databas per begäran. För Azure SQL Database elastisk verktyg för den här routning sker med hjälp av **ShardMapManager** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)) klass.
+**Data beroende routning** är möjligheten att använda data i en fråga för att vidarebefordra begäran till en lämplig databas. Detta är ett grundläggande mönster när du arbetar med delat databaser. Kontexten för begäran kan även användas för routning av begäran, särskilt om nyckeln för horisontell partitionering inte är en del av frågan. Varje specifik fråga eller en transaktion i ett program som använder data beroende routning är begränsad åtkomst till en enskild databas per begäran. För Azure SQL Database elastisk verktyg för den här routning sker med hjälp av **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) klass.
 
-Programmet behöver inte följa olika anslutningssträngar eller DB platser som är associerade med olika datasegment i delat miljö. I stället den [Fragmentera kartan Manager](sql-database-elastic-scale-shard-map-management.md) öppnas anslutningar till rätt databaser vid behov, baserat på data i kartan Fragmentera och värdet för nyckeln för horisontell partitionering som är mål för programmets begäran. Nyckeln är vanligtvis den *customer_id*, *tenant_id*, *date_key*, eller vissa specifika identifierare som är en grundläggande parameter för databasbegäran). 
+Programmet behöver inte följa olika anslutningssträngar eller DB platser som är associerade med olika datasegment i delat miljö. I stället den [Fragmentera kartan Manager](sql-database-elastic-scale-shard-map-management.md) öppnas anslutningar till rätt databaser vid behov, baserat på data i kartan Fragmentera och värdet för nyckeln för horisontell partitionering som är mål för programmets begäran. Nyckeln är vanligtvis den *customer_id*, *tenant_id*, *date_key*, eller vissa specifika identifierare som är en grundläggande parameter för databasbegäran. 
 
 Mer information finns i [skala ut SQL Server med Data beroende routning](https://technet.microsoft.com/library/cc966448.aspx).
 
 ## <a name="download-the-client-library"></a>Hämta klientbiblioteket
 Så här hämtar:
-* .NET-versionen av biblioteket, se [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 * Java-versionen av biblioteket, se [Maven centrallager](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* .NET-versionen av biblioteket, se [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>Med hjälp av en ShardMapManager i ett beroende routning program
-Program ska skapa en instans av den **ShardMapManager** under initieringen med factory anropet **GetSQLShardMapManager** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx), [Java ](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager)). I detta exempel både en **ShardMapManager** och en specifik **ShardMap** som den innehåller har initierats. Det här exemplet visar GetSqlShardMapManager och GetRangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn824173.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getrangeshardmap)) metoder.
+Program ska skapa en instans av den **ShardMapManager** under initieringen med factory anropet **GetSQLShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)). I detta exempel både en **ShardMapManager** och en specifik **ShardMap** som den innehåller har initierats. Det här exemplet visar GetSqlShardMapManager och GetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/dn824173.aspx)) metoder.
+
+```Java
+ShardMapManager smm = ShardMapManagerFactory.getSqlShardMapManager(connectionString, ShardMapManagerLoadPolicy.Lazy);
+RangeShardMap<int> rangeShardMap = smm.getRangeShardMap(Configuration.getRangeShardMapName(), ShardKeyType.Int32);
+```
 
 ```csharp
 ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, ShardMapManagerLoadPolicy.Lazy);
@@ -45,22 +50,42 @@ RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap");
 Om ett program inte manipulering Fragmentera kartan sig själv, de autentiseringsuppgifter som används i standardmetoden har bara läsbehörighet på den **globala Fragmentera kartan** databas. Autentiseringsuppgifterna är vanligtvis olika från autentiseringsuppgifter som används för att öppna anslutningar till hanteraren Fragmentera kartan. Se även [autentiseringsuppgifter används för att komma åt klientbibliotek för elastisk databas](sql-database-elastic-scale-manage-credentials.md). 
 
 ## <a name="call-the-openconnectionforkey-method"></a>Anropa metoden OpenConnectionForKey
-Den **ShardMap.OpenConnectionForKey metoden** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey)) returnerar en anslutning som är redo för att utfärda kommandon till rätt databas baserat på värdet för den **nyckeln** parameter. Fragmentera informationen cachelagras i program genom den **ShardMapManager**, så dessa begäranden inte normalt innefattar en databassökning mot den **globala Fragmentera kartan** databas. 
+Den **ShardMap.OpenConnectionForKey metoden** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)) returnerar en anslutning som är redo för att utfärda kommandon till rätt databas baserat på värdet för den **nyckeln** parameter. Fragmentera informationen cachelagras i program genom den **ShardMapManager**, så dessa begäranden inte normalt innefattar en databassökning mot den **globala Fragmentera kartan** databas. 
+
+```Java
+// Syntax: 
+public Connection openConnectionForKey(Object key, String connectionString, ConnectionOptions options)
+```
 
 ```csharp
 // Syntax: 
 public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionString, ConnectionOptions options)
 ```
-
 * Den **nyckeln** parametern används som en sökning-nyckel till Fragmentera mappningen för att fastställa en lämplig databas för begäran. 
-* Den **connectionString** används för att skicka användarens autentiseringsuppgifter för önskad anslutning. Inget databasnamn eller servernamn ingår i detta *connectionString* eftersom metoden avgör databasen och server använder den **ShardMap**. 
-* Den **connectionOptions** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options)) ska vara inställd på **ConnectionOptions.Validate** om en miljö där Fragmentera mappar kan ändra och rader kan flyttas till andra databaser på grund av delade eller merge-åtgärder. Detta innebär en kortfattad fråga till lokal Fragmentera kartan på målet databasen (inte till globala Fragmentera kartan) innan anslutningen levereras till programmet. 
+* Den **connectionString** används för att skicka användarens autentiseringsuppgifter för önskad anslutning. Inget databasnamn eller servernamn ingår i detta *connectionString* eftersom metoden anger databasen och server använder den **ShardMap**. 
+* Den **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)) ska vara inställd på **ConnectionOptions.Validate** om en miljö där Fragmentera mappar kan ändra och rader kan flyttas till andra databaser på grund av delade eller merge-åtgärder. Detta innebär en kortfattad fråga till lokal Fragmentera kartan på målet databasen (inte till globala Fragmentera kartan) innan anslutningen levereras till programmet. 
 
-Om verifiering mot den lokala Fragmentera mappningen misslyckas (som anger att cacheminnet är felaktig), kommer Fragmentera kartan Manager fråga globala Fragmentera kartan för att hämta nya rätt värde för sökningen, uppdatera cachen och hämta och returnera lämpliga databasanslutningen. 
+Om valideringen mot lokala Fragmentera mappningen misslyckas (som anger att cacheminnet är felaktig) frågar Fragmentera kartan Manager globala Fragmentera kartan för att hämta nya rätt värde för sökningen, uppdatera cachen och hämta och returnera lämpliga databasanslutningen . 
 
 Använd **ConnectionOptions.None** endast när Fragmentera mappningsändringar inte förväntas när ett program är online. I så fall cachelagrade värden kan antas att alltid för att vara korrekt och extra fram och åter validering anropet till måldatabasen kan hoppas på ett säkert sätt. Som minskar databastrafik. Den **connectionOptions** kan också anges via ett värde i en konfigurationsfil för att indikera om ändringar för horisontell partitionering är förväntat eller inte under en viss tidsperiod.  
 
 Det här exemplet används värdet för ett integer-nyckeln **CustomerID**med hjälp av en **ShardMap** objekt med namnet **customerShardMap**.  
+
+```Java 
+int customerId = 12345; 
+int productId = 4321; 
+// Looks up the key in the shard map and opens a connection to the shard
+try (Connection conn = shardMap.openConnectionForKey(customerId, Configuration.getCredentialsConnectionString())) {
+    // Create a simple command that will insert or update the customer information
+    PreparedStatement ps = conn.prepareStatement("UPDATE Sales.Customer SET PersonID = ? WHERE CustomerID = ?");
+
+    ps.setInt(1, productId);
+    ps.setInt(2, customerId);
+    ps.executeUpdate();
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+```
 
 ```csharp
 int customerId = 12345; 
@@ -82,14 +107,36 @@ using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Co
 
 Den **OpenConnectionForKey** metoden returnerar en ny redan öppen anslutning till rätt databas. Anslutningar som används i det här sättet fortfarande dra full nytta av anslutningspooler. 
 
-Den **OpenConnectionForKeyAsync metoden** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkeyasync)) är tillgänglig om programmet gör Använd asynkron programmering med ADO.Net.
+Den **OpenConnectionForKeyAsync metoden** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkeyasync), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)) är tillgänglig om programmet gör Använd asynkron programmering.
 
 ## <a name="integrating-with-transient-fault-handling"></a>Integrera med tillfälligt fel hantering
-Bästa praxis för att utveckla program för åtkomst av data i molnet är att se till att tillfälliga fel som fångas av appen och att åtgärderna är ett nytt försök flera gånger innan ge ett fel. Tillfälligt fel hantering för molnprogram diskuteras vid hantering av tillfälliga fel ([.NET](https://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx), [Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling)). 
+Bästa praxis för att utveckla program för åtkomst av data i molnet är att se till att tillfälliga fel som fångas av appen och att åtgärderna är ett nytt försök flera gånger innan ge ett fel. Tillfälligt fel hantering för molnprogram diskuteras vid hantering av tillfälliga fel ([Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling), [.NET](https://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx)). 
 
-Tillfälligt fel hantering kan samexistera naturligt med mönstret Data beroende routning. Ett krav är att försöka hela data access begäran inklusive den **med** block som hämtade data beroende routning anslutningen. Exemplet ovan kan skrivas enligt följande (anteckning markeras ändra). 
+Tillfälligt fel hantering kan samexistera naturligt med mönstret Data beroende routning. Ett krav är att försöka hela data access begäran inklusive den **med** block som hämtade data beroende routning anslutningen. Föregående exempel skrivas på följande sätt. 
 
 ### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Exempel – data beroende routning med tillfälligt fel hantering
+```Java 
+int customerId = 12345; 
+int productId = 4321; 
+try {
+    SqlDatabaseUtils.getSqlRetryPolicy().executeAction(() -> {
+        // Looks up the key in the shard map and opens a connection to the shard
+        try (Connection conn = shardMap.openConnectionForKey(customerId, Configuration.getCredentialsConnectionString())) {
+            // Create a simple command that will insert or update the customer information
+            PreparedStatement ps = conn.prepareStatement("UPDATE Sales.Customer SET PersonID = ? WHERE CustomerID = ?");
+
+            ps.setInt(1, productId);
+            ps.setInt(2, customerId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    });
+} catch (Exception e) {
+    throw new StoreException(e.getMessage(), e);
+}
+```
+
 ```csharp
 int customerId = 12345; 
 int newPersonId = 4321; 
@@ -114,7 +161,6 @@ Configuration.SqlRetryPolicy.ExecuteAction(() =&gt;
     } 
 }); 
 ```
-
 
 Paket som är nödvändiga för att implementera tillfälligt fel hantering laddas ned automatiskt när du skapar exempelprogrammet elastisk databas. 
 

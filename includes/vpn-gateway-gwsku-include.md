@@ -22,7 +22,7 @@ Nya gatewayen SKU: er förenklar funktionsuppsättningarna via gatewayer:
 
 | **SKU**| **Funktioner**|
 | ---    | ---         |
-|**Basic**   | **Ruttbaserad VPN**: 10 tunnlar med P2S, ingen RADIUS-autentisering, ingen IKEv2<br>**Principbaserad VPN**: (IKEv1): 1 tunnel; ingen P2S|
+|**Basic**   | **Ruttbaserad VPN**: 10 tunnlar med P2S; ingen RADIUS-autentisering för P2S; ingen IKEv2 för P2S<br>**Principbaserad VPN**: (IKEv1): 1 tunnel; ingen P2S|
 | **VpnGw1, VpnGw2 och VpnGw3** | **Ruttbaserad VPN**: upp till 30 tunnlar (*), P2S, BGP, aktiv-aktiv, anpassade IPsec/IKE-principer, samtidig ExpressRoute/VPN |
 |        |             |
 

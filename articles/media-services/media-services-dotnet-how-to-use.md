@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: juliako
-ms.openlocfilehash: 024b4cbb13001d67e7c1f0b86a84dfb43478c49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="media-services-development-with-net"></a>Media Services-utveckling med .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -66,8 +66,11 @@ Alternativt kan du hämta den senaste Media Services .NET SDK-bits från GitHub 
 
     Om du använder [användarautentisering](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) konfigurationsfilen har förmodligen värden för din Azure AD-klient domän och AMS REST API-slutpunkt.
     
+    >[!Note]
+    >De flesta kodexempel i dokumentationen för Azure Media Services inställd och använda en användare (interaktiva) typ av autentisering för att ansluta till AMS API: et. Den här autentiseringsmetoden fungerar bra för hantering och övervakning av interna appar: mobila appar, Windows-appar och konsolprogram.
+    
     >[!Important]
-    >De flesta kodexempel i dokumentationen för Azure Media Services inställd och använda en användare (interaktiva) typ av autentisering för att ansluta till AMS API: et. Den här autentiseringsmetoden fungerar bra för hantering och övervakning av interna appar: mobila appar, Windows-appar och konsolprogram. Den här autentiseringsmetoden är inte lämpligt för server, webbtjänster, API: er för typ av program.  Mer information finns i [åtkomst till AMS API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+    > **Interaktiva** autentiseringsmetoden är inte lämplig för server, webbtjänster, API: er för typ av program. Dessa typer av program, Använd **tjänstens huvudnamn** autentiseringsmetod. Mer information finns i [åtkomst till AMS API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...

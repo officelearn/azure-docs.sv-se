@@ -1,6 +1,6 @@
 ---
-title: "Hur du exporterar U-SQL-databaser med hjälp av Azure Data Lake-verktyg för Visual Studio | Microsoft Docs"
-description: "Lär dig hur du använder Azure Data Lake-verktyg för Visual Studio för att exportera U-SQL-databas och importera dem till lokalt konto på samma gång."
+title: "Exportera en U-SQL-databas med Azure Data Lake-verktyg för Visual Studio | Microsoft Docs"
+description: "Lär dig hur du använder Azure Data Lake-verktyg för Visual Studio för att exportera en U-SQL-databas och importera det automatiskt till ett lokalt konto."
 services: data-lake-analytics
 documentationcenter: 
 author: yanancai
@@ -14,72 +14,81 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: yanacai
-ms.openlocfilehash: 9f11e07f7fbaf2b708d6fbc8a746238745132bda
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 441606258f9541c9552925e7c0cbc9b3a9effb4d
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="how-to-export-u-sql-database"></a>Hur du exporterar U-SQL-databas
+# <a name="export-a-u-sql-database"></a>Exportera en U-SQL-databas
 
-I detta dokument kan du lära dig hur du använder [Azure Data Lake-verktyg för Visual Studio](http://aka.ms/adltoolsvs) för export av U-SQL-databas som ett enda U-SQL-skript och hämtade resurser. Importera den exporterade databasen till lokalt konto stöds även i samma process.
+I den här artikeln lär du dig hur du använder [Azure Data Lake-verktyg för Visual Studio](http://aka.ms/adltoolsvs) att exportera en U-SQL-databas som ett enda U-SQL-skript och hämtade resurser. Du kan importera den exporterade databasen till ett lokalt konto i samma process.
 
-Kunder Underhåll vanligtvis flera miljöer för utveckling, testning och produktion. Dessa miljöer finns i både lokalt konto på den lokala datorn för utvecklare och Azure Data Lake Analytics-konto i Azure. När du utvecklar och justera U-SQL-frågor för utvecklings- och testmiljöer, är det vanligt att utvecklare behöver återskapa allt i produktionsdatabas. **Databasen guiden Exportera** hjälper dig att öka takten på den här processen. Med hjälp av guiden kan utvecklare klona den befintliga databasmiljön och exempeldata till andra Azure Data Lake Analytics-konton.
+Kunder Underhåll vanligtvis flera miljöer för utveckling, testning och produktion. Dessa miljöer finns i både ett lokalt konto, på en utvecklare lokala datorn och på ett Azure Data Lake Analytics-konto i Azure. 
+
+När du utvecklar och finjustera U-SQL-frågor i utvecklings- och testmiljöer behöver utvecklare ofta Återskapa arbetet i en produktionsdatabas. Databasexport kan påskynda den här processen. Med hjälp av guiden kan utvecklare klona den befintliga databasmiljön och exempeldata till andra Data Lake Analytics-konton.
 
 ## <a name="export-steps"></a>Exportera steg
 
-### <a name="step-1-right-click-the-database-in-server-explorer-and-click-export"></a>Steg 1: Högerklicka på databasen i Server Explorer och klicka på ”Exportera...”
+### <a name="step-1-export-the-database-in-server-explorer"></a>Steg 1: Exportera databasen i Server Explorer
 
-Alla Azure Data Lake Analytics-konton du har behörighet att visas i Server Explorer. Expandera som innehåller den databas du vill exportera och högerklicka på databasen för att välja **exportera...** . Om du inte hittar snabbmenyn kan du behöva [uppdaterar verktyget till lasted versionen](http://aka.ms/adltoolsvs).
+Alla Data Lake Analytics-konton som du har behörigheter för finns i Server Explorer. Att exportera databasen:
 
-![Data Lake Analytics verktyg Export-databas](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
+1. I Server Explorer expanderar du det konto som innehåller den databas som du vill exportera.
+2. Högerklicka på databasen och välj sedan **exportera**. 
+   
+    ![Server Explorer - exportera ett databasobjekt](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
 
-### <a name="step-2-configure-the-objects-you-want-to-export"></a>Steg 2: Konfigurera de objekt som du vill exportera
+     Om den **exportera** menyalternativet är inte tillgänglig, måste du [uppdaterar verktyget till lasted versionen](http://aka.ms/adltoolsvs).
 
-En databas är ibland stort, men behöver du bara en liten del av den sedan kan du konfigurera delmängd av objekt som du vill exportera i guiden Exportera. Observera att export-åtgärden har slutförts genom att köra ett U-SQL-jobb och vissa kostnad uppkommer därför exportera från Azure-konto.
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Steg 2: Konfigurera de objekt som du vill exportera
 
-![Data Lake Analytics verktyg Export Database-guiden](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard.png)
+Om du behöver bara en liten del av en stor databas kan konfigurera du en delmängd av objekt som du vill exportera i guiden Exportera. 
 
-### <a name="step-3-check-the-objects-list-and-more-configurations"></a>Steg 3: Kontrollera listan med objekt och flera konfigurationer
+Export-åtgärden har slutförts genom att köra ett U-SQL-jobb. Därför exportera från ett Azure-konto vissa kostnad uppkommer.
 
-I det här steget dubbelkolla du de valda objekten överst i dialogrutan. Om det finns några fel kan du klicka på Föregående om du vill gå tillbaka och konfigurera de objekt du vill exportera igen.
+![Guiden för databasexport - Välj Exportera objekt](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard.png)
 
-Du kan också göra andra konfigurationer om export mål, beskrivningar av de här konfigurationerna visas i tabellen nedan:
+### <a name="step-3-check-the-objects-list-and-other-configurations"></a>Steg 3: Kontrollera listan med objekt och andra konfigurationer
+
+I det här steget kontrollerar du de markerade objekten i den **Export objektlistan** rutan. Om det finns några fel, väljer **föregående** gå tillbaka och konfigurerar de objekt som du vill exportera.
+
+Du kan också konfigurera andra inställningar för export-mål. Beskrivningar av konfiguration finns i följande tabell:
 
 |Konfiguration|Beskrivning|
 |-------------|-----------|
-|Målnamn|Det här namnet anger där du vill spara de exporterade databasen resurserna, t.ex. sammansättningar, ytterligare filer och exempeldata. En mapp med det här namnet kommer att skapas under rotmappen för din lokala data.|
-|Projektkatalogen|Den här sökvägen definierar där du vill spara exporterade U-SQL-skript som innehåller alla objektdefinitioner i databasen.|
-|Schema Only|Det här alternativet resulterar i endast databasdefinitioner och resurser (t.ex. sammansättningar och ytterligare filer) som exporteras.|
-|Schemat och Data|Det här alternativet resulterar i databasdefinitioner, resurser och data som ska exporteras. De översta N raderna i tabeller exporteras.|
-|Importera till lokala databasen automatiskt|Om du markerar den här konfigurationen exporterade databasen kommer att importeras till den lokala databasen automatiskt efter exporten har slutförts.|
+|Målnamn|Det här namnet anger där du vill spara de exporterade databasen resurserna. Exempel är sammansättningar, ytterligare filer och exempeldata. En mapp med det här namnet skapas under rotmappen för din lokala data.|
+|Projektkatalogen|Den här sökvägen definierar där du vill spara det exporterade U-SQL-skriptet. Alla objektdefinitioner för databasen sparas på den här platsen.|
+|Schema Only|Om du väljer det här alternativet exporteras endast databasdefinitioner och resurser (t.ex. sammansättningar och ytterligare filer).|
+|Schemat och Data|Om du väljer det här alternativet exporteras databasdefinitioner, resurser och data. De översta N raderna i tabeller exporteras.|
+|Importera till lokala databasen automatiskt|Om du väljer det här alternativet är den exporterade databasen importeras automatiskt till den lokala databasen när du exporterar är klar.|
 
-![Data Lake Analytics verktyg Export guiden databaskonfigurationen](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
+![Guiden för databasexport - Export objektlistan och andra konfigurationer](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
 
 ### <a name="step-4-check-the-export-results"></a>Steg 4: Kontrollera resultatet exporten
 
-Efter alla dessa inställningar och export pågår hittar du exporterade resultaten från loggfönstret i guiden. Via loggen som markerats med röd rektangel i blåser bort skärmbilden, hittar du platsen för de exporterade U-SQL-skript och databasresurser inklusive sammansättningar, ytterligare filer och exempeldata.
+När exporten har slutförts kan du visa exporterade resultat i loggfönstret i guiden. I följande exempel visas hur du hittar exporterade U-SQL-skript och databasen resurser, inklusive sammansättningar, ytterligare filer och exempeldata:
 
-![Data Lake Analytics verktyg Export Database-guiden slutförts](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-completed.png)
+![Guiden för Export av databas - exportera resultaten](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-completed.png)
 
-## <a name="how-to-import-the-exported-database-to-local-account"></a>Importera den exporterade databasen till lokalt konto
+## <a name="import-the-exported-database-to-a-local-account"></a>Importera exporterade databasen till ett lokalt konto
 
-Det enklaste sättet att göra detta importera kontrollerar **Import till databasen automatiskt lokala** under exporterar förloppet i steg3. Om du har glömt att göra det, kan du hitta det exporterade U-SQL-skriptet via exporterar loggen och köra U-SQL-skript lokalt för att importera databasen till det lokala kontot.
+Det enklaste sättet att importera den exporterade databasen är att välja den **importera till lokala databasen automatiskt** kryssrutan under exportprocessen i steg3. Om du inte markerar kryssrutan, hitta först exporterade U-SQL-skriptet i exportloggen för. Kör U-SQL-skript lokalt för att importera databasen till det lokala kontot.
 
-## <a name="how-to-import-the-exported-database-to-azure-data-lake-analytics-account"></a>Importera den exporterade databasen till Azure Data Lake Analytics-konto
+## <a name="import-the-exported-database-to-a-data-lake-analytics-account"></a>Importera exporterade databasen till ett Data Lake Analytics-konto
 
-Om du vill importera databasen till andra Azure Data Lake Analytics-konto behöver du två steg:
+Importera databasen till olika Data Lake Analytics-konto:
 
-1. Överför de exporterade resurserna, inklusive sammansättningar, ytterligare filer och exempeldata till Azure Data Lake Store-standardkontot för Azure Data Lake Analytics-konto som du vill importera till. Du kan hitta den exporterade resursmappen under rotmappen lokala data och överföra hela mappen till roten i store-standardkontot.
-2. Skicka exporterade U-SQL-skript till Azure Data Lake Analytics-konto som du vill importera databasen till efter överföring slutförts.
+1. Ladda upp de exporterade resurser, inklusive sammansättningar, ytterligare filer och exempeldata till Azure Data Lake Store-standardkontot för Data Lake Analytics-konto som du vill importera till. Du kan hitta den exporterade resursmappen under rotmappen lokala data. Ladda upp hela mappen till roten på Data Lake Store-standardkontot.
+2. Skicka exporterade U-SQL-skript för Data Lake Analytics-kontot som du vill importera databasen till när du överför är klar.
 
-## <a name="known-limitation"></a>Kända begränsningar
+## <a name="known-limitations"></a>Kända begränsningar
 
-För närvarande, om du har valt **Schema- och** i guiden verktyget kör ett U-SQL-jobb för att exportera de data som lagras i tabeller. Det är därför data exporterar process kan gå långsamt och innebära kostnaden. 
+För närvarande, om du väljer den **Schema- och** alternativet i steg3, verktyget kör ett U-SQL-jobb för att exportera de data som lagras i tabeller. Därför exportera processen data kan gå långsamt och du kan innebära kostnader. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förstå U-SQL-databas](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
-* [Testa och felsöka U-SQL-jobb med hjälp av lokal körning och Azure Data Lake U-SQL-SDK](data-lake-analytics-data-lake-tools-local-run.md)
+* [Lär dig mer om U-SQL-databaser](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
+* [Testa och felsöka U-SQL-jobb med lokal körning och Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
 

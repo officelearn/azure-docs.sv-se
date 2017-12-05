@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>Flygfoto avbildningen klassificering
 
@@ -59,9 +59,14 @@ Följande instruktionerna leder dig igenom processen för att konfigurera körni
 - [Azure Machine Learning-arbetsstationen](./overview-what-is-azure-ml.md)
     - Följ den [installera och skapa Quickstart](quickstart-installation.md) att installera Azure Machine Learning arbetsstationen och skapa undersökningar och konton för hantering av modellen.
 - [Batch-AI](https://github.com/Azure/BatchAI) Python SDK och Azure CLI 2.0
-    - Installera Batch AI SDK och Azure CLI 2.0 genom att följa anvisningarna i den [recept förutsättningar](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - När detta skrivs använder i Azure Machine Learning-arbetsstationen en separat duplicering av Azure CLI 2.0. För tydlighetens skull kallar vi i arbetsstationen version av CLI som ”en CLI som startas från Azure Machine Learning arbetsstationen” och allmänna-versionen (som innehåller Batch AI) ”Azure CLI 2.0”.
-    - Skapa ett Azure Active Directory huvudnamn för applikationen eller tjänsten genom att följa [instruktionerna](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Post klient-ID, secret och klient-ID.
+    - Gå igenom följande avsnitt i den [Batch AI recept viktigt](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - ”Krav”
+        - ”Skapa och få programmet Azure Active Directory (AAD)”
+        - ”Registrera BatchAI Resursproviders” (under ”kör recept med hjälp av Azure CLI 2.0”)
+        - ”Installera Azure Batch AI Management-klienten”
+        - ”Installera Azure Python SDK”
+    - Klient-ID-post, secret och klient-ID för Azure Active Directory-program kommer du att skapa. Dessa autentiseringsuppgifter används senare i den här kursen.
+    - När detta skrivs Azure Machine Learning arbetsstationen och Azure Batch AI kan du använda separata fildelar av Azure CLI 2.0. För tydlighetens skull kallar vi i arbetsstationen version av CLI som ”en CLI som startas från Azure Machine Learning arbetsstationen” och allmänna-versionen (som innehåller Batch AI) ”Azure CLI 2.0”.
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)en kostnadsfria verktyg för att koordinera filöverföring mellan Azure storage-konton
     - Kontrollera att mappen som innehåller den körbara filen AzCopy finns på systemets PATH-miljövariabeln. (Instruktioner för att ändra miljövariabler finns [här](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - En SSH-klienten. Vi rekommenderar [PuTTY](http://www.putty.org/).
@@ -215,7 +220,7 @@ Batch AI-klustret har åtkomst till din utbildning data på en filserver i nätv
 1. Utfärda följande kommando för att skapa en filserver i nätverket:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Kontrollera Etableringsstatus på filservern nätverk med följande kommando:

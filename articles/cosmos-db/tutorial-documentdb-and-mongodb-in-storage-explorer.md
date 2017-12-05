@@ -1,7 +1,7 @@
 ---
 title: Hantera Azure Cosmos DB i Azure Lagringsutforskaren
 description: "Lär dig hur du hanterar Azure Cosmos-DB i Azure Lagringsutforskaren."
-Keywords: Azure Cosmos DB, Azure Lagringsutforskaren, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
 services: cosmos-db
 documentationcenter: 
 author: Jiaj-Li
@@ -14,14 +14,14 @@ ms.custom: Azure Cosmos DB active
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: e695cdd7c51e18a386764ab8444d3336366ae265
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Hantera Azure Cosmos DB i Azure Lagringsutforskaren (förhandsversion)
 
@@ -132,7 +132,7 @@ Noden samlingen tas bort och databasen uppdateras automatiskt.
 #### <a name="create-and-modify-documents"></a>Skapa och ändra dokument
 Om du vill skapa ett nytt dokument öppna **dokument** i det vänstra fönstret klickar du på **nytt dokument**, redigera innehållet i den högra rutan och klicka på **spara**. Du kan också uppdatera ett befintligt dokument och klicka sedan på **spara**. Ändringar kan ignoreras genom att klicka på **Ignorera**.
 
-![Dokumentet](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/document.png)
+![Dokument](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/document.png)
 
 #### <a name="delete-a-document"></a>Ta bort ett dokument
 Klicka på den **ta bort** för att ta bort det valda dokumentet.

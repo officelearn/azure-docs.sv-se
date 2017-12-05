@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Så här hittar du en adress som använder tjänsten Azure baserad platstjänster (förhandsgranskning) Search
 Söktjänsten är en RESTful uppsättning API: er som utformats för utvecklare att söka efter adresser, platser, punkter av intresse, företag och andra geografisk information. Söktjänsten tilldelar latitud/longitud till en specifik adress mellan gata, geografiska funktion eller intressant (POI). Latitud och longitud värden som returneras av söktjänsten API: er kan användas som parametrar i andra Azure baserad platstjänster, till exempel flödet och trafiken flödar API: er.
@@ -40,7 +40,7 @@ De flesta sökningar som standard ' maxFuzzyLevel = 1' för att få prestanda oc
 
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | GET |
+    | HTTP-metod | HÄMTA |
     | Begärans-URL | https://Atlas.microsoft.com/Search/Fuzzy/JSON? |
     | Auktorisering | Ingen autentisering |
 
@@ -62,12 +62,11 @@ De flesta sökningar som standard ' maxFuzzyLevel = 1' för att få prestanda oc
     
     Resultaten varieras för den här frågan inte kopplad till en viss referensplats. Du kan använda den **countrySet** med parametern endast land som ditt program måste täckning, som standard att söka i hela världen potentiellt returnering onödiga resultat.
 
-5. Lägg till följande värde i frågesträngen och klicka på **skicka**:
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Se till att du CSV-separat ytterligare URI parametrarna i frågesträngen.
+5. Lägg till följande nyckel / värde-par till den **Params** avsnittet och klicka på **skicka**:
+
+    | Nyckel | Värde |
+    |------------------|-------------------------|
+    | countrySet | USA |
     
     Resultatet är nu begränsas av landskoden och frågan returnerar pizza hotell i USA.
     
@@ -93,7 +92,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | GET |
+    | HTTP-metod | HÄMTA |
     | Begärans-URL | https://Atlas.microsoft.com/Search/Address/JSON? |
     | Auktorisering | Ingen autentisering |
 
@@ -116,10 +115,11 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
         400 Broad, Seattle
     ```
 
-5. Lägg till följande värde i frågesträngen och klicka på **skicka**:
-    ```
-        ,typeahead
-    ```
+5. Lägg till följande nyckel / värde-par till den **Params** avsnittet och klicka på **skicka**:
+
+    | Nyckel | Värde |
+    |-----|------------|
+    | typeahead | true |
 
     Den **typeahead** flaggan talar om Sök-API-adress för att behandla frågan som en partiell indata och returnerar en matris med förutsägande värden.
 
@@ -132,7 +132,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | GET |
+    | HTTP-metod | HÄMTA |
     | Begärans-URL | https://Atlas.microsoft.com/Search/Address/reverse/JSON? |
     | Auktorisering | Ingen autentisering |
     
@@ -150,37 +150,43 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     
     Svaret innehåller POI-posten för Safeco Field med en poi-kategori av ”stadium”. 
     
-4. Lägg till följande värde i frågesträngen och klicka på **skicka**:
-    ```
-        ,number
-    ```
+4. Lägg till följande nyckel / värde-par till den **Params** avsnittet och klicka på **skicka**:
+
+    | Nyckel | Värde |
+    |-----|------------|
+    | nummer | true |
+
     Om den [nummer](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) frågeparameter skickas med begäran, svaret kan omfatta sida av gata (åt vänster och höger) och en offset position för talet.
     
-5. Lägg till följande värde i frågesträngen och klicka på **skicka**:
-    ```
-        ,spatialKeys
-    ```
+5. Lägg till följande nyckel / värde-par till den **Params** avsnittet och klicka på **skicka**:
+
+    | Nyckel | Värde |
+    |-----|------------|
+    | spatialKeys | true |
 
     När den [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) frågeparameter har angetts, svaret innehåller egna geo-spatiala viktig information för en angiven plats.
 
-6. Lägg till följande värde i frågesträngen och klicka på **skicka**:
-    ```
-        ,returnSpeedLimit
-    ```
+6. Lägg till följande nyckel / värde-par till den **Params** avsnittet och klicka på **skicka**:
+
+    | Nyckel | Värde |
+    |-----|------------|
+    | returnSpeedLimit | true |
     
     När den [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) frågeparameter har angetts returnerar svaret för anslagna hastighetsgränsen.
 
-7. Lägg till följande värde i frågesträngen och klicka på **skicka**:
-    ```
-        ,returnRoadUse
-    ```
+7. Lägg till följande nyckel / värde-par till den **Params** avsnittet och klicka på **skicka**:
+
+    | Nyckel | Värde |
+    |-----|------------|
+    | returnRoadUse | true |
 
     När den [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) frågeparameter har angetts, svaret returnerar väg Använd matris för reversegeocodes på Gata nivå.
 
-8. Lägg till följande värde i frågesträngen och klicka på **skicka**:
-    ```
-        ,roadUse
-    ```
+8. Lägg till följande nyckel / värde-par till den **Params** avsnittet och klicka på **skicka**:
+
+    | Nyckel | Värde |
+    |-----|------------|
+    | roadUse | true |
 
     Du kan begränsa omvänd geocode frågan till en viss typ av väg användning med den [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) Frågeparametern.
     
@@ -194,7 +200,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
-    | HTTP-metod | GET |
+    | HTTP-metod | HÄMTA |
     | Begärans-URL | https://Atlas.microsoft.com/Search/Address/reverse/crossstreet/JSON? |
     | Auktorisering | Ingen autentisering |
     

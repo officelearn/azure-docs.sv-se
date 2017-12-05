@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Compute-kontexten alternativ för R Server på HDInsight
 
@@ -33,12 +33,12 @@ Edge-nod i ett kluster ger en lämplig plats att ansluta till klustret och köra
 ## <a name="compute-contexts-for-an-edge-node"></a>Beräkna kontexter för en kantnod
 I allmänhet körs ett R-skript som körs i R Server på kantnoden inom R-tolken på noden. Undantagen är de steg som anropar en ScaleR funktion. ScaleR anropen köras i en miljö för beräkning som bestäms av hur du ställer in ScaleR beräknings-kontexten.  När du kör din R-skriptet från en kantnod är beräknings-kontexten möjliga värden:
 
-- lokal sekventiella (*'lokala'*)
-- lokala parallell (*'localpar'*)
+- lokal sekventiella (*lokala*)
+- lokala parallell (*localpar*)
 - Minska karta
 - Spark
 
-Den *'lokala'* och *'localpar'* alternativ skiljer sig i hur **rxExec** anropen. De båda köra andra rx funktionsanrop på ett sätt som parallellt över alla tillgängliga kärnor om inget annat anges med hjälp av ScaleR **numCoresToUse** alternativ, till exempel `rxOptions(numCoresToUse=6)`. Parallell körning alternativ ger optimala prestanda.
+Den *lokala* och *localpar* alternativ skiljer sig i hur **rxExec** anropen. De båda köra andra rx funktionsanrop på ett sätt som parallellt över alla tillgängliga kärnor om inget annat anges med hjälp av ScaleR **numCoresToUse** alternativ, till exempel `rxOptions(numCoresToUse=6)`. Parallell körning alternativ ger optimala prestanda.
 
 I följande tabell sammanfattas de olika beräkning kontext alternativen för att ange hur anropen:
 
@@ -62,8 +62,8 @@ Som av de tre alternativen du väljer som tillhandahåller paralleliserad körni
 I följande avsnitt erbjuder ges dessa principer vissa allmänna råden för att välja en beräknings-kontext.
 
 ### <a name="local"></a>Lokal
-* Om mängden data att analysera är liten och kräver inte upprepade analys, sedan strömmas direkt i den analysis rutinunderhåll med hjälp av *'lokala'* eller *'localpar'*.
-* Om mängden data att analysera är liten eller medelstor och kräver upprepade analys, sedan kopiera den till det lokala filsystemet, importera den till XDF och analysera den via *'lokala'* eller *'localpar'*.
+* Om mängden data att analysera är liten och kräver inte upprepade analys, sedan strömmas direkt i den analysis rutinunderhåll med hjälp av *lokala* eller *localpar*.
+* Om mängden data att analysera är liten eller medelstor och kräver upprepade analys, sedan kopiera den till det lokala filsystemet, importera den till XDF och analysera den via *lokala* eller *localpar*.
 
 ### <a name="hadoop-spark"></a>Hadoop, Spark
 * Om mängden data att analysera är stor kan sedan importera det till ett Spark-DataFrame med **RxHiveData** eller **RxParquetData**, eller XDF i HDFS (om inte lagring är ett problem), och analysera den med hjälp av Spark-beräkning kontexten.
@@ -76,7 +76,7 @@ Mer information och exempel på ScaleR beräkning kontexter finns infogat hjälp
 
     > ?rxSetComputeContext
 
-Du kan också gå till den ”[ScaleR distribuerad datoranvändning guiden](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)” som är tillgängliga från den [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server på MSDN") bibliotek.
+Du kan också gå till den [ScaleR distribuerad datoranvändning guiden](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) som är tillgängliga från den [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) bibliotek.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig om de alternativ som är tillgängliga för att ange om och hur körningen paralleliserad över kärnor kantnod eller HDInsight-kluster. Mer information om hur du använder R Server med HDInsight-kluster finns i följande avsnitt:

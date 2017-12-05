@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
-ms.openlocfilehash: 56d8ad4fecf14dfa69ade43438672c31a4954209
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure-stacken Development Kit viktig information
 
@@ -56,7 +56,7 @@ Dessa versionsanmärkningar innehåller information om förbättringar, korriger
    Du kan skriva namnet på den prenumeration eller resursgrupp (om du vet att den) Undvik de två sista problem, eller kan du använda PowerShell i stället.
 
 - Du ser en **-aktivering krävs** varning om att registrera din Azure-stacken Development Kit. Det är förväntat.
-- I den **-aktivering krävs** varning aviseringsinformation inte klicka på länken till den **AzureBridge** komponent. Om du gör det **översikt** bladet kommer misslyckat försök att läsa in, och går inte ut.
+- Om den **komponenten** användaren klickar på från någon **infrastrukturrollen** meddela den resulterande **översikt** bladet försöker läsa in och misslyckas. Dessutom den ** översikt ** bladet har ingen timeout.
 - Ta bort användaren prenumerationer resulterar i frånkopplade resurser. Först ta bort resurser för användare eller hela resursgruppen som en lösning och sedan ta bort prenumerationer för användaren.
 - Det går inte att visa behörighet till din prenumeration med hjälp av Azure Stack-portaler. Som en tillfällig lösning kan kontrollera du behörigheterna med hjälp av PowerShell.
  

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 6eb07b5ad4b3ebdde75575fc5682ae2153a0c12f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>OMS tillägg för virtuell dator för Linux
 
@@ -41,6 +41,10 @@ Tillägget OMS-Agent kan köras mot dessa Linux-distributioner.
 | Debian GNU/Linux | 6, 7 och 8 |
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 och 12 |
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Azure Security Center automatiskt etablerar OMS-agenten och kopplar den till standard log analytics-arbetsyta för Azure-prenumerationen. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Gör det skriver över den konfigurerade arbetsytan och bryta länken med Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 

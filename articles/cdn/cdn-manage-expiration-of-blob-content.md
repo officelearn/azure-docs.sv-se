@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 6fa563e102569064d045fbb60ebd5d1df52e3e73
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 09d488a7600d85b6feab6a27cdd517240c95104b
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Hantera förfallodatum för Azure Blob-lagring i Azure Content Delivery Network
 > [!div class="op_single_selector"]
-> * [Azure webbinnehåll](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Azure-webbinnehåll](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
@@ -113,19 +113,20 @@ Uppdatera den *CacheControl* -egenskapen för en blob med Azure Lagringsutforska
 ### <a name="azure-command-line-interface"></a>Azure-kommandoradsgränssnittet
 Med den [Azure-kommandoradsgränssnittet](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI), kan du hantera Azure blob-resurser från kommandoraden. Att ställa in cache-control-huvudet när du överför en blob med Azure CLI i *cacheControl* egenskapen med hjälp av den `-p` växla. I följande exempel visas hur du ställer in TTL-värdet till 1 timme (3600 sekunder):
   
-'''Azure CLI azure storage blob överför -c <connectionstring> - p cacheControl = ”maximal ålder = 3600”.\test.txt Minbehållare test.txt
+```azurecli
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
 ```
 
-### Azure storage services REST API
-You can use the [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) to explicitly set the *x-ms-blob-cache-control* property by using the following operations on a request:
+### <a name="azure-storage-services-rest-api"></a>Azure storage services REST API
+Du kan använda den [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) att explicit ange det *x-ms-blob-cache-control* egenskapen med hjälp av följande åtgärder på en begäran:
   
-   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
-   - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [Placera Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
+   - [Placera Blockeringslista](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Ange Blob-egenskaper](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
-## Testing the Cache-Control header
-You can easily verify the TTL settings of your blobs. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
+## <a name="testing-the-cache-control-header"></a>Testa Cache-Control-huvudet
+Du kan enkelt kontrollera TTL-inställningarna för dina blobbar. Med din webbläsare [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test som din blob innehåller den `Cache-Control` Svarsrubrik. Du kan också använda ett verktyg som [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), eller [Fiddler](http://www.telerik.com/fiddler) att undersöka svarshuvuden.
 
-## Next Steps
-* [Learn how to manage expiration of Cloud Service content in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+## <a name="next-steps"></a>Nästa steg
+* [Lär dig hur du hanterar du förfallodatum för Molntjänsten innehåll i Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

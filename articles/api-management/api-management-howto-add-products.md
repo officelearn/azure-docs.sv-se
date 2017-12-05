@@ -3,151 +3,100 @@ title: Hur du skapar och publicera en produkt i Azure API Management
 description: "Lär dig hur du skapar och publicerar produkter i Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 31de55cb-9384-490b-a2f2-6dfcf83da764
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/15/2016
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2cf905967f26de97613ff7d5fc495c9223e11390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Hur du skapar och publicera en produkt i Azure API Management
-En produkt innehåller en eller flera API: er som en kvot för användning och villkor för användning i Azure API Management. När en produkt har publicerats kan utvecklare prenumererar på produkten och börjar använda produktens API: er. I avsnittet beskrivs hur du skapar en produkt, lägga till en API och publicera för utvecklare.
+# <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt  
 
-## <a name="create-product"></a>Skapar en produkt
-Åtgärder läggs till och konfigurerats för att en API i portalen utgivare. För att komma åt publisher-portalen klickar du på **Publisher portal** i Azure Portal för API Management-tjänsten.
+En produkt innehåller en eller flera API: er som en kvot för användning och villkor för användning i Azure API Management. När en produkt har publicerats kan utvecklare prenumererar på produkten och börjar använda produktens API: er.  
 
-![Utgivarportalen][api-management-management-console]
+I den här guiden får du lära dig hur man:
 
-> Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Create an API Management service instance] i självstudiekursen [Komma igång med Azure API Management][Get started with Azure API Management].
-> 
-> 
+> [!div class="checklist"]
+> * Skapa och publicera en produkt
+> * Lägga till ett API till produkten
 
-Klicka på **produkter** på menyn till vänster för att visa den **produkter** och klicka på **lägga till produkten**.
+![lagts till produkten](media/api-management-howto-add-products/added-product.png)
 
-![Produkter][api-management-products]
+## <a name="prerequisites"></a>Krav
 
-![Ny produkt][api-management-add-new-product]
++ Slutför följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
++ Dessutom slutföra följande kursen: [Import och publicera din första API](import-and-publish.md).
 
-Ange ett beskrivande namn för produkten i den **namn** fältet och en beskrivning av produkten i den **beskrivning** fältet.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-Produkter i API-hantering kan vara **öppna** eller **skyddade**. Utvecklare måste prenumerera på skyddade produkter innan de kan användas. Öppna produkter kan användas utan en prenumeration. Kontrollera **kräver prenumeration** att skapa en skyddad produkt som kräver en prenumeration. Det här är standardinställningen.
+## <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt
 
-Kontrollera **kräver godkännande för prenumerationen** om du vill att en administratör för att granska och godkänna eller avvisa prenumeration försöker den här produkten. Om rutan är avmarkerad att prenumeration försök automatiskt godkänd. Mer information om prenumerationer finns [visa prenumeranter för en produkt][View subscribers to a product].
+1. Klicka på **produkter** på menyn till vänster för att visa den **produkter** sidan.
+2. Klicka på **+ produkten**.
 
-För att tillåta developer konton att abonnera produkten flera gånger, kontrollera den **tillåter flera prenumerationer** kryssrutan. Om inte den här kryssrutan är markerad, kan varje utvecklarkonto prenumerera på bara en gång till produkten.
+    ![lagts till produkten](media/api-management-howto-add-products/add-product.png)
 
-![Obegränsade flera prenumerationer][api-management-unlimited-multiple-subscriptions]
+    När du lägger till en produkt måste du ange följande information: 
 
-Om du vill begränsa antalet flera samtidiga prenumerationer, kontrollera den **begränsa antalet samtidiga prenumerationer** kryssrutan och ange gränsen. I följande exempel är samtidiga prenumerationer begränsade till fyra per utvecklarkonto.
+    |Namn|Beskrivning|
+    |---|---|
+    |Visningsnamn|Namnet som du vill att det ska visas i den **utvecklarportalen**.|
+    |Namn|Ett beskrivande namn på produkten.|
+    |Beskrivning|Den **beskrivning** fältet kan du ange detaljerad information om produkten som sitt syfte, API: er som den ger åtkomst till och annan användbar information.|
+    |Status|Tryck på **publicerade** om du vill publicera produkten. Produkten måste publiceras innan API: er i en produkt kan anropas. Som standard nya produkter är opublicerad och visas bara för den **administratörer** grupp.|
+    |Kräver godkännande|Kontrollera **kräver godkännande för prenumerationen** om du vill att en administratör för att granska och godkänna eller avvisa prenumeration försöker den här produkten. Om rutan är avmarkerad är prenumeration försök godkänts automatiskt. |
+    |Prenumerationsgränsen för antal|Ange gränsen för att begränsa antalet flera samtidiga prenumerationer. |
+    |Juridiska villkor|Du kan inkludera villkor för användning av produkten som prenumeranter måste acceptera för att kunna använda produkten.|
+    |API:er|Produkter är kopplingar till en eller flera API: er. Du kan innehålla ett antal API: er och erbjuda utvecklare via developer-portalen. <br/> Du kan lägga till en befintlig API under skapande av produkten. Du kan lägga till en API produkten senare, antingen från produkterna **inställningar** sidan eller när du skapar en API.|<br/>Utvecklare måste först prenumerera på en produkt kan få åtkomst till API: et. När man prenumererar få de en prenumeration nyckel som är bra för API: er i produkten.<br/> Om du har skapat APIM instans är du administratör redan, så du prenumererar på varje produkt som standard.|
 
-![Fyra flera prenumerationer][api-management-four-multiple-subscriptions]
+3. Klicka på **spara** att skapa den nya produkten.
 
-När alla nya produktalternativ för har konfigurerats, klickar du på **spara** att skapa den nya produkten.
+### <a name="add-more-configurations"></a>Lägger till flera konfigurationer
 
-![Produkter][api-management-products-page]
+Du kan fortsätta konfigurera produkten när du har sparat genom att välja den **inställningar** fliken. 
 
-> Som standard nya produkter är opublicerad och visas bara för den **administratörer** grupp.
-> 
-> 
+Visa/lägga till prenumeranter till produkten från den **prenumerationer** fliken.
 
-Om du vill konfigurera en produkt, klicka på Produktnamn i den **produkter** fliken.
+Ange en visning av en produkt för utvecklare eller gästen från den **åtkomstkontroll** fliken.
 
 ## <a name="add-apis"></a>Lägg till API: er för en produkt
-Den **produkter** sidan innehåller fyra länkar för konfiguration: **sammanfattning**, **inställningar**, **synlighet**, och **prenumeranter**. Den **sammanfattning** är där du kan lägga till API: er och publicera eller avpublicera en produkt.
 
-![Sammanfattning][api-management-new-product-summary]
+Produkter är kopplingar till en eller flera API: er. Du kan innehålla ett antal API: er och erbjuda utvecklare via developer-portalen. Du kan lägga till en befintlig API under skapande av produkten. Du kan lägga till en API produkten senare, antingen från produkterna **inställningar** sidan eller när du skapar en API.
 
-Du måste lägga till en eller flera API: er innan du publicerar produkten. Gör detta genom att klicka på **lägga till API för att produkten**.
+Utvecklare måste först prenumerera på en produkt kan få åtkomst till API: et. När man prenumererar få de en prenumeration nyckel som är bra för API: er i produkten. Om du har skapat APIM instans är du administratör redan, så du prenumererar på varje produkt som standard.
 
-![Lägg till API: er][api-management-add-apis-to-product]
+### <a name="add-an-api-to-an-existing-product"></a>Lägg till en API i en befintlig produkt
 
-Välj önskad API: er och klicka på **spara**.
+1. Välj en produkt.
+2. Välj fliken API: er.
+3. Klicka på **+ API**.
+4. Välj en API och på **skapa**.
 
-## <a name="add-description"></a>Lägg till beskrivande information för en produkt
-Den **inställningar** fliken kan du ange detaljerad information om produkten som sitt syfte, API: er som den ger åtkomst till och annan användbar information. Innehållet är riktad mot utvecklare som kommer att anropa API: et och kan skrivas i oformaterad text eller HTML-kod.
-
-![Produktinställningar för][api-management-product-settings]
-
-Kontrollera **kräver prenumeration** att skapa en skyddad produkt som kräver en prenumeration ska användas eller avmarkera kryssrutan om du vill skapa en öppen produkt som kan anropas utan en prenumeration.
-
-Välj **kräver godkännande för prenumerationen** om du vill godkänna alla begäranden om produkten prenumeration manuellt. Som standard beviljas alla produktprenumeration automatiskt.
-
-För att tillåta developer konton att abonnera produkten flera gånger, kontrollera den **tillåter flera prenumerationer** kryssrutan och om du vill ange en gräns. Om inte den här kryssrutan är markerad, kan varje utvecklarkonto prenumerera på bara en gång till produkten.
-
-Om du vill fylla i den **användningsvillkoren** fält som beskriver villkor för användning av produkten som prenumeranter måste acceptera för att kunna använda produkten.
-
-## <a name="publish-product"></a>Publicera en produkt
-Produkten måste publiceras innan API: er i en produkt kan anropas. På den **sammanfattning** för produkten klickar du på **publicera**, och klicka sedan på **Ja, publicera den** att bekräfta. Klicka på att en tidigare publicerade produkt privata **Upphäv publicering**.
-
-![Publicera produkten][api-management-publish-product]
-
-## <a name="make-visible"></a>Att en produkt ska visas för utvecklare
-Den **synlighet** fliken kan du välja vilka roller som kan se produkten på developer-portalen och prenumerera på produkten.
-
-![Produkten synlighet][api-management-product-visiblity]
-
-Om du vill aktivera eller inaktivera synligheten för en produkt för utvecklare i en grupp, markera eller avmarkera kryssrutan bredvid gruppen och klicka sedan på **spara**.
-
-> Mer information finns i [hur du skapar och använda grupper för att hantera developer konton i Azure API Management][How to create and use groups to manage developer accounts in Azure API Management].
-> 
-> 
-
-## <a name="view-subscribers"></a>Visa prenumeranter för en produkt
-Den **prenumeranter** fliken Listar de utvecklare som prenumererar på produkten. Information och inställningar för varje utvecklare kan visas genom att klicka på utvecklarens namn. I det här exemplet har ännu inte utvecklare prenumererat på produkten.
-
-![Utvecklare][api-management-developer-list]
-
-## <a name="next-steps"> </a>Nästa steg
-När önskade API: er och produkten publicerade utvecklare kan prenumerera på produkten och börja att anropa API: erna. En genomgång som visar dessa objekt samt avancerade produktkonfigurationen finns [hur skapar och konfigurerar produktinställningar för avancerad i Azure API Management][How create and configure advanced product settings in Azure API Management].
-
-Mer information om hur du arbetar med produkter finns i följande videoklipp.
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
 > 
 
-[Create a product]: #create-product
-[Add APIs to a product]: #add-apis
-[Add descriptive information to a product]: #add-description
-[Publish a product]: #publish-product
-[Make a product visible to developers]: #make-visible
-[View subscribers to a product]: #view-subscribers
-[Next steps]: #next-steps
+## <a name="next-steps"></a>Nästa steg
 
-[api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
-[api-management-add-product]: ./media/api-management-howto-add-products/api-management-add-product.png
-[api-management-add-new-product]: ./media/api-management-howto-add-products/api-management-add-new-product.png
-[api-management-unlimited-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-unlimited-multiple-subscriptions.png
-[api-management-four-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-four-multiple-subscriptions.png
-[api-management-products-page]: ./media/api-management-howto-add-products/api-management-products-page.png
-[api-management-new-product-summary]: ./media/api-management-howto-add-products/api-management-new-product-summary.png
-[api-management-add-apis-to-product]: ./media/api-management-howto-add-products/api-management-add-apis-to-product.png
-[api-management-product-settings]: ./media/api-management-howto-add-products/api-management-product-settings.png
-[api-management-publish-product]: ./media/api-management-howto-add-products/api-management-publish-product.png
-[api-management-product-visiblity]: ./media/api-management-howto-add-products/api-management-product-visibility.png
-[api-management-developer-list]: ./media/api-management-howto-add-products/api-management-developer-list.png
+I den här självstudiekursen lärde du dig att:
 
+> [!div class="checklist"]
+> * Skapa och publicera en produkt
+> * Lägga till ett API till produkten
 
+Gå vidare till nästa kurs:
 
-[api-management-products]: ./media/api-management-howto-add-products/api-management-products.png
-[api-management-]: ./media/api-management-howto-add-products/
-[api-management-]: ./media/api-management-howto-add-products/
-
-
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Next steps]: #next-steps
-[How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
-[How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
+> [!div class="nextstepaction"]
+> [Skapa tomma API och mock API-svar](mock-api-responses.md)

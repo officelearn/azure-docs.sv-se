@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team vetenskap av data i praktiken: använder SQL Server
 I den här kursen går igenom processen att skapa och distribuera en maskininlärningsmodell med hjälp av SQL Server och ett offentligt tillgängliga dataset – [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset. Förfarandet som följer en standard datavetenskap arbetsflödet: infognings- och utforska data, tekniker funktioner för att underlätta learning, och sedan skapa och distribuera en modell.
@@ -581,7 +581,6 @@ I den här övningen har vi redan utforskade och utformad data i SQL Server och 
 3. Ange DNS-namnet för databasen i den **Databasservernamnet** fältet. Format:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Ange den **databasnamnet** i motsvarande fält.
 5. Ange den **användarnamn för SQL** i den ** aqccount användarnamnet och lösenordet i den **serverlösenord**.
-6. Kontrollera **acceptera alla servercertifikat** alternativet.
 7. I den **databasfrågan** redigera texten, klistrar in frågan som extraherar nödvändiga databasfält (inklusive eventuella beräknade fält, till exempel etiketter) och ned exempel data till den önskade provtagning.
 
 Ett exempel på en binär klassificering experiment läsning av data direkt från SQL Server-databasen är i bilden nedan. Liknande experiment kan konstrueras för multiklass-baserad klassificering och regressionsproblem.

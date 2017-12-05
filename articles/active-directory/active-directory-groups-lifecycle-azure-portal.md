@@ -1,5 +1,5 @@
 ---
-title: "Förhandsgranska förfallodatum för Office 365-grupper i Azure Active Directory | Microsoft Docs"
+title: "Förfallodatum för Office 365-grupper i Azure Active Directory | Microsoft Docs"
 description: "Hur du ställer in förfallodatum för Office 365-grupper i Azure Active Directory (förhandsgranskning)"
 services: active-directory
 documentationcenter: 
@@ -12,29 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2dd56bd34e5b7845298fab1f36e231113a2e28e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-office-365-groups-expiration-preview"></a>Konfigurera förfallodatum för Office 365-grupper (förhandsgranskning)
+# <a name="configure-expiration-for-office-365-groups-preview"></a>Konfigurera giltighetstid för Office 365-grupper (förhandsgranskning)
 
-Du kan nu hantera livscykeln för Office 365-grupper genom att ange upphör att gälla för alla Office 365-grupper som du väljer. När den här giltighetstid har angetts uppmanas ägare i dessa grupper att förnya sina grupper om de fortfarande behöver grupperna. En Office 365-grupp som inte förnyas tas bort. Du kan återställa en Office 365-grupp som har tagits bort inom 30 dagar av gruppen ägare eller administratören.  
-
+Genom att ange funktioner för förfallodatum för dem kan du nu hantera livscykeln för Office 365-grupper. Du kan ställa in ett utgångsdatum för Office 365-grupper i Azure Active Directory (AD Azure). När du har angett en grupp att gälla:
+-   Ägare av gruppen meddelas att förnya gruppen som snart upphör att gälla
+-   En grupp som inte förnyas tas bort
+-   En Office 365-grupp som tas bort kan återställas inom 30 dagar av gruppen ägare eller administratören
 
 > [!NOTE]
-> Du kan ställa in ett utgångsdatum för Office 365-grupper.
->
-> Ange förfallodatum för O365-grupper måste du ange att en Azure AD Premium-licens har tilldelats
->   - Administratören som konfigurerar inställningar för giltighetstid för klienten
->   - Alla medlemmar i grupper som valts för den här inställningen
+> Ange förfallodatum för Office 365-grupper måste en Azure AD Premium-licensen eller en Azure AD Basic EDU för alla medlemmar i grupper som upphör att gälla inställningarna.
+> 
+> För Azure AD Basic EDU licensierade kunder: konfigurera principen för första gången med Azure Active Directory PowerShell-cmdlets. Därefter kan du uppdatera inställningar för giltighetstid med hjälp av PowerShell eller Azure AD-portalen med ett konto som är kontoadministratör för användaren eller Global administratör i Azure AD-klienten.
 
-## <a name="set-office-365-groups-expiration"></a>Ställa in ett utgångsdatum för Office 365-grupper
+Information om hur du hämtar och installerar Azure AD PowerShell-cmdlets finns i [Azure Active Directory PowerShell för Graph - offentliga förhandsversionen 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+## <a name="set-group-expiration"></a>Ange grupp upphör att gälla
 
 1. Öppna den [administrationscentret för Azure AD](https://aad.portal.azure.com) med ett konto som är en global administratör i Azure AD-klienten.
 
@@ -51,7 +53,6 @@ Du kan nu hantera livscykeln för Office 365-grupper genom att ange upphör att 
   * Välj vilka Office 365-grupper att gälla. Du kan aktivera förfallodatum för **alla** Office 365-grupper du kan välja bland Office 365-grupper eller du väljer **ingen** att inaktivera upphör att gälla för alla grupper.
   * Spara dina inställningar när du är klar genom att välja **spara**.
 
-Instruktioner om hur du hämtar och installerar Microsoft PowerShell-modulen konfigurera giltighetstid för Office 365-grupper via PowerShell finns i [Azure Active Directory V2 PowerShell-modul - offentliga förhandsversionen 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 E-postmeddelanden som den här skickas till Office 365 gruppen ägare 30 dagar, 15 dagar och 1 dag innan upphör att gälla i gruppen.
 
@@ -68,7 +69,8 @@ Gruppen kan återställas genom att välja **återställning grupp** eller med h
 Om gruppen du återställa innehåller dokument, SharePoint-webbplatser eller andra beständiga objekt, kan det ta upp till 24 timmar att fullständigt återställa gruppen och dess innehåll.
 
 > [!NOTE]
-> * När du distribuerar inställningar för giltighetstid kan finnas det vissa grupper som är äldre än fönstret upphör att gälla. Dessa grupper inte är raderas omedelbart, men är inställda på 30 dagar tills upphör att gälla. Första förnyelse-e-postmeddelandet skickas ut inom en dag. Till exempel grupp A skapades 400 dagar sedan och förfallodatum intervallet anges till 180 dagar. När du använder inställningar för giltighetstid har grupp A 30 dagar innan den tas bort, såvida inte ägaren förnyar den.
+> * När du först ställa in giltighetstid ställs alla grupper som är äldre än intervallet som upphör att gälla och 30 dagar tills upphör att gälla. Första förnyelse-e-postmeddelandet skickas ut inom en dag. 
+>   Till exempel grupp A skapades 400 dagar sedan och förfallodatum intervallet anges till 180 dagar. När du använder inställningar för giltighetstid har grupp A 30 dagar innan den tas bort, såvida inte ägaren förnyar den.
 > * När en dynamisk grupp tas bort och återställs, är det ses som en ny grupp och nytt fylls enligt regeln. Den här processen kan ta upp till 24 timmar.
 
 ## <a name="next-steps"></a>Nästa steg

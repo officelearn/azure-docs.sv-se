@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a>Avancerade principer  
   
 -   [Åtkomstkontrollflödet](api-management-advanced-policies.md#choose) - villkorligt gäller principrapporter baserat på resultatet av utvärderingen av boolesk [uttryck](api-management-policy-expressions.md).  
-  
 -   [Vidarebefordra begäran](#ForwardRequest) -vidarebefordrar begäran till backend-tjänsten.
-
 -   [Begränsa samtidighet](#LimitConcurrency) -förhindrar omslutna principer från att köras med mer än det angivna antalet begäranden i taget.
-  
 -   [Loggen till Event Hub](#log-to-eventhub) -skickar meddelanden i det angivna formatet till en Händelsehubb som definieras av en loggaren entitet. 
-
 -   [Mock svar](#mock-response) -avbryts körningen i pipeline och returnerar svaret mocked direkt till anroparen.
-  
 -   [Försök](#Retry) -återförsök körningen av de slutna principrapporter om och tills villkoret är uppfyllt. Körningen upprepas med de angivna intervall och upp till angivet antal nya försök.  
-  
 -   [Returnera svar](#ReturnResponse) -avbryts körningen i pipeline och returnerar det angivna svaret direkt till anroparen. 
-  
 -   [Skicka förfrågan om enkelriktade](#SendOneWayRequest) -skickar en begäran till den angivna URL: en utan att vänta på ett svar.  
-  
 -   [Skicka förfrågan](#SendRequest) -skickar en begäran till angiven URL.  
-
 -   [Ange HTTP-proxy](#SetHttpProxy) -låter dig vägen vidarebefordrade begäranden via en HTTP-proxy.  
-
 -   [Ange metoden](#SetRequestMethod) -kan du ändra HTTP-metoden för en begäran.  
-  
 -   [Ange statuskoden](#SetStatus) -ändrar HTTP-statuskoden till det angivna värdet.  
-  
 -   [Ange variabel](api-management-advanced-policies.md#set-variable) -kvarstår ett värde i en namngiven [kontexten](api-management-policy-expressions.md#ContextVariables) variabel för senare användning.  
-
 -   [Spåra](#Trace) -lägger till en sträng i den [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) utdata.  
-  
 -   [Vänta](#Wait) -väntar för omslutna [begäran om att skicka](api-management-advanced-policies.md#SendRequest), [hämta värdet från cache](api-management-caching-policies.md#GetFromCacheByKey), eller [Åtkomstkontrollflödet](api-management-advanced-policies.md#choose) principer för att slutföra innan du fortsätter.  
   
 ##  <a name="choose"></a>Kontrollflöde  
@@ -264,7 +249,6 @@ Det här avsnittet innehåller en referens för följande API Management-princip
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Avsnitt i princip:** backend  
-  
 -   **Princip för scope:** alla scope  
   
 ##  <a name="LimitConcurrency"></a>Gränsen för samtidighet  
@@ -454,7 +438,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|Villkor|En boolesk literal eller [uttryck](api-management-policy-expressions.md) anger om återförsök ska stoppas (`false`) eller fortsatte (`true`).|Ja|Saknas|  
+|tillstånd|En boolesk literal eller [uttryck](api-management-policy-expressions.md) anger om återförsök ska stoppas (`false`) eller fortsatte (`true`).|Ja|Saknas|  
 |antal|Ett positivt tal som anger det maximala antalet försök att försöka.|Ja|Saknas|  
 |interval|Ett positivt tal i sekunder som anger vänta intervall mellan det nya försöket försöker.|Ja|Saknas|  
 |Max-intervall|Ett positivt tal i sekunder som anger maximalt vänta mellan nya försök. Den används för att implementera en algoritm exponentiell försök igen.|Nej|Saknas|  
@@ -570,10 +554,10 @@ status code and media type. If no example or schema found, the content is empty.
 |Element|Beskrivning|Krävs|  
 |-------------|-----------------|--------------|  
 |en-sätt-begäran om att skicka|Rotelementet.|Ja|  
-|URL: en|URL för begäran.|Inga om läge = kopian. Annars Ja.|  
+|url|URL för begäran.|Inga om läge = kopian. Annars Ja.|  
 |Metoden|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|  
 |sidhuvud|Huvudet i begäran. Använda flera huvud-element för flera huvuden för begäran.|Nej|  
-|brödtext|Begärandetexten.|Nej|  
+|brödtext|Begärantexten.|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
@@ -649,10 +633,10 @@ status code and media type. If no example or schema found, the content is empty.
 |Element|Beskrivning|Krävs|  
 |-------------|-----------------|--------------|  
 |Skicka begäran|Rotelementet.|Ja|  
-|URL: en|URL för begäran.|Inga om läge = kopian. Annars Ja.|  
+|url|URL för begäran.|Inga om läge = kopian. Annars Ja.|  
 |Metoden|HTTP-metod för begäran.|Inga om läge = kopian. Annars Ja.|  
 |sidhuvud|Huvudet i begäran. Använda flera huvud-element för flera huvuden för begäran.|Nej|  
-|brödtext|Begärandetexten.|Nej|  
+|brödtext|Begärantexten.|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
@@ -807,7 +791,6 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Avsnitt i princip:** utgående, backend fel  
-  
 -   **Princip för scope:** alla scope  
 
 ##  <a name="set-variable"></a>Ange variabel  
@@ -843,72 +826,41 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Avsnitt i princip:** inkommande, utgående backend fel  
-  
 -   **Princip för scope:** alla scope  
   
 ###  <a name="set-variableAllowedTypes"></a>Tillåtna typer  
  Uttryck som används i den `set-variable` principen måste returnera ett av följande grundläggande typer.  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   System.TimeSpan  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a>Spårning  
@@ -1001,16 +953,19 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|för|Anger om den `wait` principen väntar på att alla direkt underordnade principer ska slutföras eller bara en. Tillåtna värden är:<br /><br /> -   `all`-Vänta tills alla direkt underordnade principer ska slutföras<br />-alla - vänta tills alla direkt underordnade principen att slutföra. När den första omedelbara underordnade principen är klar, den `wait` principen har slutförts och körningen av alla andra principer för omedelbart underordnade avslutas.|Nej|alla|  
+|för|Anger om den `wait` principen väntar på att alla direkt underordnade principer ska slutföras eller bara en. Tillåtna värden är:<br /><br /> -   `all`-Vänta tills alla direkt underordnade principer ska slutföras<br />-alla - vänta tills alla direkt underordnade principen att slutföra. När den första omedelbara underordnade principen är klar, den `wait` principen har slutförts och körningen av alla andra principer för omedelbart underordnade avslutas.|Nej|all|  
   
 ### <a name="usage"></a>Användning  
- Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ 
+Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Avsnitt i princip:** inkommande, utgående backend  
-  
--   **Princip för scope:**alla scope  
+-   **Princip för scope:** alla scope  
   
 ## <a name="next-steps"></a>Nästa steg
+
 Arbeta med principer, Läs mer:
--   [Principer för i API-hantering](api-management-howto-policies.md) 
--   [Principuttryck](api-management-policy-expressions.md)
++ [Principer för i API-hantering](api-management-howto-policies.md) 
++ [Principuttryck](api-management-policy-expressions.md)
++ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
++ [Princip-exempel](policy-samples.md)   

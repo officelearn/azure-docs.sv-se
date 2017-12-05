@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/04/2017
 ms.author: anoopkv
-ms.openlocfilehash: 1b7a2d99cfa9f7d54d5303c21202fc34cf6d15ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2dcca54c9e1e9330bf7c2a37dc08f67817b6af47
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Hantera VMware vCenter-servern i Azure Site Recovery
 Den här artikeln beskrivs de olika Site Recovery-åtgärder som kan utföras på en VMware vCenter.
@@ -27,7 +27,7 @@ Den här artikeln beskrivs de olika Site Recovery-åtgärder som kan utföras p�
 
 **Stöd för VMware vCenter- och VMware vSphere ESX-värd** | **Detaljer** |
 |--- | --- |
-|**Lokal VMware-servrar** | En eller flera VMware vSphere-servrar, kör 6.0, 5.5, 5.1 med senaste uppdateringarna. Servrarna måste finnas i samma nätverk som konfigurationsservern (eller separat processerver).<br/><br/> Vi rekommenderar en vCenter-server för att hantera värdar som kör 6.0 eller 5.5 med de senaste uppdateringarna. Funktioner som är tillgängliga i 5.5 stöds när du distribuerar version 6.0.|
+|**Lokal VMware-servrar** | En eller flera VMware vSphere-servrar, kör 6.5,6.0 5.5 med de senaste uppdateringarna. Servrarna måste finnas i samma nätverk som konfigurationsservern (eller separat processerver).<br/><br/> Vi rekommenderar en vCenter-server för att hantera värdar som kör 6.5,6.0 eller 5.5 med de senaste uppdateringarna. Funktioner som är tillgängliga i 5.5 stöds när du distribuerar version 6.0.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Förbereda ett konto för automatisk identifiering
 Site Recovery behöver åtkomst till VMware för processerver för att automatiskt identifiera virtuella datorer och för redundans och återställning av virtuella datorer.

@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: cf27e4d9997a796fa61af6e6f0af3c0c5a0c296f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Använd Azure hanterade tjänstidentiteten i Azure API Management
 
@@ -118,9 +118,8 @@ I följande exempel visas hur du skaffar ett certifikat från Azure Key Vault. D
 3. Uppdatera API Management-instans genom att ange ett eget domännamn via ett certifikat från Key Vault-instans.
 
 ### <a name="prerequisites"></a>Krav
-Att köra den nedan arm-mall måste följande 
-1. Key Vault som innehåller pfx-certifikat i samma prenumeration och samma resursgrupp som Api Management-tjänsten. Detta är ett krav i arm-mallen. 
-2. Innehållstypen för hemligheten som ska vara *pkcs12-program/x*. Du kan använda följande skript för att ladda upp certifikatet
+1. Nyckelvalvet som innehåller pfx-certifikat måste finnas i samma Azure-prenumerationen och samma resursgrupp som API Management-tjänsten. Detta är ett krav för Azure Resource Manager-mallen. 
+2. Innehållstypen för hemlighet måste vara *pkcs12-program/x*. Du kan använda följande skript för att ladda upp certifikatet:
 
 ```powershell
 $pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 

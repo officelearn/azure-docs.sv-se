@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 030d6d136c16946d6231b165b4b33d496bb7c818
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unika nycklar i Azure Cosmos DB
 
-Unika nycklar ger utvecklare möjlighet att lägga till ett lager för data i sin databas. Genom att skapa en unik nyckel princip när en behållare har skapats kan du se till att en eller flera värden för varje unikt [partition](partition-data.md). När en behållare har skapats med en unik nyckel princip förhindrar skapande av alla nya eller uppdaterade objekt med värden att duplicerade värden som anges av begränsningen för unik nyckel.   
+Unika nycklar ger utvecklare möjlighet att lägga till ett lager för data i sin databas. Genom att skapa en unik nyckel princip när en behållare har skapats kan du se till att en eller flera värden för varje unikt [partitionsnyckel](partition-data.md). När en behållare har skapats med en unik nyckel princip förhindrar skapande av alla nya eller uppdaterade objekt med värden att duplicerade värden som anges av begränsningen för unik nyckel.   
 
 > [!NOTE]
 > Unika nycklar som stöds av de senaste versionerna av den [.NET](documentdb-sdk-dotnet.md) och [.NET Core](documentdb-sdk-dotnet-core.md) DocumentDB SQL-SDK och [MongoDB API](mongodb-feature-support.md#unique-indexes). Tabell-API och Graph API stöder inte unika nycklar just nu. 

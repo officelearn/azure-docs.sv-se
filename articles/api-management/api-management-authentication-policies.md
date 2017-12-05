@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 2907c1e4e39f975b4dc4e9382d7258c5d56dbbdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d13d9dbea9da9db5bfe9a9af85fdbf9eab1ae84
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-authentication-policies"></a>Principer för autentisering av API-hantering
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AuthenticationPolicies"></a>Principer för autentisering  
   
 -   [Autentisera med grundläggande](api-management-authentication-policies.md#Basic) -autentisering med en serverdelstjänst som använder grundläggande autentisering.  
@@ -100,4 +100,9 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 
 ## <a name="next-steps"></a>Nästa steg
-Arbeta med principer för mer information finns i [principer i API Management](api-management-howto-policies.md).  
+Arbeta med principer, Läs mer:
+
++ [Principer för i API-hantering](api-management-howto-policies.md)
++ [Transformera API: er](transform-api.md)
++ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
++ [Princip-exempel](policy-samples.md)   

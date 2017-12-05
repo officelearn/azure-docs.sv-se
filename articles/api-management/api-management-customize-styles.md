@@ -1,89 +1,87 @@
 ---
-title: Anpassa utvecklarportalens format i Azure API Management | Microsoft Docs
-description: "Lär dig hur du ändrar de format som används för en sida i utvecklarportalen i Azure API Management."
+title: "Anpassa sidan formatet på Azure API Management developer-portalen | Microsoft Docs"
+description: "Följ stegen i den här snabbstarten att anpassa stil för elementen på Azure API Management developer-portalen."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: vlvinogr
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: 89baf60d0204a1701e93309f09b90bc94c4ca57b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
+ms.author: apimpm
+ms.openlocfilehash: f427663ba1c437785c8c521925d9f733c45cb40d
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="customize-the-styling-of-the-developer-portal-in-azure-api-management"></a>Anpassa format för utvecklarportalen i Azure API Management
-Det finns tre grundläggande metoder för att anpassa utvecklarportalen i Azure API Management:
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa formatet för utvecklare portalens sidor
 
-* [Redigera innehållet på statiska sidor och sidlayoutelement][modify-content-layout]
-* [Uppdatera formaten som används för sidelement i utvecklingsportalen][customize-styles] (förklaras i den här guiden)
-* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (t.ex. API-dokumentation, produkter, användarautentisering osv.)
+Det finns tre vanligaste sätt att anpassa Developer-portalen i Azure API Management:
+ 
+* [Redigera innehållet i statiska sidor och layout sidelement](api-management-modify-content-layout.md)
+* Uppdatera de formatmallar som används för sidelement över developer-portalen (beskrivs i den här guiden)
+* [Ändra mallarna som används för sidor som genereras av portalen](api-management-developer-portal-templates.md) (till exempel API docs produkter, autentisering av användare)
 
-## <a name="change-headers-styling"> </a>Ändra format för sidelement
+I den här guiden får du lära dig hur man:
 
-Färger, teckensnitt, storlekar, avstånd och andra formatrelaterade element på en sida på portalen definieras av formatregler. 
+> [!div class="checklist"]
+> * Anpassa formatet för elementen på sidorna i den **Developer** portal
+> * Visa din ändring
 
-Du redigerar formatreglerna från **utvecklarportalen** när du är inloggad som administratör. För att nå dit öppnar du först Azure Portal och klickar på **Utgivarportal** i API Management-verktygsfältet.
+![Anpassa format](./media/modify-developer-portal-style/developer_portal.png)
 
-![Utgivarportalen][api-management-management-console]
+## <a name="prerequisites"></a>Krav
 
-Klicka sedan på **Utgivarportal** överst till höger. 
++ Slutför följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
++ Dessutom slutföra följande kursen: [Import och publicera din första API](import-and-publish.md).
 
-![Utvecklarportallänken på utgivarportalen][api-management-pp-dp-link]
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-Om du vill öppna verktygsfältet för anpassning drar du musen över anpassningsikonen (eller markerar den) och klickar på "format" på verktygsfältet.
+## <a name="customize-the-developer-portal"></a>Anpassa Developer-portalen
 
-![Knapp i verktygsfältet för anpassning][api-management-customization-toolbar-button]
+1. Välj **översikt**.
+2. Klicka på den **Developer-portalen** knappen ovanpå på den **översikt** fönster. Du kan också klicka på **Developer-portalen URL** länk.
+3. Övre till vänster på skärmen visas en ikon som består av två penslar. Hovra över ikonen för att öppna menyn anpassning av portalen.
 
-Det finns två huvudsakliga sätt att redigera formatregler. Du kan leta i listan över alla formatreglerna som används någonstans som visas som standard och där ändra format efter behov. Du kan även välja **Select an element on the page** (Markera ett element på sidan) och klicka var som helst på sidan för att endast visa formatet för just det elementet.
+    ![Anpassa format](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+4. Välj **formatmallar** från menyn för att öppna fönstret formatmalls-anpassning.
 
-![Verktygsfält för anpassning][api-management-customization-toolbar]
+    Alla element som du kan anpassa med **formatmallar** visas på sidan
+5. Ange ”rubriker färg” i den **ändra variabelvärden anpassa developer portal utseende:** fält.
 
-Klicka på alternativet **Select an element on the page** (Markera ett element på sidan) för det här exemplet.  Nu markeras elementen när du hovrar över dem med musen så att du ser vilket elements format som du kommer att redigera om du klickar. Dra musen över texten i rubriken (vanligtvis står företaget namn här) och klicka på den. En uppsättning namngivna och kategoriserade formatregler visas i formatredigeraren. Varje regel representerar en formategenskap för det valda elementet. Exempelvis har den markerade rubriktexten ovan storleken @font-size-h1, och namnet på teckensnittet med varianter är @headings-font-family.
+    Den  **@headings-color**  elementet visas på sidan. Den här variabeln anger färgen på texten.
 
-> Om du är bekant med [bootstrap][bootstrap] (starttjänsten) så är dessa regler i själva verket [LESS-variabler][LESS variables] i starttemat som används på utvecklarportalen.
-> 
-> 
+    ![Anpassa format](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
+    
+6. Klicka på fältet för den  **@headings-color**  variabeln. 
+    
+    Färgväljaren nedrullningsbara öppnas.
+7. Välj en ny färg färgväljare listrutan.
 
-Nu ska vi ändra färg på rubriktexten. Välj posten i fältet **@headings-color** och skriv **#000000**. Det här är den hexadecimala koden för färgen svart. En rektangulär färgindikator bör visas i slutet av textrutan. Om du klickar på indikatorn visas en färgväljare och du kan välja en färg.
+    > [!TIP]
+    > Realtid förhandsgranskningen är tillgänglig för alla ändringar. En förloppsindikator längst upp i fönstret anpassning. Efter några sekunder ändras rubriktexten i färg till den valda.
 
-![Färgväljare][api-management-customization-toolbar-color-picker]
+8. Välj **publicera** från längst ned till vänster på anpassning meny.
+9. Välj **publicera anpassningar** att göra ändringarna tillgängliga för allmänheten.
 
-Ändringar förhandsvisas i realtid under tiden du gör dem men visas endast för administratörer. Om du vill att alla ska se ändringarna klickar du på knappen **Publicera** i formatredigeraren och bekräftar ändringarna.
+## <a name="view-your-change"></a>Visa din ändring
 
-![Publicera-menyn][api-management-customization-toolbar-publish-form]
+1. Gå till Developer-portalen.
+2. Du kan se ändringen som du har gjort.
 
-> Om du vill ändra formatreglerna som tillämpas på andra objekt på sidan följer du samma steg som för sidhuvudet. Klicka på **Select an element on the page** (Markera ett element på sidan) i formatredigeraren, välj önskat element och börja redigera värdena för formatreglerna som visas på skärmen.
-> 
-> 
+## <a name="next-steps"></a>Nästa steg
 
+I den här självstudiekursen lärde du dig att:
 
-## <a name="next-steps"> </a>Nästa steg
-* Läs om hur du kan anpassa innehållet på utvecklarportalens sidor med [utvecklarportalsmallar](api-management-developer-portal-templates.md).
+> [!div class="checklist"]
+> * Anpassa formatet för elementen på sidorna i den **Developer** portal
+> * Visa din ändring
 
-[Change the styling of the headers]: #change-headers-styling
-[Next steps]: #next-steps
-
-[Azure Classic Portal]: https://manage.windowsazure.com/
-
-[api-management-management-console]: ./media/api-management-customize-styles/api-management-management-console.png
-[api-management-pp-dp-link]: ./media/api-management-customize-styles/api-management-pp-dp-link.png
-[api-management-customization-toolbar-button]: ./media/api-management-customize-styles/api-management-customization-toolbar-button.png
-[api-management-customization-toolbar]: ./media/api-management-customize-styles/api-management-customization-toolbar.png
-[api-management-customization-toolbar-color-picker]: ./media/api-management-customize-styles/api-management-customization-toolbar-color-picker.png
-[api-management-customization-toolbar-publish-form]: ./media/api-management-customize-styles/api-management-customization-toolbar-publish-form.png
-
-[modify-content-layout]: api-management-modify-content-layout.md
-[customize-styles]: api-management-customize-styles.md
-[portal-templates]: api-management-developer-portal-templates.md
-
-[bootstrap]: http://getbootstrap.com/
-[LESS variables]: http://getbootstrap.com/css/
+> [!div class="nextstepaction"]
+> [Anpassa Azure API Management developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md)

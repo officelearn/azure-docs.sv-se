@@ -3,27 +3,26 @@ title: Azure API Management-Sidkontrollerna | Microsoft Docs
 description: "Läs mer om tillgängliga för användning i developer portal mallar i Azure API Management Sidkontrollerna."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Kontroller Azure API Management
 Azure API Management innehåller följande kontroller för användning i developer portal mallar.  
   
- Om du vill använda en kontroll måste du placera det i önskad plats i mallen developer portal. Vissa kontroller, till exempel den [app åtgärder](#app-actions) styra har parametrar, som visas i följande exempel.  
+Om du vill använda en kontroll måste du placera det i önskad plats i mallen developer portal. Vissa kontroller, till exempel den [app åtgärder](#app-actions) styra har parametrar, som visas i följande exempel:  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -36,19 +35,12 @@ Azure API Management innehåller följande kontroller för användning i develop
 ## <a name="developer-portal-template-page-controls"></a>Developer portal mallen kontroller  
   
 -   [App-åtgärder](#app-actions)  
-  
 -   [Basic-inloggning](#basic-signin)  
-  
 -   [växlingsfil-kontroll](#paging-control)  
-  
 -   [providers](#providers)  
-  
 -   [Sök-kontroll](#search-control)  
-  
 -   [registrering](#sign-up)  
-  
 -   [prenumerera på knappen](#subscribe-button)  
-  
 -   [Avbryt prenumeration](#subscription-cancel)  
   
 ##  <a name="app-actions"></a>App-åtgärder  
@@ -69,12 +61,12 @@ Azure API Management innehåller följande kontroller för användning i develop
 |appId|Id för programmet.|  
   
 ### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `app-actions` kontroll kan användas i följande mallar för developer-portalen.  
+ Den `app-actions` kontroll kan användas i följande developer portal mallar:  
   
 -   [Program](api-management-user-profile-templates.md#Applications)  
   
 ##  <a name="basic-signin"></a>Basic-inloggning  
- Den `basic-signin` kontrollen innehåller en kontroll för att samla in användare logga in informationen i inloggningssidan i developer-portalen.  
+ Den `basic-signin` kontrollen innehåller en kontroll för att samla in användarinformation logga in på sidan logga in i developer-portalen.  
   
  ![grundläggande &#45; inloggning kontrollen](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic signin-kontroll")  
   
@@ -88,7 +80,7 @@ Azure API Management innehåller följande kontroller för användning i develop
  Ingen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `basic-signin` kontroll kan användas i följande mallar för developer-portalen.  
+ Den `basic-signin` kontroll kan användas i följande developer portal mallar:  
   
 -   [Logga in](api-management-page-templates.md#SignIn)  
   
@@ -107,7 +99,7 @@ Azure API Management innehåller följande kontroller för användning i develop
  Ingen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `paging-control` kontroll kan användas i följande mallar för developer-portalen.  
+ Den `paging-control` kontroll kan användas i följande developer portal mallar:  
   
 -   [API-lista](api-management-api-templates.md#APIList)  
   
@@ -116,7 +108,7 @@ Azure API Management innehåller följande kontroller för användning i develop
 -   [Produktlista](api-management-product-templates.md#ProductList)  
   
 ##  <a name="providers"></a>providers  
- Den `providers` kontrollen innehåller en kontroll för val av autentiseringsproviders i inloggningssidan i developer-portalen.  
+ Den `providers` kontrollen innehåller en kontroll för val av autentiseringsproviders på sidan logga in i developer-portalen.  
   
  ![providers kontrollen](./media/api-management-page-controls/APIM-providers-control.png "APIM providers kontroll")  
   
@@ -130,7 +122,7 @@ Azure API Management innehåller följande kontroller för användning i develop
  Ingen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `providers` kontroll kan användas i följande mallar för developer-portalen.  
+ Den `providers` kontroll kan användas i följande developer portal mallar:  
   
 -   [Logga in](api-management-page-templates.md#SignIn)  
   
@@ -149,14 +141,14 @@ Azure API Management innehåller följande kontroller för användning i develop
  Ingen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `search-control` kontroll kan användas i följande mallar för developer-portalen.  
+ Den `search-control` kontroll kan användas i följande developer portal mallar:  
   
 -   [API-lista](api-management-api-templates.md#APIList)  
   
 -   [Produktlista](api-management-product-templates.md#ProductList)  
   
 ##  <a name="sign-up"></a>registrering  
- Den `sign-up` kontrollen innehåller en kontroll för att samla in användarens profilinformation i sidan registrering i developer-portalen.  
+ Den `sign-up` kontrollen innehåller en kontroll för att samla in användarens profilinformation i registreringssidan i developer-portalen.  
   
  ![signera &#45; upp kontrollen](./media/api-management-page-controls/APIM-sign-up-control.png "APIM anmälan kontroll")  
   
@@ -170,7 +162,7 @@ Azure API Management innehåller följande kontroller för användning i develop
  Ingen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `sign-up` kontroll kan användas i följande mallar för developer-portalen.  
+ Den `sign-up` kontroll kan användas i följande developer portal mallar:  
   
 -   [Registrera sig](api-management-page-templates.md#SignUp)  
   
@@ -189,7 +181,7 @@ Azure API Management innehåller följande kontroller för användning i develop
  Ingen.  
   
 ### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `subscribe-button` kontroll kan användas i följande mallar för developer-portalen.  
+ Den `subscribe-button` kontroll kan användas i följande developer portal mallar:  
   
 -   [Produkten](api-management-product-templates.md#Product)  
   
@@ -211,10 +203,10 @@ Azure API Management innehåller följande kontroller för användning i develop
 |Parameter|Beskrivning|  
 |---------------|-----------------|  
 |subscriptionId|Id för att avbryta prenumerationen.|  
-|CancelUrl|Prenumerationen avbryta URL.|  
+|CancelUrl|Prenumerationen avbryter URL.|  
   
 ### <a name="developer-portal-templates"></a>Developer portal mallar  
- Den `subscription-cancel` kontroll kan användas i följande mallar för developer-portalen.  
+ Den `subscription-cancel` kontroll kan användas i följande developer portal mallar:  
   
 -   [Produkten](api-management-product-templates.md#Product)
 

@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Hantera fel i API Management-principer
 Azure API Management gör utgivare att svara på felförhållanden som kan uppstå under bearbetning av begäranden till proxyservern genom att tillhandahålla en `ProxyError` objekt. Den `ProxyError` objektet nås via de [kontext. LastError](api-management-policy-expressions.md#ContextVariables) egenskap och kan användas av principer i den `on-error` princip. Det här avsnittet innehåller en referens för felet funktioner för hantering i Azure API Management.  
@@ -56,27 +56,16 @@ Azure API Management gör utgivare att svara på felförhållanden som kan uppst
  Följande principer kan användas i den `on-error` princip.  
   
 -   [Välj](api-management-advanced-policies.md#choose)  
-  
 -   [Ange variabel](api-management-advanced-policies.md#set-variable)  
-  
 -   [Sök och Ersätt](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [returnera svar](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set-huvud](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [set-metod](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [Ange status](api-management-advanced-policies.md#SetStatus)  
-  
 -   [Skicka begäran](api-management-advanced-policies.md#SendRequest)  
-  
 -   [en-sätt-begäran om att skicka](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [loggen till eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [JSON-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [XML-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
@@ -112,20 +101,26 @@ Azure API Management gör utgivare att svara på felförhållanden som kan uppst
 |gräns för överföringshastigheten|Hastigheten med vilken överskriden|RateLimitExceeded|Hastighetsbegränsning har överskridits|  
 |kvot|Kvoten överskreds|QuotaExceeded|Slut på kvot för samtalsvolym. Kvoten fylls i xx:xx:xx. - eller - Out-of-bandbredd kvoten. Kvoten fylls i xx:xx:xx.|  
 |hanteras jsonp|Motringning parametervärdet är ogiltigt (innehåller felaktiga tecken)|CallbackParameterInvalid|Värdet för parametern återanrop {--återanrop} är inte en giltig JavaScript-identifierare.|  
-|IP-filter|Det gick inte att parsa anroparen IP från begäran|FailedToParseCallerIP|Det gick inte att upprätta IP-adress för anroparen. Åtkomst nekades.|  
-|IP-filter|Anroparen IP finns inte i listan över tillåtna|CallerIpNotAllowed|Anroparen IP-adress {ip-adress} är inte tillåtet. Åtkomst nekades.|  
-|IP-filter|Anroparen IP finns i blockeringslistan|CallerIpBlocked|Anroparen IP-adress blockeras. Åtkomst nekades.|  
-|Kontrollera-huvud|Obligatorisk rubrik som visas inte eller värde saknas|HeaderNotFound|Huvudet {huvudnamn} hittades inte i begäran. Åtkomst nekades.|  
-|Kontrollera-huvud|Obligatorisk rubrik som visas inte eller värde saknas|HeaderValueNotAllowed|Huvudvärde {huvudnamn} för {huvudvärde} är inte tillåtet. Åtkomst nekades.|  
-|Validera jwt|Jwt-token saknas i begäran|TokenNotFound|JWT hittades inte i begäran. Åtkomst nekades.|  
-|Validera jwt|Signaturverifieringen misslyckades|TokenSignatureInvalid|< meddelande från jwt biblioteket\>. Åtkomst nekades.|  
-|Validera jwt|Ogiltig målgrupp|TokenAudienceNotAllowed|< meddelande från jwt biblioteket\>. Åtkomst nekades.|  
-|Validera jwt|Ogiltig utfärdare|TokenIssuerNotAllowed|< meddelande från jwt biblioteket\>. Åtkomst nekades.|  
-|Validera jwt|Token har upphört att gälla|TokenExpired|< meddelande från jwt biblioteket\>. Åtkomst nekades.|  
-|Validera jwt|Signaturnyckel löstes inte med id|TokenSignatureKeyNotFound|< meddelande från jwt biblioteket\>. Åtkomst nekades.|  
-|Validera jwt|Det saknas nödvändiga anspråk från token|TokenClaimNotFound|JWT-token saknas följande anspråk: < c1\>, < c2\>,... Åtkomst nekades.|  
-|Validera jwt|Felaktig matchning av anspråk värden|TokenClaimValueNotAllowed|Anspråksvärdet {anspråkets namn} för {Anspråksvärdet} är inte tillåtet. Åtkomst nekades.|  
+|IP-filter|Det gick inte att parsa anroparen IP från begäran|FailedToParseCallerIP|Det gick inte att upprätta IP-adress för anroparen. Åtkomst nekad.|  
+|IP-filter|Anroparen IP finns inte i listan över tillåtna|CallerIpNotAllowed|Anroparen IP-adress {ip-adress} är inte tillåtet. Åtkomst nekad.|  
+|IP-filter|Anroparen IP finns i blockeringslistan|CallerIpBlocked|Anroparen IP-adress blockeras. Åtkomst nekad.|  
+|Kontrollera-huvud|Obligatorisk rubrik som visas inte eller värde saknas|HeaderNotFound|Huvudet {huvudnamn} hittades inte i begäran. Åtkomst nekad.|  
+|Kontrollera-huvud|Obligatorisk rubrik som visas inte eller värde saknas|HeaderValueNotAllowed|Huvudvärde {huvudnamn} för {huvudvärde} är inte tillåtet. Åtkomst nekad.|  
+|Validera jwt|Jwt-token saknas i begäran|TokenNotFound|JWT hittades inte i begäran. Åtkomst nekad.|  
+|Validera jwt|Signaturverifieringen misslyckades|TokenSignatureInvalid|< meddelande från jwt biblioteket\>. Åtkomst nekad.|  
+|Validera jwt|Ogiltig målgrupp|TokenAudienceNotAllowed|< meddelande från jwt biblioteket\>. Åtkomst nekad.|  
+|Validera jwt|Ogiltig utfärdare|TokenIssuerNotAllowed|< meddelande från jwt biblioteket\>. Åtkomst nekad.|  
+|Validera jwt|Token har upphört att gälla|TokenExpired|< meddelande från jwt biblioteket\>. Åtkomst nekad.|  
+|Validera jwt|Signaturnyckel löstes inte med id|TokenSignatureKeyNotFound|< meddelande från jwt biblioteket\>. Åtkomst nekad.|  
+|Validera jwt|Det saknas nödvändiga anspråk från token|TokenClaimNotFound|JWT-token saknas följande anspråk: < c1\>, < c2\>,... Åtkomst nekad.|  
+|Validera jwt|Felaktig matchning av anspråk värden|TokenClaimValueNotAllowed|Anspråksvärdet {anspråkets namn} för {Anspråksvärdet} är inte tillåtet. Åtkomst nekad.|  
 |Validera jwt|Andra verifieringsfel|JwtInvalid|< meddelande från jwt-biblioteket\>|
 
 ## <a name="next-steps"></a>Nästa steg
-Arbeta med principer för mer information finns i [principer i API Management](api-management-howto-policies.md).  
+
+Arbeta med principer, Läs mer:
+
++ [Principer för i API-hantering](api-management-howto-policies.md)
++ [Transformera API: er](transform-api.md)
++ [Principreferens för](api-management-policy-reference.md) för en fullständig lista över principrapporter och deras inställningar
++ [Princip-exempel](policy-samples.md)   

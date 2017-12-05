@@ -1,5 +1,5 @@
 ---
-title: Azure API Management Developer Portal mallar | Microsoft Docs
+title: Azure API Management Developer portal mallar | Microsoft Docs
 description: "Lär dig hur du anpassar innehållet i developer portalens sidor med en uppsättning mallar i Azure API Management."
 services: api-management
 documentationcenter: 
@@ -12,22 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2f2a943657dd328fc5657b775ba0273f99718f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="azure-api-management-developer-portal-templates"></a>Azure API Management Developer Portal-mallar
+# <a name="developer-portal-templates"></a>Developer portal mallar
+
 Azure API Management ger dig möjlighet att anpassa innehållet i developer portalens sidor med hjälp av en uppsättning mallar som konfigurerar deras innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, t.ex [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [String resurser](api-management-template-resources.md#strings), [glyf resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), du har stor flexibilitet för att konfigurera innehåll för sidorna som du vill använda dessa mallar.  
   
- Mer information om hur du arbetar med mallar finns [hur du anpassar API Management developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).  
+Mer information om hur du arbetar med mallar finns [hur du anpassar API Management developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).  
 
-
-
-  
 ##  <a name="DeveloperPortalTemplates"></a>Developer portal mallar  
   
 -   [API:er](api-management-api-templates.md)  
@@ -60,9 +58,9 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
     -   [Registrera sig](api-management-page-templates.md#SignUp)  
     -   [Det gick inte att hitta sidan](api-management-page-templates.md#PageNotFound)
 
-
 ## <a name="next-steps"></a>Nästa steg  
--   [Mallreferensen](api-management-developer-portal-templates-reference.md)  
--   [Referens för datamodell](api-management-template-data-model-reference.md)  
--   [Sidkontroller](api-management-page-controls.md)  
--   [Mallresurser](api-management-template-resources.md)
+
++ [Mallreferensen](api-management-developer-portal-templates-reference.md)  
++ [Referens för datamodell](api-management-template-data-model-reference.md)  
++ [Sidkontroller](api-management-page-controls.md)  
++ [Mallresurser](api-management-template-resources.md)

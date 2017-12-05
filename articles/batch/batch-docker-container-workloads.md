@@ -1,6 +1,6 @@
 ---
-title: "Docker behållaren arbetsbelastningar på Azure Batch | Microsoft Docs"
-description: "Lär dig hur du kör program från Docker behållare avbildningar på Azure Batch."
+title: "Behållaren arbetsbelastningar på Azure Batch | Microsoft Docs"
+description: "Lär dig hur du kör program från behållaren bilder på Azure Batch."
 services: batch
 author: v-dotren
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 12/01/2017
 ms.author: v-dotren
-ms.openlocfilehash: fc15b2db051b5ebbf39665b803b22d3a5e4885f9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="run-docker-container-applications-on-azure-batch"></a>Kör Docker behållarprogram på Azure Batch
+# <a name="run-container-applications-on-azure-batch"></a>Köra behållarprogram på Azure Batch
 
 Azure Batch kan du köra och skala ett stort antal batch computing jobb på Azure. Fram till nu batchaktiviteter har kört direkt på virtuella datorer (VM) i en Batch-pool, men nu kan du ställa in en Batch-pool att köra uppgifter i Docker-behållare.
 
@@ -112,12 +112,11 @@ Processen pull (eller prefetch) gör att du kan förinläsa behållaren bilder f
 
 ### <a name="pool-without-prefetched-container-images"></a>Poolen utan prefetched behållare bilder
 
-Konfigurera poolen utan prefetched behållare bilder med en `ContainerConfiguration` som visas i följande exempel. Det här och följande exempel förutsätter att du använder en anpassad avbildning Ubuntu 16.04 LTS med Docker-motorn.
+Om du vill konfigurera pool utan prefetched behållare bilder, definiera `ContainerConfiguration` och `VirtualMachineConfiguration` objekt som visas i följande exempel. Det här och följande exempel förutsätter att du använder en anpassad avbildning Ubuntu 16.04 LTS med Docker-motorn.
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -136,14 +135,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### <a name="prefetch-images-for-container-configuration"></a>Prefetch avbildningar för konfigurationen behållaren
 
-Om du vill förhämtning behållaren avbildningar på poolen lägger du till listan över behållare bilder (`containerImageNames`) till behållaren konfiguration och ge bilden för att visa ett namn. Följande exempel förutsätter att du använder en anpassad avbildning Ubuntu 16.04 LTS, förhämtning en TensorFlow-avbildning från [Docker-hubb](https://hub.docker.com), och starta TensorFlow i en start-aktivitet.
+Om du vill förhämtning behållaren avbildningar på poolen lägger du till listan över behållare bilder (`containerImageNames`) till den `ContainerConfiguration`, och namnge Bildlistan. Följande exempel förutsätter att du använder en anpassad avbildning Ubuntu 16.04 LTS, förhämtning en TensorFlow-avbildning från [Docker-hubb](https://hub.docker.com), och starta TensorFlow i en start-aktivitet.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -176,7 +175,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Prefetch bilder från ett privat behållaren register
 
-Du kan också förhämtning behållaren avbildningar genom att autentisera till en server för privata behållare registret. I följande exempel förutsätter att du använder en anpassad avbildning Ubuntu 16.04 LTS och förhämtar en privat TensorFlow-avbildning från en behållare för privat Azure-registret.
+Du kan också förhämtning behållaren avbildningar genom att autentisera till en server för privata behållare registret. I följande exempel visas den `ContainerConfiguration` och `VirtualMachineConfiguration` objekt som använder en anpassad avbildning Ubuntu 16.04 LTS och förhämtning en privat TensorFlow-avbildning från en behållare för privat Azure-registret.
 
 ```csharp
 // Specify a container registry
@@ -187,7 +186,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );

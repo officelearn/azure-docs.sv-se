@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: bradsev;weig
-ms.openlocfilehash: 73517a8d58700e987ce80889dadf8791e53170a3
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team vetenskap av data i praktiken: använda SQL Data Warehouse
 I den här självstudiekursen vi beskriver hur du skapar och distribuerar en maskininlärningsmodell med hjälp av SQL Data Warehouse (SQL DW) för en offentligt tillgängliga dataset--den [NYC Taxi resor](http://www.andresmh.com/nyctaxitrips/) dataset. Binär klassificering modellen konstrueras beräknar huruvida ett tips betalat för en resa och modeller för multiklass-baserad klassificering och regression beskrivs också som förutsäga fördelningen för tips belopp betald.
@@ -839,7 +839,6 @@ I den här övningen har vi redan utforskade och utformad data i SQL Data Wareho
 3. Ange DNS-namnet för databasen i den **Databasservernamnet** fältet. Format:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Ange den **databasnamnet** i motsvarande fält.
 5. Ange den *användarnamn för SQL* i den **Server användarkontonamnet**, och *lösenord* i den **serverlösenord**.
-6. Kontrollera den **acceptera alla servercertifikat** alternativet.
 7. I den **databasfrågan** redigera texten, klistrar in frågan som extraherar nödvändiga databasfält (inklusive eventuella beräknade fält, till exempel etiketter) och ned exempel data till den önskade provtagning.
 
 Ett exempel på en binär klassificering experiment läsning av data direkt från SQL Data Warehouse-databasen är i bilden nedan (Kom ihåg att ersätta tabellen namn nyctaxi_trip och nyctaxi_fare med schemanamnet och tabellnamn som du använde i den här genomgången). Liknande experiment kan konstrueras för multiklass-baserad klassificering och regressionsproblem.

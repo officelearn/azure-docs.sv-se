@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Datakällor som stöds för Azure Machine Learning förberedelse av data 
 Den här artikeln beskrivs datakällor som för närvarande stöds för Azure Machine Learning förberedelse av data.
@@ -24,6 +24,25 @@ Den här artikeln beskrivs datakällor som för närvarande stöds för Azure Ma
 Datakällor som stöds för den här versionen är som följer.
 
 ## <a name="types"></a>Typer 
+
+### <a name="sql-server"></a>SQL Server
+Läsa från lokala SQLServer- eller Azure SQL-databas.
+
+#### <a name="options"></a>Alternativ
+- Serveradress
+- Lita på servern (även om certifikatet på servern som inte är giltigt. Använd med försiktighet)
+- Autentiseringstyp (Windows, Server)
+- Användarnamn
+- Lösenord
+- Databasen för att ansluta till
+- SQL-fråga
+
+#### <a name="notes"></a>Anteckningar
+- SQL-variant-kolumner stöds inte
+- Time-kolumn konverteras till datetime genom att lägga till tid från databasen till datum 1970/1/1
+- När den körs på Spark-kluster, alla data som är relaterade kolumner (datum, datetime, datetime2, datetimeoffset) kommer att utvärdera felaktiga värden för datum före 1583
+- Värden i decimal kolumner kan förlora precision på grund av konvertering till decimal
+
 ### <a name="directory-vs-file"></a>Directory kontra fil
 Välj en fil och läsa in förberedelse av data. Filtypen analyseras för att fastställa standardparametrar för filen anslutningen visas på nästa skärm.
 
@@ -40,8 +59,8 @@ Läs en CSV-värdefil från lagringsplatsen.
 
 #### <a name="options"></a>Alternativ
 - avgränsare
-- Kommentar
-- Rubriker
+- Kommentera
+- Huvuden
 - Decimaltecken
 - Filkodning
 - Rader ska hoppas över
@@ -50,8 +69,8 @@ Läs en CSV-värdefil från lagringsplatsen.
 Läs en fliken-värdefil från lagringsplatsen.
 
 #### <a name="options"></a>Alternativ
-- Kommentar
-- Rubriker
+- Kommentera
+- Huvuden
 - Filkodning
 - Rader ska hoppas över
 
@@ -60,7 +79,7 @@ Läs en Excel-fil, ett blad i taget genom att ange namn eller en siffra.
 
 #### <a name="options"></a>Alternativ
 - Namn eller en siffra
-- Rubriker
+- Huvuden
 - Rader ska hoppas över
 
 ### <a name="json-file"></a>JSON-fil
@@ -88,6 +107,9 @@ Skalbar körning beroende Sparks parkettgolv läsning av funktioner och stöd f�
 ## <a name="locations"></a>Platser
 ### <a name="local"></a>Lokal
 En lokal hårddisk eller en lagringsplats för mappade nätverksenheter.
+
+### <a name="sql-server"></a>SQL Server
+Lokal SQL Server, eller Azure SQL-databas.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob storage, vilket kräver en Azure-prenumeration.

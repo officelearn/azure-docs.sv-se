@@ -14,22 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Hantera förfallotiden för webbinnehåll i Azure innehåll Delivery Network
 > [!div class="op_single_selector"]
-> * [Azure webbinnehåll](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Azure-webbinnehåll](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Filer från en offentligt tillgänglig ursprung webbserver kan cachelagras i Azure Content Delivery Network (CDN) tills deras time to live (TTL) går ut. TTL-värdet bestäms av den `Cache-Control` rubriken i HTTP-svaret från den ursprungliga servern. Den här artikeln beskriver hur du ställer in `Cache-Control` huvuden för funktionen Web Apps i Microsoft Azure App Service, Azure Cloud Services, ASP.NET-program och platser för Internet Information Services (IIS), som är konfigurerade på samma sätt. Du kan ange den `Cache-Control` rubrik genom att använda konfigurationsfiler eller programmässigt.
+Filer från en offentligt tillgänglig ursprung webbserver kan cachelagras i Azure Content Delivery Network (CDN) tills deras time to live (TTL) går ut. TTL-värdet bestäms av den `Cache-Control` rubriken i HTTP-svaret från den ursprungliga servern. Den här artikeln beskriver hur du ställer in `Cache-Control` huvuden för funktionen Web Apps i Microsoft Azure App Service, Azure Cloud Services, ASP.NET-program och platser för Internet Information Services (IIS), som är konfigurerade på samma sätt. Du kan ange den `Cache-Control` rubrik genom att använda konfigurationsfiler eller programmässigt. 
+
+Du kan också styra inställningar för cachelagring i Azure Portal genom att ange [CDN cachelagring regler](cdn-caching-rules.md). Om du ställer in en eller flera cachelagring regler och ange sina cachelagringsbeteendet till **åsidosätta** eller **kringgå cache**, de angivna ursprung inställningar för cachelagring i den här artikeln ignoreras. Information om allmänna cachelagring begrepp finns [hur cachelagring fungerar](cdn-how-caching-works.md).
 
 > [!TIP]
-> Du kan välja att ange inga TTL-värde för en fil. I det här fallet gäller Azure CDN automatiskt en standard-TTL sju dagar. Den här standardinställningen TTL-värde gäller enbart för Internet leverans optimeringar. Standard-TTL är en dag för stora filer optimeringar och för direktuppspelning av optimeringar, standard TTL-värde är ett år.
+> Du kan välja att ange inga TTL-värde för en fil. I det här fallet gäller Azure CDN automatiskt standard TTL-värde på sju dagar, om du har ställt in cachelagring regler i Azure-portalen. Den här standardinställningen TTL-värde gäller enbart för Internet leverans optimeringar. Standard-TTL är en dag för stora filer optimeringar och för direktuppspelning av optimeringar, standard TTL-värde är ett år.
 > 
 > Mer information om hur Azure CDN fungerar för att påskynda åtkomst till filer och andra resurser finns [översikt över Azure innehållsleveransnätverk](cdn-overview.md).
 > 
@@ -82,5 +84,5 @@ Du kan enkelt kontrollera TTL-inställningarna för ditt webbinnehåll. Med din 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer information om den **clientCache** element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Läs i dokumentationen för den **HttpResponse.Cache** egenskapen](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Läs i dokumentationen för den **HttpCachePolicy klassen**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
-
+* [Läs i dokumentationen för den **HttpCachePolicy-klass**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Lär dig mer om cachelagring begrepp](cdn-how-caching-works.md)

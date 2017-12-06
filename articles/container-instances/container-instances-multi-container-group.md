@@ -1,41 +1,33 @@
 ---
-title: "Azure Behållarinstanser - flera behållargruppen | Azure-dokument"
-description: "Azure Behållarinstanser - grupp med flera behållare"
+title: "Distribuera flera behållare grupper i Azure Container instanser"
+description: "Lär dig hur du distribuerar en behållare grupp med flera behållare i Azure Container instanser."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Distribuera en behållare grupp
 
-Azure Behållarinstanser stöd för distribution av flera behållare till en enda värd med en *behållargruppen*. Detta är användbart när du skapar ett program sidovagn för loggning, övervakning eller någon annan konfiguration där en tjänst behöver en andra anslutna process. 
+Azure Behållarinstanser stöd för distribution av flera behållare till en enda värd med en *behållargruppen*. Detta är användbart när du skapar ett program sidovagn för loggning, övervakning eller någon annan konfiguration där en tjänst behöver en andra anslutna process.
 
 Det här dokumentet går igenom kör en enkel flera behållare sidovagn konfiguration med en Azure Resource Manager-mall.
 
 ## <a name="configure-the-template"></a>Konfigurera mallen
 
-Skapa en fil med namnet `azuredeploy.json` och kopierar följande json till den. 
+Skapa en fil med namnet `azuredeploy.json` och kopierar följande json till den.
 
-I det här exemplet definieras en behållare grupp med två behållare och en offentlig IP-adress. Första behållare för gruppen kör ett Internetriktade Internetprogram. Behållaren andra sidvagn, gör en HTTP-begäran till webbprogrammet huvudsakliga via gruppens lokala nätverk. 
+I det här exemplet definieras en behållare grupp med två behållare och en offentlig IP-adress. Första behållare för gruppen kör ett Internetriktade Internetprogram. Behållaren andra sidvagn, gör en HTTP-begäran till webbprogrammet huvudsakliga via gruppens lokala nätverk.
 
-Det här exemplet sidovagn kan expanderas för att utlösa en avisering om det tog emot en HTTP-svarskoden än 200 OK. 
+Det här exemplet sidovagn kan expanderas för att utlösa en avisering om det tog emot en HTTP-svarskoden än 200 OK.
 
 ```json
 {
@@ -46,7 +38,7 @@ Det här exemplet sidovagn kan expanderas för att utlösa en avisering om det t
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ Distribuera mallen med den [az distribution skapa](/cli/azure/group/deployment#c
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Inom några sekunder får du ett första svar från Azure. 
+Inom några sekunder får du ett första svar från Azure.
 
 ## <a name="view-deployment-state"></a>Visa status för distributionen
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Visa loggfiler   
+## <a name="view-logs"></a>Visa loggfiler
 
-Visa loggutdata från en behållare med hjälp av den `az container logs` kommando. Den `--container-name` argumentet anger behållaren som hämtar loggarna. Den första behållaren har angetts i det här exemplet. 
+Visa loggutdata från en behållare med hjälp av den `az container logs` kommando. Den `--container-name` argumentet anger behållaren som hämtar loggarna. Den första behållaren har angetts i det här exemplet.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights SDK för .NET
 
@@ -33,7 +33,7 @@ Detta dokument ger vägledning om hur du spårar anpassade åtgärder med Applic
 ## <a name="overview"></a>Översikt
 En åtgärd är en logisk mängd arbete köras av ett program. Den har ett namn, starttid, varaktighet, resultat och en kontext för körning som användarnamn, egenskaper och resultatet. Om åtgärden A initierades av åtgärden B har sedan åtgärden B angetts som en överordnad för A. En åtgärd kan bara ha en överordnad, men den kan ha många underordnade åtgärder. Mer information om åtgärder och telemetri korrelation finns [Azure Application Insights telemetri korrelation](application-insights-correlation.md).
 
-I Application Insights .NET SDK beskrivs åtgärden av den abstrakta klassen [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) och dess underordnade [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) och [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
+I Application Insights .NET SDK beskrivs åtgärden av den abstrakta klassen [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) och dess underordnade [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) och [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
 ## <a name="incoming-operations-tracking"></a>Inkommande operations spårning 
 Application Insights web SDK samlar automatiskt in HTTP-begäranden för ASP.NET-program som körs i en IIS-pipeline och alla program som ASP.NET Core. Det finns stöd för community lösningar för andra plattformar och ramverk. Men om programmet inte stöds av någon av lösningarna som standard eller community stöds, kan du instrumentera det manuellt.
@@ -167,7 +167,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Processen
+#### <a name="process"></a>Process
 ```C#
 public async Task Process(BrokeredMessage message)
 {
@@ -332,7 +332,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Processen
+#### <a name="process"></a>Process
 
 I följande exempel spåra vi ett inkommande meddelande på ett sätt på samma sätt som hur vi spåra en inkommande HTTP-begäran:
 

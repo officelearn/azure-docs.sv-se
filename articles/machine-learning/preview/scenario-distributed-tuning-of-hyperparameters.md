@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuerad justering av justeringsmodeller med hjälp av Azure Machine Learning arbetsstationen
 
@@ -27,9 +27,9 @@ Följande är en länk till den offentliga GitHub-lagringsplatsen:
 
 Många maskininlärningsalgoritmer har en eller flera rattar kallas justeringsmodeller. Dessa rattar Tillåt finjustering av algoritmer för att optimera prestanda över framtida data som mäts enligt användardefinierade mått (till exempel Precision, AUC, RMSE). Data forskare måste ange värden för justeringsmodeller när du skapar en modell över träningsdata och innan du ser framtida testdata. Hur baserat på kända utbildning data kan vi ställa in värdena för justeringsmodeller så att modellen har goda prestanda över okänd testdata? 
 
-En populär teknik för att finjustera justeringsmodeller är en *rutnätet Sök* kombineras med *korsvalidering*. Korsvalidering är en teknik som utvärderar hur väl en modell med en träningsmängden beräknar över test. Med den här tekniken först vi delar datauppsättningen i K vikningar och sedan träna algoritmen K tidpunkter, i ett resursallokering sätt på alla utom en av vikningar som kallas hålls out vikning. Vi beräkna medelvärdet av mätvärden för K modeller K lagras utanför vikningar. Den här medelvärdet kallas *cross-validerade prestanda uppskattning*, är beroende av värdena för justeringsmodeller som används när du skapar K modeller. När inställningen för justeringsmodeller, söka vi igenom utrymme för kandidat hyperparameter värden för att hitta de som optimerar prestanda för korsvalidering beräkna. Rutnätet search är en vanlig sökning metod där utrymme för värden som kandidat i flera justeringsmodeller är kryssprodukten av mängder av kandidat värden för enskilda justeringsmodeller. 
+En populär teknik för att finjustera justeringsmodeller är en *rutnätet Sök* kombineras med *korsvalidering*. Korsvalidering är en teknik som utvärderar hur väl en modell med en träningsmängden beräknar över test. Med den här tekniken kan vi dela först datauppsättningen i K vikningar och träna algoritmen K gånger på ett sätt för resursallokering. Vi kan göra detta på alla men en av vikningar som kallas ”vikning hålls out”. Vi beräkna medelvärdet av mätvärden för K modeller K lagras utanför vikningar. Den här medelvärdet kallas *cross-validerade prestanda uppskattning*, är beroende av värdena för justeringsmodeller som används när du skapar K modeller. När inställningen för justeringsmodeller, söka vi igenom utrymme för kandidat hyperparameter värden för att hitta de som optimerar prestanda för korsvalidering beräkna. Rutnätet search är en vanlig metod för sökning. I rutnätet sökningen är utrymme för värden som kandidat i flera justeringsmodeller kryssprodukten av mängder av kandidat värden för enskilda justeringsmodeller. 
 
-Rutnätet sökning med korsvalidering kan ta lång tid. Om en algoritm har 5 justeringsmodeller har 5 kandidat värdena och vi använder K = 5 gånger kommer för att genomföra en sökning i rutnätet behöver vi träna 5<sup>6</sup>= 15625 modeller. Lyckligtvis rutnätet Sök med hjälp av korsvalidering är en embarrassingly parallella process och alla modeller kan exempelvis tränas parallellt.
+Rutnätet sökning med korsvalidering kan ta lång tid. Om en algoritm har fem justeringsmodeller varje med fem kandidat värden kan använda vi K = 5 gånger. Vi Slutför en rutnätet sökning efter utbildning 5<sup>6</sup>= 15625 modeller. Lyckligtvis rutnätet Sök med hjälp av korsvalidering är en embarrassingly parallella process och alla modeller kan exempelvis tränas parallellt.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,9 +37,17 @@ Rutnätet sökning med korsvalidering kan ta lång tid. Om en algoritm har 5 jus
 * En installerad kopia av [Azure Machine Learning arbetsstationen](./overview-what-is-azure-ml.md) följande den [installera och skapa Quickstart](./quickstart-installation.md) att installera arbetsstationen och skapa konton.
 * Det här scenariot förutsätter att du använder Azure ML-arbetsstationen på Windows 10 eller MacOS med Docker-motorn har installerats lokalt. 
 * Om du vill köra ett scenario med en fjärransluten dockerbehållare etablera Ubuntu Data vetenskap virtuell dator (DSVM) genom att följa den [instruktioner](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 28 Gb minne. D4 instanser av virtuella datorer har denna kapacitet. 
-* Om du vill köra det här scenariot med ett Spark-kluster, etablera HDInsight-kluster genom att följa den [instruktioner](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Vi rekommenderar att du har ett kluster med minst sex arbetarnoder och minst 8 kärnor och 28 Gb minne i huvud- och arbetsroller noder. D4 instanser av virtuella datorer har denna kapacitet. Om du vill maximera prestanda i klustret, rekommenderar vi för att ändra parametrarna spark.executor.instances, spark.executor.cores och spark.executor.memory genom att följa den [instruktioner](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) och redigera definitioner i ”anpassade Väck standardvärden ”avsnitt.
+* Om du vill köra det här scenariot med ett Spark-kluster genom att etablera Azure HDInsight-kluster genom att följa dessa [instruktioner](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Vi rekommenderar att du har ett kluster med minst 
+- sex arbetsnoder
+- åtta kärnor
+- 28 Gb minne i huvud- och arbetsroller noder. D4 instanser av virtuella datorer har denna kapacitet. Vi rekommenderar att ändra följande parametrar för att maximera prestandan i klustret.
+- Spark.Executor.instances
+- Spark.Executor.cores
+- Spark.Executor.Memory 
 
-     **Felsökning av**: din Azure-prenumeration kan ha en kvot på antal kärnor som kan användas. Azure-portalen tillåter inte att skapa klustret med det totala antalet kärnor överskrider kvoten. Du kvoten finns i avsnittet prenumerationer Azure portal, klickar du på den prenumeration som används för att distribuera ett kluster och klicka sedan på **användning + kvoter**. Vanligtvis kvoter definieras per Azure-region och du kan välja att distribuera Spark-kluster i en region där du har tillräckligt med ledigt kärnor. 
+Du kan följa dessa [instruktioner](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) och redigera definitioner i ”anpassade spark standardvärden”.
+
+     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
 * Skapa ett Azure storage-konto som används för att lagra dataset. Följ den [instruktioner](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) att skapa ett lagringskonto.
 
@@ -72,7 +80,7 @@ Vi använder [scikit-Läs](https://anaconda.org/conda-forge/scikit-learn), [xgbo
 
 Ändrade conda\_dependencies.yml filen lagras i katalogen aml_config i självstudiekursen. 
 
-I nästa steg ska ansluta vi körningsmiljön på Azure-konto. Öppna kommandoradsfönster (CLI) genom att klicka på Arkiv-menyn i det övre vänstra hörnet AML arbetsstationen ”öppna Kommandotolken”. Kör i CLI
+I nästa steg ska ansluta vi körningsmiljön på Azure-konto. Klicka på Arkiv-menyn från det övre vänstra hörnet AML arbetsstationen. Välj ”öppnar du Kommandotolken”. Kör i CLI
 
     az login
 
@@ -84,7 +92,7 @@ Gå till den här webbsidan ange koden och logga in på ditt Azure-konto. När d
 
     az account list -o table
 
-och hitta prenumerations-ID för Azure-prenumeration som har kontot AML arbetsstationen arbetsytan. Slutligen körs i CLI
+och hitta Azure prenumerations-ID som har kontot AML arbetsstationen arbetsytan. Slutligen körs i CLI
 
     az account set -s <subscription ID>
 
@@ -96,7 +104,7 @@ I följande två avsnitt visar vi hur du slutför konfigurationen av fjärråtko
 
  Om du vill konfigurera en fjärransluten dockerbehållare köras i CLI
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 med IP-adress, användarnamn och lösenord i DSVM. IP-adressen för DSVM finns i avsnittet översikt på sidan DSVM i Azure-portalen:
 
@@ -106,7 +114,7 @@ med IP-adress, användarnamn och lösenord i DSVM. IP-adressen för DSVM finns i
 
 Om du vill konfigurera Spark miljö körs i CLI
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 med namnet på klustret, klustrets SSH-användarnamn och lösenord. Standardvärdet för SSH-användarnamn är `sshuser`, såvida inte du har ändrat under etablering av klustret. Namnet på klustret finns i avsnittet Egenskaper på sidan kluster i Azure-portalen:
 
@@ -136,13 +144,13 @@ Om du vill hämta data från Kaggle, gå till [dataset sidan](https://www.kaggle
 ![Öppna blob](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![öppna behållare](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-Efter detta Välj dataset-behållare i listan och klicka på knappen Skicka. Azure portal gör det möjligt för att överföra flera filer samtidigt. I avsnittet ”överför blob” klickar du på mappknappen markerar du alla filer i DataSet, klicka på Öppna, och klicka sedan på Överför. Skärmbilden nedan visar de här stegen:
+Efter det markerar dataset-behållaren i listan och klicka på knappen Skicka. Azure-portalen kan du överföra flera filer samtidigt. I avsnittet ”överför blob” klickar du på mappknappen markerar du alla filer i DataSet, klicka på Öppna, och klicka sedan på Överför. Följande skärmbild visar de här stegen:
 
 ![Överför blob](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 Överför filer tar flera minuter beroende på din Internet-anslutning. 
 
-I vår kod vi använder [Azure Storage SDK: N](https://azure-storage.readthedocs.io/en/latest/) att ladda ned datauppsättningen från blob storage till den aktuella körningsmiljön. Hämtas i belastning\_anropades funktion från load_data.py-filen. Om du vill använda den här koden, måste du ersätta < kontonamn > och < ACCOUNT_KEY > med namnet och primärnyckel för ditt lagringskonto som är värd för datauppsättningen. Kontonamnet visas i det övre vänstra hörnet av Azure storage-konto. För att hämta kontot nyckel, Välj snabbtangenter i Azure sidan av lagring (se första skärmbilden under Datapåfyllning) och kopiera lång sträng i den första raden i nyckelkolumn:
+I vår kod vi använder [Azure Storage SDK: N](https://azure-storage.readthedocs.io/en/latest/) att ladda ned datauppsättningen från blob storage till den aktuella körningsmiljön. Hämtas i belastning\_anropades funktion från load_data.py-filen. Om du vill använda den här koden, måste du ersätta < kontonamn > och < ACCOUNT_KEY > med namnet och primärnyckel för ditt lagringskonto som är värd för datauppsättningen. Du kan se namnet på kontot i det övre vänstra hörnet av Azure storage-konto-sidan. För att hämta kontot nyckel, Välj snabbtangenter i Azure sidan av lagring (se första skärmbilden under Datapåfyllning) och kopiera lång sträng i den första raden i nyckelkolumn:
  
 ![Snabbtangent](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
@@ -161,7 +169,7 @@ Följande kod från load_data() funktionen laddar ned en fil:
     # Load blob
     my_service.get_blob_to_path(CONTAINER_NAME, 'app_events.csv.zip', 'app_events.csv.zip')
 
-Observera att du inte behöver köra load_data.py filen manuellt. Vid ett senare tillfälle anropas från andra filer.
+Observera att du inte behöver köra load_data.py filen manuellt. Den anropas från andra filer vid ett senare tillfälle.
 
 ### <a name="feature-engineering"></a>Funktionstekniker
 Koden för alla funktioner finns i funktionen\_engineering.py fil. Du behöver inte köra feature_engineering.py filen manuellt. Vid ett senare tillfälle anropas från andra filer.
@@ -174,11 +182,11 @@ Vi skapar flera funktionsuppsättningar:
 * Andel av händelser som genererats av användare i varje app (en\_varm\_app_labels funktionen)
 * Andel av händelser som genererats av användare i varje app etikett (en\_varm\_app_labels funktionen)
 * Andel av händelser som genererats av användare i varje kategori app (text\_category_features funktionen)
-* Indikator funktioner för kategorier av appar som användes av används för att genereras händelser (en\_hot_category funktionen)
+* Indikator funktioner för kategorier av appar som brukar genereras händelser (en\_hot_category funktionen)
 
 De här funktionerna har inspirerat av Kaggle kernel [linjär modell på appar och etiketter](https://www.kaggle.com/dvasyukova/a-linear-model-on-apps-and-labels).
 
-Beräkningen av dessa funktioner kräver mycket minne. Först ett försök gjordes att beräkna funktioner i den lokala miljön med 16 Gb RAM-minne. Vi har kunnat compute första fyra uppsättningar med funktioner, men 'slut på minne-fel uppstod när funktionsuppsättningen femte. Beräkning av de fyra första funktionen som finns i singleVMsmall.py fil och det kan utföras i den lokala miljön genom att köra 
+Beräkningen av dessa funktioner kräver mycket minne. Först ett försök gjordes att beräkna funktioner i den lokala miljön med 16 GB RAM-minne. Vi har kunnat compute första fyra uppsättningar med funktioner, men 'slut på minne-fel uppstod när funktionsuppsättningen femte. Beräkning av de fyra första funktionen som finns i singleVMsmall.py fil och det kan utföras i den lokala miljön genom att köra 
 
      az ml experiment submit -c local .\singleVMsmall.py   
 
@@ -190,7 +198,7 @@ Eftersom lokala miljön är för liten för att beräkna alla egenskapsuppsättn
 Vi använder [xgboost](https://anaconda.org/conda-forge/xgboost) av toning trädet förstärkning implementering [1]. Vi använder [scikit-Läs](http://scikit-learn.org/) paket att justera justeringsmodeller av xgboost. Även om xgboost inte är en del av scikit-Läs paketet, den implementerar scikit-Läs API och kan därför användas tillsammans med hyperparameter justera funktioner i scikit-Läs. 
 
 Xgboost har åtta justeringsmodeller:
-* n_esitmators
+* n_estimators
 * max_depth
 * reg_alpha
 * reg_lambda
@@ -198,9 +206,12 @@ Xgboost har åtta justeringsmodeller:
 * learning_rate
 * colsample\_by_level
 * delprov
-* mål för en beskrivning av dessa justeringsmodeller hittar [här](http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn) och [här](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). Ursprungligen vi använder fjärråtkomst DSVM och finjustera justeringsmodeller från ett litet rutnät av möjliga värden:
+* mål för en beskrivning av dessa justeringsmodeller finns på
+- http://xgboost.readthedocs.IO/en/Latest/Python/python_api.HTML#Module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
+- 
+Från början vi använda remote DSVM och finjustera justeringsmodeller från ett litet rutnät av möjliga värden:
 
-    tuned_parameters = [{'n_estimators': [300,400] 'max_depth': [3,4] 'målet': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1], 'learning_rate': [0,1] 'colsample_bylevel': [0,1,] 'delprov': [0,5]}]  
+    tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
 Det här rutnätet har fyra kombinationer av värden för justeringsmodeller. Vi använder 5-fold mellan verifiering, resulterande 4 x 5 = 20 körs av xgboost. Vi använder negativt loggen förlust mått för att mäta prestanda hos modeller. Följande kod hittar värdena för justeringsmodeller från rutnätet som maximera cross-validerade negativt logg går förlorade. Dessa värden används också för att träna modellen slutliga över fullständig träningsmängden:
 
@@ -224,7 +235,7 @@ Efter att modellen kan spara vi resultaten av hyperparameter justering. Vi anvä
     for key in clf_cv.best_params_.keys():
         run_logger.log(key, clf_cv.best_params_[key]) 
 
-Vi kan också skapa sweeping_results.txt filen med validerade mellan negativa loggen förlust av alla kombinationer av hyperparameter värden i rutnätet:
+Vi kan också skapa sweeping_results.txt filen med cross-validerade, negativt loggen förlust av alla kombinationer av hyperparameter värden i rutnätet.
 
     if not path.exists('./outputs'):
         makedirs('./outputs')
@@ -249,13 +260,13 @@ Det här kommandot har slutförts i 1 timme-38 minuter när DSVM har 8 kärnor o
 
 ![Kör historik](media/scenario-distributed-tuning-of-hyperparameters/run_history.png)
 
-Som standard visar Körningshistorik fönster värdena och diagram över första 1 – 2 loggade värden. Om du vill se en fullständig lista över de valda värdena för justeringsmodeller, klicka på ikonen för inställningar markeras med röd cirkel i föregående skärmbild och välj justeringsmodeller som ska visas i tabellen. Även om du vill välja diagrammen som visas i den övre delen av fönstret kör tidigare klickar du på ikonen inställning som markerats med blå cirkel och välj diagrammen i listan. 
+Som standard visar Körningshistorik fönster värdena och diagram över första 1 – 2 loggade värden. Om du vill se en fullständig lista över de valda värdena för justeringsmodeller, klicka på ikonen för inställningar markeras med röd cirkel i föregående skärmbild. Markera justeringsmodeller som ska visas i tabellen. Även om du vill välja diagrammen som visas i den övre delen av fönstret kör tidigare klickar du på ikonen inställning som markerats med blå cirkel och välj diagrammen i listan. 
 
 De valda värdena för justeringsmodeller undersökte även i fönstret Egenskaper för kör: 
 
 ![Kör egenskaper](media/scenario-distributed-tuning-of-hyperparameters/run_properties.png)
 
-I det övre högra hörnet i fönstret Egenskaper för kör finns ett avsnitt utdatafilerna med listan över alla filer som har skapats i '. \output-mappen i körningsmiljön. omfattande\_resultat.txt kan hämtas därifrån genom att markera den och klicka på hämtningsknappen. sweeping_results.txt bör ha följande utdata:
+I det övre högra hörnet i fönstret Egenskaper för kör finns ett avsnitt utdatafilerna med listan över alla filer som har skapats i '. \output-mappen. omfattande\_resultat.txt kan hämtas därifrån genom att markera den och klicka på hämtningsknappen. sweeping_results.txt bör ha följande utdata:
 
     metric =  neg_log_loss
     mean: -2.29096, std: 0.03748, params: {'colsample_bytree': 1, 'learning_rate': 0.1, 'subsample': 0.5, 'n_estimators': 300, 'reg_alpha': 1, 'objective': 'multi:softprob', 'colsample_bylevel': 0.1, 'reg_lambda': 1, 'max_depth': 3}
@@ -297,15 +308,15 @@ i windows CLI. Den här installationen tar flera minuter. Därefter kör vi dist
 
     az ml experiment submit -c spark .\distributed_sweep.py
 
-Det här kommandot har slutförts i 1 timme-6 minuter när 6 arbetarnoder med 28 Gb minne har i Spark-kluster. Resultaten av justera justeringsmodeller i Spark-kluster, nämligen loggar, bästa värden för justeringsmodeller och sweeping_results.txt-fil, kan nås i Azure Machine Learning-arbetsstationen på samma sätt som i DSVM fjärrkörning. 
+Det här kommandot har slutförts i 1 timme-6 minuter när 6 arbetarnoder med 28 Gb minne har i Spark-kluster. Resultaten av hyperparameter justering kan nås i Azure Machine Learning-arbetsstationen på samma sätt som DSVM fjärrkörning. (dvs loggar, bästa värdena för justeringsmodeller och sweeping_results.txt-fil)
 
 ### <a name="architecture-diagram"></a>Arkitekturdiagram
 
-Följande diagram visar slutpunkt till slutpunkt-arbetsflöde: ![arkitektur](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
+Följande diagram visar det totala arbetsflödet: ![arkitektur](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
 ## <a name="conclusion"></a>Slutsats 
 
-I det här scenariot visade vi hur du använder Azure Machine Learning-arbetsstationen för att utföra finjustering av hyperparameter i virtuella fjärrdatorn och fjärranslutna Spark-kluster. Vi såg att Azure Machine Learning arbetsstationen innehåller verktyg för enkel konfiguration av körningen miljöer och växla mellan dem. 
+I det här scenariot visade vi hur du använder Azure Machine Learning-arbetsstationen för att utföra finjustering av justeringsmodeller i fjärranslutna virtuella datorer och Spark-kluster. Vi såg att Azure Machine Learning arbetsstationen innehåller verktyg för enkel konfiguration av körningen miljöer. Det gör också enkelt växla mellan dem. 
 
 ## <a name="references"></a>Referenser
 

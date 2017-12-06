@@ -1,6 +1,6 @@
-## <a name="help--support"></a>Hjälp och support
+## <a name="help-and-support"></a>Hjälp och support
 
-Om du behöver hjälp, rapportera ett problem eller behöver veta om supportalternativ finns i artikeln nedan:
+Om du behöver hjälp vill rapportera ett problem och vill veta mer om supportalternativ finns i följande artikel:
 
 > [!div class="nextstepaction"]
-> [Hjälp och Support för utvecklare](../articles/active-directory/develop/active-directory-develop-help-support.md)
+> [Hjälp och support för utvecklare](../articles/active-directory/develop/active-directory-develop-help-support.md)

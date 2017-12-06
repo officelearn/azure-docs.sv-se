@@ -14,102 +14,92 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: db8f0056fa3813e95c2c5bea583d7b66ac64260f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Köra interaktiva frågor på ett HDInsight Spark-kluster
+# <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Köra interaktiva frågor i Spark-kluster i HDInsight
 
-I den här artikeln använder du en Jupyter-anteckningsbok för att köra interaktiva Spark SQL-frågor mot Spark-kluster. Jupyter-anteckningsbok är ett webbaserat program som utökar konsolbaserad interaktiva upplevelse på webben. Mer information finns i [i Jupyter-anteckningsbok](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html).
+Lär dig hur du använder Jupyter-anteckningsboken för att köra interaktiva Spark SQL-frågor mot Spark-kluster. 
 
-Den här kursen kan du använda den **PySpark** kernel i Jupyter-anteckningsboken för att köra en interaktiva Spark SQL-fråga. Jupyter-anteckningsböcker på HDInsight-kluster stöder också två andra kernel - **PySpark3** och **Spark**. Mer information om kärnor och fördelarna med att använda **PySpark**, se [Använd Jupyter-anteckningsbok kärnor med Apache Spark-kluster i HDInsight](apache-spark-jupyter-notebook-kernels.md).
+[Jupyter-anteckningsbok](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) är ett webbaserat program som utökar konsolbaserad interaktiva upplevelse på webben. Spark i HDInsight innehåller också [Zeppelin anteckningsboken](apache-spark-zeppelin-notebook.md). Jupyter-anteckningsbok används i den här kursen.
+
+Jupyter-anteckningsböcker på HDInsight-kluster stöder tre kernel - **PySpark**, **PySpark3**, och **Spark**. Den **PySpark** kernel används i den här kursen. Mer information om kärnor och fördelarna med att använda **PySpark**, se [Använd Jupyter-anteckningsbok kärnor med Apache Spark-kluster i HDInsight](apache-spark-jupyter-notebook-kernels.md). Om du vill använda Zeppelin anteckningsboken finns [använda Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight](./apache-spark-zeppelin-notebook.md).
+
+I kursen får fråga du efter data i en csv-fil. Du måste först läsa in data i Spark som en dataframe. Du kan köra frågor på dataframe med Jupyter-anteckningsbok. 
 
 ## <a name="prerequisites"></a>Krav
 
-* **Ett Azure HDInsight Spark-kluster**. Instruktioner finns i [skapar ett Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **Ett Azure HDInsight Spark-kluster**. Instruktioner finns i avsnittet [skapar ett Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **En Jupyter-anteckningsbok med PySpark**. Instruktioner finns i avsnittet [skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Skapa en Jupyter-anteckningsboken för att köra interaktiva frågor
+## <a name="create-a-dataframe-from-a-csv-file"></a>Skapa en dataframe från en csv-fil
 
-Om du vill köra frågor som vi använder exempeldata är som standard tillgängligt i lagringen som är associerade med klustret. Du måste dock först hämta dessa data till Spark som en dataframe. När du har dataframe kan köra du frågor i det med Jupyter-anteckningsboken. I den här artikeln titta på hur du:
+Med en SQLContext kan program skapa dataframes från en befintlig RDD, en Hive-tabell eller datakällor. 
 
-* Registrera data exempeldata som ett Spark-dataframe.
-* Köra frågor på dataframe.
+**Skapa en dataframe från en csv-fil**
 
-Nu sätter vi igång.
+1. Skapa en Jupyter-anteckningsbok med PySpark om du inte har någon. Instruktioner finns i avsnittet [skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-1. Öppna [Azure-portalen](https://portal.azure.com/). Om du har valt att fästa klustret på instrumentpanelen klickar du på klusterikonen på instrumentpanelen för att öppna klusterbladet.
+2. Klistra in följande kod i en tom cell för anteckningsboken och tryck sedan på **SKIFT + RETUR** att köra koden. Koden importerar de typer som krävs för det här scenariot:
 
-    Om du inte har fäst klustret på instrumentpanelen går du till den vänstra rutan och klickar på **HDInsight-kluster**. Klicka sedan på det kluster du har skapat.
+    ```PySpark
+    from pyspark.sql import *
+    from pyspark.sql.types import *
+    ```
+    Genom att använda PySpark-kerneln att skapa en bärbar dator på Spark och Hive skapas kontexter automatiskt åt dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa några kontexter.
 
-3. I **Snabblänkar** klickar du på **Klusterinstrumentpaneler** och sedan på **Jupyter Notebook**. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
-
-   ![Öppna Jupyter-anteckningsboken för att köra interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "Öppna Jupyter-anteckningsboken för att köra interaktiv Spark SQL-fråga")
-
-   > [!NOTE]
-   > Du kan också nå Jupyter-anteckningsboken för ditt kluster genom att öppna nedanstående URL i webbläsaren. Ersätt **CLUSTERNAME** med namnet på klustret:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-3. Skapa en anteckningsbok. Klicka på **Ny** och sedan på **PySpark**.
-
-   ![Skapa en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Skapa en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga")
-
-   En ny anteckningsbok skapas och öppnas med namnet Untitled(Untitled.pynb).
-
-4. Klicka på anteckningsbokens namn högst upp och ange ett beskrivande namn om du vill.
-
-    ![Ange ett namn för Jupter-anteckningsboken för att köra en interaktiv Spark-fråga från](./media/apache-spark-load-data-run-query/hdinsight-spark-jupyter-notebook-name.png "Ange ett namn för Jupter-anteckningsboken för att köra en interaktiv Spark-fråga från")
-
-5. Klistra in följande kod i en tom cell och tryck sedan på **SKIFT+RETUR** för att köra koden. Koden importerar de typer som krävs för det här scenariot:
-
-        from pyspark.sql import *
-        from pyspark.sql.types import *
-
-    Du behöver inte uttryckligen skapa några kontexter eftersom du har skapat anteckningsboken med hjälp av PySpark-kerneln. Spark- och Hive-kontexterna skapas automatiskt för dig när du kör den första kodcellen.
+    När du kör en interaktiv fråga i Jupyter web webbläsare fönster eller flik beskrivningen visar en **(upptagen)** status tillsammans med anteckningsbokens titel. Du ser även en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras detta till en tom cirkel.
 
     ![Status för interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status för interaktiv Spark SQL-fråga")
 
-    Varje gång du kör en interaktiv fråga i Jupyter visar fönsterrubriken i webbläsaren statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du ser även en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet. När jobbet har slutförts ändras detta till en tom cirkel.
+3. Kör följande kod för att skapa en dataframe och en tillfällig tabell (**hvac**) genom att köra följande kod: koden inte extrahera alla kolumnerna som är tillgängliga i CSV-filen. 
 
-6. Låt oss se ut en ögonblicksbild av den innan du läser in data i ett Spark-kluster. Exempeldata används i den här kursen är tillgängliga som en CSV-fil på alla HDInsight Spark-kluster på **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Informationen som avbildar temperaturvariationer av en byggnad. Här är de första raderna i data.
+    ```PySpark
+    # Create an RDD from sample data
+    hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    
+    # Create a schema for our data
+    Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+    
+    # Parse the data and create a schema
+    hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+    hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+    
+    # Infer the schema and create a table       
+    hvacTable = sqlContext.createDataFrame(hvac)
+    hvacTable.registerTempTable('hvactemptable')
+    dfw = DataFrameWriter(hvacTable)
+    dfw.saveAsTable('hvac')
+    ```
+    Följande skärmbild visar en ögonblicksbild av HVAC.csv-filen. Csv-filen innehåller alla HDInsigt Spark-kluster. Informationen som avbildar temperaturvariationer av en byggnad.
 
     ![Ögonblicksbild av data för interaktiva Spark SQL-frågan](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "ögonblicksbild av data för interaktiva Spark SQL-fråga")
 
-6. Skapa en dataframe och en tillfällig tabell (**hvac**) genom att köra följande kod. Den här självstudiekursen kommer skapar vi inte alla kolumner som är tillgängliga i CSV-filen. 
+## <a name="run-queries-on-the-dataframe"></a>Köra frågor i dataframe
 
-        # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+När tabellen har skapats kan du köra en interaktiv fråga på data.
 
-        # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+**Att köra en fråga**
 
-        # Parse the data and create a schema
-        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-        
-        # Infer the schema and create a table       
-        hvacTable = sqlContext.createDataFrame(hvac)
-        hvacTable.registerTempTable('hvactemptable')
-        dfw = DataFrameWriter(hvacTable)
-        dfw.saveAsTable('hvac')
+1. Kör följande kod i en tom cell för den bärbara datorn:
 
-7. När tabellen har skapats kan köra en interaktiv fråga på data, kan du använda följande kod.
+    ```PySpark
+    %%sql
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+    ```
 
-        %%sql
-        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
-
-   Eftersom du använder en PySpark-kernel kan du nu direkt köra en interaktiv SQL-fråga för den tillfälliga tabellen **hvac** som du skapade med den användbara `%%sql`-funktionen. Mer information om `%%sql`-funktionen, samt andra användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Eftersom PySpark-kerneln används i anteckningsboken, du kan nu direkt köra en interaktiv SQL-fråga på den temporära tabellen **hvac** som du skapade med hjälp av den `%%sql` Magiskt tal. Mer information om `%%sql`-funktionen, samt andra användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med HDInsight Spark-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    Följande tabellutdata visas som standard.
 
      ![Tabellutdata från interaktivt Spark-frågeresultat](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabellutdata från interaktivt Spark-frågeresultat")
 
-9. Du kan också visa resultaten i andra visualiseringar. Om du vill se ett Områdesdiagram för samma utdata, Välj **område** sedan ange andra värden som visas.
+3. Du kan också visa resultaten i andra visualiseringar. Om du vill se ett Områdesdiagram för samma utdata, Välj **område** sedan ange andra värden som visas.
 
     ![Områdesdiagram över interaktivt Spark-frågeresultat](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Områdesdiagram över interaktivt Spark-frågeresultat")
 

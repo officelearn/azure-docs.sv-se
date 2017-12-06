@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognostisering av serverns arbetsbelastning i terabyte med data
 
@@ -71,7 +71,7 @@ DSVM IP-adress | xxx|
 
  Fältnamn| Värde |  
  |------------|------|
- Lagringskontonamnet| xxx|
+ Lagringskontonamn| xxx|
  Snabbtangent  | xxx|
 
 
@@ -97,8 +97,8 @@ Den totala Datastorleken är cirka 1 TB. Varje fil är cirka 1 – 3 GB och är 
 
 Kolumnnumret | Fältnamn| Typ | Beskrivning |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datum och tid |    Starttid för session
-2  |`SessionEnd`    | Datum och tid | Sluttid för session
+1  | `SessionStart` | DateTime |    Starttid för session
+2  |`SessionEnd`    | DateTime | Sluttid för session
 3 |`ConcurrentConnectionCounts` | Integer | Antalet samtidiga anslutningar
 4 | `MbytesTransferred` | dubbla | Normaliserade data som överförs i megabyte
 5 | `ServiceGrade` | Integer |  Service-klass för session
@@ -203,7 +203,7 @@ Det andra argumentet är felsökning. Ange värdet till FILTER_IP kan en snabbar
 
 Starta kommandoraden från Machine Learning arbetsstationen genom att välja **filen** > **öppnar du kommandotolken**. Kör sedan: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 Följande två filer skapas i mappen aml_config i projektet:
 
@@ -266,7 +266,7 @@ När experiment på små data har slutförts, kan du fortsätta att köra experi
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. Skapa beräknings-mål i Machine Learning-arbetsstationen för HDInsight-kluster
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 Följande två filer skapas i mappen aml_config:
     

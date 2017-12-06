@@ -1,22 +1,22 @@
 ---
-title: "Översikt över Azure IoT-hubb Device etablering Service (förhandsversion) | Microsoft Docs"
+title: "Översikt över Azure IoT-hubb enheten etableras | Microsoft Docs"
 description: "Beskriver enhetsetableringen i Azure med tjänsten för etablering av enheten och IoT-hubb"
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Etablering enheter med Azure IoT-hubb Device etablering Service (förhandsgranskning)
 Microsoft Azure tillhandahåller en omfattande uppsättning integrerad offentliga molntjänster för alla dina IoT-lösningen behov. IoT-hubb Device etablering Service är en helper-tjänsten för IoT-hubb som möjliggör zero touch, just-in-time etablering till rätt IoT-hubben utan mänsklig inblandning aktiverar kunder att etablera miljoner enheter i en säker och skalbar sätt.
@@ -47,7 +47,7 @@ Alla scenarier som beskrivs i föregående avsnitt kan göras med hjälp av tjä
 8. Enheten får tillståndet från sin enhet dubbla i IoT-hubb.
 
 ## <a name="provisioning-process"></a>Etablering pågår
-Det finns två olika steg i processen för distribution av en enhet där enheten Etableringstjänsten äger en del som kan göras oberoende av varandra:
+Det finns två olika steg i processen för distribution av en enhet där enheten Etableringstjänsten tar en del som kan göras oberoende:
 
 * Den **tillverkning steg** som enheten skapas och förberedas på fabriken, och
 * Den **moln steget av installationen** i som enheten Etableringstjänsten är konfigurerad för automatisk etablering.
@@ -59,7 +59,7 @@ Det här steget är alla om vad som händer på raden tillverkning. Rollerna som
 
 Etablering av tjänst inför inte ett nytt steg i tillverkningen. i stället kopplar samman i det befintliga steg som installerar den första programvaran- och (helst) HSM på enheten. I stället för att skapa ett enhets-ID i det här steget är enheten helt enkelt programmerad med etableringsinformationen tjänsten så att den anropar tjänsten etablering för att få dess anslutning info/IoT-lösningen tilldelning när den är påslagen.
 
-I det här steget finns också tillverkaren enhet deployer/operator med identifierande viktig information. Det kan vara så enkelt som bekräftar att alla enheter har ett X.509-certifikat som genereras från en rotcertifikatutfärdare som enheten deployer/operator, och som du extraherar den offentliga delen av ett TPM-bekräftelsenyckel från varje TPM-enhet. Dessa tjänster erbjuds av många silicon tillverkare idag.
+I det här steget finns också tillverkaren enhet deployer/operator med identifierande viktig information. Det kan vara så enkelt som bekräftar att alla enheter har ett X.509-certifikat som genereras från ett signeringscertifikat som tillhandahålls av enheten deployer/operator, att extrahera den offentliga delen av ett TPM-bekräftelsenyckel från varje TPM-enhet. Dessa tjänster erbjuds av många silicon tillverkare idag.
 
 ### <a name="cloud-setup-step"></a>Molnet steget av installationen
 Det här steget är om hur du konfigurerar molnet för rätt Automatisk etablering. Vanligtvis det finns två typer av användare ingår i molnet installationen steg: en som vet hur enheter måste du först konfigurera (en operator för enheten) och någon annan som känner till hur enheter är för att delas upp mellan IoT-hubbar (en operator för lösning).
@@ -84,19 +84,29 @@ Etablering av tjänst har många funktioner som gör det perfekt för etablering
 * **Flera resursallokeringsprinciper** att kontrollera hur enheten Etableringstjänsten tilldelar enheter IoT-hubbar stöd för dina scenarier.
 * **Övervaknings- och diagnostikfunktionerna loggar** att kontrollera att allt fungerar korrekt.
 * **Stöd för flera hubb** vilket gör att enheten Etableringstjänsten tilldela enheter till mer än en IoT-hubb. Etablering av tjänst kan tala med nav över flera Azure-prenumerationer.
+* **Stöd för Cross-region** vilket gör att enheten Etableringstjänsten tilldela enheter till IoT-hubbar i andra regioner.
 
 Du kan lära dig mer om koncept och funktioner som ingår i enhetsetableringen i [enheten begrepp](concepts-device.md), [tjänsten begrepp](concepts-service.md), och [säkerhetsbegrepp](concepts-security.md).
 
 ## <a name="cross-platform-support"></a>Plattformsoberoende stöd
-Enheten Etableringstjänsten, precis som alla Azure IoT-tjänster fungerar plattformsoberoende med olika operativsystem. Public preview stöder en begränsad uppsättning språk/protokoll som stöds, även om många fler ska vara tillgängligt vid etablering av tjänst är allmänt tillgänglig. Etablering av tjänst stöder endast HTTPS-anslutningar för både enheten och tjänsten åtgärder för public preview. Enheten är SDK i C och SDK finns i C#-tjänsten.
+Enheten Etableringstjänsten, precis som alla Azure IoT-tjänster fungerar plattformsoberoende med olika operativsystem. Azure erbjuder Öppna källa SDK: er i en mängd olika [språk](https://github.com/Azure/azure-iot-sdks) att underlätta ansluta enheter och hantera tjänsten. Etablering av tjänst stöder följande protokoll för att ansluta enheter:
+
+* HTTPS
+* AMQP
+* AMQP över websockets
+* MQTT
+* MQTT över websockets
+
+Etablering av tjänst stöder endast HTTPS-anslutningar för tjänståtgärder.
 
 ## <a name="regions"></a>Regioner
-Tjänsten etablering enhet är tillgänglig i östra USA, västra Europa och Sydostasien för förhandsversion. Vi har en uppdaterad lista av befintliga och nya meddelats regioner för alla tjänster.
+Etablering av tjänst är tillgänglig i många områden. Vi har en uppdaterad lista av befintliga och nya meddelats regioner för alla tjänster på [Azure-regioner](https://azure.microsoft.com/regions/). Du kan se där tjänsten etablering enhet är tillgänglig på den [Azure Status](https://azure.microsoft.com/status/) sidan.
 
-* [Azure-regioner](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> Etablering av tjänst är global och inte knuten till en plats. Du måste dock ange en region där metadata som associeras med tjänstprofilen enheten etablering kommer att finnas.
 
 ## <a name="availability"></a>Tillgänglighet
-Vi upprätthålla bästa tillgänglighet under förhandsversion. Det finns inget serviceavtal under förhandsversion. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/) förklaras den garanterade tillgängligheten för Azure som helhet.
+Upprätthåller vi ett 99,9% serviceavtal för etablering av tjänst, och du kan [läsa SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
 ## <a name="quotas"></a>Kvoter
 Varje Azure-prenumeration har standard kvotgränser som kan påverka omfånget för IoT-lösningen. Den aktuella gränsen på grundval av per prenumeration är 10 enhet Provisioning Services per prenumeration.

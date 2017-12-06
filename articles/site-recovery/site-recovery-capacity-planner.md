@@ -12,19 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+Ny utökad version av [Azure Site Recovery-distribution planner för Hyper-V till Azure](site-recovery-hyper-v-deployment-planner.md) är nu tillgänglig och ersätta det gamla verktyget. Använd verktyget ny för att planera din distribution. Verktyget ger följande riktlinjer:
+* VM är behörig bedömning, baserat på antalet diskar, diskstorlek, IOPS, omsättning och några VM-egenskaper.
+* Nätverkets bandbredd måste jämfört med Återställningspunktsmål assessment.
+* Krav för Azure-infrastrukturen.
+* Lokala infrastrukturkrav.
+* Den inledande replikeringen batchbearbetning vägledning.
+* Uppskattad totalkostnad DR till Azure.
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planera kapacitet för att skydda Hyper-V virtuella datorer med Site Recovery
 
 Verktyget Azure Site Recovery Capacity Planner hjälper dig att ta reda på dina kapacitetskrav vid replikering av Hyper-V virtuella datorer med Azure Site Recovery.
 
-Använd Site Recovery Capacity Planner för att analysera din källmiljö och arbetsbelastningar, uppskattning bandbreddsbehov och serverresurser som du behöver för källplatsen och resurser (virtuella datorer och lagring osv), som du behöver på målplatsen.
+Använd Site Recovery Capacity Planner för att analysera din källmiljö och arbetsbelastningar, beräkna bandbreddsbehov och serverresurser som du behöver för källplatsen och resurser (virtuella datorer och lagring o.s.v.) som du behöver på målplatsen .
 
 Du kan köra verktyget på ett par olika lägen:
 

@@ -15,11 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e72f2c8095d13c4b6df3c6576bd58806a3c0f2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bb671e1870ae22eb515adc36ce0235e1d8ecddd
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Skapa anpassade roller för rollbaserad åtkomstkontroll
 Skapa en anpassad roll i rollbaserad åtkomstkontroll (RBAC) om ingen av de inbyggda rollerna uppfyller dina specifika behov. Anpassade roller kan skapas med [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure-kommandoradsgränssnittet](role-based-access-control-manage-access-azure-cli.md) (CLI) och [REST API](role-based-access-control-manage-access-rest.md). Du kan tilldela anpassade roller till användare, grupper och program på prenumerationen, resursgruppen och resursen omfattningar precis som inbyggda roller. Anpassade roller lagras i Azure AD-klient och kan delas mellan prenumerationer.
@@ -28,7 +28,7 @@ Varje klient kan skapa upp till 2000 anpassade roller.
 
 I följande exempel visas en anpassad roll för övervakning och starta om virtuella datorer:
 
-```
+```json
 {
   "Name": "Virtual Machine Operator",
   "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
@@ -67,7 +67,7 @@ Den **åtgärder** -egenskapen för en anpassad roll anger Azure operationer som
 
 Använd `Get-AzureRmProviderOperation` (i PowerShell) eller `azure provider operations show` (i Azure CLI) till Liståtgärder över providers som Azure-resurs. Du kan också använda dessa kommandon för att verifiera att en sträng för åtgärden är giltig och att expandera jokertecken åtgärden strängar.
 
-```
+```powershell
 Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
@@ -75,7 +75,7 @@ Get-AzureRMProviderOperation Microsoft.Network/*
 
 ![Skärmbild av PowerShell - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
-```
+```azurecli
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
 
 azure provider operations show "Microsoft.Network/*"
@@ -118,6 +118,7 @@ Den **AssignableScopes** -egenskapen för den anpassade rollen som också styr s
 
 ## <a name="see-also"></a>Se även
 * [Rollbaserad åtkomstkontroll](role-based-access-control-configure.md): komma igång med RBAC på Azure-portalen.
+* En lista över tillgängliga åtgärder, se [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
 * Lär dig mer om att hantera åtkomst med:
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)

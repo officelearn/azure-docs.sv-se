@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Cykeln filresurs Självstudier: avancerade förberedelse av data med Azure Machine Learning arbetsstationen
 Azure Machine Learning-tjänster (förhandsversion) är en integrerad, slutpunkt-till-slutpunkt datavetenskap och avancerade analyser lösning för professionella datavetare och förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -201,7 +201,7 @@ Returnera den __datavy__väljer __Data__ från det övre vänstra hörnet på si
    ![Bild av dialogrutan filter](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > RM-15 är en typ av meteorologiska Terminal luftfart rutinunderhåll väder rapport (METAR). Rapporterar FM 15 observeras empiriskt kan vara den mest fullständig, listtle data som saknas.
+   > RM-15 är en typ av meteorologiska Terminal luftfart rutinunderhåll väder rapport (METAR). Rapporterar FM 15 observeras empiriskt kan vara den mest fullständig, lite data som saknas.
 
 ## <a name="remove-a-column"></a>Ta bort en kolumn
 
@@ -287,7 +287,7 @@ Om du vill använda data i en förutsägelse för två-timmarsformat block, mås
 
    Typen `Jan 01, 2015 12AM-2AM` exempel mot den första raden och tryck på **RETUR**.
 
-   Arbetsstationen anger transformation som baseras på exemplet som du anger. I det här exemplet är resultatet att datumet format ändras och användas i sammanslagningen av fönstret två timmar.
+   Arbetsstationen anger transformation som baseras på exemplet som du anger. I det här exemplet är resultatet att datumformatet ändras och användas i sammanslagningen av fönstret två timmar.
 
    ![Bild av exemplet ' 01 januari 2015 12: 00 - 02: 00](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 

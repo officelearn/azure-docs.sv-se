@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 8c1816fa272386a9839d93423a8ae81d2cdc8567
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Självstudier: Azure Active Directory-integrering med Trello
 
@@ -25,9 +26,9 @@ I kursen får lära du att integrera Trello med Azure Active Directory (AD Azure
 
 Integrera Trello med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Trello
-- Du kan aktivera användarna att automatiskt hämta loggat in på Trello (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan styra i Azure AD som har åtkomst till Trello.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Trello (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +37,7 @@ Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [v
 För att konfigurera Azure AD-integrering med Trello, behöver du följande:
 
 - En Azure AD-prenumeration
-- En Trello enkel inloggning aktiverad prenumeration
+- En Trello enkel inloggning på aktiverade prenumeration
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -44,7 +45,7 @@ För att konfigurera Azure AD-integrering med Trello, behöver du följande:
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
@@ -59,25 +60,22 @@ Du måste lägga till Trello från galleriet i listan över hanterade SaaS-appar
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Bladet Enterprise program][2]
     
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **Trello**.
+4. I sökrutan skriver **Trello**väljer **Trello** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_search.png)
+    ![Trello i resultatlistan](./media/active-directory-saas-trello-tutorial/tutorial_trello_addfromgallery.png)
 
-5. Välj i resultatpanelen **Trello**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Trello baserat på en testanvändare som kallas ”Britta Simon”.
 
 Azure AD måste du känna till användaren i Trello motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Trello upprättas.
@@ -86,45 +84,45 @@ I Trello, tilldela värdet för den **användarnamn** i Azure AD som värde för
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Trello, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Trello](#creating-a-trello-test-user)**  – du har en motsvarighet för Britta Simon i Trello som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Trello](#create-a-trello-test-user)**  – du har en motsvarighet för Britta Simon i Trello som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Trello program.
 
 >[!NOTE]
-    >Du bör få den  **\<enterprise\>**  slug från Trello. Om du inte har värdet slug Kontakta [Trello supportteamet](mailto:support@trello.com) att hämta slug för ditt företag.
+>Du bör få den  **\<enterprise\>**  slug från Trello. Om du inte har värdet slug Kontakta [Trello supportteamet](mailto:support@trello.com) att hämta slug du enterprise.
     > 
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Trello:**
 
 1. I Azure-portalen på den **Trello** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_trello_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-trello-tutorial/tutorial_trello_samlbase.png)
 
 3. På den **Trello domän och URL: er** om du vill konfigurera programmet i **IDP initierade läge**, utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
-
-    I den **Reply URL** textruta Skriv en URL med följande mönster:`https://trello.com/auth/saml/consume/<enterprise>`
+    ![URL: er och Trello domän med enkel inloggning information](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
+    
+    a. I den **identifierare** textruta, ange följande URL:`https://trello.com/auth/saml/metadata`
+    
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://trello.com/auth/saml/consume/<enterprise>`
 
 4. Om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
 
-  ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+    ![URL: er och Trello domän med enkel inloggning information](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
-    a. Klicka på den **visa avancerade inställningar för URL: en**.
+    a. Kontrollera **visa avancerade inställningar för URL: en**.
 
-    b. I den **logga URL** textruta Skriv en URL med följande mönster:`https://trello.com/auth/saml/login/<enterprise>`
-
-  c. I den **identifierare** textruta, ange följande URL:`https://trello.com/auth/saml/metadata`
+    b. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://trello.com/auth/saml/login/<enterprise>` 
 
 5. Trello program förväntar SAML intyg som innehåller specifika attribut. Konfigurera följande attribut för det här programmet. Du kan hantera värden för attributen från den **”användarattribut”** av programmet. Följande skärmbild visar ett exempel för det här.
 
@@ -142,72 +140,76 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_officespace_04.png)
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_officespace_05.png)
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_attribute_05.png)
 
     b. I den **namn** textruta ange attributets namn visas för den raden. 
 
     c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
     
     d. Klicka på **OK**. 
- 
-7. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_trello_certificate.png) 
+7. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara sedan metadatafilen på datorn.
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-trello-tutorial/tutorial_trello_certificate.png) 
 
 8. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-trello-tutorial/tutorial_general_400.png)
+    
+9. På den **Trello Configuration** klickar du på **konfigurera Trello** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
-6. På den **Trello Configuration** klickar du på **konfigurera Trello** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+    ![Trello konfiguration](./media/active-directory-saas-trello-tutorial/tutorial_trello_configure.png) 
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_trello_configure.png) 
-
-9. För att få SSO konfigurerats för ditt program, gå till [Trello företagskonfiguration för SSO](https://trello.com/sso-configuration) att skicka [Trello supportteamet](mailto:support@trello.com) den **SAML inloggning tjänst-URL för enkel** och bifoga den **certifikat (Base64)**.
+10. Konfigurera enkel inloggning på **Trello** sida, måste du gå till den [Trello SSO företagskonfiguration](https://trello.com/sso-configuration) sidan om du vill skicka den hämtade **certifikat (Base64)** och  **SAML enkel inloggning Tjänstwebbadress** till [Trello supportteamet](mailto:support@trello.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+   ![Skapa en testanvändare i Azure AD][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory-knappen](./media/active-directory-saas-trello-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_02.png) 
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_03.png) 
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-trello-tutorial/create_aaduser_02.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_04.png) 
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    ![Knappen Lägg till](./media/active-directory-saas-trello-tutorial/create_aaduser_03.png)
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+4. I den **användaren** dialogrutan utför följande steg:
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    ![Dialogrutan användare](./media/active-directory-saas-trello-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-trello-test-user"></a>Skapa en testanvändare Trello
+### <a name="create-a-trello-test-user"></a>Skapa en testanvändare Trello
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Trello. I det här avsnittet skapar du en användare som kallas Britta Simon i Trello. Trello stöder just-in-time-etablering och ett nytt konto skapas första gången du loggar in från Azure AD.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Trello. Trello stöder just-in-time-etablering, vilket är aktiverat som standard. Det finns ingen åtgärd objekt i det här avsnittet. En ny användare skapas under ett försök att komma åt Trello om den inte finns.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+>[!Note]
+>Om du behöver skapa en användare manuellt, kontakta [Trello supportteamet](mailto:support@trello.com).
+
+
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Trello.
 
-![Tilldela användare][200] 
+![Tilldela rollen][200] 
 
 **Om du vill tilldela Trello Britta Simon utför du följande steg:**
 
@@ -217,15 +219,15 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 2. Välj i listan med program **Trello**.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-trello-tutorial/tutorial_trello_app.png) 
+    ![Länken Trello i listan med program](./media/active-directory-saas-trello-tutorial/tutorial_trello_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Länken ”användare och grupper”][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
-    ![Tilldela användare][203]
+    ![Fönstret Lägg till tilldelning][203]
 
 5. På **användare och grupper** markerar **Britta Simon** på listan användare.
 
@@ -233,11 +235,12 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
     
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Syftet med det här avsnittet är att testa Azure AD SSO-konfigurationen med hjälp av panelen åtkomst.
+I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
 När du klickar på panelen Trello på åtkomstpanelen du bör få automatiskt loggat in på ditt Trello program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

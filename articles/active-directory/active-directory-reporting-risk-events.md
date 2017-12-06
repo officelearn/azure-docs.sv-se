@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -64,9 +64,9 @@ Den här typen av risk händelse identifierar användare som har loggat in från
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Omöjligt att resa till ovanliga platser
 
-Den här typen av risk händelse identifierar två inloggningar som sker från geografiskt avlägsna platser, där minst en av platserna kanske också onormal för användaren, anges tidigare beteende. Dessutom är tiden mellan de två inloggningarna kortare än den tid som det skulle ha tagit användaren att förflytta sig från den första platsen till den andra, som anger att en annan användare använder samma autentiseringsuppgifter. 
+Den här typen av risk händelse identifierar två inloggningar som sker från geografiskt avlägsna platser, där minst en av platserna kanske också onormal för användaren, anges tidigare beteende. Bland flera andra faktorer tar machine learning algoritmen hänsyn till tiden mellan de två inloggningarna och den tid som det skulle ha tagit för användaren att förflytta sig från den första platsen till den andra, som anger att en annan användare använder samma autentiseringsuppgifter.
 
-Den här maskininlärningsalgoritmen som ignorerar uppenbara ”*falska positiva identifieringar*” bidrar till villkoret omöjligt att resa till exempel VPN och platser som regelbundet används av andra användare i organisationen.  Systemet har en inledande learning-period på 14 dagar då den lär sig en ny användare loggar in beteende.
+Algoritmen ignorerar uppenbara ”falska positiva identifieringar” bidrar till omöjligt att resa-villkor, till exempel VPN och platser som regelbundet används av andra användare i organisationen. Systemet har en inledande learning-period på 14 dagar då den lär sig en ny användare loggar in beteende. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Logga in från okända platser
 
@@ -80,7 +80,7 @@ Den här typen av risk händelse identifierar inloggningar från enheter som inf
 Den här typen av risk händelse identifierar IP-adresser som ett stort antal misslyckade inloggningsförsök visades, för flera användarkonton under en kort tidsperiod. Detta matchar trafikmönster för IP-adresser som används av angripare och är en starkt indikator att konton är antingen redan eller håller på att äventyras. Det här är en maskininlärningsalgoritmen som ignorerar uppenbara ”*FALSKT positiva*”, till exempel IP-adresser som regelbundet används av andra användare i organisationen.  Systemet har en inledande learning-period på 14 dagar där den lär sig inloggning beteendet för en ny användare och nya innehavaren.
 
 
-## <a name="detection-type"></a>Identifiering av typen
+## <a name="detection-type"></a>Identifieringstyp
 
 Egenskapen type identifiering är en indikator (realtid eller Offline) för identifiering tidsramen för en händelse för risk.  
 För närvarande kan identifieras de flesta riskhändelser offline i en åtgärd för efterbearbetning när risken händelse har inträffat.
@@ -89,7 +89,7 @@ I följande tabell visas hur lång tid det tar för en typ av identifiering till
 
 | Identifiering av typen | Rapportering svarstid |
 | --- | --- |
-| Realtidsskydd | 5-10 minuter |
+| Realtid | 5-10 minuter |
 | Offline | 2-4 timmar |
 
 
@@ -98,9 +98,9 @@ För risk händelsetyper Azure Active Directory identifierar, är identifiering-
 | Risk händelsetyp | Identifiering av typen |
 | :-- | --- | 
 | [Användare med läckta autentiseringsuppgifter](#leaked-credentials) | Offline |
-| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Realtidsskydd |
+| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Realtid |
 | [Omöjligt att resa till ovanliga platser](#impossible-travel-to-atypical-locations) | Offline |
-| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Realtidsskydd |
+| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Realtid |
 | [Inloggningar från infekterade enheter](#sign-ins-from-infected-devices) | Offline |
 | [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 
@@ -166,9 +166,9 @@ Riskhändelser är grunden för att skydda din Azure AD identiteter. Azure AD ka
 | Risk händelsetyp | Risknivå | Identifiering av typen |
 | :-- | --- | --- |
 | [Användare med läckta autentiseringsuppgifter](#leaked-credentials) | Hög | Offline |
-| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Medel | Realtidsskydd |
+| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Medel | Realtid |
 | [Omöjligt att resa till ovanliga platser](#impossible-travel-to-atypical-locations) | Medel | Offline |
-| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Medel | Realtidsskydd |
+| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Medel | Realtid |
 | [Inloggningar från infekterade enheter](#sign-ins-from-infected-devices) | Låg | Offline |
 | [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) | Medel | Offline|
 

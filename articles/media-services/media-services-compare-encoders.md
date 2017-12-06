@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: juliako
-ms.openlocfilehash: 3bba48d5425ae47c72aca893af7c11fe270c2929
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: juliako;anilmur
+ms.openlocfilehash: 72b4a7b746d446e47b52cf34726a50dd52eaba97
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Jämförelse mellan Azure på begäran mediet kodare
 
@@ -117,6 +117,7 @@ I följande tabell jämförs funktionerna mellan Media Encoder Standard (MES) oc
 | Utdata Video-codec | Media Encoder Standard | Arbetsflöde för Media Encoder Premium |
 | --- | --- | --- |
 | AVC (H.264; 8-bitars, upp till hög profil nivå 5.2; 4 K extra HD; AVC Intra) |Endast 8-bitars 4:2:0 |Ja |
+| HEVC (H.265; 8-bitars och 10-bitars)  |Nej |Ja |
 | Avid DNxHD (i MXF) |Nej |Ja |
 | MPEG-2 (upp till 422 profil och högnivå, inklusive varianter, till exempel XDCAM, XDCAM HD, XDCAM IMX, CableLabs® och D10) |Nej |Ja |
 | MPEG-1 |Nej |Ja |

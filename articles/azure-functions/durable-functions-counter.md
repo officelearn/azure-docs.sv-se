@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Tillståndskänsliga singletons i varaktiga funktioner - räknaren exempel
 
@@ -45,13 +45,31 @@ Beständiga funktioner gör den här typen av scenario trivial att implementera 
 
 Den här artikeln beskriver hur den **E3_Counter** funktion i sample-appen.
 
-I följande avsnitt beskrivs den kod som används för utveckling av Visual Studio. Koden för utveckling av Azure portal är liknande.
+
 
 ## <a name="the-counter-orchestration"></a>Räknaren orchestration
+
+I följande avsnitt beskrivs den kod som används för utveckling av Visual Studio Code och Azure-portalen.
+
+### <a name="c-script"></a>C#-skript
+
+Filen function.json:
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+Filen run.csx:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+### <a name="precompiled-c"></a>Förkompilerade C# 
+
+I följande avsnitt beskrivs den kod som används för utveckling av Visual Studio.
 
 Här är den kod som implementerar funktionen orchestrator:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### <a name="explanation-of-the-code"></a>Förklaring av koden
 
 Den här funktionen för orchestrator i grunden gör följande:
 

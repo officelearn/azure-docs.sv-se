@@ -15,110 +15,131 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: fabf48da80cf44e82068d180c896ebbca7078d18
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI med hjälp av verktyg för visualisering av data med Azure HDInsight
 
-Lär dig hur du använder Power BI och Tableau visualisera data i ett Apache Spark-kluster i Azure HDInsight.
+Lär dig hur du använder [Microsoft Power BI](http://powerbi.microsoft.com) och [Tableau](http://www.tableau.com) visualisera data i Apache Spark-kluster i Azure HDInsight.
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Apache Spark-kluster i HDInsight. Instruktioner finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Exempeldata i klustret. Instruktioner finns i [köra interaktiva frågor på ett HDInsight Spark-kluster](apache-spark-load-data-run-query.md).
-* Powerbi: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) och [Power BI-utvärderingsprenumeration](https://app.powerbi.com/signupredirect?pbi_source=web) (valfritt).
-* Tableau: [Tableau Desktop](http://www.tableau.com/products/desktop) och [Microsoft Spark ODBC-drivrutinen](http://go.microsoft.com/fwlink/?LinkId=616229).
+* **Fullständig [köra interaktiva frågor i Spark-kluster i HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) och [Power BI-utvärderingsprenumeration](https://app.powerbi.com/signupredirect?pbi_source=web) (valfritt).
+* **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) och [Microsoft Spark ODBC-drivrutinen](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
-## <a name="hivetable"></a>Granska exempeldata
+## <a name="hivetable"></a>Kontrollera data
 
-Jupyter-anteckningsbok som du skapade i den [tidigare kursen](apache-spark-load-data-run-query.md) innehåller koden för att skapa en `hvac` tabell. Den här tabellen baserat på CSV-filen tillgänglig på alla HDInsight Spark-kluster på **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Nu ska vi se data i Spark-klustret innan du skapar visualiseringar.
+Jupyter-anteckningsbok som du skapade i den [tidigare kursen](apache-spark-load-data-run-query.md) innehåller koden för att skapa en `hvac` tabell. Den här tabellen baserat på CSV-filen tillgänglig på alla HDInsight Spark-kluster på **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Använd följande procedur för att verifiera data.
 
-1. Kontrollera att de förväntade tabellerna finns. Kopiera följande fragment och tryck på på en tom cell i anteckningsboken **SKIFT + RETUR**.
+1. Klistra in följande kod från Jupyter-anteckningsbok och tryck sedan på **SKIFT + RETUR**. Koden verifierar att förekomsten av tabellerna.
 
-        %%sql
-        SHOW TABLES
+    ```PySpark
+    %%sql
+    SHOW TABLES
+    ```
 
-    Du kan se utdata som liknar det som visas nedan:
+    Det ser ut som utdata:
 
     ![Visa tabellerna i Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
     Om du har stängt den bärbara datorn innan du påbörjar den här självstudiekursen `hvactemptable` rensas, så inte ingår i utdata.
-    Endast hive-tabeller som lagras i metastore (anges av **FALSKT** under den **isTemporary** kolumn) kan nås från BI-verktyg. I den här självstudiekursen kommer det att ansluta till den **hvac** tabellen som vi skapade.
+    Endast Hive-tabeller som lagras i metastore (anges av **FALSKT** under den **isTemporary** kolumn) kan nås från BI-verktyg. I den här självstudiekursen kommer du ansluta till den **hvac** tabellen som du skapade.
 
-2. Kontrollera att tabellen innehåller de förväntade data. Kopiera följande fragment och tryck på på en tom cell i anteckningsboken **SKIFT + RETUR**.
+2. Klistra in följande kod i en tom cell och tryck sedan på **SKIFT + RETUR**. Koden verifierar data i tabellen.
 
-        %%sql
-        SELECT * FROM hvac LIMIT 10
+    ```PySpark
+    %%sql
+    SELECT * FROM hvac LIMIT 10
+    ```
 
-    Du kan se utdata som liknar det som visas nedan:
+    Det ser ut som utdata:
 
     ![Visa rader från hvac-tabellen i Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
-3. Stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny.
+3. Från den **filen** Klicka på menyn i anteckningsbokens **Stäng och stoppa**. Stänga ned anteckningsboken för att frigöra resurser. 
 
-## <a name="powerbi"></a>Använd Power BI för Spark datavisualisering
 
-Nu när du har kontrollerat att förväntade data finns kan använda du Power BI för att skapa visualiseringar, rapporter och instrumentpaneler från dessa data. I den här artikeln ska vi visar ett enkelt exempel med statiska data, men låt oss veta i kommentarer om du vill se mer komplexa strömmande exempel.
+
+
+
+
+
+
+
+
+
+
+
+
+
+## <a name="powerbi"></a>Använda Powerbi
+
+I det här avsnittet använda Power BI för att skapa visualiseringar, rapporter och instrumentpaneler från Spark-klusterdata. 
 
 ### <a name="create-a-report-in-power-bi-desktop"></a>Skapa en rapport i Power BI Desktop
 De första stegen i att arbeta med Spark är att ansluta till klustret i Power BI Desktop, Läs in data från klustret och skapa en grundläggande visualisering baserat på dessa data.
 
 > [!NOTE]
-> Kopplingen visas i den här artikeln är för närvarande under förhandsgranskning, men vi rekommenderar att du kan använda den och ge feedback du ha via den [Power BI-communityn](https://community.powerbi.com/) plats eller [Power BI idéer](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
+> Kopplingen visas i den här artikeln är för närvarande under förhandsgranskning. Ge feedback du ha via den [Power BI-communityn](https://community.powerbi.com/) plats eller [Power BI idéer](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
-1. I Power BI Desktop på den **Start** klickar du på **hämta Data**, sedan **mer**.
+1. Öppna [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
+1. Från den **Start** klickar du på **hämta Data**, sedan **mer**.
 
-2. Sök efter `Spark`väljer **Azure HDInsight Spark**, klicka på **Anslut**.
+    ![Hämta data till Power BI Desktop från Apache Spark i HDInsight](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "hämta data till Power BI från Apache Spark BI")
+
+
+2. Ange `Spark` i sökrutan väljer **Azure HDInsight Spark (Beta)**, och klicka sedan på **Anslut**.
 
     ![Hämta data till Power BI från Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "hämta data till Power BI från Apache Spark BI")
 
-3. Ange kluster-URL (i formatet `mysparkcluster.azurehdinsight.net`), Välj **DirectQuery**, klicka på **OK**.
+3. Ange kluster-URL (i formatet `mysparkcluster.azurehdinsight.net`), Välj **DirectQuery**, och klicka sedan på **OK**.
 
-    ![Ansluta till Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "ansluta till Apache Spark BI")
+    Du kan använda antingen data anslutningsläget med Spark. Om du använder DirectQuery visas ändringarna i rapporter utan att uppdatera hela datamängden. Om du importerar data måste du uppdatera datauppsättningen kan se ändringar. Mer information om hur och när du ska använda DirectQuery finns [med DirectQuery i Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/). 
 
-    > [!NOTE]
-    > Du kan använda antingen anslutningsläget med Spark. Om du använder DirectQuery visas ändringarna i rapporter utan att uppdatera hela datamängden. Om du importerar data måste du uppdatera datauppsättningen kan se ändringar. Mer information om hur och när du ska använda DirectQuery finns [med DirectQuery i Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/). 
+4. Ange konto för HDInsight inloggningsinformation och klicka sedan på **Anslut**. Konto för standardnamnet är *admin*.
 
-4. Ange kontoinformationen för HDInsight inloggning **användarnamn** och **lösenord** (standardkontot är `admin`), klicka på **Anslut**.
-
-    ![Väck klustret användarnamn och lösenord](./media/apache-spark-use-bi-tools/user-password.png "Väck klustret användarnamn och lösenord")
-
-5. Välj den `hvac` table och vänta med att visa en förhandsgranskning av data. Klicka på **belastningen**.
+5. Välj den `hvac` tabell väntetiden för att visa en förhandsgranskning av data och klicka sedan på **belastningen**.
 
     ![Väck klustret användarnamn och lösenord](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Väck klustret användarnamn och lösenord")
 
-    Power BI Desktop har nu all information som behövs för att ansluta till Spark-klustret och Läs in data från den `hvac` tabell. Tabellen och dess kolumner visas i den **fält** fönstret.
+    Power BI Desktop har information som behövs för att ansluta till Spark-klustret och Läs in data från den `hvac` tabell. Tabellen och dess kolumner visas i den **fält** fönstret.  Se följande skärmbild.
 
-    ![Visa en lista med tabeller på Apache Spark BI-instrumentpanel](./media/apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "lista tabeller på Apache Spark BI-instrumentpanel")
+6. Visualisera variansen mellan target temperatur- och faktiska temperatur för skapande av varje: 
 
-7. Skapa en visualisering för att visa skillnaden mellan target temperatur- och faktiska temperatur för skapande av varje: 
-
-    1. I den **VISUALISERINGAR** väljer **ytdiagram**. Dra den **BuildingID** till **axel**, och dra den **ActualTemp** och **TargetTemp** fält till **värdet**.
+    1. I den **VISUALISERINGAR** väljer **ytdiagram**. 
+    2. Dra den **BuildingID** till **axel**, och dra den **ActualTemp** och **TargetTemp** fält till **värdet**.
 
         ![Skapa Spark visualisera data med Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "skapa Spark datavisualiseringar med Apache Spark BI")
 
-    2. Som standard visas visualiseringen summan för **ActualTemp** och **TargetTemp**. För båda fälten från listrutan, Välj **genomsnittlig** få ett genomsnitt av faktiska och temperaturer som mål för varje byggnad.
-
-        ![Skapa Spark visualisera data med Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "skapa Spark datavisualiseringar med Apache Spark BI")
-
-    3. Visualisering av data ska vara liknar det i skärmbilden. Flytta markören över visualiseringen få verktygstips med relevanta data.
+        Det ser ut som diagrammet:
 
         ![Skapa Spark visualisera data med Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "skapa Spark datavisualiseringar med Apache Spark BI")
 
-11. Klicka på **filen** sedan **spara**, och ange namnet `spark.pbix` för filen. 
+        Som standard visas visualiseringen summan för **ActualTemp** och **TargetTemp**. Klicka på pilen bredvid **ActualTemp** och **TragetTemp** i fönstret visualiseringar kan du se **summan** är markerad.
+
+    3. Klicka på nedåtpilarna bredvid **ActualTemp** och **TragetTemp** Välj i rutan visualiseringar **genomsnittlig** få ett genomsnitt av faktiska och temperaturer som mål för varje Skapa.
+
+        ![Skapa Spark visualisera data med Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "skapa Spark datavisualiseringar med Apache Spark BI")
+
+        Din datavisualisering skall vara liknar det i skärmbilden. Flytta markören över visualiseringen få verktygstips med relevanta data.
+
+        ![Skapa Spark visualisera data med Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "skapa Spark datavisualiseringar med Apache Spark BI")
+
+7. Klicka på **filen** sedan **spara**, och ange namnet `BuildingTemperature.pbix` för filen. 
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Publicera rapporten till Power BI-tjänsten (valfritt)
-Nu har du en fullt fungerande rapporten i Power BI Desktop och du kan stoppa det, men många användare som vill dra nytta av Power BI-tjänsten, vilket gör det enkelt att dela rapporter och instrumentpaneler för hela organisationen. 
 
-I det här avsnittet kan publicera du datasetet och rapporten i Power BI Desktop-fil som du skapade. Du kan sedan fästa visualiseringen från rapporten till en instrumentpanel. Instrumentpaneler används vanligtvis för att fokusera på en delmängd av data i rapporten. du har en enda visualisering i rapporten, men det är ändå bra att gå igenom steg.
+Power BI-tjänsten kan du dela rapporter och instrumentpaneler i din organisation. I det här avsnittet kan publicera du datamängden och rapporten. Sedan kan fästa du rapporten till en instrumentpanel. Instrumentpaneler används vanligtvis för att fokusera på en delmängd av data i rapporten. du har en enda visualisering i rapporten, men det är ändå bra att gå igenom steg.
 
-1. I Power BI Desktop på den **Start** klickar du på **publicera**.
+1. Öppna Power BI Desktop.
+2. Från den **Start** klickar du på **publicera**.
 
     ![Publicera från Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "publicera från Power BI Desktop")
 
@@ -126,7 +147,7 @@ I det här avsnittet kan publicera du datasetet och rapporten i Power BI Desktop
 
     ![Välj att publicera datamängden och rapportera till](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "väljer arbetsytan att publicera datamängden och rapportera till") 
 
-3. När Power BI Desktop returnerar med ett meddelande, klickar du på **öppna 'spark.pbix' i Power BI**.
+3. När publiceringen är klar klickar du på **öppna 'BuildingTemperature.pbix' i Power BI**.
 
     ![Publicera lyckade, klicka för att ange autentiseringsuppgifter](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "publicera lyckade, klicka för att ange autentiseringsuppgifter") 
 
@@ -138,31 +159,31 @@ I det här avsnittet kan publicera du datasetet och rapporten i Power BI Desktop
 
     ![Redigera autentiseringsuppgifter i Power BI-tjänsten](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "redigera autentiseringsuppgifter i Power BI-tjänsten")
 
-6. Ange konto för HDInsight inloggningsinformation (vanligtvis standard `admin` konto som du använde i Power BI Desktop), klicka på **logga in**.
+6. Ange konto för HDInsight inloggningsinformation och klicka sedan på **logga in**. Konto för standardnamnet är *admin*.
 
     ![Logga in på Spark-kluster](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "logga in på Spark-kluster")
 
-7. I den vänstra rutan, gå till **arbetsytor** > **Min arbetsyta** > **rapporter**, klicka på **spark**.
+7. I den vänstra rutan, gå till **arbetsytor** > **Min arbetsyta** > **rapporter**, klicka på **BuildingTemperature**.
 
     ![Rapporten som listas under rapporter i vänster](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "rapporten som listas under rapporter i vänster")
 
-    Du bör också se **spark** visas under **DATAUPPSÄTTNINGAR** i den vänstra rutan.
+    Du bör också se **BuildingTemperature** visas under **DATAUPPSÄTTNINGAR** i den vänstra rutan.
 
-8. Den visuella informationen som du skapade i Power BI Desktop är nu tillgänglig i tjänsten. Hovra över den visuella informationen och klicka på ikonen PIN-kod för att fästa den här visuella informationen till en instrumentpanel.
+    Den visuella informationen som du skapade i Power BI Desktop är nu tillgänglig i Power BI-tjänsten. 
+
+8. Håller markören över visualiseringen och sedan klicka på ikonen PIN-kod i det övre högra hörnet.
 
     ![Rapporten i Power BI-tjänsten](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "rapporten i Power BI-tjänsten")
 
-9. Välj ”ny instrumentpanel”, ange namnet `SparkDemo`, klicka på **PIN-kod**.
+9. Välj ”ny instrumentpanel”, ange namnet `Building temperature`, klicka på **PIN-kod**.
 
     ![PIN-kod för ny instrumentpanel](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "PIN-kod för ny instrumentpanel")
 
 10. I rapporten klickar du på **gå till instrumentpanelen**. 
 
-    ![Gå till instrumentpanelen](./media/apache-spark-use-bi-tools/apache-spark-bi-open-dashboard.png "gå till instrumentpanelen")
-
 Din visuella är fäst på instrumentpanelen – du kan lägga till annan visuell information i rapporten och fästa dem på samma instrumentpanelen. Mer information om rapporter och instrumentpaneler finns [rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)och [instrumentpaneler i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## <a name="tableau"></a>Använda Tableau skrivbordet för Spark datavisualisering
+## <a name="tableau"></a>Använda Tableau Desktop 
 
 > [!NOTE]
 > Det här avsnittet gäller endast för Spark 1.5.2 kluster som skapas i Azure HDInsight.
@@ -191,7 +212,7 @@ Din visuella är fäst på instrumentpanelen – du kan lägga till annan visuel
 6. Klicka på den **Blad1** längst till vänster. Gör en visualisering som visar genomsnittlig mål- och faktiska temperaturer för alla byggnader för varje datum. Dra **datum** och **skapa ID** till **kolumner** och **faktiska Temp**/**mål Temp** att **rader**. Under **märken**väljer **område** att använda en mappning för område för Spark datavisualisering.
 
      ![Lägga till fält i Spark datavisualisering](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "lägga till fält i Spark datavisualisering")
-7. Som standard temperatur fält visas som aggregat. Om du vill visa de genomsnittliga temperaturerna i stället kan du göra det från nedrullningsbara enligt nedan.
+7. Som standard temperatur fält visas som aggregat. Om du vill visa de genomsnittliga temperaturerna i stället kan du göra det från nedrullningsbara som visas i följande skärmbild.
 
     ![Ta medelvärde för temperaturen för Spark datavisualisering](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "ta medelvärde för temperaturen för Spark datavisualisering")
 

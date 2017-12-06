@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  ms.date: 11/29/2017
   ms.author: carolz
 abstract:
   description: 'Azure Cosmos DB är en globalt distribuerad databas för flera datamodeller. Använd dessa snabbstarter, självstudier och exempel för att utveckla dokument, nyckelvärden, breda kolumner och diagramdatabaser genom att använda populära API:er och programmeringsmodeller. Lär dig sedan att replikera data över flera Azure-regioner och skala dataflödet oberoende av lagringen, samtidigt som du drar nytta av omfattande serviceavtal.'
@@ -63,7 +63,7 @@ sections:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-graph-python
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: Tabell-API
             values:

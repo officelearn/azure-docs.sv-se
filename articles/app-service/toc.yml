@@ -13,8 +13,10 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa .NET-app
+    - name: Skapa .NET Core-app
       href: app-service-web-get-started-dotnet.md
+    - name: Skapa en .NET Framework-app
+      href: app-service-web-get-started-dotnet-framework.md
     - name: Skapa Node.js-app
       href: app-service-web-get-started-nodejs.md
     - name: Skapa PHP-app

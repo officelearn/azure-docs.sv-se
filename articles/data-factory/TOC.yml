@@ -34,7 +34,14 @@
     - name: 4 – Masskopiera data i molnet
       href: tutorial-bulk-copy.md
     - name: 5 – Kopiera data inkrementellt
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1 – Kopiera från en tabell
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2 – Kopiera från flera tabeller
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3 – Använd funktionen för användningsspårning
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 – Omvandla data i molnet
       href: tutorial-transform-data-spark-powershell.md
     - name: 7 – Transformera data i virtuellt nätverk
@@ -228,6 +235,16 @@
           href: create-azure-ssis-integration-runtime.md
         - name: Anslut Azure-SSIS Integration Runtime till ett virtuellt nätverk
           href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Kör SSIS-paket i Azure
+      items:
+        - name: Skapa Azure SSIS Integration Runtime
+          href: create-azure-ssis-integration-runtime.md
+        - name: Anslut Azure-SSIS Integration Runtime till ett virtuellt nätverk
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Hantera Azure SSIS Integration Runtime
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Konfigurera Azure SSIS Integration Runtime-prestanda
+          href: configure-azure-ssis-integration-runtime-performance.md
 - name: Referens
   items:
     - name: .NET

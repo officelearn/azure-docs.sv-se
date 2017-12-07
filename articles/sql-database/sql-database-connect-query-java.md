@@ -13,31 +13,27 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: cb1c387628a79ddfada0786c8c6422b6671a2c19
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 994705b0a9c7ca850c357a5810f1edb1618098d6
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Fråga Azure SQL Database med Java
 
-Den här snabbstarten visar hur du använder [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) för att ansluta till en Azure SQL-databas och sedan använda Transact-SQL-uttryck för att fråga data.
+Den här snabbstarten visar hur du använder [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att köra frågor mot data.
 
 ## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här snabbstartskursen behöver du följande:
 
-- En Azure SQL-databas. Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter: 
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-   - [Skapa DB – Portal](sql-database-get-started-portal.md)
-   - [Skapa DB – CLI](sql-database-get-started-cli.md)
-   - [Skapa DB – PowerShell](sql-database-get-started-powershell.md)
+- En [brandväggsregel på servernivå](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) för den offentliga IP-adressen för datorn som du använder för den här snabbstartskursen.
 
-- En [brandväggsregel på servernivå](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) för den offentliga IP-adressen för den dator du använder för den här snabbstartskursen.
-
-- Du har installerat Java och relaterad programvara för ditt operativsystem.
+- Du har installerat Java och relaterad programvara för ditt operativsystem:
 
     - **MacOS**: Installera Homebrew och Java och installera sedan Maven. Se [Steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
     - **Ubuntu**: Installera Java Development Kit och Maven. Se [Steg 1.2, 1.3 och 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
@@ -45,15 +41,7 @@ För att kunna slutföra den här snabbstartskursen behöver du följande:
 
 ## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet, databasnamnet och inloggningsinformationen i nästa procedurer.
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
-3. Granska serverns fullständiga namn på sidan **Översikt** för databasen enligt vad som visas på bilden nedan. Du kan hovra över servernamnet för att se alternativet **Klicka för att kopiera**.  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Om du glömmer inloggningsinformationen för din server öppnar du serversidan i SQL Database. Där ser du administratörsnamnet för servern.  Du kan återställa lösenordet om det behövs.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="create-maven-project-and-dependencies"></a>**Skapa Maven-projekt och beroenden**
 1. Skapa ett nytt Maven-projekt som du namnger **sqltest** från terminalen. 

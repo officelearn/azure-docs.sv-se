@@ -6,14 +6,14 @@ metadata:
   title: 'Dokumentation om Azure Cosmos DB – självstudier, API-referens'
   description: 'Lär dig att använda Azure Cosmos DB för att skapa globalt distribuerade databaser för flera datamodeller. I självstudierna lär du dig att bygga upp databaser för datamodeller av typen frågedokument, nyckel/värde och graf.'
   services: cosmos-db
-  author: czeumault
-  manager: carolz
+  author: mimig
+  manager: jhubbard
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/29/2017
-  ms.author: carolz
+  ms.date: 12/05/2017
+  ms.author: mimig
 abstract:
   description: 'Azure Cosmos DB är en globalt distribuerad databas för flera datamodeller. Använd dessa snabbstarter, självstudier och exempel för att utveckla dokument, nyckelvärden, breda kolumner och diagramdatabaser genom att använda populära API:er och programmeringsmodeller. Lär dig sedan att replikera data över flera Azure-regioner och skala dataflödet oberoende av lagringen, samtidigt som du drar nytta av omfattande serviceavtal.'
   aside:
@@ -56,14 +56,14 @@ sections:
               - href: /azure/cosmos-db/create-mongodb-java
               - href: /azure/cosmos-db/create-mongodb-dotnet
               - href: /azure/cosmos-db/create-mongodb-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-mongodb-flask
               - href: null
           - title: Graph API
             values:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: /azure/cosmos-db/create-graph-python
+              - href: null
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: Tabell-API
             values:

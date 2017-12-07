@@ -13,31 +13,27 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 08/08/2017
+ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: ae8cf7b847442883f03078a8c34d0921f8992b02
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: b45acf8a7abdee070c6db2c5d7f4c108a073b1bb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Använd PHP för att fråga en Azure SQL-databas
 
-Den här snabbstartsguiden visar hur man använder [PHP](http://php.net/manual/en/intro-whatis.php) för att skapa ett program för att ansluta till en Azure SQL-databas och använda Transact-SQL-uttryck för att fråga data.
+Den här snabbstartsguiden visar hur du använder [PHP](http://php.net/manual/en/intro-whatis.php) för att skapa ett program för att ansluta till en Azure SQL-databas och använder Transact-SQL-uttryck för att skicka frågor mot data.
 
 ## <a name="prerequisites"></a>Krav
 
-Kontrollera att du har följande för att slutföra den här snabbstartskursen:
+Kontrollera att du har följande för att kunna genomföra den här snabbstartskursen:
 
-- En Azure SQL-databas. Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter: 
-
-   - [Skapa DB – Portal](sql-database-get-started-portal.md)
-   - [Skapa DB – CLI](sql-database-get-started-cli.md)
-   - [Skapa DB – PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - En [brandväggsregel på servernivå](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) för den offentliga IP-adressen för datorn som du använder för den här snabbstartskursen.
 
-- Du har installerat PHP och relaterad programvara för ditt operativsystem.
+- Du har installerat PHP och relaterad programvara för ditt operativsystem:
 
     - **MacOS**: Först installerar du Homebrew och PHP, sedan ODBC-drivrutinen och SQLCMD och sedan installerar du PHP-drivrutinen för SQL Server. Se [steg 1.2, 1.3 och 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
     - **Ubuntu**: Först installerar du PHP och andra paket som krävs, sedan installerar du PHP-drivrutinen för SQL Server. Se [steg 1.2 och 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
@@ -45,15 +41,7 @@ Kontrollera att du har följande för att slutföra den här snabbstartskursen:
 
 ## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet, databasnamnet och inloggningsinformationen i nästa procedurer.
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
-3. Granska serverns fullständiga namn på sidan **Översikt** för databasen, se bilden nedan. Om du hovrar över servernamnet visas alternativet **Kopiera genom att klicka**.  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Om du glömmer inloggningsinformationen för din server öppnar du serversidan i SQL Database. Där ser du administratörsnamnet för servern och kan återställa lösenordet vid behov.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
 ## <a name="insert-code-to-query-sql-database"></a>Infoga kod för att fråga SQL-databas
 
@@ -100,3 +88,10 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Da
 - [Utforma din första Azure SQL Database](sql-database-design-first-database.md)
 - [Microsoft PHP-drivrutiner för SQL Server](https://github.com/Microsoft/msphpsql/)
 - [Rapportera problem eller ställ frågor](https://github.com/Microsoft/msphpsql/issues)
+- [Exempel på logik för omprövning: Ansluta elastiskt till SQL med PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

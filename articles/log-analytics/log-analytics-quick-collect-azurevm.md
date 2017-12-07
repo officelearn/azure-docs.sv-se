@@ -1,6 +1,6 @@
 ---
 title: Samla in data om virtuella datorer i Azure | Microsoft Docs
-description: "Lär dig hur du aktiverar OMS-agenten VM-tillägget och aktivera insamling av data från din virtuella Azure-datorer med logganalys."
+description: "Lär dig hur du aktiverar OMS-agentens tillägg för virtuella datorer och hur du aktiverar insamling av data från virtuella datorer i Azure med Log Analytics."
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
@@ -12,87 +12,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/20/2017
+ms.date: 11/28/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2dec744b512a86a30cec1f334e265572fa7acc3e
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: MT
+ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Samla in data om virtuella datorer i Azure
-[Azure logganalys](log-analytics-overview.md) kan samla in data direkt från din virtuella Azure-datorer och andra resurser i din miljö till en databas för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samla in data från din Azure Linux- eller virtuella Windows-datorer med några enkla steg.  
+Med [Azure Log Analytics](log-analytics-overview.md) kan du samla in data direkt från virtuella datorer i Azure och från andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från virtuella Linux- eller Windows-datorer i Azure med några enkla steg.  
  
-Denna Snabbstart förutsätter att du har en befintlig Azure virtuell dator. Om du inte kan [skapa en virtuell Windows-dator](../virtual-machines/windows/quick-create-portal.md) eller [skapa ett Linux VM](../virtual-machines/linux/quick-create-cli.md) följande våra VM-Snabbstart.
+För den här snabbstarten förutsätts det att du har en befintlig virtuell dator i Azure. Om du inte har det kan du [skapa en virtuell Windows-dator](../virtual-machines/windows/quick-create-portal.md) eller [skapa en virtuell Linux-dator](../virtual-machines/linux/quick-create-cli.md) med hjälp av våra snabbstarter för virtuella datorer.
 
-## <a name="log-in-to-azure-portal"></a>Logga in på Azure-portalen
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com). 
+## <a name="log-in-to-azure-portal"></a>Logga in på Azure Portal
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
-1. I Azure-portalen klickar du på **fler tjänster** hittades i det nedre vänstra hörnet. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **logga Analytics**.<br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
-2. Klicka på **skapa**, och välj sedan alternativ för följande objekt:
+1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
 
   * Ange ett namn för den nya **OMS-arbetsytan**, som *DefaultLAWorkspace*. 
   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
-  * För **resursgruppen**, Välj en befintlig resursgrupp som innehåller en eller flera virtuella Azure-datorer.  
-  * Välj den **plats** dina virtuella datorer distribueras till.  Mer information finns i som [regioner Log Analytics är tillgängligt i](https://azure.microsoft.com/regions/services/).
-  * Du kan välja mellan tre olika **prisnivåer** i logganalys, men för denna Snabbstart som du ska välja den **ledigt** nivå.  Mer information om de specifika nivåerna finns [Log Analytics-prisinformation](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * För **resursgruppen** ska du välja en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
+  * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).
+  * Du kan välja mellan tre olika **prisnivåer** i Log Analytics, men för den här snabbstarten ska du välja den **kostnadsfria** nivån.  För mer information om de olika nivåerna, se [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
-3. När du har angett informationen som krävs på den **OMS-arbetsytan** rutan klickar du på **OK**.  
+3. När du har angett den nödvändiga informationen i fönsterrutan **OMS-arbetsyta** klickar du på **OK**.  
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
-## <a name="enable-the-log-analytics-vm-extension"></a>Aktivera Log Analytics VM-tillägget
-För Windows och Linux virtuella datorer redan har distribuerats i Azure, installera agenten logganalys med Log Analytics VM-tillägg.  Med hjälp av tillägget förenklar installationen och konfigurerar automatiskt agent ska skicka data till logganalys-arbetsytan som du anger. Agenten uppgraderas också automatiskt, se till att du har de senaste funktionerna och korrigeringarna.
+## <a name="enable-the-log-analytics-vm-extension"></a>Aktivera Log Analytics-tillägget för virtuella datorer
+För virtuella Windows- och Linux-datorer som redan har distribuerats i Azure installerar du Log Analytics-agenten med Log Analytics-tillägget för virtuella datorer.  Med hjälp av tillägget förenklas installationen och agenten konfigureras automatiskt att skicka data till den Log Analytics-arbetsyta som du anger. Agenten uppgraderas också automatiskt så att du alltid har de senaste funktionerna och korrigeringarna.
 
-Du kan se banderollen överst på sidan logganalys resurs i portalen bjuda in dig att uppgradera.  Uppgraderingen behövs inte för denna Snabbstart.<br>
+>[!NOTE]
+>OMS-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics--arbetsyta. 
 
-![Logganalys uppgraderas i Azure-portalen](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
-1. I Azure-portalen klickar du på **fler tjänster** hittades i det nedre vänstra hörnet. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **logga Analytics**.
-2. Välj i listan över logganalys arbetsytor *DefaultLAWorkspace* skapade tidigare.
-3. Klicka på den vänstra menyn under arbetsytan datakällor **virtuella datorer**.  
-4. I listan över **virtuella datorer**, Välj en virtuell dator som du vill installera agenten på. Observera att den **OMS anslutningsstatus** för den virtuella datorn anger att den är **inte ansluten**.
-5. I informationen för den virtuella datorn, väljer **Anslut**. Agenten är installerad och konfigurerad för logganalys-arbetsytan automatiskt. Den här processen tar några minuter under denna tid den **Status** är **ansluta**.
-6. När du installerar och ansluta agenten den **OMS anslutningsstatus** kommer att uppdateras med **arbetsytan**.
+Du kanske ser en banderoll överst på resurssidan för Log Analytics i portalen som uppmanar dig att uppgradera.  Uppgraderingen behövs inte för den här snabbstarten.<br>
+
+![Meddelande om uppgradering av Log Analytics i Azure Portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
+1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+2. Välj *DefaultLAWorkspace* som du skapade tidigare i listan med Log Analytics-arbetsytor.
+3. Gå till menyn till vänster och klicka under Datakällor för arbetsyta på **Virtuella datorer**.  
+4. Från listan med **virtuella datorer** väljer du en virtuell dator där du vill installera agenten. Observera att **OMS-anslutningsstatus** för den virtuella datorn anger att den är **Inte ansluten**.
+5. Gå till informationen om den virtuella datorn och välj **Anslut**. Agenten installeras och konfigureras för Log Analytics-arbetsytan automatiskt. Den här processen tar några minuter och under tiden står **Status** som **Ansluter**.
+6. När du har installerat och anslutit agenten ska **OMS-anslutningsstatus** uppdateras till **Den här arbetsytan**.
 
 ## <a name="collect-event-and-performance-data"></a>Samla in data om händelser och prestanda
-Logganalys kan samla in händelser från händelseloggarna i Windows eller Linux Syslog och prestandaräknare som du anger för längre sikt analys och rapportering och vidta åtgärder när ett visst villkor har identifierats.  Följ dessa steg om du vill konfigurera insamling av händelser från systemloggen Windows och Linux Syslog och flera prestandaräknare från början.  
+Log Analytics kan samla in händelser från Windows-händelseloggar eller Linux Syslog och prestandaräknare som du anger för analys och rapportering på längre sikt samt vidta åtgärder när ett visst villkor har identifierats.  Följ dessa steg om du vill konfigurera insamling av händelser från Windows systemlogg och Linux Syslog och flera vanliga prestandaräknare till att börja med.  
 
-### <a name="data-collection-from-windows-vm"></a>Insamling av data från Windows VM
-1. Välj **avancerade inställningar**.<br> ![Logganalys-avancerade inställningar](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br> 
-3. Välj **Data**, och välj sedan **Windows-händelseloggar**.  
-4. Du kan lägga till en händelselogg genom att skriva namnet på loggen.  Typen **System** och sedan klicka på plustecknet  **+** .  
-5. I tabellen, kontrollera allvarlighetsgraderna **fel** och **varning**.   
-6. Klicka på **spara** längst upp på sidan för att spara konfigurationen.
-7. Välj **Windows prestandadata** att aktivera insamling av prestandaräknare på en Windows-dator. 
-8. När du först konfigurera Windows-prestandaräknare för en ny logganalys-arbetsyta möjlighet du att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.<br> ![Standard Windows prestandaräknare valt](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).<br> Klicka på **Lägg till valda prestandaräknare**.  De läggs till och förinställningen med provintervall tio andra samlingen.  
-9. Klicka på **spara** längst upp på sidan för att spara konfigurationen.
+### <a name="data-collection-from-windows-vm"></a>Insamling av data från virtuella Windows-datorer
+1. Välj **Avancerade inställningar**.<br> ![Avancerade inställningar i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br> 
+3. Välj **Data** och sedan **Windows-händelseloggar**.  
+4. Du kan lägga till en händelselogg genom att skriva namnet på loggen.  Skriv **System** och klicka sedan på plustecknet **+**.  
+5. Kontrollera allvarlighetsgraderna **Fel** och **Varning** i tabellen.   
+6. Klicka på **Spara** överst på sidan för att spara konfigurationen.
+7. Välj **Windows-prestandadata** för att aktivera insamling av prestandaräknare på en Windows-dator. 
+8. När du först konfigurerar Windows-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.<br> ![Standardalternativen för Windows-prestandaräknare markerade](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).<br> Klicka på **Lägg till valda prestandaräknare**.  De läggs till med en förinställning av provintervall på tio sekunder.  
+9. Klicka på **Spara** överst på sidan för att spara konfigurationen.
 
-### <a name="data-collection-from-linux-vm"></a>Insamling av data från Linux VM
+### <a name="data-collection-from-linux-vm"></a>Insamling av data från virtuella Linux-datorer
 
 1. Välj **Syslog**.  
-2. Du kan lägga till en händelselogg genom att skriva namnet på loggen.  Typen **Syslog** och sedan klicka på plustecknet  **+** .  
-3. I tabellen, avmarkera allvarlighetsgraderna **Info**, **meddelande** och **felsöka**. 
-4. Klicka på **spara** längst upp på sidan för att spara konfigurationen.
-5. Välj **Linux prestandadata** att aktivera insamling av prestandaräknare på en Windows-dator. 
-6. När du först konfigurerar Linux prestandaräknare för en ny logganalys-arbetsyta möjlighet du att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.<br> ![Standard Windows prestandaräknare valt](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).<br> Klicka på **Lägg till valda prestandaräknare**.  De läggs till och förinställningen med provintervall tio andra samlingen.  
-7. Klicka på **spara** längst upp på sidan för att spara konfigurationen.
+2. Du kan lägga till en händelselogg genom att skriva namnet på loggen.  Skriv **Syslog** och klicka sedan på plustecknet **+**.  
+3. Avmarkera allvarlighetsgraderna **Info**, **Meddelande** och **Felsök** i tabellen. 
+4. Klicka på **Spara** överst på sidan för att spara konfigurationen.
+5. Välj **Linux-prestandadata** för att aktivera insamling av prestandaräknare på en Windows-dator. 
+6. När du först konfigurerar Linux-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.<br> ![Standardalternativen för Windows-prestandaräknare markerade](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png).<br> Klicka på **Lägg till valda prestandaräknare**.  De läggs till med en förinställning av provintervall på tio sekunder.  
+7. Klicka på **Spara** överst på sidan för att spara konfigurationen.
 
 ## <a name="view-data-collected"></a>Visa data som samlas in
-Nu när du har aktiverat insamling av data, kan du köra en enkel logg Sök exemplet för att se vissa data från målet virtuella datorer.  
+Nu när du har aktiverat insamling av data kan du köra en enkel loggsökning för att se vissa data från de virtuella måldatorerna.  
 
-1. Gå till logganalys och markera arbetsytan skapade tidigare i Azure-portalen.
-2. Klicka på den **loggen Sök** panelen och i fönstret loggen Sök i frågan fälttypen `Type=Perf` och sedan trycker eller klicka på sökknappen till höger om fältet fråga.<br> ![Logganalys logga Sök frågan exempel](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-queryexample.png)<br> Till exempel returnerade frågan i följande bild 78,000 uppgifter.  Resultatet blir betydligt mindre.<br> ![Logganalys logga sökresultat](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+1. Gå till Azure Portal, navigera till Log Analytics och välj den arbetsyta du skapade tidigare.
+2. Klicka på panelen **Loggsökning** och i fönsterrutan Loggsökning skriver du sedan `Type=Perf` i frågefältet och trycker på retur eller klickar på sökknappen till höger om fältet.<br> ![Exempel på loggsökningsfråga i Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-queryexample.png)<br> Frågan i följande bild returnerar till exempel 78 000 prestandaposter.  Ditt resultatet blir mycket mindre.<br> ![Resultat av loggsökning i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort logganalys-arbetsytan när de inte längre behövs. Om du vill göra det, Välj logganalys-arbetsytan som du skapade tidigare och resursen sidan klickar du på **ta bort**.<br> ![Ta bort logganalys-resurs](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+Ta bort Log Analytics-arbetsytan när den inte längre behövs. Markera i så fall den Log Analytics-arbetsyta du skapade tidigare och klicka på **Ta bort** på resurssidan.<br> ![Ta bort Log Analytics-resurs](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du samlar in operativa och prestandadata från din Windows- eller Linux virtuella datorer, kan du enkelt börja utforska, analysera och vidtar åtgärder på data som du samlar in för *ledigt*.  
+Nu när du kan samla in funktions- och prestandadata från dina virtuella Windows- eller Linux-datorer kan du enkelt kan börja utforska, analysera och vidta åtgärder på data som du samlar in *utan kostnad*.  
 
-Information om hur du visar och analyserar data, även i fortsättningen kursen.   
+Om du vill lära dig hur du visar och analyserar data kan du fortsätta till självstudiekursen.   
 
 > [!div class="nextstepaction"]
-> [Visa och analysera data i logganalys](log-analytics-tutorial-viewdata.md)
+> [Visa eller analysera data i Log Analytics](log-analytics-tutorial-viewdata.md)

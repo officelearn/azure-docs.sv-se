@@ -172,8 +172,6 @@
           href: change-vm-size.md
         - name: Tagga en virtuell dator
           href: tag.md
-        - name: Använd cloud-init
-          href: using-cloud-init.md
         - name: Köra skript på en virtuell dator
           href: extensions-customscript.md
         - name: Använd Fjärrskrivbord
@@ -252,6 +250,22 @@
               href: terraform-install-configure.md
             - name: Skapa fullständig virtuell dator
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Översikt över Cloud-init
+              href: using-cloud-init.md
+            - name: Konfigurera VM-värdnamn
+              href: cloudinit-update-vm-hostname.md
+            - name: Uppdateringspaket i en virtuell dator
+              href: cloudinit-update-vm.md
+            - name: Lägg till en användare till en virtuell dator
+              href: cloudinit-add-user.md
+            - name: Konfigurera växlingsfil
+              href: cloudinit-configure-swapfile.md
+            - name: Kör befintliga bash-skript
+              href: cloudinit-bash-script.md
+            - name: Förbered en befintlig virtuell dator för cloud-init
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:

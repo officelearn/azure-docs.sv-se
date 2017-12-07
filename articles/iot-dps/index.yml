@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation om Azure IoT Hub Device Provisioning-tjänsten (förhandsversion)
+title: Dokumentation om Azure IoT Hub Device Provisioning-tjänsten
 metadata:
   title: 'Dokumentation om Azure IoT Hub Device Provisioning-tjänsten (förhandsversion) – självstudier, API-referens'
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'IoT Hub Device Provisioning-tjänsten (förhandsversion) är en hjälptjänst för IoT Hub som möjliggör zero-touch- och just-in-time-etablering till rätt IoT Hub utan mänsklig inblandning, så att kunderna kan etablera miljontals enheter på ett säkert och skalbart sätt. Lär dig hur du etablerar enheter till IoT Hub med våra snabbstarter, självstudier och exempel.'
+  description: 'IoT Hub Device Provisioning är en hjälptjänst för IoT Hub som möjliggör zero-touch och just-in-time-etablering till rätt IoT-hubb utan mänsklig interaktion, vilket gör att kunderna kan etablera miljontals enheter på ett säkert och skalbart sätt. Lär dig hur du etablerar enheter till IoT Hub med våra snabbstarter, självstudier och exempel.'
 sections:
   - title: Snabbstarter på 5 minuter
     items:
@@ -34,7 +34,7 @@ sections:
   - title: Steg för steg-självstudier
     items:
       - type: paragraph
-        text: Lär dig hur du använder IoT Hub Device Provisioning-tjänsten (förhandsversion) för att automatiskt etablera säkerhetsaktiverade enheter till en eller flera IoT-hubbar.
+        text: Lär dig hur du använder IoT Hub Device Provisioning-tjänsten för att automatiskt etablera säkerhetsaktiverade enheter till en eller flera IoT-hubbar.
       - type: list
         style: ordered
         items:

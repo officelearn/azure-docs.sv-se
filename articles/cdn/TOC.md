@@ -20,16 +20,19 @@
  
 ## Hantera
 ### [Hantera med Azure PowerShell](cdn-manage-powershell.md)
+### [Begränsa åtkomst per land](cdn-restrict-access-by-country.md)
+### [Förbättra prestandan genom att komprimera filer](cdn-improve-performance.md)
+### Kontrollera funktionssättet för cachelagring
+#### [Så här fungerar cachelagring](cdn-how-caching-works.md)
+#### [Kontrollera funktionssättet för cachelagring med cachelagringsregler](cdn-caching-rules.md)
+#### Cachelagra innehåll efter frågesträngar
+##### [Standardnivå](cdn-query-string.md)
+##### [Premiumnivå](cdn-query-string-premium.md)
+#### [Rensa cachelagrade tillgångar](cdn-purge-endpoint.md)
+#### [Ladda in cachelagrade tillgångar i förväg](cdn-preload-endpoint.md)
 ### Konfigurera livslängd
 #### [Azure-webbinnehåll](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
-### [Begränsa åtkomst per land](cdn-restrict-access-by-country.md)
-### [Förbättra prestandan genom att komprimera filer](cdn-improve-performance.md)
-### Cachelagra innehåll efter frågesträng
-#### [Standardnivå](cdn-query-string.md)
-#### [Premiumnivå](cdn-query-string-premium.md)
-### [Rensa cachelagrade tillgångar](cdn-purge-endpoint.md)
-### [Ladda in cachelagrade tillgångar i förväg](cdn-preload-endpoint.md)
 ### [Tokenautentisering](cdn-token-auth.md)
 ### [Övervaka resurser](cdn-resource-health.md)
 ### [Åsidosätt beteende med regler](cdn-rules-engine.md)

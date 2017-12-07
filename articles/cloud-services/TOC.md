@@ -41,7 +41,6 @@
 ### [Skapa och distribuera en molntjänst i portalen](cloud-services-how-to-create-deploy-portal.md)
 ### [Skapa en tom molntjänstbehållare i PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Konfigurera ett anpassat domännamn](cloud-services-custom-domain-name-portal.md)
-### [Mellanlagra en molntjänstdistribution (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Anslut till en anpassad domänkontrollant](cloud-services-connect-to-custom-domain.md)
 
 ## Hantera tjänst

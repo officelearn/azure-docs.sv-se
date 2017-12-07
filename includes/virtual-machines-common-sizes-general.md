@@ -8,15 +8,7 @@ Generella VM-storlekar ange förhållandet mellan belastningsutjämnade CPU-minn
 
 - Storlekarna på den grundläggande nivån är främst avsedda för utvecklingsarbetsbelastningar och andra program som inte kräver belastningsutjämning, automatisk skalning eller minnesintensiva virtuella datorer. Information om VM-storlekar som passar bättre för produktionsprogram finns i (Storlekar för virtuella datorer)[virtual-machines-size-specs.md]. Prisinformation för virtuella datorer finns i [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) (Priser för virtuella datorer).
 
-## <a name="b-series-preview"></a>B-serien (förhandsgranskning)
-
-> [!NOTE] 
-> Förhandsgranskningar görs tillgängliga för dig under förutsättning att du godkänner användningsvillkoren. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Den här förhandsgranskningen kommer att begränsas till följande områden:
-> - OSS - Väst 2
-> - OSS - Öst
-> - Europa - Väst
-> - Asien/Stillahavsområdet - sydost
+## <a name="b-series"></a>B-serien
 
 B-serien burstable VMs lämpar sig för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, små databaser och utveckling och test miljöer. Dessa arbetsbelastningar har vanligtvis burstable prestandakrav. B-serien ger dessa kunder möjligheten att köpa en VM-storlek med ett pris samvetsfrihet baslinje-prestanda som tillåter VM-instans att bygga upp krediter när den virtuella datorn mindre än dess grundläggande prestanda. När den virtuella datorn har ackumulerats kredit, kan den virtuella datorn burst ovanför baslinjen för den virtuella datorn med upp till 100% CPU när programmet kräver högre CPU-prestanda.
 
@@ -31,7 +23,7 @@ B-serien burstable VMs lämpar sig för arbetsbelastningar som inte behöver ful
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3-serien
+## <a name="dsv3-series"></a>Dsv3-serien *
 
 ACU: 160–190
 
@@ -46,9 +38,9 @@ Storlekarna i Dsv3-serien baseras på 2,3 GHz Intel XEON® E5-2673 v4-processorn
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32 000/256 (400)                                                    | 25,600 / 384                              | 8 / hög                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000/512 (800)                                                    | 51,200 / 768                              | 8 / mycket hög                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000/1 200                              | 8 / mycket hög                                       |
+* Dsv3-serien VM funktion Intel® flertrådsteknik
 
-
-## <a name="dv3-series"></a>Dv3-serien
+## <a name="dv3-series"></a>Dv3-serien * 
 
 ACU: 160–190
 
@@ -65,7 +57,7 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24 000/375/187                                            | 8 / hög                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48 000/750/375                                            | 8 / mycket hög                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96 000/1 000/500                                            | 8 / mycket hög                     |
-
+* Dv3-serien VM funktion Intel® flertrådsteknik
 
 ## <a name="dsv2-series"></a>DSv2-serien
 

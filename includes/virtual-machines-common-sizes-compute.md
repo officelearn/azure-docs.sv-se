@@ -12,11 +12,11 @@ De virtuella datorerna i F-serien är ett utmärkt alternativ för arbetsbelastn
 
 Fs-serien ger alla fördelar med F-serien, och Premium-lagring.
 
-## <a name="fsv2-series"></a>Fsv2-serien
+## <a name="fsv2-series"></a>Fsv2-serien *
 
 ACU: 195-210
 
-| Storlek             | Vcpu's | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
+| Storlek             | Vcpu's | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Mellan                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Mellan                                       |
@@ -25,7 +25,7 @@ ACU: 195-210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Mycket hög                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Mycket hög                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Mycket hög                                 |
-
+* Fsv2-serien VM funktion Intel® flertrådsteknik
 
 ## <a name="fs-series"></a>Fs-serien*
 

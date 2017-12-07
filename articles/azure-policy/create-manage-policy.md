@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att tvinga kompatibilitet
 
@@ -26,22 +26,6 @@ Förstå hur du skapar och hanterar principer i Azure är viktigt för att vara 
 > * Implementera en ny princip i en organisation
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-## <a name="opt-in-to-azure-policy"></a>Välja att Azure-princip
-
-Azure principen är nu tillgänglig i begränsad Preview så du behöver registrera för att begära åtkomst.
-
-1. Gå till Azure-princip på https://aka.ms/getpolicy och välj **registrera dig** i den vänstra rutan.
-
-   ![Sök efter princip](media/assign-policy-definition/sign-up.png)
-
-2. Delta i Azure-principen genom att välja prenumerationer i den **prenumeration** listan som du vill arbeta med. Välj sedan **registrera**.
-
-   Den innehåller alla dina Azure-prenumerationer.
-
-   ![Om du vill använda Azure-princip](media/assign-policy-definition/preview-opt-in.png)
-
-   Beroende på begäran, kan det ta upp till ett par dagar för att vi ska ta emot din begäran om registrering. När din begäran hämtar godkänts meddelas du via e-post som du kan börja använda tjänsten.
 
 ## <a name="assign-a-policy"></a>Tilldela en princip
 
@@ -69,7 +53,7 @@ Det första steget i att tillämpa kompatibilitet med Azure princip är att till
 
    Det finns två prisnivåer i Azure princip – *lediga* och *Standard*. Med den kostnadsfria nivån kan du bara tvinga principer för framtida resurser, medan med Standard, du kan även tillämpa dem på befintliga resurser för att bättre förstå din kompatibilitetstillstånd. Eftersom vi finns i begränsad förhandsgranskningen vi ännu inte har startats prisnivå modellen, så du får en faktura för att välja *Standard*. Du kan läsa mer om prissättning, titta på: [priser för Azure princip](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Välj den **omfång** -prenumerationen (eller resursgrupp) du tidigare registrerat när du har valt att Azure-principen. Ett omfång avgör vilka resurser eller gruppering av resurser hämtar principtilldelningen tillämpas på. Det kan röra sig om en prenumeration till resursgrupper.
+8. Välj den **omfång** -prenumerationen (eller resursgrupp) du tidigare har registrerat. Ett omfång avgör vilka resurser eller gruppering av resurser hämtar principtilldelningen tillämpas på. Det kan röra sig om en prenumeration till resursgrupper.
 
    Det här exemplet använder vi den här prenumerationen - **Azure Analytics kapacitet Dev**. Din prenumeration varierar.
 
@@ -94,9 +78,9 @@ Nu när vi har tilldelats principdefinitionen, är det dags att skapa en ny prin
       - Principen regler/villkor, i det här fallet – VM SKU-storleken är lika med G serien
       - Principen effekt, i det här fallet – **neka**.
 
-   Här är hur json ska se ut
+    Här är hur json ska se ut
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Nu när vi har tilldelats principdefinitionen, är det dags att skapa en ny prin
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Titta på den här artikeln - om du vill visa prover av json-kod [mallar för Azure-princip](json-samples.md)
+    Om du vill visa prover av json-kod, läsa den [mallar för Azure princip](json-samples.md) artikel.
 
 4. Välj **Spara**.
 
@@ -353,7 +335,7 @@ Med en definition av initiativ, kan du gruppera flera principdefinitioner för a
 
    I det här exemplet, vill vi se till att resurser som är kompatibla med principdefinitioner om att få säker, namnet på initiativ vara **få säker**, och beskrivningen är: **har den här initiativ Skapa för att hantera alla principdefinitioner som är associerade med att skydda resurser**.
 
-   ![Initiativet definition](media/create-manage-policy/initiative-definition.png)
+   ![Initiativdefinition](media/create-manage-policy/initiative-definition.png)
 
 4. Bläddra igenom listan över **tillgängliga definitionerna** och välj den princip definition(s) som du vill lägga till i det initiativet. För vår **få säker** initiativ, Lägg till följande inbyggda principdefinitioner:
    - Kräv SQL Server version 12.0

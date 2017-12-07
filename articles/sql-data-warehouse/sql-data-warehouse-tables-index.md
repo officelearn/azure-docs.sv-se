@@ -3,8 +3,8 @@ title: Indexering tabeller i SQL Data Warehouse | Microsoft Azure
 description: "Komma igång med tabellen indexering i Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 672270536a7405e617edbcf5ec0e6eff68be7fde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexering tabeller i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -174,14 +174,14 @@ När du har kört frågan kan du titta på data och analysera dina resultat. Den
 | [OPEN_rowgroup_rows_MAX] |Som ovan |
 | [OPEN_rowgroup_rows_AVG] |Som ovan |
 | [CLOSED_rowgroup_rows] |Titta på stängd rad gruppera rader som förstånd kontroll. |
-| [CLOSED_rowgroup_count] |Antal avslutade radgrupper ska låg om någon ses alls. Stängd radgrupper kan konverteras till komprimerade rowg roups med hjälp av ALTER INDEX... REKONSTRUERA kommando. Detta är dock inte normalt krävs. Stängd grupper konverteras automatiskt till columnstore radgrupper av ”tuppel till tuppelflyttar” bakgrunden. |
+| [CLOSED_rowgroup_count] |Antal avslutade radgrupper ska låg om någon ses alls. Stängd radgrupper kan konverteras till komprimerade radgrupper med hjälp av ALTER INDEX... REKONSTRUERA kommando. Detta är dock inte normalt krävs. Stängd grupper konverteras automatiskt till columnstore radgrupper av ”tuppel till tuppelflyttar” bakgrunden. |
 | [CLOSED_rowgroup_rows_MIN] |Stängd radgrupper ska ha en mycket hög fill hastighet. Om fill för en stängd grupp är låg, krävs ytterligare analys av columnstore. |
 | [CLOSED_rowgroup_rows_MAX] |Som ovan |
 | [CLOSED_rowgroup_rows_AVG] |Som ovan |
 | [Rebuild_Index_SQL] |SQL att återskapa columnstore-index för en tabell |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Orsaker till dåliga columnstore-index kvalitet
-Om du har identifierat tabeller med dålig segment kvalitet, kommer du vill identifiera den bakomliggande orsaken.  Nedan visas några andra vanliga orsaker till dåliga segment quaility:
+Om du har identifierat tabeller med dålig segment kvalitet, kommer du vill identifiera den bakomliggande orsaken.  Nedan visas några andra vanliga orsaker till dåliga segment kvalitet:
 
 1. Minnesbelastning när indexet har skapats
 2. Stor volym med DML-operationer
@@ -191,7 +191,7 @@ Om du har identifierat tabeller med dålig segment kvalitet, kommer du vill iden
 Dessa faktorer kan orsaka ett columnstore-index har betydligt mindre än de optimala 1 miljon raderna per grupp.  De kan också medföra rader som ska gå att delta raden gruppen i stället för en komprimerad grupp. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Minnesbelastning när indexet har skapats
-Antalet rader per komprimerade grupp är direkt relaterade till bredden på raden och mängden minne för att bearbeta gruppen raden.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Därför är det bästa sättet att ge session, som skriver till din columnstore-index tabeller åtkomst till så mycket minne som möjligt.  Eftersom det är en kompromiss mellan minne och samtidighet, riktlinjer om rätt minnesallokering beror på data i varje rad i tabellen, hur många DWU du har tilldelat till systemet och mängden samtidighet platser kan du ge till sessionen som är skriver data till tabellen.  Som bästa praxis rekommenderar vi börjar med xlargerc om du använder DW300 eller mindre largerc om du använder DW400 DW600 och mediumrc om du använder DW1000 och senare.
+Antalet rader per komprimerade grupp är direkt relaterade till bredden på raden och mängden minne för att bearbeta gruppen raden.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Därför är det bästa sättet att ge session, som skriver till din columnstore-index tabeller åtkomst till så mycket minne som möjligt.  Eftersom det är en kompromiss mellan minne och samtidighet, riktlinjer om rätt minnesallokering beror på data i varje rad i tabellen, informationslagerenheter som allokerats till ditt system och antal samtidiga fack som du kan ge till sessionen som skriver data till tabellen.  Som bästa praxis rekommenderar vi börjar med xlargerc om du använder DW300 eller mindre largerc om du använder DW400 DW600 och mediumrc om du använder DW1000 och senare.
 
 ### <a name="high-volume-of-dml-operations"></a>Stor volym med DML-operationer
 En stor volym med DML-operationer som uppdatera och ta bort rader kan installera funktionen i columnstore. Detta gäller särskilt när flesta av rader i en grupp ändras.
@@ -247,7 +247,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-När ett index i SQL Data Warehouse är en åtgärd som är offline.  Mer information om att bygga om index finns i avsnittet ALTER INDEX REBUILD i [Columnstore-index defragmentering] [ Columnstore Indexes Defragmentation] och avsnittet syntax [ALTER INDEX] [ ALTER INDEX].
+När ett index i SQL Data Warehouse är en åtgärd som är offline.  Mer information om att bygga om index finns i avsnittet ALTER INDEX REBUILD i [Columnstore-index defragmentering][Columnstore Indexes Defragmentation], och [ALTER INDEX] [ ALTER INDEX].
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Steg 3: Kontrollera grupperade columnstore segment kvalitet har förbättrats
 Kör frågan vilka identifierade tabell med dålig segmentera kvalitet och verifiera segment kvalitet har förbättrats.  Om segment kvalitet inte förbättrar, bero det på att raderna i tabellen är extra breda.  Överväg att använda en högre resursklassen eller DWU när ditt index.

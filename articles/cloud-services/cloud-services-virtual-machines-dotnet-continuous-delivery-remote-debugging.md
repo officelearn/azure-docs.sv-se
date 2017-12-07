@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: c2bd67afc0c289de94019497e57b57f97a759f3a
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 1a30b42e6e84edf9a7cef861aaf6a60e87c473d0
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Aktivera fjärrfelsökning när du använder kontinuerlig leverans för att publicera till Azure.
 Du kan aktivera fjärrfelsökning i Azure, för molntjänster eller virtuella datorer när du använder [kontinuerlig leverans](cloud-services-dotnet-continuous-delivery.md) att publicera till Azure genom att följa dessa steg.
@@ -27,25 +27,28 @@ Du kan aktivera fjärrfelsökning i Azure, för molntjänster eller virtuella da
 1. Build-agenten, konfigurera inledande miljön för Azure som beskrivs i [kommandoradsverktyget skapa för Azure](http://msdn.microsoft.com/library/hh535755.aspx).
 2. Eftersom remote debug-körning (msvsmon.exe) krävs för paketet, installera den **fjärrverktyg för Visual Studio**.
 
-    * [Fjärrverktyg för Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
-    * [Fjärrverktyg för Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
-    * [Fjärrverktyg för Visual Studio 2013 Update 5](https://www.microsoft.com/download/details.aspx?id=48156)
+   * [Fjärrverktyg för Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
+   * [Fjärrverktyg för Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
+   * [Fjärrverktyg för Visual Studio 2013 Update 5](https://www.microsoft.com/download/details.aspx?id=48156)
     
-    Alternativt kan kopiera du remote debug-binärfiler från ett system som har Visual Studio installerat.
+   Alternativt kan kopiera du remote debug-binärfiler från ett system som har Visual Studio installerat.
 
 3. Skapa ett certifikat som beskrivs i [certifikat översikt för Azure Cloud Services](cloud-services-certs-create.md). Håll .pfx och RDP certifikatets tumavtryck och överför certifikatet till molnet Måltjänsten.
 4. Med hjälp av följande alternativ på kommandoraden MSBuild att bygga och paketet med fjärråtkomst felsökning aktiverat. (Ersätt faktiska sökvägarna till system- och filerna för vinkeln omges-objekt).
    
-        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```cmd
+   msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```
    
-    `VSX64RemoteDebuggerPath`är sökvägen till mappen som innehåller msvsmon.exe i fjärranslutna verktyg för Visual Studio.
-    `RemoteDebuggerConnectorVersion`är Azure SDK-version i Molntjänsten. Det bör också matcha den version som installeras med Visual Studio.
+   `VSX64RemoteDebuggerPath`är sökvägen till mappen som innehåller msvsmon.exe i fjärranslutna verktyg för Visual Studio.
+   `RemoteDebuggerConnectorVersion`är Azure SDK-version i Molntjänsten. Det bör också matcha den version som installeras med Visual Studio.
+
 5. Publicera till Molntjänsten mål med hjälp av paket- och .cscfg-filen som skapas i föregående steg.
 6. Importera certifikatet (.pfx-filen) till den dator som har Visual Studio med Azure SDK för .NET installerats. Se till att importera till den `CurrentUser\My` certifikatarkiv, annars kopplar till felsökning i Visual Studio misslyckas.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>Aktivera fjärrfelsökning för virtuella datorer
 1. Skapa en virtuell Azure-dator. Se [skapa en virtuell dator som kör Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [skapa och hantera virtuella Azure-datorer i Visual Studio](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-2. På den [Azure klassiska Portalsida](http://go.microsoft.com/fwlink/p/?LinkID=269851), visa instrumentpanelen för den virtuella datorn om du vill se den virtuella datorn **RDP CERTIFIKATETS TUMAVTRYCK**. Det här värdet används för den `ServerThumbprint` värde i konfigurationen för tillägget.
+2. På Azure-portalen] (http://go.microsoft.com/fwlink/p/?LinkID=269851), navigera till den virtuella datorn till den virtuella datorn **RDP CERTIFIKATETS TUMAVTRYCK**. Det här värdet används för den `ServerThumbprint` värde i konfigurationen för tillägget.
 3. Skapa ett klientcertifikat som beskrivs i [certifikat översikt för Azure Cloud Services](cloud-services-certs-create.md) (håll .pfx och tumavtrycket för RDP).
 4. Installera Azure Powershell (version 0.7.4 eller senare) som beskrivs i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 5. Kör följande skript för att aktivera tillägget RemoteDebug. Ersätt sökvägar och personliga data med ditt eget, till exempel din prenumerationsnamn, tjänstnamn och tumavtryck.

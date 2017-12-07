@@ -3,8 +3,8 @@ title: Partitionering tabeller i SQL Data Warehouse | Microsoft Docs
 description: "Komma igång med Tabellpartitionering i Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 6cef870c-114f-470c-af10-02300c58885d
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: 3edfd34d368228be32afef48688739639a3b03ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: a28cb1f8a2e48332b344566620dc49b29d9d3c99
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionering tabeller i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -39,22 +39,22 @@ Partitionering stöds på alla SQL Data Warehouse tabelltyper; inklusive grupper
 Partitionering kan dra prestandadata för underhåll och fråga.  Om den fördelar både eller bara en beror på hur data har lästs in och om samma kolumn kan användas för båda, eftersom partitionering kan bara utföras på en kolumn.
 
 ### <a name="benefits-to-loads"></a>Fördelar med att belastning
-Den största fördelen med partitionering i SQL Data Warehouse är förbättra effektiviteten och prestanda för inläsning data genom användning av partition borttagning, växlar och sammanslagning.  I de flesta fall partitionerat data på ett datum som är beroende av den sekvens som data har lästs in i databasen.  En av de största fördelarna med att använda partitioner för att upprätthålla data den undvikande av transaktionsloggning.  Helt enkelt lägga till, uppdatera eller ta bort data kan vara den enklaste metoden med lite tankar och prestanda, kan använder partitionering under din inläsningen avsevärt förbättra prestanda.
+Den största fördelen med partitionering i SQL Data Warehouse är att förbättra effektiviteten och prestanda för inläsning av data med hjälp av partition borttagning, växlar och koppla.  I de flesta fall partitionerat data på ett datum som är beroende av den ordning i vilken data läses in i databasen.  En av de största fördelarna med att använda partitioner för att upprätthålla data den undvikande av transaktionsloggning.  Även om bara infoga, uppdatera eller ta bort data kan vara den enklaste metoden med lite tankar och prestanda, kan med partitionering under din inläsningen avsevärt förbättra prestanda.
 
-Växla partition kan användas för att snabbt ta bort eller ersätta ett avsnitt i en tabell.  En försäljning faktatabellen kan innehålla bara data för de senaste 36 månaderna.  I slutet av varje månad raderas den äldsta månaden av försäljningsinformation från tabellen.  Dessa data kan tas bort genom att använda en delete-instruktion för att ta bort data för den äldsta månaden.  Men kan om du tar bort en stor mängd data rad för rad med en delete-instruktion ta mycket lång tid, samt skapa risken för stora transaktioner, vilket kan ta lång tid att återställa om något går fel.  En mer bästa tillvägagångssättet är att helt enkelt ta bort den äldsta partitionen i data.  När du tar bort enskilda rader kan ta timmar, ta ta bort en hel partition sekunder.
+Växla partition kan användas för att snabbt ta bort eller ersätta ett avsnitt i en tabell.  En försäljning faktatabellen kan innehålla bara data för de senaste 36 månaderna.  I slutet av varje månad raderas den äldsta månaden av försäljningsinformation från tabellen.  Dessa data kan tas bort genom att använda en delete-instruktion för att ta bort data för den äldsta månaden.  Men kan om du tar bort en stor mängd data rad för rad med en delete-instruktion ta för lång tid, samt skapa risken för stora transaktioner som tar lång tid att återställa om något går fel.  En mer optimala metoden är att ta bort den äldsta partitionen i data.  När du tar bort enskilda rader kan ta timmar, ta ta bort en hel partition sekunder.
 
 ### <a name="benefits-to-queries"></a>Fördelar för frågor
-Partitionering kan också användas för att förbättra frågeprestanda.  Detta kan begränsa sökningen till de kvalificerande partitioner som kan vara en mycket mindre deluppsättning av data och undvika att en fullständig tabellgenomsökning om en fråga används ett filter för en partitionerad kolumn.  Predikat eliminering prestandafördelarna är mindre användbara med introduktionen av grupperade columnstore-index, men i vissa fall det kan vara en fördel med att frågorna.  Till exempel om försäljning faktatabellen delas upp i 36 månader med fältet Försäljning och sedan frågar filtret på Försäljningsdatum kan hoppa över sökning i partitioner som inte matchar filtret.
+Partitionering kan också användas för att förbättra frågeprestanda.  En fråga som filtrerar partitionerade data kan begränsa sökningen till kvalificerande partitionerna. Den här metoden för filtrering kan undvika att en fullständig tabellgenomsökning och bara skanna en mindre deluppsättning av data. Predikat eliminering prestandafördelarna är mindre användbara med introduktionen av grupperade columnstore-index, men i vissa fall det kan vara en fördel med att frågorna.  Till exempel om försäljning faktatabellen delas upp i 36 månader med fältet Försäljning och sedan frågar filtret på Försäljningsdatum kan hoppa över sökning i partitioner som inte matchar filtret.
 
 ## <a name="partition-sizing-guidance"></a>Vägledning för partition storlek
-Medan partitionering kan användas för att förbättra prestandan för vissa scenarier, skapar en tabell med **för många** partitioner kan försämra prestanda under vissa omständigheter.  Dessa problem är särskilt för grupperade columnstore-tabeller.  Partitionering för att vara användbara, är det viktigt att förstå när du ska använda partitionering och antalet partitioner för att skapa.  Ingen hårda snabb regel om hur många partitioner är för många, det beror på dina data och hur många partitioner du läser in till samtidigt.  Men som en allmän tumregel tänka på att lägga till 10-tal till 100-tal av partitioner, inte 1 000-tal.
+Medan partitionering kan användas för att förbättra prestandan för vissa scenarier, skapar en tabell med **för många** partitioner kan försämra prestanda under vissa omständigheter.  Dessa problem är särskilt för grupperade columnstore-tabeller.  Partitionering för att vara användbara, är det viktigt att förstå när du ska använda partitionering och antalet partitioner för att skapa.  Ingen hårda snabb regel om hur många partitioner är för många, det beror på dina data och hur många partitioner du läser in till samtidigt.  En lyckad partitioneringsschema har vanligtvis flera hundratals partitioner, inte tusentalsavgränsare.
 
-När du skapar partitionering på **grupperade columnstore** tabeller, är det viktigt att tänka på hur många rader som hamnar på varje partition.  För optimala komprimering och prestanda för grupperade columnstore-tabeller krävs minst 1 miljon rader per distribution och partition.  Innan partitioner skapas, delas SQL Data Warehouse redan varje tabell i 60 distribuerade databaser.  Partitionering lagts till i en tabell är utöver de distributioner som skapats i bakgrunden.  Med det här exemplet, om försäljning faktatabellen innehåller 36 månatliga partitioner och med hänsyn till att SQL Data Warehouse har 60 distributioner, sedan försäljning faktatabellen ska innehålla 60 miljoner rader per månad eller 2.1 miljarder rader när alla månader fylls i.  Om en tabell innehåller avsevärt färre rader än det rekommenderade minsta antalet rader per partition, Överväg att använda färre partitioner för att öka antalet rader per partition.  Se även den [indexering] [ Index] artikel som innehåller de förfrågningar som kan köras på SQL-datalagret för att bedöma kvaliteten på klustret columnstore-index.
+När du skapar partitioner på **grupperade columnstore** tabeller, är det viktigt att tänka på hur många rader som hör till varje partition.  För optimala komprimering och prestanda för grupperade columnstore-tabeller krävs minst 1 miljon rader per distribution och partition.  Innan partitioner skapas, delas SQL Data Warehouse redan varje tabell i 60 distribuerade databaser.  Partitionering lagts till i en tabell är utöver de distributioner som skapats i bakgrunden.  Med det här exemplet, om försäljning faktatabellen innehåller 36 månatliga partitioner och med hänsyn till att SQL Data Warehouse har 60 distributioner, sedan försäljning faktatabellen ska innehålla 60 miljoner rader per månad eller 2.1 miljarder rader när alla månader fylls i.  Om en tabell innehåller avsevärt färre än det rekommenderade minsta antalet rader per partition, Överväg att använda färre partitioner för att öka antalet rader per partition.  Se även den [indexering] [ Index] artikel som innehåller de förfrågningar som kan köras på SQL-datalagret för att bedöma kvaliteten på klustret columnstore-index.
 
 ## <a name="syntax-difference-from-sql-server"></a>Syntaxen skillnaden från SQL Server
-SQL Data Warehouse introducerar en förenklad definition av partitioner som skiljer sig från SQL Server.  Partitionering funktioner och scheman används inte i SQL Data Warehouse som i SQL Server.  I stället är allt du behöver göra identifiera partitionerad kolumn och gräns punkter.  Syntaxen för partitionering kan skilja sig något från SQL Server, är grundbegreppen samma.  SQL Server och SQL Data Warehouse stöder en partition kolumn per tabell, som kan vara låg.  Mer information om partitionering finns [partitionerade tabeller och index][Partitioned Tables and Indexes].
+SQL Data Warehouse introducerar ett förenklat sätt att definiera partitioner, som skiljer sig något från SQL Server.  Partitionering funktioner och scheman används inte i SQL Data Warehouse som i SQL Server.  I stället är allt du behöver göra identifiera partitionerad kolumn och gräns punkter.  Syntaxen för partitionering kan skilja sig något från SQL Server, är grundbegreppen samma.  SQL Server och SQL Data Warehouse stöder en partition kolumn per tabell, som kan vara låg.  Mer information om partitionering finns [partitionerade tabeller och index][Partitioned Tables and Indexes].
 
-I exemplet för en SQL Data Warehouse partitionerad nedan [CREATE TABLE] [ CREATE TABLE] -instruktionen partitionerar tabellen FactInternetSales på kolumnen OrderDateKey:
+Följande exempel på ett SQL Data Warehouse partitionerad [CREATE TABLE] [ CREATE TABLE] -instruktionen partitionerar tabellen FactInternetSales på kolumnen OrderDateKey:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -86,7 +86,7 @@ Migrera bara definitioner för SQL Server-partitionen till SQL Data Warehouse:
 * Ta bort SQL Server [partitionsschema][partition scheme].
 * Lägg till den [partitionsfunktioner] [ partition function] definitionen för att skapa tabellen.
 
-Om du migrerar en partitionerad tabell från en SQL Server-instans på nedan SQL kan hjälpa dig att söka igenom antalet rader som finns i varje partition.  Tänk på att om samma partitionering detaljnivå används i SQL Data Warehouse kan minska antalet rader per partition med en faktor på 60.  
+Om du migrerar en partitionerad tabell från en SQL Server-instans kan följande SQL kan hjälpa dig att ta reda på hur många rader som i varje partition.  Tänk på att om samma partitionering detaljnivå används i SQL Data Warehouse, minskar antalet rader per partition med en faktor på 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -123,9 +123,9 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="workload-management"></a>Arbetsbelastningshantering
-En sista att ta hänsyn till tabellen partition beslut är [hantering av arbetsbelastning][workload management].  Hantering av arbetsbelastning i SQL Data Warehouse är främst hanteringen av minne och samtidighet.  I SQL Data Warehouse är den maximala mängd minne som allokerats till varje distributionsplats vid körning av fråga styrda resursklasser.  Helst ska partitionerna storleksändras med hänsyn till andra faktorer som de minne som behövs för att skapa grupperade columnstore-index.  Grupperade columnstore-index förmånen avsevärt när de tilldelas mer minne.  Därför ska du se till att bygga upp index en partition inte är för lite minne. Öka mängden tillgängligt minne för att din fråga kan uppnås genom att växla från standardroll smallrc, till en av rollerna som largerc.
+En sista att ta hänsyn till tabellen partition beslut är [hantering av arbetsbelastning][workload management].  Hantering av arbetsbelastning i SQL Data Warehouse är främst hanteringen av minne och samtidighet.  Den maximala mängd minne som allokerats till varje distributionsplats vid körning av fråga styrs av resursklasser i SQL Data Warehouse.  Partitioner är det bästa storlek med hänsyn till andra faktorer som de minne som behövs för att skapa grupperade columnstore-index.  Grupperade columnstore-index förmånen avsevärt när de tilldelas mer minne.  Därför vill du se till att bygga upp index en partition inte är för lite minne. Öka mängden tillgängligt minne för att din fråga kan uppnås genom att växla från standardroll smallrc, till en av rollerna som largerc.
 
-Genom att fråga resurs resursstyrningen dynamiska hanteringsvyer finns information om fördelningen av minne per distribution. I verkligheten är din minnestilldelningen mindre än figurerna nedan. Detta ger dock en nivå som du kan använda vid bedömning av partitionerna för hanteringsåtgärder för data.  Försök undvika att ändra storlek på dina partitioner efter minnestilldelningen som tillhandahålls av den extra stor resursklassen. Om din partitioner växer utöver denna bild kör risken för minnesbelastning vilket i sin tur leder till mindre optimal komprimering.
+Genom att fråga resurs resursstyrningen dynamiska hanteringsvyer finns information om fördelningen av minne per distribution. I verkligheten kan understiger din minnestilldelningen följande bilder. Detta ger dock en nivå som du kan använda vid bedömning av partitionerna för hanteringsåtgärder för data.  Försök undvika att ändra storlek på dina partitioner efter minnestilldelningen som tillhandahålls av den extra stor resursklassen. Om din partitioner växer utöver denna bild kör risken för minnesbelastning vilket i sin tur leder till mindre optimal komprimering.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]

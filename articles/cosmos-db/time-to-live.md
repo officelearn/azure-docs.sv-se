@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Data i Azure Cosmos DB samlingar automatiskt med time to live-att gälla
 Program kan skapa och lagra stora mängder data. Vissa av dessa data, t.ex. datorn genereras data, loggar och användaren händelsesessionen information är bara användbara för en bestämd tidsperiod. När data blir överflödiga enligt behov av programmet som det är säkert att rensa data och minska lagringsbehov för ett program.
@@ -149,6 +149,8 @@ Om du vill inaktivera TTL helt på en samling och stoppa bakgrunden från söker
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## <a name="ttl-and-index-interaction"></a>TTL-värde och ett Index interaktion
+TTL-tillägg eller en ändring har ändrats till underliggande index. När det finns inga TTL och du ange ett giltigt värde för TTL - resultatet indexera om åtgärden. För konsekvent Index - kommer inte att se ändringar i Index tillstånd. Om indexets lazy - indexet det första alltid fånga upp och med den här ändringen i ttl, återskapas indexet från början. Påverkan i senare fallet är att frågor under index återskapas inte returnerar fullständig eller korrekta resultat. Ändra inte TTL-värde för lazy index om du behöver exakt data antal osv. som indexerings läge själva lazy.  Helst bör konsekvent index alltid väljas. 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 **Vad TTL kostar mig?**

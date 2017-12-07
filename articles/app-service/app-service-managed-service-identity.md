@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten (förhandsversion) i App Service och Azure Functions
 
@@ -45,6 +45,35 @@ Om du vill konfigurera en hanterade tjänstidentiteten i portalen ska du först 
 4. Växeln **registrera med Azure Active Directory** till **på**. Klicka på **Spara**.
 
 ![Hanterade tjänstidentiteten i App Service](media/app-service-managed-service-identity/msi-blade.png)
+
+### <a name="using-the-azure-cli"></a>Använda Azure CLI
+
+Om du vill ställa in en hanterad tjänstidentitet med hjälp av Azure CLI, behöver du använda den `az webapp assign-identity` kommandot mot ett befintligt program. Det finns tre alternativ för att köra exemplen i det här avsnittet:
+
+- Använd [Azure Cloud Shell](../cloud-shell/overview.md) från Azure-portalen.
+- Använd inbäddade Azure Cloud Shell via försök ”knappen”, finns i det övre högra hörnet av varje kodblock nedan.
+- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 eller senare) om du föredrar att använda den lokala CLI-konsolen. 
+
+Följande steg beskriver hur du skapar en webbapp och tilldela den en identitet med hjälp av CLI:
+
+1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/#login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera programmet:
+
+    ```azurecli-interactive
+    az login
+    ```
+2. Skapa ett webbprogram med hjälp av CLI. Fler exempel på hur du använder CLI med App Service finns [App Service CLI prover](../app-service/app-service-cli-samples.md):
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Kör den `assign-identity` kommando för att skapa identiteten för det här programmet:
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Med en Azure Resource Manager-mall
 
@@ -134,7 +163,7 @@ Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. Om du vill 
 > |-----|-----|-----|
 > |resurs|Fråga|AAD-resurs-URI för resursen för som en token ska hämtas.|
 > |API-version|Fråga|Versionen av token API som ska användas. ”2017-09-01” är för närvarande den enda version som stöds.|
-> |hemligt|Huvudet|Värdet för miljövariabeln MSI_SECRET.|
+> |hemlighet|Sidhuvud|Värdet för miljövariabeln MSI_SECRET.|
 
 
 Ett lyckat svar för 200 OK innehåller en JSON-meddelandetext med följande egenskaper:

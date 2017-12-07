@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för web apps i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -60,7 +60,7 @@ När du aktiverar **programdiagnostik**, du också välja den **nivå**. Den hä
 >
 >
 
-För **programloggning**, du kan aktivera alternativet filen system tillfälligt för felsökning. Det här alternativet inaktiverar automatiskt i 12 timmar. Du kan också aktivera alternativet blob storage och välj en blogg behållare att skriva loggfiler.
+För **programloggning**, du kan aktivera alternativet filen system tillfälligt för felsökning. Det här alternativet inaktiverar automatiskt i 12 timmar. Du kan också aktivera blob storage alternativet att skriva loggar till en blob-behållare.
 
 För **Web server-loggning**, kan du välja **lagring** eller **filsystem**. Att välja **lagring** kan du välja ett lagringskonto och en blob-behållare som loggarna skrivs till. 
 
@@ -223,7 +223,7 @@ När de loggar till tabellagring används ytterligare egenskaper som för att un
 | ApplicationName |Webbprogramnamnet |
 | Nivå |Händelsenivå (till exempel fel, varning, information) |
 | Händelse-ID |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
-| InstanceId |Instans av webbappen som den även inträffade |
+| Instans-ID |Instans av webbappen som den även inträffade |
 | Process-ID |Process-ID |
 | tid |Tråd-ID för tråden som skapades av händelsen |
 | Meddelande |Detaljerat meddelande |
@@ -237,7 +237,7 @@ När loggning för att blob storage, lagras data i fil med kommaavgränsade vär
 | Date |Datum och tid då händelsen inträffade |
 | Nivå |Händelsenivå (till exempel fel, varning, information) |
 | ApplicationName |Webbprogramnamnet |
-| InstanceId |Instans av webbappen som händelsen inträffade |
+| Instans-ID |Instans av webbappen som händelsen inträffade |
 | EventTickCount |Datum och tid då händelsen inträffade i Tick-format (större precision) |
 | Händelse-ID |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
 | Process-ID |Process-ID |

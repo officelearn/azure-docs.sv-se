@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Felsökning av problem med cloud service-distribution
 När du distribuerar ett cloud service-programpaket till Azure kan du få information om hur du distribuerar från den **egenskaper** rutan i Azure-portalen. Du kan använda informationen i det här fönstret för att felsöka problem med Molntjänsten och du kan ange den här informationen för stöd för Azure när du öppnar en ny supportförfrågan.
@@ -27,7 +27,6 @@ När du distribuerar ett cloud service-programpaket till Azure kan du få inform
 Du hittar den **egenskaper** rutan på följande sätt:
 
 * Klicka på distributionen av Molntjänsten i Azure-portalen, **alla inställningar**, och klicka sedan på **egenskaper**.
-* Klicka på distributionen av Molntjänsten i den klassiska Azure-portalen, **INSTRUMENTPANELEN**, som finns i det nedre högra hörnet på sidan (under **snabböversikten**). Tänk på att det finns ingen ”egenskaper” etikett på det här fönstret.
 
 > [!NOTE]
 > Du kan kopiera innehållet i den **egenskaper** fönstret till Urklipp genom att klicka på ikonen i det övre högra hörnet i fönstret.

@@ -3,8 +3,8 @@ title: "Temporära tabeller i SQL Data Warehouse | Microsoft Docs"
 description: "Komma igång med temporära tabeller i Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: fd8c31a727dae3b011aa8294a81f005bad72a278
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Temporära tabeller i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,12 +33,12 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Temporära tabeller är mycket användbara vid bearbetning av data - särskilt under omvandling där mellanliggande resultat är tillfälligt. Temporära tabeller finns på nivån session i SQL Data Warehouse.  De är bara synliga för sessionen har skapats och tas bort automatiskt när den aktuella sessionen loggar ut.  Temporära tabeller erbjuder en prestandafördelar eftersom resultaten skrivs till lokala i stället för Fjärrlagring.  Temporära tabeller är något annorlunda i Azure SQL Data Warehouse än Azure SQL Database som de kan nås från var som helst i sessionen, inklusive både i och utanför en lagrad procedur.
+Temporära tabeller är användbara vid bearbetning av data - särskilt under omvandling där mellanliggande resultat är tillfälligt. Temporära tabeller finns på nivån session i SQL Data Warehouse.  De är bara synliga för sessionen har skapats och tas bort automatiskt när den aktuella sessionen loggar ut.  Temporära tabeller erbjuder en prestandafördelar eftersom resultaten skrivs till lokala i stället för Fjärrlagring.  Temporära tabeller är något annorlunda i Azure SQL Data Warehouse än Azure SQL Database som de kan nås från var som helst i sessionen, inklusive både i och utanför en lagrad procedur.
 
 Den här artikeln innehåller grundläggande information om hur du använder temporära tabeller och visar principerna för sessionen nivån temporära tabeller. Med hjälp av informationen i den här artikeln kan hjälpa dig modularize koden, förbättra både återanvändning och enkelhet för underhåll av din kod.
 
 ## <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
-Temporära tabeller skapas med bara din tabellnamn med en `#`.  Exempel:
+Temporära tabeller skapas med din tabellnamn med en `#`.  Exempel:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -112,12 +112,12 @@ FROM    t1
 ``` 
 
 > [!NOTE]
-> `CTAS`är ett mycket kraftfullt kommando har fördelen att mycket effektivt i sin användning av transaktion loggutrymme. 
+> `CTAS`är ett kraftfullt kommando har fördelen att effektivt i sin användning av transaktion loggutrymme. 
 > 
 > 
 
 ## <a name="dropping-temporary-tables"></a>Släppa temporära tabeller
-När en ny session skapas ska inga temporära tabeller finnas.  Men om du anropar den samma lagrade proceduren skapas en tillfällig med samma namn så att din `CREATE TABLE` -satser är lyckas en enkel före kontroll med en `DROP` kan användas som i exemplet nedan:
+När en ny session skapas ska inga temporära tabeller finnas.  Men om du anropar den samma lagrade proceduren skapas en tillfällig med samma namn, så att din `CREATE TABLE` -satser är lyckad en enkel före kontroll med en `DROP` kan användas som i följande exempel:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -126,14 +126,14 @@ BEGIN
 END
 ```
 
-Det är en bra idé att använda det här mönstret för både tabeller och temporära tabeller för att koda konsekvenskontroll.  Det är också en bra idé att använda `DROP TABLE` att ta bort temporära tabeller när du är klar med dem i din kod.  I den lagrade proceduren utveckling är det vanligt att man finns drop-kommandon buntas ihop i slutet av en procedur för att se till att dessa objekt rensas bort.
+Det är en bra idé att använda det här mönstret för både tabeller och temporära tabeller för att koda konsekvenskontroll.  Det är också en bra idé att använda `DROP TABLE` att ta bort temporära tabeller när du är klar med dem i din kod.  I lagrade proceduren utveckling är det vanligt att drop-kommandon buntas ihop i slutet av en procedur för att se till att dessa objekt rensas bort.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
 ## <a name="modularizing-code"></a>Modularizing kod
-Eftersom temporära tabeller kan visas någonstans i en användarsession, kan detta utnyttjas för att hjälpa dig att modularize programkoden.  Till exempel samlar den lagrade proceduren nedan rekommendationer ovan för att generera DDL som uppdaterar all statistik i databasen med namnet statistik.
+Eftersom temporära tabeller kan visas någonstans i en användarsession, kan detta utnyttjas för att hjälpa dig att modularize programkoden.  Till exempel genererar följande lagrade procedur DDL om du vill uppdatera all statistik i databasen med namnet statistik.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -207,7 +207,7 @@ FROM    t1
 GO
 ```
 
-I det här skedet som den enda åtgärden som har inträffat är skapandet av en lagrad procedur som kommer att genereras en tillfällig tabell #stats_ddl med DDL-instruktioner.  Den här lagrade proceduren kommer att släppa #stats_ddl om det redan finns för att säkerställa att den inte misslyckas om mer än en gång i en session.  Men eftersom det inte finns några `DROP TABLE` i slutet av den lagrade proceduren när den lagrade proceduren slutförs den lämnar tabellen skapas så att den kan läsas utanför den lagrade proceduren.  I SQL Data Warehouse är till skillnad från andra SQL Server-databaser, det möjligt att använda den temporära tabellen utanför det förfarande som den skapades.  SQL Data Warehouse temporära tabeller kan användas för **var som helst** i sessionen. Detta kan leda till mer modulära och hanterbar kod som i det exemplet nedan:
+I det här skedet är den enda åtgärden som har inträffat skapandet av en lagrad procedur som generatess en tillfällig tabell #stats_ddl med DDL-instruktioner.  Den här lagrade proceduren utelämnar #stats_ddl om det redan finns för att säkerställa att den inte misslyckas om mer än en gång i en session.  Men eftersom det inte finns några `DROP TABLE` i slutet av den lagrade proceduren när den lagrade proceduren slutförs den lämnar tabellen skapas så att den kan läsas utanför den lagrade proceduren.  I SQL Data Warehouse är till skillnad från andra SQL Server-databaser, det möjligt att använda den temporära tabellen utanför det förfarande som den skapades.  SQL Data Warehouse temporära tabeller kan användas för **var som helst** i sessionen. Detta kan leda till mer modulära och hanterbar kod som i följande exempel:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;

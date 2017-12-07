@@ -47,4 +47,4 @@ I en tillgänglighetsuppsättning sprids enskilda virtuella datorer över upp ti
 
 Skaluppsättningar för den virtuella datorn är en Azure compute-resurs som du kan distribuera och hantera en uppsättning identiska virtuella datorer som en enskild resurs. Skaluppsättning distribueras automatiskt uppdatera domäner som virtuella datorer i en tillgänglighetsuppsättning. Precis som med tillgänglighetsuppsättningar påverkas med skalningsuppsättningar i en enda uppdateringsdomän vid en given tidpunkt.
 
-Mer information om hur du konfigurerar dina virtuella datorer för hög tillgänglighet finns i Hantera tillgängligheten för virtuella datorer för Windows (... / articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Mer information om hur du konfigurerar dina virtuella datorer för hög tillgänglighet finns i Hantera tillgängligheten för virtuella datorer för [Windows](../articles/virtual-machines/windows/manage-availability.md) eller [Linux](../articles/virtual-machines/linux/manage-availability.md).

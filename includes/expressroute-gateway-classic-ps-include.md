@@ -1,4 +1,4 @@
-Du måste skapa ett VNet och ett gateway-undernät, innan du arbetar med följande uppgifter. Se artikeln [konfigurera ett virtuellt nätverk med den klassiska portalen](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) för mer information.
+Du måste skapa ett VNet och ett gateway-undernät, innan du arbetar med följande uppgifter.
 
 > [!NOTE]
 > De här exemplen gäller inte för S2S/ExpressRoute samexisterar konfigurationer.
@@ -9,7 +9,7 @@ Du måste skapa ett VNet och ett gateway-undernät, innan du arbetar med följan
 Använd kommandot nedan för att skapa en gateway. Se till att ersätta alla värden för dina egna.
 
 ```powershell
-New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
 ## <a name="verify-the-gateway-was-created"></a>Kontrollera gatewayen som har skapats
@@ -17,7 +17,7 @@ New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" 
 Använd kommandot nedan för att kontrollera att gatewayen har skapats. Detta kommando hämtar också gateway-ID som du behöver för andra åtgärder.
 
 ```powershell
-Get-AzureVirtualNetworkGateway
+Get-AzureVNetGateway
 ```
 
 ## <a name="resize-a-gateway"></a>Ändra storlek på en gateway
@@ -30,7 +30,7 @@ Det finns ett antal [Gateway-SKU: er](../articles/expressroute/expressroute-abou
 >
 
 ```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+Resize-AzureVNetGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>Ta bort en gateway
@@ -38,5 +38,5 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 Använd kommandot nedan för att ta bort en gateway
 
 ```powershell
-Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+Remove-AzureVnetGateway -GatewayId <Gateway ID>
 ```

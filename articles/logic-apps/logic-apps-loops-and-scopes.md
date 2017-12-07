@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Logic Apps-slingor, -omfattningar och Debatching
   
@@ -26,7 +26,7 @@ Logic Apps innehåller ett antal sätt att arbeta med matriser, samlingar, batch
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach-loop och matriser
   
-Logic Apps kan du slinga över en uppsättning data och utföra en åtgärd för varje objekt.  Det är möjligt via den `foreach` åtgärd.  Du kan ange i designer för att lägga till en för varje loop.  När du har valt den matris som du vill iterera över, kan du börja lägga till åtgärder.  Du är för närvarande begränsad till endast en åtgärd per foreach loop, men den här begränsningen ska dras tillbaka under de kommande veckorna.  En gång inom loopen kan du ange vad som ska hända vid varje värde i matrisen.
+Logic Apps kan du slinga över en uppsättning data och utföra en åtgärd för varje objekt.  Det är möjligt via den `foreach` åtgärd.  Du kan ange i designer för att lägga till en för varje loop.  När du har valt den matris som du vill iterera över, kan du börja lägga till åtgärder.  Du kan lägga till flera åtgärder per foreach-loop.  En gång inom loopen kan du ange vad som ska hända vid varje värde i matrisen.
 
 Om du använder vyn kod, kan du ange en för varje loop som nedan.  Detta är ett exempel på en för varje loop som skickar ett e-postmeddelande för varje e-postadress som innehåller ”microsoft.com”:
 

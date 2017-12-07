@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: barclayn
-ms.openlocfilehash: 6c49b086fd35a855fa8e32fa576c5b52d16f1d04
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0d34a19658ae67a9c98d6f31aaca35e67add5beb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Generera och överför HSM-skyddade nycklar för Azure Key Vault
 ## <a name="introduction"></a>Introduktion
@@ -82,10 +82,14 @@ Installationsanvisningar finns i [hur du installerar och konfigurerar du Azure P
 ### <a name="step-12-get-your-azure-subscription-id"></a>Steg 1.2: Hämta ditt Azure prenumerations-ID
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med hjälp av följande kommando:
 
-        Add-AzureAccount
+```Powershell
+   Add-AzureAccount
+```
 Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Använd sedan den [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) kommando:
 
-        Get-AzureSubscription
+```powershell
+   Get-AzureSubscription
+```
 Leta upp ID för den prenumeration som du ska använda för Azure Key Vault utdata. Du behöver den här prenumerations-ID senare.
 
 Stäng inte Azure PowerShell-fönster.
@@ -188,7 +192,9 @@ KeyVault-BYOK-verktyg-UnitedKingdom.zip
 
 Om du vill validera integriteten för din hämtade BYOK-verktyg från Azure PowerShell-sessionen använder den [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
 
-    Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```powershell
+   Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```
 
 Denna verktygsuppsättning omfattar följande:
 
@@ -208,7 +214,9 @@ Installera hjälpprogrammet nCipher (Thales) på en Windows-dator och sedan kopp
 
 Se till att Thales-verktygen finns i din sökväg (**%nfast_home%\bin**). Skriv till exempel följande:
 
-        set PATH=%PATH%;"%nfast_home%\bin"
+  ```cmd
+  set PATH=%PATH%;"%nfast_home%\bin"
+  ```
 
 Mer information finns i användarhandboken som medföljer Thales HSM.
 
@@ -229,7 +237,9 @@ Om du använder Thales nShield gränsen, för att ändra läget: 1. Använd knap
 ### <a name="step-32-create-a-security-world"></a>Steg 3.2: Skapa en säkerhetsvärld
 Starta en kommandotolk och kör Thales nya världen programmet.
 
+   ```cmd
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+   ```
 
 Det här programmet skapar en **Säkerhetsvärld** filen i % NFAST_KMDATA%\local\world, vilket motsvarar mappen C:\ProgramData\nCipher\Key Management Data\local. Du kan använda olika värden för kvorumet men i vårt exempel uppmanas du att ange tre tomma kort och PIN-koder för vart och ett. Därefter ger två valfria kort fullständig åtkomst till säkerhetsvärlden. Dessa kort blir den **Administratörskortsuppsättningen** för den nya säkerhetsvärlden.
 
@@ -293,6 +303,10 @@ Att validera det Hämta paketet:
    * För Indien:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * För Storbritannien:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+
      > [!TIP]
      > Thales-programvaran innehåller python på %NFAST_HOME%\python\bin
      >
@@ -370,6 +384,9 @@ Gör följande på den frånkopplade arbetsstationen för det här fjärde stege
 * För Indien:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* För Storbritannien:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
 När du kör det här kommandot ersätter *contosokey* med samma värde som du angav i **steg 3.5: skapa en ny nyckel** från den [generera din nyckel](#step-3-generate-your-key) steg.
 
@@ -426,6 +443,9 @@ Kör något av följande kommandon, beroende på din geografiskt område eller e
 * För Indien:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* För Storbritannien:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Följ dessa instruktioner när du kör det här kommandot:
 
@@ -441,7 +461,9 @@ Använd en USB-enhet eller annan bärbar lagringsenhet för att kopiera utdatafi
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Steg 5: Överför din nyckel till Azure Key Vault
 För det här sista steget, på den Internetanslutna arbetsstationen använder den [Lägg till AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) för att ladda upp nyckelöverföringspaketet som du kopierade från den frånkopplade arbetsstationen till Azure Key Vault HSM:
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```powershell
+        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```
 
 Om överföringen lyckas du se egenskaperna för den nyckel som du just lagt till.
 

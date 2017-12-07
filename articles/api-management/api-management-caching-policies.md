@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Cachelagring API Management-principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -51,7 +51,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -116,8 +116,8 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Tillåt privat-svar-cachelagring|Om värdet är `true`, tillåter cachelagring av begäranden som innehåller ett Authorization-huvud.|Nej|false|  
 |underordnade-cachelagring-typ|Det här attributet måste anges till ett av följande värden.<br /><br /> -Ingen - underordnade cachelagring tillåts inte.<br />-privat - cachelagring underordnade privata.<br />-offentlig - cachelagring privata och delade underordnade.|Nej|ingen|  
 |must-revalidate|När efterföljande cachelagring av det här attributet aktiverar eller inaktiverar det `must-revalidate` cache-control-direktiv i gateway-svar.|Nej|true|  
-|variera av utvecklare|Ange till `true` till cache svar per developer nyckel.|Nej|false|  
-|variera-av-utvecklare-grupper|Ange till `true` till cache svar per användarroll.|Nej|false|  
+|variera av utvecklare|Ange till `true` till cache svar per developer nyckel.|Ja||  
+|variera-av-utvecklare-grupper|Ange till `true` till cache svar per användarroll.|Ja||  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

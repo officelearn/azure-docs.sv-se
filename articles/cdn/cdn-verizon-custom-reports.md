@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Anpassade rapporter från Verizon
 
@@ -30,7 +30,7 @@ Du kan definiera vilken typ av data ska samlas in för edge CNAME-resursposter r
 ## <a name="accessing-verizon-custom-reports"></a>Åtkomst till Verizon egna rapporter
 1. CDN-profilbladet klickar du på den **hantera** knappen.
    
-    ![CDN-profilbladet hantera knappen](./media/cdn-reports/cdn-manage-btn.png)
+    ![CDN-profilen hantera knappen](./media/cdn-reports/cdn-manage-btn.png)
    
     CDN-hanteringsportalen öppnas.
 2. Hovra över den **Analytics** och klicka sedan hovra över den **egna rapporter** utfällbar. Klicka på **kant CNAME-resursposter**.
@@ -74,7 +74,7 @@ Du kan exportera data i Excel-format genom att klicka på symbolen Excel till h�
 | 4xx                       | Anger det totala antalet förfrågningar eller data som överförs (MB) för kvalificerade CNAME som resulterar i en 4xx HTTP-statuskoden (till exempel 400 Felaktig begäran, 403 otillåtna eller 404 hittades). |
 | 5xx                       | Anger det totala antalet förfrågningar eller data som överförs (MB) för kvalificerade CNAME som resulterar i ett 5xx HTTP-statuskoden (till exempel 500 Internt serverfel eller 502 felaktig Gateway). |
 | Antal träffar i %               | Anger procentandelen Cacheable ställs begäranden som har hanteras direkt från cache till beställaren. |
-| Träffar i cache                | Anger det totala antalet förfrågningar eller data som överförs (MB) för kvalificerade CNAME som resulterar i en cache-träff (till exempel TCP_EXPIRED_HIT, TCP_HIT eller TCP_PARTIAL_HIT). En cache-träff inträffar när en cachelagrad version av det begärda innehållet finns. |
+| Cacheträffar                | Anger det totala antalet förfrågningar eller data som överförs (MB) för kvalificerade CNAME som resulterar i en cache-träff (till exempel TCP_EXPIRED_HIT, TCP_HIT eller TCP_PARTIAL_HIT). En cache-träff inträffar när en cachelagrad version av det begärda innehållet finns. |
 | Överförda data (MB)     | Anger den totala mängden data som överförs (MB) från kant-servrar till http-klienter (webbläsare) för kvalificerade CNAME-post. Mängden data som överförs beräknas genom att lägga till HTTP-svarshuvuden brödtext för svar. Därför är mängden data som överförs för varje tillgång större än den faktiska filstorleken. |
 | Beskrivning               | Identifierar en kant CNAME av dess värdnamn |
 | Träffar                      | Anger det totala antalet begäranden till gränsen CNAME |

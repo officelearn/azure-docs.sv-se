@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e8e07fa54aa10d34f0878042a5d9ac43f9a6704b
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 Den här artikeln innehåller anvisningar för att skapa och uppdatera grupper med Azure Active Directory (AD Azure) PowerShell-cmdlets. Det här innehållet gäller endast för Office 365-grupper. 
@@ -28,7 +28,7 @@ Den här artikeln innehåller anvisningar för att skapa och uppdatera grupper m
 > [!IMPORTANT]
 > Vissa inställningar kräver en Azure Active Directory Premium P1-licens. Mer information finns i [mallinställningar](#template-settings) tabell.
 
-Mer information om hur du tillåter användare att skapa säkerhetsgrupper `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` enligt beskrivningen i [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+Mer information om hur du förhindra att icke-administratörer att skapa *säkerhet* grupper, ange `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` enligt beskrivningen i [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Inställningar för Office 365-grupper har konfigurerats med ett inställningsobjekt och ett SettingsTemplate-objekt. Inledningsvis visas alla för inställningsobjekt i katalogen, eftersom katalogen är konfigurerad med standardinställningar. Om du vill ändra standardinställningarna, måste du skapa ett nytt inställningsobjekt med en mall för inställningar. Inställningar för mallar har definierats av Microsoft. Det finns flera olika inställningar mallar. Om du vill konfigurera inställningar för din katalog i Office 365-grupper kan du använda mallen med namnet ”Group.Unified”. Använd mallen med namnet ”Group.Unified.Guest” om du vill konfigurera inställningar för Office 365-grupper på en enda grupp. Denna mall används för att hantera gäståtkomst till en grupp för Office 365. 
 

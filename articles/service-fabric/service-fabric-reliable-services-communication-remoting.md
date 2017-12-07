@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Tjänsten fjärrkommunikation med Reliable Services
 För tjänster som inte är knutna till en viss kommunikationsprotokoll eller stacken, till exempel WebAPI, Windows Communication Foundation (WCF) eller andra, gör Reliable Services framework fjärrkommunikation snabbt och enkelt konfigurera fjärrproceduranrop för tjänster.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-Fjärr-framework sprider undantag på tjänsten till klienten. Så undantagshantering logik på klienten med hjälp av `ServiceProxy` direkt kan hantera undantag som genereras av tjänsten.
+Fjärr-framework sprider undantag från tjänsten till klienten. Som ett resultat när du använder `ServiceProxy`, klienten ansvarar för hantering av undantag från tjänsten.
 
 ## <a name="service-proxy-lifetime"></a>Tjänsten Proxylivslängden
-ServiceProxy skapas en enkel åtgärd, så att användarna kan skapa så många som de behöver. Tjänstproxy instanser kan återanvändas som användarna behöver den. Om ett fjärranrop genererar ett undantag, kan användarna fortfarande återanvända samma instans som proxy. Varje ServiceProxy innehåller en klient för kommunikation som används för att skicka meddelanden via kabel. Vid anrop fjärranrop Kontrollera vi internt om kommunikation klienten är giltig. Baserat på resultatet återskapa vi kommunikation klienten om det behövs. Därför om ett undantag inträffar användare behöver inte återskapa serviceproxy men är gjort transparent.
+ServiceProxy skapas en enkel åtgärd, så att användarna kan skapa så många som de behöver. Tjänstproxy instanser kan återanvändas som användarna behöver den. Om ett fjärranrop genererar ett undantag, kan användarna fortfarande återanvända samma instans som proxy. Varje ServiceProxy innehåller en klient för kommunikation som används för att skicka meddelanden via kabel. Vid anrop fjärranrop Kontrollera vi internt om kommunikation klienten är giltig. Baserat på resultatet återskapa vi kommunikation klienten om det behövs. Därför om ett undantag inträffar kan användarna inte behöver återskapa `ServiceProxy` eftersom det är gjort transparent.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory livslängd
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) är en fabrik som skapar instanser av proxy för olika fjärrkommunikation gränssnitt. Om du använder API: et `ServiceProxy.Create` för att skapa proxy ramen skapar sedan en singleton ServiceProxy.
@@ -91,12 +91,13 @@ Generering av är en kostsam åtgärd. ServiceProxyFactory upprätthåller en in
 Det är bra att cachelagra ServiceProxyFactory så länge som möjligt.
 
 ## <a name="remoting-exception-handling"></a>Fjärrkommunikation undantagshantering
-Alla fjärranslutna undantag som uppstått i tjänsten API, skickas tillbaka till klienten som AggregateException. RemoteExceptions ska kunna serialiseras DataContract annars [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) genereras till proxyservern API med serialiseringsfel i den.
+Alla undantag för remote från service API skickas tillbaka till klienten som AggregateException. RemoteExceptions ska vara DataContract serialiserbara; Om inte proxy API utlöser [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) med serialiseringsfel i den.
 
-ServiceProxy hanterar alla Failover-undantag för service-partition som skapats för. Slutpunkterna löser igen om det finns Failover Exceptions(Non-Transient Exceptions) och försöker anropa med korrekt slutpunkt. Antal återförsök för redundans undantag är obegränsad.
-Om tillfälligt undantag inträffar återförsök proxy anropet.
+ServiceProxy hanterar alla failover-undantag för service-partition som skapats för. Den matchar slutpunkterna igen om det finns undantag för växling vid fel (icke-tillfälligt undantag) och försöker anropa med korrekt slutpunkt. Antal försök för växling vid fel undantag är obestämd.
+Om tillfälligt undantag inträffar återförsök proxyn anropet.
 
-Försök standardparametrarna är etablerar av [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) Användare kan konfigurera dessa värden genom att skicka OperationRetrySettings objekt till ServiceProxyFactory konstruktor.
+Försök standardparametrarna är etablerar av [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Användare kan konfigurera dessa värden genom att skicka OperationRetrySettings objekt till ServiceProxyFactory konstruktor.
 ## <a name="how-to-use-remoting-v2-stack"></a>Hur du använder fjärrkommunikation V2 stack
 Med 2,8 fjärrkommunikation med NuGet-paketet har du alternativet att använda fjärrkommunikation V2-stacken. Fjärrkommunikation V2-stacken är mer performant och ger funktioner som serialiserbar egna och mer pluggable Api.
 Som standard om du inte gör följande ändringar, fortsätter den att använda fjärrkommunikation V1-stacken.

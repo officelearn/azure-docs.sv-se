@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: be19f616e36916655390cd05e738e93c08dcdf68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8d691d9a25847c4ab0b99d1fe5b889f314c404f
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady licens mall översikt
-Azure Media Services innehåller nu en tjänst för att leverera Microsoft PlayReady-licenser. När slutanvändaren player (till exempel Silverlight) försöker att spela upp ditt PlayReady skyddat innehåll, skickas en begäran till licensleveranstjänst du erhåller en licens. Om Licenstjänsten godkänner begäran, utfärdar licensen som skickas till klienten och kan användas för att dekryptera och spela upp det angivna innehållet.
+Azure Media Services innehåller nu en tjänst för att leverera Microsoft PlayReady-licenser. När slutanvändaren player (till exempel Silverlight) försöker att spela upp ditt PlayReady skyddat innehåll, skickas en begäran till licensleveranstjänst du erhåller en licens. Om Licenstjänsten godkänner begäran, utfärdar licens som skickas till klienten och kan användas för att dekryptera och spela upp det angivna innehållet.
 
-Media Services tillhandahåller också API: er som kan du konfigurera PlayReady-licenser. Licenser som innehåller de behörigheter och begränsningar som du vill för PlayReady DRM-runtime tillämpa när en användare försöker att spela upp skyddat innehåll.
+Media Services tillhandahåller också API: er som kan du konfigurera PlayReady-licenser. Licenser som innehåller rättigheterna och begränsningar som du vill för PlayReady DRM-runtime tillämpa när en användare försöker att spela upp skyddat innehåll.
 Nedan följer några exempel på PlayReady licensbegränsningar som du kan ange:
 
 * DateTime som licensen är giltig.
@@ -34,13 +34,13 @@ Nedan följer några exempel på PlayReady licensbegränsningar som du kan ange:
 * Mer information finns i avsnittet utdata kontroller (3.5) i den [PlayReady Kompatibilitetsregler](https://www.microsoft.com/playready/licensing/compliance/) dokumentet.
 
 > [!NOTE]
-> För närvarande kan du bara konfigurera PlayRight för PlayReady (den här behörigheten krävs). PlayRight kan klienten att spela upp innehållet. PlayRight kan också konfigurera begränsningar som är specifika för uppspelning. Mer information finns i [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> För närvarande kan du bara konfigurera PlayRight för PlayReady (den här behörigheten krävs). PlayRight kan klienten att spela upp innehållet. PlayRight kan också konfigurera begränsningar som är specifika för att spela upp. Mer information finns i [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
 > 
 > 
 
 Om du vill konfigurera PlayReady-licenser med Media Services måste du konfigurera mallen för Media Services PlayReady-licens. Mallen har definierats i XML.
 
-I följande exempel visas den enklaste (och de vanligaste) mall som konfigurerar en grundläggande strömmande licens. Med denna licens klienterna skulle kunna spela upp ditt PlayReady skyddat innehåll.
+I följande exempel visas den enklaste (och de vanligaste) mall som konfigurerar en grundläggande strömmande licens. Klienterna att spela upp ditt PlayReady skyddat innehåll med denna licens.
 
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
@@ -55,9 +55,9 @@ I följande exempel visas den enklaste (och de vanligaste) mall som konfigurerar
 
 XML följer PlayReady licens mallen XML-schemat definierats i mallen för PlayReady licens XML schema avsnitt.
 
-Media Services definierar också en uppsättning .NET-klasser som kan användas för att serialisera och deserialisera till och från XML. Beskrivning av huvudsakliga klasser finns [Media Services .NET-klasser](media-services-playready-license-template-overview.md#classes). används för att konfigurera licens mallar.
+Media Services definierar också en uppsättning .NET-klasser som kan användas för att serialisera och deserialisera till och från XML. Beskrivning av huvudsakliga klasser finns i [Media Services .NET-klasser](media-services-playready-license-template-overview.md#classes) som används för att konfigurera licens mallar.
 
-En slutpunkt till slutpunkt-exempel som använder .NET-klasser för att konfigurera mallen för PlayReady-licens finns [med PlayReady dynamisk kryptering och Licensleveranstjänst](media-services-protect-with-drm.md).
+En slutpunkt till slutpunkt-exempel som använder .NET-klasser för att konfigurera mallen för PlayReady-licens finns [med PlayReady dynamisk kryptering och Licensleveranstjänst](media-services-protect-with-playready-widevine.md).
 
 ## <a id="classes"></a>Media Services .NET-klasser som används för att konfigurera licens mallar
 Följande är de viktigaste .NET-klasserna används för att konfigurera mallar för Media Services PlayReady-licens. De här klasserna mappa till typer som definieras i [PlayReady licens mallen XML-schema](media-services-playready-license-template-overview.md#schema).
@@ -73,10 +73,10 @@ Det här är klassen ”toppnivå” i hierarkin för mallen. Vilket innebär at
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) -klassen representerar en licensmall för att skapa PlayReady-licenser som ska returneras till slutanvändarna. Den innehåller data på innehållsnyckeln i licensen och alla rättigheter eller begränsningar som ska framtvingas av PlayReady DRM-körningen när du använder innehållsnyckeln.
 
 ### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) -den här klassen representerar PlayRight för en PlayReady-licens. Det ger användaren möjlighet att spela upp innehåll av noll eller flera begränsningarna som konfigurerats i licensen och på själva PlayRight (för uppspelning specifik princip). Mycket av principen på PlayRight har att göra med utdata begränsningar som styr vilka typer av utdata som innehållet kan spelas över och eventuella begränsningar som ska föras på plats när du använder en viss utdata. Till exempel om DigitalVideoOnlyContentRestriction aktiveras kan sedan DRM-körning videon som ska visas över digitala utdata (analog video utdata inte kommer att kunna skicka innehållet).
+[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) -den här klassen representerar PlayRight för en PlayReady-licens. Det ger användaren möjlighet att spela upp innehåll av noll eller flera begränsningarna som konfigurerats i licensen och på själva PlayRight (för uppspelning rutiner). Mycket av principen på PlayRight har att göra med begränsningarna som styr vilka typer av utdata som innehållet kan spelas över och eventuella begränsningar som ska föras på plats när du använder en viss utdata. Till exempel om DigitalVideoOnlyContentRestriction aktiveras kan sedan DRM-körning videon som ska visas över digitala utdata (analog video utdata inte kommer att kunna skicka innehållet).
 
 > [!IMPORTANT]
-> Dessa typer av begränsningar kan vara mycket kraftfulla men kan även påverka användarfunktioner. Om de utgående skydd konfigureras för begränsande, kan innehållet är på vissa klienter. Mer information finns i [PlayReady Kompatibilitetsregler](https://www.microsoft.com/playready/licensing/compliance/) dokumentet.
+> Dessa typer av begränsningar kan vara kraftfulla men kan även påverka användarfunktioner. Om de utgående skydd konfigureras för begränsande, kan innehållet är på vissa klienter. Mer information finns i [PlayReady Kompatibilitetsregler](https://www.microsoft.com/playready/licensing/compliance/) dokumentet.
 > 
 > 
 

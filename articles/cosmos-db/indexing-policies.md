@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar Azure Cosmos DB indexinformationen?
 
@@ -68,7 +68,7 @@ Azure Cosmos-DB stöder tre indexering lägen som kan konfigureras via indexprin
 
 **Konsekvent**: om en samling Azure Cosmos DB princip utses ”konsekvent”, frågor om Azure Cosmos DB samling följer konsekvenskontroll samma nivå som angetts för plats-läsningar (d.v.s. stark, begränsat föråldrad, session eller eventuell). Indexet uppdateras synkront som en del av dokument-uppdateringen (d.v.s. insert-, Ersätt, uppdatering och borttagning av ett dokument i en samling Azure Cosmos DB).  Konsekvent indexering stöder konsekvent frågor på bekostnad av eventuell minskning i genomströmning för skrivning. Denna minskning är en funktion av de unika sökvägar som behöver indexeras och ”konsekvensnivå”. Konsekvent indexering läge är utformad för ”skriva snabbt fråga omedelbart” arbetsbelastningar.
 
-**Lazy**: Om du vill tillåta högsta dokumentet införandet genomströmning en samling Azure Cosmos DB kan konfigureras med lazy konsekvenskontroll; betydelse frågorna är överensstämmelse. Indexet uppdateras asynkront när en samling Azure Cosmos DB overksamt d.v.s. när mängdens genomflödeskapaciteten inte fullt ut för att betjäna användarförfrågningar som. För ”mata in nu fråga senare” arbetsbelastningar som kräver röra sig obehindrat dokumentet införandet är ”lazy” indexering läge lämpligt.
+**Lazy**: indexet uppdateras asynkront när en samling Azure Cosmos DB overksamt d.v.s. när mängdens genomflödeskapaciteten inte fullt ut för att betjäna användarförfrågningar som. För ”mata in nu fråga senare” arbetsbelastningar som kräver dokumentet införandet är ”lazy” indexering läge lämpligt. Observera att du kan få inkonsekventa resultat som data hämtar inhämtas och indexerade långsamt. Detta innebär att din antal frågor eller en specifik fråga resultat inte är säkert att vara felaktigt eller repeterbara tills data indexeras. Index är vanligtvis i fångar upp läge. MED indexering Lazy - TTL ändra resultat vid hämtning av index släppas och återskapas, så att den här aktiviteten kan leda till oväntade resultat. Merparten av kunderna ska använda konsekvent indexering.
 
 **Ingen**: en samling som markerats med index ”None” har inget index som är kopplade till den. Detta är vanligt om Azure Cosmos DB används som en nyckel / värde-lagring och dokument används endast av deras ID-egenskap. 
 
@@ -183,7 +183,7 @@ Här följer stöds index typer och exempel på frågor som de kan användas fö
 | Typ av index | Beskrivning/användningsfall                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Hash       | Hash-över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Hash över/sammanställer / [] /? (eller / eller/sammanställer /) kan användas för att effektivt hantera följande frågor:<br><br>Välj taggen från samlingen c JOIN-tagg i c.props var taggen = 5                                                                                                                       |
-| intervallet      | Intervallet över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                                                                                                                                                              |
+| Intervall      | Intervallet över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                                                                                                                                                              |
 | Spatial     | Intervallet över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen c<br><br>VAR ST_DISTANCE (c.prop, {”typ”: ”plats”, ”coordinates”: [0.0, 10.0]}) < 40<br><br>Välj från samlingen c där ST_WITHIN(c.prop, {"type": "Polygon",...})--med indexering punkter aktiverad<br><br>Välj från samlingen c där ST_WITHIN({"type": "Point",...}, c.prop)--med indexering på polygoner aktiverad              |
 
 Som standard returneras ett fel för frågor med intervallet operatorer som > = om det finns inga intervall index (för alla precision) för att signalera att en genomsökning kan vara nödvändigt att hantera frågan. Intervallet frågor kan utföras utan ett intervall index med x-ms-documentdb-enable-genomsökning huvudet i REST-API eller alternativet EnableScanInQuery som med .NET SDK. Om det finns andra filter i frågan att Azure Cosmos DB kan använda indexet för att filtrera mot sedan inga fel returneras.

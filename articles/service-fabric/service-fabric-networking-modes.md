@@ -1,6 +1,6 @@
 ---
 title: "Konfigurera nätverk lägen för Azure Service Fabric-behållartjänster | Microsoft Docs"
-description: "Lär dig hur du ställer in de olika lägena för nätverk som har stöd för Azure Service Fabric."
+description: "Lär dig hur du ställer in de olika lägena för nätverk som stöds av Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,28 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric-behållaren nätverk lägen
 
-Nätverk läge erbjuds i Service Fabric-klustret för behållartjänster som standard används den `nat` nätverk läge. Med den `nat` nätverk läge, med mer än en behållare tjänsten lyssnar på samma port resultat i distributionsfel. För att lyssna på samma port med flera tjänster, Service Fabric stöder den `Open` nätverk läge (version 5.7 eller högre). Med den `Open` nätverk läge varje behållartjänst hämtar en dynamiskt tilldelad IP-adress som internt så att flera tjänster att lyssna på samma port.   
+Ett Azure Service Fabric-kluster för behållaren tjänster använder **nat** nätverk läge som standard. När flera behållartjänsten lyssnar på samma port och nat-läge som används, inträffa distributionsfel. För att stödja flera behållartjänster lyssnar på samma port, Service Fabric erbjuder **öppna** nätverk läge (version 5.7 och senare). I öppet läge har varje behållartjänsten en intern dynamiskt tilldelade IP-adress som har stöd för flera tjänster som lyssnar på samma port.  
 
-Därför med en enda typ med en statisk slutpunkt som definierats i service manifest nya tjänster kan skapas och tas bort utan distributionsfel med hjälp av den `Open` nätverk läge. På liknande sätt kan använda samma `docker-compose.yml` fil med statisk portmappningar för att skapa flera tjänster.
+Om du har en behållartjänsten med en statisk slutpunkt i ditt service manifest kan du skapa och ta bort nya tjänster med hjälp av öppningsläge utan distributionsfel. Samma docker-compose.yml-fil kan också användas med statisk portmappningar för att skapa flera tjänster.
 
-Med dynamiskt tilldelade IP-Adressen för att identifiera tjänster inte rekommenderas eftersom IP-adress ändras när tjänsten startas om eller flyttas till en annan nod. Använd bara den **namngivningstjänst för Service Fabric** eller **DNS-tjänsten** för identifiering av tjänst. 
+När en behållartjänsten startar om eller flyttas till en annan nod i klustret, ändrar IP-adress. Därför rekommenderar vi inte använder dynamisk IP-adress för att upptäcka behållartjänster. Endast tjänsten Fabric Naming Service eller DNS-tjänsten ska användas för identifiering av tjänst. 
 
-
-> [!WARNING]
-> Endast totalt 4096 IP-adresser tillåts per virtuellt nätverk i Azure. Därför summan av antalet noder och antalet behållare tjänstinstanser (med `Open` nätverk) får inte överstiga 4096 inom ett vNET. Dessa scenarier med hög densitet i `nat` nätverk läge rekommenderas.
+>[!WARNING]
+>Azure tillåter att totalt 4 096 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet instanser av tjänsten behållare (som använder öppningsläge) får inte överstiga 4 096 IP-adresser inom ett virtuellt nätverk. För scenarier med hög densitet rekommenderar vi nätverk nat-läge.
 >
 
-## <a name="setting-up-open-networking-mode"></a>Konfigurera nätverk öppningsläge
+## <a name="set-up-open-networking-mode"></a>Konfigurera nätverk öppningsläge
 
-1. Konfigurera Azure Resource Manager-mallen genom att aktivera DNS-tjänsten och IP-providern under `fabricSettings`. 
+1. Ställ in Azure Resource Manager-mallen. I den **fabricSettings** aktiverar DNS-tjänsten och IP-Provider: 
 
     ```json
     "fabricSettings": [
@@ -78,7 +77,7 @@ Med dynamiskt tilldelade IP-Adressen för att identifiera tjänster inte rekomme
             ],
     ```
 
-2. Konfigurera avsnittet network profilen så att flera IP-adresser som ska konfigureras på varje nod i klustret. I följande exempel ställer in fem IP-adresser per nod (du kan därför ha fem instanser av tjänsten lyssnar på porten på varje nod) för ett Windows-/ Linux Service Fabric-kluster.
+2. Konfigurera avsnittet network profilen så att flera IP-adresser som ska konfigureras på varje nod i klustret. I följande exempel ställer in fem IP-adresser per nod för ett Windows-/ Linux Service Fabric-kluster. Du kan ha fem instanser av tjänsten lyssnar på port på varje nod.
 
     ```json
     "variables": {
@@ -175,15 +174,19 @@ Med dynamiskt tilldelade IP-Adressen för att identifiera tjänster inte rekomme
               }
    ```
  
+3. För Windows-kluster, ställa in en regel för Azure Nätverkssäkerhetsgrupp (NSG) som öppnar porten UDP/53 för det virtuella nätverket med följande värden:
 
-3. För Windows-kluster, ställa in en NSG regel öppna port UDP/53 för vNET med följande värden:
+   |Inställning |Värde | |
+   | --- | --- | --- |
+   |Prioritet |2000 | |
+   |Namn |Custom_Dns  | |
+   |Källa |VirtualNetwork | |
+   |Mål | VirtualNetwork | |
+   |Tjänst | DNS (UDP/53) | |
+   |Åtgärd | Tillåt  | |
+   | | |
 
-   | Prioritet |    Namn    |    Källa      |  Mål   |   Tjänst    | Åtgärd |
-   |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
-   |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | Tillåt  |
-
-
-4. Ange det nätverk läget i appmanifestet för varje tjänst `<NetworkConfig NetworkType="Open">`.  Läget `Open` resulterar i tjänsten hämtar en dedicerad IP-adress. Om ett läge inte anges används som standard grundläggande `nat` läge. Därför i manifestet exemplet `NodeContainerServicePackage1` och `NodeContainerServicePackage2` kan varje lyssna på samma port (båda tjänsterna lyssnar på `Endpoint1`). När den `Open` nätverk läge är Serienummergruppen, `PortBinding` konfigurationerna kan inte anges.
+4. Ange det nätverk läget i programmanifestet för varje tjänst: `<NetworkConfig NetworkType="Open">`. **Öppna** nätverk läge leder till att tjänsten hämtar en dedicerad IP-adress. Om ett läge har inte angetts, tjänsten standard **nat** läge. I följande manifestet exempel den `NodeContainerServicePackage1` och `NodeContainerServicePackage2` tjänster kan varje lyssna på samma port (båda tjänsterna lyssnar på `Endpoint1`). När nätverk öppningsläge anges `PortBinding` konfigurationer kan inte anges.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -211,13 +214,15 @@ Med dynamiskt tilldelade IP-Adressen för att identifiera tjänster inte rekomme
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Du kan blanda och matcha olika lägen för nätverk för tjänster i ett program för Windows-kluster. Du kan därför ha vissa tjänster på `Open` läge och vissa på `nat` nätverk läge. När en tjänst har konfigurerats med `nat`, den lyssnar på porten måste vara unika. Blanda nätverk lägen för olika tjänster stöds inte på Linux-kluster. 
 
+    Du kan blanda och matcha olika lägen för nätverk för tjänster i ett program för Windows-kluster. Vissa tjänster kan använda öppet läge medan andra använder nat-läge. När en tjänst är konfigurerad för att använda nat-läge, måste som tjänsten lyssnar på porten vara unika.
+
+    >[!NOTE]
+    >På Linux-kluster stöds blanda nätverk lägen för olika tjänster inte. 
+    >
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig om networking lägen som erbjuds av Service Fabric.  
-
-* [Service Fabric programmodell](service-fabric-application-model.md)
-* [Service Fabric service manifest resurser](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Förstå Service Fabric-programmodellen](service-fabric-application-model.md)
+* [Lär dig mer om Service Fabric service manifest resurser](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Distribuera en Windows-behållare till Service Fabric på Windows Server 2016](service-fabric-get-started-containers.md)
 * [Distribuera en dockerbehållare till Service Fabric på Linux](service-fabric-get-started-containers-linux.md)

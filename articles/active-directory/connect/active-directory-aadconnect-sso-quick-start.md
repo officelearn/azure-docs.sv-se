@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -127,7 +127,7 @@ Som standard beräknas automatiskt rätt zonen Internet eller intranätet från 
 
 ### <a name="browser-considerations"></a>Överväganden för webbläsare
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (alla plattformar)
 
 Mozilla Firefox använda inte automatiskt Kerberos-autentisering. Varje användare måste manuellt lägga till URL: er för Azure AD att deras Firefox inställningar med hjälp av följande steg:
 1. Kör Firefox och ange `about:config` i adressfältet. Ignorera alla meddelanden som visas.
@@ -136,11 +136,15 @@ Mozilla Firefox använda inte automatiskt Kerberos-autentisering. Varje använda
 4. Ange https://autologon.microsoftazuread-sso.com https://aadg.windows.net.nsatc.net i fältet.
 5. Välj **OK** och sedan öppna webbläsaren.
 
-#### <a name="safari-on-mac-os"></a>Safari på Mac OS
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 Se till att datorn som kör Mac OS är ansluten till Azure AD. Anvisningar för att ansluta till Azure AD finns [bästa praxis för integrering med Active Directory i OS X](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-#### <a name="google-chrome-on-mac-os"></a>Google Chrome på Mac OS
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
+
+Om du har åsidosatts av [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till att du lägger till Azure AD-URL: er (https:// AutoLogon.microsoftazuread sso.com och https://aadg.windows.net.nsatc.net) till dem också.
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (endast Mac OS)
 
 Google Chrome på Mac OS x och andra icke-Windows-plattformar finns i [av krom princip projektlista](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) för information om hur du godkända Azure AD-URL: er för integrerad autentisering.
 
@@ -149,9 +153,6 @@ Användning av Grupprincip i Active Directory tredjepartstillägg lansera URL: e
 #### <a name="known-browser-limitations"></a>Kända webbläsare begränsningar
 
 Sömlös SSO fungerar inte i privat webbläsarens läge i Firefox och Edge-webbläsare. Den också fungerar inte på Internet Explorer om webbläsaren körs i förbättrad skyddat läge.
-
->[!IMPORTANT]
->Vi nyligen återställde stöd för kant för att undersöka problem som rapporteras av kunden.
 
 ## <a name="step-4-test-the-feature"></a>Steg 4: Testa funktionen
 

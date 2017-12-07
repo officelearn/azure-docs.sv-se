@@ -1,6 +1,6 @@
 ---
 title: Med namnet platser i Azure Active Directory | Microsoft Docs
-description: "Genom att konfigurera med namnet platser kan du undvika med IP-adresser som ägs av organisationen generera falska positiva identifieringar för Impossible reser till ovanliga platser risk händelsetyp."
+description: "Lär dig vad heter platser är och hur de konfigureras."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Sökvägarna i Azure Active Directory
 
-Du kan använda funktionen sökvägarna i Azure Active Directory för att sätta etiketter tillförlitliga IP-adressintervall i ditt företag. I din miljö kan du använda sökvägarna i kontexten för identifiering av [riskerar händelser](active-directory-reporting-risk-events.md). Funktionen hjälper till att minska antalet rapporterade falska positiva identifieringar för den *Impossible resa till ovanliga platser* riskerar händelsetyp. 
+Du kan använda namngivna platser för att sätta etiketter tillförlitliga IP-adressintervall i din organisation. Azure Active Directory använder sökvägarna i samband med:
 
-## <a name="configuration"></a>Konfiguration
+- Identifiering av [riskerar händelser](active-directory-reporting-risk-events.md) att minska antalet rapporterade falska positiva identifieringar.  
 
-Så här konfigurerar du en namngiven plats:
+- [Plats-baserad villkorlig åtkomst](active-directory-conditional-access-azure-portal.md#locations).
+
+
+Den här artikeln förklarar hur du kan konfigurera namngivna platser i din miljö.
+
+
+## <a name="entry-points"></a>Startpunkter
+
+Du kan komma åt konfigurationssidan namn i den **säkerhet** på Azure Active Directory-sidan genom att klicka på:
+
+![Startpunkter](./media/active-directory-named-locations/34.png)
+
+- **Villkorlig åtkomst:**
+
+    - I den **hantera** klickar du på **med namnet platser**.
+    
+        ![Kommandot namngivna platser](./media/active-directory-named-locations/06.png)
+
+- **Riskfyllda inloggningar:**
+
+    - Klicka på i verktygsfältet högst upp **Lägg till kända IP-adressintervall**.
+
+       ![Kommandot namngivna platser](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Konfigurationsexempel
+
+**Så här konfigurerar du en namngiven plats:**
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör.
 
@@ -34,22 +62,22 @@ Så här konfigurerar du en namngiven plats:
 
     ![Azure Active Directory-länken i den vänstra rutan](./media/active-directory-named-locations/01.png)
 
-3. På den **Azure Active Directory** blad i den **säkerhet** klickar du på **villkorlig åtkomst**.
+3. På den **Azure Active Directory** sidan den **säkerhet** klickar du på **villkorlig åtkomst**.
 
     ![Kommandot villkorlig åtkomst](./media/active-directory-named-locations/05.png)
 
 
-4. På den **villkorlig åtkomst** blad i den **hantera** klickar du på **med namnet platser**.
+4. På den **villkorlig åtkomst** sidan den **hantera** klickar du på **med namnet platser**.
 
     ![Kommandot namngivna platser](./media/active-directory-named-locations/06.png)
 
 
-5. På den **med namnet platser** bladet, klickar du på **ny plats**.
+5. På den **med namnet platser** klickar du på **ny plats**.
 
     ![Kommandot plats](./media/active-directory-named-locations/07.png)
 
 
-6. På den **ny** bladet gör du följande:
+6. På den **ny** gör följande:
 
     ![Det nya bladet](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Så här konfigurerar du en namngiven plats:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om riskhändelser i [Azure Active Directory riskhändelser](active-directory-reporting-risk-events.md).
+Mer information om:
 
+- **Risk händelser**, se [Azure Active Directory riskhändelser](active-directory-reporting-risk-events.md).
+
+- **Villkorlig åtkomst**, se [villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+- **Riskfyllda inloggningar rapporter**, se [riskfyllda inloggningar rapporten i Azure Active Directory-portalen](active-directory-reporting-security-risky-sign-ins.md).  

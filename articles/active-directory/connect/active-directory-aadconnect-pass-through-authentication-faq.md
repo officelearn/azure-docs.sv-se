@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: d6a405f7245bf1b9635872efd0e29f8361d6a2f6
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8722d7827aad10bcae3e8ec06b7014ebc64179d5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direkt-autentisering: Vanliga frågor och svar
 
@@ -99,24 +99,20 @@ Ja. Miljöer med flera skogar stöds om det finns skogsförtroenden mellan Activ
 
 Installera flera direkt autentisering agenter garanterar [hög tillgänglighet](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Men den ger inte deterministisk belastningsutjämning mellan agenter för autentisering.
 
-Överväg belastning och genomsnittlig belastning inloggning begäranden som du förväntar dig att se på din klient. Som en benchmark kan en enda autentiseringsagent hantera 300,000 400 000 autentiseringar per sekund på en standard 4 kärnor CPU, 16 GB RAM-server. Två eller tre autentisering agenter totalt är tillräckliga för hög tillgänglighet och kapacitet för de flesta kunder.
+Överväg belastning och genomsnittlig belastning inloggning begäranden som du förväntar dig att se på din klient. Som en benchmark kan en enda autentiseringsagent hantera 300 och 400 autentiseringar per sekund på en standard 4 kärnor CPU, 16 GB RAM-server.
 
-Du bör installera autentisering agenter nära domänkontrollanterna för att förbättra inloggningen svarstid.
+Använd följande riktlinjer för storlek om du vill beräkna nätverkstrafik:
+- Varje begäran har en Nyttolaststorlek (0,5 k + 1 K * num_of_agents) byte. dvs, data från Azure AD för autentisering-agenten. Här, anger ”num_of_agents” antalet autentisering agenter registrerat på din klient.
+- Varje svar som har en Nyttolaststorlek på 1K byte. dvs, data från agenten autentisering till Azure AD.
+
+Två eller tre autentisering agenter totalt är tillräckliga för hög tillgänglighet och kapacitet för de flesta kunder. Du bör installera autentisering agenter nära domänkontrollanterna för att förbättra inloggningen svarstid.
+
+>[!NOTE]
+>Det finns en systembegränsning 12 autentisering agenter per klient.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Kan jag installera den första autentiseringsagent direkt på en server än den som kör Azure AD Connect?
 
 Nej, det här scenariot är _inte_ stöds.
-
-## <a name="how-many-pass-through-authentication-agents-should-i-install"></a>Hur många agenter för direkt-autentisering ska installera?
-
-Vi rekommenderar att:
-
-- Du kan installera två eller tre autentisering agenter totalt. Den här konfigurationen är tillräcklig för de flesta kunder.
-- Du installerar agenter för autentisering på dina domänkontrollanter (eller som nära dem som möjligt) att förbättra inloggningen svarstid.
-- Du se till att du lägger till de servrar där du installerade agenterna autentisering i samma Active Directory-skog som de användare vars lösenord du måste validera.
-
->[!NOTE]
->Det finns en systembegränsning 12 autentisering agenter per klient.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Hur kan jag inaktivera direkt autentisering?
 

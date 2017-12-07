@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 50bcb71cd4f52386e9ea428fc124ac30ae9a862b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC med Multi-DRM och åtkomstkontroll: En referensdesign och implementering i Azure och Azure Media Services
  
@@ -85,7 +85,7 @@ DRM-undersystemet kan innehålla följande komponenter:
 3. DRM-licensleverans
 4. Rätt kontroll
 5. Autentisering/auktorisering
-6. Player
+6. Spelare
 7. Ursprung/CDN
 
 Följande diagram illustrerar hög nivå interaktionen mellan komponenter i ett DRM-undersystem.
@@ -186,8 +186,8 @@ Implementeringen omfattar följande steg:
 
 1. Förbereda test tillgångarna: koda/package ett test videoklipp i flera bithastigheter fragmenterad MP4 i Azure Media Services. Den här tillgången är inte DRM-skyddat. DRM skydd kommer att göras av dynamisk protection senare.
 2. Skapa nyckel-ID och innehåll nyckel (eventuellt från viktiga startvärde). Exemplet nyckelhanteringssystem inte behövs eftersom vi arbetar med en uppsättning med ID: T och nyckeln till ett par test tillgångar.
-3. Använd AMS API för att konfigurera multi-DRM-licensleveranstjänster för test tillgången. Om du använder anpassade licensservrar av ditt företag eller företagets leverantörer i stället för licens-tjänster i Azure Media Services kan du hoppa över detta steg och ange licens förvärv URL: er i steg för att konfigurera licens. AMS API behövs för att ange detaljerad konfigurationer, till exempel auktorisering principbegränsning, licens svar mallar för olika tjänster för DRM-licens, osv. Just nu är innehåller Azure-portalen ännu inte nödvändiga Användargränssnittet för den här konfigurationen. Du kan hitta API-nivå info och exempelkod i Julia Kornich dokument: [med PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-drm.md).
-4. Använda AMS API för att konfigurera tillgångsleveransprincip för test tillgången. Du kan hitta API-nivå info och exempelkod i Julia Kornich dokument: [med PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-drm.md).
+3. Använd AMS API för att konfigurera multi-DRM-licensleveranstjänster för test tillgången. Om du använder anpassade licensservrar av ditt företag eller företagets leverantörer i stället för licens-tjänster i Azure Media Services kan du hoppa över detta steg och ange licens förvärv URL: er i steg för att konfigurera licens. AMS API behövs för att ange detaljerad konfigurationer, till exempel auktorisering principbegränsning, licens svar mallar för olika tjänster för DRM-licens, osv. Just nu är innehåller Azure-portalen ännu inte nödvändiga Användargränssnittet för den här konfigurationen. Du kan hitta API-nivå information och exempel på kod i följande artikel: [med PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md).
+4. Använda AMS API för att konfigurera tillgångsleveransprincip för test tillgången. Du kan hitta API-nivå information och exempel på kod i följande artikel: [med PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md).
 5. Skapa och konfigurera en Azure Active Directory-klient i Azure
 6. Skapa några användarkonton och grupper i Azure Active Directory-klient: du bör skapa minst ”EntitledUser” och lägga till en användare till den här gruppen. Användare i den här gruppen ska skicka rätt kontroll i licenser och användare inte i den här gruppen kommer inte att skicka autentiseringskontroll och kommer inte att kunna hämta någon licens. Vara medlem i gruppen ”EntitledUser” är ett obligatoriskt ”grupper” anspråk i JWT-token som utfärdas av Azure AD. Detta anspråk krav anges när du konfigurerar multi-DRM-licens leverans services steg.
 7. Skapa en ASP.NET MVC-app som ska vara värd för din videospelare. ASP.NET-app skyddas med användarautentisering mot Azure Active Directory-klient. Rätt anspråk ska inkluderas i åtkomsttoken som erhålls efter autentisering av användare. OpenID Connect API rekommenderas för det här steget. Du måste installera följande NuGet-paket:
@@ -201,8 +201,8 @@ Implementeringen omfattar följande steg:
 
 | **DRM** | **Webbläsare** | **Resultat för rätt användare** | **Resultat för icke rätt användare** |
 | --- | --- | --- | --- |
-| **PlayReady** |MS kant eller IE11 på Windows 10 |Lyckas |Misslyckas |
-| **Widevine** |Chrome på Windows 10 |Lyckas |Misslyckas |
+| **PlayReady** |MS kant eller IE11 på Windows 10 |Lyckades |Misslyckades |
+| **Widevine** |Chrome på Windows 10 |Lyckades |Misslyckades |
 | **FairPlay** |TBD | | |
 
 George Trifonov för Azure Media Services-teamet har skrivit en blogg som ger detaljerade anvisningar för att konfigurera Azure Active Directory för en ASP.NET MVC player app: [integrera Azure Media Services OWIN MVC baserat app med Azure Active Directory och begränsa innehåll viktiga leverans baserat på JWT anspråk](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
@@ -226,10 +226,10 @@ Det finns vissa ”saker” i implementeringen. Förhoppningsvis hjälper följa
 
     I [JWT avkodarens](http://jwt.calebb.net/), bör du se **eller** och **iss** som nedan i JWT-token:
 
-    ![1 gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
+    ![Första gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 2. Lägga till behörigheter för programmet i AAD (på fliken Konfigurera av programmet). Detta krävs för varje program (lokala och distribuerade versioner).
 
-    ![2 gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
+    ![Andra gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 3. Använd rätt utfärdaren för inställning av dynamisk CENC skydd:
 
         <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
@@ -337,7 +337,7 @@ Det är särskilt välkända att om du vill göra direktsänd strömning i Azure
 ### <a name="what-about-license-servers-outside-of-azure-media-services"></a>Nyheter om licensservrar utanför Azure Media Services?
 Kunder kan ofta har investerat i licens servergruppen antingen i sina egna data center eller värdbaserad av DRM-leverantörer. Lyckligtvis innehållsskydd för Azure Media Services kan du använda i hybrid läge: innehållet finns och dynamiskt skyddas i Azure Media Services medan DRM-licenser levereras av utanför Azure Media Services-servrar. I det här fallet finns följande ändringar:
 
-1. Secure Token Service måste token som accepteras och som kan verifieras av licens-servergruppen. Widevine-licens-servrar som tillhandahålls av Axinom kräver till exempel en JWT-token som innehåller ”rätt meddelandet”. Du måste därför ha en STS att utfärda sådana JWT-token. Författarna har slutfört en sådan implementering och du kan hitta information i följande dokument i [Azure Documentation Center](https://azure.microsoft.com/documentation/): [med Axinom att leverera Widevine-licenser till Azure Media Services](media-services-axinom-integration.md).
+1. Secure Token Service måste token som accepteras och kan verifieras av licens-servergruppen. Widevine-licens-servrar som tillhandahålls av Axinom kräver till exempel en JWT-token som innehåller ”rätt meddelande”. Du måste därför ha en STS att utfärda sådana JWT-token. Författarna har slutfört en sådan implementering och du kan hitta information i följande dokument i [Azure Documentation Center](https://azure.microsoft.com/documentation/): [med Axinom att leverera Widevine-licenser till Azure Media Services](media-services-axinom-integration.md).
 2. Du behöver inte längre konfigurera licensleveranstjänst (ContentKeyAuthorizationPolicy) i Azure Media Services. Vad du behöver göra är att tillhandahålla licensen förvärv URL: er (för PlayReady Widevine och FairPlay) när du konfigurerar AssetDeliveryPolicy ställer in CENC med multi-DRM.
 
 ### <a name="what-if-i-want-to-use-a-custom-sts"></a>Vad händer om jag vill använda en anpassad STS?
@@ -362,13 +362,13 @@ Om du använder .NET Framework / C# som din plattformar kan X509 certifikat som 
 IDX10630: System.IdentityModel.Tokens.X509AsymmetricSecurityKey för signering får inte vara mindre än '2048-bitar.
 
 ## <a name="the-completed-system-and-test"></a>Slutförda system och testning
-Går igenom några scenarier i slutförda slutpunkt till slutpunkt-systemet så att läsare kan ha en grundläggande ”bild” av funktionen innan du hämtar ett inloggningskonto.
+Vi går igenom några scenarier i slutförda slutpunkt till slutpunkt-systemet så att läsare kan ha en grundläggande ”bild” av funktionen innan du hämtar ett inloggningskonto.
 
 Webbprogrammet player och dess inloggningen finns [här](https://openidconnectweb.azurewebsites.net/).
 
 Om vad du behöver är ”icke-integrerade” scenario: video tillgångar finns i Azure Media Services som antingen är oskyddade eller DRM skyddade men utan tokenautentisering (utfärdar en licens till den som begär den), du kan testa den utan inloggning (genom att växla till HTTP om din videoströmning är över HTTP).
 
-Om du behöver är integrerad slutpunkt till slutpunkt-scenario: video tillgångar är under dynamisk DRM-skydd i Azure Media Services med token autentisering och JWT-token som genereras av Azure AD, måste du logga in.
+Om du behöver är integrerad slutpunkt till slutpunkt-scenario: video tillgångar är under dynamisk DRM-skydd i Azure Media Services med token autentisering och JWT-token som genereras av Azure AD måste du logga in.
 
 ### <a name="user-login"></a>Användarinloggning
 Du måste ha en ”konto” skapas eller läggs för att testa det integrerade DRM-systemet för slutpunkt till slutpunkt.
@@ -377,7 +377,7 @@ Vilket konto?
 
 Även om Azure ursprungligen åtkomst endast av Microsoft-kontoanvändare, kan nu åtkomst av användare från båda systemen. Vi gjorde detta genom att konfigurera alla Azure-egenskaper att lita på Azure AD för autentisering, genom att låta Azure AD autentisera organisationsanvändare och genom att skapa en federationsrelation där Azure AD litar på konsumentidentitetssystemet för Microsoft-konton för autentisering av konsumentanvändare. Resultatet är att Azure AD kan autentisera Microsoft-gästkonton och ”interna” Azure AD-konton.
 
-Eftersom Azure AD litar på Microsoft-konto (MSA)-domän, kan du lägga till alla konton från någon av följande domäner med anpassad Azure AD-klient och använda konto för inloggning:
+Eftersom Azure AD litar på Microsoft-konto (MSA)-domän, kan du lägga till alla konton från någon av följande domäner med anpassad Azure AD-klient och använda kontot för att logga in:
 
 | **Domännamn** | **Domän** |
 | --- | --- |
@@ -402,7 +402,7 @@ Nedan visas skärmdumpar av olika inloggningssidor som används av olika domänk
 ![Domänkonto för anpassad Azure AD-klient](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="using-encrypted-media-extensions-for-playready"></a>Använder krypterade Media-tillägg för PlayReady
-På en modern webbläsare med krypterade (EME Media tillägg) för PlayReady-support, till exempel Internet Explorer 11 på Windows 8.1 och in och Microsoft Edge-webbläsaren på Windows 10 blir PlayReady underliggande DRM för EME.
+På en modern webbläsare med krypterade (EME Media tillägg) för PlayReady-support, till exempel Internet Explorer 11 på Windows 8.1 och in och Microsoft Edge-webbläsaren på Windows 10 är PlayReady underliggande DRM för EME.
 
 ![Med hjälp av EME för PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready1.png)
 
@@ -414,7 +414,7 @@ Följande skärmbild visar player-plugin-program och mus/EME support.
 
 EME i Microsoft Edge och Internet Explorer 11 på Windows 10 kan anropas av [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) på Windows 10-enheter som stöder den. PlayReady SL3000 låser upp flödet av förbättrade premium-innehåll (4K HDR, etc.) och nya modeller för innehållsleverans (tidig fönster för förbättrat innehåll).
 
-Fokusera på de Windows-enheterna: PlayReady är den enda DRM i maskinvara som är tillgängliga på Windows-enheter (PlayReady SL3000). En strömmande tjänst kan använda PlayReady via EME eller en UWP-appen och ger en högre bildkvaliteten med PlayReady SL3000 än en annan DRM. Normalt flödar 2K innehåll via Chrome eller Firefox och 4K innehåll via Microsoft Edge/IE11 eller en UWP-appen på samma enhet (beroende på implementering och inställningar).
+Fokusera på de Windows-enheterna: PlayReady är den enda DRM i maskinvara som är tillgängliga på Windows-enheter (PlayReady SL3000). En strömmande tjänst kan använda PlayReady via EME eller en UWP-appen och ger en högre bildkvaliteten med PlayReady SL3000 än en annan DRM. Normalt 2K innehåll går genom Chrome eller Firefox och 4K innehåll via Microsoft Edge/IE11 eller en UWP-appen på samma enhet (beroende på implementering och inställningar).
 
 #### <a name="using-eme-for-widevine"></a>Med hjälp av EME för Widevine
 På en modern webbläsare med EME/Widevine-support, till exempel Chrome 41 + på Windows 10, Windows 8.1-, Mac OS x Yosemite och Chrome för Android 4.4.4 är Google Widevine DRM bakom EME.
@@ -428,10 +428,10 @@ Observera att Widevine inte hindrar något från att göra en skärmdump av skyd
 ### <a name="not-entitled-users"></a>Inte berättigat till användare
 Om en användare inte är medlem i gruppen ”rätt användare” användaren kommer inte att kunna skicka ”Kontrollera rätt” och tjänsten multi-DRM-licens kommer neka att utfärda begärda licensen enligt nedan. Detaljerad beskrivning är ”licens hämta misslyckades”, vilket är fungerar.
 
-![Icke rätt användare](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
+![Unentitled användare](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
 ### <a name="running-custom-secure-token-service"></a>Kör anpassade Secure Token Service
-För scenariot med anpassade Secure säkerhetstokentjänst (STS) som körs utfärdas JWT-token av anpassade STS med hjälp av antingen symmetriskt eller asymmetriskt nyckel.
+För scenariot med anpassade Secure säkerhetstokentjänst (STS) som körs har JWT-token utfärdats av anpassade STS med hjälp av antingen symmetriskt eller asymmetriskt nyckel.
 
 I fallet med hjälp av symmetriska nyckel (med hjälp av Chrome):
 
@@ -441,7 +441,7 @@ I fallet med hjälp av asymmetrisk nyckel via X509 certifikat (med Microsoft mod
 
 ![Kör anpassade STS](./media/media-services-cenc-with-multidrm-access-control/media-services-running-sts2.png)
 
-I båda ovanstående fall oförändrad användarautentisering – via Azure AD. Den enda skillnaden är att JWT-token har utfärdats av anpassade STS i stället för Azure AD. Naturligtvis när du konfigurerar skydd för dynamiska CENC begränsningar av licensleveranstjänst anger vilken typ av JWT-token, antingen symmetriskt eller asymmetriskt nyckel.
+I båda ovanstående fall oförändrad användarautentisering – via Azure AD. Den enda skillnaden är att JWT-token har utfärdats av anpassade STS i stället för Azure AD. När du konfigurerar skydd för dynamiska CENC begränsningar av licensleveranstjänst anger vilken typ av JWT-token, antingen symmetriskt eller asymmetriskt nyckel.
 
 ## <a name="summary"></a>Sammanfattning
 I det här dokumentet beskrivs vi CENC med flera native DRM och åtkomstkontroll via tokenautentisering: sin design och dess implementering med Azure, Azure Media Services och Azure Media Player.

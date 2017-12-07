@@ -1,6 +1,6 @@
 ---
 title: "Komma igång med Azure Media Clipper | Microsoft Docs"
-description: "Komma igång med Azure Media Clipper, klipp ett verktyg för att skapa media från tillgångar"
+description: "Komma igång med Azure Media Clipper, ett verktyg för att skapa videoklipp från AMS-tillgångar"
 services: media-services
 keywords: Clip; underklipp; kodning; media
 author: dbgeorge
@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8a4f2c79131664ca0d078fa58c6a75b54243e705
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Skapa klipp med Azure Media Clipper
 Det här avsnittet visas de grundläggande stegen för att komma igång med Azure Media Clipper. De följande avsnitten finns information om hur du konfigurerar Azure Media Clipper.
@@ -102,9 +102,9 @@ Parametrarna för metodanropet initieringen är:
 - `speedLevels`(Valfritt, array): speedLevels kan ange olika hastighet nivåer för videospelaren, se [dokumentation för Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) för mer information.
 - `resetOnJobDone`(Valfritt, bool): resetOnJobDone tillåter Clipper återställs subclipper till ett initialt tillstånd när ett jobb har skickats.
 - `autoplayVideo`(Valfritt, bool): autoplayVideo kan Clipper spela upp videon på belastningen. Standardvärdet är true.
-- `language`{VALFRI sträng}: språk ställer in språket för validering. Om den inte anges försöker widgeten localize meddelanden utifrån språkinställningar för webbläsaren. Om inget språk har identifierats i webbläsaren, standard widgeten engelska. Mer information finns i avsnittet språk som stöds.
-- `languages`{VALFRITT, JSON}: parametern språk ersätter standardordlistan språk med en ordlista som definierats av användaren. Mer information finns i avsnittet språk som stöds.
-- `extraLanguages`(Valfritt, JSON): parametern extraLanaguages lägger till nya språk i standardordlista. Mer information finns i avsnittet språk som stöds.
+- `language`{VALFRI sträng}: språk ställer in språket för validering. Om den inte anges försöker widgeten localize meddelanden utifrån språkinställningar för webbläsaren. Om inget språk har identifierats i webbläsaren, standard widgeten engelska. Mer information finns i [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnitt.
+- `languages`{VALFRITT, JSON}: parametern språk ersätter standardordlistan språk med en ordlista som definierats av användaren. Mer information finns i [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnitt.
+- `extraLanguages`(Valfritt, JSON): parametern extraLanaguages lägger till nya språk i standardordlista. Mer information finns i [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnitt.
 
 ## <a name="typescript-definition"></a>Maskin-definition
 En [maskin](https://www.typescriptlang.org/) definitionsfilen för Clipper hittar [här](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
@@ -112,133 +112,15 @@ En [maskin](https://www.typescriptlang.org/) definitionsfilen för Clipper hitta
 ## <a name="azure-media-clipper-api"></a>Azure Media Clipper API
 Det här avsnittet beskrivs API-ytan som tillhandahålls av Clipper.
 
-- `load(assets)`: läser in en lista över tillgångar i fönstret tillgångar (ska inte användas tillsammans med `assetsPanelLoaderCallback`). Se den här [artikeln](media-services-azure-media-clipper-load-assets.md) information om hur du läser in tillgångar i Clipper.
+- `ready(handler)`: ger ett sätt att köra JavaScript så snart Clipper har lästs in och är redo att användas.
+- `load(assets)`: läser in en lista över tillgångar i en widget tidslinje (inte ska användas tillsammans med assetsPanelLoaderCallback). Se den här [artikeln](media-services-azure-media-clipper-load-assets.md) information om hur du läser in tillgångar i Clipper.
 - `setLogLevel(level)`: Anger loggningsnivån som ska visas i webbläsarens konsol. Möjliga värden är: `info`, `warn`, `error`.
 - `setHeight(height)`: Anger widgeten totala höjd i bildpunkter (minimihöjden är 600 bildpunkter utan tillgångar rutan och 850 px med fönstret tillgångar).
 - `version`: hämtar widget-version.
 
-## <a name="configuring-azure-media-clipper"></a>Konfigurera Azure Media Clipper
+## <a name="next-steps"></a>Nästa steg
 Se nästa steg för att konfigurera Azure Media Clipper:
 - [Läsa in tillgångar i Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
 - [Konfigurera anpassade kortkommandon](media-services-azure-media-clipper-keyboard-shortcuts.md)
 - [Skickar urklippet jobb från Clipper](media-services-azure-media-clipper-submit-job.md)
-
-## <a name="supported-languages"></a>Språk som stöds
-Widgeten Clipper är tillgänglig i 18 språk. Om du vill ange widget språk måste du definiera den `language` parametern under initieringen. Skicka in önskat språk kodsträngen i listan nedan:
-- Kinesiska (förenklad): zh-hans
-- Kinesiska (traditionell): zh-hant
-- Tjeckiska: cs
-- Nederländska, Flemish: nl
-- Engelska: en
-- Franska: fr
-- Tyska: Tyskland
-- Ungerska: hu
-- Italienska: den
-- Japanska: ja
-- Koreanska: ko
-- Polska: pl
-- Portugisiska (Brasilien): pt-br
-- Portugisiska (Portugal): pt-pt
-- Ryska: ru
-- Spanska: es
-- Svenska: SA
-- Turkiska: tr
-
-Om du vill ange en anpassad ordlista eller utöka standardspråk och ordlista, måste du definiera den `languages` eller `extraLanguages` parametern respektive. Skicka in en ordlista med hjälp av följande JSON-format:
-
-```javascript
-{
-      "{language-code}":
-          "{message-id}": "{message}"
-          ...
-      }
-      ...
-}
-```
-
-Till exempel definierar i följande exempel lokaliserade engelska strängar:
-
-```javascript
-export default {
-  'VideoPlayer.noPreview': 'No video preview',
-  'VideoPlayer.loadAsset': 'You must provide a valid asset',
-  'AssetsPanel.name': 'Name',
-  'AssetsPanel.type': 'Asset type',
-  'AssetsPanel.actions': 'Actions',
-  'AssetsPanel.loading': 'Loading...',
-  'AssetsPanel.duration': 'Duration',
-  'AssetsPanel.resolution': 'Resolution',
-  'AssetsPanel.pluralFiles': '{0} assets',
-  'AssetsPanel.searchFiles': 'Search assets',
-  'AssetsPanel.showTypes': 'Show:',
-  'AssetsPanel.typesInfo': 'Rendered assets are actual MP4 files. Dynamic manifest filters are filters applied to a parent asset\'s video segment playlist.',
-  'AssetsPanel.filterTypes': 'Filters',
-  'AssetsPanel.assetTypes': 'Assets',
-  'AssetsPanel.assetsAll': 'All',
-  'AssetsPanel.addAsset': 'Add asset to the end',
-  'AssetsPanel.addFilter': 'Add filter to the timeline',
-  'AssetsPanel.invalidAsset': 'The metadata of this asset is not compatible with the other assets in the timeline',
-  'AssetsPanel.addAssetWarning': 'Subclipping on assets with different resolutions may cause resolution autoscaling.',
-  'AssetsPanel.live': 'LIVE',
-  'AssetsPanel.unknown': 'UNKNOWN',
-  'AssetsPanel.minimGapNotMet': 'The asset duration must be greater than the minimum clip duration ({0} seconds)',
-  'VideoPlayer.openAdvancedSettings': 'Advanced settings',
-  'VideoPlayer.singleBitrate': 'Single-bitrate MP4 (rendered)',
-  'VideoPlayer.multiBitrate': 'Multi-bitrate MP4 (rendered)',
-  'VideoPlayer.dynamicManifest': 'Dynamic manifest filter',
-  'VideoPlayer.ErrorWithMessage': 'There was an error in the video player, code {0}, message: {1}',
-  'Common.cancel': 'Cancel',
-  'Common.OK': 'OK',
-  'AdvancedSettings.framerate': 'Frame rate',
-  'Dropdown.select': 'Select an option...',
-  'InputAsset.RemoveInput': 'Remove source',
-  'Zoom.startTime': 'Start time',
-  'Zoom.endTime': 'End time',
-  'VideoPlayer.subclips': 'Subclips:',
-  'VideoPlayer.length': 'Clip length:',
-  'Accordion.scrollLeft': 'Scroll to the left',
-  'Accordion.scrollRight': 'Scroll to the right',
-  'AdvancedSettings.title': 'Advanced settings',
-  'AdvancedSettings.subclipName': 'Subclip name',
-  'AdvancedSettings.subclipType': 'Subclipping mode',
-  'AdvancedSettings.includeAudioTracks': 'Include audio tracks',
-  'AdvancedSettings.subclipTypeInfo': 'Single-bitrate and multi-bitrate MP4s are frame accurate rendered assets. Dynamic manifest filters are group-of-pictures (GOP) accurate filters applied to a parent asset. Creating filters does not create a new asset and does not require encoding. Subclipping jobs on live assets are valid as long as their mark times are within the archive window of the parent asset. Filters are valid as long as the parent asset exists and mark times are within its archive window.',
-  'AdvancedSettings.frameRateInfo': 'We autodetect frame rate under most scenarios. however, If we cannot autodetect, choose a frame rate from the dropdown for the selected asset(s).',
-  'AdvancedSettings.frameRateError': 'Unable to determine frame rate',
-  'AdvancedSettings.subclipNameInfo': 'Choose a name for your subclip.',
-  'AdvancedSettings.singleAudioTrack': '1 audio track selected',
-  'AdvancedSettings.allAudioTracks': 'All audio tracks selected',
-  'AdvancedSettings.someAudioTracks': '{0} audio tracks selected',
-  'AdvancedSettings.includeAllAudioTracks': 'Include all audio tracks',
-  'AssetsPanel.loadingError': 'Failed to retreive assets from server.',
-  'AssetsPanel.retry': 'Retry?',
-  'CommandBar.prevFrameTitle': 'Back up one frame',
-  'CommandBar.prevKeyFrameTitle': 'Back up one GOP',
-  'CommandBar.cleanJob': 'Remove all assets',
-  'CommandBar.cleanJobTitle': 'Remove all assets from timeline',
-  'CommandBar.cleanJobMessage': 'This will empty all video clips from your timeline.',
-  'CommandBar.update': 'Update filter',
-  'CommandBar.createFilter': 'Create filter',
-  'CommandBar.submit': 'Submit subclipper job',
-  'CommandBar.jobErrorTitle': 'Operation failed',
-  'CommandBar.jobErrorMessage': 'Your subclip failed to submit. Please try again.',
-  'CommandBar.markInTitle': 'Set in at playhead',
-  'CommandBar.markInPosition': 'Mark in timecode',
-  'CommandBar.markOutTitle': 'Set out at playhead',
-  'CommandBar.markOutPosition': 'Mark out timecode',
-  'CommandBar.nextFrameTitle': 'Advance one frame',
-  'CommandBar.nextKeyFrameTitle': 'Advance one GOP',
-  'CommandBar.play': 'Play video',
-  'CommandBar.pause': 'Pause video',
-  'CommandBar.playPreviewTitle': 'Play subclip preview',
-  'CommandBar.pausePreviewTitle': 'Pause subclip preview',
-  'CommandBar.redoTitle': 'Redo last action',
-  'CommandBar.removeAsset': 'Remove current asset',
-  'CommandBar.undoTitle': 'Undo last action',
-  'VideoPlayer.errorTitle': 'Error',
-  'VideoPlayer.errorMessage': 'There was an error loading the selected asset.',
-  'Timeline.markIn': 'Mark in bracket',
-  'Timeline.markOut': 'Mark out bracket',
-  'Timeline.playHead': 'Play head',
-};
-```
+- [Konfigurera lokalisering](media-services-azure-media-clipper-localization.md)

@@ -14,22 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: cd36e46821eb85db523a5c84ec44895f68cc60e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33fb0a18ea3e5bfec044a216c8e6a78942e3af40
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Med Azure Media Paketeraren för att utföra uppgifter för statiska paketering
 > [!NOTE]
-> I slutet av livslängd datum för Microsoft Azure Media Paketeraren och Microsoft Azure Media Krypterare har utökats till den 1 mars 2017. Funktionerna i de här processorerna kommer att läggas till Media Encoder Standard (MES) innan det datumet. Kunder anges med instruktioner om hur du migrerar arbetsflöden för att skicka jobb till MES. Funktioner för konvertering och kryptering av format kan också vara tillgängliga via dynamisk paketering och dynamisk kryptering.
+> I slutet av livslängd datum för Microsoft Azure Media Paketeraren och Microsoft Azure Media Krypterare har utökats till den 1 mars 2017. Funktionerna i de här processorerna kommer att läggas till Media Encoder Standard (MES) innan det datumet. Kunder som tillhandahålls med instruktioner om hur du migrerar arbetsflöden för att skicka jobb till MES. Funktioner för konvertering och kryptering av format kan också vara tillgängliga via dynamisk paketering och dynamisk kryptering.
 > 
 > 
 
 ## <a name="overview"></a>Översikt
-För att kunna leverera digital video via internet måste du komprimera mediet. Digitala videofiler är ganska stor och kan vara för stort för att leverera via internet eller för dina kunders enheter att kunna visas korrekt. Kodning är en process för att komprimera video och ljud så att kunderna kan visa dina media. När en video som har kodats kan den placeras på olika behållare. Processen för att placera kodade mediet till en behållare kallas paketering. Du kan till exempel ta en MP4-fil och omvandla dem till Smooth Streaming eller HLS innehåll med hjälp av Azure Media förpackarens. 
+För att kunna leverera digital video via internet, måste du komprimera mediet. Digitala videofiler är stort och kan vara för stort för att leverera via internet eller för dina kunders enheter att kunna visas korrekt. Kodning är en process för att komprimera video och ljud så att kunderna kan visa dina media. När en video har kodats, kan den placeras på olika behållare. Processen för att placera kodade mediet till en behållare kallas paketering. Du kan till exempel ta en MP4-fil och omvandla dem till Smooth Streaming eller HLS innehåll med hjälp av Azure Media förpackarens. 
 
-Media Services stöder dynamiska och statiska paketering. När du använder statisk paketering måste du skapa en kopia av innehållet i varje format som krävs av dina kunder. Med dynamisk paketering är allt du behöver för att skapa en tillgång som innehåller en uppsättning filer med anpassningsbar bithastighet MP4 eller Smooth Streaming. Sedan, baserat på formatet som anges i begäran manifest eller fragment strömning på begäran kommer servern säkerställa att användarna får dataströmmen i protokollet som de har valt. Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services-tjänsten skapar och ger lämplig respons baserat på begäranden från en klient.
+Media Services stöder dynamiska och statiska paketering. När du använder statisk paketering, måste du skapa en kopia av innehållet i varje format som krävs av dina kunder. Med dynamisk paketering alla, du behöver för att skapa en tillgång som innehåller en uppsättning MP4 eller Smooth Streaming-filer med anpassningsbar bithastighet. Baserat på formatet som anges i begäran manifest eller fragment strömning på begäran server ser till att dina användare får dataströmmen i protokollet som de har valt. Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services-tjänsten skapar och ger lämplig respons baserat på begäranden från en klient.
 
 > [!NOTE]
 > Det rekommenderas att använda [dynamisk paketering](media-services-dynamic-packaging-overview.md).
@@ -40,17 +40,17 @@ Det finns dock vissa scenarier som kräver statiska paketering:
 
 * Verifiera anpassningsbar bithastighet MP4s kodad med externa kodare (till exempel med hjälp av kodare från tredje part).
 
-Du kan också använda statiska paketering för att utföra följande uppgifter. Men det rekommenderas att använda dynamisk kryptering.
+Du kan också använda statiska paketering för att utföra följande uppgifter: men det rekommenderas att använda dynamisk kryptering.
 
 * Med statiska kryptering för att skydda Smooth och MPEG DASH med PlayReady
 * Med statiska kryptering för att skydda HLSv3 med AES-128
 * Med statiska kryptering för att skydda HLSv3 med PlayReady
 
 ## <a name="validating-adaptive-bitrate-mp4s-encoded-with-external-encoders"></a>Validera anpassningsbar bithastighet MP4s kodad med externa kodare
-Om du vill använda en uppsättning med anpassningsbar bithastighet (multibithastighet) MP4-filer som inte kodats med Media Services kodare bör du verifiera dina filer innan du vidare bearbetning. Media Services förpackarens kan verifiera en tillgång som innehåller en uppsättning MP4-filer och kontrollera om tillgången kan paketeras till Smooth Streaming eller HLS. Om aktiviteten verifieringen misslyckas, kommer att slutföra jobbet som bearbetar aktiviteten med ett fel. Den XML som definierar förinställda för verifiering aktivitet finns i den [förinställda aktivitet för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) avsnittet.
+Om du vill använda en uppsättning med anpassningsbar bithastighet (multibithastighet) MP4-filer som inte kodats med Media Services kodare bör du verifiera dina filer innan du vidare bearbetning. Media Services förpackarens kan verifiera en tillgång som innehåller en uppsättning MP4-filer och kontrollera om tillgången kan paketeras till Smooth Streaming eller HLS. Om aktiviteten verifieringen misslyckas slutförs jobbet som bearbetar aktiviteten med ett fel. Den XML som definierar förinställda för verifiering aktivitet finns i den [förinställda aktivitet för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) artikel.
 
 > [!NOTE]
-> Använd Media Encoder Standard för att skapa eller Media Services förpackarens att verifiera ditt innehåll för att undvika runtime utfärdar. Om servern för strömning på begäran inte kan parsa källfilerna vid körning, får du HTTP 1.1 felmeddelande ”415 Media typ”. Flera gånger orsakar servern slutar fungera att parsa källfilerna påverkar strömning på begäran serverns prestanda och kan minska bandbredden som är tillgängliga för andra begäranden. Azure Media Services erbjuder en serviceavtalet (SLA) för dess strömning på begäran-tjänster. Detta serviceavtal kan inte användas om servern felanvändning på det sätt som beskrivs ovan.
+> Använd Media Encoder Standard för att skapa eller Media Services förpackarens att verifiera ditt innehåll för att undvika runtime utfärdar. Om servern för strömning på begäran inte kan parsa källfilerna vid körning, felmeddelandet HTTP 1.1 ”415 stöds inte medietyp”. Flera gånger orsakar servern slutar fungera att parsa källfilerna påverkar strömning på begäran serverns prestanda och kan minska bandbredden som är tillgängliga för andra begäranden. Azure Media Services erbjuder en serviceavtalet (SLA) för dess strömning på begäran-tjänster. Detta serviceavtal kan inte användas om servern felanvändning på det sätt som beskrivs ovan.
 > 
 > 
 
@@ -79,7 +79,7 @@ För att verifiera ditt MP4-filer med Media Services Paketeraren, måste du skap
 
 När du har kan med anpassad bithastighet MP4-uppsättningen du dra nytta av dynamisk paketering. Dynamisk paketering som gör att du kan leverera dataströmmar i det angivna protokollet utan ytterligare paketera. Mer information finns i [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
-Följande kodexempel används Azure Media Services .NET SDK-tilläggen.  Se till att uppdatera kod så att den pekar till den mapp där inkommande MP4-filer och .ism-fil finns. Och även till där MediaPackager_ValidateTask.xml-filen finns. XML-filen har definierats i [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) avsnittet.
+Följande kodexempel används Azure Media Services .NET SDK-tilläggen.  Se till att uppdatera kod så att den pekar till den mapp där inkommande MP4-filer och .ism-fil finns. Och även till där MediaPackager_ValidateTask.xml-filen finns. XML-filen har definierats i [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) artikel.
 
     using Microsoft.WindowsAzure.MediaServices.Client;
     using System;
@@ -246,20 +246,20 @@ Följande kodexempel används Azure Media Services .NET SDK-tilläggen.  Se till
     }
 
 ## <a name="using-static-encryption-to-protect-your-smooth-and-mpeg-dash-with-playready"></a>Med statiska kryptering för att skydda din Smooth och MPEG DASH med PlayReady
-Om du vill skydda ditt innehåll med PlayReady du kan välja att använda [dynamisk kryptering](media-services-protect-with-drm.md) (det rekommenderade alternativet) eller statisk kryptering (enligt beskrivningen i det här avsnittet).
+Om du vill skydda ditt innehåll med PlayReady du kan välja att använda [dynamisk kryptering](media-services-protect-with-playready-widevine.md) (det rekommenderade alternativet) eller statisk kryptering (enligt beskrivningen i det här avsnittet).
 
 Exemplet i det här avsnittet kodar en mezzaninfil (i det här fallet MP4) till anpassningsbar bithastighet MP4-filer. Den sedan paket MP4s till Smooth Streaming och krypterar Smooth Streaming med PlayReady. Därför kan du ska kunna strömma Smooth Streaming eller MPEG DASH.
 
-Media Services är nu en tjänst för att leverera Microsoft PlayReady-licenser. Exemplet i den här artikeln visar hur du konfigurerar PlayReady för Media Services licensleveranstjänst (se ConfigureLicenseDeliveryService-metoden som definierats i koden nedan). Läs mer om Media Services Playreadys licensleveranstjänst [med PlayReady dynamisk kryptering och Licensleveranstjänst](media-services-protect-with-drm.md).
+Media Services är nu en tjänst för att leverera Microsoft PlayReady-licenser. Exemplet i den här artikeln visar hur du konfigurerar PlayReady för Media Services licensleveranstjänst (se ConfigureLicenseDeliveryService-metoden som definierats i koden nedan). Läs mer om Media Services Playreadys licensleveranstjänst [med PlayReady dynamisk kryptering och Licensleveranstjänst](media-services-protect-with-playready-widevine.md).
 
 > [!NOTE]
-> Se till att använda CENC alternativ genom att ange egenskaperna useSencBox och adjustSubSamples för att leverera MPEG-DASH krypterat med PlayReady (beskrivs i den [aktivitet förinställda för Azure Media Krypterare](http://msdn.microsoft.com/library/azure/hh973610.aspx) avsnittet) till true.  
+> Se till att använda CENC alternativ genom att ange egenskaperna useSencBox och adjustSubSamples för att leverera MPEG-DASH krypterat med PlayReady (beskrivs i den [aktivitet förinställda för Azure Media Krypterare](http://msdn.microsoft.com/library/azure/hh973610.aspx) artikel) till true.  
 > 
 > 
 
 Se till att uppdatera följande kod för att peka på den mapp där MP4 indatafilen finns.
 
-Och även till där filerna MediaPackager_MP4ToSmooth.xml och MediaEncryptor_PlayReadyProtection.xml finns. MediaPackager_MP4ToSmooth.xml har definierats i [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) och MediaEncryptor_PlayReadyProtection.xml har definierats i den [aktivitet förinställda för Azure Media Krypterare](http://msdn.microsoft.com/library/azure/hh973610.aspx) avsnittet. 
+Och även till där filerna MediaPackager_MP4ToSmooth.xml och MediaEncryptor_PlayReadyProtection.xml finns. MediaPackager_MP4ToSmooth.xml har definierats i [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) och MediaEncryptor_PlayReadyProtection.xml har definierats i den [aktivitet förinställda för Azure Media Krypterare](http://msdn.microsoft.com/library/azure/hh973610.aspx) artikel. 
 
 Exemplet definierar metoden UpdatePlayReadyConfigurationXMLFile som du kan använda för att uppdatera filen MediaEncryptor_PlayReadyProtection.xml dynamiskt. Tillgängliga viktiga startvärdet måste du använda metoden CommonEncryption.GeneratePlayReadyContentKey för att generera nyckeln innehåll baserat på keySeedValue och KeyId värden.
 
@@ -705,7 +705,7 @@ Om du vill kryptera dina HLS med AES-128, kan du välja att använda dynamisk kr
 > 
 > 
 
-Exemplet i det här avsnittet kodar en mezzaninfil (i det här fallet MP4) till multibitrate MP4-filer och sedan paket MP4s till Smooth Streaming. Den paketerar sedan Smooth Streaming i HTTP Live Streaming (HLS) krypteras med Advanced Encryption Standard (AES) dataströmmen 128-bitars kryptering. Se till att uppdatera följande kod för att peka på den mapp där MP4 indatafilen finns. Och även till där konfigurationsfilerna MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml finns. Du kan hitta definitionen för filerna i den [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) avsnittet.
+Exemplet i det här avsnittet kodar en mezzaninfil (i det här fallet MP4) till multibitrate MP4-filer och sedan paket MP4s till Smooth Streaming. Den paketerar sedan Smooth Streaming i HTTP Live Streaming (HLS) krypteras med Advanced Encryption Standard (AES) dataströmmen 128-bitars kryptering. Se till att uppdatera följande kod för att peka på den mapp där MP4 indatafilen finns. Och även till där konfigurationsfilerna MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml finns. Du kan hitta definitionen för filerna i den [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) artikel.
 
     using System;
     using System.Collections.Generic;
@@ -977,18 +977,18 @@ Exemplet i det här avsnittet kodar en mezzaninfil (i det här fallet MP4) till 
     }
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-playready"></a>Med statiska kryptering för att skydda HLSv3 med PlayReady
-Om du vill skydda ditt innehåll med PlayReady du kan välja att använda [dynamisk kryptering](media-services-protect-with-drm.md) (det rekommenderade alternativet) eller statisk kryptering (enligt beskrivningen i det här avsnittet).
+Om du vill skydda ditt innehåll med PlayReady du kan välja att använda [dynamisk kryptering](media-services-protect-with-playready-widevine.md) (det rekommenderade alternativet) eller statisk kryptering (enligt beskrivningen i det här avsnittet).
 
 > [!NOTE]
 > För att skydda innehåll med PlayReady måste du först konvertera/koda ditt innehåll till ett Smooth Streaming-format.
 > 
 > 
 
-Exemplet i det här avsnittet kodar en mezzaninfil (i det här fallet MP4) till multibitrate MP4-filer. Den sedan paket MP4s till Smooth Streaming och krypterar Smooth Streaming med PlayReady. För att skapa HTTP Live Streaming (HLS) krypteras med PlayReady måste PlayReady Smooth Streaming-tillgångar paketeras i HLS. Det här avsnittet visar hur du utför de här stegen.
+Exemplet i det här avsnittet kodar en mezzaninfil (i det här fallet MP4) till multibitrate MP4-filer. Den sedan paket MP4s till Smooth Streaming och krypterar Smooth Streaming med PlayReady. För att skapa HTTP Live Streaming (HLS) krypteras med PlayReady måste PlayReady Smooth Streaming-tillgångar paketeras i HLS. Den här artikeln visar hur du utför de här stegen.
 
 Media Services är nu en tjänst för att leverera Microsoft PlayReady-licenser. Exemplet i den här artikeln visar hur du konfigurerar PlayReady för Media Services licensleveranstjänst (finns i **ConfigureLicenseDeliveryService** metod som definieras i följande kodexempel). 
 
-Se till att uppdatera följande kod för att peka på den mapp där MP4 indatafilen finns. Och även till där filerna MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml MediaEncryptor_PlayReadyProtection.xml finns. MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml definieras i [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) och MediaEncryptor_PlayReadyProtection.xml har definierats i den [aktivitet förinställda för Azure Media Krypterare](http://msdn.microsoft.com/library/azure/hh973610.aspx) avsnittet.
+Se till att uppdatera följande kod för att peka på den mapp där MP4 indatafilen finns. Och även till där filerna MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml MediaEncryptor_PlayReadyProtection.xml finns. MediaPackager_MP4ToSmooth.xml och MediaPackager_SmoothToHLS.xml definieras i [aktivitet förinställda för Azure Media Paketeraren](http://msdn.microsoft.com/library/azure/hh973635.aspx) och MediaEncryptor_PlayReadyProtection.xml har definierats i den [aktiviteten förinställningen för Azure Media Krypterare](http://msdn.microsoft.com/library/azure/hh973610.aspx) artikel.
 
     using System;
     using System.Collections.Generic;

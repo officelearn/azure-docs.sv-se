@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: c584806105c2583daca944260b65da2f7637bb0c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0ae5d37507bb6e36589e9755faf8bd3471910257
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Dynamisk kryptering: Konfigurera Innehållsnyckelns auktoriseringsprincip
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -34,13 +34,9 @@ Media Services stöder flera olika sätt att auktorisera användare som begär n
 
 Media Services tillhandahåller inte Secure Token tjänster. Du kan skapa en anpassad STS eller använda Microsoft Azure ACS problemet tokens. STS måste konfigureras för att skapa en token som signerats med angiven nyckel och utfärda anspråk som du angav i tokenbegränsningar-konfiguration (som beskrivs i den här artikeln). Media Services viktiga tjänsten returneras krypteringsnyckeln till klienten om token är giltig och anspråk i token som matchar de som konfigurerats för innehållsnyckeln.
 
-Mer information finns i
-
-[JWT-token autentisering](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[Integrera Azure Media Services OWIN MVC baserat app med Azure Active Directory och begränsa viktiga innehållsleverans baserat på JWT anspråk](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
-
-[Använd Azure ACS problemet tokens](http://mingfeiy.com/acs-with-key-services).
+Mer information finns i följande artiklar:
+- [JWT-token autentisering](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Integrera Azure Media Services OWIN MVC baserat app med Azure Active Directory och begränsa viktiga innehållsleverans baserat på JWT anspråk](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>Vissa förutsättningar gäller:
 * Om du vill kunna använda dynamisk paketering och dynamisk kryptering, kontrollera att den strömningsslutpunkt från vilken du vill strömma ditt innehåll finns i den **kör** tillstånd.
@@ -50,6 +46,7 @@ Mer information finns i
 * Tjänsten nyckeln cachelagrar ContentKeyAuthorizationPolicy och dess relaterade objekt (alternativ och begränsningar) i 15 minuter.  Om du skapar en ContentKeyAuthorizationPolicy och ange om du vill använda en ”Token” begränsning, testa, och uppdatera principen till ”öppen” begränsningen, det tar ungefär 15 minuter innan principen växlar till ”öppen” versionen av principen.
 * Om du lägger till eller uppdaterar din tillgångs leveransprincip måste du ta bort en befintlig lokaliserare (om sådan finns) och skapa en ny.
 * Det går för närvarande kryptera progressiv hämtning.
+* AMS strömningsslutpunkt anger värdet för huvudet CORS 'Access Control-Tillåt-ursprung' preflight-svar som jokertecknet '\*'. Detta fungerar bra med de flesta spelare, inklusive vårt Azure Media Player Roku och JW och andra. Dock vissa spelare som utnyttjar dashjs fungerar inte eftersom autentiseringsuppgifter läge inställt på ”innehåller”, inte tillåter XMLHttpRequest i sina dashjs jokertecknet ”\*” som värde för ”' Access Control-Tillåt-ursprung”. Som en tillfällig lösning till den här begränsningen i dashjs om du är värd för din klient från en enda domän, ange Azure Media Services domänen i svarshuvudet Preflight. Du kan nå ut genom att öppna ett supportärende via Azure portal.
 
 ## <a name="aes-128-dynamic-encryption"></a>AES-128 dynamisk kryptering
 > [!NOTE]
@@ -234,7 +231,7 @@ Om du vill konfigurera alternativet tokenbegränsningar som du behöver använda
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-När du konfigurerar den **token** begränsad princip, måste du ange den primära ** verifiering nyckeln **, **utfärdaren** och **målgruppen** parametrar. Den ** primära Verifieringsnyckeln ** innehåller den nyckel som token som signerats med, **utfärdaren** är den säkra tokentjänst som utfärdar token. Den **målgruppen** (kallas ibland **omfång**) beskriver syftet med token eller token auktoriserar åtkomst till resursen. Media Services viktiga tjänsten verifierar att dessa värden i token matchar värdena i mallen. 
+När du konfigurerar den **token** begränsad princip, måste du ange primärt **Verifieringsnyckeln**, **utfärdaren** och **målgruppen** parametrar. Primärt **Verifieringsnyckeln** innehåller den nyckel som token som signerats med, **utfärdaren** är den säkra tokentjänst som utfärdar token. Den **målgruppen** (kallas ibland **omfång**) beskriver syftet med token eller token auktoriserar åtkomst till resursen. Media Services viktiga tjänsten verifierar att dessa värden i token matchar värdena i mallen.
 
 I följande exempel skapas en auktoriseringsprincip med en token begränsning. I det här exemplet klienten skulle ha presentera en token som innehåller: signering nyckel (VerificationKey), en token utfärdare och nödvändiga anspråk.
 

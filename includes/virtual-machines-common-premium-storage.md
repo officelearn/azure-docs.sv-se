@@ -26,7 +26,7 @@ Du kommer igång med Premium-lagring [skapa din kostnadsfria Azure-konto](https:
 Information om att migrera dina befintliga virtuella datorer till Premium-lagring finns [konvertera en virtuell Windows-dator från ohanterade diskar till hanterade diskar](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) eller [konvertera en Linux VM från ohanterade diskar till hanterade diskar](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
-> Premium-lagring finns i de flesta regioner. En lista över tillgängliga regioner i [Azure-tjänster efter region](https://azure.microsoft.com/regions/#services), titta på regionerna som stöds stöd för Premium storlek-serien virtuella datorer (DS-serien, DSV2-serien GS-serien och Fs-serien virtuella datorer) stöds.
+> Premium-lagring finns i de flesta regioner. I listan över tillgängliga regioner finns i raden för **disklagring** i [Azure produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/#services).
 > 
 
 ## <a name="features"></a>Funktioner

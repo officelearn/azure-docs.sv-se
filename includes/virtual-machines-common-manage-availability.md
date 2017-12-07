@@ -8,17 +8,17 @@ Det finns tre scenarier som kan leda till virtuell dator i Azure som påverkas: 
 
   Virtuella datorer kan även uppstå avbrottstid i händelse av ett strömavbrott eller katastrof som påverkar ett helt datacenter eller även en hel region. För dessa scenarier kan Azure tillhandahåller skyddsalternativ inklusive [tillgänglighet zoner](../articles/availability-zones/az-overview.md) och [länkas regioner](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-* **Planerat underhåll** är periodiska uppdateringar som Microsoft utför i syfte att förbättra tillförlitligheten, prestanda och säkerheten för den plattformsinfrastruktur som dina virtuella datorer körs i. De flesta av de här uppdateringarna utförs utan att påverka dina virtuella datorer eller molntjänster (mer information finns i [VM Preserving Maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/preserving-maintenance) (Underhåll utan påverkan på virtuella datorer)). Azure-plattformen försöker alltid att utföra underhåll utan att påverka virtuella datorer, men i sällsynta fall kräver dessa uppdateringar en omstart av den virtuella datorn för att de nödvändiga uppdateringarna av den underliggande infrastrukturen ska kunna installeras. I detta fall kan du utföra planerat underhåll i Azure med underhålls- och omdistributionsåtgärden genom att initiera underhållet för de virtuella datorerna vid en lämplig tidpunkt. Mer information finns i [Planned Maintenance for Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/) (Planerat underhåll för virtuella datorer).
+* **Planerat underhåll** är periodiska uppdateringar som Microsoft utför i syfte att förbättra tillförlitligheten, prestanda och säkerheten för den plattformsinfrastruktur som dina virtuella datorer körs i. De flesta av de här uppdateringarna utförs utan att påverka dina virtuella datorer eller molntjänster (mer information finns i [VM Preserving Maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance) (Underhåll utan påverkan på virtuella datorer)). Azure-plattformen försöker alltid att utföra underhåll utan att påverka virtuella datorer, men i sällsynta fall kräver dessa uppdateringar en omstart av den virtuella datorn för att de nödvändiga uppdateringarna av den underliggande infrastrukturen ska kunna installeras. I detta fall kan du utföra planerat underhåll i Azure med underhålls- och omdistributionsåtgärden genom att initiera underhållet för de virtuella datorerna vid en lämplig tidpunkt. Mer information finns i [Planned Maintenance for Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/) (Planerat underhåll för virtuella datorer).
 
 
 För att undvika påverkan av den här typen av avbrott rekommenderar vi att du gör följande för att säkerställa hög tillgänglighet för dina virtuella datorer:
 
 * [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans]
 * [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]
-* [Hantera händelser som påverkar virtuella datorer proaktivt genom att använda schemalagda händelser] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Använd schemalagda händelser för att proaktivt svar på VM påverka händelser] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Konfigurera varje programnivå i separata tillgänglighetsuppsättningar]
 * [Kombinera en belastningsutjämnare med tillgänglighetsuppsättningar]
-* [Använd tillgänglighet zoner för att skydda mot datacenter nivån fel]
+* [Använda tillgänglighet zoner för att skydda mot datacenter nivån fel]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans
 För att ge ditt program redundans rekommenderar vi att du grupperar två eller flera virtuella datorer i en tillgänglighetsuppsättning. Den här konfigurationen inom ett datacenter garanterar att minst en virtuell dator under antingen en planerad eller oplanerad underhållshändelse, är tillgänglig och uppfyller 99,95% SLA för Azure. Mer information finns i [Serviceavtal för Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -81,3 +81,4 @@ Lär dig mer om hur du distribuerar en [Windows](../articles/virtual-machines/wi
 [Kombinera en belastningsutjämnare med tillgänglighetsuppsättningar]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]: #use-managed-disks-for-vms-in-an-availability-set
+[Använda tillgänglighet zoner för att skydda mot datacenter nivån fel]: #use-availability-zones-to-protect-from-datacenter-level-failures

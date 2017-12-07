@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
 Den här artikeln har avsnitt med svar på vanliga frågor så att du snabbt kan förstå hur Azure Backup-komponenterna fungerar. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -112,7 +112,6 @@ Azure Backup stöder följande lista över operativsystem för säkerhetskopieri
 | Windows Storage Server 2012 och senaste Service Pack |64-bitars |Standard, Workgroup |
 | Windows Server 2012 R2 och senaste Service Pack |64-bitars |Essential |
 | Windows Server 2008 R2 SP1 |64-bitars |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 SP2 |64-bitars |Standard, Enterprise, Datacenter, Foundation |
 
 **Säkerhetskopiering av virtuell Azure-dator:**
 

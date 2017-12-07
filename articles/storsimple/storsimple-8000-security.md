@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 12/06/2017
 ms.author: alkohli
-ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-säkerhet och dataskydd
 
@@ -157,7 +157,7 @@ Krypteringsnyckel för tjänstdata ska genereras på endast den första enheten 
 > 
 > Om krypteringsnyckeln för tjänstdata tappas bort, kan en Microsoft-supporten hjälpa dig att hämta den förutsatt att du har minst en enhet i ett onlinetillstånd. Vi rekommenderar att du ändrar krypteringsnyckeln för tjänstdata när den har hämtats. Mer information går du till [ändra krypteringsnyckel för tjänstdata](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-Du kan ändra krypteringsnyckeln för tjänstdata och motsvarande certifikat för kryptering av data genom att välja den **ändra krypteringsnyckel för tjänstdata** alternativet på instrumentpanelen för tjänsten. För att säkerställa att datasäkerheten inte komprometteras, måste du använda en fysisk enhet för att ändra krypteringsnyckeln för tjänstdata. Ändra krypteringsnycklarna kräver att alla enheter kan uppdateras med den nya nyckeln. Därför rekommenderar vi att du ändrar nyckeln när alla enheter som är online. Om enheter som är offline, kan deras nycklar ändras vid en annan tid. Enheter med inaktuella nycklar kommer fortfarande att kunna köra säkerhetskopieringar, men de kommer inte att kunna återställa data förrän nyckeln har uppdaterats. Mer information finns på [StorSimple Enhetshanteraren service instrumentpanel](storsimple-8000-service-dashboard.md).
+Om du vill ändra krypteringsnyckeln för tjänstdata och motsvarande certifikat för kryptering av data, följer du stegen i [ändra krypteringsnyckeln för tjänstdata för din StorSimple Enhetshanteraren tjänst](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Ändra krypteringsnycklarna kräver att alla enheter kan uppdateras med den nya nyckeln. Därför rekommenderar vi att du ändrar nyckeln när alla enheter som är online. Om enheter som är offline, kan deras nycklar ändras vid en annan tid. Enheter med inaktuella nycklar kommer fortfarande att kunna köra säkerhetskopieringar, men de kommer inte att kunna återställa data förrän nyckeln har uppdaterats.
 
 Krypteringsnyckel för tjänstdata och krypteringscertifikat data ut inte. Vi rekommenderar dock att du ändrar krypteringsnyckeln för tjänstdata årligen för att förhindra att nyckeln har komprometterats.
 
@@ -212,7 +212,7 @@ Följande är några frågor och svar om säkerhet och Microsoft Azure StorSimpl
 
 **S:** omedelbart bör du ändra krypteringsnyckeln för tjänstdata och lagringskontonycklar för storage-konto som används för lagringsnivåer data. Anvisningar finns:
 
-* [Ändra krypteringsnyckeln för tjänstdata](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Ändra krypteringsnyckeln för tjänstdata](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Viktiga rotation av storage-konton](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **F:** jag har en ny StorSimple-enhet som frågar efter nyckel för tjänstregistrering. Hur hämtar den?
@@ -225,7 +225,7 @@ Följande är några frågor och svar om säkerhet och Microsoft Azure StorSimpl
 
 **S:** kontaktar Microsoft Support. De kan logga in på en supportsession på enheten och hjälpen du hämta nyckeln (förutsatt att minst en enhet är online). Omedelbart efter att du har fått krypteringsnyckeln för tjänstdata, bör du ändra den för att kontrollera att den nya nyckeln är känt för dig. Anvisningar finns:
 
-* [Ändra krypteringsnyckeln för tjänstdata](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Ändra krypteringsnyckeln för tjänstdata](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **F:** jag behörighet en enhet för tjänsten data encryption key ändras, men inte startade processen ändringen. Vad ska jag göra?
 
@@ -240,7 +240,7 @@ Följande är några frågor och svar om säkerhet och Microsoft Azure StorSimpl
 **S:** ändrings- och återställning av lösenord som tillåter åtkomst till StorSimple-enhet och ändra datakryptering service nyckeln så att den nya informationen inte känner till auktoriserad personal. Anvisningar finns:
 
 * [Använda Enhetshanteraren för StorSimple-tjänsten för att ändra din storsimple-lösenord](storsimple-8000-change-passwords.md)
-* [Ändra krypteringsnyckeln för tjänstdata](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Ändra krypteringsnyckeln för tjänstdata](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Konfigurera CHAP för din StorSimple-enhet](storsimple-8000-configure-chap.md)
 
 **F:** jag vill du ange lösenordet för StorSimple Snapshot Manager till en värd som ansluter till StorSimple-enhet, men lösenordet är inte tillgänglig. Vad kan jag göra?

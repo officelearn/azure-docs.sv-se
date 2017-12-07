@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurationsinställningarna för ett fristående Windows-kluster
-Den här artikeln beskriver hur du konfigurerar ett fristående Azure Service Fabric-kluster med hjälp av filen ClusterConfig.JSON. Du kan använda den här filen för att ange information, till exempel Service Fabric-noder och deras IP-adresser och de olika typerna av noder i klustret. Du kan också ange säkerhetskonfigurationer samt nätverkstopologin vad gäller fel/uppgradera domäner för fristående klustret.
+Den här artikeln beskriver hur du konfigurerar ett fristående Azure Service Fabric-kluster med hjälp av filen ClusterConfig.json. Du använder den här filen med information om den klusternoder, säkerhetskonfigurationer samt nätverkstopologin vad gäller fel- och domäner.
 
-När du [hämta fristående Service Fabric-paket](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), några exempel på ClusterConfig.JSON-filen laddas ned till datorn och arbete. De exempel som har DevCluster i sina namn hjälpa dig att skapa ett kluster med alla tre noder på samma dator som logiska noder. Utanför dessa noder måste minst vara markerad som primära noden. Det här klustret är användbart för en miljö för utveckling eller testning. Den stöds inte som ett produktionskluster. De exempel som har MultiMachine i sina namn hjälper dig att skapa ett kluster med hög kvalitet, med varje nod på en separat dator. Antalet primära noder för dessa kluster baseras på den [nivå av tillförlitlighet](#reliability). Vi tagit bort egenskapen tillförlitlighet nivå i version 5.7 API-versionen 05 2017. I stället beräknar koden nivån mest optimal tillförlitlighet för klustret. Använd inte den här egenskapen i koden 5.7 och senare versioner.
+När du [hämta fristående Service Fabric-paket](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), ClusterConfig.json exempel ingår också. De exempel som har ”DevCluster” i sina namn kan du skapa ett kluster med alla tre noder på samma dator använder logiska noder. Utanför dessa noder måste minst vara markerad som primära noden. Den här typen av klustret är användbart för utvecklings- och testmiljöer. Den stöds inte som ett produktionskluster. De exempel som har ”MultiMachine” i sina namn hjälp för att skapa produktion klass kluster, med varje nod på en separat dator. Antalet primära noder för dessa kluster är baserad på klustret [nivå av tillförlitlighet](#reliability). Vi tagit bort egenskapen tillförlitlighet nivå i version 5.7, API-versionen 05 2017. I stället beräknar koden nivån mest optimal tillförlitlighet för klustret. Försök inte att ange ett värde för den här egenskapen i versioner 5.7 och senare.
 
 
-* Visar hur du skapar ett oskyddat test eller produktionskluster, respektive ClusterConfig.Unsecure.DevCluster.JSON och ClusterConfig.Unsecure.MultiMachine.JSON.
+* Visar hur du skapar ett oskyddat test eller produktionskluster, respektive ClusterConfig.Unsecure.DevCluster.json och ClusterConfig.Unsecure.MultiMachine.json.
 
-* ClusterConfig.Windows.DevCluster.JSON och ClusterConfig.Windows.MultiMachine.JSON visar hur du skapar test- eller kluster som skyddas med hjälp av [Windows-säkerhet](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json och ClusterConfig.Windows.MultiMachine.json visar hur du skapar test- eller kluster som skyddas med hjälp av [Windows-säkerhet](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.JSON och ClusterConfig.X509.MultiMachine.JSON visar hur du skapar test- eller kluster som skyddas med hjälp av [X509 certifikatbaserad säkerhet](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json och ClusterConfig.X509.MultiMachine.json visar hur du skapar test- eller kluster som skyddas med hjälp av [X509 certifikatbaserad säkerhet](service-fabric-windows-cluster-x509-security.md).
 
-Nu ska vi undersöka olika delar av en fil i ClusterConfig.JSON.
+Nu ska vi undersöka olika delar av en fil i ClusterConfig.json.
 
 ## <a name="general-cluster-configurations"></a>Allmän klusterkonfigurationer
 Allmän klusterkonfigurationer omfatta bred klusterspecifika-konfigurationer, enligt följande kodavsnitt i JSON:
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 Du kan ge ett eget namn till Service Fabric-kluster genom att tilldela variabeln namn. ClusterConfigurationVersion är versionsnumret för klustret. Öka det varje gång du uppgraderar Service Fabric-klustret. Lämna apiVersion angetts till standardvärdet.
 
+## <a name="nodes-on-the-cluster"></a>Noder i klustret
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>Noder i klustret
 Du kan konfigurera noderna på din Service Fabric-kluster med hjälp av avsnittet noder som i följande fragment visas:
 
     "nodes": [{
@@ -68,7 +71,7 @@ Du kan konfigurera noderna på din Service Fabric-kluster med hjälp av avsnitte
         "upgradeDomain": "UD2"
     }],
 
-Ett Service Fabric-kluster måste innehålla minst tre noder. Du kan lägga till fler noder i det här avsnittet enligt din konfiguration. I följande tabell beskrivs konfigurationsinställningarna för varje nod:
+Ett Service Fabric-kluster måste innehålla minst tre noder. Du kan lägga till fler noder i det här avsnittet enligt din konfiguration. Följande tabell förklarar konfigurationsinställningar för varje nod:
 
 | **Nodkonfiguration** | **Beskrivning** |
 | --- | --- |
@@ -79,12 +82,12 @@ Ett Service Fabric-kluster måste innehålla minst tre noder. Du kan lägga till
 | upgradeDomain |Uppgraderingsdomäner beskrivs uppsättningar med noder som är avstängd för Service Fabric-uppgraderingar på ungefär samma tidpunkt. Du kan välja vilka noder som ska tilldelas vilka uppgraderingsdomäner eftersom de inte är begränsad av alla fysiska krav. |
 
 ## <a name="cluster-properties"></a>Egenskaper för klustret
-Egenskapsavsnittet i ClusterConfig.JSON används för att konfigurera klustret som visas:
-
-    <a id="reliability"></a>
+Egenskapsavsnittet i ClusterConfig.json används för att konfigurera klustret som visas:
 
 ### <a name="reliability"></a>Tillförlitlighet
 Begreppet reliabilityLevel definierar antal repliker eller instanser av tjänsterna för Service Fabric-system som kan köras på de primära noderna i klustret. Den avgör tillförlitligheten för dessa tjänster och därför klustret. Värdet beräknas av systemet när klustret skapas och uppgradering.
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>Diagnostik
 Du kan konfigurera parametrar för att aktivera diagnostik- och felsökning av fel på nod eller ett kluster, enligt följande kodavsnitt i avsnittet diagnosticsStore: 
@@ -119,9 +122,10 @@ Avsnittet krävs för en säker fristående Service Fabric-klustret. Följande f
 
 Metadata är en beskrivning av säker klustret och kan anges enligt din konfiguration. Bestämmer vilken typ av säkerhet som klustret och noderna implementera ClusterCredentialType och ServerCredentialType. De kan vara inställd på antingen *X509* för en certifikatbaserad säkerhet eller *Windows* för Azure Active Directory-baserad säkerhet. Resten av avsnittet baseras på typen av säkerhet. Information om hur du fylla i resten av avsnittet finns [certifikat baserade säkerhet i ett fristående kluster](service-fabric-windows-cluster-x509-security.md) eller [Windows-säkerhet i ett kluster med fristående](service-fabric-windows-cluster-windows-security.md).
 
+### <a name="node-types"></a>Nodtyper
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>Nodtyper
 Nodetypes får beskrivs typ av noder med klustret. Minst en nodtyp måste anges för ett kluster som visas i följande utdrag: 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ Om du vill aktivera behållaren stöd för både Windows Server-behållare och H
 
 
 ## <a name="next-steps"></a>Nästa steg
-När du har en hel ClusterConfig.JSON fil som har konfigurerats enligt din fristående konfiguration kan distribuera du ditt kluster. Följ stegen i [skapa ett fristående Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md). Gå sedan vidare till [visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) och följer sedan anvisningarna.
+När du har en hel ClusterConfig.json fil som har konfigurerats enligt din fristående konfiguration kan distribuera du ditt kluster. Följ stegen i [skapa ett fristående Service Fabric-kluster](service-fabric-cluster-creation-for-windows-server.md). Gå sedan vidare till [visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) och följer sedan anvisningarna.
 

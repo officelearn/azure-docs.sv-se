@@ -1,5 +1,5 @@
 ---
-title: "Använd Azure Media Services för att leverera DRM-licenser eller AES-nycklar"
+title: "Använd Azure Media Services för att leverera DRM-licenser eller AES-nycklar | Microsoft Docs"
 description: "Den här artikeln beskriver hur du kan använda Azure Media Services (AMS) för att leverera PlayReady och/eller Widevine-licenser och AES-nycklar, men de stöder resten (kodning, kryptering, strömning) med hjälp av lokala servrar."
 services: media-services
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb39b6a737aab3fe5ba477cc4aee601954d16247
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Använd Azure Media Services för att leverera DRM-licenser eller AES-nycklar
-Azure Media Services (AMS) ger dig möjlighet att mata in, koda, lägga till innehållsskydd och strömma ditt innehåll (se [detta](media-services-protect-with-drm.md) artikeln för information). Det finns dock kunder som bara vill använda AMS att leverera licenser och/eller nycklar och kodning, kryptering och strömning med lokala servrar. Den här artikeln beskriver hur du kan använda AMS att leverera PlayReady och/eller Widevine-licenser men göra resten med dina lokala servrar. 
+Azure Media Services (AMS) ger dig möjlighet att mata in, koda, lägga till innehållsskydd och strömma ditt innehåll (se [detta](media-services-protect-with-playready-widevine.md) artikeln för information). Det finns dock kunder som bara vill använda AMS att leverera licenser och/eller nycklar och kodning, kryptering och strömning med lokala servrar. Den här artikeln beskriver hur du kan använda AMS att leverera PlayReady och/eller Widevine-licenser men göra resten med dina lokala servrar. 
 
 ## <a name="overview"></a>Översikt
 Media Services tillhandahåller en tjänst för att leverera PlayReady och Widevine DRM-licenser och AES-128 nycklar. Media Services tillhandahåller också API: er som gör att du kan konfigurera behörigheter och begränsningar som du vill använda för DRM-körningsmiljön att tvinga när en användare spelar upp DRM-skyddat innehåll. När en användare begär det skyddade innehållet, spelarappen den en licens från AMS-Licenstjänsten. AMS-Licenstjänsten utfärdar licensen till spelaren (om den är auktoriserad). PlayReady och Widevine-licenser innehålla krypteringsnyckel som kan användas av klientspelaren för att dekryptera och strömma innehållet.
@@ -43,7 +43,6 @@ Du kan hämta det exempel som beskrivs i artikeln [här](https://github.com/Azur
     <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
 
 ## <a name="net-code-example"></a>.NET-kodexempel
-
 Följande kodexempel visar hur du skapar en gemensam innehållsnyckel och få PlayReady eller Widevine-licens förvärv URL: er. Du måste hämta följande typer av information från AMS och konfigurera lokal server: **innehållsnyckeln**, **nyckel-id**, **licens URL för anskaffning**. När du konfigurerar lokala servern kan du strömma från strömmande servern. Eftersom den kryptera dataströmmen pekar på AMS licens server, begär en licens från AMS spelaren. Om du väljer tokenautentisering licensservern AMS validerar token som du har skickat via HTTPS och (om det är giltigt) ger licensen tillbaka till spelaren. (Kodexemplet visar bara hur du skapar en gemensam innehållsnyckel och få PlayReady eller Widevine-licens förvärv URL: er. Om du vill leverans AES-128 nycklar, måste du skapa en innehållsnyckel kuvert och få en nyckel förvärv URL och [detta](media-services-protect-with-aes128.md) artikeln visar hur du gör det).
 
     using System;
@@ -332,9 +331,6 @@ Följande kodexempel visar hur du skapar en gemensam innehållsnyckel och få Pl
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
+[Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md)
 
 [Med hjälp av AES-128 dynamisk kryptering och viktiga Delivery Service](media-services-protect-with-aes128.md)
-
-[Använda partner för att leverera Widevine-licenser till Azure Media Services](media-services-licenses-partner-integration.md)
-

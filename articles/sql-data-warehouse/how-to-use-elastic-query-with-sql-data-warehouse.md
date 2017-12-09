@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Hur du använder elastisk fråga med SQL Data Warehouse
 
@@ -78,7 +78,7 @@ Mer information om elastisk fråga med SQL-databasen finns på [översikt över 
 
 ### <a name="elastic-querying"></a>Elastisk frågor
 
-- Extern tabell och interally cachelagrade tabell finnas som olika objekt med SQL-databasinstansen. Du skapar en vy över den cachelagra delen av den externa tabellerna och vilka unioner både tabeller och tillämpar filter på gräns punkt i varje tabell.
+- I många fall kan en vill hantera en typ av sträckta tabellen som var en del av tabellen finns i SQL-databasen som cachelagrade data för prestanda med resten av data som lagras i SQL Data Warehouse. Behöver du ha två objekt i SQL-databas: en extern tabell i SQL-databas som refererar till bastabellen i SQL Data Warehouse och ”cache-delen av tabell i SQL-databasen. Överväg att skapa en vy över den cachelagra delen av den externa tabellerna och vilka unioner både tabeller och tillämpar filter som avgränsar data materialiserad i SQL Database och SQL Data Warehouse-data som exponeras via externa tabeller.
 
   Anta att vi vill behålla det senaste år av data i en SQL-databasinstansen. Vi har två tabeller **externt Order**, som hänvisar till datalagret sorterar tabeller och **dbo. Order** som motsvarar den senaste år kan du se data i SQL-databasinstansen. I stället för att be användarna att bestämma om du vill fråga en tabell eller en annan skapa vi en vy över båda tabellerna på partitionen kopplingspunkt det senaste året.
 
@@ -135,13 +135,17 @@ Mer information om elastisk fråga med SQL-databasen finns på [översikt över 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-F: kan jag använda databaser i en elastisk databaspool med elastisk fråga?
+F: kan jag använda databaser i en elastisk Pool med elastisk fråga?
 
-S: Ja. SQL-databaser i en elastisk pool kan använda elastisk frågan. 
+S: Ja. SQL-databaser i en elastisk Pool kan använda elastisk frågan. 
 
 F: finns det ett tak för hur många databaser som jag kan använda för elastiska frågan?
 
-S: logiska servrar ha DTU-gränserna för att förhindra kunder från oavsiktliga överskridanden. Om du aktiverar flera databaser för elastiska frågan tillsammans med en instans av SQL Data Warehouse, kan du träffa fästpunkten oväntat. Om detta inträffar kan skicka en begäran om att öka antalet DTU på din logiska server. Du kan öka din kvot genom [skapat ett supportärende](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) och välja *kvot* som typ av begäran
+S: det finns inga hårda tak på hur många databaser kan användas för elastiska frågan. Varje elastisk fråga (frågor som träffar SQL Data Warehouse) kommer dock räknas in i normal samtidighet gränser.
+
+F: kan DTU-gränserna som ingår i elastisk fråga?
+
+S: DTU-gränserna är inte fastställts något annorlunda med elastisk frågan. Standard principen är sådan att logiska servrar ha DTU-gränserna för att förhindra oavsiktlig överskridanden av kunder. Om du aktiverar flera databaser för elastiska frågan tillsammans med en instans av SQL Data Warehouse, kan du träffa fästpunkten oväntat. Om detta inträffar kan skicka en begäran om att öka antalet DTU på din logiska server. Du kan öka din kvot genom [skapat ett supportärende](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) och välja *kvot* som typ av begäran
 
 F: kan jag använda raden nivå säkerhet/dynamiska Data maskering med elastisk fråga?
 

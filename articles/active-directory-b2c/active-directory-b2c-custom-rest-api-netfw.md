@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 0bc00dd14977e7cf24f5bff6928d09ca67761d3b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren
 Med Identity upplevelse Framework, som ligger till grund för Azure Active Directory B2C (Azure AD B2C) som du kan integrera med en RESTful-API i en resa för användaren. I den här genomgången får lära du dig hur Azure AD B2C samverkar med .NET Framework RESTful-tjänster (webb-API).
@@ -215,7 +215,7 @@ I webb-API, en _domänkontrollant_ är ett objekt som hanterar HTTP-begäranden.
     Den **skapa App Service** öppnas. I det skapar du alla nödvändiga Azure-resurser för att köra ASP.NET-webbapp i Azure.
 
     > [!NOTE]
-    >Mer information om hur du publicerar finns [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Mer information om hur du publicerar finns [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. I den **Webbprogramnamnet** Skriv ett unikt appnamn (giltiga tecken är a-z, 0-9 och bindestreck (-). URL: en för webbappen är http://<app_name>.azurewebsites.NET, där *programnamn* är namnet på ditt webbprogram. Du kan godkänna namnet som genereras automatiskt och som är unikt.
 

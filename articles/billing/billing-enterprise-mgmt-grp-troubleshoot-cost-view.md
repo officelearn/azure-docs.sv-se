@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Felsöka enterprise kostnad vyer 
 
-Det finns flera inställningar som kan orsaka användare inom registreringen ska inte kunna visa kostnader i enterprise-registreringar.  De här inställningarna hanteras av registrering administratör eller av partner om registreringen inte har köpt direkt med Microsoft.  Den här artikeln hjälper dig att förstå vilka inställningar som används och hur de påverkar registreringen. De här inställningarna är oberoende av den [Azure RBAC-roller](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
+Det finns flera inställningar som kan orsaka användare inom registreringen ska inte kunna visa kostnader i enterprise-registreringar.  De här inställningarna hanteras av registrering administratör eller av partner om registreringen inte har köpt direkt med Microsoft.  Den här artikeln hjälper dig att förstå vilka inställningar som används och hur de påverkar registreringen. De här inställningarna är oberoende av den [Azure RBAC-roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
 > [!Note]
 > Den här funktionen är för tillfället i privat förhandsvisning. [Registrera dig här](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) ha din registrering ansluta förhandsgranskningen.     
@@ -46,5 +46,5 @@ Om du får ett felmeddelande ”den här tillgången är inte tillgänglig” n�
 ![tillgångsinformation inte hittades](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Kontakta administrera av prenumerationen eller hantering av grupper som ska få åtkomst.  
-* Prenumerationer, referera [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) dokument för att få hjälp med rollen krävs.
+* Prenumerationer, referera [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) dokument för att få hjälp med rollen krävs.
 * För hanteringsgrupper, RBAC åtkomst är inte tillgänglig och kommer snart. Kontakta din enterprise portal administrera för åtkomst som tilldelats.   

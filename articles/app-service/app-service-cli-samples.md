@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 
@@ -45,6 +45,10 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | [Ansluta en webbapp till ett lagringskonto](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett Azure webbapp och ett lagringskonto och sedan lägger till lagringsanslutningssträngen i app-inställningar. |
 | [Ansluta en webbapp till ett redis-cache](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure webbapp och ett redis-cache och sedan lägger till redis-anslutningsinformationen i appinställningar.) |
 | [Ansluta en webbapp till Cosmos DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure webbapp och en Cosmos-DB och sedan lägger till Cosmos-DB-anslutningsinformationen i app-inställningar. |
+|**Säkerhetskopiera och återställa app**||
+| [Säkerhetskopiera en webbapp](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en Azure webbapp och skapar en enstaka säkerhetskopia för den. |
+| [Skapa en schemalagd säkerhetskopiering för en webbapp](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en Azure webbapp och skapar en schemalagd säkerhetskopiering för den. |
+| [Återställa en webbapp från en säkerhetskopia](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Återställer en Azure-webbapp från en säkerhetskopia. |
 |**Övervaka app**||
 | [Övervaka en webbapp med webbserverloggar](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure-webbapp, aktiverar loggning för den och hämtar loggarna till din lokala dator. |
 | | |

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
-ms.translationtype: HT
+ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Hantera Log Analytics med hjälp av Azure Resource Manager-mallar
 Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) att skapa och konfigurera logganalys arbetsytor. Exempel på uppgifter som du kan utföra med mallar:
@@ -141,7 +141,7 @@ I följande exempel mallen visas hur du:
         "sku": {
           "Name": "[parameters('serviceTier')]"
         },
-    "retention": "[parameters('dataRetention')]"
+    "retentionInDays": "[parameters('dataRetention')]"
       },
       "resources": [
         {

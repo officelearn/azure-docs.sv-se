@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 2e0fb528b22c5696aa46a677199b95ff3fbd6a79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -31,9 +31,13 @@ För närvarande identifierar Azure Active Directory sex typer av riskhändelser
 - [Omöjligt att resa till ovanliga platser](#impossible-travel-to-atypical-locations) 
 - [Inloggningar från infekterade enheter](#sign-ins-from-infected-devices) 
 - [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) (exklusivt för **Azure Active Directory Premium P2** versioner)
+- [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) 
+
 
 ![Risk händelse](./media/active-directory-reporting-risk-events/91.png)
+
+Den information som du får en identifierad risk händelse är bundet till din Azure AD-prenumeration. Om du har en Azure AD Premium P1-version (ingår i EMS E3 erbjudande) identifieringar som inte omfattas av din licens rapporteras som **logga in med ytterligare risker som identifierats**. Med andra ord kan du se en risk händelse logga in med ytterligare risk upptäcktes för identifieringar exklusivt för Azure AD Identity Protection prenumeranter.
+
 
 Det här avsnittet får du en detaljerad översikt över vilka riskhändelser är och hur du kan använda dem för att skydda din Azure AD-identiteter.
 

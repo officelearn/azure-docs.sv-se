@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: asgang
-ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 209ec47388ee7291f8107df022e0c2bb202ba6b5
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 
@@ -76,19 +76,19 @@ Under inställningar kan du konfigurera egenskaper för mål
     > [!TIP]
     > Det rekommenderas att hålla målplats samma från och med din recovery services-valvet.
 
-2. **Målresursgruppen:** är det resursgruppen där alla de replikerade virtuella datorerna ska tillhöra. Standard skapar Azure Site Recovery en ny resursgrupp i området mål med namn med suffixet ”asr”. Resursgruppen som skapats av Azure Site Recovery redan finns den av återanvändas. Du kan också välja att anpassa den som visas i följande avsnitt.    
-3. **Mål för virtuella nätverk:** som standard, Azure Site Recovery skapar ett nytt virtuellt nätverk i området mål med namn med suffixet ”asr”. Detta kommer att mappas till nätverket källa och kommer att användas för alla framtida skydd.
+2. **Målresursgruppen:** är det resursgruppen där alla de replikerade virtuella datorerna tillhör. Som standard skapar Azure Site Recovery en ny resursgrupp i området mål med namn med suffixet ”asr”. Resursgruppen som skapats av Azure Site Recovery redan finns den av återanvändas. Du kan också välja att anpassa den som visas i följande avsnitt.    
+3. **Mål för virtuella nätverk:** som standard skapar Azure Site Recovery ett nytt virtuellt nätverk i målregionen med namn med suffixet ”asr”. Detta kommer att mappas till nätverket källa och kommer att användas för alla framtida skydd.
 
     > [!NOTE]
     > [Nätverk klientkontrollen](site-recovery-network-mapping-azure-to-azure.md) vill veta mer om nätverksmappning.
 
-4. **Rikta Storage-konton:** som standard skapar Azure Site Recovery nya mål-lagringskontot frihandsbilden lagringskonfigurationen källa VM. Om lagringskonto som skapats av Azure Site Recovery redan finns, den av återanvändas.
+4. **Rikta Storage-konton:** som standard skapar Azure Site Recovery ett nytt lagringskonto för frihandsbilden lagringskonfigurationen källa VM-mål. Om lagringskonto som skapats av Azure Site Recovery redan finns, den av återanvändas.
 
 5. **Cachelagra Storage-konton:** Azure Site Recovery behöver extra lagring som kallas konto för cachelagring i området för källa. Alla ändringar som sker på virtuella källdatorer spåras och skickas till cachen storage-konto innan du replikerar de till målplatsen.
 
-6. **Tillgänglighetsuppsättningen:** Azure Site Recovery kommer som standard skapar en ny tillgänglighetsuppsättning i området mål med namn med suffixet ”asr”. Tillgänglighetsuppsättningen redan skapat av Azure Site Recovery finns den av återanvändas.
+6. **Tillgänglighetsuppsättningen:** som standard skapas en ny tillgänglighetsuppsättning i området mål med namn med suffixet ”asr” i Azure Site Recovery. Tillgänglighetsuppsättningen redan skapat av Azure Site Recovery finns återanvänds.
 
-7.  **Replikeringsprincip:** definierar inställningar för återställning punkt kvarhållning historik och app programkonsekvent ögonblicksbild frekvens. Standard skapas Azure Site Recovery en ny replikeringsprincip med standardinställningarna för ”24 timmars för kvarhållningstid för återställningspunkten och” 60 minuters för app programkonsekvent ögonblicksbild frekvens.
+7.  **Replikeringsprincip:** definierar inställningar för återställning punkt kvarhållning historik och app programkonsekvent ögonblicksbild frekvens. Som standard skapar en ny replikeringsprincip med standardinställningarna för ”24 timmars för kvarhållningstid för återställningspunkten och” 60 minuters för app programkonsekvent ögonblicksbild frekvens i Azure Site Recovery.
 
     ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -109,7 +109,7 @@ Om du vill ändra standardinställningarna som används av Azure Site Recovery k
 ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/customize.PNG) klickar du på **skapa målresurs** och aktivera replikering
 
 
-När virtuella datorer är skyddade du kan kontrollera status för virtuella datorer hälsa under **replikerade objekt**
+När virtuella datorer är skyddade, du kan kontrollera status för virtuella datorer hälsa under **replikerade objekt**
 
 >[!NOTE]
 >Under tiden för inledande replikering kan det finnas en möjlighet status tar tid att uppdatera och du kan se inte förloppet under en viss tid. Du kan klicka på uppdateringsknappen överst på bladet för att hämta senaste status.

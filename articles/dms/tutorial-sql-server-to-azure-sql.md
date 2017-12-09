@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 11/17/2017
-ms.openlocfilehash: 3938af29caec99f076452529cbc5d93cf2c8802b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Migrera SQLServer till Azure SQL-databas
 Du kan använda tjänsten Azure Database migrering för att migrera databaser från en lokal SQL Server-instans till Azure SQL Database. I kursen får du migrerar den **Adventureworks2012** databasen återställs till en lokal instans av SQL Server 2016 (eller högre) till en Azure SQL Database med hjälp av tjänsten Azure Database migrering.
@@ -32,7 +32,7 @@ I den här guiden får du lära dig hur man:
 ## <a name="prerequisites"></a>Krav
 Den här kursen behöver du:
 
-- Hämta och instanll [SQL Server 2016 eller senare](https://www.microsoft.com/sql-server/sql-server-downloads) (någon utgåva).
+- Hämta och installera [SQL Server 2016 eller senare](https://www.microsoft.com/sql-server/sql-server-downloads) (någon utgåva).
 - Aktiverar du TCP/IP-protokollet är inaktiverat som standard under installationen av SQL Server Express av följa anvisningarna i artikeln [aktivera eller inaktivera nätverksprotokoll Server](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Konfigurera din [Windows-brandväggen för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Skapa en instans av Azure SQL Database-instans som du kan göra med följande information i artikeln [skapa en Azure SQL database i Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
@@ -108,7 +108,7 @@ Så här migrerar du den **AdventureWorks2012** schemat till Azure SQL Database,
  
    ![Visa portal prenumerationer](media\tutorial-sql-server-to-azure-sql\portal-select-subscription.png)
        
-2. Välj den prenumeration som du vill skapa en instans av tjänsten Azure Database migrering och välj sedan **resursproviders**.
+2. Välj den prenumeration där du vill skapa en instans av Azure Database Migration Service och välj sedan **Resursprovidrar**.
  
     ![Visa resursprovidrar](media\tutorial-sql-server-to-azure-sql\portal-select-resource-provider.png)    
 3.  Sök för migreringen och sedan till höger om **Microsoft.DataMigration**väljer **registrera**.
@@ -207,4 +207,4 @@ När tjänsten har skapats kan hitta den i Azure-portalen och sedan skapa ett mi
 1. Välj aktiviteten migrering för att granska statusen för aktiviteten.
 2. Verifiera Azure SQL måldatabasen när migreringen är klar.
 
-    ![Slutfört](media\tutorial-sql-server-to-azure-sql\dms-completed-activity.png)
+    ![Slutförd](media\tutorial-sql-server-to-azure-sql\dms-completed-activity.png)

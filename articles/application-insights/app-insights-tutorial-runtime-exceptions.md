@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körning undantag med Azure Application Insights
 
@@ -37,12 +37,12 @@ För att slutföra den här självstudien behöver du:
     - ASP.NET och webbutveckling
     - Azure Development
 - Hämta och installera den [Visual Studio ögonblicksbild Debugger](http://aka.ms/snapshotdebugger).
-- Aktivera [Visual Studio ögonblicksbild felsökare](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger)
+- Aktivera [Visual Studio ögonblicksbild felsökare](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](app-insights-asp-net.md). 
 - Kursen spårar identifiering av ett undantag i ditt program, så ändra koden i din miljö för utveckling eller testning att generera ett undantag. 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="analyze-failures"></a>Analysera fel
@@ -51,7 +51,7 @@ Application Insights samlar in eventuella fel i programmet och kan du visa hur o
 1. Välj **Programinsikter** och sedan din prenumeration.  
 1. Öppna den **fel** panelen Välj antingen **fel** under den **Undersök** -menyn eller klicka på den **misslyckade begäranden** diagram.
 
-    ![Misslyckade begäranden](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
+    ![Misslyckade förfrågningar](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
 2. Den **misslyckade begäranden** panelen visas antalet misslyckade begäranden och antalet användare som påverkas för varje åtgärd för programmet.  Du kan identifiera de fel som påverkar de flesta användare genom att sortera informationen av användaren.  I det här exemplet i **hämta anställda/skapa** och **hämta kunder/detaljer** lämpar sig troligt att undersöka på grund av deras stort antal fel och påverkade användare.  Om du väljer en åtgärd visas ytterligare information om den här åtgärden i den högra panelen.
 

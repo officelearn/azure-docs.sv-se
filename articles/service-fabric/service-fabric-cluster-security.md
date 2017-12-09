@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Säkerhetsscenarier för Service Fabric-kluster
-Ett Azure Service Fabric-kluster är en resurs som du äger. Du måste skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. En säker klustret är särskilt viktigt när du kör produktionsarbetsbelastningar på klustret. Även om det är möjligt att skapa ett oskyddat kluster om klustret exponerar hanteringsslutpunkter till internet, kan anonyma användare ansluta till den. 
+Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. En säker klustret är särskilt viktigt när du kör produktionsarbetsbelastningar på klustret. Även om det är möjligt att skapa ett oskyddat kluster om klustret exponerar hanteringsslutpunkter till internet, kan anonyma användare ansluta till den. Oskyddade kluster stöds inte för produktionsarbetsbelastningar. 
 
 Den här artikeln är en översikt över scenarier för Azure-kluster och fristående kluster och de olika tekniker som du kan använda för att implementera dem:
 
@@ -58,7 +58,7 @@ Kluster som körs i Azure och fristående kluster som körs på Windows både ka
 ### <a name="client-to-node-certificate-security"></a>Klient-till-nod Certifikatsäkerhet
 Konfigurera Certifikatsäkerhet för klient-till-nod när du skapar klustret, antingen i Azure-portalen med hjälp av en Resource Manager-mall eller genom att använda en fristående JSON-mall. Ange ett klientcertifikat för admin eller ett klientcertifikat för att skapa certifikatet. Som bästa praxis, admin klient- och klientcertifikat du anger ska skilja sig från de primära och sekundära certifikat som du anger för [nod till nod säkerhet](#node-to-node-security). Som standard läggs klustercertifikat för nod till nod säkerhet till i listan över tillåtna klienter admin certifikat.
 
-Klienter som ansluter till klustret med hjälp av admin-certifikatet har fullständig åtkomst till hanteringsmöjligheter. Klienter som ansluter till klustret med hjälp av klientcertifikatet skrivskyddade användaren har läsbehörighet till hanteringsmöjligheter. Dessa certifikat används för RBAC som vi beskrivs senare i den här artikeln.
+Klienter som ansluter till klustret med hjälp av admin-certifikatet har fullständig åtkomst till hanteringsmöjligheter. Klienter som ansluter till klustret med hjälp av klientcertifikatet skrivskyddade användaren har läsbehörighet till hanteringsmöjligheter. Dessa certifikat används för RBAC som beskrivs senare i den här artikeln.
 
 Information om hur du ställer in Certifikatsäkerhet i ett kluster för Azure finns [ställer in ett kluster med en Azure Resource Manager-mall](service-fabric-cluster-creation-via-arm.md).
 

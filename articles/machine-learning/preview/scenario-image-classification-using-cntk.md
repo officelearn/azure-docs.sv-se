@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 64a035c216e4d7aa4c14baf1812b9a25e27b3e19
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Bild klassificering med Azure Machine Learning arbetsstationen
 
@@ -51,7 +51,7 @@ Förutsättningar för att kunna köra det här exemplet är följande:
 3. En Windows-dator. Windows-Operativsystemet är nödvändigt eftersom arbetsstationen stöder endast Windows och MacOS när Microsofts kognitiva Toolkit (som vi använder som djup learning bibliotek) stöder endast Windows och Linux.
 4. En dedikerad GPU krävs inte att köra SVM utbildning del 1, men det är nödvändigt för att förfina av DNN som beskrivs i del 2. Om du saknar en stark GPU vill träna på flera GPU-kort eller har inte en Windows-dator, bör du använda Azures djup Learning virtuell dator med Windows-operativsystem. Se [här](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) för en 1-Klicka Distributionsguide. Distribution kan ansluta till den virtuella datorn via en anslutning till fjärrskrivbord, installera arbetsstationen det och kör kod lokalt från den virtuella datorn.
 5. Olika Python-bibliotek, till exempel OpenCV behöver installeras. Klicka på *öppnar du kommandotolken* från den *filen* -menyn i arbetsstationen och kör följande kommandon för att installera dessa beroenden:  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`När du har hämtat OpenCV hjul från http://www.lfd.uci.edu/~gohlke/pythonlibs/ (exakt filnamnet och version kan ändra)
     - `conda install pillow`
     - `pip install -U numpy`
@@ -61,10 +61,11 @@ Förutsättningar för att kunna köra det här exemplet är följande:
 ### <a name="troubleshooting--known-bugs"></a>Felsökning / kända fel
 - En GPU krävs för del 2 och annars felet ”Batch normalisering utbildning på CPU inte har implementerats ännu” returneras vid försök att förfina DNN.
 - Minnet är slut fel under DNN utbildning kan undvikas genom att minska storleken minibatch (variabeln `cntk_mb_size` i `PARAMETERS.py`).
-- Koden har testats med CNTK 2.0 och 2.1 och bör köras även på senare versioner utan att någon (eller bara mindre) ändringar.
+- Koden har testats med CNTK 2.2 och bör köras även på äldre (upp till v2.0) och senare versioner utan att någon eller bara mindre ändringar.
 - Vid tidpunkten som skrivs hade i Azure Machine Learning-arbetsstationen problem med visar bärbara datorer som är större än 5 MB. Bärbara datorer i den här stora kan inträffa om den bärbara datorn sparas med alla celler utdata som visas. Om du får felet och sedan öppna Kommandotolken från Arkiv-menyn i arbetsstationen, köra `jupyter notebook`, öppna anteckningsboken, avmarkera alla utdata och spara den bärbara datorn. När du utför dessa steg måste öppnas anteckningsboken korrekt i Azure Machine Learning arbetsstationen igen.
+- Alla skript som angetts i det här exemplet måste köras lokalt, och inte på t.ex. en docker fjärrmiljö. Alla bärbara datorer måste köras med kernel inställd på kernel lokala projektet med namnet ”<projectname> lokala” (t.ex. ”myImgClassUsingCNTK lokal”).
 
-
+    
 ## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
 
 Skapa ett nytt projekt med det här exemplet som mall:
@@ -91,7 +92,7 @@ Utför dessa åtgärder skapar projektstrukturen som visas nedan. Projektkatalog
 
 Den här kursen används som kör exempel en övre brödtext kläder struktur datauppsättning som består av upp till 428 bilder. Varje avbildning kommenteras som en av tre olika strukturer (prickad, stripe, leopard). Vi förvaras antalet avbildningar små så att den här kursen kan utföras snabbt. Koden är väl testade och fungerar med tiotusentals bilder eller mer. Alla bilder har skrapats Bing avbildningen sökning och hand kommenteras som beskrivs i [del 3](#using-a-custom-dataset). Den bild som visas i URL: er med deras respektive attribut i */resources/fashionTextureUrls.tsv* fil.
 
-Skriptet `0_downloadData.py` hämtar alla avbildningar till de *fashionTexture-DATA_DIR/bilder/* directory. Vissa av 428 URL: er är sannolikt brutna. Detta är inte ett problem och betyder bara att vi har något lägre avbildningar för träning och testning.
+Skriptet `0_downloadData.py` hämtar alla avbildningar till de *fashionTexture-DATA_DIR/bilder/* directory. Vissa av 428 URL: er är sannolikt brutna. Detta är inte ett problem och betyder bara att vi har något lägre avbildningar för träning och testning. Alla skript som angetts i det här exemplet måste köras lokalt, och inte på t.ex. en docker fjärrmiljö.
 
 Följande bild visar exempel på de attribut (till vänster), prickad stripe (mellannivå) och leopard (höger). Anteckningar har utfärdat enligt det övre brödtext kläder objektet.
 
@@ -114,7 +115,7 @@ Alla viktiga parametrar har angetts och en kort förklaring finns i en enda plat
 ### <a name="step-1-data-preparation"></a>Steg 1: Förberedelse av Data
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Anteckningsboken `showImages.ipynb` kan användas för att visualisera avbildningar och korrigera sina anteckningen efter behov. Öppna den i Azure Machine Learning-arbetsstationen för att köra den bärbara datorn, klicka på ”börja anteckningsboken Server” om det här alternativet visas och sedan köra alla celler i den bärbara datorn. Om du får ett felmeddelande klagande att anteckningsboken är för stor för att visa finns i felsökningsavsnittet i det här dokumentet.
+Anteckningsboken `showImages.ipynb` kan användas för att visualisera avbildningar och korrigera sina anteckningen efter behov. Om du vill köra den bärbara datorn, öppna den i Azure Machine Learning Workbench, klicka på ”börja anteckningsboken Server” om det här alternativet visas ändras till kernel lokala projektet med namnet ”<projectname> lokala” (t.ex. ”myImgClassUsingCNTK lokal”), och sedan köra alla celler i den bärbar dator. Om du får ett felmeddelande klagande att anteckningsboken är för stor för att visa finns i felsökningsavsnittet i det här dokumentet.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -178,7 +179,7 @@ Förutom Precision ritas ROC-kurvan med respektive område-under-kurvan (vänste
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Slutligen anteckningsboken `showResults.py` tillhandahålls för att rulla igenom testbilder och visualisera sina respektive klassificering poäng:
+Slutligen anteckningsboken `showResults.py` tillhandahålls för att rulla igenom testbilder och visualisera resultat för deras respektive klassificering. Enligt beskrivningen i steg 1, alla bärbara datorer i det här exemplet behöver använda kernel lokala projektet med namnet ”<projectname> lokala”:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -190,7 +191,7 @@ Slutligen anteckningsboken `showResults.py` tillhandahålls för att rulla igeno
 ### <a name="step-6-deployment"></a>Steg 6: distribution
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Utbildade systemet ska publiceras som en REST-API. Distribution förklaras i anteckningsboken `deploy.ipynb`, och baserat på funktionerna i Azure Machine Learning-arbetsstationen. Se även avsnittet utmärkt distributionen i den [IRIS kursen](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3).
+Systemets utbildade kan nu publiceras som en REST-API. Distribution förklaras i anteckningsboken `deploy.ipynb`, och baserat på funktionerna i Azure Machine Learning arbetsstationen (Kom ihåg att ange kernel kernel lokala projektet med namnet ”<projectname> lokala”). Se även avsnittet utmärkt distributionen i den [IRIS kursen](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) för distribution av mer relaterad information.
 
 När har distribuerats, webbtjänsten kan anropas med skriptet `6_callWebservice.py`. Observera att IP-adressen (lokalt eller i molnet) för webbtjänsten måste anges först i skriptet. Anteckningsboken `deploy.ipynb` förklarar hur du hittar den här IP-adress.
 

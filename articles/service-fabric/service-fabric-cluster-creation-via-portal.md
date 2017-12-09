@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 6ddadad6f5697fed006e3f938ef3c3faedb6a354
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med Azure-portalen
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Det här är en stegvis guide som vägleder dig genom stegen för att skapa en s
 
 En säker klustret är ett kluster som förhindrar obehörig åtkomst till hanteringsåtgärder, vilket innefattar distribution, uppgradera och ta bort program, tjänster och de data som de innehåller. Ett oskyddat klustret är ett kluster alla kan ansluta till när som helst och utföra hanteringsåtgärder. Även om det är möjligt att skapa ett oskyddade kluster, är det **rekommenderar vi att skapa en säker kluster**. Ett oskyddade kluster **går inte att senare säkra** -måste du skapa ett nytt kluster.
 
-Begreppen är samma för att skapa skyddade kluster om klustren är Linux-kluster eller Windows-kluster. Mer information och hjälp skript för att skapa säkra Linux-kluster, se [att skapa skyddade kluster på Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). De parametrar som erhålls genom helper skriptet som kan mata direkt i portalen enligt beskrivningen i avsnittet [skapa ett kluster i Azure portal](#create-cluster-portal).
+Begreppen är samma för att skapa skyddade kluster om klustren är Linux-kluster eller Windows-kluster. Mer information och hjälp skript för att skapa säkra Linux-kluster, se [att skapa skyddade kluster](service-fabric-cluster-creation-via-arm.md). De parametrar som erhålls genom helper skriptet som kan mata direkt i portalen enligt beskrivningen i avsnittet [skapa ett kluster i Azure portal](#create-cluster-portal).
 
 ## <a name="configure-key-vault"></a>Konfigurera Key Vault 
 ### <a name="log-in-to-azure"></a>Logga in på Azure
@@ -84,7 +84,7 @@ Det första steget är att skapa en ny resursgrupp specifikt för Nyckelvalvet. 
 
 ```
 
-#### <a name="create-key-vault"></a>Skapa Nyckelvalvet
+#### <a name="create-key-vault"></a>Skapa Key Vault
 Skapa ett Nyckelvalv i den nya resursgruppen. Nyckelvalvet **måste vara aktiverat för distribution** att Service Fabric-resursprovidern så att få certifikat från den och installera på klusternoder:
 
 ```powershell

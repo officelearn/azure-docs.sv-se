@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4bca5e2522c091b5d8045fd9738b438156ff07f9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: c9c8ad6dfd6df0e99f9e41eaf1da12ebeb2a2da6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container registret
 
@@ -54,7 +54,7 @@ I resten av den här kursen använder vi `<acrname>` som platshållare för regi
 
 ## <a name="container-registry-login"></a>Behållaren registret inloggning
 
-Använd den [az acr inloggning](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) kommando för att logga in till ACR-instans. Du måste ange unika namnet på behållaren registret när den skapades.
+Använd den [az acr inloggning](https://docs.microsoft.com/cli/azure/acr#az_acr_login) kommando för att logga in till ACR-instans. Du måste ange unika namnet på behållaren registret när den skapades.
 
 ```azurecli
 az acr login --name <acrName>

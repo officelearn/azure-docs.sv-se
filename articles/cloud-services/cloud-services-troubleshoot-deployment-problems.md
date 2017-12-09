@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Felsökning av problem med cloud service-distribution
 När du distribuerar ett cloud service-programpaket till Azure kan du få information om hur du distribuerar från den **egenskaper** rutan i Azure-portalen. Du kan använda informationen i det här fönstret för att felsöka problem med Molntjänsten och du kan ange den här informationen för stöd för Azure när du öppnar en ny supportförfrågan.
@@ -82,6 +82,6 @@ Mer information om hur du felsöker problemet finns i blogginlägget [Compute di
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Visa mer [felsökning artiklar](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) för molntjänster.
+Visa mer [felsökning artiklar](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) för molntjänster.
 
 Information om hur du felsöker cloud service rollen problem med hjälp av Azure PaaS datorn diagnostikdata finns [Kevin Williamson bloggserie](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

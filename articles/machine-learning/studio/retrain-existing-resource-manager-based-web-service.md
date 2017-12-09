@@ -3,7 +3,7 @@ title: "Träna om en befintlig förutsägande webbtjänst | Microsoft Docs"
 description: "Lär dig mer om att träna om en modell och uppdatera webbtjänsten för att använda den nya tränade modellen i Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 6d96d173928fa18a3ab4f3086e5971ad1927df89
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Träna om en befintlig förutsägande webbtjänst
 Det här dokumentet beskriver omtränings för följande scenario:

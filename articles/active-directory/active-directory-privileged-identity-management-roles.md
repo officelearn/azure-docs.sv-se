@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: ebc6b758221d61793dbbd21ca02050d8402dbe71
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Olika administrativa roll i Azure Active Directory-PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -27,9 +27,9 @@ ms.lasthandoff: 11/14/2017
 Du kan tilldela användare i din organisation för olika administrativa roller i Azure AD. Dessa rolltilldelningar bestämma vilka uppgifter som att lägga till eller ta bort användare eller ändra inställningar för tjänsten, användarna ska kunna utföra på Azure AD och Office 365 och andra Microsoft Online Services och kopplade program.  
 
 > [!IMPORTANT]
-> Microsoft rekommenderar att du hanterar Azure AD via [Azure AD administratörscenter](https://aad.portal.azure.com) på Azure Portal istället för via den klassiska Azure-portalen som nämns i den här artikeln.
+> Microsoft rekommenderar att du hanterar Azure AD med hjälp av den [administrationscentret för Azure AD](https://aad.portal.azure.com) i Azure-portalen.
 
-En global administratör kan uppdatera som användare kan **permanent** tilldelade roller i Azure AD, med hjälp av PowerShell-cmdlets som `Add-MsolRoleMember` och `Remove-MsolRoleMember`, eller via den klassiska portalen som beskrivs i [ Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+En global administratör kan uppdatera som användare kan **permanent** tilldelade roller i Azure AD, med hjälp av PowerShell-cmdlets som `Add-MsolRoleMember` och `Remove-MsolRoleMember`, eller via portalen enligt beskrivningen i [tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) hanterar principer för privilegierad åtkomst för användare i Azure AD. PIM tilldelar användare till en eller flera roller i Azure AD och du kan tilldela någon till permanent i rollen, eller är tillämpliga för rollen. När en användare är permanent tilldelade till en roll eller aktiverar berättigade rolltilldelning och de kan hantera Azure Active Directory Office 365 och andra program med behörigheter som tilldelats deras roller.
 
@@ -75,15 +75,14 @@ Azure-prenumerationer och resursgrupper också visas inte i Azure AD. Om du vill
 ## <a name="user-roles-and-signing-in"></a>Användarroller och logga in
 För vissa Microsoft-tjänster och program kanske tilldela en användare till en roll inte tillräckliga för att användaren är administratör.
 
-Åtkomst till den klassiska Azure-portalen måste användaren vara en tjänstadministratör eller en medadministratör på en Azure-prenumeration, även om användaren inte behöver hantera Azure-prenumerationer.  Till exempel för att hantera konfigurationsinställningar för Azure AD i den klassiska portalen, måste en användare vara både en global administratör i Azure AD och en medadministratör för prenumerationen på en Azure-prenumeration.  Information om hur du lägger till användare till Azure-prenumerationer finns [lägga till eller ändra Azure-administratörsroller](../billing/billing-add-change-azure-subscription-administrator.md).
+Åtkomst till Azure-portalen måste användaren vara en tjänstadministratör eller en medadministratör på en Azure-prenumeration, även om användaren inte behöver hantera Azure-prenumerationer.  Till exempel för att hantera konfigurationsinställningar för Azure AD, måste en användare vara både en global administratör i Azure AD och en medadministratör för prenumerationen på en Azure-prenumeration.  Information om hur du lägger till användare till Azure-prenumerationer finns [lägga till eller ändra Azure-administratörsroller](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Åtkomst till Microsoft Online Services kan kräva att användaren också tilldelas en licens innan de kan öppna tjänstens portalen eller utföra administrativa uppgifter.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Tilldela en licens till en användare i Azure AD
-1. Logga in på den [klassiska Azure-portalen](http://manage.windowsazure.com) med ett konto med global administratör eller en medadministratör.
-2. Välj **alla objekt** på huvudmenyn.
-3. Välj den katalog som du vill arbeta med och som har licenser som är associerade med den.
-4. Välj **licenser**. Listan över tillgängliga licenser visas.
+1. Logga in på den [Azure-portalen](http://portal.azure.com) med ett konto med global administratör eller en medadministratör.
+3. Välj Azure AD och katalogen som du vill arbeta med och som har licenser som är associerade med den.
+4. Välj **licenser** till vänster. Listan över tillgängliga licenser visas.
 5. Välj licensplan som innehåller de licenser som du vill distribuera.
 6. Välj **tilldela användare**.
 7. Välj den användare som du vill tilldela en licens till.

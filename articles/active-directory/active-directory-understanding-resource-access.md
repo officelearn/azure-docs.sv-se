@@ -4,21 +4,21 @@ description: "Det här avsnittet beskriver begrepp om att använda prenumeration
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/06/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.custom: it-pro;
+ms.openlocfilehash: e0f167ed4859573b8a225312ed54ce80c8fb7269
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Förstå resursåtkomst i Azure
 
@@ -26,27 +26,22 @@ ms.lasthandoff: 11/14/2017
 
 <br><br>![Azure-konton][1]
 
-Prenumerationer har också en association med en katalog. Katalogen definierar en uppsättning användare. Det kan vara användare från arbetet eller skolan som skapade katalogen eller de kan vara externa användare (det vill säga Microsoft Accounts). Prenumerationer är tillgängliga för en delmängd av de directory-användare som har tilldelats som tjänsten systemadministratörskontot (SA) eller Medadministratör (CA); Det enda undantaget är att äldre skäl Microsoft Accounts (tidigare Windows Live ID) kan tilldelas som SA eller Certifikatutfärdare utan att vara närvarande i katalogen.
+Prenumerationer har också en association med en katalog. Katalogen definierar en uppsättning användare. Det kan vara användare från arbetet eller skolan som skapade katalogen eller de kan vara externa gästanvändare. Prenumerationer är tillgängliga för en delmängd av de directory-användare som har tilldelats som tjänsten systemadministratörskontot (SA) eller Medadministratör (CA); Det enda undantaget är att äldre skäl Microsoft-konton (tidigare Windows Live ID) kan tilldelas som SA eller Certifikatutfärdare utan att vara närvarande i katalogen.
 
 <br><br>![Åtkomstkontroll i Azure][2]
 
-Funktioner i den klassiska Azure-portalen kan SA som är inloggad med ett Account för att ändra den katalogen som en prenumeration är kopplad till med hjälp av den **redigera katalog** på den **prenumerationer** sidan i **inställningar**. Observera att den här åtgärden har effekter på åtkomstkontroll i den aktuella prenumerationen.
+Funktioner i Azure-portalen kan SA som är inloggad med ett Account för att ändra den katalog som är kopplad till en prenumeration. Den här åtgärden har effekter på åtkomstkontroll i den aktuella prenumerationen.
 
-> [!NOTE]
-> Den **redigera katalog** kommandot i den klassiska Azure-portalen är inte tillgänglig för användare som är inloggad med ett arbets- eller Skol-kontot eftersom dessa konton kan logga in endast till den katalog som de tillhör.
-> 
-> 
+<br><br>![Enkel inloggning flöde][3]
 
-<br><br>![Flöde för enkel inloggning][3]
-
-Vid en enkel, en organisation (till exempel Contoso) genomdriva fakturering och åtkomstkontroll på samma uppsättning prenumerationer. Katalogen är kopplad till prenumerationer som ägs av en enda Azure-konto. Användarna ser två uppsättningar resurser (visas med orange färg i den föregående bilden) efter genomförd inloggning till den klassiska Azure-portalen:
+Vid en enkel, en organisation (till exempel Contoso) genomdriva fakturering och åtkomstkontroll på samma uppsättning prenumerationer. Katalogen är kopplad till prenumerationer som ägs av en enda Azure-konto. Användarna ser två uppsättningar resurser (visas med orange färg i den föregående bilden) efter genomförd inloggning till Azure portal:
 
 * Kataloger där användarkontot finns (källkod eller läggas till som ett huvudnamn för sekundärnyckel). Observera att katalogen som används för inloggning inte är relevanta för den här beräkningen så att dina kataloger visas alltid oavsett om du har loggat in.
 * Resurser som är en del av prenumerationer som är kopplade till den katalog som används för inloggning och användaren kan komma åt (där de är en SA eller CA).
 
 <br><br>![Användare med flera prenumerationer och kataloger][4]
 
-Användare med prenumerationer i flera kataloger har möjlighet att växla aktuell kontext för den klassiska Azure-portalen genom att använda prenumerationsfiltret. Detta resulterar i en separat inloggning till en annan katalog under försättsbladen, men detta kan åstadkommas sömlöst med enkel inloggning (SSO).
+Användare med prenumerationer i flera kataloger har möjlighet att växla aktuell kontext för Azure-portalen genom att använda prenumerationsfiltret. Detta resulterar i en separat inloggning till en annan katalog under försättsbladen, men detta kan åstadkommas sömlöst med enkel inloggning (SSO).
 
 Åtgärder som till exempel flytta resurser mellan prenumerationer kan vara svårare på grund av den här vyn för en katalog över prenumerationer. För att genomföra överföringen resurs, kan det vara nödvändigt att första gången den **redigera katalog** på sidan prenumerationer i **inställningar** associera prenumerationer i samma katalog.
 

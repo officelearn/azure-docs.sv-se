@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b276911ecbbf161cb6068c1af7a035850035b98d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Använd tillägget för virtuella datorer med Docker genom kommandoradsgränssnittet för Azure (Azure CLI)
 > [!IMPORTANT] 
@@ -45,7 +45,7 @@ För att installera och konfigurera Azure CLI, se [så här installerar du Azure
 > 
 
 ### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Azure CLI för att ansluta till ditt Azure-konto
-Innan du kan använda Azure CLI måste du koppla dina Azure-autentiseringsuppgifter med Azure CLI på din plattform. Avsnittet [hur du ansluter till din Azure-prenumeration](../../../xplat-cli-connect.md) förklarar hur du antingen hämta och importera din **.publishsettings** filen eller associera Azure CLI med ett organisations-id.
+Innan du kan använda Azure CLI måste du koppla dina Azure-autentiseringsuppgifter med Azure CLI på din plattform. Avsnittet [hur du ansluter till din Azure-prenumeration](/cli/azure/authenticate-azure-cli) förklarar hur du antingen hämta och importera din **.publishsettings** filen eller associera Azure CLI med ett organisations-id.
 
 > [!NOTE]
 > Det finns vissa skillnader i beteende när du använder en eller andra metoder för autentisering, så behöver vara noga med att läsa dokumentet ovan för att förstå de olika funktionerna.

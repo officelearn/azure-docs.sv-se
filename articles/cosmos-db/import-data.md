@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: e0d69d2b744fd08269b1ef87cb60efd3f205a92e
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
@@ -29,7 +29,7 @@ Den här kursen innehåller instruktioner om hur du använder verktyget Azure Co
 Vilka API ska du använda med Azure Cosmos DB? 
 * **[DocumentDB API](documentdb-introduction.md)**  -du kan använda något av alternativen för datakällan i verktyget datamigrering för att importera data.
 * **[Tabell API](table-introduction.md)**  -du kan använda datamigreringsverktyget eller AzCopy för att importera data. Se [importerar data för användning med Azure Cosmos DB tabell API](table-import.md) för mer information.
-* **[MongoDB API](mongodb-introduction.md)**  -Migreringsverktyget för det Data exportera data MongoDB-databaser till Azure Cosmos DB för användning med DocumentDB-API. Men om du vill fortsätta att använda MongoDB APIs du vill använda Azure Cosmos DB MongoDB-API och ska använda mongoimport.exe eller mongorestore.exe för att importera data. Se [Azure Cosmos DB: hur du migrerar data MongoDB-API: t?](mongodb-migrate.md), mer information.
+* **[MongoDB API](mongodb-introduction.md)**  -av datamigrering verktyget stöder för närvarande inte Azure Cosmos DB MongoDB API som en källa eller som ett mål. Om du vill migrera data i eller utanför MongoDB API-samlingar i Azure Cosmos DB finns [Azure Cosmos DB: hur du migrerar data MongoDB-API: t](mongodb-migrate.md) anvisningar. Du kan fortfarande använda Migreringsverktyget för Data för att exportera data från MongoDB till Azure SQL DB-API Cosmos samlingar för användning med SQL-API. 
 * **[Diagram över API](graph-introduction.md)**  -verktyget för migrering av Data är inte ett stöds Importverktyg för Graph API konton just nu. 
 
 Den här kursen ingår följande uppgifter:

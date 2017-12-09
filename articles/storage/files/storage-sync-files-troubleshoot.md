@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 1b8010876a46999d9cfcefc8c3bf537c7a1deb4e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -102,10 +102,8 @@ Att avgöra om din användarroll konto har behörigheterna som krävs:
     * **Rolltilldelningen** ska ha **Läs** och **skriva** behörigheter.
     * **Rolldefinitionen** ska ha **Läs** och **skriva** behörigheter.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Molnet endpoint borttagningen misslyckas med felet: ”MgmtInternalError”**  
-Det här problemet kan inträffa om Azure file filresurs- eller kontot har tagits bort innan du tar bort slutpunkten molnet. Det här problemet korrigeras i en kommande uppdatering. Du kommer att kunna ta bort en molnslutpunkt när du tar bort det Azure file share eller lagring som helst.
-
-Under tiden för att förhindra det här problemet kan ta bort molnet slutpunkten innan du tar bort kontot Azure file share eller lagring.
+<a id="server-endpoint-deletejobexpired"></a>**Borttagning av slutpunkten misslyckas med felet: ”MgmtServerJobExpired”**                
+Det här problemet uppstår om servern är offline eller inte har någon nätverksanslutning. Om servern är inte längre tillgänglig, avregistrera servern på portalen som tar bort server-slutpunkter. Om du vill ta bort server-slutpunkter, följer du stegen som beskrivs i [Avregistrerar en server med Azure filsynkronisering](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresursen via SMB eller via portalen hur lång tid det tar för filen som synkroniseras till servrar i gruppen synkronisering?**  

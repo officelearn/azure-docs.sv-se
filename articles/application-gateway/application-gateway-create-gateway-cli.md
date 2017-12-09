@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 9d3732d538f3ed9ecb87247f378a3736692025ca
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Skapa en Programgateway med hjälp av Azure CLI 2.0
 
@@ -42,7 +42,7 @@ Du kan skapa en Programgateway med någon av följande versioner kommandoradsgr�
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Förutsättning: Installera Azure CLI 2.0
 
-Om du vill utföra stegen i den här artikeln, måste du [installerar Azure CLI för macOS, Linux och Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Om du vill utföra stegen i den här artikeln, måste du [installerar Azure CLI för macOS, Linux och Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > Du behöver ett Azure-konto att skapa en Programgateway. Om du inte har någon registrera dig för en [kostnadsfri utvärderingsversion](../active-directory/sign-up-organization.md).

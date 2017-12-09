@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 00fd153384616c08b63689e15e96be91c73893a5
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Självstudier: Azure Active Directory-integrering med Cezanne HR programvara
 
@@ -125,25 +125,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. På den **Cezanne HR programvarukonfiguration** klickar du på **konfigurera Cezanne HR programvara** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. På den **Cezanne HR programvarukonfiguration** klickar du på **konfigurera Cezanne HR programvara** att öppna **konfigurera inloggning** fönster.
 
-    ![Cezanne HR konfiguration av programvara](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Cezanne HR konfiguration av programvara](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. I en annan webbläsarfönster inloggning till klienten Cezanne HR programvara som en administratör.
+7. Rulla ned till den **Snabbreferens** avsnitt. Kopiera den **SAML enkel inloggning URL: en och SAML enhets-ID** från den **Snabbreferens avsnitt.**
 
-8. I det vänstra navigeringsfönstret klickar du på **systeminställningarna**. Gå till **säkerhetsinställningar**. Gå till **konfiguration för enkel inloggning**.
+    ![Cezanne HR konfiguration av programvara](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. I en annan webbläsarfönster inloggning till klienten Cezanne HR programvara som en administratör.
+
+9. I det vänstra navigeringsfönstret klickar du på **systeminställningarna**. Gå till **säkerhetsinställningar**. Gå till **konfiguration för enkel inloggning**.
 
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. I den **Tillåt användare att logga in med följande tjänst för enkel inloggning (SSO)** panelen, kontrollera den **SAML 2.0** och välj den **Advanced Configuration** alternativet.
+10. I den **Tillåt användare att logga in med följande tjänst för enkel inloggning (SSO)** panelen, kontrollera den **SAML 2.0** och välj den **Advanced Configuration** alternativet.
 
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Klicka på **Lägg till ny** knappen.
+11. Klicka på **Lägg till ny** knappen.
 
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. Utför följande steg på **SAML 2.0 IDENTITETSLEVERANTÖRER** avsnitt.
+12. Utför följande steg på **SAML 2.0 IDENTITETSLEVERANTÖRER** avsnitt.
 
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     g. Klicka på knappen **OK**. 
 
-12. Klicka på **spara** knappen.
+13. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 

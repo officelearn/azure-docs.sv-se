@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introduktion till Azure-stacken virtuella datorer
 
@@ -121,8 +121,8 @@ Följande tabell visar några exempel på hur du kan få information om en virtu
 |Metod|Beskrivning|
 |---------|---------|
 |Azure Stack-portalen|Gå till hubbmenyn, klicka på virtuella datorer och välj sedan den virtuella datorn från listan. På sidan för den virtuella datorn har åtkomst till översiktlig information inställningsvärden och övervakning mått.|
-|Azure PowerShell|Hantera virtuella datorer är liknande i Azure och Azure-stacken. Mer information om hur du använder PowerShell finns i avsnittet för följande Azure:<br>[Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Klient-SDK: er|Använda C# för att hantera virtuella datorer liknar i Azure och Azure-stacken. Mer information finns i följande avsnitt i Azure:<br>[Skapa och hantera virtuella Windows-datorer i Azure med C#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Hantera virtuella datorer är liknande i Azure och Azure-stacken. Mer information om hur du använder PowerShell finns i avsnittet för följande Azure:<br>[Skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Klient-SDK: er|Använda C# för att hantera virtuella datorer liknar i Azure och Azure-stacken. Mer information finns i följande avsnitt i Azure:<br>[Skapa och hantera virtuella Windows-datorer i Azure med C#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>Anslut till VM:en
 

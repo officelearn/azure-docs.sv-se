@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilera konfigurationer i Azure Automation DSC
 
@@ -131,7 +131,7 @@ Information om skicka PSCredentials som parametrar finns <a href="#credential-as
 
 ## <a name="composite-resources"></a>Sammansatta resurser
 
-**Sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration.  Detta gör att du kan använda flera konfigurationer för en enskild resurs.  Se [sammansatta resurser: med hjälp av DSC-konfigurationen som en resurs](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) att lära dig mer om **sammansatta resurser**
+**Sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration.  Detta gör att du kan använda flera konfigurationer för en enskild resurs.  Se [sammansatta resurser: med hjälp av DSC-konfigurationen som en resurs](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) att lära dig mer om **sammansatta resurser**
 
 > [!NOTE]
 > För att **sammansatta resurser** kompilera korrekt måste du först kontrollera att DSC resurser som är beroende av sammansatt installeras först i Azure Automation-konto moduler databasen eller den importeras inte korrekt.

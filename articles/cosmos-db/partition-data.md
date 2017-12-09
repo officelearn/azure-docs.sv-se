@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Hur fungerar partitionering? Varje objekt måste ha en partitionsnyckel och en r
 
 * Du etablerar en Azure DB som Cosmos-behållare med `T` begäranden/s genomströmning.
 * I bakgrunden, etablerar Azure Cosmos DB partitioner som behövs för att hantera `T` begäranden/s. Om `T` är högre än det största genomflödet per partition `t`, sedan Azure Cosmos DB tillhandahåller `N`  =  `T/t` partitioner.
-* Azure Cosmos-DB allokerar viktiga utrymme på partitionen viktiga hashvärden jämnt i bredd i `N` partitioner. Varje partition (fysiska partition) värd så 1 N partition nyckelvärdena (logiska partitioner).
+* Azure Cosmos-DB allokerar viktiga utrymme på partitionen viktiga hashvärden jämnt i bredd i `N` partitioner. Varje partition (fysiska partition) värdar så `1/N` partitions nyckelvärdena (logiska partitioner).
 * När en fysisk partition `p` når sin lagringsgräns, Azure Cosmos DB sömlöst delar `p` till två nya partitioner `p1` och `p2`. Den distribuerar värden som motsvarar ungefär hälften nycklar till var och en av partitionerna. Den här delade åtgärden är osynliga för ditt program.
 * På liknande sätt, när du etablerar genomströmning som är högre än `t*N`, Azure Cosmos DB delar upp en eller flera partitioner att stödja högre genomströmning.
 
@@ -49,10 +49,10 @@ Semantik för partitionsnycklar är något annorlunda att matcha semantiken för
 
 | API | Partitionsnyckeln | Radnyckel |
 | --- | --- | --- |
-| Azure Cosmos DB | Anpassad partitionering nyckelsökvägen | fast`id` | 
-| MongoDB | Anpassade delad nyckel  | fast`_id` | 
-| Graph | Anpassad partitionering nyckelegenskapen | fast`id` | 
-| Tabell | fast`PartitionKey` | fast`RowKey` | 
+| Azure Cosmos DB | Anpassad partitionering nyckelsökvägen | Åtgärdade `id` | 
+| MongoDB | Anpassade delad nyckel  | Åtgärdade `_id` | 
+| Graph | Anpassad partitionering nyckelegenskapen | Åtgärdade `id` | 
+| Tabell | Åtgärdade `PartitionKey` | Åtgärdade `RowKey` | 
 
 Azure Cosmos-DB använder hash-baserad partitionering. När du skriver ett objekt Azure Cosmos DB hashar nyckelvärdet partition och använder hashformaterats resultatet för att avgöra vilken partition för att lagra objekt i. Azure Cosmos-DB lagrar alla objekt med samma partitionsnyckel i samma fysiska partition. Valet av Partitionsnyckeln är ett viktigt beslut som du behöver göra i designläge. Du måste välja ett egenskapsnamn som har ett stort antal värden och har även åtkomstmönster.
 

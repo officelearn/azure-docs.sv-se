@@ -24,7 +24,7 @@
 
 # Referens
 ## API:er
-### [Azure Resource Manager REST API:er](/rest/api/powerbiembedded/)
+### [Azure Resource Manager REST API:er](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [REST API:er](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## SDK:er
 ### [Hämta .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)

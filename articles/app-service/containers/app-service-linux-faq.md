@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure Apptjänst i Linux vanliga frågor och svar
 
@@ -71,7 +71,7 @@ Om det inte går att ditt webbprogram för Linux Git-distribution, kan du välja
 
 - Använd funktionen kontinuerlig leverans (förhandsversion): du kan lagra appens källkod i ett Team Services Git repo eller GitHub-repo-att använda Azure kontinuerlig leverans. Mer information finns i [hur du konfigurerar kontinuerlig leverans för Linux-webbprogrammet](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Använd den [ZIP distribuera API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): du använder detta API [SSH till ditt webbprogram](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) och gå till mappen där du vill distribuera din kod. Kör följande:
+- Använd den [ZIP distribuera API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): du använder detta API [SSH till ditt webbprogram](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) och gå till mappen där du vill distribuera din kod. Kör följande:
 
    ```
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy

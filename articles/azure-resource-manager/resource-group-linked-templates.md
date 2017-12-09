@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: a86d4d8705c7093e3900a9738ddbd364db8bd3b8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7d6e8f123dd04b98df10b5a941396d7140bcc023
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>Använda länkade mallar när du distribuerar Azure-resurser
 
@@ -485,7 +485,7 @@ Att distribuera den [överordnade mallen](https://github.com/Azure/azure-docs-js
 ```powershell
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
 ```
 
 Eller Azure CLI:
@@ -493,7 +493,7 @@ Eller Azure CLI:
 ```azurecli-interactive
 az group deployment create \
   -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
 ```
 
 ### <a name="load-balancer-with-public-ip-address-in-linked-template"></a>Belastningsutjämnare med den offentliga IP-adressen i länkade mall

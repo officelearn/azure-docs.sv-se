@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: bdcf2f8a06c782270683e34e9a4cbc2ab2c7f443
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6c7cdb2dd7d5760126053bf29a571d1b871a3eca
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Självstudier: Azure Active Directory-integrering med Google Apps
 
@@ -46,11 +46,6 @@ Om du vill testa stegen i den här självstudiekursen, bör du följa dessa reko
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
 - Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a name="video-tutorial"></a>Videosjälvstudie
-Så här aktiverar enkel inloggning till Google Apps i två minuter:
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enable-single-sign-on-to-Google-Apps-in-2-minutes-with-Azure-AD/player]
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 1. **F: är Chromebooks och andra enheter som Chrome kompatibla med Azure AD enkel inloggning?**

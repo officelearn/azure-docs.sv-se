@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server datavetenskap genomgång med R, Python och T-SQL
 
@@ -39,12 +39,12 @@ Den [används SQL Server R Services](https://msdn.microsoft.com/library/mt612857
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Förutsäga taxi tips R från T-SQL eller lagrade procedurer med SQL Server
 
-Den [datavetenskap genomgång för R och SQL Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) ger SQL-programmerare upplevelse som skapar en lösning för avancerade analyser med Transact-SQL med SQL Server R Services för att operationalisera en R-lösning. 
+Den [datavetenskap genomgång för R och SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) ger SQL-programmerare upplevelse som skapar en lösning för avancerade analyser med Transact-SQL med SQL Server R Services för att operationalisera en R-lösning. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Förutsäga taxi tips med Python i SQL-lagrade procedurer
 
-Den [Använd T-SQL med SQL Server Python Services](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) genomgången innehåller SQL-programmerare skapa machine learning-lösning i SQL Server-upplevelse. Den visar hur du införliva Python i ett program genom att lägga till Python-kod till lagrade procedurer.
+Den [Använd T-SQL med SQL Server Python Services](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) genomgången innehåller SQL-programmerare skapa machine learning-lösning i SQL Server-upplevelse. Den visar hur du införliva Python i ett program genom att lägga till Python-kod till lagrade procedurer.
 
 
 ## <a name="next-steps"></a>Nästa steg

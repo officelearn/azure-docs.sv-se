@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka Azure-tjänster i Grafana
 Du kan nu också övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [plugin-program för Azure-Monitor datakälla](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in prestandadata för program som samlas in av Application Insights SDK samt infrastrukturdata som tillhandahålls av Azure-Monitor. Du kan sedan visa dessa data på instrumentpanelen Grafana.
@@ -62,7 +62,7 @@ Grafana använder ett Azure Active Directory-tjänstens huvudnamn för att anslu
 
 1. Se [instruktionerna](../azure-resource-manager/resource-group-create-service-principal-portal.md) att skapa ett huvudnamn för tjänsten. Kopiera och spara din klient-ID, klient-ID och en klienthemlighet.
 
-2. Se [tilldela program till rollen](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) tilldela läsarrollen till Azure Active Directory-programmet.   
+2. Se [tilldela program till rollen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) tilldela läsarrollen till Azure Active Directory-programmet.     
 
 3. Du kan även inkludera dina Application Insights API och program-ID för att samla in Application Insights baserat mått om du använder Application Insights. Mer information finns i [komma din API-nyckel och en program-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 

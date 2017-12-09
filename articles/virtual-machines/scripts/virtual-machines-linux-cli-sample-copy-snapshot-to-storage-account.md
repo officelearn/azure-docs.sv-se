@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: dfb78106bc72aacee85f8412032165fdfcfc1ab3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd0128256e016a329b0940eec4be41426cdaf51a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>Exportera eller kopieras hanterad ögonblicksbilder som VHD ett lagringskonto i en annan region med CLI
 
@@ -43,7 +43,7 @@ Det här skriptet använder följande kommandon för att generera SAS URI för e
 | Kommando | Anteckningar |
 |---|---|
 | [AZ ögonblicksbild bevilja åtkomst](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_grant_access) | Genererar skrivskyddad SA som används för att kopiera underliggande VHD-filen till ett lagringskonto eller ladda ned den lokalt  |
-| [Starta AZ storage blob-kopia](https://docs.microsoft.com/en-us/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | Kopierar en blobb asynkront från ett lagringskonto till en annan |
+| [Starta AZ storage blob-kopia](https://docs.microsoft.com/cli/azure/storage/blob/copy#az_storage_blob_copy_start) | Kopierar en blobb asynkront från ett lagringskonto till en annan |
 
 ## <a name="next-steps"></a>Nästa steg
 

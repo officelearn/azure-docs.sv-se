@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Hantera Azure Cosmos DB i Azure Lagringsutforskaren (förhandsversion)
 
@@ -70,7 +70,7 @@ Ett alternativt sätt att ansluta till en Azure-Cosmos-databas är att använda 
 
     ![ansluta till Azure Cosmos-databas med anslutningssträngen](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Välj lämplig **standard upplevelse** för vilken typ av konto antingen **DocumentDB** eller **MongoDB**, klistra in i din **anslutningssträngen**, och klicka sedan på **OK** att ansluta till Azure DB som Cosmos-konto. Information om hur du hämtar anslutningssträngen finns [hämta anslutningssträngen](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Välj lämplig **standard upplevelse** för vilken typ av konto antingen **DocumentDB** eller **MongoDB**, klistra in i din **anslutningssträngen**, och klicka sedan på **OK** att ansluta till Azure DB som Cosmos-konto. Information om hur du hämtar anslutningssträngen finns [hämta anslutningssträngen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![anslutningssträng](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -152,5 +152,5 @@ Redigera dokumentfilter genom att ange en [SQL-frågan](documentdb-sql-query.md)
 ## <a name="next-steps"></a>Nästa steg
 
 * Titta på följande videoklipp om du vill se hur du använder Azure Cosmos DB i Azure Lagringsutforskaren: [använder Azure Cosmos-DB i Azure Lagringsutforskaren](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Mer information om Lagringsutforskaren och ansluta flera tjänster i [Kom igång med Lagringsutforskaren (förhandsversion)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Mer information om Lagringsutforskaren och ansluta flera tjänster i [Kom igång med Lagringsutforskaren (förhandsversion)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

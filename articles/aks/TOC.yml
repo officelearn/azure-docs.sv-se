@@ -31,6 +31,8 @@
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Instruktionsguider
   items:
+    - name: Integrera med Azure med OSBA
+      href: integrate-azure.md
     - name: Skala ett AKS-kluster
       href: scale-cluster.md
     - name: Uppgradera ett AKS-kluster

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: e779aab97a1b96d4a0e327865e957ecd0d97a278
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 25fa8d03a206452c17e5d4ad38211203aeb5dd65
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Lär dig mer om automatisk säkerhetskopiering i SQL-databas
 
@@ -43,7 +43,7 @@ Du kan använda dessa säkerhetskopieringar till:
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Hur mycket lagring för säkerhetskopiering ingår kostnadsfritt?
-SQL-databasen innehåller upp till 200% av dina högsta etablerade databaslagring säkerhetskopieringslagring utan extra kostnad. Om du har en Standard DB-instans med en etablerade DB storlek på 250 GB, har du till exempel 500 GB lagring för säkerhetskopiering utan extra kostnad. Om databasen överskrider den angivna lagringen för säkerhetskopiering, kan du minska kvarhållningsperioden genom att kontakta Azure-supporten. Ett annat alternativ är att betala för extra säkerhetskopieringslagring som faktureras enligt standardkostnaden geografiskt Redundant lagring med läsbehörighet (RA-GRS). 
+SQL-databasen innehåller upp till 200% av dina högsta etablerade databaslagring säkerhetskopieringslagring utan extra kostnad. Om du har en Standard DB-instans med en etablerade DB storlek på 250 GB, har du till exempel 500 GB lagring för säkerhetskopiering utan extra kostnad. 
 
 ## <a name="how-often-do-backups-happen"></a>Hur ofta hända säkerhetskopieringar?
 Fullständiga databassäkerhetskopieringar inträffa varje vecka, differentiella säkerhetskopieringar sker vanligtvis var några timmar och transaktionsloggen säkerhetskopieringar göras normalt var 5-10: e minut. Den första kompletta säkerhetskopian kommer omedelbart när en databas har skapats. Det slutförs vanligtvis inom 30 minuter, men det kan ta längre tid när databasen är av betydande storlek. Den första säkerhetskopian kan till exempel ta längre tid på en återställd databas eller en databaskopia. Efter den första kompletta säkerhetskopian alla ytterligare säkerhetskopior schemaläggs automatiskt och hanteras tyst i bakgrunden. Exakt tidtagningen av alla databassäkerhetskopieringar bestäms av SQL Database-tjänsten som det. balanserar den allmänna belastningen på systemet. 

@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Dokumentation om Azure Container Instances
 metadata:
-  title: Dokumentation om Azure Container Instances – självstudier | Microsoft Docs
-  description: 'Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå.'
+  title: "Dokumentation om Azure Container Instances – självstudier | Microsoft Docs"
+  description: "Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå."
   services: container-instances
   author: czeumault
   manager: carolz
@@ -13,43 +13,48 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
+  ms.openlocfilehash: 37acd22cd6a85b1a9062b0c0aee6e48957f1ea11
+  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/07/2017
 abstract:
-  description: 'Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå. Om du behöver en fullständig lösning för behållarorkestrering kan du läsa dokumentationen om <a href="/azure/container-service/kubernetes/">Kubernetes på Azure Container Service</a>. Lär dig hur du skapar och hanterar behållarinstanser med våra snabbstarter, självstudier och exempel.'
+  description: "Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå. Om du behöver en fullständig lösning för behållarorkestrering kan du läsa dokumentationen om <a href=\"/azure/container-service/kubernetes/\">Kubernetes på Azure Container Service</a>. Lär dig hur du skapar och hanterar behållarinstanser med våra snabbstarter, självstudier och exempel."
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig att distribuera behållaravbildningar med Azure Container Instances."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Lär dig att distribuera behållaravbildningar med Azure Container Instances.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/virtual-machines/linux/media/index/cli.svg
-            text: Azure CLI
-            href: /azure/container-instances/container-instances-quickstart
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: /azure/container-instances/container-instances-quickstart-portal
-  - title: Steg för steg-självstudier
+    - image:
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/container-instances/container-instances-quickstart
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/container-instances/container-instances-quickstart-portal
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig hur du paketerar kod i en behållaravbildning och kör den i en Azure-behållarinstans."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Lär dig hur du paketerar kod i en behållaravbildning och kör den i en Azure-behållarinstans.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Paketera ett program i en behållaravbildning</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Skapa ett register med Azure Container Registry och ladda upp behållaravbildningen</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Distribuera behållaravbildningen till en Azure-behållarinstans</a>
-  - title: Referens
+    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-app\">Paketera ett program i en behållaravbildning</a>"
+    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-acr\">Skapa ett register med Azure Container Registry och ladda upp behållaravbildningen</a>"
+    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-deploy-app\">Distribuera behållaravbildningen till en Azure-behållarinstans</a>"
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: '<p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>'
-          - title: Språk
-            html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/container-instances">REST API-referens</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Resource Manager-mall</a></p>
+    - title: Kommandorad
+      html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
+    - title: "Språk"
+      html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/container-instances">REST API-referens</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Resource Manager-mall</a></p>

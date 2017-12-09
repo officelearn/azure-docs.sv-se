@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 6966cf145375bf3d830d476564c428502ae40fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 484a5297dd03f87e23899f2b7e134576273040e5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Så här väljer du behörigheter för en given API
 
@@ -34,4 +34,4 @@ Du kan hitta autentisering slutpunkterna för ditt program i den [Azure-portalen
 -   Använd slutpunkten som är specifika för autentiseringsprotokoll som du använder, tillsammans med det program-ID för att skapa autentiseringen begär programmet.
 
 ## <a name="next-steps"></a>Nästa steg
-[Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
+[Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)

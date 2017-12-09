@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Förstå fakturan för Microsoft Azure
 Jämför fakturan med filen detaljerad daglig användning och kostnader management rapporterna i Azure-portalen för att förstå fakturan Azure.
@@ -31,7 +31,7 @@ En PDF-fil på fakturan och en kopia av din detaljerad daglig användning CSV Fi
 
 Detaljerade villkor och beskrivningar av din faktura och detaljerad daglig användning fil finns [Förstå villkoren på fakturan Microsoft Azure](billing-understand-your-invoice.md) och [förstå villkor i Microsoft Azure detaljerad användning](billing-understand-your-usage.md). 
 
-Mer information om de kostnad rapporterna finns [Azure-portalen kostnadshanteringen](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+Mer information om de kostnad rapporterna finns [Azure-portalen kostnadshanteringen](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Hur gör jag till att tillägg i min faktura är korrekta?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -42,7 +42,7 @@ Om en avgift på fakturan som du vill ha mer information om finns det ett par ol
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Alternativ 1: Granska fakturan och jämför användning och kostnader med detaljerad användning CSV-fil
 
-CSV-fil för detaljerad användning visar dina avgifter per faktureringsperiod och daglig användning. För detaljerad användning CSV-filen, se [hämta ditt Azure billing faktura och dagligen användningsdata](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+CSV-fil för detaljerad användning visar dina avgifter per faktureringsperiod och daglig användning. För detaljerad användning CSV-filen, se [hämta ditt Azure billing faktura och dagligen användningsdata](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
 Avgifter för användning visas på nivån mätaren. Följande villkor betyda samma sak i både fakturan och filen detaljerad användning. Faktureringsperioden på fakturan är till exempel motsvarar den faktureringsperiod som visas i filen detaljerad användning.
 

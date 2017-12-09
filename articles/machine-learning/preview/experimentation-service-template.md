@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Konfigurera tjänsten Azure Machine Learning experiment
 
 ## <a name="overview"></a>Översikt
-Azure Machine Learning experiment tjänstkonto, arbetsytan och projektet är Azure-resurser. De kan därför distribueras med hjälp av mallar Resources Manager. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Azure Machine Learning experiment tjänstkonto, arbetsytan och projektet är Azure-resurser. De kan därför distribueras med hjälp av mallar Resources Manager. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Distribuera en mall
 Distribution av en mall kräver endast några steg i Azure-kommandoradsgränssnittet eller i Azure-portalen.
@@ -137,7 +137,7 @@ Skapa en fil med nedan innehåll och spara den som < parameters.json >.
 Det finns tre värden som du kan ändra. 
 * AccountName: Namnet på kontot experiment.
 * Plats: En av de Azure regionerna som stöds.
-* Storage-konto SKU: Azure ML stöder endast standardlagring inte premium. Mer information om lagring finns [lagring introduktion](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* Storage-konto SKU: Azure ML stöder endast standardlagring inte premium. Mer information om lagring finns [lagring introduktion](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

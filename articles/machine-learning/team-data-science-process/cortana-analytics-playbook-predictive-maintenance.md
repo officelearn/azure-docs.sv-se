@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.openlocfilehash: aafa395f8c0593d9597f74cd5cd2a41f26897c6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cortana Intelligence lösning mallen Playbook för förebyggande underhåll i aerospace och andra företag
 ## <a name="executive-summary"></a>Sammanfattning
@@ -97,7 +97,7 @@ Flygplan motorer är mycket känslig och dyra delar av utrustning och motorn del
 ##### <a name="business-value-of-the-predictive-model"></a>Värdet av förutsägelsemodellen
 En modell för flera klassen klassificering byggdes som beräknar sannolikheten för en misslyckades på grund av en viss komponent under nästa månad. Genom att använda dessa lösningar kan flygbolagen minska kostnaderna för reparation av komponenten, förbättra lager komponenttillgänglighet, sänka inventering av relaterade resurser och förbättra Underhåll planering.
 
-### <a name="utilities"></a>Hjälpmedel
+### <a name="utilities"></a>Samhällsservice
 #### <a name="use-case-1-atm-cash-dispense-failure"></a>Användningsfall 1: Avstå ATM kontanter fel
 ##### <a name="business-problem-and-data-sources"></a>*Företag problem och datakällor*
 Chefer i tillgångsinformation beräkningsintensiva branscher ofta tillstånd att primära operativa risk för sina företag är oväntade fel av deras tillgångar. Exempelvis är fel på maskiner som bl.a i bankwebbplatser branschen ett mycket vanligt problem som uppstår ofta. Sådana problem Se förutsägande Underhåll lösningar användbar för operatörer av maskinerna. I den här användningsfall är förutsägelse problemet att beräkna sannolikheten att en ATM kontanter återkallelse transaktion hämtar avbryts på grund av ett fel i kontanter utgivaren, till exempel pappersstopp eller en del. Viktiga datakällor för det här fallet är sensoravläsningar som samlar in mätningar medan anteckningar pengar fördelas och underhåll poster insamlade över tid. Sensordata med sensoravläsningar per varje transaktionen har slutförts och sensoravläsningar per varje anteckning vara. Temperatursensor avläsningar tillhandahålls mätningar som glapp mellan anteckningar, tjocklek Observera ankomst avståndet osv. Underhåll data med felkoder och reparationsinformation. Dessa som användes för att identifiera fel fall.
@@ -165,7 +165,7 @@ Det är möjligt och vanligtvis fallet att fel Historik finns i Underhållshisto
 
 Det är några exempel på ovan dataelement från användningsområden:
 
-Fel historik: bekämpa fördröjning datum, flygplan komponenten fel datum och typer, ATM kontanter återkallelse transaktion fel, train/snabba dörren fel, bromsar disk ersättning datum, vind turbinen fel datum och strömbrytare kommandot fel.
+Fel historik: Flight fördröjning datum, flygplan komponenten fel datum och typer, ATM kontanter återkallelse transaktion fel, train/snabba dörren fel, bromsar disk ersättning datum, vind turbinen fel datum och strömbrytare kommandot fel.
 
 Underhållshistorik: svarta felloggar, ATM för fel transaktionsloggar träna Underhåll poster, inklusive underhållstyp, kort beskrivning etc. och strömbrytare Underhåll poster.
 
@@ -224,13 +224,13 @@ Figur 2. Rullande sammanställd funktioner
 Exempel för vind turbiner, B = 1 och k = 3 månader som användes för att skapa fördröjning funktioner för var och en av de senaste 3 månaderna med övre och nedre avvikare.
 
 #### <a name="static-features"></a>Statiska funktioner
-Dessa är tekniska specifikationer av utrustning tillverkningsdatum, modellnummer, plats, t.ex. Fördröjning funktioner är främst numeriska karaktär, blir statiska funktioner vanligen kategoriska variabler i modeller. Som ett exempel strömbrytare egenskaper, till exempel spänning, aktuella och power specifikationer tillsammans med transformatorn typer användes strömkällor etc.. För bromsar skiva fel hjul typ av däck sådana som om de är legering eller stål användes som några av de statiska funktionerna.
+Dessa är tekniska specifikationer av utrustning tillverkningsdatum, modellnummer, plats, t.ex. Fördröjning funktioner är främst numeriska karaktär, blir statiska funktioner vanligen kategoriska variabler i modeller. Som ett exempel strömbrytare egenskaper, till exempel spänning, aktuella och power specifikationer tillsammans med transformatorn typer användes strömkällor etc. För bromsar skiva fel hjul typ av däck sådana som om de är legering eller stål användes som några av de statiska funktionerna.
 
 Andra viktiga steg som hanterar saknade värden och normalisering ska utföras under genereringen av funktionen. Det finns flera metoder för saknade värdet uppräkning och databasnormalisering som inte beskrivs här. Dock är det bra att prova olika metoder för att se om en prestandaökning förutsägelse är möjligt.
 
 Tabellen slutliga funktioner när funktionen engineering stegen som beskrivs ovan bör likna följande exempel dataschemat när enheten är en dag:
 
-| Tillgångsnummer | Tid | Funktionen kolumner | Etikett |
+| Tillgångs-ID | Tid | Funktionen kolumner | Etikett |
 | --- | --- | --- | --- |
 | 1 |Dag 1 | | |
 | 1 |Dag 2 | | |
@@ -357,7 +357,7 @@ Det finns flera sätt som du kan göra detta. Genom att tilldela en hög kostnad
 Som tidigare nämnts gör klass obalans sämre prestanda som algoritmer tenderar att klassificera majoritet klassen exempel bättre i kostnaden för minoritet klassen fall som totalt felklassificering fel har förbättrats avsevärt när majoritet klass är märkt med korrekt. Detta orsakar låg återkallning priser och blir ett större problem när kostnaden för falsklarm på företaget är mycket hög. Precisionen är den mest populära mått som används för att beskriva en klassificerare prestanda. Men som beskrivs ovan noggrannhet är ineffektiv och återspeglar inte verkliga prestanda för en klassificerare funktioner som den är mycket känslig för data-distributioner. I stället för andra utvärdering mått att utvärdera imbalanced learning problem. I sådana fall ska precision, återkallning och F1 resultat inledande mått titta på när du utvärderar prestanda för förutsägande Underhåll modellen. I förutsägande Underhåll anger återkallning priser hur många fel i uppsättningen test identifierades korrekt av modellen. Högre återkallning priser betyder modellen är att fånga true fel. Precision mått avser antalet falsklarm där lägre precision priser motsvarar högre falsklarm. F1 poäng anser både precision och återkalla priser med bästa värdet 1 och sämsta är 0.
 
 Dessutom för binär klassificering, decile tabeller och lift är diagram mycket informativa när du utvärderar prestanda. De fokus ligger endast på klassen positivt (fel) och ger en mer komplex bild av algoritmen prestanda än vad som visas genom att titta på bara en fast operativa punkt på kurvan ROC (mottagare operativsystem egenskap).
-Decile tabeller erhålls genom att beställa test exemplen enligt deras förväntade troliga fel beräknas av modell innan tröskelvärde besluta om den slutliga etiketten. Sorterad exempel grupperas sedan i deciles (d.v.s. 10% exemplen med största sannolikhet och 20%, 30% och så vidare). Genom att beräkna förhållandet mellan true positivt hastighet för varje decile och dess slumpmässiga baslinjen (d.v.s. 0.1, 0,2..) kan en uppskatta hur algoritmen prestanda ändras vid varje decile. Inga Lift scheman används för att rita decile värden genom att markera decile SANT positiva satsen jämfört med slumpmässiga true positiva satsen par för alla deciles. Vanligtvis är de första deciles fokus för resultaten eftersom här största vinster visas. Första deciles kan också ses som representativa för ”oskyddad” när den används för förebyggande underhåll.
+Decile tabeller erhålls genom att beställa test exemplen enligt deras förväntade troliga fel beräknas av modell innan tröskelvärde besluta om den slutliga etiketten. Sorterad exempel grupperas sedan i deciles (d.v.s. 10% exemplen med största sannolikhet och 20%, 30% och så vidare). Genom att beräkna förhållandet mellan true positivt hastighet för varje decile och dess slumpmässiga baslinjen (d.v.s. 0.1, 0,2.) kan en uppskatta hur algoritmen prestanda ändras vid varje decile. Inga Lift scheman används för att rita decile värden genom att markera decile SANT positiva satsen jämfört med slumpmässiga true positiva satsen par för alla deciles. Vanligtvis är de första deciles fokus för resultaten eftersom här största vinster visas. Första deciles kan också ses som representativa för ”oskyddad” när den används för förebyggande underhåll.
 
 ## <a name="sample-solution-architecture"></a>Exempel lösningsarkitektur
 När du distribuerar en lösning med förutsägande Underhåll kan är vi intresserad av en heltäckande lösning som ger en kontinuerlig cykel för datapåfyllning, lagring av data för modellen utbildning, funktionen generering, förutsägelse och visualisering av resultaten tillsammans med en avisering Generera mekanism, till exempel en tillgång övervakning instrumentpanel. Vi vill en pipeline för data som ger framtida insikter till användaren i ett kontinuerligt automatiserat sätt. En exempel förutsägande Underhåll arkitektur för sådana en IoT data pipeline illustreras i bild 8 nedan. I arkitekturen realtid telemetri samlas in till en Händelsehubb som lagrar strömmande data. Dessa data inhämtas av stream analytics för realtidsbearbetning av data, till exempel generering av funktionen. Funktionerna används sedan för att anropa webbtjänsten förutsägelsemodell och resultatet visas på instrumentpanelen. På samma gång infogade data också lagras i en historisk databas och samman med externa datakällor som lokala data databaser för att skapa utbildning exempel för modellering.

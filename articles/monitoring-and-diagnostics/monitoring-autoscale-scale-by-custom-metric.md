@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: ancav
-ms.openlocfilehash: de8f7acadc282e4b81c657b1723f00fd3e5fd4f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72b6a68d0dbad4639f21aa701ec4865f36409f0a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Kom igång med Autoskala efter anpassade mått i Azure
 Den här artikeln beskriver hur du skala resursen med ett anpassat mått i Azure-portalen.
@@ -49,7 +49,7 @@ Grattis! Du kan nu nu har skapat din skala inställningen för Automatisk skala 
 > Obs: Samma steg kan användas för att komma igång med en rolltjänst för VMSS eller molnet.
 
 <!--Reference-->
-[1]: https://docs.microsoft.com/en-us/azure/application-insights/app-insights-asp-net
+[1]: https://docs.microsoft.com/azure/application-insights/app-insights-asp-net
 [2]: https://portal.azure.com
 [3]: ./media/monitoring-autoscale-scale-by-custom-metric/azure-monitor-launch.png
 [4]: ./media/monitoring-autoscale-scale-by-custom-metric/discover-autoscale-azure-monitor.png

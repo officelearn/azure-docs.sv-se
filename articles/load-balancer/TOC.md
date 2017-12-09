@@ -1,7 +1,7 @@
 # Översikt
 ## [Vad är belastningsutjämnare?](load-balancer-overview.md)
 ## [Vad är Load Balancer Standard?](load-balancer-standard-overview.md)
-## [Internet-belastningsutjämnare](load-balancer-internet-overview.md)
+## [Offentlig Load Balancer](load-balancer-internet-overview.md)
 ## [Intern belastningsutjämnare](load-balancer-internal-overview.md)
 ## [Förstå avsökningar av belastningsutjämnare](load-balancer-custom-probe-overview.md)
 ## [Förstå portar för hög tillgänglighet](load-balancer-ha-ports-overview.md)
@@ -12,31 +12,23 @@
 
 # Kom igång
 
-## [Konfigurera intern belastningsutjämnare](load-balancer-get-started-ilb-arm-portal.md)
-### [Konfigurera intern belastningsutjämnare (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
-### [Konfigurera intern belastningsutjämnare (CLI)](load-balancer-get-started-ilb-arm-cli.md)
-### [Konfigurera intern belastningsutjämnare (mall)](load-balancer-get-started-ilb-arm-template.md)
+## [Konfigurera intern Load Balancer](load-balancer-get-started-ilb-arm-portal.md)
+### [Konfigurera intern Load Balancer (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
+### [Konfigurera intern Load Balancer (CLI)](load-balancer-get-started-ilb-arm-cli.md)
+### [Konfigurera intern Load Balancer (mall)](load-balancer-get-started-ilb-arm-template.md)
 
-## [Konfigurera en intern belastningsutjämnare för Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
-### [Konfigurera en intern belastningsutjämnare för Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
-### [Konfigurera en intern belastningsutjämnare för Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+## [Konfigurera offentlig Load Balancer](load-balancer-get-started-internet-portal.md)
+### [Konfigurera offentlig Load Balancer (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
+### [Konfigurera offentlig Load Balancer (CLI)](load-balancer-get-started-internet-arm-cli.md)
+### [Konfigurera offentlig Load Balancer (mall)](load-balancer-get-started-internet-arm-template.md)
 
-## [Konfigurera en Internetuppkopplad belastningsutjämnare](load-balancer-get-started-internet-portal.md)
-### [Konfigurera en Internetuppkopplad belastningsutjämnare (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-### [Konfigurera en Internetuppkopplad belastningsutjämnare (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Konfigurera en Internetuppkopplad belastningsutjämnare (mall)](load-balancer-get-started-internet-arm-template.md)
+## [Skapa offentlig Load Balancer med IPv6](load-balancer-ipv6-internet-ps.md)
+### [Skapa offentlig Load Balancer med IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
+### [Skapa offentlig Load Balancer med IPv6 (mall)](load-balancer-ipv6-internet-template.md)
 
-## [Konfigurera en Internetuppkopplad belastningsutjämnare – (klassisk PowerShell)](load-balancer-get-started-internet-classic-ps.md)
-### [Konfigurera en Internetuppkopplad belastningsutjämnare (klassiskt moln)](load-balancer-get-started-internet-classic-cloud.md)
-### [Konfigurera en Internetuppkopplad belastningsutjämnare (klassisk CLI)](load-balancer-get-started-internet-classic-cli.md)
-
-## [Skapa en belastningsutjämnare mot Internet med IPv6](load-balancer-ipv6-internet-ps.md)
-### [Skapa en belastningsutjämnare mot Internet med IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
-### [Skapa en belastningsutjämnare mot Internet med IPv6 (mall)](load-balancer-ipv6-internet-template.md)
-
-## [Skapa zonredundant offentlig Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)
-### [Skapa zonredundant offentlig Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Skapa zonredundant offentlig Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Skapa en zonredundant offentlig Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)
+### [Skapa en zonredundant offentlig Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Skapa en zonredundant offentlig Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)
 
 # Gör så här för att
 ## [Konfigurera TCP-tidsgräns vid inaktivitet för belastningsutjämnare](load-balancer-tcp-idle-timeout.md)
@@ -50,11 +42,17 @@
 ## [Logganalys för Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Konfigurera DHCPv6 för virtuella Linux-datorer](load-balancer-ipv6-for-linux.md)
 ## [Konfigurera portar med hög tillgänglighet för intern Azure Load Balancer](load-balancer-configure-ha-ports.md)
-## [Skapa en offentlig IP-adress i en tillgänglighetszon](../virtual-network/create-public-ip-availability-zone-portal.md)
-## [Skapa en offentlig IP-adress i en tillgänglighetszon (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
-## [Skapa en offentlig IP-adress i en tillgänglighetszon (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
+
 ## Felsöka
 ### [Felsök Azure Load Balancer](load-balancer-troubleshoot.md)
+
+## Artiklar om den klassiska distributionsmodellen
+### [Konfigurera intern Load Balancer för Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
+#### [Konfigurera intern Load Balancer för Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
+#### [Konfigurera intern Load Balancer för Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+### [Konfigurera offentlig Load Balancer (klassisk PowerShell)](load-balancer-get-started-internet-classic-ps.md)
+#### [Konfigurera offentlig Load Balancer (klassiskt moln)](load-balancer-get-started-internet-classic-cloud.md)
+#### [Konfigurera offentlig Load Balancer (klassiskt CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)

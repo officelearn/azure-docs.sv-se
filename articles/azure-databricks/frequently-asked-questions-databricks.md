@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor och svar om Azure Databricks
 
@@ -94,7 +94,7 @@ Om du inte har skapat arbetsytan och du har lagts till som en användare, kontak
 
 #### <a name="solution"></a>Lösning
 
-Databricks kluster använder en offentlig IP-adress per nod. Om din prenumeration har redan använts alla dess offentliga IP-adresser, bör du [begäran om att öka kvoten](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Välj **kvot** som den **utfärda typ**, och **nätverk: ARM** som den **Kvottypen**. I **information**, begära en ökad för kvot av offentlig IP-adress. Till exempel om du vill skapa ett kluster med noder 100 gränsen är för närvarande 60 och få gränsen utökad till 160.
+Databricks kluster använder en offentlig IP-adress per nod. Om din prenumeration har redan använts alla dess offentliga IP-adresser, bör du [begäran om att öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Välj **kvot** som den **utfärda typ**, och **nätverk: ARM** som den **Kvottypen**. I **information**, begära en ökad för kvot av offentlig IP-adress. Till exempel om du vill skapa ett kluster med noder 100 gränsen är för närvarande 60 och få gränsen utökad till 160.
 
 ### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>En andra typen av molnet providern startfel när du konfigurerar klustret
 

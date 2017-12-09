@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Cost Management-dokumentation
 metadata:
-  title: 'Dokumentation om Cost Management – Självstudier, API-referens | Microsoft Docs'
-  description: 'Azure Cost Management från Cloudyn är en kostnadshanteringslösning med flera moln som hjälper dig att bättre använda Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier.'
+  title: "Dokumentation om Cost Management – Självstudier, API-referens | Microsoft Docs"
+  description: "Azure Cost Management från Cloudyn är en kostnadshanteringslösning med flera moln som hjälper dig att bättre använda Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier."
   services: cost-management
   author: czeumault
   manager: carolz
@@ -13,28 +13,33 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
+  ms.openlocfilehash: d277487ff94578643fd455e460e49299938590d7
+  ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 11/07/2017
 abstract:
-  description: 'Azure Cost Management från Cloudyn är en kostnadshanteringslösning med flera moln som hjälper dig att bättre utnyttja och hantera Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier.'
+  description: "Azure Cost Management från Cloudyn är en kostnadshanteringslösning med flera moln som hjälper dig att bättre utnyttja och hantera Azure och andra molnresurser. Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med våra snabbstarter och självstudier."
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Läs om hur du registrerar ditt Azure-avtal eller din prenumerationsinformation med Cost Management och börja visa kostnadsdata."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Läs om hur du registrerar ditt Azure-avtal eller din prenumerationsinformation med Cost Management och börja visa kostnadsdata.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Visa kostnadsdata
-            href: quick-register-azure-sub
-  - title: Stegvisa självstudier
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Visa kostnadsdata
+      href: quick-register-azure-sub
+- title: "Stegvisa självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med Cost Management."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Lär dig mer om att granska användning och kostnader, aktivt hantera kostnader, göra prognoser för utgifter och optimera kostnader med Cost Management.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-review-usage">Granska användning och kostnader för att identifiera avvikelser och effektivitet</a>
-          - html: <a href="tutorial-user-access">Tilldela åtkomst till Cost Management-data</a>
-          - html: <a href="tutorial-forecast-spending">Prognostisera framtida utgifter</a>
-          - html: <a href="tutorial-manage-costs">Hantera kostnader med kostnadsfördelning och detaljerad kostnadsrapportering</a>
+    - html: "<a href=\"tutorial-review-usage\">Granska användning och kostnader för att identifiera avvikelser och effektivitet</a>"
+    - html: "<a href=\"tutorial-user-access\">Tilldela åtkomst till Cost Management-data</a>"
+    - html: <a href="tutorial-forecast-spending">Prognostisera framtida utgifter</a>
+    - html: "<a href=\"tutorial-manage-costs\">Hantera kostnader med kostnadsfördelning och detaljerad kostnadsrapportering</a>"

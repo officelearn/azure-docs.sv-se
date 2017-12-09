@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Virtuella Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks startar med den här informationen: [Azure översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).
@@ -99,7 +99,7 @@ Nedan följer en lista över vanliga problem som kan uppstå vid distribution av
 * **Anpassade DNS-serverinstallation**: I API Management-tjänsten är beroende av flera Azure-tjänster. När API-hantering finns i ett VNET med en anpassad DNS-server, måste den matcha värdnamn för de Azure-tjänsterna. Följ [detta](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) vägledning om anpassade DNS-inställningarna. Se tabellen portar och andra krav som referens.
 
 > [!IMPORTANT]
-> Det rekommenderas att, om du använder en anpassad DNS-servrar för VNET kan du konfigurera som **innan** distribuera en API Management-tjänsten till den. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servrar (s) genom att köra den [gäller åtgärden för konfiguration](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Det rekommenderas att, om du använder en anpassad DNS-servrar för VNET kan du konfigurera som **innan** distribuera en API Management-tjänsten till den. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servrar (s) genom att köra den [gäller åtgärden för konfiguration](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Portar som behövs för API Management**: inkommande och utgående trafik i undernätet som API Management har distribuerats kan kontrolleras med [Nätverkssäkerhetsgruppen][Network Security Group]. Om någon av dessa portar är otillgängliga API Management kanske inte fungerar korrekt och kan inte komma åt. Med en eller flera av de här portarna blockeras är ett annat vanligt felkonfiguration problem när du använder API-hantering med ett VNET.
 
@@ -148,7 +148,7 @@ När en instans för API Management-tjänsten är värd för ett virtuellt nätv
  > [!IMPORTANT]
  > När du har validerat anslutningen, se till att ta bort alla resurser som har distribuerats i undernätet, innan du distribuerar API-hantering till undernätet.
 
-* **Inkrementella uppdateringar**: när du gör ändringar i nätverket referera till [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), för att verifiera att API Management-tjänsten inte har tillgång till någon av de viktiga resurser som den är beroende av. Statusen ska uppdateras var 15: e minut.
+* **Inkrementella uppdateringar**: när du gör ändringar i nätverket referera till [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), för att verifiera att API Management-tjänsten inte har tillgång till någon av de viktiga resurser som den är beroende av. Statusen ska uppdateras var 15: e minut.
 
 * **Resursnavigeringslänkar**: vid distribution i Resource Manager style vnet subnet API Management reserverar undernät, genom att skapa en resurs navigering länk. Om undernätet innehåller redan en resurs från en annan leverantör, distributionen ska **misslyckas**. När du flyttar en API Management-tjänst till ett annat undernät eller ta bort den på samma sätt tar vi bort resurs navigering länken. 
 

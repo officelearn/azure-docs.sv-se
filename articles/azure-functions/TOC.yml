@@ -135,6 +135,8 @@
       items:
         - name: Kontinuerlig distribution
           href: functions-continuous-deployment.md
+        - name: Zippa push-distribution
+          href: deployment-zip-push.md
         - name: Automatisera resursdistribution
           href: functions-infrastructure-as-code.md
         - name: Lokala funktioner

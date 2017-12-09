@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: d7148d34978a2da53cc5a51460e0b33c38760e33
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -64,7 +64,7 @@ Azure-portalen visar de flesta egenskaper för klustret. Med Azure Resource Mana
         * **Operativsystem**: Välj **Linux**.
         
         * **Version**: Använd standardversionen om du inte vet vad du ska välja. Mer information finns i [HDInsight-klusterversioner](hdinsight-component-versioning.md).
-        * **Klusternivå**: Azure HDInsight tillhandahåller molntjänster för stordata i två kategorier: Premium- och standardnivå. Mer information finns i [Klusternivåer](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+        
 
     * För **klustret inloggning användarnamn** och **klustret inloggningslösenordet**, ange användarnamn och lösenord för administratören.
 

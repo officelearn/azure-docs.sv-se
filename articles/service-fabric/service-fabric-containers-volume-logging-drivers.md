@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Använda Docker volym plugin-program och drivrutiner för loggning i din behållaren
 Azure Service Fabric har stöd för att ange [Docker volym plugin-program](https://docs.docker.com/engine/extend/plugins_volume/) och [Docker loggning drivrutiner](https://docs.docker.com/engine/admin/logging/overview/) för behållartjänsten. Du kan spara dina data i [Azure Files](https://azure.microsoft.com/services/storage/files/) när din behållaren flyttas eller startas om på en annan värd.
@@ -28,7 +28,7 @@ För närvarande stöds endast volym drivrutiner för Linux-behållare. Om du an
 
 ## <a name="install-the-docker-volumelogging-driver"></a>Installera drivrutinen för Docker-volym-loggning
 
-Om Docker volym/loggning drivrutinen inte är installerad på datorn, kan du installera den manuellt med hjälp av RDP/SSH-protokoll. Du kan utföra installationen med dessa protokoll via en [skaluppsättning för virtuell dator uppstart skriptet](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) eller en [SetupEntryPoint skriptet](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Om Docker volym/loggning drivrutinen inte är installerad på datorn, kan du installera den manuellt med hjälp av RDP/SSH-protokoll. Du kan utföra installationen med dessa protokoll via en [skaluppsättning för virtuell dator uppstart skriptet](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) eller en [SetupEntryPoint skriptet](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
 Ett exempel på skript för att installera den [Docker volym drivrutinen för Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) är följande:
 

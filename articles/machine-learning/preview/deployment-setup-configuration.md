@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/6/2017
+ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Installation av hantering av modellen
 
@@ -25,8 +25,8 @@ Med hantering av Azure ML-modell kan du effektivt distribuera och hantera Machin
 Du ska kunna ha din miljö för hantering av modellen har skapat och redo för att distribuera din maskininlärning modeller i slutet av det här dokumentet.
 
 ## <a name="what-you-need-to-get-started"></a>Vad du behöver att komma igång
-Du bör ha ägare åtkomst till en Azure-prenumeration som du kan distribuera modeller till för att få ut mesta möjliga av den här guiden.
-CLI finns förinstallerat på Azure Machine Learning arbetsstationen och på [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Du bör ha deltagarbehörighet åtkomst till en Azure-prenumeration eller resursgrupp som du kan distribuera modeller till för att få mest av den här guiden.
+CLI finns förinstallerat på Azure Machine Learning arbetsstationen och på [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Med hjälp av CLI
 Om du vill använda kommandoradsverktyget-gränssnitt (CLIs) från arbetsstationen **filen** -> **öppnar du kommandotolken**. 
@@ -128,7 +128,7 @@ Kommandot cluster miljö installationen skapar följande resurser i din prenumer
 - Ett Application insights-konto
 
 >[!IMPORTANT]
-> För att kunna skapa en klustermiljö, behöver du vara ägare på Azure-prenumerationen och har också möjlighet att skapa ett huvudnamn för tjänsten. Om du vill kontrollera om du har tillräckliga privilegier, följer du anvisningarna i den här sidan: [att skapa ett huvudnamn för tjänsten i Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> För att kunna skapa en klustermiljö, behöver du ha deltagare åtkomst på Azure-prenumeration eller resursgruppen.
 
 Resursgrupp, storage-konto och ACR skapas snabbt. ACS-distribution kan ta upp till 20 minuter. 
 

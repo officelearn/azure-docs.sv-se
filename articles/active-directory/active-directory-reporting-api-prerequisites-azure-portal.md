@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 5377512732efdb37b5c7a22a395b091fda6e5af7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Förutsättningar för att få åtkomst till Azure AD reporting API
 
@@ -29,7 +29,7 @@ Reporting API: N används [OAuth](https://msdn.microsoft.com/library/azure/dn645
 
 Om du vill få åtkomst till rapporteringsdata via API: et, måste du ha något av följande roller:
 
-- Säkerhet läsare
+- Säkerhetsläsare
 - Säkerhet Admin
 - Global administratör
 
@@ -37,10 +37,10 @@ Om du vill få åtkomst till rapporteringsdata via API: et, måste du ha något 
 För att förbereda din åtkomst till reporting API, måste du:
 
 1. Registrera ett program 
-2. Bevilja behörigheter 
+2. Bevilja behörighet 
 3. Samla in konfigurationsinställningar 
 
-Frågor, frågor eller kommentarer finns [filen ett supportärende](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
+Frågor, frågor eller kommentarer finns [filen ett supportärende](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="register-an-azure-active-directory-application"></a>Registrera ett Azure Active Directory-program
 
@@ -80,7 +80,7 @@ Om du vill konfigurera din katalog för att komma åt Azure AD reporting API som
     d. Klicka på **Skapa**. 
 
 
-## <a name="grant-permissions"></a>Bevilja behörigheter 
+## <a name="grant-permissions"></a>Bevilja behörighet 
 
 Syftet med det här steget är att ge ditt program **läsa katalogdata** behörigheter till den **Windows Azure Active Directory** API.
 

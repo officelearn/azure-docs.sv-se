@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c1277a04e3a63c09b2ed7f9304bfc482ab9189a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8ae453ca73ae69c34ff785dc619433035257a6a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Ansluta en webbapp till ett redis-cache
 
@@ -47,8 +47,8 @@ Skriptet använder följande kommandon för att skapa en resursgrupp, webbprogra
 | [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
 | [Skapa AZ programtjänstplan](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan. Detta påminner om en servergrupp för din Azure webbapp. |
 | [Skapa AZ webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Skapar ett Azure-webbapp. |
-| [Skapa AZ redis](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) | Skapa en ny Redis-Cache-instans. Detta är där data ska lagras. |
-| [AZ redis lista nycklar](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_list_keys) | Visar åtkomstnycklarna för redis-cacheinstansen. |
+| [Skapa AZ redis](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Skapa en ny Redis-Cache-instans. Detta är där data ska lagras. |
+| [AZ redis lista nycklar](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Visar åtkomstnycklarna för redis-cacheinstansen. |
 | [AZ webapp appsettings konfigurationsuppsättning](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Skapar eller uppdaterar en appinställning för ett Azure-webbapp. App-inställningar visas som miljövariabler för din app. |
 
 ## <a name="next-steps"></a>Nästa steg

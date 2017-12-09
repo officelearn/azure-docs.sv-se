@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installera IoT kant-körningsmiljön på Windows IoT Core - förhandsgranskning
 
-Azure IoT kant körning kan köras även på små enda Board dator (SBC)-enheter som är mycket vanligt förekommande i branschen IoT. Den här artikeln innehåller stegvisa etablering körningsmiljön på en [MinnowBoard piggvar] [ lnk-minnow] development board som kör Windows IoT Core.
+Azure IoT kant och [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) samverkar för att aktivera edge computing på även små enheter. Azure IoT kant körning kan köras även på små enda Board dator (SBC)-enheter som är mycket vanligt förekommande i branschen IoT. 
+
+Den här artikeln innehåller stegvisa etablering körningsmiljön på en [MinnowBoard piggvar] [ lnk-minnow] development board som kör Windows IoT Core. Windows IoT Core stöder Azure IoT kanten på Intel x64-baserade processorer. 
 
 ## <a name="install-the-runtime"></a>Installera runtime
 

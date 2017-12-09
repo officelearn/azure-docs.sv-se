@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions proxyservrar
 
@@ -60,7 +60,7 @@ Det finns för närvarande inga portaler för att ändra svar. Information om hu
 
 ## <a name="using-variables"></a>Använda variabler
 
-Konfigurationen för en proxy behöver inte vara statisk. Du kan villkor och använda variabler från den ursprungliga begäranden, backend-svar eller programinställningar.
+Konfigurationen för en proxy behöver inte vara statisk. Du kan villkor och använda variabler från den ursprungliga klientbegäran, backend-svar eller programinställningar.
 
 ### <a name="request-parameters"></a>Parametrarna som referens
 
@@ -93,7 +93,7 @@ Du kan också referera [programinställningar som definierats för funktion appe
 Till exempel backend-URL: en *https://%ORDER_PROCESSING_HOST%/api/orders* skulle ha ”% ORDER_PROCESSING_HOST %” ersätts med värdet för inställningen ORDER_PROCESSING_HOST.
 
 > [!TIP] 
-> Använd programinställningar för backend-värdar när du har flera distributioner eller testmiljöer. På så sätt kan kan du se till att du alltid talar till direkt till serverdelen för den miljön.
+> Använd programinställningar för backend-värdar när du har flera distributioner eller testmiljöer. På så sätt kan kan du se till att du alltid talar till rätt serverdel för den miljön.
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
@@ -135,7 +135,7 @@ Varje proxy har ett eget namn som *proxy1* i föregående exempel. Objektet för
 
 Objektet requestOverrides definierar ändringar som gjorts på begäran när resursen backend-anropas. Objektet definieras av följande egenskaper:
 
-* **backend.Request.Method**: HTTP-metod som används för att anropa serverdelen.
+* **backend.Request.Method**: HTTP-metod som används för att anropa backend-.
 * **backend.Request.QueryString. \<ParameterName\>**: en frågesträngsparameter som kan anges för anropet till serverdelen. Ersätt  *\<ParameterName\>*  med namnet på den parameter som du vill ange. Om en tom sträng ingår inte parametern på backend-begäran.
 * **backend.Request.headers. \<HeaderName\>**: ett huvud som kan anges för anropet till serverdelen. Ersätt  *\<HeaderName\>*  med namnet på det huvud som du vill ange. Om du anger en tom sträng ingår inte rubriken på backend-begäran.
 

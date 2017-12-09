@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f0d33f7671cad7e5c5ef9c2320fcca19b4c89b24
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Kontrollen Azure Content Delivery Network cachelagring av frågesträngar med cachelagring regler
 
@@ -40,13 +40,18 @@ Information om standard cachelagring direktivet sidhuvuden och funktionssätt f�
 Hur du ställer in CDN cachelagring regler:
 
 1. Öppna Azure portal, Välj en CDN-profil och sedan väljer du en slutpunkt.
-2. I det vänstra fönstret under inställningar klickar du på **Cache**.
-3. Skapa en global cachelagring regel enligt följande:
+2. I det vänstra fönstret under inställningar klickar du på **cachelagring regler**.
+
+   ![Knappen CDN cachelagring regler](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. Skapa en global cachelagring regel enligt följande:
    1. Under **Global cachelagring regler**, ange **cachelagring av frågesträngar** till **Ignorera frågesträngar**.
    2. Ange **cachelagring av frågesträngar** till **om saknas**.
    3. För **cachelagra giltighetstiden**, skriver du 10 i den **dagar** fältet.
 
        Den globala cacheregeln påverkar alla förfrågningar till slutpunkten. Den här regeln godkänner ursprung cache-direktiv sidhuvud, om de finns (`Cache-Control` eller `Expires`), annars, om de inte har angetts, anger cachen på 10 dagar. 
+
+     ![Globala cachelagringsregler](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Skapa en anpassad regel för cachelagring enligt följande:
     1. Under **anpassad cachelagring regler**, ange **matchar villkoret** till **sökväg** och **matchar värdet** till `/images/*.jpg`.
@@ -54,7 +59,7 @@ Hur du ställer in CDN cachelagring regler:
        
        Den här anpassade cacheregeln anger cache varaktighet på 30 dagar på någon `.jpg` bildfiler i den `/images` mappen för din slutpunkt. Den åsidosätter eventuella `Cache-Control` eller `Expires` HTTP-huvuden som skickas av den ursprungliga servern.
 
-  ![Dialogrutan för cachelagring regler](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![Anpassade cachelagringsregler](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > Filer som cachelagras innan en ändring för regeln behåller sitt ursprung cache-inställningen för varaktighet. Om du vill återställa sina cache varaktighet, måste du [Rensa filen](cdn-purge-endpoint.md). För **Azure CDN från Verizon** slutpunkter kan det ta upp till 90 minuter för cachelagring av regler ska börja gälla.

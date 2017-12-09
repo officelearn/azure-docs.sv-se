@@ -164,6 +164,8 @@
       items:
         - name: Förskottsbetala för virtuella datorer – reserverade instanser
           href: prepay-reserved-vm-instances.md
+        - name: VM-användning
+          href: vm-usage.md
         - name: Vanliga PowerShell-åtgärder
           href: ps-common-ref.md
         - name: Flytta en virtuell dator

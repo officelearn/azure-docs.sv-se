@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/06/2017
 ms.author: raynew
-ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 448dda89623ca2a1e8de86773c1d6a50e708c151
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Identifiera och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -175,7 +175,7 @@ Den här vyn visar beredskap status för varje dator.
 Den här vyn visar totalt antal beräkning och lagringskostnaden för att köra de virtuella datorerna i Azure tillsammans med information för varje dator. Kostnad uppskattningar beräknas med hjälp av rekommendationer för prestandabaserad storlek för en dator och dess diskar och assessment egenskaper. 
 
 > [!NOTE]
-> Den uppskattning som tillhandahålls av Azure migrera är för de lokala virtuella datorerna som körs som Azure-infrastruktur som en tjänst (IaaS) virtuella datorer. Någon plattform som en tjänst (PaaS) eller programvara som en tjänst (SaaS) kostnader anses inte. 
+> Den uppskattning som tillhandahålls av Azure migrera är för de lokala virtuella datorerna som körs som Azure-infrastruktur som en tjänst (IaaS) virtuella datorer. Azure migrera anses inte någon plattform som en tjänst (PaaS) eller programvara som en tjänst (SaaS)-kostnader. 
 
 Beräknade månatliga kostnader för beräkning och lagring sammanställs för alla virtuella datorer i gruppen. 
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: a2c4062db821e39e1af4fa1d54da0121d3993db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bdca33dae2ce52fdeccdae9a67abb6667593f9d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Konfigurera en Programgateway för SSL-avlastning med hjälp av Azure CLI 2.0
 
@@ -31,7 +31,7 @@ Azure Application Gateway kan konfigureras att avsluta SSL-sessionen (Secure Soc
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Förutsättning: Installera Azure CLI 2.0
 
-Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## <a name="required-components"></a>Nödvändiga komponenter
 

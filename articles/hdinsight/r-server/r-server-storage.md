@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Azure-lagringslösningar för R Server på HDInsight
 
@@ -43,19 +43,25 @@ Anvisningar om hur du väljer den lämpligaste lagringsalternativ för ditt scen
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Använda Azure Blob storage-konton med R Server
 
-Om det behövs kan du komma åt flera Azure storage-konton eller behållare med HDI-klustret. Att göra det, måste du ange ytterligare storage-konton i Användargränssnittet när du skapar klustret och följ stegen nedan för att använda dem med R Server.
+Om du har angett mer än en storage-konto när du skapar R Server-kluster förklaras i följande anvisningar hur du använder ett sekundärt konto för dataåtkomst och -åtgärder på R Server. Anta att följande storage-konton och behållare: **storage1** och en standardbehållare kallas **container1**, och **storage2**.
 
 > [!WARNING]
 > För prestanda skapas HDInsight-klustret i samma datacenter som primär storage-konto som du anger. Med hjälp av ett lagringskonto i en annan plats än HDInsight-kluster stöds inte.
 
-1. Skapa ett HDInsight-kluster med namnet på ett lagringskonto för **storage1** och en standardbehållare kallas **container1**.
-2. Ange ett konto för ytterligare lagringsutrymme som heter **storage2**.  
-3. Kopiera filen mycsv.csv till katalogen /share och utföra analyser på filen.  
+1. Använder en SSH-klient kan ansluta till edge-nod i klustret som remoteuser.  
+
+  + I Azure-portalen > HDI-kluster sida > Översikt klickar du på **SSH (Secure Shell)**.
+  + Välj kantnoden i värdnamn, (innehåller *ed-ssh.azurehdinsight.net* i namnet).
+  + Kopiera värdnamnet.
+  + Öppna en SSH-klient som PutTY eller SmartTY och ange värdnamnet.
+  + Ange remoteuser för användarnamnet, följt av lösenordet för klustret.
+  
+2. Kopiera filen mycsv.csv till katalogen /share. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. Ange noden namn i R-koden **standard** och ange din katalog och en fil som ska behandlas.  
+3. Växla till R Studio eller någon annan konsol för R och Skriv R-koden för att ange noden namn för **standard** och platsen för den fil som du vill komma åt.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ Om det behövs kan du komma åt flera Azure storage-konton eller behållare med 
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)

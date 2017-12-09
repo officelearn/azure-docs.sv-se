@@ -41,13 +41,14 @@
 
 ## Analysera
 ### [Analysera användningsmönster för Azure CDN](cdn-log-analysis.md)
-#### [Core-rapporter från Verizon](cdn-analyze-usage-patterns.md)
-#### [Anpassade rapporter från Verizon](cdn-verizon-custom-reports.md)
 #### [Azure-diagnostikloggar](cdn-azure-diagnostic-logs.md)
-### Analysverktyg för Azure CDN från Verizon
-#### [Generera avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
-#### [Visa statistik i realtid](cdn-real-time-stats.md)
-#### [Analysera gränsnodsprestanda](cdn-edge-performance.md)
+#### Analysverktyg för Azure CDN från Verizon
+##### [Core-rapporter från Verizon](cdn-analyze-usage-patterns.md)
+##### [Anpassade rapporter från Verizon](cdn-verizon-custom-reports.md)
+#### Analysverktyg för Azure CDN Premium från Verizon
+##### [Generera avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
+##### [Visa statistik i realtid](cdn-real-time-stats.md)
+##### [Analysera gränsnodsprestanda](cdn-edge-performance.md)
 
 ## Utveckla
 ### [.NET](cdn-app-dev-net.md)

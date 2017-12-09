@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b581f8d5a4e924e0aa88bf614839c917345eb570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a59e0512308a85248a10a24c5951984040bedbcc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>Ansluta en webbapp till Cosmos DB
 
@@ -49,8 +49,8 @@ Det här skriptet använder följande kommandon för att skapa en resursgrupp, w
 | [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
 | [Skapa AZ programtjänstplan](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan. Detta påminner om en servergrupp för din Azure webbapp. |
 | [Skapa AZ webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Skapar ett Azure-webbapp. |
-| [Skapa AZ cosmosdb](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_create) | Skapar en Cosmos-DB-konto. Detta är där data ska lagras. |
-| [AZ cosmosdb lista nycklar](https://docs.microsoft.com/en-us/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Visar en lista över åtkomstnycklarna för det angivna Cosmos-DB-kontot. |
+| [Skapa AZ cosmosdb](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Skapar en Cosmos-DB-konto. Detta är där data ska lagras. |
+| [AZ cosmosdb lista nycklar](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Visar en lista över åtkomstnycklarna för det angivna Cosmos-DB-kontot. |
 | [AZ webapp appsettings konfigurationsuppsättning](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Skapar eller uppdaterar en appinställning för ett Azure-webbapp. App-inställningar visas som miljövariabler för din app. |
 
 ## <a name="next-steps"></a>Nästa steg

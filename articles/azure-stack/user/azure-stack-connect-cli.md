@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 1cfbe988d881075d1a7bfc7513fbe5f44a531abd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Installera och konfigurera CLI för användning med Azure-stacken
 
@@ -145,7 +145,7 @@ Använd följande steg för att ansluta till Azure Stack:
      --profile 2017-03-09-profile
    ```
 
-4. Logga in på Azure Stack-miljö med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljö som en användare eller som en [tjänstens huvudnamn](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Logga in på Azure Stack-miljö med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljö som en användare eller som en [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Logga in som en *användare*: du kan antingen ange användarnamn och lösenord direkt i den `az login` kommando eller autentisera med hjälp av en webbläsare. Du behöver göra det senare om ditt konto har multifaktorautentisering aktiveras.
 

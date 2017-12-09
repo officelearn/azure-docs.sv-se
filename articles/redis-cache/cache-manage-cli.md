@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Skapa och hantera Azure Redis-Cache med hjälp av Azure-kommandoradsgränssnittet (Azure CLI)
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Om du vill skapa och hantera Azure Redis-Cache-instanser som använder Azure CLI
 
 * Du måste ha ett Azure-konto. Om du inte har någon, kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) i en liten stund.
 * [Installera Azure CLI](../cli-install-nodejs.md).
-* Anslut Azure CLI-installationen med ett personligt konto i Azure, eller med ett arbets eller skolan Azure-konto och logga in från Azure CLI med hjälp av den `azure login` kommando. Om du vill förstå skillnaderna och väljer, se [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](../xplat-cli-connect.md).
+* Anslut Azure CLI-installationen med ett personligt konto i Azure, eller med ett arbets eller skolan Azure-konto och logga in från Azure CLI med hjälp av den `azure login` kommando. Om du vill förstå skillnaderna och väljer, se [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](/cli/azure/authenticate-azure-cli).
 * Innan du kan köra följande kommandon för att växla Azure CLI i Resource Manager-läge genom att köra den `azure config mode arm` kommando. Mer information finns i [använda Azure CLI för att hantera Azure-resurser och resursgrupper](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Redis-Cache-egenskaper
@@ -50,7 +50,7 @@ Följande egenskaper används när du skapar och uppdaterar Redis-Cache-instanse
 | namn |-n,--namn |Namnet på Redis-Cache. |
 | Resursgrupp |-g,--resursgruppen. |Namnet på resursgruppen. |
 | location |-l,--plats |Plats för att skapa cache. |
-| Storlek |-z,--storlek |Storleken på Redis-Cache. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| storlek |-z,--storlek |Storleken på Redis-Cache. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | SKU |-x,--sku |Redis-SKU. Ska vara någon av: [Basic, Standard, Premium] |
 | enableNonSslPort |e-,--aktivera icke-ssl-port |EnableNonSslPort-egenskapen för Redis-Cache. Lägg till den här flaggan om du vill aktivera icke-SSL-Port för ditt cacheminne |
 | Redis-konfiguration |-c,--redis-konfiguration |Redis-konfiguration. Ange en JSON-formaterad sträng konfigurationsnycklar och värden här. Format ”: {” ”:” ””, ””: ”}” |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Hur du skapar ett filter för aspekten i Azure Search 
 
@@ -48,7 +48,7 @@ Alla [fälttyp](https://docs.microsoft.com/rest/api/searchservice/supported-data
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (se [så aspekten komplexa datatyper](#facet-complex-fields) senare i den här artikeln.)
++ Edm.Collections
 + Numeriska fälttyp: Edm.Int32, Edm.Int64, Edm.Double
 
 Du kan inte använda Edm.GeographyPoint i fasetterad navigeringsfältet. Facets konstrueras från läsbar text eller siffror. Därför stöds facets inte för geo-koordinater. Du behöver en stad eller region fältet till aspekten per plats.

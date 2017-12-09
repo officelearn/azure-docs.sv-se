@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS databasen innehavare mönster
 
@@ -165,7 +165,7 @@ I hybrid-modellen har alla databaser klient-ID i schemat.  Databaserna finns all
 
 När som helst kan du flytta en viss klient till en egen databas för flera innehavare.  Och när som helst kan du ångrar och flytta innehavaren tillbaka till en databas som innehåller flera innehavare.  Du kan också tilldela en klient till nya enskild klient-databasen när du etablerar den nya databasen.
 
-Hybrid-modellen kommer till sin rätt när det finns stora skillnader mellan resursbehov för att identifiera grupper av klienter.  Anta exempelvis att klienter deltar i en kostnadsfri utvärderingsversion inte är garanterat samma hög nivå av prestanda som prenumerationsapp klienter.  Principen kanske för klienter i den kostnadsfria utvärderingsversion fasen lagras i en databas med flera innehavare som delas mellan alla de kostnadsfria utvärderingsversioner för klienterna.  När en kostnadsfri utvärderingsversion klient prenumererar på servicenivån som grundläggande, kan klienten flyttas till en annan databas för flera innehavare som kan ha färre klienter.  En prenumerant som betalar för servicenivån premium kunde flyttas till dess uppnådd nya enskild klient-databasen.
+Hybrid-modellen kommer till sin rätt när det finns stora skillnader mellan resursbehov för att identifiera grupper av klienter.  Anta exempelvis att klienter deltar i en kostnadsfri utvärderingsversion inte är garanterat samma hög nivå av prestanda som prenumerationsapp klienter.  Principen kanske för klienter i den kostnadsfria utvärderingsversion fasen lagras i en databas med flera innehavare som delas mellan alla de kostnadsfria utvärderingsversioner för klienterna.  När en kostnadsfri utvärderingsversion klient prenumererar på servicenivån som grundläggande, kan klienten flyttas till en annan databas för flera innehavare som kan ha färre klienter.  En prenumerant som betalar för servicenivån premium kunde flyttas till en egen ny enskild klient-databas.
 
 #### <a name="pools"></a>Pooler
 

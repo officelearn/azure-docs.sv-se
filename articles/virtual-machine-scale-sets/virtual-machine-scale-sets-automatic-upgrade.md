@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/07/2017
 ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 6fc52bc779dcb58d4f7e6aa90e25c9d8e8ec6011
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatiska OS-uppgraderingar skaluppsättning för virtuell Azure-dator
 
@@ -39,10 +39,10 @@ Automatisk uppgradering av Operativsystemet har följande egenskaper:
 ## <a name="preview-notes"></a>Förhandsgranska anteckningar 
 Följande begränsningar och restriktioner gäller i förhandsgranskningen:
 
-- Automatisk OS uppgraderar endast stöder [tre OS SKU: er](#supported-os-images). Det finns ingen SLA eller garantier. Vi rekommenderar att du inte använder automatiska uppgraderingar på kritiska produktionsarbetsbelastningar under förhandsgranskningen.
+- Automatisk OS uppgraderar endast stöder [fyra OS SKU: er](#supported-os-images). Det finns ingen SLA eller garantier. Vi rekommenderar att du inte använder automatiska uppgraderingar på kritiska produktionsarbetsbelastningar under förhandsgranskningen.
 - Stöd för skalningsuppsättningar i Service Fabric-kluster kommer snart.
 - Azure disk encryption (för närvarande under förhandsgranskning) är **inte** stöds för närvarande med virtual machine scale set automatisk OS uppgradering.
-- Portaler kommer snart.
+- Avbrottsfritt portalen kommer snart.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registrera dig för att använda automatisk uppgradering av Operativsystemet
@@ -78,9 +78,11 @@ Följande SKU: er stöds för närvarande (mer läggs):
     
 | Utgivare               | Erbjudande         |  Sku               | Version  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04 LTS          | senaste   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | senaste   |
 | MicrosoftWindowsServer  | WindowsServer | 2016 Datacenter    | senaste   |
-| Canonical               | UbuntuServer  | 16.04 LTS          | senaste   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | senaste   |
+
 
 
 ## <a name="application-health"></a>Programmets hälsotillstånd
@@ -90,6 +92,15 @@ En skalningsuppsättning kan alternativt konfigureras med programmet Hälsoavsö
 
 Om skaluppsättning är konfigurerad för att använda flera placering grupper, avsökningar med hjälp av en [Standard belastningsutjämnaren](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) behöver användas.
 
+### <a name="important-keep-credentials-up-to-date"></a>Viktigt: Kontinuerligt autentiseringsuppgifter
+Om din skaluppsättning använder inga autentiseringsuppgifter för åtkomst till externa resurser, till exempel om en VM-tillägget har konfigurerats som använder en SAS-token för storage-konto behöver du kontrollera att autentiseringsuppgifterna är uppdaterade. Om alla eventuella autentiseringsuppgifter, inklusive certifikat och token har upphört att gälla, uppgraderingen misslyckas och första batch för virtuella datorer ska lämnas i ett felaktigt tillstånd.
+
+Rekommenderade åtgärder för att återställa virtuella datorer och aktivera automatisk uppgradering av Operativsystemet på nytt om det finns en resurs autentiseringsfel är:
+
+* Generera token (eller andra autentiseringsuppgifter) som skickades till ditt paket.
+* Kontrollera att eventuella autentiseringsuppgifter som används från inuti den virtuella datorn för att kommunicera med externa enheter är uppdaterad.
+* Uppdatera paket i scale set modellen med en ny token.
+* Distribuera den uppdaterade skaluppsättning, vilket uppdaterar alla VM-instanser, inklusive de misslyckades. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Ange hur du konfigurerar en anpassad belastningen belastningsutjämnaren avsökning som programmet hälsa avsökning på en skala
 Som bästa praxis, skapa en belastningsutjämningsavsökning explicit för skaluppsättning för hälsotillstånd. Samma slutpunkten för en befintlig HTTP-avsökningen eller TCP-avsökning kan användas men ett hälsoavsökningen kan kräva olika beteenden från en traditionell belastningsutjämnare avsökning. En traditionell belastningsutjämningsavsökning kan returnera feltillstånd om belastningen på instansen är för högt som inte kan vara lämpligt för att fastställa instans hälsa under en automatisk uppgradering av Operativsystemet. Konfigurera avsökningen så att den har en hög andel avsöknings mindre än två minuter.

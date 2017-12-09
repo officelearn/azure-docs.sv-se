@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8b399bfef6422e5da0cc4b16c6bef6af6b8ff902
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Node.js-webbapp-inloggning och utloggning med Azure AD
 Här kan vi använda Passport:
@@ -96,7 +96,7 @@ Här kan konfigurera vi Express för att använda autentiseringsprotokollet Open
     // add a logger
 
     var log = bunyan.createLogger({
-    name: 'Microsoft OIDC Example Web Application'
+        name: 'Microsoft OIDC Example Web Application'
     });
     ```
 
@@ -157,27 +157,27 @@ Föregående kod tar alla användare som inträffar att autentisera till vår se
             //   this is done simply by storing the user ID when serializing and finding
             //   the user by ID when deserializing.
             passport.serializeUser(function(user, done) {
-            done(null, user.email);
+                done(null, user.email);
             });
 
             passport.deserializeUser(function(id, done) {
-            findByEmail(id, function (err, user) {
-                done(err, user);
-            });
+                findByEmail(id, function (err, user) {
+                    done(err, user);
+                });
             });
 
             // array to hold signed-in users
             var users = [];
 
             var findByEmail = function(email, fn) {
-            for (var i = 0, len = users.length; i < len; i++) {
-                var user = users[i];
-            log.info('we are using user: ', user);
-                if (user.email === email) {
-                return fn(null, user);
+                for (var i = 0, len = users.length; i < len; i++) {
+                    var user = users[i];
+                    log.info('we are using user: ', user);
+                    if (user.email === email) {
+                        return fn(null, user);
+                    }
                 }
-            }
-            return fn(null, null);
+                return fn(null, null);
             };
     ```
 
@@ -208,8 +208,7 @@ Föregående kod tar alla användare som inträffar att autentisera till vår se
 
 6. Slutligen ska vi lägga till dirigeringskommandona som lämnar de faktiska inloggning förfrågningar till den `passport-azure-ad` motorn:
 
-
-       ```JavaScript
+    ```JavaScript
 
         // Our Auth routes (section 3)
 
@@ -226,30 +225,30 @@ Föregående kod tar alla användare som inträffar att autentisera till vår se
             res.redirect('/');
         });
 
-            // GET /auth/openid/return
-            //   Use passport.authenticate() as route middleware to authenticate the
-            //   request. If authentication fails, the user is redirected back to the
-            //   sign-in page. Otherwise, the primary route function is called,
-            //   which, in this example, redirects the user to the home page.
-            app.get('/auth/openid/return',
-              passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-              function(req, res) {
-                log.info('We received a return from AzureAD.');
-                res.redirect('/');
-              });
+        // GET /auth/openid/return
+        //   Use passport.authenticate() as route middleware to authenticate the
+        //   request. If authentication fails, the user is redirected back to the
+        //   sign-in page. Otherwise, the primary route function is called,
+        //   which, in this example, redirects the user to the home page.
+        app.get('/auth/openid/return',
+          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+          function(req, res) {
+            log.info('We received a return from AzureAD.');
+            res.redirect('/');
+          });
 
-            // POST /auth/openid/return
-            //   Use passport.authenticate() as route middleware to authenticate the
-            //   request. If authentication fails, the user is redirected back to the
-            //   sign-in page. Otherwise, the primary route function is called,
-            //   which, in this example, redirects the user to the home page.
-            app.post('/auth/openid/return',
-              passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-              function(req, res) {
-                log.info('We received a return from AzureAD.');
-                res.redirect('/');
-              });
-       ```
+        // POST /auth/openid/return
+        //   Use passport.authenticate() as route middleware to authenticate the
+        //   request. If authentication fails, the user is redirected back to the
+        //   sign-in page. Otherwise, the primary route function is called,
+        //   which, in this example, redirects the user to the home page.
+        app.post('/auth/openid/return',
+          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+          function(req, res) {
+            log.info('We received a return from AzureAD.');
+            res.redirect('/');
+          });
+     ```
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Steg 4: Använda Passport för att utfärda inloggnings- och utloggningsförfrågningar till Azure AD

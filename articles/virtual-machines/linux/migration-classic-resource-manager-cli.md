@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 1d6f2d8319dde63434041885dcf5ff1a1cde3bcc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 607ab59dbeb414c69a6272d0aeb00299296bca6a
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrera IaaS-resurser från klassiska till Azure Resource Manager med hjälp av Azure CLI
 Dessa steg visar hur du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att migrera infrastruktur som en tjänst (IaaS)-resurser från den klassiska distributionsmodellen till Azure Resource Manager-distributionsmodellen. Artikeln kräver den [Azure CLI 1.0](../../cli-install-nodejs.md). Eftersom Azure CLI 2.0 gäller endast för Azure Resource Manager-resurser, kan inte användas för den här migreringen.
@@ -48,7 +48,7 @@ Här följer några metodtips som vi rekommenderar medan du utvärderar migrera 
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Steg 2: Ange din prenumeration och registrera providern
-För Migreringsscenarier, måste du konfigurera din miljö för både klassiska och Resource Manager. [Installera Azure CLI](../../cli-install-nodejs.md) och [väljer din prenumeration](../../xplat-cli-connect.md).
+För Migreringsscenarier, måste du konfigurera din miljö för både klassiska och Resource Manager. [Installera Azure CLI](../../cli-install-nodejs.md) och [väljer din prenumeration](/cli/azure/authenticate-azure-cli).
 
 Logga in på ditt konto.
 

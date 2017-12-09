@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigering och instrumentpaneler i Application Insights-portalen
 När du har [konfigurera Application Insights i ditt projekt](app-insights-overview.md), telemetridata om prestanda och användning av din app visas i ditt projekt Application Insights-resurs i den [Azure-portalen](https://portal.azure.com).
@@ -97,6 +97,9 @@ När du har skapat en instrumentpanel kan dela du den med andra användare.
 ![Klicka på resurs i rubriken instrumentpanelen](./media/app-insights-dashboards/41.png)
 
 Lär dig mer om [roller och åtkomstkontroll](app-insights-resources-roles-access-control.md).
+
+## <a name="create-dashboards-programmatically"></a>Skapa instrumentpaneler programmässigt
+Du kan automatisera instrumentpanelen skapas med hjälp av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) och en enkel JSON-redigerare.
 
 ## <a name="app-navigation"></a>App-navigering
 Översikt över bladet är gateway till mer information om din app.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: dd09a4df42c1022c2a9f96daf69591bbfc777d79
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster på Windows med X.509-certifikat
 Den här artikeln beskriver hur du skyddar kommunikationen mellan olika noder för din fristående Windows-kluster. Det beskriver också hur du autentiserar klienter som ansluter till klustret med hjälp av X.509-certifikat. Autentisering säkerställer att endast auktoriserade användare kan få åtkomst till klustret och distribuerade program och utföra administrativa uppgifter. Certifikatsäkerhet ska aktiveras på klustret när klustret skapas.  
@@ -255,7 +255,7 @@ Nu exportera certifikatet till en .pfx-fil med ett skyddat lösenord. Först hä
    Write-Host $cert.ToString($true)
    ```
 
-Du kan också om du har en Azure-prenumeration, följer du stegen i avsnittet [lägga till certifikat i nyckelvalvet](service-fabric-cluster-creation-via-arm.md#add-certificates-to-your-key-vault).
+Alternativt, om du har en Azure-prenumeration, följer du stegen i [skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="install-the-certificates"></a>Installera certifikat
 När du har certifikat kan installera du dem på klusternoderna. Noderna behöver senaste Windows PowerShell 3.x installerad. Upprepa dessa steg på varje nod för klustret och servercertifikat och alla sekundära certifikat.

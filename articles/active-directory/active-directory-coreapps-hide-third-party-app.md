@@ -1,6 +1,6 @@
 ---
-title: "Dölj tredjepartsprogram från användarens upplevelse i Azure Active Directory | Microsoft Docs"
-description: "Hur du döljer tredjepartsprogram från användarens upplevelse i Azure Active Directory"
+title: "Dölj ett program från användarens upplevelse i Azure Active Directory | Microsoft Docs"
+description: "Hur du döljer ett program från användarens upplevelse i Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,18 +15,18 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 58e3dd23805ada39e77194ddb4ebf507c24fd1f2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Dölj tredjepartsprogram från användarens upplevelse i Azure Active Directory
+# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Dölj ett program från användarens upplevelse i Azure Active Directory
 
-Om du har en tredje parts-program (en app som publicerats av andra än Microsoft) att du inte vill visas på användarnas åtkomst paneler eller Office 365 startprogram, finns alternativet att dölja den här app-panelen. Genom att dölja appanvändare fortfarande har behörighet att appen men kommer inte se dem visas på deras app startprogram. Du måste ha behörighet att hantera enterprise-appen och du måste vara global administratör för katalogen.
+Om du har ett program som du inte vill ska visas på användarnas åtkomst paneler eller Office 365 startprogram finns ett alternativ för att dölja den här app-panelen. Det här alternativet är bara tillgängligt för tredje parts-program (appar som inte publicerats av Microsoft). Genom att dölja appanvändare fortfarande har behörighet att appen men kommer inte se dem visas på deras app startprogram. Du måste ha behörighet att hantera enterprise-appen och du måste vara global administratör för katalogen. 
 
-## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Dölja en tredjeparts-app från användarens upplevelse
-Använd följande steg för att dölja en tredjeparts-app från en användares åtkomstpanelen och Office 365 app startprogram
+## <a name="hiding-an-application-from-users-end-user-experiences"></a>Döljer ett program från användarens upplevelse för slutanvändaren
+Använd följande steg för att dölja ett program från en användares åtkomstpanelen och Office 365 app startprogram
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Hur döljer en tredjeparts-app från användarens åtkomstpanelen och O365 app startprogram?
 

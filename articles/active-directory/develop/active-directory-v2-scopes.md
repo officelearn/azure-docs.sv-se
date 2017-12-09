@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1488e8d2a70f7317c97275b83db3b9f05e9deb4b
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Scope, behörigheter och medgivande i Azure Active Directory v2.0-slutpunkten
 Appar som integreras med Azure Active Directory (AD Azure) följer en auktoriseringsmodell som ger användare kontroll över hur en app kan komma åt sina data. V2.0-implementeringen av auktoriseringsmodellen som har uppdaterats och ändras hur en app måste interagera med Azure AD. Den här artikeln beskriver de grundläggande principerna för det här tillståndet modellen, inklusive scope, behörigheter och samtycke.
@@ -46,8 +46,8 @@ Genom att definiera typerna av behörigheter för har resursen detaljerad kontro
 
 I Azure AD och OAuth dessa typer av behörigheter kallas *scope*. De ibland också kallas *oAuth2Permissions*. Ett omfång representeras i Azure AD som ett strängvärde. Fortsättning på exemplet Microsoft Graph, är scope-värdet för varje behörighet:
 
-* Läsa användarens kalender med hjälp av`Calendar.Read`
-* Skriva till en användares kalendrar med hjälp av`Mail.ReadWrite`
+* Läsa användarens kalender med hjälp av`Calendars.Read`
+* Skriva till en användares kalendrar med hjälp av`Calendars.ReadWrite`
 * En användare med hjälp av genom att skicka e-post`Mail.Send`
 
 En app kan begära dessa behörigheter genom att ange scope i begäranden till v2.0-slutpunkten.
@@ -58,7 +58,7 @@ V2.0-implementeringen av OpenID Connect har några väldefinierade omfattningar 
 ### <a name="openid"></a>openid
 Om en app utför logga in med hjälp av [OpenID Connect](active-directory-v2-protocols.md), den måste begära den `openid` omfång. Den `openid` scope visas på sidan arbete konto medgivande som behörigheten ”logga in dig på” och på personliga Microsoft-konto medgivande sida som behörigheten ”Visa din profil och ansluta till appar och tjänster med ditt Microsoft-konto”. Med den här behörigheten kan en app kan ta emot en unik identifierare för användaren i form av den `sub` anspråk. Det ger även appen åtkomst till slutpunkten användarinformationen. Den `openid` scope som kan användas i token v2.0-slutpunkten för att hämta ID-token som kan användas för att skydda http-anrop mellan olika komponenter i en app.
 
-### <a name="email"></a>E-post
+### <a name="email"></a>e-post
 Den `email` omfång kan användas med den `openid` scope och övriga. Det ger appen åtkomst till användarens primära e-postadress i form av den `email` anspråk. Den `email` anspråk ingår i en token endast om en e-postadress som är kopplad till det användarkonto som inte alltid fallet. Om den använder den `email` omfång, din app ska vara beredd att hantera ett fall där det `email` anspråk finns inte i token.
 
 ### <a name="profile"></a>Profil
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```

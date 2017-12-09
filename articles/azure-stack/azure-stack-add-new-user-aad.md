@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 *Gäller för: Azure stacken Development Kit*
 
@@ -28,7 +28,7 @@ Efter [distribuerar Azure Stack Development Kit](azure-stack-run-powershell-scri
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Skapa ett konto för innehavare av Azure-stacken med Azure-portalen
 Du måste ha en Azure-prenumeration att använda Azure-portalen.
 
-1. Logga in på [Azure](http://manage.windowsazure.com).
+1. Logga in på [Azure](https://portal.azure.com).
 2. I Microsoft Azure vänstra navigeringsfältet klickar du på **Active Directory**.
 3. Klicka på den katalog som du vill använda för Azure-stacken i kataloglistan eller skapa en ny.
 4. Klicka på den här sidan directory **användare**.

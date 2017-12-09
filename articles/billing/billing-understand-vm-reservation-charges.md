@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: 3fd12bd3c51eeef57c896da030a83e447dc3e8ff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Förstå hur reserverade virtuella datorinstans rabatt används
 När du köper reserverade VM-instans tillämpas reservation rabatten automatiskt på virtuella datorer som matchar de attribut och kvantitet för reservation. En reservation omfattar infrastrukturkostnader för de virtuella datorerna. I följande tabell visas kostnaderna för den virtuella datorn när du har köpt en reservation. I samtliga fall måste du debiteras för lagring och nätverk i de normala takt.
@@ -28,7 +28,7 @@ När du köper reserverade VM-instans tillämpas reservation rabatten automatisk
 |Linux virtuella datorer med programvara avgifter (till exempel Red Hat) | Reservation omfattar kostnader med infrastruktur. Du debiteras för ytterligare programvara.|
 |Virtuella Windows-datorer utan ytterligare programvara |Reservation omfattar kostnader med infrastruktur. Du debiteras för Windows-program.|
 |Virtuella Windows-datorer med ytterligare programvara (till exempel SQLServer) | Reservation omfattar kostnader med infrastruktur. Du debiteras för Windows-program och för ytterligare programvara.|
-|Virtuella Windows-datorer med [Hybridrapportering i Azure-förmån](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Reservation omfattar kostnader med infrastruktur. Windows-programvarukostnader omfattas av Hybrid-förmån för Azure. Ytterligare programvara debiteras separat.| 
+|Virtuella Windows-datorer med [Hybridrapportering i Azure-förmån](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Reservation omfattar kostnader med infrastruktur. Windows-programvarukostnader omfattas av Hybrid-förmån för Azure. Ytterligare programvara debiteras separat.| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Program för reservation rabatt till icke - Windows-datorer
  Reservation rabatt tillämpas på VM-instanser som körs på timbasis. Reservationer som du har köpt matchas Usage sänds av de virtuella datorerna som körs att tillämpa reservation rabatt. Följande diagram illustrerar tillämpningen av en fakturerbar användning av VM-reservation. Bilden är baserad på en reservation inköp och två matchande VM-instanser.
@@ -43,7 +43,7 @@ När du köper reserverade VM-instans tillämpas reservation rabatten automatisk
 För att förstå och visa tillämpningen av dina reservationer i fakturering användningsrapporter, se [förstå reserverade VM-instans användning](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Användning av reservation rabatt på virtuella Windows-datorer
-När du kör Windows VM-instanser används reservationen så att den täcker kostnader med infrastruktur. Användning av VM-infrastrukturkostnader reservationen för virtuella Windows-datorer är samma som för icke - Windows-datorer. Du debiteras separat för Windows-program på grundval av per vCPU. Se [Windows programvarukostnader med reservationer](https://go.microsoft.com/fwlink/?linkid=862756). Du kan omfatta din Windows licensieringskostnader med [Azure Hybrid-förmån för Windows Server] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+När du kör Windows VM-instanser används reservationen så att den täcker kostnader med infrastruktur. Användning av VM-infrastrukturkostnader reservationen för virtuella Windows-datorer är samma som för icke - Windows-datorer. Du debiteras separat för Windows-program på grundval av per vCPU. Se [Windows programvarukostnader med reservationer](https://go.microsoft.com/fwlink/?linkid=862756). Du kan omfatta din Windows-licensieringskostnaderna med [Azure Hybrid-förmån för Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

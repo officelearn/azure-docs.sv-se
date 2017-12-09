@@ -12,18 +12,18 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 08/15/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9dbb0bedd02752c4735ae097a7bd64b7b5383d6e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: c643fc9e575a8e836a361893d78348bbd627a425
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Öppna en port för program i Azure belastningsutjämnare
 
-Ett Service Fabric-program som körs i Azure är placerad bakom Azure belastningsutjämnare. Det här exempelskriptet öppnar en port i en Azure belastningsutjämnare så att ett Service Fabric-program kan kommunicera med externa klienter. Anpassa parametrarna efter behov. 
+Ett Service Fabric-program som körs i Azure är placerad bakom Azure belastningsutjämnare. Det här exempelskriptet öppnar en port i en Azure belastningsutjämnare så att ett Service Fabric-program kan kommunicera med externa klienter. Anpassa parametrarna efter behov. Om klustret är i en nätverkssäkerhetsgrupp också [Lägg till en grupp för inkommande nätverk säkerhetsregel](service-fabric-powershell-add-nsg-rule.md) som tillåter inkommande trafik.
 
 Om det behövs installerar du Service Fabric PowerShell-modulen med den [Service Fabric SDK](../service-fabric-get-started.md). 
 

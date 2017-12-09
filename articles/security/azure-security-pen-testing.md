@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
-ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="pen-testing"></a>Penna testning
 En av fördelarna med att använda Azure för att testa program och distribution är att du snabbt kan få miljöer som har skapats.  Du behöver inte bry dig om rekvisition, hämta, och ”förflyttning och stapling” lokal maskinvara.
@@ -29,11 +29,12 @@ Du kanske redan vet att Microsoft utför [intrång testning av våra Azure-milj�
 
 Vi inte pennan testa ditt program för dig, men vi förstår att du vill ha och behöver utföra penna tester på dina program. Det beror användbart när du förbättrar säkerheten för dina program du gör hela Azure ekosystemet säkrare.
 
-När du penna testar dina program, kan det ser ut som en attack till oss. Vi [kontinuerligt övervakar](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) för angreppsmönster och starta en process för incidenter om vi behöver. Det hjälper inte kan du och det hjälper inte oss om vi utlöser en incidenter på grund av dina egna på grund av fordringar penna tester.
-
 Hur ska du göra?
 
-När du är redo att penna testa ditt program för Azure som värd, har du möjlighet att [berätta för oss](https://portal.msrc.microsoft.com/en-us/engage/pentest). När ett meddelande, kommer Microsoft inte oavsiktligt Stäng du (till exempel blockerar IP-adressen som du testar från). Dina tester måste motsvara Azure pennan testa villkor och villkor som beskrivs i [Microsoft Cloud Unified intrång testning regler för Engagement](https://technet.microsoft.com/en-us/mt784683).
+Från och med den 15 juni 2017 Microsoft längre kräver godkännande på förhand att genomföra en intrång testerna mot Azure-resurser. Kunder som vill formellt dokument kommande intrång testa Användarsegmentet mot Microsoft Azure uppmuntras att fylla i den [Azure Service intrång testning Notification formuläret](https://portal.msrc.microsoft.com/engage/pentest). Den här processen är bara relaterad till Microsoft Azure och gäller inte andra Microsoft-Molntjänsten. 
+
+>[!IMPORTANT] 
+>Medan meddela Microsoft pennan testning aktiviteter krävs inte längre kunder måste fortfarande vara kompatibel med den [Microsoft Cloud Unified intrång testning regler för Engagement](https://technet.microsoft.com/en-us/mt784683). 
 
 Standardtester som du kan utföra inkluderar:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 43c930c18c284a8e6c71174bcf905904001dcde2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
 Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
@@ -37,7 +37,7 @@ De flesta appar i Azure AD B2C-klient vill användaren att logga in med en godty
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Vilka sociala identitetsleverantörer du stöder nu? Vilka som planerar att stödja i framtiden?
 Vi stöder för närvarande Facebook, Google +, LinkedIn, Amazon, Twitter (förhandsgranskning), WeChat (förhandsgranskning), Weibo (förhandsversion) och QT (förhandsversion). Vi lägger till stöd för andra populära sociala identitetsleverantörer baserat på kundernas behov.
 
-Azure AD B2C också har lagt till stöd för [anpassade principer](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Dessa [anpassade principer](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) att en utvecklare att skapa sina egna princip som med alla identitetsleverantör som stöder [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) eller SAML. 
+Azure AD B2C också har lagt till stöd för [anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Dessa [anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) att en utvecklare att skapa sina egna princip som med alla identitetsleverantör som stöder [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) eller SAML. 
 
 Kom igång med anpassade principer genom att checka ut våra [anpassad princip startpaket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
@@ -87,7 +87,7 @@ Nej, Azure AD Connect är inte avsedd att fungera med Azure AD B2C. Överväg at
 Nej, av säkerhetsskäl, Azure AD B2C-sidor kan inte öppnas en iFrame.  Vår tjänst kommunicerar med webbläsare för att förhindra iFrames.  Säkerhets-community och OAUTH2-specifikationen rekommenderar mot med iFrames för identitetsupplevelser på grund av risken för Klicka fästpunkter.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Fungerar Azure AD B2C med till exempel Microsoft Dynamics CRM-system?
-Integrering med Microsoft Dynamics 365-portalen är tillgänglig.  Se [konfigurerar Dynamics 365-portalen att använda Azure AD B2C för autentisering](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Integrering med Microsoft Dynamics 365-portalen är tillgänglig.  Se [konfigurerar Dynamics 365-portalen att använda Azure AD B2C för autentisering](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Har Azure AD B2C fungerar med SharePoint lokalt 2016 eller tidigare?
 Azure AD B2C är inte avsedd för SharePoint extern delning av partner scenariot; Se [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) i stället.

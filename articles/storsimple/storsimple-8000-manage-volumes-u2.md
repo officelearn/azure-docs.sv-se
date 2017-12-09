@@ -4,7 +4,7 @@ description: "Beskriver hur du lägger till, ändra, övervaka och ta bort StorS
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Använda Enhetshanteraren för StorSimple-tjänsten för att hantera volymer (uppdatering 3 eller senare)
 
@@ -119,11 +119,7 @@ Du [har skapat en volym](storsimple-8000-deployment-walkthrough-u2.md#step-6-cre
       
        Om du etablerar en lokalt fäst volym på 8,5 TB (största tillåtna storleken) på din 8100-enhet har du använt upp allt lokalt tillgängligt utrymme för enheten. I så fall kan du inte skapa fler nivåindelade volymer eftersom det inte finns något lokalt utrymme ledigt på enheten för att lagra arbetsuppsättningen för den nivåindelade volymen. Befintliga nivåindelade volymer påverkar också tillgängligt utrymme. Om du exempelvis har en 8100-enhet som redan har nivåindelade volymer på 106 TB finns det bara 4 TB utrymme tillgängligt för lokalt fästa volymer.
 
-    6. Klicka på pilen i fältet **Anslutna värdar**. 
-
-        ![Anslutna värdar](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. I den **anslutna värdar** bladet Välj en befintlig ACR eller Lägg till en ny ACR. Om du väljer en ny ACR anger en **namn** för din ACR anger du den **iSCSI Qualified Name** (IQN) för Windows-värd. Om du inte har en IQN, går du till [Hämta IQN för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host). Klicka på **Skapa**. En volym skapas med de angivna inställningarna.
+    6. Klicka på pilen i fältet **Anslutna värdar**. I den **anslutna värdar** bladet Välj en befintlig ACR eller Lägg till en ny ACR. Om du väljer en ny ACR anger en **namn** för din ACR anger du den **iSCSI Qualified Name** (IQN) för Windows-värd. Om du inte har en IQN, går du till [Hämta IQN för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host). Klicka på **Skapa**. En volym skapas med de angivna inställningarna.
 
         ![Klicka på Skapa](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Prestandajustering för Hive i HDInsight och Azure Data Lake Store
 
@@ -29,8 +29,8 @@ Standardinställningarna har ställts in för att tillhandahålla goda prestanda
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Azure Data Lake Store-konto**. Anvisningar om hur du skapar en finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-kluster** med åtkomst till ett Data Lake Store-konto. Se [skapar ett HDInsight-kluster med Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Kontrollera att du kan aktivera Fjärrskrivbord för klustret.
-* **Kör Hive i HDInsight**.  Läs om hur du kör Hive-jobb i HDInsight i [använda Hive i HDInsight] (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)
-* **Prestandajustering riktlinjer för ADLS**.  Allmänna prestanda begrepp finns [Data Lake Store justera Prestandaråd](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Kör Hive i HDInsight**.  Läs om hur du kör Hive-jobb i HDInsight i [använda Hive i HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Prestandajustering riktlinjer för ADLS**.  Allmänna prestanda begrepp finns [Data Lake Store justera Prestandaråd](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametrar
 
@@ -56,7 +56,7 @@ Här är de viktigaste inställningarna att justera för bättre prestanda för 
 
 **Ange hive.exec.reducer.bytes.per.reducer** – standardvärdet fungerar bra när data är okomprimerade.  För data som komprimerats, bör du minska storleken på reducer.  
 
-**Ange hive.tez.container.size** – på varje nod minne har angetts av yarn.nodemanager.resource.memory mb och korrekt ska anges på HDI-klustret som standard.  Mer information om hur lämpligt minne i YARN finns [efter](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Ange hive.tez.container.size** – på varje nod minne har angetts av yarn.nodemanager.resource.memory mb och korrekt ska anges på HDI-klustret som standard.  Mer information om hur lämpligt minne i YARN finns [efter](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
 I/o-intensiva arbetsbelastningar kan utnyttja mer parallellitet genom att minska storleken för Tez-behållare. Detta ger användaren fler behållare, vilket ökar samtidighet.  Vissa Hive-frågor kräver dock en stor mängd minne (t.ex. MapJoin).  Om aktiviteten inte har tillräckligt med minne, får du en out-of minne undantag under körningen.  Om du får slut på minne undantag, bör du öka minnet.   
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: cba1dd7e5f7c9f30db5d1dccd41a3262af668bce
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -46,7 +46,7 @@ Azure filsynkronisering agenten är hämtningsbara paket som gör det möjligt f
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Serverslutpunkt
-En serverslutpunkt representerar en specifik plats på en registrerad server, till exempel en mapp på en server-volym eller i roten på volymen. Flera server-slutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel F:\sync1 och F:\sync2). Du kan konfigurera molnet lagringsnivåer principer individuellt för varje serverslutpunkt. Om du lägger till en plats på servern som har en befintlig uppsättning filer som en serverslutpunkt i en grupp för synkronisering av slås filerna samman med andra filer som redan finns på andra slutpunkter i gruppen synkronisering.
+En serverslutpunkt representerar en specifik plats på en registrerad server, till exempel en mapp på en server-volym.  Obs för närvarande platsen inte kan vara roten för en volym (till exempel f:\) trots att detta kommer att stödjas i en framtida preview-uppdatering. Flera server-slutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel F:\sync1 och F:\sync2). Du kan konfigurera molnet lagringsnivåer principer individuellt för varje serverslutpunkt. Om du lägger till en plats på servern som har en befintlig uppsättning filer som en serverslutpunkt i en grupp för synkronisering av slås filerna samman med andra filer som redan finns på andra slutpunkter i gruppen synkronisering.
 
 > [!Note]  
 > En serverslutpunkt kan finnas på systemvolymen om Windows. Molnet skiktning stöds inte på systemvolymen.

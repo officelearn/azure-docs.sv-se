@@ -14,18 +14,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 336c8b3b607c9a6ba7a2fe9686ab835f015c1adf
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurera inställningar för Azure Multi-Factor Authentication - Public preview
+# <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
 Den här artikeln hjälper dig att hantera Azure Multi-Factor Authentication nu när du är igång.  Den omfattar olika avsnitt som hjälper dig att få ut mesta möjliga av Azure Multi-Factor Authentication.  Alla dessa funktioner är inte tillgängliga i varje [versionen av Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
-
->[!NOTE]
->Dessa inställningar är tillgänglig som förhandsversion i Azure-portalen. Läs dokumentationen om hur du hanterar Azure Multi-Factor Authentication-inställningarna i portalen pfweb [konfigurerar Azure Multi-Factor Authentication-inställningar](multi-factor-authentication-whats-next-pfweb.md).
 
 | Funktion | Beskrivning | 
 |:--- |:--- |

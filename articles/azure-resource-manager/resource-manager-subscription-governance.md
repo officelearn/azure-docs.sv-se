@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise kodskelett - normativ prenumeration styrning
 Företag vidtar allt det offentliga molnet dess rörlighet och flexibilitet. De använder Molnets styrkor för att generera intäkter eller optimera resurser för företaget. Microsoft Azure tillhandahåller många olika tjänster att företag kan sätta ihop som byggstenar för att adressera en mängd olika arbetsbelastningar och program. 
@@ -59,7 +59,7 @@ Följande bild beskrivs komponenterna i kodskelett. Grunden är beroende av en f
 ## <a name="define-your-hierarchy"></a>Definiera din hierarki
 Grunden för kodskelett är Azure Enterprise-registrering (och Enterprise Portal). Enterprise-registrering definierar formen och användning av Azure-tjänster inom ett företag och är styrningsstrukturen kärnor. I enterprise-avtal kan kunder att ytterligare dela upp miljö till avdelningar, konton och slutligen prenumerationer. En Azure-prenumeration är den grundläggande enheten där alla resurser som ingår. Den definierar också flera begränsningar i Azure, till exempel antal kärnor, resurser osv.
 
-![Hierarki](./media/resource-manager-subscription-governance/agreement.png)
+![hierarki](./media/resource-manager-subscription-governance/agreement.png)
 
 Alla företag har olika och hierarkin i föregående bild tillåter stor flexibilitet i hur Azure ordnas inom företaget. Innan du implementerar de riktlinjer som finns i det här dokumentet, bör du modellera hierarkin och förstå effekten på fakturering, åtkomst till företagsresurser och komplexitet.
 
@@ -168,7 +168,7 @@ Fler exempel på taggar finns [rekommenderas namnkonventionerna för Azure-resur
 ## <a name="resource-group"></a>Resursgrupp
 Resource Manager kan du placera resurser i meningsfulla grupper för hantering av fakturerings- eller fysisk tillhörighet. Som nämnts tidigare har Azure två distributionsmodeller. I den tidigare klassiska modellen var den grundläggande enheten för hantering av prenumerationen. Det var svårt att dela upp resurser inom en prenumeration, vilket ledde till att skapa många prenumerationer. Vi såg introduktionen av resursgrupper med Resource Manager-modellen. Resursgrupper är behållare för resurser som har en gemensam livscykel eller dela ett attribut, till exempel ”alla SQL-servrar” eller ”A”.
 
-Resursgrupper kan inte ingå i varandra och resurser kan bara tillhöra en resursgrupp. Du kan använda vissa åtgärder på alla resurser i en resursgrupp. Till exempel försvinner tar bort en resursgrupp alla resurser i resursgruppen. Normalt placera du en hela programmet eller relaterade system i samma resursgrupp. Till exempel skulle en tre nivåprogram kallas Contoso webbprogrammet innehålla webbservern, programservern och SQLServer i samma resursgrupp.
+Resursgrupper kan inte ingå i varandra och resurser kan bara tillhöra en resursgrupp. Du kan använda vissa åtgärder på alla resurser i en resursgrupp. Till exempel försvinner tar bort en resursgrupp alla resurser i resursgruppen. Normalt placera du en hela programmet eller relaterade system i samma resursgrupp. En trelagers-program som kallas Contoso webbprogrammet skulle till exempel innehålla webbservern, programservern och SQLServer i samma resursgrupp.
 
 > [!TIP]
 > Hur du ska organisera dina resursgrupper kan skilja sig från ”traditionell IT” arbetsbelastningar till ”flexibel IT” arbetsbelastningar:

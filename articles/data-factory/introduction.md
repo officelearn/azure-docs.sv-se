@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,63 +67,7 @@ Efter att rådata har förfinats till en form som företaget kan använda, läse
 ### <a name="monitor"></a>Övervaka
 När du har skapat och distribuerat din pipeline för dataintegrering och fått affärsvärde från förfinade data, kan du övervaka schemalagda aktiviteter och pipelines för att se hur många som lyckats respektive misslyckats. Azure Data Factory har inbyggt stöd för pipelineövervakning via Azure Monitor, API, PowerShell, Microsoft Operations Management Suite och hälsopaneler på Azure Portal.
 
-## <a name="whats-different-in-version-2"></a>Vad är nytt i version 2?
-Azure Data Factory version 2 bygger vidare på den ursprungliga Azure Data Factory dataöverförings- och omvandlingstjänsten och utökar den med en bredare uppsättning molninriktade dataintegreringsscenarier. Azure Data Factory version 2 har följande funktioner:
-
-- Kontrollflöde och skala
-- Distribuera och kör SQL Server Integration Services-paket (SSIS) i Azure
-
-Efter lanseringen av version 1 upptäckte vi att kunderna behöver skapa komplexa hybridlösningar för dataintegrering som kräver både dataförflyttning och -bearbetning i molnet, lokalt och i virtuella datorer i molnet. De här kraven skapade ett behov av att kunna överföra och bearbeta data inom säkra virtuella nätverksmiljöer och att kunna skala ut med bearbetning på begäran.
-
-Allteftersom datapipelines har blivit en viktig del i företags analysstrategier, har vi sett hur dessa viktiga dataaktiviteter kräver flexibel schemaläggning för att klara ökade databelastningar och händelseaktiverade körningar. Eftersom de här åtgärderna blir allt mer komplexa så ökar också kraven på att tjänsten ska ha stöd för vanliga arbetsflödesparadigmer, inklusive förgrening, loopning och villkorsstyrd bearbetning.
-
-Med version 2 kan du också migrera befintliga SSIS-paket till molnet. Du kan lyfta och skifta SSIS som en Azure-tjänst som hanteras inom ADF, med hjälp av den nya funktionen Intgration Runtimes (IR). Med en SSIS IR i version 2 kan du köra, hantera, övervaka och skapa SSIS-paket i molnet.
-
-### <a name="control-flow-and-scale"></a>Kontrollflöde och skala 
-För att kunna använda olika integreringsflöden och mönster i ett modernt informationslager har Data Factory en ny flexibel datapipelinemodell som inte längre är knuten till Time Series-data. I den här versionen kan du anpassa villkor och branchning i kontrollflödet för en datapipeline och explicit skicka parametrar inom och mellan dessa flöden.
-
-Nu har du friheten att anpassa alla flödesstilar som krävs för dataintegrering som kan skickas på begäran eller regelbundet enligt ett schema. Några vanliga flöden som nu är aktiverade och som tidigare inte var möjliga är:   
-
-- Kontrollflöde:
-    - Kedjesammansättning av aktiviteter i sekvens i en pipeline
-    - Branchning av aktiviteter inom en pipeline
-    - Parametrar
-        - Parametrar kan definieras på pipelinenivå och argument kan skickas när du anropar din pipeline på begäran eller via en utlösare.
-        - Aktiviteter kan använda argumenten som skickas till pipelinen.
-    - Skicka anpassade tillstånd
-        - Aktivitetsutdata inklusive tillstånd kan användas av en efterföljande aktivitet i pipelinen.
-    - Loopningsbehållare
-        - For-each 
-- Utlösningsbaserade flöden
-    - Pipelines kan utlösas på begäran eller vid en tidpunkt.
-- Deltaflöden
-    - Använd parametrar och definiera ditt övre vattenmärke för deltakopiering vid förflyttning av dimensions- eller referenstabeller från en relationslagringsplats som finns lokalt eller i molnet för att läsa in data i sjön. 
-
-Mer information finns i [branchnings- och länkningsaktiviteter i en Data Factory-pipeline](tutorial-control-flow.md).
-
-### <a name="deploy-ssis-packages-to-azure"></a>Distribuera SSIS-paket till Azure 
-Om du vill flytta SSIS-arbetsbelastningar kan du skapa en Data Factory version 2 och etablera en Azure-SSIS IR (Integration Runtime). Azure-SSIS IR är ett helt hanterat kluster av virtuella Azure-datorer (noder) dedikerade för att köra dina SSIS-paket i molnet. Stegvisa instruktioner finns i guiden [distribuera SQL Server Integration Services-paket till Azure](tutorial-deploy-ssis-packages-azure.md). 
- 
-
-### <a name="sdks"></a>SDK:er
-Om du är en avancerade användare och behöver ett programmeringsgränssnitt har version 2 en omfattande uppsättning SDK:er som du kan använda för att skapa, hantera och övervaka pipelines i din favoritutvecklingsmiljö (IDE).
-
-- *.NET SDK*: .NET SDK har uppdaterats för version 2. 
-- *PowerShell*: PowerShell-cmdletarna har uppdaterats för version 2. Cmdletar för version 2 har **DataFactoryV2** i namnet. Till exempel: Get-AzureRmDataFactoryV2. 
-- *Python SDK*: Den här SDK:n är ny i version 2.
-- *REST API*: REST API har uppdaterats för version 2.  
-
-SDK:erna som har uppdaterats för version 2 är inte bakåtkompatibla med version 1-klienter. 
-
-### <a name="monitoring"></a>Övervakning
-Version 2 har för närvarande enbart stöd för övervakning av datafabriker med hjälp av SDK:er. Portalen har inte stöd för övervakning av datafabriker med version 2 än. 
-
-## <a name="load-the-data-into-a-lake"></a>Läsa in data i en sjö
-Data Factory har över 30 anslutningar som gör att du kan läsa in data från hybridmiljöer och heterogena miljöer till Azure. Information om de senaste prestandaresultaten från interna tester och justeringsförslag finns i [Prestanda- och justeringsguiden](copy-activity-performance.md). 
-
-Dessutom kan har vi nyligen aktiverat hög tillgänglighet och skalbarhet för en lokal Integration Runtime som du installerar i ett privat nätverk. Detta löser krav från nivå 1 storbolaget på bättre tillgänglighet och skalbarhet.
-
-## <a name="top-level-concepts-in-version-2"></a>Toppnivåbegrepp i version 2
+## <a name="top-level-concepts"></a>Toppnivåbegrepp
 En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory består av fyra nyckelkomponenter. De här komponenterna samverkar för att tillhandahålla en plattform där du kan skapa datadrivna arbetsflöden med steg för att flytta och omvandla data.
 
 ### <a name="pipeline"></a>Pipeline
@@ -147,8 +91,7 @@ Länkade tjänster används för två syften i Data Factory:
 - Så här visar du en **beräkningsresurs** som kan vara värd för körningen av en aktivitet. HDInsightHive-aktiviteten körs till exempel på ett HDInsight Hadoop-kluster. En lista över transformeringsaktiviteter och beräkningsmiljöer som stöds finns i artikeln om [omvandling av data](transform-data.md).
 
 ### <a name="triggers"></a>Utlösare
-Utlösare representerar en bearbetningsenhet som avgör när en pipelinekörning måste startas. Det finns olika typer av utlösare för olika typer av händelser. I förhandsvisningen, stöder vi wall-clock scheduler-utlösaren. 
-
+Utlösare representerar en bearbetningsenhet som avgör när en pipelinekörning måste startas. Det finns olika typer av utlösare för olika typer av händelser. I förhandsvisningen stöder Data Factory wall-clock scheduler-utlösaren. 
 
 ### <a name="pipeline-runs"></a>Pipelinekörningar
 En pipelinekörning är en instans av en pipelinekörning. Pipelinekörningar initieras vanligen genom att skicka argumenten till de parametrar som definierats i pipelines. Argumenten kan skickas manuellt eller i en utlösardefinition.
@@ -179,6 +122,9 @@ Azure Data Factory lagrar inte själv några data. Du kan använda den för att 
 Även om Data Factory bara är tillgängligt i regionerna USA, östra, USA, östra 2, och Europa, västra, så finns tjänsten som driver dataförflyttning i Data Factory tillgänglig globalt i flera regioner. Om ett datalager finns bakom en brandvägg kan en gateway för datahantering som installerats i din lokala miljö flytta data i stället.
 
 Exempelvis kan vi anta att dina beräkningsmiljöer, som t.ex. Azure HDInsight-kluster och Azure Machine Learning, körs utanför regionen Europa, västra. Du kan skapa och använda en Azure Data Factory-instans i norra Europa och använda den för att schemalägga jobb i dina beräkningsmiljöer i Västeuropa. Det tar några millisekunder för Data Factory att utlösa jobbet i din beräkningsmiljö, men den tid det tar för att köra jobbet ändras inte.
+
+## <a name="compare-with-version-2"></a>Jämför med version 2
+En lista över skillnaderna mellan version 1 och version 2 av Data Factory-tjänsten finns i [Jämför med version 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig skapa en datafabrik med stegvisa instruktioner i följande snabbstarter: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST-API](quickstart-create-data-factory-rest-api.md) och Azure Portal. 

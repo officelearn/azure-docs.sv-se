@@ -1,13 +1,13 @@
-### <a name="windows-powershell"></a>Windows PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 #### <a name="install-powershell"></a>Installera PowerShell
 Installera den senaste versionen av PowerShell om du inte har den på din dator. 
 
-1. Öppna webbläsaren och gå till sidan [Ladda ned Azure-SDK:er och verktyg](https://azure.microsoft.com/downloads/). 
+1. Öppna webbläsaren och gå till sidan [Nedladdningsbara filer för Azure](https://azure.microsoft.com/downloads/). 
 2. Klicka på **Windows-installation** i avsnittet **Kommandoradsverktyg** -> **PowerShell**. 
 3. Kör **MSI**-filen för att installera PowerShell. 
 
-Mer detaljerade anvisningar finns i [Installera och konfigurera PowerShell](/powershell/azure/install-azurerm-ps). 
+Mer detaljerade anvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 #### <a name="log-in-to-powershell"></a>Logga in på PowerShell
 
@@ -19,12 +19,12 @@ Mer detaljerade anvisningar finns i [Installera och konfigurera PowerShell](/pow
     ```powershell
     Login-AzureRmAccount
     ```        
-2. Om du har flera Azure-prenumerationer kör du följande kommando för att visa alla prenumerationer kopplade till det här kontot:
+2. Kör följande kommando för att visa alla prenumerationer för det här kontot:
 
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **SubscriptionId** med ID:t för din Azure-prenumeration:
+3. Om du har flera Azure-prenumerationer associerade till ditt konto kör du följande kommando för att välja den prenumeration du vill arbeta med. Ersätt **SubscriptionId** med ID:t för din Azure-prenumeration:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       

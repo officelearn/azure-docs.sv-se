@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Vanliga frågor och svar om Azure Machine Learning: Fakturering, funktioner, begränsningar och support
 Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning som tillhandahåller förutsägelsemodeller och operationaliseringslösningar genom webbtjänster. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support.
@@ -230,7 +230,7 @@ Mer information finns i [Träna om Machine Learning-modeller via programmering](
 
 **Hur övervakar jag min webbtjänst när den har distribuerats i produktionsmiljön?**
 
-När du har distribuerat en förutsägbar modell kan du övervaka den från den klassiska Azure-portalen (endast klassiska webbtjänster) eller portalen för Azure Machine Learning-webbtjänster. Varje distribuerad tjänst har sin egen instrumentpanel där du kan se övervakningsinformation för tjänsten. Mer information om hur du hanterar distribuerade webbtjänster finns i [Hantera en webbtjänst med hjälp av portalen för Azure Machine Learning-webbtjänster](manage-new-webservice.md) och [Hantera en Azure Machine Learning-arbetsyta](manage-workspace.md).
+När du har distribuerat en förutsägbar modell kan du övervaka den från portalen för Azure Machine Learning-webbtjänster. Varje distribuerad tjänst har sin egen instrumentpanel där du kan se övervakningsinformation för tjänsten. Mer information om hur du hanterar distribuerade webbtjänster finns i [Hantera en webbtjänst med hjälp av portalen för Azure Machine Learning-webbtjänster](manage-new-webservice.md) och [Hantera en Azure Machine Learning-arbetsyta](manage-workspace.md).
 
 **Finns det någon plats där jag kan se utdata för min RRS-/BES-tjänst?**
 
@@ -285,7 +285,7 @@ Nej.
 ## <a name="security-and-availability"></a>Säkerhet och tillgänglighet
 **Vem har tillgång till HTTP-slutpunkten för webbtjänsten som standard? Hur begränsar jag åtkomsten till slutpunkten?**
 
-När en webbtjänst har distribuerats skapas en standardslutpunkt för tjänsten. Standardslutpunkten kan anropas med dess API-nyckel. Du kan lägga till fler slutpunkter med deras egna nycklar från den klassiska Azure-portalen eller via programmering med hjälp av Web Service Management-API:erna. Åtkomstnycklar behövs för att göra anrop till webbtjänsten. Mer information finns i [Använda Azure Machine Learning-webbtjänster](consume-web-services.md).
+När en webbtjänst har distribuerats skapas en standardslutpunkt för tjänsten. Standardslutpunkten kan anropas med dess API-nyckel. Du kan lägga till fler slutpunkter med deras egna nycklar från Web Services-portalen eller via programmering med hjälp av Web Service Management-API:erna. Åtkomstnycklar behövs för att göra anrop till webbtjänsten. Mer information finns i [Använda Azure Machine Learning-webbtjänster](consume-web-services.md).
 
 **Vad händer om det inte går att hitta mitt Azure-lagringskonto?**
 
@@ -297,7 +297,7 @@ Om du har tagit bort lagringskontot av misstag ska du återskapa kontot med samm
 
 Machine Learning Studio behöver ett Azure-lagringskonto för att kunna spara mellanliggande data när arbetsflödet körs. Det här lagringskontot uppges för Machine Learning Studio när en arbetsyta skapas och åtkomstnycklarna associeras med den arbetsytan. Om åtkomstnycklarna ändras när arbetsytan har skapats kan arbetsytan inte längre komma åt lagringskontot. Det slutar fungera och alla experiment i arbetsytan misslyckas.
 
-Om du har ändrat åtkomstnycklarna för lagringskontot synkroniserar du om åtkomstnycklarna på arbetsytan med hjälp av den klassiska Azure-portalen.  
+Om du har ändrat åtkomstnycklarna för lagringskontot synkroniserar du om åtkomstnycklarna på arbetsytan med hjälp av Azure Portal.  
 
 ## <a name="support-and-training"></a>Support och utbildning
 **Var kan jag lära mig mer om Azure Machine Learning?**
@@ -509,7 +509,7 @@ Allt du behöver är ett Microsoft-konto. Gå till [startsidan för Azure Machin
 
 **Hur jag registrerar jag mig för Azure Machine Learning-standardnivån?**
 
-Du måste först ha åtkomst till en Azure-prenumeration för att kunna skapa en Machine Learning-arbetsyta på standardnivån. Du kan registrera dig för en 30-dagars kostnadsfri utvärderingsversion av en Azure-prenumeration och senare uppgradera till en Azure-betalprenumeration eller köpa en betald Azure-prenumeration direkt. När du har fått tillgång till prenumerationen kan du skapa en Machine Learning-arbetsyta från den klassiska Microsoft Azure-portalen. Se [de stegvisa anvisningarna](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Du måste först ha åtkomst till en Azure-prenumeration för att kunna skapa en Machine Learning-arbetsyta på standardnivån. Du kan registrera dig för en 30-dagars kostnadsfri utvärderingsversion av en Azure-prenumeration och senare uppgradera till en Azure-betalprenumeration eller köpa en betald Azure-prenumeration direkt. När du har fått tillgång till prenumerationen kan du skapa en Machine Learning-arbetsyta från Microsoft Azure Portal. Se [de stegvisa anvisningarna](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 Du kan också bli inbjuden till en Machine Learning-arbetsyta på standardnivån av arbetsytans ägare.
 

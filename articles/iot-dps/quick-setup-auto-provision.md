@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-preview-with-the-azure-portal"></a>Konfigurera tjänsten IoT Hub Device Provisioning (förhandsversion) på Azure-portalen
+# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Konfigurera tjänsten IoT Hub Device Provisioning på Azure Portal
 
 Dessa steg beskriver hur du konfigurerar Azure-molnresurserna på portalen för att etablera dina enheter. I den här proceduren skapar du en IoT-hubb, skapar en ny instans av IoT Hub Device Provisioning-tjänsten och länkar de två tjänsterna. 
 
@@ -46,7 +46,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 
-2. Sök efter **Device Provisioning Service** på *Marketplace*. Välj **IoT Device Provisioning Service (förhandsversion)** och klicka på **Skapa**. 
+2. Sök efter **Device Provisioning Service** på *Marketplace*. Välj **IoT Device Provisioning Service** och klicka på **Skapa**. 
 
 3. Ange ett namn för Device Provisioning-tjänstinstansen i fältet **Namn**. Välj den prenumeration som ska användas för den här instansen, och ange namnet på en ny eller befintlig resursgrupp. Välj platsen. Klicka på **Skapa** när du är klar.
 

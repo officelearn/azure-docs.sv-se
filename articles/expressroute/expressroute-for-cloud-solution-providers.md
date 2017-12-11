@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
 Microsoft tillhandahåller storskaliga tjänster för traditionella återförsäljare och distributörer (CSP), för att de snabbt ska kunna etablera nya tjänster och lösningar för sina kunder utan att behöva investera i att utveckla dessa nya tjänster. Om du vill ge CSP:n (Cloud Solution Provider) möjlighet att direkt hantera dessa nya tjänster, erbjuder Microsoft program och API:er som tillåter CSP:n att hantera Microsoft Azure-resurser åt dina kunder. En av resurserna är ExpressRoute. Med ExpressRoute kan CSP:n ansluta befintliga kundresurser till Azure-tjänster. ExpressRoute är en privat kommunikationslänk med hög hastighet till tjänster i Azure. 
@@ -30,13 +30,13 @@ ExpressRoute består av ett par kretsar för hög tillgänglighet som är koppla
 > 
 > 
 
-Microsoft Azure tillhandahåller ett växande antal tjänster som du kan erbjuda dina kunder.  För att bäst dra nytta av dessa tjänster krävs ExpressRoute-anslutningar som ger åtkomst med hög hastighet och låg latens till Microsoft Azure-miljön.
+Microsoft Azure tillhandahåller ett växande antal tjänster som du kan erbjuda dina kunder. ExpressRoute hjälper dig och dina kunder att utnyttja de här tjänsterna genom att tillhandahålla hög hastighet och snabb svarstid till Microsoft Azure-miljön.
 
 ## <a name="microsoft-azure-management"></a>Microsoft Azure-hantering
 Microsoft erbjuder API:er till CSP:er för att de ska kunna hantera kundprenumerationer på Azure, genom att tillåta att programmässig integrering sker med dina egna tjänsthanteringssystem. Hanteringsfunktioner som stöds finns [här](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure-resurshantering
-Det är ditt avtal med kunden som avgör hur prenumerationen ska hanteras. CSP:n kan direkt hantera skapande och underhåll av resurser, eller kunden kan behålla kontrollen över Microsoft Azure-prenumerationen och skapa sådana Azure-resurser som de behöver. Om kunderna hanterar skapandet av resurser i sin Microsoft Azure-prenumeration, använder de en av två modeller: ”Anslut via” eller ”Direkt till”. Dessa modeller beskrivs i detalj i följande avsnitt.  
+Avtalet med kunden som avgör hur prenumerationen ska hanteras. CSP:n kan direkt hantera skapande och underhåll av resurser, eller kunden kan behålla kontrollen över Microsoft Azure-prenumerationen och skapa sådana Azure-resurser som de behöver. Om kunderna hanterar skapandet av resurser i sin Microsoft Azure-prenumeration, använder de en av två modeller: ”*Anslut via*” eller ”*Direkt till*”. Dessa modeller beskrivs i detalj i följande avsnitt.  
 
 ### <a name="connect-through-model"></a>Anslut via-modellen
 ![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -67,7 +67,7 @@ Valet mellan dessa två alternativ baseras på dina kunders behov och ditt aktue
 
 * **Rollbaserad åtkomstkontroll (RBAC)** – RBAC baseras på Azure Active Directory.  Läs mer om Azure RBAC [här](../active-directory/role-based-access-control-configure.md).
 * **Nätverk** – Beskriver olika delar av nätverk i Microsoft Azure.
-* **Azure Active Directory (AAD)** – AAD innehåller identitetshantering för Microsoft Azure och SaaS-program från tredje part. Mer information om Azure AD finns [här](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)** – Azure AD innehåller identitetshantering för Microsoft Azure och SaaS-program från tredje part. Mer information om Azure AD finns [här](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Nätverkshastigheter
 ExpressRoute stöder nätverkshastigheter från 50 Mb/s till 10 Gb/s. Detta innebär att kunderna kan köpa den mängd bandbredd som krävs för deras unika miljö.

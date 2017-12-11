@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11bc2418e439f86a228ff7d5c845caef683d9018
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>Utveckla för for Azure Files med .NET och WindowsAzure.Storage
+# <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-Den här kursen visar grunderna i hur du använder .NET och `WindowsAzure.Storage`-API för att utveckla program eller tjänster som lagrar fildata med hjälp av [Azure Files](storage-files-introduction.md). I den här självstudiekursen skapar vi ett enkelt konsolprogram och utför grundläggande åtgärder med .NET och Azure Files:
+Den här kursen visar grunderna i hur du använder .NET för att utveckla program eller tjänster som lagrar fildata med hjälp av [Azure Files](storage-files-introduction.md). I den här självstudiekursen skapar vi ett enkelt konsolprogram och utför grundläggande åtgärder med .NET och Azure Files:
 
 * Hämta innehållet i en fil
 * Ange kvoten (den största tillåtna storleken) för filresursen.
@@ -45,9 +45,6 @@ API | När du ska använda detta | Anteckningar
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Ditt program: <ul><li>Behöver läsa/skriva filer via SMB</li><li>Körs på en enhet som har åtkomst via port 445 till ditt Azure Files-konto</li><li>Behöver inte hantera några av de administrativa inställningarna för filresursen</li></ul> | Kodning av fil-I/O med Azure Files över SMB är i princip samma sak som kodning av I/O med en nätverksfilresurs eller lokal lagringsenhet. Gå till [den här självstudien](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) för att få en introduktion till ett antal funktioner i .NET, inklusive fil-I/O.
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Ditt program: <ul><li>Det går inte att komma åt Azure Files via SMB på port 445 på grund av brandväggen eller Internetleverantörens begränsningar</li><li>Kräver administrativa funktioner, som möjligheten att ställa in en filresurs kvot eller skapa en signatur för delad åtkomst</li></ul> | Den här artikeln visar användningen av `WindowsAzure.Storage` för fil-I/O med REST (istället för SMB) och hantering av filresursen.
-
-> [!TIP]
-> Beroende på kraven för programmet kan Azure Blobs vara ett lämpligare val för lagring. Mer information om att välja Azure Files eller Azure Blobs finns i avsnittet som hjälper dig att [avgöra när du ska använda Azure Blobs, Azure Files eller Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Skapa konsolprogrammet och hämta monteringen
 Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg beskriver hur du skapar ett konsolprogram i Visual Studio 2017, men stegen är liknande i andra versioner av Visual Studio.

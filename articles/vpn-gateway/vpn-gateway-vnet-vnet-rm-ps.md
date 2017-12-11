@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 54cb7a9630a64be1a3012604929613fe0a843666
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av PowerShell
 
@@ -39,15 +39,23 @@ Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmod
 
 ## <a name="about"></a>Om att ansluta virtuella nätverk
 
-Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk med VNet-till-VNet-anslutningstypen (VNet2VNet) på nästan samma sätt som du skapar en IPsec-anslutning till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE, och båda fungerar på samma sätt vid kommunikation. Skillnaden mellan anslutningstyperna är hur den lokala nätverksgatewayen har konfigurerats. När du skapar en anslutning mellan virtuella nätverk ser du inte adressutrymmet för den lokala nätverksgatewayen. Den skapas och fylls i automatiskt. Om du uppdaterar adressutrymmer för ett VNet dirigerar det andra VNet-nätverket automatiskt till det uppdaterade adressutrymmet.
+Det finns flera sätt att ansluta till virtuella nätverk. I avsnitten nedan beskrivs olika sätt att ansluta till virtuella nätverk.
 
-Om du arbetar med en komplicerad konfiguration kanske du föredrar att använda IPsec-anslutningstypen i stället för VNet-till-VNet. På så sätt kan du ange ytterligare adressutrymme för den lokala nätverksgatewayen för att dirigera trafik. Om du ansluter till dina virtuella nätverk med IPsec-anslutningstypen måste du skapa och konfigurera den lokala nätverksgatewayen manuellt. Mer information finns i [Site-to-Site configurations](vpn-gateway-create-site-to-site-rm-powershell.md) (Plats-till-plats-konfigurationer).
+### <a name="vnet-to-vnet"></a>VNet-till-VNet
 
-Om dina VNets dessutom finns i samma region kan det vara bättre att ansluta dem med hjälp av VNet-peering. VNet-peering använder ingen VPN-gateway och prissättningen och funktionaliteten är lite annorlunda. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
+Att konfigurera en anslutning mellan virtuella nätverk är ett bra sätt att enkelt ansluta virtuella nätverk. Du ansluter ett virtuellt nätverk till ett annat virtuellt nätverk med VNet-till-VNet-anslutningstypen (VNet2VNet) på nästan samma sätt som du skapar en plats-till-plats-IPsec-anslutning till en lokal plats.  Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE, och båda fungerar på samma sätt vid kommunikation. Skillnaden mellan anslutningstyperna är hur den lokala nätverksgatewayen har konfigurerats. När du skapar en anslutning mellan virtuella nätverk ser du inte adressutrymmet för den lokala nätverksgatewayen. Den skapas och fylls i automatiskt. Om du uppdaterar adressutrymmet för ett virtuellt nätverk dirigerar det andra virtuella nätverket automatiskt till det uppdaterade adressutrymmet. Att skapa en anslutning mellan virtuella nätverk är normalt snabbare och enklare än att skapa en plats-till-plats-anslutning mellan virtuella nätverk.
 
-### <a name="why"></a>Varför ska jag skapa en anslutning mellan virtuella nätverk?
+### <a name="site-to-site-ipsec"></a>Plats-till-plats (IPsec)
 
-Du kan vilja ansluta virtuella nätverk av följande skäl:
+Om du arbetar med komplicerade nätverkskonfigurationer kan du överväga att ansluta dina virtuella nätverk med hjälp av stegen för [plats-till-plats](vpn-gateway-create-site-to-site-rm-powershell.md) i stället för stegen för mellan virtuella nätverk. När du använder stegen för plats-till-plats skapar och konfigurerar du de lokala nätverksgatewayerna manuellt. Den lokala nätverksgatewayen för varje virtuellt nätverk behandlar det andra virtuella nätverket som en lokal plats. På så sätt kan du ange ytterligare adressutrymme för den lokala nätverksgatewayen för att dirigera trafik. Om adressutrymmet för ett virtuellt nätverk ändras måste du uppdatera den motsvarande lokala nätverksgatewayen för att avspegla ändringen. Den uppdateras inte automatiskt.
+
+### <a name="vnet-peering"></a>VNet-peering
+
+Det kan vara bättre att ansluta dina virtuella nätverk med hjälp av VNet-peering. VNet-peering använder ingen VPN-gateway och har även andra restriktioner. Dessutom beräknas [prissättningen för VNet-peering](https://azure.microsoft.com/pricing/details/virtual-network) på ett annat sätt jämfört med [prissättningen för VPN-gatewayen mellan virtuella nätverk](https://azure.microsoft.com/pricing/details/vpn-gateway). Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
+
+## <a name="why"></a>Varför ska jag skapa en anslutning mellan virtuella nätverk?
+
+Du kan vilja ansluta virtuella nätverk med en anslutning mellan virtuella nätverk av följande skäl:
 
 * **Geografisk redundans i flera regioner och geografisk närvaro**
 
@@ -59,7 +67,7 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
 
 VNet-till-VNet-kommunikation kan kombineras med konfigurationer för flera platser. Det innebär att du kan etablera nätverkstopologier som kombinerar anslutningen för flera platser med en intern virtuell nätverksanslutning.
 
-## <a name="which-set-of-steps-should-i-use"></a>Vilka steg ska jag använda?
+## <a name="steps"></a>Vilka steg för VNet-till-VNet ska jag använda?
 
 I den här artikeln beskrivs två uppsättningar med steg. En uppsättning steg för [virtuella nätverk som finns i samma prenumeration](#samesub) och en annan för [virtuella nätverk som finns i olika prenumerationer](#difsub).
 Den största skillnaden mellan uppsättningarna är att du måste använda separata PowerShell-sessioner när du konfigurerar anslutningar för Vnet som finns i olika prenumerationer. 

@@ -66,6 +66,9 @@
         - name: Beräkningsoptimerad
           href: sizes-compute.md
         - name: Minnesoptimerad
+          items:
+            - name: 'Begränsade vCPU:er'
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Lagringsoptimerad
           href: sizes-storage.md

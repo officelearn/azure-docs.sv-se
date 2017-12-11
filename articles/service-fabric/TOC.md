@@ -50,14 +50,11 @@
 ## [Terminologi](service-fabric-technical-overview.md)
 
 ## Skapa program och tjänster
-### Programmeringsmodeller som stöds
-#### [Översikt](service-fabric-choose-framework.md)
-#### Behållare
-##### [Översikt](service-fabric-containers-overview.md)
+### [Programmeringsmodeller som stöds](service-fabric-choose-framework.md)
+#### [Behållare](service-fabric-containers-overview.md)
 ##### [Docker Compose (förhandsversion)](service-fabric-docker-compose.md)
 ##### [Resurs-styrning](service-fabric-resource-governance.md)
-#### Reliable Services
-##### [Översikt](service-fabric-reliable-services-introduction.md)
+#### [Reliable Services](service-fabric-reliable-services-introduction.md)
 ##### [Reliable Services-livscykel – C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Reliable Services-livscykel – Java](service-fabric-reliable-services-lifecycle-java.md)
 ##### [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
@@ -69,8 +66,7 @@
 ##### [Internt i Reliable State Manager och Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
 ##### [Avancerad användning](service-fabric-reliable-services-advanced-usage.md)
 
-#### Reliable Actors
-##### [Översikt](service-fabric-reliable-actors-introduction.md)
+#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 ##### [Arkitektur](service-fabric-reliable-actors-platform.md)
 ##### [Livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md)
 ##### [Tillståndshantering](service-fabric-reliable-actors-state-management.md)
@@ -86,10 +82,9 @@
 #### [Tjänsttillstånd](service-fabric-concepts-state.md)
 #### [Tjänstpartitionering](service-fabric-concepts-partitioning.md)
 #### [Tillgänglighet för tjänster](service-fabric-availability-services.md)
-#### [Repliker och instanser](service-fabric-concepts-replica-lifecycle.md)
+#### [Livscykel för replik och instans](service-fabric-concepts-replica-lifecycle.md)
 #### [Omkonfiguration](service-fabric-concepts-reconfiguration.md)
-#### Tjänstkommunikation
-##### [Översikt](service-fabric-connect-and-communicate-with-services.md)
+#### [Tjänstkommunikation](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS-tjänst](service-fabric-dnsservice.md)
 ##### [Omvänd proxy](service-fabric-reverseproxy.md)
 ##### [Konfigurera omvänd proxy för säker kommunikation](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -99,19 +94,16 @@
 
 ### [Planera programkapacitet](service-fabric-capacity-planning.md)
 
-## Hantera program
-### [Översikt](service-fabric-application-lifecycle.md)
-### [ImageStoreConnectionString-inställningen](service-fabric-image-store-connection-string.md)
-### Programuppgradering
-#### [Översikt](service-fabric-application-upgrade.md)
+## [Hantera program](service-fabric-application-lifecycle.md)
+### [Programuppgradering](service-fabric-application-upgrade.md)
 #### [Konfiguration](service-fabric-visualstudio-configure-upgrade.md)
 #### [Programuppgraderingsparametrar](service-fabric-application-upgrade-parameters.md)
 #### [Dataserialisering i programuppgraderingar](service-fabric-application-upgrade-data-serialization.md)
 #### [Programuppgraderingar: avancerade ämnen](service-fabric-application-upgrade-advanced.md)
 ### [Översikt över felanalyser](service-fabric-testability-overview.md)
+### [ImageStoreConnectionString-inställningen](service-fabric-image-store-connection-string.md)
 
-## Skapa och hantera kluster
-### [Översikt](service-fabric-deploy-anywhere.md)
+## [Skapa och hantera kluster](service-fabric-deploy-anywhere.md)
 ### Planera och förbereda
 #### [Kapacitetsplanering](service-fabric-cluster-capacity.md)
 #### [Haveriberedskap](service-fabric-disaster-recovery.md)
@@ -121,8 +113,7 @@
 ### Kluster i Azure
 #### [Nodtyper och skalningsuppsättningar för virtuella datorer](service-fabric-cluster-nodetypes.md)
 #### [Nätverksmönster för kluster](service-fabric-patterns-networking.md)
-### Klusterresurshanterare
-#### [Översikt](service-fabric-cluster-resource-manager-introduction.md)
+### [Klusterresurshanterare](service-fabric-cluster-resource-manager-introduction.md)
 #### [Arkitektur](service-fabric-cluster-resource-manager-architecture.md)
 #### [Beskriv ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [Översikt över programgrupper](service-fabric-cluster-resource-manager-application-groups.md)
@@ -135,8 +126,6 @@
 #### [Balansera ett kluster](service-fabric-cluster-resource-manager-balancing.md)
 #### [Begränsning](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Tjänstflöde](service-fabric-cluster-resource-manager-movement-cost.md)
-
-## [Integrera med API Management](service-fabric-api-management-overview.md)
 
 ## Övervaka och diagnostisera
 ### [Övervaka och diagnostisera program](service-fabric-diagnostics-overview.md)
@@ -164,13 +153,14 @@
 #### [Analysera händelser med OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Felsök ditt lokala kluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Integrera med API Management](service-fabric-api-management-overview.md)
+
 # Instruktionsguider
 ## Ställ in din utvecklingsmiljö
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Konfigurera Service Fabric CLI](service-fabric-cli.md)
+### [Konfigurera Service Fabric CLI](service-fabric-cli.md)
 
 ## Skapa ett program
 ### [Skapa din första C#-app i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -231,7 +221,7 @@
 #### [Hantera programhemligheter](service-fabric-application-secret-management.md)  
 #### [Konfigurera säkerhetsprinciper för ditt program](service-fabric-application-runas-security.md)
 
-## Arbeta i en Windows-utvecklarmiljö
+## Arbeta i en Windows/VS-utvecklarmiljö
 ### [Hantera program i Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Konfigurera säkra anslutningar i Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 ### [Konfigurera ditt program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -240,7 +230,7 @@
 ### [Övervaka och diagnostisera lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Konfigurera ett Linux-kluster på Windows](service-fabric-local-linux-cluster-windows.md)
 
-## Arbeta i en Linux-utvecklarmiljö
+## Arbeta i en Linux/Eclipse-utvecklarmiljö
 ### [Komma igång med Eclipse-plugin för utveckling med Java](service-fabric-get-started-eclipse.md)
 ### [Felsök en Java-tjänst i Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Övervaka och diagnostisera lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

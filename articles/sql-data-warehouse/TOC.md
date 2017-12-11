@@ -38,6 +38,7 @@
 
 ## Integrera
 ### [Översikt](sql-data-warehouse-overview-integrate.md)
+### [Elastisk fråga i SQL Database](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## Övervaka och finjustera
@@ -100,9 +101,8 @@
 
 
 ## Integrera
-###  [Konfigurera elastisk fråga från SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Konfigurera elastisk fråga i SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Lägg till Azure Stream Analytics-jobb](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [Konfigurera elastisk fråga](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Använd maskininlärning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Visualisera med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

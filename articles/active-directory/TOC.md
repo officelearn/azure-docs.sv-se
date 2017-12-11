@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Felsöka](active-directory-application-proxy-troubleshoot.md)
-#### Använd den klassiska portalen
-##### [Ladda ned anslutningsappar](application-proxy-enable-classic-portal.md)
-##### [Publicera appar](active-directory-application-proxy-publish.md)
-##### [Använd anslutningsappar](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Villkorlig åtkomst](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Hantera företagets appar
 #### [Tilldela användare](active-directory-coreapps-assign-user-azure-portal.md)

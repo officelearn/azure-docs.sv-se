@@ -31,8 +31,6 @@
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Instruktionsguider
   items:
-    - name: Integrera med Azure med OSBA
-      href: integrate-azure.md
     - name: Skala ett AKS-kluster
       href: scale-cluster.md
     - name: Uppgradera ett AKS-kluster
@@ -43,6 +41,8 @@
       href: kubernetes-draft.md
     - name: Spara data med Azure Files
       href: azure-files.md
+    - name: Integrera med Azure med OSBA
+      href: integrate-azure.md
     - name: Använda Kubernetes-instrumentpanelen
       href: kubernetes-dashboard.md
     - name: Skapa tjänstens huvudnamn

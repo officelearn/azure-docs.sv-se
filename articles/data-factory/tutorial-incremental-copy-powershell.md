@@ -1,5 +1,5 @@
 ---
-title: Kopiera data stegvis med Azure Data Factory | Microsoft Docs
+title: Kopiera en tabell stegvis med Azure Data Factory | Microsoft Docs
 description: "I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till en Azure Blob Storage."
 services: data-factory
 documentationcenter: 
@@ -13,26 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: f352f46f2d4c23124f4ee7e886cae9bdd8d5d2c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0b05971b5ab8ec3fd14dd4ce14d07df478e1dcc9
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage
+I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till en Azure Blob Storage. 
 
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Den här självstudien
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen för Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Under dataintegreringen är en av de vanliga scenarierna att stegvis läsa in data regelbundet för att uppdatera uppdaterade analysresultat efter de första databelastningarna och analyserna. I den här självstudiekursen fokuserar du på att endast läsa in nya eller uppdaterade poster från datakällor i datamottagare. Då blir körningen effektivare än fullständiga inläsningar, särskilt för stora datauppsättningar.    
 
-Du kan använda Data Factory för att skapa högvattenslösningar för att uppnå stegvis datainläsning med aktiviteterna Lookup, Kopiera och Lagrad proceduraktivitet i en pipeline.  
-
-I de här självstudierna går du igenom följande steg:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.   
@@ -46,7 +41,7 @@ I de här självstudierna går du igenom följande steg:
 ## <a name="overview"></a>Översikt
 Avancerade diagrammet är: 
 
-![Läsa in data stegvis](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
+![Läsa in data stegvis](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
 Här är några viktiga steg för att skapa den här lösningen: 
 
@@ -71,7 +66,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 * **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Skapa en datatabell i din Azure SQL-databas
-1. Öppna **SQL Server Management Studio** i **Server Explorer**, högerklicka på databasen och välj **Ny fråga**.
+1. Öppna **SQL Server Management Studio**. I **Server Explorer** högerklickar du på databasen och väljer **Ny fråga**.
 2. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa en tabell med namnet `data_source_table` som datakällagring.  
     
     ```sql
@@ -151,40 +146,47 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-
-1. Starta **PowerShell**. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
-
-    Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in i Azure Portal:
-        
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-    Kör följande kommando för att visa alla prenumerationer för det här kontot:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-    Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **SubscriptionId** med ID:t för din Azure-prenumeration:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
-2. Kör cmdleten **Set-AzureRmDataFactoryV2** för att skapa en datafabrik. Ersätt platshållarna med egna värden innan du kör kommandot.
-
-    ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
+   
+     ```powershell
+    $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    Observera följande punkter:
+    Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen
+2. Definiera en variabel för datafabrikens plats: 
 
-    * Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
+    ```powershell
+    $location = "East US"
+    ```
+3. Kör följande kommando för att skapa en Azure-resursgrupp: 
 
-        ```
-        The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
-        ```
+    ```powershell
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen. 
+3. Definiera en variabel för datafabrikens namn. 
 
-    * Om du vill skapa Data Factory-instanser måste du vara deltagare/administratör för Azure-prenumerationen.
-    * För närvarande kan du endast skapa datafabriker i Data Factory V2 i regionerna USA, östra; USA, östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+    > [!IMPORTANT]
+    >  Uppdateringen av datafabrikens namn måste vara unikt globalt. Till exempel ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFIncCopyTutorialFactory";
+    ```
+5. Kör följande cmdlet av typen **Set-AzureRmDataFactoryV2** för att skapa en datafabrik: 
+    
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    ```
+
+Observera följande punkter:
+
+* Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
+
+    ```
+    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+    ```
+* Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen.
+* För närvarande kan du endast skapa datafabriker i Data Factory version 2 i regionerna USA, östra, USA östra 2 och Europa, västra. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
@@ -224,7 +226,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Skapa länkad Azure SQL Database-tjänst.
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.json** i mappen **C:\ADF** med följande innehåll: (skapa mappen ADF om den inte redan finns.). Ersätt namnen för **&lt;server&gt; och &lt;user id&gt; och &lt;password&gt;** för din Azure SQL-server, användar-ID och lösenord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.json** i mappen **C:\ADF** med följande innehåll: (skapa mappen ADF om den inte redan finns.). Ersätt namnen för **&lt;server&gt; och &lt;database&gt; &lt;user id&gt; och &lt;password&gt;** för din Azure SQL-server, databas, användar-ID och lösenord innan du sparar filen. 
 
     ```json
     {
@@ -233,15 +235,15 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
             "type": "AzureSqlDatabase",
             "typeProperties": {
                 "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
                     "type": "SecureString"
                 }
             }
         }
     }
     ```
-2. Växla till mappen **ADF** i **Azure PowerShell**.
-3. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**. 
+1. Växla till mappen **ADF** i **Azure PowerShell**.
+2. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -280,7 +282,7 @@ I det här steget skapar du databaser för att representera käll- och mottagard
     }
    
     ```
-    I den här självstudien använder vi tabellnamnet: **data_source_table**. Ersätt det om du använder en tabell med ett annan namn. 
+    I den här självstudien använder du tabellnamnet: **data_source_table**. Ersätt det om du använder en tabell med ett annan namn. 
 2.  Kör cmdleten Set-AzureRmDataFactoryV2Dataset för att skapa datauppsättningen: SourceDataset
     
     ```powershell
@@ -379,7 +381,7 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
 I den här självstudien skapar du en pipeline med två lookupaktiviteter, en kopieringsaktivitet och en aktivitet för lagrad procedur i en länkad pipeline. 
 
 
-1. Skapa en JSON-fil med namnet IncrementalCopyPipeline.json i samma mapp med följande innehåll. 
+1. Skapa en JSON-fil med namnet IncrementalCopyPipeline.json i samma mapp med följande innehåll: 
 
     ```json
     {
@@ -512,9 +514,9 @@ I den här självstudien skapar du en pipeline med två lookupaktiviteter, en ko
 1. Kör pipelinen: **IncrementalCopyPipeline** med cmdleten **Invoke-AzureRmDataFactoryV2Pipeline**. Ersätt platshållarna med din egen grupp och datafabrikens namn.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. Kontrollera status för pipelinen genom att köra cmdleten Get-AzureRmDataFactoryV2ActivityRun tills du ser att alla aktiviteter körs. Ersätt platshållarna med din egen lämpliga tid för parametern RunStartedAfter and RunStartedBefore.  I den här självstudien använder vi -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+2. Kontrollera status för pipelinen genom att köra cmdleten Get-AzureRmDataFactoryV2ActivityRun tills du ser att alla aktiviteter körs. Ersätt platshållarna med din egen lämpliga tid för parametern RunStartedAfter and RunStartedBefore.  I den här självstudien använder du -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -616,7 +618,7 @@ I den här självstudien skapar du en pipeline med två lookupaktiviteter, en ko
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
     ``` 
 
-    Uppdaterade data i Azure SQL-databasen är följande:
+    Uppdaterade data i Azure SQL-databasen är:
 
     ```
     PersonID | Name | LastModifytime
@@ -632,9 +634,9 @@ I den här självstudien skapar du en pipeline med två lookupaktiviteter, en ko
 2. Kör pipelinen: **IncrementalCopyPipeline** igen med cmdleten **Invoke-AzureRmDataFactoryV2Pipeline**. Ersätt platshållarna med din egen grupp och datafabrikens namn.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Kontrollera status för pipelinen genom att köra cmdleten **Get-AzureRmDataFactoryV2ActivityRun** tills du ser att alla aktiviteter körs. Ersätt platshållarna med din egen lämpliga tid för parametern RunStartedAfter and RunStartedBefore.  I den här självstudien använder vi -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+3. Kontrollera status för pipelinen genom att köra cmdleten **Get-AzureRmDataFactoryV2ActivityRun** tills du ser att alla aktiviteter körs. Ersätt platshållarna med din egen lämpliga tid för parametern RunStartedAfter and RunStartedBefore.  I den här självstudien använder du -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -700,7 +702,7 @@ I den här självstudien skapar du en pipeline med två lookupaktiviteter, en ko
     Error             : {errorCode, message, failureType, target}
 
     ```
-4.  Du bör se att en annan fil har skapats i Azure Blob Storage. I den här självstudien är det nya filnamnet `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Öppna den filen så ser du 2 rader med poster:
+4.  Du bör se att en annan fil har skapats i Azure Blob Storage. I den här självstudien är det nya filnamnet `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  När du öppnar filen ser du två rader med poster:
 5.  Kontrollera det senaste värdet från `watermarktable`, så ser du att värdet för vattenstämpeln har uppdaterats igen
 
     ```sql
@@ -725,10 +727,10 @@ I den här självstudien har du fått:
 > * Köra en pipeline.
 > * Övervaka pipelinekörningen. 
 
-Fortsätt till följande självstudie och lär dig att transformera data med ett Spark-kluster på Azure:
+I den här självstudien kopierade en pipeline data från en **enskild tabell** i en Azure SQL-databas till Azure Blob Storage. Fortsätt till följande självstudie och lär dig att kopiera data från **flera tabeller** till en lokal SQL Server-databas till en Azure SQL-databas. 
 
 > [!div class="nextstepaction"]
->[Transformera data med Apache Spark i molnet](tutorial-transform-data-spark-powershell.md)
+>[Läs in data stegvis från flera tabeller i SQL Server till Azure SQL-databas](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
 

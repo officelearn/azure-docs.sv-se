@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -56,10 +56,8 @@ Några av följande resurser – konton, beräkningsnoder, pooler, jobb och akti
 * [Beräkningsnod](#compute-node)
 * [Pool](#pool)
 * [Jobb](#job)
-
   * [Jobbscheman](#scheduled-jobs)
 * [Aktivitet](#task)
-
   * [Startaktivitet](#start-task)
   * [Job Manager-aktivitet](#job-manager-task)
   * [Jobbförberedelse- och jobbpubliceringsaktiviteter](#job-preparation-and-release-tasks)
@@ -263,6 +261,9 @@ När du skapar en aktivitet kan du ange:
 * **Begränsningarna** som aktiviteten ska köras under. Begränsningarna omfattar t.ex. den längsta tid som aktiviteten kan köras, det högsta antal omförsök som ska göras för en aktivitet som misslyckats, samt den längsta tid som filer i aktivitetens arbetskatalog ska bevaras.
 * **Programpaket** för distribution till beräkningsnoden som aktiviteten har schemalagts att köra på. Med [programpaket](#application-packages) blir det lättare att distribuera och hantera versionerna av de program som dina aktiviteter kör. Programpaket på aktivitetsnivå är särskilt användbara i miljöer med delade pooler där olika jobb körs i en pool och där poolen inte tas bort när ett jobb har slutförts. Om jobbet har färre aktiviteter än noder i poolen kan programpaket för aktiviteter minimera dataöverföringen eftersom ditt program bara distribueras till noderna som kör aktiviteterna.
 * En **behållaravbildning** refererar till Docker Hub eller ett privat register och andra inställningar som behövs för att skapa en Docker-behållare där uppgifter kan köras på noden. Den här informationen behöver du bara ange om poolen har skapats med en behållarkonfiguration.
+
+> [!NOTE]
+> Maximal livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 7 dagar. Slutförda uppgifter finns kvar på obestämd tid. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
 
 Utöver de aktiviteter som du definierar för att utföra beräkningen på en nod tillhandahålls även följande särskilda aktiviteter av Batch-tjänsten:
 

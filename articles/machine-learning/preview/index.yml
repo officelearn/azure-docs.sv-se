@@ -5,19 +5,19 @@ metadata:
   title: "Dokumentation om Azure Machine Learning (förhandsversion)"
   meta.description: Learn how to use Azure Machine Learning public preview features.
   services: machine-learning
-  author: czeumault
-  manager: carolz
+  author: garyericson
+  manager: jhubbard
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/06/2017
-  ms.author: carolz
-  ms.openlocfilehash: 30febb517eb5820e5e2eed1594141e96d12ac19d
-  ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+  ms.author: garye
+  ms.openlocfilehash: c5873c1a9f5a73f700a07fe1050180750bf59cd4
+  ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/13/2017
+  ms.lasthandoff: 12/09/2017
 abstract:
   description: "Lär dig hur du förbereder data, bygger och distribuerar modeller med våra snabbstarter och självstudier. Med funktionerna för förhandsgranskning i Azure Machine Learning kan du skapa, distribuera och hantera ML- och AI-modeller med alla Python-verktyg och bibliotek. Du kan använda en mängd olika data och beräkna tjänster i Azure för att lagra och bearbeta dina data."
 sections:

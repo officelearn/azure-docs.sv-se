@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3a6a75a324987b82a08219217407ad7ad14db9f8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 1433fce61bc26a6aa0e4742195e623329eb5f0cc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Köra program i Azure Container Service (AKS)
 
@@ -26,7 +26,7 @@ I den här självstudiekursen del fyra åtta, ett exempelprogram har distribuera
 
 Det här programmet skalas ut, uppdateras i efterföljande självstudiekurser och Operations Management Suite som konfigurerats för att övervaka Kubernetes klustret.
 
-Den här kursen förutsätter en grundläggande förståelse för begrepp Kubernetes detaljerad information om Kubernetes finns i [Kubernetes dokumentationen](https://kubernetes.io/docs/home/).
+Den här kursen förutsätter en grundläggande förståelse för begrepp Kubernetes detaljerad information om Kubernetes finns i [Kubernetes dokumentationen][kubernetes-documentation].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -34,13 +34,13 @@ I föregående självstudier, ett program som har paketerats till en behållare 
 
 Den här kursen behöver du i förväg skapade `azure-vote-all-in-one-redis.yml` Kubernetes manifestfil. Den här filen hämtades i föregående självstudiekursen med programmets källkod. Kontrollera att du har klona lagringsplatsen och att du har ändrat kataloger till klonade lagringsplatsen.
 
-Om du inte har gjort dessa steg och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder](./tutorial-kubernetes-prepare-app.md). 
+Om du inte har gjort dessa steg och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
 
 ## <a name="update-manifest-file"></a>Uppdatera manifestfilen
 
 Azure Container registret (ACR) har använts att lagra en avbildning av behållare i den här självstudiekursen. ACR server inloggningsnamnet måste uppdateras i manifestfilen Kubernetes innan du kör programmet.
 
-Hämta ACR server inloggningsnamnet med den [az acr lista](/cli/azure/acr#list) kommando.
+Hämta ACR server inloggningsnamnet med den [az acr lista] [ az-acr-list] kommando.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -64,7 +64,7 @@ Spara och stäng filen.
 
 ## <a name="deploy-application"></a>Distribuera program
 
-Använd kommandot [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) för att köra programmet. Det här kommandot Parsar manifestfilen och skapa de definierade Kubernetes-objekt.
+Använd den [kubectl skapa] [ kubectl-create] kommando för att köra programmet. Det här kommandot Parsar manifestfilen och skapa de definierade Kubernetes-objekt.
 
 ```azurecli
 kubectl create -f azure-vote-all-in-one-redis.yml
@@ -81,9 +81,9 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Testa program
 
-En [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) skapas som visar programmet till internet. Den här processen kan ta några minuter. 
+En [Kubernetes service] [ kubernetes-service] skapas som visar programmet till internet. Den här processen kan ta några minuter. 
 
-Du kan övervaka förloppet genom att använda kommandot [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.7/#get) med argumentet `--watch`.
+För att övervaka förloppet, Använd den [kubectl hämta service] [ kubectl-get] kommandot med de `--watch` argumentet.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
@@ -117,4 +117,15 @@ I den här självstudiekursen har programmet Azure rösten distribuerats till et
 Gå vidare till nästa kurs att lära dig om att skala både ett Kubernetes program och den underliggande Kubernetes-infrastrukturen. 
 
 > [!div class="nextstepaction"]
-> [Skala Kubernetes program och infrastruktur](./tutorial-kubernetes-scale.md)
+> [Skala Kubernetes program och infrastruktur][aks-tutorial-scale]
+
+<!-- LINKS - external -->
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
+[az-acr-list]: /cli/azure/acr#list

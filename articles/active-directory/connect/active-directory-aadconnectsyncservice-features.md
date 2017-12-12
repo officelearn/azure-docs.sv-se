@@ -4,7 +4,7 @@ description: "Beskriver funktioner för tjänsten på klientsidan för Azure AD 
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: c2873510c280a2683c235cfdce3d2617c3b665cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 830692d6df6856e73b8c192db91edf75fdcaec35
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect sync-tjänsten-funktioner
 Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
@@ -37,7 +37,7 @@ Många av dessa inställningar kan bara ändras av Azure AD Connect.
 
 Följande inställningar kan konfigureras med `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Kommentar |
+| DirSyncFeature | Kommentera |
 | --- | --- |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Gör att objekt som ska delta i userPrincipalName utöver primära SMTP-adress. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Gör att Synkroniseringsmotorn att uppdatera attributet userPrincipalName för hanterade/licensierade (ofedererad) användare. |
@@ -51,7 +51,7 @@ När du har aktiverat en funktion kan inaktiveras det inte igen.
 
 Följande inställningar konfigureras med Azure AD Connect och kan inte ändras av `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Kommentar |
+| DirSyncFeature | Kommentera |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: Aktivera tillbakaskrivning av enheter](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect-synkronisering: katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md) |

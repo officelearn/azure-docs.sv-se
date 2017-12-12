@@ -4,7 +4,7 @@ description: "Den här artikeln är guida dig genom en enkel HR-system steg med 
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 3fdc1b405b95180d031aa4ad45b406f7fc149d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Stegvisa anvisningar för allmän SQL-anslutningsapp
 Det här avsnittet finns stegvisa instruktioner. Den skapar en enkel HR-exempeldatabas och använda den för att importera vissa användare och deras gruppmedlemskap.

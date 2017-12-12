@@ -3,26 +3,26 @@ title: "Konfigurera Azure Stack användarens PowerShell-miljö | Microsoft Docs"
 description: "Konfigurera Azure Stack användarens PowerShell-miljö"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Konfigurera Azure Stack användarens PowerShell-miljö
 
-Du kan konfigurera din Azure-stacken Development Kit's PowerShell-miljö som en Azure-Stack-användare. När du har konfigurerat, du kan använda PowerShell för att hantera Azure-stacken resurser som prenumererar på erbjudanden, skapa virtuella datorer kan distribuera Azure Resource Manager-mallar, osv. Det här avsnittet är begränsad för att använda med användaren miljöer endast, om du vill konfigurera PowerShell för operatorn molnmiljö referera till den [konfigurera operatorn Stack Azure PowerShell-miljö](../azure-stack-powershell-configure-admin.md) avsnittet. 
+Du kan konfigurera din Azure-stacken Development Kit's PowerShell-miljö som en Azure-Stack-användare. När du har konfigurerat, du kan använda PowerShell för att hantera Azure-stacken resurser som prenumererar på erbjudanden, skapa virtuella datorer kan distribuera Azure Resource Manager-mallar, osv. Det här avsnittet är begränsad för att använda med användaren miljöer endast, om du vill konfigurera PowerShell för operatorn molnmiljö referera till den [konfigurera operatorn Stack Azure PowerShell-miljö](../azure-stack-powershell-configure-admin.md) artikel. 
 
 ## <a name="prerequisites"></a>Krav 
 
@@ -118,7 +118,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 ## <a name="test-the-connectivity"></a>Testa anslutningen
 
-Nu när vi har allt är som vi ska använda PowerShell för att skapa resurser i Azure-stacken. Du kan till exempel skapa en resursgrupp för ett program och lägga till en virtuell dator. Använd följande kommando för att skapa en resursgrupp med namnet ”MyResourceGroup”:
+Nu när vi har allt installation, ska vi använda PowerShell för att skapa resurser i Azure-stacken. Du kan till exempel skapa en resursgrupp för ett program och lägga till en virtuell dator. Använd följande kommando för att skapa en resursgrupp med namnet ”MyResourceGroup”:
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

@@ -1,6 +1,6 @@
 ---
-title: "Prestandanivåer för DocumentDB API | Microsoft Docs"
-description: "Läs mer om hur prestandanivåer för DocumentDB API gör det möjligt att reservera genomströmning på grundval av per behållare."
+title: "Dragits tillbaka Azure Cosmos DB prestandanivåer | Microsoft Docs"
+description: "Läs mer om S1, S2 och S3 prestandanivåer som tidigare fanns i Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ta bort prestandanivåer S1, S2 och S3
 
 > [!IMPORTANT] 
-> Prestandanivåer S1, S2 och S3 i den här artikeln är som har återkallats och är inte längre tillgängliga för nya DocumentDB API-konton.
+> Prestandanivåer S1, S2 och S3 i den här artikeln är som har återkallats och är inte längre tillgängliga för den nya Azure Cosmos DB konton.
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Den här artikeln innehåller en översikt över S1, S2 och S3 prestandanivåer och beskriver hur de samlingar som använder dessa prestandanivåer kommer att migreras till enskilda partitionssamlingar sent i 2017. När du har läst den här artikeln kommer du att kunna svara på följande frågor:
 
@@ -44,7 +46,7 @@ Den här artikeln innehåller en översikt över S1, S2 och S3 prestandanivåer 
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Varför är S1, S2 och S3 prestanda nivåer som har återkallats?
 
-S1, S2 och S3 prestandanivåer erbjuder inte flexibiliteten att DocumentDB API samlingar erbjudandet. S1, S2 S3 prestandanivåer genomströmning-och lagringskapacitet har redan angetts och erbjöd inte elasticitet. Azure Cosmos-DB erbjuder nu möjlighet att anpassa din dataflöden och lagringsutrymmen, ger mycket större flexibilitet i möjligheten att skala efter dina behov förändras.
+S1, S2 och S3 prestandanivåer erbjuder inte som standard Azure Cosmos DB erbjudandet ger flexibilitet. S1, S2 S3 prestandanivåer genomströmning-och lagringskapacitet har redan angetts och erbjöd inte elasticitet. Azure Cosmos-DB erbjuder nu möjlighet att anpassa din dataflöden och lagringsutrymmen, ger mycket större flexibilitet i möjligheten att skala efter dina behov förändras.
 
 <a name="compare"></a>
 
@@ -141,7 +143,7 @@ Du kan migrera från prestandanivåer S1, S2 och S3 till enskilda partitionssaml
 
 **Att migrera till enskilda partitionssamlingar med .NET SDK**
 
-Ett annat alternativ för att ändra din samlingar prestandanivåer är via Azure Cosmos DB SDK. Det här avsnittet beskriver bara ändra prestanda för en samling nivå med hjälp av den [DocumentDB .NET API](documentdb-sdk-dotnet.md), men processen är liknande för våra andra SDK: er.
+Ett annat alternativ för att ändra din samlingar prestandanivåer är via Azure Cosmos DB SDK. Det här avsnittet beskriver bara ändra prestanda för en samling nivå med hjälp av den [SQL .NET API](documentdb-sdk-dotnet.md), men processen är liknande för våra andra SDK: er.
 
 Här är ett kodfragment för att ändra samlingen genomströmning till 5 000 frågeenheter per sekund:
     

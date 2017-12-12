@@ -4,7 +4,7 @@ description: "Lär dig hur självbetjäning ansluta appar till Azure Active Dire
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 0d42eb0c-6d3f-4557-9030-e88e86709a19
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9049f526243cb4659aaf86b3d31146abe8f5f3ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 763007f004ab82ef5a6b2cac6dbef1ab221a060f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet
 Den här artikeln handlar om en funktion som låter administratörer konfigurera enkel inloggning till program finns inte i appgalleriet för Azure Active Directory *utan att skriva kod*. Den här funktionen har frigjorts från technical preview 18 November 2015 och ingår i [Azure Active Directory Premium](active-directory-editions.md). Om du söker i stället för guide för utvecklare om hur du integrerar anpassade appar med Azure AD via kod, se [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).

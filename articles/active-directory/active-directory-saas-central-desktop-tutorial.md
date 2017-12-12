@@ -4,7 +4,7 @@ description: "Lär dig hur du använder centrala skrivbordet med Azure Active Di
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: fe32c1d68040ceb9d9de2ad6c4a6dc9ea93f5aef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ad6e5946b2c1b68222b3d3a2d29c2ca93db9922
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Självstudier: Azure Active Directory-integrering med Central Desktop
 Syftet med den här kursen är att visa integreringen av Azure och centrala skrivbordet. Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:

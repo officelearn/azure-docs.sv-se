@@ -4,7 +4,7 @@ description: "Använda Azure Active Directory för att utöka din befintliga lok
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
-ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5eafd4d25d2638ab5d9f904a7e0c00b36501d68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 Azure Active Directory (AD Azure) är Microsofts flera innehavare, molnbaserade katalog och identity management-tjänsten. Azure AD kombinerar core katalogtjänster, avancerade identitet styrning och hantering av åtkomst. Azure AD erbjuder också en omfattande, standardbaserad plattform som gör att utvecklare kan leverera åtkomstkontroll till sina program baserat på centraliserade princip och regler. 

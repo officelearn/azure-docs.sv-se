@@ -4,7 +4,7 @@ description: "Hur du kommer igång med Azure Active Directory reporting API"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5feaaa64a130e86f2016bcb6c1d01853a9a406a7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9c858b8f2d5a4a348bc0b4443ddbe0000a5b62f4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Komma igång med Azure Active Directory reporting API
 

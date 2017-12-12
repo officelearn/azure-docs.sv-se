@@ -4,7 +4,7 @@ description: "Azure Active Directory kan automatiskt etablera användare och gru
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/28/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e433baf69ea0e66465612de077d8e59f5e234ee5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för Identitetshantering i domänerna att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -87,7 +87,7 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
 13. Klicka på **spara** att starta Azure AD etableras. 
 14. Om du synkroniserar endast har tilldelats användare och grupper (rekommenderas), måste du markera den **användare och grupper** fliken och tilldela användare och/eller grupper som du vill synkronisera.
 
-När den inledande synkroniseringen har startat, kan du använda den **granskningsloggar** att övervaka förloppet som visar alla åtgärder som utförs av tjänsten etablering på din app. Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+När den inledande synkroniseringen har startat, kan du använda den **granskningsloggar** att övervaka förloppet som visar alla åtgärder som utförs av tjänsten etablering på din app. Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >Den första synkroniseringen tar längre tid än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. 
@@ -159,7 +159,7 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan acceptera etable
 13. Klicka på **spara** att starta Azure AD etableras. 
 14. Om du synkroniserar endast har tilldelats användare och grupper (rekommenderas), måste du markera den **användare och grupper** fliken och tilldela användare och/eller grupper som du vill synkronisera.
 
-När den inledande synkroniseringen har startat, kan du använda den **granskningsloggar** att övervaka förloppet som visar alla åtgärder som utförs av tjänsten etablering på din app. Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+När den inledande synkroniseringen har startat, kan du använda den **granskningsloggar** att övervaka förloppet som visar alla åtgärder som utförs av tjänsten etablering på din app. Mer information om hur du tolkar Azure AD-etablering loggar finns [rapportering om automatisk konto användaretablering](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 Det sista steget vid verifiering av exemplet är att öppna filen TargetFile.csv i mappen \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug på din Windows-dator. När etableringen har körts, visas den här filen detaljer om allt tilldelade och etablerad användare och grupper.
 
@@ -359,7 +359,7 @@ Gruppera resurser identifieras av schema-ID, http://schemas.microsoft.com/2006/1
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabell 1: Standard användaren attributmappning
 | Azure Active Directory-användare | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
-| IsSoftDeleted |Aktiv |
+| IsSoftDeleted |aktiv |
 | Visningsnamn |Visningsnamn |
 | Fax TelephoneNumber |phoneNumbers typ eq ”fax” .value |
 | givenName |name.givenName |
@@ -383,7 +383,7 @@ Gruppera resurser identifieras av schema-ID, http://schemas.microsoft.com/2006/1
 | Visningsnamn |externalId |
 | E-post |e-postmeddelanden typen eq ”arbete” .value |
 | mailNickname |Visningsnamn |
-| Medlemmar |Medlemmar |
+| medlemmar |medlemmar |
 | objekt-ID |id |
 | proxyAddresses |e-postmeddelanden [Ange eq ”andra”]. Värdet |
 

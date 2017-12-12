@@ -4,7 +4,7 @@ description: En artikel om hur du konfigurerar AD FS 2016 med SAML-protokoll och
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Lägga till AD FS som en SAML-identitetsprovider anpassade principer
 

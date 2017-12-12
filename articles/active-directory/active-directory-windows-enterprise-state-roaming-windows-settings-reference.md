@@ -5,7 +5,7 @@ services: active-directory
 keywords: "företagsroaming, windows-moln"
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
 Följande är en fullständig lista över alla inställningar som kommer att flyttade eller säkerhetskopierade i Windows 10. 
@@ -27,7 +27,7 @@ Följande är en fullständig lista över alla inställningar som kommer att fly
 ## <a name="devices-and-endpoints"></a>Enheter och slutpunkter
 Se följande tabell för en sammanfattning av de enheter och typer som stöds av sync, säkerhetskopiering, och Återställ ramverk i Windows 10.
 
-| Kontotyp och åtgärd | Fjärrskrivbord | Mobil |
+| Kontotyp och åtgärd | Skrivbordsprogram | Mobil |
 | --- | --- | --- |
 | Azure Active Directory: synkronisering |Ja |Nej |
 | Azure Active Directory: säkerhetskopiering/återställning |Nej |Nej |
@@ -59,7 +59,7 @@ I följande tabell andra poster i kolumnen grupp med inställningar som referera
 Interna poster i kolumnen Enhetsinställningsgruppen refererar till inställningar och appar som kan endast inaktiveras synkroniseras i själva appen eller genom att inaktivera synkronisering för hela enheten med hjälp av hantering av mobila enheter (MDM) eller inställningarna för Grupprincip.
 Inställningar som inte flyttas eller synkronisering kommer inte tillhör en grupp.
 
-| Inställningar | Fjärrskrivbord | Mobil | Grupp |
+| Inställningar | Skrivbordsprogram | Mobil | Grupp |
 | --- | --- | --- | --- |
 | **Konton**: kontobild |Synkronisering |X |Tema |
 | **Konton**: andra kontoinställningar |X |X | |

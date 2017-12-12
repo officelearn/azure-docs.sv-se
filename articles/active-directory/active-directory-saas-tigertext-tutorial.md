@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 03f1e128-5bcb-4e49-b6a3-fe22eedc6d5e
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: e101e5fc84b032b66dd0636bab8bff128791f77c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efbdf55f425d8e559b741f41b09527e9ce93f999
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Självstudier: Azure Active Directory-integrering med TigerText Secure Messenger
 
@@ -100,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![SAML-baserade inloggning](./media/active-directory-saas-tigertext-tutorial/tutorial_tigertext_samlbase.png)
+    ![SAML-baserad inloggning](./media/active-directory-saas-tigertext-tutorial/tutorial_tigertext_samlbase.png)
 
 3. På den **TigerText Secure Messenger domän och URL: er** avsnittet, utför följande steg:
 

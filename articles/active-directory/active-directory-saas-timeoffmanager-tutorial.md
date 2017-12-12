@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 3f944ffbf704694b293b4b1e5bdb4f2c93ae35a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5638a1b2271fe50344c29de1e3883ca67c20c9ec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Självstudier: Azure Active Directory-integrering med TimeOffManager
 
@@ -122,7 +122,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![SAML-token attribut](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_attrb.png "attribut för saml-token")
     
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | --- | --- |
     | Förnamn |User.givenName |
     | Efternamn |User.surname |

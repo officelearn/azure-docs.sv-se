@@ -4,7 +4,7 @@ description: "Stöd för flera företagsanpassning upplevelser med HTML5/CSS-inn
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer
 Med hjälp av Azure Active Directory B2C (Azure AD B2C) anpassade principer, kan du skicka en parameter i en frågesträng. Genom att ange parametern till din HTML-slutpunkt, kan du ändra sidinnehållet dynamiskt. Du kan till exempel ändra bakgrundsbilden på Azure AD B2C registrering eller inloggning sidan baserat på en parameter som överförs från dina webb- eller mobila program. 
@@ -155,7 +155,7 @@ Leta upp den `<img>` element som innehåller den `ID` värdet *background_backgr
     Den **skapa App Service** öppnas. I den kan du börja skapa alla nödvändiga Azure-resurser för att köra ASP.NET-webbapp i Azure.
 
     > [!NOTE]
-    > Mer information om hur du publicerar finns [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Mer information om hur du publicerar finns [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. I den **Webbprogramnamnet** Skriv ett unikt appnamn (giltiga tecken är a-z, A-Z, 0-9 och bindestreck (-). Webbadressen till webbappen är `http://<app_name>.azurewebsites.NET`, där `<app_name>` är webbappens namn. Du kan godkänna namnet som genereras automatiskt och som är unikt.
 

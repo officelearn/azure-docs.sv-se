@@ -4,7 +4,7 @@ description: "Lär dig hur du använder Workday som datakälla identitet för Ac
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Självstudier: Konfigurera Workday för automatisk användaretablering med lokala Active Directory och Azure Active Directory
 Syftet med den här kursen är att visa de steg som du behöver utföra för att importera personer från Workday till Azure Active Directory- och Active Directory-med valfritt tillbakaskrivning av vissa attribut till Workday. 
@@ -347,7 +347,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 | **AddressLineData**    |  StreetAddress  |     |   Skapa och uppdatera |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Skapa och uppdatera |
 | **BusinessTitle**   |  Rubrik     |     |  Skapa och uppdatera |
-| **Ansluta (”@”, Ersätt (Ersätt (ersätta (Ersätt (ersätta (Ersätt (ersätta (ersätta (Ersätt ((Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt ( Ersätt (ansluta till (””., [Förnamn], [Efternamn]), ”([Øø])”, ”Outlook Express”,), ”[Ææ]”, ”ae”,), ”([äãàâãåáąÄÃÀÂÃÅÁĄA])”, ”a”,), ”[B]”, ”b”,), ”([CçčćÇČĆ])”, ”c”,), ”([ďĎD])”, ”d”,), ”([ëèéêęěËÈÉÊĘĚE])”, ”e”,), ”[F]”, ”f”,), ”([G])” ”g”,), ”[H]”, ”h”,), ”([ïîìíÏÎÌÍI])”, ”i”,), ”[J]”, ”j”,), ”([K])”, ”k”,), ”([ľłŁĽL])”, ”l”,), ”([M])”, ”m”,), ”([ñńňÑŃŇN])”, ”n”,), ”([öòőõôóÖÒŐÕÔÓO])”, ”o”,), ”([P])”, ”p”,), ”([Q])”, ”q”,),  ”([ŘŘR])”, ”r”,), ”([ßšśŠŚS])”, ”s”,), ”([TŤť])”, ”t”,), ”([üùûúůűÜÙÛÚŮŰU])”, ”u”,), ”([V])”, ”v”,), ”([B])”, ”b”,), ”([ýÿýŸÝY])”, ”y”,), ”([źžżŹŽŻZ])”, ”z”,) ”,”, ””,), ”contoso.com”)**   | UserPrincipalName     |     | Skapa och uppdatera                                                   
+| **Ansluta (”@”, Ersätt (Ersätt (ersätta (Ersätt (ersätta (Ersätt (ersätta (ersätta (Ersätt ((Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt ( Ersätt (ansluta till (””., [Förnamn], [Efternamn]), ”([Øø])”, ”Outlook Express”,), ”[Ææ]”, ”ae”,), ”([äãàâãåáąÄÃÀÂÃÅÁĄA])”, ”a”,), ”[B]”, ”b”,), ”([CçčćÇČĆ])”, ”c”,), ”([ďĎD])”, ”d”,), ”([ëèéêęěËÈÉÊĘĚE])”, ”e”,), ”[F]”, ”f”,), ”([G])” ”g”,), ”[H]”, ”h”,), ”([ïîìíÏÎÌÍI])”, ”i”,), ”[J]”, ”j”,), ”([K])”, ”k”,), ”([ľłŁĽL])”, ”l”,), ”([M])”, ”m”,), ”([ñńňÑŃŇN])”, ”n”,), ”([öòőõôóÖÒŐÕÔÓO])”, ”o”,), ”([P])”, ”p”,), ”([Q])”, ”q”,),  ”([ŘŘR])”, ”r”,), ”([ßšśŠŚS])”, ”s”,), ”([TŤť])”, ”t”,), ”([üùûúůűÜÙÛÚŮŰU])”, ”u”,), ”([V])”, ”v”,), ”([B])”, ”b”,), ”([ýÿýŸÝY])”, ”y”,), ”([źžżŹŽŻZ])”, ”z”,) ”,”, ””,), ”contoso.com”)**   | userPrincipalName     |     | Skapa och uppdatera                                                   
 | **Växel (\[namnet\]”, OU standardanvändare, OU = = användare, OU = standard, OU = platser, DC = contoso, DC = com”, ”Dallas” ”, OU standardanvändare, OU = = användare, OU Dallas, OU = platser, DC = = contoso, DC = com”, ”Austin” ”OU standardanvändare, OU = = Användare, OU Austin, OU = platser, DC = = contoso, DC = com ”,” Seattle ””, OU standardanvändare, OU = = användare, OU Seattle, OU = = platser, DC = contoso, DC = com ”,” London ””, OU standardanvändare, OU = = användare, OU London, OU = platser, DC = = contoso, DC = com ”)**  | parentDistinguishedName     |     |  Skapa och uppdatera |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Del 3: Konfigurera lokal synkronisering agent

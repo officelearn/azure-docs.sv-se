@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: c29d218dbca581f102caf8070fa40894e7006e71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3edc8f6825af956cf57b8385697dcc206405baa1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Självstudier: Azure Active Directory-integrering med YouEarnedIt
 
@@ -109,16 +109,16 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![URL: er och YouEarnedIt domän med enkel inloggning information](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_url.png)
 
     a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster: 
-    | Miljö  | Mönstret  |
+    | Miljö  | Mönster  |
     |:--- |:--- |
     | Produktion | `https://<company name>.youearnedit.com/users/sign_in` |
-    | Sandbox  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
+    | Begränsat läge  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. I den **identifierare** textruta Skriv en URL med följande mönster:
-    | Miljö  | Mönstret  |
+    | Miljö  | Mönster  |
     |:--- |:--- |
     | Produktion | `https://<company name>.youearnedit.com` |
-    | Sandbox  |`https://<company name>.sandbox.youearnedit.com` |
+    | Begränsat läge  |`https://<company name>.sandbox.youearnedit.com` |
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [YouEarnedIt klienten supportteamet](https://youearnedit.freshdesk.com/support/tickets/new) att hämta dessa värden. 

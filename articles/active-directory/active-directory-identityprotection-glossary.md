@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprinciper och ordlista"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5b6d2db0a8df31fd159053cceab6b9b320ffd8cb
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection – ordlista
 ### <a name="at-risk-user"></a>Risk (användare)
@@ -91,7 +91,7 @@ Identifiering av avvikelser och utvärdering av risken för en händelse som inl
 ### <a name="remediated-risk-event"></a>Åtgärdad (risk händelse)
 En risk händelsestatus anges automatiskt av identitetsskydd, som anger att händelsen risk har reparerats använder standard Reparationsåtgärd för den här typen av risk händelse. Till exempel åtgärdas automatiskt många riskhändelser som indikerar att det tidigare lösenordet har drabbats när användarens lösenord återställs.
 
-### <a name="remediation"></a>Reparation
+### <a name="remediation"></a>Åtgärd
 En åtgärd för att skydda en identitet eller en enhet som har tidigare eller misstänks vara hotad. En Reparationsåtgärd återställer identitet eller enhet till ett säkert tillstånd och löser tidigare riskhändelser som associeras med identiteten eller enhet.
 
 ### <a name="resolved-risk-event"></a>Löst (risk händelse)
@@ -139,25 +139,25 @@ En risk händelsen utlöses när en lyckad inloggning från en IP-adress med ett
 ### <a name="sign-in-from-unfamiliar-location"></a>Logga in från okänd plats
 En risk händelsen som utlöses när en användare loggar in från en ny plats (IP, latitud/longitud och ASN) har.
 
-### <a name="sign-in-risk"></a>Logga in risk
+### <a name="sign-in-risk"></a>Inloggningsrisk
 Finns Risk nivå (inloggning)
 
-### <a name="sign-in-risk-policy"></a>Logga in riskprincipen
+### <a name="sign-in-risk-policy"></a>Riskprincip för inloggning
 En villkorlig åtkomstprincip som utvärderar risken för en specifik inloggning och tillämpar åtgärder baserat på fördefinierade villkor och regler.
 
 ### <a name="user-compromise-risk"></a>Användaren har komprometterats risk
 Finns Risk nivå (användare kompromettering)
 
-### <a name="user-risk"></a>Användaren risk
+### <a name="user-risk"></a>Användarrisk
 Finns Risk nivå (användare kompromettering).
 
-### <a name="user-risk-policy"></a>Risk användarprincip
+### <a name="user-risk-policy"></a>Riskprincip för användare
 En villkorlig åtkomstprincip som överväger logga in och tillämpar åtgärder baserat på fördefinierade villkor och regler.
 
 ### <a name="users-flagged-for-risk"></a>Användare som har flaggats för risk
 Användare som har riskhändelser som är aktiva eller reparerade
 
-### <a name="vulnerability"></a>Säkerhetsproblem
+### <a name="vulnerability"></a>Sårbarhet
 En konfiguration eller villkor i Azure Active Directory som gör att katalogen känsligt för kryphål eller hot.
 
 ## <a name="see-also"></a>Se även

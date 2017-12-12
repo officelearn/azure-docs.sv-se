@@ -3,7 +3,7 @@ title: "Azure AD Connect: Använda en SAML-identitetsprovider 2.0 för enkel inl
 description: "Det här avsnittet beskriver hur du använder en kompatibel Idp SAML 2.0 för enkel inloggning på."
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning på
 
@@ -78,7 +78,7 @@ Den här tabellen visas kraven för specifika attribut i SAML 2.0-meddelandet.
 | ----- | ----- |
 |NameID|Värdet för den här kontrollen måste vara samma som Azure AD-användare ImmutableID. Det kan vara upp till 64 alfanumeriska tecken. Säker tecken icke HTML måste kodas, till exempel tecknet ”+” visas som ”.2b”.|
 |IDPEmail|Den UPN (User Principal Name) visas i SAML-svar som ett element med namnet IDPEmail är användarens UserPrincipalName (UPN) i Azure AD/Office 365. UPN-namnet är i formatet för e-postadress. UPN-värdet i Windows Office 365 (Azure Active Directory).|
-|Utfärdaren|Detta måste vara en URI: N för identitetsleverantören. Du bör inte återanvända utfärdaren från exemplet meddelanden. Om du har flera domäner på toppnivå i Azure AD-klienter måste utfärdaren matcha den angivna URI-inställningar som konfigureras per domän.|
+|Utfärdare|Detta måste vara en URI: N för identitetsleverantören. Du bör inte återanvända utfärdaren från exemplet meddelanden. Om du har flera domäner på toppnivå i Azure AD-klienter måste utfärdaren matcha den angivna URI-inställningar som konfigureras per domän.|
 
 >[!IMPORTANT]
 >Azure AD för närvarande stöder följande NameID Format URI: N för SAML-2.0:urn:oasis:names:tc:SAML:2.0:nameid-format: beständig.

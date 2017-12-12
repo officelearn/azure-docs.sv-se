@@ -75,6 +75,7 @@
 ##### [Typserialisering](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 ### [Programmodell](service-fabric-application-model.md)
+### [Program- och tjänstmanifest](service-fabric-application-and-service-manifests.md)
 ### [Värdmodell](service-fabric-hosting-model.md)
 
 ### Tjänster

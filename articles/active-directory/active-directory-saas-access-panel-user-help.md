@@ -4,7 +4,7 @@ description: "Hämta anvisningarna för att utföra vanliga uppgifter när du ar
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: d5aa5cb5331b8b0e714156982ed162e873428be0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Behöver du hjälp med Mina appar portal?
 

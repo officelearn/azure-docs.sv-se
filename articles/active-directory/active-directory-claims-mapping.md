@@ -3,7 +3,7 @@ title: "Anspråk mappning i Azure Active Directory (förhandsversion) | Microsof
 description: "Den här sidan beskrivs Azure Active Directory anspråk mappning."
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 78dbbe085fca26ad529c6262ba852f3c06ace404
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Anspråk mappning i Azure Active Directory (förhandsversion)
 
@@ -95,7 +95,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|E-post|
+|e-post|
 |slutpunkt|
 |enfpolids|
 |EXP|
@@ -154,8 +154,8 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |refresh_token|
 |refreshtoken|
 |request_nonce|
-|Resursen|
-|Rollen|
+|resurs|
+|roll|
 |roles|
 |Omfång|
 |SCP|

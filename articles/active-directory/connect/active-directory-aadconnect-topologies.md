@@ -4,7 +4,7 @@ description: "Det här avsnittet beskrivs topologier som stöds respektive inte 
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokalt och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller både stöds och som inte stöds.

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Hantering av Active directory-lösenord, lösenordshantering, Azure AD self service för lösenordsåterställning"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c5c3129a50f456e484bf8af2a866059f494bed1d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 

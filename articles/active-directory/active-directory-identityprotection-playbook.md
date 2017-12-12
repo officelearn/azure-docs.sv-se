@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5479981ed4c017e6953ef616588ca0e4060ce3b2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: e274a9364dcb7bf4d220159e1f906bbd015369aa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory-identitetsskydd playbook
 Den här playbook hjälper dig att:
@@ -112,7 +112,7 @@ Säkerhetsrisker är svagheter i en Azure AD-miljö som kan utnyttjas av en fela
     ![Playbook](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
-## <a name="sign-in-risk"></a>Logga in risk
+## <a name="sign-in-risk"></a>Inloggningsrisk
 **Om du vill testa ett tecken i risk, utför du följande steg:**
 
 1. Logga in på [https://portal.azure.com ](https://portal.azure.com) med globala administratörsbehörigheter för din klient.

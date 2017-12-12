@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: ffb6464f-714d-41a9-869a-2b7e5ae9f125
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e9a5e65c484dfb98d1a7bc63d55f6ef92039554b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7271efe4a1cd943f84d322e7333c92d6f60b62aa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Självstudier: Azure Active Directory-integrering med ADP Globalview
 
@@ -127,10 +127,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 7. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
     | personalimmutableid | User.extensionattribute2 |
-    | E-post               | User.Mail |
+    | e-post               | User.Mail |
     | användar-ID              | User.userPrincipalName|
     
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.

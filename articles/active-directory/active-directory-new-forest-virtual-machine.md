@@ -1,11 +1,11 @@
 ---
 title: "Installera Active Directory-skog på Azure-nätverk | Microsoft Docs"
-description: "En genomgång som förklarar hur du skapar en ny Active Directory-skog på en virtuell dator (VM) på ett Azure Virtual Network."
+description: "En självstudiekurs som beskriver hur du skapar en ny Active Directory-skog på en virtuell dator (VM) på Azure-nätverk."
 services: active-directory, virtual-network
 keywords: 'Active directory virtuell dator, installera active directory-skog, azure active directory-videor '
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 tags: 
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Installera en ny Active Directory-skog på Azure-nätverk
 Den här artikeln visar hur du skapar en ny Windows Server Active Directory-miljö på en virtuell dator (VM) på en [virtuella Azure-nätverket](../virtual-network/virtual-networks-overview.md). I det här fallet är virtuella Azure-nätverket inte ansluten till ett lokalt nätverk.
@@ -27,7 +27,7 @@ Den här artikeln visar hur du skapar en ny Windows Server Active Directory-milj
 Du kan också vara intresserad av dessa relaterade artiklar:
 
 * Se en video som visar de här stegen [hur du installerar en ny Active Directory-skog på Azure-nätverk](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-* Du kan alternativt [konfigurera en plats-till-plats-VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) och sedan installera en ny skog eller utöka en lokal skog till ett Azure virtual network. De här stegen finns [installera en replikerad Active Directory-domänkontroller i ett Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
+* Du kan alternativt [konfigurera en plats-till-plats-VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) och sedan installera en ny skog eller utöka en lokal skog till ett Azure virtual network. De här stegen finns [installera en replikerad Active Directory-domänkontroller i ett Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
 * Konceptuell vägledning om hur du installerar Active Directory Domain Services (AD DS) på Azure-nätverk finns i [riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Scenario-Diagram
@@ -45,7 +45,7 @@ Det finns inte mycket skillnaden mellan att installera en domänkontrollant på 
 | **Active Directory-databaslagring** |Om du vill ändra standardplatsen för lagring från C:\ |Du måste ändra standardlagringsplats från C:\ |
 
 ## <a name="create-an-azure-virtual-network"></a>Skapa ett Azure-nätverk
-1. Logga in på den klassiska Azure-portalen.
+1. Logga in på Azure Portal.
 2. Skapa ett virtuellt nätverk. Klicka på **nätverk** > **skapa ett virtuellt nätverk**. Använd värdena i tabellen nedan för att slutföra guiden.
 
    | På den här sidan i guiden... | Ange dessa värden |
@@ -59,7 +59,7 @@ Upprepa följande steg för att skapa virtuella datorer som värd för rollen DC
 
 För att skapa de virtuella datorerna med hjälp av Windows PowerShell i stället för Gränssnittet, se [Använd Azure PowerShell för att skapa och förkonfigurera Windows-baserade virtuella datorer](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-1. I den klassiska portalen klickar du på **ny** > **Compute** > **virtuella** > **från galleriet**. Använd följande värden för att slutföra guiden. Acceptera standardvärdet för en inställning om inte ett annat värde förslag eller krävs.
+1. Välj i Azure-portalen **ny** > **Compute**, och välj sedan en virtuell dator. Använd följande värden för att slutföra guiden. Acceptera standardvärdet för en inställning om inte ett annat värde förslag eller krävs.
 
    | På den här sidan i guiden... | Ange dessa värden |
    | --- | --- |
@@ -108,7 +108,7 @@ Mer information om hur du använder Windows PowerShell finns [Kom igång med Azu
 ## <a name="see-also"></a>Se även
 * [Hur du installerar en ny Active Directory-skog på Azure-nätverk](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * [Riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-* [Konfigurera en plats-till-plats-VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
+* [Konfigurera en plats-till-plats-VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Installera en replikerad Active Directory-domänkontroller i Azure-nätverk](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IT Pro IaaS: (01) virtuella grunderna](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IT Pro IaaS: (05) att skapa virtuella nätverk och anslutning](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)

@@ -4,7 +4,7 @@ description: "Publicera lokala program till molnet med Azure AD Application Prox
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: michael.tillman
+manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 6f848bf619756197e93278f81bc93dfaaf96f0f4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3639c7d8c3c1e716eaf1a0af0506f6d0d2ad0493
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicera program med Azure AD Application Proxy
 

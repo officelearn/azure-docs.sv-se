@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 5b55ae29-491f-401f-9299-d3a6b64a1b99
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 939cc4215ca8822cee376dfb13d5f6d1b8be1d35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e61cff696388d181f989478ea0d0defcc323f192
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Självstudier: Azure Active Directory-integrering med SpaceIQ
 
@@ -131,7 +131,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 8. När du är inloggad på problem tecken längst upp till höger Klicka på **”integreringar”**
 
-    ![Inställningarna för kontot](./media/active-directory-saas-spaceiq-tutorial/setting1.png) 
+    ![Kontoinställningar](./media/active-directory-saas-spaceiq-tutorial/setting1.png) 
 
 9. Under **etablering av alla & SSO**, klicka på den **Azure** rutan för att lägga till en instans av Azure som IDP.
 

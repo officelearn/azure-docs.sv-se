@@ -4,7 +4,7 @@ description: "Den här artikeln innehåller alla versioner av Azure AD Connect o
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5a47d7f589d4d2dcd40ebb6ff551f2c77fc8a8aa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -31,7 +31,7 @@ Det här är en lista över närliggande ämnen:
 Avsnitt |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgradera från en tidigare version till senast](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect-versionen.
-Behörigheter som krävs | Behörigheter som krävs för att tillämpa en uppdatering finns [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering finns [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Ladda ned| [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 
@@ -335,7 +335,7 @@ CBool(
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Välj|
     |CertKeyAlgorithmParams|CertHashString|där|
-    |||med|
+    |||Med|
 
 * Följande schemaändringar har införts för att skapa anpassade Synkroniseringsregler för att flöda sAMAccountName domainNetBios och domainFQDN för gruppobjekt samt distinguishedName för användarobjekt kunder:
 

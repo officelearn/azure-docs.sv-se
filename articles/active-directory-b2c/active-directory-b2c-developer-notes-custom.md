@@ -4,7 +4,7 @@ description: "Information för utvecklare på Konfigurera och underhålla Azure 
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 4fa4665115e0682df7c3fe3d8e2664a0f7a77a07
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Viktig information för en förhandsversion av Azure Active Directory B2C anpassad princip
 Funktionsuppsättningen anpassad princip är nu tillgänglig för utvärdering under förhandsversion för alla Azure Active Directory B2C (Azure AD B2C) kunder. Den här funktionsuppsättningen är inriktad på avancerade identitet utvecklare som bygger mest komplexa identitetslösningar.  

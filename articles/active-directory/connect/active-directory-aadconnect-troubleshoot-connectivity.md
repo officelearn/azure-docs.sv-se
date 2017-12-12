@@ -4,7 +4,7 @@ description: "Beskriver hur du felsöker problem med nätverksanslutningen med A
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Felsökning av anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur anslutning mellan Azure AD Connect och AD Azure fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är stor sannolikhet kommer att visas i en miljö med en proxyserver.
@@ -40,7 +40,7 @@ Proxyservern måste också ha de URL: erna öppnas. Den officiella förteckninge
 
 Följande tabell är det absoluta minst för att kunna ansluta till Azure AD alls av dessa webbadresser. Den här listan innehåller inte några valfria funktioner, till exempel tillbakaskrivning av lösenord eller Azure AD Connect Health. Den dokumenteras här för att underlätta felsökningen för den inledande konfigurationen.
 
-| URL | Port | Beskrivning |
+| Webbadress | Port | Beskrivning |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
 | \*. verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
@@ -110,7 +110,7 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 **Anslut till Azure AD**
 
-| Tid | URL |
+| Tid | Webbadress |
 | --- | --- |
 | 1/11/2016 8:31 |Connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |Connect://adminwebservice.microsoftonline.com:443 |
@@ -121,7 +121,7 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 **Konfigurera**
 
-| Tid | URL |
+| Tid | Webbadress |
 | --- | --- |
 | 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |ansluta: / /*bba800 fästpunkt*. microsoftonline.com:443 |
@@ -137,7 +137,7 @@ Här är en dump från en verklig proxy-loggen och installationssidan från var 
 
 **Inledande synkronisering**
 
-| Tid | URL |
+| Tid | Webbadress |
 | --- | --- |
 | 1/11/2016 8:48 |Connect://login.Windows.NET:443 |
 | 1/11/2016 8:49 |Connect://adminwebservice.microsoftonline.com:443 |
@@ -180,7 +180,7 @@ Autentiseringen lyckades. Det gick inte att hämta företagets information från
 ### <a name="retrievedomains"></a>RetrieveDomains
 Autentiseringen lyckades. Det gick inte att hämta domäninformation från Azure AD.
 
-### <a name="unexpected-exception"></a>Ett oväntat undantag
+### <a name="unexpected-exception"></a>Oväntat undantag
 Visas som ett oväntat fel i installationsguiden. Kan inträffa om du försöker använda en **Account** snarare än en **Skol- eller organisation konto**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Felsökningssteg för tidigare versioner.

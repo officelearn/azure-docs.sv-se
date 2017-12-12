@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: 
 author: asmalser-msft
 writer: asmalser-msft
-manager: stevenpo
+manager: mtillman
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: d168cab568eb8afd4d92febf4e80e29fe576f2ec
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d9dcc7f81b32498802d52e864c834d785386985c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-zendesk-for-automatic-user-provisioning"></a>Självstudier: Konfigurera ZenDesk för automatisk Användaretablering
 

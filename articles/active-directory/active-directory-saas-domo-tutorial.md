@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 919d2262cf9f14159a13370037301005b5b69da2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3fbfd8839b1a45c6927753a48d1ac617f2d34427
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Självstudier: Azure Active Directory-integrering med Domo
 
@@ -137,10 +137,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
 5. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
     | namn | User.DisplayName |
-    | E-post | User.Mail |
+    | e-post | User.Mail |
     
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 

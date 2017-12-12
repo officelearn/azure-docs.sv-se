@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jeedes
-ms.openlocfilehash: d6f0570f7a98fc9f703c37eed4219990dac4d370
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 03a6eb581dae88e9789b73c04d5424c0ed14cf62
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Självstudier: Azure Active Directory-integrering med Achieve3000
 
@@ -125,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
     | studentID               | User.Mail |
 

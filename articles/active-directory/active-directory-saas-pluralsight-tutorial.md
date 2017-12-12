@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 62429643a108665544e42001d264046b5db1ec97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2722794bd10c79ab081040173e091e452a1b024d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Självstudier: Azure Active Directory-integrering med Pluralsight
 
@@ -132,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. Att lägga till de nödvändiga **SAML-token attribut**, utför följande steg för varje rad som visas i tabellen nedan:
    
-   | Attributets namn | Attributvärdet |
+   | Attributnamn | Attributvärde |
    | ---| --- |
    | Förnamn |User.givenName |
    | Efternamn |User.surname |

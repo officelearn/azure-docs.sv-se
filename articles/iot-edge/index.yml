@@ -12,13 +12,13 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/08/2017
+  ms.date: 12/08/2017
   ms.author: kgremban
-  ms.openlocfilehash: 51bcd5bbf6cd388961f254c938d34df56596ed13
-  ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+  ms.openlocfilehash: d49e1647db25023cefd59d667f87396827b7ca27
+  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/15/2017
+  ms.lasthandoff: 12/11/2017
 abstract:
   description: "Azure IoT Edge är en tjänst för Sakernas Internet (IoT) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”, i stället för i molnet. När delar av din arbetsbelastning flyttas till Edge kan dina enheter ägna mindre tid åt att skicka meddelanden till molnet och i stället reagera snabbare på tillståndsändringar."
 sections:
@@ -48,4 +48,5 @@ sections:
     - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulera en IoT Edge-enhet i Linux</a>
     - html: <a href="/azure/iot-edge/tutorial-csharp-module">Utveckla och distribuera en C#-modul</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Distribuera Azure Stream Analytics som en modul</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Distribuera Azure Machine Learning som en modul</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-function">Distribuera Azure Functions som en modul</a>

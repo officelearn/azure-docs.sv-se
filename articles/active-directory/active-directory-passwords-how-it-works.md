@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ad1735d618856fb13ec2846f1da4fdaec1c4e614
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Självbetjäning för återställning av lösenord i Azure AD ingående
 
@@ -205,7 +205,7 @@ Om det här alternativet är inställt på **Ja**, sedan *alla administratörer*
 
 Exempel: Det finns fyra administratörer i en miljö. Administratören A återställer sitt lösenord med hjälp av SSPR. Administratörer B och C D får ett e-postmeddelande som meddelar dem om återställning av lösenord.
 
-## <a name="on-premises-integration"></a>Lokal integrering
+## <a name="on-premises-integration"></a>Lokal integration
 
 Om du installerar, konfigurerar och aktiverar Azure AD Connect har du följande ytterligare alternativ för lokal integreringar. Om dessa alternativ är nedtonade har sedan tillbakaskrivning inte konfigurerats korrekt. Mer information finns i [konfigurera tillbakaskrivning av lösenord](active-directory-passwords-writeback.md#configure-password-writeback).
 

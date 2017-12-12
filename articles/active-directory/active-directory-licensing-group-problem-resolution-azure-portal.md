@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD-licensiering
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa16cf14def7c6b4555d6624b25e267ef01d5adb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bd28eeb8d67dc0dcb3303fdb0e3c20b32f7c431
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa problem med licensen tilldelning för en grupp i Azure Active Directory
 
@@ -52,7 +52,7 @@ När du använder gruppbaserade licensiering, samma fel inträffar, men de sker 
 
 Följande avsnitt ger en beskrivning av varje potentiella problem och hur man löser problemet.
 
-## <a name="not-enough-licenses"></a>Det finns inte tillräckligt med licenser
+## <a name="not-enough-licenses"></a>Det finn inte tillräckligt med licenser
 
 **Problem:** det inte finns tillräckligt många tillgängliga licenser för en av de produkter som anges i gruppen. Du måste köpa fler licenser för produkten eller frigör oanvända licenser från andra användare eller grupper.
 
@@ -62,7 +62,7 @@ Om du vill se vilka användare och grupper som förbrukar licenser, välja en pr
 
 **PowerShell:** PowerShell-cmdlets rapportera felet som _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Motstridiga service-planer
+## <a name="conflicting-service-plans"></a>Tjänstplanerna är i konflikt
 
 **Problem:** en av de produkter som har angetts i gruppen innehåller en serviceplan som står i konflikt med en annan service-plan som är redan tilldelad till användare via en annan produkt. Vissa serviceplaner konfigureras så att de inte kan tilldelas samma användare som en annan, relaterade service-plan.
 

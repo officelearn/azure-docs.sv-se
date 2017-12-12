@@ -219,7 +219,6 @@
 ### [Konfigurera automatisk acceleration för inloggning med hjälp av HRD-princip](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
-#### [Åtkomst med självbetjäning](active-directory-self-service-application-access.md)
 #### [Åtkomst med enkel inloggning](active-directory-appssoaccess-whatis.md)
 #### [Certifikat för enkel inloggning](active-directory-sso-certs.md)
 #### [Klientrestriktioner](active-directory-tenant-restrictions.md)
@@ -281,7 +280,7 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
-#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### Uppgifter

@@ -34,8 +34,6 @@
       href: how-to-install-iot-core.md
 - name: Koncept
   items:
-    - name: IoT Edge-ordlista
-      href: iot-edge-glossary.md
     - name: IoT Edge-moduler
       href: iot-edge-modules.md
       items:
@@ -51,6 +49,8 @@
       href: iot-edge-as-gateway.md
     - name: Säkerhet
       href: security.md
+    - name: IoT Edge-ordlista
+      href: iot-edge-glossary.md
 - name: Resurser
   items:
     - name: Azure Certified for IoT-enhetskatalog

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 2a20ee1df23df683c49444e8fb3ffdb2085b174f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och hantering av problem för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -182,7 +182,7 @@ Med hjälp av någon av ovanstående metoder måste respektive certifikat (*.pfx
 
 Molntjänst är en klassisk resurs. Endast resurser som skapats via Azure Resource Manager support taggar. Du kan inte använda taggar klassiska resurser, till exempel tjänst i molnet. 
 
-## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Vad är kommande Cloud Service-funktionerna i Azure Portal som hjälper dig att hantera och övervaka program?
+## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Vad är kommande Cloud Service-funktionerna i Azure-portalen som hjälper dig att hantera och övervaka program?
 
 * Möjligheten att generera ett nytt certifikat för Remote Desktop Protocol (RDP) kommer snart. Du kan också köra det här skriptet:
 
@@ -221,3 +221,65 @@ När detta har gjorts, kan du kontrollera om HTTP-2 har aktiverats eller inte ge
 - Aktivera F12 Utvecklarverktyget i Internet Explorer/kant och gå till fliken nätverk för att verifiera protokollet. 
 
 Mer information finns i [HTTP-2 på IIS](https://blogs.iis.net/davidso/http2).
+
+## <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>Azure-portalen visar inte SDK-versionen av tjänst i molnet. Hur kan jag som?
+
+Vi arbetar på att den här funktionen på Azure-portalen. Under tiden kan använda du följande PowerShell-kommandon för att hämta SDK-version:
+
+    Get-AzureService -ServiceName "<Cloud service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+
+## <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Det går inte att Fjärrskrivbord för Cloud Service VM med hjälp av RDP-filen. Jag får följande fel: ett autentiseringsfel har uppstått (kod: 0x80004005)
+
+Det här felet kan uppstå om du använder RDP-filen från en dator som är ansluten till Azure Active Directory. Följ dessa steg för att lösa problemet:
+
+1. Högerklicka på RDP-filen som du hämtade och välj **redigera**.
+2. Lägg till ”& #92”; som prefix före användarnamnet. Till exempel använda **. \username** i stället för **användarnamn**.
+
+## <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Jag vill stänga av Molntjänsten för flera månader. Hur du minskar fakturering kostnaden för Molntjänsten utan att förlora IP-adressen?
+
+En redan distribuerad tjänst i molnet hämtar debiteras för beräkning och lagring som används. Så även om du stänger av den virtuella Azure-datorn kommer du fortfarande få debiteras för lagring. 
+
+Här är vad du kan göra för att minska faktureringen utan att förlora IP-adressen för din tjänst:
+
+1. [Reservera IP-adress](../virtual-network/virtual-networks-reserved-public-ip.md) innan du tar bort distributioner.  Du kommer bara att debiteras för den här IP-adress. Läs mer om IP-adress fakturering [IP-adresser priser](https://azure.microsoft.com/pricing/details/ip-addresses/).
+2. Ta bort distributioner. Ta inte bort xxx.cloudapp.net, så att du kan använda den för framtida.
+3. Om du vill distribuera om Molntjänsten med hjälp av samma reserverad IP som du har reserverats i din prenumeration, se [reserverade IP-adresser för molntjänster och virtuella datorer](https://azure.microsoft.com/blog/reserved-ip-addresses/).
+
+## <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Min Cloud Service Management certifikatet upphör att gälla. Hur du förnyar det?
+
+Du kan använda följande PowerShell-kommandon för att förnya din Management-certifikat:
+
+    Add-AzureAccount
+    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+    Get-AzurePublishSettingsFile
+
+Den **Get-AzurePublishSettingsFile** skapar ett nytt certifikat i **prenumeration** > **Hanteringscertifikat** i Azure-portalen. Det ser ut som ”YourSubscriptionNam]-[CurrentDate] - autentiseringsuppgifter” namnet på det nya certifikatet.
+
+## <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Hur konfigurerar Autoskala baserat på minne mått?
+
+Autoskala baserat på minne mått för en molntjänster stöds inte för närvarande. 
+
+Om du vill undvika det här problemet använder du Application Insights, så att diagnostiska agenten skulle vidarebefordra mätvärdena till Application Insights. Autoskala stöder Application Insights som en källa för mått och kan skalas rollinstansantal baserat på gästen mått som ”minne”.  Du måste konfigurera Application Insights i Molntjänsten paketet projektfilen (*.cspkg) och aktivera tillägg för Azure-diagnostik på tjänsten för att implementera den här prestation.
+
+Mer information om hur du använder ett anpassat mått via Application Insights för att konfigurera automatisk skalning på molntjänster finns [Kom igång med Autoskala efter anpassade mått i Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+
+
+Mer information om hur du integrerar Azure Diagnostics med Application Insights för molntjänster finns [skicka Cloud Service, virtuell dator eller Service Fabric diagnostikdata till Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+
+Läs mer om att aktivera Application Insights för molntjänster [Application Insights för Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+
+Mer information om hur du aktiverar loggning av Azure-diagnostik för molntjänster finns [konfigurera diagnostik för Azure-molntjänster och virtuella datorer](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+
+## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Hur du automatiserar de huvudsakliga SSL certifikat (.pfx) och mellanliggande certificate(.p7b) cert installationen?
+
+Du kan automatisera den här uppgiften med hjälp av ett startskript (PowerShell-batch/cmd) och registrera det startskriptet i tjänstdefinitionsfilen. Lägga till både startskript och certifikat (.p7b-fil) i projektmappen i samma katalog för startskriptet.
+
+Mer information finns i följande artiklar:
+- [Konfigurera och köra startade aktiviteter för en tjänst i molnet](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
+- [Vanliga uppgifter för start av Molntjänsten](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Varför kräver Azure-portalen mig att tillhandahålla ett lagringskonto för distributionen?
+
+Paketet har överförts till API hanteringslager direkt i den klassiska portalen och API-lagret skulle tillfälligt publicera sedan paketet till en intern storage-konto.  Detta leder till problem med prestanda och skalbarhet eftersom API-lagret inte har utformats för att en tjänst för överföringen av filen.  I Azure-portalen (Resource Manager-modellen), har vi över mellanliggande steg första överför API-lagret som resulterar i snabbare och mer tillförlitlig distributioner.
+ 
+Det är mycket små som kostnad, och du kan återanvända samma lagringskonto i alla distributioner. Du kan använda den [kostnaden lagringsberäknaren](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) ladda ned CSPKG för att fastställa kostnaden för att överföra servicepaket (CSPKG), och ta sedan bort CSPKG.

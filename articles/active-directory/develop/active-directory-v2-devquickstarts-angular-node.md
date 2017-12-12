@@ -4,7 +4,7 @@ description: "Hur du skapar en vinkel JS sida-app som loggar in användare med b
 services: active-directory
 documentationcenter: 
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e90171afd9c4c782fbb18375ab2d147497ef442
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 10f797ad97ac3253984896c6cadb66b6b948ff8a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>Lägga till inloggning till en AngularJS sida app - NodeJS
 I den här artikeln ska vi lägga till logga in med Microsoft påslagen konton för en AngularJS-app med Azure Active Directory v2.0-slutpunkten. v2.0-slutpunkten kan du utföra en enkel integrering i din app och autentiserar användare med både personliga och arbete/skola konton.

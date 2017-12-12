@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 006f32ea9dea18f8b8e454a256272ec87bfee7f3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Hur du använder Reliable Services kommunikationen API: er
 Azure Service Fabric en plattform som är helt oberoende om kommunikation mellan tjänster. Alla protokoll och stackar är acceptabla, från UDP till HTTP. Är det upp till tjänsten utvecklaren kan välja hur tjänster ska kommunicera. Application framework Reliable Services tillhandahåller inbyggd kommunikation stackar samt API: er som du kan använda för att skapa anpassade kommunikationskomponenter.
@@ -121,7 +121,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-Slutligen beskrivs de slutpunkter som krävs för tjänsten i den [tjänstmanifestet](service-fabric-application-model.md) under avsnittet på slutpunkter.
+Slutligen beskrivs de slutpunkter som krävs för tjänsten i den [tjänstmanifestet](service-fabric-application-and-service-manifests.md) under avsnittet på slutpunkter.
 
 ```xml
 <Resources>

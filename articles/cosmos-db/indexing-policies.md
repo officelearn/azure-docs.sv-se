@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 791446fbd7eb025441f051e2d8f8f2b1e6c47ebe
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 8b990d1887551cbe182fe1c38d2cfd02f3af5e78
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar Azure Cosmos DB indexinformationen?
 
@@ -229,7 +229,7 @@ Du kan välja om du vill att samlingen som automatiskt indexerar alla dokument. 
 
 Du kan fortfarande selektivt lägga till endast vissa dokument med automatisk indexering avstängd, i indexet. Däremot kan du lämna automatisk indexering på och selektivt välja att utesluta endast vissa dokument. Indexering på/av konfigurationer är användbara när du har bara en del av dokument som behöver efterfrågas.
 
-Till exempel i följande exempel visas hur du lägger till ett dokument som uttryckligen med hjälp av den [DocumentDB API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) och [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) egenskapen.
+Till exempel i följande exempel visas hur du lägger till ett dokument som uttryckligen med hjälp av den [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) och [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) egenskapen.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -315,7 +315,7 @@ När blir du indexering principändringar till Azure DB som Cosmos-samlingar Fö
 > 
 
 ## <a name="performance-tuning"></a>Prestandajustering
-DocumentDB APIs ange information om prestandamått, till exempel index lagringsutrymme som används och genomströmning kostnaden (frågeenheter) för varje åtgärd. Den här informationen kan användas för att jämföra olika principer för indexering och för prestandajustering.
+SQL-API: er ger information om prestandamått, till exempel index lagringsutrymme som används och genomströmning kostnaden (frågeenheter) för varje åtgärd. Den här informationen kan användas för att jämföra olika principer för indexering och för prestandajustering.
 
 Kör en HEAD eller GET-begäran mot samlingen resurs för att kontrollera lagringskvoten och användning av en samling och inspektera x-ms-begäran-quota och x-ms-begäran-användning-rubriker. I .NET-SDK på [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) och [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) egenskaper i [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) innehåller dessa motsvarande värden.
 
@@ -409,7 +409,7 @@ En praktisk jämförelse är här ett exempel anpassad indexprincip skrivs med h
 ## <a name="next-steps"></a>Nästa steg
 Följ länkarna nedan för index princip för hantering av prover och vill veta mer om Azure Cosmos DB frågespråk.
 
-1. [DocumentDB API .NET indexhantering kodexempel](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [Åtgärder för insamling av DocumentDB API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+1. [SQL API .NET indexhantering kodexempel](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [Åtgärder för insamling av SQL API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Fråga med SQL](documentdb-sql-query.md)
 

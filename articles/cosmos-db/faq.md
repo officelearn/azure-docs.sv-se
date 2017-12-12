@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e79a63c4316c50a7af0fc7ba0979a772ff5e6a91
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -30,11 +30,15 @@ Azure Cosmos-DB är den rätta lösningen för webb-, mobil-, spel- och IoT-appa
 
 Flera databasfrågor, svar och instruktioner för att distribuera och använda den här tjänsten finns [Azure Cosmos DB dokumentationen page] ((https://docs.microsoft.com/azure/cosmos-db/).
 
-### <a name="what-happened-to-documentdb"></a>Vad hände med DocumentDB?
-DocumentDB-API: N är en API som stöds och datamodeller för Azure Cosmos DB. Dessutom stöder Azure Cosmos DB du med Graph API (förhandsgranskning), tabell-API och MongoDB-API. Mer information finns i [frågor från DocumentDB kunder](#moving-to-cosmos-db).
+### <a name="what-happened-to-the-documentdb-api"></a>Vad hände med DocumentDB-API: et?
 
-### <a name="how-do-i-get-to-my-documentdb-account-in-the-azure-portal"></a>Hur får jag till DocumentDB-konto i Azure portal?
-Klicka på ikonen Azure Cosmos DB i den vänstra rutan i Azure-portalen. Om du har ett DocumentDB-konto innan har du nu ett Azure DB som Cosmos-konto med faktureringen ändras inte.
+Azure Cosmos DB DocumentDB API eller SQL (DocumentDB) API är nu kallat Azure SQL DB-API Cosmos. Du behöver inte ändra någonting om du vill fortsätta att köra dina appar som utvecklats med DocumentDB-API. Funktionen är densamma.
+
+Om du har ett DocumentDB-API-konto innan har du nu ett SQL-API-konto med faktureringen ändras inte. 
+
+### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Vad hände med Azure DocumentDB som en tjänst?
+
+Azure DocumentDB-tjänsten är nu en del av tjänsten Azure Cosmos DB och visar sig i form av SQL-API. Program som skapats mot Azure DocumentDB körs mot Azure SQL DB-API Cosmos utan några ändringar. Dessutom stöder Azure Cosmos DB Graph API (förhandsgranskning), tabell-API, MongoDB-API och Cassandra API (förhandsversion).
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Vad är vanliga användningsområden för Azure Cosmos DB?
 Azure Cosmos-DB är ett bra alternativ för nya webb-, mobil-, spel- och IoT-appar där automatisk skalning, förutsägbar prestanda, snabba ordning med svarstider på millisekunder och möjlighet till frågor över schemafria data är viktigt. Azure Cosmos-DB lämpar sig för snabb utveckling och stöder kontinuerlig iteration av appens datamodeller. Program som hanterar innehåll som skapats av användare och data är [vanliga användningsområden för Azure Cosmos DB](use-cases.md). 
@@ -42,11 +46,11 @@ Azure Cosmos-DB är ett bra alternativ för nya webb-, mobil-, spel- och IoT-app
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Hur erbjuder Azure Cosmos DB förutsägbar prestanda?
 En [begäran enhet](request-units.md) (RU) är ett mått på dataflödet i Azure Cosmos DB. En genomströmning 1 RU motsvarar dataflödet i GET av ett dokument på 1 KB. Varje åtgärd i Azure Cosmos DB, inklusive läsning, skrivning, SQL-frågor och lagrade procedurkörningar har en deterministisk RU-värde som är baserad på dataflödet som krävs för att slutföra åtgärden. I stället för att fundera på CPU, IO, och minne och hur de påverkar appens dataflöde tänka du på ett enda RU mått.
 
-Du kan reservera varje Azure DB som Cosmos-behållare med etablerat dataflöde räknat RUs genomströmning per sekund. För appar oavsett skala, kan du jämföra enskilda förfrågningar för att mäta deras RU-värden och etablera en behållare för att hantera totalsumman av frågeenheter över alla förfrågningar. Du kan även skala upp eller ned din behållaren genomströmning som behov utvecklas. Mer information om frågeenheter och hjälp att fastställa din behållaren måste, se [uppskatta behov för genomströmning](request-units.md#estimating-throughput-needs) och försök den [genomströmning Kalkylatorn](https://www.documentdb.com/capacityplanner). Termen *behållare* här refererar till refererar till en API för DocumentDB-samling, Graph API diagram, MongoDB API-samling och tabellen API-tabellen. 
+Du kan reservera varje Azure DB som Cosmos-behållare med etablerat dataflöde räknat RUs genomströmning per sekund. För appar oavsett skala, kan du jämföra enskilda förfrågningar för att mäta deras RU-värden och etablera en behållare för att hantera totalsumman av frågeenheter över alla förfrågningar. Du kan även skala upp eller ned din behållaren genomströmning som behov utvecklas. Mer information om frågeenheter och hjälp att fastställa din behållaren måste, se [uppskatta behov för genomströmning](request-units.md#estimating-throughput-needs) och försök den [genomströmning Kalkylatorn](https://www.documentdb.com/capacityplanner). Termen *behållare* här refererar till refererar till en SQL API samling, Graph API diagram, MongoDB API-samling och tabellen API-tabellen. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Hur stöder Azure Cosmos DB olika datamodeller som nyckel/värde, kolumner, dokument och diagrammet?
 
-Nyckel/värde (tabellen)-kolumner, dokumentera och diagramdata modeller är alla inbyggt stöd på grund av ARS (atomer, poster och sekvenser) design som Azure Cosmos DB bygger på. Atomer, poster och sekvenser kan enkelt mappas och planerad till olika datamodeller. API: er för en delmängd av modeller är tillgängliga just nu (DocumentDB, MongoDB, tabell och Graph API: er) och andra som är specifika för ytterligare datamodeller blir tillgängliga i framtiden.
+Nyckel/värde (tabellen)-kolumner, dokumentera och diagramdata modeller är alla inbyggt stöd på grund av ARS (atomer, poster och sekvenser) design som Azure Cosmos DB bygger på. Atomer, poster och sekvenser kan enkelt mappas och planerad till olika datamodeller. API: er för en delmängd av modeller är tillgängliga just nu (SQL, MongoDB, tabell och Graph API: er) och andra som är specifika för ytterligare datamodeller blir tillgängliga i framtiden.
 
 Azure Cosmos-DB har ett schema oberoende indexering motor kan indexera automatiskt alla data som den en utan att något schema eller sekundärindex från utvecklaren. Motorn är beroende av en uppsättning logiska index layouter (inverterad, kolumner, träd) som frikopplar lagringslayout från index och frågebearbetning undersystem. Cosmos DB har också möjlighet att stödja en uppsättning överföring protokoll och API: er på ett utökningsbart sätt och effektivt översätta dem till datamodellen kärnor (1) och de logiska index layouter (2) vilket gör det unikt kan stödja flera datamodeller internt.
 
@@ -60,7 +64,7 @@ Det finns ingen gräns för den totala mängden data som en behållare kan lagra
 Det finns ingen gräns för totala genomflödet som en behållare kan stödja i Azure Cosmos DB. Viktiga idé är att distribuera din arbetsbelastning ungefär jämnt mellan ett tillräckligt stort antal partitionsnycklar.
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Hur mycket kostar Azure Cosmos DB?
-Mer information finns i den [Azure Cosmos DB prisinformation](https://azure.microsoft.com/pricing/details/cosmos-db/) sidan. Avgifterna för användning av Azure DB Cosmos bestäms av antalet etablerade behållare, antalet timmar behållarna var online, och etablerat dataflöde för varje behållare. Termen *behållare* här refererar till DocumentDB API insamling, Graph API diagram, MongoDB API-samling och tabellen API-tabeller. 
+Mer information finns i den [Azure Cosmos DB prisinformation](https://azure.microsoft.com/pricing/details/cosmos-db/) sidan. Avgifterna för användning av Azure DB Cosmos bestäms av antalet etablerade behållare, antalet timmar behållarna var online, och etablerat dataflöde för varje behållare. Termen *behållare* här refererar till SQL API insamling, Graph API diagram, MongoDB API-samling och tabellen API-tabeller. 
 
 ### <a name="is-a-free-account-available"></a>Finns det ett kostnadsfritt konto?
 Ja, kan du registrera dig för ett konto för tidsbegränsade utan kostnad, utan bindning. Om du vill registrera dig finns [försök Azure Cosmos-DB gratis](https://azure.microsoft.com/try/cosmosdb/) eller Läs mer i den [försök Azure Cosmos DB vanliga frågor och svar](#try-cosmos-db).
@@ -81,7 +85,7 @@ Prova Azure Cosmos DB prenumerationer som visas i Azure portal bredvid andra pre
 
 Följande villkor gäller för försök Azure Cosmos DB prenumerationer:
 
-* En behållare per prenumeration för SQL (DocumentDB-API), Gremlin (Graph API) och konton för tabellen.
+* En behållare per prenumeration för SQL, Gremlin (Graph API) och tabellen konton.
 * Upp till 3 samlingar per prenumeration för MongoDB-konton.
 * 10 GB lagringskapacitet.
 * Globala replikering är tillgänglig i följande [Azure-regioner](https://azure.microsoft.com/regions/): centrala USA, Norra Europa och Asien/Stillahavsområdet, sydost
@@ -91,7 +95,7 @@ Följande villkor gäller för försök Azure Cosmos DB prenumerationer:
 
 ## <a name="set-up-azure-cosmos-db"></a>Konfigurera Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Hur loggar jag för Azure Cosmos DB?
-Azure Cosmos-DB är tillgängliga i Azure-portalen. Först registrera dig för en Azure-prenumeration. När du har registrerat dig du lägger till en DocumentDB-API, Graph API (förhandsgranskning), tabell-API eller MongoDB API-kontot för din Azure-prenumeration.
+Azure Cosmos-DB är tillgängliga i Azure-portalen. Först registrera dig för en Azure-prenumeration. När du har registrerat dig du lägger till en SQL-API, Graph API (förhandsgranskning), tabell-API, MongoDB-API eller Cassandra API-kontot för din Azure-prenumeration.
 
 ### <a name="what-is-a-master-key"></a>Vad är en huvudnyckel?
 En huvudnyckel är en säkerhetstoken som ger åtkomst till alla resurser för ett konto. Personer med nyckeln har läs- och skrivbehörighet till alla resurser i databaskontot. Var försiktig när du distribuerar huvudnycklar. Master primärnyckeln och sekundärnyckeln master är tillgängliga på den **nycklar** bladet för den [Azure-portalen][azure-portal]. Mer information om nycklar finns i [Visa, kopiera och generera åtkomstnycklar på nytt](manage-account.md#keys).
@@ -104,22 +108,22 @@ Azure Cosmos-DB finns över alla Azure-regioner, som anges på den [Azure-region
 
 Kom ihåg att Azure Cosmos DB respekterar statliga och offentliga moln när du ställer in en region. Som är om du skapar ett konto i en suveräna region, kan du replikera utanför suveräna regionen. På samma sätt kan du aktivera replikering till andra suveräna platser från ett utanför konto. 
 
-## <a name="develop-against-the-documentdb-api"></a>Utveckla mot DocumentDB API
+## <a name="develop-against-the-sql-api"></a>Utveckla mot SQL-API
 
-### <a name="how-do-i-start-developing-against-the-documentdb-api"></a>Hur börjar jag utveckla mot DocumentDB-API: et?
-Microsoft DocumentDB-API finns i den [Azure-portalen][azure-portal]. Du måste först registrera dig för en Azure-prenumeration. När du registrerar dig för en Azure-prenumeration kan du lägga till DocumentDB API-behållare till din Azure-prenumeration. Anvisningar för att lägga till ett konto i Azure Cosmos DB finns [skapa ett databaskonto Azure Cosmos DB](create-documentdb-dotnet.md#create-account). Om du har ett DocumentDB-konto i förflutna, nu har du ett konto i Azure Cosmos DB. 
+### <a name="how-do-i-start-developing-against-the-sql-api"></a>Hur börjar jag utveckla mot SQL-API?
+Du måste först registrera dig för en Azure-prenumeration. När du registrerar dig för en Azure-prenumeration kan du lägga till en SQL-API-behållare till din Azure-prenumeration. Anvisningar för att lägga till ett konto i Azure Cosmos DB finns [skapa ett databaskonto Azure Cosmos DB](create-documentdb-dotnet.md#create-account). 
 
 [SDK:er](documentdb-sdk-dotnet.md) är tillgängliga för .NET, Python, Node.js, JavaScript och Java. Utvecklare kan också använda den [RESTful http-API: er](/rest/api/documentdb/) att interagera med Azure Cosmos DB resurser från olika plattformar och språk.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Kan jag använda vissa färdiga prov för att komma igång?
-Exempel för DocumentDB-API [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), och [Python](documentdb-python-samples.md) SDK finns på GitHub.
+Exempel för SQL-API [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), och [Python](documentdb-python-samples.md) SDK finns på GitHub.
 
 
-### <a name="does-the-documentdb-api-database-support-schema-free-data"></a>Stöder DocumentDB API databasen schemafria data?
-Ja, DocumentDB-API kan appar lagrar godtyckliga JSON-dokument utan schemadefinitioner eller tips. Data är omedelbart tillgängligt för frågor via Azure Cosmos-Databasens SQL-gränssnitt.  
+### <a name="does-the-sql-api-database-support-schema-free-data"></a>API för SQL-databas som har stöd för schemafria data?
+Ja, tillåter SQL API appar lagrar godtyckliga JSON-dokument utan schemadefinitioner eller tips. Data är omedelbart tillgängligt för frågor via Azure Cosmos-Databasens SQL-gränssnitt.  
 
-### <a name="does-the-documentdb-api-support-acid-transactions"></a>Stöder DocumentDB API ACID-transaktioner?
-Ja, DocumentDB-API: et stöder transaktioner mellan dokument uttryckta som JavaScript-lagrade procedurer och utlösare. Transaktioner är begränsade till en enda partition inom varje samling och utförs med ACID-semantik som ”allt eller inget”, isoleras från andra samtidigt köra kod och begäranden. Om undantag utlöses via server-sida-körning av JavaScript, återställs hela transaktionen. Mer information om transaktioner finns [databasen transaktioner automatiskt](programming.md#database-program-transactions).
+### <a name="does-the-sql-api-support-acid-transactions"></a>Stöder SQL-API ACID-transaktioner?
+Ja, till SQL API stöder transaktioner mellan dokument uttryckta som JavaScript-lagrade procedurer och utlösare. Transaktioner är begränsade till en enda partition inom varje samling och utförs med ACID-semantik som ”allt eller inget”, isoleras från andra samtidigt köra kod och begäranden. Om undantag utlöses via server-sida-körning av JavaScript, återställs hela transaktionen. Mer information om transaktioner finns [databasen transaktioner automatiskt](programming.md#database-program-transactions).
 
 ### <a name="what-is-a-collection"></a>Vad är en samling?
 En samling är en grupp av dokument och deras associerade JavaScript-programlogik. En samling är en fakturerbar enhet där den [kostnaden](performance-levels.md) bestäms av dataflödet och använt lagring. Samlingar kan omfatta en eller flera partitioner eller servrar och kan skalas för att hantera praktiskt taget obegränsade volymer av lagring eller dataflöde.
@@ -132,19 +136,19 @@ Du kan skapa databaser med hjälp av den [Azure-portalen](https://portal.azure.c
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Hur ställer jag in användare och behörigheter?
 Du kan skapa användare och behörigheter genom att använda en av de [Cosmos DB API SDK](documentdb-sdk-dotnet.md) eller [REST API: er](/rest/api/documentdb/).  
 
-### <a name="does-the-documentdb-api-support-sql"></a>Stöder API: et DocumentDB SQL?
-SQL-frågespråket är en förbättrad underuppsättning av de frågefunktioner som stöds av SQL. Azure Cosmos-Databasens SQL-frågespråket ger omfattande hierarkiska och relationella operatorer och kan utvidgas via JavaScript-baserade, användardefinierade funktioner (UDF). JSON-grammatik gör det möjligt för att modellera JSON-dokument som träd med märkt noder som används av både Azure Cosmos DB tekniker för automatisk indexering och SQL-frågedialekt av Azure Cosmos DB. Information om hur du använder SQL-grammatik finns i [QueryDocumentDB] [ query] artikel.
+### <a name="does-the-sql-api-support-sql"></a>Stöder SQL-API SQL?
+SQL-frågespråket stöds av SQL-API-konton är en förbättrad underuppsättning av de frågefunktioner som stöds av SQL Server. Azure Cosmos-Databasens SQL-frågespråket ger omfattande hierarkiska och relationella operatorer och kan utvidgas via JavaScript-baserade, användardefinierade funktioner (UDF). JSON-grammatik gör det möjligt för att modellera JSON-dokument som träd med märkt noder som används av både Azure Cosmos DB tekniker för automatisk indexering och SQL-frågedialekt av Azure Cosmos DB. Information om hur du använder SQL-grammatik finns i [SQL-frågan] [ query] artikel.
 
-### <a name="does-the-documentdb-api-support-sql-aggregation-functions"></a>Stöder DocumentDB API SQL aggregeringsfunktioner?
-DocumentDB-API: et stöder låg latens aggregering skaländras via mängdfunktioner `COUNT`, `MIN`, `MAX`, `AVG`, och `SUM` via SQL-grammatik. Mer information finns i [mängdfunktionerna](documentdb-sql-query.md#Aggregates).
+### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>Stöder SQL-API SQL aggregeringsfunktioner?
+SQL-API: et stöder låg latens aggregering skaländras via mängdfunktioner `COUNT`, `MIN`, `MAX`, `AVG`, och `SUM` via SQL-grammatik. Mer information finns i [mängdfunktionerna](documentdb-sql-query.md#Aggregates).
 
-### <a name="how-does-the-documentdb-api-provide-concurrency"></a>Hur tillhandahåller DocumentDB API samtidighet?
-DocumentDB-API: et stöder optimistisk samtidighetskontroll (OCC) via HTTP-entitetstaggar eller ETags. Varje DocumentDB-API-resurs har en ETag och ETag är inställd på servern varje gång ett dokument har uppdaterats. ETag-sidhuvud och det aktuella värdet ingår i alla svarsmeddelanden. ETags kan användas med If-Match-sidhuvudet så att servern för att avgöra om en resurs ska uppdateras. Värdet för If-Match är ETag-värde som ska kontrolleras mot. Om ETag-värde matchar serverns ETag-värde, uppdateras resursen. Om en ETag är inte längre aktuell, avvisar servern igen med ett ”HTTP 412 Förutsättningsfel” svarskoden. Klienten hämtar sedan nytt resurs för att få det aktuella ETag-värdet för resursen. ETags kan dessutom användas med If-None-Match-sidhuvudet för att avgöra om nytt hämta av en resurs som behövs.
+### <a name="how-does-the-sql-api-provide-concurrency"></a>Hur tillhandahåller till SQL API samtidighet?
+SQL-API: et stöder optimistisk samtidighetskontroll (OCC) via HTTP-entitetstaggar eller ETags. Varje SQL API-resurs har en ETag och ETag är inställd på servern varje gång ett dokument har uppdaterats. ETag-sidhuvud och det aktuella värdet ingår i alla svarsmeddelanden. ETags kan användas med If-Match-sidhuvudet så att servern för att avgöra om en resurs ska uppdateras. Värdet för If-Match är ETag-värde som ska kontrolleras mot. Om ETag-värde matchar serverns ETag-värde, uppdateras resursen. Om en ETag är inte längre aktuell, avvisar servern igen med ett ”HTTP 412 Förutsättningsfel” svarskoden. Klienten hämtar sedan nytt resurs för att få det aktuella ETag-värdet för resursen. ETags kan dessutom användas med If-None-Match-sidhuvudet för att avgöra om nytt hämta av en resurs som behövs.
 
 Om du vill använda Optimistisk samtidighet i .NET den [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) klass. Ett .NET-exempel finns [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) i DocumentManagement prov på GitHub.
 
-### <a name="how-do-i-perform-transactions-in-the-documentdb-api"></a>Hur gör jag transaktioner i DocumentDB-API
-DocumentDB-API: et stöder språkintegrerade transaktioner via JavaScript-lagrade procedurer och utlösare. Alla databasåtgärder i skript körs under ögonblicksbildisolering. Om det är en enskild partition samling är körningen begränsad till samlingen. Om samlingen är partitionerad är körningen begränsad till dokument med samma partitionsnyckel värde i samlingen. En ögonblicksbild av dokumentversionerna (ETags) tas i början av transaktionen och verkställs endast om skriptet lyckas. Om JavaScript genererar ett fel återställs transaktionen. Mer information finns i [programmering av serversidan JavaScript för Azure Cosmos DB](programming.md).
+### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Hur gör jag transaktioner i SQL-API
+SQL-API: et stöder språkintegrerade transaktioner via JavaScript-lagrade procedurer och utlösare. Alla databasåtgärder i skript körs under ögonblicksbildisolering. Om det är en enskild partition samling är körningen begränsad till samlingen. Om samlingen är partitionerad är körningen begränsad till dokument med samma partitionsnyckel värde i samlingen. En ögonblicksbild av dokumentversionerna (ETags) tas i början av transaktionen och verkställs endast om skriptet lyckas. Om JavaScript genererar ett fel återställs transaktionen. Mer information finns i [programmering av serversidan JavaScript för Azure Cosmos DB](programming.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Hur kan jag-massinfogning dokument i Cosmos DB?
 Du kan-massinfogning dokument i Azure Cosmos DB på två sätt:
@@ -152,10 +156,10 @@ Du kan-massinfogning dokument i Azure Cosmos DB på två sätt:
 * Datamigreringsverktyget enligt beskrivningen i [verktyg för Azure Cosmos DB](import-data.md).
 * Lagrade procedurer som beskrivs i [programmering av serversidan JavaScript för Azure Cosmos DB](programming.md).
 
-### <a name="does-the-documentdb-api-support-resource-link-caching"></a>Stöder den DocumentDB API stöd för cachelagring av resurslänkar?
-Ja, eftersom Azure Cosmos DB är en RESTful-tjänst, resurslänkar är oföränderlig och kan cachelagras. DocumentDB-API-klienter kan ange en ”If-None-Match”-rubrik för läsning mot ett resurs-liknande dokument eller en samling och sedan uppdatera sina lokala kopior när serverversionen har ändrats.
+### <a name="does-the-sql-api-support-resource-link-caching"></a>Stöder den SQL API stöd för cachelagring av resurslänkar?
+Ja, eftersom Azure Cosmos DB är en RESTful-tjänst, resurslänkar är oföränderlig och kan cachelagras. SQL-API-klienter kan ange en ”If-None-Match”-rubrik för läsning mot ett resurs-liknande dokument eller en samling och sedan uppdatera sina lokala kopior när serverversionen har ändrats.
 
-### <a name="is-a-local-instance-of-documentdb-api-available"></a>Är en lokal instans av DocumentDB API tillgängligt?
+### <a name="is-a-local-instance-of-sql-api-available"></a>Är en lokal instans av SQL API tillgängligt?
 Ja. Den [Azure Cosmos DB emulatorn](local-emulator.md) ger en hög återgivning emulering av Cosmos-DB-tjänsten. Den stöder funktioner som är identisk med Azure Cosmos DB, inklusive stöd för att skapa och hämtning av JSON-dokument, etablering och skalning samlingar och köra lagrade procedurer och utlösare. Du kan utveckla och testa program med hjälp av Azure Cosmos DB-emulatorn och distribuera dem till Azure på global nivå genom att göra en enda konfigurationen av anslutningens slutpunkt för Azure Cosmos DB.
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Utveckla mot API: et för MongoDB
@@ -204,7 +208,7 @@ Det finns ett antal slutpunkter/fråga alternativ som inte stöds av Azure Cosmo
 | ------------| ------------- | ---------- | ----------- |
 | HÄMTA OCH PLACERA | /? restype =service@comp= egenskaper| [Ange egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) och [hämta egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Den här slutpunkten används för att ange CORS-regler, analytics lagringskonfiguration och loggningsinställningar. CORS stöds inte för närvarande och analyser och loggning hanteras annorlunda i Azure Cosmos DB än Azure Storage-tabeller |
 | ALTERNATIV | / < resurs-tabellnamn > | [Före svarta CORS tabell begäran](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
-| GET | /? restype =service@comp= statistik | [Hämta Service tabellstatistik](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära. Detta är inte behövs i Cosmos DB eftersom replikering är en del av skrivningar. |
+| HÄMTA | /? restype =service@comp= statistik | [Hämta Service tabellstatistik](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära. Detta är inte behövs i Cosmos DB eftersom replikering är en del av skrivningar. |
 | HÄMTA OCH PLACERA | /mytable? comp = acl | [Hämta tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) och [ange tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomstprinciper som används för att hantera delade åtkomst signaturer (SAS). Även om SAS stöds de ställs och hanteras annorlunda. |
 
 Dessutom stöder Azure Cosmos DB tabell API endast JSON-format, inte ATOM.
@@ -236,7 +240,7 @@ Du kan dela din feedback i något av följande sätt:
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Vad är den anslutningssträng som jag behöver använda för att ansluta till tabellen API?
 Anslutningssträngen är:
 ```
-DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.table.cosmosdb.azure.com
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountName>.table.cosmosdb.azure.com
 ```
 Du kan hämta anslutningssträngen från sidan anslutningssträngen i Azure-portalen. 
 
@@ -364,7 +368,7 @@ Från .NET SDK lämnas den i filen app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos-DB en plattform som verkar ha många funktioner, t.ex sortera, aggregeringar, hierarkin och andra funktioner. Du lägger till dessa funktioner tabell-API: et? 
-Tabell-API ger samma fråga funktioner som Azure Table storage. Azure Cosmos-DB också stöd för sortering, aggregeringar, geospatiala frågan, hierarki och en mängd olika inbyggda funktioner. Vi ger ytterligare funktioner i tabellen API i en framtida tjänstuppdatering. Mer information finns i [SQL-frågor för Azure Cosmos DB DocumentDB API](../documentdb/documentdb-sql-query.md).
+Tabell-API ger samma fråga funktioner som Azure Table storage. Azure Cosmos-DB också stöd för sortering, aggregeringar, geospatiala frågan, hierarki och en mängd olika inbyggda funktioner. Vi ger ytterligare funktioner i tabellen API i en framtida tjänstuppdatering. Mer information finns i [SQL-frågor](documentdb-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>När bör jag ändra TableThroughput för tabell-API
 Du bör ändra TableThroughput när någon av följande villkor gäller:
@@ -534,47 +538,6 @@ Apache Cassandra API ger samma CQL funktioner som Apache Cassandra. Vi planerar 
 
 ### <a name="feature-x-of-regular-cassandra-api-is-not-working-as-today-where-can-the-feedback-be-provided"></a>Funktionen x regelbundna Cassandra API fungerar inte som idag var kan feedback tillhandahållas?
 Ge feedback via [uservoice-feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db).
-
-<a id="moving-to-cosmos-db"></a>
-## <a name="questions-from-documentdb-customers"></a>Frågor från DocumentDB kunder
-### <a name="why-are-you-moving-to-azure-cosmos-db"></a>Varför flyttar du till Azure Cosmos DB? 
-
-Azure Cosmos-DB är nästa stora steget i globalt distribuerade med skalning molnet databaser. Som en DocumentDB-kund nu har du åtkomst till banbrytande system och funktioner som erbjuds av Azure Cosmos DB.
-
-Azure Cosmos-DB starta som en ”projekt Florens” 2010 för att åtgärda de eventuella stötestenar utvecklare bygga storskaliga program i Microsoft. Utmaningar för att skapa globalt distribuerade appar är inte unikt till Microsoft, så vi gjort första generationen av den här tekniken finns i 2015 Azure utvecklare i form av Azure DocumentDB. 
-
-Sedan dess har vi lagt till nya funktioner och introduceras viktiga nya funktioner. Azure Cosmos-DB är resultatet. Som en del av den här versionen blir DocumentDB kunder med sina data automatiskt och sömlöst du Azure DB som Cosmos-kunder. Dessa funktioner finns i områden som core databasmotorn, samt global distributionsplatsen, elastisk skalbarhet och branschledande, omfattande SLA: er. Vi har särskilt utvecklats Azure Cosmos DB databasmotorn effektivt att mappa alla populära datamodeller typen System och API: er till den underliggande datamodellen av Azure Cosmos DB. 
-
-Den aktuella developer-riktade uttryck för att arbetet är nytt stöd för [Gremlin](../cosmos-db/graph-introduction.md) och [Table storage API: er](../cosmos-db/table-introduction.md). Detta är bara början. Vi planerar att lägga till andra populära API: er och nyare datamodeller över tid, med mer utvecklingen av prestanda och lagringsutrymme på global nivå. 
-
-Det är viktigt att påpeka att av DocumentDB [SQL dialect](../documentdb/documentdb-sql-query.md) har alltid varit en av de många API: er som har stöd för den underliggande Azure Cosmos DB. För utvecklare som använder en helt hanterad tjänst, till exempel Azure Cosmos DB, är det enda gränssnittet till tjänsten API: er som exponeras av tjänsten. Inget verkligen ändringar för befintliga DocumentDB-kunder. I Azure Cosmos DB få exakt samma SQL API som erbjuder DocumentDB. Och nu (och senare) du kan komma åt andra funktioner som tidigare inte tillgänglig 
-
-Ett annat uttryck för våra fortsatt arbete är utökade grunden för global och elastisk skalbarhet dataflöden och lagringsutrymmen. Vi har gjort några grundläggande förbättringar för undersystemet global distributionsplatsen. En av de många sådana developer-riktade funktionerna är konsekvent prefixet konsekvent modell, som gör en totala fem väldefinierade konsekvenskontroll modeller. Vi kommer att släppa många mer intressant funktioner som de förfaller. 
-
-### <a name="what-do-i-need-to-do-to-ensure-that-my-documentdb-resources-continue-to-run-on-azure-cosmos-db"></a>Vad behöver jag för att säkerställa att DocumentDB-resurser fortsätter att köras på Azure Cosmos DB?
-
-Du behöver inte göra några ändringar i alla. DocumentDB-resurser är nu Azure Cosmos DB resurser och uppstod utan avbrott i tjänsten när flyttningen inträffade.
-
-### <a name="what-changes-do-i-need-to-make-for-my-app-to-work-with-azure-cosmos-db"></a>Vad behöver jag göra för min app att fungera med Azure Cosmos DB?
-
-Det finns inga ändringar att göra. Namn för klasser, namnområden och NuGet-paketet har inte ändrats. Som alltid rekommenderar vi att du behåller din SDK: er uppdaterade för att dra nytta av de senaste funktionerna och förbättringarna. 
-
-### <a name="whats-changed-in-the-azure-portal"></a>Nyheter i Azure portal?
-
-DocumentDB visas inte längre i portalen som en Azure-tjänst. Är en ny Azure DB som Cosmos-ikon som visas i följande bild i dess ställe. Alla samlingar är tillgängliga, som de fanns innan, och du kan fortfarande skala dataflöde, ändra konsekvensnivåer och övervaka SLA: er. Funktionerna i Data Explorer (förhandsversion) har förbättrats. Du kan nu visa och redigera dokument, skapa och köra frågor och arbeta med lagrade procedurer, utlösare och UDF från en sida som visas i följande bild: 
-
-![Sidan Azure Cosmos DB samlingar](./media/faq/cosmos-db-data-explorer.png)
-
-### <a name="are-there-changes-to-pricing"></a>Finns det ändringar av priser?
-
-Nej, kostnaden för att köra din app på Azure Cosmos DB är samma som förut.
-
-### <a name="are-there-changes-to-the-slas"></a>Finns det ändringar av SLA: er?
-
-Nej, serviceavtal för tillgänglighet, konsekvens, svarstid och genomströmning ändras inte och visas fortfarande i portalen. Mer information finns i [SLA för Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
-   
-![Att göra-app med exempeldata](./media/faq/azure-cosmosdb-portal-metrics-slas.png)
-
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

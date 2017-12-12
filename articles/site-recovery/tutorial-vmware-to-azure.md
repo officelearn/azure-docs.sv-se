@@ -9,22 +9,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
-Den här kursen visar hur du ställer in katastrofåterställning till Azure för lokal VMware virtuell dator med Windows. I den här guiden får du lära dig hur man:
+Den här kursen visar hur du ställer in katastrofåterställning till Azure för lokala virtuella VMware-datorer kör Windows. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Skapa ett Recovery Services-valv för Site Recovery
-> * Konfigurera käll- och mål-replikering miljöer
+> * Ange källa för replikering och målet.
+> * Konfigurera källmiljön för replikering, inklusive lokal Site Recovery-komponenter och replikering målmiljön.
 > * Skapa replikeringsprincip
 > * Aktivera replikering för en virtuell dator
 
@@ -35,37 +35,28 @@ Detta är den tredje vägledningen i en serie. Den här kursen förutsätter att
 
 Innan du börjar är det bra att [granska arkitekturen](concepts-vmware-to-azure-architecture.md) för katastrofåterställning.
 
-## <a name="configure-vmware-account-permissions"></a>Konfigurera behörighet för VMware
 
-1. Skapa en roll på vCenter-nivå. Ge rollen namnet **Azure_Site_Recovery**.
-2. Tilldela följande behörigheter till den **Azure_Site_Recovery** roll.
+## <a name="select-a-replication-goal"></a>Välj ett mål för replikering
 
-   **Aktivitet** | **Rollbehörigheter /** | **Detaljer**
-   --- | --- | ---
-   **VM-identifiering** | Data Center objektet –> Sprid till underordnade objekt rollen = skrivskyddad | Minst en användare som är skrivskyddad.<br/><br/> Användaren tilldelas på nivån för datacenter och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten, tilldela den **ingen åtkomst** roll med den **Sprid till underordnad** objekt till underordnade objekt (vSphere-värdar, datastores, virtuella datorer och nätverk).
-   **Fullständig replikering, redundans och återställning efter fel** |  Data Center objektet –> Sprid till underordnade objekt rollen = Azure_Site_Recovery<br/><br/> DataStore -> allokera utrymme, bläddra datalagret, låg nivå filåtgärder, ta bort filen och uppdatera filer för virtuella datorer<br/><br/> Nätverk -> nätverk tilldela<br/><br/> Resurs -> Tilldela VM resurspool, migrera är avstängt VM, migrera driven på den virtuella datorn<br/><br/> Aktiviteter -> Skapa uppgift, uppdatera uppgift<br/><br/> Konfiguration av virtuell dator -><br/><br/> Virtual machine -> interagera -> fråga enhetsanslutning, konfigurera CD-skivor, konfigurera diskettenheter media, stänga av, slå på strömmen, installera för VMware-verktyg<br/><br/> Virtual machine -> Lager -> Skapa, registrera, avregistrera<br/><br/> Etablering av virtuell dator -> -> Tillåt virtuella hämtning, tillåter Överför filer för virtuella datorer<br/><br/> Virtual machine -> ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på nivån för datacenter och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten, tilldela den **ingen åtkomst** roll med den **Sprid till underordnad** objekt till underordnade objekt (vSphere-värdar, datastores, virtuella datorer och nätverk).
-
-3. Skapa en användare på vCenter server eller vSphere-värd. Tilldela användaren rollen.
-
-## <a name="specify-what-you-want-to-replicate"></a>Ange vad du vill replikera
-
-Mobilitetstjänsten måste installeras på varje virtuell dator som du vill replikera. Site Recovery installerar den här tjänsten automatiskt när du aktiverar replikering för den virtuella datorn. För automatisk installation måste du förbereda ett konto som Site Recovery för att komma åt den virtuella datorn.
-
-Du kan använda en domän eller lokalt konto. För Linux virtuella datorer, måste kontot vara rot på källservern för Linux. För virtuella Windows-datorer, om du inte använder ett domänkonto, inaktivera kontroll av fjärråtkomst till användare på den lokala datorn:
-
-  - I registery under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, lägga till DWORD-posten **LocalAccountTokenFilterPolicy** och ange värdet till 1.
+1. I **Recovery Services-valv**, klicka på valvnamnet, **ContosoVMVault**.
+2. I **komma igång**, klicka på Site Recovery. Klicka på **Förbered infrastrukturen**.
+3. I **skyddsmål** > **där är dina datorer finns**väljer **lokalt**.
+4. I ** där du vill replikera dina datorer Välj **till Azure**.
+5. I **är dina datorer virtualiserade**väljer **Ja, med VMware vSphere-Hypervisor**. Klicka sedan på **OK**.
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-Konfigurera källmiljön består av hämtar Site Recovery Unified installationsprogram, konfigurera konfigurationsservern och registreras i valvet och identifiera virtuella datorer.
+Om du vill konfigurera källmiljön hämta filen Unified installationsprogram för Site Recovery. Du kör installationsprogrammet för att installera lokalt Site Recovery-komponenter, registrera VMware-servrar i valvet och identifiera lokala virtuella datorer.
 
-Konfigurationsservern är en enda lokal VMware VM som värd för alla komponenter Platsåterställningen. Den här virtuella datorn körs konfigurationsservern, processervern och huvudmålservern.
+### <a name="verify-on-premises-site-recovery-requirements"></a>Verifiera lokalt Site Recovery-krav
+
+Behöver du en enda, hög tillgänglighet, lokal VMware VM värden lokalt Site Recovery-komponenter. Komponenter omfattar konfigurationsservern, processervern och huvudmålservern.
 
 - Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering.
-- Processervern fungerar som en replikerings-gateway. Den tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Processervern installeras också mobilitetstjänsten på virtuella datorer du vill replikera, och utför automatisk identifiering av virtuella datorer på lokal VMware-servrar.
+- Processervern fungerar som en replikerings-gateway. Den tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Processervern installeras också mobilitetstjänsten på virtuella datorer du vill replikera, och utför automatisk identifiering av lokala virtuella VMware-datorer.
 - Huvudmålservern hanterar replikeringsdata vid återställning från Azure.
 
-Konfigurationsservern VM ska vara en högtillgänglig VMware VM som uppfyller följande krav:
+Den virtuella datorn måste uppfylla följande krav.
 
 | **Krav** | **Detaljer** |
 |-----------------|-------------|
@@ -82,30 +73,25 @@ Konfigurationsservern VM ska vara en högtillgänglig VMware VM som uppfyller f�
 | IP-adresstyp | Statisk |
 | Portar | 443 (kontrolkanalsorchestration)<br/>9443 (dataöverföring)|
 
-Kontrollera att systemklockan är synkroniserad med en på konfigurationsservern VM.
-Tiden måste synkroniseras till inom 15 minuter. Om tidsskillnaden är större än 15 minuter, misslyckas installationen.
+Följande gäller också: 
+- Kontrollera att systemklockan på den virtuella datorn är synkroniserad med en. Tiden måste synkroniseras till inom 15 minuter. Om det är större misslyckas installationen.
+installationen misslyckas.
+- Kontrollera att konfigurationsservern VM kan komma åt dessa webbadresser:
 
-Kontrollera att konfigurationsservern kan komma åt dessa webbadresser:
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - IP-adressbaserade brandväggsregler ska tillåta kommunikation till Azure.
-
-- Tillåt [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) (IP-intervall för Azures datacenter) och HTTPS-port 443.
+- Kontrollera att IP-adressbaserade brandväggsregler tillåter kommunikation till Azure.
+    - Tillåt den [IP-adressintervall för Azure-datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653)port 443 (HTTPS) och port 9443 (replikering).
     - Tillåt IP-adressintervall för Azure-regionen för din prenumeration och för USA, västra (används för hantering av kontrollen och identitet).
 
-IP-adressbaserade brandväggsregler bör tillåter kommunikation till [IP-intervall för Azure-Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653), och port 443 (HTTPS) och 9443 (replikering). Se till att tillåta IP-adressintervall för Azure-regionen för din prenumeration och för USA, västra (används för åtkomstkontroll och Identity Management).
 
-### <a name="download-the-site-recovery-unified-setup"></a>Hämta platsen Recovery enhetlig installation
+### <a name="download-the-site-recovery-unified-setup-file"></a>Hämta filen Unified installationsprogram för Site Recovery
 
-1. Öppna den [Azure-portalen](https://portal.azure.com) och klicka på **alla resurser**.
-2. Klicka på valvet Recovery-tjänsten med namnet **ContosoVMVault**.
-3. Klicka på **Site Recovery** > **Förbered infrastrukturen** > **skyddsmål**.
-4. Välj **lokalt** för där dina datorer finns **till Azure** där du vill replikera dina datorer och **Ja, med VMware vSphere-Hypervisor**. Klicka på **OK**.
-5. Klicka på i fönstret Förbered källa **+ konfigurationsservern**.
-6. I **Lägg till Server**, kontrollera att **konfigurationsservern** visas i **servertyp**.
-7. Hämta installationsfilen för enhetlig installationsprogram för Site Recovery.
-8. Ladda ned valvregistreringsnyckeln. Du behöver detta när du kör installationsprogrammet för enhetlig. Nyckeln är giltig i fem dagar efter att du har genererat den.
+1. I valvet > **Förbered infrastrukturen**, klickar du på **källa**.
+1. I **Förbered källa**, klickar du på **+ konfigurationsservern**.
+2. I **Lägg till Server**, kontrollera att **konfigurationsservern** visas i **servertyp**.
+3. Hämta installationsfilen för enhetlig installationsprogram för Site Recovery.
+4. Ladda ned valvregistreringsnyckeln. Du behöver detta när du kör installationsprogrammet för enhetlig. Nyckeln är giltig i fem dagar efter att du har genererat den.
 
    ![Konfigurera källan](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -146,9 +132,11 @@ IP-adressbaserade brandväggsregler bör tillåter kommunikation till [IP-interv
 
 ### <a name="configure-automatic-discovery"></a>Konfigurera automatisk identifiering
 
-Konfigurationsservern måste ansluta till lokal VMware-servrar för att identifiera virtuella datorer. Lägg till vCenter-servern eller vSphere-värdar, med ett konto som har administratörsbehörighet på servern för den här kursen.
+Konfigurationsservern måste ansluta till lokal VMware-servrar för att identifiera virtuella datorer. Lägg till vCenter-servern eller vSphere-värdar, med ett konto som har administratörsbehörighet på servern för den här kursen. Du har skapat det här kontot i den [tidigare kursen](tutorial-prepare-on-premises-vmware.md). 
 
-1. På din konfigurationsservern och starta **CSPSConfigtool.exe**. Filen finns som en genväg på skrivbordet och även på följande sökväg: *installationsplatsen*\home\svsystems\bin.
+Lägg till kontot:
+
+1. På konfigurationsservern VM startar **CSPSConfigtool.exe**. Filen finns som en genväg på skrivbordet och även på följande sökväg: *installationsplatsen*\home\svsystems\bin.
 
 2. Klicka på **Hantera konton** > **Lägg till konto**.
 
@@ -158,12 +146,12 @@ Konfigurationsservern måste ansluta till lokal VMware-servrar för att identifi
 
    ![Information](./media/tutorial-vmware-to-azure/credentials2.png)
 
-Lägga till en server:
+Lägg till VMware-server:
 
 1. Öppna den [Azure-portalen](https://portal.azure.com) och klicka på **alla resurser**.
 2. Klicka på valvet Recovery-tjänsten med namnet **ContosoVMVault**.
 3. Klicka på **Site Recovery** > **förbereda infrastrukturen** > **källa**
-4. Välj **+ vCenter** att ansluta till en vCenter server eller vSphere ESXi-värd.
+4. Välj **+ vCenter**, för att ansluta till en vCenter server eller vSphere ESXi-värd.
 5. I **lägga till vCenter**, ange ett eget namn för servern. Ange IP-adress eller fullständigt domännamn.
 6. Lämna den port som har angetts till 443, såvida inte VMware-servrar lyssna efter begäranden på en annan port.
 7. Välj kontot som ska användas för att ansluta till servern. Klicka på **OK**.

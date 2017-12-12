@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
-ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Ansluta Operations Manager till logganalys
 För att underhålla din investering i System Center Operations Manager och använder utökade funktioner med logganalys, kan du integrera Operations Manager med din OMS-arbetsyta.  På så sätt kan du utnyttja möjligheter i OMS medan du använder Operations Manager till:
@@ -40,9 +40,9 @@ Om din IT-säkerhetsprinciper inte tillåter datorer i nätverket för att anslu
 ## <a name="system-requirements"></a>Systemkrav
 Granska följande information för att verifiera förutsättningar vara uppfyllda innan du börjar.
 
-* OMS har bara stöd för Operations Manager 2016, UR10 för Operations Manager 2012 SP1 och senare, och Operations Manager 2012 R2 UR11 och större.
+* OMS har bara stöd för Operations Manager 2016, UR6 för Operations Manager 2012 SP1 och senare, och Operations Manager 2012 R2 UR2 och större.  Stöd för proxy har lagts till i Operations Manager 2012 SP1 UR7 och Operations Manager 2012 R2 UR3.
 * Alla Operations Manager-agenter måste uppfylla krav på minsta. Kontrollera att agenterna finns på den lägsta uppdateringen annars trafik för Windows-agenten misslyckas och många fel kan fylla i Operations Manager-händelseloggen.
-* En prenumeration på Azure logganalys.  Mer information finns [Kom igång med logganalys](log-analytics-get-started.md).
+* En OMS-prenumeration.  Mer information finns [Kom igång med logganalys](log-analytics-get-started.md).
 
 ### <a name="network"></a>Nätverk
 Informationen nedan lista över proxy- och brandväggsinställningarna configuration information som krävs för Operations Manager-agenten, hanteringsservrar och driftkonsolen att kommunicera med OMS.  Trafik från varje komponent är utgående från nätverket till OMS-tjänsten.     
@@ -208,7 +208,7 @@ Ta bort två kopplingar - Microsoft.SystemCenter.Advisor.DataConnector Advisor C
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

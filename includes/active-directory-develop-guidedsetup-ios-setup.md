@@ -1,4 +1,3 @@
-
 ## <a name="setting-up-your-ios-application"></a>Konfigurera iOS-program
 
 Det här avsnittet innehåller stegvisa instruktioner för hur du skapar ett nytt projekt för att demonstrera hur du integrerar en iOS-App (Swift) med *logga In med Microsoft* så att den kan fråga webb-API: er som kräver en token.

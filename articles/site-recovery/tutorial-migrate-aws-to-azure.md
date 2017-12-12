@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera Amazon Web Services (AWS) virtuella datorer till Azure
 
-Den här kursen lär du dig hur du migrerar Amazon Web Services (AWS) virtuella datorer (VM) till virtuella Azure-datorer med Site Recovery. När du migrerar EC2 instanser till Azure, VMsare behandlas som om de är fysiska, lokala datorer. I den här guiden får du lära dig hur man:
+Den här kursen lär du dig hur du migrerar Amazon Web Services (AWS) virtuella datorer (VM) till virtuella Azure-datorer med Site Recovery. När du migrerar EC2 instanser till Azure, de virtuella datorerna behandlas som om de är fysiska, lokala datorer. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Förbered Azure-resurser
@@ -187,7 +187,7 @@ Aktivera replikering för varje virtuell dator som du vill migrera. När replike
     |  |  |
     |-----|-----|
     | Mål: | Låt standardvärdet.|
-    | Prenumerationen: | Välj den prenumeration som du har använt.|
+    | Prenumeration: | Välj den prenumeration som du har använt.|
     | Postredundans resursgrupp:| Använda den resursgrupp som du skapade i den [förbereda Azure-resurser](#prepare-azure-resources) avsnitt.|
     | Distributionsmodell för postredundans: | Välj **Resource Manager**|
     | Storage-konto: | Välj lagring kontot du skapade i den [förbereda Azure-resurser](#prepare-azure-resources) avsnitt.|

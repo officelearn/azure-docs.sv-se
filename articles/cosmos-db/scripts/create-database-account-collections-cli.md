@@ -1,6 +1,6 @@
 ---
-title: Azure CLI skript-skapa ett Azure DB-API Cosmos DocumentDB-konto, databas och samling | Microsoft Docs
-description: "Azure CLI-skript exempel – skapa ett Azure Cosmos DB DocumentDB API-kontot, databas och samling"
+title: Azure CLI skript-skapa ett Azure SQL DB-API Cosmos-konto, databas och samling | Microsoft Docs
+description: "Azure CLI-skript exempel – skapa en Azure SQL DB-API Cosmos-kontot, databas och samling"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
-ms.openlocfilehash: 28f99d56404e47adcd375d9f3106cc234469cbfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8225b074420983096ee89d5816b0bfe9bc138fe
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-create-an-documentdb-api-account-using-cli"></a>Azure Cosmos DB: Skapa ett DocumentDB-API-konto med hjälp av CLI
+# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: Skapa ett SQL-API-konto med hjälp av CLI
 
-Det här exempelskriptet CLI skapar ett Azure Cosmos DB DocumentDB API-konto, databas och samling.  
+Det här exempelskriptet CLI skapar en Azure SQL DB-API Cosmos-kontot, databas och samling.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +32,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB DocumentDB API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB SQL API account, database, and collection")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 

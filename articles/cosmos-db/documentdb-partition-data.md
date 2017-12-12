@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b721f66ef4d453b5c5f0faf40f5eb2b8913a848
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Partitionering i Azure Cosmos-databasen med DocumentDB-API
+# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partitionering i Azure Cosmos-databasen med SQL-API
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) är en global distribuerad databas med flera modeller tjänst som hjälper dig uppnå snabb och förutsägbar prestanda och skalning sömlöst tillsammans med ditt program som de växer. 
 
-Den här artikeln innehåller en översikt över hur du arbetar med partitionering av Cosmos-DB-behållare med DocumentDB-API. Se [partitionering och teckenbredden](../cosmos-db/partition-data.md) en översikt över begrepp och bästa praxis för partitionering med Azure Cosmos DB API: er. 
+Den här artikeln innehåller en översikt över hur du arbetar med partitionering av Cosmos-DB-behållare med SQL-API. Se [partitionering och teckenbredden](../cosmos-db/partition-data.md) en översikt över begrepp och bästa praxis för partitionering med Azure Cosmos DB API: er. 
 
 Hämta projektet från att komma igång med kod [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
@@ -44,7 +46,7 @@ Hämta projektet från att komma igång med kod [Azure Cosmos DB prestanda testa
 
 ## <a name="partition-keys"></a>Partitionsnycklar
 
-Ange partition viktiga definition i form av en JSON-sökvägen i DocumentDB-API. I följande tabell visas exempel på partitionen viktiga definitioner och de värden som motsvarar varje. Partitionsnyckeln har angetts som en sökväg, t.ex. `/department` representerar egenskapen avdelning. 
+Ange partition viktiga definition i form av en JSON-sökvägen i SQL-API. I följande tabell visas exempel på partitionen viktiga definitioner och de värden som motsvarar varje. Partitionsnyckeln har angetts som en sökväg, t.ex. `/department` representerar egenskapen avdelning. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -106,7 +108,7 @@ await client.CreateDocumentCollectionAsync(
 Den här metoden gör en REST-API-anrop för att Cosmos-DB och tjänsten etablerar ett antal partitioner baserat på det begärda genomflödet. Du kan ändra genomflödet av en behållare prestandan behov utvecklas. 
 
 ### <a name="reading-and-writing-items"></a>Läsning och skrivning av objekt
-Nu ska vi infoga data i Cosmos DB. Här är ett exempel på klass som innehåller en enhet som läser och ett anrop till CreateDocumentAsync att infoga en ny enhet som läses in en behållare. Detta är ett exempel som utnyttjar DocumentDB-API:
+Nu ska vi infoga data i Cosmos DB. Här är ett exempel på klass som innehåller en enhet som läser och ett anrop till CreateDocumentAsync att infoga en ny enhet som läses in en behållare. Detta är ett exempel som utnyttjar SQL-API:
 
 ```csharp
 public class DeviceReading
@@ -223,7 +225,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 I nästa avsnitt titta vi på hur du kan flytta till partitionerade behållare från enskild partition behållare.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har sammanställt vi en översikt över hur du arbetar med partitionering av Azure Cosmos DB behållare med DocumentDB-API. Se även [partitionering och teckenbredden](../cosmos-db/partition-data.md) en översikt över begrepp och bästa praxis för partitionering med Azure Cosmos DB API: er. 
+I den här artikeln har sammanställt vi en översikt över hur du arbetar med partitionering av Azure Cosmos DB behållare med SQL-API. Se även [partitionering och teckenbredden](../cosmos-db/partition-data.md) en översikt över begrepp och bästa praxis för partitionering med Azure Cosmos DB API: er. 
 
 * Utföra skalnings- och prestandatester med Azure Cosmos DB. Se [prestanda och Skalningstester med Azure Cosmos DB](performance-testing.md) ett exempel.
 * Komma igång med programmeringen med den [SDK](documentdb-sdk-dotnet.md) eller [REST API](/rest/api/documentdb/)

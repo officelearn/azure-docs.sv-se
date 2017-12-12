@@ -12,27 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Anpassa Media Encoder Standard förinställningar
 
 ## <a name="overview"></a>Översikt
 
-Det här avsnittet beskrivs hur du utför avancerad encoding med Media Encoder Standard (MES) med hjälp av en anpassad förinställning. Avsnittet använder .NET för att skapa en kodning uppgift och ett jobb som utför den här uppgiften.  
+Den här artikeln visar hur du utför avancerad encoding med Media Encoder Standard (MES) med hjälp av en anpassad förinställning. Artikeln använder .NET för att skapa en kodning uppgift och ett jobb som utför den här uppgiften.  
 
-I det här avsnittet visas hur du anpassar en förinställning genom att göra den [H264 Multibithastighet 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) förinställningen och minskar antalet lager. Den [Anpassa Media Encoder Standard förinställningar](media-services-advanced-encoding-with-mes.md) avsnittet visar anpassade förinställningar som kan användas för att utföra avancerade åtgärder för kodning.
+Den här artikeln visar hur du anpassar en förinställning genom att göra den [H264 Multibithastighet 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) förinställningen och minskar antalet lager. Den [Anpassa Media Encoder Standard förinställningar](media-services-advanced-encoding-with-mes.md) artikeln visar anpassade förinställningar som kan användas för att utföra avancerade åtgärder för kodning.
 
 ## <a id="customizing_presets"></a>Anpassa en MES förinställning
 
 ### <a name="original-preset"></a>Ursprungliga förinställda
 
-Spara JSON som definierats i den [H264 Multibithastighet 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) -avsnittet i en fil med JSON. Till exempel **CustomPreset_JSON.json**.
+Spara JSON som definierats i den [H264 Multibithastighet 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) artikeln i en fil med JSON. Till exempel **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Anpassade förinställda
 
@@ -132,22 +132,27 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 #### <a name="example"></a>Exempel   
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace CustomizeMESPresests
+namespace CustomizeMESPresests
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
@@ -160,7 +165,11 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -213,26 +222,26 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -242,13 +251,14 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
 
-        }
     }
+}
+```
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

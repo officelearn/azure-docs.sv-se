@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Säkerhet ram: Indata validering | Åtgärder 
 | Produkter eller tjänster | Artikel |
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 | **Webbprogram** | <ul><li>[Inaktivera XSLT-skript för alla transformeringar med obetrodda formatmallar](#disable-xslt)</li><li>[Se till att varje sida som kan innehålla användare kan kontrolleras innehåll bort automatisk MIME-kontroll](#out-sniffing)</li><li>[Skydda eller inaktivera XML-entitet upplösning](#xml-resolution)</li><li>[Program som använder http.sys utföra verifiering för URL-auktorisering](#app-verification)</li><li>[Se till att lämpliga kontroller som finns på plats när accepterar filer från användare](#controls-users)</li><li>[Se till att typen säkert parametrar används i webbprogram för dataåtkomst](#typesafe)</li><li>[Använda separat modell bindning klasser eller bindningsfilter listar för att förhindra MVC masslagring tilldelning säkerhetsproblem](#binding-mvc)</li><li>[Koda obetrodda webbutdata innan återgivning](#rendering)</li><li>[Utföra verifiering av indata- och filtrering på alla strängtyp modellegenskaper](#typemodel)</li><li>[Rensning ska tillämpas på formulärfält som accepterar tecken, t.ex., textredigeraren](#richtext)</li><li>[Inte tilldela DOM-element sänkor som inte har inbyggda kodning](#inbuilt-encode)</li><li>[Verifiera att alla omdirigeringar i programmet är stängda eller göra på ett säkert sätt](#redirect-safe)</li><li>[Implementera verifiering av indata på alla typen strängparametrar accepteras av kontrollantmetoder](#string-method)</li><li>[Ange övre gräns för tidsgränsen för reguljärt uttryck bearbetning för att förhindra DoS på grund av felaktiga reguljära uttryck](#dos-expression)</li><li>[Undvik att använda Html.Raw i Razor vyer](#html-razor)</li></ul> | 
 | **Databas** | <ul><li>[Använd inte dynamisk frågor i lagrade procedurer](#stored-proc)</li></ul> |
 | **Webb-API** | <ul><li>[Se till att modellen verifieringen är klar för Web API-metoder](#validation-api)</li><li>[Implementera verifiering av indata på alla typen strängparametrar accepteras av Web API-metoder](#string-api)</li><li>[Se till att typen säkert parametrar används i Web API för dataåtkomst](#typesafe-api)</li></ul> | 
-| **Azure dokumentet DB** | <ul><li>[Använd innehåller parametrar SQL-frågor för DocumentDB](#sql-docdb)</li></ul> | 
+| **Azure dokumentet DB** | <ul><li>[Använd innehåller parametrar SQL-frågor för Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[WCF-indata verifiering via schemabindning](#schema-binding)</li><li>[WCF - indata verifiering via parametern kontrollanter](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>Inaktivera XSLT-skript för alla transformeringar med obetrodda formatmallar
@@ -660,8 +660,8 @@ I föregående kodexempel kan inte indatavärdet vara längre än 11 tecken. Om 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Saknas  |
-| **Referenser**              | [Om SQL-Parameterisering i DocumentDB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Steg** | DocumentDB stöder bara skrivskyddade frågor, är SQL injection fortfarande möjligt om frågor skapas genom att sammanbinda indata från användaren. Det är möjligt att en användare kan komma åt data som de inte får komma åt inom samma samling genom att utforma skadliga SQL-frågor. Använd parametriserade SQL-frågor om frågor baserat på indata från användaren. |
+| **Referenser**              | [Om SQL-Parameterisering i Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **Steg** | Även om Azure Cosmos DB stöder bara skrivskyddade frågor, är SQL injection fortfarande möjligt om frågor skapas genom att sammanbinda indata från användaren. Det är möjligt att en användare kan komma åt data som de inte får komma åt inom samma samling genom att utforma skadliga SQL-frågor. Använd parametriserade SQL-frågor om frågor baserat på indata från användaren. |
 
 ## <a id="schema-binding"></a>WCF-indata verifiering via schemabindning
 

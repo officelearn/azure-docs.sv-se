@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Konfigurera Always On-tillgänglighetsgrupp i Azure Virtual Machines (klassisk)
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Den här kursen förutsätter följande:
 > 
 
 ## <a name="create-the-virtual-network-and-domain-controller-server"></a>Skapa den virtuella nätverks- och domain controller-servern
-Du börjar med ett nytt Azure utvärderingskonto. När du har skapat ditt konto ska på startsidan i den klassiska Azure-portalen.
+Du börjar med ett nytt Azure utvärderingskonto. När du har skapat ditt konto ska på startsidan på Azure-portalen.
 
 1. Klicka på den **ny** knappen längst till vänster i längst ned på sidan som visas i följande skärmbild.
    
@@ -87,9 +87,9 @@ Du börjar med ett nytt Azure utvärderingskonto. När du har skapat ditt konto 
    | Välj operativsystem för virtuell dator |Windows Server 2012 R2 Datacenter |
    | Konfiguration av virtuell dator |**VERSION LANSERINGSDATUMET** = (senaste)<br/>**NAMN på virtuell dator** = ContosoDC<br/>**NIVÅN** = STANDARD<br/>**STORLEK** = A2 (2 kärnor)<br/>**NYTT användarnamn** = AzureAdmin<br/>**NYTT lösenord** = Contoso! 000<br/>**BEKRÄFTA** = Contoso! 000 |
    | Konfiguration av virtuell dator |**MOLNTJÄNSTEN** = skapa en ny molntjänst<br/>**DNS-MOLNTJÄNSTNAMNET** = en unik molntjänstnamnet<br/>**DNS-namnet** = ett unikt namn (ex: ContosoDC123)<br/>**REGION/TILLHÖRIGHETSGRUPP/VIRTUELLT nätverk** = ContosoNET<br/>**VIRTUELLA UNDERNÄT** = Back(10.10.2.0/24)<br/>**STORAGE-konto** = Använd en automatiskt genererad storage-konto<br/>**TILLGÄNGLIGHETSUPPSÄTTNINGEN** = (ingen) |
-   | Alternativ för virtuell dator |Använd standardvärden |
+   | Alternativ för virtuell dator |Använd standard |
 
-När du konfigurerar den nya virtuella datorn, vänta tills den virtuella datorn ska provsioned. Den här processen tar en stund. Om du klickar på den **virtuella** fliken i den klassiska Azure-portalen kan du se ContosoDC reglering tillstånd från **start (etablering)** till **stoppad**,  **Starta**, **körs (etablering)**, och slutligen **kör**.
+När du konfigurerar den nya virtuella datorn, vänta tills den virtuella datorn ska provsioned. Den här processen tar en stund. Om du klickar på den **virtuella** fliken i Azure-portalen kan du se ContosoDC reglering tillstånd från **start (etablering)** till **stoppad**,  **Starta**, **körs (etablering)**, och slutligen **kör**.
 
 DC-servern är nu etablerats. Därefter konfigurerar du Active Directory-domänen på den här DC-servern.
 
@@ -171,7 +171,7 @@ Skapa tre virtuella datorer. En är en klusternod och två är för SQL Server. 
 | Välj operativsystem för virtuell dator |**Windows Server 2012 R2 Datacenter** |**SQL Server 2014 RTM Enterprise** |**SQL Server 2014 RTM Enterprise** |
 | Konfiguration av virtuell dator |**VERSION LANSERINGSDATUMET** = (senaste)<br/>**NAMN på virtuell dator** = ContosoWSFCNode<br/>**NIVÅN** = STANDARD<br/>**STORLEK** = A2 (2 kärnor)<br/>**NYTT användarnamn** = AzureAdmin<br/>**NYTT lösenord** = Contoso! 000<br/>**BEKRÄFTA** = Contoso! 000 |**VERSION LANSERINGSDATUMET** = (senaste)<br/>**NAMN på virtuell dator** = ContosoSQL1<br/>**NIVÅN** = STANDARD<br/>**STORLEK** = A3 (4 kärnor)<br/>**NYTT användarnamn** = AzureAdmin<br/>**NYTT lösenord** = Contoso! 000<br/>**BEKRÄFTA** = Contoso! 000 |**VERSION LANSERINGSDATUMET** = (senaste)<br/>**NAMN på virtuell dator** = ContosoSQL2<br/>**NIVÅN** = STANDARD<br/>**STORLEK** = A3 (4 kärnor)<br/>**NYTT användarnamn** = AzureAdmin<br/>**NYTT lösenord** = Contoso! 000<br/>**BEKRÄFTA** = Contoso! 000 |
 | Konfiguration av virtuell dator |**MOLNTJÄNSTEN** = tidigare skapade unikt DNS-Molntjänstnamnet (ex: ContosoDC123)<br/>**REGION/TILLHÖRIGHETSGRUPP/VIRTUELLT nätverk** = ContosoNET<br/>**VIRTUELLA UNDERNÄT** = Back(10.10.2.0/24)<br/>**STORAGE-konto** = Använd en automatiskt genererad storage-konto<br/>**TILLGÄNGLIGHETSUPPSÄTTNING** = skapa en tillgänglighet ange<br/>**NAMNET PÅ TILLGÄNGLIGHETSUPPSÄTTNINGEN** = SQLHADR |**MOLNTJÄNSTEN** = tidigare skapade unikt DNS-Molntjänstnamnet (ex: ContosoDC123)<br/>**REGION/TILLHÖRIGHETSGRUPP/VIRTUELLT nätverk** = ContosoNET<br/>**VIRTUELLA UNDERNÄT** = Back(10.10.2.0/24)<br/>**STORAGE-konto** = Använd en automatiskt genererad storage-konto<br/>**TILLGÄNGLIGHETSUPPSÄTTNING** = SQLHADR (du kan också konfigurera tillgänglighetsuppsättning när datorn har skapats. Alla tre datorer ska tilldelas till tillgänglighetsuppsättningen SQLHADR.) |**MOLNTJÄNSTEN** = tidigare skapade unikt DNS-Molntjänstnamnet (ex: ContosoDC123)<br/>**REGION/TILLHÖRIGHETSGRUPP/VIRTUELLT nätverk** = ContosoNET<br/>**VIRTUELLA UNDERNÄT** = Back(10.10.2.0/24)<br/>**STORAGE-konto** = Använd en automatiskt genererad storage-konto<br/>**TILLGÄNGLIGHETSUPPSÄTTNING** = SQLHADR (du kan också konfigurera tillgänglighetsuppsättning när datorn har skapats. Alla tre datorer ska tilldelas till tillgänglighetsuppsättningen SQLHADR.) |
-| Alternativ för virtuell dator |Använd standardvärden |Använd standardvärden |Använd standardvärden |
+| Alternativ för virtuell dator |Använd standard |Använd standard |Använd standard |
 
 <br/>
 
@@ -257,7 +257,7 @@ Använd följande steg för att utföra uppgifter som helt konfigurerar klustret
    
    | Sida | Inställningar |
    | --- | --- |
-   | Innan du börjar |Använd standardvärden |
+   | Innan du börjar |Använd standard |
    | Välj servrar |Typen **ContosoSQL1** i **ange servernamnet** och på **Lägg till** |
    | Verifieringsvarning |Välj **Nej jag inte behöver support från Microsoft för det här klustret och därför inte vill köra verifieringstesterna. När jag klickar på nästa fortsätter att skapa klustret**. |
    | Åtkomstpunkt för administration av klustret |Typen **Cluster1** i **klusternamn** |

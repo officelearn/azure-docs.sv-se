@@ -4,7 +4,7 @@ description: "Visar en lista över de attribut som synkroniseras till Azure Acti
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08663916214cf2d34704ef2a355464bc6df9b138
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 1fb5772f58511b33d6927c3d0ff155980ed756ad
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: attribut synkroniserade till Azure Active Directory
 Det här avsnittet listar de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -45,7 +45,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | pwdLastSet |X |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
 | sourceAnchor |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
-| UserPrincipalName |X |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| userPrincipalName |X |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="exchange-online"></a>exchange online
 | Attributnamn | Användare | Kontakt | Grupp | Kommentera |
@@ -83,7 +83,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | givenName |X |X | | |
 | HomePhone |X |X | | |
 | Info |X |X |X |Det här attributet används för närvarande inte för grupper. |
-| initialer |X |X | | |
+| Initialer |X |X | | |
 | L |X |X | | |
 | LegacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
@@ -167,7 +167,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
 | userCertificate |X |X | | |
-| UserPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
@@ -248,9 +248,9 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | thumbnailphoto |X |X | | |
 | Rubrik |X |X | | |
 | unauthOrig |X |X |X | |
-| URL: en |X |X | | |
+| url |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
-| UserPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (nu kallat Skype för företag)
@@ -299,7 +299,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | thumbnailphoto |X |X | | |
 | Rubrik |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
-| UserPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
@@ -316,7 +316,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | securityEnabled | | |X |Härleds från groupType. |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
-| UserPrincipalName |X | | |Den här UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| userPrincipalName |X | | |Den här UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="intune"></a>Intune
 | Attributnamn | Användare | Kontakt | Grupp | Kommentera |
@@ -335,7 +335,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | securityEnabled | | |X |Härleds från groupType |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
-| UserPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
 | Attributnamn | Användare | Kontakt | Grupp | Kommentera |
@@ -368,7 +368,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | telephoneNumber |X |X | | |
 | Rubrik |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
-| UserPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="3rd-party-applications"></a>3 partsprogram
 Den här gruppen är en uppsättning attribut som används som minimal attribut som behövs för en allmän arbetsbelastning eller ett program. Det kan användas för en arbetsbelastning som inte finns med i ett annat avsnitt eller för en icke-Microsoft-app. Den används för följande:
@@ -394,7 +394,7 @@ Den här gruppen är en uppsättning attribut som kan användas om Azure AD-kata
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
-| UserPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
+| userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
 ## <a name="windows-10"></a>Windows 10
 En Windows 10-domänanslutna computer(device) synkroniserar vissa attribut till Azure AD. Mer information om scenarier finns [ansluta domänanslutna enheter till Azure AD för Windows 10-upplevelser](../active-directory-azureadjoin-devices-group-policy.md). Dessa attribut synkronisera alltid och Windows 10 visas inte som en app som du kan avmarkera. En domänansluten dator i Windows 10 identifieras genom att låta den attributet userCertificate fylls i.

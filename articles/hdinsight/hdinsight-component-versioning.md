@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 79f3cfbe5f5603d3c9f42e8af1d4093a5135b267
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -77,7 +77,7 @@ Se [HDInsight viktig information](hdinsight-release-notes.md) för ytterligare v
 I följande tabell visas HDInsight-versioner som är tillgängliga på Azure-portalen. HDP-versioner som motsvarar varje HDInsight-version visas tillsammans med produkten frisläppningsdatum. Stöd för förfallodatum och tillbakadragning datumen finns också när de är kända.
 
 > [!NOTE]
-> När du har stöd för en version har gått ut, kanske den inte tillgängliga via den klassiska portalen för Microsoft Azure. Dock klusterversioner fortsätter att vara tillgängliga med den `Version` parameter i Windows PowerShell [ny AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) kommandot och förrän version datumet för tillbakadragandet .NET SDK.
+> När du har stöd för en version har gått ut, kanske den inte tillgängliga via Microsoft Azure-portalen. Dock klusterversioner fortsätter att vara tillgängliga med den `Version` parameter i Windows PowerShell [ny AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) kommandot och förrän version datumet för tillbakadragandet .NET SDK.
 > 
 > Hög tillgänglighet kluster med två noder som head distribueras som standard för HDInsight version 2.1 och senare. De är inte tillgängliga för version 1.6 HDInsight-kluster.
 
@@ -185,8 +185,8 @@ I följande tabell visas de klustertyper som stöds i HDInsight Premium.
 | Spark |Ja |Nej |
 | HBase |Ja |Nej |
 | Storm |Ja |Nej |
-| R-server |Ja |Nej |
-| Interaktiva fråga |Ja |Nej |
+| R Server |Ja |Nej |
+| Interaktiv fråga |Ja |Nej |
 | Kafka (förhandsgranskning) |Ja |Nej | 
 
 ### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Stöd för Azure Data Lake Store i HDInsight Premium
@@ -206,7 +206,7 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
 
 * Alla regioner utom södra och västra Japan som stöds:
 
-  | Klustertyp | Hadoop | HBase | Storm | Spark | R-server |
+  | Klustertyp | Hadoop | HBase | Storm | Spark | R Server |
   | --- | --- | --- | --- | --- | --- |
   | Huvud: standard VM-storlek |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
   | Huvud: rekommenderade storlekar på VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
@@ -218,7 +218,7 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
   | Edge: rekommenderas VM-storlek | | | | |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Södra och västra Japan endast (ingen v2-storlekar):
 
-  | Klustertyp | Hadoop | HBase | Storm | Spark | R-server |
+  | Klustertyp | Hadoop | HBase | Storm | Spark | R Server |
   | --- | --- | --- | --- | --- | --- |
   | Huvud: standard VM-storlek |D3 |D3 |A3 |D12 |D12 |
   | Huvud: rekommenderade storlekar på VM |D3 D4, D12 |D3 D4, D12 |A3, A4, A5 |D12 D13 D14 |D12 D13 D14 |

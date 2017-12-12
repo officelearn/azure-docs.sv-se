@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 25c543528119410dff0684845a713dcb0d6151d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Skapa ett Azure DB som Cosmos-konto med hjälp av PowerShell
 
@@ -66,7 +66,7 @@ Exempel:
 * I föregående exempel skapas ett databaskonto med två områden. Det är också möjligt att skapa ett databaskonto med en region (som är utsedd till skrivåtgärder region och har ett prioritetsvärde för växling vid fel 0) eller fler än två regioner. Mer information finns i [flera regioner databasen konton][scaling-globally].
 * Platser måste vara regioner som Azure Cosmos DB är allmänt tillgänglig. Den aktuella listan över regioner finns på den [Azure-regioner sidan](https://azure.microsoft.com/regions/#services).
 
-## <a id="update-documentdb-account-powershell"></a>Uppdatera ett DocumentDB-databaskonto
+## <a id="update-documentdb-account-powershell"></a>Uppdatera en Azure Cosmos DB databaskontot
 
 Det här kommandot kan du uppdatera kontoegenskaperna Azure DB som Cosmos-databasen. Detta inkluderar konsekvenskontroll principen och de platser som kontot som finns i.
 
@@ -97,7 +97,7 @@ Exempel:
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a>Ta bort en DocumentDB-databaskonto
+## <a id="delete-documentdb-account-powershell"></a>Ta bort en Azure DB som Cosmos-databaskonto
 
 Det här kommandot kan du ta bort ett befintligt konto i Azure DB som Cosmos-databasen.
 
@@ -110,7 +110,7 @@ Exempel:
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a>Hämta egenskaper för ett DocumentDB-databaskonto
+## <a id="get-documentdb-properties-powershell"></a>Hämta egenskaper för ett konto för Azure Cosmos-DB-databas
 
 Det här kommandot kan du hämta egenskaperna för ett befintligt konto i Azure DB som Cosmos-databasen.
 

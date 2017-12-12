@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ac83f948e367be2006e677d8d56fbd4c4a3ab57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: DocumentDB API SQL-frågan fusklapp PDF
-Den **Azure Cosmos DB: DocumentDB API SQL-frågan Cheat blad** hjälper dig att snabbt skriva frågor för DocumentDB-API genom att visa vanliga databasfrågor, nyckelord, inbyggda funktioner och operatorer i ett enkelt att skriva ut PDF referera blad. 
+# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: SQL-frågan fusklapp PDF
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Den **Azure Cosmos DB: SQL-frågan Cheat blad** hjälper kan du snabbt skriva frågor för SQL API data genom att visa vanliga databasfrågor, nyckelord, inbyggda funktioner och operatorer i ett enkelt att skriva ut PDF referera blad. 
 
 Cosmos DB stöder relationella, hierarkisk och spatial frågor till JSON-dokument med hjälp av [SQL](documentdb-sql-query.md) utan att ange ett schema eller sekundärindex. Förutom standard ANSI SQL-nyckelord och operatörer Cosmos DB har stöd för JavaScript användardefinierade funktioner (UDF) och JavaScript-operatörer för en mängd olika inbyggda funktioner.
 
@@ -38,7 +41,7 @@ Skriva dina frågor snabbare genom att hämta fusklapp för SQL-fråga och anvä
 
 ## <a name="more-help-with-writing-sql-queries"></a>Mer hjälp med att skriva SQL-frågor
 * En genomgång av frågealternativen i Cosmos-databasen, se [frågan Cosmos DB](documentdb-sql-query.md).
-* Relaterade referensdokumentation finns [Azure Cosmos DB DocumentDB API: referens för SQL-syntaxen](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* Relaterade referensdokumentation finns [Azure SQL DB-API Cosmos: referens för SQL-syntaxen](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Viktig information
 Uppdateras på 2016/7/29 att inkludera upp.

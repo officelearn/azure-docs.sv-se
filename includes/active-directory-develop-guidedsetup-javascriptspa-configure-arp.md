@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Lägg till programmets registreringsinformation i appen
 
 I det här steget måste du konfigurera omdirigerings-URL för din registreringsinformation för programmet och sedan lägga till det program-Id i JavaScript SPA-programmet.

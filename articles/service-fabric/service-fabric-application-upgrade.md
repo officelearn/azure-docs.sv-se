@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Uppgradera Service Fabric-programmet
-Ett program med Azure Service Fabric är en samling tjänster. Under en uppgradering, Service Fabric jämför de nya [programmanifestet](service-fabric-application-model.md#describe-an-application) med den tidigare versionen och avgör vilka tjänster i kräver programuppdateringar. Service Fabric Jämför version siffror i tjänsten visar med versionsnummer i den tidigare versionen. Om en tjänst inte har ändrats, uppgraderas att tjänsten inte.
+Ett program med Azure Service Fabric är en samling tjänster. Under en uppgradering, Service Fabric jämför de nya [programmanifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i kräver programuppdateringar. Service Fabric Jämför version siffror i tjänsten visar med versionsnummer i den tidigare versionen. Om en tjänst inte har ändrats, uppgraderas att tjänsten inte.
 
 ## <a name="rolling-upgrades-overview"></a>Rullande uppgraderingar översikt
 I en uppgradering av programmet utförs uppgraderingen i etapper. Uppgraderingen tillämpas på en delmängd av noderna i klustret, kallas en uppdateringsdomän i varje steg. Därför programmet finns kvar under uppgraderingen. Klustret kan innehålla en blandning av de gamla och nya versionerna under uppgraderingen.
@@ -47,14 +47,14 @@ Det läge som vi rekommenderar för uppgradering av programmet är övervakat l�
 Oövervakade manuellt läge måste manuell åtgärd efter varje uppgradering på en update-domän, startar uppgraderingen på domänen nästa uppdatering. Ingen Service Fabric-hälsokontroller utförs. Administratören utför hälsa och status kontroller innan du startar uppgraderingen i domänen nästa uppdatering.
 
 ## <a name="upgrade-default-services"></a>Uppgradera standardtjänster
-Standardtjänster i Service Fabric-programmet kan uppgraderas under uppgraderingen av ett program. Standardtjänster definieras i den [programmanifestet](service-fabric-application-model.md#describe-an-application). Standardregler för att uppgradera standardtjänster är:
+Standardtjänster i Service Fabric-programmet kan uppgraderas under uppgraderingen av ett program. Standardtjänster definieras i den [programmanifestet](service-fabric-application-and-service-manifests.md). Standardregler för att uppgradera standardtjänster är:
 
-1. Standard tjänster i den nya [programmanifestet](service-fabric-application-model.md#describe-an-application) som inte finns i klustret har skapats.
+1. Standard tjänster i den nya [programmanifestet](service-fabric-application-and-service-manifests.md) som inte finns i klustret har skapats.
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) måste anges till true om du vill aktivera följande regler. Den här funktionen stöds från version 5.5.
 
-2. Standard tjänster finns i båda tidigare [programmanifestet](service-fabric-application-model.md#describe-an-application) och ny version har uppdaterats. Beskrivningar av rolltjänster i den nya versionen skulle skriva över de redan i klustret. Uppgradering av programmet skulle återställning automatiskt vid uppdatering standard tjänstfel.
-3. Standard tjänster i den tidigare [programmanifestet](service-fabric-application-model.md#describe-an-application) men inte i den nya versionen tas bort. **Observera att detta tar bort standardtjänster inte kan återställas.**
+2. Standard tjänster finns i båda tidigare [programmanifestet](service-fabric-application-and-service-manifests.md) och ny version har uppdaterats. Beskrivningar av rolltjänster i den nya versionen skulle skriva över de redan i klustret. Uppgradering av programmet skulle återställning automatiskt vid uppdatering standard tjänstfel.
+3. Standard tjänster i den tidigare [programmanifestet](service-fabric-application-and-service-manifests.md) men inte i den nya versionen tas bort. **Observera att detta tar bort standardtjänster inte kan återställas.**
 
 Om ett program återställs uppgraderingen, standard services återställs till statusen innan uppgraderingen startas. Men aldrig borttagna tjänster kan skapas.
 

@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 32d4b4a7db134975158e53fc964c24b52b14a1e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 259ce894b9b0e4a1b2dda2bff387f97bf68ad32b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="_Toc395783175"></a>Skapa ett Node.js-webbprogram med Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Den här självstudien om Node.js beskrivs hur du använder Azure Cosmos DB och DocumentDB-API för att lagra och komma åt data från ett node.Ja Express-program på Azure Websites. Du bygger ett enkelt webbaserat aktivitetshanteringsprogram, en ToDo-app, där du kan skapa, hämta och slutföra aktiviteter. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB. Den här självstudien vägleder dig genom skapandet och distributionen av appen och förklarar vad som händer i varje kodfragment.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Den här självstudien om Node.js beskrivs hur du använder Azure Cosmos-databas och SQL-API för att lagra och komma åt data från ett node.Ja Express-program på Azure Websites. Du bygger ett enkelt webbaserat aktivitetshanteringsprogram, en ToDo-app, där du kan skapa, hämta och slutföra aktiviteter. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB. Den här självstudien vägleder dig genom skapandet och distributionen av appen och förklarar vad som händer i varje kodfragment.
 
 ![Skärmdump av programmet My Todo List som skapas genom stegen i den här självstudien om Node.js](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
@@ -534,7 +536,7 @@ Det här ska vara allt som behövs för att appen ska fungera.
 * Vill du testa skalning och prestanda med Azure Cosmos DB? Mer information finns i avsnittet om hur du [testar prestanda och skalning med Azure Cosmos DB](performance-testing.md)
 * Lär dig hur du [övervakar ett Azure Cosmos DB-konto](monitor-accounts.md).
 * Kör frågor mot vår exempeldatauppsättning i [Query Playground](https://www.documentdb.com/sql/demo).
-* Utforska [Azure Cosmos DB-dokumentationen](https://docs.microsoft.com/azure/documentdb/).
+* Utforska [Azure Cosmos DB-dokumentationen](https://docs.microsoft.com/azure/cosmos-db/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

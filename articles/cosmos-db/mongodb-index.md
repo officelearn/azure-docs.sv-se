@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8feabb464c87032db40a66a67f471d0f41cd98eb
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 313f176a1f33fcd5f627ec2251380e602027f8b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB: MongoDB API-dokumentation
 
 Den här artikeln innehåller länkar till alla Azure Cosmos DB innehåll som är specifika för MongoDB-API: et.
 
-Dessa artiklar gäller inte för DocumentDB-API, Graph API eller tabell API. 
+Dessa artiklar gäller inte för SQL-API, Graph API eller tabell API. 
 
 ## <a name="introduction-and-concepts"></a>Introduktion och begrepp
 

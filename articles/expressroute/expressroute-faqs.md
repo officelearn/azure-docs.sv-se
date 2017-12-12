@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0456cde7e30e9b25f8baebdcd15e0e029f89d7ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -175,7 +175,7 @@ Mer information finns i [dela en ExpressRoute-krets över flera prenumerationer]
 
 ### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Jag har flera Azure-prenumerationer som är kopplade till olika Azure Active Directory-klienter eller Enterprise-avtal registreringar. Kan jag ansluta virtuella nätverk som finns i separata klienter och registreringar till en enda ExpressRoute-krets inte i samma klient eller registrering?
 
-Ja. ExpressRoute tillstånd kan sträcka sig över prenumeration, klient och registrering av gränser med inga ytterligare confgiruation som krävs. 
+Ja. ExpressRoute tillstånd kan sträcka sig över prenumeration, klient och registrering av gränser utan ytterligare konfiguration krävs. 
 
 Mer information finns i [dela en ExpressRoute-krets över flera prenumerationer](expressroute-howto-linkvnet-arm.md).
 

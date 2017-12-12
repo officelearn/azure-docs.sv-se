@@ -45,6 +45,8 @@
       items:
         - name: Krav
           href: azure-stack-deploy.md
+        - name: Telemetri
+          href: azure-stack-telemetry.md
         - name: Distribuera
           href: azure-stack-run-powershell-script.md
         - name: Installera PowerShell

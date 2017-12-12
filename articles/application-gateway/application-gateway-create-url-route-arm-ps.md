@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Skapa en Programgateway med sökväg-baserad Routning
 
@@ -55,7 +55,7 @@ Begäranden för http://contoso.com/image * dirigeras till serverpoolen bild (**
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-Skillnaden mellan att använda den klassiska Azure-portalen och Azure Resource Manager är den ordning som du kan skapa programgatewayen och de objekt som ska konfigureras.
+Skillnaden mellan att använda den klassiska distributionsmodellen och Azure Resource Manager är den ordning som du kan skapa programgatewayen och de objekt som ska konfigureras.
 
 Med Resource Manager konfigureras alla objekt som bildar en programgateway separat och sätts sedan ihop för att skapa en programgatewayresurs.
 

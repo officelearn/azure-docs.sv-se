@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver hur program läggs till en instans av 
 services: active-directory
 documentationcenter: 
 author: shoatman
-manager: kbrint
+manager: mtillman
 editor: 
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 51ef7e554b6fd3764893f0fd35464088e42e49f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till Azure AD
 Något av det ursprungligen puzzling när du visar en lista över program i din instans av Azure Active Directory för att förstå var program kommer ifrån och varför de finns.  Den här artikeln ger en översiktlig överblick över hur program visas i katalogen och förse dig med kontext som hjälper dig att förstå hur ett program kommer att finnas i katalogen.

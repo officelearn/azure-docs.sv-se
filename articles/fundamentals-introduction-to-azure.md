@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Introduktion till Microsoft Azure
 Microsoft Azure är Microsofts programplattform för det offentliga molnet.  Syftet med den här artikeln är att ge dig en grund för att förstå grunderna i Azure, även om du inte känner till något om cloud computing.
@@ -40,7 +40,7 @@ Den här artikeln använder en **annan organisation** pratar om tjänster basera
  *Bild: Azure tillhandahåller Internet-tillgängliga programtjänster körs i Azure-datacenter.*
 
 ## <a name="management-portal"></a>Hanteringsportal
-Azure har ett webbgränssnitt som kallas den [hanteringsportalen](http://manage.windowsazure.com) som gör det möjligt för administratörer att få åtkomst till och administrera de flesta, men inte alla Azure-funktioner.  Microsoft släpper vanligtvis nyare UI-portal i beta innan den dras tillbaka en tidigare version. Den nya som kallas den [”Azure Preview Portal”](https://portal.azure.com/).
+Azure har ett webbgränssnitt som kallas den [hanteringsportalen](http://manage.windowsazure.com) som gör det möjligt för administratörer att få åtkomst till och administrera de flesta, men inte alla Azure-funktioner.  Microsoft släpper vanligtvis nyare UI-portal i beta innan den dras tillbaka en tidigare version. Den nya som kallas den [”Azure Portal”](https://portal.azure.com/).
 
 Det är vanligtvis en lång överlappning när båda portaler är aktiva. Även om kärntjänster visas i båda portalerna kanske inte alla funktioner tillgängliga i båda. Nyare tjänster kan visas i nyare portal första och äldre tjänster och funktioner kan endast finnas i den äldre.  Det här meddelandet är om du inte hittar något i den äldre portalen kontrollerar den nyare och vice versa.
 
@@ -218,7 +218,7 @@ Ett Azure-program med användare i en enda del av världen kan köras i endast e
 Traffic manager använder Directory Name Service (DNS) för vägen användarna att slutpunkter, men ytterligare trafik går inte via Traffic Manager när anslutningen görs. Detta håller Traffic Manager från att vara en flaskhals kan sakta ned service-kommunikation.
 
 ## <a name="developer-services"></a>Utvecklartjänster
-Azure erbjuder ett antal verktyg som hjälper utvecklare och IT-proffs skapa och hantera program i molnet.  
+Azure erbjuder ett antal verktyg som hjälper utvecklare och IT-proffs att skapa och hantera program i molnet.  
 
 ### <a name="azure-sdk"></a>Azure SDK
 Första förhandsversionen av Azure stöds endast .NET development tillbaka i 2008. Idag, men kan du skapa Azure-program i nästan alla språk. Microsoft tillhandahåller för närvarande språkspecifika SDK för .NET, Java, PHP, Node.js, Ruby och Python. Det finns också en allmän Azure SDK som tillhandahåller grundläggande stöd för alla språk, till exempel C++.  
@@ -368,7 +368,7 @@ Data är säkrare eftersom krypteras säkerhetskopior före överföringen och l
 
 **Scenarier för Azure-säkerhetskopiering**
 
-Om du redan använder Windows Server eller System Center Azure backup är en fysisk lösning för att säkerhetskopiera dina servrar filsystem, virtuella datorer och SQL Server-databaser.  Den fungerar med krypterade, sparse och komprimerade filer. Det finns vissa begränsningar, så du bör [Kontrollera kraven för Azure Backup](http://technet.microsoft.com/library/dn296608.aspx) första.
+Om du redan använder Windows Server eller System Center, är Azure-säkerhetskopiering en fysisk lösning för att säkerhetskopiera dina servrar filsystem, virtuella datorer och SQL Server-databaser.  Den fungerar med krypterade, sparse och komprimerade filer. Det finns vissa begränsningar, så du bör [Kontrollera kraven för Azure Backup](http://technet.microsoft.com/library/dn296608.aspx) första.
 
 ## <a name="messaging-and-integration"></a>Meddelandefunktioner och integration
 Oavsett vad det gör, måste kod ofta interagera med annan kod.  I vissa fall är allt som behövs grundläggande köade meddelanden. I annat fall krävs mer komplexa interaktioner. Azure tillhandahåller ett antal olika sätt att lösa dessa problem. Bild 5 visar alternativen.
@@ -424,11 +424,11 @@ När du ställer in där det finns många meddelanden som är alla viktig, men o
 ![BizTalk-tjänst](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Bild: BizTalk-tjänst ger möjlighet att omvandla XML-meddelanden format i molnet.*
 
-Ibland måste du ansluta datorer som kommunicerar med olika meddelanden format. Det är vanligt för företag att ha olika databasen scheman och XML-meddelanden format, även om en gemensam standard är tillgänglig. Du kan använda BizTalk Server lokalt för att integrera olika system i stället för att skriva mycket anpassade kod.  Azure BizTalk-tjänster innehåller samma typ av tjänst, men i molnet. Du kan betalar bara vad du använder och oroa dig inte om skala som du skulle behöva lokalt.
+Ibland behöver ansluta datorer som kommunicerar med olika meddelanden format. Det är vanligt för företag att ha olika databasen scheman och XML-meddelanden format, även om en gemensam standard är tillgänglig. Du kan använda BizTalk Server lokalt för att integrera olika system i stället för att skriva mycket anpassade kod.  Azure BizTalk-tjänster innehåller samma typ av tjänst, men i molnet. Du kan betalar bara vad du använder och oroa dig inte om skala som du skulle behöva lokalt.
 
 **BizTalk Services-scenarier**
 
-Interaktioner Business-to-Business (B2B) kräver ofta den här typen av översättning.  Exempelvis måste ett företag skapa flygplan beställa delar från dess leverantörer för olika delar. Har många delar leverantörer.  Dessa order ska automatiseras för att gå direkt från flygplan builders system i leverantörer system.  Varken företag vill ändra core system och meddelandeformat och det är troligt att dessa format är samma. BizTalk-tjänst kan ta meddelanden och översätta mellan de nya format båda hållen. Flygplan leverantören kan göra arbetet för att översätta eller olika leverantörer kan, beroende på vem vill mer kontroll och mängden översättning som behövs.     
+Interaktioner Business-to-Business (B2B) kräver ofta den här typen av översättning.  Till exempel måste ett företag skapa flygplan ordning delar från dess leverantörer för olika delar. Har många delar leverantörer.  Dessa order ska automatiseras för att gå direkt från flygplan builders system i leverantörer system.  Varken företag vill ändra core system och meddelandeformat och det är troligt att dessa format är samma. BizTalk-tjänst kan ta meddelanden och översätta mellan de nya format båda hållen. Flygplan leverantören kan göra arbetet för att översätta eller olika leverantörer kan, beroende på vem vill mer kontroll och mängden översättning som behövs.     
 
 ## <a name="compute-assistance"></a>Compute-hjälp
 Azure tillhandahåller stöd för tjänster som inte behöver köras hela tiden.  
@@ -437,7 +437,7 @@ Azure tillhandahåller stöd för tjänster som inte behöver köras hela tiden.
 ![Azure Scheduler](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png)   
 *Bild: Azure Schemaläggaren kan du schemalägga vid en viss tid för en viss tid.*
 
-Ibland behöver bara program som körs vid en viss tid. I Azure, kan du spara pengar med den här typen av app i stället för att låta ett program bara hålla körs 24 x 7 väntar på att data att bearbeta. Azure Schemaläggaren kan du schemalägga när ett program ska köras baserat på intervall eller en kalender. Det är tillförlitlig och verifierar att en process körs även om det förekommer fel för nätverk, datorer och data center. Du kan använda Schemaläggaren REST API för att hantera dessa åtgärder.
+Ibland behöver bara program som körs vid en viss tid. I Azure, kan du spara pengar med den här typen av app i stället för att låta ett program bara hålla körs 24 x 7 väntar på att data att bearbeta. Azure Schemaläggaren kan du schemalägga när ett program ska köras baserat på ett intervall eller en kalender. Det är tillförlitlig och verifierar att en process körs även om det förekommer fel för nätverk, datorer och data center. Du kan använda Schemaläggaren REST API för att hantera dessa åtgärder.
 
 När en schemalagd larm Scheduler HTTP eller HTTPS-meddelanden skickas till en viss slutpunkt eller placera ett meddelande i en kö för lagring.  Så behöver du ha tillämpningsprogrammet har en tillgänglig slutpunkt eller det övervaka kön för lagring. Den kan sedan utföra de åtgärder som den är programmerad att när det hämtar meddelandet.
 
@@ -493,7 +493,7 @@ HDInsight är namnet på den Azure Apache Hadoop-baserad tjänst. HDInsight kan 
 HDinsight stöder andra komponenter i Hadoop-ekosystemet, inklusive Hive och Pig. Microsoft har också skapat komponenter som gör det lättare att arbeta med data som produceras av HDInsight med hjälp av traditionella BI-verktyg, till exempel HiveODBC nätverkskort och Data Explorer som fungerar med Excel.
 
 ### <a name="high-performance-computing-big-compute"></a>Högpresterande datorbearbetning (stort beräkning)
-En av de mest bra sätten att använda en molnplattform är att köra högpresterande datorbearbetning (HPC) och andra ”stor Compute” program. Exempel inkluderar specialiserade engineering program som skapats för att använda branschstandardiserad Message Passing Interface (MPI) samt s.k. embarrassingly parallella program, sådana finansiella risk-modeller.
+En av de mest bra sätten att använda en molnplattform är att köra högpresterande datorbearbetning (HPC) och andra ”stor Compute” program. Exempel inkluderar specialiserade engineering program som skapats för att använda branschstandardiserad Message Passing Interface (MPI) samt s.k. embarrassingly parallella program, till exempel finansiella risk modeller.
 
 Huvudsakligen stort Compute är kod körs på många datorer samtidigt. I Azure datorer det innebär kör många virtuella samtidigt, alla arbetar parallellt för att lösa problem. Detta kräver något sätt till resurser och att schemalägga program, d.v.s., distribuerar sitt arbete över dessa instanser. Microsofts ledigt HPC Pack och andra lösningar för beräkning kan fungera bra i Azure, dra fördel av Azure beräkning och infrastruktur-tjänster att lägga till kapacitet på begäran till en lokal beräkningskluster eller köra ett stort Compute program helt i molnet.
 
@@ -515,7 +515,7 @@ Media Services tillhandahåller en uppsättning komponenter för program som fun
 
 Program som använder den här plattformen kan köras på Azure eller någon annanstans. Till exempel ett skrivbordsprogram för en video produktion house kan användarna ladda upp video till Media Services sedan behandlas på olika sätt. Alternativt kan en molnbaserad innehållshantering-tjänsten körs på Azure förlitar sig på Media Services för att bearbeta och distribuera video. När den körs och vad som har väljer varje program vilka komponenter som ska användas, komma åt dem via RESTful-gränssnitt.
 
-Om du vill distribuera den genererar kan ett program använda Azure CDN, en annan CDN eller bara skicka bits direkt till användare. Men det får det, video som skapats med hjälp av Media Services kan användas av olika klientsystem, inklusive Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash och Silverlight. Målet är att göra det enklare att skapa media för moderna program.
+Om du vill distribuera den genererar kan ett program använda Azure CDN, en annan CDN eller bara skicka bits direkt till användare. Men när det hämtar det kan video som skapats med hjälp av Media Services användas av olika klientsystem, inklusive Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash och Silverlight. Målet är att göra det enklare att skapa media för moderna program.
 
 **Referenser**
 

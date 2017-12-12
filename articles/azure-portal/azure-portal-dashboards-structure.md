@@ -6,25 +6,25 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Strukturen för Azure instrumentpaneler
 Det här dokumentet beskriver hur strukturen för en Azure instrumentpanel med följande instrumentpanelen som exempel:
 
 ![exempel på en instrumentpanel](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Eftersom delade [Azure instrumentpaneler är resurser](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), den här instrumentpanelen kan representeras som JSON.  Följande JSON representerar instrumentpanelen visualiseras ovan.
+Eftersom delade [Azure instrumentpaneler är resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), den här instrumentpanelen kan representeras som JSON.  Följande JSON representerar instrumentpanelen visualiseras ovan.
 
 ```json
 
@@ -294,7 +294,7 @@ Nu ska vi dela upp de relevanta avsnitten i JSON.  Egenskaperna översta __id__,
 
 ### <a name="the-id-property"></a>Id-egenskapen
 
-Azure-resurs-id, omfattas av den [namngivningskonventioner för resurser i Azure](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). När du skapar en instrumentpanel i portalen väljer vanligtvis ett id i form av ett guid, men du kan använda valfritt giltigt namn när du skapar dem via programmering. 
+Azure-resurs-id, omfattas av den [namngivningskonventioner för resurser i Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). När du skapar en instrumentpanel i portalen väljer vanligtvis ett id i form av ett guid, men du kan använda valfritt giltigt namn när du skapar dem via programmering. 
 
 ### <a name="the-name-property"></a>Egenskapen name
 Namnet är segmentet i resurs-Id som inte innehåller prenumeration, resurstypen eller grupp resursinformation. I princip är det sista segmentet i resurs-id.
@@ -303,7 +303,7 @@ Namnet är segmentet i resurs-Id som inte innehåller prenumeration, resurstypen
 Alla instrumentpaneler är av typen __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Egenskapen location
-Till skillnad från andra resurser inte instrumentpaneler runtime-komponent.  För instrumentpaneler anger platsen den primära geografiska plats som lagrar på instrumentpanelen JSON-representation. Värdet måste vara ett nummer plats som kan hämtas med hjälp av den [platser API på resursen prenumerationer](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Till skillnad från andra resurser inte instrumentpaneler runtime-komponent.  För instrumentpaneler anger platsen den primära geografiska plats som lagrar på instrumentpanelen JSON-representation. Värdet måste vara ett nummer plats som kan hämtas med hjälp av den [platser API på resursen prenumerationer](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Egenskapen taggar
 Taggar är en vanlig funktion för Azure-resurser som kan du ordna resurs av godtyckligt namn-värdepar. För instrumentpaneler, finns en särskild tagg kallas __dolda rubrik__. Om din instrumentpanel har den här egenskapen fyllts, används det som visningsnamnet för instrumentpanelen i portalen. Det går inte att byta namn på Azure resurs-ID, men kan taggar. Den här taggen ger dig ett sätt att ha ett formatmallen namn för instrumentpanelen.

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurera Azure Machine Learning experiment Service
 
@@ -221,7 +221,8 @@ _**Översikt över fjärråtkomst vm-körning för Python-skriptet:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Köra ett skript på ett HDInsight-kluster
 HDInsight är en populär plattform för stordata stöder Apache Spark. Arbetsstationen kan experiment på stordata med HDInsight Spark-kluster. 
 
->[Obs!] HDInsight-klustret måste använda Azure Blob som primär lagring. Användning av Azure Data Lake-lagring stöds inte ännu.
+>[!NOTE]
+>HDInsight-klustret måste använda Azure Blob som primär lagring. Användning av Azure Data Lake-lagring stöds inte ännu.
 
 Du kan skapa ett beräknings-mål och kör konfigurationen för ett HDInsight Spark-kluster med hjälp av följande kommando:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Lägg till den offentliga nyckeln som genererats av Workbench till ~/.ssh/authorized_keys-filen på målet bifogade beräkning. 
 
-[!IMPORTANT] Du måste logga in på målet beräkning med samma användarnamn som du använde för att skapa beräknings-målet. 
+>[!IMPORTANT]
+>Du måste logga in på målet beräkning med samma användarnamn som du använde för att skapa beräknings-målet. 
 
 - Nu kan du förbereda och använder beräkning målet med SSH-nyckel för autentisering.
 

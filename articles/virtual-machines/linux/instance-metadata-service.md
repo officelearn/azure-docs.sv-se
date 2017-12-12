@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-instance-metadata-service"></a>Instansen Metadata i Azure-tjänsten
 
@@ -76,7 +76,7 @@ I följande tabell är en referens för andra dataformat stöder API: er.
 API | Standardformatet för Data | Andra format
 --------|---------------------|--------------
 /Instance | JSON | Text
-/scheduledevents | JSON | Ingen
+/scheduledevents | JSON | ingen
 
 Ange det begärda formatet som en querystring-parameter i begäran för att komma åt en icke-förvalt svarsformat. Exempel:
 
@@ -283,10 +283,10 @@ Data | Beskrivning | Version introduceras
 -----|-------------|-----------------------
 location | Azure-regionen för den virtuella datorn körs i | 2017-04-02 
 namn | Namnet på den virtuella datorn | 2017-04-02
-Erbjudande | Tillhandahåller information för VM-avbildning. Det här värdet finns bara för avbildningar som distribueras från Azure-avbildning gallery. | 2017-04-02
+erbjudande | Tillhandahåller information för VM-avbildning. Det här värdet finns bara för avbildningar som distribueras från Azure-avbildning gallery. | 2017-04-02
 Publisher | Utgivaren av VM-avbildning | 2017-04-02
 SKU | Specifika SKU för VM-avbildning | 2017-04-02
-Version | Version av VM-avbildning | 2017-04-02
+version | Version av VM-avbildning | 2017-04-02
 osType | Linux- eller Windows | 2017-04-02
 platformUpdateDomain |  [Uppdateringsdomän](manage-availability.md) den virtuella datorn körs | 2017-04-02
 platformFaultDomain | [Feldomänen](manage-availability.md) den virtuella datorn körs | 2017-04-02
@@ -391,7 +391,7 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.SH
    * Instansen Metadata tjänsten kräver huvudet `Metadata: true` som används i begäran. Skicka det här sidhuvudet i REST-anrop tillåter åtkomst till tjänsten instans Metadata. 
 2. Varför inte inträffar beräknings-information för den virtuella datorn?
    * Tjänsten instans Metadata stöder för närvarande bara instanser som skapats med Azure Resource Manager. I framtiden, kan vi lägga till stöd för virtuella datorer för molnet tjänsten.
-3. Jag har skapat Min virtuella dator via Azure Resource Manager en tid sedan. Varför kan jag inte se compute metadatainformation?
+3. Jag har skapat Min virtuella dator via Azure Resource Manager en tid sedan. Varför kan jag inte se beräkning metadatainformation?
    * För alla virtuella datorer som skapats efter Sep 2016, lägga till en [taggen](../../azure-resource-manager/resource-group-using-tags.md) att starta ser compute metadata. För äldre virtuella datorer (som skapats före Sep 2016), Lägg till/ta bort tillägg eller data diskar till den virtuella datorn för att uppdatera metadata.
 4. Jag ser inte alla data som har fyllts i för ny version av 2017-08-01
    * För alla virtuella datorer som skapats efter Sep 2016, lägga till en [taggen](../../azure-resource-manager/resource-group-using-tags.md) att starta ser compute metadata. För äldre virtuella datorer (som skapats före Sep 2016), Lägg till/ta bort tillägg eller data diskar till den virtuella datorn för att uppdatera metadata.
@@ -402,7 +402,7 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.SH
 7. Fungerar detta för Virtual Machine Scale ange instansen?
    * Ja är Metadata-tjänsten tillgänglig för skala ange instanser. 
 8. Hur får jag support för tjänsten?
-   * Om du vill få support för tjänsten, skapa ett supportproblem i Azure-portalen för den virtuella datorn där du inte kan hämta metadata svar efter lång försök 
+   * Om du vill få support för tjänsten, skapa en supportbegäran i Azure-portalen för den virtuella datorn där du inte kan hämta metadata svar efter lång försök 
 
    ![Stöd för instans-Metadata](./media/instance-metadata-service/InstanceMetadata-support.png)
     

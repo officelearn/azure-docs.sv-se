@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b5b1d7723b57db2614dc889282f98e9673b4bbd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Använda Azure Queue storage för att övervaka Media Services jobbet meddelanden med .NET
 När du kör kodning jobben behöver du ofta ett sätt att spåra jobbförloppet. Du kan konfigurera Media Services för att leverera meddelanden till [Azure Queue storage](../storage/storage-dotnet-how-to-use-queues.md). Du kan övervaka jobbförloppet genom att hämta meddelanden från Queue storage. 
@@ -27,7 +27,7 @@ Meddelanden som har levererats till Queue storage kan nås från var som helst i
 
 Ett vanligt scenario för att lyssna på Media Services-meddelanden är om du utvecklar ett system för innehållshantering som behöver för att utföra vissa ytterligare uppgifter efter ett kodningsjobb är klar (till exempel att utlösa nästa steg i ett arbetsflöde eller publicera innehåll).
 
-Det här avsnittet visar hur du får meddelanden från Queue storage.  
+Den här artikeln visar hur du får meddelanden från Queue storage.  
 
 ## <a name="considerations"></a>Överväganden
 Tänk på följande när du utvecklar Media Services-program som använder Queue storage:
@@ -54,7 +54,7 @@ Kodexempel i det här avsnittet innehåller följande:
 9. Tar bort kön och notification-slutpunkt.
 
 > [!NOTE]
-> Det rekommenderade sättet att övervaka en jobbets status är genom att lyssna på meddelanden, som visas i följande exempel.
+> Det rekommenderade sättet att övervaka en jobbets status är genom att lyssna på meddelanden, som visas i följande exempel:
 >
 > Du kan också du kan kontrollera på tillstånd för ett jobb med hjälp av den **IJob.State** egenskapen.  Ett meddelande om en jobbet har slutförts kan tas emot innan tillståndet på **IJob** är inställd på **avslutad**. Den **IJob.State** egenskapen visar tillståndet korrekt med en viss fördröjning.
 >
@@ -63,7 +63,8 @@ Kodexempel i det här avsnittet innehåller följande:
 ### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
 1. Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
-2. Skapa en ny mapp (mappen kan vara på valfri plats på den lokala enheten) och kopiera en MP4-fil som du vill koda och strömma eller ladda ner progressivt. I det här exemplet används sökvägen ”C:\Media”.
+2. Skapa en ny mapp (mappen kan finnas var som helst på den lokala enheten) och kopiera en .mp4-fil som du vill koda och strömma eller progressivt hämta. I det här exemplet används sökvägen ”C:\Media”.
+3. Lägg till en referens till den **avsnittsgruppen** bibliotek.
 
 ### <a name="code"></a>Kod
 
@@ -120,9 +121,14 @@ namespace JobNotification
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
         private static readonly string _StorageConnectionString = 
             ConfigurationManager.AppSettings["StorageConnectionString"];
 
@@ -138,11 +144,15 @@ namespace JobNotification
             string endPointAddress = Guid.NewGuid().ToString();
 
             // Create the context.
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
+            
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
@@ -326,7 +336,8 @@ namespace JobNotification
     }
 }
 ```
-Föregående exempel resulterade i följande utdata. Värdena kan variera.
+
+Föregående exempel genereras följande utdata: värdena kan variera.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

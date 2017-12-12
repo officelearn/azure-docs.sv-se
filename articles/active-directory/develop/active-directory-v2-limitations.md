@@ -4,7 +4,7 @@ description: "En lista över begränsningar och restriktioner för Azure AD v2.0
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: eb9c2ce5170aa02b7502eb5a52f2bf4b3a8ccb9c
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Bör jag använda v2.0-slutpunkten?
 När du skapar program som integreras med Azure Active Directory, måste du bestämma om v2.0-slutpunkten och verifieringsprotokollen uppfyller dina behov. Azure Active Directorys ursprungliga slutpunkt stöds fortfarande helt och på vissa sätt, är fler funktioner än version 2.0. Dock v2.0-slutpunkten [introducerar betydande fördelar](active-directory-v2-compare.md) för utvecklare.

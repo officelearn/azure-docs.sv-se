@@ -12,163 +12,173 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/11/2017
 ms.author: dobett
-ms.openlocfilehash: 32a62be9578ac802ee8fff1b0aa48e2d39362e63
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: af49a31061152cf44d3818b79b9ed7ba586f8418
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Distribuera en gateway på Windows- eller Linux för anslutna factory förkonfigurerade lösningen
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Distribuera en gräns-gatewayen för anslutna factory förkonfigurerade lösningen på Windows- eller Linux
 
-Programvara som krävs för att distribuera en gateway för anslutna factory förkonfigurerade lösningen har två komponenter:
+Du behöver två programvarukomponenter att distribuera en gräns-gatewayen för det *anslutna factory* förkonfigurerade lösningen:
 
-* Den *OPC Proxy* upprättar en anslutning till IoT-hubb. Den *OPC Proxy* väntar sedan på kommando- och meddelanden från integrerade OPC webbläsaren som körs i den anslutna factory lösning portalen.
-* Den *OPC Publisher* ansluter till befintliga lokala OPC UA servrar och vidarebefordrar telemetri från dem till IoT-hubben.
+- Den *OPC Proxy* upprättar en anslutning till ansluten factory. OPC-Proxy väntar sedan kommando- och meddelanden från integrerade OPC webbläsaren som körs i den anslutna factory lösning portalen.
 
-Båda komponenterna är öppen källkod och är tillgängliga som källa på GitHub och Docker-behållare:
+- Den *OPC Publisher* ansluter till befintliga lokala OPC UA servrar och vidarebefordrar telemetri från dem till anslutna factory. Du kan ansluta en OPC klassiska enheter med hjälp av den [OPC klassiska kortet för OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+
+Båda komponenterna är öppen källkod och är tillgängliga som källa på GitHub och Docker behållare på DockerHub:
 
 | GitHub | DockerHub |
 | ------ | --------- |
-| [OPC Publisher][lnk-publisher-github] | [OPC Publisher][lnk-publisher-docker] |
-| [OPC-Proxy][lnk-proxy-github] | [OPC-Proxy][lnk-proxy-docker] |
+| [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | [OPC Publisher](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
+| [OPC-Proxy](https://github.com/Azure/iot-edge-opc-proxy)         | [OPC-Proxy](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
 
-Ingen offentlig IP-adress eller hål i brandväggen gateway krävs för någon komponent. OPC-Proxy och OPC utgivare använder du endast utgående portarna 443, 5671 och 8883.
+Du behöver inte en offentlig IP-adress eller öppna ingående portar i brandväggen för gateway för någon komponent. OPC-Proxy och OPC utgivaren komponenter kan bara använda utgående port 443.
 
-Stegen i den här artikeln visar hur du distribuerar en gateway med Docker på antingen [Windows](#windows-deployment) eller [Linux](#linux-deployment). Gatewayen kan ansluta till den anslutna factory förkonfigurerade lösningen.
-
-> [!NOTE]
-> Gateway-programvaran som körs i dockerbehållare är [Azure IoT kant].
-
-## <a name="windows-deployment"></a>Windows-distribution
+Stegen i den här artikeln visar hur du distribuerar en gräns-gatewayen med Docker i Windows eller Linux. Gatewayen kan ansluta till den anslutna factory förkonfigurerade lösningen. Du kan också använda komponenterna utan anslutna fabriken.
 
 > [!NOTE]
-> Om du ännu inte har en gateway-enhet, rekommenderar Microsoft att du köper en kommersiell gateway från en av sina partner. Finns det [Azure IoT-enhet katalogen] för en lista med gatewayenheter som är kompatibla med anslutna factory-lösning. Följ instruktionerna som medföljer enheten för att konfigurera gatewayen. Du kan också Använd följande instruktioner för att manuellt konfigurera en av dina befintliga gatewayer.
+> Du kan använda båda komponenterna som moduler i [Azure IoT kant](https://github.com/Azure/iot-edge).
 
-### <a name="install-docker"></a>Installera Docker
+## <a name="choose-a-gateway-device"></a>Välj en gateway-enhet
 
-Installera [Docker för Windows] på din Windows-baserade gateway-enhet. Välj en enhet på värddatorn delar med Docker under Windows Docker-installationen. Följande skärmbild visar delning enhet D på Windows-systemet:
+Om du ännu inte har en gateway-enhet, rekommenderar Microsoft att du köper en kommersiell gateway från en av sina partner. En lista över alla gatewayenheter som är kompatibla med anslutna factory-lösningen finns i [Azure IoT-enhet katalogen](https://catalog.azureiotsuite.com/?q=opc). Följ instruktionerna som medföljer enheten för att konfigurera gatewayen.
 
-![Installera Docker][img-install-docker]
+Alternativt, Använd följande instruktioner för att manuellt konfigurera en befintlig gatewayenhet.
 
-Skapa en mapp med namnet **docker** i roten av den delade enheten.
-Du kan också utföra det här steget när du har installerat docker från den **inställningar** menyn.
+## <a name="install-and-configure-docker"></a>Installera och konfigurera Docker
 
-### <a name="configure-the-gateway"></a>Konfigurera gatewayen
+Installera [Docker för Windows](https://www.docker.com/docker-windows) på Windows-baserade gateway-enheten eller Använd en package manager för att installera docker på Linux-baserade gateway-enhet.
 
-1. Du behöver den **iothubowner** anslutningssträngen för dina Azure IoT Suite anslutna factory distribution gateway-distributionen. I den [Azure-portalen], navigera till din IoT-hubb i resursgruppen som skapas när du har distribuerat anslutna factory-lösning. Klicka på **principer för delad åtkomst** att få åtkomst till den **iothubowner** anslutningssträngen:
+Välj en enhet på värddatorn delar med Docker under installationen av Docker för Windows. Följande skärmbild visar delning av **D** enhet på Windows-systemet att ge åtkomst till värdenheten från inuti en dockerbehållare:
 
-    ![Hitta anslutningssträngen IoT-hubb][img-hub-connection]
-
-    Kopiera den **anslutningssträngen--primärnyckel** värde.
-
-1. Konfigurera gateway för din IoT-hubb genom att köra två gateway-moduler **när** från en kommandotolk med:
-
-    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
-
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
-
-    * **&lt;ApplicationName&gt;**  är namnet som ska ge OPC UA Publisher i formatet **utgivare.&lt; fullständigt kvalificerade domännamnet&gt;**. Om exempelvis factory nätverket kallas **myfactorynetwork.com**, **ApplicationName** värdet är **publisher.myfactorynetwork.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;**  är den **iothubowner** anslutningssträngen som du kopierade i föregående steg. Den här anslutningssträngen används endast i det här steget, behöver du inte den i följande steg:
-
-    Du använder den mappade D:\\docker-mappen (den `-v` argumentet) senare för att bevara de två X.509-certifikat som använder gateway-moduler.
-
-### <a name="run-the-gateway"></a>Kör gatewayen
-
-1. Starta om gatewayen med följande kommandon:
-
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
-
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
-
-1. Av säkerhetsskäl måste de två X.509-certifikat som är kvar i D:\\docker mappen innehåller den privata nyckeln. Begränsa åtkomsten till den här mappen på autentiseringsuppgifterna (vanligtvis **administratörer**) används för att köra Docker-behållaren. Högerklicka på D:\\docker-mappen, Välj **egenskaper**, sedan **säkerhet**, och sedan **redigera**. Ge **administratörer** fullständig kontroll och ta bort alla andra:
-
-    ![Bevilja behörighet till Docker-resurs][img-docker-share]
-
-1. Kontrollera nätverksanslutningen. Ange kommandot från en kommandotolk `ping publisher.<your fully qualified domain name>` pinga din gateway. Lägg till IP-adressen och namnet på din gateway i värdfilen på din gateway om målet kan inte nås. Värdfilen finns i den **Windows\\System32\\drivrutiner\\etc** mapp.
-
-1. Därefter försöka ansluta till utgivaren med hjälp av en lokal OPC UA-klient som körs på en gateway. OPC UA slutpunkten URL: en är `opc.tcp://publisher.<your fully qualified domain name>:62222`. Om du inte har en OPC UA-klient, hämtar och använder en [öppen källkod OPC UA klienten].
-
-1. När du har slutfört dessa lokala tester, bläddra till den **ansluta din egen OPC UA Server** sidan på anslutna factory lösning portalen. Ange utgivare slutpunkts-URL (`tcp://publisher.<your fully qualified domain name>:62222`) och klicka på **Anslut**. Du får en certifikatvarning om och klicka sedan på **Fortsätt.** Nästa du får ett felmeddelande som webbklienten UA inte litar på utgivaren. Lös problemet genom att kopiera den **UA webbklienten** certifikat från den **D:\\docker\\avvisade certifikat\\certifikat** mappen till den **D:\\docker\\UA program\\certifikat** mapp på gateway. Du behöver inte starta om gatewayen. Upprepa det här steget. Du kan ansluta till gatewayen nu från molnet och du är redo att lägga till OPC UA servrar i lösningen.
-
-### <a name="add-your-opc-ua-servers"></a>Lägga till OPC UA-servrar
-
-1. Bläddra till den **ansluta din egen OPC UA Server** sidan på anslutna factory lösning portalen. Följ samma steg som i föregående avsnitt för att upprätta förtroende mellan anslutna factory-portalen och OPC UA-servern. Det här steget upprättar ett ömsesidigt förtroende av certifikat från anslutna factory-portalen och OPC UA-servern och skapar en anslutning.
-
-1. Bläddra i OPC UA noder trädet serverns OPC UA, högerklicka på OPC-noder och välj **publicera**. För att publicera om du vill att fungera måste OPC UA-server och utgivaren vara i samma nätverk. Med andra ord, om det fullständigt kvalificerade domännamnet utgivarens **publisher.mydomain.com** fullständigt kvalificerade domännamnet för OPC UA-server måste vara, till exempel **myopcuaserver.mydomain.com**. Om din konfiguration skiljer sig, du kan manuellt lägga till noder publishesnodes.json-fil som finns i den **D:\\docker** mapp. Filen publishesnodes.json genereras automatiskt första lyckade publicera för en OPC-nod.
-
-1. Telemetri nu flödar från gateway-enheten. Du kan visa telemetri i den **Factory platser** visa anslutna factory portalens under **nya Factory**.
-
-## <a name="linux-deployment"></a>Linux-distribution
+![Installera Docker för Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> Om du ännu inte har en gateway-enhet, rekommenderar Microsoft att du köper en kommersiell gateway från en av sina partner. Finns det [Azure IoT-enhet katalogen] för en lista med gatewayenheter som är kompatibla med anslutna factory-lösning. Följ instruktionerna som medföljer enheten för att konfigurera gatewayen. Du kan också Använd följande instruktioner för att manuellt konfigurera en av dina befintliga gatewayer.
+> Du kan också utföra det här steget när du har installerat docker från den **inställningar** dialogrutan. Högerklicka på den **Docker** ikonen i systemfältet i Windows och välj **inställningar**.
 
-[Installera Docker] på Linux-gateway-enheten.
+Om du använder Linux, krävs ingen ytterligare konfiguration för att ge åtkomst till filsystemet.
 
-### <a name="configure-the-gateway"></a>Konfigurera gatewayen
+Skapa en mapp på den enhet som du har delat med Docker i Windows, kan skapa en mapp under roten filsystemet på Linux. Den här genomgången refererar till den här mappen som `<SharedFolder>`.
 
-1. Du behöver den **iothubowner** anslutningssträngen för dina Azure IoT Suite anslutna factory distribution gateway-distributionen. I den [Azure-portalen], navigera till din IoT-hubb i resursgruppen som skapas när du har distribuerat anslutna factory-lösning. Klicka på **principer för delad åtkomst** att få åtkomst till den **iothubowner** anslutningssträngen:
+När du refererar till den `<SharedFolder>` i en Docker-kommandot måste du använda den korrekta syntaxen för ditt operativsystem. Här är två exempel, en för Windows och en för Linux:
 
-    ![Hitta anslutningssträngen IoT-hubb][img-hub-connection]
+- Om du använder mappen `D:\shared` i Windows som din `<SharedFolder>`, kommandosyntaxen Docker är `//d/shared`.
 
-    Kopiera den **anslutningssträngen--primärnyckel** värde.
+- Om du använder mappen `/shared` på Linux som din `<SharedFolder>`, kommandosyntaxen Docker är `/shared`.
 
-1. Konfigurera gateway för din IoT-hubb genom att köra två gateway-moduler **när** från ett gränssnitt med:
+Mer information finns i [använda volymer](https://docs.docker.com/engine/admin/volumes/volumes/) docker modulreferens.
 
-    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+## <a name="configure-the-opc-components"></a>Konfigurera OPC-komponenter
 
-    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+Utför följande steg för att förbereda din miljö innan du installerar OPC-komponenter:
 
-    * **&lt;ApplicationName&gt;**  är namnet på programmet OPC UA gatewayen skapar i formatet **utgivare.&lt; fullständigt kvalificerade domännamnet&gt;**. Till exempel **publisher.microsoft.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;**  är den **iothubowner** anslutningssträngen som du kopierade i föregående steg. Den här anslutningssträngen används endast i det här steget, behöver du inte den i följande steg:
+1. Du behöver för att slutföra gateway-distribution av **iothubowner** anslutningssträngen för IoT-hubben i distributionen anslutna fabriken. I den [Azure-portalen](http://portal.azure.com/), navigera till din IoT-hubb i resursgruppen som skapas när du har distribuerat anslutna factory-lösning. Klicka på **principer för delad åtkomst** att få åtkomst till den **iothubowner** anslutningssträngen:
 
-    Du använder den **/ delade** mappen (den `-v` argumentet) senare för att bevara de två X.509-certifikat som använder gateway-moduler.
+    ![Hitta anslutningssträngen IoT-hubb](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
-### <a name="run-the-gateway"></a>Kör gatewayen
+    Kopiera den **sträng-primära anslutningsnyckel** värde.
 
-1. Starta om gatewayen med följande kommandon:
+1. För att tillåta kommunikation mellan docker-behållare, behöver du en användardefinierad brygga för nätverk. Om du vill skapa en brygga för nätverk för din behållare, kör du följande kommandon i Kommandotolken:
 
-    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
+    ```cmd/sh
+    docker network create -d bridge iot_edge
+    ```
 
-    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
+    Att verifiera den **iot_edge** bridge nätverket har skapats genom att köra följande kommando:
 
-1. Av säkerhetsskäl måste de två X.509-certifikat som är kvar i den **/ delade** mappen innehåller den privata nyckeln. Begränsa åtkomsten till den här mappen på de autentiseringsuppgifter som används för att köra Docker-behållaren. Ange behörigheter för **rot** endast använda den `chmod` shell-kommandot på mappen.
+    ```cmd/sh
+    docker network ls
+    ```
 
-1. Kontrollera nätverksanslutningen. Ange kommandot från en shell `ping publisher.<your fully qualified domain name>` pinga din gateway. Lägg till IP-adressen och namnet på din gateway till hosts-filen på din gateway om målet kan inte nås. Värdfilen finns i den **/etc** mapp.
+    Din **iot_edge** bridge nätverket ingår i listan över nätverk.
 
-1. Därefter försöka ansluta till utgivaren med hjälp av en lokal OPC UA-klient som körs på en gateway. OPC UA slutpunkten URL: en är `opc.tcp://publisher.<your fully qualified domain name>:62222`. Om du inte har en OPC UA-klient, hämtar och använder en [öppen källkod OPC UA klienten].
+Om du vill köra OPC utgivaren kör du följande kommando i Kommandotolken:
 
-1. När du har slutfört dessa lokala tester, bläddra till den **ansluta din egen OPC UA Server** sidan på anslutna factory lösning portalen. Ange utgivare slutpunkts-URL (`tcp://publisher.<your fully qualified domain name>:62222`) och klicka på **Anslut**. Du får en certifikatvarning om och klicka sedan på **Fortsätt.** Nästa du får ett felmeddelande som webbklienten UA inte litar på utgivaren. Lös det här felet genom att kopiera den **UA webbklienten** certifikat från den **/delad/Avvisad certifikat/certifikat** mappen till den **/shared/UA program/certifikat** mapp på gateway. Du behöver inte starta om gatewayen. Upprepa det här steget. Du kan ansluta till gatewayen nu från molnet och du är redo att lägga till OPC UA servrar i lösningen.
+```cmd/sh
+docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/corefx/cryptography/x509stores --network iot_edge --name publisher -h publisher -p 62222:62222 --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-publisher:2.1.3 publisher "<IoTHubOwnerConnectionString>" --lf /docker/publisher.log.txt --as true --si 1 --ms 0 --tm true --vc true --di 30
+```
 
-### <a name="add-your-opc-ua-servers"></a>Lägga till OPC UA-servrar
+- Den [OPC Publisher GitHub](https://github.com/Azure/iot-edge-opc-publisher) och [docker kör referens](https://docs.docker.com/engine/reference/run/) ger mer information om:
 
-1. Bläddra till den **ansluta din egen OPC UA Server** sidan på anslutna factory lösning portalen. Följ samma steg som i föregående avsnitt för att upprätta förtroende mellan anslutna factory-portalen och OPC UA-servern. Det här steget upprättar ett ömsesidigt förtroende av certifikat från anslutna factory-portalen och OPC UA-servern och skapar en anslutning.
+  - Docker kommandoradsalternativ angivet innan behållarens namn (`microsoft/iot-edge-opc-publisher:2.1.3`).
+  - Innebörden av OPC Publisher kommandoradsparametrarna anges efter behållarens namn (`microsoft/iot-edge-opc-publisher:2.1.3`).
 
-1. Bläddra i OPC UA noder trädet serverns OPC UA, högerklicka på OPC-noder och välj **publicera**. För att publicera om du vill att fungera måste OPC UA-server och utgivaren vara i samma nätverk. Med andra ord, om det fullständigt kvalificerade domännamnet utgivarens **publisher.mydomain.com** fullständigt kvalificerade domännamnet för OPC UA-server måste vara, till exempel **myopcuaserver.mydomain.com**. Om din konfiguration skiljer sig, du kan manuellt lägga till noder publishesnodes.json-fil som finns i den **/ delade** mapp. Publishesnodes.json genereras automatiskt första lyckade publicera för en OPC-nod.
+- Den `<IoTHubOwnerConnectionString>` är den **iothubowner** delad åtkomst princip anslutningssträngen från Azure-portalen. Du har kopierat den här anslutningssträngen i föregående steg. Du behöver bara den här anslutningssträngen för den första körningen av OPC utgivare. På efterföljande körs bör du utelämna den eftersom det utgör en säkerhetsrisk.
+
+- Den `<SharedFolder>` du använder och dess syntaxen beskrivs i avsnittet [installera och konfigurera Docker](#install-and-configure-docker). OPC utgivaren använder den `<SharedFolder>` att läsa konfigurationsfilen OPC utgivare, skriva loggfilen och kontrollera både dessa filer var tillgängliga utanför behållaren.
+
+- OPC Publisher läser konfigurationen från den **publishednodes.json** fil som du bör placera i den `<SharedFolder>/docker` mapp. Den här konfigurationsfilen definierar vilka OPC UA noden data på en server som anges av OPC UA OPC utgivaren ska prenumerera på.
+
+- När servern OPC UA meddelar OPC utgivaren av en ändring av data, skickas det nya värdet till IoT-hubb. Beroende på inställningarna för batching ackumuleras OPC utgivaren först data innan informationen skickas till IoT-hubb i en batch.
+
+- Den fullständiga syntaxen för den **publishednodes.json** filen beskrivs på den [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) sidan på GitHub.
+
+    Följande utdrag visar ett enkelt exempel på en **publishednodes.json** fil. Det här exemplet illustrerar hur du publicerar den **CurrentTime** värde från en OPC UA server med värdnamn **win10pc**:
+
+    ```json
+    [
+      {
+        "EndpointUrl": "opc.tcp://win10pc:48010",
+        "OpcNodes": [
+          {
+            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
+          }
+        ]
+      }
+    ]
+    ```
+
+    I den **publishednodes.json** -fil, den OPC UA-server har angetts av slutpunkts-URL. Om du anger värdnamnet som använder en etikett för värdnamn (exempelvis **win10pc**) som i föregående exempel i stället för en IP-adress adressmatchning nätverket i behållaren måste kunna matcha värdnamn etiketten till en IP-adress.
+
+- Docker har inte stöd för NetBIOS-namnmatchning, endast DNS-namnmatchning. Om du inte har en DNS-server i nätverket kan använda du den lösning som visas i exemplet ovan kommandoraden. I föregående exempel kommandoraden används den `--add-host` parametern för att lägga till en post i värdfilen behållare. Den här posten gör hostname-sökning för den angivna `<OpcServerHostname>`, lösa den angivna IP-adressen `<IpAddressOfOpcServerHostname>`.
+
+- OPC UA använder X.509-certifikat för autentisering och kryptering. Du måste placera OPC certifikat på OPC UA servern du ansluter till, så litar OPC utgivare. Certifikatarkivet OPC Publisher finns i den `<SharedFolder>/CertificateStores` mapp. Du kan hitta OPC Publisher certifikatet i den `trusted/certs` mapp i den `CertificateStores` mapp.
+
+  Stegen för att konfigurera servern OPC UA beror på den enhet du använder. de här stegen är vanligtvis dokumenterade i Användarhandbok OPC UA-server.
+
+Om du vill installera OPC-Proxy, kör du följande kommando i Kommandotolken:
+
+```cmd/sh
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
+```
+
+Du behöver bara köra installationen en gång på ett system.
+
+Använd följande kommando för att köra OPC-Proxy:
+
+```cmd/sh
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
+```
+
+OPC Proxy sparar anslutningssträngen under installationen. På efterföljande körs bör du utelämnar anslutningssträngen eftersom det utgör en säkerhetsrisk.
+
+## <a name="enable-your-gateway"></a>Aktivera din gateway
+
+Utför följande steg om du vill aktivera din gateway i anslutna factory förkonfigurerade lösningen:
+
+1. När båda komponenterna körs, bläddra till den **ansluta din egen OPC UA Server** sidan på anslutna factory lösning portalen. Den här sidan är endast tillgänglig för administratörer i lösningen. Ange utgivare slutpunkts-URL (opc.tcp://publisher: 62222) och klicka på **Anslut**.
+
+1. Upprätta en förtroenderelation mellan anslutna factory portal och OPC utgivare. När en certifikatvarning, klickar du på **Fortsätt**. Därefter kan du se ett fel att OPC utgivaren inte har förtroende för UA webbklienten. Lös problemet genom att kopiera den **UA webbklienten** certifikat från den `<SharedFolder>/CertificateStores/rejected/certs` mappen till den `<SharedFolder>/CertificateStores/trusted/certs` mappen på gateway. Du behöver inte starta om gatewayen.
+
+Du kan ansluta till gatewayen nu från molnet och du är redo att lägga till OPC UA servrar i lösningen.
+
+## <a name="add-your-own-opc-ua-servers"></a>Lägga till egna OPC UA-servrar
+
+Att lägga till egna OPC USA servrar till anslutna fabriken förkonfigurerade lösningen:
+
+1. Bläddra till den **ansluta OPC UA servern** sidan på anslutna factory lösning portalen. Följ samma steg som i föregående avsnitt för att upprätta en förtroenderelation mellan anslutna factory-portalen och OPC UA-servern.
+
+    ![Lösningsportal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Bläddra i OPC UA noder trädet serverns OPC UA, högerklicka på OPC-noder som du vill skicka till anslutna factory och välj **publicera**.
 
 1. Telemetri nu flödar från gateway-enheten. Du kan visa telemetri i den **Factory platser** visa anslutna factory portalens under **nya Factory**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om arkitekturen för den anslutna factory förkonfigurerade lösningen finns [anslutna factory förkonfigurerade lösningen genomgången][lnk-walkthrough].
+Mer information om arkitekturen för den anslutna factory förkonfigurerade lösningen finns [anslutna factory förkonfigurerade lösningen genomgången](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
-Lär dig mer om den [OPC Publisher referensimplementering](iot-suite-connected-factory-publisher.md).
-
-[img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
-[img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png
-[img-docker-share]: ./media/iot-suite-connected-factory-gateway-deployment/image3.png
-
-[Docker för Windows]: https://www.docker.com/docker-windows
-[Azure IoT-enhet katalogen]: https://catalog.azureiotsuite.com/?q=opc
-[Azure-portalen]: http://portal.azure.com/
-[öppen källkod OPC UA klienten]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
-[Installera Docker]: https://www.docker.com/community-edition#/download
-[lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
-[Azure IoT kant]: https://github.com/Azure/iot-edge
-
-[lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
-[lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
-[lnk-proxy-github]: https://github.com/Azure/iot-edge-opc-proxy
-[lnk-proxy-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua-proxy
+Lär dig mer om den [OPC Publisher referensimplementering](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-publisher).

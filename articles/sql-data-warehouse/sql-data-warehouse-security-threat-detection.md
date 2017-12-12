@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f5dab6936e8cac10ac7a4a7dc4c3be116de5ad5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-threat-detection"></a>Kom igång med hotidentifiering
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Hotidentifiering identifierar till exempel vissa avvikande databasaktiviteter so
    E-postmeddelandet ger information om händelsen misstänkta säkerhet inklusive avvikande aktiviteter, databasens namn, servernamn och tidpunkt för händelsen. Dessutom ger information om möjliga orsaker och rekommenderade åtgärder för att undersöka och minska den potentiella risken till databasen.<br/>
    
     ![Navigeringsfönstret][4]
-2. I e-post, klickar du på den **Azure SQL-granskning logg** länk som startar den klassiska Azure-portalen och visa de granskning register vid ungefär samma tidpunkt misstänkta händelsen.
+2. I e-post, klickar du på den **Azure SQL-granskning logg** länkar, som startar den Azure-portalen och visa de granskning register vid ungefär samma tidpunkt misstänkta händelsen.
    
     ![Navigeringsfönstret][5]
 3. Klicka på granskningsposter om du vill visa mer information om misstänkt databasaktiviteter, till exempel SQL-instruktionen, fel orsak och klient-IP.

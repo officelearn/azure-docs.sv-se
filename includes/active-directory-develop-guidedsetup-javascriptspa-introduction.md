@@ -1,4 +1,3 @@
-
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Anropa Microsoft Graph API från ett JavaScript Single-Page Application (SPA)
 
 Den här guiden visar hur en JavaScript enda sidan program (SPA) kan logga in personliga arbete och skolkonton, hämta en åtkomst-token och anropa Microsoft Graph API eller andra API: er som kräver åtkomst-token från slutpunkten för Azure Active Directory-v2.

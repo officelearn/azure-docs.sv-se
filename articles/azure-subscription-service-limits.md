@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 49dc4551f1a1528d30e489d4ba1c974f84cc70b0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser, som ibland kallas kvoter. Det här dokumentet omfattar inte för närvarande alla Azure-tjänster. Över tiden, kommer i listan att expanderas och uppdateras så att den täcker flera av plattformen.
@@ -29,7 +29,7 @@ Besök [översikt över priser för Azure](https://azure.microsoft.com/pricing/)
 > [!NOTE]
 > Om du vill höja gränsen eller kvoten ovan den **standard gränsen**, [öppna en supportbegäran för online customer utan kostnad](azure-supportability/resource-manager-core-quotas-request.md). Ramen kan inte ökas ovanför den **maxgränsen** värdet som visas i följande tabeller. Om det finns inga **maxgränsen** kolumn, och sedan resursen saknar justerbara gränser.
 >
-> Kostnadsfri utvärderingsversion prenumerationer är inte berättigad till gränsen eller kvoten ökar. Om du har en kostnadsfri utvärderingsversion, du kan uppgradera till en [betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera kostnadsfri utvärderingsversion av Azure till betala per användning](billing/billing-upgrade-azure-subscription.md).
+> [Kostnadsfri utvärderingsversion prenumerationer](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigad till gränsen eller kvot ökar. Om du har en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/offers/ms-azr-0044p), du kan uppgradera till en [betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera kostnadsfri utvärderingsversion av Azure till betala per användning](billing/billing-upgrade-azure-subscription.md) och [kostnadsfri utvärderingsversion på vanliga frågor om](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Gränser och Azure Resource Manager

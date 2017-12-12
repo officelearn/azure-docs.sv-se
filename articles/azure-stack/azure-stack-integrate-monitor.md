@@ -3,8 +3,8 @@ title: "Integrera externa övervakningslösning med Azure-stacken | Microsoft Do
 description: "Lär dig mer om att integrera Azure stacken med en extern övervakningslösning i ditt datacenter."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
-ms.author: twooley
-ms.openlocfilehash: 801e6be91f2b568ce51ec632bccef06a57d809f1
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: mabrigg
+ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure-stacken
 
@@ -137,7 +137,7 @@ Du kan använda REST API-anrop för att få aviseringar, stänga aviseringar och
 Begäran hämtar alla aktiva och stängda aviseringar för providern standardabonnemang. Det finns ingen brödtext i begäran.
 
 
-|Metod  |URI-begäran  |
+|Metod  |Förfrågans URI  |
 |---------|---------|
 |HÄMTA     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 ”      |
 |     |         |
@@ -240,7 +240,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 Begäran stänger en avisering med ett unikt ID.
 
-|Metod    |URI-begäran  |
+|Metod    |Förfrågans URI  |
 |---------|---------|
 |PLACERA     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 ”    |
 
@@ -384,7 +384,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 Begäran hämtar hälsostatus för alla registrerade providrar.
 
 
-|Metod  |URI-begäran  |
+|Metod  |Förfrågans URI  |
 |---------|---------|
 |HÄMTA    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 ”   |
 
@@ -455,7 +455,7 @@ Begäran hämtar hälsostatus för en specifik registrerad resursprovider.
 
 **Förfrågan**
 
-|Metod  |URI-begäran  |
+|Metod  |Förfrågans URI  |
 |---------|---------|
 |HÄMTA     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 ”    |
 

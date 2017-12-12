@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7b8732a06e54f7828418cba0c0d172e34f1f4ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Så här genererar du miniatyrer med Media Encoder Standard med .NET
 
-Du kan använda Media Encoder Standard för att generera en eller flera miniatyrer från din videoinmatning i [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), eller [BMP](https://en.wikipedia.org/wiki/BMP_file_format) filer. Du kan skicka uppgifter som genererar endast bilder eller kan du kombinera miniatyr generation kodning. Det här avsnittet innehåller några exempel XML och JSON miniatyr förinställningar för dessa scenarier. I slutet av ämnet finns en [exempelkoden](#code_sample) som visar hur du använder Media Services .NET SDK för att utföra aktiviteten kodning.
+Du kan använda Media Encoder Standard för att generera en eller flera miniatyrer från din videoinmatning i [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), eller [BMP](https://en.wikipedia.org/wiki/BMP_file_format) filer. Du kan skicka uppgifter som genererar endast bilder eller kan du kombinera miniatyr generation kodning. Den här artikeln innehåller några exempel XML och JSON miniatyr förinställningar för dessa scenarier. I slutet av artikeln finns en [exempelkoden](#code_sample) som visar hur du använder Media Services .NET SDK för att utföra aktiviteten kodning.
 
 Mer information om de element som används i exemplet förinställningar bör du granska [Media Encoder Standard schemat](media-services-mes-schema.md).
 
@@ -30,7 +30,7 @@ Se till att granska den [överväganden](media-services-dotnet-generate-thumbnai
     
 ## <a name="example-of-a-single-png-file-preset"></a>Exempel på en förinställning ”PNG-fil”
 
-Följande JSON- och XML förinställningen kan användas för att skapa en enda utflöde PNG-fil från några sekunder för inmatningen video, där kodaren gör en bästa försöket att hitta en ”intressant” ram. Observera att bildmåtten utdata har ställts in på 100%, vilket innebär att de matchar de inkommande dimensionerna. Observera även hur inställningen ”Format” i ”utdata” måste stämma överens med ”PngLayers” i avsnittet ”codec”. 
+Följande JSON- och XML förinställningen kan användas för att skapa en enda utflöde PNG-fil från några sekunder för inmatningen video, där kodaren gör en bästa försöket att hitta en ”intressant” ram. Observera att bildmåtten utdata har ställts in till 100%, vilket innebär att de matchar de inkommande dimensionerna. Observera även hur inställningen ”Format” i ”utdata” måste stämma överens med ”PngLayers” i avsnittet ”codec”. 
 
 ### <a name="json-preset"></a>JSON förinställda
 
@@ -138,7 +138,7 @@ Följande JSON- och XML förinställningen kan användas för att skapa en upps�
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Exempel på en förinställning ”en bild på en specifik tidsstämpel”
 
-Följande JSON- och XML förinställningen kan användas för att skapa en JPEG-bild på 30 andra markering av inkommande video. Denna inställning förväntar sig indata videon mer än 30 sekunder varaktighet (Annars avbryts jobbet).
+Följande JSON- och XML förinställningen kan användas för att skapa en JPEG-bild på 30 sekunder markering av video indata. Denna inställning förväntar sig indata videon mer än 30 sekunder varaktighet (annars jobbet misslyckas).
 
 ### <a name="json-preset"></a>JSON förinställda
 
@@ -267,7 +267,7 @@ Observera användningen av {upplösning} makro i filnamn. Anger att encoder anv�
 När alla ovanstående exempel har beskrivs hur du kan skicka en kodning uppgift som bara ger bild kan kan du också kombinera ljud och kodning miniatyr generation. Berätta för följande JSON- och XML förinställningen **Media Encoder Standard** att generera en miniatyrbild under kodning.
 
 ### <a id="json"></a>JSON förinställda
-Mer information om schemat finns [detta](https://msdn.microsoft.com/library/mt269962.aspx) avsnittet.
+Mer information om schemat finns [detta](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
 
     {
       "Version": 1.0,
@@ -330,7 +330,7 @@ Mer information om schemat finns [detta](https://msdn.microsoft.com/library/mt26
     }
 
 ### <a id="xml"></a>XML-förinställda
-Mer information om schemat finns [detta](https://msdn.microsoft.com/library/mt269962.aspx) avsnittet.
+Mer information om schemat finns [detta](https://msdn.microsoft.com/library/mt269962.aspx) artikel.
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -398,36 +398,45 @@ Följande kodexempel använder Media Services .NET SDK för att utföra följand
 * Lägga till en händelsehanterare för att kontrollera jobbförloppet.
 * Skicka jobbet.
 
-Finns det [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md) avsnittet för instruktioner om hur du ställer in din utvecklingsmiljö.
+Finns det [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md) artikel för instruktioner om hur du ställer in din utvecklingsmiljö.
 
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-        namespace EncodeAndGenerateThumbnails
-        {
-        class Program
-        {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+namespace EncodeAndGenerateThumbnails
+{
+    class Program
+    {
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+        ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+        ConfigurationManager.AppSettings["AMSClientSecret"];
 
-            private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = null;
 
-            private static readonly string _mediaFiles =
-            Path.GetFullPath(@"../..\Media");
+        private static readonly string _mediaFiles =
+        Path.GetFullPath(@"../..\Media");
 
-            private static readonly string _singleMP4File =
+        private static readonly string _singleMP4File =
             Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
 
-            static void Main(string[] args)
-            {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -439,10 +448,10 @@ Finns det [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
-            }
+        }
 
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Thumbnail Job");
             // Get a media processor reference, and pass to it the name of the 
@@ -454,9 +463,9 @@ Finns det [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.
 
             // Create a task
             ITask task = job.Tasks.AddNew("Media Encoder Standard Thumbnail task",
-                processor,
-                configuration,
-                TaskOptions.None);
+                    processor,
+                    configuration,
+                    TaskOptions.None);
 
             // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
@@ -464,47 +473,47 @@ Finns det [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.
             // This output is specified as AssetCreationOptions.None, which 
             // means the output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
+                    AssetCreationOptions.None);
 
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
             job.Submit();
             job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
             return job.OutputMediaAssets[0];
-            }
+        }
 
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
             Console.WriteLine("Job state changed event:");
             Console.WriteLine("  Previous state: " + e.PreviousState);
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
                 case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
                 case JobState.Canceling:
                 case JobState.Queued:
                 case JobState.Scheduled:
                 case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
+                    Console.WriteLine("Please wait...\n");
+                    break;
                 case JobState.Canceled:
                 case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
+                    // Display or log error details as needed.
+                    break;
                 default:
-                break;
+                    break;
             }
-            }
+        }
 
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
             var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
@@ -512,25 +521,26 @@ Finns det [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.
                 throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
-            }
         }
-
+    }
+}
+```
 
 ## <a name="considerations"></a>Överväganden
 Följande gäller:
 
 * Användningen av explicita tidsstämplar för Startintervall-steg förutsätter att Indatakällan är minst 1 minut.
-* BmpImage-jpg/Png-element har Start, steg och intervallet string attribut – dessa kan tolkas som:
+* BmpImage-jpg/Png-element har Start, steg, och intervallet strängattribut – dessa kan tolkas som:
   
-  * Ramens nummer om de är icke-negativa heltal, t.ex. ”Start”: ”120”
-  * Relativt till källan varaktighet om uttryckt %-suffixet, t.ex. ”Start”: ”15%”, eller
-  * Tidsstämpel om uttryckt: mm: ss... format. T.ex. ”Start” ”: 00: 01:00”
+  * RAM-numret om de är icke-negativa heltal, till exempel ”Start”: ”120”
+  * Relativt källa varaktighet om uttryckt som %-suffixet, till exempel ”Start”: ”15%”, eller
+  * Tidsstämpel om uttryckt: mm: ss... format. Till exempel ”Start” ”: 00: 01:00”
     
     Du kan blanda och matcha här ska du ange.
     
     Dessutom Start har också stöd för ett särskilt makro: {bästa}, som försöker fastställa den första ”intressanta” bildrutan anteckningens innehåll: (steg och intervallet ignoreras när Start är inställd på {bäst})
   * Standardvärden: Starta: {bästa}
-* Utdataformat måste tillhandahållas explicit för varje bildformat: Jpg/Png/BmpFormat. När MES matchar JpgVideo till JpgFormat och så vidare. OutputFormat introducerar ett nytt specifika bilden codec makro: {Index}, vilket måste vara finns (en gång och bara en gång) för bildformat för utdata.
+* Utdataformat måste tillhandahållas explicit för varje bildformat: Jpg/Png/BmpFormat. När matchar MES JpgVideo till JpgFormat och så vidare. OutputFormat introducerar ett nytt specifika bilden codec makro: {Index}, vilket måste vara finns (en gång och bara en gång) för bildformat för utdata.
 
 ## <a name="next-steps"></a>Nästa steg
 

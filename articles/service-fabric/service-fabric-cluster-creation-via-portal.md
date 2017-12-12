@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 6ddadad6f5697fed006e3f938ef3c3faedb6a354
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med Azure-portalen
 > [!div class="op_single_selector"]
@@ -114,7 +114,15 @@ Skapa ett Nyckelvalv i den nya resursgruppen. Nyckelvalvet **måste vara aktiver
     Tags                             :
 ```
 
-Om du har en befintlig Key Vault kan aktivera du den för distribution med Azure CLI:
+Om du har en befintlig Key Vault kan aktivera du den för distribution med något av följande sätt:
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>Azure CLI:
 
 ```cli
 > azure login

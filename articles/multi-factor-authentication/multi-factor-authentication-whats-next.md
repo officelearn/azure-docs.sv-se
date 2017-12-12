@@ -4,7 +4,7 @@ description: "Detta är Azure Multi-Factor authentication-sidan som beskriver va
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 336c8b3b607c9a6ba7a2fe9686ab835f015c1adf
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 4dc029e01762d9ab6eb1c930f2941d0c1ac8ed7d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -139,7 +139,7 @@ Cachelagring är inte avsedd att användas för inloggningar till Azure AD.
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
 2. Gå till **Azure Active Directory** > **MFA-Server** > **cachelagring regler**.
 
-   ![Cachelagringsregler](./media/multi-factor-authentication-whats-next/cachingrules.png)
+   ![Regler för cachelagring](./media/multi-factor-authentication-whats-next/cachingrules.png)
 
 4. Välj **Lägg till**.
 5. Välj cachetyp i listrutan och ange antalet cachelagringssekunder som max. 

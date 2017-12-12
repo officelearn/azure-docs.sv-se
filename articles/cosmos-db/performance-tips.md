@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: 64c01c1256e4bcb472ceea874ab3f3b17c0467d7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ab7448d3f55a921d3fb8c06d54c230d262dbec6a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Prestandatips för Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos-DB är en snabb och flexibel distribuerad databas som kan skalas sömlöst med garanterad svarstid och genomströmning. Du behöver inte göra ändringar av större arkitektur eller skriva komplex kod för att skala databasen med Cosmos DB. Skala upp och ner är lika enkelt som att göra en enda API-anrop eller [SDK-anrop](set-throughput.md#set-throughput-sdk). Men eftersom Cosmos DB går att nå via nätverket anrop finns på klientsidan optimeringar du uppnår topprestanda.
 
 Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg följande alternativ:
@@ -96,7 +99,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
     Cosmos DB begäranden som görs via HTTPS/RESTEN när du använder Gateway-läge och genomgår Standardgränsen för anslutning per värdnamn eller IP-adress. Du kan behöva ange MaxConnections till ett högre värde (100-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Cosmos DB. I .NET SDK 1.8.0 och senare standardvärdet för [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) är 50 och du kan ange om du vill ändra värdet på [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) till ett högre värde.   
 4. **Justera parallella frågor för partitionerade samlingar**
 
-     DocumentDB .NET SDK version 1.9.0 och högre support parallella frågor, vilket gör det möjligt att fråga en partitionerad samling parallellt (se [arbeta med SDK: erna](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) och den relaterade [kodexempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för mer information). Parallella frågor är utformade för att förbättra svarstid och genomströmning över sin seriella motsvarighet. Parallella frågor ange två parametrar som användare kan justera för anpassade efter deras krav, (a) MaxDegreeOfParallelism: att kontrollera det maximala antalet partitioner sedan kan efterfrågas parallellt och (b) MaxBufferedItemCount: att styra hur många tidigare hämtade resultat.
+     SQL .NET SDK version 1.9.0 och högre support parallella frågor, vilket gör det möjligt att fråga en partitionerad samling parallellt (se [arbeta med SDK: erna](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) och den relaterade [kodexempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för mer information). Parallella frågor är utformade för att förbättra svarstid och genomströmning över sin seriella motsvarighet. Parallella frågor ange två parametrar som användare kan justera för anpassade efter deras krav, (a) MaxDegreeOfParallelism: att kontrollera det maximala antalet partitioner sedan kan efterfrågas parallellt och (b) MaxBufferedItemCount: att styra hur många tidigare hämtade resultat.
 
     (a) ***justera MaxDegreeOfParallelism\:***  parallell frågan fungerar genom att fråga flera partitioner parallellt. Dock hämtas data från en enskild partitionerade samla in seriellt med avseende på frågan. Så har om MaxDegreeOfParallelism till antalet partitioner högsta risken för att uppnå de flesta performant frågan, förutsatt att alla andra system villkoren förblir oförändrade. Om du inte vet antalet partitioner, du kan ange MaxDegreeOfParallelism till ett stort antal och minsta (antal partitioner, tillhandahålls användarindata) som MaxDegreeOfParallelism väljs automatiskt.
 
@@ -110,7 +113,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
     Minska frekvensen för skräpinsamling kan hjälpa i vissa fall. Ange i .NET, [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) till true.
 6. **Implementera backoff med RetryAfter intervall**
 
-    Under prestandatester, bör du öka belastningen tills en liten andel begäranden hämta begränsas. Om begränsas, bör klientprogrammet backoff på begränsning för intervallet-server har angetts. Respektera backoff garanterar att du ägnar minimal mängd väntetid mellan försöken. Försök stöd för Grupprincip ingår i Version 1.8.0 och senare i documentdb [.NET](documentdb-sdk-dotnet.md) och [Java](documentdb-sdk-java.md), version 1.9.0 och högre av de [Node.js](documentdb-sdk-node.md) och [Python](documentdb-sdk-python.md), och alla versioner av stöds i [.NET Core](documentdb-sdk-dotnet-core.md) SDK: er. Mer information finns i [Exceeding reserverat dataflöde gränser](request-units.md#RequestRateTooLarge) och [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Under prestandatester, bör du öka belastningen tills en liten andel begäranden hämta begränsas. Om begränsas, bör klientprogrammet backoff på begränsning för intervallet-server har angetts. Respektera backoff garanterar att du ägnar minimal mängd väntetid mellan försöken. Stöd för återförsök Grupprincip ingår i Version 1.8.0 och senare av SQL [.NET](documentdb-sdk-dotnet.md) och [Java](documentdb-sdk-java.md), version 1.9.0 och högre av de [Node.js](documentdb-sdk-node.md) och [Python](documentdb-sdk-python.md), och alla versioner av stöds i [.NET Core](documentdb-sdk-dotnet-core.md) SDK: er. Mer information finns i [Exceeding reserverat dataflöde gränser](request-units.md#RequestRateTooLarge) och [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Skala upp din klient arbetsbelastning**
 
     Om du testar på hög genomströmning nivåer (> 50 000 RU/s), klientprogrammet kan bli en flaskhals på grund av den datorn tak som skall ut på processor eller användning. Om du når den här punkten kan fortsätta du att push-Cosmos-DB kontot ytterligare genom att skala ut ditt klientprogram på flera servrar.
@@ -120,7 +123,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
    <a id="tune-page-size"></a>
 9. **Finjustera sidstorleken för frågor/läsa feeds för bättre prestanda**
 
-    När utför en grupp av dokument med Läs feed funktioner (till exempel ReadDocumentFeedAsync) eller läsas vid utfärdande av en DocumentDB SQL-fråga, returneras resultatet i ett segmenterade sätt om resultatet är för stor. Resultaten returneras i mängder 100 objekt eller 1 MB som standard, oavsett vilken gränsen är träffar första.
+    När utför en grupp av dokument med Läs feed funktioner (till exempel ReadDocumentFeedAsync) eller läsas vid utfärdande av en SQL-fråga, returneras resultatet i ett segmenterade sätt om resultatet är för stor. Resultaten returneras i mängder 100 objekt eller 1 MB som standard, oavsett vilken gränsen är träffar första.
 
     För att minska antalet nätverket förfrågningar krävs för att hämta alla tillämpliga resultat, kan du öka sidstorleken med x-ms-max--antal objekt begärandehuvudet till upp till 1000. I fall där du vill visa endast några resultat, till exempel om ditt användar-gränssnittet eller programmet API returnerar bara 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska den används för läsning och frågor.
 
@@ -133,7 +136,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
 11. **64-bitars värden bearbetning**
 
-    DocumentDB SDK fungerar i en 32-bitars värdprocess när du använder DocumentDB .NET SDK version 1.11.4 och högre. Om du använder mellan partition frågor rekommenderas 64-bitars värden bearbetning för bättre prestanda. Följande typer av program har 32-bitars värdprocess som standard, så för att kunna ändra som till 64-bitars, Följ dessa steg beroende på vilken typ av ditt program:
+    SQL-SDK fungerar i en 32-bitars värdprocess när du använder SQL .NET SDK version 1.11.4 och senare. Om du använder mellan partition frågor rekommenderas 64-bitars värden bearbetning för bättre prestanda. Följande typer av program har 32-bitars värdprocess som standard, så för att kunna ändra som till 64-bitars, Följ dessa steg beroende på vilken typ av ditt program:
 
     - Körbara program, detta kan göras genom att avmarkera den **föredrar 32-bitars** alternativet i den **projektegenskaperna** fönstret på den **skapa** fliken.
 

@@ -2,7 +2,7 @@
 title: 'Introduktion till Azure Cosmos DB Graph API: er | Microsoft Docs'
 description: "Lär dig hur du kan använda Azure Cosmos DB för att lagra, fråga och passerar massiv diagram med låg latens med hjälp av frågespråket för Apache TinkerPop Gremlin diagram."
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: lbosq
+ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduktion till Azure Cosmos DB: Graph API
 
@@ -98,7 +98,7 @@ Azure Cosmos-DB erbjuder följande differentierade funktioner jämfört med andr
 
 * Justerbara konsekvensnivåer
 
- Välj fem väldefinierade konsekvensnivåer för optimala förhållandet mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Dessa detaljerade, väldefinierade konsekvensnivåerna kan du ljud kompromissa mellan konsekvens, tillgänglighet och svarstid. Läs mer om hur du [maximerar tillgänglighet och prestanda i DocumentDB med hjälp av konsekvensnivåer](consistency-levels.md).
+ Välj fem väldefinierade konsekvensnivåer för optimala förhållandet mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Dessa detaljerade, väldefinierade konsekvensnivåerna kan du ljud kompromissa mellan konsekvens, tillgänglighet och svarstid. Läs mer i [data justerbara konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
 
 Azure Cosmos-DB kan också använda flera modeller som dokument och diagram i samma behållare/databaser. Du kan använda en dokumentsamling för att lagra diagramdata bredvid dokument. Du kan använda både SQL-frågor via JSON och Gremlin frågor för att fråga efter samma data som ett diagram.
 
@@ -113,7 +113,7 @@ I följande tabell visas populära Gremlin drivrutiner som du kan använda mot A
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin JavaScript på Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin konsolen](https://tinkerpop.apache.org/downloads.html) |[TinkerPop dokument](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos-DB tillhandahåller också ett .NET-bibliotek som har Gremlin tilläggsmetoder ovanpå det [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) via NuGet. Det här biblioteket innehåller en Gremlin ”pågående”-server som du kan använda för att ansluta direkt till DocumentDB datapartitioner.
+Azure Cosmos-DB tillhandahåller också ett .NET-bibliotek som har Gremlin tilläggsmetoder ovanpå det [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) via NuGet. Det här biblioteket innehåller en Gremlin ”pågående”-server som du kan använda för att ansluta direkt till datapartitioner.
 
 | Ladda ned | Dokumentation |
 | --- | --- |

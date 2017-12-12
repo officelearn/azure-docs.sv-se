@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Så kör du en beräkningsintensiv uppgift i Java på en virtuell dator
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Följande är ett exempel på Java-program krävande aktiviteten för övervakni
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Skapa en virtuell dator
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **ny**, klickar du på **Compute**, klickar du på **virtuella**, och klicka sedan på **från galleriet**.
 3. I den **virtuella avbildning väljer** dialogrutan **JDK 7 Windows Server 2012**.
    Observera att **JDK 6 Windows Server 2012** är tillgänglig om du har äldre program som inte ännu är redo att köras i JDK 7.
@@ -74,7 +74,7 @@ Följande är ett exempel på Java-program krävande aktiviteten för övervakni
    2. Klicka på **Complete** (Slutför).
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Logga in via fjärranslutning på den virtuella datorn
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **virtuella datorer**.
 3. Klicka på namnet på den virtuella dator som du vill logga in på.
 4. Klicka på **Anslut**.
@@ -87,15 +87,15 @@ För att komma igång med Service Bus-köer i Azure, måste du först skapa ett 
 
 Gör så här för att skapa ett namnområde för tjänsten:
 
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. I nedre vänstra navigeringsfönstret i den klassiska Azure-portalen klickar du på **Service Bus, Access Control och cachelagring**.
-3. I rutan längst upp till vänster i den klassiska Azure-portalen klickar du på den **Service Bus** noden och klicka sedan på den **ny** knappen.  
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. I nedre vänstra navigeringsfönstret i Azure-portalen klickar du på **Service Bus, Access Control och cachelagring**.
+3. I rutan längst upp till vänster i Azure-portalen klickar du på den **Service Bus** noden och klicka sedan på den **ny** knappen.  
    ![Skärmbild för Service Bus-nod][svc_bus_node]
 4. I den **skapa en ny Service Namespace** dialogrutan Ange en **Namespace**, och klicka sedan på om du vill kontrollera att det är unikt i **Kontrollera tillgänglighet** knappen.  
    ![Skapa en ny Namespace skärmbild][create_namespace]
 5. Efter att kontrollera att namnet på namnområdet är tillgängligt, väljer du land eller region där namnområdet ska finnas och klicka sedan på den **skapa Namespace** knappen.  
    
-   Det namnområde som du skapat visas sedan i den klassiska Azure-portalen och tar en stund innan det aktiveras. Vänta tills statusen blir **Active** innan du fortsätter med nästa steg.
+   Det namnområde som du skapat visas sedan i Azure-portalen och tar en stund innan det aktiveras. Vänta tills statusen blir **Active** innan du fortsätter med nästa steg.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Hämta standard autentiseringsuppgifter för hantering av namnområdet
 För att kunna utföra hanteringsåtgärder, till exempel skapa en kö på det nya namnområdet som du behöver skaffa autentiseringsuppgifter för hantering för namnområdet.

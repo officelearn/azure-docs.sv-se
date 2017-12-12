@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Säkerhet ram: Känsliga Data | Åtgärder 
 | Produkter eller tjänster | Artikel |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Webbprogram** | <ul><li>[Se till att känsligt innehåll inte cachelagras i webbläsare](#cache-browser)</li><li>[Kryptera avsnitt i konfigurationsfilerna för Web App som innehåller känsliga data](#encrypt-data)</li><li>[Explicit inaktivera HTML-attributet för Komplettera automatiskt i känsliga formulär och indata](#autocomplete-input)</li><li>[Se till att känsliga data som visas på användarskärmen maskeras](#data-mask)</li></ul> | 
 | **Databas** | <ul><li>[Implementera dynamisk datamaskering för att begränsa känsliga data exponering som ej Privilegierade användare](#dynamic-users)</li><li>[Kontrollera att lösenorden lagras i saltat hash-format](#salted-hash)</li><li>[Se till att känsliga data i databaskolumner krypteras](#db-encrypted)</li><li>[Se till att databasnivå-kryptering (TDE) är aktiverad](#tde-enabled)</li><li>[Se till att databassäkerhetskopiorna krypteras](#backup)</li></ul> | 
 | **Webb-API** | <ul><li>[Se till att känsliga data som är relevanta för Web API inte lagras i webbläsarens lagring](#api-browser)</li></ul> | 
-| Azure dokumentet DB | <ul><li>[Kryptera känsliga data som lagras i DocumentDB](#encrypt-docdb)</li></ul> | 
+| Azure dokumentet DB | <ul><li>[Kryptera känsliga data som lagras i Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Azure IaaS-VM Förtroendegräns** | <ul><li>[Använda Azure Disk Encryption för att kryptera diskar som används av virtuella datorer](#disk-vm)</li></ul> | 
 | **Service Fabric-Förtroendegräns** | <ul><li>[Kryptera hemligheter i Service Fabric-program](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Utför säkerhet modellering och använder företagets enheter/team behov](#modeling-teams)</li><li>[Minimera åtkomst om du vill dela funktionen på kritiska entiteter](#entities)</li><li>[Utbilda användare på risker med Dynamics CRM resursen funktionen och säkerhetsprinciper](#good-practices)</li><li>[En regel för utveckling-standarder som proscribing med config information i hantering av undantag](#exception-mgmt)</li></ul> | 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b26108b000bac56fe7d49a3a634f2be9d7543a8
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Översikt över Azure DDoS-skydd Standard
 
@@ -33,7 +33,7 @@ Azure DDoS-skydd, tillsammans med programmet Metodtips för designen, ger skydd 
 ![Standard för Azure DDoS-skydd](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
 > [!IMPORTANT]
-> Azure DDoS-skydd Standard är för närvarande under förhandsgranskning. Skydd har angetts för Azure-resurser som har en Azure offentliga IP-adress som är kopplade till den, till exempel virtuella datorer, belastningsutjämnare och programgatewayer. Du behöver [registrera](http://aka.ms/ddosprotection) för tjänsten innan du kan aktivera DDoS-skydd Standard för din prenumeration. Efter registrering Azure DDoS team kontakter du och guider dig genom aktivering. DDoS-skydd Standard finns i östra USA, östra USA 2, västra USA, västra centrala USA, Nordeuropa, Västeuropa, västra Japan, östra, Östasien och Sydostasien regioner. Under förhandsgranskningen gör debiteras inte du för att använda tjänsten.
+> Azure DDoS-skydd Standard är för närvarande under förhandsgranskning. Skydd har angetts för Azure-resurser som har en Azure offentliga IP-adress som är kopplade till den, till exempel virtuella datorer, belastningsutjämnare och programgatewayer. Du behöver [registrera](http://aka.ms/ddosprotection) för tjänsten innan du kan aktivera DDoS-skydd Standard för din prenumeration. Efter registrering Azure DDoS-teamet kontaktar du och vägleder dig genom processen för aktivering. DDoS-skydd Standard finns i östra USA, östra USA 2, västra USA, västra centrala USA, Nordeuropa, Västeuropa, västra Japan, östra, Östasien och Sydostasien regioner. Under förhandsgranskningen gör debiteras inte du för att använda tjänsten.
 
 Vi rekommenderar att du försöker DDoS-skydd Standard i utvecklings-, test- eller produktion miljöer. Använd följande resurser för att ge feedback om din upplevelse:
 - [Azure DDoS-skydd på Microsoft Azure-forumet](https://feedback.azure.com/forums/905032-azure-ddos-protection). 

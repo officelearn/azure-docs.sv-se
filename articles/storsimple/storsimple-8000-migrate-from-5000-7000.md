@@ -11,13 +11,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 12/11/2017
 ms.author: alkohli
-ms.openlocfilehash: b5c84dbea574afceba93d978425a70ce33271e36
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrera data från StorSimple 5000 7000-serien 8000-serien enheten
 
@@ -73,12 +73,12 @@ Innan du påbörjar migreringen kan du se till att:
     > [!IMPORTANT]
     > Vi rekommenderar att du har seriell åtkomst till den här enheten under hela migreringsprocessen. Det bör finnas några enhetsproblem kan seriell åtkomst underlätta felsökningen.
 
-* 5000 och 7000 serien källenheten körs programvara version v2.1.1.518. Tidigare versioner stöds inte.
+* 5000 och 7000 serien källenheten kör programvara version v2.1.1.518 eller senare. Tidigare versioner stöds inte.
 * Kontrollera versionen som körs serierna 5000 och 7000, se i det övre högra hörnet på din Webbgränssnittet. Detta ska visa programvaruversionen med din enhet. För migrering, bör serierna 5000 och 7000 köra v2.1.1.518.
 
     ![Kontrollera programvaruversionen på äldre enhet](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Om inte enheten live körs v2.1.1.518 uppgradera datorn till den minimala versionen som krävs. Detaljerade anvisningar finns i [uppgradera datorn till v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
+    * Om enheten live inte körs v2.1.1.518 eller senare och uppgradera datorn till den minimala versionen som krävs. Detaljerade anvisningar finns i [uppgradera datorn till v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
     * Om du kör v2.1.1.518, gå till webbgränssnittet om det finns inga meddelanden för registret återställning. Om registret återställningen misslyckades, kör du registret återställning. Mer information finns på hur du [köra registret återställning](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
     * Om du har en inaktiv enhet som inte har körts v2.1.1.518 utför en växling till en ersättning enhet som kör v2.1.1.518. Detaljerade anvisningar finns i DR av StorSimple-enheten 5000/7000-serien.
     * Säkerhetskopiera data för din enhet genom att ta en ögonblicksbild i molnet.

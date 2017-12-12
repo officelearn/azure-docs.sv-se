@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestanda och skalning testa med Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Prestanda och skalningstester är ett viktigt steg programutveckling. För många program har på databasnivå en betydande inverkan på övergripande prestanda och skalbarhet. Därför är en kritisk komponent i prestandatester. [Azure Cosmos-DB](https://azure.microsoft.com/services/cosmos-db/) är specialbyggt för elastisk skalbarhet och förutsägbar prestanda. Dessa funktioner är det en bra val för program som behöver en hög prestanda databasnivå. 
 
 Den här artikeln är en referens för utvecklare som implementerar prestanda testpaket för sina Azure DB som Cosmos-arbetsbelastningar. Den kan även användas för att utvärdera Azure Cosmos DB för högpresterande Programscenarier. Den fokuserar huvudsakligen på isolerade prestandatester på databasen, men det innehåller även rekommenderade metoder för program i produktion.
@@ -54,7 +57,7 @@ Det snabbaste sättet att komma igång är att kompilera och köra .NET-exempel 
 
 **Steg 3:** kompilera och köra konsolapp-från kommandoraden. Du bör se utdata som liknar följande:
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/

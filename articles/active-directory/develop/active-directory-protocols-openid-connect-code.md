@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver hur du använder HTTP-meddelanden för
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1bb944997caa0c43354e82bf9b1a70e3e104a476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a813d73dc8a80c46e1b7500ec72ccb2a47bc6d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Bevilja åtkomst till webbprogram med hjälp av OpenID Connect och Azure Active Directory
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) är en enkel Identitetslagret som bygger på OAuth 2.0-protokollet. OAuth 2.0 definierar metoder för att hämta och använda **åtkomst till token** att komma åt skyddade resurser, men inte definierar standardmetoder för att ge ID-information. OpenID Connect implementerar autentisering som ett tillägg till auktoriseringen OAuth 2.0. Den ger information om användaren i form av en `id_token` som verifierar användarens identitet och ger grundläggande profilinformation om användaren.
@@ -90,8 +90,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app.  Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade. |
 | response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande authorization_code tillbaka till din app.  Värden som stöds är `form_post` för *HTTP formuläret post* eller `fragment` för *URL-fragment*.  För webbprogram, bör du använda `response_mode=form_post` så säkraste överföringen av token för ditt program. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran som returneras i token svaret.  Det kan vara en sträng med innehåll som du vill.  Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12).  Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
-| kommandotolk |Valfria |Anger vilken typ av användarinteraktion som krävs.  De enda giltiga värdena är för närvarande ”inloggning” none, och 'godkännande'.  `prompt=login`Tvingar användaren att ange sina autentiseringsuppgifter på begäran, giltigt att negera enkel inloggning på.  `prompt=none`är motsatsen - ser till att användaren inte visas med en interaktiv prompt som helst.  Om begäran inte kan slutföras utan meddelanden via enkel inloggning på returnerar slutpunkten ett fel.  `prompt=consent`utlösare av OAuth medgivande dialogrutan när användaren loggar in, be användaren att tilldela behörigheter till appen. |
-| login_hint |Valfria |Kan användas för att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar använder den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
+| kommandotolk |valfri |Anger vilken typ av användarinteraktion som krävs.  De enda giltiga värdena är för närvarande ”inloggning” none, och 'godkännande'.  `prompt=login`Tvingar användaren att ange sina autentiseringsuppgifter på begäran, giltigt att negera enkel inloggning på.  `prompt=none`är motsatsen - ser till att användaren inte visas med en interaktiv prompt som helst.  Om begäran inte kan slutföras utan meddelanden via enkel inloggning på returnerar slutpunkten ett fel.  `prompt=consent`utlösare av OAuth medgivande dialogrutan när användaren loggar in, be användaren att tilldela behörigheter till appen. |
+| login_hint |valfri |Kan användas för att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar använder den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
 
 Nu uppmanas användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen.
 

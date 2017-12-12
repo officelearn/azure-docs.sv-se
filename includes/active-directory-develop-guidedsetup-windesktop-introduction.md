@@ -1,4 +1,3 @@
-
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa Microsoft Graph API från en Windows-skrivbordsapp
 
 Den här guiden visar hur en intern Windows Desktop .NET (XAML)-programmet kan få en åtkomsttoken och anropa Microsoft Graph API eller andra API: er som kräver åtkomst-token från Azure Active Directory v2-slutpunkten.

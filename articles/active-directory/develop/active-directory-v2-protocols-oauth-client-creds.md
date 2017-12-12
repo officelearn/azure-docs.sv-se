@@ -4,7 +4,7 @@ description: "Skapa webbprogram med hjälp av Azure AD-implementeringen av OAuth
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28616657c5aae4f6ada1ec592a2a6287e8607b6a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 och OAuth 2.0-klientautentiseringsuppgifter
 Du kan använda den [OAuth 2.0 klientens autentiseringsuppgifter bevilja](http://tools.ietf.org/html/rfc6749#section-4.4), kallas ibland *tvåledade OAuth*, åtkomst till web-värdbaserade resurser med hjälp av identiteten för ett program. Den här typen av bevilja ofta används för server-till-server-interaktioner som måste köras i bakgrunden utan direkt interaktion med användaren. Dessa typer av program som ofta kallas *daemons* eller *tjänstkonton*.
@@ -88,7 +88,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | Klient |Krävs |Directory-klient som du vill begära tillstånd från. Detta kan vara i GUID- eller format för eget namn. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med en klient använder `common`. |
 | client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
@@ -141,7 +141,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microso
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
 | Omfång |Krävs |Värdet som skickas den `scope` parameter i den här begäran ska vara Resursidentifieraren (program-ID URI) av den resurs du vill, har den `.default` suffix. Värdet är för Microsoft Graph-exempel `https://graph.microsoft.com/.default`. Det här värdet informerar om att det ska utfärda en token för de som associerats med resursen som du vill använda för alla direkt tillämpning behörigheter som du har konfigurerat för din app, v2.0-slutpunkten. |
@@ -158,7 +158,7 @@ Content-Type: application/x-www-form-urlencoded
 scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
 | Omfång |Krävs |Värdet som skickas den `scope` parameter i den här begäran ska vara Resursidentifieraren (program-ID URI) av den resurs du vill, har den `.default` suffix. Värdet är för Microsoft Graph-exempel `https://graph.microsoft.com/.default`. Det här värdet informerar om att det ska utfärda en token för de som associerats med resursen som du vill använda för alla direkt tillämpning behörigheter som du har konfigurerat för din app, v2.0-slutpunkten. |

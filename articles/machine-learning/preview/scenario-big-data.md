@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognostisering av serverns arbetsbelastning i terabyte med data
 
@@ -108,10 +108,10 @@ Kolumnnumret | Fältnamn| Typ | Beskrivning |
 6 | `HTTP1` | Integer|  Sessionen använder HTTP1 eller HTTP2
 7 |`ServerType` | Integer   |Servertyp
 8 |`SubService_1_Load` | dubbla |   Läs in subservice 1
-9 | `SubService_1_Load` | dubbla |  Läs in subservice 2
-10 | `SubService_1_Load` | dubbla |     Läs in subservice 3
-11 |`SubService_1_Load` | dubbla |  Läs in subservice 4
-12 | `SubService_1_Load`| dubbla |      Läs in subservice 5
+9 | `SubService_2_Load` | dubbla |  Läs in subservice 2
+10 | `SubService_3_Load` | dubbla |     Läs in subservice 3
+11 |`SubService_4_Load` | dubbla |  Läs in subservice 4
+12 | `SubService_5_Load`| dubbla |      Läs in subservice 5
 13 |`SecureBytes_Load`  | dubbla | Läsa in säker byte
 14 |`TotalLoad` | dubbla | Totalt antal belastningen på servern
 15 |`ClientIP` | Sträng|    Klientens IP-adress
@@ -327,7 +327,7 @@ På rätt sidopanelen i arbetsstationen, bläddrar du till **körs** att visa k�
 
 ### <a name="operationalize-the-model"></a>Operationalisera modellen
 
-I det här avsnittet operationalisera modell som du skapade i föregående steg som en webbtjänst. Du också lära dig hur du använder webbtjänsten för att förutsäga arbetsbelastning. Använd datorn språk operationalization kommandoradsverktyget gränssnitt (CLIs) att paketera koden och beroenden som Docker-bilder och för att publicera modellen som en av webbtjänst. Mer information finns i [översikten](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+I det här avsnittet operationalisera modell som du skapade i föregående steg som en webbtjänst. Du också lära dig hur du använder webbtjänsten för att förutsäga arbetsbelastning. Använd datorn språk operationalization kommandoradsverktyget gränssnitt (CLIs) att paketera koden och beroenden som Docker-bilder och för att publicera modellen som en av webbtjänst.
 
 Du kan använda i Kommandotolken i Machine Learning-arbetsstationen för att köra CLIs.  Du kan också köra CLIs på Ubuntu Linux genom att följa den [installationsguiden](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

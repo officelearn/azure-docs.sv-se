@@ -6,18 +6,18 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Skapa programmässigt Azure instrumentpaneler
 
@@ -27,7 +27,7 @@ Det här dokumentet går igenom processen att skapa och publicera Azure instrume
 
 ## <a name="overview"></a>Översikt
 
-Delade instrumentpaneler i Azure är [resurser](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) på samma sätt som virtuella datorer och storage-konton.  Därför kan de kan hanteras via programmering den [Azure Resource Manager REST API: er](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview), [Azure PowerShell-kommandon](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0), och många [ Azure-portalen](https://portal.azure.com) funktioner bygga på dessa API: er för att underlätta resurshantering.  
+Delade instrumentpaneler i Azure är [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) på samma sätt som virtuella datorer och storage-konton.  Därför kan de kan hanteras via programmering den [Azure Resource Manager REST API: er](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell-kommandon](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), och många [ Azure-portalen](https://portal.azure.com) funktioner bygga på dessa API: er för att underlätta resurshantering.  
 
 Var och en av dessa API: er och verktyg erbjuder sätt att skapa, visa, hämta, ändra och ta bort resurser.  Eftersom instrumentpaneler resurser bör du välja din favorit API / verktyget om du vill använda.
 
@@ -43,7 +43,7 @@ Om du vill skapa en ny instrumentpanel kommandot ny instrumentpanel portalens hu
 
 Du kan sedan använda galleriet sida vid sida för att söka efter och Lägg till paneler. Paneler läggs genom att dra och släppa dem. Vissa paneler stöder storleksändring via en dra-referens, medan andra stöd åtgärdas storlekar som visas i deras snabbmenyn.
 
-### <a name="drag-handle"></a>Dra referensen
+### <a name="drag-handle"></a>Dra handtaget
 ![Dra handtaget](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
 ### <a name="fixed-sizes-via-context-menu"></a>Fast storlek via snabbmenyn
@@ -55,7 +55,7 @@ När du har konfigurerat instrumentpanelen enligt dina önskemål nästa steg ä
 
 ![Dela kommando](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Klicka på kommandot Share visar en dialogruta där du uppmanas att välja vilken prenumeration och resurs grupp att publicera till. Tänk på att [du måste ha skrivbehörighet](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) i gruppen prenumeration och resurs som du väljer.
+Klicka på kommandot Share visar en dialogruta där du uppmanas att välja vilken prenumeration och resurs grupp att publicera till. Tänk på att [du måste ha skrivbehörighet](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) i gruppen prenumeration och resurs som du väljer.
 
 ![dela och åtkomst](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Det är inte nödvändigt att förstå JSON-strukturen instrumentpanelen för at
 
 Om du vill publicera den här instrumentpanelen för alla virtuella datorer måste i framtiden du parameterstyra varje förekomst av den här strängen i JSON. 
 
-Det finns två varianter av API: er som skapar resurser i Azure. [Tvingande API: er](https://docs.microsoft.com/en-us/rest/api/resources/resources) som skapar en resurs i taget, och en [mallbaserade distribution](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) system som kan samordna skapandet av flera beroende resurser med ett enda API-anrop. Denna stöd inbyggt för parameterization och templating så att vi använda den i vårt exempel.
+Det finns två varianter av API: er som skapar resurser i Azure. [Tvingande API: er](https://docs.microsoft.com/rest/api/resources/resources) som skapar en resurs i taget, och en [mallbaserade distribution](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) system som kan samordna skapandet av flera beroende resurser med ett enda API-anrop. Denna stöd inbyggt för parameterization och templating så att vi använda den i vårt exempel.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Skapa en instrumentpanel programmässigt i mallen med hjälp av en för malldistribution
 
-Azure ger dig möjlighet att samordna distribution av flera resurser. Du skapar en Distributionsmall för som representerar en uppsättning resurser för att distribuera samt relationer mellan dem.  JSON-format för alla resurser är samma som om du skapar dem en i taget. Skillnaden är att den [språk för mallen](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) lägger till några begrepp som variabler, parametrar, grundläggande funktioner och mycket mer. Den här utökade syntaxen stöds bara i kontexten för en för malldistribution och fungerar inte om du använder med den tvingande API: er som nämnts tidigare.
+Azure ger dig möjlighet att samordna distribution av flera resurser. Du skapar en Distributionsmall för som representerar en uppsättning resurser för att distribuera samt relationer mellan dem.  JSON-format för alla resurser är samma som om du skapar dem en i taget. Skillnaden är att den [språk för mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) lägger till några begrepp som variabler, parametrar, grundläggande funktioner och mycket mer. Den här utökade syntaxen stöds bara i kontexten för en för malldistribution och fungerar inte om du använder med den tvingande API: er som nämnts tidigare.
 
 Om du kommer den här vägen sedan parameterization ska göras med hjälp av parametern mallsyntaxen.  Du kan ersätta alla instanser av resurs-id påträffades tidigare som visas här.
 
@@ -119,7 +119,7 @@ Du måste också deklarera vissa nödvändiga mallen metadata och parametrar öv
 
 __Du kan se mallen full, arbeta i slutet av det här dokumentet.__
 
-När du har särskild mallen du distribuerar den med hjälp av den [REST API: er](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create), eller [portalens mallsidan för distribution ](https://portal.azure.com/#create/Microsoft.Template).
+När du har särskild mallen du distribuerar den med hjälp av den [REST API: er](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), eller [portalens mallsidan för distribution ](https://portal.azure.com/#create/Microsoft.Template).
 
 Här är två versioner av våra exempel instrumentpanelen JSON. Först är den version som vi har exporterats från portalen som redan är bunden till en resurs. Andra är den mallversion som programmässigt kan bindas till någon virtuell dator och distribueras via Azure Resource Manager.
 

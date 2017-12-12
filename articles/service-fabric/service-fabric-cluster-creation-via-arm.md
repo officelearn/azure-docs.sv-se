@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: f4f0aa2cfc722a1cc61788a1c6ba7caedf6b4c9b
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -115,7 +115,7 @@ az account set --subscription $subscriptionId
 
 Använd följande kommando för att snabbt skapa ett kluster genom att ange minimal parametrar
 
-Den mall som används är tillgänglig på den [azure service fabric mallen prover: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-ubuntu-1-NodeTypes-Secure)
+Den mall som används är tillgänglig på den [azure service fabric mallen prover: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 Kommandona nedan fungerar för att skapa Windows- och Linux-kluster, du behöver bara ange OS därefter. Powershell / CLI-kommandona också matar ut certifikat certifikatet i anges i theCertificateOutputFolder. Kommandot tar in samt andra parametrar som VM SKU.
 
@@ -224,7 +224,7 @@ Om det här är en CA-signerat certifikat som du kommer att få med för andra �
 
 
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Använda 5 nod 1 nodetype standardmallen som levereras i modulen
-Den mall som används är tillgänglig på den [azure-exempel: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-ubuntu-1-NodeTypes-Secure)
+Den mall som används är tillgänglig på den [azure-exempel: windows-mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) och [Ubuntu mall](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 ```Powershell
 $resourceGroupLocation="westus"
@@ -693,7 +693,7 @@ Du har nu en säker kluster med Azure Active Directory med management-autentiser
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://manage.windowsazure.com
+[azure-classic-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

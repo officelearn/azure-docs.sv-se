@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Stream Analytics Data Lake Store-utdata
 Stream Analytics-jobb stöder flera metoder för utdata, en som en [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store är en företagsomfattande storskalig lagringsplats för analytiska arbetsbelastningar för stordata. Data Lake Store kan du lagra data med en storlek, typ och införandet hastighet för drifts- och undersökande analyser.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Godkänna ett Data Lake Store-konto
-1. När Data Lake Store är markerad som utdata i Azure-portalen, uppmanas du att tillåta användning av din befintliga Data Lake Store eller begära åtkomst till Data Lake Store via den klassiska portalen.
+1. När Data Lake Store är markerad som utdata i Azure-portalen, uppmanas du att tillåta användning av din befintliga Data Lake Store eller begära åtkomst till Data Lake Store.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
@@ -68,7 +68,7 @@ När du har Data Lake Store-kontot autentiseras kan du konfigurera egenskaper f�
 </tr>
 <tr>
 <td>Encoding</td>
-<td>Om CSV- eller JSON-format, måste kodning anges. UTF-8 är det enda kodformat som stöds för närvarande.</td>
+<td>Om CSV- eller JSON-format, måste kodning anges. UTF-8 är kodformat som endast stöds för tillfället.</td>
 </tr>
 <tr>
 <td>Avgränsare</td>

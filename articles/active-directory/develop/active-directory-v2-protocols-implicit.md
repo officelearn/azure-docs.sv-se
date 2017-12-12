@@ -4,7 +4,7 @@ description: "Skapa webbprogram med hjälp av Azure AD v2.0 implementering av im
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3bd8256814036a357b30b69286da6bb7c974162f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll - SPA med det implicita flödet
 Med v2.0-slutpunkten du loggar in användare i din ensidesappar med både personliga och arbete/skola konton från Microsoft.  Sida och andra JavaScript-appar som körs i första hand i en webbläsare yta några intressanta utmaningar när det gäller att autentisering:
@@ -76,9 +76,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app.  Bör vara `fragment` för implicita flödet. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran kommer också att returneras i token svaret.  Det kan vara en sträng med innehåll som du vill.  Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12).  Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
 | temporärt ID |Krävs |Ett värde som ingår i denna begäran som genererats av den app som ska inkluderas i den resulterande id_token som ett anspråk.  Appen kan sedan kontrollera värdet för att minimera token replay-attacker.  Värdet är vanligtvis en slumpmässig, unik sträng som används för att identifiera ursprunget för begäran. |
-| kommandotolk |Valfria |Anger vilken typ av användarinteraktion som krävs.  De enda giltiga värdena just nu är ”inloggning” none, och 'godkännande'.  `prompt=login`Tvingar användaren att ange sina autentiseringsuppgifter på begäran, giltigt att negera enkel inloggning på.  `prompt=none`är motsatsen - säkerställer att användaren inte visas med en interaktiv prompt som helst.  Om begäran inte kan slutföras utan meddelanden via enkel inloggning på returneras ett fel v2.0-slutpunkten.  `prompt=consent`dialogrutan OAuth-medgivande utlöses när användaren loggar in, be användaren att tilldela behörigheter till appen. |
-| login_hint |Valfria |Kan användas till att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
-| domain_hint |Valfria |Kan vara något av `consumers` eller `organizations`.  Om den hoppar över e-postbaserad identifieringsprocessen användaren som passerar på v2.0 inloggningssidan, vilket leder till en något mer effektiv användarupplevelse.  Ofta appar kommer att använda den här parametern under återautentiseringen genom att extrahera den `tid` anspråk från id_token.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, bör du använda `domain_hint=consumers`.  Annars använder `domain_hint=organizations`. |
+| kommandotolk |valfri |Anger vilken typ av användarinteraktion som krävs.  De enda giltiga värdena just nu är ”inloggning” none, och 'godkännande'.  `prompt=login`Tvingar användaren att ange sina autentiseringsuppgifter på begäran, giltigt att negera enkel inloggning på.  `prompt=none`är motsatsen - säkerställer att användaren inte visas med en interaktiv prompt som helst.  Om begäran inte kan slutföras utan meddelanden via enkel inloggning på returneras ett fel v2.0-slutpunkten.  `prompt=consent`dialogrutan OAuth-medgivande utlöses när användaren loggar in, be användaren att tilldela behörigheter till appen. |
+| login_hint |valfri |Kan användas till att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
+| domain_hint |valfri |Kan vara något av `consumers` eller `organizations`.  Om den hoppar över e-postbaserad identifieringsprocessen användaren som passerar på v2.0 inloggningssidan, vilket leder till en något mer effektiv användarupplevelse.  Ofta appar kommer att använda den här parametern under återautentiseringen genom att extrahera den `tid` anspråk från id_token.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, bör du använda `domain_hint=consumers`.  Annars använder `domain_hint=organizations`. |
 
 Nu ombeds användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen.  V2.0-slutpunkten säkerställer också att användaren har godkänt för de behörigheter som anges i den `scope` Frågeparametern.  Om användaren inte har godkänt till någon av dessa behörigheter, uppmanas användaren att godkänna behörigheterna som krävs.  Information om [behörigheter, medgivande och flera innehavare appar finns här](active-directory-v2-scopes.md).
 

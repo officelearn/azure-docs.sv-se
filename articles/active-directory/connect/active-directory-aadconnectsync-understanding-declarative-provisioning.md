@@ -4,7 +4,7 @@ description: "Förklarar deklarativ etablering Konfigurationsmodell i Azure AD C
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synkronisering: Förstå deklarativ etablering
 Det här avsnittet beskriver Konfigurationsmodell i Azure AD Connect. Modellen kallas deklarativ etablering och du kan göra en konfigurationsändring med enkel. Många saker som beskrivs i det här avsnittet avancerade och krävs inte för de flesta kundscenarier.

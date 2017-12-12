@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Python API, SDK & resurser | Microsoft Docs
-description: "Läs mer om Python-API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB Python SDK."
+title: 'Azure Cosmos DB: SQL Python API, SDK & resurser | Microsoft Docs'
+description: "Lär dig mer om SQL Python API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB Python SDK."
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 891af14f347c798d7c661e19d110b5c0a2d8982c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure Cosmos DB Python SDK: Viktig information och resurser
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET ändra Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/15/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -81,8 +83,8 @@ ms.lasthandoff: 11/15/2017
 * Stöd för upp/ORDERBY för partitionerade samlingar har lagts till.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Tillagda försök princip stöd för begränsad begäranden. (Begränsad begäranden får en förfrågan hastighet för stor undantag, felkod 429.) Standard Azure Cosmos DB återförsök nio gånger för varje begäran när felkoden 429 påträffas respektera retryAfter tid i rubriken. En fast försök tidsintervall kan nu anges som en del av egenskapen RetryOptions på ConnectionPolicy-objekt om du vill ignorera retryAfter tiden som returnerades av servern mellan försöken. Azure Cosmos-DB väntar nu högst 30 sekunder för varje begäran som har begränsats (oavsett antal försök) och returnerar svaret med felkoden 429. Nu kan också åsidosättas i egenskapen RetryOptions på ConnectionPolicy objekt.
-* Cosmos DB Returnerar nu x-ms-begränsning--antal försök och x-ms-throttle-retry-wait-time-ms som svarshuvuden i varje begäran att ange begränsningen försök antal och cummulative tiden begäran väntade mellan försöken.
+* Tillagda försök princip stöd för begränsad begäranden. (Begränsad begäranden får en förfrågan hastighet för stor undantag, felkod 429.) Standard Azure Cosmos DB återförsök nio gånger för varje begäran när felkoden 429 påträffas respektera retryAfter tid i rubriken. En fast försök tidsintervall kan nu anges som en del av egenskapen RetryOptions på ConnectionPolicy-objekt om du vill ignorera retryAfter tiden som returnerades av servern mellan försöken. Azure Cosmos-DB väntar nu högst 30 sekunder för varje begäran som har begränsats (oavsett antal försök) och returnerar svaret med felkoden 429. Nu kan åsidosättas i egenskapen RetryOptions på ConnectionPolicy objekt.
+* Cosmos DB Returnerar nu x-ms-begränsning--antal försök och x-ms-throttle-retry-wait-time-ms som svarshuvuden i varje begäran att ange begränsningen försök antal och kumulativa tid begäran väntade mellan försöken.
 * Bort klassen RetryPolicy och motsvarande egenskap (retry_policy) visas på klassen document_client och introducerades i stället en RetryOptions klass exponera egenskapen RetryOptions ConnectionPolicy klass som kan användas för att åsidosätta en del av du standardalternativen vara försök igen.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
@@ -92,7 +94,7 @@ ms.lasthandoff: 11/15/2017
 * Lägga till stöd för tid Live(TTL) funktion för dokument.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* Felkorrigeringar som rör server side partitionering för att tillåta specialtecken i partitionkey sökväg.
+* Felkorrigeringar rör serversidan partitionering för att tillåta specialtecken i partitionen nyckelsökvägen.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Implementerad [partitionerade samlingar](partition-data.md) och [användardefinierade prestandanivåer](performance-levels.md). 
@@ -119,14 +121,14 @@ ms.lasthandoff: 11/15/2017
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Versionen & pensionering datum
-Microsoft meddelar notification minst **12 månader** innan du tar bort en SDK för att utjämna övergången till en nyare/stöds version.
+Microsoft meddelar minst **12 månader** innan du tar bort en SDK för att utjämna övergången till en nyare/stöds version.
 
 Nya funktioner och funktionalitet och optimeringar bara lägga till den aktuella SDK, som vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så snart som möjligt. 
 
 Alla förfrågningar till Cosmos-databasen med en pensionerad SDK avvisas av tjänsten.
 
 > [!WARNING]
-> Alla versioner av Azure DocumentDB SDK för Python före version **1.0.0** ska tas bort på **29 februari 2016**. 
+> Alla versioner av SQL Azure SDK för Python före version **1.0.0** har dragits tillbaka på **29 februari 2016**. 
 > 
 > 
 

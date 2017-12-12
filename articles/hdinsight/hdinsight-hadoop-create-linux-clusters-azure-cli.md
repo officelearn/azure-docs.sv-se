@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 330e3691307d0b52ed63da3560390beef154f779
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Skapa HDInsight-kluster med Azure CLI
 
@@ -117,7 +117,7 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell- eller
     * Ersätt `sshuser` och `sshuserpassword` med användarnamn och lösenord som du vill använda när du ansluter till klustret via SSH
 
     > [!IMPORTANT]
-    > Det här exemplet skapar ett kluster med två worker anteckningar. Du kan också ändra antalet arbetarnoder när klustret har skapats genom att utföra skalning åtgärder. Om du tänker använda mer än 32 arbetarnoder, måste du välja en huvudnod storlek med minst 8 kärnor och 14 GB RAM-minne. Du kan ange huvudnod storlek med den `--headNodeSize` parameter när klustret skapas.
+    > Det här exemplet skapar ett kluster med två arbetarnoder. Du kan också ändra antalet arbetarnoder när klustret har skapats genom att utföra skalning åtgärder. Om du tänker använda mer än 32 arbetarnoder, måste du välja en huvudnod storlek med minst 8 kärnor och 14 GB RAM-minne. Du kan ange huvudnod storlek med den `--headNodeSize` parameter när klustret skapas.
     >
     > Mer information om noden storlekar och relaterade kostnader finns [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: b6a77e33eea24000037ffb31d7aae3cb1d345ce9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
 Azure Cosmos-DB ger schemaflexibilitet och omfattande indexering via ett ursprungligt [JSON](http://www.json.org) datamodellen. Alla Azure Cosmos DB resurser inklusive databaser, samlingar, dokument och lagrade procedurer modelleras och lagras som JSON-dokument. Som ett krav för att bärbara JSON (och Azure Cosmos DB) stöder bara en liten uppsättning grundläggande typer: sträng, Number, Boolean, matris, objekt och Null. JSON är flexibel och kan utvecklare och ramverk att representera mer komplexa typer med hjälp av dessa primitiver och skriva dem som objekt eller matriser. 
@@ -75,7 +75,7 @@ Intervallet frågor är vanliga med DateTime-värden. Om du behöver hitta alla 
 Du kan lära dig mer om hur du konfigurerar indexering principer på [Azure Cosmos DB indexering principer](indexing-policies.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Frågar datum och tid i LINQ
-.NET DocumentDB SDK har automatiskt stöd för hämtning av data som lagras i Azure Cosmos DB via LINQ. Följande utdrag visar exempelvis en LINQ-fråga som filter order som levererades under de senaste tre dagarna.
+SQL .NET SDK har automatiskt stöd för hämtning av data som lagras i Azure Cosmos DB via LINQ. Följande utdrag visar exempelvis en LINQ-fråga som filter order som levererades under de senaste tre dagarna.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -89,5 +89,5 @@ I den här artikeln vi har tittat på hur du lagrar, index- och fråga datum och
 
 ## <a name="next-steps"></a>Nästa steg
 * Hämta och kör den [kodexempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Lär dig mer om [DocumentDB API-fråga](documentdb-sql-query.md)
+* Lär dig mer om [SQL-frågor](documentdb-sql-query.md)
 * Lär dig mer om [Azure Cosmos DB indexering principer](indexing-policies.md)

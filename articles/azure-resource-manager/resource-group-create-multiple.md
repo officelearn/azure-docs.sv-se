@@ -12,23 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 12/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera flera instanser av en resurs eller en egenskap i Azure Resource Manager-mallar
-Det här avsnittet visar hur du iterera i Azure Resource Manager-mall för att skapa flera instanser av en resurs, eller flera instanser av en egenskap för en resurs.
+Den här artikeln visar hur du distribuerar villkorligt en resurs och hur du iterera i Azure Resource Manager-mall för att skapa flera instanser av en resurs.
 
-Om du behöver lägga till logik i mallen som du kan ange om en resurs har distribuerats, se [villkorligt distribuera resurs](#conditionally-deploy-resource).
+## <a name="conditionally-deploy-resource"></a>Villkorligt distribuera resurs
 
-Ett exempel på hur du skapar flera element i en array-variabel, se [variabler](resource-group-authoring-templates.md#variables).
+När du måste välja under distributionen för att skapa en instans eller inga instanser av en resurs, använda den `condition` element. Värdet för det här elementet matchar true eller false. När värdet är true, distribueras resursen. Om värdet är FALSKT har resursen inte distribuerats. Till exempel vill ange om ett nytt lagringskonto distribueras eller ett befintligt lagringskonto används, använder du:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
 
 ## <a name="resource-iteration"></a>Resursen upprepning
-När du skapar flera instanser av en resurstyp, till en `copy` elementet för resurstypen. I elementet kopia anger du antalet upprepningar och ett namn för den här loop. Värdet för antal måste vara ett positivt heltal och får inte överskrida 800. Hanteraren för filserverresurser skapar resurserna parallellt. Den ordning som de har skapats kan därför inte garanteras. För att skapa hävdade resurser i följd, se [seriella kopiera](#serial-copy). 
+När du måste välja under distributionen för att skapa en eller flera instanser av en resurs, lägga till en `copy` elementet för resurstypen. I elementet kopia anger du antalet upprepningar och ett namn för den här loop. Värdet för antal måste vara ett positivt heltal och får inte överskrida 800. 
 
 Resursen ska skapa flera gånger tar följande format:
 
@@ -112,151 +127,40 @@ Skapar dessa namn:
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>Seriell kopia
+Som standard skapar Resource Manager resurserna parallellt. Den ordning som de har skapats kan därför inte garanteras. Du kanske vill ange att resurserna som distribueras i följd. Till exempel när du uppdaterar en produktionsmiljö måste du kanske vill sprida uppdateringar så bara ett visst antal uppdateras samtidigt.
 
-När du använder elementet kopiera för att skapa flera instanser av en resurstyp, hanteraren för filserverresurser, som standard distribuerar dessa instanser parallellt. Du kanske vill ange att resurserna som distribueras i följd. Till exempel när du uppdaterar en produktionsmiljö måste du kanske vill sprida uppdateringar så bara ett visst antal uppdateras samtidigt.
+För att distribuera seriellt flera instanser av en resurs, ange `mode` till **seriella** och `batchSize` med antalet instanser som ska distribueras i taget. Med seriella läge skapar Resource Manager ett beroende på tidigare instanser i en slinga så att den inte startar en batch tills den föregående batchen har slutförts.
 
-Resource Manager tillhandahåller egenskaper i elementet kopia som gör det möjligt att distribuera seriellt flera instanser. I elementet kopiera ange `mode` till **seriella** och `batchSize` med antalet instanser som ska distribueras i taget. Med seriella läge skapar Resource Manager ett beroende på tidigare instanser i en slinga så att den inte startar en batch tills den föregående batchen har slutförts.
-
-```json
-"copy": {
-    "name": "iterator",
-    "count": "[parameters('numberToDeploy')]",
-    "mode": "serial",
-    "batchSize": 2
-},
-```
-
-Egenskapen läget accepterar också **parallella**, vilket är standardvärdet.
-
-Använd följande mall som distribuerar tom kapslade mallar för att testa seriella kopia utan att skapa verkliga resurser:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberToDeploy": {
-      "type": "int",
-      "minValue": 2,
-      "defaultValue": 5
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "[concat('loop-', copyIndex())]",
-      "copy": {
-        "name": "iterator",
-        "count": "[parameters('numberToDeploy')]",
-        "mode": "serial",
-        "batchSize": 1
-      },
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [],
-          "outputs": {
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-Observera att kapslade distributioner bearbetas i följd i distributionshistoriken för.
-
-![seriell distribution](./media/resource-group-create-multiple/serial-copy.png)
-
-För en mer realistisk scenario distribuerar i följande exempel två instanser samtidigt för en Linux-VM från en kapslad mall:
+Till exempel för att distribuera seriellt lagringskonton två samtidigt, använder du:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "User name for the Virtual Machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "ubuntuOSVersion": {
-            "type": "string",
-            "defaultValue": "16.04.0-LTS",
-            "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.5-LTS",
-                "15.10",
-                "16.04.0-LTS"
-            ],
-            "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
-            }
-        }
-    },
-    "variables": {
-        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
-    },
     "resources": [
         {
-            "apiVersion": "2015-01-01",
-            "name": "[concat('nestedDeployment',copyIndex())]",
-            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
             "copy": {
-                "name": "myCopySet",
+                "name": "storagecopy",
                 "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-            },
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "adminUsername": {
-                        "value": "[parameters('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    },
-                    "dnsLabelPrefix": {
-                        "value": "[parameters('dnsLabelPrefix')]"
-                    },
-                    "ubuntuOSVersion": {
-                        "value": "[parameters('ubuntuOSVersion')]"
-                    },
-                    "index":{
-                        "value": "[copyIndex()]"
-                    }
-                }
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
-```
+``` 
+
+Egenskapen läget accepterar också **parallella**, vilket är standardvärdet.
 
 ## <a name="property-iteration"></a>Egenskapen upprepning
 
@@ -352,50 +256,56 @@ Du kan använda resursen och egenskapen iteration tillsammans. Referens egenskap
 }
 ```
 
-Du får bara innehålla ett kopiera element i egenskaperna för varje resurs. Definiera flera objekt i matrisen kopia om du vill ange en iteration loop för mer än en egenskap. Varje objekt är hävdade separat. Till exempel för att skapa flera instanser av både den `frontendIPConfigurations` egenskapen och `loadBalancingRules` egenskapen för en belastningsutjämnare definiera både objekt i en enda kopia-elementet: 
+## <a name="variable-iteration"></a>Variabeln upprepning
+
+Du kan skapa flera instanser av en variabel med det `copy` element i avsnittet variables. Du kan skapa flera instanser av objekt med relaterade värden och sedan tilldela dessa värden till instanser av resursen. Du kan använda Kopiera för att skapa ett objekt med en matrisegenskap eller en matris. Båda metoderna visas i följande exempel:
 
 ```json
 {
-    "name": "[variables('loadBalancerName')]",
-    "type": "Microsoft.Network/loadBalancers",
-    "properties": {
-        "copy": [
-          {
-              "name": "frontendIPConfigurations",
-              "count": 2,
-              "input": {
-                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
-                  "properties": {
-                      "publicIPAddress": {
-                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
-                      }
-                  }
-              }
-          },
-          {
-              "name": "loadBalancingRules",
-              "count": 2,
-              "input": {
-                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
-                  "properties": {
-                      "frontendIPConfiguration": {
-                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
-                      },
-                      "backendAddressPool": {
-                          "id": "[variables('lbBackendPoolID')]"
-                      },
-                      "protocol": "tcp",
-                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "probe": {
-                          "id": "[variables('lbProbeID')]"
-                      }
-                  }
-              }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
           }
-        ],
-        ...
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
     }
+  }
 }
 ```
 
@@ -435,7 +345,7 @@ Du anger att en resurs distribueras efter en annan resurs med hjälp av den `dep
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>Skapa flera instanser av en underordnad-resurs
+## <a name="iteration-for-a-child-resource"></a>Upprepningen för en underordnad-resurs
 Du kan inte använda en kopia skapas för en underordnad resurs. Du måste i stället skapa resursen som översta resurs för att skapa flera instanser av en resurs som du vanligtvis definiera som kapslad i en annan resurs. Du definierar relationen med den överordnade resursen via egenskaperna typ och namn.
 
 Anta exempelvis att du definierar en datamängd vanligtvis som en underordnad resurs i en datafabrik.
@@ -485,28 +395,140 @@ I följande exempel visas implementeringen:
 }]
 ```
 
-## <a name="conditionally-deploy-resource"></a>Villkorligt distribuera resurs
+## <a name="deploy-example-templates"></a>Distribuera exempel mallar
 
-Anger om en resurs har distribuerats på `condition` element. Värdet för det här elementet matchar true eller false. När värdet är true, distribueras resursen. Om värdet är FALSKT har resursen inte distribuerats. Till exempel vill ange om ett nytt lagringskonto distribueras eller ett befintligt lagringskonto används, använder du:
+### <a name="resource-iteration"></a>Resursen upprepning
 
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
+Den [kopiera lagring](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) mallen distribuerar flera lagringskonton med index i namnet.
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
 ```
 
-Ett exempel på hur du använder en ny eller befintlig resurs finns [ny eller befintlig mall för villkoret](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+Om du använder Azure CLI använder du:
 
-Ett exempel på med ett lösenord eller SSH-nyckel för att distribuera den virtuella datorn, se [användarnamn eller SSH villkoret mallen](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
+```
+
+### <a name="serial-resource-iteration"></a>Seriell resurs upprepning
+
+Den [seriella lagringsutrymmet](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) mallen distribuerar flera lagringskonton som för närvarande. Namnet innehåller antalet index.
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+Om du använder Azure CLI använder du:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+### <a name="resource-iteration-from-array"></a>Resursen iteration från en matris
+
+Den [kopiera lagring med matris](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) mallen distribuerar flera lagringskonton. Namnet innehåller ett värde från en matris.
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+Om du använder Azure CLI använder du:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+### <a name="conditionally-deploy-resources"></a>Villkorligt distribuera resurser
+
+Den [virtuell dator med en ny eller befintlig virtuellt nätverk, lagring och offentliga IP-](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) mallen distribuerar nya eller befintliga resurser med en virtuell dator.
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+Om du använder Azure CLI använder du:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+### <a name="property-iteration"></a>Egenskapen upprepning
+
+Den [distribution av Virtuella datorer med en variabel antalet datadiskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) mallen distribuerar flera datadiskar med en virtuell dator.
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+Om du använder Azure CLI använder du:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+### <a name="variable-iteration"></a>Variabeln upprepning
+
+Den [kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) mall visar olika sätt för att gå på variabler.
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+Om du använder Azure CLI använder du:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+### <a name="variable-iteration-to-create-resources"></a>Variabeln iteration att skapa resurser
+
+Den [flera säkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) mallen distribuerar flera säkerhetsregler till en nätverkssäkerhetsgrupp. Den skapar säkerhetsregler från en parameter.
+
+Om du använder PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill veta om avsnitt i en mall finns [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).

@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 64a035c216e4d7aa4c14baf1812b9a25e27b3e19
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2410ed152674637cb1b287db55da67b8d5f5f072
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Bild klassificering med Azure Machine Learning arbetsstationen
 
@@ -63,7 +63,7 @@ Förutsättningar för att kunna köra det här exemplet är följande:
 - Minnet är slut fel under DNN utbildning kan undvikas genom att minska storleken minibatch (variabeln `cntk_mb_size` i `PARAMETERS.py`).
 - Koden har testats med CNTK 2.2 och bör köras även på äldre (upp till v2.0) och senare versioner utan att någon eller bara mindre ändringar.
 - Vid tidpunkten som skrivs hade i Azure Machine Learning-arbetsstationen problem med visar bärbara datorer som är större än 5 MB. Bärbara datorer i den här stora kan inträffa om den bärbara datorn sparas med alla celler utdata som visas. Om du får felet och sedan öppna Kommandotolken från Arkiv-menyn i arbetsstationen, köra `jupyter notebook`, öppna anteckningsboken, avmarkera alla utdata och spara den bärbara datorn. När du utför dessa steg måste öppnas anteckningsboken korrekt i Azure Machine Learning arbetsstationen igen.
-- Alla skript som angetts i det här exemplet måste köras lokalt, och inte på t.ex. en docker fjärrmiljö. Alla bärbara datorer måste köras med kernel inställd på kernel lokala projektet med namnet ”<projectname> lokala” (t.ex. ”myImgClassUsingCNTK lokal”).
+- Alla skript som angetts i det här exemplet måste köras lokalt, och inte på t.ex. en docker fjärrmiljö. Alla bärbara datorer måste köras med kernel inställd på lokalt projekt kernel med namnet ”PROJEKTNAMN lokala” (t.ex. ”myImgClassUsingCNTK lokala”).
 
     
 ## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
@@ -115,7 +115,7 @@ Alla viktiga parametrar har angetts och en kort förklaring finns i en enda plat
 ### <a name="step-1-data-preparation"></a>Steg 1: Förberedelse av Data
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Anteckningsboken `showImages.ipynb` kan användas för att visualisera avbildningar och korrigera sina anteckningen efter behov. Om du vill köra den bärbara datorn, öppna den i Azure Machine Learning Workbench, klicka på ”börja anteckningsboken Server” om det här alternativet visas ändras till kernel lokala projektet med namnet ”<projectname> lokala” (t.ex. ”myImgClassUsingCNTK lokal”), och sedan köra alla celler i den bärbar dator. Om du får ett felmeddelande klagande att anteckningsboken är för stor för att visa finns i felsökningsavsnittet i det här dokumentet.
+Anteckningsboken `showImages.ipynb` kan användas för att visualisera avbildningar och korrigera sina anteckningen efter behov. För att köra den bärbara datorn, öppna den i Azure Machine Learning Workbench, klicka på ”börja anteckningsboken Server” om det här alternativet visas ändras till kernel lokala projektet med namnet ”PROJEKTNAMN lokala” (t.ex. ”myImgClassUsingCNTK lokal”), och sedan köra alla celler i den bärbar dator. Om du får ett felmeddelande klagande att anteckningsboken är för stor för att visa finns i felsökningsavsnittet i det här dokumentet.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -179,7 +179,7 @@ Förutom Precision ritas ROC-kurvan med respektive område-under-kurvan (vänste
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Slutligen anteckningsboken `showResults.py` tillhandahålls för att rulla igenom testbilder och visualisera resultat för deras respektive klassificering. Enligt beskrivningen i steg 1, alla bärbara datorer i det här exemplet behöver använda kernel lokala projektet med namnet ”<projectname> lokala”:
+Slutligen anteckningsboken `showResults.py` tillhandahålls för att rulla igenom testbilder och visualisera resultat för deras respektive klassificering. Enligt beskrivningen i steg 1, måste alla bärbara datorer i det här exemplet använder kernel lokala projektet med namnet ”PROJEKTNAMN lokala”:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -191,7 +191,7 @@ Slutligen anteckningsboken `showResults.py` tillhandahålls för att rulla igeno
 ### <a name="step-6-deployment"></a>Steg 6: distribution
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Systemets utbildade kan nu publiceras som en REST-API. Distribution förklaras i anteckningsboken `deploy.ipynb`, och baserat på funktionerna i Azure Machine Learning arbetsstationen (Kom ihåg att ange kernel kernel lokala projektet med namnet ”<projectname> lokala”). Se även avsnittet utmärkt distributionen i den [IRIS kursen](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) för distribution av mer relaterad information.
+Systemets utbildade kan nu publiceras som en REST-API. Distribution förklaras i anteckningsboken `deploy.ipynb`, och baserat på funktionerna i Azure Machine Learning arbetsstationen (Kom ihåg att ange kernel kernel lokala projektet med namnet ”lokal PROJEKTNAMN”). Se även avsnittet utmärkt distributionen i den [IRIS kursen](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) för distribution av mer relaterad information.
 
 När har distribuerats, webbtjänsten kan anropas med skriptet `6_callWebservice.py`. Observera att IP-adressen (lokalt eller i molnet) för webbtjänsten måste anges först i skriptet. Anteckningsboken `deploy.ipynb` förklarar hur du hittar den här IP-adress.
 

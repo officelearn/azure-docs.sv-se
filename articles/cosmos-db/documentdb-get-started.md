@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Självstudiekurs för att komma igång med DocumentDB-API:et | Microsoft Docs"
-description: "En självstudiekurs som beskriver hur du skapar en onlinedatabas och ett C#-konsolprogram med hjälp av DocumentDB-API:et."
+title: "Azure Cosmos DB: SQL API komma igång-självstudiekurs | Microsoft Docs"
+description: "En självstudiekurs som skapar en onlinedatabas och C#-konsolprogram har med hjälp av SQL-API."
 keywords: "självstudier för nosql, onlinedatabas, c#-konsolprogram"
 services: cosmos-db
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: e5e6a2e5b7ec4bc9c3c81ff37640c98cae36392d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a6049ac8d196282f146a60de3a0f0cb05943dd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: Självstudiekurs för att komma igång med DocumentDB-API:et
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: SQL API komma igång-Självstudier
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,9 +32,11 @@ ms.lasthandoff: 10/11/2017
 >  
 > 
 
-Välkommen till självstudiekursen som hjälper dig att komma igång med Azure Cosmos DB DocumentDB-API:et! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Vi tar upp följande:
+Välkommen till den Azure SQL DB-API Cosmos komma igång-kursen! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.
+
+Den här kursen ingår:
 
 * Skapa och ansluta till ett Azure Cosmos DB-konto
 * Konfigurera en Visual Studio-lösning
@@ -48,12 +50,9 @@ Vi tar upp följande:
 
 Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). En snabbguide finns i avsnittet [Hämta den fullständiga lösningen till NoSQL-självstudiekursen](#GetSolution).
 
-Ge oss sedan feedback med röstningsknapparna högst uppe och nere på den här sidan. Om du vill att vi ska kontakta dig direkt kan du skriva din e-postadress i kommentaren.
-
 Nu sätter vi igång!
 
 ## <a name="prerequisites"></a>Krav
-Se till att du har följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
 
@@ -62,7 +61,7 @@ Se till att du har följande:
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Steg 1: Skapa ett Azure Cosmos DB-konto
-Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Konfigurera en lösning i Visual Studio](#SetupVS). Om du använder Azure Cosmos DB-emulatorn följer du stegen i artikeln om [Azure Cosmos DB-emulatorn](local-emulator.md) för att konfigurera emulatorn och gå vidare till [konfigurationen av Visual Studio-lösningen](#SetupVS).
+Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill använda kan du gå vidare till [Konfigurera en lösning i Visual Studio](#SetupVS). Om du använder Azure Cosmos DB-emulatorn, Följ stegen i [Azure Cosmos DB emulatorn](local-emulator.md) konfigurera emulatorn och gå vidare till [konfigurera din Visual Studio-lösning](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -74,12 +73,12 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill
 4. I **Solution Explorer** högerklickar du på den nya konsolappen, som finns under din Visual Studio-lösning, och klickar sedan på **Hantera NuGet-paket ...**
     
     ![Skärmdump som visar den högerklickade menyn för projektet](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-5. På fliken **Nuget** klickar du på **Bläddra** och skriver **azure documentdb** i sökrutan.
+5. I den **NuGet** klickar du på **Bläddra**, och skriv **azure documentdb** i sökrutan.
 6. Leta reda på **Microsoft.Azure.DocumentDB** i resultatet och klicka på **Installera**.
-   Paket-ID för klientbiblioteket för Azure Cosmos DB DocumentDB API är [Microsoft Azure DocumentDB klientbibliotek](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   ![Skärmbild av Nuget-menyn där du hittar Azure Cosmos DB Client SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   Paket-ID för klientbiblioteket för Azure Cosmos DB SQL API är [Microsoft Azure Cosmos DB klientbibliotek](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+   ![Skärmbild som visar NuGet-menyn för att hitta Azure Cosmos DB klient-SDK](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
-    Om du får meddelanden om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
+    Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
 
 Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Det finns ett färdigt kodprojekt för den här självstudiekursen i [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
@@ -116,7 +115,7 @@ Navigera till ditt Azure DB som Cosmos-konto i Azure-portalen och sedan på **ny
 
 Kopiera URI från portalen och klistra in den i `<your endpoint URL>` i filen program.cs. Kopiera sedan PRIMÄRNYCKELN från portalen och klistra in den i `<your primary key>`.
 
-![Skärmbild av Azure portal som används i NoSQL-självstudiekursen för att skapa ett C#-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
+![Skärmbild av Azure portal som används i NoSQL-självstudiekursen för att skapa ett C#-konsolprogram. Visar ett Azure DB som Cosmos-konto med hubben aktiv markerad, knappen nycklar markerad på sidan för Azure DB som Cosmos-konto och värdena URI, PRIMÄRNYCKEL och SEKUNDÄRNYCKEL markerade på sidan nycklar][keys]
 
 Härnäst ska vi starta programmet genom att skapa en ny instans av **DocumentClient**.
 

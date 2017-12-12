@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver hur du använder HTTP-meddelanden för
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänsten tjänstanrop med delegerad användaridentitet i On-Behalf-Of-flöde
 OAuth 2.0-On-Behalf-Of flöde fungerar användningsfall där ett program anropar ett service/webb-API, som i sin tur behöver anropa en annan tjänst/webb-API. Tanken är att sprida delegerad användarens identitet och behörigheter via alla begäranden har gjorts. För tjänsten mellannivå så att autentiserade begäranden till den underordnade tjänsten behöver skydda en åtkomst-token från Azure Active Directory (Azure AD) för användarens räkning.
@@ -80,7 +80,7 @@ När du använder en delad hemlighet, innehåller en tjänst-till-tjänst åtkom
 | kontrollen |Krävs | Värdet för den token som används i begäran. |
 | client_id |Krävs | App-ID som tilldelats till tjänsten anropa under registreringen med Azure AD. Du hittar det App-ID i Azure-hanteringsportalen, klicka på **Active Directory**klickar du på katalogen och klicka sedan på namnet på programmet. |
 | client_secret |Krävs | Nyckeln som har registrerats för anropa tjänsten i Azure AD. Det här värdet ska har konstaterats vid tiden för registrering. |
-| Resursen |Krävs | App-ID URI för tjänsten mottagande (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klicka på katalogen, programnamn, **alla inställningar** och klicka sedan på **egenskaper**. |
+| resurs |Krävs | App-ID URI för tjänsten mottagande (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klicka på katalogen, programnamn, **alla inställningar** och klicka sedan på **egenskaper**. |
 | requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
 | Omfång |Krävs | Ett utrymme avgränsade lista över scope för tokenbegäran. För OpenID Connect omfånget **openid** måste anges.|
 
@@ -113,7 +113,7 @@ En token-tjänster åtkomst-begäran med ett certifikat innehåller följande pa
 | client_id |Krävs | App-ID som tilldelats till tjänsten anropa under registreringen med Azure AD. Du hittar det App-ID i Azure-hanteringsportalen, klicka på **Active Directory**klickar du på katalogen och klicka sedan på namnet på programmet. |
 | client_assertion_type |Krävs |Värdet måste vara`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Krävs | Ett intyg (en JSON Web Token) som du behöver för att skapa och registrera med certifikatet du registrerad som autentiseringsuppgifter för ditt program.  Läs mer om [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md) att lära dig att registrera ditt certifikat och format för kontrollen.|
-| Resursen |Krävs | App-ID URI för tjänsten mottagande (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klicka på katalogen, programnamn, **alla inställningar** och klicka sedan på **egenskaper**. |
+| resurs |Krävs | App-ID URI för tjänsten mottagande (skyddad resurs). Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klicka på katalogen, programnamn, **alla inställningar** och klicka sedan på **egenskaper**. |
 | requested_token_use |Krävs | Anger hur begäran ska bearbetas. Värdet måste vara i On-Behalf-Of-flöde **on_behalf_of**. |
 | Omfång |Krävs | Ett utrymme avgränsade lista över scope för tokenbegäran. För OpenID Connect omfånget **openid** måste anges.|
 
@@ -148,7 +148,7 @@ Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar.
 | Omfång |Omfattningen av åtkomst som beviljas i token. |
 | expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
 | expires_on |Tiden då den åtkomst-token upphör att gälla. Representeras som antalet sekunder från 1970-01-01T0:0:0Z UTC tills förfallotid. Det här värdet används för att fastställa livslängden för cachelagrade token. |
-| Resursen |App-ID URI för tjänsten mottagande (skyddad resurs). |
+| resurs |App-ID URI för tjänsten mottagande (skyddad resurs). |
 | access_token |Den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att autentisera till den mottagande tjänsten. |
 | id_token |Det begärda id-token. Anropa tjänsten kan använda den för att verifiera användarens identitet och starta en session med användaren. |
 | refresh_token |Uppdateringstoken för den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella åtkomst-token upphör att gälla. |

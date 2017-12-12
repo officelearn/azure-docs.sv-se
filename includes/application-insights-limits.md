@@ -11,7 +11,7 @@ Det finns vissa begränsningar för antalet mätvärden och händelser per progr
 | Namnlängd för egenskaper och mätvärden | 150 | Se [skriver scheman](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Stränglängd för egenskapsvärde | 8 192 | Se [skriver scheman](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Längd för spårnings- och undantagsmeddelande | 10 k | Se [skriver scheman](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| [Tillgänglighetstester](../articles/application-insights/app-insights-monitor-web-app-availability.md) (antal per app)  | 10 |
+| [Tillgänglighetstester](../articles/application-insights/app-insights-monitor-web-app-availability.md) (antal per app)  | 100 |
 | [Profileraren](../articles/application-insights/app-insights-profiler.md) datalagring | fem dagar |
 | [Profileraren](../articles/application-insights/app-insights-profiler.md) data som skickats per dag | 10GB |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Computing serverlösa databasen med hjälp av Azure-funktioner
 
@@ -44,7 +44,7 @@ Azure DB som Cosmos-utlösare, indatabindning och utdata bindning kan användas 
 * En inkommande bindning till en Azure DB som Cosmos-behållare kan användas i samma funktion som en Azure DB som Cosmos-utlösare och kan användas med eller utan bindning samt utdata. Du kan använda den här kombinationen tillämpa uppdaterade valuta utbyta information (som hämtas in med en inkommande bindning till en exchange-behållare) i flödet för ändring av nya order i kundvagn i tjänsten. Uppdaterad i kundvagn total kan med den aktuella valutakonvertering tillämpas, skrivas till en tredje behållare med hjälp av en bindning för utdata.
 
 > [!NOTE]
-> Just nu är arbeta Azure Cosmos DB utlösare, bindningar för inkommande och utgående bindningar med DocumentDB-, tabell- och Graph API konton.
+> Just nu är arbeta Azure Cosmos DB utlösare, bindningar för inkommande och utgående bindningar med SQL-, tabell- och Graph API konton.
 
 ## <a name="use-cases"></a>Användningsfall
 

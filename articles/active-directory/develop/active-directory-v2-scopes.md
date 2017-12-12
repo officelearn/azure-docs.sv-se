@@ -4,7 +4,7 @@ description: "En beskrivning av auktorisering i Azure AD v2.0-slutpunkten, inklu
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1488e8d2a70f7317c97275b83db3b9f05e9deb4b
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Scope, behörigheter och medgivande i Azure Active Directory v2.0-slutpunkten
 Appar som integreras med Azure Active Directory (AD Azure) följer en auktoriseringsmodell som ger användare kontroll över hur en app kan komma åt sina data. V2.0-implementeringen av auktoriseringsmodellen som har uppdaterats och ändras hur en app måste interagera med Azure AD. Den här artikeln beskriver de grundläggande principerna för det här tillståndet modellen, inklusive scope, behörigheter och samtycke.
@@ -145,7 +145,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | Klient |Krävs |Directory-klient som du vill begära tillstånd från. Kan anges i GUID- eller format för eget namn. |
 | client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |

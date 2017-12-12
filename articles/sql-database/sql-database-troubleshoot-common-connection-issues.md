@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: cc9b1e1474e67628857dd80a63850634469ca5e8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Felsökning av problem med anslutningen till Azure SQL Database
 När det inte går att ansluta till Azure SQL Database, visas [felmeddelanden](sql-database-develop-error-messages.md). Den här artikeln är en centraliserad artikel som hjälper dig att felsöka anslutningsproblem för Azure SQL Database. Det inför [vanliga orsaker](#cause) av anslutningsproblem, rekommenderar [ett verktyg för felsökning](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) som hjälper dig att identiteten problemet och åtgärder för felsökning som löser [tillfälligt fel](#troubleshoot-transient-errors) och [beständiga eller inte är tillfällig fel](#troubleshoot-persistent-errors). 
@@ -77,7 +77,7 @@ Om programmet beständigt misslyckas med att ansluta till Azure SQL Database ang
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Åtgärder för att lösa problem med nätverksanslutningen beständiga
 1. Ställ in [regler i brandväggen](sql-database-configure-firewall-settings.md) som tillåter klientens IP-adress. För tillfällig testning, ställa in en brandväggsregel med 0.0.0.0 som det första IP-adressintervallet och använda 255.255.255.255 som det sista IP-adressintervallet. Då öppnas server till alla IP-adresser. Om det löser problemet med anslutningen, ta bort den här regeln och skapa en brandväggsregel för en korrekt begränsade IP-adressen eller adressintervallet. 
 2. Kontrollera att port 1433 är öppen för utgående anslutningar på alla brandväggar mellan klienten och Internet. Granska [konfigurera Windows-brandväggen att tillåta åtkomst för SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) och [Hybrid Identity krävs portar och protokoll](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) för ytterligare Pekare rör ytterligare portar som behövs för att öppna för Azure Active Directory-autentisering.
-3. Kontrollera anslutningssträngen och andra inställningar. Se avsnittet anslutningssträngen i den [anslutning problem avsnittet](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+3. Kontrollera anslutningssträngen och andra inställningar. Se avsnittet anslutningssträngen i den [anslutning problem avsnittet](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Kontrollera tjänstens hälsa i instrumentpanelen. Om du tror att det finns ett regionalt strömavbrott, se [återställa från avbrott](sql-database-disaster-recovery.md) steg för att återställa till en ny region.
 
 ## <a name="next-steps"></a>Nästa steg

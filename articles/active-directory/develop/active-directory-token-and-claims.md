@@ -4,7 +4,7 @@ description: "En guide för att förstå och utvärdera anspråk i SAML 2.0 och 
 documentationcenter: na
 author: dstrockis
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Tokenreferens för Azure AD
 Azure Active Directory (AD Azure) genererar flera typer av säkerhetstoken vid bearbetning av varje autentiseringsflödet. Det här dokumentet beskriver format, säkerhet egenskaperna och innehållet i varje typ av token.
@@ -62,7 +62,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `groups` |Grupper |Innehåller objekt-ID som representerar användarens gruppmedlemskap. Dessa värden är unik (se objekt-ID) och kan användas på ett säkert sätt för att hantera åtkomst till exempel framtvinga tillstånd att komma åt en resurs. Grupper som ingår i grupper anspråket konfigureras på en applikationsspecifik basis via egenskapen ”groupMembershipClaims” i programmanifestet. En null-värde kan du inte alla grupper, värdet ”säkerhetsgruppen” kommer Ta endast med Active Directory-säkerhetsgrupp medlemskap och ett värde av ”alla” kommer inkluderar både säkerhetsgrupper och distributionslistor för Office 365. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **JWT exempelvärde**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
 | `idp` |Identitetsprovider |Registrerar den identitetsleverantör som autentiserats föremål för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot finns i en annan klient än utfärdaren. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |Lagrar den tid då token har utfärdats. Den används ofta för att mäta token dokumentens. <br><br> **Exempel SAML värdet**: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **JWT exempelvärde**: <br> `"iat": 1390234181` |
-| `iss` |Utfärdaren |Identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. I de token som Azure AD returnerar är utfärdaren sts.windows.net. GUID i anspråksvärdet utfärdare är klient-ID i Azure AD-katalogen. Klient-ID är oföränderlig och tillförlitlig identifierare för katalogen. <br><br> **Exempel SAML värdet**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **JWT exempelvärde**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
+| `iss` |Utfärdare |Identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. I de token som Azure AD returnerar är utfärdaren sts.windows.net. GUID i anspråksvärdet utfärdare är klient-ID i Azure AD-katalogen. Klient-ID är oföränderlig och tillförlitlig identifierare för katalogen. <br><br> **Exempel SAML värdet**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **JWT exempelvärde**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `family_name` |Efternamn |Innehåller sista namn, efternamn eller efternamn för användaren som har definierats i Azure AD-användarobjektet. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"family_name": "Miller"` |
 | `unique_name` |Namn |Ger en mänsklig läsbar värde som identifierar föremål för token. Det här värdet är inte säkert att vara unika inom en klient och är avsedd att användas endast för visning. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"unique_name": "frankm@contoso.com"` |
 | `oid` |Objekt-ID |Innehåller en unik identifierare för ett objekt i Azure AD. Det här värdet är oföränderlig och kan inte tilldela om eller återanvänds. Använd objekt-ID för att identifiera ett objekt i frågor till Azure AD. <br><br> **Exempel SAML värdet**: <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **JWT exempelvärde**: <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
@@ -96,7 +96,7 @@ När du lösa in en uppdateringstoken för en ny åtkomsttoken får du en ny upp
 
 ## <a name="validating-tokens"></a>Verifiera token
 
-För att kunna verifiera ett id_token eller en access_token, bör du verifiera både signatur token och anspråk din app. För att kunna verifiera åtkomsttoken bör din app också verifiera utfärdaren, målgruppen och signera token. Dessa måste verifieras mot värdena i OpenID discovery-dokumentet. Till exempel klient oberoende versionen av dokumentet finns på [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD-mellanprogram har inbyggda funktioner för att validera åtkomst-token och du kan bläddra igenom våra [exempel](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) i önskat språk. Mer information om hur du uttryckligen validerar en JWT-token, finns det [manuell JWT validering exempel](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+För att kunna verifiera ett id_token eller en access_token, bör du verifiera både signatur token och anspråk din app. För att kunna verifiera åtkomsttoken bör din app också verifiera utfärdaren, målgruppen och signera token. Dessa måste verifieras mot värdena i OpenID discovery-dokumentet. Till exempel klient oberoende versionen av dokumentet finns på [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD-mellanprogram har inbyggda funktioner för att validera åtkomst-token och du kan bläddra igenom våra [exempel](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) i önskat språk. Mer information om hur du uttryckligen validerar en JWT-token, finns det [manuell JWT validering exempel](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Vi tillhandahåller bibliotek och kodexempel som visar hur du kan hantera token validering - den informationen nedan finns bara för användare som vill förstå underliggande processen.  Det finns också flera bibliotek med öppen källkod från tredje part för JWT-verifiering: det finns minst ett alternativ för nästan alla plattform och det språket. Mer information om Azure AD-autentiseringsbibliotek och kodexempel finns [Azure AD-autentiseringsbibliotek](active-directory-authentication-libraries.md).
 

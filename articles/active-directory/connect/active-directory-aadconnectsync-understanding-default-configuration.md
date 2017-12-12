@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver standardkonfigurationen i Azure AD Con
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 32a693c059a1b4261f33a3d6f50f397365e9dac4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ba1739825a6f0898e417ca37fa6bf370ef17d6c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
 Den här artikeln förklarar konfigurationsregler för out-of-box. Regler och hur dessa regler påverkar konfigurationen dokumenterat. Även vägleder dig genom standardkonfigurationen av Azure AD Connect-synkronisering. Målet är att läsaren förstår hur Konfigurationsmodell med namnet deklarativ etablering fungerar i ett verkliga exempel. Den här artikeln förutsätter att du redan har installerat och konfigurera Azure AD Connect-synkronisering med hjälp av installationsguiden.
@@ -134,7 +134,7 @@ SRE är ett resource kit verktyg och den är installerad med Azure AD Connect-sy
 
 I det här fönstret kan se du alla Synkroniseringsregler som skapats för din konfiguration. Varje rad i tabellen är en regel för synkronisering. Till vänster under regeltyper visas två olika typer: inkommande och utgående. Inkommande och utgående är från vyn i metaversum. Du ska främst fokus på regler för inkommande trafik i den här översikten. Den aktuella listan över Synkroniseringsregler beror på identifierade schemat i AD. I bilden ovan kontoskog (fabrikamonline.com) har inte några tjänster, till exempel Exchange och Lync, och inga regler för synkronisering har skapats för dessa tjänster. Men i resursskogen (res.fabrikamonline.com) finns Synkroniseringsregler för dessa tjänster. Innehållet i reglerna är olika beroende på vilken version som har identifierats. Till exempel i en distribution med Exchange 2013 finns mer attributflöden konfigurerats än i Exchange 2010 2007.
 
-### <a name="synchronization-rule"></a>Regel för synkronisering
+### <a name="synchronization-rule"></a>Synkroniseringsregel
 En Synkroniseringsregel är ett konfigurationsobjekt med en uppsättning attribut som flödar när villkoret är uppfyllt. Det används också för att beskriva hur ett objekt i en anslutningsplatsen är relaterad till ett objekt i metaversumet kallas **koppling** eller **matchar**. De Synkroniseringsregler som har ett prioritet-värde som anger hur de relaterar till varandra. En Synkroniseringsregel med ett lägre numeriskt värde har högre prioritet och i ett flöde konflikt attributet högre prioritet wins konfliktlösningen.
 
 Exempelvis kan titta på Synkroniseringsregeln **i från AD-användare AccountEnabled**. Markera den här raden i SRE och välj **redigera**.
@@ -217,7 +217,7 @@ Prioritet för Synkroniseringsregler som anges i grupper av installationsguiden.
 ### <a name="putting-it-all-together"></a>Alltihop
 Vi nu vet hur Synkroniseringsregler för att kunna förstå hur konfigurationen fungerar med olika regler för synkronisering. Om du tittar på en användare och de attribut som bidrog till metaversum regler i följande ordning:
 
-| Namn | Kommentar |
+| Namn | Kommentera |
 |:--- |:--- |
 | I från AD-användare ansluta till |Regel för att ansluta till koppling utrymme objekt med metaversum. |
 | I från AD – UserAccount aktiverad |Attribut som krävs för inloggning till Azure AD och Office 365. Vi vill attributen från aktiverat konto. |

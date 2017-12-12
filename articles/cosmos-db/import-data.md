@@ -16,18 +16,20 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: e0d69d2b744fd08269b1ef87cb60efd3f205a92e
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c22f887f0371f70927d42130b959053ef7a0e5cc
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Verktyg för migrering av
 
-Den här kursen innehåller instruktioner om hur du använder verktyget Azure Cosmos DB datamigrering som kan importera data från olika källor till Azure Cosmos DB samlingar och tabeller. Du kan importera från JSON-filer, CSV-filer, SQL, MongoDB, Azure Table storage, Amazon DynamoDB och även Azure Cosmos DB DocumentDB API samlingar och du migrerar data till samlingar och tabeller för med Azure Cosmos DB. Verktyget migrering av Data kan också användas när du migrerar från en enda partition samling till en samling med flera partition för DocumentDB-API.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Den här kursen innehåller instruktioner om hur du använder verktyget Azure Cosmos DB datamigrering som kan importera data från olika källor till Azure Cosmos DB samlingar och tabeller. Du kan importera från JSON filer, CSV-filer, SQL, MongoDB, Azure Table storage, Amazon DynamoDB och även Azure SQL DB-API Cosmos-samlingar och du migrerar data till samlingar och tabeller för med Azure Cosmos DB. Verktyget migrering av Data kan också användas när du migrerar från en enda partition samling till en samling med flera partition för SQL-API.
 
 Vilka API ska du använda med Azure Cosmos DB? 
-* **[DocumentDB API](documentdb-introduction.md)**  -du kan använda något av alternativen för datakällan i verktyget datamigrering för att importera data.
+* **[SQL API](documentdb-introduction.md)**  -du kan använda något av alternativen för datakällan i verktyget datamigrering för att importera data.
 * **[Tabell API](table-introduction.md)**  -du kan använda datamigreringsverktyget eller AzCopy för att importera data. Se [importerar data för användning med Azure Cosmos DB tabell API](table-import.md) för mer information.
 * **[MongoDB API](mongodb-introduction.md)**  -av datamigrering verktyget stöder för närvarande inte Azure Cosmos DB MongoDB API som en källa eller som ett mål. Om du vill migrera data i eller utanför MongoDB API-samlingar i Azure Cosmos DB finns [Azure Cosmos DB: hur du migrerar data MongoDB-API: t](mongodb-migrate.md) anvisningar. Du kan fortfarande använda Migreringsverktyget för Data för att exportera data från MongoDB till Azure SQL DB-API Cosmos samlingar för användning med SQL-API. 
 * **[Diagram över API](graph-introduction.md)**  -verktyget för migrering av Data är inte ett stöds Importverktyg för Graph API konton just nu. 
@@ -76,9 +78,9 @@ När du har installerat verktyget är det dags att importera dina data. Vilken t
 * [Azure Table Storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [BLOB](#BlobImport)
-* [Azure DB Cosmos-samlingar](#DocumentDBSource)
+* [Azure DB Cosmos-samlingar](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure DB Cosmos-massimport](#DocumentDBBulkImport)
+* [Azure DB Cosmos-massimport](#SQLBulkImport)
 * [Azure DB Cosmos sekventiella post import](#DocumentDSeqTarget)
 
 
@@ -210,7 +212,7 @@ Här följer ett exempel på kommandoraden för CSV-import:
 ## <a id="AzureTableSource"></a>Importera från Azure Table storage
 Azure Table storage källalternativet Importverktyget kan du importera från en enskild Azure Table storage tabell. Du kan också kan du filtrera tabellentiteter som ska importeras. 
 
-Data som importeras från Azure Table Storage kan vara utdata till Azure Cosmos DB tabeller och entiteter för användning med tabell-API eller samlingar och dokument för användning med DocumentDB-API. . Tabell-API är endast tillgänglig som ett mål i kommandoradsverktyget, du kan inte exportera tabell-API: et med hjälp av användargränssnittet för migrering av Data-verktyget. Mer information finns i [importerar data för användning med Azure Cosmos DB tabell API](table-import.md). 
+Data som importeras från Azure Table Storage kan vara utdata till Azure Cosmos DB tabeller och entiteter för användning med tabell-API eller samlingar och dokument för användning med SQL-API. . Tabell-API är endast tillgänglig som ett mål i kommandoradsverktyget, du kan inte exportera tabell-API: et med hjälp av användargränssnittet för migrering av Data-verktyget. Mer information finns i [importerar data för användning med Azure Cosmos DB tabell API](table-import.md). 
 
 ![Skärmbild av Azure Table storage alternativ](./media/import-data/azuretablesource.png)
 
@@ -267,7 +269,7 @@ Här är kommandoradsverktyget exempel för att importera JSON-filer från Azure
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
-## <a id="DocumentDBSource"></a>Importera från en DocumentDB-API-samling
+## <a id="SQLSource"></a>Importera från en SQL-API-samling
 Azure Cosmos DB källa Importverktyget alternativet kan du importera data från en eller flera Azure Cosmos DB samlingar och du kan också filtrera dokument med hjälp av en fråga.  
 
 ![Skärmbild av Azure Cosmos DB alternativ](./media/import-data/documentdbsource.png)
@@ -342,7 +344,7 @@ Här följer ett exempel på kommandoraden att importera från HBase:
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
-## <a id="DocumentDBBulkTarget"></a>Importera till DocumentDB API (massimport)
+## <a id="SQLBulkTarget"></a>Importera SQL-API: et (massimport)
 Importverktyget för Azure Cosmos DB samtidigt kan du importera från något av alternativen tillgänglig källa med en Azure Cosmos DB lagrade proceduren för effektivitet. Verktyget stöder import till en enda partitionerad Azure Cosmos DB samling samt delat import genom vilken data är partitionerad över flera samlingar för en partitionerad Azure Cosmos DB. Mer information om partitionering data finns [partitionering och skalning i Azure Cosmos DB](partition-data.md). Verktyget skapar, kör och sedan tar bort den lagrade proceduren från samling(ar) för målet.  
 
 ![Skärmbild av Azure Cosmos DB bulk-alternativ](./media/import-data/documentdbbulk.png)
@@ -406,7 +408,7 @@ Importverktyget för Azure Cosmos DB Bulk har följande ytterligare avancerade a
 > 
 > 
 
-## <a id="DocumentDBSeqTarget"></a>Importera till DocumentDB API (sekventiella post Import)
+## <a id="SQLSeqTarget"></a>Importera SQL-API: et (sekventiella post Import)
 Importverktyget för Azure Cosmos DB sekventiella post kan du importera från något av alternativen på grundval av post med tillgängliga källservrar. Du kan välja det här alternativet om du importerar till en befintlig samling som har uppnått sin kvot av lagrade procedurer. Verktyget stöder import till en enda (enskild partition och flera partition) Azure Cosmos DB-samling som delat import genom vilken data är partitionerad över flera enskild partition och/eller flera partition Azure DB som Cosmos-samlingar. Mer information om partitionering data finns [partitionering och skalning i Azure Cosmos DB](partition-data.md).
 
 ![Skärmbild av Azure Cosmos DB importalternativ för sekventiella poster](./media/import-data/documentdbsequential.png)
@@ -466,7 +468,7 @@ Azure Cosmos DB - sekventiella post Importverktyget har följande ytterligare av
 > 
 
 ## <a id="IndexingPolicy"></a>Ange en indexprincip
-När du tillåter Migreringsverktyget att skapa Azure Cosmos DB DocumentDB API samlingar under importen kan du ange indexprincip samlingarna. Gå till avsnittet indexering princip i avsnittet avancerade alternativ i Azure Cosmos DB massimport och alternativ för Azure Cosmos DB sekventiella poster.
+När du tillåter Migreringsverktyget att skapa Azure SQL DB-API Cosmos samlingar under importen anger du indexprincip samlingarna. Gå till avsnittet indexering princip i avsnittet avancerade alternativ i Azure Cosmos DB massimport och alternativ för Azure Cosmos DB sekventiella poster.
 
 ![Skärmbild av Azure Cosmos DB indexering princip avancerade alternativ](./media/import-data/indexingpolicy1.png)
 

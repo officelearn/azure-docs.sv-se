@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/11/2017
 ms.author: raynew
-ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Företag affärskontinuitet och haveriberedskap återställning (BCDR): parad Azure-regioner
 
@@ -32,13 +32,14 @@ Varje Azure-region paras ihop med en annan region inom samma geografiska, gör e
 
 Bild 1 – Azure regionala par diagram
 
-| geografisk plats | Parad regioner |  |
+| geografisk plats | Länkade regioner |  |
 |:--- |:--- |:--- |
 | Asien |Östasien |Sydostasien |
 | Australien |Östra Australien |Sydöstra Australien |
 | Kanada |Centrala Kanada |Östra Kanada |
 | Kina |Norra Kina |Östra Kina|
 | Indien |Indien, centrala |Södra Indien |
+| Indien |Västra Indien (1) |Södra Indien |
 | Japan |Östra Japan |Västra Japan |
 | Korea |Centrala Korea |Sydkorea |
 | Nordamerika |Norra centrala USA |Södra centrala USA |
@@ -47,9 +48,9 @@ Bild 1 – Azure regionala par diagram
 | Nordamerika |Västra USA 2 |Västra centrala USA |
 | Europa |Nordeuropa |Västra Europa |
 | Japan |Östra Japan |Västra Japan |
-| Brasilien |Södra (1) |Södra centrala USA |
-| Amerikanska myndigheter |USA Gov Iowa (2) |Virginia (USA-förvaltad region) |
-| Amerikanska myndigheter |USA Gov Virginia (3) |Texas (USA-förvaltad region) |
+| Brasilien |Södra (2) |Södra centrala USA |
+| Amerikanska myndigheter |USA Gov Iowa (3) |Virginia (USA-förvaltad region) |
+| Amerikanska myndigheter |USA Gov Virginia (4) |Texas (USA-förvaltad region) |
 | Amerikanska myndigheter |Arizona (USA-förvaltad region) |Texas (USA-förvaltad region) |
 | USA |US DoD, östra |US DoD, centrala |
 | STORBRITANNIEN |Storbritannien, västra |Storbritannien, södra |
@@ -57,11 +58,10 @@ Bild 1 – Azure regionala par diagram
 
 Tabell 1 - mappning av Azure regionala par
 
-> (1) södra är unikt eftersom den är länkad till en region utanför sin egen geografisk plats. Brasilien söder sekundär region är södra centrala USA men södra centrala USA sekundära regionen är inte södra.
->
-> (2) USA Gov Iowa sekundär region är oss Gov Virginia men oss Gov Virginia sekundära regionen är inte oss Gov Iowa.
-> 
-> (3) USA Gov Virginia sekundär region är oss Gov Texas men oss Gov Texas sekundära regionen är inte oss Gov Virginia.
+- > (1) västra Indien skiljer sig eftersom den är länkad till en annan region i en riktning. Västra Indien sekundär region är södra Indien men södra Indien sekundär region är centrala Indien.
+- > (2) södra är unikt eftersom den är länkad till en region utanför sin egen geografisk plats. Brasilien söder sekundär region är södra centrala USA men södra centrala USA sekundära regionen är inte södra.
+- > (3) USA Gov Iowa sekundär region är oss Gov Virginia men oss Gov Virginia sekundära regionen är inte oss Gov Iowa.
+- > (4) USA Gov Virginia sekundär region är oss Gov Texas men oss Gov Texas sekundära regionen är inte oss Gov Virginia.
 
 
 Vi rekommenderar att du replikera arbetsbelastningar över regionala par att dra fördel av Azures principer för isolering och tillgänglighet. Till exempel planerad Azure systemuppdateringar distribueras sekventiellt (inte på samma gång) över parad regioner. Det innebär att även i sällsynt händelse av en felaktig uppdatering båda regioner inte påverkas samtidigt. Osannolika för en bred strömavbrott dessutom prioriteras återställning av minst en region utanför varje par.
@@ -94,7 +94,7 @@ Enligt figur 2.
 **plattformen erbjuder replikering** -vissa tjänster, till exempel Geo-Redundant lagring ger automatisk replikering parad regionen.
 
 ![Återställning](./media/best-practices-availability-paired-regions/7Orange.png)
-**Region recovery ordning** – i händelse av en bred avbrott, återställning av en region prioriteras utanför varje par. Program som distribueras över parad regioner är garanterat har någon av de regioner som har återställts med prioritet. Om ett program distribueras över regioner som inte har länkats kan återställning vara fördröjd – i värsta fall valda regioner kanske de sista två som ska återställas.
+**Region recovery ordning** – i händelse av en bred avbrott, återställning av en region prioriteras utanför varje par. Program som distribueras över parad regioner är garanterat har någon av de regioner som har återställts med prioritet. Om ett program distribueras över regioner som inte har länkats kan återställning fördröjas – i värsta fall valda regioner kanske de sista två som ska återställas.
 
 ![Uppdateringar](./media/best-practices-availability-paired-regions/8Orange.png)
 **sekventiella uppdateringar** – planerade Azure systemuppdateringar är distribuerat till parad regioner sekventiellt (inte på samma gång) för att minimera driftstopp, effekten av buggar och logiskt misslyckade begäranden om av en felaktig Uppdatera.

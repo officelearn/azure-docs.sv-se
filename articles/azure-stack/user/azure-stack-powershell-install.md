@@ -3,33 +3,33 @@ title: "Installera PowerShell för Azure-stacken | Microsoft Docs"
 description: "Lär dig mer om att installera PowerShell för Azure-stacken."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: sngun
-ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure-stacken  
 
 Azure Stack kompatibla Azure PowerShell-moduler som krävs för att arbeta med Azure-stacken. I den här guiden vägleder vi dig igenom de steg som krävs för att installera PowerShell för Azure-stacken. Du kan använda stegen som beskrivs i den här artikeln från Azure Stack Development Kit eller från en extern Windows-baserad klient om du är ansluten via VPN.
 
-Den här artikeln har detaljerade anvisningar för att installera PowerShell för Azure-stacken. Om du vill installera och konfigurera PowerShell snabbt, kan du använda det skript som finns i avsnittet ”komma igång med PowerShell”. 
+Den här artikeln har detaljerade anvisningar för att installera PowerShell för Azure-stacken. Om du vill installera och konfigurera PowerShell snabbt, kan du använda det skript som finns i artikeln ”komma igång med PowerShell”. 
 
 > [!NOTE]
 > Följande steg kräver PowerShell 5.0. Kontrollera din version genom att köra $PSVersionTable.PSVersion och jämföra ”” huvudversionen.
 
-PowerShell-kommandon för Azure-stacken installeras via PowerShell-galleriet. Regiser PSGallery databasen, öppnar du en upphöjd PowerShell-session från development kit eller från en extern Windows-baserad klient om du är ansluten via VPN-anslutning och kör följande kommando:
+PowerShell-kommandon för Azure-stacken installeras via PowerShell-galleriet. Om du vill registrera PSGallery databasen, öppna en upphöjd PowerShell-session från development kit eller från en extern klient för Windows-baserade om du är ansluten via VPN-anslutning och kör följande kommando:
 
 ```powershell
 Set-PSRepository `
@@ -78,7 +78,7 @@ Om du vill bekräfta installationen genom att köra följande kommando:
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  Om installationen lyckas visas AzureRM och AzureStack-moduler i utdata.
+  Om installationen lyckas visas AzureRM och Azure Stack-moduler i utdata.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Installera PowerShell i ett frånkopplat eller delvis scenariot (med begränsad Internetanslutning)
 

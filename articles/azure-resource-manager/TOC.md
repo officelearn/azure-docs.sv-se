@@ -12,6 +12,8 @@
 # Gör så här för att
 ## Skapa mallar
 ### [Mall-avsnitt](resource-group-authoring-templates.md)
+#### [Parametrar](resource-manager-templates-parameters.md)
+#### [Variabler](resource-manager-templates-variables.md)
 ### [Metodtips för mallar](resource-manager-template-best-practices.md)
 ### [Länk till andra mallar](resource-group-linked-templates.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
@@ -37,7 +39,7 @@
 ### Azure Portal
 #### [Distribuera resurser](resource-group-template-deploy-portal.md)
 #### [Exportera mall](resource-manager-export-template.md)
-### [REST-API](resource-group-template-deploy-rest.md)
+### [REST API](resource-group-template-deploy-rest.md)
 ### [Flera resursgrupper eller prenumerationer](resource-manager-cross-resource-group-deployment.md)
 ### [Kontinuerlig integrering med Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Skicka säkra värden under distributionen](resource-manager-keyvault-parameter.md)

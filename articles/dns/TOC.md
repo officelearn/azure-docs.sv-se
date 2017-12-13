@@ -11,7 +11,6 @@
 ## Skapa en DNS-zon och -post
 ### [Azure Portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
 ## Skapa en privat DNS-zon och -post
@@ -24,13 +23,11 @@
 ## Hantera DNS-zoner
 ### [Azure Portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## Hantera DNS-poster
 ### [Azure Portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## Hantera omvänd DNS

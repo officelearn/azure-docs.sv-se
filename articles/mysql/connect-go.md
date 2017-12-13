@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 09/22/2017
 ms.openlocfilehash: 1f18a35a3c22ecdc379bdffa1ecacb931c62a59d
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database för MySQL: Använda språket Go för att ansluta och fråga efter data
-Den här snabbstarten visar hur du ansluter till en Azure-databas för MySQL från Windows-, Ubuntu Linux- och Apple macOS plattformar med hjälp av kod som skrivs i den [Gå](https://golang.org/) språk. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är bekant med utveckling med hjälp av gå och att du har arbetat med Azure-databas för MySQL.
+Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL från Windows, Ubuntu Linux och Apple macOS-plattformar med hjälp av kod som har skrivits på språket [Go](https://golang.org/). Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Go och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
@@ -26,7 +26,7 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>Installera en anslutningsapp för Go och MySQL
-Installera [Gå](https://golang.org/doc/install) och [gå-sql-drivrutin för MySQL](https://github.com/go-sql-driver/mysql#installation) på din dator. Följ stegen i relevant avsnitt beroende på din plattform:
+Installera [Go](https://golang.org/doc/install) och [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation) på din egen dator. Följ instruktionerna för din plattform:
 
 ### <a name="windows"></a>Windows
 1. [Ladda ned](https://golang.org/dl/) och installera Go för Microsoft Windows enligt [installationsanvisningarna](https://golang.org/doc/install).
@@ -49,7 +49,7 @@ Installera [Gå](https://golang.org/doc/install) och [gå-sql-drivrutin för MyS
 2. Installera Go genom att köra `sudo apt-get install golang-go`.
 3. Skapa en mapp för ditt projekt i arbetskatalogen, t.ex `mkdir -p ~/go/src/mysqlgo/`.
 4. ’Ändra katalogen till mappen, till exempel `cd ~/go/src/mysqlgo/`.
-5. Ange miljövariabeln GOPATH så att den hänvisar till en giltig källkatalog, exempelvis den aktuella hemkatalogens go-mapp. Kör vid Bash-gränssnitt `export GOPATH=~/go` att lägga till katalogen gå som GOPATH för den aktuella shell-sessionen.
+5. Ange miljövariabeln GOPATH så att den hänvisar till en giltig källkatalog, exempelvis den aktuella hemkatalogens go-mapp. Kör `export GOPATH=~/go` i Bash-gränssnittet och lägg till go-katalogen som GOPATH för den aktuella shell-sessionen.
 6. Installera [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) genom att köra kommandot `go get github.com/go-sql-driver/mysql`.
 
    Sammanfattningsvis ska du köra dessa bash-kommandon:
@@ -62,11 +62,11 @@ Installera [Gå](https://golang.org/doc/install) och [gå-sql-drivrutin för MyS
    ```
 
 ### <a name="apple-macos"></a>Apple macOS
-1. Hämta och installera gå enligt den [Installationsinstruktioner](https://golang.org/doc/install) matchar din plattform. 
+1. Hämta och installera Go enligt [installationsinstruktionerna](https://golang.org/doc/install) för din plattform. 
 2. Starta Bash-gränssnittet.
 3. Skapa en mapp för ditt projekt i arbetskatalogen, t.ex `mkdir -p ~/go/src/mysqlgo/`.
 4. ’Ändra katalogen till mappen, till exempel `cd ~/go/src/mysqlgo/`.
-5. Ange miljövariabeln GOPATH så att den hänvisar till en giltig källkatalog, exempelvis den aktuella hemkatalogens go-mapp. Kör vid Bash-gränssnitt `export GOPATH=~/go` att lägga till katalogen gå som GOPATH för den aktuella shell-sessionen.
+5. Ange miljövariabeln GOPATH så att den hänvisar till en giltig källkatalog, exempelvis den aktuella hemkatalogens go-mapp. Kör `export GOPATH=~/go` i Bash-gränssnittet och lägg till go-katalogen som GOPATH för den aktuella shell-sessionen.
 6. Installera [go-sql-driver for mysql](https://github.com/go-sql-driver/mysql#installation) genom att köra kommandot `go get github.com/go-sql-driver/mysql`.
 
    Sammanfattningsvis ska du installera Go och sedan köra dessa bash-kommandon:
@@ -81,27 +81,27 @@ Installera [Gå](https://golang.org/doc/install) och [gå-sql-drivrutin för MyS
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. I den vänstra menyn i Azure-portalen klickar du på **alla resurser** och sök sedan efter den server som du har creased (exempelvis **myserver4demo**).
+2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser** och söker sedan efter den server som du nyss skapade (till exempel **myserver4demo**).
 3. Klicka på servernamnet **myserver4demo**.
-4. Välj servern **egenskaper** sidan och anteckna sedan en av **servernamn** och **serverinloggningsnamnet för admin**.
+4. Välj sidan **Egenskaper** för servern och notera **Servernamn** och **Inloggningsnamn för serveradministratören**.
  ![Azure Database för MySQL – inloggning för serveradministratör](./media/connect-go/1_server-properties-name-login.png)
-5. Om du glömmer bort inloggningsinformationen servern navigerar du till den **översikt** om du vill visa serverinloggningsnamnet admin och återställa lösenordet om det behövs.
+5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
    
 
 ## <a name="build-and-run-go-code"></a>Skapa och köra Go-kod 
-1. Om du vill skriva Golang-kod kan du använda en enkel textredigerare, som Anteckningar i Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5)eller [Nano](https://www.nano-editor.org/) i Ubuntu eller TextEdit i macOS. Om du föredrar en rikare interaktiva Development Environment (IDE) försök [Gogland](https://www.jetbrains.com/go/) av Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) av Microsoft, eller [Atom](https://atom.io/).
-2. Klistra in koden gå från nedan i textfiler och spara dem i projektmappen med filnamnstillägget \*.go (till exempel Windows sökväg `%USERPROFILE%\go\src\mysqlgo\createtable.go` eller Linux-sökvägen `~/go/src/mysqlgo/createtable.go`).
-3. Leta upp den `HOST`, `DATABASE`, `USER`, och `PASSWORD` konstanter i koden, och sedan ersätter exemplet värden med egna värden. 
-4. Starta Kommandotolken eller Bash-gränssnitt. Ändra katalog till din projektmapp. I Windows kan du till exempel använda `cd %USERPROFILE%\go\src\mysqlgo\`. I Linux kan du använda `cd ~/go/src/mysqlgo/`.  Några av de IDE-redigerare som nämns erbjuder funktioner för felsökning och körning utan att kräva shell-kommandon.
+1. Om du vill skriva Golang-kod kan du använda en enkel textredigerare, som Anteckningar i Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5)eller [Nano](https://www.nano-editor.org/) i Ubuntu eller TextEdit i macOS. Om du föredrar en mer omfattande IDE (Interactive Development Environment) kan du prova [Gogland](https://www.jetbrains.com/go/) från Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) från Microsoft eller [Atom](https://atom.io/).
+2. Klistra in Go-koden från avsnitten nedan i textfilerna och spara dem sedan i en projektmapp med filtillägget \*.go (till exempel Windows-sökvägen `%USERPROFILE%\go\src\mysqlgo\createtable.go` eller Linux-sökvägen `~/go/src/mysqlgo/createtable.go`).
+3. Leta upp konstanterna `HOST`, `DATABASE`, `USER` och `PASSWORD` i koden och ersätt sedan exempelvärdena med dina egna värden. 
+4. Starta kommandotolken eller Bash-gränssnittet. Ändra katalog till din projektmapp. I Windows kan du till exempel använda `cd %USERPROFILE%\go\src\mysqlgo\`. I Linux kan du använda `cd ~/go/src/mysqlgo/`.  Några av de IDE-redigerare som nämns erbjuder funktioner för felsökning och körning utan att kräva shell-kommandon.
 5. Kör koden genom att skriva kommandot `go run createtable.go` för att kompilera programmet och köra det. 
 6. Alternativt bygger du koden till ett internt program, `go build createtable.go`, och kör sedan `createtable.exe` för att köra programmet.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta till servern, skapa en tabell och läsa in data med hjälp av en **infoga** SQL-instruktionen. 
+Använd följande kod för att ansluta till servern, skapa en tabell och läsa in data med hjälp av SQL-instruktionen **INSERT**. 
 
 Koden importerar tre paket: [sql-paketet](https://golang.org/pkg/database/sql/), [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) som en drivrutin för att kommunicera med Azure Database för MySQL och [fmt-paketet](https://golang.org/pkg/fmt/) för skrivna indata och utdata på kommandoraden.
 
-Koden anropar metoden [sql. Open()](http://go-database-sql.org/accessing.html) att ansluta till Azure-databas för MySQL och kontrollerar anslutningen med hjälp av metoden [db. Ping()](https://golang.org/pkg/database/sql/#DB.Ping). En [databasreferens](https://golang.org/pkg/database/sql/#DB) som håller anslutningspoolen för databasservern används genomgående. I koden anropas metoden [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) flera gånger för att köra flera DDL-kommandon. Koden använder också [Prepare()](http://go-database-sql.org/prepared.html) och Exec() att köra förberedda instruktioner med olika parametrar för att infoga tre rader. Varje gång används en anpassad checkError()-metoden för att kontrollera om ett fel uppstod och oroa dig om du vill avsluta.
+I koden anropas metoden [sql.Open()](http://go-database-sql.org/accessing.html) för att ansluta till Azure Database for MySQL, och anslutningen kontrolleras med hjälp av metoden [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). En [databasreferens](https://golang.org/pkg/database/sql/#DB) som håller anslutningspoolen för databasservern används genomgående. I koden anropas metoden [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) flera gånger för att köra flera DDL-kommandon. I koden används också [Prepare()](http://go-database-sql.org/prepared.html) och Exec() som kör förberedda instruktioner med olika parametrar för att infoga tre rader. Varje gång används en anpassad checkError()-metod för att kontrollera om ett fel har uppstått, och i så fall avslutas körningen direkt.
 
 Ersätt konstanterna `host`, `database`, `user` och `password` med egna värden. 
 
@@ -174,7 +174,7 @@ func main() {
 ```
 
 ## <a name="read-data"></a>Läsa data
-Använd följande kod för att ansluta och läsa data med hjälp av en **Välj** SQL-instruktionen. 
+Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion. 
 
 Koden importerar tre paket: [sql-paketet](https://golang.org/pkg/database/sql/), [go sql driver for mysql](https://github.com/go-sql-driver/mysql#installation) som en drivrutin för att kommunicera med Azure Database för MySQL och [fmt-paketet](https://golang.org/pkg/fmt/) för skrivna indata och utdata på kommandoraden.
 

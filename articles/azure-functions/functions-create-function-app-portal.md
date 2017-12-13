@@ -18,40 +18,40 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
 ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-a-function-app-from-the-azure-portal"></a>Skapa en funktionsapp från Azure-portalen
+# <a name="create-a-function-app-from-the-azure-portal"></a>Skapa en funktionsapp från Azure Portal
 
-Azure funktionen appar använder Azure App Service-infrastrukturen. Det här avsnittet visar hur du skapar en funktion i Azure-portalen. En funktionsapp är en behållare som är värd för körningen av enskilda funktioner. När du skapar en funktionsapp i Apptjänst som är värd för planen kan appen funktionen använda alla funktioner i Apptjänst.
+Azure-funktionsappar använder Azure App Service-infrastrukturen. I det här avsnittet visar vi hur du skapar en funktionsapp i Azure Portal. En funktionsapp är en behållare som är värd för körningen av enskilda funktioner. När du skapar en funktionsapp i App Service-värdplanen kan din funktionsapp använda alla funktioner i App Service.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-När du skapar en funktionsapp, ange en giltig **appnamn**, som kan innehålla endast bokstäver, siffror och bindestreck. Understreck (**_**) är inte tillåtna.
+När du skapar en funktionsapp måste du ange ett giltigt **appnamn**. Namnet kan endast innehålla bokstäver, siffror och bindestreck. Understreck (**_**) är inte tillåtna.
 
 Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Namnet på ditt lagringskonto måste vara unikt i Azure. 
 
-När funktionen appen har skapats kan skapa du enskilda funktioner i en eller flera olika språk. Skapa funktioner [med hjälp av portalen](functions-create-first-azure-function.md#create-function), [kontinuerlig distribution](functions-continuous-deployment.md), eller av [Överför med FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
+När du har skapat funktionsappen kan du skapa enskilda funktioner på ett eller flera olika språk. Skapa funktioner [med hjälp av portalen](functions-create-first-azure-function.md#create-function), [kontinuerlig distribution](functions-continuous-deployment.md) eller [överföring med FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
 
-## <a name="service-plans"></a>Service-planer
+## <a name="service-plans"></a>Tjänstplaner
 
-Azure Functions har två olika serviceplaner: förbrukning planerings- och App Service-plan. Plan för förbrukning tilldelar automatiskt datorkraft när koden körs, att skala ut som behövs för att hantera belastningen och sedan skalor in när koden inte körs. Programtjänstplanen ger din funktion appåtkomst till alla funktioner i Apptjänst. Du måste välja serviceplanen när funktionen appen skapas och den för närvarande inte kan ändras. Mer information finns i [väljer du ett Azure-funktioner som värd för planen](functions-scale.md).
+Azure Functions har två olika tjänstplaner: förbrukningsplanen och App Service-planen. Med förbrukningsplanen allokeras beräkningskraften automatiskt när koden körs. Utskalning sker när det behövs för att hantera belastningen och sedan görs en nedskalning när koden inte körs. Med App Service-planen får din funktionsapp tillgång till alla funktioner i App Service. Du måste välja tjänstplan när du skapar funktionsappen, och för närvarande kan du inte att ändra ditt val. Mer information finns i [Choose an Azure Functions hosting plan](functions-scale.md) (Välja en värdplan för Azure Functions).
 
-Om du planerar att köra JavaScript-funktioner på en apptjänstplan, bör du välja en plan med färre kärnor. Mer information finns i [JavaScript-referens för funktioner](functions-reference-node.md#choose-single-vcpu-app-service-plans).
+Om du planerar att köra JavaScript-funktioner i en App Service-plan bör du välja en plan med färre kärnor. Mer information finns i [JavaScript-referensen för Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
-## <a name="storage-account-requirements"></a>Lagringskraven för kontot
+## <a name="storage-account-requirements"></a>Krav för lagringskonto
 
-När du skapar en funktionsapp i App Service, måste du skapa eller länka till en generell Azure Storage-konto som har stöd för lagring av Blob, köer och tabellen. Internt använder funktioner lagring för åtgärder som hanterar utlösare och loggning funktionen körningar. Vissa storage-konton stöder inte köer och tabeller som endast blob storage-konton, Azure Premium-lagring och allmänna lagringskonton med ZRS replikering. Dessa konton är filtrerade av i bladet Storage-konto när du skapar en funktionsapp.
+När du skapar en funktionsapp i App Service måste du skapa eller länka till ett allmänt Azure Storage-konto som stöder Blob Storage, Queue Storage och Table Storage. Functions använder internt Storage för åtgärder som att hantera utlösare och logga funktionskörningar. Vissa lagringskonton stöder inte köer och tabeller, till exempel konton med endast bloblagring, Azure Premium Storage och allmänna lagringskonton med ZRS-replikering. Dessa konton filtreras bort från lagringskontobladet när du skapar en funktionsapp.
 
 >[!NOTE]
->När du använder förbrukningen värd plan lagras konfigurationsfilerna funktionen kod och bindningen i Azure File storage i huvudsakliga storage-konto. När du tar bort huvudsakliga storage-konto raderas innehållet och kan inte återställas.
+>När du använder förbrukningsvärdplanen lagras funktionskoden och bindningskonfigurationsfilerna i Azure File Storage i huvudlagringskontot. När du tar bort huvudlagringskontot tas även det här innehållet bort och kan inte återställas.
 
-Läs mer om lagringskontotyper i [introduktion till Azure Storage-tjänster](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
+Mer information om lagringskontotyper finns i [introduktionen till Azure Storage Services](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
 
 ## <a name="next-steps"></a>Nästa steg
 

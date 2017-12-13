@@ -1,6 +1,6 @@
 ---
-title: "Bästa praxis i registret för Azure-behållare"
-description: "Lär dig hur du använder Azure-behållaren registret effektivt genom att följa dessa bästa praxis."
+title: "Bästa metoderna i Azure Container Registry"
+description: "Lär dig att använda Azure Container Registry på ett effektivt sätt genom att följa dessa bästa metoder."
 services: container-registry
 documentationcenter: 
 author: mmacy
@@ -19,32 +19,32 @@ ms.author: marsma
 ms.custom: 
 ms.openlocfilehash: 9ec5573082dbf9de1288e1511f5041f8c20b416e
 ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/02/2017
 ---
-# <a name="best-practices-for-azure-container-registry"></a>Metodtips för Azure-behållare registret
+# <a name="best-practices-for-azure-container-registry"></a>Bästa metoder för Azure Container Registry
 
-Genom att följa dessa säkerhetsmetoder kan du maximera prestanda och kostnadseffektiv användning av privat Docker registret i Azure.
+Genom att följa dessa bästa metoder kan du bidra till att maximera prestandan och den kostnadseffektiva användningen av det privata Docker-registret i Azure.
 
-## <a name="network-close-deployment"></a>Stäng nätverk distribution
+## <a name="network-close-deployment"></a>Nätverksnära distribution
 
-Skapa behållaren registret i samma Azure-region där du distribuerar behållare. Placera registret i en region som är nätverket Stäng till din behållaren värdar kan sänka både svarstid och kostnader.
+Skapa behållarregistret i samma Azure-region som du distribuerar behållare i. Genom att placera registret i en region som är nätverksnära till behållarvärdarna kan du bidra till att sänka både svarstid och kostnader.
 
-Nätverket Stäng distribution är en av de främsta orsakerna till för att använda ett privat behållaren register. Docker bilder har utmärkt [lager konstruktion](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) som gör det möjligt för stegvis distribution. Nya noder måste dock hämtar alla skikt som krävs för en viss bild. Den här första `docker pull` snabbt lägga till upp till flera gigabyte. Med ett privat register nära distributionen minimerar nätverkslatensen.
-Dessutom implementerar alla offentliga moln, Azure ingår, nätverket utgång avgifter. Dra bilder från ett datacenter till en annan lägger till avgifter för utgående trafik, förutom svarstiden.
+Nätverksnära distribution är en av de främsta orsakerna till att använda ett privat behållarregister. Docker-avbildningar har en mycket bra [lagerkonstruktion](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) som möjliggör inkrementella distributioner. Nya noder måste dock hämta alla lager som krävs för en viss avbildning. Den första `docker pull` kan snabbt växa till flera gigabyte. Med ett privat register nära distributionen minimeras nätverkssvarstiden.
+Dessutom implementerar alla offentliga moln, inklusive Azure, avgifter för nätverksöverskridande. Om avbildningar hämtas från ett datacenter till ett annat läggs avgifter för nätverksöverskridande till, utöver svarstiden.
 
-## <a name="geo-replicate-multi-region-deployments"></a>GEO-replikering flera regioner distributioner
+## <a name="geo-replicate-multi-region-deployments"></a>Geo-replikering av distributioner över flera regioner
 
-Använda Azure Container registret [georeplikering](container-registry-geo-replication.md) funktion om du distribuerar behållare till flera regioner. Om du betjänar globala kunder från lokala Datacenter eller Utvecklingsteamet finns på olika platser, kan du förenkla hanteringen av registret och minimera fördröjning av geo-replikering i registret. För närvarande i förhandsgranskning för den här funktionen är tillgänglig med [Premium](container-registry-skus.md#premium) register.
+Använd funktionen [geo-replikering](container-registry-geo-replication.md) i Azure Container Registry om du distribuerar behållare till flera regioner. Oavsett om du arbetar med globala kunder från lokala datacenter eller om utvecklingsteamet finns på olika platser kan du förenkla registerhanteringen och minimera svarstiden genom geo-replikering i registret. Den här funktionen finns för närvarande i en förhandsversion i [Premium](container-registry-skus.md#premium)-register.
 
-Information om hur du använder geo-replikering, se självstudierna tre delar [Geo-replikering i Azure Container registret](container-registry-tutorial-prepare-registry.md).
+Information om hur du använder geo-replikering finns i självstudien [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md) (Geo-replikering i Azure Container Registry) i tre delar.
 
-## <a name="repository-namespaces"></a>Databasen namnområden
+## <a name="repository-namespaces"></a>Namnrymder för lagringsplatser
 
-Genom att använda databasen namnområden, kan du dela ett enda register över flera grupper i din organisation. Register kan delas mellan distributioner och team. Azure Container registret stöder kapslade namnområden, aktivera gruppisolering.
+Genom att använda namnrymder för lagringsplatser går det att dela ett enda register över flera grupper i din organisation. Registren kan delas mellan distributioner och team. Azure Container Registry har stöd för kapslade namnrymder, vilket möjliggör isolering av grupper.
 
-Tänk dig följande behållaren bildtaggen. Bilder som används företagsomfattande, som `aspnetcore`, placeras i rotnamnområdet, medan behållaren avbildningar som ägs av grupper för produktion och marknadsföring varje användning sina egna namnområden.
+Du kan till exempel överväga följande taggar för behållaravbildningar. Avbildningar som används i hela företaget, t.ex. `aspnetcore`, placeras i rotnamnrymden, medan behållaravbildningar som ägs av produktions- och marknadsföringsgrupperna använder sina egna namnrymder.
 
 ```
 contoso.azurecr.io/aspnetcore:2.0
@@ -53,23 +53,23 @@ contoso.azurecr.io/products/bettermousetrap/refundapi:12.3
 contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 ```
 
-## <a name="dedicated-resource-group"></a>Dedikerad resursgruppen.
+## <a name="dedicated-resource-group"></a>Dedikerad resursgrupp
 
-Eftersom behållare register är resurser som används på flera värdar i behållare, finnas ett register sin egen resursgruppen.
+Eftersom behållarregister är resurser som används i flera behållarvärdar bör ett register finnas i en egen resursgrupp.
 
-Även om du kan experimentera med en specifik värd-typ, till exempel Azure Behållarinstanser vill du förmodligen ta bort instansen av behållare när du är klar. Du kan dock också hålla mängd bilder som du pushas till registret för Azure-behållare. Genom att placera registret i sin egen resursgruppen kan minska du risken för oavsiktlig borttagning av mängd bilder i registret när du tar bort resursgruppen behållaren instans.
+Även om du kan experimentera med en särskild värdtyp, t.ex. Azure Container Instances, vill du troligtvis ta bort behållarinstansen när du är klar. Du kan dock även vilja behålla avbildningssamlingen som du överförde till Azure Container Registry. Genom att placera registret i en egen resursgrupp minimerar du risken för att oavsiktligen ta bort avbildningssamlingen i registret när du tar bort behållarinstansens resursgrupp.
 
 ## <a name="authentication"></a>Autentisering
 
-När autentisering med en Azure-behållaren registret, det finns två primära scenarier: enskilda autentisering och autentisering för tjänsten (eller ”fjärradministrerade”). Följande tabell innehåller en kort översikt över dessa scenarier och den rekommenderade metoden för autentisering för varje.
+Vid autentisering med ett Azure-behållarregister finns det två huvudsakliga scenarier: individuell autentisering och tjänstautentisering (eller "fjärradministrering"). Följande tabell innehåller en kort översikt över dessa scenarier och den rekommenderade metoden för autentisering av dem.
 
-| Typ | Exempelscenario | Rekommenderad metod |
+| Typ | Exempel på ett scenario | Rekommenderad metod |
 |---|---|---|
-| Enskilda identitet | En utvecklare dra bilder till eller skicka bilder från sina utvecklingsdator. | [AZ acr inloggning](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
-| Fjärradministrerade/tjänstidentitet | Bygg- och distributionsprocessen pipelines där användaren inte är direkt inblandade. | [Tjänstens huvudnamn](container-registry-authentication.md#service-principal) |
+| Individuell identitet | En utvecklare hämtar avbildningar till eller skickar bilder från sin egen utvecklingsdator. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
+| Fjärradministrerad/tjänstidentitet | Bygg- och distributionsledningar där användaren inte är direkt inblandad. | [Tjänstens huvud](container-registry-authentication.md#service-principal) |
 
-För detaljerad information om Azure-behållare registret autentisering Se [autentisera med en Azure-behållaren registret](container-registry-authentication.md).
+Mer djupgående information om autentisering i Azure Container Registry finns i [Authenticate with an Azure container registry](container-registry-authentication.md) (Autentisera med ett Azure-behållarregister).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Azure Container registret är tillgänglig i flera nivåer, kallas SKU: er, var och en innehåller olika funktioner. Mer information om tillgängliga SKU: er finns [Azure Container registret SKU: er](container-registry-skus.md).
+Azure Container Registry finns i flera nivåer, som kallas SKU:er, som var och en ger olika funktioner. Mer information om tillgängliga SKU:er finns i [SKU:er för Azure Container Registry](container-registry-skus.md).

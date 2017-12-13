@@ -24,6 +24,8 @@
       href: storage-quickstart-blobs-python.md
     - name: Arbeta med blobar – Node.js
       href: storage-quickstart-blobs-nodejs.md
+    - name: Arbeta med blobar – Storage Explorer
+      href: storage-quickstart-blobs-storage-explorer.md
 - name: Självstudier
   items:
     - name: Ladda upp och bearbeta en avbildning

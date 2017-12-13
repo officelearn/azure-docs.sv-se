@@ -26,6 +26,9 @@
     - name: Skala med Azure VM-agenter
       href: /azure/jenkins/jenkins-azure-vm-agents
       maintainContext: true
+    - name: Skapa med hjälp av Azure Container Instances
+      href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+      maintainContext: true
 - name: Så här gör du
   items:
     - name: Säker Jenkins på Azure

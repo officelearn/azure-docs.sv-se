@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 09/22/2017
 ms.openlocfilehash: 2f18016614b229273aa4d661991149be949ce238
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Node.js för att ansluta och fråga efter data
-Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [Node.js](https://nodejs.org/)-program från plattformar med Windows, Ubuntu Linux och Mac. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är bekant med att utveckla med Node.js och att du har arbetat med Azure-databas för MySQL.
+Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [Node.js](https://nodejs.org/)-program från plattformar med Windows, Ubuntu Linux och Mac. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Node.js och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
@@ -30,12 +30,12 @@ Du måste också:
 - Installera [mysql2](https://www.npmjs.com/package/mysql2)-paketet för att ansluta till MySQL från Node.js-program. 
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>Installera Node.js och MySQL Connector
-Följ anvisningarna i relevant avsnitt för att installera Node.js beroende på din plattform. Använd npm för att installera paketet mysql2 och dess beroenden i projektmappen.
+Följ instruktionerna för att installera Node.js beroende på din plattform. Använd npm för att installera paketet mysql2 och dess beroenden i projektmappen.
 
 ### <a name="windows"></a>**Windows**
-1. Besök den [Node.js hämtar sidan](https://nodejs.org/en/download/), och välj sedan din önskat alternativ för Windows installer.
+1. Besök [hämtningssidan för Node.js](https://nodejs.org/en/download/) och välj sedan önskat alternativ för Windows installeringsverktyg.
 2. Skapa en lokal projektmapp som till exempel `nodejsmysql`. 
-3. Starta Kommandotolken och ändra katalogen till projektmappen som`cd c:\nodejsmysql\`
+3. Starta Kommandotolken och ändra sedan katalog till projektmappen, till exempel `cd c:\nodejsmysql\`
 4. Kör verktyget NPM om du vill installera mysql2-biblioteket i projektmappen.
 
    ```cmd
@@ -53,7 +53,7 @@ Följ anvisningarna i relevant avsnitt för att installera Node.js beroende på 
    sudo apt-get install -y nodejs npm
    ```
 
-2. Kör följande kommandon för att skapa en projektmapp `mysqlnodejs` och installera paketet mysql2 till mappen.
+2. Kör följande kommandon för att skapa en projektmapp `mysqlnodejs` och installera mysql2-paketet i den mappen.
 
    ```bash
    mkdir nodejsmysql
@@ -70,7 +70,7 @@ Följ anvisningarna i relevant avsnitt för att installera Node.js beroende på 
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-2. Kör följande kommandon för att skapa en projektmapp `mysqlnodejs` och installera paketet mysql2 till mappen.
+2. Kör följande kommandon för att skapa en projektmapp `mysqlnodejs` och installera mysql2-paketet i den mappen.
 
    ```bash
    mkdir nodejsmysql
@@ -87,18 +87,18 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. I den vänstra rutan klickar du på **alla resurser** och söker sedan efter servern som du skapade (till exempel **myserver4demo**).
 3. Klicka på servernamnet **myserver4demo**.
-4. Välj servern **egenskaper** sidan och anteckna sedan en av **servernamn** och **serverinloggningsnamnet för admin**.
+4. Välj sidan **Egenskaper** för servern och notera **Servernamn** och **Inloggningsnamn för serveradministratören**.
  ![Azure Database för MySQL – inloggning för serveradministratör](./media/connect-nodejs/1_server-properties-name-login.png)
-5. Om du glömmer bort inloggningsinformationen servern navigerar du till den **översikt** om du vill visa serverinloggningsnamnet admin och återställa lösenordet om det behövs.
+5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Kör JavaScript-kod i Node.js
-1. Klistra in JavaScript-kod i textfiler och spara den till en projektmapp med filen tillägget .js (till exempel C:\nodejsmysql\createtable.js eller /home/username/nodejsmysql/createtable.js).
-2. Starta Kommandotolken eller bash shell och ändra katalogen till projektmappen `cd nodejsmysql`.
+1. Klistra in JavaScript-koden i en textfil och spara sedan filen till en projektmapp med filnamnstillägget .js (till exempel C:\nodejsmysql\createtable.js eller /home/username/nodejsmysql/createtable.js).
+2. Starta kommandotolken eller Bash-gränssnittet och byt katalog till din projektmapp (`cd nodejsmysql`).
 3. Skriv node-kommandot följt av filnamnet, till exempel `node createtable.js`, för att köra programmet.
 4. I Windows, om node-programmet inte finns på sökvägen för miljövariabeln, kan du behöva använda den fullständiga sökvägen för att starta nodprogrammet, till exempel `"C:\Program Files\nodejs\node.exe" createtable.js`
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data med hjälp av **CREATE TABLE** och **INSERT INTO** SQL-instruktioner.
+Använd följande kod för att ansluta och läsa in data med hjälp av SQL-instruktionerna **CREATE TABLE** och **INSERT INTO**.
 
 Metoden [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) används som gränssnitt med MySQL-servern. Funktionen [connect()](https://github.com/mysqljs/mysql#establishing-connections) används för att etablera anslutningen till servern. Funktionen [query()](https://github.com/mysqljs/mysql#performing-queries) används för att köra SQL-frågor mot en MySQL-databas. 
 
@@ -165,7 +165,7 @@ function queryDatabase(){
 ```
 
 ## <a name="read-data"></a>Läsa data
-Använd följande kod för att ansluta och läsa data med hjälp av en **Välj** SQL-instruktionen. 
+Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion. 
 
 Metoden [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) används som gränssnitt med MySQL-servern. Metoden [connect()](https://github.com/mysqljs/mysql#establishing-connections) används för att etablera anslutningen till servern. Metoden [query()](https://github.com/mysqljs/mysql#performing-queries) används för att köra SQL-frågor mot en MySQL-databas. Resultatmatrisen används för resultat från frågan.
 
@@ -217,7 +217,7 @@ function readData(){
 ```
 
 ## <a name="update-data"></a>Uppdatera data
-Använd följande kod för att ansluta och läsa data med hjälp av en **uppdatering** SQL-instruktionen. 
+Använd följande kod för att ansluta och läsa data med en **UPDATE**-SQL-instruktion. 
 
 Metoden [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) används som gränssnitt med MySQL-servern. Metoden [connect()](https://github.com/mysqljs/mysql#establishing-connections) används för att etablera anslutningen till servern. Metoden [query()](https://github.com/mysqljs/mysql#performing-queries) används för att köra SQL-frågor mot en MySQL-databas. 
 
@@ -265,7 +265,7 @@ function updateData(){
 ```
 
 ## <a name="delete-data"></a>Ta bort data
-Använd följande kod för att ansluta och läsa data med hjälp av en **ta bort** SQL-instruktionen. 
+Använd följande kod för att ansluta och läsa data med en **DELETE**-SQL-instruktion. 
 
 Metoden [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) används som gränssnitt med MySQL-servern. Metoden [connect()](https://github.com/mysqljs/mysql#establishing-connections) används för att etablera anslutningen till servern. Metoden [query()](https://github.com/mysqljs/mysql#performing-queries) används för att köra SQL-frågor mot en MySQL-databas. 
 

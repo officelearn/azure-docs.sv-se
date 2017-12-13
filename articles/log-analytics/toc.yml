@@ -41,6 +41,8 @@
       href: log-analytics-usage.md
     - name: Hantera åtkomst
       href: log-analytics-manage-access.md
+    - name: Övervaka hybridmiljöer
+      href: log-analytics-concept-hybrid.md
     - name: Funktioner för tjänstleverantörer
       href: log-analytics-service-providers.md
     - name: Loggsökning
@@ -58,11 +60,7 @@
         - name: Anslutna källor
           items:
             - name: Windows-agenter
-              href: log-analytics-windows-agents.md
-            - name: Linux-agenter
-              href: log-analytics-agent-linux.md
-            - name: Virtuella Azure-datorer
-              href: log-analytics-azure-vm-extension.md
+              href: log-analytics-agent-windows.md
             - name: Azure-resurser
               href: log-analytics-azure-storage.md
             - name: Azure PaaS-resurser
@@ -75,6 +73,8 @@
               href: log-analytics-sccm.md
             - name: OMS-gateway
               href: log-analytics-oms-gateway.md
+            - name: Felsökning av Linux-agent
+              href: log-analytics-agent-linux-support.md
         - name: Datakällor
           items:
             - name: Översikt över datakällor
@@ -158,6 +158,8 @@
           href: log-analytics-solution-alert-management.md
     - name: Hantera
       items:
+        - name: Agenthantering
+          href: log-analytics-agent-manage.md
         - name: Hantera arbetsytekostnader
           href: log-analytics-manage-cost-storage.md
         - name: Ta bort en arbetsyta

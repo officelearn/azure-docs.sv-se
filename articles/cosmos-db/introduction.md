@@ -17,38 +17,38 @@ ms.author: mimig
 ms.custom: mvc
 ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
-Azure Cosmos DB är Microsofts globalt distribuerade databas för flera datamodeller. Med ett knappklick, låter Azure DB Cosmos dig att elastiskt och oberoende skala dataflöde och lagring över valfritt antal av Azures geografiska regioner. Det erbjuder garantier när det gäller dataflöde, svarstider, tillgänglighet och konsekvens med omfattande [serviceavtal](https://aka.ms/acdbsla) (SLA:er) något som ingen annan databastjänst kan erbjuda. Du kan [försök Azure Cosmos-DB gratis](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, helt kostnadsfritt och åtaganden.
+Azure Cosmos DB är Microsofts globalt distribuerade databas för flera datamodeller. Med ett knappklick, låter Azure DB Cosmos dig att elastiskt och oberoende skala dataflöde och lagring över valfritt antal av Azures geografiska regioner. Det erbjuder garantier när det gäller dataflöde, svarstider, tillgänglighet och konsekvens med omfattande [serviceavtal](https://aka.ms/acdbsla) (SLA:er) något som ingen annan databastjänst kan erbjuda. Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
-![Azure Cosmos-DB är Microsofts globalt distribuerad databastjänst med elastisk utskalning, garanteras låg latens fem konsekvenskontroll modeller och omfattande garanteras servicenivåavtal](./media/introduction/azure-cosmos-db.png)
+![Azure Cosmos DB är Microsofts globalt distribuerade databastjänst med elastisk utskalning, garanterat låga svarstider, fem konsekvensmodeller och omfattande garanterade serviceavtal](./media/introduction/azure-cosmos-db.png)
 
 > [!div class="nextstepaction"]
-> [Prova Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/)
+> [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/)
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 Som en globalt distribuerad databastjänst erbjuder Azure Cosmos DB följande funktioner för att hjälpa dig att bygga skalbara och högdynamiska program:
 
 * **Nyckelfärdig global distribution**
     * Du kan [distribuera dina data](distribute-data-globally.md) till valfritt antal [Azure-regioner](https://azure.microsoft.com/regions/) genom att [klicka på en knapp](tutorial-global-distribution-documentdb.md). På så sätt kan du placera dina data där dina användare finns, och säkerställa minsta möjliga tidsfördröjning till dina kunder. 
-    * Med hjälp av Azure Cosmos DB vet flera API: er, appen alltid var den närmaste regionen är och skickar begäranden till närmaste datacenter. Allt detta är möjligt utan ändringar i konfigurationen. Du ställer in write-region så många områden som du vill och resten hanteras för dig.
+    * Med hjälp av Azure Cosmos DB som har flera API:er registrerar appen alltid var den närmaste regionen finns och skickar begäranden till närmaste datacenter. Allt detta är möjligt utan konfigurationsändringar. Du ställer in skrivregion och så många skrivskyddade regioner som du vill och resten hanteras åt dig.
 
 * **Flera datamodeller och populära API:er för att komma åt och fråga efter data**
     * En atom-postsekvensbaserad (ARS) datamodell som Azure Cosmos DB bygger på internt stöd för flera datamodeller, inklusive men inte begränsat till dokument, diagram, nyckelvärde, tabeller och kolumndatamodeller.
     * API:er för följande datamodeller stöds med SDK:er som är tillgängliga på flera språk:
-        * [DocumentDB API](documentdb-introduction.md): schemat mindre JSON databasmotor med SQL frågefunktioner.
-        * [MongoDB API](mongodb-introduction.md): A MongoDB-databas ovanpå Cosmos DB. Kompatibel med befintliga MongoDB bibliotek, drivrutiner, verktyg och program.
-        * [Tabell API](table-introduction.md): en nyckel / värde-databastjänst för att ange premium-funktioner för Azure Table storage-program.
-        * [Diagram (Gremlin) API](graph-introduction.md): ett diagram databasen service inbyggda följande den [specifikation för Apache TinkerPop](http://tinkerpop.apache.org/).
-        * [Cassandra API](cassandra-introduction.md): ett nyckel/värde-Arkiv som bygger på den [Apache Cassandra](https://cassandra.apache.org/) implementering. 
+        * [DocumentDB API](documentdb-introduction.md): En JSON-databasmotor utan schema med SQL-frågemöjligheter.
+        * [MongoDB API](mongodb-introduction.md): En MongoDB-databastjänst som byggts ovanpå Cosmos DB. Kompatibel med befintliga bibliotek, drivrutiner, verktyg och program för MongoDB.
+        * [Table API](table-introduction.md): En databastjänst med nyckelvärde som har byggts för att tillhandahålla premiumfunktioner för Azure Table Storage-program.
+        * [Graph (Gremlin) API](graph-introduction.md): En grafdatabastjänst som byggts enligt [Apache TinkerPop-specifikationen](http://tinkerpop.apache.org/).
+        * [Cassandra API](cassandra-introduction.md): Ett nyckel-/värdelager som byggts på [Apache Cassandra](https://cassandra.apache.org/)-implementeringen. 
         * Ytterligare datamodeller kommer snart!
 
 * **Skala elastiskt dataflöde och lagring på begäran, globalt**
-    * Enkelt skala databasen genomströmning vid en [per sekund](request-units.md) granularitet och ändra den när du vill. 
+    * Skala enkelt databasflödet med [sekundprecision](request-units.md) och ändra inställningarna när som helst. 
     * Skala lagringsutrymmet [transparent och automatiskt](partition-data.md) för att hantera utrymmesbehoven nu och för all framtid.
 
 * **Bygg högdynamiska och verksamhetskritiska program**
@@ -56,7 +56,7 @@ Som en globalt distribuerad databastjänst erbjuder Azure Cosmos DB följande fu
     * För ett typiskt 1 KB-objekt, garanterar Cosmos DB en svarstid på läsningar från slutpunkt till slutpunkt på under 10 ms och indexerade skrivningar under 15 ms i den 99:e percentilen, inom samma Azure-region. Median-svarstiderna är betydligt lägre (under 5 ms).
 
 * **Se till att tillgängligheten alltid är så hög som möjligt**
-    * 99,99% tillgänglighet SLA för alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen.
+    * Serviceavtal med 99,99 % tillgänglighet för alla konton med tillgång till en eller flera regioner med konsekvensmodellen ”relaxed” (avslappnad). 99,999 % läsningstillgänglighet för alla databaskonton med tillgång till flera regioner.
     * Distribuera till valfritt antal [Azure-regioner](https://azure.microsoft.com/regions) för högre tillgänglighet.
     * [Simulera ett fel](regional-failover.md) i en eller flera regioner med garantier om noll dataförlust. 
 
@@ -72,7 +72,7 @@ Som en globalt distribuerad databastjänst erbjuder Azure Cosmos DB följande fu
     * Azure Cosmos DB:s databasmotor är fullständigt schemaoberoende. Den indexerar automatiskt alla data den tar in utan att kräva något schema eller index och hanterar frågor blixtsnabbt. 
 
 * **Låg totalkostnad**
-    * 5 till 10 gånger [mer kostnadseffektivt](https://aka.ms/cosmos-db-tco-paper) än en icke-hanterad lösning.
+    * Fem till tio gånger [mer kostnadseffektivt](https://aka.ms/cosmos-db-tco-paper) än en icke-hanterad lösning.
     * Tre gånger billigare än DynamoDB.
 
 ## <a name="capability-comparison"></a>Jämförelse av funktioner
@@ -90,7 +90,7 @@ Azure Cosmos DB erbjuder de bästa funktionerna för relations- och icke-relatio
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Lösningar som har nytta av Azure Cosmos DB
 
-Alla [webb-, mobil-, spel- och IoT-tillämpningar](use-cases.md) som behöver hantera stora mängder läs- och skrivoperationer i [global](distribute-data-globally.md) skala med korta svarstider för en mängd olika data drar nytta av Azure Cosmos DB:s [garanterade](https://azure.microsoft.com/support/legal/sla/cosmos-db/) tillgänglighet, höga genomströmning, korta svarstider och justerbara konsekvenskontroll. Lär dig mer om hur CosmosDB kan tillämpas på [IoT och telematik](use-cases.md#iot-and-telematics), [Retail och marknadsföring](use-cases.md#retail-and-marketing), [spel](use-cases.md#gaming) och [webb- och mobilprogram](use-cases.md#web-and-mobile-applications) .
+Alla [webb-, mobil-, spel- och IoT-tillämpningar](use-cases.md) som behöver hantera stora mängder läs- och skrivoperationer i [global](distribute-data-globally.md) skala med korta svarstider för en mängd olika data drar nytta av Azure Cosmos DB:s [garanterade](https://azure.microsoft.com/support/legal/sla/cosmos-db/) tillgänglighet, höga genomströmning, korta svarstider och justerbara konsekvenskontroll. Lär dig mer om hur CosmosDB kan användas på [IoT och telematik](use-cases.md#iot-and-telematics), [Handel och marknadsföring](use-cases.md#retail-and-marketing), [Spel](use-cases.md#gaming) och [Webb- och mobilprogram](use-cases.md#web-and-mobile-applications).
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång med Azure Cosmos DB med någon av våra snabbstarter:
@@ -101,4 +101,4 @@ Kom igång med Azure Cosmos DB med någon av våra snabbstarter:
 * [Kom igång med Table-API:n för Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [Prova Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/)
+> [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/)

@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc
 ms.openlocfilehash: 2f5c295468e5bb54d14b81d52b9ad4b41fcafa81
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
 ---
@@ -55,7 +55,7 @@ Kör programmet lokalt genom att öppna ett terminalfönster och använda komman
 php -S localhost:8080
 ```
 
-Öppna en webbläsare och gå till exempelapp på `http://localhost:8080`.
+Öppna webbläsaren och navigera till exempelappen på `http://localhost:8080`.
 
 Du ser meddelandet **Hello World!** från exempelappen på sidan.
 
@@ -75,7 +75,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
 
-Bläddra till den nya webbappen. Ersätt  _&lt;appnamn >_ med ett unikt appnamn.
+Bläddra till webbappen som precis skapades. Ersätt _&lt;appnamn >_ med ett unikt appnamn.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -132,7 +132,7 @@ PHP-exempelkoden körs i en Azure App Service-webbapp.
 echo "Hello Azure!";
 ```
 
-Genomför ändringarna i Git i lokala terminalfönster och sedan genomför kodändringarna i Azure.
+I det lokala terminalfönstret sparar du ändringarna i Git och skickar sedan kodändringarna till Azure.
 
 ```bash
 git commit -am "updated output"

@@ -283,8 +283,9 @@
 #### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
+#### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
 #### Uppgifter
-##### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
+##### [Migrera en klassisk MFA-princip](active-directory-conditional-access-migration-mfa.md)
 ##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Konfigurera appbaserad villkorlig åtkomst](active-directory-conditional-access-mam.md)
 ##### [Ange användningsvillkor för användare och appar](active-directory-tou.md)

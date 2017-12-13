@@ -18,7 +18,7 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
@@ -51,7 +51,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Välj den **GitHub-WebHook** mall för språket. **Namnge funktionen** och klicka på **Skapa**.
+2. Välj mallen **GitHub WebHook** för språket. **Namnge funktionen** och klicka på **Skapa**.
 
      ![Skapa en funktion som utlöses med en GitHub-webhook i Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 

@@ -1,20 +1,20 @@
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Skapa ett lagringskonto med hjälp av Azure portal
+## <a name="create-a-storage-account-using-the-azure-portal"></a>Skapa ett lagringskonto med Azure Portal
 
-Först skapa Allmänt lagringskonto ska användas för denna Snabbstart. 
+Skapa först ett allmänt lagringskonto som du kan använda i denna snabbstart. 
 
-1. Gå till den [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-konto. 
-2. På navmenyn väljer **ny** > **lagring** > **lagringskonto - blob, fil, tabell, kö**. 
-3. Ange ett unikt namn för ditt lagringskonto. Tänk dessa regler för namngivning av ditt lagringskonto:
-    - Namnet måste vara mellan 3 och 24 tecken.
-    - Namnet får innehålla siffror och gemener.
-4. Kontrollera att följande standardvärden anges: 
-    - **Distributionsmodell** är inställd på **Resource manager**.
-    - **Kontot kind** är inställd på **generella**.
-    - **Prestanda** är inställd på **Standard**.
-    - **Replikering** är inställd på **lokalt Redundant lagring (LRS)**.
+1. Gå till [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-konto. 
+2. På navmenyn väljer du **Nytt** > **Lagring** > **Lagringskonto – blob, fil, tabell, kö**. 
+3. Ange ett unikt namn för lagringskontot. Tänk på dessa regler när du namnger lagringskontot:
+    - Namnet måste innehålla mellan 3 och 24 tecken.
+    - Namnet får endast innehålla siffror och gemener.
+4. Kontrollera att följande standardvärden konfigureras: 
+    - **Distributionsmodell** är inställt på **Resource Manager**.
+    - **Typ av konto** är inställt på **Allmänt**.
+    - **Prestanda** är inställt på **Standard**.
+    - **Replikering** är inställt på **Lokalt redundant lagring (LRS)**.
 5. Välj din prenumeration. 
-6. För **resursgruppen**, skapa en ny och ge den ett unikt namn. 
-7. Välj den **plats** ska användas för ditt lagringskonto.
-8. Kontrollera **fäst på instrumentpanelen** och på **skapa** att skapa ditt lagringskonto. 
+6. Skapa en ny **Resursgrupp** och ge den ett unikt namn. 
+7. Välj **Plats** som ska användas för lagringskontot.
+8. Markera **Fäst på instrumentpanelen** och klicka på **Skapa** för att skapa lagringskontot. 
 
-När ditt lagringskonto har skapats kan är den fäst på instrumentpanelen. Klicka på den för att öppna den. Under **inställningar**, klickar du på **åtkomstnycklar**. Välj den primära nyckeln och kopiera den associerade **anslutningssträngen** till Urklipp, klistra in den i en textredigerare för senare användning.
+När lagringskontot har skapats fästs det på instrumentpanelen. Klicka på det för att öppna det. Under **Inställningar** klickar du på **Åtkomstnycklar**. Välj den primära nyckeln och kopiera associerad **Anslutningssträng** till Urklipp och klistra sedan in den i en textredigerare så att du kan använda den senare.

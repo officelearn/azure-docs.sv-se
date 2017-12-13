@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda Ruby för att ansluta och fråga efter data
-Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Stegen i den här artikeln förutsätter att du är bekant med att utveckla med Ruby och har arbetat med Azure-databas för PostgreSQL.
+Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Ruby och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
@@ -53,7 +53,7 @@ Installera Ruby på din egen dator.
 - Skapa Ruby pg-modulen med Gem genom att köra kommandot `sudo gem install pg`.
 
 ## <a name="run-ruby-code"></a>Köra Ruby-kod 
-- Spara koden i en textfil med filen tillägget .rb och spara filen i en projektmapp som `C:\rubypostgres\read.rb` eller`/home/username/rubypostgres/read.rb`
+- Spara koden i en textfil med filtillägget .rb och spara filen i en projektmapp, till exempel `C:\rubypostgres\read.rb` eller `/home/username/rubypostgres/read.rb`
 - Om du vill köra koden startar du kommandotolken eller bash-gränssnittet. Ändra katalog till projektmappen `cd rubypostgres` och skriv sedan kommandot `ruby read.rb` för att köra programmet.
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation

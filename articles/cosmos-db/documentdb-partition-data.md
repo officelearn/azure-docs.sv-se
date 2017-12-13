@@ -2,9 +2,8 @@
 title: Partitionering och skalning i Azure Cosmos DB | Microsoft Docs
 description: "Lär dig mer om hur partitionering fungerar i Azure Cosmos DB, hur du konfigurerar partitionering och partitions-nycklar och hur du väljer rätt Partitionsnyckeln för ditt program."
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
-editor: monicar
 documentationcenter: 
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: arramac
+ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b721f66ef4d453b5c5f0faf40f5eb2b8913a848
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 177d28850d57c9a43c22e79cfab3699b11f4d734
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partitionering i Azure Cosmos-databasen med SQL-API
 

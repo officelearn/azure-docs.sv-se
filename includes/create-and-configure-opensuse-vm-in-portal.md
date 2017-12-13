@@ -1,9 +1,7 @@
-1. Logga in på den [klassiska Azure-portalen](http://manage.windowsazure.com).  
-2. Klicka på kommandofältet längst ned i fönstret **ny**.
-3. Under **Compute**, klickar du på **virtuella**, och klicka sedan på **från galleriet**.
+1. Logga in på [Azure Portal](http://portal.azure.com).  
+2. Klicka på **ny** > **Compute** > **finns alla** och skriv sedan **SUSE**.
    
-    ![Skapa en ny virtuell dator][Image1]
-4. Under den **SUSE** gruppen, Välj en avbildning av virtuell dator OpenSUSE och klicka sedan på pilen för att fortsätta.
+3. Välj en avbildning av virtuell dator OpenSUSE och klicka sedan på pilen för att fortsätta.
 5. Första **konfiguration av virtuell dator** sidan:
    
    * Ange en **virtuellt datornamn**, till exempel ”testlinuxvm”. Namnet måste innehålla mellan 3 och 15 tecken, kan innehålla endast bokstäver, siffror och bindestreck, och måste börja med en bokstav och sluta med en bokstav eller siffra.
@@ -49,7 +47,5 @@ Du ska använda SSH eller PuTTY för att ansluta till den virtuella datorn, bero
 3. När installationen är klar väljer du **Slutför**.  Systemet är nu uppdaterad.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
-
-[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png

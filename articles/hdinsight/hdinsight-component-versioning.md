@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 79f3cfbe5f5603d3c9f42e8af1d4093a5135b267
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b6afcad6f838170d83f90a2cef8ccab0e2cfc9a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -206,28 +206,28 @@ I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HD
 
 * Alla regioner utom södra och västra Japan som stöds:
 
-  | Klustertyp | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | Huvud: standard VM-storlek |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | Huvud: rekommenderade storlekar på VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Worker: standard VM-storlek |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Worker: rekommenderade storlekar på VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | ZooKeeper: standard VM-storlek | |A3 |A2 | | |
-  | ZooKeeper: rekommenderade storlekar på VM | |A3, A4, A5 |A2, A3, A4 | | |
-  | Kant: standard VM-storlek | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: rekommenderas VM-storlek | | | | |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Klustertyp | Hadoop | HBase | Interaktiv fråga | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | Huvud: standard VM-storlek |D3 v2 |D3 v2 | D13 D14 |A3 |D12 v2 |D12 v2 |
+  | Huvud: rekommenderade storlekar på VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13 D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Worker: standard VM-storlek |D3 v2 |D3 v2  | D13 D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Worker: rekommenderade storlekar på VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13 D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: standard VM-storlek | |A3 | |A2 | | |
+  | ZooKeeper: rekommenderade storlekar på VM | |A3, A4, A5 | | A2, A3, A4 | | |
+  | Kant: standard VM-storlek | | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Edge: rekommenderas VM-storlek | | | | | |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Södra och västra Japan endast (ingen v2-storlekar):
 
-  | Klustertyp | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | Huvud: standard VM-storlek |D3 |D3 |A3 |D12 |D12 |
-  | Huvud: rekommenderade storlekar på VM |D3 D4, D12 |D3 D4, D12 |A3, A4, A5 |D12 D13 D14 |D12 D13 D14 |
-  | Worker: standard VM-storlek |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Worker: rekommenderade storlekar på VM |D3 D4, D12 |D3 D4, D12 |D3 D4, D12 |Windows: D12 D13 D14; Linux: D4, D12 D13 D14 |Windows: D12 D13 D14; Linux: D4, D12 D13 D14 |
-  | ZooKeeper: standard VM-storlek | |A2 |A2 | | |
-  | ZooKeeper: rekommenderade storlekar på VM | |A2, A3, A4 |A2, A3, A4 | | |
-  | Kant: standard VM-storlekar | | | | |Windows: D12; Linux: D4 |
-  | Edge: rekommenderade storlekar på VM | | | | |Windows: D12 D13 D14; Linux: D4, D12 D13 D14 |
+  | Klustertyp | Hadoop | HBase | Interaktiv fråga |Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | Huvud: standard VM-storlek |D3 |D3  | D13 D14 |A3 |D12 |D12 |
+  | Huvud: rekommenderade storlekar på VM |D3 D4, D12 |D3 D4, D12  | D13 D14 |A3, A4, A5 |D12 D13 D14 |D12 D13 D14 |
+  | Worker: standard VM-storlek |D3 |D3  | D13 D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Worker: rekommenderade storlekar på VM |D3 D4, D12 |D3 D4, D12  | D13 D14 |D3 D4, D12 |Windows: D12 D13 D14; Linux: D4, D12 D13 D14 |Windows: D12 D13 D14; Linux: D4, D12 D13 D14 |
+  | ZooKeeper: standard VM-storlek | |A2 | | A2 | | |
+  | ZooKeeper: rekommenderade storlekar på VM | |A2, A3, A4 | |A2, A3, A4 | | |
+  | Kant: standard VM-storlekar | | | | | |Windows: D12; Linux: D4 |
+  | Edge: rekommenderade storlekar på VM | | | | | |Windows: D12 D13 D14; Linux: D4, D12 D13 D14 |
 
 > [!NOTE]
 > - HEAD kallas *Nimbus* för Storm-kluster typen.

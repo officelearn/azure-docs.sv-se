@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
+ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 
@@ -29,6 +29,7 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | | |
 |-|-|
 |**Skapa app**||
+| [Skapa en webbapp och distribuera filer med FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en Azure webbapp och distribuerar en fil till den med hjälp av FTP. |
 | [Skapa en webbapp och distribuera kod från GitHub](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en Azure webbapp och distribuerar kod från en offentlig GitHub-databas. |
 | [Skapa en webbapp med kontinuerlig distribution från GitHub](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett Azure-webbapp med kontinuerlig publicering från en GitHub-databas som du äger. |
 | [Skapa en webbapp och distribuera kod från en lokal Git-databas](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure-webbapp och konfigurerar push kod från en lokal Git-lagringsplats. |

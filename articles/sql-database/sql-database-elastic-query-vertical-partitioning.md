@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd5bd82a35c5a2ba72cffe35138311322714a1c0
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Fråga på molnet databaser med olika scheman (förhandsgranskning)
 ![Fråga på tabeller i olika databaser][1]
@@ -43,7 +43,7 @@ Lodrätt partitionerad-databaser använder olika uppsättningar med tabeller på
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Skapa huvudnyckel för databasen omfång och autentiseringsuppgifter
 Autentiseringsuppgifterna används av elastisk frågan för att ansluta till din fjärranslutna databaser.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
@@ -155,14 +155,14 @@ Följande fråga utför en trevägs koppling mellan de lokala för rader och ord
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Lagrade proceduren för fjärrkörning av T-SQL: sp\_execute_remote
-Elastisk frågan introducerar också en lagrad procedur som ger direktåtkomst till shards. Den lagrade proceduren anropas [sp\_köra \_remote](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra fjärråtkomst lagrade procedurer eller T-SQL-kod på den fjärranslutna databaser. Den använder följande parametrar: 
+Elastisk frågan introducerar också en lagrad procedur som ger direktåtkomst till fjärrdatabasen. Den lagrade proceduren anropas [sp\_köra \_remote](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra lagrade procedurer för fjärråtkomst eller T-SQL-kod vid fjärrdatabasen. Den använder följande parametrar: 
 
 * Namn på datakälla (nvarchar): namnet på den externa datakällan av typen RDBMS. 
-* Fråga (nvarchar): T-SQL-frågan ska utföras på varje Fragmentera. 
+* Fråga (nvarchar): T-SQL-fråga som ska utföras vid fjärrdatabasen. 
 * Parameterdeklaration (nvarchar) - valfritt: strängen med definitioner av data för de parametrar som används i Frågeparametern (till exempel sp_executesql). 
 * Värdet parameterlista - valfritt: kommaavgränsad lista över parametervärden (till exempel sp_executesql).
 
-En sp\_köra\_remote använder den externa datakällan i startparametrar för att köra den angivna T-SQL-instruktionen på fjärr-databaser. Autentiseringsuppgifterna för den externa datakällan används för att ansluta till shardmap manager-databasen och de fjärranslutna databaserna.  
+En sp\_köra\_remote använder den externa datakällan i startparametrar för att köra den angivna T-SQL-instruktionen i fjärrdatabasen. Autentiseringsuppgifterna för den externa datakällan används för att ansluta till fjärrdatabasen.  
 
 Exempel: 
 

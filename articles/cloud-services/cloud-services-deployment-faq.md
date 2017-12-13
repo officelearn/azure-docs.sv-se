@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributionsproblem för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -75,3 +75,8 @@ Eftersom Molntjänsten är en klassisk resurs som inte är direkt kompatibla med
 
     Detta fungerar från den [Azure-portalen](https://portal.azure.com) eftersom anropet går via en proxy/shim som tillåter kommunikation mellan resurser i Azure Resource Manager och klassisk. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Varför kräver Azure-portalen mig att tillhandahålla ett lagringskonto för distributionen? 
+
+Paketet har överförts till API hanteringslager direkt i den klassiska portalen och API-lagret skulle tillfälligt publicera sedan paketet till en intern storage-konto.  Detta leder till problem med prestanda och skalbarhet eftersom API-lagret inte har utformats för att en tjänst för överföringen av filen.  I Azure-portalen (Resource Manager-modellen), har vi över mellanliggande steg första överför API-lagret som resulterar i snabbare och mer tillförlitlig distributioner. 
+
+Det är mycket små som kostnad, och du kan återanvända samma lagringskonto i alla distributioner. Du kan använda den [kostnaden lagringsberäknaren](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) ladda ned CSPKG för att fastställa kostnaden för att överföra servicepaket (CSPKG), och ta sedan bort CSPKG. 

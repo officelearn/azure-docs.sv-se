@@ -1,0 +1,153 @@
+---
+title: "Kopiera data från Spark med Azure Data Factory | Microsoft Docs"
+description: "Lär dig hur du kopierar data från Spark till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
+services: data-factory
+documentationcenter: 
+author: linda33wj
+manager: jhubbard
+editor: spelluru
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/30/2017
+ms.author: jingwang
+ms.openlocfilehash: b422b3a721511a25b976586cd324d65f383ad140
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 12/12/2017
+---
+# <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopiera data från Spark med Azure Data Factory 
+
+Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Spark. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+
+> [!NOTE]
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
+
+
+## <a name="supported-capabilities"></a>Funktioner som stöds
+
+Du kan kopiera data från Spark till alla stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+
+Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, måste du därför inte att manuellt installera en drivrutin med den här anslutningen.
+
+## <a name="getting-started"></a>Komma igång
+
+Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Spark-anslutningen.
+
+## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
+
+Följande egenskaper stöds för länkad Spark-tjänst:
+
+| Egenskap | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Egenskapen type måste anges till: **Spark** | Ja |
+| värden | IP-adressen eller värdnamnet namnet på Spark-server  | Ja |
+| port | TCP-porten som Spark-servern använder för att lyssna efter anslutningar.  | Ja |
+| Servertyp | Typ av Spark-server. <br/>Tillåtna värden är: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nej |
+| thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, ** HTTP ** | Nej |
+| AuthenticationType | Den autentiseringsmetod som används för att få åtkomst till Spark-servern. <br/>Tillåtna värden är: **anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| användarnamn | Det användarnamn som du använder för att få åtkomst till Spark-Server.  | Nej |
+| lösenord | Det lösenord som motsvarar det användarnamn som du angav i fältet för användarnamn kan du markera det här fältet som en SecureString och lagra den på ett säkert sätt i ADF, eller lagra lösenord i Azure Key Vault kan kopiera aktivitet pull därifrån vid kopiering av data - utfyllnadslinjer RN mer från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
+| httpPath | Partiell URL som motsvarar Spark-server.  | Nej |
+| enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Nej |
+| trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller certifikat för betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på själva värdbaserade IR. Standardvärdet är filen cacerts.pem installeras med IR.  | Nej |
+| useSystemTrustStore | Anger om du vill använda ett certifikat från arkivet med betrodda system eller från en angiven PEM-fil. Standardvärdet är false.  | Nej |
+| allowHostNameCNMismatch | Anger om en Certifikatutfärdare som utfärdade SSL certifikatets namn att matcha värdnamn för servern när du ansluter via SSL. Standardvärdet är false.  | Nej |
+| allowSelfSignedServerCert | Anger om självsignerade certifikat från servern. Standardvärdet är false.  | Nej |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
+
+**Exempel:**
+
+```json
+{
+    "name": "SparkLinkedService",
+    "properties": {
+        "type": "Spark",
+        "typeProperties": {
+            "host" : "<cluster>.azurehdinsight.net",
+            "port" : "<port>",
+            "authenticationType" : "WindowsAzureHDInsightService",
+            "username" : "<username>",
+            "password": {
+                 "type": "SecureString",
+                 "value": "<password>"
+            },
+            "httpPath" : "gateway/sandbox/spark"
+        }
+    }
+}
+```
+
+## <a name="dataset-properties"></a>Egenskaper för datamängd
+
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns på [datauppsättningar](concepts-datasets-linked-services.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Spark dataset.
+
+Ange typegenskapen för dataset för att kopiera data från Spark, **SparkObject**. Det finns ingen ytterligare typspecifika egenskap i den här typen av datauppsättningen.
+
+**Exempel**
+
+```json
+{
+    "name": "SparkDataset",
+    "properties": {
+        "type": "SparkObject",
+        "linkedServiceName": {
+            "referenceName": "<Spark linked service name>",
+            "type": "LinkedServiceReference"
+        }
+    }
+}
+```
+
+## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
+
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Spark källa.
+
+### <a name="sparksource-as-source"></a>SparkSource som källa
+
+Om du vill kopiera data från Spark, anger du källa i kopieringsaktiviteten till **SparkSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+
+| Egenskap | Beskrivning | Krävs |
+|:--- |:--- |:--- |
+| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **SparkSource** | Ja |
+| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |
+
+**Exempel:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromSpark",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Spark input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "SparkSource",
+                "query": "SELECT * FROM MyTable"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+## <a name="next-steps"></a>Nästa steg
+En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats).

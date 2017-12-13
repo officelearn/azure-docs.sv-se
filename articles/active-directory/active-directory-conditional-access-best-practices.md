@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 119189415e75134ff0c77a551536559b81116fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorlig åtkomst i Azure Active Directory
 
@@ -100,86 +100,18 @@ I din miljö bör du undvika följande konfigurationer:
 
 ## <a name="policy-migration"></a>Migrering av princip
 
-Om du har principer i den klassiska Azure-portalen konfigurerats bör du migrera dem till Azure-portalen eftersom:
+Du bör migrera principer som du inte har skapat i Azure-portalen eftersom:
+
+- Du kan nu hantera scenarier som du inte kan hantera innan.
+
+- Du kan minska antalet principer som du måste hantera genom att konsolidera dem.   
+
+- Du kan hantera alla dina principer för villkorlig åtkomst på en central plats.
+
+- Den klassiska Azure-portalen ska tas bort.   
 
 
-- En användare som är i en Azure klassiska portal princip och en Azure-portalen princip måste uppfylla kraven i båda principerna 
-
-- Om du inte migrera dina befintliga principer kan du inte implementera principer som du vill bevilja åtkomst
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Migrering från den klassiska Azure-portalen
-
-I det här scenariot: 
-
-- I din [klassiska Azure-portalen](https://manage.windowsazure.com), du har konfigurerat:
-
-    - sharepoint online
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - En princip för enhetsbaserad villkorlig åtkomst
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Du vill konfigurera en villkorlig åtkomstprincip för hantering av mobilprogram i Azure-portalen 
- 
-
-#### <a name="configuration"></a>Konfiguration 
-
-- Granska dina principer för enhetsbaserad villkorlig åtkomst
-
-- Migrera dem till Azure-portalen 
-
-- Lägg till principer för villkorlig åtkomst för hantering av mobila program
-
-
-### <a name="migrating-from-intune"></a>Migrera från Intune 
-
-I det här scenariot:
-
-- I [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), du har en villkorlig åtkomstprincip för hantering av mobila program för antingen Exchange Online eller SharePoint Online konfigurerad
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Du vill migrera till att använda villkorlig åtkomst för hantering för mobila program i Azure-portalen
-
-
-#### <a name="configuration"></a>Konfiguration 
- 
-- Granska dina principer för enhetsbaserad villkorlig åtkomst
-
-- Migrera dem till Azure-portalen 
-
-- Granska villkorlig åtkomst principerna för mobil programhantering konfigurerats för Exchange Online eller SharePoint Online i Intune
-
-- Lägg till kontroll för **kräver godkända applikationer** förutom enhetsbaserad åtkomstkontroll 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migrera från den klassiska Azure-portalen och Intune
-
-I det här scenariot:
-
-- Du har konfigurerat följande:
-
-    - **Klassiska Azure-portalen:** enhetsbaserad villkorlig 
-
-    - **Intune:** principer för villkorlig åtkomst för hantering av mobila program 
-    
-- Du vill migrera båda principer med principer för villkorlig åtkomst för hantering av mobila program i Azure-portalen
-
-
-#### <a name="configuration"></a>Konfiguration
-
-- Granska dina principer för enhetsbaserad villkorlig åtkomst
-
-- Migrera dem till Azure-portalen 
-
-- Granska mobila villkorlig åtkomst programhanteringsprincip konfigurerats för Exchange Online eller SharePoint Online i Intune
-
-- Lägg till kontroll för **kräver godkända applikationer** utöver den enhetsbaserad 
-
-
+Mer information finns i [migrera klassiska principer i Azure portal](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

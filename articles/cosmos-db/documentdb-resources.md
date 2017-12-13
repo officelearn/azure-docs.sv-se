@@ -4,9 +4,8 @@ description: "Läs mer om Azure Cosmos DB hierarkiska modell för databaser, sam
 keywords: Hierarkisk modellen cosmosdb, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: 
-author: AndrewHoh
+author: rafats
 manager: jhubbard
-editor: monicar
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: anhoh
+ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a81a51982cec25b41f5ebe7877a4b914f6c1a09
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5457a73f4e40bc86d16c2e56cd6a162ee2d1f567
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hierarkisk Azure Cosmos DB-resursmodell och huvudkoncept
 

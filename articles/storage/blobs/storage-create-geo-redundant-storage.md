@@ -4,25 +4,25 @@ description: "Använd geo-redundant lagring med läsbehörighet så att dina pro
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 547ca7843f53bd11fdb922af8e0ae77e38f813d9
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 286013aaa5335689206514027bef80b250643be1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge dina programdata hög tillgänglighet med Azure storage
 
-Den här kursen ingår i en serie. Den här kursen visar hur du gör dina programdata hög tillgänglighet i Azure. När du är klar har du ett konsolprogram som överför och hämtar en blobb till en [geo-redundant läsbehörighet](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage-konto. RA-GRS fungerar genom att replikera transaktioner från den primära servern till den sekundära regionen. Den här replikeringen garanterar att data i den sekundära regionen är överensstämmelse. Programmet använder den [strömbrytare](/azure/architecture/patterns/circuit-breaker.md) mönstret för att avgöra vilken slutpunkt för att ansluta till. Programmet växlar till sekundär slutpunkt när ett fel simuleras.
+Den här kursen ingår i en serie. Den här kursen visar hur du gör dina programdata hög tillgänglighet i Azure. När du är klar har du en .NET core-konsolprogram som överför och hämtar en blobb till en [geo-redundant läsbehörighet](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage-konto. RA-GRS fungerar genom att replikera transaktioner från den primära servern till den sekundära regionen. Den här replikeringen garanterar att data i den sekundära regionen är överensstämmelse. Programmet använder den [strömbrytare](/azure/architecture/patterns/circuit-breaker.md) mönstret för att avgöra vilken slutpunkt för att ansluta till. Programmet växlar till sekundär slutpunkt när ett fel simuleras.
 
 I delen en av serierna kan du lära dig hur du:
 
@@ -63,7 +63,7 @@ Följ dessa steg om du vill skapa ett konto med geo-redundant lagring med läsbe
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Namn** | mittlagringskonto | Ett unikt värde för ditt lagringskonto |
-   | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.  |
+   | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
    | **Typ av konto** | Generellt syfte | Mer information om vilka typer av konton finns [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestanda** | Standard | Standard är tillräcklig för exempelscenariot. |
    | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta är nödvändigt att fungera. |
@@ -83,17 +83,29 @@ Exempelprojektet innehåller ett konsolprogram.
 
 ## <a name="set-the-connection-string"></a>Ange anslutningssträngen
 
-Öppna den *storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs* konsolapp i Visual Studio.
+Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Det rekommenderas att lagra den här anslutningssträngen inom en miljövariabel på den lokala datorn som kör programmet. Gör något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
 
-Under den **appSettings** nod i den **App.config** fil, Ersätt värdet för den _StorageConnectionString_ med anslutningssträngen för lagring konto. Det här värdet hämtas genom att välja **åtkomstnycklar** under **inställningar** i ditt lagringskonto i Azure-portalen. Kopiera den **anslutningssträngen** från den primära eller sekundära nyckeln och klistra in den i den **App.config** fil. Välj **spara**, för att spara filen när du är klar.
+Navigera till ditt lagringskonto i Azure-portalen. Välj **åtkomstnycklar** under **inställningar** i ditt lagringskonto. Kopiera den **anslutningssträngen** från de primära och sekundära nycklarna. Ersätt \<yourconnectionstring\> med faktiska anslutningen sträng genom att köra något av följande kommandon baserat på ditt operativsystem. Detta kommando sparar en miljövariabel till den lokala datorn. I Windows, miljövariabeln är inte tillgänglig förrän du uppdatera den **kommandotolk** eller gränssnitt som du använder. Ersätt  **\<storageConnectionString\>**  i följande exempel:
+
+### <a name="linux"></a>Linux
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+### <a name="windows"></a>Windows
+
+```cmd
+setx storageconnectionstring "<yourconnectionstring>"
+```
 
 ![App-konfigurationsfil](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## <a name="run-the-console-application"></a>Köra konsolprogrammet
 
-I Visual Studio trycker du på **F5** eller välj **starta** att starta felsökningen av programmet. Visual studio automatiskt återställer saknas Nuget-paket om konfigurerad, gå till [installera och installera om paket med paket återställning](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) vill veta mer. 
+I Visual Studio trycker du på **F5** eller välj **starta** att starta felsökningen av programmet. Visual studio automatiskt återställer saknas NuGet-paket om konfigurerad, gå till [installera och installera om paket med paket återställning](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) vill veta mer.
 
-Ett konsolfönster öppnas och börjar programmet körs. Programmet överför den **HelloWorld.png** bilden från lösningen till lagringskontot. Programmet kontrollerar att avbildningen har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar nedladdningen av avbildningen upp till 999 gånger. Varje Läs representated genom en **P** eller en **S**. Där **P** representerar primära slutpunkten och **S** representerar sekundära slutpunkten.
+Ett konsolfönster öppnas och börjar programmet körs. Programmet överför den **HelloWorld.png** bilden från lösningen till lagringskontot. Programmet kontrollerar att avbildningen har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar nedladdningen av avbildningen upp till 999 gånger. Varje Läs representeras av en **P** eller en **S**. Där **P** representerar primära slutpunkten och **S** representerar sekundära slutpunkten.
 
 ![Kör-konsolapp](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -101,10 +113,10 @@ I koden, den `RunCircuitBreakerAsync` uppgift i den `Program.cs` används för a
 
 ### <a name="retry-event-handler"></a>Försök händelsehanterare
 
-Den `Operation_context_Retrying` händelsehanteraren anropas när hämtningen av avbildningen misslyckas och ställts in till rety. Om det maximala antalet försök som har definierats i programmet har uppnått den [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran har ändrats till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned avbildningen från den sekundära slutpunkten. Den här konfigurationen minskar den tid det tar att begära bilden som primär slutpunkten inte försöks under obestämd tid.
+Den `OperationContextRetrying` händelsehanteraren anropas när hämtningen av avbildningen misslyckas och ställts in till rety. Om det maximala antalet försök som har definierats i programmet har uppnått den [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran har ändrats till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned avbildningen från den sekundära slutpunkten. Den här konfigurationen minskar den tid det tar att begära bilden som primär slutpunkten inte försöks under obestämd tid.
 
 ```csharp
-private static void Operation_context_Retrying(object sender, RequestEventArgs e)
+private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
     retryCount++;
     Console.WriteLine("Retrying event because of failure reading the primary. RetryCount = " + retryCount);
@@ -129,10 +141,10 @@ private static void Operation_context_Retrying(object sender, RequestEventArgs e
 
 ### <a name="request-completed-event-handler"></a>Begäran slutförd händelsehanterare
 
-Den `Operation_context_RequestCompleted` händelsehanteraren anropas när hämtningen av avbildningen lyckas. Om programmet använder sekundära slutpunkten, fortsätter programmet att använda den här slutpunkten upp till 20 gånger. Efter 20 gånger anger i den [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) tillbaka till `PrimaryThenSecondary` och försöker den primära slutpunkten. Om en begäran lyckas fortsätter programmet att läsa från den primära slutpunkten.
+Den `OperationContextRequestCompleted` händelsehanteraren anropas när hämtningen av avbildningen lyckas. Om programmet använder sekundära slutpunkten, fortsätter programmet att använda den här slutpunkten upp till 20 gånger. Efter 20 gånger programmet anger den [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) tillbaka till `PrimaryThenSecondary` och försöker den primära slutpunkten. Om en begäran lyckas fortsätter programmet att läsa från den primära slutpunkten.
 
 ```csharp
-private static void Operation_context_RequestCompleted(object sender, RequestEventArgs e)
+private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {

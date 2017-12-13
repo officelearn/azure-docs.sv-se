@@ -3,7 +3,7 @@ title: "Viktig information för Microsoft Azure-stacken Development Kit | Micros
 description: "Förbättringar av korrigeringar och kända problem med Azure-stacken Development Kit."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
-ms.author: mabrigg
-ms.openlocfilehash: ca966dd4664861f476401c5691ab73b95d3f5a2b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 12/11/2017
+ms.author: andredm
+ms.openlocfilehash: 49d26defef56e6fc174cda57b24a126cd77227e4
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure-stacken Development Kit viktig information
 
@@ -76,6 +76,7 @@ Dessa versionsanmärkningar innehåller information om förbättringar, korriger
 - Under **nätverk**, om du klickar på **anslutning** att ställa in en VPN-anslutning **VNet-till-VNet** har listats som en möjlig anslutningstyp. Välj inte det här alternativet. För närvarande endast den **plats-till-plats (IPsec)** stöds.
 - Du kan koppla en offentlig IP-adress från en virtuell dator (VM) när den virtuella datorn har skapats och associerats med den IP-adressen. Disassociation visas ska fungera, men tidigare tilldelade offentliga IP-adressen är kopplad till den ursprungliga virtuella datorn. Detta inträffar även om du omtilldelar IP-adress till en ny virtuell dator (som vanligtvis kallas ett *VIP-växling*). Alla framtida försöker att ansluta till IP-adress resultatet i en anslutning till den ursprungligen associerade virtuella datorn och inte till en ny. För närvarande måste du bara använda nya offentliga IP-adresser för att skapa en ny virtuell dator.
 - Azure Stack-operatörer kanske inte kan distribuera, ta bort, ändra Vnet eller Nätverkssäkerhetsgrupper. Det här problemet visas främst på efterföljande update försök av samma paket. Detta beror på ett paketering problem med en uppdatering som för närvarande är under undersökningen.
+- Internt Load Balancing (ILB) hanterar felaktigt MAC-adresser för backend-virtuella datorer som bryter Linux-instanser.
  
 #### <a name="sqlmysql"></a>SQL/MySQL 
 - Det kan ta upp till en timme innan klienter kan skapa databaser i en ny SQL eller MySQL SKU. 

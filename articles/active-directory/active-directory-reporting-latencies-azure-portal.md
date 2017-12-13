@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/11/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f4b3e59cb6cec5ac4ca771818e5eca8509a43d82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting svarstider
 
@@ -37,13 +37,15 @@ Det finns två områden av aktiviteten reporting:
 
 I följande tabell visas latensinformation för aktivitetsrapporter.
 
-| Rapport | Minimum | Genomsnitt | Maximal |
-| :-- | --- | --- | --- |
-| Granskningsloggar             | 30 minuter  | 1 timme | 2 timmar     |
-| Inloggningar               | 15 minuter  | 2 timmar * | 24 timmar  |
+| Rapport | Minimum | Genomsnitt |
+| :-- | --- | --- |
+| Granskningsloggar | 30 minuter  | 1 timme  |
+| Inloggningar | 15 minuter  | 2 timmar |
 
->[!NOTE]
-> Det kan ta upp till 8 timmar för rapporteringsdata att visas för vissa aktivitetsdata om inloggningsåtgärder från äldre Office-program. 
+I vissa fall kant kan ta det:
+
+- 2 timmar för granska aktivitetsdata visas.
+- 24 timmar efter inloggningsaktivitet data visas. Detta inkluderar inloggningar aktivitetsdata från äldre office-program. 
 
 
 ## <a name="security-reports"></a>Säkerhetsrapporter

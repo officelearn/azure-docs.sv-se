@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 8b990d1887551cbe182fe1c38d2cfd02f3af5e78
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar Azure Cosmos DB indexinformationen?
 
@@ -258,9 +258,9 @@ Du kan dock flytta Lazy eller ingen indexering läge under en transformering på
 * När du flyttar till Lazy principändring index görs gällande omedelbart och Azure Cosmos DB börjar återskapa indexet asynkront. 
 * När du flyttar till None, har sedan indexet släppts gälla omedelbart. Flytta till None är användbart när du vill avbryta en pågående omvandling och starta ny med en annan indexprincip. 
 
-Om du använder .NET SDK kan startar du en indexering principändring med hjälp av den nya **ReplaceDocumentCollectionAsync** metod och spåra förloppet procentandel av omvandling index med det  **IndexTransformationProgress** svar egenskap från en **ReadDocumentCollectionAsync** anropa. Andra SDK: er och REST-API: stöd för motsvarande egenskaper och metoder för att göra ändringar av indexerings-principer.
-
 Här är ett kodfragment som visar hur du ändrar en samling indexprincip från konsekvent indexerings-läge till Lazy.
+
+Om du använder .NET SDK kan startar du en indexering principändring med hjälp av den nya **ReplaceDocumentCollectionAsync** metod.
 
 **Ändra Indexprincip från konsekvent till Lazy**
 
@@ -271,10 +271,9 @@ Här är ett kodfragment som visar hur du ändrar en samling indexprincip från 
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-
-Du kan kontrollera förloppet för en index-transformation genom att anropa ReadDocumentCollectionAsync, till exempel som visas nedan.
-
 **Spåra förloppet för omvandling av Index**
+
+Du kan spåra procentandel förloppet för omvandling av index till ett konsekvent index med hjälp av den **IndexTransformationProgress** svar egenskap från en **ReadDocumentCollectionAsync** anropa. Andra SDK: er och REST-API stöd för motsvarande egenskaper och metoder för att göra ändringar av indexerings-principer. Du kan kontrollera förloppet för en omvandling av index till ett konsekvent index genom att anropa **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -288,6 +287,14 @@ Du kan kontrollera förloppet för en index-transformation genom att anropa Read
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
+
+> [!NOTE]
+> Egenskapen IndexTransformationProgress gäller bara när du omvandlar en konsekvent index. Använd egenskapen ResourceResponse.LazyIndexingProgress för att spåra transformationer till ett lazy-index.
+>
+
+> [!NOTE]
+> IndexTransformationProgress och egenskaper för LazyIndexingProgress fylls endast när det gäller en samling som partitionerade som är en samling som har skapats utan någon partitionsnyckel.
+>
 
 Du kan släppa indexet för en samling genom att flytta till ingen indexering läge. Det kan vara användbart operativa om du vill avbryta en pågående omvandling och starta en ny direkt.
 

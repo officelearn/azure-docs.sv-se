@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 4feed2537a45784bc8aa19de05bdc18533dd64d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +130,7 @@ Om du vill kopiera data från Amazon Redshift, anger du källa i kopieringsaktiv
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **AmazonRedshiftSource** | Ja |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från mytable prefix. |Nej (om ”tabellnamn” i datamängden har angetts) |
 | redshiftUnloadSettings | Egenskapsgrupp när du använder Amazon Redshift bort från MINNET. | Nej |
-| s3LinkedServiceName | Refererar till en Amazon S3 till-ska används som en mellanliggande arkivet genom att ange ett namn med ADF länkade tjänsten av typen ”AmazonS3”. | Ja om du använder INAKTIVERAS |
+| s3LinkedServiceName | Refererar till en Amazon S3 till-ska används som en mellanliggande arkivet genom att ange ett namn för länkade tjänsten av typen ”AmazonS3”. | Ja om du använder INAKTIVERAS |
 | bucketName | Ange S3-bucket för lagring av tillfälliga data. Om inte genererar Data Factory-tjänsten den automatiskt.  | Ja om du använder INAKTIVERAS |
 
 **Exempel: Amazon Redshift källa i kopieringsaktiviteten med bort från MINNET**

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och hantering av problem för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -259,7 +259,7 @@ Den **Get-AzurePublishSettingsFile** skapar ett nytt certifikat i **prenumeratio
 
 Autoskala baserat på minne mått för en molntjänster stöds inte för närvarande. 
 
-Om du vill undvika det här problemet använder du Application Insights, så att diagnostiska agenten skulle vidarebefordra mätvärdena till Application Insights. Autoskala stöder Application Insights som en källa för mått och kan skalas rollinstansantal baserat på gästen mått som ”minne”.  Du måste konfigurera Application Insights i Molntjänsten paketet projektfilen (*.cspkg) och aktivera tillägg för Azure-diagnostik på tjänsten för att implementera den här prestation.
+Du kan använda Application Insights för att undvika problemet. Autoskala stöder Application Insights som en källa för mått och kan skalas rollinstansantal baserat på gästen mått som ”minne”.  Du måste konfigurera Application Insights i Molntjänsten paketet projektfilen (*.cspkg) och aktivera tillägg för Azure-diagnostik på tjänsten för att implementera den här prestation.
 
 Mer information om hur du använder ett anpassat mått via Application Insights för att konfigurera automatisk skalning på molntjänster finns [Kom igång med Autoskala efter anpassade mått i Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
@@ -270,16 +270,10 @@ Läs mer om att aktivera Application Insights för molntjänster [Application In
 
 Mer information om hur du aktiverar loggning av Azure-diagnostik för molntjänster finns [konfigurera diagnostik för Azure-molntjänster och virtuella datorer](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Hur du automatiserar de huvudsakliga SSL certifikat (.pfx) och mellanliggande certificate(.p7b) cert installationen?
+## <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Hur att automatisera installationen av huvudsakliga SSL certifikat (.pfx) och mellanliggande certificate(.p7b)?
 
 Du kan automatisera den här uppgiften med hjälp av ett startskript (PowerShell-batch/cmd) och registrera det startskriptet i tjänstdefinitionsfilen. Lägga till både startskript och certifikat (.p7b-fil) i projektmappen i samma katalog för startskriptet.
 
 Mer information finns i följande artiklar:
 - [Konfigurera och köra startade aktiviteter för en tjänst i molnet](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
 - [Vanliga uppgifter för start av Molntjänsten](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
-
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Varför kräver Azure-portalen mig att tillhandahålla ett lagringskonto för distributionen?
-
-Paketet har överförts till API hanteringslager direkt i den klassiska portalen och API-lagret skulle tillfälligt publicera sedan paketet till en intern storage-konto.  Detta leder till problem med prestanda och skalbarhet eftersom API-lagret inte har utformats för att en tjänst för överföringen av filen.  I Azure-portalen (Resource Manager-modellen), har vi över mellanliggande steg första överför API-lagret som resulterar i snabbare och mer tillförlitlig distributioner.
- 
-Det är mycket små som kostnad, och du kan återanvända samma lagringskonto i alla distributioner. Du kan använda den [kostnaden lagringsberäknaren](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) ladda ned CSPKG för att fastställa kostnaden för att överföra servicepaket (CSPKG), och ta sedan bort CSPKG.

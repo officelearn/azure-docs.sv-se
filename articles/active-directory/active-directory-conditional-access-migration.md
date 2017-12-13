@@ -1,11 +1,11 @@
 ---
 title: Migrera klassiska principer i Azure portal | Microsoft Docs
-description: Migrera klassiska principer i Azure-portalen.
+description: "Lär dig vad du behöver veta för att migrera klassiska principer i Azure-portalen."
 services: active-directory
 keywords: "villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst"
 documentationcenter: 
 author: MarkusVi
-manager: mtillman
+manager: femila
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -13,162 +13,156 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 416ae171564fa23473d09bad950d149e201bcc98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrera klassiska principer i Azure-portalen 
 
 
-[Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) är en funktion i Azure Active directory (AD Azure) som gör det möjligt att styra hur behöriga användare har åtkomst till dina molnappar. Syftet är fortfarande samma, har lanseringen av den nya Azure-portalen också medfört betydande förbättringar i hur villkorlig åtkomst fungerar. Principer för villkorlig åtkomst som du har konfigurerat utanför Azure-portalen kan samexistera med de nya principerna som du skapar i Azure-portalen. Så länge du inte inaktivera eller ta bort dem, tillämpas de i din miljö. Vi rekommenderar dock att du migrerar dina klassiska principer till den nya Azure AD villkorlig åtkomstprinciper eftersom:
+[Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md) är en funktion i Azure Active directory (AD Azure) som gör det möjligt att styra hur behöriga användare har åtkomst till dina molnappar. Syftet är fortfarande samma, har lanseringen av den nya Azure-portalen införts betydande förbättringar i hur villkorlig åtkomst fungerar.
 
-- De nya principerna kan du hantera scenarier som du inte kan hantera med klassiska principer.
+Du bör migrera principer som du inte har skapat i Azure-portalen eftersom:
+
+- Du kan nu hantera scenarier som du inte kan hantera innan.
 
 - Du kan minska antalet principer som du måste hantera genom att konsolidera dem.   
 
-Det här avsnittet får du hjälp med migreringen av din befintliga klassiska principer till den nya nya Azure AD-principer för villkorlig åtkomst.
+- Du kan hantera alla dina principer för villkorlig åtkomst på en central plats.
 
+- Den klassiska Azure-portalen ska tas bort.   
 
+Den här artikeln beskrivs vad du behöver veta för att migrera dina befintliga principer för villkorlig åtkomst till det nya ramverket.
+ 
 ## <a name="classic-policies"></a>Klassiska principer
 
-Principer för villkorlig åtkomst för Azure AD och Intune som du inte har skapat i Azure-portalen kallas också **klassiska principer**. Om du vill migrera din klassiska principer behöver du inte har åtkomst till den klassiska Azure-portalen. Azure-portalen tillhandahåller en [ **klassisk principer (förhandsgranskning)** visa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) som gör att du kan granska din klassiska principer.
+I den [Azure-portalen](https://portal.azure.com), [villkorlig åtkomst - principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) är ingången till din villkorlig åtkomst principer. Men i din miljö, kan du också ha principer för villkorlig åtkomst som du inte har skapat med hjälp av den här sidan. Dessa principer kallas *klassiska principer*. Klassiska policys är villkorliga åtkomstprinciper, du har skapat i:
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- den klassiska Azure-portalen
+- Den klassiska portalen för Intune
+- Intune App Protection-portal
 
 
-### <a name="open-a-classic-policy"></a>Öppna en klassiska princip
+På den **villkorlig åtkomst** sida, du kan komma åt dina klassiska principer genom att klicka på [ **klassisk principer (förhandsgranskning)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) i den **hantera** avsnittet. 
 
-**Så här öppnar du en princip för klassiska:**
 
-1. I den [Azure-portalen](https://portal.azure.com), klicka på den vänstra navigeringsfält för, **Azure Active Directory**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. På den **Azure Active Directory** sidan den **hantera** klickar du på **villkorlig åtkomst**.
+Den **klassisk principer** visa ger ett alternativ för att:
 
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/02.png)
+- Filtrera dina klassiska principer.
  
-2. På den **villkorlig åtkomst - principer** sidan den **hantera** klickar du på **klassisk principer (förhandsgranskning)**.
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-3. Välj den princip som du är intresserad i listan över klassiska principer.   
+- Inaktivera klassiska principer.
 
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/34.png)
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- Granska inställningarna för klassiska principer (och inaktivera det).
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+Om du har inaktiverat en klassiska princip, kan du återställa det här steget längre. Det är därför du kan ändra gruppmedlemskap i en princip för klassiska med hjälp av den **information** vyn. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+Genom att ändra de valda grupperna eller genom att utesluta specifika grupper, kan du testa effekten av en inaktiverad klassiska princip för några testanvändare innan du inaktiverar principen för alla inkluderade användare och grupper. 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Principer för villkorlig åtkomst till Azure AD
 
-Det här avsnittet ger dig med detaljerade anvisningar som hjälper dig att migrera din klassiska principer utan att vara bekant med villkorlig åtkomst i Azure AD-principerna. Dock är bekant med grundläggande begrepp och termer Azure AD villkorlig åtkomst som hjälper till att förbättra din migreringsupplevelse.
+Du kan hantera alla dina principer på en central plats med villkorlig åtkomst i Azure-portalen. Eftersom implementeringen av hur villkorlig åtkomst har ändrats betydligt, bör du bekanta dig med grundläggande begrepp innan du migrerar dina klassiska principer.
 
 Se:
 
-- [Villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md) mer information om grundläggande begrepp, terminologi
+- [Villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md) mer information om grundläggande begrepp, terminologi.
 
-- [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) att bekanta dig med användargränssnittet i Azure-portalen
+- [Bästa praxis för villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-best-practices.md) att få vägledning om hur du distribuerar villkorlig åtkomst i din organisation.
+
+- [Kom igång med villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) att bekanta dig med användargränssnittet i Azure-portalen.
 
 
  
+## <a name="migration-considerations"></a>Överväganden vid migrering
+
+I den här artikeln principer för villkorlig åtkomst i Azure AD också kallas *nya principer*.
+Principer för klassiska fortsätta arbeta sida vid sida med din nya principer tills du inaktivera eller ta bort dem. 
+
+Följande aspekter är viktiga i samband med en princip konsolidering:
+
+- Medan klassiska principer är knutna till en specifik molnappen, kan du välja så många molnappar som du behöver i en ny princip.
+
+- Kontroller av en klassiska princip och en ny princip för en molnapp behöver alla kontroller (*och*) uppfylls. 
+
+
+- I en ny princip kan du:
+ 
+    - Kombinera flera villkor om det krävs av ditt scenario. 
+
+    - Välj flera bevilja krav som åtkomst styra och kombinera dem med ett logiskt *eller* (kräver en av de markerade kontrollerna) eller med ett logiskt *och* (kräver att alla de markerade kontrollerna).
+
+        ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
+### <a name="office-365-exchange-online"></a>Office 365 Exchange online
 
-## <a name="multi-factor-authentication-policy"></a>Princip för multifaktorautentisering 
+Om du vill migrera klassiska principer för **Office 365 Exchange online** som inkluderar **Exchange Active Sync** som klienten appar villkor du kanske inte konsolidera dem till en ny princip. 
 
-Det här exemplet illustrerar hur du migrerar en klassiska princip som kräver **multifaktorautentisering** för en molnapp. 
+Detta gäller, till exempel om du vill stödja alla apptyper som klienten. I en ny princip som har **Exchange Active Sync** som klienten appar villkor du kan inte välja andra klientprogram.
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
+En konsolidering till en ny princip är inte möjligt om klassiska principerna innehåller flera villkor. En ny princip som har **Exchange Active Sync** klientprogram villkor som konfigurerats stöder inte andra villkor:   
 
-**För att migrera en klassiska princip.**
+![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-1. [Öppna principen klassiska](#open-a-classic-policy) att hämta den konfigurationsinställningarna.
-2. Skapa en ny princip för villkorlig åtkomst i Azure AD att ersätta din klassiska princip. 
+Om du har en ny princip som har **Exchange Active Sync** som klientprogram villkoret konfigurerad, måste du se till att alla andra villkor som inte har konfigurerats. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
+ 
 
-### <a name="create-a-new-conditional-access-policy"></a>Skapa en ny princip för villkorlig åtkomst
+[App-baserade](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) klassiska principer för Office 365 Exchange Online som innehåller **Exchange Active Sync** som klienten appar villkor Tillåt **stöds** och **stöds inte** [enhetsplattformar](active-directory-conditional-access-technical-reference.md#device-platform-condition). Medan du inte kan konfigurera enskilda enhetsplattformar i en ny princip för relaterade, kan du begränsa stöd till [enhetsplattformar som stöds](active-directory-conditional-access-technical-reference.md#device-platform-condition) endast. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-1. I den [Azure-portalen](https://portal.azure.com), klicka på den vänstra navigeringsfält för, **Azure Active Directory**.
+Du kan konsolidera flera klassiska principer som innehåller **Exchange Active Sync** som klienten appar villkor om de har:
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+- Endast **Exchange Active Sync** som villkor 
 
-2. På den **Azure Active Directory** sidan den **hantera** klickar du på **villkorlig åtkomst**.
+- Flera krav för att bevilja åtkomst är konfigurerat
 
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/02.png)
+Ett vanligt scenario är konsolidering av:
 
+- En enhetsbaserad klassiska princip från den klassiska Azure-portalen 
+- En app klassiska principbaserad Intune app skydd Portal 
+ 
+I det här fallet kan du konsolidera dina klassiska principer till en ny princip som har båda krav som valts.
 
-
-3. På den **villkorlig åtkomst** sidan för att öppna den **ny** i verktygsfältet högst upp på sidan klickar du på **Lägg till**.
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/03.png)
-
-4. På den **ny** sidan den **namn** textruta, ange ett namn för principen.
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/29.png)
-
-5. I den **tilldelningar** klickar du på **användare och grupper**.
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/05.png)
-
-    a. Om du har alla användare som har valts i den klassiska principen, klickar du på **alla användare**. 
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/35.png)
-
-    b. Om du har grupper som väljs i den klassiska principen, klickar du på **Välj användare och grupper**, och välj sedan de nödvändiga användare och grupper.
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/36.png)
-
-    c. Om du har de undantagna grupperna klickar du på den **undanta** och välj sedan de nödvändiga användare och grupper. 
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/37.png)
-
-6. På den **ny** sidan för att öppna den **Molnappar** sidan den **tilldelning** klickar du på **Molnappar**.
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
-8. På den **Molnappar** utför följande steg:
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/08.png)
-
-    a. Klicka på **Välj appar**.
-
-    b. Klicka på **Välj**.
-
-    c. På den **Välj** , Välj en molnapp i, och klickar sedan på **Välj**.
-
-    d. På den **Molnappar** klickar du på **klar**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-9. Om du har **kräver Multi-Factor authentication** valda:
+### <a name="device-platforms"></a>Enhetsplattformar
 
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/26.png)
+Klassiska principer med [app kontroller](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) är förkonfigurerade med iOS och Android som den [enhet plattform villkoret](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-    a. I den **åtkomstkontroller** klickar du på **bevilja**.
+I en ny princip måste du välja den [enhetsplattformar](active-directory-conditional-access-technical-reference.md#device-platform-condition) du vill stödja individuellt.
 
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/27.png)
-
-    b. På den **bevilja** klickar du på **bevilja åtkomst**, och klicka sedan på **kräver Multi-Factor authentication**.
-
-    c. Klicka på **Välj**.
-
-
-10. Klicka på **på** att aktivera din princip.
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/30.png)
-
-11. Inaktivera klassiska principen. 
-
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-migration/38.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 
 
 
+ 
  
 
 

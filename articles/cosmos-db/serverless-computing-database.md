@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Computing serverlösa databasen med hjälp av Azure-funktioner
 
@@ -44,7 +44,7 @@ Azure DB som Cosmos-utlösare, indatabindning och utdata bindning kan användas 
 * En inkommande bindning till en Azure DB som Cosmos-behållare kan användas i samma funktion som en Azure DB som Cosmos-utlösare och kan användas med eller utan bindning samt utdata. Du kan använda den här kombinationen tillämpa uppdaterade valuta utbyta information (som hämtas in med en inkommande bindning till en exchange-behållare) i flödet för ändring av nya order i kundvagn i tjänsten. Uppdaterad i kundvagn total kan med den aktuella valutakonvertering tillämpas, skrivas till en tredje behållare med hjälp av en bindning för utdata.
 
 > [!NOTE]
-> Just nu är arbeta Azure Cosmos DB utlösare, bindningar för inkommande och utgående bindningar med SQL-, tabell- och Graph API konton.
+> Just nu är arbeta Azure Cosmos DB utlösare, bindningar för inkommande och utgående bindningar med SQL-API och Graph API konton.
 
 ## <a name="use-cases"></a>Användningsfall
 
@@ -86,14 +86,14 @@ Följande bilder visar koden i Azure-portalen för det här scenariot.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Spel användningsfall - Azure Cosmos DB utlösare och utdatabindning
 
-I spel, när en ny användare skapas du kan söka efter andra användare som kanske känner till dem med hjälp av den [Azure Cosmos DB Graph API](graph-introduction.md). Du kan sedan skriva resultaten till en [Azure Cosmos DB Table databasen](table-introduction.md) enkelt kan användas.
+I spel, när en ny användare skapas du kan söka efter andra användare som kanske känner till dem med hjälp av den [Azure Cosmos DB Graph API](graph-introduction.md). Du kan sedan skriva resultaten till en [Azure Cosmos-Databasens SQL-databas] enkelt kan användas.
 
 **Implementering:** använder en Azure DB som Cosmos-utlösare och en bindning för utdata
 
 1. Med hjälp av en Azure-Cosmos-DB [diagram databasen](graph-introduction.md) för att lagra alla användare, kan du skapa en ny funktion med en Azure DB som Cosmos-utlösare. 
 2. När en ny användare infogas, anropas funktionen och resultatet lagras med en **utdatabindning**.
 3. Funktionen fråga graph-databasen för att söka efter alla användare som är direkt relaterade till den nya användaren och returnerar den dataset till funktionen.
-4. Dessa data lagras i en Azure-Cosmos-DB [tabell databasen](table-introduction.md) som en nyckel / värde-par, som sedan enkelt kan hämtas av klientprogrammet som visar den nya användaren sina anslutna vänner.
+4. Dessa data lagras sedan i en Azure Cosmos-databas som kan sedan enkelt hämtas alla frontend program som visar den nya användaren sina anslutna vänner.
 
 ### <a name="retail-use-case---multiple-functions"></a>Användningsfall Retail - flera funktioner
 

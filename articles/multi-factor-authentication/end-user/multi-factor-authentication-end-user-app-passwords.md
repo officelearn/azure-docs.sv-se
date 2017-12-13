@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d785c70dff331f2c5050fd07c65812a4cbc983b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Vad är Applösenord i Azure Multi-Factor Authentication?
-Vissa icke-webbläsarappar, till exempel Apple interna e-klienten som använder Exchange Active Sync stöder för tillfället inte multifaktorautentisering. Multifaktorautentisering aktiveras per användare. Det innebär att om en användare har aktiverats för multifaktorautentisering och de försöker använda icke-webbläsarappar, de inte gör. Ett applösenord gör detta möjligt.
+Vissa icke-webbläsarappar, till exempel Apple interna e-klienten som använder Exchange Active Sync stöder för tillfället inte multifaktorautentisering. Multifaktorautentisering aktiveras per användare. Det innebär att om en användare har aktiverats för multifaktorautentisering och de försöker använda icke-webbläsarappar, de inte gör. Ett applösenord gör detta möjligt. Du kan inte skapa applösenord om du tillämpar Multifaktorautentisering via principer för villkorlig åtkomst och inte via MFA per användare. Program som använder principer för villkorlig åtkomst för åtkomstkontroll behöver inte applösenord.
 
 När du har ett applösenord kan använda du den i stället för det ursprungliga lösenordet med dessa icke-webbläsarbaserade appar. Det beror på att när du registrerar dig för tvåstegsverifiering talar om Microsoft inte att vem som helst logga in med ditt lösenord om de inte kan också utföra andra verifieringen. Apple interna e-postklienten på telefonen logga inte in dig eftersom den inte kan fråga efter tvåstegsverifiering. Lösning för detta är att skapa en säkrare applösenord som du inte använder dagliga, men bara för de appar som inte stöder tvåstegsverifiering. Använd applösenordet så att appar kan hoppa över multifaktorautentisering och fortsätta att fungera.
 

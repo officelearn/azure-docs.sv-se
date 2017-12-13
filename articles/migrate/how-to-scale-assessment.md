@@ -1,24 +1,16 @@
 ---
 title: "Skala identifiering och bedömning med Azure migrera | Microsoft Docs"
 description: "Beskriver hur du utvärdera stort antal lokala datorer med tjänsten Azure migrera."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: dde0d07f-94b7-4b6a-a158-a89aa9324a35
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 930ec182cf329e7dda072dc49bd7f70abb413f2d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e28a2144dd102fcd2ec05531432cac0df250ae01
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Identifiera och utvärdera en stor VMware-miljön
 
@@ -144,7 +136,7 @@ För varje identifiering som du behöver utföra måste du köra insamlaren till
     - I **samling scope**, väljer du en omfattning för identifiering av virtuell dator. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfång kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1000 virtuella datorer. 
     - n **Taggkategori för att gruppera**väljer **ingen**.
 
-        ![Välj omfattning](./media/how-to-scale-assessment/select-scope.png)
+        ![Välj scope](./media/how-to-scale-assessment/select-scope.png)
 
 1. I **Välj projekt**anger ID: T och nyckeln för projektet. Om inte kopiera dem, öppna Azure-portalen från VM-insamlaren. I projektet **översikt** klickar du på **identifiera datorer**, och kopiera värdena.  
 I **fullständig identifiering**, övervaka identifieringsprocessen och kontrollera att metadata som samlas in från de virtuella datorerna är i sitt omfång. Insamlaren ger en tid för ungefärlig identifiering.

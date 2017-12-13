@@ -3,7 +3,7 @@ title: "Hur man frågan med SQL i Azure Cosmos DB? | Microsoft Docs"
 description: "Lär dig att fråga med SQL i Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: rafats
 manager: jhubbard
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: 6e159ba7988801b274feb0d7c15a292b3b3b3126
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: rafats
+ms.openlocfilehash: ae2d7c4ecdeeb88714cdaa0558950ea52fab99d3
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: Hur man frågan med hjälp av SQL?
 

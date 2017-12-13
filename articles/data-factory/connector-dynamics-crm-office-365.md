@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ec1b9868ca94392cd00875ef2913d4c14a608110
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiera data från/till Dynamics 365 / Dynamics CRM med hjälp av Azure Data Factory
 
@@ -46,7 +46,7 @@ För Dynamics 365 mer specifikt kan stöds följande programtyper:
 - Dynamics 365 marknadsföring
 
 > [!NOTE]
-> Om du vill använda Dynamics connector lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån vid kopiering av data. Se hur du konfigurerar i [länkade tjänstegenskaper](#linked-service-properties) avsnitt.
+> Om du vill använda Dynamics connector lagra lösenord i Azure Key Vault och kan kopiera aktivitet pull därifrån vid kopiering av data. Se hur du konfigurerar i [länkade tjänstegenskaper](#linked-service-properties) avsnitt.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -322,7 +322,7 @@ Om du vill kopiera data till Dynamics anger sink i kopieringsaktiviteten till **
 
 När du kopierar data från Dynamics, används följande mappningar från Dynamics datatyper till Azure Data Factory tillfälliga datatyper. Se [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur kopieringsaktiviteten mappar källtypen schema och data till sink.
 
-Konfigurera motsvarande ADF-datatypen i datauppsättningsstrukturen baserat på käll-Dynamics data skriva med mappningstabellen nedan:
+Konfigurera motsvarande Data Factory-datatypen i datauppsättningsstrukturen baserat på käll-Dynamics data skriva med mappningstabellen nedan:
 
 | Dynamics-datatyp | Data factory tillfälliga datatyp | Stöds som källa | Stöds som mottagare |
 |:--- |:--- |:--- |:--- |

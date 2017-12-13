@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: Utveckla med SQL-API: et i .NET | Microsoft Docs'
 description: "Lär dig att utveckla med Azure Cosmos DB SQL-API med hjälp av .NET"
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: rafats
 manager: jhubbard
 editor: 
 tags: 
@@ -14,13 +14,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: f019ae72e380f1c8e5b1ec67bd5177144ce1b345
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9209d815cadcb3abfacdc765c503851ba63863bc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Utveckla med SQL-API: et i .NET
 

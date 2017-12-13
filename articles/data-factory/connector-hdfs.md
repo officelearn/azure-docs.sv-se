@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Kopiera data från och till HDFS med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Följande egenskaper stöds för HDFS länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Hdfs**. | Ja |
-| URL: en |URL till HDFS |Ja |
+| url |URL till HDFS |Ja |
 | AuthenticationType | Tillåtna värden är: **anonym**, eller **Windows**. <br><br> Att använda **Kerberos-autentisering** HDFS-anslutningen finns i [i det här avsnittet](#use-kerberos-authentication-for-hdfs-connector) därefter konfigurera din lokala miljö. |Ja |
 | Användarnamn |Användarnamn för Windows-autentisering. Kerberos-autentisering, ange `<username>@<domain>.com`. |Ja (för Windows-autentisering) |
 | lösenord |Lösenordet för Windows-autentisering. Markera det här fältet som SecureString. |Ja (för Windows-autentisering) |
@@ -162,7 +162,7 @@ Om du vill kopiera data från HDFS, anger du källa i kopieringsaktiviteten till
 | Rekursiva | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
 | distcpSettings | Egenskapsgrupp när du använder HDFS DistCp. | Nej |
 | resourceManagerEndpoint | Yarn ResourceManager-slutpunkten | Ja om du använder DistCp |
-| tempScriptPath | En mappsökväg som används för att lagra temporära DistCp kommandoskript. Skriptfilen genereras av ADF och kommer att tas bort när kopieringsjobbet klar. | Ja om du använder DistCp |
+| tempScriptPath | En mappsökväg som används för att lagra temporära DistCp kommandoskript. Skriptfilen genereras av Data Factory och kommer att tas bort när kopieringsjobbet klar. | Ja om du använder DistCp |
 | distcpOptions | Ytterligare alternativ som finns på DistCp kommando. | Nej |
 
 **Exempel: HDFS källa i kopieringsaktiviteten med bort från MINNET**

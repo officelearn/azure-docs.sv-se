@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/30/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 80af63d2f2abd65da6ded4e48e5bd0bc9a7837a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server-dator på Azure
 
@@ -114,11 +114,11 @@ När du ändrar inställningarna för SQL Server-anslutningen, aktiverar Azure a
 
 Först ansluta till SQL Server-datorn med fjärrskrivbord.
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 Därefter aktiverar du TCP/IP-protokollet med **SQL Server Configuration Manager**.
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a name="connect-with-ssms"></a>Anslut med SSMS
 

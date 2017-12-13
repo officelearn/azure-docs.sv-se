@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 09b146740413e74e3030bf3a6cb660a3cfabd239
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa hur lösningen anslutna factory visar data från dina OPC UA-servrar
 
@@ -48,7 +48,7 @@ Den anslutna factory-lösningen visar data från OPC UA-servrar som är anslutna
 
 Du kan bläddra dataobjekt som en anslutna OPC UA-servern kan skicka din lösning på instrumentpanelen:
 
-1. Navigera till den **väljer du en OPC UA server** vy:
+1. Välj **webbläsare** att navigera till den **väljer du en OPC UA server** vy:
 
     ![Navigera till Markera en vy som OPC UA][img-select-server]
 
@@ -57,7 +57,7 @@ Du kan bläddra dataobjekt som en anslutna OPC UA-servern kan skicka din lösnin
     > [!NOTE]
     > Den här varningen visas en gång för varje server endast och upprättar en förtroenderelation mellan lösning instrumentpanelen och servern.
 
-1. Du kan nu bläddra dataobjekt som servern kan skicka till lösningen. Objekt som skickas till lösningen har en grön bock:
+1. Du kan nu bläddra dataobjekt som servern kan skicka till lösningen. Objekt som skickas till lösningen har markerat:
 
     ![Publicerade objekt][img-published]
 
@@ -65,7 +65,7 @@ Du kan bläddra dataobjekt som en anslutna OPC UA-servern kan skicka din lösnin
 
 ## <a name="map-the-data"></a>Mappa data
 
-Den anslutna factory-lösningen mappar och sammanställer publicerade dataobjekt från servern OPC UA till de olika vyerna i lösningen. Anslutna factory-lösningen distribueras till din Azure-konto när du etablerar lösningen. En JSON-fil i Visual Studio anslutna factory lösningen lagrar mappningsinformationen. Du kan visa och ändra den här JSON-konfigurationsfil i anslutna fabriken Visual Studio-lösning. Du kan distribuera lösningen igen när du har gjort en ändring.
+Den anslutna factory-lösningen mappar och sammanställer publicerade dataobjekt från servern OPC UA till de olika vyerna i lösningen. Anslutna factory-lösningen distribueras till din Azure-konto när du etablerar lösningen. En JSON-fil i Visual Studio-ansluten factory lösningen lagrar mappningsinformationen. Du kan visa och ändra den här JSON-konfigurationsfil i anslutna fabriken Visual Studio-lösning. Du kan distribuera lösningen igen när du har gjort en ändring.
 
 Du kan använda konfigurationsfilen till:
 
@@ -154,8 +154,8 @@ Andra värden som är kopplade till varje nod sammanfattas i följande tabell:
 | Relevans  | Värdet för KPI-Indikatorn och OEE informationen bidrar till. |
 | OpCode     | Hur informationen sammanställs. |
 | Enheter      | Enheterna som används i instrumentpanelen.  |
-| Synliga    | Om du vill visa det här värdet i instrumentpanelen. Vissa värden beräkningar men visas inte.  |
-| Maximalt    | Det maximala värdet som utlöser en avisering i instrumentpanelen. |
+| Synlig    | Om du vill visa det här värdet i instrumentpanelen. Vissa värden beräkningar men visas inte.  |
+| Maximal    | Det maximala värdet som utlöser en avisering i instrumentpanelen. |
 | MaximumAlertActions | En åtgärd som svar på en avisering. Till exempel skicka ett kommando till en station. |
 | ConstValue | Ett konstantvärde som används i en beräkning. |
 

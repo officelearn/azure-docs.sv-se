@@ -4,7 +4,7 @@ description: "Lär dig hur du hanterar Azure Cosmos-DB i Azure Lagringsutforskar
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li
-ms.openlocfilehash: 153369270399efbe38ca2e8b8ab2e05cb7e702f9
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: Jejiang
+ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Hantera Azure Cosmos DB i Azure Lagringsutforskaren (förhandsversion)
 
-Med hjälp av Azure Cosmos DB i Azure Lagringsutforskaren kan du hantera Azure Cosmos DB-enheter, manipulera data och uppdatera lagrade procedurer och utlösare tillsammans med andra Azure entiteter som Storage-blobbar och köer. Nu kan du använda samma verktyg för att hantera dina Azure olika enheter i ett och samma ställe. För tillfället stöder Azure Lagringsutforskaren SQL och MongoDB-konton.
+Med hjälp av Azure Cosmos DB i Azure Lagringsutforskaren kan du hantera Azure Cosmos DB-enheter, manipulera data och uppdatera lagrade procedurer och utlösare tillsammans med andra Azure entiteter som Storage-blobbar och köer. Nu kan du använda samma verktyg för att hantera dina Azure olika enheter i ett och samma ställe. För tillfället stöder Azure Lagringsutforskaren SQL och MongoDB-konton. Azure Lagringsutforskaren fungerar inte med Azure Cosmos DB lokala emulatorn. 
 
 I den här artikeln får du lära dig hur du använder Lagringsutforskaren för att hantera Azure Cosmos DB.
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa en Windows SQL Server 2017-VM i Azure | Microsoft Docs
-description: "Den här kursen visar hur du skapar virtuell Windows SQL Server 2017-dator i Azure Portal."
+title: "Så här konfigurerar du Windows SQL Server 2017 VMs i Azure portal | Microsoft Docs"
+description: "Den här instruktioner beskriver alternativen för att skapa Windows SQL Server 2017 virtuella datorer i Azure-portalen."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -9,39 +9,29 @@ tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 48f9f97d6e0aee6b2c84444289a427bebcb296e2
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 440c783de73652ad2d312cd92db8635dc65df9ed
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Etablera en virtuell Windows-dator med SQL Server på Azure Portal
+# <a name="how-to-create-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Så här skapar du en virtuell dator med Windows SQL Server i Azure-portalen
 
-> [!div class="op_single_selector"]
-> * [Portal](virtual-machines-windows-portal-sql-server-provision.md)
-> * [PowerShell](virtual-machines-windows-ps-sql-create.md)
-> * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+Den här guiden går igenom de olika alternativ som är tillgängliga när du skapar en virtuell dator med Windows SQL Server i Azure-portalen. Du kan följa stegen för att skapa din egen SQL Server-VM när lära dig mer om de olika alternativen. Eller så går du till avsnittet för referensen på ett visst steg i portalen.
 
-I den här snabba självstudiekursen använder du Azure Portal till att skapa en virtuell Windows-dator med SQL Server installerat.
+> [!TIP]
+> Om du vill komma igång snabbt med standardvärden för portalen finns i [Azure quickstart - skapa en SQL Server-VM i portalen](quickstart-sql-vm-create-portal.md).
 
-I den här kursen ska du:
-
-* [Välja en VM-avbildning med SQL från galleriet](#select)
-* [Konfigurera och skapa den virtuella datorn](#configure)
-* [Öppna den virtuella datorn med Fjärrskrivbord](#remotedesktop)
-* [Fjärransluta till SQL Server](#connect)
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a id="select"></a>Välja en VM-avbildning med SQL från galleriet
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
-
-   > [!NOTE]
-   > Om du inte har något Azure-konto besöker du sidan för [kostnadsfria utvärderingsversioner av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 1. Klicka på **Nytt** på Azure Portal. Fönstret **Nytt** öppnas.
 
@@ -277,19 +267,11 @@ Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** län
 
 Använd följande anvisningar för att ansluta till den virtuella SQL Server-datorn med Fjärrskrivbord:
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 När du ansluter till den virtuella SQL Server-datorn kan du starta SQL Server Management Studio och ansluta med Windows-autentisering med hjälp av dina autentiseringsuppgifter som lokal administratör. Om du har aktiverat SQL Server-autentisering kan du också ansluta med SQL-autentisering med hjälp av SQL-inloggningsnamnet och SQL-lösenordet som du konfigurerade under etableringen.
 
 När du har anslutit till datorn kan du direkt ändra inställningarna för datorn och SQL Server efter behov. Du kan till exempel konfigurera brandväggsinställningarna eller ändra konfigurationsinställningarna för SQL Server.
-
-## <a name="enable-tcpip-for-developer-and-express-editions"></a>Aktivera TCP/IP för Developer och Express editions
-
-När en ny virtuell SQL Server-dator installeras, aktiveras inte automatiskt TCP/IP-protokollet för SQL Server Developer och Express i Azure. I anvisningarna nedan förklaras hur du aktiverar TCP/IP manuellt så att du kan fjärransluta via IP-adress.
-
-I följande anvisningar används **SQL Server Configuration Manager** för att aktivera TCP/IP-protokollet för SQL Server Developer och Express.
-
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a id="connect"></a> Fjärransluta till SQL Server
 
@@ -300,7 +282,7 @@ I den här självstudiekursen valde vi **offentlig** åtkomst för den virtuella
 
 Följande avsnitt visar hur du ansluter till SQL Server-instansen på den virtuella datorn från en annan dator via Internet.
 
-> [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,9 +4,8 @@ description: "Lär dig hur du ställer in Azure Cosmos DB global distributionspl
 services: cosmos-db
 keywords: Global distributionsplatsen
 documentationcenter: 
-author: mimig1
+author: rafats
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 11b6edb811c6e88941db63cb22f1d2308dd31f66
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4ccf60cdc25ffc2a0058fbcbd6285e3e8208c664
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Hur du konfigurerar Azure Cosmos DB global distributionsplatsen med hjälp av SQL-API
 

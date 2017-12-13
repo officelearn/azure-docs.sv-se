@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Säkerhetskopiera Windows-datorer i Azure
 
@@ -78,7 +78,7 @@ I det här exemplet visar vi hur du återställer avbildningsfilen som används 
     ![Standardwebbsidan för IIS](./media/tutorial-backup-vms/iis-broken.png)
 
 5. På den lokala datorn, öppna en ny flik och gå i den [Azure-portalen](https://portal.azure.com).
-6. Välj på menyn till vänster **virtuella datorer** och välj formuläret VM i listan.
+6. Välj på menyn till vänster **virtuella datorer** och välj den virtuella datorn från listan.
 8. På VM-blad i den **inställningar** klickar du på **säkerhetskopiering**. Den **säkerhetskopiering** blad öppnas. 
 9. Välj på menyn längst upp på bladet **filåterställning**. Den **filåterställning** blad öppnas.
 10. I **steg 1: Välj återställningspunkt**, Välj en återställningspunkt från listrutan.

@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Tabell API med Node.js - Cosmos Azure DB | Microsoft Docs'
-description: "Den här snabbstarten visar hur du använder Azure Cosmos DB tabell API för att skapa ett program med Azure-portalen och Node.js"
+title: "Snabbstart: Tabell-API med Node.js – Azure Cosmos DB | Microsoft Docs"
+description: "Den här snabbstarten visar hur du använder tabell-API i Azure Cosmos DB för att skapa ett program med Azure-portalen och Node.js"
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -17,15 +17,15 @@ ms.date: 11/20/2017
 ms.author: arramac
 ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
 ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/20/2017
 ---
-# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell med Node.js och Azure Cosmos DB-API-app
+# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Node.js och Azure Cosmos DB
 
-Den här snabbstarten visar hur du använder Node.js och Azure Cosmos DB [tabell API](table-introduction.md) att skapa en app genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du skapar ett konto i Azure Cosmos DB och hur du använder Data Explorer för att skapa tabeller och de entiteter i webbaserade Azure-portalen.
+Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md) i Node.js och Azure Cosmos DB för att skapa en app genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du skapar ett Azure Cosmos DB-konto och hur du använder Datautforskaren för att skapa tabeller och entiteter i den webbaserade Azure-portalen.
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och fråga om dokumentet, nyckel/värde-, wide kolumner och graph-databaser som dra nytta av de globala distribution och skala horisontellt kärnan i Azure Cosmos DB. 
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par, breda kolumner och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Krav
 
@@ -40,7 +40,7 @@ Följande gäller också:
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
 > [!IMPORTANT] 
-> Du måste skapa ett nytt konto för tabellen API att arbeta med den allmänt tillgängliga API SDK-verktyg för tabellen. Tabell API konton som skapas under förhandsgranskningen stöds inte av de allmänt tillgängliga SDK: er.
+> Du måste skapa ett nytt tabell-API-konto för att arbeta med de allmänt tillgängliga tabell-API SDK:erna. Tabell-API-konton som skapas i förhandsversionen stöds inte av de allmänt tillgängliga SDK:erna.
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -56,7 +56,7 @@ Du kan nu lägga till data till den nya tabellen med datautforskaren.
 1. Öppna Datautforskaren, expandera **sample-table**, klicka på **Entiteter** och klicka sedan på **Lägg till entitet**.
 
    ![Skapa nya entiteter i datautforskaren i Azure Portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Nu lägga till data i rutorna PartitionKey värderutan och RowKey värdet och klicka på **lägga till entiteten**.
+2. Lägg till data i värderutorna för egenskaperna PartitionKey (Partitionsnyckel) och RowKey (Radnyckel) och klicka på **Lägg till entitet**.
 
    ![Ange partitionsnyckel och radnyckel för en ny entitet](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -66,13 +66,13 @@ Du kan nu lägga till data till den nya tabellen med datautforskaren.
 
 Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Öppna en git-terminalfönster, till exempel git bash och använda den `cd` kommando för att ändra till en mapp att installera sample-appen. 
+1. Öppna ett git-terminalfönster, t.ex. git bash, och använd kommandot `cd` för att ändra till en mapp där du vill installera exempelappen. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av sample-appen på din dator. 
+2. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av exempelappen på din dator. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
@@ -80,18 +80,18 @@ Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra a
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. Detta gör att din app för att kommunicera med databasen värdbaserade. 
+Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
 
-1. I den [Azure-portalen](http://portal.azure.com/), klickar du på **anslutningssträngen**. 
+1. I [Azure-portalen](http://portal.azure.com/) klickar du på **Anslutningssträng**. 
 
-    ![Visa och kopiera den nödvändiga informationen i anslutningssträngen från den i fönstret anslutningssträngen](./media/create-table-nodejs/connection-string.png)
+    ![Visa och kopiera den nödvändiga informationen från fönstret med anslutningssträngen](./media/create-table-nodejs/connection-string.png)
 
-2. Kopiera den primära ANSLUTNINGSSTRÄNGEN med hjälp av kopieringsknappen till höger.
+2. Kopiera PRIMÄR ANSLUTNINGSSTRÄNG med hjälp av kopieringsknappen till höger.
 
 3. Öppna filen app.config och klistra in värdet i connectionString på rad tre. 
 
     > [!IMPORTANT]
-    > Om din slutpunkt använder documents.azure.com som innebär att du har ett konto för förhandsgranskning, och du måste skapa en [ny tabell-API-kontot](#create-a-database-account) att arbeta med SDK API allmänt tillgänglig tabell.
+    > Om slutpunkten använder documents.azure.com innebär det att du har ett förhandsversionskonto, och du måste skapa ett [nytt tabell-API-konto](#create-a-database-account) för att kunna arbeta med den allmänt tillgängliga SDK:n för tabell-API.
     >
 
 3. Spara filen app.config.
@@ -100,25 +100,25 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 ## <a name="run-the-app"></a>Kör appen
 
-1. I fönstret git terminal `cd` till lagring-tabellen java-komma-igång-mappen.
+1. I git-terminalfönstret lägger du till `cd` framför mappen storage-table-java-getting-started.
 
     ```
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Kör följande kommando för att installera [azure], [nod-uuid], [nconf] och [asynkrona] moduler lokalt samt att spara en post för dem i package.json-filen
+2. Kör följande kommando för att installera modulerna [azure], [nod-uuid], [nconf] och [async] lokalt samt för att spara en post för dem i package.json-filen
 
    ```
    npm install azure-storage node-uuid async nconf --save
    ```
 
-2. I git terminalfönster, kör följande kommandon för att köra programmet nod.
+2. I git-terminalfönstret kör du följande kommandon för att starta Node-programmet.
 
     ```
     node ./tableSample.js 
     ```
 
-    Konsolfönstret visar den informationen läggs till i den nya tabell databasen i Azure Cosmos-databasen.
+    Konsolfönstret visar de data som läggs till i den nya tabelldatabasen i Azure Cosmos DB.
 
     Du kan nu gå tillbaka till datautforskaren och se frågan, ändra och arbeta med dessa nya data. 
 
@@ -135,4 +135,4 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 I den här snabbstarten har du fått lära dig att skapa ett Azure Cosmos DB-konto, skapa en tabell med datautforskaren och att köra en app.  Du kan nu ställa frågor mot dina data med tabell-API:t.  
 
 > [!div class="nextstepaction"]
-> [Importera tabelldata tabell-API: et](table-import.md)
+> [Importera tabelldata till tabell-API](table-import.md)

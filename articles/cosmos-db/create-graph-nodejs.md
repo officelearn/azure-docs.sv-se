@@ -17,15 +17,15 @@ ms.date: 08/29/2017
 ms.author: denlee
 ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
 ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Skapa en Node.js-app med Graph API
 
-Azure Cosmos-DB är globalt distribuerad multimodel databastjänst från Microsoft. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
+Azure Cosmos DB är Microsofts globalt distribuerade databas för flera modeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här artikeln för Snabbstart visar hur du skapar ett Azure DB som Cosmos-konto för Graph API (förhandsgranskning), databasen och diagram med hjälp av Azure portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin Node.js](https://www.npmjs.com/package/gremlin) (öppen källkod).
+I den här snabbstartartikeln visas hur du skapar ett Azure Cosmos DB-konto för Graph API (förhandsversion), en databas och en graf med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin Node.js](https://www.npmjs.com/package/gremlin) (öppen källkod).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -49,7 +49,7 @@ Nu ska vi klona en Graph API-app från github, ange anslutningssträngen och kö
 
 1. Öppna ett git-terminalfönster, till exempel git bash och ändra (via kommandot `cd`) till en arbetskatalog.
 
-2. Kör följande kommando för att klona lagringsplatsen exempel: 
+2. Klona exempellagringsplatsen med följande kommando: 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
@@ -59,7 +59,7 @@ Nu ska vi klona en Graph API-app från github, ange anslutningssträngen och kö
 
 ## <a name="review-the-code"></a>Granska koden
 
-Vi gör en snabb genomgång av vad som händer i appen. Öppna den `app.js` fil och du ser följande rader med kod. 
+Vi gör en snabb genomgång av vad som händer i appen. Om du öppnar filen `app.js` så ser du följande rader med kod. 
 
 * Gremlin-klienten skapas.
 
@@ -75,9 +75,9 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna den `app.js` fil 
         });
     ```
 
-  Konfigurationerna som finns i `config.js`, som vi redigera i den [efter avsnittet](#update-your-connection-string).
+  Konfigurationerna finns i `config.js`, som vi redigerar i [följande avsnitt](#update-your-connection-string).
 
-* En serie funktioner har definierats för att köra olika Gremlin åtgärder. Detta är en av dem:
+* En serie funktioner har definierats för att köra olika Gremlin-åtgärder. Detta är en av dem:
 
     ```nodejs
     function addVertex1(callback)
@@ -91,7 +91,7 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna den `app.js` fil 
     }
     ```
 
-* Varje funktion kör en `client.execute` metod med en Gremlin frågesträngparametern. Här är ett exempel på hur `g.V().count()` körs:
+* Varje funktion kör en `client.execute`-metod med en frågesträngparameter för Gremlin. Följande är ett exempel på hur `g.V().count()` körs:
 
     ```nodejs
     console.log('Running Count'); 
@@ -102,7 +102,7 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna den `app.js` fil 
     });
     ```
 
-* I slutet av filen, alla metoder sedan anropas med hjälp av den `async.waterfall()` metoden. Detta ska köra dem efter varandra:
+* I slutet av filen anropas sedan alla metoder med hjälp av metoden `async.waterfall()`. På detta vis körs de efter varandra:
 
     ```nodejs
     try{
@@ -123,21 +123,21 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna den `app.js` fil 
 
 1. Uppdatera filen config.js. 
 
-2. I config.js, fyller du i den `config.endpoint` nyckeln med den **Gremlin URI** värdet från den **översikt** sidan i Azure-portalen. 
+2. I config.js fyller du i `config.endpoint`-nyckeln med **Gremlin URI**-värdet från sidan **Översikt** i Azure-portalen. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-graph-nodejs/gremlin-uri.png)
 
-   Om den **Gremlin URI** värdet är tomt, kan du skapa värdet från den **nycklar** sida i portalen. Använd den **URI** värdet tar du bort https:// och ändra dokument till diagram.
+   Om **Gremlin URI**-värdet är tomt kan du generera värdet från sidan **Nycklar** i portalen. Använd värdet **URI**, ta bort https:// och ändra dokument till diagram.
 
    Gremlin-slutpunkten måste vara värddatorns namn utan port och protocol-nummer, till exempel `mygraphdb.graphs.azure.com` (inte `https://mygraphdb.graphs.azure.com` eller `mygraphdb.graphs.azure.com:433`).
 
-3. I config.js, fyller du i config.primaryKey värdet med den **primärnyckel** värdet från den **nycklar** sidan i Azure-portalen. 
+3. I config.js fyller du i värdet config.primaryKey med värdet **Primär nyckel** från sidan **Nycklar** i Azure-portalen. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![Azure portal ”nycklar”, blad](./media/create-graph-nodejs/keys.png)
+   ![Bladet ”Nycklar” i Azure-portalen](./media/create-graph-nodejs/keys.png)
 
 4. Ange databasens namn och grafvärdet (behållaren) för config.database och config.collection. 
 
@@ -167,11 +167,11 @@ module.exports = config;
 
 Nu kan du gå tillbaka till datautforskaren i Azure Portal och bläddra bland, ställa frågor mot och arbeta med dina nya grafdata.
 
-Den nya databasen visas i fönstret **Graphs** (Diagram) i Datautforskaren. Expandera databasen, följt av samlingen, och välj sedan **diagram**.
+Den nya databasen visas i fönstret **Graphs** (Diagram) i Datautforskaren. Expandera databasen, följt av samlingen och välj sedan **Diagram**.
 
-Data som genereras av sample-appen visas i nästa ruta inom den **diagram** fliken när du väljer **Använd Filter**.
+De data som genereras av exempelappen visas i nästa ruta på fliken **Diagram** när du klickar på **Tillämpa filter**.
 
-Prova att slutföra `g.V()` med `.has('firstName', 'Thomas')` för att testa filtret. Observera att värdet är skiftlägeskänsliga.
+Prova att slutföra `g.V()` med `.has('firstName', 'Thomas')` för att testa filtret. Observera att värdet är skiftlägeskänsligt.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
@@ -181,13 +181,13 @@ Prova att slutföra `g.V()` med `.has('firstName', 'Thomas')` för att testa fil
 
 Om du inte planerar att fortsätta använda den här appen kan du ta bort alla resurser som du skapade i den här artikeln genom att göra följande: 
 
-1. Välj i Azure-portalen på den vänstra navigeringsmenyn **resursgrupper**. Välj sedan namnet på den resurs som du skapade. 
+1. I Azure-portalen väljer du **Resursgrupper** på navigeringsmenyn till vänster. Välj sedan namnet på den resurs som du skapade. 
 
-2. Välj **Ta bort** på din resursgruppssida. Skriv namnet på resursen som ska tas bort och välj sedan **ta bort**.
+2. Välj **Ta bort** på din resursgruppssida. Skriv namnet på resursen som ska tas bort och välj sedan **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln beskrivs hur du skapar ett konto i Azure Cosmos DB, skapa ett diagram med hjälp av Data Explorer och kör en app. Nu kan du skapa mer komplexa frågor och implementera kraftfull logik för grafbläddring med Gremlin. 
+I den här artikeln har du fått lära dig att skapa ett Azure Cosmos DB-konto, skapa en graf med Datautforskaren och köra en app. Nu kan du skapa mer komplexa frågor och implementera kraftfull logik för grafbläddring med Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Fråga med hjälp av Gremlin](tutorial-query-graph.md)

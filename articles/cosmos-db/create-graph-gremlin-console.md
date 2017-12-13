@@ -15,7 +15,7 @@ ms.date: 07/27/2017
 ms.author: denlee
 ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
 ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/25/2017
 ---
@@ -46,7 +46,7 @@ Du måste också installera [Gremlin-konsolen](http://tinkerpop.apache.org/). An
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Ansluta till din apptjänst
-1. Innan du startar konsolen Gremlin kan skapa eller ändra remote secure.yaml konfigurationsfilen i den `apache-tinkerpop-gremlin-console-3.2.5/conf` directory.
+1. Innan du startar Gremlin-konsolen ska du skapa eller ändra konfigurationsfilen remote-secure.yaml i katalogen `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Fyll i din *värd*, *port*, *användarnamn*, *lösenord*, *connectionPool* och *serialiserarens* konfigurationer:
 
     Inställning|Föreslaget värde|Beskrivning
@@ -62,7 +62,7 @@ Du måste också installera [Gremlin-konsolen](http://tinkerpop.apache.org/). An
 
     För lösenord, kopiera **Primärnyckeln** från sidan **Nycklar**: ![visa och kopiera primärnyckel i Azure portal, sidan Nycklar](./media/create-graph-gremlin-console/keys.png)
 
-Fjärr-secure.yaml-fil ska se ut så här:
+Filen remote-secure.yaml bör se ut så här:
 
 ```
 hosts: [your_database_server.graphs.azure.com]

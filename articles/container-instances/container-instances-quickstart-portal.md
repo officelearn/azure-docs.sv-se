@@ -1,31 +1,23 @@
 ---
-title: "Snabbstart - skapa din första Azure Behållarinstanser behållare med Azure-portalen"
+title: "Snabbstart – Skapa din första Azure Container Instances-behållare med Azure Portal"
 description: "Distribuera och kom igång med Azure Container Instances"
 services: container-instances
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/25/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 0179107ece1e150246ab40836783d810425be3ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 7007fa8989f6d87028906918dbbc9c2998cd3bf4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Skapa din första behållare i Azure Container Instances
 
-Med Azure Container Instances är det enkelt att skapa och hantera behållare i Azure. I Snabbstart, skapa en behållare i Azure och exponera till internet med en offentlig IP-adress. Den här åtgärden har slutförts med hjälp av Azure portal. Med bara några klickningar visas det i webbläsaren:
+Med Azure Container Instances är det enkelt att skapa och hantera behållare i Azure. I den här snabbstarten skapar du en behållare i Azure och gör den tillgänglig på Internet med en offentlig IP-adress. Den här åtgärden genomförs via Azure Portal. Efter några klickningar visas det här i webbläsaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][aci-app-browser]
 
@@ -33,39 +25,39 @@ Med Azure Container Instances är det enkelt att skapa och hantera behållare i 
 
 Logga in på Azure Portal på http://portal.azure.com.
 
-## <a name="create-a-container-instance"></a>Skapa en instans av behållare
+## <a name="create-a-container-instance"></a>Skapa en behållarinstans
 
-Välj den **ny** > **behållare** > **Behållarinstanser som Azure (förhandsversion)**.
+Välj den **Nytt** > **Behållare** > **Azure Container Instances (förhandsversion)**.
 
-![Skapa en ny instans av behållare i Azure-portalen][aci-portal-01]
+![Skapa en ny behållarinstans i Azure Portal][aci-portal-01]
 
-Ange följande värden i den **behållarnamn**, **behållaren image**, och **resursgruppen** textrutor. Lämna de andra värdena standardvärden och klicka sedan på **OK**.
+Ange följande värden i textfälten **Behållarnamn**, **Behållaravbildning** och **Resursgrupp**. Lämna de övriga standardvärdena oförändrade och klicka på **OK**.
 
-* Behållarens namn:`mycontainer`
-* Bild av behållare:`microsoft/aci-helloworld`
-* Resursgrupp:`myResourceGroup`
+* Behållarnamn: `mycontainer`
+* Behållaravbildning: `microsoft/aci-helloworld`
+* Resursgrupp: `myResourceGroup`
 
-![Konfigurera grundläggande inställningar för en ny instans av behållare i Azure-portalen][aci-portal-03]
+![Konfigurera grundläggande inställningar för en ny behållarinstans i Azure Portal][aci-portal-03]
 
-Du kan skapa Windows- och Linux-behållare i Azure Container instanser. I den här snabbstarten vi lämnar du standardinställningen **Linux** eftersom vi har angetts en Linux-baserade behållare (`microsoft/aci-helloworld`) i föregående steg.
+Du kan skapa både Windows- och Linux-behållare i Azure Container Instances. I den här snabbstarten använder vi standardinställningen **Linux** eftersom vi har angett en Linux-baserad behållare (`microsoft/aci-helloworld`) i föregående steg.
 
-Lämna de andra inställningarna i **Configuration** standardvärden, sedan klickar du på **OK** att validera konfigurationen.
+Lämna de övriga standardinställningarna **Konfiguration** oförändrade och klicka sedan på **OK** att bekräfta konfigurationen.
 
-![Konfigurera en ny instans av behållare i Azure-portalen][aci-portal-04]
+![Konfigurera en ny behållarinstans i Azure Portal][aci-portal-04]
 
-När verifieringen är klar visas en sammanfattning av inställningarna för behållaren. Välj **OK** skicka din begäran för distribution av behållare.
+När verifieringen är klar visas en sammanfattning av behållarinställningarna. Välj **OK** för att skicka din begäran om distribution av behållare.
 
-![Inställningsöversikt för en ny behållare instans i Azure-portalen][aci-portal-05]
+![Sammanfattning av inställningar för en ny behållarinstans i Azure Portal][aci-portal-05]
 
-När distributionen startar placeras en panel på instrumentpanelen portal som visar förloppet för distributionen. När distributionen är klar panelen uppdateras så att din nya **minbehållare myc1** behållargruppen.
+När distributionen inleds visas en förloppsindikator i form av en ikon på instrumentpanelen i portalen. När distributionen är klar panelen uppdateras ikonen och indikerar istället behållargruppen **mycontainer-myc1**.
 
-![Förlopp för en ny behållare instans i Azure-portalen][aci-portal-08]
+![Förloppsindikator under tillkomsten av en ny behållarinstans i Azure Portal][aci-portal-08]
 
-Välj den **minbehållare myc1** behållargruppen att visa behållaren gruppens egenskaper. Anteckna den **Ip-adress** i behållargruppen samt de **tillstånd** för din behållare.
+Markera behållargruppen **mycontainer-myc1** för att visa egenskaperna för behållargruppen. Anteckna behållargruppens **IP-adress** och behållarens **TILLSTÅND**.
 
-![Översikt över group behållare i Azure-portalen][aci-portal-06]
+![Översikt över gruppbehållare i Azure-portalen][aci-portal-06]
 
-När behållaren flyttas till den **kör** tillstånd, navigera till IP-adressen som du antecknade i föregående steg för att visa programmet finns i en ny behållare.
+När behållaren övergår till tillståndet **Körs** kan du navigera till IP-adressen som du antecknade i föregående steg om du vill visa programmet i din nya behållare.
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][aci-app-browser]
 
@@ -81,7 +73,7 @@ När behållaren flyttas till den **kör** tillstånd, navigera till IP-adressen
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapat du en instans för Azure-behållare från en avbildning i en offentlig Docker-hubb-databas. Om du vill försöka skapa en behållare själv och distribuerar den till Azure-Behållarinstanser som använder Azure Container registret fortsätta att Azure Behållarinstanser kursen.
+I den här snabbstarten har du skapat en Azure-behållarinstans utifrån en avbildning som finns i en offentlig Docker Hub-lagringsplats. Om du vill försöka skapa en behållare på egen hand och distribuera den till Azure Container Instances via Azure Container Registry, går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudier](./container-instances-tutorial-prepare-app.md)

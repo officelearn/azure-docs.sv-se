@@ -1,31 +1,23 @@
 ---
-title: Azure Container Service Quickstart - distribuera DC/OS-kluster | Microsoft Docs
-description: Azure Container Service Quickstart - distribuera DC/OS-klustret
+title: "Snabbstart för Azure Container Service – distribuera DC/OS-kluster"
+description: "Snabbstart för Azure Container Service – distribuera DC/OS-kluster"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/04/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8070d224fe6281e61f67483d4f1dd905a2ab99eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 69f8f415ce851a5d8034d8196ab541e8491dc417
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-a-dcos-cluster"></a>Distribuera ett DC/OS-kluster
 
-DC/OS är en distribuerad plattform för moderna och körning av program. Med Azure Container Service är etablering av en produktion redo DC/OS-kluster snabbt och enkelt. Det här Snabbstart beskriver de grundläggande steg som krävs för att distribuera ett DC/OS kluster och kör grundläggande arbetsbelastning.
+DC/OS tillhandahåller en distribuerad plattform för att köra moderna och behållarbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. Den här snabbstarten beskriver de grundläggande stegen för att distribuera ett DC/OS-kluster och köra en grundläggande arbetsbelastning.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -49,11 +41,11 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på plats
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-dcos-cluster"></a>Skapa DC/OS-klustret
+## <a name="create-dcos-cluster"></a>Skapa DC/OS-kluster
 
-Skapa ett DC/OS-kluster med den [az acs skapa](/cli/azure/acs#create) kommando.
+Skapa ett DC/OS-kluster med kommandot [az acs create](/cli/azure/acs#create).
 
-I följande exempel skapas ett DC/OS-kluster med namnet *myDCOSCluster* och skapar SSH-nycklar, om de inte redan finns. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
+Följande exempel skapar ett DC/OS-kluster som heter *myDCOSCluster* och SSH-nycklar om de inte redan finns. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
 ```azurecli
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
@@ -61,47 +53,47 @@ az acs create --orchestrator-type dcos --resource-group myResourceGroup --name m
 
 I vissa fall, som vid en begränsad utvärderingsversion, har en Azure-prenumeration begränsad åtkomst till Azure-resurser. Om distributionen misslyckas på grund av begränsade tillgängliga kärnor minskar du antalet standardagenter genom att lägga till `--agent-count 1` till kommandot [az acs create](/cli/azure/acs#create). 
 
-Om några minuter kommandot har slutförts och returnerar information om distributionen.
+Om några minuter har kommandot slutförts och returnerar information om distributionen.
 
 ## <a name="connect-to-dcos-cluster"></a>Ansluta till DC/OS-kluster
 
-När ett DC/OS-klustret har skapats, kan det vara åtkomst via en SSH-tunnel. Kör följande kommando för att returnera den offentliga IP-adressen för DC/OS-hanteraren. Den här IP-adressen lagras i en variabel och används i nästa steg.
+När ett DC/OS-kluster har skapats går det att komma åt via en SSH-tunnel. Kör följande kommando för att returnera den offentliga IP-adressen för DC/OS-mastern. Den här IP-adressen lagras i en variabel och används i nästa steg.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-Kör följande kommando för att skapa SSH-tunnel, och följa den på skärmen instruktioner. Om port 80 är redan används, misslyckas kommer kommandot. Uppdatera tunnel port till en som inte används, exempelvis `85:localhost:80`. 
+Kör följande kommando för att skapa SSH-tunneln och följ anvisningarna på skärmen. Kommandot misslyckas om port 80 redan används. Uppdatera tunnelporten till en port som inte används, t.ex. `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 ```
 
-SSH-tunnel kan testas genom att bläddra till `http://localhost`. Om en port andra att 80 har använts, justera platsen så att den matchar. 
+SSH-tunneln kan testas genom att gå till `http://localhost`. Om någon annan port än 80 har använts ändrar du platsen efter detta. 
 
-Om SSH-tunnel har skapats, returneras DC/OS-portalen.
+DC/OS-portalen returneras om SSH-tunneln har skapats.
 
-![DC/OS-GRÄNSSNITTET](./media/container-service-dcos-quickstart/dcos-ui.png)
+![DC/OS-gränssnitt](./media/container-service-dcos-quickstart/dcos-ui.png)
 
 ## <a name="install-dcos-cli"></a>Installera DC/OS CLI
 
-DC/OS-kommandoradsgränssnittet används för att hantera ett DC/OS-kluster från kommandoraden. Installera DC/OS cli med den [az installera acs-DC/OS-cli](/azure/acs/dcos#install-cli) kommando. Om du använder Azure CloudShell har DC/OS CLI redan installerats. 
+DC/OS-kommandoradsgränssnittet används för att hantera ett DC/OS-kluster från kommandoraden. Installera DC/OS cli med kommandot [az acs dcos install-cli](/azure/acs/dcos#install-cli). Om du använder Azure CloudShell är DC/OS CLI redan installerat. 
 
-Om du använder Azure CLI på macOS- eller Linux kan du behöva köra med sudo.
+Om du använder Azure CLI på macOS eller Linux kan du behöva köra kommandot med sudo.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-Innan CLI kan användas med klustret, måste den konfigureras för att använda SSH-tunnel. Gör du genom att köra följande kommando, justera porten om det behövs.
+Innan CLI kan användas med klustret måste det konfigureras så att det använder SSH-tunneln. Det gör du genom att köra följande kommando och justera porten efter behov.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
 ```
 
-## <a name="run-an-application"></a>Köra ett program
+## <a name="run-an-application"></a>Kör ett program
 
-Standard schemaläggning mekanism för en ACS DC/OS-klustret är Marathon. Marathon används för att starta ett program och hantera status för programmet på DC/OS-klustret. Om du vill schemalägga ett program via Marathon, skapar du en fil med namnet *marathon app.json*, och kopiera följande innehåll till den. 
+Standardmekanismen för schemaläggning av ett ACS DC/OS-kluster är Marathon. Marathon används för att starta ett program och hantera programmets tillstånd på DC/OS-klustret. Om du vill schemalägga ett program via Marathon skapar du en fil med namnet *marathon-app.json* och kopierar följande innehåll till den. 
 
 ```json
 {
@@ -145,26 +137,26 @@ Kör följande kommando för att se distributionsstatusen för appen.
 dcos marathon app list
 ```
 
-När den **väntar på** kolumnvärde växlar från *SANT* till *FALSKT*, programdistribution har slutförts.
+När kolumnvärdet **VÄNTAR** ändras från *Sant* till *Falskt* har programdistributionen slutförts.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
 
-Hämta offentlig IP-adressen för agenter för DC/OS-klustret.
+Hämta den offentliga IP-adressen för DC/OS-klusteragenterna.
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Bläddra till den här adressen returnerar NGINX standardwebbplatsen.
+Om du bläddrar till den här adressen returneras NGINX-standardplatsen.
 
 ![NGINX](./media/container-service-dcos-quickstart/nginx.png)
 
-## <a name="delete-dcos-cluster"></a>Ta bort DC/OS-klustret
+## <a name="delete-dcos-cluster"></a>Ta bort DC/OS-kluster
 
-När du inte längre behövs kan du använda den [ta bort grupp az](/cli/azure/group#delete) kommando för att ta bort resursgruppen, DC/OS-kluster och alla relaterade resurser.
+När den inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, DC/OS-klustret och alla relaterade resurser.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait
@@ -172,7 +164,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstartsguide du har distribuerat ett DC/OS-kluster och har kört en enkel dockerbehållare på klustret. Om du vill veta mer om Azure Container Service kan fortsätta att ACS-självstudier.
+I den här snabbstarten har du distribuerat ett DC/OS-kluster och har kört en enkel Docker-behållare i klustret. Om du vill veta mer om Azure Container Service kan du fortsätta till självstudiekurserna om ACS.
 
 > [!div class="nextstepaction"]
-> [Hantera en ACS DC/OS-klustret](container-service-dcos-manage-tutorial.md)
+> [Hantera ett ACS DC/OS-kluster](container-service-dcos-manage-tutorial.md)

@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.openlocfilehash: b8ab132a3e90032c4d70c310a2dd88f7441c4f0a
 ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/11/2017
 ---
@@ -95,7 +95,7 @@ Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en DocumentDB-API-ap
 
 Vi gör en snabb genomgång av vad som händer i appen. Öppna filen DocumentDBRepository.cs så ser du att de här kodraderna skapar Azure Cosmos DB-resurserna. 
 
-* DocumentClient har initierats på rad 78.
+* DocumentClient initieras på rad 78.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);

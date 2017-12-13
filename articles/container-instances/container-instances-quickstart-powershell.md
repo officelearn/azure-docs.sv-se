@@ -1,6 +1,6 @@
 ---
-title: "Snabbstart - skapa din första Azure Behållarinstanser behållare med PowerShell"
-description: "Kom igång med Azure Container instanser genom att skapa en instans för Windows-behållaren med PowerShell."
+title: "Snabbstart – Skapa din första Azure Container Instances-behållare med PowerShell"
+description: "Kom igång med Azure Container Instances genom att skapa en Windows-behållarinstans med PowerShell."
 services: container-instances
 documentationcenter: 
 author: mmacy
@@ -19,15 +19,15 @@ ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: ca10274fc6a23d7f5e7436dbaf72a6e7a918f275
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Skapa din första behållare i Azure Container Instances
 
-Azure Behållarinstanser som gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller anta en högre nivå tjänst.
+Azure Container Instances gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå.
 
-I Snabbstart, skapa en Windows-behållare i Azure och exponera till internet med en offentlig IP-adress. Den här åtgärden utförs med ett enda kommando. Du kan se din webbläsare program som körs inom en liten stund:
+I den här snabbstarten skapar du en Windows-behållare i Azure och gör den tillgänglig på Internet med en offentlig IP-adress. Den här åtgärden utförs med ett enda kommando. Inom kort kan du se programmet köras i webbläsaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][qs-powershell-01]
 
@@ -47,19 +47,19 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Skapa en behållare
 
-Du kan skapa en behållare genom att ange ett namn, en Docker-avbildning och en Azure-resursgrupp till den [ny AzureRmContainerGroup] [ New-AzureRmContainerGroup] cmdlet. Du kan också göra behållaren tillgänglig på Internet med en offentlig IP-adress. I detta fall använder vi en behållare för Windows Nano Server som kör Internet Information Services (IIS).
+Du kan skapa en behållare genom att ange ett namn, en Docker-avbildning och en Azure-resursgrupp i cmdleten [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Du kan också göra behållaren tillgänglig på Internet med en offentlig IP-adress. I detta fall använder vi en Windows Nano Server-behållare som kör Internet Information Services (IIS).
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
 ```
 
-Du får ett svar på din begäran inom några sekunder. Inledningsvis behållaren finns i den **skapa** tillstånd, men det bör starta inom en minut eller två. Du kan kontrollera status med hjälp av den [Get-AzureRmContainerGroup] [ Get-AzureRmContainerGroup] cmdlet:
+Om några sekunder bör du få ett svar på din begäran. Först har behållaren statusen **Creating** (skapas) men den bör starta inom någon minut. Du kan kontrollera status med hjälp av cmdleten [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-Behållarens etableringsstatusen och IP-adress visas i den cmdlet-utdatan:
+Behållarens etableringsstatus och IP-adress visas i cmdletens utdata:
 
 ```
 ResourceGroupName        : myResourceGroup
@@ -78,13 +78,13 @@ OsType                   : Windows
 Volumes                  :
 ```
 
-När behållaren **ProvisioningState** flyttas till `Succeeded`, kan du nå den i din webbläsare med den angivna IP-adressen.
+När behållarens status **ProvisioningState** övergår till `Succeeded` kan du nå den via webbläsaren med den angivna IP-adressen.
 
-![IIS som distribueras med Azure Behållarinstanser som visas i webbläsare][qs-powershell-01]
+![IIS som distribuerats via Azure Container Instances visas i webbläsaren][qs-powershell-01]
 
 ## <a name="delete-the-container"></a>Ta bort behållaren
 
-När du är klar med behållaren du kan ta bort den med hjälp av den [ta bort AzureRmContainerGroup] [ Remove-AzureRmContainerGroup] cmdlet:
+När du är klar med behållaren kan du ta bort den med cmdleten [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -92,10 +92,10 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten startas en förskapad Windows-behållare i Azure Container instanser. Om du vill försöka skapa en behållare själv och distribuera den till Azure Behållarinstanser använda registret för Azure-behållare fortsätter att Azure Behållarinstanser kursen.
+I den här snabbstarten har du startat en färdig Windows-behållare i Azure Container Instances. Om du vill försöka skapa en behållare på egen hand och distribuera den till Azure Container Instances via Azure Container Registry, går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Azure Behållarinstanser självstudiekursen](./container-instances-tutorial-prepare-app.md)
+> [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)
 
 <!-- LINKS -->
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup

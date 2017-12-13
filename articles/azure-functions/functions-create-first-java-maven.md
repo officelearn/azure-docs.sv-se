@@ -1,6 +1,6 @@
 ---
 title: "Skapa din första funktion i Azure med Java och Maven | Microsoft Docs"
-description: "Skapa och publicera en enkel HTTP aktiveras funktionen för Azure med Java och Maven."
+description: "Skapa och publicera en enkel HTTP-utlöst funktion i Azure med Java och Maven."
 services: functions
 documentationcenter: na
 author: rloutlaw
@@ -16,47 +16,47 @@ ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3762a6e267540ef79577c3bf94ce27b648bd3534
 ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-your-first-function-with-java-and-maven-preview"></a>Skapa din första funktion med Java och Maven (förhandsgranskning)
+# <a name="create-your-first-function-with-java-and-maven-preview"></a>Skapa din första funktion med Java och Maven (förhandsversion)
 
 > [!NOTE] 
-> Java för Azure Functions är för närvarande under förhandsgranskning.
+> Java för Azure Functions finns för närvarande som förhandsversion.
 
-Den här snabbstarten hjälper att skapa en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) funktionen projekt med Maven lokal testning och distribuera den till Azure-funktioner. När du är klar har du en funktion som utlöses av HTTP-app som körs i Azure.
+I den här snabbstarten vägleds du genom processen att skapa ett [serverfritt](https://azure.microsoft.com/overview/serverless-computing/) funktionsprojekt med Maven, testa det lokalt och distribuera det till Azure Functions. När du är klar har du en HTTP-utlöst funktionsapp som körs i Azure.
 
 ![Använda funktionen Hello World från kommandoraden med cURL](media/functions-create-java-maven/hello-azure.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Krav
-För att utveckla funktioner app med Java, måste du ha följande installerat:
+För att kunna utveckla funktionsappar med Java måste du ha följande installerat:
 
--  [.NET core](https://www.microsoft.com/net/core), senaste versionen.
+-  [.NET Core](https://www.microsoft.com/net/core), senaste versionen.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), version 3.0 eller senare.
--  [Node.js](https://nodejs.org/download/), version 8,6 eller senare.
+-  [Node.js](https://nodejs.org/download/), version 8.6 eller högre.
 
 > [!IMPORTANT] 
-> Miljövariabeln JAVA_HOME måste anges i JDK-installationsplatsen för att slutföra den här snabbstarten.
+> Miljövariabeln JAVA_HOME måste vara inställd på JDK-installationsplatsen för att snabbstarten ska gå att genomföra.
 
-## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core-verktyg
+## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core Tools
 
-Den [Azure Functions Core verktyg 2.0](https://www.npmjs.com/package/azure-functions-core-tools) tillhandahålla en lokal utvecklingsmiljö för att skriva, köra och felsökning Azure Functions. Installera verktyg med [npm](https://www.npmjs.com/), som ingår i [Node.js](https://nodejs.org/).
+[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) tillhandahåller en lokal utvecklingsmiljö för att skriva, köra och felsöka Azure Functions. Installera verktygen med [npm](https://www.npmjs.com/) som ingår i [Node.js](https://nodejs.org/).
 
 ```
 npm install -g azure-functions-core-tools@core
 ```
 
 > [!NOTE]
-> Om du har problem med att installera Azure Functions grundläggande verktyg version 2.0, se [Version 2.x runtime](/azure/azure-functions/functions-run-local#version-2x-runtime).
+> Om du har problem med att installera Azure Functions Core Tools version 2.0, se informationen om [körmiljön i version 2.x](/azure/azure-functions/functions-run-local#version-2x-runtime).
 
-## <a name="generate-a-new-functions-project"></a>Generera ett nytt projekt funktioner
+## <a name="generate-a-new-functions-project"></a>Generera ett nytt funktionsprojekt
 
-I en tom mapp, kör du följande kommando för att skapa projektet funktioner från en [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+Kör följande kommando i en tom mapp för att skapa ett funktionsprojekt utifrån en [Maven-arketyp](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 ### <a name="linuxmacos"></a>Linux/MacOS
 
@@ -73,7 +73,7 @@ mvn archetype:generate ^
     -DarchetypeArtifactId=azure-functions-archetype
 ```
 
-Maven uppmanas du att värden som behövs för att skapa projektet är klar. För _groupId_, _artefakt-ID_, och _version_ värden, finns det [Maven namnkonventioner](https://maven.apache.org/guides/mini/guide-naming-conventions.html) referens. Den _appName_ värdet måste vara unikt i Azure, så Maven genererar ett programnamn baserat på den tidigare angivna _artefakt-ID_ som standard. Den _packageName_ värdet avgör Java-paketet för genererade funktionskoden.
+Maven uppmanar dig att uppge de värden som behövs för att slutföra skapandet av projektet. Mer information om värdena _groupId_, _artifactId_ och _version_ finns i referensmaterialet om [namngivningskonventioner i Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Värdet _appName_ måste vara unikt i Azure, så Maven genererar som standard ett appnamn baserat på ett tidigare angivet _artifactId_. Värdet _packageName_ anger vilket Java-paket som ska användas till den genererade funktionskoden.
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
@@ -84,7 +84,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven skapar projektfiler i en ny mapp med namnet _artefakt-ID_. Den genererade koden i projektet är ett enkelt [HTTP utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som ekon brödtexten i begäran:
+Maven skapar projektfiler i en ny mapp med namnet från _artifactId_. Den genererade koden i projektet utgörs av en enkel [HTTP-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som återspeglar en begäran:
 
 ```java
 public class Function {
@@ -98,7 +98,7 @@ public class Function {
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-Ändra katalogen till mappen nyligen skapade projekt och skapa och köra funktionen med Maven:
+Byt katalog till den nyskapade projektmappen. Skapa och kör sedan funktionen med Maven:
 
 ```
 cd fabrikam-function
@@ -106,7 +106,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 
-Du kan se dessa utdata när funktionen körs:
+Följande utdata visas när funktionen körs:
 
 ```Output
 Listening on http://localhost:7071
@@ -117,7 +117,7 @@ Http Functions:
    hello: http://localhost:7071/api/hello
 ```
 
-Aktivera funktionen från kommandoraden med curl i en ny terminal:
+Utlös funktionen från kommandoraden med curl i en ny terminal:
 
 ```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
@@ -131,14 +131,14 @@ Använd `Ctrl-C` i terminalen för att stoppa funktionskoden.
 
 ## <a name="deploy-the-function-to-azure"></a>Distribuera funktionen till Azure
 
-Azure Functions distribuera processen använder autentiseringsuppgifter från Azure CLI. [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) och distribuera din kod till en ny funktion appen med hjälp av `azure-functions:deploy` Maven mål.
+Under distribueringen till Azure Functions används autentiseringsuppgifter från Azure CLI. [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) och distribuera koden till en ny funktionsapp med hjälp av Maven-målet `azure-functions:deploy`.
 
 ```
 az login
 mvn azure-functions:deploy
 ```
 
-När distribuera är klar kan du se den URL som du kan använda för att få åtkomst till din funktionsapp i Azure:
+När distributionen är klar kan du se den webbadress som används för att få åtkomst till din funktionsapp i Azure:
 
 ```output
 [INFO] Successfully deployed Function App with package.
@@ -148,7 +148,7 @@ När distribuera är klar kan du se den URL som du kan använda för att få åt
 [INFO] ------------------------------------------------------------------------
 ```
 
-Testa funktionen appen körs på Azure med hjälp av curl:
+Testa funktionsappen som körs på Azure med hjälp av curl:
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
@@ -160,11 +160,11 @@ Hello AzureFunctions!
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har skapat en Java-funktionsapp med en enkel HTTP-utlösare och distribueras till Azure Functions.
+Du har skapat en Java-funktionsapp med en enkel HTTP-utlösare och distribuerat den till Azure Functions.
 
-- Granska de [Java funktioner Utvecklarhandbok](functions-reference-java.md) för mer information om hur du utvecklar Java-funktioner.
-- Lägga till ytterligare funktioner med olika utlösare i projektet med den `azure-functions:add` Maven mål.
-- Felsöka funktioner lokalt med Visual Studio-koden. Med den [Java tillägget pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installerat och med projektet funktioner som är öppna i Visual Studio Code [koppla felsökaren](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) till port 5005. Sedan ange en brytpunkt i redigeraren och utlösa funktionen medan den körs lokalt: ![felsökningsfunktioner i Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
+- Läs igenom [utvecklarguiden för Java-funktioner](functions-reference-java.md) för att få mer information om hur du utvecklar Java-funktioner.
+- Lägg till fler funktioner med olika utlösare i projektet med Maven-målet `azure-functions:add`.
+- Felsök funktioner lokalt med Visual Studio Code. När du har installerat [Java-tilläggspaketet](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) och öppnat funktionsprojektet i Visual Studio Code ska du [koppla felsökaren](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) till port 5005. Ange sedan en brytpunkt i redigeringsprogrammet och utlös funktionen medan den körs lokalt: ![Felsökningsfunktioner i Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
 
 
 

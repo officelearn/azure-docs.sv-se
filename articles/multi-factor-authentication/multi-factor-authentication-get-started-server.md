@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: "autentiseringsserver, azure multifaktor autentisering appaktiveringssida, hämtning autentiseringsserver"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a164dfa23a0bd8a598eb8871a160ced4158b172a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
 
@@ -89,7 +89,7 @@ Om du inte använder funktionen Händelsebekräftelse och om användarna inte an
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-mfa-server---public-preview"></a>Hämta MFA-Server – förhandsversion
+## <a name="download-the-mfa-server"></a>Ladda ned MFA-server
 
 Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-servern från Azure-portalen:
 
@@ -101,28 +101,6 @@ Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-server
    ![Ladda ned MFA-server](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
 5. Ha den här sidan öppen eftersom vi kommer att hänvisa till den när vi har kört installationsprogrammet.
-
-
-## <a name="download-the-mfa-server"></a>Ladda ned MFA-server
-
-Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-servern från pfweb-portalen:
-
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Välj **Active Directory** till vänster
-3. Välj **användare och grupper**
-4. Välj **alla användare**
-5. Välj **Multi-Factor Authentication**
-6. Under **multi-factor authentication** väjer du **tjänstinställningar**
-
-   ![Sidan Tjänstinställningar](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-
-6. På sidan för tjänstinställningar klickar du på **Gå till portalen** längst ned på sidan. En ny sida öppnas.
-7. Välj **nedladdningar**.
-8. Klicka på länken för att **ladda ned** och spara installationsprogrammet.
-
-   ![Ladda ned MFA-server](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. Ha den här sidan öppen eftersom vi kommer att hänvisa till den när vi har kört installationsprogrammet.
 
 ## <a name="install-and-configure-the-mfa-server"></a>Installera och konfigurera MFA-servern
 

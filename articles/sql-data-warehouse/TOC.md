@@ -32,8 +32,8 @@
 ### [Migrera data](sql-data-warehouse-migrate-data.md)
 
 ## Läsa in och flytta data
-### [Översikt](sql-data-warehouse-overview-load.md)
-### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [Översikt](design-elt-data-loading.md)
+### [Riktlinjer](guidance-for-loading-data.md)
 
 
 ## Integrera

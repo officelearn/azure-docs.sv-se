@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b099abb27fbd2adf78b65123a62048967406d401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -97,7 +97,7 @@ I följande tabell beskrivs de tillgängliga lösenordsprincip som kan tillämpa
 | --- | --- |
 | Tecken som tillåts |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li>Blanksteg.</li><li> Starka lösenord: får inte innehålla en punkttecknet ””. omedelbart före den ”@” symbol.</li></ul> |
-| Begränsningar för lösenord |<ul><li>Minst 8 tecken och högst 16 tecken.</li><li>Starka lösenord: kräver tre av de fyra av följande:<ul><li>Gemener character.s</li><li>Versaler.</li><li>Siffror (0-9).</li><li>Symboler (se föregående begränsningar för lösenord).</li></ul></li></ul> |
+| Begränsningar för lösenord |<ul><li>Minst 8 tecken och högst 16 tecken.</li><li>Starka lösenord: kräver tre av de fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Siffror (0-9).</li><li>Symboler (se föregående begränsningar för lösenord).</li></ul></li></ul> |
 | Giltighetstiden för lösenord |<ul><li>Standardvärde: **90** dagar.</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet från Azure Active Directory-modulen för Windows PowerShell.</li></ul> |
 | Meddelande om lösenords upphör att gälla |<ul><li>Standardvärde: **14** dagar (tills lösenordet upphör att gälla).</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Lösenordet upphör att gälla |<ul><li>Standardvärde: **FALSKT** dagar (anger att lösenordet upphör att gälla är aktiverad).</li><li>Värdet kan konfigureras för enskilda användarkonton med hjälp av den `Set-MsolUser` cmdlet.</li></ul> |

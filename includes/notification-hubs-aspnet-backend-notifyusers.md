@@ -148,7 +148,7 @@ I det här avsnittet, du lägger till en ny domänkontrollant WebAPI-serverdel a
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Ersätt den `Notifications` klassen med följande kod och Ersätt två platshållarna med anslutningssträngen (med fullständig åtkomst) för meddelandehubben och hubbnamnet (finns på [klassiska Azure-portalen](http://manage.windowsazure.com)):
+6. Ersätt den `Notifications` klassen med följande kod och Ersätt två platshållarna med anslutningssträngen (med fullständig åtkomst) för meddelandehubben och hubbnamnet (finns på [Azure-portalen](http://portal.azure.com)):
    
         public class Notifications
         {

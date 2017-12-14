@@ -7,20 +7,20 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testa din lösning med simulerade enheter
 
-Den här kursen visar hur du använder anpassa enheten simulatorn mikrotjänster med fjärråtkomst övervakning förkonfigurerade lösningen. Den här kursen använder två scenarier i Contoso IoT-programmet för att visa funktionerna i enheten simulatorn.
+Den här kursen visar hur du anpassar enheten simulatorn mikrotjänster i fjärråtkomst övervakning förkonfigurerade lösningen. Den här kursen använder två scenarier i Contoso IoT-programmet för att visa funktionerna i enheten simulatorn.
 
 Contoso vill testa en ny enhet för smart av glödlampa i det första scenariot. Om du vill utföra testerna måste skapa du en ny simulerade enhet med följande egenskaper:
 
@@ -34,7 +34,7 @@ Contoso vill testa en ny enhet för smart av glödlampa i det första scenariot.
 
 *Telemetri*
 
-Följande tabell visar data i ligthbulb rapporterar till molnet som en dataström:
+Följande tabell visar data i av glödlampa rapporterar till molnet som en dataström:
 
 | Namn   | Värden      |
 | ------ | ----------- |
@@ -177,11 +177,11 @@ Den `lightbulb-01.json` filen definierar egenskaperna för typen, till exempel t
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
-1. Spara den `lightbulb-01.json` filen.
+1. Spara filen `lightbulb-01.json`.
 
 ### <a name="simulate-custom-device-behavior"></a>Simulera anpassade beteende
 
@@ -227,7 +227,7 @@ Den `scripts/lightbulb-01-state.js` filen definierar beteendet simulering av den
     }
     ```
 
-1. Spara den `scripts/lightbulb-01-state.js` filen.
+1. Spara filen `scripts/lightbulb-01-state.js`.
 
 Den `scripts/SwitchOn-method.js` filen implementerar den **växeln på** metod i en **av glödlampa** enhet. Följ anvisningarna nedan för uppdatering av `scripts/SwitchOn-method.js` fil:
 
@@ -249,7 +249,7 @@ Den `scripts/SwitchOn-method.js` filen implementerar den **växeln på** metod i
     }
     ```
 
-1. Spara den `scripts/SwitchOn-method.js` filen.
+1. Spara filen `scripts/SwitchOn-method.js`.
 
 1. Skapa en kopia av `scripts/SwitchOn-method.js` fil med namnet `scripts/SwitchOff-method.js`.
 
@@ -263,7 +263,7 @@ Den `scripts/SwitchOn-method.js` filen implementerar den **växeln på** metod i
     }
     ```
 
-1. Spara den `scripts/SwitchOff-method.js` filen.
+1. Spara filen `scripts/SwitchOff-method.js`.
 
 ### <a name="test-the-lightbulb-device-type"></a>Testa typ av enhet av glödlampa
 
@@ -273,9 +273,9 @@ Om du vill testa och felsöka dina ändringar lokalt, se [enheten simuleringen �
 
 Konfigurera projektet för att kopiera den nya **av glödlampa** enhetsfiler till den angivna katalogen:
 
-* Om du använder Visual Studio, kontrollerar du att du lägger till tre nya av glödlampa filer du skapade i föregående avsnitt för att den **Services** projekt i lösningen. Använd sedan **Solution explorer** markera dem som ska kopieras till utdatakatalogen.
+* Om du använder Visual Studio, kontrollerar du att du lägger till fyra nya av glödlampa filer du skapade i föregående avsnitt för att den **Services** projekt i lösningen. Använd sedan **Solution explorer** markera dem som ska kopieras till utdatakatalogen.
 
-* Om du använder Visual Studio Code, öppna den **Services.csproj** och Lägg till de tre nya av glödlampa filerna du skapade i föregående avsnitt. Finns de befintliga modellen filen enhetsposter i den **Services.csproj** filen som exempel.
+* Om du använder Visual Studio Code, öppna den **Services.csproj** och Lägg till fyra nya av glödlampa filer du skapade i föregående avsnitt. Finns de befintliga modellen filen enhetsposter i den **Services.csproj** filen som exempel.
 
 Om du vill testa den nya enheten i en distribuerad lösning finns i något av:
 
@@ -350,7 +350,7 @@ Följande steg visar hur du lägger till en ny **inre temperatur** typ till den 
     },
     ```
 
-1. Spara den `chiller-01.json` filen.
+1. Spara filen `chiller-01.json`.
 
 1. Öppna filen `scripts/chiller-01-state.js`.
 
@@ -367,7 +367,7 @@ Följande steg visar hur du lägger till en ny **inre temperatur** typ till den 
     state.internal_temperature = vary(65, 2, 15, 125);
     ```
 
-1. Spara den `scripts/chiller-01-state.js` filen.
+1. Spara filen `scripts/chiller-01-state.js`.
 
 ### <a name="test-the-chiller-device-type"></a>Testa kylaggregat enhetstyp
 

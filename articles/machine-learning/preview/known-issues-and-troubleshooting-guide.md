@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -113,7 +113,7 @@ Det finns ingen enkel korrigering på denna. Du måste utföra följande steg f�
    - ta bort genväg på skrivbordet som startar skriptet ovan
    - Hämta installer https://aka.ms/azureml-wb-msi och installera om.
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Fastna när ”kontrollerar experiment kontot” visas när du loggar in
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Fastnat när ”kontrollerar experiment kontot” visas när du loggar in
 När du loggar in kan appen arbetsstationen fastna på ett tomt fönster med ett meddelande som visar ”kontrollerar experiment konto” med en snurrande hjul. Lös problemet, gör du följande:
 1. Stäng appen
 2. Ta bort följande fil:
@@ -147,6 +147,13 @@ Om du har Windows 10 faller skapare Update och projektet har skapats i en lokal 
 
 ## <a name="file-name-too-long-on-windows"></a>Filnamnet för långt i Windows
 Om du använder arbetsstationen i Windows kan stöta du på maximalt 260 tecken-filen namnet längd Standardgränsen, som kan ansluta till en ”går inte att hitta den angivna sökvägen” fel. Du kan ändra en registernyckel för att tillåta mycket längre filsökvägen. Granska [i den här artikeln](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) för mer information om hur du ställer in den _MAX_PATH_ registernyckeln.
+
+## <a name="interrupt-cli-execution-output"></a>Avbryter CLI utförande-utdatan
+Om du startar ett experiment som körs med `az ml experiment submit` eller `az ml notebook start` och du vill avbryta utdata: 
+- Använd Ctrl-Break tangentkombinationen från tangentbordet på Windows
+- I macOS, använda Ctrl-C.
+
+Observera att detta avbryter utdataströmmen i fönstret CLI. Det faktiskt inte att stoppa ett jobb som körs. Om du vill avbryta en pågående jobbet använder `az ml experiment cancel -r <run_id> -t <target name>` kommando.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker fel ”läsa: anslutningen avslogs”
 När körs mot en lokal dockerbehållare kan ibland du se följande fel: 
@@ -198,9 +205,9 @@ En snabb lösning är att ta bort alla Docker-avbildningar som du inte längre a
 $ docker system prune -a
 ```
 
-Du kan också lägga till en datadisk och konfigurera Docker-motorn om du vill använda datadisken för lagring av bilder. Här är [hur du lägger till en datadisk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). Du kan sedan [ändra där avbildningar lagras i Docker](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+Du kan också lägga till en datadisk och konfigurera Docker-motorn om du vill använda datadisken för lagring av bilder. Här är [hur du lägger till en datadisk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Du kan sedan [ändra där avbildningar lagras i Docker](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Du kan expandera OS-disken och du behöver inte touch Docker-konfigurationen för motorns. Här är [hur du kan expandera OS-disken](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+Du kan expandera OS-disken och du behöver inte touch Docker-konfigurationen för motorns. Här är [hur du kan expandera OS-disken](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ## <a name="sharing-c-drive-on-windows"></a>Dela C-enheten i Windows
 Om du kör i en lokal dockerbehållare i Windows ställer `sharedVolumes` till `true` i den `docker.compute` filen `aml_config` kan förbättra prestanda för körning. Detta kräver dock du dela C-enheten i den _Docker för Windows-verktyget för_. Om du inte kunna dela C-enheten, kan du försöka med följande:

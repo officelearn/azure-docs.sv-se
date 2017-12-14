@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9fc11352a031ac1c1abcc6c6bd173bd9b0e8a222
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.openlocfilehash: c1c18deb41e16ec57eacd8272094dc418503b0fc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Skapa en Node.js och MongoDB-webbapp i Azure
 
@@ -27,7 +27,7 @@ Azure Web Apps ger en mycket skalbar, automatisk uppdatering värdtjänst. Den h
 
 ![MEAN.js-app som körs i Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Vad du lära dig:
+Detta får du får lära dig:
 
 > [!div class="checklist"]
 > * Skapa en MongoDB-databas i Azure
@@ -43,6 +43,7 @@ För att slutföra den här kursen behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 1. [Installera Node.js och NPM](https://nodejs.org/)
+1. [Installera Bower](https://bower.io/) (krävs av [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Installera Gulp.js](http://gulpjs.com/) (krävs av [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Installera och köra MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 

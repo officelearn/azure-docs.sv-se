@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/8/2017
+ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 1d7d6200196eee96186dc5e597abc84fa0aa86c5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Skala virtuell Azure-dator Anger vanliga frågor och svar
 
@@ -219,7 +219,7 @@ Du kan ange offentliga SSH-nycklar i klartext när du skapar en Linux VM:
 linuxConfiguration elementnamn | Krävs | Typ | Beskrivning
 --- | --- | --- | --- |  ---
 SSH | Nej | Samling | Anger den nyckel SSH-konfigurationen för ett Linux-operativsystem
-Sökväg | Ja | Sträng | Anger sökväg till Linux där SSH-nycklar eller certifikat ska hittas
+sökväg | Ja | Sträng | Anger sökväg till Linux där SSH-nycklar eller certifikat ska hittas
 nyckeldata | Ja | Sträng | Anger en base64-kodad SSH offentlig nyckel
 
 Ett exempel finns [101-vm-sshkey GitHub Snabbstart mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
@@ -291,7 +291,7 @@ Det uppstår inte här problemet när skala ut eftersom det inte finns en cachel
  
 Azure Key Vault-dokumentationen om att hämta hemligheten REST API ska returnera den senaste versionen av hemligheten som om versionen inte har angetts.
  
-Metod | URL: EN
+Metod | Webbadress
 --- | ---
 HÄMTA | https://mykeyvault.Vault.Azure.NET/secrets/ {hemlighet name} / {hemlighet version}? api-version = {api-version}
 
@@ -369,7 +369,13 @@ Mer information om tillägg ordningsföljd i skalningsuppsättningar i virtuella
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Hur Återställ lösenordet för virtuella datorer i min skaluppsättning för virtuell dator?
 
-Om du vill återställa lösenordet för virtuella datorer i din skaluppsättning för virtuell dator, Använd VM access-tillägg. 
+Det finns två huvudsakliga sätt att ändra lösenordet för virtuella datorer i skalningsuppsättningar.
+
+1. Ändra modellen VMSS direkt. Tillgängligt med Compute API 2017-12-01 och senare.
+
+Uppdatera administratörsautentiseringsuppgifter direkt i scale set-modellen (till exempel med resursutforskaren i Azure, PowerShell eller CLI). När skaluppsättning är uppdaterad och alla nya har virtuella datorer de nya autentiseringsuppgifterna. Befintliga virtuella datorer har bara de nya autentiseringsuppgifterna om de avbildade. 
+
+2. Återställa lösenordet med hjälp av access-tillägg för virtuell dator.
 
 Använd följande PowerShell-exempel:
 

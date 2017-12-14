@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Använda REST-API för Azure Import/Export-tjänsten
 
-Tjänsten Microsoft Azure Import/Export visar ett REST-API för att tillåta programmässiga kontroll över import/export av jobb. Du kan också använda REST API för att utföra alla import/export-åtgärder som du kan utföra med den [Azure-portalen](https://portal.azure.com/). Du kan dessutom använda REST API för att utföra vissa detaljerade åtgärder, till exempel fråga procentandel slutförandet av ett jobb som inte är tillgängliga i den klassiska Azure-portalen.
+Tjänsten Microsoft Azure Import/Export visar ett REST-API för att tillåta programmässiga kontroll över import/export av jobb. Du kan också använda REST API för att utföra alla import/export-åtgärder som du kan utföra med den [Azure-portalen](https://portal.azure.com/). Du kan dessutom använda REST API för att utföra vissa detaljerade åtgärder, till exempel fråga procentandel slutförandet av ett jobb som inte är tillgänglig i Azure-portalen.
 
-Se [med hjälp av tjänsten Microsoft Azure Import/Export för att överföra Data till Blob Storage](../storage-import-export-service.md) en översikt över Import/Export-tjänsten och en genomgång som visar hur du använder den klassiska portalen för att skapa och hantera importera och exportera jobben.
+Se [med hjälp av tjänsten Microsoft Azure Import/Export för att överföra Data till Blob Storage](../storage-import-export-service.md) en översikt över Import/Export-tjänsten och en genomgång som visar hur du använder portalen för att skapa och hantera importera och exportera jobben.
 
 ## <a name="service-endpoints"></a>slutpunkter
 

@@ -3,7 +3,7 @@ title: Grafisk redigering i Azure Automation | Microsoft Docs
 description: "Grafiska redigering kan du skapa runbooks för Azure Automation utan att arbeta med kod. Den här artikeln innehåller en introduktion till grafiska redigering och all information som behövs för att skapa en grafisk runbook."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 ## <a name="introduction"></a>Introduktion
@@ -114,7 +114,7 @@ När du anger ett värde för en parameter kan välja du en datakälla för att 
 
 | Datakälla | Beskrivning |
 |:--- |:--- |
-| Konstant värde |Ange ett värde för parametern.  Detta är endast tillgängligt för följande datatyper: Int32, Int64, String, Boolean, DateTime, växel. |
+| Konstantvärde |Ange ett värde för parametern.  Detta är endast tillgängligt för följande datatyper: Int32, Int64, String, Boolean, DateTime, växel. |
 | Aktivitetsutdata |Utdata från en aktivitet som föregår den aktuella aktiviteten i arbetsflödet.  Alla giltiga aktiviteter visas.  Välj bara aktiviteten för att använda dess utdata för parametervärdet.  Om aktiviteten matar ut ett objekt med flera egenskaper, kan du ange namnet på egenskapen när du har valt aktiviteten. |
 | Runbook-indata |Välj en runbookinmatningsparameter som indata för Aktivitetsparametern. |
 | Variabeltillgång |Välj ett Automation-variabel som indata. |

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f0337002bbaf554a6a775464edefc032e6c7bab2
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Vanliga frågor och svar om Azure-filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (även kallat Common Internet File System eller CIFS). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
@@ -80,7 +80,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 
 ## <a name="azure-file-sync"></a>Azure filsynkronisering
 * <a id="afs-region-availability"></a>**Vilka regioner som stöds för Azure filsynkronisering (förhandsgranskning)?**  
-    Azure filsynkronisering är för närvarande tillgänglig i västra USA, västra Europa, Östra Australien och Sydostasien. Stöd för flera områden läggs medan vi mot allmän tillgänglighet. Mer information finns i [regional tillgänglighet](storage-sync-files-planning.md#region-availability).
+    Azure filsynkronisering är för närvarande tillgängligt i östra USA, västra USA, västra Europa, Östra Australien och Sydostasien. Stöd för flera områden läggs medan vi mot allmän tillgänglighet. Mer information finns i [regional tillgänglighet](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>**Kan jag ha domänanslutna och icke-domänanslutna servrar i gruppen samma synkronisering?**  
     Ja. En sync-grupp kan innehålla server-slutpunkter som har olika Active Directory-medlemskap, även om de inte är ansluten till domänen. Även om den här konfigurationen fungerar tekniskt, rekommenderar vi inte detta som en typisk konfiguration eftersom åtkomstkontrollistor (ACL) som har definierats för filer och mappar på en server kan inte tillämpas på andra servrar i gruppen synkronisering. För bästa resultat rekommenderar vi synkroniserar mellan servrar som finns i samma Active Directory-skog, mellan servrar som finns i olika Active Directory-skogar men som finns upprättade förtroenderelationer eller mellan servrar som inte ingår i en domän. Vi rekommenderar att du inte använder en blandning av dessa konfigurationer.

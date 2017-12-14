@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logikappar
 
@@ -72,28 +72,31 @@ Kognitiva Services API: er är tillgängliga i Azure som enskilda resurser. Anv�
  
     ![Nycklar](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>Skapa funktionen
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>Skapa funktionsapp
 
 Functions erbjuder ett bra sätt att avlasta bearbetningen aktiviteter i ett arbetsflöde för logic apps. Den här kursen används en HTTP-utlöses funktion att bearbeta tweet sentiment resultat från kognitiva tjänster och returnera ett kategorivärde.  
 
-1. Klicka på den **ny** och välj **Compute** > **Funktionsapp**. Använd sedan inställningarna som anges i tabellen nedan. Acceptera villkoren och välj sedan **fäst på instrumentpanelen**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Skapa Azure Funktionsapp](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>Skapa en HTTP-utlöses-funktion  
 
-    | Inställning      |  Föreslaget värde   | Beskrivning       |
-    | --- | --- | --- |
-    | **Namn** | MyFunctionApp | Välj ett unikt namn. |
-    | **Resursgrupp** | myResourceGroup | Använd samma resursgrupp för alla tjänster i den här självstudiekursen.|
-    | **Värd för planen** | Förbrukningsplan | Detta definierar dina kostnader och användning allokeringar.
-    | **Plats** | Västra USA | Använd platsen närmaste. |
-    | **Storage** | Skapa ny | Genererar automatiskt ett nytt lagringskonto.|
-    | **prisnivå** | F0 | Börja med den lägsta nivån. Om du kör out-of-anrop, skala till en högre nivå.|
+1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
 
-2. Välj appen funktioner från instrumentpanelen och expandera din funktion, klicka på den  **+**  knappen bredvid **funktioner**, klicka på den **Webhook + API**,  **CSharp**, sedan **skapa den här funktionen**. Detta skapar en funktion med hjälp av HTTPTrigger C#-mall. Koden kommer att visas i ett nytt fönster som`run.csx`
+    ![Sidan snabbstart för funktioner i Azure Portal](media/functions-twitter-email/add-first-function.png)
 
-    ![Funktionen appar bladet funktioner +](media/functions-twitter-email/add_fun.png)
+2. Skriv i sökfältet `http` och välj sedan **C#** för HTTP-utlösaren mallen. 
 
-3. Ersätt innehållet i den `run.csx` filen med följande kod och klicka sedan på **spara**:
+    ![Välj HTTP-utlösare](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Ange en **namn** för din funktion väljer `Function` för  **[autentiseringsnivå](functions-bindings-http-webhook.md#http-auth)**, och välj sedan **skapa**. 
+
+    ![Skapa funktionen HTTP utlöses](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Detta skapar en C# skriptfunktion med hjälp av HTTP-utlösaren mall. Koden som visas i ett nytt fönster som `run.csx`.
+
+4. Ersätt innehållet i den `run.csx` filen med följande kod och klicka sedan på **spara**:
 
     ```csharp
     using System.Net;

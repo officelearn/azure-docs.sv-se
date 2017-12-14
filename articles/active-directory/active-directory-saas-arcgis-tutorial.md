@@ -4,20 +4,21 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 31ac119878eb1f23672495e53e0ac185662a86c6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b09dd977cbf5c4273667167217e86bb79ac2a9d8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Självstudier: Azure Active Directory-integrering med ArcGIS Online
 
@@ -25,26 +26,18 @@ I kursen får lära du att integrera ArcGIS Online med Azure Active Directory (A
 
 Integrera ArcGIS Online med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till ArcGIS Online
-- Du kan aktivera användarna att automatiskt hämta loggat in på ArcGIS Online (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan styra i Azure AD som har åtkomst till ArcGIS Online.
+- Du kan aktivera användarna att automatiskt hämta loggat in på ArcGIS Online (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
-
-<!--## Overview
-
-To enable single sign-on with ArcGIS Online, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in ArcGIS Online.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
 
 ## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med ArcGIS Online, behöver du följande:
 
 - En Azure AD-prenumeration
-- En ArcGIS Online enkel inloggning på aktiverade prenumeration
+- En ArcGIS Online enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -52,7 +45,7 @@ För att konfigurera Azure AD-integrering med ArcGIS Online, behöver du följan
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
@@ -67,40 +60,37 @@ Du måste lägga till ArcGIS Online från galleriet i listan över hanterade Saa
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Bladet Enterprise program][2]
     
-3. Klicka på **nytt program** knappen överst för att lägga till nya program.
+3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **ArcGIS Online**.
+4. I sökrutan skriver **ArcGIS Online**väljer **ArcGIS Online** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_search.png)
+    ![ArcGIS Online i resultatlistan](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
 
-5. Välj i resultatpanelen **ArcGIS Online**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med ArcGIS Online baserat på en testanvändare som kallas ”Britta Simon”.
 
 Azure AD måste du känna till användaren i ArcGIS Online motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk mellan en Azure AD-användare och relaterade användaren i ArcGIS Online upprättas.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i ArcGIS Online.
+I ArcGIS Online, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med ArcGIS Online, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en ArcGIS Online testanvändare](#creating-an-arcgis-online-test-user)**  – du har en motsvarighet för Britta Simon i ArcGIS Online som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en ArcGIS Online testanvändare](#create-a-arcgis-online-test-user)**  – du har en motsvarighet för Britta Simon i ArcGIS Online som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i tillämpningsprogrammet ArcGIS Online.
 
@@ -108,28 +98,32 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **ArcGIS Online** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
 
 3. På den **ArcGIS Online domän och URL: er** avsnittet, utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
+    ![URL: er och ArcGIS Online domän med enkel inloggning information](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
 
-    I den **inloggnings-URL** textruta Skriv det värde som använder följande mönster:`https://<company>.maps.arcgis.com`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.maps.arcgis.com`
+
+    b. I den **identifierare** textruta Skriv en URL med följande mönster:`<companyname>.maps.arcgis.com`
 
     > [!NOTE] 
-    > Det här värdet är inte verkligt. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [ArcGIS Online klienten supportteamet](http://support.esri.com/) att hämta det här värdet. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [ArcGIS Online klienten supportteamet](http://support.esri.com/en/) att hämta dessa värden. 
+ 
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_certificate.png) 
+4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_certificate.png) 
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-arcgis-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-arcgis-tutorial/tutorial_general_400.png)
 
 6. Logga in på webbplatsen ArcGIS företag som en administratör i en annan webbläsarfönster.
 
@@ -159,40 +153,41 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+   ![Skapa en testanvändare i Azure AD][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory-knappen](./media/active-directory-saas-arcgis-tutorial/create_aaduser_01.png)
 
-2. Gå till **användare och grupper** och på **alla användare** att visa en lista över användare.
-    
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_02.png) 
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-3. Klicka på överst i dialogrutan **Lägg till** att öppna den **användaren** dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_03.png) 
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-arcgis-tutorial/create_aaduser_02.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_04.png) 
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    ![Knappen Lägg till](./media/active-directory-saas-arcgis-tutorial/create_aaduser_03.png)
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av Britta Simon.
+4. I den **användaren** dialogrutan utför följande steg:
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    ![Dialogrutan användare](./media/active-directory-saas-arcgis-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-an-arcgis-online-test-user"></a>Skapa en ArcGIS Online testanvändare
+### <a name="create-a-arcgis-online-test-user"></a>Skapa en ArcGIS Online testanvändare
 
 För att aktivera Azure AD-användare att logga in på ArcGIS Online, måste de etableras i ArcGIS Online.  
 När det gäller ArcGIS Online är etablering en manuell aktivitet.
@@ -223,11 +218,11 @@ När det gäller ArcGIS Online är etablering en manuell aktivitet.
     > [!NOTE]
     > Innehavaren för Azure Active Directory-konto ett e-postmeddelande och länken för att bekräfta sina konton innan den aktiveras.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till ArcGIS Online.
 
-![Tilldela användare][200] 
+![Tilldela rollen][200] 
 
 **Om du vill tilldela Britta Simon ArcGIS Online, utför du följande steg:**
 
@@ -237,15 +232,15 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 2. Välj i listan med program **ArcGIS Online**.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png) 
+    ![Länken ArcGIS Online i listan med program](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Länken ”användare och grupper”][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
-    ![Tilldela användare][203]
+    ![Fönstret Lägg till tilldelning][203]
 
 5. På **användare och grupper** markerar **Britta Simon** på listan användare.
 
@@ -253,19 +248,17 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
     
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
 När du klickar på panelen ArcGIS Online på åtkomstpanelen du bör få automatiskt loggat in i tillämpningsprogrammet ArcGIS Online.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md).
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 6b3da498a613d63515ecb624b87496cf536c0ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 26b9a468684cda344a6ab1b5a2e467d2735f4f71
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook bindningar
 
@@ -383,12 +383,13 @@ En komplett exempel finns [utlösaren - förkompilerade C#-exempel](#trigger---c
 
 I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `HttpTrigger` attribut.
 
+
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
 | **typ** | Saknas| Krävs – måste vara inställd på `httpTrigger`. |
 | **riktning** | Saknas| Krävs – måste vara inställd på `in`. |
 | **Namn** | Saknas| Obligatoriskt - variabelnamnet som används i Funktionskoden för begäran eller begärandetexten. |
-| **authLevel** |  **AuthLevel** |Anger vad nycklar, eventuella måste finnas på begäran för att anropa funktionen. Åtkomstnivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Inga API-nyckeln är obligatorisk.</li><li><code>function</code>&mdash;Det krävs en funktionsspecifika API-nyckel. Detta är standardvärdet om ingen anges.</li><li><code>admin</code>&mdash;Huvudnyckeln krävs.</li></ul> Mer information finns i avsnittet [auktorisering nycklar](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Anger vad nycklar, eventuella måste finnas på begäran för att anropa funktionen. Åtkomstnivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Inga API-nyckeln är obligatorisk.</li><li><code>function</code>&mdash;Det krävs en funktionsspecifika API-nyckel. Detta är standardvärdet om ingen anges.</li><li><code>admin</code>&mdash;Huvudnyckeln krävs.</li></ul> Mer information finns i avsnittet [auktorisering nycklar](#authorization-keys). |
 | **metoder** |**Metoder** | En matris med HTTP-metoderna som funktionen svarar. Om inget annat anges, svarar funktionen alla HTTP-metoderna. Se [anpassa http-slutpunkten](#trigger---customize-the-http-endpoint). |
 | **väg** | **Väg** | Definierar flödesmallen styra som begära webbadresserna din funktion svarar. Standardvärdet om ingen anges är `<functionname>`. Mer information finns i [anpassa http-slutpunkten](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Konfigurerar HTTP-utlösaren ska fungera som en [webhook](https://en.wikipedia.org/wiki/Webhook) mottagare för den angivna providern. Konfigurerar inte den `methods` egenskapen om du ställer in den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;En generell webhook slutpunkt utan logik för en specifik provider. Den här inställningen begränsar begäranden till endast de som använder HTTP POST och med den `application/json` innehållstyp.</li><li><code>github</code>&mdash;Funktionen besvarar [GitHub webhooks](https://developer.github.com/webhooks/). Använd inte den _authLevel_ egenskap med GitHub webhooks. Mer information finns i avsnittet GitHub webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen besvarar [Slack webhooks](https://api.slack.com/outgoing-webhooks). Använd inte den _authLevel_ egenskap med Slack webhooks. Mer information finns i avsnittet Slack webhooks senare i den här artikeln.</li></ul>|
@@ -405,7 +406,7 @@ För att svara på GitHub webhooks, först skapa din funktion med en HTTP-utlös
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-Ett exempel finns [skapa en funktion som utlöses av en GitHub-webhook](functions-create-github-webhook-triggered-function.md).
+Ett exempel finns i [Skapa en funktion som utlöses av en GitHub-webhook](functions-create-github-webhook-triggered-function.md).
 
 ### <a name="slack-webhooks"></a>Slack webhooks
 

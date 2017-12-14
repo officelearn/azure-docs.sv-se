@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/13/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 1a6dbe2f4a66a44222e0b34b34a283c101b055de
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 8a4e92dbcf65d907e7b95b5f52597fc625e77897
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt för Azure-stacken
 
@@ -29,6 +29,7 @@ Microsoft Azure-stacken stöder följande Azure Marketplace-objekt:
 |  | Objektnamnet | Beskrivning | Utgivare |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Docker-tillägget för Linux virtuella datorer. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | SQL IaaS-tillägg | <b>Hämta det här tillägget för att distribuera SQL Server på Windows Marketplace-objekt.<b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 på Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Machine Learning Server 9.2.1 på Windows Server 2016. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Server 9.2.1 på Ubuntu 16.04 för Maskininlärning](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft Machine Learning Server 9.2.1 på Ubuntu 16.04. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Server 9.2.1 på CentOS Linux 7.2 för Maskininlärning](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft Machine Learning Server 9.2.1 på CentOS Linux 7.2. | Microsoft |
@@ -156,8 +157,8 @@ Microsoft Azure-stacken stöder följande Azure Marketplace-objekt:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine försäljning CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compact marknadsföring, försäljning och kunden tjänstprogrammet. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS och Web Portal Program som skapar dynamiska webbplatser.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Öppna källa CRM-system: Mobile, sociala och Gamified. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC säkerhetshantering](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Check Point vSEC ger avancerade, flera lager hot förebyggande för att skydda kundens tillgångar i Azure från skadlig kod och avancerade hot. | Check Point |
-| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatisera chef](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Skapa, distribuera och hantera med Chef automatisera kontinuerlig Automation-plattformen. | Chef programvara, Inc |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC säkerhetshantering](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Check Point vSEC ger avancerade, flera lager hot förebyggande för att skydda kundens tillgångar i Azure från skadlig kod och avancerade hot. <b>Ladda ned båda Check Point vSEC marketplace-objekt.</b> | Check Point |
+| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatisera chef](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Skapa, distribuera och hantera med Chef automatisera kontinuerlig Automation-plattformen. <b>Ladda ned båda Chef marketplace-objekt</b> | Chef programvara, Inc |
 | ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Behållaren Linux av virtuell CoreOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Behållaren Linux är en modern och minimal Linux distributionsplats tillhandahåller ett enkelt sätt att köra behållare, hantera kluster och uppdatera sömlöst servrarna - alla komponenter som möjliggör skalning datalager compute. | CoreOS |
 | ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server är världens populäraste Linux för molnmiljöer. | Canonical |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 ”Jessie”](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux är en av de mest populära Linux-distributioner. | credativ |
@@ -171,7 +172,9 @@ Microsoft Azure-stacken stöder följande Azure Marketplace-objekt:
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Djupgående säkerhet Agent för Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Trend Micro djup Security tillägget för Linux. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Djupgående säkerhet Agent för Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Trend Micro djup Security tillägget för Windows. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Verktyget ZeroDown program](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown programvara verktyget v7.1 - migrera + hög tillgänglighet. | ZeroDown programvara |
-
+| ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kan du automatisera hela livscykeln för din Azure Stack-infrastruktur. <b>Ladda ned båda Puppet Marketplace-objekt.</b> | Puppet |
+| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-kompatibel storage-tjänst som omfattar offentliga och lokala resurser med kapacitet. | NooBaa |
+| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 2,5 100% öppna drivs av HDP källa plattform för Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 
 ### <a name="next-steps"></a>Nästa steg
 [Hämta en Marketplace-objekt](azure-stack-download-azure-marketplace-item.md)

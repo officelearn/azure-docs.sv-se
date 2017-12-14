@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Utforska funktionerna i fjärråtkomst övervakning förkonfigurerade lösningen
 
@@ -101,11 +101,11 @@ Som operatör kan se du i instrumentpanelen för att det finns ett larm som rör
 
 1. Stäng **enheten detalj**.
 
-1. Navigera till den **Underhåll** klickar du på **...**  i den **utforska larm** kolumnen bredvid larm i rutnätet larm.
+1. Navigera till den **Underhåll** väljer **Underhåll** på navigeringsmenyn.
 
 På den **Underhåll** kan du visa information om regeln som utlöste kylaggregat trycket larm.
 
-1. Du kan se antalet gånger larmet har utlösts, bekräftelser och öppna och stänga larm:
+1. Listan över meddelanden visar antalet gånger som larmet har utlösts, bekräftelser och öppna och stänga larm:
 
     ![Underhåll visar listan över larm som har utlösts](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Nu har du identifierat problemet som utlöste larm och den associerade enheten. 
 
     ![Välj enheten och schemalägga en åtgärd](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. Om du vill visa jobbstatus återgå till den **Underhåll** sidan och visa en lista över jobb i den **systemstatus** vyn. Du kan se jobbet kördes för att frisläppa ventilen trycket på kylaggregat:
+1. Om du vill visa jobbstatus återgå till den **Underhåll** sidan och visa en lista över jobb i den **jobb** vyn. Du kan se jobbet kördes för att frisläppa ventilen trycket på kylaggregat:
 
-    ![Status för jobben i systemstatus](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![Status för jobben i vyn jobb](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Kontrollera slutligen att telemetri värdena från kylaggregat är tillbaka till normal.
 
@@ -159,7 +159,7 @@ Använd för att utföra nödvändiga enhetens hanteringsuppgifter i **enheter**
     ![Schemalägga firmware-uppdatering på enheten](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Med de simulerade enheterna kan du använda valfri URL som du vill som den **Firemware URI** värde. Simulerade enheter inte kommer åt URL: en.
+    > Med de simulerade enheterna kan du använda valfri URL som du vill som den **Firmware URI** värde. Simulerade enheter inte kommer åt URL: en.
 
 1. Observera hur många enheter som påverkar jobbet och välja **Verkställ**:
 
@@ -167,13 +167,13 @@ Använd för att utföra nödvändiga enhetens hanteringsuppgifter i **enheter**
 
 Du kan använda den **Underhåll** att spåra jobbet när den körs.
 
-1. Om du vill visa en lista över jobb, navigera till den **Underhåll** och klickar på **systemstatus**.
+1. Om du vill visa en lista över jobb, navigera till den **Underhåll** och klickar på **jobb**.
 
 1. Leta upp den händelse som rör jobbet som du skapade. Kontrollera att uppdateringen firmware initierades korrekt.
 
-Du kan skapa ett filter för att verifiera den inbyggda programvara version uppdateringen korrekt.
+Du kan skapa ett filter för att verifiera versionen av inbyggd programvara uppdateras korrekt.
 
-1. Om du vill skapa ett filter, navigera till den **enheter** och välja **hantera**:
+1. Om du vill skapa ett filter, navigera till den **enheter** och välja **hantera filter**:
 
     ![Hantera enhetsfilter](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Du kan skapa taggnamn ska användas med enheter.
 
     ![Välj enheter som prototyp och lastbil](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Välj **taggen** och sedan skapa en ny sträng-tagg som kallas **FieldService** med ett värde **ConnectedVehicle**. Välj ett namn för jobbet. Klicka på **Verkställ**:
+1. Välj **taggen** och sedan skapa en ny text-tagg som kallas **FieldService** med ett värde **ConnectedVehicle**. Välj ett namn för jobbet. Klicka på **Verkställ**:
 
     ![Lägg till tagg prototyp och lastbil enheter](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ Du kan skapa taggnamn ska användas med enheter.
 
     ![Välj kylaggregat-motorn och snabba enheter](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Välj **taggen** och sedan skapa en ny tagg kallas **FieldService** med ett värde **SmartBuilding**. Välj ett namn för jobbet. Klicka på **spara**:
+1. Välj **taggen** och sedan skapa en ny text-tagg som kallas **FieldService** med ett värde **SmartBuilding**. Välj ett namn för jobbet. Klicka på **spara**:
 
     ![Lägg till tagg kylaggregat-motorn och snabba enheter](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

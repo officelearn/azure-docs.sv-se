@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: ba6dc69fa4aca8e0ee03ba97668d8b2ab1191002
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurera Tjänstkarta i Operations Management Suite
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du betrakta dem--som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitektur med än installation av en agent krävs ingen konfiguration.
@@ -35,9 +35,9 @@ Den här artikeln innehåller information om konfigurera Tjänstkarta och onboar
 ## <a name="connected-sources"></a>Anslutna källor
 Tjänstkarta hämtar data från Microsoft Beroendeagent. Agenten beroende beror på OMS-Agent för sina anslutningar till Operations Management Suite. Detta innebär att en server måste ha OMS-Agent installeras och konfigureras först och sedan beroende agenten kan installeras. I följande tabell beskrivs anslutna källor som har stöd för Tjänstkarta-lösning.
 
-| Ansluten datakälla | Stöds | Beskrivning |
+| Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Ja | Tjänstkarta analyserar och samlar in data från datorer med Windows-agenten. <br><br>Förutom den [OMS-Agent](../log-analytics/log-analytics-windows-agents.md), Windows-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
+| Windows-agenter | Ja | Tjänstkarta analyserar och samlar in data från datorer med Windows-agenten. <br><br>Förutom den [OMS-Agent](../log-analytics/log-analytics-windows-agent.md), Windows-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
 | Linux-agenter | Ja | Tjänstkarta analyserar och samlar in data från datorer för Linux-agenten. <br><br>Förutom den [OMS-Agent](../log-analytics/log-analytics-linux-agents.md), Linux-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
 | System Center Operations Manager-hanteringsgrupp | Ja | Tjänstkarta analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgruppen](../log-analytics/log-analytics-om-agents.md). <br><br>Det krävs en direkt anslutning från datorn som System Center Operations Manager-agenten till Operations Management Suite. Data skickas från hanteringsgruppen till Operations Management Suite-databasen.|
 | Azure Storage-konto | Nej | Tjänstkarta samlar in data från agentdatorer, så det finns inga data från det att samla in från Azure Storage. |
@@ -74,7 +74,7 @@ Beroende-agenten är installerad på Windows-datorer via InstallDependencyAgent 
 
 Använd följande steg för att installera agenten beroende på varje Windows-dator:
 
-1.  Installera OMS-agenten med hjälp av anvisningarna i [ansluta Windows-datorer i Azure logganalys-tjänsten](../log-analytics/log-analytics-windows-agents.md).
+1.  Installera OMS-agenten med hjälp av anvisningarna i [ansluta Windows-datorer i Azure logganalys-tjänsten](../log-analytics/log-analytics-windows-agent.md).
 2.  Ladda ned Windows agent och kör den med hjälp av följande kommando: <br>`InstallDependencyAgent-Windows.exe`
 3.  Följ guiden för att installera agenten.
 4.  Om agenten beroende inte startar kontrollerar du loggfilerna för Detaljerad felinformation. På Windows-agenter är loggkatalogen %Programfiles%\Microsoft beroende Agent\logs. 
@@ -388,7 +388,7 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Tjäns
 |:--|:--|
 | 10 SP4 | 2.6.16.60 |
 
-## <a name="diagnostic-and-usage-data"></a>diagnostik och användningsdata
+## <a name="diagnostic-and-usage-data"></a>Diagnostik och användningsdata
 Microsoft samlar automatiskt in användnings- och prestandadata via din användning av tjänsten Tjänstkartan. Microsoft använder informationen för att tillhandahålla och förbättra kvalitet, säkerhet och integritet Tjänstkarta-tjänsten. Data innehåller information om konfiguration av programvaran som operativsystem och version. Även IP-adress, DNS-namn och namn på arbetsstation för att kunna tillhandahålla korrekta och effektiva funktioner för felsökning. Vi samlar inte in namn, adresser eller annan kontaktinformation.
 
 Mer information om insamling och användning finns i [sekretesspolicy för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

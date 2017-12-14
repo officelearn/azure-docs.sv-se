@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/09/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Skapa en OpenAPI definition för en funktion
 REST API: er beskrivs ofta med hjälp av en OpenAPI definition (tidigare känt som en [Swagger](http://swagger.io/) filen). Den här definitionen innehåller information om vilka åtgärder är tillgängliga i en API och hur data för begäran och svar för API: et strukturerad.
@@ -48,9 +48,17 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner. En funk
 
 Den här kursen använder en HTTP-utlöses funktion som har två parametrar: beräknad tid för att göra en turbin reparera (i timmar). och kapaciteten för turbinen (i kilowatt). Funktionen beräknar sen hur mycket en reparation kostar och hur mycket intäkter turbinen kan göra under en 24-timmarsperiod.
 
-1. Expandera din funktionsapp, klicka på den  **+**  knappen bredvid **funktioner**, klicka på den **HTTPTrigger** mall. Ange `TurbineRepair` för funktionen **namn** och på **skapa**.
+1. Expandera funktionen appen och markera den  **+**  knappen bredvid **funktioner**. Om det är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar. 
 
-    ![Funktionen appar bladet funktioner +](media/functions-openapi-definition/add-function.png)
+    ![Sidan snabbstart för funktioner i Azure Portal](media/functions-openapi-definition/add-first-function.png)
+
+2. Skriv i sökfältet `http` och välj sedan **C#** för HTTP-utlösaren mallen. 
+ 
+    ![Välj HTTP-utlösare](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Typen `TurbineRepair` för funktionen **namn**, Välj `Function` för  **[autentiseringsnivå](functions-bindings-http-webhook.md#http-auth)**, och välj sedan **skapa**.  
+
+    ![Skapa funktionen HTTP utlöses](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Ersätt innehållet i filen run.csx med följande kod och klicka sedan på **spara**:
 

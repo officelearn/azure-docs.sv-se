@@ -3,7 +3,7 @@ title: Kompilera konfigurationer i Azure Automation DSC | Microsoft Docs
 description: "Den här artikeln beskriver hur du kompilera önskad tillstånd Configuration DSC ()-konfigurationer för Azure Automation."
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilera konfigurationer i Azure Automation DSC
 
-Du kan sammanställa önskad tillstånd Configuration (DSC) konfigurationer på två sätt med Azure Automation: i Azure-portalen och med Windows PowerShell. Tabellen nedan hjälper dig att avgöra när du ska använda vilken metod på grund av egenskaper för varje:
+Du kan sammanställa önskad tillstånd Configuration (DSC) konfigurationer på två sätt med Azure Automation: i Azure-portalen och med Windows PowerShell. Tabellen nedan hjälper dig att avgöra när du ska använda vilken metod baserat på egenskaperna hos var:
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -47,7 +47,7 @@ När du har valt en metod för kompilering, kan du följa respektive procedurern
 1. Från ditt Automation-konto klickar du på **DSC-konfigurationer**.
 2. Klicka på en konfiguration för att öppna dess bladet.
 3. Klicka på **Kompilera**.
-4. Om konfigurationen har inga parametrar uppmanas du att bekräfta om du vill använda den. Om konfigurationen har parametrar av **kompilera konfiguration** öppnas bladet så att du kan ange parametervärden. Finns det [ **grundläggande parametrar** ](#basic-parameters) avsnittet nedan för mer information om parametrar.
+4. Om konfigurationen har inga parametrar, uppmanas du att bekräfta om du vill använda den. Om konfigurationen har parametrar av **kompilera konfiguration** öppnas i blad så att du kan ange parametervärden. Finns det [ **grundläggande parametrar** ](#basic-parameters) avsnittet nedan för mer information om parametrar.
 5. Den **Kompileringsjobbet** öppnas bladet så att du kan spåra kompilering jobbstatus och nodkonfigurationer (MOF configuration dokument) det orsakade placeras på Azure Automation DSC Pull-servern.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Kompilering av DSC-konfigurationen med Windows PowerShell
@@ -131,16 +131,16 @@ Information om skicka PSCredentials som parametrar finns <a href="#credential-as
 
 ## <a name="composite-resources"></a>Sammansatta resurser
 
-**Sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration.  Detta gör att du kan använda flera konfigurationer för en enskild resurs.  Se [sammansatta resurser: med hjälp av DSC-konfigurationen som en resurs](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) att lära dig mer om **sammansatta resurser**
+**Sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration. Detta gör att du kan använda flera konfigurationer för en enskild resurs.  Se [sammansatta resurser: med hjälp av DSC-konfigurationen som en resurs](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) att lära dig mer om **sammansatta resurser**
 
 > [!NOTE]
 > För att **sammansatta resurser** kompilera korrekt måste du först kontrollera att DSC resurser som är beroende av sammansatt installeras först i Azure Automation-konto moduler databasen eller den importeras inte korrekt.
 
-Att lägga till en DSC **sammansatta resurs**, måste du lägga till modulen resurs till ett arkiv (* .zip). Gå till moduler-databas på Azure Automation-kontot.  Klicka på knappen ”Lägg till en modul'.
+Att lägga till en DSC **sammansatta resurs**, måste du lägga till modulen resurs till ett arkiv (* .zip). Gå till moduler-databas på Azure Automation-kontot. Klicka på knappen ”Lägg till en modul'.
 
 ![Lägg till modul](./media/automation-dsc-compile/add_module.png)
 
-Gå till den katalog där arkivet finns.  Välj arkivfilen och klicka på OK.
+Gå till den katalog där arkivet finns. Välj arkivfilen och klicka på OK.
 
 ![Välj modul](./media/automation-dsc-compile/select_dscresource.png)
 
@@ -286,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Importera nodkonfigurationer
 
-Du kan också importera noden configuratons (MOF-filer) som du har kompilerats utanför Azure. En fördel med detta är att nodkonfigurationer kan signeras.
+Du kan också importera nodkonfigurationer (MOF-filer) som du har kompilerats utanför Azure. En fördel med detta är att nodkonfigurationer kan signeras.
 En signerad nodkonfiguration verifieras lokalt på en hanterad nod av DSC-agenten säkerställer att konfigurationen tillämpas på noden kommer från en auktoriserad källa.
 
 > [!NOTE]
